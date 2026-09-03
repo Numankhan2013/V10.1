@@ -20,10 +20,34 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           s=Path('app/src/main/assets/index.html').read_text()
-          assert 'V103_REVIEW_EXPLANATION_OVERLAY' in s
-          assert 'window.QB.reviewTest=function' in s
-          assert 'QB_V103_EXPLANATION' in s
+          required = [
+              'V103_REVIEW_EXPLANATION_OVERLAY',
+              'window.QB.reviewTest=',
+              'window.QB.getState',
+              'reviewSessionFromTest',
+              'mode===\'review\'',
+              'qbank_state_v1',
+              'QB_V103_EXPLANATION',
+          ]
+          missing=[x for x in required if x not in s]
+          assert not missing, f'Missing V10.3 markers: {missing}'
           print('V10.3 overlay markers OK')
+          PY
+      - name: Validate JavaScript syntax
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, subprocess, tempfile
+          s=Path('app/src/main/assets/index.html').read_text()
+          scripts=re.findall(r'<script(?:[^>]*)>(.*?)</script>',s,re.S|re.I)
+          for i,src in enumerate(scripts):
+              if not src.strip(): continue
+              p=Path(tempfile.gettempdir())/f'qbank-v103-{i}.js'
+              p.write_text(src)
+              r=subprocess.run(['node','--check',str(p)],capture_output=True,text=True)
+              if r.returncode:
+                  raise SystemExit(f'JS syntax failure in inline script {i}: {r.stderr}')
+          print(f'Checked {len(scripts)} inline scripts')
           PY
       - name: Commit overlay
         run: |
