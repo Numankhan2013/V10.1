@@ -1,0 +1,130 @@
+name: V10.2 review hardening
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: v10.2
+          fetch-depth: 1
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v5
+        with:
+          gradle-version: '9.5.0'
+      - name: Harden Review Solutions fallback
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('app/src/main/assets/index.html')
+          s=p.read_text(encoding='utf-8')
+
+          # Replace the result CTA with a real hash link plus JS enhancement. If a
+          # WebView suppresses inline click dispatch for any reason, the hash itself
+          # still reaches the review route.
+          old=re.compile(r'<button class="primary-btn"\s+type="button" data-v102-review-cta="1" data-review-test-id="\$\{esc\(t\.id\)\}" onclick="window\.QB\.reviewTest\(\'\$\{esc\(t\.id\)\}\'\)">Review Solutions</button>')
+          new='<a class="primary-btn" role="button" data-v102-review-cta="1" data-review-test-id="${esc(t.id)}" href="#review-test/${encodeURIComponent(t.id)}" onclick="window.QB.reviewTest(\'${esc(t.id)}\');return false;">Review Solutions</a>'
+          s,n=old.subn(new,s,count=1)
+          if n!=1: raise SystemExit(f'CTA replacement count={n}')
+
+          # Make the review session constructible from the route itself. This is the
+          # final fallback for native/WebView navigation: even if the click enhancement
+          # is skipped, #review-test/<id> is enough to reconstruct the exact saved test.
+          pat=re.compile(r'  function reviewTest\(testId\) \{.*?\n  \}\n\n  function reviewTestPage\(\) \{',re.S)
+          repl='''  function buildReviewSession(t) {
+    return { id:`review_${t.id}`, mode:'review', sourceTestId:t.id, title:`Review · ${t.title}`, questionIds:[...t.questionIds], index:0, answers:{...(t.answers||{})}, submitted:Object.fromEntries(t.questionIds.map(id=>[id,Boolean(t.answers?.[id])])), startedAt:t.createdAt, questionTimes:{...(t.questionTimes||{})} };
+  }
+
+  function reviewTest(testId) {
+    const t=state.tests.find(x=>String(x.id)===String(testId));
+    if(!t){ showToast('That test could not be found in saved history.','bad'); return; }
+    state.activeSession=buildReviewSession(t);
+    saveState();
+    route={page:'review-test',id:String(t.id)};
+    render();
+    const hash=`review-test/${encodeURIComponent(t.id)}`;
+    if(location.hash!==`#${hash}`) history.pushState(null,'',`#${hash}`);
+  }
+
+  function reviewTestPage() {'''
+          s,n=pat.subn(repl,s,count=1)
+          if n!=1: raise SystemExit(f'review function replacement count={n}')
+
+          # Reconstruct review state from route.id when the route was reached directly.
+          old='''  function reviewTestPage() {
+    const s=state.activeSession; if(!s || s.mode!=='review') return testsPage();
+    const q=BY_ID[s.questionIds[s.index]], selected=s.answers[q.id]||null, corr=Number(selected)===Number(q.correctOption);'''
+          new='''  function reviewTestPage() {
+    let s=state.activeSession;
+    if(!s || s.mode!=='review' || (route.id && String(s.sourceTestId)!==String(route.id))) {
+      const t=state.tests.find(x=>String(x.id)===String(route.id));
+      if(!t) return testsPage();
+      s=buildReviewSession(t);
+      state.activeSession=s;
+      saveState();
+    }
+    const q=BY_ID[s.questionIds[s.index]], selected=s.answers[q.id]||null, corr=Number(selected)===Number(q.correctOption);'''
+          if old not in s: raise SystemExit('review page guard not found')
+          s=s.replace(old,new,1)
+
+          # Remove the redundant delegated CTA listener. The CTA's inline handler plus
+          # hash fallback are now sufficient and avoid double navigation.
+          s=re.sub(r'<script id="v102-review-cta-guard">.*?</script>\\?','',s,flags=re.S,count=1)
+          s=s.replace('</script>n\n<style id="v102-practice-layer">','</script>\n<style id="v102-practice-layer">')
+          s=s.replace('</script>\\n','</script>\n').replace('</style>\\n','</style>\n')
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Validate review runtime source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, subprocess, tempfile
+          s=Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
+          checks={
+            'review hash fallback':'href="#review-test/${encodeURIComponent(t.id)}"' in s,
+            'review session builder':'function buildReviewSession(t)' in s,
+            'review route reconstruction':'String(s.sourceTestId)!==String(route.id)' in s,
+            'review CTA':'Review Solutions' in s,
+            'no review guard':'id="v102-review-cta-guard"' not in s,
+            'streak render':'${streakMarkup()}' in s,
+          }
+          scripts=re.findall(r'<script(?:\s[^>]*)?>(.*?)</script>',s,re.S|re.I)
+          for i,b in enumerate(scripts):
+            if not b.strip(): continue
+            with tempfile.NamedTemporaryFile('w',suffix='.js',delete=False) as f:f.write(b); name=f.name
+            r=subprocess.run(['node','--check',name],capture_output=True,text=True)
+            if r.returncode: print(r.stderr); raise SystemExit(f'inline script {i} syntax failure')
+          for k,v in checks.items(): print(('PASS ' if v else 'FAIL ')+k)
+          assert all(checks.values()), checks
+          PY
+      - name: Commit source
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app/src/main/assets/index.html
+          if ! git diff --cached --quiet; then git commit -m 'V10.2 product source: harden Review Solutions fallback'; git push; fi
+      - name: Build APK
+        shell: bash
+        run: gradle assembleDebug --no-daemon --stacktrace
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: qbank-v10.2-review-hardened-apk
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
