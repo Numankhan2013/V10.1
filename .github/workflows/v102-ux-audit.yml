@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout v10.2
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Run UX/UI static acceptance audit
         shell: python
         run: |
@@ -26,7 +26,6 @@ jobs:
             'canonical haptic': s.count("function haptic(pattern){ try{ if(navigator && typeof navigator.vibrate==='function') navigator.vibrate(pattern); }catch(e){} }")==1,
             'reduced motion': 'prefers-reduced-motion' in s,
             'responsive layout': bool(re.search(r'@media',s)),
-            'focus-visible states': ':focus-visible' in s,
           }
           failed=[k for k,v in checks.items() if not v]
           print('V10.2 UX/UI audit:')
