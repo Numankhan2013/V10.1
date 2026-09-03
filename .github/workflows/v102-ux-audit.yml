@@ -20,6 +20,9 @@ jobs:
       - name: Apply immersive UI and review reliability layer
         run: python3 tools/v102_ui_overhaul.py
 
+      - name: Apply V10.3 review and explanation overlay
+        run: python3 tools/v103_review_explanation_overlay.py
+
       - name: Remove temporary inspection scaffolding
         shell: bash
         run: |
@@ -45,6 +48,7 @@ jobs:
             'large readable options': '.option-text{font-size:16px' in s and 'min-height:76px' in s,
             'Review Solutions CTA': 'v102-review-action' in s and 'data-v102-review-cta="1"' in s,
             'deterministic review interception': 'stopImmediatePropagation' in s and 'window.QB.reviewTest' in s,
+            'V10.3 review overlay': 'V103_REVIEW_EXPLANATION_OVERLAY' in s and 'QB_V103_EXPLANATION' in s and 'qbank_state_v1' in s and 'mode:\'review\'' in s,
             'structured explanation treatment': 'formatExplanations' in s and 'v102-explanation-heading' in s,
             'reduced motion': 'prefers-reduced-motion' in s,
             'responsive layout': '@media(max-width:640px)' in s,
@@ -95,10 +99,10 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add app/src/main/assets/index.html tools/v102_ui_overhaul.py .github/workflows/v102-ux-audit.yml .github/workflows tools
+          git add app/src/main/assets/index.html tools/v102_ui_overhaul.py tools/v103_review_explanation_overlay.py .github/workflows/v102-ux-audit.yml .github/workflows tools
           if git diff --cached --quiet; then
             echo 'No product changes to commit.'
             exit 0
           fi
-          git commit -m 'V10.2 immersive UI and review reliability pass'
+          git commit -m 'V10.3 review and explanation reliability pass'
           git push origin HEAD:${GITHUB_REF_NAME}
