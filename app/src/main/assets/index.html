@@ -367,7 +367,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 
 </style>
 <style id="v102-device-qa-fixes">
-.card.pad.card.pad.focus-card{background:linear-gradient(135deg,#2f2d63 0%,#3d65d8 100%)!important;color:#fff!important;border:0!important;}
+.card.pad.focus-card{background:linear-gradient(135deg,#2f2d63 0%,#3d65d8 100%)!important;color:#fff!important;border:0!important;}
 .focus-card .eyebrow,.focus-card h2,.focus-card p{color:#fff!important;}
 .focus-card p{color:rgba(255,255,255,.82)!important;}
 .focus-card .focus-btn{background:rgba(255,255,255,.1)!important;color:#fff!important;border-color:rgba(255,255,255,.24)!important;}
@@ -638,7 +638,7 @@ window.QBANK_DATA = {"chapters":[{"id":1,"title":"Carbohydrates","startPage":4,"
           ${wrong?`<button class="focus-btn" onclick="window.QB.startLibrary('wrong')">${navIcon('refresh',16)} Wrong ${fmtNum(wrong)}</button>`:''}
           <button class="focus-btn" onclick="window.QB.openTestBuilder()">${navIcon('clock',16)} Timed CBT</button>
         </div></section>
-        <div class="dashboard-section"><div class="section-title"><span>At a glance</span><span class="sub">Live from your activity</span></div><div class="status-grid">
+        ${streakMarkup()}<div class="dashboard-section"><div class="section-title"><span>At a glance</span><span class="sub">Live from your activity</span></div><div class="status-grid">
           <div class="status-card"><div class="status-top"><span class="status-label">Questions</span>${navIcon('book',15)}</div><div class="status-value">${fmtNum(attempted)}<span style="font-size:12px;color:var(--muted);font-weight:700"> / ${fmtNum(total)}</span></div><div class="status-foot">attempted</div></div>
           <div class="status-card"><div class="status-top"><span class="status-label">Accuracy</span>${navIcon('chart',15)}</div><div class="status-value">${fmtPct(acc)}</div><div class="status-foot">all attempts</div></div>
           <div class="status-card"><div class="status-top"><span class="status-label">Due</span>${navIcon('clock',15)}</div><div class="status-value">${fmtNum(due)}</div><div class="status-foot">review now</div></div>
@@ -1013,9 +1013,13 @@ window.QBANK_DATA = {"chapters":[{"id":1,"title":"Carbohydrates","startPage":4,"
   }
 
   function reviewTest(testId) {
-    const t=state.tests.find(x=>x.id===testId); if(!t) return;
-    state.activeSession={ id:`review_${testId}`, mode:'review', sourceTestId:testId, title:`Review · ${t.title}`, questionIds:t.questionIds, index:0, answers:t.answers||{}, submitted:Object.fromEntries(t.questionIds.map(id=>[id,Boolean(t.answers?.[id])])), startedAt:t.createdAt, questionTimes:t.questionTimes||{} };
-    saveState(); navigate('review-test');
+    const t=state.tests.find(x=>String(x.id)===String(testId)); if(!t) return;
+    state.activeSession={ id:`review_${t.id}`, mode:'review', sourceTestId:t.id, title:`Review · ${t.title}`, questionIds:[...t.questionIds], index:0, answers:{...(t.answers||{})}, submitted:Object.fromEntries(t.questionIds.map(id=>[id,Boolean(t.answers?.[id])])), startedAt:t.createdAt, questionTimes:{...(t.questionTimes||{})} };
+    saveState();
+    route={page:'review-test',id:String(t.id)};
+    render();
+    const hash=`review-test/${encodeURIComponent(t.id)}`;
+    if(location.hash!==`#${hash}`) history.pushState(null,'',`#${hash}`);
   }
 
   function reviewTestPage() {
@@ -1199,13 +1203,10 @@ if ('serviceWorker' in navigator && location.protocol !== 'file:') { window.addE
 (function(){
   document.addEventListener('click',function(e){
     var b=e.target && e.target.closest ? e.target.closest('[data-v102-review-cta]') : null;
-    if(!b) return;
+    if(!b || e.defaultPrevented) return;
     var id=b.getAttribute('data-review-test-id');
-    if(!id || !window.QB || typeof window.QB.reviewTest!=='function') return;
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    window.QB.reviewTest(id);
-  },true);
+    if(id && window.QB && typeof window.QB.reviewTest==='function') window.QB.reviewTest(id);
+  });
 })();
 </script>n
 <style id="v102-practice-layer">
@@ -1226,7 +1227,8 @@ button.v102-practice-submit-hidden{display:none!important}
   new MutationObserver(clean).observe(document.documentElement,{subtree:true,childList:true});
   setTimeout(clean,200); setTimeout(clean,700);
 })();
-</script>\n
+</script>
+
 <style id="v102-streak-layer">
 .v102-streak-card{position:relative;overflow:hidden;margin:14px 0;padding:18px;border-radius:24px;background:radial-gradient(circle at 86% 14%,rgba(251,191,36,.25),transparent 29%),linear-gradient(135deg,#17162f,#3a2b73 62%,#5b21b6);color:#fff;box-shadow:0 18px 45px rgba(53,36,108,.22)}
 .v102-streak-card:before{content:"";position:absolute;right:-55px;bottom:-75px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.06)}
@@ -1238,7 +1240,7 @@ button.v102-practice-submit-hidden{display:none!important}
 (function(){
   function read(){try{if(window.QB&&typeof window.QB.getState==='function')return window.QB.getState();}catch(_){} try{return window.state||null;}catch(_){return null;}}
   function add(){
-    if(document.querySelector('.v102-streak-card')) return;
+    if(document.querySelector('.streak-card') || document.querySelector('.v102-streak-card')) return;
     var st=read();
     if(!st) return;
     var active=Array.isArray(st.activeDays)?st.activeDays:[];
@@ -1254,7 +1256,8 @@ button.v102-practice-submit-hidden{display:none!important}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',add);else setTimeout(add,100);
   setTimeout(add,600);
 })();
-</script>\n
+</script>
+
 <style id="v102-modern-ui">
 :root{--v102-bg:#f4f6fb;--v102-ink:#101321;--v102-muted:#697285;--v102-indigo:#5b5ce2;--v102-violet:#7b61ff;--v102-line:#e6e9f0}
 html,body{background:var(--v102-bg)!important;color:var(--v102-ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
