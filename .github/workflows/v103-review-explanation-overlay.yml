@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
   push:
     branches: [v10.2-ui-overhaul]
+permissions:
+  contents: write
 jobs:
   stabilize:
     runs-on: ubuntu-latest
@@ -25,7 +27,7 @@ jobs:
               'window.QB.reviewTest=',
               'window.QB.getState',
               'reviewSessionFromTest',
-              'mode===\'review\'',
+              "mode==='review'",
               'qbank_state_v1',
               'QB_V103_EXPLANATION',
           ]
