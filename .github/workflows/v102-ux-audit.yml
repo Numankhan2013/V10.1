@@ -22,11 +22,12 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
+          import re
           p=Path('tools/v102_ui_overhaul.py')
           s=p.read_text(encoding='utf-8')
-          s=s.replace(r'''header_pat=re.compile(r"function header\(title = 'QBank'\)\{.*?\}\s+function bottomNav",re.S)''', r'''header_pat=re.compile(r"function\s+header\s*\(\s*title\s*=\s*['\"]QBank['\"]\s*\)\s*\{.*?\}\s*function\s+bottomNav",re.S)''')
-          s=s.replace(r'''review_pat=re.compile(r"function reviewTest\(testId\)\{.*?\}\s+function reviewTestPage",re.S)''', r'''review_pat=re.compile(r"function\s+reviewTest\s*\(\s*testId\s*\)\s*\{.*?\}\s*function\s+reviewTestPage",re.S)''')
-          s=s.replace(r'''page_pat=re.compile(r"function reviewTestPage\(\)\{\s*let s=state\.activeSession;\s*if\(!s \|\| s\.mode!==\'review\' \|\| \(route\.id && String\(s\.sourceTestId\)!==String\(route\.id\)\)\) \{\s*const t=state\.tests\.find\(x=>String\(x\.id\)===String\(route\.id\);",re.S)''', r'''page_pat=re.compile(r"function\s+reviewTestPage\s*\(\s*\)\s*\{\s*let\s+s=state\.activeSession;\s*if\(!s\s*\|\|\s*s\.mode!==['\"]review['\"]\s*\|\|\s*\(route\.id\s*&&\s*String\(s\.sourceTestId\)!==String\(route\.id\)\)\)\s*\{\s*const\s+t=state\.tests\.find\(x=>String\(x\.id\)===String\(route\.id\)\);",re.S)''')
+          s=re.sub(r"header_pat=re\.compile\(.*?\)\n", '''header_pat=re.compile(r"function\\s+header\\s*\\(\\s*title\\s*=\\s*['\\\"]QBank['\\\"]\\s*\\)\\s*\\{.*?\\}\\s*function\\s+bottomNav",re.S)\n''', s, count=1)
+          s=re.sub(r"review_pat=re\.compile\(.*?\)\n", '''review_pat=re.compile(r"function\\s+reviewTest\\s*\\(\\s*testId\\s*\\)\\s*\\{.*?\\}\\s*function\\s+reviewTestPage",re.S)\n''', s, count=1)
+          s=re.sub(r"page_pat=re\.compile\(.*?\)\n", '''page_pat=re.compile(r"function\\s+reviewTestPage\\s*\\(\\s*\\)\\s*\\{.*?const\\s+t=state\\.tests\\.find\\(x=>String\\(x\\.id\\)===String\\(route\\.id\\)\\);",re.S)\n''', s, count=1)
           p.write_text(s,encoding='utf-8')
           print('Transformer patterns normalized')
           PY
