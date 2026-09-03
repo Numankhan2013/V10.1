@@ -1,6 +1,9 @@
 name: V10.2 review hardening
 
 on:
+  push:
+    branches: [v10.2]
+    paths: [qbank-v102-review-hardening.trigger]
   workflow_dispatch:
 
 permissions:
@@ -30,18 +33,10 @@ jobs:
           import re
           p=Path('app/src/main/assets/index.html')
           s=p.read_text(encoding='utf-8')
-
-          # Replace the result CTA with a real hash link plus JS enhancement. If a
-          # WebView suppresses inline click dispatch for any reason, the hash itself
-          # still reaches the review route.
           old=re.compile(r'<button class="primary-btn"\s+type="button" data-v102-review-cta="1" data-review-test-id="\$\{esc\(t\.id\)\}" onclick="window\.QB\.reviewTest\(\'\$\{esc\(t\.id\)\}\'\)">Review Solutions</button>')
           new='<a class="primary-btn" role="button" data-v102-review-cta="1" data-review-test-id="${esc(t.id)}" href="#review-test/${encodeURIComponent(t.id)}" onclick="window.QB.reviewTest(\'${esc(t.id)}\');return false;">Review Solutions</a>'
           s,n=old.subn(new,s,count=1)
           if n!=1: raise SystemExit(f'CTA replacement count={n}')
-
-          # Make the review session constructible from the route itself. This is the
-          # final fallback for native/WebView navigation: even if the click enhancement
-          # is skipped, #review-test/<id> is enough to reconstruct the exact saved test.
           pat=re.compile(r'  function reviewTest\(testId\) \{.*?\n  \}\n\n  function reviewTestPage\(\) \{',re.S)
           repl='''  function buildReviewSession(t) {
     return { id:`review_${t.id}`, mode:'review', sourceTestId:t.id, title:`Review · ${t.title}`, questionIds:[...t.questionIds], index:0, answers:{...(t.answers||{})}, submitted:Object.fromEntries(t.questionIds.map(id=>[id,Boolean(t.answers?.[id])])), startedAt:t.createdAt, questionTimes:{...(t.questionTimes||{})} };
@@ -61,12 +56,10 @@ jobs:
   function reviewTestPage() {'''
           s,n=pat.subn(repl,s,count=1)
           if n!=1: raise SystemExit(f'review function replacement count={n}')
-
-          # Reconstruct review state from route.id when the route was reached directly.
-          old='''  function reviewTestPage() {
+          old2='''  function reviewTestPage() {
     const s=state.activeSession; if(!s || s.mode!=='review') return testsPage();
     const q=BY_ID[s.questionIds[s.index]], selected=s.answers[q.id]||null, corr=Number(selected)===Number(q.correctOption);'''
-          new='''  function reviewTestPage() {
+          new2='''  function reviewTestPage() {
     let s=state.activeSession;
     if(!s || s.mode!=='review' || (route.id && String(s.sourceTestId)!==String(route.id))) {
       const t=state.tests.find(x=>String(x.id)===String(route.id));
@@ -76,17 +69,14 @@ jobs:
       saveState();
     }
     const q=BY_ID[s.questionIds[s.index]], selected=s.answers[q.id]||null, corr=Number(selected)===Number(q.correctOption);'''
-          if old not in s: raise SystemExit('review page guard not found')
-          s=s.replace(old,new,1)
-
-          # Remove the redundant delegated CTA listener. The CTA's inline handler plus
-          # hash fallback are now sufficient and avoid double navigation.
+          if old2 not in s: raise SystemExit('review page guard not found')
+          s=s.replace(old2,new2,1)
           s=re.sub(r'<script id="v102-review-cta-guard">.*?</script>\\?','',s,flags=re.S,count=1)
           s=s.replace('</script>n\n<style id="v102-practice-layer">','</script>\n<style id="v102-practice-layer">')
           s=s.replace('</script>\\n','</script>\n').replace('</style>\\n','</style>\n')
           p.write_text(s,encoding='utf-8')
           PY
-      - name: Validate review runtime source
+      - name: Validate Review Solutions runtime
         shell: bash
         run: |
           set -euo pipefail
@@ -99,7 +89,7 @@ jobs:
             'review session builder':'function buildReviewSession(t)' in s,
             'review route reconstruction':'String(s.sourceTestId)!==String(route.id)' in s,
             'review CTA':'Review Solutions' in s,
-            'no review guard':'id="v102-review-cta-guard"' not in s,
+            'no duplicate review guard':'id="v102-review-cta-guard"' not in s,
             'streak render':'${streakMarkup()}' in s,
           }
           scripts=re.findall(r'<script(?:\s[^>]*)?>(.*?)</script>',s,re.S|re.I)
