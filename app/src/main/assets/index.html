@@ -317,6 +317,54 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 @media(max-width:520px){.dashboard-greeting .greet-actions{display:block}.dashboard-greeting .primary-btn{width:100%;margin-top:10px}.status-grid{grid-template-columns:1fr 1fr 1fr;gap:7px}.status-card{padding:10px}.status-value{font-size:17px}.focus-card h2{font-size:19px}.focus-card p{font-size:11.5px}.focus-btn{min-height:40px;font-size:11px}.more-card-grid{grid-template-columns:1fr 1fr}.chapter-actions{grid-template-columns:1fr 1fr}}
 @media(max-width:390px){.status-grid{grid-template-columns:1fr 1fr}.status-card:last-child{grid-column:1/-1}.more-card-grid{grid-template-columns:1fr}.action-grid{grid-template-columns:1fr 1fr}}
 
+
+/* V10.1 POLISH — phone-first visual system. Presentation only; question engine untouched. */
+:root{
+  --v101-rail:16px;
+  --v101-radius:18px;
+  --v101-shadow:0 8px 24px rgba(25,27,48,.055);
+  --v101-shadow-soft:0 3px 12px rgba(25,27,48,.045);
+}
+html,body{max-width:100%;overflow-x:hidden}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+#app{width:100%;min-height:100vh}
+.shell{width:100%;box-sizing:border-box}
+.page{box-sizing:border-box;width:100%;max-width:1120px;margin:0 auto;padding-left:var(--v101-rail);padding-right:var(--v101-rail);padding-bottom:calc(110px + var(--safe-bottom,0px))}
+.page-head{gap:14px;align-items:flex-end;margin-bottom:18px}
+.page-title{font-weight:900;letter-spacing:-.55px;line-height:1.08}
+.page-sub{line-height:1.45}
+.section-title{font-weight:850;letter-spacing:-.2px}
+.card{border-radius:var(--v101-radius);box-shadow:var(--v101-shadow-soft)}
+.result-hero{box-shadow:var(--v101-shadow);border:1px solid rgba(47,45,99,.08)}
+.mini-card{border-radius:15px}
+.primary-btn,.ghost-btn,.option-item,.nav-item,.icon-btn{min-height:44px}
+.primary-btn,.ghost-btn{touch-action:manipulation}
+.option-item{transition:transform .12s ease,box-shadow .12s ease,border-color .12s ease,background-color .12s ease}
+.option-item:active{transform:scale(.985)}
+.bottom-nav{left:0;right:0}
+.bottom-nav .nav-item{min-height:60px}
+.kpi{font-weight:900;letter-spacing:-1.8px}
+.stat-card .value,.mini-card .value{font-weight:850;letter-spacing:-.45px}
+.small-muted{line-height:1.45}
+@media (max-width:640px){
+  :root{--v101-rail:16px}
+  .page{padding-left:var(--v101-rail);padding-right:var(--v101-rail)}
+  .page-head{display:flex;flex-direction:column;align-items:stretch;gap:10px}
+  .page-head>.primary-btn,.page-head>.ghost-btn{width:100%;justify-content:center}
+  .page-title{font-size:28px}
+  .page-sub{font-size:13px}
+  .grid.grid-4{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .result-hero{display:flex;flex-direction:column;gap:18px}
+  .result-hero>div:last-child{align-self:center}
+  .two-col{gap:9px}
+  .card{border-radius:16px}
+  .primary-btn,.ghost-btn{min-height:46px}
+  .option-item{min-height:52px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+
 </style>
 </head>
 <body>
@@ -1090,5 +1138,45 @@ window.QBANK_DATA = {"chapters":[{"id":1,"title":"Carbohydrates","startPage":4,"
 <script>
 if ('serviceWorker' in navigator && location.protocol !== 'file:') { window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {})); }
 </script>
+<script>
+(() => {
+  'use strict';
+  const polish = () => {
+    // Rename the post-submit action without touching the underlying review engine.
+    document.querySelectorAll('button').forEach(btn => {
+      if (btn.textContent.trim() === 'Review Test') btn.textContent = 'Review Solutions';
+    });
+
+    const hero = document.querySelector('.result-hero');
+    if (hero && !hero.dataset.v101Polished) {
+      hero.dataset.v101Polished = '1';
+      const kpi = hero.querySelector('.kpi');
+      const minis = [...hero.querySelectorAll('.mini-card')];
+      const read = label => {
+        const card = minis.find(x => (x.querySelector('.label')?.textContent || '').trim().toLowerCase() === label.toLowerCase());
+        return card?.querySelector('.value')?.textContent.trim() || '0';
+      };
+      const correct = read('Correct'), incorrect = read('Incorrect'), unattempted = read('Unattempted');
+      const denom = document.createElement('div');
+      denom.className = 'v101-result-summary';
+      denom.textContent = `Score: ${kpi?.textContent.trim() || '0%'} — ${correct} correct · ${incorrect} incorrect · ${unattempted} unattempted`;
+      denom.setAttribute('aria-label', denom.textContent);
+      const first = hero.querySelector('.small-muted');
+      if (first && first.nextElementSibling === kpi) first.after(denom);
+      const accuracy = minis.find(x => (x.querySelector('.label')?.textContent || '').trim().toLowerCase() === 'accuracy');
+      if (accuracy) {
+        const label = accuracy.querySelector('.label');
+        if (label) label.textContent = 'Attempt accuracy';
+      }
+    }
+  };
+  const style = document.createElement('style');
+  style.textContent = '.v101-result-summary{margin:7px 0 12px;font-size:14px;font-weight:780;line-height:1.5;color:#303241;letter-spacing:-.1px}.result-hero .v101-result-summary+ .kpi{margin-top:0}';
+  document.head.appendChild(style);
+  polish();
+  new MutationObserver(polish).observe(document.getElementById('app') || document.body,{childList:true,subtree:true});
+})();
+</script>
+
 </body>
 </html>
