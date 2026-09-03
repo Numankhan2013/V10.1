@@ -36,48 +36,60 @@ jobs:
           p=Path('app/src/main/assets/index.html')
           s=p.read_text(encoding='utf-8')
 
-          # Keep the dashboard streak inside dashboard(), because render() replaces
-          # #app.innerHTML after every question. This makes the streak reactive and persistent.
           anchor='<div class="dashboard-section"><div class="section-title"><span>At a glance</span>'
           if '${streakMarkup()}' not in s:
               if anchor not in s: raise SystemExit('dashboard anchor missing')
               s=s.replace(anchor,'${streakMarkup()}'+anchor,1)
           s=s.replace("if(document.querySelector('.v102-streak-card')) return;","if(document.querySelector('.streak-card') || document.querySelector('.v102-streak-card')) return;",1)
 
-          # Make Review Solutions update state and render synchronously, then keep a
-          # real hash for Back navigation. This avoids WebView hashchange timing issues.
-          pat=re.compile(r'  function reviewTest\(testId\) \{.*?\n  \}\n\n  function reviewTestPage',re.S)
-          repl=('  function reviewTest(testId) {\n'
-                '    const t=state.tests.find(x=>String(x.id)===String(testId)); if(!t) return;\n'
-                '    state.activeSession={ id:`review_${t.id}`, mode:\'review\', sourceTestId:t.id, title:`Review · ${t.title}`, questionIds:[...t.questionIds], index:0, answers:{...(t.answers||{})}, submitted:Object.fromEntries(t.questionIds.map(id=>[id,Boolean(t.answers?.[id])])), startedAt:t.createdAt, questionTimes:{...(t.questionTimes||{})} };\n'
-                '    saveState();\n'
-                '    route={page:\'review-test\',id:String(t.id)};\n'
-                '    render();\n'
-                '    const hash=`review-test/${encodeURIComponent(t.id)}`;\n'
-                '    if(location.hash!==`#${hash}`) history.pushState(null,\'\',`#${hash}`);\n'
-                '  }\n\n  function reviewTestPage')
+          # Review must survive Android WebView click/hash quirks. Give the CTA a real
+          # hash destination and make the review page able to reconstruct its session
+          # from that route even if the JS click enhancement is skipped.
+          old=re.compile(r'<button class="primary-btn"\s+type="button" data-v102-review-cta="1" data-review-test-id="\$\{esc\(t\.id\)\}" onclick="window\.QB\.reviewTest\(\'\$\{esc\(t\.id\)\}\'\)">Review Solutions</button>')
+          new='<a class="primary-btn" role="button" data-v102-review-cta="1" data-review-test-id="${esc(t.id)}" href="#review-test/${encodeURIComponent(t.id)}" onclick="window.QB.reviewTest(\'${esc(t.id)}\');return false;">Review Solutions</a>'
+          s,n=old.subn(new,s,count=1)
+          if n!=1: raise SystemExit(f'CTA replacement count={n}')
+
+          pat=re.compile(r'  function reviewTest\(testId\) \{.*?\n  \}\n\n  function reviewTestPage\(\) \{',re.S)
+          repl='''  function buildReviewSession(t) {
+    return { id:`review_${t.id}`, mode:'review', sourceTestId:t.id, title:`Review · ${t.title}`, questionIds:[...t.questionIds], index:0, answers:{...(t.answers||{})}, submitted:Object.fromEntries(t.questionIds.map(id=>[id,Boolean(t.answers?.[id])])), startedAt:t.createdAt, questionTimes:{...(t.questionTimes||{})} };
+  }
+
+  function reviewTest(testId) {
+    const t=state.tests.find(x=>String(x.id)===String(testId));
+    if(!t){ showToast('That test could not be found in saved history.','bad'); return; }
+    state.activeSession=buildReviewSession(t);
+    saveState();
+    route={page:'review-test',id:String(t.id)};
+    render();
+    const hash=`review-test/${encodeURIComponent(t.id)}`;
+    if(location.hash!==`#${hash}`) history.pushState(null,'',`#${hash}`);
+  }
+
+  function reviewTestPage() {'''
           s,n=pat.subn(repl,s,count=1)
           if n!=1: raise SystemExit('reviewTest function missing')
 
-          # Keep the CTA guard non-invasive; the button's exported handler remains primary.
-          guard=re.compile(r'<script id="v102-review-cta-guard">.*?</script>\\?',re.S)
-          guard_repl=('''<script id="v102-review-cta-guard">\n'''
-                      '''(function(){\n'''
-                      '''  document.addEventListener('click',function(e){\n'''
-                      '''    var b=e.target && e.target.closest ? e.target.closest('[data-v102-review-cta]') : null;\n'''
-                      '''    if(!b || e.defaultPrevented) return;\n'''
-                      '''    var id=b.getAttribute('data-review-test-id');\n'''
-                      '''    if(id && window.QB && typeof window.QB.reviewTest==='function') window.QB.reviewTest(id);\n'''
-                      '''  });\n'''
-                      '''})();\n'''
-                      '''</script>''')
-          s,n=guard.subn(guard_repl,s,count=1)
-          if n!=1: raise SystemExit('review guard missing')
+          old2='''  function reviewTestPage() {
+    const s=state.activeSession; if(!s || s.mode!=='review') return testsPage();
+    const q=BY_ID[s.questionIds[s.index]], selected=s.answers[q.id]||null, corr=Number(selected)===Number(q.correctOption);'''
+          new2='''  function reviewTestPage() {
+    let s=state.activeSession;
+    if(!s || s.mode!=='review' || (route.id && String(s.sourceTestId)!==String(route.id))) {
+      const t=state.tests.find(x=>String(x.id)===String(route.id));
+      if(!t) return testsPage();
+      s=buildReviewSession(t);
+      state.activeSession=s;
+      saveState();
+    }
+    const q=BY_ID[s.questionIds[s.index]], selected=s.answers[q.id]||null, corr=Number(selected)===Number(q.correctOption);'''
+          if old2 not in s: raise SystemExit('review page guard not found')
+          s=s.replace(old2,new2,1)
 
-          # Repair earlier malformed selector and escaped separators.
-          s=s.replace('.card.pad.card.pad.focus-card{background:','.card.pad.focus-card{background:')
+          # Delete the duplicate capture listener which could invoke review twice.
+          s=re.sub(r'<script id="v102-review-cta-guard">.*?</script>\\?','',s,flags=re.S,count=1)
+          s=s.replace('</script>n\n<style id="v102-practice-layer">','</script>\n<style id="v102-practice-layer">')
           s=s.replace('</script>\\n','</script>\n').replace('</style>\\n','</style>\n')
-
           p.write_text(s,encoding='utf-8')
           PY
 
@@ -87,19 +99,20 @@ jobs:
           s=Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
           checks={
             'dashboard streak render':'${streakMarkup()}' in s,
-            'review direct render':bool(re.search(r"route=\{page:'review-test',id:String\(t.id\)\}",s)),
-            'review data id':'data-review-test-id="${esc(t.id)}"' in s,
+            'review hash fallback':'href="#review-test/${encodeURIComponent(t.id)}"' in s,
+            'review session builder':'function buildReviewSession(t)' in s,
+            'review route reconstruction':'String(s.sourceTestId)!==String(route.id)' in s,
+            'review CTA':'Review Solutions' in s,
             'focus card':'.card.pad.focus-card{background:' in s,
             'green feedback':'.option.correct.selected{background:#eaf9f3!important' in s,
             'red feedback':'.option.wrong.selected{background:#fff0f1!important' in s,
             'no escaped separators':'\\n<script id="v102-' not in s and '\\n<style id="v102-' not in s,
           }
           scripts=re.findall(r'<script(?:\s[^>]*)?>(.*?)</script>',s,re.S|re.I)
-          for i,body in enumerate(scripts):
-              body=body.strip()
-              if not body: continue
+          for i,b in enumerate(scripts):
+              if not b.strip(): continue
               with tempfile.NamedTemporaryFile('w',suffix='.js',delete=False,encoding='utf-8') as f:
-                  f.write(body); name=f.name
+                  f.write(b); name=f.name
               r=subprocess.run(['node','--check',name],capture_output=True,text=True)
               if r.returncode:
                   print(r.stderr); raise SystemExit(f'inline script {i} syntax failure')
@@ -116,7 +129,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add app/src/main/assets/index.html
           if ! git diff --cached --quiet; then
-            git commit -m 'V10.2 product source: fix review and persistent streak'
+            git commit -m 'V10.2 product source: make Review Solutions WebView-proof'
             git push
           fi
       - name: Build debug APK
@@ -127,6 +140,6 @@ jobs:
       - name: Upload V10.2 APK
         uses: actions/upload-artifact@v4
         with:
-          name: qbank-v10.2-debug-apk
+          name: qbank-v10.2-review-fixed-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
