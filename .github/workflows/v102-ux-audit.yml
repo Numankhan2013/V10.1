@@ -26,6 +26,9 @@ jobs:
       - name: Apply V10.3 review and explanation overlay
         run: python3 tools/v103_review_explanation_overlay.py
 
+      - name: Install deterministic Review Solutions guard
+        run: python3 tools/v103_review_cta_guard.py
+
       - name: Remove temporary inspection scaffolding
         shell: bash
         run: |
@@ -105,7 +108,7 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add app/src/main/assets/index.html tools/v102_ui_overhaul.py tools/v103_review_explanation_overlay.py tools/v103_restore_ui_layer.py .github/workflows/v102-ux-audit.yml .github/workflows tools
+          git add app/src/main/assets/index.html tools/v102_ui_overhaul.py tools/v103_review_explanation_overlay.py tools/v103_restore_ui_layer.py tools/v103_review_cta_guard.py .github/workflows/v102-ux-audit.yml .github/workflows tools
           if git diff --cached --quiet; then
             echo 'No product changes to commit.'
             exit 0
