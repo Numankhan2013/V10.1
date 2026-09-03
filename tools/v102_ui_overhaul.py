@@ -95,7 +95,7 @@ def main():
     s,n=subject_pat.subn(subject_repl,s,count=1)
     if n!=1: raise SystemExit('FAIL subjectPickerMarkup replacement')
 
-    header_pat=re.compile(r"function header\(title = 'QBank'\)\{.*?\}\s+function bottomNav",re.S)
+    header_pat=re.compile(r"function\s+header\s*\(\s*title\s*=\s*'QBank'\s*\)\s*\{.*?\}\s*function\s+bottomNav",re.S)
     header_repl='''function header(title = 'QBank'){
       return `<header class="topbar v102-topbar">${title==='QBank' ? logo() : `<div class="brand"><div class="brand-mark">Q</div><span>${esc(title)}</span></div>`}</header>`;
     }
@@ -107,7 +107,7 @@ def main():
     s,n=cta_pat.subn('<button class="primary-btn v102-review-action" type="button" data-v102-review-cta="1" data-review-test-id="${esc(t.id)}">Review Solutions</button>',s,count=1)
     if n!=1: raise SystemExit('FAIL Review Solutions CTA replacement')
 
-    review_pat=re.compile(r"function reviewTest\(testId\)\{.*?\}\s+function reviewTestPage",re.S)
+    review_pat=re.compile(r"function\s+reviewTest\s*\(\s*testId\s*\)\s*\{.*?\}\s*function\s+reviewTestPage",re.S)
     review_repl='''function reviewTest(testId){
       let wanted=String(testId ?? ''); try{wanted=decodeURIComponent(wanted);}catch(_){ }
       const t=state.tests.find(x=>String(x.id)===wanted || String(x.id)===String(testId));
@@ -118,7 +118,7 @@ def main():
     s,n=review_pat.subn(review_repl,s,count=1)
     if n!=1: raise SystemExit('FAIL reviewTest replacement')
 
-    page_pat=re.compile(r"function reviewTestPage\(\)\{\s*let s=state\.activeSession;\s*if\(!s \|\| s\.mode!==\'review\' \|\| \(route\.id && String\(s\.sourceTestId\)!==String\(route\.id\)\)\) \{\s*const t=state\.tests\.find\(x=>String\(x\.id\)===String\(route\.id\)\);",re.S)
+    page_pat=re.compile(r"function\s+reviewTestPage\s*\(\s*\)\s*\{.*?const\s+t=state\.tests\.find\(x=>String\(x\.id\)===String\(route\.id\)\);",re.S)
     page_repl="""function reviewTestPage(){
       let s=state.activeSession;
       const routeId=(()=>{try{return decodeURIComponent(String(route.id||''));}catch(_){return String(route.id||'');}})();
