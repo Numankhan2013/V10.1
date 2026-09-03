@@ -1,5 +1,6 @@
 name: V10.2 source normalization
 
+# One-time source repair + JavaScript syntax gate for V10.2 generated UX blocks.
 on:
   push:
     branches: [v10.2]
@@ -25,8 +26,6 @@ jobs:
           p=Path('app/src/main/assets/index.html')
           s=p.read_text(encoding='utf-8')
           original=s
-          # The original V10.2 injector used raw Python strings and encoded line breaks as
-          # literal backslash-n characters. Normalize only inside our generated v102 blocks.
           blocks=list(re.finditer(r'<(?:script|style)\s+id="v102-[^"]+"[^>]*>.*?</(?:script|style)>',s,re.S))
           changed=0
           out=[]; last=0
@@ -40,15 +39,12 @@ jobs:
               last=m.end()
           out.append(s[last:])
           s=''.join(out)
-          # Normalize only accidental escaped-newline separators immediately around generated tags.
           s=s.replace('\\n<script id="v102-', '\n<script id="v102-')
           s=s.replace('\\n<style id="v102-', '\n<style id="v102-')
-          if s==original:
-              print('No V10.2 generated blocks needed normalization')
-          else:
+          if s!=original:
               p.write_text(s,encoding='utf-8')
-              print('Normalized V10.2 generated blocks:', changed)
-              print('Escaped newline count after normalization:', s.count('\\n<script id="v102-') + s.count('\\n<style id="v102-'))
+          print('Normalized blocks:', changed)
+          print('Remaining escaped v102 tag separators:', s.count('\\n<script id="v102-') + s.count('\\n<style id="v102-'))
 
       - name: Validate generated UX JavaScript syntax
         shell: bash
