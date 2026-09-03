@@ -1,0 +1,45 @@
+name: V10.2 source inspection
+
+on:
+  push:
+    branches: [v10.2-ui-overhaul]
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+      - name: Inspect index structure
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          s=Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
+          print('--- FILE SIZE / LINES ---')
+          print(len(s), s.count('\n')+1)
+          print('--- FUNCTION NAMES ---')
+          for m in re.finditer(r'function\s+([A-Za-z0-9_$]+)\s*\(', s):
+              print(m.group(1))
+          print('--- REVIEW MARKERS ---')
+          for term in ['Review Solutions','reviewTest','window.QB','data-v102-review-cta','review-test/','function resultPage','function reviewTestPage']:
+              print(term, [m.start() for m in re.finditer(re.escape(term), s)][:20])
+          print('--- SUBJECT MARKERS ---')
+          for term in ['Physiology','Biochemistry','Anatomy','subject','Subject']:
+              print(term, [m.start() for m in re.finditer(re.escape(term), s)][:30])
+          print('--- SELECT SNIPPETS ---')
+          for m in re.finditer(r'<select[^>]*>', s, re.I):
+              print(s[max(0,m.start()-300):m.start()+1500])
+          print('--- REVIEW SNIPPETS ---')
+          for m in re.finditer(r'Review Solutions', s, re.I):
+              print(s[max(0,m.start()-500):m.start()+700])
+          print('--- TOPBAR HTML ---')
+          for m in re.finditer(r'<header class="topbar".*?</header>', s, re.I|re.S):
+              print(m.group(0))
+          PY
