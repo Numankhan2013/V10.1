@@ -1,4 +1,4 @@
-name: V10.2 runtime fix
+name: V10.3 stabilization
 
 on:
   push:
@@ -9,8 +9,8 @@ permissions:
   contents: write
 
 jobs:
-  fix-runtime:
-    if: "!contains(github.event.head_commit.message, 'V10.2 runtime fix applied') && !contains(github.event.head_commit.message, 'rebuild after runtime fix')"
+  stabilize:
+    if: "!contains(github.event.head_commit.message, 'V10.3 stabilization applied')"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout feature branch
@@ -24,13 +24,17 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Apply runtime fix
-        run: python tools/v102_runtime_fix.py
+      - name: Apply V10.3 stabilization layer
+        run: python tools/v103_stabilize.py
 
-      - name: Commit runtime fix
+      - name: Commit V10.3 stabilization
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add app/src/main/assets/index.html
-          git commit -m 'V10.2 runtime fix applied' || exit 0
+          if git diff --cached --quiet; then
+            echo 'No stabilization changes needed.'
+            exit 0
+          fi
+          git commit -m 'V10.3 stabilization applied'
           git push origin HEAD:v10.2-ui-overhaul
