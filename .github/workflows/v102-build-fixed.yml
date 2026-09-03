@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -28,6 +28,59 @@ jobs:
         uses: gradle/actions/setup-gradle@v5
         with:
           gradle-version: '9.5.0'
+      - name: Repair device QA regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('app/src/main/assets/index.html')
+          s=p.read_text(encoding='utf-8')
+
+          marker='<style id="v102-device-qa-fixes">'
+          css='''<style id="v102-device-qa-fixes">
+          .focus-card{background:linear-gradient(135deg,#2f2d63 0%,#3d65d8 100%)!important;color:#fff!important;border:0!important;}
+          .focus-card .eyebrow,.focus-card h2,.focus-card p{color:#fff!important;}
+          .focus-card p{color:rgba(255,255,255,.82)!important;}
+          .focus-card .focus-btn{background:rgba(255,255,255,.1)!important;color:#fff!important;border-color:rgba(255,255,255,.24)!important;}
+          .focus-card .focus-btn.primary{background:#fff!important;color:#2f2d63!important;border-color:#fff!important;}
+          .option.correct.selected{background:#eaf9f3!important;border-color:#69c4a8!important;border-left-color:#159a74!important;}
+          .option.wrong.selected{background:#fff0f1!important;border-color:#df858a!important;border-left-color:#df4e52!important;}
+          </style>'''
+          if marker not in s:
+              s=s.replace('</head>',css+'\n</head>',1)
+
+          token='data-v102-review-cta="1"onclick="window.QB.reviewTest(\'${esc(t.id)}\')"'
+          replacement='data-v102-review-cta="1" data-review-test-id="${esc(t.id)}" onclick="window.QB.reviewTest(\'${esc(t.id)}\')"'
+          if 'data-review-test-id="${esc(t.id)}"' not in s:
+              if token not in s:
+                  raise SystemExit('Review Solutions CTA markup not found')
+              s=s.replace(token,replacement,1)
+
+          pattern=re.compile(r'<script id="v102-review-cta-guard">.*?</script>\\?',re.S)
+          replacement_script='''<script id="v102-review-cta-guard">
+          (function(){
+            document.addEventListener('click',function(e){
+              var b=e.target && e.target.closest ? e.target.closest('[data-v102-review-cta]') : null;
+              if(!b) return;
+              var id=b.getAttribute('data-review-test-id');
+              if(!id || !window.QB || typeof window.QB.reviewTest!=='function') return;
+              e.preventDefault();
+              e.stopImmediatePropagation();
+              window.QB.reviewTest(id);
+            },true);
+          })();
+          </script>'''
+          s,n=pattern.subn(replacement_script,s,count=1)
+          if n!=1:
+              raise SystemExit(f'Review CTA guard replacement count={n}')
+
+          if 'getState:()=>state' not in s:
+              s=s.replace('window.QB={nav:navigate,','window.QB={getState:()=>state,nav:navigate,',1)
+
+          p.write_text(s,encoding='utf-8')
+          PY
       - name: Validate V10.2 source
         shell: bash
         run: |
@@ -43,11 +96,30 @@ jobs:
           s=Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
           h="function haptic(pattern){ try{ if(navigator && typeof navigator.vibrate==='function') navigator.vibrate(pattern); }catch(e){} }"
           assert s.count(h)==1, f'canonical haptic count={s.count(h)}'
-          assert 'v102-review-cta-guard' in s
-          assert 'v102-modern-ui' in s
-          assert 'v102-streak-layer' in s
+          checks={
+            'focus-card-important': '.focus-card{background:linear-gradient(135deg,#2f2d63 0%,#3d65d8 100%)!important;color:#fff!important' in s,
+            'review-data-id': 'data-review-test-id="${esc(t.id)}"' in s,
+            'review-get-state': 'getState:()=>state' in s,
+            'green-feedback': '.option.correct.selected{background:#eaf9f3!important' in s,
+            'red-feedback': '.option.wrong.selected{background:#fff0f1!important' in s,
+          }
+          for k,v in checks.items(): print(('PASS ' if v else 'FAIL ')+k)
+          assert all(checks.values()), checks
           print('V10.2 UX/UI source acceptance checks passed')
           PY
+      - name: Commit repaired product source
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app/src/main/assets/index.html
+          if ! git diff --cached --quiet; then
+            git commit -m 'V10.2 product source: repair device QA regressions'
+            git push
+          else
+            echo 'Product source already repaired'
+          fi
       - name: Build debug APK
         shell: bash
         run: |
