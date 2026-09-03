@@ -32,6 +32,7 @@ jobs:
           set -euo pipefail
           python3 - <<'PY'
           from pathlib import Path
+          import re
 
           p = Path('app/src/main/assets/index.html')
           s = p.read_text(encoding='utf-8')
@@ -41,14 +42,16 @@ jobs:
           if before_haptic != 1:
               raise SystemExit(f'FAIL: expected exactly 1 canonical haptic function, found {before_haptic}')
 
-          start = s.find('function reviewTestPage(){')
-          if start < 0:
+          match = re.search(r'function\s+reviewTestPage\s*\(\s*\)\s*\{', s)
+          if not match:
               raise SystemExit('FAIL: reviewTestPage() not found')
-          brace = s.find('{', start)
+          start = match.start()
+          brace = s.find('{', match.start())
           depth = 0
           end = None
           for i in range(brace, len(s)):
-              if s[i] == '{': depth += 1
+              if s[i] == '{':
+                  depth += 1
               elif s[i] == '}':
                   depth -= 1
                   if depth == 0:
@@ -75,7 +78,11 @@ jobs:
 
           s = s.replace('>Review Test</button>', '>Review Solutions</button>')
 
-          css = '''\n<style id="v101-review-ux">\n.v101-review-progress{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding:13px 15px}.v101-progress-track{height:7px;flex:1;background:var(--line);border-radius:99px;overflow:hidden}.v101-progress-track span{display:block;height:100%;background:var(--primary-2);border-radius:99px}.v101-review-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:8px 0 14px}.v101-status{font-size:12px;font-weight:800;padding:5px 9px;border-radius:999px}.v101-status.good{background:rgba(21,154,116,.10);color:var(--success)}.v101-status.bad{background:rgba(223,78,82,.10);color:var(--danger)}.v101-status.neutral{background:rgba(111,113,128,.10);color:var(--muted)}.v101-answer-tag{margin-left:auto;font-size:11px;font-weight:800;line-height:1.2;padding:5px 7px;border-radius:8px;background:rgba(47,45,99,.07)}.v101-answer-summary{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 16px}.v101-answer-summary>div{padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}.v101-answer-summary strong{font-size:18px}@media(max-width:640px){.v101-review-progress{gap:9px}.v101-answer-tag{font-size:10px}.v101-answer-summary{gap:8px}}\n</style>\n'''
+          css = '''
+<style id="v101-review-ux">
+.v101-review-progress{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding:13px 15px}.v101-progress-track{height:7px;flex:1;background:var(--line);border-radius:99px;overflow:hidden}.v101-progress-track span{display:block;height:100%;background:var(--primary-2);border-radius:99px}.v101-review-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:8px 0 14px}.v101-status{font-size:12px;font-weight:800;padding:5px 9px;border-radius:999px}.v101-status.good{background:rgba(21,154,116,.10);color:var(--success)}.v101-status.bad{background:rgba(223,78,82,.10);color:var(--danger)}.v101-status.neutral{background:rgba(111,113,128,.10);color:var(--muted)}.v101-answer-tag{margin-left:auto;font-size:11px;font-weight:800;line-height:1.2;padding:5px 7px;border-radius:8px;background:rgba(47,45,99,.07)}.v101-answer-summary{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 16px}.v101-answer-summary>div{padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}.v101-answer-summary strong{font-size:18px}@media(max-width:640px){.v101-review-progress{gap:9px}.v101-answer-tag{font-size:10px}.v101-answer-summary{gap:8px}}
+</style>
+'''
           s = s.replace('</body>', css + '</body>', 1)
 
           after_haptic = s.count(haptic)
