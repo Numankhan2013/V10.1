@@ -15,6 +15,9 @@ jobs:
           ref: v10.2
           fetch-depth: 1
 
+      - name: Apply V10.2 runtime repair for audit
+        run: python3 tools/repair_v102_review.py
+
       - name: Run UX/UI static acceptance audit
         shell: bash
         run: |
