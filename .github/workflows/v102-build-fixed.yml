@@ -38,40 +38,62 @@ jobs:
           p=Path('app/src/main/assets/index.html')
           s=p.read_text(encoding='utf-8')
 
-          # .card.pad is an important two-class rule in the later polish layer.
-          # Give the focus card a three-class important selector so the intended
-          # dark hero treatment cannot be flattened back to white.
+          # Keep the focus hero above the generic .card background rule.
           s=s.replace('.focus-card{background:linear-gradient(135deg,#2f2d63 0%,#3d65d8 100%)!important;color:#fff!important;border:0!important;}', '.card.pad.focus-card{background:linear-gradient(135deg,#2f2d63 0%,#3d65d8 100%)!important;color:#fff!important;border:0!important;}')
+          s=s.replace('.card.pad.card.pad.focus-card{background:', '.card.pad.focus-card{background:')
 
-          # Ensure the review CTA carries the exact test id.
-          token='data-v102-review-cta="1"onclick="window.QB.reviewTest(\'${esc(t.id)}\')"'
-          replacement='data-v102-review-cta="1" data-review-test-id="${esc(t.id)}" onclick="window.QB.reviewTest(\'${esc(t.id)}\')"'
-          if 'data-review-test-id="${esc(t.id)}"' not in s:
-              if token not in s:
-                  raise SystemExit('Review Solutions CTA markup not found')
-              s=s.replace(token,replacement,1)
+          # The streak card must be part of dashboard()'s rendered HTML, not a one-shot
+          # DOM injection. render() replaces #app.innerHTML after every question, so an
+          # injected card disappears unless dashboard() recreates it every time.
+          anchor='<div class="dashboard-section"><div class="section-title"><span>At a glance</span>'
+          if '${streakMarkup()}' not in s:
+              if anchor not in s: raise SystemExit('Dashboard anchor not found')
+              s=s.replace(anchor, '${streakMarkup()}'+anchor, 1)
+          # The old helper used fields that do not exist in the canonical state and
+          # attempted a one-shot insertion. Disable only its insertion body; the
+          # canonical streakMarkup() above is now authoritative and reactive.
+          s=s.replace('if(document.querySelector(\'.v102-streak-card\')) return;', 'if(document.querySelector(\'.streak-card\') || document.querySelector(\'.v102-streak-card\')) return;', 1)
 
-          # Keep the review guard deterministic and tied to the CTA data id.
+          # Make review navigation synchronous as well as hash-addressable. This avoids
+          # relying on a WebView hashchange dispatch after a button click and guarantees
+          # the exact saved test is loaded into the review session.
+          old="""  function reviewTest(testId) {
+    const t=state.tests.find(x=>x.id===testId); if(!t) return;
+    state.activeSession={ id:`review_${testId}`, mode:'review', sourceTestId:testId, title:`Review · ${t.title}`, questionIds:t.questionIds, index:0, answers:t.answers||{}, submitted:Object.fromEntries(t.questionIds.map(id=>[id,Boolean(t.answers?.[id])])), startedAt:t.createdAt, questionTimes:t.questionTimes||{} };
+    saveState(); navigate('review-test');
+  }"""
+          new="""  function reviewTest(testId) {
+    const t=state.tests.find(x=>String(x.id)===String(testId)); if(!t) return;
+    state.activeSession={ id:`review_${t.id}`, mode:'review', sourceTestId:t.id, title:`Review · ${t.title}`, questionIds:[...t.questionIds], index:0, answers:{...(t.answers||{})}, submitted:Object.fromEntries(t.questionIds.map(id=>[id,Boolean(t.answers?.[id])])), startedAt:t.createdAt, questionTimes:{...(t.questionTimes||{})} };
+    saveState();
+    route={page:'review-test',id:String(t.id)};
+    render();
+    const hash=`review-test/${encodeURIComponent(t.id)}`;
+    if(location.hash!==`#${hash}`) history.pushState(null,'',`#${hash}`);
+  }"""
+          if old not in s: raise SystemExit('Canonical reviewTest function not found')
+          s=s.replace(old,new,1)
+
+          # Remove the late capture handler: direct button invocation above is the
+          # reliable path; a second handler could interfere with native WebView clicks.
           pattern=re.compile(r'<script id="v102-review-cta-guard">.*?</script>\\?',re.S)
-          replacement_script='''<script id="v102-review-cta-guard">
+          replacement='''<script id="v102-review-cta-guard">
           (function(){
             document.addEventListener('click',function(e){
               var b=e.target && e.target.closest ? e.target.closest('[data-v102-review-cta]') : null;
               if(!b) return;
               var id=b.getAttribute('data-review-test-id');
               if(!id || !window.QB || typeof window.QB.reviewTest!=='function') return;
-              e.preventDefault();
-              e.stopImmediatePropagation();
+              if(e.defaultPrevented) return;
               window.QB.reviewTest(id);
-            },true);
+            });
           })();
           </script>'''
-          s,n=pattern.subn(replacement_script,s,count=1)
-          if n!=1:
-              raise SystemExit(f'Review CTA guard replacement count={n}')
+          s,n=pattern.subn(replacement,s,count=1)
+          if n!=1: raise SystemExit(f'Review CTA guard replacement count={n}')
 
-          if 'getState:()=>state' not in s:
-              s=s.replace('window.QB={nav:navigate,','window.QB={getState:()=>state,nav:navigate,',1)
+          # Normalize literal escaped separators left by earlier raw-string injections.
+          s=s.replace('</script>\\n', '</script>\n').replace('</style>\\n', '</style>\n')
 
           p.write_text(s,encoding='utf-8')
           PY
@@ -92,14 +114,17 @@ jobs:
           assert s.count(h)==1, f'canonical haptic count={s.count(h)}'
           checks={
             'focus-card-specificity': '.card.pad.focus-card{background:linear-gradient(135deg,#2f2d63 0%,#3d65d8 100%)!important;color:#fff!important' in s,
+            'dashboard-streak-render': '${streakMarkup()}' in s,
+            'review-direct-render': 'route={page:\'review-test\',id:String(t.id)}' in s and 'render();' in s[s.find('function reviewTest('):s.find('function reviewTestPage(')],
             'review-data-id': 'data-review-test-id="${esc(t.id)}"' in s,
             'review-get-state': 'getState:()=>state' in s,
             'green-feedback': '.option.correct.selected{background:#eaf9f3!important' in s,
             'red-feedback': '.option.wrong.selected{background:#fff0f1!important' in s,
+            'no-literal-escaped-separators': '\\n<script id="v102-' not in s and '\\n<style id="v102-' not in s,
           }
           for k,v in checks.items(): print(('PASS ' if v else 'FAIL ')+k)
           assert all(checks.values()), checks
-          print('V10.2 UX/UI source acceptance checks passed')
+          print('V10.2 device regression acceptance checks passed')
           PY
       - name: Commit repaired product source
         shell: bash
@@ -109,7 +134,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add app/src/main/assets/index.html
           if ! git diff --cached --quiet; then
-            git commit -m 'V10.2 product source: repair focus card specificity'
+            git commit -m 'V10.2 product source: fix review navigation and persistent streak'
             git push
           else
             echo 'Product source already repaired'
