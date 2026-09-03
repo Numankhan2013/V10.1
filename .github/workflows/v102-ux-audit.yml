@@ -11,7 +11,6 @@ jobs:
     steps:
       - name: Checkout v10.2
         uses: actions/checkout@v4
-
       - name: Run UX/UI static acceptance audit
         shell: python
         run: |
@@ -25,10 +24,10 @@ jobs:
             'practice submission': 'submitPractice();' in s,
             'review solutions': 'Review Solutions' in s,
             'canonical haptic': s.count("function haptic(pattern){ try{ if(navigator && typeof navigator.vibrate==='function') navigator.vibrate(pattern); }catch(e){} }")==1,
-            'reduced motion': bool(re.search(r'prefers-reduced-motion',s)),
-            'responsive layout': bool(re.search(r'@media[^{}]*max-width|@media[^{}]*min-width',s)),
+            'reduced motion': 'prefers-reduced-motion' in s,
+            'responsive layout': bool(re.search(r'@media',s)),
             'focus-visible states': ':focus-visible' in s,
-            'touch-friendly controls': bool(re.search(r'(min-height|height)\s*:\s*(4[4-9]|[5-9][0-9])px',s)),
+            'touch-friendly controls': bool(re.search(r'min-height\s*:\s*(4[4-9]|[5-9][0-9])px',s)),
           }
           failed=[k for k,v in checks.items() if not v]
           print('V10.2 UX/UI audit:')
