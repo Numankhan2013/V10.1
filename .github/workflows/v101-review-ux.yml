@@ -1,0 +1,118 @@
+name: V10.1 Review Solutions UX polish
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  polish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout V10.1
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Upgrade Review Solutions presentation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path('app/src/main/assets/index.html')
+          s = path.read_text(encoding='utf-8')
+
+          # Hard guard: the question engine's haptic function must remain byte-for-byte present.
+          haptic = "function haptic(pattern){ try{ if(navigator && typeof navigator.vibrate==='function') navigator.vibrate(pattern); }catch(e){} }"
+          before_haptic = s.count(haptic)
+          before_vibrate = s.count('navigator.vibrate')
+          if before_haptic != 1:
+              raise SystemExit(f'ABORT: expected exactly one canonical haptic function, found {before_haptic}')
+
+          start = s.find('  function reviewTestPage() {')
+          if start < 0:
+              raise SystemExit('ABORT: reviewTestPage() not found')
+          end = s.find('\n  function endSession()', start)
+          if end < 0:
+              raise SystemExit('ABORT: endSession() boundary not found')
+
+          new_fn = r'''  function reviewTestPage() {
+    const s=state.activeSession; if(!s || s.mode!=='review') return testsPage();
+    const q=BY_ID[s.questionIds[s.index]], selected=s.answers[q.id]||null, corr=Number(selected)===Number(q.correctOption);
+    const answerLetter = selected ? String.fromCharCode(64+Number(selected)) : null;
+    const correctLetter = String.fromCharCode(64+Number(q.correctOption));
+    const statusLabel = selected ? (corr ? 'Correct' : 'Incorrect') : 'Unattempted';
+    const statusClass = corr ? 'good' : (selected ? 'bad' : 'neutral');
+    const progress = `${s.index+1} / ${s.questionIds.length}`;
+    const options=q.options.map(o=>{
+      const n=o.letter.charCodeAt(0)-64,isSel=Number(selected)===n,isCor=Number(q.correctOption)===n;
+      let cls='option review-option';
+      if(isSel) cls+=' selected';
+      if(isCor) cls+=' correct';
+      if(isSel&&!isCor) cls+=' wrong';
+      const marker=isSel ? (isCor ? 'Your answer · Correct' : 'Your answer · Incorrect') : (isCor ? 'Correct answer' : '');
+      return `<div class="${cls}"><span class="radio"></span><span class="option-letter">${o.letter}</span><span class="option-text">${esc(o.text)}</span>${marker?`<span class="review-option-tag">${marker}</span>`:''}</div>`;
+    }).join('');
+    const yourAnswer = selected
+      ? `<div class="review-answer-line"><span class="review-answer-label">Your answer</span><strong>${answerLetter}. ${esc(q.options[Number(selected)-1]?.text || '')}</strong></div>`
+      : `<div class="review-answer-line"><span class="review-answer-label">Your answer</span><strong class="review-muted">Unattempted</strong></div>`;
+    const correctAnswer = `<div class="review-answer-line"><span class="review-answer-label">Correct answer</span><strong>${correctLetter}. ${esc(q.options[Number(q.correctOption)-1]?.text || '')}</strong></div>`;
+    const prevDisabled=s.index<=0?' disabled':'';
+    const nextLabel=s.index>=s.questionIds.length-1?'Finish Review':'Next Question';
+    const navItems=s.questionIds.map((id,i)=>{
+      const a=s.answers[id], qq=BY_ID[id], isCurrent=i===s.index, isCorrect=Number(a)===Number(qq.correctOption);
+      const cls=`review-nav-item${isCurrent?' active':''}${a?(isCorrect?' correct':' wrong'):''}`;
+      return `<button class="${cls}" onclick="window.QB.goIndex(${i})" aria-label="Question ${i+1}${a?(isCorrect?', correct':', incorrect'):', unattempted'}">${i+1}</button>`;
+    }).join('');
+    return shell(`
+      <div class="page-head review-page-head"><div><div class="mode-pill">Test Review</div><h1 class="page-title" style="margin-top:9px">${esc(s.title)}</h1><div class="page-sub">Question ${q.questionNumber} of ${s.questionIds.length} · ${progress}</div></div><button class="ghost-btn" onclick="window.QB.nav('tests')">Back to Tests</button></div>
+      <div class="review-progress-card"><div><div class="review-eyebrow">Reviewing submitted test</div><div class="review-progress-title">Question ${s.index+1} of ${s.questionIds.length}</div></div><div class="review-progress-track" aria-hidden="true"><span style="width:${((s.index+1)/s.questionIds.length)*100}%"></span></div><div class="review-progress-percent">${Math.round(((s.index+1)/s.questionIds.length)*100)}%</div></div>
+      <section class="card question-card review-question-card"><div class="crumb">${esc(q.chapter)}</div><div class="review-question-meta"><span class="review-q-number">Q${q.questionNumber}</span><span class="review-status ${statusClass}">${statusLabel}</span></div><div class="question-text">${esc(q.question)}</div><div class="option-list review-option-list">${options}</div><div class="review-answer-summary"><div class="review-answer-summary-title">Answer check</div>${yourAnswer}${correctAnswer}</div><div class="feedback ${corr?'good':(selected?'bad':'neutral')}"><div class="feedback-title">${statusLabel}</div>${q.explanation?`<div class="label">Source explanation</div><div class="feedback-body">${formatExplanation(q.explanation)}</div>`:`<div class="small-muted">No source explanation was provided for this question.</div>`}</div><div class="q-footer review-footer"><button class="ghost-btn" onclick="window.QB.prevQ()"${prevDisabled}>${navIcon('chevron',15)} Previous</button><button class="primary-btn" onclick="window.QB.nextQ()">${nextLabel} ${nextLabel==='Finish Review'?'':navIcon('chevron',15)}</button></div><div class="source-box"><details><summary>Source page ${q.sourcePage}</summary><a class="source-link" href="assets/Biochemistry_QBank_Source.pdf#page=${q.sourcePage}" target="_blank">Open original PDF</a></details></div></section>
+      <aside class="card pad review-navigator-card"><div class="section-title"><span>Question Navigator</span><span class="sub">Submitted answers</span></div><div class="review-nav-grid">${navItems}</div><div class="review-nav-legend"><span><i class="review-legend-dot current"></i>Current</span><span><i class="review-legend-dot correct"></i>Correct</span><span><i class="review-legend-dot wrong"></i>Incorrect</span><span><i class="review-legend-dot"></i>Unattempted</span></div></aside>
+    `,'tests','Review');
+  }
+'''
+          s = s[:start] + new_fn + s[end:]
+
+          css = r'''\n/* V10.1 REVIEW SOLUTIONS UX — explicit answer state, stronger hierarchy, phone-first navigation. */\n.review-progress-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px 16px;align-items:end;margin:0 0 14px;padding:14px 16px;border:1px solid rgba(47,45,99,.08);border-radius:16px;background:linear-gradient(180deg,#fff,#fafaff);box-shadow:0 4px 16px rgba(25,27,48,.04)}\n.review-eyebrow{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}\n.review-progress-title{margin-top:2px;font-size:15px;font-weight:850;letter-spacing:-.2px}\n.review-progress-track{grid-column:1/-1;height:6px;overflow:hidden;border-radius:999px;background:#ececf3}\n.review-progress-track span{display:block;height:100%;border-radius:inherit;background:var(--primary-2);transition:width .14s ease}\n.review-progress-percent{font-size:12px;font-weight:800;color:var(--muted);align-self:center}\n.review-question-meta{display:flex;align-items:center;gap:8px;margin:9px 0 12px}\n.review-q-number{font-size:12px;font-weight:850;letter-spacing:.04em;color:var(--primary)}\n.review-status{padding:5px 9px;border-radius:999px;font-size:11px;font-weight:850;line-height:1}\n.review-status.good{background:#e8f7f1;color:#117758}.review-status.bad{background:#fdebed;color:#b43b42}.review-status.neutral{background:#f0f1f5;color:#656877}\n.review-option-list{gap:9px}\n.review-option{position:relative;padding-right:118px;min-height:58px;cursor:default}\n.review-option-tag{margin-left:auto;align-self:center;padding:4px 7px;border-radius:7px;background:#f1f2f7;color:#626475;font-size:10px;font-weight:850;white-space:nowrap}\n.review-option.correct .review-option-tag{background:#e8f7f1;color:#117758}.review-option.wrong .review-option-tag{background:#fdebed;color:#b43b42}\n.review-answer-summary{margin-top:16px;padding:14px 15px;border:1px solid #e7e8ee;border-radius:14px;background:#fbfbfd}\n.review-answer-summary-title{margin-bottom:9px;font-size:12px;font-weight:850;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}\n.review-answer-line{display:grid;grid-template-columns:100px minmax(0,1fr);gap:10px;padding:8px 0}.review-answer-line+.review-answer-line{border-top:1px solid #e9e9ef}\n.review-answer-label{font-size:12px;font-weight:750;color:var(--muted)}.review-answer-line strong{font-size:13px;line-height:1.45}.review-muted{color:var(--muted)}\n.review-footer{margin-top:18px}\n.review-navigator-card{margin-top:14px}\n.review-nav-grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:7px;margin-top:12px}\n.review-nav-item{min-height:40px;border:1px solid #e3e4eb;border-radius:10px;background:#fff;color:var(--ink);font-weight:800;cursor:pointer}.review-nav-item.active{border-color:var(--primary);box-shadow:0 0 0 2px rgba(47,45,99,.11);background:#f4f3ff}.review-nav-item.correct{border-color:#a9dfcc;background:#eefaf6;color:#117758}.review-nav-item.wrong{border-color:#f1b7bc;background:#fff3f4;color:#b43b42}.review-nav-item.active.correct,.review-nav-item.active.wrong{box-shadow:0 0 0 2px rgba(47,45,99,.11)}\n.review-nav-legend{display:flex;flex-wrap:wrap;gap:9px 14px;margin-top:12px;font-size:11px;color:var(--muted)}.review-nav-legend span{display:inline-flex;align-items:center;gap:5px}.review-legend-dot{width:8px;height:8px;border-radius:50%;background:#e4e5eb}.review-legend-dot.current{background:var(--primary)}.review-legend-dot.correct{background:#54b991}.review-legend-dot.wrong{background:#df6b70}\n@media (max-width:640px){.review-progress-card{grid-template-columns:minmax(0,1fr) auto}.review-option{padding-right:12px;display:grid;grid-template-columns:auto auto minmax(0,1fr);align-items:center}.review-option-tag{grid-column:3;justify-self:start;margin:5px 0 0}.review-answer-line{grid-template-columns:1fr;gap:3px}.review-nav-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.review-nav-item{min-height:44px}.review-footer{gap:8px}.review-footer .ghost-btn,.review-footer .primary-btn{flex:1}.review-page-head .ghost-btn{width:100%}}\n@media (prefers-reduced-motion:reduce){.review-progress-track span{transition:none}}\n'''
+          marker = '/* V10.1 REVIEW SOLUTIONS UX — explicit answer state'
+          if marker not in s:
+              pos=s.find('</style>')
+              if pos<0: raise SystemExit('ABORT: no closing style tag')
+              s=s[:pos]+css+s[pos:]
+
+          # Make the source button canonical too; the existing presentation observer remains harmless.
+          s=s.replace('>Review Test</button>', '>Review Solutions</button>')
+
+          after_haptic=s.count(haptic)
+          after_vibrate=s.count('navigator.vibrate')
+          if after_haptic != before_haptic or after_vibrate != before_vibrate:
+              raise SystemExit(f'ABORT: haptics changed (function {before_haptic}->{after_haptic}, vibrate {before_vibrate}->{after_vibrate})')
+          if s.count('function reviewTestPage()') != 1:
+              raise SystemExit('ABORT: reviewTestPage count is not exactly one')
+          if 'Your answer' not in s or 'Correct answer' not in s or 'Question Navigator' not in s:
+              raise SystemExit('ABORT: review UX markers missing')
+
+          path.write_text(s,encoding='utf-8')
+          print(f'Updated index.html: {len(s)} chars / {len(s.splitlines())} lines')
+          print('Haptic function count:', after_haptic)
+          print('navigator.vibrate count:', after_vibrate)
+          PY
+
+      - name: Build debug APK
+        run: gradle --no-daemon assembleDebug
+
+      - name: Commit Review Solutions UX
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/src/main/assets/index.html
+          git commit -m "Polish V10.1 Review Solutions UX"
+          git push origin main
