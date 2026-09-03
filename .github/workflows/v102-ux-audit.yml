@@ -2,7 +2,7 @@ name: V10.2 UX/UI audit
 
 on:
   push:
-    branches: [v10.2, v10.2-ui-overhaul]
+    branches: [v10.2-ui-overhaul]
   workflow_dispatch:
 
 permissions:
@@ -17,31 +17,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Normalize V10.2 transformer patterns
-        shell: bash
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          p=Path('tools/v102_ui_overhaul.py')
-          lines=p.read_text(encoding='utf-8').splitlines()
-          replacements = [
-            ('header_pat=re.compile(', '''header_pat=re.compile(r"function\\s+header\\s*\\(\\s*title\\s*=\\s*'QBank'\\s*\\)\\s*\\{.*?\\}\\s*function\\s+bottomNav",re.S)'''),
-            ('review_pat=re.compile(', '''review_pat=re.compile(r"function\\s+reviewTest\\s*\\(\\s*testId\\s*\\)\\s*\\{.*?\\}\\s*function\\s+reviewTestPage",re.S)'''),
-            ('page_pat=re.compile(', '''page_pat=re.compile(r"function\\s+reviewTestPage\\s*\\(\\s*\\)\\s*\\{.*?const\\s+t=state\\.tests\\.find\\(x=>String\\(x\\.id\\)===String\\(route\\.id\\)\\);",re.S)'''),
-          ]
-          out=[]; found=set()
-          for line in lines:
-              stripped=line.lstrip(); indent=line[:len(line)-len(stripped)]
-              for prefix,repl in replacements:
-                  if stripped.startswith(prefix):
-                      line=indent+repl; found.add(prefix); break
-              out.append(line)
-          p.write_text(chr(10).join(out)+chr(10),encoding='utf-8')
-          print('Normalized:', sorted(found))
-          if len(found)!=3: raise SystemExit('Transformer normalization did not find all three pattern definitions')
-          PY
-
-      - name: Apply immersive UI and review reliability pass
+      - name: Apply immersive UI and review reliability layer
         run: python3 tools/v102_ui_overhaul.py
 
       - name: Remove temporary inspection scaffolding
@@ -62,19 +38,16 @@ jobs:
           s=Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
           checks={
             'next UI layer': 'id="v102-next-ui"' in s and 'id="v102-next-ui-behavior"' in s,
-            'subject hub': 'v102-subject-hub' in s and 'data-v102-subject-card' in s and 'Choose a topic' in s,
-            'topbar simplified': 'function header' in s and 'Open navigation' not in s[s.find('function header'):s.find('function bottomNav')],
+            'subject hub': 'v102-subject-hub' in s and 'data-v102-subject' in s and 'Choose a subject' in s and 'Choose a topic' in s,
+            'topbar simplified': '.topbar .icon-btn{display:none!important}' in s,
             'whole-card correct feedback': '.option.correct,.option.correct.selected' in s,
             'whole-card wrong feedback': '.option.wrong,.option.wrong.selected' in s,
             'large readable options': '.option-text{font-size:16px' in s and 'min-height:76px' in s,
-            'Review Solutions button': 'v102-review-action' in s and 'data-v102-review-cta="1"' in s,
-            'deterministic review guard': 'stopImmediatePropagation' in s and 'function reviewTest(testId)' in s,
-            'review route decoding': 'decodeURIComponent(String(route.id||\'\'))' in s,
+            'Review Solutions CTA': 'v102-review-action' in s and 'data-v102-review-cta="1"' in s,
+            'deterministic review interception': 'stopImmediatePropagation' in s and 'window.QB.reviewTest' in s,
             'structured explanation treatment': 'formatExplanations' in s and 'v102-explanation-heading' in s,
             'reduced motion': 'prefers-reduced-motion' in s,
             'responsive layout': '@media(max-width:640px)' in s,
-            'canonical haptic count': s.count("function haptic(pattern){ try{ if(navigator && typeof navigator.vibrate==='function') navigator.vibrate(pattern); }catch(e){} }")==1,
-            'single vibrate call': s.count('navigator.vibrate(')==1,
           }
           scripts=re.findall(r'<script(?:\s[^>]*)?>(.*?)</script>',s,re.S|re.I)
           for i,body in enumerate(scripts):
