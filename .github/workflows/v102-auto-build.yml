@@ -1,0 +1,117 @@
+name: V10.2 Core UX - Auto Build
+
+on:
+  push:
+    branches: [v10.2]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout V10.2
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Set up JDK 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Set up Gradle 9.5.0
+        uses: gradle/actions/setup-gradle@v5
+        with:
+          gradle-version: '9.5.0'
+      - name: Apply V10.2 core product pass
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          p=Path('app/src/main/assets/index.html')
+          s=p.read_text(encoding='utf-8')
+          h="function haptic(pattern){ try{ if(navigator && typeof navigator.vibrate==='function') navigator.vibrate(pattern); }catch(e){} }"
+          h0=s.count(h); v0=s.count('navigator.vibrate')
+          if h0 != 1: raise SystemExit(f'FAIL: haptic implementation count={h0}')
+
+          def fn_span(src,name):
+              m=re.search(r'(?<![\\w$])function\\s+'+re.escape(name)+r'\\s*\\(',src)
+              if not m:return None
+              brace=src.find('{',m.end())
+              if brace<0:return None
+              depth=0; quote=None; esc=False
+              for i in range(brace,len(src)):
+                  c=src[i]
+                  if quote:
+                      if esc: esc=False
+                      elif c=='\\\\': esc=True
+                      elif c==quote: quote=None
+                  else:
+                      if c in ('"',"'",'`'): quote=c
+                      elif c=='{': depth+=1
+                      elif c=='}':
+                          depth-=1
+                          if depth==0:return m.start(),i+1
+              return None
+
+          # Capture the exact completed-test id whenever resultPage is rendered.
+          z=fn_span(s,'resultPage')
+          if z:
+              a,b=z; block=s[a:b]
+              marker="window.__v102ResultTestId=String(testId);try{sessionStorage.setItem('qbank_v102_result_test_id',String(testId));}catch(e){}"
+              if '__v102ResultTestId' not in block:
+                  j=block.find('{'); block=block[:j+1]+marker+block[j+1:]; s=s[:a]+block+s[b:]
+
+          # Add an immutable source marker to review state when the existing engine exposes it in this exact form.
+          z=fn_span(s,'reviewTest')
+          if z:
+              a,b=z; block=s[a:b]
+              if 'sourceTestId' not in block and "mode:'review'" in block:
+                  block=block.replace("mode:'review',","mode:'review',sourceTestId:testId,")
+                  s=s[:a]+block+s[b:]
+
+          runtime=r'''\n<script id="v102-core-runtime">\n(function(){\n'use strict';\nvar STORE='qbank_v102_study_dates';\nfunction readDates(){try{return JSON.parse(localStorage.getItem(STORE)||'[]')}catch(e){return[]}}\nfunction saveDates(a){try{localStorage.setItem(STORE,JSON.stringify(Array.from(new Set(a)).slice(-180)))}catch(e){}}\nfunction dayKey(d){return d.toISOString().slice(0,10)}\nfunction markStudy(){var a=readDates(),k=dayKey(new Date());if(a.indexOf(k)<0){a.push(k);saveDates(a)}drawStreak()}\nfunction streak(){var a=readDates(),set={};a.forEach(function(x){set[x]=1});var n=new Date();n.setHours(12,0,0,0);var c=new Date(n),count=0;while(set[dayKey(c)]){count++;c.setDate(c.getDate()-1)}if(!count){c=new Date(n);c.setDate(c.getDate()-1);while(set[dayKey(c)]){count++;c.setDate(c.getDate()-1)}}var w=[];for(var i=6;i>=0;i--){var d=new Date(n);d.setDate(d.getDate()-i);w.push({l:d.toLocaleDateString(undefined,{weekday:'short'}).slice(0,2),on:!!set[dayKey(d)]})}return{count:count,today:!!set[dayKey(n)],w:w}}\nfunction home(p){var t=(p.querySelector('.page-title')||{}).textContent||'';return /home|dashboard/i.test(t)||/NEXT BEST MOVE/i.test(p.innerText||'')}\nfunction drawStreak(){var p=document.querySelector('.page');if(!p||!home(p))return;var x=streak(),c=p.querySelector('.v102-streak');if(!c){c=document.createElement('section');c.className='v102-streak';c.setAttribute('aria-label','Study streak');var h=p.querySelector('.page-head');(h&&h.parentNode?h.parentNode:p).insertBefore(c,h?h.nextSibling:p.firstChild)}var msg=x.count?(x.today?'You showed up today. Keep the run alive.':'Your streak is alive — study today to keep it going.'):'Start today and build your first streak.';c.innerHTML='<div class="v102-streak-main"><div><div class="eyebrow">STUDY STREAK</div><div class="number">'+x.count+'</div><div class="copy">'+msg+'</div></div><div class="flame" aria-hidden="true">🔥</div></div><div class="week">'+x.w.map(function(d){return '<div class="day">'+d.l+'<div class="dot '+(d.on?'on':'')+'"></div></div>'}).join('')+'</div>'}\nfunction modeText(){var p=document.querySelector('.mode-pill');return p?(p.textContent||'').trim().toLowerCase():''}\nfunction isReview(){return /review/.test(modeText())}\nfunction findSubmit(){var bs=document.querySelectorAll('button');for(var i=0;i<bs.length;i++){var b=bs[i];if(!b.offsetParent)continue;var t=(b.innerText||b.textContent||'').trim().toLowerCase();if(t==='submit'||t==='submit answer')return b}return null}\nfunction practiceAuto(e){if(isReview()||!/practice/.test(modeText()))return;var o=e.target.closest&&e.target.closest('.option,.option-item');if(!o)return;markStudy();setTimeout(function(){var b=findSubmit();if(b){b.click();setTimeout(function(){b.classList.add('v102-practice-hidden')},40)}},0)}\nfunction bindReview(){var id=window.__v102ResultTestId;try{if(!id)id=sessionStorage.getItem('qbank_v102_result_test_id')}catch(e){}document.querySelectorAll('button,a').forEach(function(b){var t=(b.innerText||b.textContent||'').trim().toLowerCase();if(t!=='review solutions'&&t!=='review test')return;b.removeAttribute('disabled');b.removeAttribute('aria-disabled');b.style.pointerEvents='auto';b.style.cursor='pointer';b.dataset.v102ReviewTestId=id||'';b.setAttribute('aria-label','Review Solutions for this completed test')})}\nfunction reviewClick(e){var b=e.target.closest&&e.target.closest('button,a');if(!b)return;var t=(b.innerText||b.textContent||'').trim().toLowerCase();if(t!=='review solutions'&&t!=='review test')return;var id=b.dataset.v102ReviewTestId||window.__v102ResultTestId;try{if(!id)id=sessionStorage.getItem('qbank_v102_result_test_id')}catch(x){}if(id&&window.QB&&typeof window.QB.reviewTest==='function'){e.preventDefault();e.stopImmediatePropagation();window.QB.reviewTest(id)}}\nfunction dead(){document.querySelectorAll('.topbar .icon-btn,.topbar button').forEach(function(b){var a=b.getAttribute('onclick')||b.getAttribute('data-action')||b.getAttribute('aria-controls')||'';var l=((b.getAttribute('aria-label')||b.title||b.textContent||'')+'').trim().toLowerCase();if(!a&&(l==='menu'||l==='more'||l==='options'||l==='')){var svg=b.querySelector('svg');if(svg)b.remove()}})}\nfunction reviewVisual(){var p=document.querySelector('.page');if(!p)return;var r=isReview();document.documentElement.classList.toggle('v102-review-mode',r);if(r&&!p.querySelector('.v102-review-banner')){var b=document.createElement('div');b.className='v102-review-banner';b.innerHTML='<span class="v102-review-status">REVIEW SOLUTIONS</span><strong>Your submitted answers are being reviewed — nothing can be changed.</strong>';var h=p.querySelector('.page-head');if(h&&h.nextSibling)h.parentNode.insertBefore(b,h.nextSibling);else p.insertBefore(b,p.firstChild)}}\nfunction boot(){drawStreak();bindReview();dead();reviewVisual()}\ndocument.addEventListener('click',function(e){practiceAuto(e);var o=e.target.closest&&e.target.closest('.option,.option-item');if(o&&!isReview())markStudy()},true);document.addEventListener('click',reviewClick,true);\nif(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else setTimeout(boot,0);new MutationObserver(boot).observe(document.documentElement,{subtree:true,childList:true});setInterval(boot,1200);\n})();\n</script>\n'''
+          if 'id="v102-core-runtime"' not in s:s=s.replace('</body>',runtime+'</body>',1)
+
+          css=r'''\n<style id="v102-2026-system">\n:root{--v102-bg:#f3f5fa;--v102-ink:#0d1222;--v102-muted:#677185;--v102-indigo:#4f46e5;--v102-violet:#7c3aed;--v102-green:#10b981;--v102-amber:#f59e0b;--v102-line:rgba(24,31,54,.09);--v102-shadow:0 20px 55px rgba(21,28,59,.08);--v102-shadow2:0 8px 28px rgba(21,28,59,.06)}\nhtml,body{background:var(--v102-bg);color:var(--v102-ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}body{font-family:Inter,-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}\n.topbar{background:linear-gradient(135deg,#11112e 0%,#29245e 48%,#4f46e5 100%);box-shadow:0 12px 32px rgba(20,18,65,.2);border-bottom:1px solid rgba(255,255,255,.08)}.topbar .brand{font-weight:850;letter-spacing:-.25px}.brand-mark{border-radius:11px;box-shadow:0 10px 22px rgba(0,0,0,.24),inset 0 0 0 1px rgba(255,255,255,.18)}\n.page{width:min(1040px,100%);padding:22px 16px calc(104px + var(--safe-bottom))}.page-title{font-size:clamp(29px,6vw,36px);font-weight:900;letter-spacing:-1.2px;line-height:1.04;color:#0a0d1a}.page-sub{font-size:13px;line-height:1.55;color:var(--v102-muted)}.section-title{font-size:17px;font-weight:900;letter-spacing:-.35px}\n.card,.topic-row,.library-row,.exam-top,.session-card,.chart-card,.question-card{border:1px solid rgba(25,32,57,.075);border-radius:22px;box-shadow:var(--v102-shadow2)}.card.pad,.chart-card,.question-card,.session-card{padding:18px}.stat-card{border-radius:20px;min-height:112px;background:linear-gradient(145deg,#fff,#fbfcff);box-shadow:var(--v102-shadow2)}.stat-card .label{font-weight:700;color:#7b8392}.stat-card .value{font-size:28px;font-weight:950;letter-spacing:-1px}.primary-btn{background:linear-gradient(135deg,var(--v102-indigo),var(--v102-violet));border:0;box-shadow:0 12px 24px rgba(79,70,229,.22);font-weight:850;min-height:46px}.ghost-btn,.select{min-height:46px;border-radius:14px;font-weight:780}\n.option{border-radius:17px;padding:14px 15px;transition:transform .09s ease,box-shadow .09s ease,border-color .09s ease,background .09s ease;box-shadow:0 2px 8px rgba(19,24,42,.03)}.option:hover{transform:translateY(-.5px);box-shadow:0 7px 18px rgba(19,24,42,.07)}.option.selected{box-shadow:0 10px 24px rgba(61,101,216,.11)}.question-text{font-size:clamp(17px,4vw,19px);font-weight:700;letter-spacing:-.15px;line-height:1.56}\n.bottom-nav{background:rgba(255,255,255,.86);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 -10px 35px rgba(24,31,59,.08);border-top:1px solid rgba(30,35,60,.07)}.nav-item{font-weight:760;min-height:58px}.nav-item.active{font-weight:900}\n.v102-streak{position:relative;overflow:hidden;padding:20px;border-radius:26px;background:radial-gradient(circle at 85% 20%,rgba(245,158,11,.32),transparent 32%),linear-gradient(135deg,#131329 0%,#30255d 55%,#5b21b6 100%);color:#fff;box-shadow:0 20px 46px rgba(54,31,113,.23);margin:0 0 15px}.v102-streak-main{position:relative;z-index:1;display:flex;align-items:flex-start;justify-content:space-between;gap:14px}.v102-streak .eyebrow{font-size:10px;letter-spacing:1px;font-weight:900;opacity:.7}.v102-streak .number{font-size:46px;font-weight:950;line-height:1;letter-spacing:-2.5px;margin-top:7px}.v102-streak .copy{font-size:13px;line-height:1.45;opacity:.82;margin-top:7px}.v102-streak .flame{font-size:47px;filter:drop-shadow(0 8px 16px rgba(245,158,11,.33));animation:v102-flame 2.9s ease-in-out infinite}.v102-streak .week{display:flex;gap:7px;margin-top:18px;position:relative;z-index:1}.v102-streak .day{flex:1;text-align:center;font-size:9px;font-weight:700;opacity:.65}.v102-streak .dot{width:21px;height:21px;border-radius:50%;margin:5px auto 0;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.13)}.v102-streak .dot.on{background:linear-gradient(135deg,#fbbf24,#f97316);border:0;box-shadow:0 7px 16px rgba(249,115,22,.3)}@keyframes v102-flame{0%,100%{transform:translateY(0) rotate(-2deg) scale(1)}50%{transform:translateY(-3px) rotate(2deg) scale(1.045)}}\n.v102-practice-hidden{display:none!important}.v102-review-banner{padding:14px 16px;border-radius:18px;background:linear-gradient(135deg,#f7f5ff,#fff);border:1px solid rgba(79,70,229,.13);margin:0 0 14px;box-shadow:0 8px 24px rgba(70,60,150,.05)}.v102-review-status{display:inline-flex;padding:5px 8px;border-radius:999px;background:#ede9fe;color:#5b21b6;font-size:10px;font-weight:900;letter-spacing:.5px;margin-right:8px}\nhtml.v102-review-mode .topbar{background:linear-gradient(135deg,#1c183f,#49328a,#6d28d9)}\nbutton:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid rgba(79,70,229,.28);outline-offset:2px}\n@media(max-width:640px){.page{padding-left:16px;padding-right:16px;padding-top:19px}.page-title{font-size:29px}.stat-card{min-height:99px;padding:13px}.stat-card .value{font-size:25px}.v102-streak{padding:18px;border-radius:23px}.v102-streak .number{font-size:42px}.v102-streak .flame{font-size:42px}.topic-row{padding:12px;border-radius:17px}.question-card{border-radius:20px}.option{padding:14px 13px;min-height:50px}}@media(prefers-reduced-motion:reduce){.v102-streak .flame{animation:none}.option,.primary-btn{transition:none!important}}\n</style>\n'''
+          if 'id="v102-2026-system"' not in s:s=s.replace('</body>',css+'</body>',1)
+
+          if s.count(h)!=h0 or s.count('navigator.vibrate')!=v0:raise SystemExit('FAIL: haptic implementation changed')
+          p.write_text(s,encoding='utf-8')
+          print('PASS: V10.2 core product layer applied')
+          PY
+      - name: Acceptance checks
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          s=Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
+          checks=[('Review Solutions','Review Solutions' in s),('exact test capture','__v102ResultTestId' in s),('review source marker','sourceTestId' in s),('practice auto','practiceAuto' in s),('streak persistence','qbank_v102_study_dates' in s),('streak UI','v102-streak' in s),('2026 visual system','v102-2026-system' in s),('dead control','v102-dead' in s),('haptics unchanged',s.count("function haptic(pattern){ try{ if(navigator && typeof navigator.vibrate==='function') navigator.vibrate(pattern); }catch(e){} }")==1)]
+          for k,v in checks: print(k, 'PASS' if v else 'FAIL')
+          if not all(v for _,v in checks):raise SystemExit(1)
+          PY
+      - name: Build V10.2 APK
+        run: gradle --no-daemon assembleDebug
+      - name: Upload V10.2 verification
+        uses: actions/upload-artifact@v4
+        with:
+          name: V10.2-verification
+          path: v102_verification.txt
+          if-no-files-found: warn
+      - name: Upload V10.2 debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: V10.2-debug-apk
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
+      - name: Commit V10.2 source
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app/src/main/assets/index.html
+          if ! git diff --cached --quiet; then git commit -m 'V10.2 core UX product pass' && git push origin HEAD:v10.2; fi
