@@ -11,11 +11,17 @@ jobs:
     steps:
       - name: Checkout v10.2
         uses: actions/checkout@v5
+        with:
+          ref: v10.2
+          fetch-depth: 1
+
       - name: Run UX/UI static acceptance audit
-        shell: python
+        shell: bash
         run: |
+          set -euo pipefail
+          python3 - <<'PY'
           from pathlib import Path
-          import re
+          import re, subprocess, tempfile
           s=Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
           checks={
             'modern UI layer': 'v102-modern-ui' in s,
@@ -24,11 +30,31 @@ jobs:
             'practice submission': 'submitPractice();' in s,
             'review solutions': 'Review Solutions' in s,
             'canonical haptic': s.count("function haptic(pattern){ try{ if(navigator && typeof navigator.vibrate==='function') navigator.vibrate(pattern); }catch(e){} }")==1,
+            'single vibrate implementation': s.count('navigator.vibrate')==1,
             'reduced motion': 'prefers-reduced-motion' in s,
             'responsive layout': bool(re.search(r'@media',s)),
+            'no escaped v102 script separators': '\\n<script id="v102-' not in s,
+            'no escaped v102 style separators': '\\n<style id="v102-' not in s,
           }
+          scripts=re.findall(r'<script(?:\s[^>]*)?>(.*?)</script>',s,re.S|re.I)
+          syntax_ok=True
+          checked=0
+          for i,body in enumerate(scripts):
+              body=body.strip()
+              if not body: continue
+              with tempfile.NamedTemporaryFile('w',suffix='.js',delete=False,encoding='utf-8') as f:
+                  f.write(body); name=f.name
+              r=subprocess.run(['node','--check',name],text=True,capture_output=True)
+              checked+=1
+              if r.returncode!=0:
+                  syntax_ok=False
+                  print(r.stderr)
+                  break
+          checks['inline JavaScript syntax'] = syntax_ok
           failed=[k for k,v in checks.items() if not v]
           print('V10.2 UX/UI audit:')
           for k,v in checks.items(): print(('PASS ' if v else 'FAIL ')+k)
+          print('Inline scripts checked:', checked)
           assert not failed, 'UX/UI acceptance failures: '+', '.join(failed)
           print('All V10.2 static UX/UI acceptance checks passed')
+          PY
