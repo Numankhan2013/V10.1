@@ -1,0 +1,73 @@
+name: V10.1 source audit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout V10.1
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Audit source structure
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path('app/src/main/assets')
+          html = root / 'index.html'
+          text = html.read_text(encoding='utf-8', errors='replace')
+          report = []
+          report.append(f'index.html chars={len(text)} lines={text.count(chr(10))+1}')
+          report.append('')
+
+          terms = [
+              'Review Test', 'Review Solutions', 'Test Analysis', '663', 'streak',
+              'vibrate', 'haptic', 'navigator.vibrate', 'Next Best Move',
+              'Unattempted', 'Accuracy', 'Correct', 'Incorrect', 'Timed CBT',
+              'Practice', 'Wrong Questions', 'Chapter', 'Dashboard', 'Home'
+          ]
+          report.append('=== TERM LOCATIONS ===')
+          for term in terms:
+              hits = [m.start() for m in re.finditer(re.escape(term), text, re.I)]
+              report.append(f'{term}: {len(hits)} hits; first_offsets={hits[:12]}')
+          report.append('')
+
+          report.append('=== SCRIPT / STYLE MAP ===')
+          for m in re.finditer(r'<(script|style)\b[^>]*>', text, re.I):
+              start = max(0, m.start()-80)
+              report.append(text[start:m.end()+180].replace('\n',' ')[:500])
+          report.append('')
+
+          # Extract local windows around every priority phrase so the UI logic can be patched safely later.
+          phrases = ['Review Test','Test Analysis','streak','navigator.vibrate','vibrate','haptic','Next Best Move','Unattempted','Accuracy']
+          for phrase in phrases:
+              report.append(f'=== WINDOWS: {phrase} ===')
+              spans=[]
+              for m in re.finditer(re.escape(phrase), text, re.I):
+                  a=max(0,m.start()-1000); b=min(len(text),m.end()+1800)
+                  spans.append(text[a:b])
+              for i,s in enumerate(spans[:10],1):
+                  report.append(f'--- hit {i} ---')
+                  report.append(s)
+              report.append('')
+
+          (Path('v101_source_audit.txt')).write_text('\n'.join(report), encoding='utf-8')
+          print('\n'.join(report[:80]))
+          PY
+
+      - name: Upload audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: v101-source-audit
+          path: v101_source_audit.txt
+          if-no-files-found: error
