@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  actions: read
 
 jobs:
   build:
@@ -30,7 +29,7 @@ jobs:
         with:
           gradle-version: '9.5.0'
 
-      - name: Patch the real app source
+      - name: Apply V10.2 product pass
         shell: bash
         run: |
           set -euo pipefail
@@ -40,71 +39,120 @@ jobs:
 
           p = Path('app/src/main/assets/index.html')
           s = p.read_text(encoding='utf-8')
-          if len(s) < 1_000_000:
-              raise SystemExit(f'FAIL: unexpected index.html size: {len(s)}')
+          before_len = len(s)
+          if before_len < 1_000_000:
+              raise SystemExit(f'FAIL: index.html unexpectedly small: {before_len}')
 
-          # Preserve the original haptic implementation exactly.
+          # Immutable haptic guard: do not change the existing haptic implementation.
           haptic = "function haptic(pattern){ try{ if(navigator && typeof navigator.vibrate==='function') navigator.vibrate(pattern); }catch(e){} }"
-          if s.count(haptic) != 1:
-              raise SystemExit(f'FAIL: expected one canonical haptic function, found {s.count(haptic)}')
-          vibrates_before = s.count('navigator.vibrate')
+          h0 = s.count(haptic)
+          v0 = s.count('navigator.vibrate')
+          if h0 != 1:
+              raise SystemExit(f'FAIL: expected exactly one canonical haptic function, found {h0}')
 
-          # Practice: selecting an option is the submit action. Existing submitPractice()
-          # remains the single source of truth for feedback, timing and attempt recording.
-          old = "function selectPractice(qid,n){ const s=state.activeSession;if(!s||s.mode!=='practice'||s.submitted[qid])return;s.answers[qid]=n;haptic(8);saveState();render(); }"
-          new = "function selectPractice(qid,n){ const s=state.activeSession;if(!s||s.mode!=='practice'||s.submitted[qid])return;s.answers[qid]=n;haptic(8);submitPractice(); }"
-          if s.count(old) != 1:
-              raise SystemExit(f'FAIL: expected one selectPractice implementation, found {s.count(old)}')
-          s = s.replace(old, new, 1)
+          def block(src, name):
+              pat = re.compile(r'function\s+' + re.escape(name) + r'\s*\([^)]*\)\s*\{')
+              m = pat.search(src)
+              if not m:
+                  return None
+              start = m.start(); i = src.find('{', m.start())
+              depth = 0; quote = None; esc = False
+              while i < len(src):
+                  c = src[i]
+                  if quote:
+                      if esc: esc = False
+                      elif c == '\\': esc = True
+                      elif c == quote: quote = None
+                  else:
+                      if c in "'\"`": quote = c
+                      elif c == '{': depth += 1
+                      elif c == '}':
+                          depth -= 1
+                          if depth == 0: return start, i + 1
+                  i += 1
+              raise SystemExit(f'FAIL: unterminated {name}()')
 
-          # Review CTA: keep the exact completed test id, but give the action a clear name.
-          old_review = 'onclick="window.QB.reviewTest(\'${esc(t.id)}\')">Review Test</button>'
-          new_review = 'type="button" data-review-test-id="${esc(t.id)}" onclick="window.QB.reviewTest(\'${esc(t.id)}\')">Review Solutions</button>'
-          if old_review in s:
-              s = s.replace(old_review, new_review, 1)
-          else:
-              # Current source already uses the exact handler; only rename if needed.
-              s = s.replace('>Review Test</button>', '>Review Solutions</button>', 1)
+          # 1. Practice mode: the selected answer submits immediately.
+          loc = block(s, 'selectPractice')
+          if not loc:
+              raise SystemExit('FAIL: selectPractice() not found')
+          a,b = loc
+          fn = s[a:b]
+          if 'submitPractice()' not in fn:
+              if 'saveState();render();' in fn:
+                  fn = fn.replace('saveState();render();', 'submitPractice();', 1)
+              elif 'render();' in fn:
+                  fn = fn.replace('render();', 'submitPractice();', 1)
+              else:
+                  # Keep the original selection state change, but explicitly invoke the existing submit function.
+                  close = fn.rfind('}')
+                  fn = fn[:close] + 'submitPractice();' + fn[close:]
+              s = s[:a] + fn + s[b:]
 
-          # Make the review action resilient to WebView event quirks: delegation works even
-          # if the result page is rendered again. It calls the same exported reviewTest(testId).
-          review_guard = r'''\n<script id="v102-review-action-guard">\n(function(){\n  document.addEventListener('click',function(e){\n    const b=e.target && e.target.closest ? e.target.closest('[data-review-test-id]') : null;\n    if(!b) return;\n    const id=b.getAttribute('data-review-test-id');\n    if(!id || !window.QB || typeof window.QB.reviewTest!=='function') return;\n    e.preventDefault(); e.stopPropagation();\n    window.QB.reviewTest(id);\n  }, true);\n})();\n</script>\n'''
-          if 'id="v102-review-action-guard"' not in s:
-              s = s.replace('</body>', review_guard + '</body>', 1)
+          # 2. Review Solutions: explicit button metadata + delegated click handler.
+          # Only touch the result CTA if it has the existing reviewTest handler.
+          review_cta = re.compile(r'(<button\b[^>]*?)(onclick="[^"]*reviewTest\([^\"]*\)[^"]*")([^>]*>)(Review (?:Test|Solutions))(?=</button>)', re.I)
+          def cta_fix(m):
+              head, onclick, tail, label = m.groups()
+              if 'type=' not in head.lower(): head += ' type="button"'
+              if 'data-v102-review-cta' not in head: head += ' data-v102-review-cta="1"'
+              return head + onclick + tail + 'Review Solutions'
+          s, n = review_cta.subn(cta_fix, s, count=1)
+          if n == 0:
+              # Fallback: tag the first Review Test button without touching its existing handler.
+              s, n = re.subn(r'(<button\b[^>]*)(>Review Test</button>)', r'\1 type="button" data-v102-review-cta="1">Review Solutions</button>', s, count=1)
+              if n == 0 and 'Review Solutions' not in s:
+                  raise SystemExit('FAIL: Review Solutions CTA not found')
 
-          # Remove the redundant Practice Submit controls by hiding only buttons whose label
-          # is Submit/Submit Answer inside the active practice question view.
-          practice_css = r'''\n<style id="v102-practice-submit-cleanup">\nbutton.v102-hidden-submit{display:none!important}\n</style>\n<script id="v102-practice-submit-cleanup">\n(function(){\n  function clean(){\n    document.querySelectorAll('button').forEach(function(btn){\n      const t=(btn.textContent||'').trim().toLowerCase();\n      if(t!=='submit' && t!=='submit answer') return;\n      const scope=btn.closest('.question-card,.session-card,.question-shell,.page');\n      if(scope && scope.querySelector('.option,.option-item')) btn.classList.add('v102-hidden-submit');\n    });\n  }\n  new MutationObserver(clean).observe(document.body,{subtree:true,childList:true});\n  clean();\n})();\n</script>\n'''
-          if 'id="v102-practice-submit-cleanup"' not in s:
-              s = s.replace('</body>', practice_css + '</body>', 1)
+          guard = r'''\n<script id="v102-review-cta-guard">\n(function(){\n  document.addEventListener('click',function(e){\n    var b=e.target && e.target.closest ? e.target.closest('[data-v102-review-cta],button') : null;\n    if(!b) return;\n    var label=((b.textContent||'')+'').trim().toLowerCase();\n    if(label!=='review solutions' && label!=='review test') return;\n    var id=b.getAttribute('data-review-test-id');\n    var oc=b.getAttribute('onclick')||'';\n    var m=oc.match(/reviewTest\\(['\"]([^'\"]+)['\"]\\)/);\n    if(!id && m) id=m[1];\n    if(!id && window.QB && typeof window.QB.getState==='function'){\n      try{var st=window.QB.getState();if(st&&Array.isArray(st.tests)&&st.tests.length) id=st.tests[st.tests.length-1].id;}catch(_){}\n    }\n    if(!id || !window.QB || typeof window.QB.reviewTest!=='function') return;\n    e.preventDefault(); e.stopImmediatePropagation();\n    window.QB.reviewTest(id);\n  },true);\n})();\n</script>\n'''
+          if 'id="v102-review-cta-guard"' not in s:
+              s = s.replace('</body>', guard + '</body>', 1)
 
-          # De-emphasize the old generic visual language with a tighter 2026 mobile system.
-          visual = r'''\n<style id="v102-2026-surface">\n:root{--v102-bg:#f4f6fb;--v102-ink:#0e1220;--v102-muted:#6b7280;--v102-indigo:#5b5ce2;--v102-violet:#7b61ff;--v102-line:#e7e9f0}\nbody{background:var(--v102-bg)!important;color:var(--v102-ink);-webkit-font-smoothing:antialiased}\n.page{padding-top:20px}\n.page-title{font-size:30px!important;font-weight:900!important;letter-spacing:-.8px!important;line-height:1.05}\n.page-sub{color:var(--v102-muted)!important;line-height:1.45}\n.card{border:1px solid rgba(18,25,48,.06)!important;box-shadow:0 12px 38px rgba(24,30,60,.065)!important;border-radius:22px!important}\n.stat-card{background:linear-gradient(145deg,#fff,#fafbff)!important;border-radius:18px!important}\n.primary-btn{background:linear-gradient(135deg,var(--v102-indigo),var(--v102-violet))!important;border:0!important;box-shadow:0 12px 26px rgba(91,92,226,.25)!important;font-weight:850!important}\n.ghost-btn{border:1px solid rgba(18,25,48,.08)!important;background:rgba(255,255,255,.84)!important;font-weight:760!important}\n.option,.option-item{border-radius:16px!important;border-color:#e1e5ee!important;background:#fff!important;box-shadow:0 2px 9px rgba(30,35,60,.03)!important;transition:transform .09s ease,box-shadow .09s ease,border-color .09s ease!important}\n.option:active,.option-item:active{transform:scale(.992)!important}\n.question-text{font-size:18px!important;font-weight:720!important;letter-spacing:-.22px}\n.dashboard-greeting h1{font-size:31px!important;font-weight:900!important;letter-spacing:-1.1px!important}\n.focus-card{border-radius:24px!important;background:linear-gradient(145deg,#17173a,#4032a2)!important;color:#fff!important;box-shadow:0 18px 50px rgba(47,38,115,.24)!important}\n.focus-card .eyebrow,.focus-card .small-muted,.focus-card .page-sub{color:rgba(255,255,255,.7)!important}\n.focus-card h2{font-size:22px!important;font-weight:900!important;letter-spacing:-.55px!important}\n.streak-card{margin-top:14px!important;padding:18px!important;border-radius:24px!important;background:radial-gradient(circle at 88% 20%,rgba(249,115,22,.22),transparent 31%),linear-gradient(135deg,#191631,#39286e 65%,#5b21b6)!important;color:#fff!important;box-shadow:0 18px 44px rgba(55,35,110,.24)!important;border:0!important}\n.streak-number{font-size:46px!important;font-weight:950!important;letter-spacing:-2.4px!important;color:#fff!important}.streak-number span{color:rgba(255,255,255,.72)!important}\n.flame-hero{background:rgba(255,255,255,.11)!important;border:1px solid rgba(255,255,255,.13)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),0 10px 24px rgba(0,0,0,.16)!important}\n.streak-day{color:rgba(255,255,255,.67)!important}.streak-day b{color:#fff!important}.streak-day small{color:rgba(255,255,255,.5)!important}.streak-dot{background:rgba(255,255,255,.09)!important;border-color:rgba(255,255,255,.12)!important}.streak-day.done .streak-dot{background:linear-gradient(135deg,#fbbf24,#f97316)!important;border-color:transparent!important;box-shadow:0 5px 16px rgba(249,115,22,.3)!important}.streak-day.today .streak-dot{box-shadow:0 0 0 3px rgba(255,255,255,.16)!important}\n.chapter-hero{border-radius:24px!important;box-shadow:0 18px 46px rgba(30,35,60,.08)!important}\n.result-hero{background:linear-gradient(145deg,#fff,#f8f7ff)!important}\n.bottom-nav{background:rgba(255,255,255,.88)!important;backdrop-filter:blur(20px)!important;-webkit-backdrop-filter:blur(20px)!important}\n@media(max-width:640px){.page{padding-left:16px!important;padding-right:16px!important}.page-title{font-size:28px!important}.dashboard-greeting h1{font-size:28px!important}.streak-card{padding:16px!important}.streak-number{font-size:42px!important}.flame-hero{width:54px!important;height:54px!important}.option,.option-item{padding:14px 13px!important}}\n@media(prefers-reduced-motion:reduce){.option,.option-item{transition:none!important}}\n</style>\n'''
-          if 'id="v102-2026-surface"' not in s:
+          # 3. Make the review state carry the exact source test id when the app exposes reviewTest().
+          loc = block(s, 'reviewTest')
+          if loc:
+              a,b = loc; fn = s[a:b]
+              if 'sourceTestId' not in fn and "mode:'review'" in fn:
+                  fn = fn.replace("mode:'review',", "mode:'review', sourceTestId:testId,", 1)
+                  s = s[:a] + fn + s[b:]
+
+          # 4. Practice: hide redundant Submit buttons only while the active mode is practice.
+          practice_layer = r'''\n<style id="v102-practice-layer">\nbutton.v102-practice-submit-hidden{display:none!important}\n</style>\n<script id="v102-practice-layer-script">\n(function(){\n  function inPractice(){\n    try{return window.QB&&typeof window.QB.getState==='function'&&window.QB.getState().activeSession?.mode==='practice';}catch(_){return false;}\n  }\n  function clean(){\n    if(!inPractice()) return;\n    document.querySelectorAll('button').forEach(function(b){\n      var t=(b.textContent||'').trim().toLowerCase();\n      if((t==='submit'||t==='submit answer') && !b.dataset.v102ReviewCta) b.classList.add('v102-practice-submit-hidden');\n    });\n  }\n  new MutationObserver(clean).observe(document.documentElement,{subtree:true,childList:true});\n  setTimeout(clean,200); setTimeout(clean,700);\n})();\n</script>\n'''
+          if 'id="v102-practice-layer"' not in s:
+              s = s.replace('</body>', practice_layer + '</body>', 1)
+
+          # 5. Surface the existing streak state as a first-class dashboard module.
+          streak_layer = r'''\n<style id="v102-streak-layer">\n.v102-streak-card{position:relative;overflow:hidden;margin:14px 0;padding:18px;border-radius:24px;background:radial-gradient(circle at 86% 14%,rgba(251,191,36,.25),transparent 29%),linear-gradient(135deg,#17162f,#3a2b73 62%,#5b21b6);color:#fff;box-shadow:0 18px 45px rgba(53,36,108,.22)}\n.v102-streak-card:before{content:"";position:absolute;right:-55px;bottom:-75px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.06)}\n.v102-streak-card .ey{font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;opacity:.7}.v102-streak-card .num{font-size:44px;line-height:1;font-weight:950;letter-spacing:-2px;margin-top:6px}.v102-streak-card .copy{font-size:13px;opacity:.8;margin-top:6px}.v102-streak-card .fire{font-size:44px;filter:drop-shadow(0 7px 14px rgba(249,115,22,.35));animation:v102-fire 2.6s ease-in-out infinite}.v102-streak-card .week{display:flex;gap:6px;margin-top:16px}.v102-streak-card .d{flex:1;text-align:center;font-size:8px;opacity:.6}.v102-streak-card .dot{width:20px;height:20px;border-radius:50%;margin:4px auto 0;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.11)}.v102-streak-card .dot.on{background:linear-gradient(135deg,#fbbf24,#f97316);border-color:transparent;box-shadow:0 4px 14px rgba(249,115,22,.3)}\n@keyframes v102-fire{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-3px) rotate(2deg)}}\n@media(prefers-reduced-motion:reduce){.v102-streak-card .fire{animation:none}}\n</style>\n<script id="v102-streak-layer-script">\n(function(){\n  function read(){try{if(window.QB&&typeof window.QB.getState==='function')return window.QB.getState();}catch(_){} try{return window.state||null;}catch(_){return null;}}\n  function add(){\n    if(document.querySelector('.v102-streak-card')) return;\n    var st=read();\n    if(!st) return;\n    var active=Array.isArray(st.activeDays)?st.activeDays:[];\n    var count=Number(st.streak||0);\n    var dashboard=[].slice.call(document.querySelectorAll('main,.page,.screen,.content,body')).find(function(x){return /YOUR NEXT BEST MOVE|Dashboard|Home/i.test(x.textContent||'');})||document.body;\n    var card=document.createElement('section');card.className='v102-streak-card';\n    var labels=['M','T','W','T','F','S','S'];\n    var dots=labels.map(function(d,i){var on=active.slice(-7)[i]||false;return '<div class="d">'+d+'<div class="dot '+(on?'on':'')+'"></div></div>';}).join('');\n    card.innerHTML='<div style="display:flex;align-items:flex-start;justify-content:space-between;position:relative;z-index:1"><div><div class="ey">Study streak</div><div class="num">'+count+' <span style="font-size:15px;letter-spacing:0;font-weight:800;opacity:.72">day'+(count===1?'':'s')+'</span></div><div class="copy">'+(count?'Keep the chain alive.':'Start your streak today.')+'</div></div><div class="fire">🔥</div></div><div class="week">'+dots+'</div>';\n    var anchor=dashboard.querySelector('.dashboard-greeting,.focus-card,.hero,.page-title')||dashboard.firstElementChild;\n    if(anchor && anchor.parentNode) anchor.parentNode.insertBefore(card,anchor.nextSibling); else document.body.prepend(card);\n  }\n  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',add);else setTimeout(add,100);\n  setTimeout(add,600);\n})();\n</script>\n'''
+          if 'id="v102-streak-layer"' not in s:
+              s = s.replace('</body>', streak_layer + '</body>', 1)
+
+          # 6. Modern phone-first design layer; no external fonts/assets.
+          visual = r'''\n<style id="v102-modern-ui">\n:root{--v102-bg:#f4f6fb;--v102-ink:#101321;--v102-muted:#697285;--v102-indigo:#5b5ce2;--v102-violet:#7b61ff;--v102-line:#e6e9f0}\nhtml,body{background:var(--v102-bg)!important;color:var(--v102-ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}\nbody{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif!important}\n.page{padding-top:20px!important}.page-title{font-size:30px!important;line-height:1.04!important;font-weight:900!important;letter-spacing:-.9px!important}.page-sub{font-size:13px!important;line-height:1.48!important;color:var(--v102-muted)!important}.section-title{font-size:17px!important;font-weight:850!important;letter-spacing:-.35px!important}\n.card{border:1px solid rgba(18,25,48,.06)!important;border-radius:22px!important;box-shadow:0 12px 38px rgba(24,30,60,.065)!important;background:rgba(255,255,255,.96)!important}.stat-card{border-radius:18px!important;background:linear-gradient(145deg,#fff,#fafbff)!important}.stat-card .value{font-size:28px!important;font-weight:900!important;letter-spacing:-1px!important}.stat-card .label{font-weight:650!important;color:#7a8191!important}\n.primary-btn{background:linear-gradient(135deg,var(--v102-indigo),var(--v102-violet))!important;border:0!important;border-radius:14px!important;box-shadow:0 12px 25px rgba(91,92,226,.23)!important;font-weight:850!important}.ghost-btn{border:1px solid rgba(18,25,48,.08)!important;background:rgba(255,255,255,.84)!important;font-weight:760!important}\n.option,.option-item{border-radius:16px!important;border-color:#e1e5ee!important;background:#fff!important;box-shadow:0 2px 9px rgba(30,35,60,.03)!important;transition:transform .07s ease,box-shadow .07s ease,border-color .07s ease!important}.option:active,.option-item:active{transform:scale(.994)!important}.question-text{font-size:18px!important;font-weight:720!important;letter-spacing:-.2px!important}\n.result-hero,.chapter-hero{border-radius:24px!important;box-shadow:0 18px 48px rgba(30,35,60,.09)!important}.bottom-nav{background:rgba(255,255,255,.88)!important;backdrop-filter:blur(20px)!important;-webkit-backdrop-filter:blur(20px)!important;border-top:1px solid rgba(30,35,65,.07)!important}\nbutton,a,[role="button"]{min-height:44px}\n@media(max-width:640px){.page{padding-left:16px!important;padding-right:16px!important}.page-title{font-size:28px!important}.question-text{font-size:17px!important}.option,.option-item{padding:14px 13px!important}}\n@media(prefers-reduced-motion:reduce){.option,.option-item{transition:none!important}}\n</style>\n'''
+          if 'id="v102-modern-ui"' not in s:
               s = s.replace('</body>', visual + '</body>', 1)
 
-          # Strong source invariants.
-          if s.count(haptic) != 1 or s.count('navigator.vibrate') != vibrates_before:
-              raise SystemExit('FAIL: haptic implementation changed')
-          if s.count('id="v102-review-action-guard"') != 1:
-              raise SystemExit('FAIL: review action guard not installed')
+          # Invariants.
+          if s.count(haptic) != 1 or s.count('navigator.vibrate') != v0:
+              raise SystemExit('FAIL: haptic implementation was modified')
+          if 'submitPractice();' not in s:
+              raise SystemExit('FAIL: practice auto-submit hook missing')
           if 'Review Solutions' not in s:
-              raise SystemExit('FAIL: Review Solutions CTA missing')
-          if 'function selectPractice(qid,n){' not in s or 'submitPractice();' not in s:
-              raise SystemExit('FAIL: practice auto-submit not installed')
+              raise SystemExit('FAIL: Review Solutions UI missing')
+          if 'id="v102-streak-layer"' not in s:
+              raise SystemExit('FAIL: streak layer missing')
           p.write_text(s, encoding='utf-8')
-          print(f'Patched index.html: {len(original)} -> {len(s)} chars')
+          print(f'Applied V10.2: {before_len} -> {len(s)} chars')
           PY
 
-      - name: Validate source
+      - name: Validate V10.2 source
         shell: bash
         run: |
           set -euo pipefail
-          test -s app/src/main/assets/index.html
           grep -q 'Review Solutions' app/src/main/assets/index.html
-          grep -q 'v102-2026-surface' app/src/main/assets/index.html
-          grep -q 'v102-review-action-guard' app/src/main/assets/index.html
+          grep -q 'id="v102-review-cta-guard"' app/src/main/assets/index.html
           grep -q 'submitPractice();' app/src/main/assets/index.html
+          grep -q 'id="v102-streak-layer"' app/src/main/assets/index.html
+          grep -q 'id="v102-modern-ui"' app/src/main/assets/index.html
           echo 'V10.2 source validation passed.'
 
       - name: Build debug APK
@@ -115,21 +163,21 @@ jobs:
           ./gradlew --version
           ./gradlew assembleDebug --no-daemon --stacktrace
 
-      - name: Commit the real V10.2 source
+      - name: Commit V10.2 source
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add app/src/main/assets/index.html
-          if git diff --cached --quiet; then
-            echo 'No source commit required.'
-          else
-            git commit -m 'V10.2: apply real core UX and 2026 visual system'
+          if ! git diff --cached --quiet; then
+            git commit -m 'V10.2: core learning flow and modern mobile UI'
             git push origin v10.2
+          else
+            echo 'V10.2 source already current.'
           fi
 
-      - name: Upload APK
+      - name: Upload V10.2 APK
         uses: actions/upload-artifact@v4
         with:
           name: V10.2-debug-apk
