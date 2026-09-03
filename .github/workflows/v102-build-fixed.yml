@@ -38,19 +38,12 @@ jobs:
           p=Path('app/src/main/assets/index.html')
           s=p.read_text(encoding='utf-8')
 
-          marker='<style id="v102-device-qa-fixes">'
-          css='''<style id="v102-device-qa-fixes">
-          .focus-card{background:linear-gradient(135deg,#2f2d63 0%,#3d65d8 100%)!important;color:#fff!important;border:0!important;}
-          .focus-card .eyebrow,.focus-card h2,.focus-card p{color:#fff!important;}
-          .focus-card p{color:rgba(255,255,255,.82)!important;}
-          .focus-card .focus-btn{background:rgba(255,255,255,.1)!important;color:#fff!important;border-color:rgba(255,255,255,.24)!important;}
-          .focus-card .focus-btn.primary{background:#fff!important;color:#2f2d63!important;border-color:#fff!important;}
-          .option.correct.selected{background:#eaf9f3!important;border-color:#69c4a8!important;border-left-color:#159a74!important;}
-          .option.wrong.selected{background:#fff0f1!important;border-color:#df858a!important;border-left-color:#df4e52!important;}
-          </style>'''
-          if marker not in s:
-              s=s.replace('</head>',css+'\n</head>',1)
+          # .card.pad is an important two-class rule in the later polish layer.
+          # Give the focus card a three-class important selector so the intended
+          # dark hero treatment cannot be flattened back to white.
+          s=s.replace('.focus-card{background:linear-gradient(135deg,#2f2d63 0%,#3d65d8 100%)!important;color:#fff!important;border:0!important;}', '.card.pad.focus-card{background:linear-gradient(135deg,#2f2d63 0%,#3d65d8 100%)!important;color:#fff!important;border:0!important;}')
 
+          # Ensure the review CTA carries the exact test id.
           token='data-v102-review-cta="1"onclick="window.QB.reviewTest(\'${esc(t.id)}\')"'
           replacement='data-v102-review-cta="1" data-review-test-id="${esc(t.id)}" onclick="window.QB.reviewTest(\'${esc(t.id)}\')"'
           if 'data-review-test-id="${esc(t.id)}"' not in s:
@@ -58,6 +51,7 @@ jobs:
                   raise SystemExit('Review Solutions CTA markup not found')
               s=s.replace(token,replacement,1)
 
+          # Keep the review guard deterministic and tied to the CTA data id.
           pattern=re.compile(r'<script id="v102-review-cta-guard">.*?</script>\\?',re.S)
           replacement_script='''<script id="v102-review-cta-guard">
           (function(){
@@ -97,7 +91,7 @@ jobs:
           h="function haptic(pattern){ try{ if(navigator && typeof navigator.vibrate==='function') navigator.vibrate(pattern); }catch(e){} }"
           assert s.count(h)==1, f'canonical haptic count={s.count(h)}'
           checks={
-            'focus-card-important': '.focus-card{background:linear-gradient(135deg,#2f2d63 0%,#3d65d8 100%)!important;color:#fff!important' in s,
+            'focus-card-specificity': '.card.pad.focus-card{background:linear-gradient(135deg,#2f2d63 0%,#3d65d8 100%)!important;color:#fff!important' in s,
             'review-data-id': 'data-review-test-id="${esc(t.id)}"' in s,
             'review-get-state': 'getState:()=>state' in s,
             'green-feedback': '.option.correct.selected{background:#eaf9f3!important' in s,
@@ -115,7 +109,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add app/src/main/assets/index.html
           if ! git diff --cached --quiet; then
-            git commit -m 'V10.2 product source: repair device QA regressions'
+            git commit -m 'V10.2 product source: repair focus card specificity'
             git push
           else
             echo 'Product source already repaired'
