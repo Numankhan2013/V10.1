@@ -1,7 +1,6 @@
 name: V10.2 fixed build
 
-# Canonical V10.2 build. The product pass is already committed to v10.2;
-# this workflow validates the final source and produces the APK.
+# Canonical V10.2 build. Validates the final product source and produces the APK.
 on:
   push:
     branches: [v10.2]
@@ -44,7 +43,9 @@ jobs:
           s=Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
           h="function haptic(pattern){ try{ if(navigator && typeof navigator.vibrate==='function') navigator.vibrate(pattern); }catch(e){} }"
           assert s.count(h)==1, f'canonical haptic count={s.count(h)}'
-          assert 'v102-core-runtime' in s or 'v102-core-behavior' in s
+          assert 'v102-review-cta-guard' in s
+          assert 'v102-modern-ui' in s
+          assert 'v102-streak-layer' in s
           print('V10.2 UX/UI source acceptance checks passed')
           PY
       - name: Build debug APK
