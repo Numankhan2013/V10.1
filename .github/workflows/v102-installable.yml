@@ -24,22 +24,28 @@ jobs:
           gradle-version: '9.5.0'
       - name: Apply V10.2 review repair
         run: python3 tools/repair_v102_review.py
-      - name: Validate HTML scripts
+      - name: Validate HTML scripts and subject data
         run: |
           python3 - <<'PY'
           from pathlib import Path
           import re, subprocess, tempfile
           s=Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
+          subject_file=Path('app/src/main/assets/subjects_qbank_data.js')
           required=[
             'function buildReviewSession(t)',
             "String(s.sourceTestId)!==String(route.id)",
             '${streakMarkup()}',
             'Review Solutions',
             'data-v102-review-cta="1"',
+            'v102-review-direct-handler',
+            'window.SUBJECT_QBANK_DATA',
           ]
           for x in required:
             assert x in s, x
-          assert ('href="#review-test/${encodeURIComponent(t.id)}"' in s or 'onclick="window.QB.reviewTest(\'${esc(t.id)}\')"' in s), 'Review CTA action missing'
+          assert subject_file.exists(), 'Anatomy/Physiology data file missing'
+          data=subject_file.read_text(encoding='utf-8')
+          assert '"subject":"Physiology"' in data and '"subject":"Anatomy"' in data, 'Subject data missing'
+          assert ('data-v102-review-cta="1"' in s and 'data-review-test-id="${esc(t.id)}"' in s), 'Review CTA action missing'
           for i,body in enumerate(re.findall(r'<script(?:\s[^>]*)?>(.*?)</script>',s,re.S|re.I)):
             if not body.strip(): continue
             with tempfile.NamedTemporaryFile('w',suffix='.js',delete=False,encoding='utf-8') as f:
