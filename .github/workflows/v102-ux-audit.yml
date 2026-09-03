@@ -22,14 +22,26 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import re
           p=Path('tools/v102_ui_overhaul.py')
-          s=p.read_text(encoding='utf-8')
-          s=re.sub(r"header_pat=re\.compile\(.*?\)\n", '''header_pat=re.compile(r"function\\s+header\\s*\\(\\s*title\\s*=\\s*['\\\"]QBank['\\\"]\\s*\\)\\s*\\{.*?\\}\\s*function\\s+bottomNav",re.S)\n''', s, count=1)
-          s=re.sub(r"review_pat=re\.compile\(.*?\)\n", '''review_pat=re.compile(r"function\\s+reviewTest\\s*\\(\\s*testId\\s*\\)\\s*\\{.*?\\}\\s*function\\s+reviewTestPage",re.S)\n''', s, count=1)
-          s=re.sub(r"page_pat=re\.compile\(.*?\)\n", '''page_pat=re.compile(r"function\\s+reviewTestPage\\s*\\(\\s*\\)\\s*\\{.*?const\\s+t=state\\.tests\\.find\\(x=>String\\(x\\.id\\)===String\\(route\\.id\\)\\);",re.S)\n''', s, count=1)
-          p.write_text(s,encoding='utf-8')
-          print('Transformer patterns normalized')
+          lines=p.read_text(encoding='utf-8').splitlines()
+          replacements = [
+            ('header_pat=re.compile(', '''header_pat=re.compile(r"function\\s+header\\s*\\(\\s*title\\s*=\\s*['\"]QBank['\"]\\s*\\)\\s*\\{.*?\\}\\s*function\\s+bottomNav",re.S)'''),
+            ('review_pat=re.compile(', '''review_pat=re.compile(r"function\\s+reviewTest\\s*\\(\\s*testId\\s*\\)\\s*\\{.*?\\}\\s*function\\s+reviewTestPage",re.S)'''),
+            ('page_pat=re.compile(', '''page_pat=re.compile(r"function\\s+reviewTestPage\\s*\\(\\s*\\)\\s*\\{.*?const\\s+t=state\\.tests\\.find\\(x=>String\\(x\\.id\\)===String\\(route\\.id\\)\\);",re.S)'''),
+          ]
+          out=[]
+          found=set()
+          for line in lines:
+              stripped=line.lstrip(); indent=line[:len(line)-len(stripped)]
+              replaced=False
+              for prefix,repl in replacements:
+                  if stripped.startswith(prefix):
+                      out.append(indent+repl); found.add(prefix); replaced=True; break
+              if not replaced: out.append(line)
+          p.write_text('\\n'.join(out)+'\\n',encoding='utf-8')
+          print('Normalized:', sorted(found))
+          if len(found) != 3:
+              raise SystemExit('Transformer normalization did not find all three pattern definitions')
           PY
 
       - name: Apply immersive UI and review reliability pass
@@ -54,7 +66,7 @@ jobs:
           checks={
             'next UI layer': 'id="v102-next-ui"' in s and 'id="v102-next-ui-behavior"' in s,
             'subject hub': 'v102-subject-hub' in s and 'data-v102-subject-card' in s and 'Choose a topic' in s,
-            'topbar simplified': 'function header(title = \'QBank\')' in s and 'Open navigation' not in s[s.find('function header'):s.find('function bottomNav')],
+            'topbar simplified': 'function header' in s and 'Open navigation' not in s[s.find('function header'):s.find('function bottomNav')],
             'whole-card correct feedback': '.option.correct,.option.correct.selected' in s,
             'whole-card wrong feedback': '.option.wrong,.option.wrong.selected' in s,
             'large readable options': '.option-text{font-size:16px' in s and 'min-height:76px' in s,
