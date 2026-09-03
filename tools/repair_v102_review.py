@@ -4,8 +4,8 @@ import re
 p = Path('app/src/main/assets/index.html')
 s = p.read_text(encoding='utf-8')
 
-# Make Review Solutions a stable CTA. The delegated Android-WebView-safe
-# handler below does not depend on inline onclick or hashchange delivery.
+# Make Review Solutions a stable CTA. The delegated handler does not depend
+# on inline onclick execution or hashchange delivery inside Android WebView.
 cta = re.compile(r'<button class="primary-btn"\s+type="button" data-v102-review-cta="1" data-review-test-id="\$\{esc\(t\.id\)\}" onclick="window\.QB\.reviewTest\(\'\$\{esc\(t\.id\)\}\'\)">Review Solutions</button>')
 replacement = '<a class="primary-btn" role="button" data-v102-review-cta="1" data-review-test-id="${esc(t.id)}" href="#review-test/${encodeURIComponent(t.id)}">Review Solutions</a>'
 s, _ = cta.subn(replacement, s, count=1)
@@ -29,9 +29,14 @@ new_page = """  function reviewTestPage() {\n    let s=state.activeSession;\n   
 if old_page in s:
     s = s.replace(old_page, new_page, 1)
 
-# Android WebView-safe capture handler.
-if 'Android WebView-safe review CTA' not in s:
-    s += """\n<script>\n/* Android WebView-safe review CTA. */\ndocument.addEventListener('click', function (event) {\n  const el = event.target && event.target.closest ? event.target.closest('[data-v102-review-cta]') : null;\n  if (!el) return;\n  const id = el.getAttribute('data-review-test-id');\n  if (!id || !window.QB || typeof window.QB.reviewTest !== 'function') return;\n  event.preventDefault();\n  event.stopPropagation();\n  window.QB.reviewTest(id);\n}, true);\n</script>\n"""
+# Remove any earlier review guard then install one deterministic capture handler.
+s = re.sub(r'<script id="v102-review-cta-guard">.*?</script>\\?', '', s, flags=re.S, count=1)
+handler = """<script id="v102-review-cta-safe">\n/* Android WebView-safe review CTA. */\ndocument.addEventListener('click', function (event) {\n  const el = event.target && event.target.closest ? event.target.closest('[data-v102-review-cta]') : null;\n  if (!el) return;\n  const id = el.getAttribute('data-review-test-id');\n  if (!id || !window.QB || typeof window.QB.reviewTest !== 'function') return;\n  event.preventDefault();\n  event.stopPropagation();\n  window.QB.reviewTest(id);\n}, true);\n</script>"""
+s=re.sub(r'<script id="v102-review-cta-safe">.*?</script>', '', s, flags=re.S)
+if '</body>' in s:
+    s=s.replace('</body>',handler+'\n</body>',1)
+else:
+    s += handler
 
 p.write_text(s, encoding='utf-8')
 print('repaired', p)
