@@ -110,8 +110,9 @@ js = r'''
 '''
 
 block = css + js + '\n' + marker
+pattern = r'<style id="v103-review-explanation-css">.*?</script>\s*<!-- V103_REVIEW_EXPLANATION_OVERLAY -->'
 if marker in s:
-    s = re.sub(r'<style id="v103-review-explanation-css">.*?</script>\s*<!-- V103_REVIEW_EXPLANATION_OVERLAY -->', block, s, count=1, flags=re.S)
+    s = re.sub(pattern, lambda m: block, s, count=1, flags=re.S)
 else:
     s = s.replace('</head>', css + '</head>', 1)
     s = s.replace('</body>', js + '\n' + marker + '\n</body>', 1)
