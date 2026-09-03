@@ -31,7 +31,7 @@ jobs:
           rm -f .github/workflows/v102-ui-overhaul-apply.yml
           rm -f tools/v102_source_inspect.py tools/v102_branch_marker.txt tools/v102_branch_seed.txt tools/.keep
 
-      - name: Run V10.2 static UX/UI acceptance audit
+      - name: Run V10.2/V10.3 static acceptance audit
         shell: bash
         run: |
           set -euo pipefail
@@ -48,8 +48,11 @@ jobs:
             'large readable options': '.option-text{font-size:16px' in s and 'min-height:76px' in s,
             'Review Solutions CTA': 'v102-review-action' in s and 'data-v102-review-cta="1"' in s,
             'deterministic review interception': 'stopImmediatePropagation' in s and 'window.QB.reviewTest' in s,
-            'V10.3 review overlay': 'V103_REVIEW_EXPLANATION_OVERLAY' in s and 'QB_V103_EXPLANATION' in s and 'qbank_state_v1' in s and 'mode:\'review\'' in s,
+            'V10.3 review overlay': 'V103_REVIEW_EXPLANATION_OVERLAY' in s and 'QB_V103_EXPLANATION' in s and 'qbank_state_v1' in s and "mode:'review'" in s,
+            'review session reconstruction': 'sourceTestId' in s and 'questionIds' in s and 'submitted:Object.fromEntries' in s,
+            'review navigation': 'window.QB.nextQ' in s and 'window.QB.prevQ' in s and "s.mode==='review'" in s,
             'structured explanation treatment': 'formatExplanations' in s and 'v102-explanation-heading' in s,
+            'rich explanation formatter': 'function richExplanation' in s and 'explanation-rich' in s,
             'reduced motion': 'prefers-reduced-motion' in s,
             'responsive layout': '@media(max-width:640px)' in s,
           }
@@ -64,8 +67,8 @@ jobs:
           checks['inline JavaScript syntax']=True
           failed=[k for k,v in checks.items() if not v]
           for k,v in checks.items(): print(('PASS ' if v else 'FAIL ')+k)
-          if failed: raise SystemExit('UX/UI acceptance failures: '+', '.join(failed))
-          print('All V10.2 static UX/UI acceptance checks passed')
+          if failed: raise SystemExit('Acceptance failures: '+', '.join(failed))
+          print('All V10.2/V10.3 static acceptance checks passed')
           PY
 
       - name: Set up JDK 17
@@ -83,12 +86,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if [ -x ./gradlew ]; then ./gradlew --no-daemon assembleDebug; else gradle --no-daemon assembleDebug; fi
+          if [ -x ./gradlew ]; then ./gradlew --no-daemon clean assembleDebug; else gradle --no-daemon clean assembleDebug; fi
 
       - name: Upload exact tested debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: QBank-V10.2-ui-overhaul-debug
+          name: QBank-V10.3-review-explanations-debug
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
           retention-days: 14
