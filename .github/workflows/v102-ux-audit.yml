@@ -39,7 +39,7 @@ jobs:
           checks={
             'next UI layer': 'id="v102-next-ui"' in s and 'id="v102-next-ui-behavior"' in s,
             'subject hub': 'v102-subject-hub' in s and 'data-v102-subject' in s and 'Choose a subject' in s and 'Choose a topic' in s,
-            'topbar simplified': '.topbar .icon-btn{display:none!important}' in s,
+            'topbar simplified': '.topbar.v102-topbar' in s and 'Open navigation' not in s and 'Notifications' not in s,
             'whole-card correct feedback': '.option.correct,.option.correct.selected' in s,
             'whole-card wrong feedback': '.option.wrong,.option.wrong.selected' in s,
             'large readable options': '.option-text{font-size:16px' in s and 'min-height:76px' in s,
