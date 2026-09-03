@@ -1,1 +1,0 @@
-window.SUBJECT_QBANK_DATA={"subjects":[{"subject":"Physiology","topics":[{"id":"physiology-1","subject":"Physiology","title":"Synapse and Synaptic Inhibition","questionCount":38}],"questions":[]},{"subject":"Anatomy","topics":[],"questions":[]}]};
