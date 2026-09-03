@@ -29,19 +29,16 @@ jobs:
             ('review_pat=re.compile(', '''review_pat=re.compile(r"function\\s+reviewTest\\s*\\(\\s*testId\\s*\\)\\s*\\{.*?\\}\\s*function\\s+reviewTestPage",re.S)'''),
             ('page_pat=re.compile(', '''page_pat=re.compile(r"function\\s+reviewTestPage\\s*\\(\\s*\\)\\s*\\{.*?const\\s+t=state\\.tests\\.find\\(x=>String\\(x\\.id\\)===String\\(route\\.id\\)\\);",re.S)'''),
           ]
-          out=[]
-          found=set()
+          out=[]; found=set()
           for line in lines:
               stripped=line.lstrip(); indent=line[:len(line)-len(stripped)]
-              replaced=False
               for prefix,repl in replacements:
                   if stripped.startswith(prefix):
-                      out.append(indent+repl); found.add(prefix); replaced=True; break
-              if not replaced: out.append(line)
-          p.write_text('\\n'.join(out)+'\\n',encoding='utf-8')
+                      line=indent+repl; found.add(prefix); break
+              out.append(line)
+          p.write_text(chr(10).join(out)+chr(10),encoding='utf-8')
           print('Normalized:', sorted(found))
-          if len(found) != 3:
-              raise SystemExit('Transformer normalization did not find all three pattern definitions')
+          if len(found)!=3: raise SystemExit('Transformer normalization did not find all three pattern definitions')
           PY
 
       - name: Apply immersive UI and review reliability pass
