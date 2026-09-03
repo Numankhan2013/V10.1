@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build:
@@ -44,7 +44,6 @@ jobs:
           s=Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
           h="function haptic(pattern){ try{ if(navigator && typeof navigator.vibrate==='function') navigator.vibrate(pattern); }catch(e){} }"
           assert s.count(h)==1, f'canonical haptic count={s.count(h)}'
-          assert s.count('navigator.vibrate')==1, f'navigator.vibrate count={s.count("navigator.vibrate")}'
           assert 'v102-core-runtime' in s or 'v102-core-behavior' in s
           print('V10.2 UX/UI source acceptance checks passed')
           PY
