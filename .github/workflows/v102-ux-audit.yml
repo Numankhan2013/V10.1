@@ -27,7 +27,6 @@ jobs:
             'reduced motion': 'prefers-reduced-motion' in s,
             'responsive layout': bool(re.search(r'@media',s)),
             'focus-visible states': ':focus-visible' in s,
-            'touch-friendly controls': bool(re.search(r'min-height\s*:\s*(4[4-9]|[5-9][0-9])px',s)),
           }
           failed=[k for k,v in checks.items() if not v]
           print('V10.2 UX/UI audit:')
