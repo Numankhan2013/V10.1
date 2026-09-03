@@ -1,0 +1,36 @@
+name: V10.2 runtime fix
+
+on:
+  push:
+    branches:
+      - v10.2-ui-overhaul
+
+permissions:
+  contents: write
+
+jobs:
+  fix-runtime:
+    if: "!contains(github.event.head_commit.message, 'V10.2 runtime fix applied')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: v10.2-ui-overhaul
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Apply runtime fix
+        run: python tools/v102_runtime_fix.py
+
+      - name: Commit runtime fix
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app/src/main/assets/index.html
+          git commit -m 'V10.2 runtime fix applied' || exit 0
+          git push origin HEAD:v10.2-ui-overhaul
