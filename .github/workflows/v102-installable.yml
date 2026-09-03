@@ -31,14 +31,16 @@ jobs:
           import re, subprocess, tempfile
           s=Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
           required=[
-            'href="#review-test/${encodeURIComponent(t.id)}"',
             'function buildReviewSession(t)',
             "String(s.sourceTestId)!==String(route.id)",
             '${streakMarkup()}',
+            'Review Solutions',
+            'data-v102-review-cta="1"',
           ]
           for x in required:
             assert x in s, x
-          for i,body in enumerate(re.findall(r'<script(?:\\s[^>]*)?>(.*?)</script>',s,re.S|re.I)):
+          assert ('href="#review-test/${encodeURIComponent(t.id)}"' in s or 'onclick="window.QB.reviewTest(\'${esc(t.id)}\')"' in s), 'Review CTA action missing'
+          for i,body in enumerate(re.findall(r'<script(?:\s[^>]*)?>(.*?)</script>',s,re.S|re.I)):
             if not body.strip(): continue
             with tempfile.NamedTemporaryFile('w',suffix='.js',delete=False,encoding='utf-8') as f:
               f.write(body); name=f.name
