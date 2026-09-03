@@ -43,9 +43,6 @@ jobs:
               s,n=old.subn(new,s,count=1)
               if n!=1: raise SystemExit(f'Review CTA replacement count={n}')
 
-          # One canonical session constructor, used both by the button and by direct
-          # #review-test/<id> navigation. This makes review independent of hashchange
-          # timing and resilient to WebView click behavior.
           pat=re.compile(r'  function reviewTest\(testId\) \{.*?\n  \}\n\n  function reviewTestPage\(\) \{',re.S)
           repl='''  function buildReviewSession(t) {
     return { id:`review_${t.id}`, mode:'review', sourceTestId:t.id, title:`Review · ${t.title}`, questionIds:[...t.questionIds], index:0, answers:{...(t.answers||{})}, submitted:Object.fromEntries(t.questionIds.map(id=>[id,Boolean(t.answers?.[id])])), startedAt:t.createdAt, questionTimes:{...(t.questionTimes||{})} };
@@ -82,7 +79,6 @@ jobs:
           if old2 in s: s=s.replace(old2,new2,1)
           else: raise SystemExit('review page guard not found')
 
-          # Remove duplicate delegated review handler and stray escaped separator artifact.
           s=re.sub(r'<script id="v102-review-cta-guard">.*?</script>\\?','',s,flags=re.S,count=1)
           s=s.replace('</script>n\n<style id="v102-practice-layer">','</script>\n<style id="v102-practice-layer">')
           s=s.replace('</script>\\n','</script>\n').replace('</style>\\n','</style>\n')
@@ -131,9 +127,18 @@ jobs:
       - name: Build debug APK
         shell: bash
         run: gradle assembleDebug --no-daemon --stacktrace
-      - name: Upload V10.2 review-fixed APK
+      - name: Verify APK package
+        shell: bash
+        run: |
+          set -euo pipefail
+          apk=$(find app/build/outputs/apk/debug -maxdepth 1 -name '*.apk' -print -quit)
+          test -n "$apk"
+          unzip -t "$apk" >/dev/null
+          test -f "$apk"
+          echo "Built installable debug APK: $apk"
+      - name: Upload V10.2 installable APK
         uses: actions/upload-artifact@v4
         with:
-          name: qbank-v10.2-review-fixed-apk
+          name: qbank-v10.2-installable-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
