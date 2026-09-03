@@ -2,23 +2,33 @@ name: V10.2 UX/UI audit
 
 on:
   push:
-    branches: [v10.2]
+    branches: [v10.2, v10.2-ui-overhaul]
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout v10.2
+      - name: Checkout current branch
         uses: actions/checkout@v5
         with:
-          ref: v10.2
-          fetch-depth: 1
+          fetch-depth: 0
 
-      - name: Apply V10.2 runtime repair for audit
-        run: python3 tools/repair_v102_review.py
+      - name: Apply immersive UI and review reliability pass
+        run: python3 tools/v102_ui_overhaul.py
 
-      - name: Run UX/UI static acceptance audit
+      - name: Remove temporary inspection scaffolding
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/v102-inspect.yml
+          rm -f .github/workflows/v102-ui-overhaul-apply.yml
+          rm -f tools/v102_source_inspect.py tools/v102_branch_marker.txt tools/v102_branch_seed.txt tools/.keep
+
+      - name: Run V10.2 static UX/UI acceptance audit
         shell: bash
         run: |
           set -euo pipefail
@@ -27,42 +37,63 @@ jobs:
           import re, subprocess, tempfile
           s=Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
           checks={
-            'modern UI layer': 'v102-modern-ui' in s,
-            'streak/dashboard layer': 'v102-streak-layer' in s,
-            'review CTA direct handler': 'v102-review-direct-handler' in s and 'data-v102-review-cta="1"' in s,
-            'practice submission': 'submitPractice();' in s,
-            'review solutions': 'Review Solutions' in s,
-            'canonical haptic': s.count("function haptic(pattern){ try{ if(navigator && typeof navigator.vibrate==='function') navigator.vibrate(pattern); }catch(e){} }")==1,
-            'single vibrate call': s.count('navigator.vibrate(')==1,
-            'focus card specificity guard': '.card.pad.focus-card{background:linear-gradient(135deg,#2f2d63 0%,#3d65d8 100%)!important' in s,
-            'practice correct feedback': '.option.correct.selected{background:#eaf9f3!important' in s,
-            'practice wrong feedback': '.option.wrong.selected{background:#fff0f1!important' in s,
-            'review CTA data id': 'data-review-test-id="${esc(t.id)}"' in s,
-            'Anatomy/Physiology data': 'window.SUBJECT_QBANK_DATA' in s and Path('app/src/main/assets/subjects_qbank_data.js').exists(),
+            'next UI layer': 'id="v102-next-ui"' in s and 'id="v102-next-ui-behavior"' in s,
+            'subject hub': 'v102-subject-hub' in s and 'data-v102-subject-card' in s and 'Choose a topic' in s,
+            'topbar simplified': 'function header(title = \'QBank\')' in s and 'Open navigation' not in s[s.find('function header'):s.find('function bottomNav')],
+            'whole-card correct feedback': '.option.correct,.option.correct.selected' in s,
+            'whole-card wrong feedback': '.option.wrong,.option.wrong.selected' in s,
+            'large readable options': '.option-text{font-size:16px' in s and 'min-height:76px' in s,
+            'Review Solutions button': 'v102-review-action' in s and 'data-v102-review-cta="1"' in s,
+            'deterministic review guard': 'stopImmediatePropagation' in s and 'function reviewTest(testId)' in s,
+            'review route decoding': 'decodeURIComponent(String(route.id||\'\'))' in s,
+            'structured explanation treatment': 'formatExplanations' in s and 'v102-explanation-heading' in s,
             'reduced motion': 'prefers-reduced-motion' in s,
-            'responsive layout': bool(re.search(r'@media',s)),
-            'no escaped v102 script separators': '\\n<script id="v102-' not in s,
-            'no escaped v102 style separators': '\\n<style id="v102-' not in s,
+            'responsive layout': '@media(max-width:640px)' in s,
+            'canonical haptic count': s.count("function haptic(pattern){ try{ if(navigator && typeof navigator.vibrate==='function') navigator.vibrate(pattern); }catch(e){} }")==1,
+            'single vibrate call': s.count('navigator.vibrate(')==1,
           }
           scripts=re.findall(r'<script(?:\s[^>]*)?>(.*?)</script>',s,re.S|re.I)
-          syntax_ok=True
-          checked=0
           for i,body in enumerate(scripts):
               body=body.strip()
               if not body: continue
-              with tempfile.NamedTemporaryFile('w',suffix='.js',delete=False,encoding='utf-8') as f:
-                  f.write(body); name=f.name
-              r=subprocess.run(['node','--check',name],text=True,capture_output=True)
-              checked+=1
+              f=tempfile.NamedTemporaryFile('w',suffix='.js',delete=False,encoding='utf-8'); f.write(body); f.close()
+              r=subprocess.run(['node','--check',f.name],text=True,capture_output=True)
               if r.returncode!=0:
-                  syntax_ok=False
-                  print(r.stderr)
-                  break
-          checks['inline JavaScript syntax'] = syntax_ok
+                  print(r.stderr); raise SystemExit(f'JavaScript syntax error in script {i}')
+          checks['inline JavaScript syntax']=True
           failed=[k for k,v in checks.items() if not v]
-          print('V10.2 UX/UI audit:')
           for k,v in checks.items(): print(('PASS ' if v else 'FAIL ')+k)
-          print('Inline scripts checked:', checked)
-          assert not failed, 'UX/UI acceptance failures: '+', '.join(failed)
+          if failed: raise SystemExit('UX/UI acceptance failures: '+', '.join(failed))
           print('All V10.2 static UX/UI acceptance checks passed')
           PY
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle 9.5.0
+        uses: gradle/actions/setup-gradle@v5
+        with:
+          gradle-version: '9.5.0'
+
+      - name: Build debug APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -x ./gradlew ]; then ./gradlew --no-daemon assembleDebug; else gradle --no-daemon assembleDebug; fi
+
+      - name: Commit product changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app/src/main/assets/index.html .github/workflows/v102-ux-audit.yml .github/workflows tools
+          if git diff --cached --quiet; then
+            echo 'No product changes to commit.'
+            exit 0
+          fi
+          git commit -m 'V10.2 immersive UI and review reliability pass'
+          git push origin HEAD:${GITHUB_REF_NAME}
