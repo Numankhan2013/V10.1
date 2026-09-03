@@ -26,7 +26,7 @@ jobs:
           checks={
             'modern UI layer': 'v102-modern-ui' in s,
             'streak/dashboard layer': 'v102-streak-layer' in s,
-            'review CTA guard': 'v102-review-cta-guard' in s,
+            'review CTA direct handler': 'v102-review-direct-handler' in s and 'data-v102-review-cta="1"' in s,
             'practice submission': 'submitPractice();' in s,
             'review solutions': 'Review Solutions' in s,
             'canonical haptic': s.count("function haptic(pattern){ try{ if(navigator && typeof navigator.vibrate==='function') navigator.vibrate(pattern); }catch(e){} }")==1,
@@ -35,6 +35,7 @@ jobs:
             'practice correct feedback': '.option.correct.selected{background:#eaf9f3!important' in s,
             'practice wrong feedback': '.option.wrong.selected{background:#fff0f1!important' in s,
             'review CTA data id': 'data-review-test-id="${esc(t.id)}"' in s,
+            'Anatomy/Physiology data': 'window.SUBJECT_QBANK_DATA' in s and Path('app/src/main/assets/subjects_qbank_data.js').exists(),
             'reduced motion': 'prefers-reduced-motion' in s,
             'responsive layout': bool(re.search(r'@media',s)),
             'no escaped v102 script separators': '\\n<script id="v102-' not in s,
