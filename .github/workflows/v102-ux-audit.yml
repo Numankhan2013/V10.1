@@ -81,6 +81,14 @@ jobs:
           set -euo pipefail
           if [ -x ./gradlew ]; then ./gradlew --no-daemon assembleDebug; else gradle --no-daemon assembleDebug; fi
 
+      - name: Upload exact tested debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: QBank-V10.2-ui-overhaul-debug
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
+          retention-days: 14
+
       - name: Commit product changes
         shell: bash
         run: |
