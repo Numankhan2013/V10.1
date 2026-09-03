@@ -366,6 +366,15 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 }
 
 </style>
+<style id="v102-device-qa-fixes">
+.focus-card{background:linear-gradient(135deg,#2f2d63 0%,#3d65d8 100%)!important;color:#fff!important;border:0!important;}
+.focus-card .eyebrow,.focus-card h2,.focus-card p{color:#fff!important;}
+.focus-card p{color:rgba(255,255,255,.82)!important;}
+.focus-card .focus-btn{background:rgba(255,255,255,.1)!important;color:#fff!important;border-color:rgba(255,255,255,.24)!important;}
+.focus-card .focus-btn.primary{background:#fff!important;color:#2f2d63!important;border-color:#fff!important;}
+.option.correct.selected{background:#eaf9f3!important;border-color:#69c4a8!important;border-left-color:#159a74!important;}
+.option.wrong.selected{background:#fff0f1!important;border-color:#df858a!important;border-left-color:#df4e52!important;}
+</style>
 </head>
 <body>
 <div id="app" class="app-shell"></div>
@@ -996,7 +1005,7 @@ window.QBANK_DATA = {"chapters":[{"id":1,"title":"Carbohydrates","startPage":4,"
     const totalQuestionTime=Object.values(t.questionTimes||{}).reduce((a,b)=>a+(b||0),0);
     const attemptedQuestionTime=Object.keys(t.answers||{}).reduce((a,id)=>a+((t.questionTimes||{})[id]||0),0);
     return shell(`
-      <div class="page-head"><div><button class="ghost-btn" onclick="window.QB.nav('tests')" style="margin-bottom:8px">${navIcon('back',16)} Tests</button><h1 class="page-title">Test Analysis</h1><div class="page-sub">${esc(t.title)} · ${fmtDate(t.createdAt)}</div></div><button class="primary-btn"  type="button" data-v102-review-cta="1"onclick="window.QB.reviewTest('${esc(t.id)}')">Review Solutions</button></div>
+      <div class="page-head"><div><button class="ghost-btn" onclick="window.QB.nav('tests')" style="margin-bottom:8px">${navIcon('back',16)} Tests</button><h1 class="page-title">Test Analysis</h1><div class="page-sub">${esc(t.title)} · ${fmtDate(t.createdAt)}</div></div><button class="primary-btn"  type="button" data-v102-review-cta="1" data-review-test-id="${esc(t.id)}" onclick="window.QB.reviewTest('${esc(t.id)}')">Review Solutions</button></div>
       <div class="card result-hero"><div><div class="small-muted">You scored</div><div class="kpi" style="font-size:42px">${fmtPct(score)}</div><div class="small-muted">${t.correct} / ${t.total} Correct</div><div class="divider"></div><div class="two-col"><div class="mini-card"><div class="label">Correct</div><div class="value success">${t.correct}</div></div><div class="mini-card"><div class="label">Incorrect</div><div class="value danger">${t.incorrect}</div></div><div class="mini-card"><div class="label">Unattempted</div><div class="value warning">${t.unattempted}</div></div><div class="mini-card"><div class="label">Accuracy</div><div class="value">${fmtPct(t.correct/(attempted||1)*100)}</div></div></div></div><div>${donut(score,160)}</div></div>
       <div class="grid grid-4" style="margin-top:14px"><div class="card stat-card"><div class="label">Time Taken</div><div class="value">${formatDuration(t.totalTimeMs)}</div><div class="small-muted">${fmtNum(t.questionIds.length)} questions</div></div><div class="card stat-card"><div class="label">Avg. time / attempted</div><div class="value">${formatDuration(t.attempted?attemptedQuestionTime/t.attempted:0)}</div><div class="small-muted">Selected answers only</div></div><div class="card stat-card"><div class="label">Avg. time / question</div><div class="value">${formatDuration(t.total?totalQuestionTime/t.total:0)}</div><div class="small-muted">Includes skips</div></div><div class="card stat-card"><div class="label">Completion</div><div class="value">${fmtPct(t.total?attempted/t.total*100:0)}</div><div class="small-muted">Questions attempted</div></div></div>
       <div class="card pad" style="margin-top:14px"><div class="section-title"><span>Question Review</span><span class="sub">Open review to inspect every answer</span></div><div class="library">${t.questionIds.map(id=>{const q=BY_ID[id],sel=t.answers[id],corr=q.correctOption===sel;return `<div class="library-row"><div class="main"><div class="title">Q${q.questionNumber}. ${esc(q.question.slice(0,140))}${q.question.length>140?'…':''}</div><div class="meta"><span class="badge ${sel?(corr?'success':'danger'):''}">${sel?(corr?'Correct':'Incorrect'):'Unattempted'}</span>${sel?`<span class="badge">Your answer: ${String.fromCharCode(64+sel)}</span>`:''}<span class="badge">${esc(q.chapter)}</span></div></div></div>`}).join('')}</div></div>
@@ -1129,7 +1138,7 @@ window.QBANK_DATA = {"chapters":[{"id":1,"title":"Carbohydrates","startPage":4,"
   function setTopicFilter(v){topicFilter=v;render();}
   function openChapter(cid){navigate('chapter',cid);}
 
-  window.QB={nav:navigate,toggleMenu,notify,closeModal,confirmSession,openSessionBuilder,openTestBuilder,openModeBuilder,setExamScope,selectAllExamTopics,updateExamPoolCount,practiceOne,startLibrary,startAllPractice,continuePractice,goIndex,selectPractice,submitPractice,retryCurrent,nextQ,prevQ,selectExam,toggleBookmark,submitExam,endSession,resetProgress,openTest,setSearch,setTopicFilter,openChapter,reviewTest};
+  window.QB={getState:()=>state,nav:navigate,toggleMenu,notify,closeModal,confirmSession,openSessionBuilder,openTestBuilder,openModeBuilder,setExamScope,selectAllExamTopics,updateExamPoolCount,practiceOne,startLibrary,startAllPractice,continuePractice,goIndex,selectPractice,submitPractice,retryCurrent,nextQ,prevQ,selectExam,toggleBookmark,submitExam,endSession,resetProgress,openTest,setSearch,setTopicFilter,openChapter,reviewTest};
 
   render();
 })();
@@ -1189,23 +1198,16 @@ if ('serviceWorker' in navigator && location.protocol !== 'file:') { window.addE
 <script id="v102-review-cta-guard">
 (function(){
   document.addEventListener('click',function(e){
-    var b=e.target && e.target.closest ? e.target.closest('[data-v102-review-cta],button') : null;
+    var b=e.target && e.target.closest ? e.target.closest('[data-v102-review-cta]') : null;
     if(!b) return;
-    var label=((b.textContent||'')+'').trim().toLowerCase();
-    if(label!=='review solutions' && label!=='review test') return;
     var id=b.getAttribute('data-review-test-id');
-    var oc=b.getAttribute('onclick')||'';
-    var m=oc.match(/reviewTest\\(['\"]([^'\"]+)['\"]\\)/);
-    if(!id && m) id=m[1];
-    if(!id && window.QB && typeof window.QB.getState==='function'){
-      try{var st=window.QB.getState();if(st&&Array.isArray(st.tests)&&st.tests.length) id=st.tests[st.tests.length-1].id;}catch(_){}
-    }
     if(!id || !window.QB || typeof window.QB.reviewTest!=='function') return;
-    e.preventDefault(); e.stopImmediatePropagation();
+    e.preventDefault();
+    e.stopImmediatePropagation();
     window.QB.reviewTest(id);
   },true);
 })();
-</script>\n
+</script>n
 <style id="v102-practice-layer">
 button.v102-practice-submit-hidden{display:none!important}
 </style>
