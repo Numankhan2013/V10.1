@@ -1,4 +1,4 @@
-# QBank Biochemistry — Android Project v10
+# QBank MBBS — Android Project v10
 
 This Android project wraps the QBank Biochemistry offline application.
 
