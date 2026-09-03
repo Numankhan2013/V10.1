@@ -1558,5 +1558,21 @@ html,body{background:var(--v102-soft);-webkit-font-smoothing:antialiased;text-re
 </script>
 
 <!-- V103_REVIEW_EXPLANATION_OVERLAY -->
+<script id="v103-review-cta-guard">
+(function(){
+  'use strict';
+  document.addEventListener('click', function(e){
+    const el=e.target.closest('[data-v102-review-cta="1"],.v102-review-action');
+    if(!el || !window.QB || typeof window.QB.reviewTest!=='function') return;
+    const id=el.getAttribute('data-review-test-id')||el.getAttribute('data-test-id')||el.getAttribute('data-test')||el.dataset.reviewTestId||el.dataset.testId||el.dataset.test;
+    if(!id) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    window.QB.reviewTest(String(id));
+  }, true);
+})();
+</script>
+
+<!-- V103_REVIEW_CTA_GUARD -->
 </body>
 </html>
