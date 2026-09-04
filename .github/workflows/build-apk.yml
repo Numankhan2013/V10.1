@@ -38,12 +38,14 @@ jobs:
 
       - name: Verify source-PDF solution renderer
         run: |
-          grep -q 'SOURCE_PDF_EXPLANATION_V15' app/src/main/assets/index.html
+          grep -q 'SOURCE_PDF_EXPLANATION_V17' app/src/main/assets/index.html
           grep -q 'BIOCHEM_SOURCE_SOLUTIONS' app/src/main/assets/index.html
-          grep -q 'sourceSubjectV14' app/src/main/assets/index.html
+          grep -q 'anatomy-' app/src/main/assets/index.html
+          grep -q 'qbank.local/anatomy/pdf' app/src/main/java/com/qbank/biochemistry/MainActivity.java
           test -s app/src/main/assets/biochemistry_source_solution_map.js
           test -f app/src/main/assets/Biochemistry_QBank_Source.pdf
           test -f app/src/main/assets/Physiology_QBank_Source.pdf
+          if [ -f app/src/main/assets/Anatomy_QBank_Source.pdf ]; then echo 'Anatomy source PDF present: Anatomy renderer enabled'; else echo 'Anatomy source PDF not yet in repo: Anatomy renderer will remain dormant'; fi
 
       - name: Set up JDK 17
         uses: actions/setup-java@v5
