@@ -1,1 +1,0 @@
-window.BIOCHEM_SOURCE_SOLUTIONS="+open('/mnt/data/source_solution_map.js').read().split('=',1)[1]+";
