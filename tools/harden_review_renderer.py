@@ -1,116 +1,99 @@
 from pathlib import Path
-import json
-import re
+import json,re
+DATA_PREFIX='window.SUBJECT_QBANK_DATA='
+REPLACEMENTS=[
+ (r'HCO\s*3\s*■','HCO₃⁻'),(r'HCO■■','HCO₃⁻'),(r'NH4\s*■','NH₄⁺'),(r'Fe³■','Fe³⁺'),(r'Fe²■','Fe²⁺'),(r'Ca²■','Ca²⁺'),(r'Mg²■','Mg²⁺'),(r'H■CO■','H₂CO₃'),(r'PCO■','PCO₂'),(r'PO■','PO₂'),(r'FEV■','FEV₁'),(r'VO■','VO₂'),(r'DO■','DO₂'),(r'CO■','CO₂'),(r'O■','O₂'),(r'Na\s*■','Na⁺'),(r'K\s*■','K⁺'),(r'Cl\s*■','Cl⁻'),(r'H\s*■','H⁺'),(r'voltage■gated','voltage-gated'),(r'\[Na⁺\]inside■','[Na⁺]inside'),(r'■-Actinin','α-Actinin'),(r'H2PO4■','H₂PO₄⁻'),(r'PO2■■','PO₂'),(r'PCO2■■','PCO₂'),(r'I■','I⁻'),(r'Pseudostrati■ed','Pseudostratified'),(r'fine-tune sound vibrations■■','fine-tune sound vibrations.'),]
 
-DATA_PREFIX = 'window.SUBJECT_QBANK_DATA='
-
-REPLACEMENTS = [
-    (r'HCO\s*3\s*■', 'HCO₃⁻'), (r'HCO■■', 'HCO₃⁻'), (r'NH4\s*■', 'NH₄⁺'),
-    (r'Fe³■', 'Fe³⁺'), (r'Fe²■', 'Fe²⁺'), (r'Ca²■', 'Ca²⁺'), (r'Mg²■', 'Mg²⁺'),
-    (r'H■CO■', 'H₂CO₃'), (r'PCO■', 'PCO₂'), (r'PO■', 'PO₂'), (r'FEV■', 'FEV₁'),
-    (r'VO■', 'VO₂'), (r'DO■', 'DO₂'), (r'CO■', 'CO₂'), (r'O■', 'O₂'),
-    (r'Na\s*■', 'Na⁺'), (r'K\s*■', 'K⁺'), (r'Cl\s*■', 'Cl⁻'), (r'H\s*■', 'H⁺'),
-    (r'voltage■gated', 'voltage-gated'), (r'\[Na⁺\]inside■', '[Na⁺]inside'),
-    (r'■-Actinin', 'α-Actinin'), (r'H2PO4■', 'H₂PO₄⁻'), (r'PO2■■', 'PO₂'),
-    (r'PCO2■■', 'PCO₂'), (r'I■', 'I⁻'), (r'Pseudostrati■ed', 'Pseudostratified'),
-    (r'fine-tune sound vibrations■■', 'fine-tune sound vibrations.'),
-]
-
-
-def clean_physiology_explanation(text):
-    x = str(text or '')
-    for pattern, replacement in REPLACEMENTS:
-        flags = re.I if pattern in (r'voltage■gated', r'Pseudostrati■ed') else 0
-        x = re.sub(pattern, replacement, x, flags=flags)
-    x = x.replace('Table rendering failed', '').strip()
-    x = re.sub(r'\s+([,.;:])', r'\1', x)
-    x = re.sub(r'[ \t]{2,}', ' ', x).strip()
-    return x
-
+def clean(x):
+ x=str(x or '')
+ for a,b in REPLACEMENTS:x=re.sub(a,b,x,flags=(re.I if 'voltage' in a or 'Pseudostrati' in a else 0))
+ x=x.replace('Table rendering failed','').strip(); x=re.sub(r'\s+([,.;:])',r'\1',x); x=re.sub(r'[ \t]{2,}',' ',x).strip(); return x
 
 def patch_html(s):
-    # Do not infer paragraph boundaries from ordinary prose. Explicit source
-    # bullets are only list material when there is a real bullet run.
-    marker = '  function splitSourceParagraphs(text){'
+    # Remove the previous flattened-table heuristic entirely. It created misleading
+    # Source label / Source value cards from text whose column boundaries were lost.
+    pf=s.find('  function parseFlattenedTable(text){')
+    if pf>=0:
+        pe=s.find('  function renderSourceTable(table){',pf)
+        if pe<0: raise ValueError('renderSourceTable marker missing')
+        s=s[:pf]+s[pe:]
+
+    marker='  function splitSourceParagraphs(text){'
     if marker not in s:
-        return s
-    start = s.index(marker)
-    end = s.index('\n  function parseOptionBlocks', start)
-    new_split = r'''  function splitSourceParagraphs(text){
-    const raw=String(text||'').replace(/\r/g,'').trim();
-    if(!raw)return[];
+        raise ValueError('splitSourceParagraphs marker missing')
+    a=s.index(marker); b=s.index('\n  function parseOptionBlocks',a)
+    split=r'''  function splitSourceParagraphs(text){
+    const raw=String(text||'').replace(/\r/g,'').trim(); if(!raw)return[];
     const lines=raw.split('\n'),chunks=[];
     const heading=/^(Algorithm|Investigations|Significance|Mechanism|Key point|Recognition|Cause|Regulation|Identification Tips|Other options|Correct Option|Simple carbohydrates|Polysaccharides|Locations of Various)\s*:?[ \t]*$/i;
-    if(lines.length>1){
-      let cur=[],bullets=false;
-      const flush=()=>{if(cur.length)chunks.push(cur.join(' ').replace(/\s+/g,' ').trim());cur=[];bullets=false;};
-      for(const line of lines){
-        const t=line.trim(); if(!t){flush();continue;}
-        if(heading.test(t)){flush();chunks.push(t);continue;}
-        if(/^•\s*/.test(t)||/^[-–—]\s+/.test(t)){flush();cur=[t.replace(/^[-–—]\s+/,'• ')];bullets=true;continue;}
-        cur.push(t);
-      }
-      flush(); return chunks.filter(Boolean);
-    }
-    const bulletCount=(raw.match(/•/g)||[]).length;
-    if(bulletCount>=2){
-      const parts=raw.split(/•/),intro=parts.shift().trim();
-      if(intro)chunks.push(intro);
-      for(const p of parts){const t=p.trim();if(t)chunks.push('• '+t);}
-      return chunks.filter(Boolean);
-    }
+    if(lines.length>1){let cur=[];const flush=()=>{if(cur.length)chunks.push(cur.join(' ').replace(/\s+/g,' ').trim());cur=[];};for(const line of lines){const t=line.trim();if(!t){flush();continue;}if(heading.test(t)){flush();chunks.push(t);continue;}if(/^•\s*/.test(t)||/^[-–—]\s+/.test(t)){flush();cur=[t.replace(/^[-–—]\s+/,'• ')];continue;}cur.push(t);}flush();return chunks.filter(Boolean);}
+    const n=(raw.match(/•/g)||[]).length;if(n>=2){const parts=raw.split(/•/),intro=parts.shift().trim();if(intro)chunks.push(intro);for(const p of parts){const t=p.trim();if(t)chunks.push('• '+t);}return chunks.filter(Boolean);}
     return [raw.replace(/^•\s*/,'').trim()].filter(Boolean);
   }
 '''
-    s=s[:start]+new_split+s[end:]
+    s=s[:a]+split+s[b:]
 
-    # Only build a table when the source contains recognisable row labels. No
-    # values are invented; the flattened source is preserved verbatim.
-    anchor='  function renderSourceTable(table){'
-    if anchor in s and 'function parseFlattenedTable(text)' not in s:
-      idx=s.index(anchor)
-      parser=r'''  function parseFlattenedTable(text){
-    const raw=String(text||'').replace(/\r/g,'').trim(); if(!raw)return null;
-    const labels=['Definition','Mechanism','Function','Functions','Location','Structure','Stimulus','Response','Pathway','Purpose','Example','Examples','Type','Feature','Features','Site','Effect','Effects','Receptor','Components','Composition','Distribution','Action','Characteristics','Cause','Causes','Symptoms','Duration','Role','Production','Secretion','Cell Type','Hormone','Condition','Process','Outcome','Speed','Direction','Conduction','Myelination','Inhibition','Excitation','Binding','Activation','Signaling','Measurement','Details','Pressure','Clinical Significance','Clinical Findings','Primary mechanism','Site of action','Cell Entry','Receptor Location','Receptor Family','Signaling Mechanism','Intracellular Activity','Nature','Embryological Origin','Cellular Composition'];
-    const rx=new RegExp('\\b('+labels.sort((a,b)=>b.length-a.length).map(x=>x.replace(/[.*+?^${}()|[\\]\\]/g,'\\\\$&')).join('|')+')\\b','gi');
-    const ms=[...raw.matchAll(rx)]; if(ms.length<2||/•/.test(raw))return null;
-    const rows=[]; for(let i=0;i<ms.length;i++){const a=ms[i].index+ms[i][0].length,b=i+1<ms.length?ms[i+1].index:raw.length,v=raw.slice(a,b).trim();if(v)rows.push([ms[i][1],v]);}
-    if(rows.length<2)return null; return {heads:['Source label','Source value'],rows,flattened:true};
+    marker='  function renderExplanationText(text,question){'
+    i=s.index(marker)
+    parser=r'''  function parseStructuredOptionExplanation(text,question){
+    const raw=String(text||'').replace(/\r/g,'').trim();
+    const split=raw.search(/\bIncorrect\s+Options?\s*:/i); if(split<0)return null;
+    const correctPart=raw.slice(0,split).trim();
+    const incorrectPart=raw.slice(split).replace(/^\bIncorrect\s+Options?\s*:\s*/i,'').trim();
+    let correctLetter='',correctBody=correctPart;
+    const cm=correctPart.match(/^(?:Correct\s+(?:Answer|Option)?|Answer)\s*[:\-]?\s*([A-E])\s*(?:\)|[-:])?\s*(.*)$/is);
+    if(cm){correctLetter=cm[1].toUpperCase();correctBody=cm[2].trim();}
+    const marker=/(?:\bOption\s+([A-E])\s*[-:]|\(\s*Option\s+([A-E])\s*\))/ig,ms=[...incorrectPart.matchAll(marker)];
+    if(!ms.length)return null;
+    const items=[];
+    for(let i=0;i<ms.length;i++){const m=ms[i],letter=(m[1]||m[2]).toUpperCase(),end=i+1<ms.length?ms[i+1].index:incorrectPart.length;let body=incorrectPart.slice(m.index+m[0].length,end).trim();const opt=(question?.options||[]).find(o=>String(o.letter).toUpperCase()===letter);const title=opt?.text||`Option ${letter}`;items.push({letter,title,body});}
+    return {correctLetter,correctBody,items};
+  }
+
+  function renderStructuredOptionExplanation(data,question){
+    const correct=Number(question?.correctOption||0), correctLetter=data.correctLetter||(correct?String.fromCharCode(64+correct):'');
+    const intro=data.correctBody?`<div class="explain-section-title">Why the correct answer is correct</div><p class="explain-paragraph">${richText(data.correctBody)}</p>`:'';
+    const list=data.items.map(x=>`<article class="explain-option-item ${x.letter===correctLetter?'fits':''}"><div class="explain-option-head"><span class="explain-tag">Option ${x.letter}</span><span>${richText(x.title)}</span></div><div class="explain-option-reason">${x.letter===correctLetter?'Why it fits':'Why it doesn’t fit'}</div><div class="explain-option-body">${richText(x.body||'The supplied source does not provide a separate reason for this option.')}</div></article>`).join('');
+    return `${intro}<div class="explain-section-title option-review-title">Why the other options don’t fit</div><div class="explain-option-list">${list}</div>`;
   }
 
 '''
-      s=s[:idx]+parser+s[idx:]
-    s=s.replace('const table=parseSourceTable(mainText);','const table=parseSourceTable(mainText) || parseFlattenedTable(mainText);',1)
-    s=s.replace("let normalized=String(text).replace(/\\r/g,'').trim();","let normalized=String(text).replace(/\\r/g,'').replace(/Table rendering failed/g,'').trim();",1)
-    # Submit Test must dismiss the overlay before changing routes.
-    s=s.replace('onclick="window.QB.submitExam(false)"','onclick="window.QB.closeQuestionNavigator();window.QB.submitExam(false)"',1)
+    s=s[:i]+parser+s[i:]
+
+    a=s.index('  function renderExplanationText(text,question){'); b=s.index('\n  function practiceHistory',a)
+    renderer=r'''  function renderExplanationText(text,question){
+    if(!text)return'';
+    let normalized=String(text).replace(/\r/g,'').replace(/Table rendering failed/g,'').trim();
+    normalized=normalized.replace(/^\s*(?:Explanation\s*:\s*)/i,'').trim();
+    const structured=parseStructuredOptionExplanation(normalized,question); if(structured)return renderStructuredOptionExplanation(structured,question);
+    const blocks=[];
+    const table=parseSourceTable(normalized);
+    if(table){const lines=normalized.split('\n'),intro=lines.slice(0,table.startLine).join('\n').trim();if(intro)blocks.push(renderPlainExplanation(intro));blocks.push(renderSourceTable(table));const remainder=lines.slice(table.consumedLines).join('\n').trim();if(remainder)blocks.push(renderPlainExplanation(remainder));}
+    else blocks.push(renderPlainExplanation(normalized));
+    return blocks.filter(Boolean).join('');
+  }
+'''
+    s=s[:a]+renderer+s[b:]
+    s=s.replace('${formatExplanation(q.explanation)}','${renderExplanationText(q.explanation,q)}')
+    s=s.replace('onclick="window.QB.submitExam(false)">Submit Test','onclick="window.QB.closeQuestionNavigator();window.QB.submitExam(false)">Submit Test')
+    s=s.replace("function submitExam(auto=false){const s=state.activeSession;if(!s||s.mode!=='exam')return;","function submitExam(auto=false){const s=state.activeSession;if(!s||s.mode!=='exam')return;closeQuestionNavigator();",1)
     return s
 
-
-def clean_subject_file(path, html=False):
-    p=Path(path); s=p.read_text(encoding='utf-8')
-    start=s.index(DATA_PREFIX)+len(DATA_PREFIX); end=s.find('</script>',start)
-    if end<0:end=len(s)
-    data=json.loads(s[start:end].strip().rstrip(';'))
-    physiology=next((x for x in data.get('subjects',[]) if x.get('subject')=='Physiology'),None)
-    if not physiology: raise SystemExit(f'{path}: Physiology dataset not found')
-    changed=0
-    for q in physiology.get('questions',[]):
-        old=q.get('explanation') or ''; new=clean_physiology_explanation(old)
-        if new!=old:q['explanation']=new;changed+=1
-        for key in ('question','correctAnswerText'):
-            old=q.get(key) or ''; new=clean_physiology_explanation(old)
-            if new!=old:q[key]=new
-        for o in q.get('options',[]):
-            old=o.get('text') or ''; new=clean_physiology_explanation(old)
-            if new!=old:o['text']=new
-    encoded=json.dumps(data,ensure_ascii=False,separators=(',',':'))
-    s=s[:start]+encoded+';\n\n'+s[end:]
-    if html:s=patch_html(s)
-    p.write_text(s,encoding='utf-8')
-    print(f'{path}: cleaned {changed} Physiology explanations')
-
+def clean_file(path,html=False):
+ p=Path(path);s=p.read_text(encoding='utf8');st=s.index(DATA_PREFIX)+len(DATA_PREFIX);en=s.find('</script>',st);raw=s[st:en].strip().rstrip(';');data=json.loads(raw);phy=next(x for x in data['subjects'] if x['subject']=='Physiology');changed=0
+ for q in phy['questions']:
+  old=q.get('explanation') or '';new=clean(old)
+  if new!=old:q['explanation']=new;changed+=1
+  for k in ('question','correctAnswerText'):
+   old=q.get(k) or '';new=clean(old)
+   if new!=old:q[k]=new
+  for o in q.get('options',[]):
+   old=o.get('text') or '';new=clean(old)
+   if new!=old:o['text']=new
+ enc=json.dumps(data,ensure_ascii=False,separators=(',',':'));s=s[:st]+enc+';\n\n'+s[en:]
+ if html:s=patch_html(s)
+ p.write_text(s,encoding='utf8');print(path,'changed',changed)
 
 if __name__=='__main__':
-    clean_subject_file('app/src/main/assets/index.html',html=True)
-    clean_subject_file('app/src/main/assets/subjects_qbank_data.js',html=False)
+ clean_file('app/src/main/assets/index.html',True)
+ clean_file('app/src/main/assets/subjects_qbank_data.js',False)
