@@ -30,6 +30,8 @@ def patch_html(s):
     return s
 
 if __name__=='__main__':
+    pdf=Path('app/src/main/assets/Physiology_QBank_Source.pdf')
+    if not pdf.exists(): raise SystemExit('Physiology source PDF missing: add app/src/main/assets/Physiology_QBank_Source.pdf before building this source-visual version.')
     p=Path('app/src/main/assets/index.html')
     p.write_text(patch_html(p.read_text(encoding='utf8')),encoding='utf8')
     print('Applied source-PDF renderer; QBank data left untouched.')
