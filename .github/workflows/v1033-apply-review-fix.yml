@@ -1,0 +1,62 @@
+name: V10.3.3 Review Solutions Fix
+
+on:
+  push:
+    branches: [v10.3.3-review-fix]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Restore known-good V10.3.2 source
+        run: git checkout e7a4011423fb37ebdc32d512aeb435cc4bc3ca81 -- app/src/main/assets/index.html
+      - name: Apply clean Review Solutions hardening
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('app/src/main/assets/index.html')
+          s=p.read_text(encoding='utf-8')
+          # Remove the broken post-document V10.3.2 patch.
+          s=s.split('<!-- V1032_REVIEW_FIX -->',1)[0].rstrip()+'\n' if '<!-- V1032_REVIEW_FIX -->' in s else s
+          # Remove the redundant V103 CTA guard; the older V102 guard remains.
+          import re
+          s=re.sub(r'\n<!-- V103_REVIEW_EXPLANATION_OVERLAY -->\s*<script id="v103-review-cta-guard">.*?</script>\s*\n<!-- V103_REVIEW_CTA_GUARD -->','',s,flags=re.S)
+          # Replace the original reviewTest implementation with a direct, defensive renderer.
+          old=re.compile(r'function reviewTest\(testId\)\{.*?\n    \}\n    function reviewTestPage\(\)',re.S)
+          new='''function reviewTest(testId){\n      try {\n        let wanted=String(testId ?? '');\n        try{wanted=decodeURIComponent(wanted);}catch(_){}\n        const t=state.tests.find(x=>String(x.id)===wanted || String(x.id)===String(testId));\n        if(!t){showToast('That completed test could not be found.','bad');return false;}\n        if(!Array.isArray(t.questionIds)||!t.questionIds.length){showToast('This test has no saved questions to review.','bad');return false;}\n        const missing=t.questionIds.filter(id=>!BY_ID[id]);\n        if(missing.length){showToast('Some saved questions are missing from the current QBank.','bad');console.error('Review Solutions: missing question IDs',missing);return false;}\n        const session=buildReviewSession(t);\n        session.questionEnteredAt=Date.now();\n        state.activeSession=session;\n        saveState();\n        route={page:'review-test',id:String(t.id)};\n        render();\n        const target=`#review-test/${encodeURIComponent(String(t.id))}`;\n        try{history.replaceState(null,'',target);}catch(_){location.hash=target;}\n        return true;\n      }catch(e){console.error('Review Solutions failed',e);showToast('Review Solutions could not open.','bad');return false;}\n    }\n    function reviewTestPage()'''
+          s,n=old.subn(new,s,count=1)
+          if n!=1: raise SystemExit('reviewTest replacement failed')
+          hard='''<!-- V1033_REVIEW_HARDENING -->\n<script id="v1033-review-hardening">\n(function(){\n  'use strict';\n  var LS='qbank_state_v1';\n  function getState(){try{return window.QB&&typeof window.QB.getState==='function'?window.QB.getState():null;}catch(_){return null;}}\n  function persist(s){try{localStorage.setItem(LS,JSON.stringify(s));}catch(_){}}\n  function testFor(s,id){if(!s||!Array.isArray(s.tests))return null;var wanted=String(id==null?'':id);try{wanted=decodeURIComponent(wanted);}catch(_){}return s.tests.find(function(t){return String(t.id)===wanted;})||null;}\n  function jump(id){var target='#review-test/'+encodeURIComponent(String(id));if(location.hash===target){location.hash='';setTimeout(function(){location.hash=target;},0);}else location.hash=target;}\n  function install(){\n    if(!window.QB||typeof window.QB.getState!=='function')return false;\n    var originalNext=window.QB.nextQ,originalPrev=window.QB.prevQ;\n    function reviewTest(id){var s=getState(),t=testFor(s,id);if(!t||!Array.isArray(t.questionIds)||!t.questionIds.length)return false;s.activeSession={id:'review_'+String(t.id),mode:'review',sourceTestId:String(t.id),title:'Review · '+String(t.title||'Completed Test'),questionIds:t.questionIds.slice(),index:0,answers:Object.assign({},t.answers||{}),submitted:Object.fromEntries(t.questionIds.map(function(qid){return [qid,Object.prototype.hasOwnProperty.call(t.answers||{},qid)];})),startedAt:t.createdAt||Date.now(),questionTimes:Object.assign({},t.questionTimes||{})};persist(s);jump(t.id);return true;}\n    reviewTest.__v103Wrapped=true;reviewTest.__v1033=true;window.QB.reviewTest=reviewTest;\n    function nextQ(){var s=getState(),a=s&&s.activeSession;if(a&&a.mode==='review'){if(a.index<a.questionIds.length-1){a.index++;persist(s);jump(a.sourceTestId);}return false;}return typeof originalNext==='function'?originalNext.apply(this,arguments):false;}\n    nextQ.__v103Wrapped=true;window.QB.nextQ=nextQ;\n    function prevQ(){var s=getState(),a=s&&s.activeSession;if(a&&a.mode==='review'){if(a.index>0){a.index--;persist(s);jump(a.sourceTestId);}return false;}return typeof originalPrev==='function'?originalPrev.apply(this,arguments):false;}\n    prevQ.__v103Wrapped=true;window.QB.prevQ=prevQ;\n    return true;\n  }\n  if(!install()){var timer=setInterval(function(){if(install())clearInterval(timer);},50);setTimeout(function(){clearInterval(timer);},5000);}\n})();\n</script>'''
+          s=s.replace('</body>',hard+'\n</body>')
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Validate
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re,subprocess
+          s=Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
+          assert s.count('V1032_REVIEW_FIX')==0
+          assert s.count('v1033-review-hardening')==1
+          assert '</html>' in s and s.rfind('<script id="v1033-review-hardening">') < s.rfind('</body>')
+          for i,m in enumerate(re.finditer(r'<script(?:\\s[^>]*)?>(.*?)</script>',s,re.S),1):
+            Path(f'/tmp/s{i}.js').write_text(m.group(1))
+            r=subprocess.run(['node','--check',f'/tmp/s{i}.js'],capture_output=True,text=True)
+            if r.returncode: raise SystemExit(r.stderr)
+          print('validation ok')
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add app/src/main/assets/index.html
+          git diff --cached --quiet && exit 0
+          git commit -m 'fix: harden Review Solutions for Android WebView [skip ci]'
+          git push
