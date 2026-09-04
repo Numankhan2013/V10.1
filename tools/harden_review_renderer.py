@@ -1,88 +1,34 @@
 from pathlib import Path
 import json,re
-DATA_PREFIX='window.SUBJECT_QBANK_DATA='
-REPLACEMENTS=[
- (r'HCO\s*3\s*■','HCO₃⁻'),(r'HCO■■','HCO₃⁻'),(r'NH4\s*■','NH₄⁺'),(r'Fe³■','Fe³⁺'),(r'Fe²■','Fe²⁺'),(r'Ca²■','Ca²⁺'),(r'Mg²■','Mg²⁺'),(r'H■CO■','H₂CO₃'),(r'PCO■','PCO₂'),(r'PO■','PO₂'),(r'FEV■','FEV₁'),(r'VO■','VO₂'),(r'DO■','DO₂'),(r'CO■','CO₂'),(r'O■','O₂'),(r'Na\s*■','Na⁺'),(r'K\s*■','K⁺'),(r'Cl\s*■','Cl⁻'),(r'H\s*■','H⁺'),(r'voltage■gated','voltage-gated'),(r'\[Na⁺\]inside■','[Na⁺]inside'),(r'■-Actinin','α-Actinin'),(r'H2PO4■','H₂PO₄⁻'),(r'PO2■■','PO₂'),(r'PCO2■■','PCO₂'),(r'I■','I⁻'),(r'Pseudostrati■ed','Pseudostratified'),(r'fine-tune sound vibrations■■','fine-tune sound vibrations.'),
- (r'Ionotrop\s*ic\s+recep\s*tors','Ionotropic receptors'),(r'Metabot\s*ropic\s+receptor\s*s','Metabotropic receptors'),(r'Postsyn\s*aptic','Postsynaptic'),(r'Presyn\s*aptic','Presynaptic'),(r'Dis\s*trib\s*uti\s*on','Distribution'),(r'Neurotransmi\s*tt?er','Neurotransmitter'),(r'Func\s*tion','Function'),(r'char\s*acteris\s*tics','Characteristics'),(r'Pathophysiol\s*ogy','Pathophysiology'),(r'Physiolog\s*y','Physiology'),
-]
 
-def clean(x):
- x=str(x or '')
- for a,b in REPLACEMENTS:x=re.sub(a,b,x,flags=re.I)
- x=x.replace('Table rendering failed','').strip(); x=re.sub(r'\s+([,.;:])',r'\1',x); return x
+REFERENCE=Path('tools/reference_explanation_renderer.js')
+CSS=r'''<style id="physiology-source-visual-css">
+.phys-source-explanation{margin-top:12px;display:grid;gap:12px}.phys-source-head{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:2px 0}.phys-source-page{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 2px 8px rgba(25,27,45,.05);cursor:zoom-in}.phys-source-page img{display:block;width:100%;height:auto;background:#fff}.phys-source-note{font-size:12px;line-height:1.45;color:var(--muted);margin-top:2px}.phys-question-visual{margin-top:12px;padding:12px;border:1px solid #dfe2ec;border-radius:14px;background:#fbfbfe}.phys-question-visual .phys-source-page{margin-top:9px}.phys-zoom-backdrop{position:fixed;inset:0;z-index:9999;background:rgba(10,11,20,.94);display:flex;flex-direction:column;touch-action:none}.phys-zoom-toolbar{height:58px;display:flex;align-items:center;justify-content:space-between;padding:8px 12px;flex:0 0 auto;color:#fff}.phys-zoom-toolbar .phys-zoom-title{font-size:12px;font-weight:750;opacity:.9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:10px}.phys-zoom-tools{display:flex;gap:7px}.phys-zoom-tools button{width:38px;height:38px;border:1px solid rgba(255,255,255,.25);border-radius:11px;background:rgba(255,255,255,.1);color:#fff;font-size:20px}.phys-zoom-stage{position:relative;flex:1;overflow:hidden;touch-action:none;display:flex;align-items:center;justify-content:center}.phys-zoom-image{max-width:none;max-height:none;width:auto;height:auto;transform-origin:0 0;user-select:none;-webkit-user-drag:none;touch-action:none}
+</style>'''
+JS=r'''  function physSourcePages(q){const m=String(q?.sourceRef||'').match(/Solution Pages?\s+(\d+)(?:-(\d+))?/i);if(!m)return[];const a=+m[1],b=+(m[2]||m[1]),o=[];for(let p=a;p<=b;p++)o.push(p);return o;}
+  function physQuestionPages(q){if(!q||q.subject!=='Physiology'||!Array.isArray(window.PHYSIOLOGY_IMAGE_PAGES))return[];const a=+q.sourcePage||0,b=+q.sourcePageEnd||a;return window.PHYSIOLOGY_IMAGE_PAGES.filter(p=>p>=a&&p<=b);}
+  function physPdfUrl(p){return `https://qbank.local/physiology/pdf?page=${encodeURIComponent(p)}&scale=2.5`;}
+  function renderPhysiologySourceExplanation(q){const pages=physSourcePages(q);if(!pages.length)return `<div class="phys-source-note">Original source explanation is not mapped.</div>`;return `<div class="phys-source-explanation"><div class="phys-source-head">Original source explanation</div>${pages.map(p=>`<div class="phys-source-page" onclick="window.QB.openPhysSourceImage(this.querySelector('img'))"><img loading="lazy" src="${physPdfUrl(p)}" alt="Original Physiology explanation, PDF page ${p}" data-source-page="${p}"></div>`).join('')}<div class="phys-source-note">Taken directly from the original Physiology PDF. Tap to open full-screen; pinch, drag, or use +/− to zoom.</div></div>`;}
+  function renderPhysiologyQuestionVisual(q){const pages=physQuestionPages(q);if(!pages.length)return'';return `<div class="phys-question-visual"><div class="phys-source-head">Original source figure</div>${pages.map(p=>`<div class="phys-source-page" onclick="window.QB.openPhysSourceImage(this.querySelector('img'))"><img loading="lazy" src="${physPdfUrl(p)}" alt="Original Physiology question source, PDF page ${p}" data-source-page="${p}"></div>`).join('')}<div class="phys-source-note">Original PDF page containing the question figure. Tap to zoom and pan.</div></div>`;}
+  let physZoom={scale:1,x:0,y:0,img:null,pointers:new Map(),startDist:0,startScale:1,startX:0,startY:0,baseX:0,baseY:0};
+  function applyPhysZoom(){if(physZoom.img)physZoom.img.style.transform=`translate(${physZoom.x}px,${physZoom.y}px) scale(${physZoom.scale})`;}
+  function resetPhysZoom(){const i=physZoom.img;if(!i)return;const st=i.parentElement,sx=st.clientWidth/i.naturalWidth,sy=st.clientHeight/i.naturalHeight;physZoom.scale=Math.min(1,Math.min(sx,sy));physZoom.x=(st.clientWidth-i.naturalWidth*physZoom.scale)/2;physZoom.y=(st.clientHeight-i.naturalHeight*physZoom.scale)/2;applyPhysZoom();}
+  function openPhysSourceImage(img){if(!img)return;closePhysSourceImage();const b=document.createElement('div');b.id='phys-zoom-backdrop';b.className='phys-zoom-backdrop';b.innerHTML=`<div class="phys-zoom-toolbar"><div class="phys-zoom-title">Original source · PDF page ${esc(img.getAttribute('data-source-page')||'')}</div><div class="phys-zoom-tools"><button id="pz-minus">−</button><button id="pz-reset">1×</button><button id="pz-plus">+</button><button id="pz-close">×</button></div></div><div class="phys-zoom-stage"><img class="phys-zoom-image" src="${img.src}" alt="${esc(img.alt||'Original source')}"></div>`;document.body.appendChild(b);const st=b.querySelector('.phys-zoom-stage'),i=b.querySelector('.phys-zoom-image');physZoom={scale:1,x:0,y:0,img:i,pointers:new Map(),startDist:0,startScale:1,startX:0,startY:0,baseX:0,baseY:0};i.addEventListener('load',()=>resetPhysZoom());b.querySelector('#pz-close').onclick=closePhysSourceImage;b.querySelector('#pz-reset').onclick=resetPhysZoom;b.querySelector('#pz-plus').onclick=()=>{physZoom.scale=Math.min(5,physZoom.scale*1.35);applyPhysZoom();};b.querySelector('#pz-minus').onclick=()=>{physZoom.scale=Math.max(.5,physZoom.scale/1.35);applyPhysZoom();};st.addEventListener('pointerdown',e=>{st.setPointerCapture?.(e.pointerId);physZoom.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(physZoom.pointers.size===1){physZoom.startX=e.clientX;physZoom.startY=e.clientY;physZoom.baseX=physZoom.x;physZoom.baseY=physZoom.y;}else{const ps=[...physZoom.pointers.values()];physZoom.startDist=Math.hypot(ps[0].x-ps[1].x,ps[0].y-ps[1].y);physZoom.startScale=physZoom.scale;}});st.addEventListener('pointermove',e=>{if(!physZoom.pointers.has(e.pointerId))return;physZoom.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});const ps=[...physZoom.pointers.values()];if(ps.length===1){physZoom.x=physZoom.baseX+e.clientX-physZoom.startX;physZoom.y=physZoom.baseY+e.clientY-physZoom.startY;applyPhysZoom();}else if(ps.length===2&&physZoom.startDist){const d=Math.hypot(ps[0].x-ps[1].x,ps[0].y-ps[1].y);physZoom.scale=Math.max(.5,Math.min(5,physZoom.startScale*d/physZoom.startDist));applyPhysZoom();}});['pointerup','pointercancel','pointerleave'].forEach(ev=>st.addEventListener(ev,e=>physZoom.pointers.delete(e.pointerId)));b.addEventListener('click',e=>{if(e.target===b)closePhysSourceImage();});}
+  function closePhysSourceImage(){document.getElementById('phys-zoom-backdrop')?.remove();physZoom={scale:1,x:0,y:0,img:null,pointers:new Map(),startDist:0,startScale:1,startX:0,startY:0,baseX:0,baseY:0};}
+  window.QB.openPhysSourceImage=openPhysSourceImage;window.QB.closePhysSourceImage=closePhysSourceImage;
+'''
 
 def patch_html(s):
-    pf=s.find('  function parseFlattenedTable(text){')
-    if pf>=0:
-        pe=s.find('  function renderSourceTable(table){',pf)
-        if pe<0: raise ValueError('renderSourceTable marker missing')
-        s=s[:pf]+s[pe:]
-    a=s.index('  function splitSourceParagraphs(text){'); b=s.index('\n  function parseOptionBlocks',a)
-    s=s[:a]+r'''  function splitSourceParagraphs(text){
-    const raw=String(text||'').replace(/\r/g,'').trim(); if(!raw)return[];
-    const lines=raw.split('\n'),out=[]; let cur='';
-    const headings=/^(Algorithm|Key Points|Mechanism|Clinical|Jendrassik Maneuver|Alpha-Gamma Coactivation|Afferent Limb|Integration Center|Efferent Limb|Effector|Peripheral Signals|Leptin and Obesity|Role of Orexin|Center-Surround Model|Incorrect Options|Other options|Difference|Features|Characteristics|Components|Types|Function|Pathway|Note|Important)\s*:?$/i;
-    const flush=()=>{if(cur.trim())out.push(cur.trim());cur='';};
-    for(const rawLine of lines){const line=rawLine.trim();if(!line){flush();continue;}const bullet=/^(?:•|[-–—])\s*/.test(line);if(bullet){flush();out.push('• '+line.replace(/^(?:•|[-–—])\s*/,''));continue;}if(headings.test(line)){flush();out.push(line);continue;}cur=cur?(cur+' '+line):line;}
-    flush();
-    if(out.length===1){const n=(out[0].match(/•/g)||[]).length;if(n>=2){const parts=out[0].split(/•/),first=parts.shift().trim(),r=[];if(first)r.push(first);for(const p of parts){if(p.trim())r.push('• '+p.trim());}return r;}}
-    return out.filter(Boolean);
-  }
-'''+s[b:]
-    a=s.index('  function renderExplanationText(text,question){'); b=s.index('\n  function practiceHistory',a)
-    renderer=r'''  function renderExplanationText(text,question){
-    if(!text)return'';
-    try{
-      let normalized=String(text).replace(/\r/g,'').replace(/Table rendering failed/g,'').trim();
-      normalized=normalized.replace(/^\s*(?:Explanation\s*:\s*)/i,'').trim();
-      const blocks=splitSourceParagraphs(normalized), html=[]; let ref=[];
-      const tableStart=/\b(?:Type\s+(?:Subtype|Channel|Location|of)|Feature\s+(?:Myasthenia|Stretch|Motor|Somatosensory|Primary)|Aspect\s+(?:Protein|Static|Acute|T4|Details)|Phase\s+(?:Description|Membrane)|Condition\s+Description|Category\s+Type|Parameter\s+Description|Classification\s+Function|Pathway\s+Aspect|Type\s+Receptor\s+subtype)\b/i;
-      const flushRef=()=>{if(!ref.length)return;const txt=ref.join(' ').replace(/\s+/g,' ').trim();if(txt)html.push(`<details class="source-reference-fold"><summary>Reference material</summary><div class="source-reference-text">${richText(txt)}</div></details>`);ref=[];};
-      for(const p of blocks){
-        const tm=tableStart.exec(p);
-        if(tm && tm.index>40){
-          flushRef();
-          const intro=p.slice(0,tm.index).trim(), tail=p.slice(tm.index).trim();
-          if(intro)html.push(`<p class="explain-paragraph">${richText(intro)}</p>`);
-          ref.push(tail); continue;
-        }
-        if(tableStart.test(p)){flushRef();ref.push(p);continue;}
-        if(ref.length){ref.push(p);continue;}
-        if(/^•\s*/.test(p)) html.push(`<div class="explain-bullet"><span class="bullet-dot">•</span><div>${richText(p.replace(/^•\s*/,''))}</div></div>`);
-        else if(/^(Algorithm|Key Points|Mechanism|Clinical|Jendrassik Maneuver|Alpha-Gamma Coactivation|Afferent Limb|Integration Center|Efferent Limb|Effector|Peripheral Signals|Leptin and Obesity|Role of Orexin|Center-Surround Model|Incorrect Options|Other options|Difference|Features|Characteristics|Components|Types|Function|Pathway|Note|Important)\s*:?(?:\s*)$/i.test(p)) html.push(`<div class="explain-section-title">${richText(p.replace(/:$/,''))}</div>`);
-        else if(/^(?:Option\s+[A-E]|[A-E]\))[^.]{0,100}(?:ruled out|incorrect|wrong|not|does not|don't|is not)/i.test(p)) html.push(`<div class="explain-option-note">${richText(p)}</div>`);
-        else html.push(`<p class="explain-paragraph">${richText(p)}</p>`);
-      }
-      flushRef(); return html.join('');
-    }catch(e){console.error('Explanation renderer fallback',e);return `<p class="explain-paragraph">${richText(String(text||''))}</p>`;}
-  }
-'''
-    s=s[:a]+renderer+s[b:]
-    s=s.replace('${formatExplanation(q.explanation)}','${renderExplanationText(q.explanation,q)}')
-    s=s.replace('onclick="window.QB.submitExam(false)">Submit Test','onclick="window.QB.closeQuestionNavigator();window.QB.submitExam(false)">Submit Test')
-    s=s.replace("function submitExam(auto=false){const s=state.activeSession;if(!s||s.mode!=='exam')return;","function submitExam(auto=false){const s=state.activeSession;if(!s||s.mode!=='exam')return;closeQuestionNavigator();",1)
-    old="const q=BY_ID[s.questionIds[s.index]], selected=s.answers[q.id]||null, corr=Number(selected)===Number(q.correctOption);"
-    new="const q=BY_ID[s.questionIds[s.index]]; if(!q) return testsPage(); const selected=s.answers[q.id]||null, corr=Number(selected)===Number(q.correctOption);"
-    s=s.replace(old,new,1)
-    css='''.explain-option-note{margin:10px 0;padding:11px 13px;border-left:3px solid #c9cce2;background:#f8f8fc;border-radius:10px;font-size:15px;line-height:1.62;color:#414352}.source-reference-fold{margin:14px 0;border:1px solid #e1e3ec;border-radius:14px;background:#fafbfe;overflow:hidden}.source-reference-fold summary{padding:12px 14px;cursor:pointer;font-size:12px;font-weight:850;color:#4a4d67}.source-reference-text{padding:0 14px 14px;font-size:15px;line-height:1.68;color:#454757}'''
-    if '.explain-option-note{' not in s:
-        pos=s.find('</style>'); s=s[:pos]+css+s[pos:]
+    a=s.index('  function richText(text) {'); b=s.index('\n  function practiceHistory',a)
+    renderer=REFERENCE.read_text(encoding='utf8')
+    renderer=renderer.replace("  function renderExplanationText(text,question){\n    if(!text) return '';", "  function renderExplanationText(text,question){\n    if(question && question.subject==='Physiology') return renderPhysiologySourceExplanation(question);\n    if(!text) return '';")
+    s=s[:a]+renderer+'\n'+JS+s[b:]
+    if 'physiology-source-visual-css' not in s:s=s.replace('</head>',CSS+'\n</head>',1)
+    if 'assets/physiology_image_pages.js' not in s:s=s.replace('</script>\n<script>(() => {','</script>\n<script src="assets/physiology_image_pages.js"></script>\n<script>(() => {',1)
+    old="const sourceImg=IMAGE_PAGES.has(q.sourcePage) ? `<div class=\"source-preview\"><img loading=\"lazy\" src=\"assets/source_pages/p${String(q.sourcePage).padStart(3,'0')}.png\" alt=\"Original source PDF page ${q.sourcePage}\"></div>` : '';"
+    new="const sourceImg=q.subject==='Physiology'?renderPhysiologyQuestionVisual(q):(IMAGE_PAGES.has(q.sourcePage) ? `<div class=\"source-preview\"><img loading=\"lazy\" src=\"assets/source_pages/p${String(q.sourcePage).padStart(3,'0')}.png\" alt=\"Original source PDF page ${q.sourcePage}\"></div>` : '');"
+    s=s.replace(old,new)
     return s
 
-def clean_file(path,html=False):
- p=Path(path);s=p.read_text(encoding='utf8');st=s.index(DATA_PREFIX)+len(DATA_PREFIX);en=s.find('</script>',st);raw=s[st:en].strip().rstrip(';');data=json.loads(raw)
- phy=next(x for x in data['subjects'] if x['subject']=='Physiology');ana=next(x for x in data['subjects'] if x['subject']=='Anatomy')
- for q in phy['questions']:
-  for k in ('explanation','question','correctAnswerText'):q[k]=clean(q.get(k))
-  for o in q.get('options',[]):o['text']=clean(o.get('text'))
- for q in ana['questions']:
-  x=q.get('explanation') or ''
-  for a,b in [(r'Corneal\s+V■','Corneal V1'),(r'Jaw Jerk V■','Jaw Jerk V3'),(r'sensory V■\s*\(Mandibular branch','sensory V3 (Mandibular branch'),(r'Lacrimation V■','Lacrimation V1'),(r'90■clockwise','90° clockwise'),(r'70■','70°'),(r'C5 to■■ T1','C5 to T1')]:x=re.sub(a,b,x)
-  q['explanation']=x
- enc=json.dumps(data,ensure_ascii=False,separators=(',',':'));s=s[:st]+enc+';\n\n'+s[en:]
- if html:s=patch_html(s)
- p.write_text(s,encoding='utf8');print('hardened',path)
-
 if __name__=='__main__':
- clean_file('app/src/main/assets/index.html',True)
- clean_file('app/src/main/assets/subjects_qbank_data.js',False)
+    p=Path('app/src/main/assets/index.html');p.write_text(patch_html(p.read_text(encoding='utf8')),encoding='utf8');print('source visual renderer applied')
