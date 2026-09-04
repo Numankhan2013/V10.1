@@ -17,7 +17,6 @@ def patch_html(s):
         pe=s.find('  function renderSourceTable(table){',pf)
         if pe<0: raise ValueError('renderSourceTable marker missing')
         s=s[:pf]+s[pe:]
-
     a=s.index('  function splitSourceParagraphs(text){'); b=s.index('\n  function parseOptionBlocks',a)
     s=s[:a]+r'''  function splitSourceParagraphs(text){
     const raw=String(text||'').replace(/\r/g,'').trim(); if(!raw)return[];
@@ -30,7 +29,6 @@ def patch_html(s):
     return out.filter(Boolean);
   }
 '''+s[b:]
-
     a=s.index('  function renderExplanationText(text,question){'); b=s.index('\n  function practiceHistory',a)
     renderer=r'''  function renderExplanationText(text,question){
     if(!text)return'';
@@ -38,9 +36,16 @@ def patch_html(s):
       let normalized=String(text).replace(/\r/g,'').replace(/Table rendering failed/g,'').trim();
       normalized=normalized.replace(/^\s*(?:Explanation\s*:\s*)/i,'').trim();
       const blocks=splitSourceParagraphs(normalized), html=[]; let ref=[];
-      const tableStart=/^(?:Type\s+(?:Subtype|Channel|Location|of)|Feature\s+(?:Myasthenia|Stretch|Motor|Somatosensory|Primary)|Aspect\s+(?:Protein|Static|Acute|T4|Details)|Phase\s+(?:Description|Membrane)|Condition\s+Description|Category\s+Type|Parameter\s+Description|Classification\s+Function|Pathway\s+Aspect|Type\s+Receptor\s+subtype)\b/i;
+      const tableStart=/\b(?:Type\s+(?:Subtype|Channel|Location|of)|Feature\s+(?:Myasthenia|Stretch|Motor|Somatosensory|Primary)|Aspect\s+(?:Protein|Static|Acute|T4|Details)|Phase\s+(?:Description|Membrane)|Condition\s+Description|Category\s+Type|Parameter\s+Description|Classification\s+Function|Pathway\s+Aspect|Type\s+Receptor\s+subtype)\b/i;
       const flushRef=()=>{if(!ref.length)return;const txt=ref.join(' ').replace(/\s+/g,' ').trim();if(txt)html.push(`<details class="source-reference-fold"><summary>Reference material</summary><div class="source-reference-text">${richText(txt)}</div></details>`);ref=[];};
       for(const p of blocks){
+        const tm=tableStart.exec(p);
+        if(tm && tm.index>40){
+          flushRef();
+          const intro=p.slice(0,tm.index).trim(), tail=p.slice(tm.index).trim();
+          if(intro)html.push(`<p class="explain-paragraph">${richText(intro)}</p>`);
+          ref.push(tail); continue;
+        }
         if(tableStart.test(p)){flushRef();ref.push(p);continue;}
         if(ref.length){ref.push(p);continue;}
         if(/^•\s*/.test(p)) html.push(`<div class="explain-bullet"><span class="bullet-dot">•</span><div>${richText(p.replace(/^•\s*/,''))}</div></div>`);
@@ -56,7 +61,6 @@ def patch_html(s):
     s=s.replace('${formatExplanation(q.explanation)}','${renderExplanationText(q.explanation,q)}')
     s=s.replace('onclick="window.QB.submitExam(false)">Submit Test','onclick="window.QB.closeQuestionNavigator();window.QB.submitExam(false)">Submit Test')
     s=s.replace("function submitExam(auto=false){const s=state.activeSession;if(!s||s.mode!=='exam')return;","function submitExam(auto=false){const s=state.activeSession;if(!s||s.mode!=='exam')return;closeQuestionNavigator();",1)
-    # Review must never die because a single explanation or stale question ID is malformed.
     old="const q=BY_ID[s.questionIds[s.index]], selected=s.answers[q.id]||null, corr=Number(selected)===Number(q.correctOption);"
     new="const q=BY_ID[s.questionIds[s.index]]; if(!q) return testsPage(); const selected=s.answers[q.id]||null, corr=Number(selected)===Number(q.correctOption);"
     s=s.replace(old,new,1)
