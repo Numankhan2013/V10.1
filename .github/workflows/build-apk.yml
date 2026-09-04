@@ -1,9 +1,9 @@
-name: Build V10.1 APK
+name: Build V10.4 UI Overhaul APK
 
 on:
   workflow_dispatch:
   push:
-    branches: [v10.3.3-review-fix]
+    branches: [v10.4-ui-overhaul]
 
 permissions:
   contents: read
@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout V10.1
+      - name: Checkout V10.4 UI Overhaul
         uses: actions/checkout@v5
 
       - name: Apply deterministic Review Solutions fix
@@ -45,6 +45,9 @@ jobs:
       - name: Install canonical CBT Review renderer
         run: python3 tools/cbt_canonical.py
 
+      - name: Enforce CBT regression guardrails
+        run: python3 tools/verify_cbt_invariants.py
+
       - name: Verify final generated app
         run: |
           grep -q 'SOURCE_PDF_EXPLANATION_V18' app/src/main/assets/index.html
@@ -52,12 +55,6 @@ jobs:
           grep -q 'SUBJECT_SOURCE_SOLUTIONS' app/src/main/assets/index.html
           grep -q 'anatomy-' app/src/main/assets/index.html
           grep -q 'qbank.local/anatomy/pdf' app/src/main/java/com/qbank/biochemistry/MainActivity.java
-          grep -q 'cbt-canonical-review' app/src/main/assets/index.html
-          grep -q '__QB_OPEN_REVIEW' app/src/main/assets/index.html
-          grep -q 'function openReview(testId)' app/src/main/assets/index.html
-          grep -q 'function render(s,t)' app/src/main/assets/index.html
-          ! grep -q 'cbt-final-lock-v2' app/src/main/assets/index.html
-          ! grep -q 'cbt-final-lock-v3' app/src/main/assets/index.html
           test -s app/src/main/assets/biochemistry_source_solution_map.js
           test -s app/src/main/assets/subject_source_solution_maps.js
           test -f app/src/main/assets/Biochemistry_QBank_Source.pdf
@@ -81,6 +78,6 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: V10.3.5-source-pdf-explanations-debug-apk
+          name: V10.4-ui-overhaul-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
