@@ -38,7 +38,7 @@ jobs:
 
       - name: Verify source-PDF solution renderer
         run: |
-          grep -q 'SOURCE_PDF_EXPLANATION_V17' app/src/main/assets/index.html
+          grep -q 'SOURCE_PDF_EXPLANATION_V18' app/src/main/assets/index.html
           grep -q 'BIOCHEM_SOURCE_SOLUTIONS' app/src/main/assets/index.html
           grep -q 'anatomy-' app/src/main/assets/index.html
           grep -q 'qbank.local/anatomy/pdf' app/src/main/java/com/qbank/biochemistry/MainActivity.java
