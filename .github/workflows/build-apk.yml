@@ -14,40 +14,30 @@ jobs:
     steps:
       - name: Checkout V10.4 UI Overhaul
         uses: actions/checkout@v5
-
       - name: Apply deterministic Review Solutions fix
         run: python3 tools/fix_review_build.py
-
       - name: Harden Review Solutions renderer
         run: python3 tools/harden_review_renderer.py
-
       - name: Fix Physiology WebView boot export
         run: python3 tools/fix_phys_webview_boot.py
-
       - name: Install original source-PDF explanation renderer
         run: python3 tools/enable_both_pdf_renderers.py
-
       - name: Install PDF mapping dependency
         run: python3 -m pip install --disable-pip-version-check PyMuPDF
-
       - name: Build exact Biochemistry solution map
         run: python3 tools/build_biochem_solution_map.py
-
       - name: Repair source solution renderer
         run: python3 tools/repair_source_solution_renderer.py
-
       - name: Final source-PDF and CBT hardening
         run: python3 tools/final_hardening.py
-
       - name: Apply legacy CBT UI cleanup
         run: python3 tools/cbt_final_lock.py
-
       - name: Install canonical CBT Review renderer
         run: python3 tools/cbt_canonical.py
-
+      - name: Install V10.4 professional UI and backup layer
+        run: python3 tools/v104_ui_overhaul.py
       - name: Enforce CBT regression guardrails
         run: python3 tools/verify_cbt_invariants.py
-
       - name: Verify final generated app
         run: |
           grep -q 'SOURCE_PDF_EXPLANATION_V18' app/src/main/assets/index.html
@@ -55,26 +45,28 @@ jobs:
           grep -q 'SUBJECT_SOURCE_SOLUTIONS' app/src/main/assets/index.html
           grep -q 'anatomy-' app/src/main/assets/index.html
           grep -q 'qbank.local/anatomy/pdf' app/src/main/java/com/qbank/biochemistry/MainActivity.java
+          grep -q 'cbt-canonical-review' app/src/main/assets/index.html
+          grep -q 'v104-design-system' app/src/main/assets/index.html
+          grep -q 'v104-ui-runtime' app/src/main/assets/index.html
+          grep -q 'Backup & Restore' app/src/main/assets/index.html
+          ! grep -q 'cbt-final-lock-v2' app/src/main/assets/index.html
+          ! grep -q 'cbt-final-lock-v3' app/src/main/assets/index.html
           test -s app/src/main/assets/biochemistry_source_solution_map.js
           test -s app/src/main/assets/subject_source_solution_maps.js
           test -f app/src/main/assets/Biochemistry_QBank_Source.pdf
           test -f app/src/main/assets/Physiology_QBank_Source.pdf
           test -f app/src/main/assets/Anatomy_QBank_Source.pdf
-
       - name: Set up JDK 17
         uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
-
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v5
         with:
           gradle-version: '9.5.0'
-
       - name: Build debug APK
         run: gradle --no-daemon assembleDebug
-
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
