@@ -4,12 +4,11 @@ import re
 HTML=Path('app/src/main/assets/index.html')
 JAVA=Path('app/src/main/java/com/qbank/biochemistry/MainActivity.java')
 MAP='<script src="biochemistry_source_solution_map.js"></script>'
-MARK='<!-- SOURCE_PDF_EXPLANATION_V15 -->'
+MARK='<!-- SOURCE_PDF_EXPLANATION_V16 -->'
 
 s=HTML.read_text(encoding='utf-8')
 if MAP not in s:
     s=s.replace('</head>',MAP+'\n</head>',1)
-
 start=s.find('function renderExplanationText(text,question){')
 if start<0: raise SystemExit('renderExplanationText not found')
 brace=s.find('{',start); depth=0; end=-1
@@ -19,9 +18,10 @@ for i in range(brace,len(s)):
         depth-=1
         if depth==0: end=i+1; break
 if end<0: raise SystemExit('renderExplanationText end not found')
-
 replacement=r'''function renderExplanationText(text,question){
-    const subject=window.sourceSubjectV14(question), label=subject==='physiology'?'Physiology':(subject==='anatomy'?'Anatomy':'Biochemistry');
+    const id=String(question?.id||'').toLowerCase();
+    const subject=id.startsWith('anatomy-')?'anatomy':window.sourceSubjectV14(question);
+    const label=subject==='physiology'?'Physiology':(subject==='anatomy'?'Anatomy':'Biochemistry');
     let segments=[];
     if(subject==='biochemistry' && window.BIOCHEM_SOURCE_SOLUTIONS){
       const hit=window.BIOCHEM_SOURCE_SOLUTIONS.find(x=>x.id===String(question?.id||''));
@@ -41,6 +41,7 @@ if MARK not in s: s=s.replace('</body>',MARK+'\n</body>',1)
 HTML.write_text(s,encoding='utf-8')
 
 j=JAVA.read_text(encoding='utf-8')
+# The generated MainActivity is intentionally patched here, after the generic renderer generator.
 j=j.replace('private PdfRenderer biochemistryRenderer, physiologyRenderer;', 'private PdfRenderer biochemistryRenderer, physiologyRenderer, anatomyRenderer;')
 j=j.replace('private ParcelFileDescriptor biochemistryPfd, physiologyPfd;', 'private ParcelFileDescriptor biochemistryPfd, physiologyPfd, anatomyPfd;')
 j=j.replace('File phys = copyAsset("Physiology_QBank_Source.pdf");', 'File phys = copyAsset("Physiology_QBank_Source.pdf");\n            File anatomy = copyAsset("Anatomy_QBank_Source.pdf");')
@@ -52,4 +53,4 @@ if old not in j: raise SystemExit('Java render block not found')
 j=j.replace(old,new)
 j=j.replace('try{if(physiologyPfd!=null)physiologyPfd.close();}catch(Exception ignored){}', 'try{if(physiologyPfd!=null)physiologyPfd.close();}catch(Exception ignored){}try{if(anatomyRenderer!=null)anatomyRenderer.close();}catch(Exception ignored){}try{if(anatomyPfd!=null)anatomyPfd.close();}catch(Exception ignored){}')
 JAVA.write_text(j,encoding='utf-8')
-print('Installed V15 exact solution renderer with crops, multi-page support, and Anatomy routing.')
+print('Installed V16 exact solution renderer with Anatomy routing, sourceRef ranges, crops, and multi-page support.')
