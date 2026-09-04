@@ -6,7 +6,7 @@ PDF=Path('app/src/main/assets/Biochemistry_QBank_Source.pdf')
 DATA=Path('app/src/main/assets/qbank_data.js')
 OUT=Path('app/src/main/assets/biochemistry_source_solution_map.js')
 
-data=json.loads(DATA.read_text(encoding='utf-8').split('=',1)[1].rstrip(';'))
+data=json.loads(DATA.read_text(encoding='utf-8').split('=',1)[1].strip().rstrip(';'))
 qs=data['questions']
 doc=fitz.open(PDF)
 markers=[]
