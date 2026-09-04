@@ -9,7 +9,7 @@ def clean_physiology_explanation(text):
     x = str(text or '')
 
     # High-confidence PDF extraction repairs. These restore symbols that were
-    # replaced by the black-square glyph without changing the supplied wording.
+    # replaced by the black-square glyph without inventing missing content.
     replacements = [
         (r'HCO\s*3\s*■', 'HCO₃⁻'),
         (r'HCO■■', 'HCO₃⁻'),
@@ -31,38 +31,25 @@ def clean_physiology_explanation(text):
         (r'Cl\s*■', 'Cl⁻'),
         (r'H\s*■', 'H⁺'),
         (r'voltage■gated', 'voltage-gated'),
-        (r'P=2T/r■', 'P=2T/r²'),
         (r'\[Na⁺\]inside■', '[Na⁺]inside'),
         (r'■-Actinin', 'α-Actinin'),
         (r'H2PO4■', 'H₂PO₄⁻'),
         (r'PO2■■', 'PO₂'),
         (r'PCO2■■', 'PCO₂'),
         (r'I■', 'I⁻'),
-        (r'formula ■ does', 'formula does'),
-        (r'■ total', 'R_total'),
-        (r'\s+■\s+(?=(?:45|15)\b)', ' = '),
-        (r'■ x 100', '4/5 x 100'),
-        (r'■heart rate', '↑ heart rate'),
-        (r'\bdi■erent\b', 'different'),
-        (r'■4 atm', '4 atm'),
+        (r'Pseudostrati■ed', 'Pseudostratified'),
         (r'fine-tune sound vibrations■■', 'fine-tune sound vibrations.'),
     ]
     for pattern, repl in replacements:
-        flags = re.I if pattern in (r'voltage■gated', r'\bdi■erent\b') else 0
+        flags = re.I if pattern in (r'voltage■gated', r'Pseudostrati■ed') else 0
         x = re.sub(pattern, repl, x, flags=flags)
 
-    # A few fractions were represented by an isolated glyph in the source extraction.
-    x = x.replace('reached ■ rd', 'reached ¾ of a')
-    x = x.replace('remaining ■ rd', 'remaining ¼ of the')
-    x = x.replace('transit time = ■ x 0.75', 'transit time = ¼ x 0.75')
-    x = x.replace('Dissolved Gas■ /', 'Dissolved Gas /')
-
-    # Normalize spacing without rewriting wording.
+    # Normalize punctuation spacing only; wording and numerical content are preserved.
     x = re.sub(r'\s+([,.;:])', r'\1', x)
     x = re.sub(r'\s{2,}', ' ', x).strip()
 
-    # The source data is flattened to one line. Turn its genuine bullet markers
-    # and explicit section labels back into structural boundaries for the renderer.
+    # The source data is flattened to one line. Turn genuine bullet markers and
+    # explicit labelled sections back into structural boundaries for the renderer.
     x = re.sub(r'\s*•\s*', '\n• ', x)
     labels = r'(Explanation|Mechanism|Key Point|Key Concept|Clinical Features|Diagnosis|Investigations|Treatment|Pathophysiology|Summary|Important|Note|Functions|Features|Definition|Location|Structure|Stimulus|Process|Reflex Pathway|Other options|Incorrect Options|Correct Option|Applications of the Nernst Equation|Limitations|Factors Influencing Blood Flow within vessels|Flow, Pressure, and Resistance Relationship)'
     x = re.sub(r'\s+(?=' + labels + r'\s*:)', '\n', x, flags=re.I)
@@ -125,8 +112,8 @@ def clean_subject_file(path):
     encoded = json.dumps(data, ensure_ascii=False, separators=(',', ':'))
     s = s[:json_start] + encoded + ';\n\n' + s[end:]
 
-    # The current review renderer must use the established explanation renderer;
-    # the old formatExplanation() symbol no longer exists after the v8 system.
+    # The current Review Solutions renderer uses renderExplanationText(); the
+    # former formatExplanation() symbol no longer exists after the v8 system.
     s = s.replace('${formatExplanation(q.explanation)}', '${renderExplanationText(q.explanation,q)}')
     p.write_text(s, encoding='utf-8')
     print(f'{path}: cleaned {changed} explanations; black squares {before}->{after}')
