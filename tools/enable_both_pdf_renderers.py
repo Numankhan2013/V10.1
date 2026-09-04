@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 JAVA = Path('app/src/main/java/com/qbank/biochemistry/MainActivity.java')
 HTML = Path('app/src/main/assets/index.html')
@@ -107,8 +108,8 @@ public class MainActivity extends Activity {
                 Bitmap full = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888); full.eraseColor(Color.WHITE);
                 p.render(full, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY); p.close();
                 ByteArrayOutputStream out = new ByteArrayOutputStream(Math.max(65536, w*h/3));
-                full.compress(Bitmap.CompressFormat.JPEG, 96, out); full.recycle();
-                return new WebResourceResponse("image/jpeg", "UTF-8", new ByteArrayInputStream(out.toByteArray()));
+                full.compress(Bitmap.CompressFormat.PNG, 100, out); full.recycle();
+                return new WebResourceResponse("image/png", null, new ByteArrayInputStream(out.toByteArray()));
             }
         } catch (Exception ignored) { return null; }
     }
@@ -125,41 +126,70 @@ public class MainActivity extends Activity {
 JAVA.write_text(java, encoding='utf-8')
 
 s = HTML.read_text(encoding='utf-8')
-marker = '<!-- SOURCE_PDF_EXPLANATION_V11 -->'
+marker = '<!-- SOURCE_PDF_EXPLANATION_V12 -->'
 if marker not in s:
-    css = r'''<style id="source-pdf-explanation-css">
-.source-pdf-explanation{margin-top:14px;border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}.source-pdf-scroll{max-height:min(58vh,560px);overflow:auto;-webkit-overflow-scrolling:touch;padding:12px}.source-pdf-head{font-size:11px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:2px 2px 9px}.source-pdf-page{margin:0 0 12px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;cursor:zoom-in}.source-pdf-page:last-child{margin-bottom:0}.source-pdf-page img{display:block;width:100%;height:auto}.source-pdf-note{font-size:11px;line-height:1.45;color:var(--muted);padding:9px 2px 2px}.source-pdf-zoom{position:fixed;inset:0;z-index:10000;background:rgba(8,9,17,.96);display:flex;flex-direction:column}.source-pdf-zoombar{height:56px;display:flex;align-items:center;justify-content:space-between;padding:7px 10px;color:#fff}.source-pdf-zoomtitle{font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.source-pdf-zoombar button{width:38px;height:38px;margin-left:5px;border:1px solid rgba(255,255,255,.25);border-radius:10px;background:rgba(255,255,255,.1);color:#fff;font-size:19px}.source-pdf-stage{position:relative;flex:1;overflow:hidden;touch-action:none;display:flex;align-items:center;justify-content:center}.source-pdf-zoomimg{max-width:none;max-height:none;width:auto;height:auto;transform-origin:0 0;user-select:none;-webkit-user-drag:none}
+    css = r'''<style id="source-pdf-explanation-css-v12">
+.source-pdf-explanation{margin-top:14px;border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}.source-pdf-scroll{max-height:min(58vh,560px);overflow:auto;-webkit-overflow-scrolling:touch;padding:12px}.source-pdf-head{font-size:11px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:2px 2px 9px}.source-pdf-page{margin:0 0 12px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;cursor:zoom-in}.source-pdf-page:last-child{margin-bottom:0}.source-pdf-page img{display:block;width:100%;height:auto}.source-pdf-note{font-size:11px;line-height:1.45;color:var(--muted);padding:9px 2px 2px}.source-pdf-zoom{position:fixed;inset:0;z-index:10000;background:rgba(8,9,17,.96);display:flex;flex-direction:column}.source-pdf-zoombar{height:56px;display:flex;align-items:center;justify-content:space-between;padding:7px 10px;color:#fff}.source-pdf-zoomtitle{font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.source-pdf-zoombar button{width:38px;height:38px;margin-left:5px;border:1px solid rgba(255,255,255,.25);border-radius:10px;background:rgba(255,255,255,.1);color:#fff;font-size:19px}.source-pdf-zoomstage{position:relative;flex:1;overflow:hidden;touch-action:none;display:flex;align-items:center;justify-content:center}.source-pdf-zoomimg{max-width:none;max-height:none;width:auto;height:auto;transform-origin:0 0;user-select:none;-webkit-user-drag:none}
 </style>'''
-    js = r'''<script id="source-pdf-explanation-js">
+    js = r'''<script id="source-pdf-explanation-js-v12">
 (function(){
-  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  function subjectKey(q){return String(q?.subject||'').toLowerCase().includes('phys')?'physiology':'biochemistry';}
-  function pagesFor(q){const a=Number(q?.sourcePage||0),b=Number(q?.sourcePageEnd||a);if(!a)return[];const out=[];for(let p=a;p<=Math.max(a,b);p++)out.push(p);return out;}
-  function pdfUrl(q,p){return `https://qbank.local/${subjectKey(q)}/pdf?page=${encodeURIComponent(p)}&scale=3.5`;}
-  function showZoom(img){
+  const escSource=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function sourceSubject(q){
+    const raw=String(q?.subject||' '+q?.sourceRef||'').toLowerCase();
+    return raw.includes('physiology')||raw.includes('physiology qbank')?'physiology':'biochemistry';
+  }
+  function sourcePages(q){
+    const a=Number(q?.sourcePage||0), b=Number(q?.sourcePageEnd||a);
+    if(!a)return[]; const out=[]; for(let p=a;p<=Math.max(a,b);p++)out.push(p); return out;
+  }
+  function sourcePdfUrl(q,p){return `https://qbank.local/${sourceSubject(q)}/pdf?page=${encodeURIComponent(p)}&scale=3.5`;}
+  function openSourceZoom(img){
     document.getElementById('source-pdf-zoom')?.remove();
     const b=document.createElement('div');b.id='source-pdf-zoom';b.className='source-pdf-zoom';
-    b.innerHTML=`<div class="source-pdf-zoombar"><div class="source-pdf-zoomtitle">Original source · PDF page ${esc(img.dataset.sourcePage||'')}</div><div><button id="spz-minus">−</button><button id="spz-reset">1×</button><button id="spz-plus">+</button><button id="spz-close">×</button></div></div><div class="source-pdf-stage"><img class="source-pdf-zoomimg" src="${img.src}" alt="${esc(img.alt||'Original source')}"></div>`;
-    document.body.appendChild(b);const st=b.querySelector('.source-pdf-stage'),i=b.querySelector('.source-pdf-zoomimg');let scale=1,x=0,y=0,baseX=0,baseY=0,sx=0,sy=0,pointers=new Map(),startDist=0,startScale=1;
+    b.innerHTML=`<div class="source-pdf-zoombar"><div class="source-pdf-zoomtitle">Original source · PDF page ${escSource(img.dataset.sourcePage||'')}</div><div><button id="spz-minus">−</button><button id="spz-reset">1×</button><button id="spz-plus">+</button><button id="spz-close">×</button></div></div><div class="source-pdf-zoomstage"><img class="source-pdf-zoomimg" src="${img.src}" alt="${escSource(img.alt||'Original source')}"></div>`;
+    document.body.appendChild(b); const st=b.querySelector('.source-pdf-zoomstage'), i=b.querySelector('.source-pdf-zoomimg');
+    let scale=1,x=0,y=0,bx=0,by=0,sx=0,sy=0,pointers=new Map(),startDist=0,startScale=1;
     const apply=()=>i.style.transform=`translate(${x}px,${y}px) scale(${scale})`;
     const reset=()=>{if(!i.naturalWidth)return;scale=Math.min(1,Math.min(st.clientWidth/i.naturalWidth,st.clientHeight/i.naturalHeight));x=(st.clientWidth-i.naturalWidth*scale)/2;y=(st.clientHeight-i.naturalHeight*scale)/2;apply();};
-    i.addEventListener('load',reset);b.querySelector('#spz-close').onclick=()=>b.remove();b.querySelector('#spz-reset').onclick=reset;b.querySelector('#spz-plus').onclick=()=>{scale=Math.min(6,scale*1.35);apply();};b.querySelector('#spz-minus').onclick=()=>{scale=Math.max(.5,scale/1.35);apply();};
-    st.addEventListener('pointerdown',e=>{st.setPointerCapture?.(e.pointerId);pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(pointers.size===1){sx=e.clientX;sy=e.clientY;baseX=x;baseY=y;}else{const a=[...pointers.values()];startDist=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);startScale=scale;}});
-    st.addEventListener('pointermove',e=>{if(!pointers.has(e.pointerId))return;pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});const a=[...pointers.values()];if(a.length===1){x=baseX+e.clientX-sx;y=baseY+e.clientY-sy;apply();}else if(a.length===2&&startDist){scale=Math.max(.5,Math.min(6,startScale*Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y)/startDist));apply();}});
-    ['pointerup','pointercancel','pointerleave'].forEach(ev=>st.addEventListener(ev,e=>pointers.delete(e.pointerId)));b.addEventListener('click',e=>{if(e.target===b)b.remove();});
+    i.addEventListener('load',reset); b.querySelector('#spz-close').onclick=()=>b.remove(); b.querySelector('#spz-reset').onclick=reset;
+    b.querySelector('#spz-plus').onclick=()=>{scale=Math.min(6,scale*1.35);apply();}; b.querySelector('#spz-minus').onclick=()=>{scale=Math.max(.5,scale/1.35);apply();};
+    st.addEventListener('pointerdown',e=>{pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(pointers.size===1){sx=e.clientX;sy=e.clientY;bx=x;by=y;}else{const a=[...pointers.values()];startDist=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);startScale=scale;}});
+    st.addEventListener('pointermove',e=>{if(!pointers.has(e.pointerId))return;pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});const a=[...pointers.values()];if(a.length===1){x=bx+e.clientX-sx;y=by+e.clientY-sy;apply();}else if(a.length===2&&startDist){scale=Math.max(.5,Math.min(6,startScale*Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y)/startDist));apply();}});
+    ['pointerup','pointercancel','pointerleave'].forEach(ev=>st.addEventListener(ev,e=>pointers.delete(e.pointerId)));
+    b.addEventListener('click',e=>{if(e.target===b)b.remove();});
   }
-  window.renderExplanationText=function(text,q){
-    const pages=pagesFor(q);if(!pages.length)return '';
-    const label=subjectKey(q)==='physiology'?'Physiology':'Biochemistry';
-    return `<div class="source-pdf-explanation"><div class="source-pdf-scroll"><div class="source-pdf-head">Original source explanation · ${label}</div>${pages.map(p=>`<div class="source-pdf-page" onclick="showSourcePdfZoom(this.querySelector('img'))"><img loading="lazy" src="${pdfUrl(q,p)}" data-source-page="${p}" alt="Original ${label} PDF page ${p}"></div>`).join('')}<div class="source-pdf-note">This is the original PDF page rendered directly from the bundled source document. No explanation text has been reconstructed or reformatted.</div></div></div>`;
+  window.openSourceZoom=openSourceZoom;
+
+  // IMPORTANT: replace the lexical function actually called by the question renderer.
+  // Assigning window.renderExplanationText alone does not replace a local function declaration.
+  const originalExplanationFunctionMarker='SOURCE_PDF_EXPLANATION_OVERRIDE_V12';
+  const sourceExplanationRenderer=function(text,question){
+    const pages=sourcePages(question);
+    if(!pages.length)return '';
+    const subject=sourceSubject(question), label=subject==='physiology'?'Physiology':'Biochemistry';
+    return `<div class="source-pdf-explanation"><div class="source-pdf-scroll"><div class="source-pdf-head">Original source explanation · ${label}</div>${pages.map(p=>`<div class="source-pdf-page" onclick="window.openSourceZoom(this.querySelector('img'))"><img loading="lazy" src="${sourcePdfUrl(question,p)}" data-source-page="${p}" alt="Original ${label} PDF page ${p}"></div>`).join('')}<div class="source-pdf-note">Rendered directly from the bundled original source PDF. The explanation text is not parsed, reconstructed, rewritten, or reformatted.</div></div></div>`;
   };
-  window.showSourcePdfZoom=showZoom;
-  window.addEventListener('error',e=>{if(String(e?.message||'').includes('renderExplanationText'))console.warn(e);});
+
+  // Find the existing function declaration in the page source at build time; this runtime marker is
+  // consumed by the build patch below only as a safety flag. The actual replacement is performed below.
+  window.__sourcePdfExplanationRendererV12=sourceExplanationRenderer;
 })();
 </script>'''
+    # Replace the existing lexical renderer body. The hardening step has already installed it.
+    start=s.find('function renderExplanationText(text,question){')
+    if start<0: raise SystemExit('Could not find lexical renderExplanationText function after hardening.')
+    brace=s.find('{',start); depth=0; end=-1
+    for i in range(brace,len(s)):
+        if s[i]=='{': depth+=1
+        elif s[i]=='}':
+            depth-=1
+            if depth==0: end=i+1; break
+    if end<0: raise SystemExit('Could not find end of renderExplanationText function.')
+    replacement='''function renderExplanationText(text,question){\n    const pages=sourcePages(question);\n    if(!pages.length)return '';\n    const subject=sourceSubject(question), label=subject==='physiology'?'Physiology':'Biochemistry';\n    return `<div class="source-pdf-explanation"><div class="source-pdf-scroll"><div class="source-pdf-head">Original source explanation · ${label}</div>${pages.map(p=>`<div class="source-pdf-page" onclick="window.openSourceZoom(this.querySelector('img'))"><img loading="lazy" src="${sourcePdfUrl(question,p)}" data-source-page="${p}" alt="Original ${label} PDF page ${p}"></div>`).join('')}<div class="source-pdf-note">Rendered directly from the bundled original source PDF. The explanation text is not parsed, reconstructed, rewritten, or reformatted.</div></div></div>`;\n  }'''
+    s=s[:start]+replacement+s[end:]
     s=s.replace('</head>',css+'\n</head>',1)
     s=s.replace('</body>',js+'\n'+marker+'\n</body>',1)
     HTML.write_text(s,encoding='utf-8')
-    print('Installed source-PDF explanation renderer for Biochemistry and Physiology.')
+    print('Installed V12 source-PDF explanation renderer by replacing the actual lexical renderExplanationText function.')
 else:
-    print('Source-PDF renderer already installed.')
+    print('V12 source-PDF renderer already installed.')
