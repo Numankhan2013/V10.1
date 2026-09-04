@@ -36,16 +36,21 @@ jobs:
       - name: Repair source solution renderer
         run: python3 tools/repair_source_solution_renderer.py
 
+      - name: Final source-PDF and CBT hardening
+        run: python3 tools/final_hardening.py
+
       - name: Verify source-PDF solution renderer
         run: |
           grep -q 'SOURCE_PDF_EXPLANATION_V18' app/src/main/assets/index.html
           grep -q 'BIOCHEM_SOURCE_SOLUTIONS' app/src/main/assets/index.html
+          grep -q 'SUBJECT_SOURCE_SOLUTIONS' app/src/main/assets/index.html
           grep -q 'anatomy-' app/src/main/assets/index.html
           grep -q 'qbank.local/anatomy/pdf' app/src/main/java/com/qbank/biochemistry/MainActivity.java
           test -s app/src/main/assets/biochemistry_source_solution_map.js
+          test -s app/src/main/assets/subject_source_solution_maps.js
           test -f app/src/main/assets/Biochemistry_QBank_Source.pdf
           test -f app/src/main/assets/Physiology_QBank_Source.pdf
-          if [ -f app/src/main/assets/Anatomy_QBank_Source.pdf ]; then echo 'Anatomy source PDF present: Anatomy renderer enabled'; else echo 'Anatomy source PDF not yet in repo: Anatomy renderer will remain dormant'; fi
+          test -f app/src/main/assets/Anatomy_QBank_Source.pdf
 
       - name: Set up JDK 17
         uses: actions/setup-java@v5
