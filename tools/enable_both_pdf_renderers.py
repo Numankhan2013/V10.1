@@ -50,8 +50,8 @@ public class MainActivity extends Activity {
         settings.setAllowFileAccess(true); settings.setAllowContentAccess(false);
         settings.setBuiltInZoomControls(false); settings.setDisplayZoomControls(false); settings.setSupportZoom(false);
         settings.setLoadsImagesAutomatically(true); settings.setMediaPlaybackRequiresUserGesture(true);
-        settings.setCacheMode(WebSettings.LOAD_DEFAULT);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
+        settings.setCacheMode(WebView.LOAD_DEFAULT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) settings.setMixedContentMode(WebView.MIXED_CONTENT_NEVER_ALLOW);
         webView.setBackgroundColor(Color.WHITE); webView.setWebChromeClient(new WebChromeClient());
         webView.setWebViewClient(new WebViewClient() {
             @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) { return true; }
@@ -125,20 +125,22 @@ public class MainActivity extends Activity {
 JAVA.write_text(java, encoding='utf-8')
 
 s = HTML.read_text(encoding='utf-8')
-marker = '<!-- SOURCE_PDF_EXPLANATION_V13 -->'
+marker = '<!-- SOURCE_PDF_EXPLANATION_V14 -->'
 if marker in s:
-    print('V13 source-PDF renderer already installed.')
+    print('V14 source-PDF renderer already installed.')
 else:
-    css = r'''<style id="source-pdf-explanation-css-v13">
+    css = r'''<style id="source-pdf-explanation-css-v14">
 .source-pdf-explanation{margin-top:14px;border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}.source-pdf-scroll{max-height:min(58vh,560px);overflow:auto;-webkit-overflow-scrolling:touch;padding:12px}.source-pdf-head{font-size:11px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:2px 2px 9px}.source-pdf-page{margin:0 0 12px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;cursor:zoom-in}.source-pdf-page:last-child{margin-bottom:0}.source-pdf-page img{display:block;width:100%;height:auto}.source-pdf-note{font-size:11px;line-height:1.45;color:var(--muted);padding:9px 2px 2px}.source-pdf-zoom{position:fixed;inset:0;z-index:10000;background:rgba(8,9,17,.96);display:flex;flex-direction:column}.source-pdf-zoombar{height:56px;display:flex;align-items:center;justify-content:space-between;padding:7px 10px;color:#fff}.source-pdf-zoomtitle{font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.source-pdf-zoombar button{width:38px;height:38px;margin-left:5px;border:1px solid rgba(255,255,255,.25);border-radius:10px;background:rgba(255,255,255,.1);color:#fff;font-size:19px}.source-pdf-zoomstage{position:relative;flex:1;overflow:hidden;touch-action:none;display:flex;align-items:center;justify-content:center}.source-pdf-zoomimg{max-width:none;max-height:none;width:auto;height:auto;transform-origin:0 0;user-select:none;-webkit-user-drag:none}
 </style>'''
-    js = r'''<script id="source-pdf-explanation-js-v13">
+    js = r'''<script id="source-pdf-explanation-js-v14">
 (function(){
   const escSource=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  function sourceSubject(q){const raw=String(q?.subject||' '+q?.sourceRef||'').toLowerCase();return raw.includes('physiology')?'physiology':'biochemistry';}
+  const subjectFromId=q=>String(q?.id||'').toLowerCase().startsWith('physiology-')?'physiology':null;
+  const subjectFromRef=q=>String(q?.sourceRef||'').toLowerCase().includes('physiology')?'physiology':null;
+  function sourceSubject(q){return String(q?.subject||'').toLowerCase()==='physiology'?'physiology':(subjectFromId(q)||subjectFromRef(q)||'biochemistry');}
   function sourcePages(q){const a=Number(q?.sourcePage||0),b=Number(q?.sourcePageEnd||a);if(!a)return[];const out=[];for(let p=a;p<=Math.max(a,b);p++)out.push(p);return out;}
   function sourcePdfUrl(q,p){return `https://qbank.local/${sourceSubject(q)}/pdf?page=${encodeURIComponent(p)}&scale=3.5`;}
-  window.sourceSubjectV13=sourceSubject;window.sourcePagesV13=sourcePages;window.sourcePdfUrlV13=sourcePdfUrl;
+  window.sourceSubjectV13=sourceSubject;window.sourceSubjectV14=sourceSubject;window.sourcePagesV13=sourcePages;window.sourcePdfUrlV13=sourcePdfUrl;
   function openSourceZoom(img){
     document.getElementById('source-pdf-zoom')?.remove();
     const b=document.createElement('div');b.id='source-pdf-zoom';b.className='source-pdf-zoom';
@@ -163,9 +165,9 @@ else:
             depth-=1
             if depth==0:end=i+1;break
     if end<0:raise SystemExit('Could not find end of renderExplanationText.')
-    replacement='''function renderExplanationText(text,question){\n    const pages=window.sourcePagesV13(question);\n    if(!pages.length)return '';\n    const subject=window.sourceSubjectV13(question),label=subject==='physiology'?'Physiology':'Biochemistry';\n    return `<div class="source-pdf-explanation"><div class="source-pdf-scroll"><div class="source-pdf-head">Original source explanation · ${label}</div>${pages.map(p=>`<div class="source-pdf-page" onclick="window.openSourceZoom(this.querySelector('img'))"><img loading="lazy" src="${window.sourcePdfUrlV13(question,p)}" data-source-page="${p}" alt="Original ${label} PDF page ${p}"></div>`).join('')}<div class="source-pdf-note">Rendered directly from the bundled original source PDF. The explanation text is not parsed, reconstructed, rewritten, or reformatted.</div></div></div>`;\n  }'''
+    replacement='''function renderExplanationText(text,question){\n    const pages=window.sourcePagesV13(question);\n    if(!pages.length)return '';\n    const subject=window.sourceSubjectV14(question),label=subject==='physiology'?'Physiology':'Biochemistry';\n    return `<div class="source-pdf-explanation"><div class="source-pdf-scroll"><div class="source-pdf-head">Original source explanation · ${label}</div>${pages.map(p=>`<div class="source-pdf-page" onclick="window.openSourceZoom(this.querySelector('img'))"><img loading="lazy" src="${window.sourcePdfUrlV13(question,p)}" data-source-page="${p}" alt="Original ${label} PDF page ${p}"></div>`).join('')}<div class="source-pdf-note">Rendered directly from the bundled original source PDF. The explanation text is not parsed, reconstructed, rewritten, or reformatted.</div></div></div>`;\n  }'''
     s=s[:start]+replacement+s[end:]
     s=s.replace('</head>',css+'\n</head>',1)
     s=s.replace('</body>',js+'\n'+marker+'\n</body>',1)
     HTML.write_text(s,encoding='utf-8')
-    print('Installed V13 source-PDF explanation renderer: lexical renderer now calls global PDF helpers.')
+    print('Installed V14 source-PDF explanation renderer with deterministic Physiology ID routing.')
