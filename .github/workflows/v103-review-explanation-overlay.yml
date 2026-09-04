@@ -1,0 +1,61 @@
+name: V10.3 review and explanation overlay
+on:
+  workflow_dispatch:
+  push:
+    branches: [v10.2-ui-overhaul]
+permissions:
+  contents: write
+jobs:
+  stabilize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v10.2-ui-overhaul
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply V10.3 review and explanation overlay
+        run: python tools/v103_review_explanation_overlay.py
+      - name: Validate overlay
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          s=Path('app/src/main/assets/index.html').read_text()
+          required = [
+              'V103_REVIEW_EXPLANATION_OVERLAY',
+              'window.QB.reviewTest=',
+              'window.QB.getState',
+              'reviewSessionFromTest',
+              "mode==='review'",
+              'qbank_state_v1',
+              'QB_V103_EXPLANATION',
+          ]
+          missing=[x for x in required if x not in s]
+          assert not missing, f'Missing V10.3 markers: {missing}'
+          print('V10.3 overlay markers OK')
+          PY
+      - name: Validate JavaScript syntax
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, subprocess, tempfile
+          s=Path('app/src/main/assets/index.html').read_text()
+          scripts=re.findall(r'<script(?:[^>]*)>(.*?)</script>',s,re.S|re.I)
+          for i,src in enumerate(scripts):
+              if not src.strip(): continue
+              p=Path(tempfile.gettempdir())/f'qbank-v103-{i}.js'
+              p.write_text(src)
+              r=subprocess.run(['node','--check',str(p)],capture_output=True,text=True)
+              if r.returncode:
+                  raise SystemExit(f'JS syntax failure in inline script {i}: {r.stderr}')
+          print(f'Checked {len(scripts)} inline scripts')
+          PY
+      - name: Commit overlay
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app/src/main/assets/index.html tools/v103_review_explanation_overlay.py
+          if git diff --cached --quiet; then echo 'No changes'; exit 0; fi
+          git commit -m 'V10.3 harden review and explanation readability'
+          git push origin HEAD:v10.2-ui-overhaul

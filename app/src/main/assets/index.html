@@ -376,6 +376,30 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 .option.wrong.selected{background:#fff0f1!important;border-color:#df858a!important;border-left-color:#df4e52!important;}
 .subject-strip{display:flex;align-items:center;gap:10px;padding:10px 12px;margin-bottom:14px;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow)}.subject-strip .subject-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:820}.subject-switch{min-height:42px;border:1px solid #dfe1ea;border-radius:12px;background:#fff;padding:0 36px 0 12px;font-weight:780;color:var(--ink);max-width:100%;outline:none}.subject-switch:focus-visible{outline:3px solid rgba(61,101,216,.18);outline-offset:2px}.subject-count{margin-left:auto;font-size:11px;color:var(--muted)}@media(max-width:640px){.subject-strip{align-items:flex-start;flex-wrap:wrap}.subject-count{width:100%;margin-left:0}.subject-switch{flex:1;min-width:180px}}
 </style>
+<style id="v103-stabilize">
+.review-test .review-nav{margin-top:14px}
+.review-test .review-nav-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-top:10px}
+.review-test .review-nav-grid .nav-q{width:100%}
+.v103-explain-lead{font-size:15px;line-height:1.72;color:#2f3442;margin:0 0 14px}
+.v103-explain-section{margin-top:16px;padding-top:12px;border-top:1px solid #e8eaf0}
+.v103-explain-section h4{margin:0 0 8px;font-size:12px;line-height:1.25;letter-spacing:.55px;text-transform:uppercase;color:#4b5270;font-weight:900}
+.v103-explain-block{padding:10px 12px;border-radius:12px;background:#fafbfe;border:1px solid #e7e9ef;font-size:14px;line-height:1.65;color:#363d4d}
+.v103-explain-list{margin:8px 0 0 20px;padding:0}.v103-explain-list li{margin:0 0 7px;padding-left:2px}
+.v103-explain-option{display:grid;grid-template-columns:76px 1fr;gap:10px;padding:10px 0;border-top:1px solid #eceef2}.v103-explain-option:first-child{border-top:0}.v103-explain-option strong{font-size:12px;color:#687084;font-weight:900}.v103-explain-option span{font-size:14px;line-height:1.6;color:#363d4d}
+@media(max-width:640px){.review-test .review-nav-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.v103-explain-option{grid-template-columns:60px 1fr}}
+</style>
+
+<style id="v103-review-explanation-css">
+.review-mode .question-card,.review-question .question-card{border-color:#dfe2ec}
+.review-mode .option.correct,.review-question .option.correct{box-shadow:0 0 0 1px rgba(21,154,116,.06)}
+.review-mode .option.wrong,.review-question .option.wrong{box-shadow:0 0 0 1px rgba(223,78,82,.06)}
+.explanation-rich{display:grid;gap:11px;margin-top:15px}
+.explanation-rich .ex-section{padding:13px 14px;border:1px solid var(--line);border-radius:13px;background:#fff}
+.explanation-rich .ex-heading{font-weight:800;font-size:13px;margin-bottom:7px;color:var(--primary)}
+.explanation-rich .ex-p{font-size:13px;line-height:1.62;color:#3e4050;margin:0;white-space:pre-wrap}
+.explanation-rich ul,.explanation-rich ol{margin:5px 0 0 20px;padding:0;color:#3e4050;font-size:13px;line-height:1.6}
+.explanation-rich li{padding-left:3px;margin:3px 0}
+</style>
 </head>
 <body>
 <div id="app" class="app-shell"></div>
@@ -473,9 +497,11 @@ window.SUBJECT_QBANK_DATA={"subjects":[{"subject":"Physiology","topics":[{"id":"
   }
   function fmtNum(n) { return new Intl.NumberFormat('en-IN').format(Math.round(n || 0)); }
   function fmtPct(n) { return `${Math.round(Number(n || 0))}%`; }
-  function subjectPickerMarkup(){ const options=SUBJECTS.map(x=>`<option value="${esc(x.subject)}" ${x.subject===activeSubject?'selected':''}>${esc(x.subject)}</option>`).join(''); return `<div class="subject-strip"><span class="subject-label">Subject</span><select class="subject-switch" aria-label="Choose subject" onchange="window.QB.setSubject(this.value)">${options}</select><span class="subject-count">${fmtNum(QUESTIONS.length)} questions · ${fmtNum(CHAPTERS.length)} topics</span></div>`; }
-  function setSubject(name){ if(!SUBJECT_BY_NAME[name]) return; applySubject(name); searchTerm=''; topicFilter='all'; navigate('dashboard'); }
-  function subjectSourceNote(q){ const subj=q.subject||activeSubject; return subj==='Biochemistry' ? `${subjectSourceNote(q)}` : `<div class="small-muted" style="margin-top:10px">Source: ${esc(q.sourceRef||`${subj} · PDF page ${q.sourcePage||'—'}`)}</div>`; }
+  function subjectPickerMarkup(){
+      return `<section class="v102-subject-hub" aria-labelledby="v102-subject-title"><div class="v102-section-head"><div><div class="v102-eyebrow">Study library</div><h2 id="v102-subject-title">Choose a subject</h2></div><span>${fmtNum(SUBJECTS.length)} subjects</span></div><div class="v102-subject-grid">${SUBJECTS.map(x=>`<button type="button" class="v102-subject-card ${x.subject===activeSubject?'is-active':''}" data-v102-subject-card="1" data-subject="${encodeURIComponent(x.subject)}" aria-pressed="${x.subject===activeSubject?'true':'false'}"><span class="v102-subject-mark">${esc(x.subject.slice(0,2).toUpperCase())}</span><span class="v102-subject-copy"><strong>${esc(x.subject)}</strong><small>${fmtNum((x.topics||[]).length || (x.chapters||[]).length || 0)} topics · ${fmtNum((x.questions||[]).length)} questions</small></span><span class="v102-subject-arrow" aria-hidden="true">›</span></button>`).join('')}</div><p class="v102-subject-hint">Tap a subject to open its topics, then jump straight into a chapter.</p></section>`;
+    }
+    function setSubject(name){ if(!SUBJECT_BY_NAME[name]) return; applySubject(name); searchTerm=''; topicFilter='all'; navigate('dashboard'); }
+  function subjectSourceNote(q){ const subj=q.subject||activeSubject; return `<div class="small-muted" style="margin-top:10px">Source: ${esc(q.sourceRef||`${subj} · PDF page ${q.sourcePage||'—'}`)}</div>`; }
   function fmtDate(ts, withTime = true) {
     if (!ts) return '—';
     const d = new Date(ts);
@@ -622,11 +648,10 @@ window.SUBJECT_QBANK_DATA={"subjects":[{"subject":"Physiology","topics":[{"id":"
   }
 
 
-  function header(title = 'QBank') {
-    return `<header class="topbar"><button class="icon-btn" aria-label="Open navigation" onclick="window.QB.toggleMenu()">${navIcon('menu')}</button>${title==='QBank' ? logo() : `<div class="brand"><div class="brand-mark">Q</div><span>${esc(title)}</span></div>`}<button class="icon-btn" aria-label="Notifications" onclick="window.QB.notify()">${navIcon('bell')}</button></header>`;
-  }
-
-  function bottomNav(active) {
+  function header(title = 'QBank'){
+      return `<header class="topbar v102-topbar">${title==='QBank' ? logo() : `<div class="brand"><div class="brand-mark">Q</div><span>${esc(title)}</span></div>`}</header>`;
+    }
+    function bottomNav(active) {
     const items = [
       ['dashboard','Home','home'],['topics','Topics','book'],['tests','Tests','test'],['analytics','Insights','chart'],['more','More','more']
     ];
@@ -1030,7 +1055,7 @@ window.SUBJECT_QBANK_DATA={"subjects":[{"subject":"Physiology","topics":[{"id":"
     const totalQuestionTime=Object.values(t.questionTimes||{}).reduce((a,b)=>a+(b||0),0);
     const attemptedQuestionTime=Object.keys(t.answers||{}).reduce((a,id)=>a+((t.questionTimes||{})[id]||0),0);
     return shell(`
-      <div class="page-head"><div><button class="ghost-btn" onclick="window.QB.nav('tests')" style="margin-bottom:8px">${navIcon('back',16)} Tests</button><h1 class="page-title">Test Analysis</h1><div class="page-sub">${esc(t.title)} · ${fmtDate(t.createdAt)}</div></div><a class="primary-btn" role="button" data-v102-review-cta="1" data-review-test-id="${esc(t.id)}" href="#review-test/${encodeURIComponent(t.id)}" onclick="window.QB.reviewTest('${esc(t.id)}');return false;">Review Solutions</a></div>
+      <div class="page-head"><div><button class="ghost-btn" onclick="window.QB.nav('tests')" style="margin-bottom:8px">${navIcon('back',16)} Tests</button><h1 class="page-title">Test Analysis</h1><div class="page-sub">${esc(t.title)} · ${fmtDate(t.createdAt)}</div></div><button class="primary-btn v102-review-action" type="button" data-v102-review-cta="1" data-review-test-id="${esc(t.id)}">Review Solutions</button></div>
       <div class="card result-hero"><div><div class="small-muted">You scored</div><div class="kpi" style="font-size:42px">${fmtPct(score)}</div><div class="small-muted">${t.correct} / ${t.total} Correct</div><div class="divider"></div><div class="two-col"><div class="mini-card"><div class="label">Correct</div><div class="value success">${t.correct}</div></div><div class="mini-card"><div class="label">Incorrect</div><div class="value danger">${t.incorrect}</div></div><div class="mini-card"><div class="label">Unattempted</div><div class="value warning">${t.unattempted}</div></div><div class="mini-card"><div class="label">Accuracy</div><div class="value">${fmtPct(t.correct/(attempted||1)*100)}</div></div></div></div><div>${donut(score,160)}</div></div>
       <div class="grid grid-4" style="margin-top:14px"><div class="card stat-card"><div class="label">Time Taken</div><div class="value">${formatDuration(t.totalTimeMs)}</div><div class="small-muted">${fmtNum(t.questionIds.length)} questions</div></div><div class="card stat-card"><div class="label">Avg. time / attempted</div><div class="value">${formatDuration(t.attempted?attemptedQuestionTime/t.attempted:0)}</div><div class="small-muted">Selected answers only</div></div><div class="card stat-card"><div class="label">Avg. time / question</div><div class="value">${formatDuration(t.total?totalQuestionTime/t.total:0)}</div><div class="small-muted">Includes skips</div></div><div class="card stat-card"><div class="label">Completion</div><div class="value">${fmtPct(t.total?attempted/t.total*100:0)}</div><div class="small-muted">Questions attempted</div></div></div>
       <div class="card pad" style="margin-top:14px"><div class="section-title"><span>Question Review</span><span class="sub">Open review to inspect every answer</span></div><div class="library">${t.questionIds.map(id=>{const q=BY_ID[id],sel=t.answers[id],corr=q.correctOption===sel;return `<div class="library-row"><div class="main"><div class="title">Q${q.questionNumber}. ${esc(q.question.slice(0,140))}${q.question.length>140?'…':''}</div><div class="meta"><span class="badge ${sel?(corr?'success':'danger'):''}">${sel?(corr?'Correct':'Incorrect'):'Unattempted'}</span>${sel?`<span class="badge">Your answer: ${String.fromCharCode(64+sel)}</span>`:''}<span class="badge">${esc(q.chapter)}</span></div></div></div>`}).join('')}</div></div>
@@ -1041,21 +1066,17 @@ window.SUBJECT_QBANK_DATA={"subjects":[{"subject":"Physiology","topics":[{"id":"
     return { id:`review_${t.id}`, mode:'review', sourceTestId:t.id, title:`Review · ${t.title}`, questionIds:[...t.questionIds], index:0, answers:{...(t.answers||{})}, submitted:Object.fromEntries(t.questionIds.map(id=>[id,Boolean(t.answers?.[id])])), startedAt:t.createdAt, questionTimes:{...(t.questionTimes||{})} };
   }
 
-  function reviewTest(testId) {
-    const t=state.tests.find(x=>String(x.id)===String(testId));
-    if(!t){ showToast('That test could not be found in saved history.','bad'); return; }
-    state.activeSession=buildReviewSession(t);
-    saveState();
-    route={page:'review-test',id:String(t.id)};
-    render();
-    const hash=`review-test/${encodeURIComponent(t.id)}`;
-    if(location.hash!==`#${hash}`) history.replaceState(null,'',`#${hash}`);
-  }
-
-  function reviewTestPage() {
-    let s=state.activeSession;
-    if(!s || s.mode!=='review' || (route.id && String(s.sourceTestId)!==String(route.id))) {
-      const t=state.tests.find(x=>String(x.id)===String(route.id));
+  function reviewTest(testId){
+      let wanted=String(testId ?? ''); try{wanted=decodeURIComponent(wanted);}catch(_){ }
+      const t=state.tests.find(x=>String(x.id)===wanted || String(x.id)===String(testId));
+      if(!t){showToast('That test could not be found in saved history.','bad');return;}
+      const session=buildReviewSession(t); session.questionEnteredAt=Date.now(); state.activeSession=session; saveState(); route={page:'review-test',id:String(t.id)}; render(); history.replaceState(null,'',`#review-test/${encodeURIComponent(t.id)}`);
+    }
+    function reviewTestPage(){
+      let s=state.activeSession;
+      const routeId=(()=>{try{return decodeURIComponent(String(route.id||''));}catch(_){return String(route.id||'');}})();
+      if(!s || s.mode!=='review' || (routeId && String(s.sourceTestId)!==routeId)) {
+        const t=state.tests.find(x=>String(x.id)===routeId || String(x.id)===String(route.id));
       if(!t) return testsPage();
       s=buildReviewSession(t);
       state.activeSession=s;
@@ -1299,5 +1320,272 @@ button,a,[role="button"]{min-height:44px}
 @media(max-width:640px){.page{padding-left:16px!important;padding-right:16px!important}.page-title{font-size:28px!important}.question-text{font-size:17px!important}.option,.option-item{padding:14px 13px!important}}
 @media(prefers-reduced-motion:reduce){.option,.option-item{transition:none!important}}
 </style>
-<style id="v102-a11y-ui">button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,[role="button"]:focus-visible{outline:3px solid rgba(79,70,229,.32);outline-offset:2px} @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}</style></body>
+<style id="v102-a11y-ui">button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,[role="button"]:focus-visible{outline:3px solid rgba(79,70,229,.32);outline-offset:2px} @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}</style>
+<style id="v102-next-ui">
+:root{--v102-brand:#5146df;--v102-ink:#151827;--v102-muted:#6b7285;--v102-line:#dfe4ec;--v102-soft:#f5f7fb;--v102-success:#0f9d78;--v102-success-bg:#e4f8f0;--v102-danger:#d94950;--v102-danger-bg:#fde9eb;--v102-shadow:0 10px 28px rgba(23,29,61,.08)}
+html,body{background:var(--v102-soft);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.topbar.v102-topbar{justify-content:center;min-height:64px;background:linear-gradient(135deg,#1e1b4b 0%,#312e81 58%,#5146df 100%);box-shadow:0 6px 22px rgba(39,35,94,.18)}
+.topbar.v102-topbar .brand{font-weight:850;letter-spacing:-.25px}.topbar.v102-topbar .brand-mark{width:36px;height:36px;border-radius:11px;box-shadow:0 8px 20px rgba(0,0,0,.18),inset 0 0 0 1px rgba(255,255,255,.18)}
+.v102-subject-hub{margin:0 0 16px;padding:18px;border:1px solid rgba(43,49,80,.07);border-radius:22px;background:linear-gradient(145deg,#fff 0%,#f8f9ff 100%);box-shadow:var(--v102-shadow)}
+.v102-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:12px}.v102-section-head h2{margin:3px 0 0;font-size:22px;line-height:1.12;letter-spacing:-.65px;font-weight:900;color:var(--v102-ink)}.v102-section-head>span{font-size:11px;font-weight:750;color:var(--v102-muted)}
+.v102-eyebrow{font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--v102-brand)}
+.v102-subject-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.v102-subject-card{min-width:0;display:flex;align-items:center;gap:11px;padding:14px 13px;text-align:left;border:1px solid var(--v102-line);border-radius:17px;background:#fff;color:var(--v102-ink);box-shadow:0 3px 10px rgba(23,29,61,.03);transition:transform .12s ease,border-color .12s ease,box-shadow .12s ease,background .12s ease}.v102-subject-card:hover{transform:translateY(-1px);border-color:#b8bde3;box-shadow:0 9px 20px rgba(23,29,61,.07)}.v102-subject-card.is-active{background:linear-gradient(145deg,#f0efff,#fff);border-color:#aaa5e8;box-shadow:0 9px 22px rgba(81,70,223,.11)}
+.v102-subject-mark{width:42px;height:42px;display:grid;place-items:center;flex:none;border-radius:13px;background:linear-gradient(135deg,#eeeaff,#e7efff);color:var(--v102-brand);font-size:13px;font-weight:900;letter-spacing:.5px}.v102-subject-copy{display:grid;gap:4px;min-width:0;flex:1}.v102-subject-copy strong{font-size:14px;font-weight:850;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.v102-subject-copy small{font-size:10px;color:var(--v102-muted);line-height:1.3}.v102-subject-arrow{font-size:24px;color:#a1a5b4;line-height:1}.v102-subject-hint{margin:11px 2px 0;color:var(--v102-muted);font-size:11px;line-height:1.45}
+.v102-topic-modal{position:fixed;inset:0;z-index:95;background:rgba(22,23,38,.46);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:grid;place-items:end center;padding:14px}.v102-topic-dialog{width:min(720px,100%);max-height:min(82vh,760px);overflow:auto;background:#fff;border-radius:24px;padding:18px;box-shadow:0 30px 90px rgba(0,0,0,.24)}
+.v102-topic-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:13px}.v102-topic-head h3{margin:2px 0 4px;font-size:22px;line-height:1.12;font-weight:900;letter-spacing:-.6px}.v102-topic-head p{margin:0;color:var(--v102-muted);font-size:12px}.v102-topic-close{width:44px;height:44px;border:1px solid var(--v102-line);border-radius:13px;background:#fff;font-size:22px;color:#606577}.v102-topic-list{display:grid;gap:8px}.v102-topic-item{display:flex;align-items:center;gap:10px;width:100%;padding:13px 14px;text-align:left;border:1px solid var(--v102-line);background:#fff;border-radius:15px}.v102-topic-item:hover{border-color:#b9bde2;background:#fafaff}.v102-topic-num{width:30px;height:30px;display:grid;place-items:center;flex:none;border-radius:10px;background:#f0f1f7;color:#646a7a;font-size:10px;font-weight:850}.v102-topic-title{flex:1;font-size:13px;font-weight:780;line-height:1.35;color:var(--v102-ink)}.v102-topic-arrow{font-size:20px;color:#9aa0ae}
+.question-text{font-size:18px;line-height:1.62;font-weight:675;letter-spacing:-.16px;color:#161a2b}.option-list{gap:12px}.option{position:relative;min-height:72px;display:flex;align-items:flex-start;gap:14px;padding:17px 18px;border:1.5px solid #dfe4ec;border-left-width:1.5px;border-radius:18px;background:#fff;box-shadow:0 2px 8px rgba(24,30,58,.025);transition:transform .12s ease,border-color .12s ease,background .12s ease,box-shadow .12s ease}.option:hover{transform:translateY(-1px);border-color:#bec5d5;background:#fff;box-shadow:0 8px 20px rgba(24,30,58,.065)}.option-text{font-size:16px;line-height:1.58;font-weight:560;color:#272c3b;overflow-wrap:anywhere;max-width:calc(100% - 6px)}.option-letter{font-size:14px;font-weight:900;width:22px;padding-top:3px;color:#626a7a}.radio{width:27px;height:27px;border-width:1.8px;margin-top:0}.option.selected{background:#eef2ff;border-color:#7383de;box-shadow:0 8px 20px rgba(61,101,216,.09)}
+.option.correct,.option.correct.selected{background:var(--v102-success-bg)!important;border-color:#55bc9e!important;box-shadow:0 10px 28px rgba(15,157,120,.13)!important}.option.wrong,.option.wrong.selected{background:var(--v102-danger-bg)!important;border-color:#e38a90!important;box-shadow:0 10px 28px rgba(217,73,80,.11)!important}
+.option.correct:after,.option.wrong:after{position:absolute;right:16px;top:14px;display:grid;place-items:center;width:29px;height:29px;border-radius:50%;font-weight:950;font-size:17px;background:rgba(255,255,255,.58)}.option.correct:after{content:"✓";color:var(--v102-success);border:1px solid #91dbc5}.option.wrong:after{content:"×";color:var(--v102-danger);border:1px solid #efb4b8}.option.correct .radio{border-color:var(--v102-success)}.option.correct .radio:after{content:"✓";font-size:16px;color:var(--v102-success);font-weight:950}.option.wrong .radio{border-color:var(--v102-danger)}.option.wrong .radio:after{content:"×";font-size:17px;color:var(--v102-danger);font-weight:950}
+.feedback{margin-top:17px;padding:18px 18px 20px;border-radius:20px;box-shadow:0 8px 24px rgba(25,31,60,.045)}.feedback.good{background:linear-gradient(145deg,#f1fcf7,#fff);border-color:#b8e4d6}.feedback.bad{background:linear-gradient(145deg,#fff5f6,#fff);border-color:#efc5c8}.feedback-title{font-size:16px;font-weight:900;letter-spacing:-.2px;margin-bottom:9px}.feedback-body{font-size:15px;line-height:1.72;color:#3c4352;white-space:normal;overflow-wrap:anywhere;max-width:78ch}.feedback-body p{margin:0 0 13px}.feedback-body p:last-child{margin-bottom:0}.feedback-body ul{margin:7px 0 13px 21px;padding:0}.feedback-body li{margin:0 0 7px;padding-left:2px}.v102-explanation-heading{margin:18px 0 7px;font-size:13px;line-height:1.25;font-weight:900;letter-spacing:.25px;color:#2b3050;text-transform:uppercase}.v102-explanation-option{display:grid;grid-template-columns:72px 1fr;gap:10px;padding:9px 0;border-top:1px solid #e7e9ef}.v102-explanation-option>strong{font-size:12px;font-weight:900;color:#6a7181}.v102-explanation-option>span{font-size:14px;line-height:1.58;color:#363d4d}
+.source-box{border-radius:17px;background:#fbfbfe}.source-box summary{font-size:13px}.source-preview{max-width:100%;overflow:auto}.v102-review-action{min-height:50px;padding-left:18px;padding-right:18px}.result-hero{border-radius:24px;box-shadow:var(--v102-shadow)}
+@media(max-width:800px){.v102-subject-grid{grid-template-columns:1fr 1fr}.v102-topic-dialog{max-height:86vh}}@media(max-width:640px){.v102-subject-hub{padding:16px;border-radius:20px}.v102-subject-grid{grid-template-columns:1fr}.v102-subject-card{padding:14px}.question-text{font-size:18px;line-height:1.62}.option{min-height:76px;padding:18px 16px}.option-text{font-size:16px;line-height:1.6;padding-right:28px}.option-letter{width:21px}.radio{width:28px;height:28px}.option.correct:after,.option.wrong:after{right:10px;top:11px}.feedback{padding:17px}.feedback-body{font-size:15px;line-height:1.74}.v102-topic-dialog{padding:16px;border-radius:22px}.v102-topic-item{min-height:54px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+
+
+<script id="v102-next-ui-behavior">
+(function(){
+  'use strict';
+  function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+  function subjects(){
+    const base=window.QBANK_DATA||{};
+    const extra=window.SUBJECT_QBANK_DATA&&Array.isArray(window.SUBJECT_QBANK_DATA.subjects)?window.SUBJECT_QBANK_DATA.subjects:[];
+    const biochem={subject:'Biochemistry',topics:Array.isArray(base.chapters)?base.chapters:[],questions:Array.isArray(base.questions)?base.questions:[]};
+    const all=[biochem].concat(extra||[]),seen=new Set();
+    return all.filter(x=>x&&x.subject&&!seen.has(x.subject)&&seen.add(x.subject));
+  }
+  function topicsFor(subject){const item=subjects().find(x=>x.subject===subject);return item&&Array.isArray(item.topics)?item.topics:[];}
+  function closeTopicModal(){document.getElementById('v102-topic-modal')?.remove();}
+  function openTopicModal(subject){
+    const topics=topicsFor(subject); closeTopicModal();
+    const list=topics.map((t,i)=>{const id=t.id!=null?t.id:i+1,title=t.title||t.name||`Topic ${i+1}`,count=t.questionCount!=null?t.questionCount:(Array.isArray(t.questions)?t.questions.length:0);return `<button type="button" class="v102-topic-item" data-v102-topic="1" data-topic-id="${esc(id)}"><span class="v102-topic-num">${String(i+1).padStart(2,'0')}</span><span class="v102-topic-title">${esc(title)}${count?`<small style="display:block;color:#747b8b;font-size:10px;margin-top:3px">${count} questions</small>`:''}</span><span class="v102-topic-arrow" aria-hidden="true">›</span></button>`;}).join('');
+    document.body.insertAdjacentHTML('beforeend',`<div class="v102-topic-modal" id="v102-topic-modal" role="dialog" aria-modal="true" aria-labelledby="v102-topic-title"><div class="v102-topic-dialog"><div class="v102-topic-head"><div><div class="v102-eyebrow">${esc(subject)}</div><h3 id="v102-topic-title">Choose a topic</h3><p>${topics.length} topics available. Select one to open its chapter.</p></div><button type="button" class="v102-topic-close" id="v102-topic-modal-close" aria-label="Close">×</button></div><div class="v102-topic-list">${list||'<div class="empty"><strong>No topics found</strong><span>Open the Topics tab to browse this subject.</span></div>'}</div></div></div>`);
+  }
+  function selectSubject(raw){let name='';try{name=decodeURIComponent(String(raw||''));}catch(_){name=String(raw||'');}if(!name)return;if(window.QB&&typeof window.QB.setSubject==='function')window.QB.setSubject(name);setTimeout(()=>openTopicModal(name),35);}
+  window.QB=window.QB||{}; window.QB.v102SelectSubject=selectSubject; window.QB.v102CloseTopicModal=closeTopicModal;
+  document.addEventListener('click',function(event){
+    const subject=event.target&&event.target.closest?event.target.closest('[data-v102-subject-card]'):null;
+    if(subject){event.preventDefault();event.stopPropagation();selectSubject(subject.getAttribute('data-subject'));return;}
+    const topic=event.target&&event.target.closest?event.target.closest('[data-v102-topic]'):null;
+    if(topic){event.preventDefault();event.stopPropagation();const id=topic.getAttribute('data-topic-id');closeTopicModal();setTimeout(()=>window.QB&&typeof window.QB.openChapter==='function'&&window.QB.openChapter(id),0);return;}
+    if(event.target&&event.target.id==='v102-topic-modal')closeTopicModal();
+    if(event.target&&event.target.id==='v102-topic-modal-close')closeTopicModal();
+  },true);
+  function formatExplanations(){
+    document.querySelectorAll('.feedback-body').forEach(el=>{
+      if(el.dataset.v102Formatted==='1'||el.children.length)return;
+      const raw=(el.textContent||'').replace(/\r/g,'').trim();if(raw.length<120)return;
+      const lines=raw.split('\n').map(x=>x.trim()).filter(Boolean),out=[];let para=[],bullets=[];
+      const flushPara=()=>{if(para.length){out.push(`<p>${esc(para.join(' '))}</p>`);para=[];}}; const flushBullets=()=>{if(bullets.length){out.push(`<ul>${bullets.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`);bullets=[];}};
+      const heading=/^(explanation|why|mechanism|key concept|key point|clinical features|diagnosis|investigations|treatment|pathophysiology|algorithm|other options|summary|important|note|features|functions|complications|source explanation|solution for question)\s*:?[ \t]*$/i; const option=/^option\s*([a-d])\s*[:.)-]\s*(.*)$/i;
+      lines.forEach(line=>{if(/^•\s*/.test(line)){flushPara();bullets.push(line.replace(/^•\s*/,''));return;}const hm=line.match(heading);if(hm){flushPara();flushBullets();out.push(`<div class="v102-explanation-heading">${esc(hm[1])}</div>`);return;}const om=line.match(option);if(om){flushPara();flushBullets();out.push(`<div class="v102-explanation-option"><strong>Option ${esc(om[1].toUpperCase())}</strong><span>${esc(om[2])}</span></div>`);return;}para.push(line);});
+      flushPara();flushBullets(); if(out.length){el.innerHTML=out.join('');el.dataset.v102Formatted='1';}
+    });
+  }
+  function reviewSolutionsGuard(){
+    document.addEventListener('click',function(event){
+      const el=event.target&&event.target.closest?event.target.closest('[data-v102-review-cta]'):null;if(!el)return;
+      event.preventDefault();event.stopPropagation();if(event.stopImmediatePropagation)event.stopImmediatePropagation();const id=el.getAttribute('data-review-test-id');if(!id)return;
+      const go=()=>{try{if(window.QB&&typeof window.QB.reviewTest==='function'){window.QB.reviewTest(id);return true;}}catch(_){ }return false;}; if(go())return; [0,25,100,250].forEach(ms=>setTimeout(go,ms));
+    },true);
+  }
+  reviewSolutionsGuard();
+  const mo=new MutationObserver(()=>formatExplanations()); mo.observe(document.body,{subtree:true,childList:true});
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',formatExplanations);else formatExplanations(); [50,250,800].forEach(ms=>setTimeout(formatExplanations,ms));
+})();
+</script>
+
+<script id="v103-stabilize">
+(function(){
+  'use strict';
+  const LS='qbank_state_v1';
+  const state=()=>{try{return window.QB&&typeof window.QB.getState==='function'?window.QB.getState():null;}catch(_){return null;}};
+  const persist=()=>{try{const s=state();if(s)localStorage.setItem(LS,JSON.stringify(s));}catch(_){}};
+  const rerender=()=>{try{const href=location.hash||'#dashboard';location.hash='';location.hash=href;}catch(_){location.reload();}};
+
+  function installReviewNavigation(){
+    if(!window.QB||window.QB.__v103ReviewWrapped)return false;
+    const originalNext=window.QB.nextQ, originalPrev=window.QB.prevQ;
+    window.QB.nextQ=function(){
+      const s=state();
+      if(s&&s.activeSession&&s.activeSession.mode==='review'){
+        if(s.activeSession.index < s.activeSession.questionIds.length-1){s.activeSession.index++;persist();rerender();}
+        return;
+      }
+      return originalNext&&originalNext.apply(this,arguments);
+    };
+    window.QB.prevQ=function(){
+      const s=state();
+      if(s&&s.activeSession&&s.activeSession.mode==='review'){
+        if(s.activeSession.index>0){s.activeSession.index--;persist();rerender();}
+        return;
+      }
+      return originalPrev&&originalPrev.apply(this,arguments);
+    };
+    window.QB.reviewNext=function(){window.QB.nextQ();};
+    window.QB.reviewPrev=function(){window.QB.prevQ();};
+    window.QB.reviewIndex=function(i){
+      const s=state();if(!s||!s.activeSession||s.activeSession.mode!=='review')return;
+      const n=Number(i);if(!Number.isInteger(n)||n<0||n>=s.activeSession.questionIds.length)return;
+      s.activeSession.index=n;persist();rerender();
+    };
+    window.QB.__v103ReviewWrapped=true;
+    return true;
+  }
+
+  function wireReviewCta(){
+    document.addEventListener('click',function(e){
+      const el=e.target&&e.target.closest?e.target.closest('[data-v102-review-cta]'):null;
+      if(!el||!window.QB||typeof window.QB.reviewTest!=='function')return;
+      const id=el.getAttribute('data-review-test-id');if(!id)return;
+      e.preventDefault();e.stopImmediatePropagation();window.QB.reviewTest(id);
+    },true);
+  }
+
+  function structureExplanation(el){
+    if(!el||el.dataset.v103Structured==='1')return;
+    const raw=(el.textContent||'').replace(/\r/g,'').trim();if(raw.length<160)return;
+    const clean=raw.replace(/\s+/g,' ').trim();
+    const correct=clean.match(/^Correct Answer\s*:\s*([A-D])[).:\-]?\s*/i);
+    const sections=[];
+    if(correct){sections.push('<div class="v103-explain-lead"><strong>Correct answer: '+correct[1].toUpperCase()+'</strong></div>');}
+    let body=correct?clean.slice(correct[0].length):clean;
+    body=body.replace(/\bExplanation\s*:\s*/i,'');
+    const optionParts=[];body=body.replace(/(?:^|\s)(Option\s+[A-D]\s*[:.)-]\s*)(.*?)(?=\sOption\s+[A-D]\s*[:.)-]|$)/gi,function(_,label,text){optionParts.push({label:label.trim(),text:text.trim()});return '';});
+    const labelRe=/(?:^|\s)([A-Za-z][A-Za-z /&-]{2,38})\s*:\s*/g;
+    let last=0,m,found=0,parts=[];while((m=labelRe.exec(body))&&found<8){if(m.index>last)parts.push({text:body.slice(last,m.index).trim()});parts.push({head:m[1].trim()});last=m.index+m[0].length;found++;}if(last<body.length)parts.push({text:body.slice(last).trim()});
+    if(parts.length){parts.forEach(p=>{if(p.head)sections.push('<div class="v103-explain-section"><h4>'+esc(p.head)+'</h4>');else if(p.text)sections.push('<div class="v103-explain-block">'+esc(p.text)+'</div></div>');});}
+    if(!parts.length&&!sections.length&&body)sections.push('<div class="v103-explain-block">'+esc(body)+'</div>');
+    if(optionParts.length){sections.push('<div class="v103-explain-section"><h4>Option analysis</h4>'+optionParts.map(x=>'<div class="v103-explain-option"><strong>'+esc(x.label.replace(/\s+/g,' '))+'</strong><span>'+esc(x.text)+'</span></div>').join('')+'</div>');}
+    if(sections.length){el.innerHTML=sections.join('');el.dataset.v103Structured='1';}
+  }
+  function esc(v){return String(v??'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));}
+  function structureAll(){document.querySelectorAll('.feedback-body').forEach(structureExplanation);}
+
+  function boot(){
+    installReviewNavigation();wireReviewCta();structureAll();
+    const mo=new MutationObserver(function(){installReviewNavigation();structureAll();});mo.observe(document.body,{childList:true,subtree:true});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+
+<script id="v103-review-explanation-js">
+(function(){
+  'use strict';
+  const STORAGE_KEY='qbank_state_v1';
+  function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+  function richExplanation(text){
+    const raw=String(text??'').replace(/\r\n?/g,'\n').trim();
+    if(!raw) return '';
+    const lines=raw.split('\n'), blocks=[]; let para=[]; let listType=null, items=[];
+    const flushPara=()=>{if(para.length){blocks.push('<p class="ex-p">'+esc(para.join(' ').replace(/\s+/g,' ').trim())+'</p>');para=[];}};
+    const flushList=()=>{if(!items.length)return;blocks.push('<'+listType+'>'+items.map(x=>'<li>'+esc(x)+'</li>').join('')+'</'+listType+'>');items=[];listType=null;};
+    for(const line0 of lines){
+      const line=line0.trim();
+      if(!line){flushPara();flushList();continue;}
+      const heading=line.match(/^(?:[A-Z][A-Za-z0-9 /&()'’:-]{2,80})\s*:\s*$/);
+      if(heading){flushPara();flushList();blocks.push('<div class="ex-heading">'+esc(line.slice(0,-1))+'</div>');continue;}
+      const m=line.match(/^(?:[-•▪◦*]|\d+[.)])\s+(.*)$/);
+      if(m){flushPara();const ordered=/^\d/.test(line);const type=ordered?'ol':'ul';if(listType&&listType!==type)flushList();listType=type;items.push(m[1]);continue;}
+      flushList();para.push(line);
+    }
+    flushPara();flushList();
+    return '<div class="explanation-rich">'+blocks.join('')+'</div>';
+  }
+  window.QB_V103_EXPLANATION=richExplanation;
+
+  function persist(state){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}catch(e){console.error('V103 review persistence failed',e);}}
+  function reviewSessionFromTest(t){
+    const answers=Object.assign({},t.answers||{});
+    return {id:'review_'+String(t.id),mode:'review',sourceTestId:String(t.id),title:'Review · '+String(t.title||'Completed Test'),questionIds:Array.isArray(t.questionIds)?t.questionIds.slice():[],index:0,answers:answers,submitted:Object.fromEntries((t.questionIds||[]).map(id=>[id,Object.prototype.hasOwnProperty.call(answers,id)])),startedAt:t.createdAt||Date.now(),questionTimes:Object.assign({},t.questionTimes||{})};
+  }
+  function installReview(){
+    if(!window.QB || typeof window.QB.reviewTest!=='function' || typeof window.QB.getState!=='function') return false;
+    const originalReview=window.QB.reviewTest;
+    if(originalReview.__v103Wrapped) return true;
+    function reviewTest(testId){
+      try{
+        const state=window.QB.getState();
+        const wanted=decodeURIComponent(String(testId??''));
+        const t=(Array.isArray(state.tests)?state.tests:[]).find(x=>String(x.id)===wanted);
+        if(!t || !Array.isArray(t.questionIds) || !t.questionIds.length){console.warn('V103 review: completed test not found',wanted);return false;}
+        state.activeSession=reviewSessionFromTest(t);
+        persist(state);
+        location.hash='#review-test/'+encodeURIComponent(String(t.id));
+      }catch(e){console.error('V103 review navigation failed',e);}
+      return false;
+    }
+    reviewTest.__v103Wrapped=true;
+    window.QB.reviewTest=reviewTest;
+
+    const originalNext=window.QB.nextQ;
+    if(typeof originalNext==='function'&&!originalNext.__v103Wrapped){
+      function nextQ(){
+        const state=window.QB.getState(); const s=state&&state.activeSession;
+        if(s&&s.mode==='review'){
+          if(s.index<s.questionIds.length-1){s.index++;persist(state);location.hash='#review-test/'+encodeURIComponent(String(s.sourceTestId));}
+          return false;
+        }
+        return originalNext.apply(this,arguments);
+      }
+      nextQ.__v103Wrapped=true; window.QB.nextQ=nextQ;
+    }
+    const originalPrev=window.QB.prevQ;
+    if(typeof originalPrev==='function'&&!originalPrev.__v103Wrapped){
+      function prevQ(){
+        const state=window.QB.getState(); const s=state&&state.activeSession;
+        if(s&&s.mode==='review'){
+          if(s.index>0){s.index--;persist(state);location.hash='#review-test/'+encodeURIComponent(String(s.sourceTestId));}
+          return false;
+        }
+        return originalPrev.apply(this,arguments);
+      }
+      prevQ.__v103Wrapped=true; window.QB.prevQ=prevQ;
+    }
+    return true;
+  }
+  const timer=setInterval(()=>{if(installReview())clearInterval(timer);},50); setTimeout(()=>clearInterval(timer),5000);
+  function format(){
+    document.querySelectorAll('.feedback-body,.explanation,.explanation-body').forEach(el=>{
+      if(el.dataset.v103Formatted==='1')return;
+      const txt=el.textContent||'';if(!txt.trim())return;
+      const rich=richExplanation(txt);if(rich){el.innerHTML=rich;el.dataset.v103Formatted='1';}
+    });
+  }
+  new MutationObserver(format).observe(document.documentElement,{childList:true,subtree:true});
+  format();
+})();
+</script>
+
+<!-- V103_REVIEW_EXPLANATION_OVERLAY -->
+<script id="v103-review-cta-guard">
+(function(){
+  'use strict';
+  document.addEventListener('click', function(e){
+    const el=e.target.closest('[data-v102-review-cta="1"],.v102-review-action');
+    if(!el || !window.QB || typeof window.QB.reviewTest!=='function') return;
+    const id=el.getAttribute('data-review-test-id')||el.getAttribute('data-test-id')||el.getAttribute('data-test')||el.dataset.reviewTestId||el.dataset.testId||el.dataset.test;
+    if(!id) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    window.QB.reviewTest(String(id));
+  }, true);
+})();
+</script>
+
+<!-- V103_REVIEW_CTA_GUARD -->
+</body>
 </html>
+
+<!-- V1032_REVIEW_FIX -->
+<style id="v1032-review-fix-css">
+.v1032-review-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px;padding:12px 14px;border:1px solid #e6eaf0;border-radius:14px;background:#fff}.v1032-review-count{font-size:13px;color:#667085;font-weight:700}.v1032-review-nav{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}.v1032-review-nav button{min-width:34px;height:34px;border:1px solid #d9dee7;border-radius:9px;background:#fff;font-weight:800;cursor:pointer}.v1032-review-nav button.active{background:#111827;color:#fff;border-color:#111827}.v1032-review-nav button.correct{box-shadow:inset 0 -3px 0 #16a34a}.v1032-review-nav button.wrong{box-shadow:inset 0 -3px 0 #dc2626}
+</style>
+<script id="v1032-review-fix-script">
+(function(){'use strict';const LS='qbank_state_v1';const state=()=>{try{return window.QB&&window.QB.getState?window.QB.getState():null}catch(_){return null}};const persist=s=>{try{localStorage.setItem(LS,JSON.stringify(s))}catch(_){}},getTest=id=>{const s=state();if(!s)return null;const wanted=decodeURIComponent(String(id??''));return(Array.isArray(s.tests)?s.tests:[]).find(t=>String(t.id)===wanted)||null};
+function makeReview(id){const s=state(),t=getTest(id);if(!s||!t||!Array.isArray(t.questionIds)||!t.questionIds.length)return false;s.activeSession={id:'review_'+String(t.id),mode:'review',sourceTestId:String(t.id),title:'Review · '+String(t.title||'Completed Test'),questionIds:t.questionIds.slice(),index:0,answers:Object.assign({},t.answers||{}),submitted:Object.fromEntries(t.questionIds.map(qid=>[qid,Object.prototype.hasOwnProperty.call(t.answers||{},qid)])),startedAt:t.createdAt||Date.now(),questionTimes:Object.assign({},t.questionTimes||{})};persist(s);const h='#review-test/'+encodeURIComponent(String(t.id));if(location.hash!==h)location.hash=h;else{location.hash='';location.hash=h}return true}
+function patchNavigation(){if(!window.QB||window.QB.__v1032ReviewNav)return;const n=window.QB.nextQ,p=window.QB.prevQ,g=window.QB.goIndex;window.QB.nextQ=function(){const s=state(),a=s&&s.activeSession;if(a&&a.mode==='review'){if(a.index<a.questionIds.length-1){a.index++;persist(s);location.hash='#review-test/'+encodeURIComponent(String(a.sourceTestId))}return false}return n&&n.apply(this,arguments)};window.QB.prevQ=function(){const s=state(),a=s&&s.activeSession;if(a&&a.mode==='review'){if(a.index>0){a.index--;persist(s);location.hash='#review-test/'+encodeURIComponent(String(a.sourceTestId))}return false}return p&&p.apply(this,arguments)};window.QB.goIndex=function(i){const s=state(),a=s&&s.activeSession,x=Number(i);if(a&&a.mode==='review'){if(Number.isInteger(x)&&x>=0&&x<a.questionIds.length){a.index=x;persist(s);location.hash='#review-test/'+encodeURIComponent(String(a.sourceTestId))}return false}return g&&g.apply(this,arguments)};window.QB.__v1032ReviewNav=true}
+function clickHandler(e){const el=e.target&&e.target.closest?e.target.closest('[data-v102-review-cta],[data-review-test-id],.v102-review-action'):null;if(!el)return;const id=el.getAttribute('data-review-test-id')||el.dataset.reviewTestId;if(!id)return;e.preventDefault();e.stopImmediatePropagation();if(!makeReview(id)&&window.QB&&window.QB.reviewTest)try{window.QB.reviewTest(id)}catch(_) {}}
+function verify(){patchNavigation();const s=state(),a=s&&s.activeSession;if(!a||a.mode!=='review')return;const expected='#review-test/'+encodeURIComponent(String(a.sourceTestId));if(location.hash!==expected)location.hash=expected;requestAnimationFrame(function(){const text=document.body&&document.body.innerText||'';if(!text.includes('Test Review')&&window.QB&&window.QB.reviewTest)try{window.QB.reviewTest(a.sourceTestId)}catch(_){}if(location.hash!==expected)location.hash=expected})}
+document.addEventListener('click',clickHandler,true);window.addEventListener('hashchange',()=>setTimeout(verify,0));const boot=setInterval(()=>{patchNavigation();if(window.QB&&window.QB.getState)clearInterval(boot)},100);setTimeout(verify,50);setTimeout(verify,300);setTimeout(verify,1000)})();
+</script>
