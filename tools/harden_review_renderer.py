@@ -1,5 +1,4 @@
 from pathlib import Path
-import json,re
 
 REFERENCE=Path('tools/reference_explanation_renderer.js')
 CSS=r'''<style id="physiology-source-visual-css">
@@ -31,4 +30,6 @@ def patch_html(s):
     return s
 
 if __name__=='__main__':
-    p=Path('app/src/main/assets/index.html');p.write_text(patch_html(p.read_text(encoding='utf8')),encoding='utf8');print('source visual renderer applied')
+    p=Path('app/src/main/assets/index.html')
+    p.write_text(patch_html(p.read_text(encoding='utf8')),encoding='utf8')
+    print('Applied source-PDF renderer; QBank data left untouched.')
