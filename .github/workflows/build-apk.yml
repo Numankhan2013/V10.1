@@ -24,6 +24,9 @@ jobs:
       - name: Fix Physiology WebView boot export
         run: python3 tools/fix_phys_webview_boot.py
 
+      - name: Improve explanation readability and scrolling
+        run: python3 tools/fix_explanation_render.py
+
       - name: Set up JDK 17
         uses: actions/setup-java@v5
         with:
