@@ -21,6 +21,9 @@ jobs:
       - name: Harden Review Solutions renderer
         run: python3 tools/harden_review_renderer.py
 
+      - name: Fix Physiology WebView boot export
+        run: python3 tools/fix_phys_webview_boot.py
+
       - name: Set up JDK 17
         uses: actions/setup-java@v5
         with:
