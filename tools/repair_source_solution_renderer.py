@@ -1,14 +1,12 @@
 from pathlib import Path
-import re
 
 HTML=Path('app/src/main/assets/index.html')
 JAVA=Path('app/src/main/java/com/qbank/biochemistry/MainActivity.java')
 MAP='<script src="biochemistry_source_solution_map.js"></script>'
-MARK='<!-- SOURCE_PDF_EXPLANATION_V16 -->'
+MARK='<!-- SOURCE_PDF_EXPLANATION_V17 -->'
 
 s=HTML.read_text(encoding='utf-8')
-if MAP not in s:
-    s=s.replace('</head>',MAP+'\n</head>',1)
+if MAP not in s: s=s.replace('</head>',MAP+'\n</head>',1)
 start=s.find('function renderExplanationText(text,question){')
 if start<0: raise SystemExit('renderExplanationText not found')
 brace=s.find('{',start); depth=0; end=-1
@@ -41,16 +39,18 @@ if MARK not in s: s=s.replace('</body>',MARK+'\n</body>',1)
 HTML.write_text(s,encoding='utf-8')
 
 j=JAVA.read_text(encoding='utf-8')
-# The generated MainActivity is intentionally patched here, after the generic renderer generator.
 j=j.replace('private PdfRenderer biochemistryRenderer, physiologyRenderer;', 'private PdfRenderer biochemistryRenderer, physiologyRenderer, anatomyRenderer;')
 j=j.replace('private ParcelFileDescriptor biochemistryPfd, physiologyPfd;', 'private ParcelFileDescriptor biochemistryPfd, physiologyPfd, anatomyPfd;')
 j=j.replace('File phys = copyAsset("Physiology_QBank_Source.pdf");', 'File phys = copyAsset("Physiology_QBank_Source.pdf");\n            File anatomy = copyAsset("Anatomy_QBank_Source.pdf");')
-j=j.replace('physiologyRenderer = new PdfRenderer(physiologyPfd);', 'physiologyRenderer = new PdfRenderer(physiologyPfd);\n                    anatomyPfd = ParcelFileDescriptor.open(anatomy, ParcelFileDescriptor.MODE_READ_ONLY);\n                    anatomyRenderer = new PdfRenderer(anatomyPfd);')
+old='''if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {\n                synchronized (pdfLock) {\n                    biochemistryPfd = ParcelFileDescriptor.open(bio, ParcelFileDescriptor.MODE_READ_ONLY);\n                    biochemistryRenderer = new PdfRenderer(biochemistryPfd);\n                    physiologyPfd = ParcelFileDescriptor.open(phys, ParcelFileDescriptor.MODE_READ_ONLY);\n                    physiologyRenderer = new PdfRenderer(physiologyPfd);\n                    anatomyPfd = ParcelFileDescriptor.open(anatomy, ParcelFileDescriptor.MODE_READ_ONLY);\n                    anatomyRenderer = new PdfRenderer(anatomyPfd);\n                }\n            }'''
+new='''if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {\n                synchronized (pdfLock) {\n                    try { biochemistryPfd = ParcelFileDescriptor.open(bio, ParcelFileDescriptor.MODE_READ_ONLY); biochemistryRenderer = new PdfRenderer(biochemistryPfd); } catch (Exception ignored) {}\n                    try { physiologyPfd = ParcelFileDescriptor.open(phys, ParcelFileDescriptor.MODE_READ_ONLY); physiologyRenderer = new PdfRenderer(physiologyPfd); } catch (Exception ignored) {}\n                    try { anatomyPfd = ParcelFileDescriptor.open(anatomy, ParcelFileDescriptor.MODE_READ_ONLY); anatomyRenderer = new PdfRenderer(anatomyPfd); } catch (Exception ignored) {}\n                }\n            }'''
+if old in j: j=j.replace(old,new)
+else: raise SystemExit('preparePdfs block not found')
 j=j.replace('else if (url.startsWith("https://qbank.local/physiology/pdf")) renderer = physiologyRenderer;', 'else if (url.startsWith("https://qbank.local/physiology/pdf")) renderer = physiologyRenderer;\n        else if (url.startsWith("https://qbank.local/anatomy/pdf")) renderer = anatomyRenderer;')
-old='''int page = Math.max(1, Integer.parseInt(q.getOrDefault("page", "1"))) - 1;\n            float scale = Math.max(1f, Math.min(4f, Float.parseFloat(q.getOrDefault("scale", "3"))));\n            synchronized (pdfLock) {\n                if (page < 0 || page >= renderer.getPageCount()) return null;\n                PdfRenderer.Page p = renderer.openPage(page);\n                int w = Math.max(1, Math.round(p.getWidth() * scale));\n                int h = Math.max(1, Math.round(p.getHeight() * scale));\n                Bitmap full = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888); full.eraseColor(Color.WHITE);\n                p.render(full, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY); p.close();'''
-new='''int page = Math.max(1, Integer.parseInt(q.getOrDefault("page", "1"))) - 1;\n            float scale = Math.max(1f, Math.min(4f, Float.parseFloat(q.getOrDefault("scale", "3"))));\n            synchronized (pdfLock) {\n                if (page < 0 || page >= renderer.getPageCount()) return null;\n                PdfRenderer.Page p = renderer.openPage(page);\n                int w = Math.max(1, Math.round(p.getWidth() * scale));\n                int h = Math.max(1, Math.round(p.getHeight() * scale));\n                Bitmap full = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888); full.eraseColor(Color.WHITE);\n                p.render(full, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY); p.close();\n                float top=Float.parseFloat(q.getOrDefault("top", "0"));\n                float bottom=Float.parseFloat(q.getOrDefault("bottom", Float.toString(h/scale)));\n                int y1=Math.max(0,Math.min(h-1,Math.round(top*scale)));\n                int y2=Math.max(y1+1,Math.min(h,Math.round(bottom*scale)));\n                if(y1>0 || y2<h){ Bitmap crop=Bitmap.createBitmap(full,0,y1,w,y2-y1); full.recycle(); full=crop; }'''
-if old not in j: raise SystemExit('Java render block not found')
-j=j.replace(old,new)
+old2='''int page = Math.max(1, Integer.parseInt(q.getOrDefault("page", "1"))) - 1;\n            float scale = Math.max(1f, Math.min(4f, Float.parseFloat(q.getOrDefault("scale", "3"))));\n            synchronized (pdfLock) {\n                if (page < 0 || page >= renderer.getPageCount()) return null;\n                PdfRenderer.Page p = renderer.openPage(page);\n                int w = Math.max(1, Math.round(p.getWidth() * scale));\n                int h = Math.max(1, Math.round(p.getHeight() * scale));\n                Bitmap full = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888); full.eraseColor(Color.WHITE);\n                p.render(full, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY); p.close();'''
+new2='''int page = Math.max(1, Integer.parseInt(q.getOrDefault("page", "1"))) - 1;\n            float scale = Math.max(1f, Math.min(4f, Float.parseFloat(q.getOrDefault("scale", "3"))));\n            synchronized (pdfLock) {\n                if (page < 0 || page >= renderer.getPageCount()) return null;\n                PdfRenderer.Page p = renderer.openPage(page);\n                int w = Math.max(1, Math.round(p.getWidth() * scale));\n                int h = Math.max(1, Math.round(p.getHeight() * scale));\n                Bitmap full = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888); full.eraseColor(Color.WHITE);\n                p.render(full, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY); p.close();\n                float top=Float.parseFloat(q.getOrDefault("top", "0"));\n                float bottom=Float.parseFloat(q.getOrDefault("bottom", Float.toString(h/scale)));\n                int y1=Math.max(0,Math.min(h-1,Math.round(top*scale)));\n                int y2=Math.max(y1+1,Math.min(h,Math.round(bottom*scale)));\n                if(y1>0 || y2<h){ Bitmap crop=Bitmap.createBitmap(full,0,y1,w,y2-y1); full.recycle(); full=crop; }'''
+if old2 not in j: raise SystemExit('Java render block not found')
+j=j.replace(old2,new2)
 j=j.replace('try{if(physiologyPfd!=null)physiologyPfd.close();}catch(Exception ignored){}', 'try{if(physiologyPfd!=null)physiologyPfd.close();}catch(Exception ignored){}try{if(anatomyRenderer!=null)anatomyRenderer.close();}catch(Exception ignored){}try{if(anatomyPfd!=null)anatomyPfd.close();}catch(Exception ignored){}')
 JAVA.write_text(j,encoding='utf-8')
-print('Installed V16 exact solution renderer with Anatomy routing, sourceRef ranges, crops, and multi-page support.')
+print('Installed V17 source solution renderer with Anatomy routing, optional Anatomy asset, solution-page ranges, crops, and multi-page support.')
