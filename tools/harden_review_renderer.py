@@ -19,8 +19,7 @@ def patch_html(s):
         s=s[:pf]+s[pe:]
 
     marker='  function splitSourceParagraphs(text){'
-    if marker not in s:
-        raise ValueError('splitSourceParagraphs marker missing')
+    if marker not in s: raise ValueError('splitSourceParagraphs marker missing')
     a=s.index(marker); b=s.index('\n  function parseOptionBlocks',a)
     split=r'''  function splitSourceParagraphs(text){
     const raw=String(text||'').replace(/\r/g,'').trim(); if(!raw)return[];
@@ -66,10 +65,16 @@ def patch_html(s):
     let normalized=String(text).replace(/\r/g,'').replace(/Table rendering failed/g,'').trim();
     normalized=normalized.replace(/^\s*(?:Explanation\s*:\s*)/i,'').trim();
     const structured=parseStructuredOptionExplanation(normalized,question); if(structured)return renderStructuredOptionExplanation(structured,question);
-    const blocks=[];
-    const table=parseSourceTable(normalized);
+    const table=parseSourceTable(normalized),blocks=[];
     if(table){const lines=normalized.split('\n'),intro=lines.slice(0,table.startLine).join('\n').trim();if(intro)blocks.push(renderPlainExplanation(intro));blocks.push(renderSourceTable(table));const remainder=lines.slice(table.consumedLines).join('\n').trim();if(remainder)blocks.push(renderPlainExplanation(remainder));}
-    else blocks.push(renderPlainExplanation(normalized));
+    else {
+      // Flattened table extraction is common in the legacy dataset. Never invent
+      // rows or columns. Isolate a strong table-header run into a collapsed source
+      // reference so the main explanation stays readable and truthful.
+      const tm=/\b(?:Type\s+(?:Subtype|Channel|Location|of)|Feature\s+(?:Myasthenia|Stretch|Motor|Somatosensory|Primary)|Aspect\s+(?:Protein|Static|Acute|T4|Details)|Phase\s+(?:Description|Membrane)|Condition\s+Description|Category\s+Type|Parameter\s+Description|Classification\s+Function|Pathway\s+Aspect|Type\s+Receptor\s+subtype)\b/i.exec(normalized);
+      if(tm && tm.index>40){const intro=normalized.slice(0,tm.index).trim(),ref=normalized.slice(tm.index).trim();if(intro)blocks.push(renderPlainExplanation(intro));blocks.push(`<details class="source-reference-fold"><summary>Reference table from source</summary><div class="source-reference-text">${richText(ref)}</div></details>`);}
+      else blocks.push(renderPlainExplanation(normalized));
+    }
     return blocks.filter(Boolean).join('');
   }
 '''
