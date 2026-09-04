@@ -1,4 +1,4 @@
-name: Build V10.5 QBank Experience APK
+name: Build V10.6 Native Shell APK
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout V10.5 QBank Experience
+      - name: Checkout V10.6 Native Shell
         uses: actions/checkout@v5
       - name: Apply deterministic Review Solutions fix
         run: python3 tools/fix_review_build.py
@@ -40,6 +40,8 @@ jobs:
         run: python3 tools/v104_1_polish.py
       - name: Install V10.5 QBank experience layer
         run: python3 tools/v105_qbank_experience.py
+      - name: Install V10.6 native Android shell
+        run: python3 tools/v106_native_shell.py
       - name: Enforce CBT regression guardrails
         run: python3 tools/verify_cbt_invariants.py
       - name: Verify final generated app
@@ -56,6 +58,11 @@ jobs:
           grep -q 'v104-1-runtime' app/src/main/assets/index.html
           grep -q 'v105-experience' app/src/main/assets/index.html
           grep -q 'v105-runtime' app/src/main/assets/index.html
+          grep -q 'V10.6_NATIVE_SHELL' app/src/main/java/com/qbank/biochemistry/MainActivity.java
+          grep -q 'ic_home_v106' app/src/main/java/com/qbank/biochemistry/MainActivity.java
+          grep -q 'ic_practice_v106' app/src/main/java/com/qbank/biochemistry/MainActivity.java
+          grep -q 'ic_tests_v106' app/src/main/java/com/qbank/biochemistry/MainActivity.java
+          grep -q 'ic_backup_v106' app/src/main/java/com/qbank/biochemistry/MainActivity.java
           grep -q 'Backup & Restore' app/src/main/assets/index.html
           ! grep -q 'cbt-final-lock-v2' app/src/main/assets/index.html
           ! grep -q 'cbt-final-lock-v3' app/src/main/assets/index.html
@@ -78,6 +85,6 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: V10.5-qbank-experience-debug-apk
+          name: V10.6-native-shell-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
