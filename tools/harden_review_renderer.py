@@ -27,6 +27,12 @@ def patch_html(s):
     const heading=/^(Algorithm|Investigations|Significance|Mechanism|Key point|Recognition|Cause|Regulation|Identification Tips|Other options|Correct Option|Simple carbohydrates|Polysaccharides|Locations of Various)\s*:?[ \t]*$/i;
     if(lines.length>1){let cur=[];const flush=()=>{if(cur.length)chunks.push(cur.join(' ').replace(/\s+/g,' ').trim());cur=[];};for(const line of lines){const t=line.trim();if(!t){flush();continue;}if(heading.test(t)){flush();chunks.push(t);continue;}if(/^•\s*/.test(t)||/^[-–—]\s+/.test(t)){flush();cur=[t.replace(/^[-–—]\s+/,'• ')];continue;}cur.push(t);}flush();return chunks.filter(Boolean);}
     const n=(raw.match(/•/g)||[]).length;if(n>=2){const parts=raw.split(/•/),intro=parts.shift().trim();if(intro)chunks.push(intro);for(const p of parts){const t=p.trim();if(t)chunks.push('• '+t);}return chunks.filter(Boolean);}
+    const hy=(raw.match(/(?:^|\s)-\s+/g)||[]).length;
+    if(/^[-–—]\s+/.test(raw)||hy>=3){
+      const parts=raw.replace(/^[-–—]\s+/,'').split(/\s+[-–—]\s+/),seen=new Set(),out=[];
+      for(const p of parts){const t=p.trim();if(!t)continue;const key=t.replace(/\s+/g,' ').toLowerCase();if(seen.has(key))continue;seen.add(key);out.push('• '+t);}
+      return out.length?out:[raw];
+    }
     return [raw.replace(/^•\s*/,'').trim()].filter(Boolean);
   }
 '''
@@ -84,8 +90,19 @@ def patch_html(s):
     s=s.replace("function submitExam(auto=false){const s=state.activeSession;if(!s||s.mode!=='exam')return;","function submitExam(auto=false){const s=state.activeSession;if(!s||s.mode!=='exam')return;closeQuestionNavigator();",1)
     return s
 
+ANATOMY_REPLACEMENTS=[
+ (r'Corneal\s+V■','Corneal V1'),(r'Jaw Jerk V■','Jaw Jerk V3'),(r'sensory V■\s*\(Mandibular branch','sensory V3 (Mandibular branch'),
+ (r'Lacrimation V■','Lacrimation V1'),(r'90■clockwise','90° clockwise'),(r'70■','70°'),(r'C5 to■■ T1','C5 to T1'),
+]
+
+def clean_anatomy(x):
+ x=str(x or '')
+ for a,b in ANATOMY_REPLACEMENTS:x=re.sub(a,b,x)
+ x=re.sub(r'\s+([,.;:])',r'\1',x); return x.strip()
+
 def clean_file(path,html=False):
- p=Path(path);s=p.read_text(encoding='utf8');st=s.index(DATA_PREFIX)+len(DATA_PREFIX);en=s.find('</script>',st);raw=s[st:en].strip().rstrip(';');data=json.loads(raw);phy=next(x for x in data['subjects'] if x['subject']=='Physiology');changed=0
+ p=Path(path);s=p.read_text(encoding='utf8');st=s.index(DATA_PREFIX)+len(DATA_PREFIX);en=s.find('</script>',st);raw=s[st:en].strip().rstrip(';');data=json.loads(raw)
+ phy=next(x for x in data['subjects'] if x['subject']=='Physiology');ana=next(x for x in data['subjects'] if x['subject']=='Anatomy');changed=0;achanged=0
  for q in phy['questions']:
   old=q.get('explanation') or '';new=clean(old)
   if new!=old:q['explanation']=new;changed+=1
@@ -95,9 +112,12 @@ def clean_file(path,html=False):
   for o in q.get('options',[]):
    old=o.get('text') or '';new=clean(old)
    if new!=old:o['text']=new
+ for q in ana['questions']:
+  old=q.get('explanation') or '';new=clean_anatomy(old)
+  if new!=old:q['explanation']=new;achanged+=1
  enc=json.dumps(data,ensure_ascii=False,separators=(',',':'));s=s[:st]+enc+';\n\n'+s[en:]
  if html:s=patch_html(s)
- p.write_text(s,encoding='utf8');print(path,'changed',changed)
+ p.write_text(s,encoding='utf8');print(path,'physiology changed',changed,'anatomy changed',achanged)
 
 if __name__=='__main__':
  clean_file('app/src/main/assets/index.html',True)
