@@ -27,11 +27,21 @@ jobs:
       - name: Install original source-PDF explanation renderer
         run: python3 tools/enable_both_pdf_renderers.py
 
-      - name: Verify source-PDF explanation renderer
+      - name: Install PDF mapping dependency
+        run: python3 -m pip install --disable-pip-version-check PyMuPDF
+
+      - name: Build exact Biochemistry solution map
+        run: python3 tools/build_biochem_solution_map.py
+
+      - name: Repair source solution renderer
+        run: python3 tools/repair_source_solution_renderer.py
+
+      - name: Verify source-PDF solution renderer
         run: |
-          grep -q 'SOURCE_PDF_EXPLANATION_V14' app/src/main/assets/index.html
+          grep -q 'SOURCE_PDF_EXPLANATION_V15' app/src/main/assets/index.html
+          grep -q 'BIOCHEM_SOURCE_SOLUTIONS' app/src/main/assets/index.html
           grep -q 'sourceSubjectV14' app/src/main/assets/index.html
-          grep -q 'physiology-' app/src/main/assets/index.html
+          test -s app/src/main/assets/biochemistry_source_solution_map.js
           test -f app/src/main/assets/Biochemistry_QBank_Source.pdf
           test -f app/src/main/assets/Physiology_QBank_Source.pdf
 
