@@ -32,7 +32,10 @@ lock = r'''<script id="cbt-canonical-review">
     persist(st,s);
     try{window.route={page:'review-test',id:String(t.id)};}catch(e){}
     try{history.replaceState(null,'','#review-test/'+encodeURIComponent(String(t.id)));}catch(e){location.hash='#review-test/'+encodeURIComponent(String(t.id));}
-    try{if(typeof window.render==='function')window.render();else location.hash='#review-test/'+encodeURIComponent(String(t.id));}catch(e){console.error('Canonical CBT Review render failed',e);return false;}
+    try{
+      if(typeof window.render==='function')window.render();else location.hash='#review-test/'+encodeURIComponent(String(t.id));
+      if(document.getElementById('cr-grid'))document.getElementById('cr-grid').onclick=window.QB.openQuestionNavigator;
+    }catch(e){console.error('Canonical CBT Review render failed',e);return false;}
     return false;
   }
   window.__QB_OPEN_REVIEW=openReview;
