@@ -32,13 +32,23 @@ if old_actions not in seg:
     raise SystemExit('Could not locate Review Solutions question actions; refusing ambiguous patch.')
 seg = seg.replace(old_actions, new_actions, 1)
 
+# The Review Solutions footer should be the same fixed two-button surface used
+# by the normal question experience. Do this here after the earlier hardener so
+# this patch remains the single owner of the native Review Solutions markup.
+footer = '<div class="q-footer"><button class="ghost-btn" onclick="window.QB.prevQ()">Previous</button><button class="primary-btn" onclick="window.QB.nextQ()">Next ${navIcon(\'chevron\',15)}</button></div>'
+if 'nk-review-fixed-bar' not in seg:
+    if footer not in seg:
+        raise SystemExit('Could not locate Review Solutions footer; refusing ambiguous patch.')
+    inner = footer[len('<div class="q-footer">'):-len('</div>')]
+    fixed = '<div class="nk-review-footer-spacer"></div><div class="nk-review-fixed-bar"><div class="nk-review-fixed-bar-inner">' + inner + '</div></div>'
+    seg = seg.replace(footer, fixed, 1)
+
 s = s[:start] + seg + s[end:]
 
-# Keep an inert style marker for the existing packaged regression contract.
-# No visible custom styling is added; the standard icon-btn CSS remains the
-# sole visual treatment for the Review Solutions grid control.
+# Keep a stable style marker for the existing packaged regression contract, but
+# add no custom visible styling: the standard icon-btn is the only grid visual.
 if 'id="nk-review-solution-grid-style"' not in s:
     s = s.replace('</head>', '<style id="nk-review-solution-grid-style"></style>\n</head>', 1)
 
 p.write_text(s, encoding='utf-8')
-print('Review Solutions now uses the normal compact question UI with bookmark + native grid controls.')
+print('Review Solutions now uses the normal compact question UI with bookmark + native grid controls and fixed Previous/Next.')
