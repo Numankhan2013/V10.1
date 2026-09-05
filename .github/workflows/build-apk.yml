@@ -6,7 +6,7 @@ on:
     branches: [v11-source-visuals]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build:
@@ -102,10 +102,3 @@ jobs:
           name: V11-source-visuals-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
-      - name: Persist generated visual metadata
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add app/src/main/assets/source_visual_metadata.js app/src/main/assets/index.html
-          git diff --cached --quiet || git commit -m 'chore: persist generated source visual metadata'
-          git push origin HEAD:v11-source-visuals
