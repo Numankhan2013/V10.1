@@ -1,9 +1,9 @@
-name: Build V10.3.11 Option Cleanup APK
+name: Build V11 Source Visuals APK
 
 on:
   workflow_dispatch:
   push:
-    branches: [v10.3.11-option-cleanup]
+    branches: [v11-source-visuals]
 
 permissions:
   contents: read
@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout V10.3.11 Option Cleanup
+      - name: Checkout V11 source visuals
         uses: actions/checkout@v5
       - name: Apply deterministic Review Solutions fix
         run: python3 tools/fix_review_build.py
@@ -30,6 +30,8 @@ jobs:
         run: python3 tools/repair_source_solution_renderer.py
       - name: Final source-PDF and CBT hardening
         run: python3 tools/final_hardening.py
+      - name: Verify source visual contract
+        run: python3 tools/verify_source_visual_contract.py
       - name: Apply legacy CBT UI cleanup
         run: python3 tools/cbt_final_lock.py
       - name: Install canonical CBT Review renderer
@@ -90,6 +92,6 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: V10.3.11-option-cleanup-debug-apk
+          name: V11-source-visuals-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
