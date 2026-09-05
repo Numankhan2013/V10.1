@@ -1,9 +1,9 @@
-name: Build V10.3.10 Practice Cleanup APK
+name: Build V10.3.11 Option Cleanup APK
 
 on:
   workflow_dispatch:
   push:
-    branches: [v10.3.10-practice-cleanup]
+    branches: [v10.3.11-option-cleanup]
 
 permissions:
   contents: read
@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout V10.3.10 Practice Cleanup
+      - name: Checkout V10.3.11 Option Cleanup
         uses: actions/checkout@v5
       - name: Apply deterministic Review Solutions fix
         run: python3 tools/fix_review_build.py
@@ -48,6 +48,8 @@ jobs:
         run: python3 tools/apply_option_feedback_polish_v1.py
       - name: Apply V10.3.10 focused Practice cleanup
         run: python3 tools/apply_practice_cleanup_v1.py
+      - name: Apply V10.3.11 option-hole and completion cleanup
+        run: python3 tools/apply_option_hole_cleanup_v1.py
       - name: Enforce CBT regression guardrails
         run: python3 tools/verify_cbt_invariants.py
       - name: Verify final generated app
@@ -64,6 +66,8 @@ jobs:
           grep -q 'qbank-home-insights-polish-v1' app/src/main/assets/index.html
           grep -q 'qbank-option-feedback-polish-v1' app/src/main/assets/index.html
           grep -q 'qbank-practice-cleanup-v1' app/src/main/assets/index.html
+          grep -q 'qbank-option-hole-cleanup-v1' app/src/main/assets/index.html
+          grep -q 'closeQuestionNavigator();' app/src/main/assets/index.html
           grep -q 'sessionShell' app/src/main/assets/index.html
           grep -q 'qb-nav-submit' app/src/main/assets/index.html
           grep -q "s.mode==='practice'" app/src/main/assets/index.html
@@ -86,6 +90,6 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: V10.3.10-practice-cleanup-debug-apk
+          name: V10.3.11-option-cleanup-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
