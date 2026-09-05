@@ -8,7 +8,9 @@ s = p.read_text(encoding='utf-8')
 # second grid implementation.
 if 'id="cr-grid"' not in s:
     needle = '<header class="topbar"><div class="brand">QBank</div><button class="ghost-btn" id="cr-back">Back to Tests</button></header>'
-    replacement = '<header class="topbar"><div class="brand">QBank</div><div class="nk-review-header-actions"><button class="icon-btn" id="cr-grid" aria-label="Question Navigator" title="Question Navigator">${navIcon(\'grid\')}</button><button class="ghost-btn" id="cr-back">Back to Tests</button></div></header>'
+    # Keep the icon markup literal so this patch cannot inject an unescaped
+    # single quote into the canonical app.innerHTML='...' expression.
+    replacement = '<header class="topbar"><div class="brand">QBank</div><div class="nk-review-header-actions"><button class="icon-btn" id="cr-grid" aria-label="Question Navigator" title="Question Navigator">&#9638;</button><button class="ghost-btn" id="cr-back">Back to Tests</button></div></header>'
     count = s.count(needle)
     if count != 1:
         raise SystemExit(f'Expected exactly one canonical Review Solutions header; found {count}. Refusing ambiguous patch.')
