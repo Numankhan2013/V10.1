@@ -16,7 +16,15 @@ if 'function sessionShell(' not in s:
 
 # Replace the Practice page header/history chrome with the focused question card only.
 s=s.replace("    return shell(`\n      <div class=\"page-head\"><div><div class=\"mode-pill\">Practice Mode</div><h1 class=\"page-title\" style=\"margin-top:9px\">${esc(q.chapter)}</h1><div class=\"page-sub\">${esc(q.chapter)} · Question ${q.questionNumber} of ${s.questionIds.length}</div></div><button class=\"ghost-btn\" onclick=\"window.QB.endSession()\">End session</button></div>","    return sessionShell(`\n      <div class=\"practice-focus-head\"><div class=\"q-number\">Question ${q.questionNumber}</div><div class=\"q-actions\">${bookmarkButton(q.id,21)}<button class=\"icon-btn\" aria-label=\"Question Navigator\" onclick=\"window.QB.openQuestionNavigator()\">${navIcon('grid')}</button></div></div>",1)
-s=s.replace("<div class=\"q-head\"><div class=\"q-number\">Question ${q.questionNumber}</div><div class=\"q-actions\">${bookmarkButton(q.id,21)}<button class=\"icon-btn\" aria-label=\"More\" onclick=\"window.QB.openQuestionNavigator()\">${navIcon('grid')}</button></div></div><div class=\"crumb\">${esc(q.chapter)}</div>${practiceHistory(q,s)}<div class=\"question-text\">","<div class=\"crumb\">${esc(q.chapter)}</div><div class=\"question-text\">",1)
+s=s.replace("<div class=\"q-head\"><div class=\"q-number\">Question ${q.questionNumber}</div><div class=\"q-actions\">${bookmarkButton(q.id,21)}<button class=\"icon-btn\" aria-label=\"More\" onclick=\"window.QB.openQuestionNavigator()\">${navIcon('grid')}</button></div></div><div class=\"crumb\">${esc(q.chapter)}</div>${practiceHistory(q,s)}<div class=\"question-text\">","<div class=\"question-text\">",1)
+# The practice header was replaced, but keep the transformation resilient if only the header portion matched.
+pstart=s.find('  function practicePage() {')
+pend=s.find('\n  function practiceActionBar',pstart)
+if pstart<0 or pend<0: raise SystemExit('practicePage boundaries not found')
+practice=s[pstart:pend]
+practice=re.sub(r'<div class="crumb">\$\{esc\(q\.chapter\)\}</div>', '', practice, count=1)
+practice=re.sub(r'\$\{practiceHistory\(q,s\)\}', '', practice, count=1)
+s=s[:pstart]+practice+s[pend:]
 s=s.replace("    `,'topics','Practice') + practiceActionBar(s, q, selected, submitted);","    `,'topics') + practiceActionBar(s, q, selected, submitted);",1)
 
 # Make the grid the sole location for Practice session termination.
@@ -34,7 +42,6 @@ css=r'''<style id="qbank-practice-cleanup-v1">
 .qbank-session-page .question-shell{margin-top:0!important}
 .qbank-session-page .question-card{margin-top:0!important}
 .qbank-session-page .question-card>.q-head{display:none!important}
-.qbank-session-page .question-card>.crumb{margin-top:0!important}
 .qbank-session-page .history-strip{display:none!important}
 .qbank-session-page .mode-pill,.qbank-session-page>.page-head,.qbank-session-page .page-sub{display:none!important}
 /* Once an answer is submitted, the radio slot has no semantic purpose. Remove it entirely. */
