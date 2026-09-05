@@ -31,11 +31,45 @@ def load_questions(file,subject):
                   key=lambda q:(int(q['sourcePage']),int(q.get('questionNumber',0))))
 
 def crop_box(page,bbox):
+    """Return a tight, presentation-ready crop around a source figure.
+
+    PDF image resources frequently contain large white margins.  Trim those
+    margins from the rendered source region while retaining a small safety
+    border, so the in-question figure uses the space its actual content needs.
+    """
     r=fitz.Rect(bbox); pr=page.rect
     if r.get_area()<=100:return None
-    m=max(6,min(18,.025*max(r.width,r.height)))
+    # First keep the PDF resource bounds conservative.
+    m=max(4,min(12,.018*max(r.width,r.height)))
     r=fitz.Rect(max(pr.x0,r.x0-m),max(pr.y0,r.y0-m),min(pr.x1,r.x1+m),min(pr.y1,r.y1+m))
-    return {'left':round(r.x0,2),'top':round(r.y0,2),'right':round(r.x1,2),'bottom':round(r.y1,2)}
+    try:
+        # Render only this candidate at modest resolution and find its visible
+        # (non-near-white) content bounds. This removes embedded white canvas
+        # without reconstructing or altering the medical figure itself.
+        pix=page.get_pixmap(matrix=fitz.Matrix(1.25,1.25),clip=r,alpha=False)
+        pix.save('/tmp/nk_source_crop_probe.png')
+        from PIL import Image
+        im=Image.open('/tmp/nk_source_crop_probe.png').convert('RGB')
+        px=im.load(); w,h=im.size
+        xs=[]; ys=[]
+        for yy in range(h):
+            for xx in range(w):
+                rr,gg,bb=px[xx,yy]
+                if min(rr,gg,bb)<244 or max(rr,gg,bb)-min(rr,gg,bb)>8:
+                    xs.append(xx); ys.append(yy)
+        if xs and ys:
+            pad=max(5,int(min(w,h)*0.025))
+            x0=max(0,min(xs)-pad); x1=min(w-1,max(xs)+pad)
+            y0=max(0,min(ys)-pad); y1=min(h-1,max(ys)+pad)
+            sx=1/1.25
+            tight=fitz.Rect(r.x0+x0*sx,r.y0+y0*sx,r.x0+(x1+1)*sx,r.y0+(y1+1)*sx)
+            # Do not let aggressive white trimming collapse a legitimate
+            # figure; retain at least 45% of the original candidate area.
+            if tight.get_area() >= r.get_area()*0.45:
+                r=tight
+    except Exception:
+        pass
+    return {'left':round(max(pr.x0,r.x0),2),'top':round(max(pr.y0,r.y0),2),'right':round(min(pr.x1,r.x1),2),'bottom':round(min(pr.y1,r.y1),2)}
 
 def page_question_starts(page):
     """Return (y, printed-question-number) for every numbered question start."""
@@ -56,8 +90,6 @@ def question_end_pages(qs,subject):
     for i,q in enumerate(qs):
         end=int(q.get('sourcePageEnd') or q['sourcePage'])
         if subject=='Biochemistry':
-            # In Biochemistry, sourcePageEnd is solution-end for the final
-            # question of a chapter. Keep only the actual question page there.
             nxt=qs[i+1] if i+1<len(qs) else None
             if nxt is None or nxt.get('chapterId')!=q.get('chapterId'):
                 end=int(q['sourcePage'])
@@ -85,8 +117,7 @@ def main():
         for pno in sorted(active_by_page):
             page=doc[pno-1]
             txt=page.get_text('text') or ''
-            if SOLUTION.search(txt):
-                continue
+            if SOLUTION.search(txt): continue
             cands=active_by_page[pno]
             starts=page_question_starts(page)
             blocks=[b for b in page.get_text('dict').get('blocks',[]) if b.get('type')==1 and b.get('bbox')]
@@ -95,16 +126,11 @@ def main():
             for b in blocks:
                 r=fitz.Rect(b['bbox'])
                 if r.get_area()<=100: continue
-                cy=(r.y0+r.y1)/2
-                owner=None
-                # Latest question start above the visual on this page wins.
+                cy=(r.y0+r.y1)/2; owner=None
                 for y,n in starts:
                     if y>cy: break
                     for q in starts_by_page.get(pno,{}).get(n,[]):
-                        if q in cands:
-                            owner=q
-                # A visual above the first question start belongs to the
-                # question continuing from the previous source page.
+                        if q in cands: owner=q
                 if owner is None:
                     prev=[q for q in cands if int(q['sourcePage'])<pno]
                     if prev: owner=max(prev,key=lambda q:int(q['sourcePage']))
@@ -125,8 +151,6 @@ def main():
             vals=sorted(assigned.get(q['id'],[]),key=lambda z:z[0],reverse=True)
             if not vals: continue
             if cue: cue_mapped+=1
-            # Preserve all source figures for questions with multiple visuals;
-            # `visual` remains the backward-compatible primary visual.
             visuals=[v for _,v in vals]
             entries.append({'match':question_text,'visual':visuals[0],'visuals':visuals})
         if not entries:
