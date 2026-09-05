@@ -124,7 +124,7 @@ jobs:
           grep -q 'review-fixed-actions' app/src/main/assets/index.html
           grep -q 'nk-review-solution-grid-style' app/src/main/assets/index.html
           grep -q 'id="cr-grid"' app/src/main/assets/index.html
-          grep -q "document.getElementById('cr-grid').onclick" app/src/main/assets/index.html
+          grep -q 'window.QB.openQuestionNavigator()' app/src/main/assets/index.html
           grep -q 'showToast(msg,type' app/src/main/assets/index.html
           grep -q 'root.innerHTML=' app/src/main/assets/index.html
           test -s app/src/main/assets/biochemistry_source_solution_map.js
@@ -164,7 +164,7 @@ jobs:
           grep -q 'review-fixed-actions' /tmp/packaged-index.html
           grep -q 'nk-review-solution-grid-style' /tmp/packaged-index.html
           grep -q 'id="cr-grid"' /tmp/packaged-index.html
-          grep -q "document.getElementById('cr-grid').onclick" /tmp/packaged-index.html
+          grep -q 'window.QB.openQuestionNavigator()' /tmp/packaged-index.html
           grep -q 'root.innerHTML=' /tmp/packaged-index.html
           test "$(unzip -l "$APK" | grep -c 'source_visuals/.*\.png')" -ge 400
           python3 - <<'PY'
