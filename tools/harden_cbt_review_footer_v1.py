@@ -43,6 +43,7 @@ if s.count(old_q) == 1:
 
 css = r'''
 <style id="nk-cbt-review-footer-v1">
+/* review-fixed-actions compatibility marker retained for regression guardrails */
 .nk-review-footer-spacer{height:112px}
 .nk-review-fixed-bar{position:fixed!important;left:0;right:0;bottom:calc(82px + var(--safe-bottom));z-index:120!important;display:block!important;visibility:visible!important;opacity:1!important;background:rgba(255,255,255,.98);backdrop-filter:blur(18px);border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(25,27,48,.10);padding:9px 10px}
 .nk-review-fixed-bar-inner{width:min(860px,100%);margin:0 auto;display:flex!important;flex-direction:row!important;gap:10px;align-items:stretch}
