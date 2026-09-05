@@ -1,9 +1,9 @@
-name: Build V10.10 Verified Product APK
+name: Build V11 Figma Foundation APK
 
 on:
   workflow_dispatch:
   push:
-    branches: [v10.4-ui-overhaul]
+    branches: [v10.4-ui-overhaul, v11-figma-foundation]
 
 permissions:
   contents: read
@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout V10.10 verified product build
+      - name: Checkout V11 Figma foundation build
         uses: actions/checkout@v5
       - name: Apply deterministic Review Solutions fix
         run: python3 tools/fix_review_build.py
@@ -48,6 +48,8 @@ jobs:
         run: python3 tools/v108_product_ui.py
       - name: Install V10.9 fidelity-first polish
         run: python3 tools/v109_fidelity_polish.py
+      - name: Install V11 Figma design foundation
+        run: python3 tools/v11_figma_foundation.py
       - name: Enforce CBT regression guardrails
         run: python3 tools/verify_cbt_invariants.py
       - name: Verify generated JavaScript syntax
@@ -68,6 +70,6 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: V10.10-verified-product-debug-apk
+          name: V11-Figma-foundation-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
