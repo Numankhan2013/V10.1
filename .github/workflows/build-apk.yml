@@ -54,6 +54,9 @@ jobs:
       - name: Apply V10.3.7 UI polish
         run: python3 tools/apply_ui_polish_v1.py
 
+      - name: Apply V10.3.7 UI polish refinement
+        run: python3 tools/apply_ui_polish_v2.py
+
       - name: Enforce CBT regression guardrails
         run: python3 tools/verify_cbt_invariants.py
 
@@ -67,10 +70,13 @@ jobs:
           grep -q 'qbank-question-ui-v2' app/src/main/assets/index.html
           grep -q 'qbank-practice-analysis-v1' app/src/main/assets/index.html
           grep -q 'qbank-ui-polish-v1' app/src/main/assets/index.html
+          grep -q 'qbank-ui-polish-v2' app/src/main/assets/index.html
           grep -q 'result-summary' app/src/main/assets/index.html
           grep -q 'In-depth performance analysis' app/src/main/assets/index.html
           grep -q 'text-align: justify' app/src/main/assets/index.html
-          grep -q 'display:block' app/src/main/assets/index.html
+          grep -q 'white-space: normal' app/src/main/assets/index.html
+          grep -q 'Practice Mode' app/src/main/assets/index.html
+          grep -q '<span class="t">Practice</span>' app/src/main/assets/index.html
           grep -q 'finishPracticeSession' app/src/main/assets/index.html
           grep -q 'result-stat-icon' app/src/main/assets/index.html
           test -s app/src/main/assets/biochemistry_source_solution_map.js
