@@ -66,6 +66,8 @@ jobs:
         run: python3 tools/apply_cbt_boundary_and_toast_fix_v1.py
       - name: Harden CBT review navigation footer
         run: python3 tools/harden_cbt_review_footer_v1.py
+      - name: Add question grid to Review Solutions
+        run: python3 tools/add_review_solution_grid.py
       - name: Repair WebView boot-blocking JavaScript after all transformations
         run: python3 tools/fix_boot_syntax.py
       - name: Verify final JavaScript syntax after all transformations
@@ -120,6 +122,9 @@ jobs:
           grep -q 'nk-session-review' app/src/main/assets/index.html
           grep -q 'nk-cbt-review-footer-v1' app/src/main/assets/index.html
           grep -q 'review-fixed-actions' app/src/main/assets/index.html
+          grep -q 'nk-review-solution-grid-style' app/src/main/assets/index.html
+          grep -q 'id="cr-grid"' app/src/main/assets/index.html
+          grep -q "document.getElementById('cr-grid').onclick" app/src/main/assets/index.html
           grep -q 'showToast(msg,type' app/src/main/assets/index.html
           grep -q 'root.innerHTML=' app/src/main/assets/index.html
           test -s app/src/main/assets/biochemistry_source_solution_map.js
@@ -157,6 +162,9 @@ jobs:
           grep -q 'nk-home-v4-style' /tmp/packaged-index.html
           grep -q 'nk-session-review' /tmp/packaged-index.html
           grep -q 'review-fixed-actions' /tmp/packaged-index.html
+          grep -q 'nk-review-solution-grid-style' /tmp/packaged-index.html
+          grep -q 'id="cr-grid"' /tmp/packaged-index.html
+          grep -q "document.getElementById('cr-grid').onclick" /tmp/packaged-index.html
           grep -q 'root.innerHTML=' /tmp/packaged-index.html
           test "$(unzip -l "$APK" | grep -c 'source_visuals/.*\.png')" -ge 400
           python3 - <<'PY'
@@ -174,7 +182,7 @@ jobs:
                   checked+=1
           print(f'PACKAGED_INLINE_JS_SYNTAX_OK={checked}')
           PY
-          echo "Packaged APK verification passed: Home V4/V5/V8 retained; CBT end-of-session review flow present; review footer hardened; singleton toast behavior present; legacy streak layer absent; JavaScript syntax valid; source visuals retained."
+          echo "Packaged APK verification passed: Home V4/V5/V8 retained; CBT end-of-session review flow present; review footer hardened; Review Solutions question grid present; singleton toast behavior present; legacy streak layer absent; JavaScript syntax valid; source visuals retained."
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
