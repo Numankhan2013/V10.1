@@ -8,36 +8,39 @@ ASSETS=ROOT/'assets'
 OUT=ASSETS/'source_visual_metadata.js'
 SUBJECTS={'Anatomy':'Anatomy_QBank_Source.pdf','Physiology':'Physiology_QBank_Source.pdf','Biochemistry':'Biochemistry_QBank_Source.pdf'}
 
+VECTOR_CUES=re.compile(r'\b(image|figure|fig\.?|shown|shown below|given below|provided|marked|histolog|radiograph|x[- ]?ray|ecg|graph|curve|diagram|illustrat|slide|section|microscop|identify the structure|identify the type)\b',re.I)
+
 def norm(s):
     s=html.unescape(str(s or '')).lower()
     s=re.sub(r'[^a-z0-9%°μ×÷+\-./ ?]',' ',s)
     return re.sub(r'\s+',' ',s).strip()
 
-def page_visual(page):
-    rect=page.rect; boxes=[]
+def crop_box(page,b):
+    rect=page.rect;b=fitz.Rect(b)
+    if b.get_area()<=100:return None
+    margin=max(6,min(18,0.025*max(b.width,b.height)))
+    b=fitz.Rect(max(rect.x0,b.x0-margin),max(rect.y0,b.y0-margin),min(rect.x1,b.x1+margin),min(rect.y1,b.y1+margin))
+    return {'left':round(b.x0,2),'top':round(b.y0,2),'right':round(b.x1,2),'bottom':round(b.y1,2)}
+
+def page_visual(page,txt):
     try:
-        for info in page.get_image_info():
-            b=fitz.Rect(info['bbox'])
-            if b.get_area()>100: boxes.append(b)
-    except Exception: pass
-    if boxes:
-        b=max(boxes,key=lambda x:x.get_area())
-        margin=max(6,min(18,0.025*max(b.width,b.height)))
-        b=fitz.Rect(max(rect.x0,b.x0-margin),max(rect.y0,b.y0-margin),min(rect.x1,b.x1+margin),min(rect.y1,b.y1+margin))
-        return {'left':round(b.x0,2),'top':round(b.y0,2),'right':round(b.x1,2),'bottom':round(b.y1,2)}
+        blocks=page.get_text('dict').get('blocks',[])
+        boxes=[fitz.Rect(b['bbox']) for b in blocks if b.get('type')==1 and b.get('bbox')]
+        if boxes:return crop_box(page,max(boxes,key=lambda x:x.get_area()))
+    except Exception:pass
+    if not VECTOR_CUES.search(txt):return None
     try:
         rs=[]
         for d in page.get_drawings():
             if d.get('rect'):
                 r=fitz.Rect(d['rect'])
-                if r.get_area()>150: rs.append(r)
+                if r.get_area()>150:rs.append(r)
         if rs:
             u=rs[0]
-            for r in rs[1:]: u|=r
-            if u.get_area()>rect.get_area()*0.04:
-                m=8; u=fitz.Rect(max(rect.x0,u.x0-m),max(rect.y0,u.y0-m),min(rect.x1,u.x1+m),min(rect.y1,u.y1+m))
-                return {'left':round(u.x0,2),'top':round(u.y0,2),'right':round(u.x1,2),'bottom':round(u.y1,2)}
-    except Exception: pass
+            for r in rs[1:]:u|=r
+            if u.get_area()>page.rect.get_area()*0.04:
+                return crop_box(page,fitz.Rect(u.x0-8,u.y0-8,u.x1+8,u.y1+8))
+    except Exception:pass
     return None
 
 def question_like(txt):
@@ -49,13 +52,13 @@ def main():
     allmeta={}
     for subject,fn in SUBJECTS.items():
         pdf=ASSETS/fn
-        if not pdf.exists(): print('missing',pdf,file=sys.stderr);sys.exit(1)
-        doc=fitz.open(pdf); entries=[]
+        if not pdf.exists():print('missing',pdf,file=sys.stderr);sys.exit(1)
+        doc=fitz.open(pdf);entries=[]
         for i,page in enumerate(doc):
             txt=page.get_text('text') or ''
-            if not question_like(txt): continue
-            vis=page_visual(page)
-            if not vis: continue
+            if not question_like(txt):continue
+            vis=page_visual(page,txt)
+            if not vis:continue
             lines=[x.strip() for x in txt.splitlines() if x.strip()]
             fingerprint=' '.join(lines[:18])[:700]
             entries.append({'match':fingerprint,'visual':{'type':'source-pdf','source':fn,'page':i+1,'crop':vis,'fit':'contain','scale':2.5}})
