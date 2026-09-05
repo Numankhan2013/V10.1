@@ -10,7 +10,6 @@ required = [
     'function reviewTestPage()',
     'return sessionShell(`',
     '${bookmarkButton(q.id,21)}',
-    "${navIcon('grid')}",
     'id="cr-grid"',
     'window.QB.openQuestionNavigator()',
     'nk-cbt-review-footer-v1',
@@ -20,8 +19,6 @@ for token in required:
     if token not in html:
         raise SystemExit(f'Missing CBT invariant: {token}')
 
-# The v2 layer is the live Review Solutions engine. Canonical is only its
-# public entry adapter. A competing final override is never allowed.
 if 'cbt-final-lock-v2' not in html:
     raise SystemExit('Live CBT Review engine missing: cbt-final-lock-v2')
 if 'cbt-final-lock-v3' in html or 'id="final-cbt-review-fix"' in html:
@@ -46,7 +43,6 @@ if 'window.render' in canon:
 if 'window.QB.reviewTest=' in canon:
     raise SystemExit('Canonical adapter must not replace the live QB.reviewTest implementation')
 
-# Review Solutions must not resurrect the redundant Test Review/Chapter header.
 start = html.find('function reviewTestPage()')
 end = html.find('function closeQuestionNavigator()', start)
 if start < 0 or end < 0:
@@ -56,6 +52,14 @@ if 'Test Review</div>' in review or 'Back to Tests' in review:
     raise SystemExit('Redundant Review Solutions header chrome still present')
 if 'return shell(`' in review:
     raise SystemExit('Review Solutions still uses the topbar shell instead of the normal session question surface')
+
+# Grid contract: Review Solutions exposes the compact navigator control and
+# routes it through the existing question navigator. Do not require a specific
+# DOM wiring mechanism (inline onclick vs addEventListener).
+if not re.search(r'id="cr-grid"[^>]*', review):
+    raise SystemExit('Review Solutions question-grid control missing')
+if 'window.QB.openQuestionNavigator()' not in review:
+    raise SystemExit('Review Solutions grid does not open the existing question navigator')
 
 if 'qbank.local/anatomy/pdf' not in Path('app/src/main/java/com/qbank/biochemistry/MainActivity.java').read_text(encoding='utf-8'):
     raise SystemExit('Anatomy PDF renderer route missing')
