@@ -77,7 +77,7 @@ public class MainActivity extends Activity {
 
     private void injectHomePolish() {
         if (webView == null) return;
-        try (InputStream in = getAssets().open("home_polish_v2.js"); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+        try (InputStream in = getAssets().open("home_polish_v3.js"); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
             byte[] buf = new byte[8192]; int n;
             while ((n = in.read(buf)) >= 0) out.write(buf, 0, n);
             String script = new String(out.toByteArray(), StandardCharsets.UTF_8);
