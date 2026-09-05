@@ -58,6 +58,8 @@ jobs:
         run: python3 tools/apply_option_hole_cleanup_v1.py
       - name: Build Home V4 composition directly into app
         run: python3 tools/apply_home_visual_redesign_v4.py
+      - name: Apply Home V5 functional fixes
+        run: python3 tools/apply_home_v5_fixes.py
       - name: Enforce CBT regression guardrails
         run: python3 tools/verify_cbt_invariants.py
       - name: Verify final generated app
@@ -77,6 +79,10 @@ jobs:
           grep -q 'qbank-option-hole-cleanup-v1' app/src/main/assets/index.html
           grep -q 'nk-home-v4' app/src/main/assets/index.html
           grep -q 'nk-home-v4-style' app/src/main/assets/index.html
+          grep -q 'NK_HOME_V5_FIXES' app/src/main/assets/index.html
+          grep -q "if(route && route.page==='dashboard')" app/src/main/assets/index.html
+          grep -q 'window.scrollTo({top:0,left:0,behavior:'"'"'instant'"'"'})' app/src/main/assets/index.html
+          ! grep -q 'id="v102-streak-layer-script"' app/src/main/assets/index.html
           ! grep -q 'home_polish_v3.js' app/src/main/java/com/qbank/biochemistry/MainActivity.java
           grep -q 'NK_SOURCE_VISUALS_V11' app/src/main/assets/index.html
           grep -q 'closeQuestionNavigator();' app/src/main/assets/index.html
