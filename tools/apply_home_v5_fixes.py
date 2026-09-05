@@ -4,55 +4,118 @@ import re
 INDEX = Path('app/src/main/assets/index.html')
 text = INDEX.read_text(encoding='utf-8')
 
-# Keep the legacy setSubject compatibility API intact, but add one deterministic
-# path for the Home/Topics subject library: select a subject and open its Topics
-# view without the legacy modal/flash layer.
-if 'function openSubjectTopics(name)' not in text:
-    pattern = re.compile(r"function setSubject\(name\)\{.*?\}")
-    m = pattern.search(text)
-    if not m:
-        raise SystemExit('setSubject function target not found')
-    set_fn = m.group(0)
-    # The generated function contains no nested braces, so this exact replacement
-    # is safe for the current V4 generator.
-    new = set_fn + "\n  function openSubjectTopics(name){ if(!SUBJECT_BY_NAME[name]) return; applySubject(name); searchTerm=''; topicFilter='all'; if(route && route.page==='topics'){ render(); requestAnimationFrame(() => window.scrollTo(0,0)); } else { navigate('topics'); } }"
-    text = text[:m.start()] + new + text[m.end():]
 
-# Export the deterministic subject-opening API.
-if 'openSubjectTopics,toggleMenu' not in text:
+def replace_function(source, signature, replacement):
+    """Replace one JS function using balanced-brace scanning."""
+    start = source.find(signature)
+    if start < 0:
+        raise SystemExit(f'{signature} target not found')
+    brace = source.find('{', start)
+    if brace < 0:
+        raise SystemExit(f'{signature} opening brace not found')
+    depth = 0
+    in_str = None
+    escape = False
+    i = brace
+    while i < len(source):
+        ch = source[i]
+        if in_str:
+            if escape:
+                escape = False
+            elif ch == '\\':
+                escape = True
+            elif ch == in_str:
+                in_str = None
+        else:
+            if ch in ('"', "'", '`'):
+                in_str = ch
+            elif ch == '{':
+                depth += 1
+            elif ch == '}':
+                depth -= 1
+                if depth == 0:
+                    return source[:start] + replacement + source[i + 1:]
+        i += 1
+    raise SystemExit(f'{signature} closing brace not found')
+
+
+# Preserve setSubject() for compatibility, and add a separate direct route for
+# the actual subject library. This avoids the old subject modal and makes a tap
+# on a Home/Topics subject deterministically land in Topics for that subject.
+if 'function openSubjectTopics(name)' not in text:
+    set_replacement = """function setSubject(name){
+    if(!SUBJECT_BY_NAME[name]) return;
+    applySubject(name);
+    searchTerm='';
+    topicFilter='all';
+    if(route && route.page==='dashboard'){
+      render();
+      window.scrollTo(0,0);
+    } else {
+      navigate('dashboard');
+    }
+  }
+  function openSubjectTopics(name){
+    if(!SUBJECT_BY_NAME[name]) return;
+    applySubject(name);
+    searchTerm='';
+    topicFilter='all';
+    if(route && route.page==='topics'){
+      render();
+      requestAnimationFrame(() => window.scrollTo(0,0));
+    } else {
+      navigate('topics');
+    }
+  }"""
+    text = replace_function(text, 'function setSubject(name)', set_replacement)
+
+# Export the new route function.
+if 'setSubject,openSubjectTopics,toggleMenu' not in text:
     old = "window.QB={getState:()=>state,nav:navigate,setSubject,toggleMenu,notify,openQuestionNavigator"
     new = "window.QB={getState:()=>state,nav:navigate,setSubject,openSubjectTopics,toggleMenu,notify,openQuestionNavigator"
     if old not in text:
         raise SystemExit('QB export target not found')
     text = text.replace(old, new, 1)
 
-# Home V4 subject rows must open Topics for the selected subject.
-if "window.QB.openSubjectTopics('${esc(x.subject)}')" not in text:
-    old = "onclick=\"window.QB.setSubject('${esc(x.subject)}')\""
-    new = "onclick=\"window.QB.openSubjectTopics('${esc(x.subject)}')\""
-    if old not in text:
-        raise SystemExit('Home subject click target not found')
-    text = text.replace(old, new, 1)
+# Home V4 subject rows should open Topics directly.
+text = text.replace(
+    "onclick=\"window.QB.setSubject('${esc(x.subject)}')\"",
+    "onclick=\"window.QB.openSubjectTopics('${esc(x.subject)}')\"",
+    1,
+)
 
-# Replace the Topics subject picker with the same direct navigation path. This
-# deliberately removes data-v102-subject-card from these buttons so the legacy
-# capture-phase modal cannot intercept them and produce the reported flash.
-if 'class="v102-subject-card' in text and "onclick=\"window.QB.openSubjectTopics('${esc(x.subject)}')\"" not in text[text.find('function subjectPickerMarkup'):text.find('function subjectPickerMarkup')+2500]:
-    start = text.find('function subjectPickerMarkup(){')
-    if start < 0:
-        raise SystemExit('subjectPickerMarkup target not found')
-    end = text.find('function setSubject(name)', start)
-    if end < 0:
-        raise SystemExit('subjectPickerMarkup end not found')
-    replacement = '''function subjectPickerMarkup(){
-      return `<section class="v102-subject-hub" aria-labelledby="v102-subject-title"><div class="v102-section-head"><div><div class="v102-eyebrow">Study library</div><h2 id="v102-subject-title">Choose a subject</h2></div><span>${fmtNum(SUBJECTS.length)} subjects</span></div><div class="v102-subject-grid">${SUBJECTS.map(x=>`<button type="button" class="v102-subject-card ${x.subject===activeSubject?'is-active':''}" onclick="window.QB.openSubjectTopics('${esc(x.subject)}')" aria-pressed="${x.subject===activeSubject?'true':'false'}"><span class="v102-subject-mark">${subjectIcon(x.subject,46)}</span><span class="v102-subject-copy"><strong>${esc(x.subject)}</strong><small>${fmtNum((x.topics||[]).length || (x.chapters||[]).length || 0)} topics · ${fmtNum((x.questions||[]).length)} questions</small></span><span class="v102-subject-arrow" aria-hidden="true">›</span></button>`).join('')}</div><p class="v102-subject-hint">Tap a subject to open its topics, then jump straight into a chapter.</p></section>`;
-    }
-    '''
-    text = text[:start] + replacement + text[end:]
+# Topics subject picker: remove data-v102-subject-card so the legacy capture
+# listener cannot open its modal. Use the same direct subject->Topics route.
+start = text.find('function subjectPickerMarkup(){')
+if start < 0:
+    raise SystemExit('subjectPickerMarkup target not found')
+end = text.find('function setSubject(name)', start)
+if end < 0:
+    raise SystemExit('subjectPickerMarkup end not found')
+old_picker = text[start:end]
+new_picker = old_picker.replace(' data-v102-subject-card="1"', '')
+new_picker = new_picker.replace(
+    'onclick="window.QB.v102SelectSubject(\'${esc(x.subject)}\')"',
+    'onclick="window.QB.openSubjectTopics(\'${esc(x.subject)}\')"',
+)
+# Current legacy picker is data-attribute based rather than onclick based.
+new_picker = new_picker.replace(
+    ' data-subject="${encodeURIComponent(x.subject)}"',
+    '',
+)
+if 'openSubjectTopics' not in new_picker:
+    new_picker = re.sub(
+        r'<button type="button" class="v102-subject-card ([^"]*)"([^>]*)>',
+        r'<button type="button" class="v102-subject-card \1" onclick="window.QB.openSubjectTopics(\'${esc(x.subject)}\')"\2>',
+        new_picker,
+        count=1,
+    )
+if 'openSubjectTopics' not in new_picker:
+    raise SystemExit('Topics subject picker replacement did not produce direct route')
+text = text[:start] + new_picker + text[end:]
 
-# Scope the existing streak component to Home. It remains available everywhere
-# in code, but is now rendered only by dashboard(), so it cannot leak into
-# Topics, Practice, or Question screens.
+# Scope the existing streak component to Home. It stays implemented, but is
+# composed only inside dashboard(), preventing leakage into other routes.
 if '${streakMarkup()}' not in text:
     needle = '        </header>\n        <section class="nk-home-v4-today">'
     replacement = '        </header>\n        ${streakMarkup()}\n        <section class="nk-home-v4-today">'
@@ -60,7 +123,8 @@ if '${streakMarkup()}' not in text:
         raise SystemExit('Home streak insertion target not found')
     text = text.replace(needle, replacement, 1)
 
-# Route changes begin at the top; retain the WebView-safe scroll form.
+# Every hash route transition begins at the top. Keep the simple WebView-safe
+# form rather than ScrollToOptions behavior enums.
 if 'requestAnimationFrame(() => window.scrollTo(0,0))' not in text:
     old = "window.addEventListener('hashchange', () => { route = parseHash(); render(); });"
     new = "window.addEventListener('hashchange', () => { route = parseHash(); render(); requestAnimationFrame(() => window.scrollTo(0,0)); });"
@@ -77,8 +141,8 @@ if 'subjectQuestions=Array.isArray' not in text:
     text = text.replace(old, new, 1)
     text = text.replace("${fmtNum(x.questions||q.length)} questions · ${fmtNum(x.topics||0)} topics", "${fmtNum(subjectQuestions)} questions · ${fmtNum(subjectTopics)} topics", 1)
 
-# Remove the old global streak injector. The real streak card is now explicitly
-# composed into dashboard(), not globally injected into every route.
+# Delete only the old global streak injector. The streak card itself is now
+# explicitly rendered by dashboard().
 if 'id="v102-streak-layer-script"' in text:
     pattern = re.compile(r'\n<style id="v102-streak-layer">.*?</style>\n<script id="v102-streak-layer-script">.*?</script>\n', re.S)
     text, n = pattern.subn('\n', text, count=1)
@@ -90,4 +154,4 @@ if marker not in text:
     text = text.replace('</head>', marker + '</head>', 1)
 
 INDEX.write_text(text, encoding='utf-8')
-print('Applied Home subject/navigation V6: direct subject-to-topics routing, no legacy modal interception, Home-only streak, route scroll reset, and NaN-safe counts.')
+print('Applied Home V6: direct subject->Topics routing, legacy subject-modal bypass, Home-only streak, route scroll reset, and NaN-safe counts.')
