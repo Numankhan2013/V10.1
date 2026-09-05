@@ -10,8 +10,7 @@ are not embedded rasters.
 from pathlib import Path
 import hashlib, json, re, sys
 import fitz
-import numpy as np
-from PIL import Image
+from PIL import Image, ImageChops, ImageStat
 
 ROOT=Path('app/src/main'); ASSETS=ROOT/'assets'; OUT=ASSETS/'source_visual_metadata.js'; VISDIR=ASSETS/'source_visuals'
 SUBJECTS={'Anatomy':('Anatomy_QBank_Source.pdf','subjects_qbank_data.js'),'Physiology':('Physiology_QBank_Source.pdf','subjects_qbank_data.js'),'Biochemistry':('Biochemistry_QBank_Source.pdf','qbank_data.js')}
@@ -65,51 +64,45 @@ def image_rect_candidates(page):
     return out
 
 def crop_native_figure(pm):
-    """Return a tight crop of the meaningful figure inside a native image."""
+    """Tight-crop meaningful figure content while removing presentation canvas/frame."""
     if pm.width < 40 or pm.height < 40:return None
     img=Image.frombytes('RGB',[pm.width,pm.height],pm.samples)
-    arr=np.asarray(img,dtype=np.int16); h,w=arr.shape[:2]
-    patches=[]
-    for fx,fy in ((.10,.10),(.50,.10),(.90,.10),(.10,.50),(.50,.50),(.90,.50),(.10,.90),(.50,.90),(.90,.90)):
-        cx,cy=int(w*fx),int(h*fy); rw=max(4,int(w*.025)); rh=max(4,int(h*.025))
-        x0=max(0,cx-rw);x1=min(w,cx+rw);y0=max(0,cy-rh);y1=min(h,cy+rh)
-        patches.append(arr[y0:y1,x0:x1].reshape(-1,3))
-    sample=np.concatenate(patches,axis=0)
-    q=(sample//8)*8
-    colors,counts=np.unique(q,axis=0,return_counts=True)
-    order=np.argsort(counts)[::-1]
+    w,h=img.size; colors=[]
+    for fx,fy in ((.08,.08),(.50,.08),(.92,.08),(.08,.50),(.50,.50),(.92,.50),(.08,.92),(.50,.92),(.92,.92)):
+        cx,cy=int(w*fx),int(h*fy); rw=max(3,int(w*.02)); rh=max(3,int(h*.02))
+        patch=img.crop((max(0,cx-rw),max(0,cy-rh),min(w,cx+rw),min(h,cy+rh)))
+        rgb=tuple(int(round(v)) for v in ImageStat.Stat(patch).mean[:3])
+        if min(rgb)>=220 and max(rgb)-min(rgb)<=40:colors.append(rgb)
+    if not colors:colors=[(248,248,248)]
     bgs=[]
-    for idx in order:
-        c=colors[idx].tolist()
-        if min(c)>=220 and max(c)-min(c)<=32:bgs.append(np.array(c,dtype=np.int16))
+    for c in colors:
+        if all(max(abs(c[i]-b[i]) for i in range(3))>8 for b in bgs):bgs.append(c)
         if len(bgs)>=3:break
-    if not bgs:bgs=[np.array([248,248,248]),np.array([240,248,248]),np.array([248,248,240])]
-    dist=np.stack([np.max(np.abs(arr-bg),axis=2) for bg in bgs],axis=0).min(axis=0)
-    mask=dist>12
+    masks=[]
+    for bg in bgs:
+        diff=ImageChops.difference(img,Image.new('RGB',(w,h),bg)).convert('L')
+        masks.append(diff.point(lambda p:255 if p>12 else 0))
+    mask=masks[0]
+    for other in masks[1:]:mask=ImageChops.lighter(mask,other)
     margin=int(min(w,h)*.08)
-    mask[:margin,:]=False; mask[-margin:,:]=False; mask[:,:margin]=False; mask[:,-margin:]=False
-    ys,xs=np.where(mask)
-    if xs.size==0:return None
-    minx,miny,maxx,maxy=int(xs.min()),int(ys.min()),int(xs.max()),int(ys.max())
+    mask.paste(0,(0,0,w,margin));mask.paste(0,(0,h-margin,w,h));mask.paste(0,(0,0,margin,h));mask.paste(0,(w-margin,0,w,h))
+    bbox=mask.getbbox()
+    if not bbox:return None
+    minx,miny,maxx,maxy=bbox
     if (maxx-minx)<w*.20 or (maxy-miny)<h*.12:return None
     pad=max(4,int(min(w,h)*.018))
-    box=(max(0,minx-pad),max(0,miny-pad),min(w,maxx+pad+1),min(h,maxy+pad+1))
+    box=(max(0,minx-pad),max(0,miny-pad),min(w,maxx+pad),min(h,maxy+pad))
     return img.crop(box),box
 
 def native_asset(pdf_doc,xref,subject):
     try:
-        pm=fitz.Pixmap(pdf_doc,int(xref))
-        result=crop_native_figure(pm)
+        pm=fitz.Pixmap(pdf_doc,int(xref)); result=crop_native_figure(pm)
         if not result:return None
-        img,box=result
-        raw=pm.tobytes('png')
-        digest=hashlib.sha1(raw+str(box).encode()).hexdigest()[:16]
-        rel=Path('source_visuals')/subject.lower()/f'{digest}.png'
-        out=ASSETS/rel; out.parent.mkdir(parents=True,exist_ok=True)
-        if not out.exists():img.save(out,format='PNG',optimize=True)
+        img,box=result; digest=hashlib.sha1(f'{subject}:{xref}:{box}'.encode()).hexdigest()[:16]
+        rel=Path('source_visuals')/subject.lower()/f'{digest}.png'; out=ASSETS/rel; out.parent.mkdir(parents=True,exist_ok=True)
+        if not out.exists():img.save(out,format='PNG',optimize=False)
         return {'type':'asset','source':rel.as_posix(),'fit':'contain','nativeWidth':pm.width,'nativeHeight':pm.height,'cropPixels':{'left':box[0],'top':box[1],'right':box[2],'bottom':box[3]}}
-    except Exception:
-        return None
+    except Exception:return None
 
 def crop_box(page,bbox):
     r=fitz.Rect(bbox); pr=page.rect
@@ -118,8 +111,7 @@ def crop_box(page,bbox):
     return {'left':round(max(pr.x0,r.x0),2),'top':round(max(pr.y0,r.y0),2),'right':round(min(pr.x1,r.x1),2),'bottom':round(min(pr.y1,r.y1),2)}
 
 def main():
-    VISDIR.mkdir(parents=True,exist_ok=True)
-    allmeta={};report={}
+    VISDIR.mkdir(parents=True,exist_ok=True); allmeta={};report={}
     for subject,(pdf_name,data_name) in SUBJECTS.items():
         pdf=ASSETS/pdf_name
         if not pdf.exists():print('missing',pdf,file=sys.stderr);sys.exit(1)
@@ -144,12 +136,11 @@ def main():
                     if prev:owner=max(prev,key=lambda q:int(q['sourcePage']))
                 if owner is None or not(int(owner['sourcePage'])<=pno<=ends[owner['id']]):continue
                 cache_key=(int(xref),subject) if xref else None
-                if cache_key in asset_cache: visual=asset_cache[cache_key]
+                if cache_key in asset_cache:visual=asset_cache[cache_key]
                 else:
                     visual=native_asset(doc,xref,subject) if xref else None
-                    if cache_key: asset_cache[cache_key]=visual
-                if visual:
-                    asset_blocks+=1; valid.append((owner,r.get_area(),visual))
+                    if cache_key:asset_cache[cache_key]=visual
+                if visual:asset_blocks+=1;valid.append((owner,r.get_area(),visual))
                 else:
                     crop=crop_box(page,r)
                     if crop:valid.append((owner,r.get_area(),{'type':'source-pdf','source':pdf_name,'page':pno,'crop':crop,'fit':'contain','scale':8.0}))
@@ -158,14 +149,14 @@ def main():
                 for owner,area,visual in valid:assigned.setdefault(owner['id'],[]).append((area,visual))
         entries=[];cue_total=0;cue_mapped=0
         for q in qs:
-            text=q.get('_display_question',''); cue=bool(VISUAL_CUE.search(text))
+            text=q.get('_display_question','');cue=bool(VISUAL_CUE.search(text))
             if cue:cue_total+=1
             vals=sorted(assigned.get(q['id'],[]),key=lambda z:z[0],reverse=True)
             if not vals:continue
             if cue:cue_mapped+=1
-            visuals=[v for _,v in vals]; entries.append({'match':text,'visual':visuals[0],'visuals':visuals})
+            visuals=[v for _,v in vals];entries.append({'match':text,'visual':visuals[0],'visuals':visuals})
         if not entries:print(subject,'NO VALID QUESTION VISUALS',file=sys.stderr);sys.exit(1)
-        allmeta[subject]=entries; report[subject]={'questions':len(qs),'mappedQuestions':len(entries),'cueQuestions':cue_total,'cueMapped':cue_mapped,'pagesWithVisuals':pages_with_visuals,'imageBlocksAccepted':image_blocks,'nativeRasterAssets':asset_blocks}; print(subject,'questions',len(qs),'visuals',len(entries),'cue mapped',cue_mapped,'/',cue_total,'native assets',asset_blocks); doc.close()
+        allmeta[subject]=entries;report[subject]={'questions':len(qs),'mappedQuestions':len(entries),'cueQuestions':cue_total,'cueMapped':cue_mapped,'pagesWithVisuals':pages_with_visuals,'imageBlocksAccepted':image_blocks,'nativeRasterAssets':asset_blocks};print(subject,'questions',len(qs),'visuals',len(entries),'cue mapped',cue_mapped,'/',cue_total,'native assets',asset_blocks);doc.close()
     for subject,r in report.items():
         if r['mappedQuestions']<10:print('mapping floor failed',subject,r,file=sys.stderr);sys.exit(1)
     OUT.write_text('/* Generated V11 source visual metadata. Exact QBank-indexed original-source visuals. */\nwindow.SOURCE_VISUALS='+json.dumps(allmeta,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf-8')
