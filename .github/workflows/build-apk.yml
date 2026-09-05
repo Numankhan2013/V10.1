@@ -23,14 +23,14 @@ jobs:
       - name: Install original source-PDF explanation renderer
         run: python3 tools/enable_both_pdf_renderers.py
       - name: Install PDF mapping dependency
-        run: python3 -m pip install --disable-pip-version-check PyMuPDF
+        run: python3 -m pip install --disable-pip-version-check PyMuPDF Pillow numpy
       - name: Build exact Biochemistry solution map
         run: python3 tools/build_biochem_solution_map.py
       - name: Repair source solution renderer
         run: python3 tools/repair_source_solution_renderer.py
       - name: Final source-PDF and CBT hardening
         run: python3 tools/final_hardening.py
-      - name: Generate source visual metadata
+      - name: Generate source visual metadata and lossless figure assets
         run: python3 tools/build_source_visual_metadata.py
       - name: Install source visual renderer
         run: python3 tools/install_source_visual_renderer.py
@@ -82,6 +82,8 @@ jobs:
           test -s app/src/main/assets/subject_source_solution_maps.js
           test -s app/src/main/assets/source_visual_metadata.js
           test -s app/src/main/assets/source_visual_renderer.js
+          test -d app/src/main/assets/source_visuals
+          test -n "$(find app/src/main/assets/source_visuals -type f -name '*.png' -print -quit)"
           test -f app/src/main/assets/Biochemistry_QBank_Source.pdf
           test -f app/src/main/assets/Physiology_QBank_Source.pdf
           test -f app/src/main/assets/Anatomy_QBank_Source.pdf
