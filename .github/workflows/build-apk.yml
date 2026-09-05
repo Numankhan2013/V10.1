@@ -6,7 +6,7 @@ on:
     branches: [v11-source-visuals]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -30,6 +30,10 @@ jobs:
         run: python3 tools/repair_source_solution_renderer.py
       - name: Final source-PDF and CBT hardening
         run: python3 tools/final_hardening.py
+      - name: Generate source visual metadata
+        run: python3 tools/build_source_visual_metadata.py
+      - name: Install source visual renderer
+        run: python3 tools/install_source_visual_renderer.py
       - name: Verify source visual contract
         run: python3 tools/verify_source_visual_contract.py
       - name: Apply legacy CBT UI cleanup
@@ -69,12 +73,15 @@ jobs:
           grep -q 'qbank-option-feedback-polish-v1' app/src/main/assets/index.html
           grep -q 'qbank-practice-cleanup-v1' app/src/main/assets/index.html
           grep -q 'qbank-option-hole-cleanup-v1' app/src/main/assets/index.html
+          grep -q 'NK_SOURCE_VISUALS_V11' app/src/main/assets/index.html
           grep -q 'closeQuestionNavigator();' app/src/main/assets/index.html
           grep -q 'sessionShell' app/src/main/assets/index.html
           grep -q 'qb-nav-submit' app/src/main/assets/index.html
           grep -q "s.mode==='practice'" app/src/main/assets/index.html
           test -s app/src/main/assets/biochemistry_source_solution_map.js
           test -s app/src/main/assets/subject_source_solution_maps.js
+          test -s app/src/main/assets/source_visual_metadata.js
+          test -s app/src/main/assets/source_visual_renderer.js
           test -f app/src/main/assets/Biochemistry_QBank_Source.pdf
           test -f app/src/main/assets/Physiology_QBank_Source.pdf
           test -f app/src/main/assets/Anatomy_QBank_Source.pdf
@@ -95,3 +102,10 @@ jobs:
           name: V11-source-visuals-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
+      - name: Persist generated visual metadata
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app/src/main/assets/source_visual_metadata.js app/src/main/assets/index.html
+          git diff --cached --quiet || git commit -m 'chore: persist generated source visual metadata'
+          git push origin HEAD:v11-source-visuals
