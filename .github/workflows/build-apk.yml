@@ -1,9 +1,9 @@
-name: Build V10.3.7 UI Polish APK
+name: Build V10.3.8 Home Insights Polish APK
 
 on:
   workflow_dispatch:
   push:
-    branches: [v10.3.7-ui-polish]
+    branches: [v10.3.8-home-insights-polish]
 
 permissions:
   contents: read
@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout V10.3.7 UI Polish
+      - name: Checkout V10.3.8 Home Insights Polish
         uses: actions/checkout@v5
 
       - name: Apply deterministic Review Solutions fix
@@ -57,6 +57,9 @@ jobs:
       - name: Apply V10.3.7 UI polish refinement
         run: python3 tools/apply_ui_polish_v2.py
 
+      - name: Apply V10.3.8 Home and Insights polish
+        run: python3 tools/apply_home_insights_polish_v1.py
+
       - name: Enforce CBT regression guardrails
         run: python3 tools/verify_cbt_invariants.py
 
@@ -71,14 +74,12 @@ jobs:
           grep -q 'qbank-practice-analysis-v1' app/src/main/assets/index.html
           grep -q 'qbank-ui-polish-v1' app/src/main/assets/index.html
           grep -q 'qbank-ui-polish-v2' app/src/main/assets/index.html
+          grep -q 'qbank-home-insights-polish-v1' app/src/main/assets/index.html
+          grep -q 'subjectIcon' app/src/main/assets/index.html
+          grep -q 'streak-card-compact' app/src/main/assets/index.html
+          grep -q 'insight-stat-grid' app/src/main/assets/index.html
           grep -q 'result-summary' app/src/main/assets/index.html
-          grep -q 'In-depth performance analysis' app/src/main/assets/index.html
-          grep -q 'text-align: justify' app/src/main/assets/index.html
-          grep -q 'white-space: normal' app/src/main/assets/index.html
-          grep -q 'Practice Mode' app/src/main/assets/index.html
-          grep -q '<span class="t">Practice</span>' app/src/main/assets/index.html
           grep -q 'finishPracticeSession' app/src/main/assets/index.html
-          grep -q 'result-stat-icon' app/src/main/assets/index.html
           test -s app/src/main/assets/biochemistry_source_solution_map.js
           test -s app/src/main/assets/subject_source_solution_maps.js
           test -f app/src/main/assets/Biochemistry_QBank_Source.pdf
@@ -102,6 +103,6 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: V10.3.7-ui-polish-debug-apk
+          name: V10.3.8-home-insights-polish-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
