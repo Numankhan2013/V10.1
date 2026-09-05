@@ -33,28 +33,22 @@ def load_questions(file,subject):
 def crop_box(page,bbox):
     """Return a tight, presentation-ready crop around a source figure.
 
-    PDF image resources frequently contain large white margins.  Trim those
+    PDF image resources frequently contain large white margins. Trim those
     margins from the rendered source region while retaining a small safety
     border, so the in-question figure uses the space its actual content needs.
     """
     r=fitz.Rect(bbox); pr=page.rect
     if r.get_area()<=100:return None
-    # First keep the PDF resource bounds conservative.
     m=max(4,min(12,.018*max(r.width,r.height)))
     r=fitz.Rect(max(pr.x0,r.x0-m),max(pr.y0,r.y0-m),min(pr.x1,r.x1+m),min(pr.y1,r.y1+m))
     try:
-        # Render only this candidate at modest resolution and find its visible
-        # (non-near-white) content bounds. This removes embedded white canvas
-        # without reconstructing or altering the medical figure itself.
         pix=page.get_pixmap(matrix=fitz.Matrix(1.25,1.25),clip=r,alpha=False)
-        pix.save('/tmp/nk_source_crop_probe.png')
-        from PIL import Image
-        im=Image.open('/tmp/nk_source_crop_probe.png').convert('RGB')
-        px=im.load(); w,h=im.size
-        xs=[]; ys=[]
+        w,h=pix.width,pix.height; raw=pix.samples; xs=[]; ys=[]
+        # RGB byte scan; detect ink/colour against a near-white background.
         for yy in range(h):
+            row=yy*w*3
             for xx in range(w):
-                rr,gg,bb=px[xx,yy]
+                k=row+xx*3; rr,gg,bb=raw[k],raw[k+1],raw[k+2]
                 if min(rr,gg,bb)<244 or max(rr,gg,bb)-min(rr,gg,bb)>8:
                     xs.append(xx); ys.append(yy)
         if xs and ys:
@@ -63,8 +57,6 @@ def crop_box(page,bbox):
             y0=max(0,min(ys)-pad); y1=min(h-1,max(ys)+pad)
             sx=1/1.25
             tight=fitz.Rect(r.x0+x0*sx,r.y0+y0*sx,r.x0+(x1+1)*sx,r.y0+(y1+1)*sx)
-            # Do not let aggressive white trimming collapse a legitimate
-            # figure; retain at least 45% of the original candidate area.
             if tight.get_area() >= r.get_area()*0.45:
                 r=tight
     except Exception:
