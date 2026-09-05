@@ -1,9 +1,9 @@
-name: Build V10.3.4 Question Density APK
+name: Build V10.3.5 Compact Question UI APK
 
 on:
   workflow_dispatch:
   push:
-    branches: [v10.3.4-question-density]
+    branches: [v10.3.5-question-ui]
 
 permissions:
   contents: read
@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout V10.3.4 Question Density
+      - name: Checkout V10.3.5 Compact Question UI
         uses: actions/checkout@v5
 
       - name: Apply deterministic Review Solutions fix
@@ -45,8 +45,8 @@ jobs:
       - name: Install canonical CBT Review renderer
         run: python3 tools/cbt_canonical.py
 
-      - name: Apply Question Density v1
-        run: python3 tools/apply_question_density_v1.py
+      - name: Apply compact Question UI v2
+        run: python3 tools/apply_question_ui_v2.py
 
       - name: Enforce CBT regression guardrails
         run: python3 tools/verify_cbt_invariants.py
@@ -58,7 +58,8 @@ jobs:
           grep -q 'SUBJECT_SOURCE_SOLUTIONS' app/src/main/assets/index.html
           grep -q 'anatomy-' app/src/main/assets/index.html
           grep -q 'qbank.local/anatomy/pdf' app/src/main/java/com/qbank/biochemistry/MainActivity.java
-          grep -q 'qbank-question-density-v1' app/src/main/assets/index.html
+          grep -q 'qbank-question-ui-v2' app/src/main/assets/index.html
+          grep -q 'cleanInjectedSessionCards' app/src/main/assets/index.html
           test -s app/src/main/assets/biochemistry_source_solution_map.js
           test -s app/src/main/assets/subject_source_solution_maps.js
           test -f app/src/main/assets/Biochemistry_QBank_Source.pdf
@@ -82,6 +83,6 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: V10.3.4-question-density-debug-apk
+          name: V10.3.5-compact-question-ui-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
