@@ -15,10 +15,10 @@ if old not in text:
     raise SystemExit('setSubject target not found')
 text = text.replace(old, new, 1)
 
-# Every route transition should begin at the top. This applies to Home quick
-# access, bottom navigation, topic/test/insight pages, and other hash routes.
+# Every route transition should begin at the top. Use the simple WebView-safe
+# scrollTo(x,y) form rather than ScrollToOptions behavior enums.
 old = "window.addEventListener('hashchange', () => { route = parseHash(); render(); });"
-new = "window.addEventListener('hashchange', () => { route = parseHash(); render(); requestAnimationFrame(() => window.scrollTo({top:0,left:0,behavior:'instant'})); });"
+new = "window.addEventListener('hashchange', () => { route = parseHash(); render(); requestAnimationFrame(() => window.scrollTo(0,0)); });"
 if old not in text:
     raise SystemExit('hashchange target not found')
 text = text.replace(old, new, 1)
