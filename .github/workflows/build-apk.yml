@@ -81,7 +81,7 @@ jobs:
           grep -q 'nk-home-v4-style' app/src/main/assets/index.html
           grep -q 'NK_HOME_V5_FIXES' app/src/main/assets/index.html
           grep -q "if(route && route.page==='dashboard')" app/src/main/assets/index.html
-          grep -q 'window.scrollTo({top:0,left:0,behavior:'"'"'instant'"'"'})' app/src/main/assets/index.html
+          grep -q 'requestAnimationFrame(() => window.scrollTo(0,0))' app/src/main/assets/index.html
           ! grep -q 'id="v102-streak-layer-script"' app/src/main/assets/index.html
           ! grep -q 'home_polish_v3.js' app/src/main/java/com/qbank/biochemistry/MainActivity.java
           grep -q 'NK_SOURCE_VISUALS_V11' app/src/main/assets/index.html
