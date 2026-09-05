@@ -56,9 +56,15 @@ jobs:
         run: python3 tools/apply_practice_cleanup_v1.py
       - name: Apply V10.3.11 option-hole and completion cleanup
         run: python3 tools/apply_option_hole_cleanup_v1.py
-      - name: Repair WebView boot-blocking JavaScript
+      - name: Build Home V4 composition directly into app
+        run: python3 tools/apply_home_visual_redesign_v4.py
+      - name: Apply Home V5 functional fixes
+        run: python3 tools/apply_home_v5_fixes.py
+      - name: Remove legacy global streak injector
+        run: python3 tools/remove_legacy_streak_layer.py
+      - name: Repair WebView boot-blocking JavaScript after all transformations
         run: python3 tools/fix_boot_syntax.py
-      - name: Verify final JavaScript syntax
+      - name: Verify final JavaScript syntax after all transformations
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -75,12 +81,6 @@ jobs:
                   checked+=1
           print(f'INLINE_JS_SYNTAX_OK={checked}')
           PY
-      - name: Build Home V4 composition directly into app
-        run: python3 tools/apply_home_visual_redesign_v4.py
-      - name: Apply Home V5 functional fixes
-        run: python3 tools/apply_home_v5_fixes.py
-      - name: Remove legacy global streak injector
-        run: python3 tools/remove_legacy_streak_layer.py
       - name: Enforce CBT regression guardrails
         run: python3 tools/verify_cbt_invariants.py
       - name: Verify final generated app
@@ -142,8 +142,10 @@ jobs:
           ! grep -q 'id="v102-streak-layer-script"' /tmp/packaged-index.html
           ! grep -q 'id="v102-streak-layer"' /tmp/packaged-index.html
           grep -q 'nk-topics-v2' /tmp/packaged-index.html
+          grep -q 'openSubjectTopics' /tmp/packaged-index.html
           grep -q 'resetScrollPosition' /tmp/packaged-index.html
           grep -q 'nk-home-v4' /tmp/packaged-index.html
+          grep -q 'nk-home-v4-style' /tmp/packaged-index.html
           test "$(unzip -l "$APK" | grep -c 'source_visuals/.*\.png')" -ge 400
           python3 - <<'PY'
           from pathlib import Path
