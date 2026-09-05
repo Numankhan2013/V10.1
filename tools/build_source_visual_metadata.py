@@ -1,104 +1,152 @@
 #!/usr/bin/env python3
+"""Build deterministic question -> original source-PDF visual metadata.
+
+The QBank JSON supplies authoritative question/source-page boundaries. The
+source PDFs supply the original raster figures. A figure is accepted only when
+it lies inside that question's own source-page interval and vertical question
+band. There is deliberately no fuzzy text matching, nearest-question guessing,
+subject fallback, or solution-page assignment.
+"""
 from pathlib import Path
-import json,re,html,sys
+import json,re,sys
 import fitz
 
 ROOT=Path('app/src/main'); ASSETS=ROOT/'assets'; OUT=ASSETS/'source_visual_metadata.js'
-SUBJECTS={'Anatomy':'Anatomy_QBank_Source.pdf','Physiology':'Physiology_QBank_Source.pdf','Biochemistry':'Biochemistry_QBank_Source.pdf'}
+SUBJECTS={
+    'Anatomy':('Anatomy_QBank_Source.pdf','subjects_qbank_data.js'),
+    'Physiology':('Physiology_QBank_Source.pdf','subjects_qbank_data.js'),
+    'Biochemistry':('Biochemistry_QBank_Source.pdf','qbank_data.js'),
+}
 QSTART=re.compile(r'(?m)^\s*(\d{1,4})[.)]\s+')
-OPTION=re.compile(r'(?m)^\s*[A-E][.)]\s+')
-CUES=re.compile(r'\b(image|figure|fig\.?|shown|shown below|given below|provided|marked|histolog|radiograph|x[- ]?ray|ecg|graph|curve|diagram|illustrat|slide|section|microscop|identify)\b',re.I)
+VISUAL_CUE=re.compile(r'\b(image|figure|fig\.?|shown|shown below|given below|provided|marked|histolog|radiograph|x[- ]?ray|ecg|graph|curve|diagram|illustrat|slide|section|microscop|identify)\b',re.I)
+SOLUTION=re.compile(r'\b(?:solution\s+for\s+question|correct\s+answer\s*:|explanation\s*:)',re.I)
 
-def norm(s):
-    s=html.unescape(str(s or '')).lower().replace('\u00ad','')
-    s=re.sub(r'[^a-z0-9%°μ×÷+\-./ ]',' ',s)
-    return re.sub(r'\s+',' ',s).strip()
+def load_questions(file,subject):
+    data=json.loads((ASSETS/file).read_text(encoding='utf-8').split('=',1)[1].rstrip(';\n'))
+    if subject=='Biochemistry':
+        qs=data.get('questions',[])
+    else:
+        qs=next(s for s in data.get('subjects',[]) if s.get('subject')==subject).get('questions',[])
+    return sorted((q for q in qs if q.get('sourcePage')),
+                  key=lambda q:(int(q['sourcePage']),int(q.get('questionNumber',0))))
 
-def crop_box(page,b):
-    r=fitz.Rect(b); pr=page.rect
+def crop_box(page,bbox):
+    r=fitz.Rect(bbox); pr=page.rect
     if r.get_area()<=100:return None
     m=max(6,min(18,.025*max(r.width,r.height)))
     r=fitz.Rect(max(pr.x0,r.x0-m),max(pr.y0,r.y0-m),min(pr.x1,r.x1+m),min(pr.y1,r.y1+m))
     return {'left':round(r.x0,2),'top':round(r.y0,2),'right':round(r.x1,2),'bottom':round(r.y1,2)}
 
-def visual_boxes(page,txt):
-    boxes=[]
-    try:
-        for b in page.get_text('dict').get('blocks',[]):
-            if b.get('type')==1 and b.get('bbox'):
-                c=crop_box(page,b['bbox'])
-                if c: boxes.append((fitz.Rect(b['bbox']),c))
-    except Exception: pass
-    if boxes:return boxes
-    if not CUES.search(txt):return []
-    # Vector fallback only on pages with explicit visual language.
-    try:
-        rs=[]
-        for d in page.get_drawings():
-            r=fitz.Rect(d['rect']) if d.get('rect') else None
-            if r and r.get_area()>150:rs.append(r)
-        if rs:
-            u=rs[0]
-            for r in rs[1:]:u|=r
-            if u.get_area()>page.rect.get_area()*.04:
-                c=crop_box(page,u)
-                return [(u,c)] if c else []
-    except Exception: pass
-    return []
-
-def question_segments(page):
-    # Parse actual question stems from the source page itself. This is the key
-    # invariant: a visual is attached only to the question occupying the same
-    # source-PDF region, never to an arbitrary nearest/fuzzy question.
-    blocks=[]
-    try:
-        for b in page.get_text('blocks'):
-            if len(b)>=5 and b[4]: blocks.append((float(b[1]),float(b[3]),str(b[4])))
-    except Exception:return []
-    blocks.sort()
+def page_question_starts(page):
+    """Return (y, printed-question-number) for every numbered question start."""
     out=[]
-    for y0,y1,text in blocks:
+    for b in page.get_text('blocks'):
+        text=str(b[4] or '')
         matches=list(QSTART.finditer(text))
-        for j,m in enumerate(matches):
-            start=m.start(); end=matches[j+1].start() if j+1<len(matches) else len(text)
-            seg=text[start:end]
-            stem=OPTION.split(seg,1)[0]
-            stem=QSTART.sub('',stem,1).strip()
-            if len(norm(stem))<20:continue
-            # Approximate the question's vertical span within this text block.
-            before=text[:start]; after=text[:end]
-            line_count_before=before.count('\n'); line_count_after=after.count('\n')
-            total=max(1,text.count('\n')+1); line_h=max(8,(y1-y0)/total)
-            sy=y0+line_count_before*line_h
-            ey=y1 if j+1==len(matches) else sy+max(line_h,(text[m.end():matches[j+1].start()].count('\n')+1)*line_h)
-            out.append((sy,ey,stem))
-    return out
+        if not matches: continue
+        lines=max(1,text.count('\n')+1)
+        line_h=max(8.0,(float(b[3])-float(b[1]))/lines)
+        for m in matches:
+            y=float(b[1])+text[:m.start()].count('\n')*line_h
+            out.append((y,int(m.group(1))))
+    return sorted(out)
+
+def question_end_pages(qs,subject):
+    ends={}
+    for i,q in enumerate(qs):
+        end=int(q.get('sourcePageEnd') or q['sourcePage'])
+        if subject=='Biochemistry':
+            # In Biochemistry, sourcePageEnd is solution-end for the final
+            # question of a chapter. Keep only the actual question page there.
+            nxt=qs[i+1] if i+1<len(qs) else None
+            if nxt is None or nxt.get('chapterId')!=q.get('chapterId'):
+                end=int(q['sourcePage'])
+        ends[q['id']]=max(int(q['sourcePage']),end)
+    return ends
 
 def main():
-    allmeta={}
-    total=0
-    for subject,fn in SUBJECTS.items():
-        pdf=ASSETS/fn
-        if not pdf.exists():print('missing',pdf,file=sys.stderr);sys.exit(1)
-        doc=fitz.open(pdf); entries=[]
-        for pno,page in enumerate(doc,1):
+    allmeta={}; report={}
+    for subject,(pdf_name,data_name) in SUBJECTS.items():
+        pdf=ASSETS/pdf_name
+        if not pdf.exists():
+            print('missing',pdf,file=sys.stderr);sys.exit(1)
+        qs=load_questions(data_name,subject)
+        if not qs:
+            print('no questions for',subject,file=sys.stderr);sys.exit(1)
+        ends=question_end_pages(qs,subject)
+        starts_by_page={}
+        for q in qs:
+            starts_by_page.setdefault(int(q['sourcePage']),{}).setdefault(int(q.get('questionNumber',-1)),[]).append(q)
+        active_by_page={}
+        for q in qs:
+            for pg in range(int(q['sourcePage']),ends[q['id']]+1):
+                active_by_page.setdefault(pg,[]).append(q)
+        doc=fitz.open(pdf); assigned={}; pages_with_visuals=0; image_blocks=0
+        for pno in sorted(active_by_page):
+            page=doc[pno-1]
             txt=page.get_text('text') or ''
-            qs=question_segments(page)
-            if not qs:continue
-            vbs=visual_boxes(page,txt)
-            if not vbs:continue
-            for sy,ey,stem in qs:
-                # A visual belongs to this question only when its center is in
-                # that question's vertical source-PDF band. This prevents Q9
-                # from inheriting Q7/Q8's graph, and prevents cross-subject bleed.
-                candidates=[(abs(((b.y0+b.y1)/2)-sy),c) for b,c in vbs if sy-12 <= (b.y0+b.y1)/2 <= ey+12]
-                if not candidates:continue
-                _,crop=min(candidates,key=lambda z:z[0])
-                entries.append({'match':stem,'visual':{'type':'source-pdf','source':fn,'page':pno,'crop':crop,'fit':'contain','scale':4.0}})
-                total+=1
+            if SOLUTION.search(txt):
+                continue
+            cands=active_by_page[pno]
+            starts=page_question_starts(page)
+            blocks=[b for b in page.get_text('dict').get('blocks',[]) if b.get('type')==1 and b.get('bbox')]
+            if not blocks: continue
+            valid=[]
+            for b in blocks:
+                r=fitz.Rect(b['bbox'])
+                if r.get_area()<=100: continue
+                cy=(r.y0+r.y1)/2
+                owner=None
+                # Latest question start above the visual on this page wins.
+                for y,n in starts:
+                    if y>cy: break
+                    for q in starts_by_page.get(pno,{}).get(n,[]):
+                        if q in cands:
+                            owner=q
+                # A visual above the first question start belongs to the
+                # question continuing from the previous source page.
+                if owner is None:
+                    prev=[q for q in cands if int(q['sourcePage'])<pno]
+                    if prev: owner=max(prev,key=lambda q:int(q['sourcePage']))
+                if owner is None: continue
+                if not (int(owner['sourcePage'])<=pno<=ends[owner['id']]): continue
+                crop=crop_box(page,b['bbox'])
+                if crop:
+                    valid.append((owner,r.get_area(),{'type':'source-pdf','source':pdf_name,'page':pno,'crop':crop,'fit':'contain','scale':4.0}))
+            if valid:
+                pages_with_visuals+=1; image_blocks+=len(valid)
+                for owner,area,visual in valid:
+                    assigned.setdefault(owner['id'],[]).append((area,visual))
+        entries=[]; cue_total=0; cue_mapped=0
+        for q in qs:
+            question_text=str(q.get('question',''))
+            cue=bool(VISUAL_CUE.search(question_text)) or 'Visual / Image Reference' in question_text
+            if cue: cue_total+=1
+            vals=sorted(assigned.get(q['id'],[]),key=lambda z:z[0],reverse=True)
+            if not vals: continue
+            if cue: cue_mapped+=1
+            # Preserve all source figures for questions with multiple visuals;
+            # `visual` remains the backward-compatible primary visual.
+            visuals=[v for _,v in vals]
+            entries.append({'match':question_text,'visual':visuals[0],'visuals':visuals})
+        if not entries:
+            print(subject,'NO VALID QUESTION VISUALS',file=sys.stderr);sys.exit(1)
         allmeta[subject]=entries
-        print(subject,'pages',doc.page_count,'question visuals',len(entries))
+        report[subject]={
+            'questions':len(qs),'mappedQuestions':len(entries),
+            'cueQuestions':cue_total,'cueMapped':cue_mapped,
+            'pagesWithVisuals':pages_with_visuals,'imageBlocksAccepted':image_blocks,
+        }
+        print(subject,'pages',doc.page_count,'questions',len(qs),'question visuals',len(entries),'cue mapped',cue_mapped,'/',cue_total)
         doc.close()
-    OUT.write_text('/* Generated V11 source visual metadata. Exact source-PDF question stems; no fuzzy or question-number assignment. */\nwindow.SOURCE_VISUALS='+json.dumps(allmeta,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf-8')
-    print('wrote',OUT,'total',total)
-if __name__=='__main__':main()
+    for subject,r in report.items():
+        if r['mappedQuestions']<10:
+            print('mapping floor failed for',subject,r,file=sys.stderr);sys.exit(1)
+    OUT.write_text(
+        '/* Generated V11 source visual metadata. Exact QBank-indexed PDF image blocks; no fuzzy assignment. */\n'
+        'window.SOURCE_VISUALS='+json.dumps(allmeta,ensure_ascii=False,separators=(',',':'))+';\n',
+        encoding='utf-8')
+    (ASSETS/'source_visual_mapping_report.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
+    print('wrote',OUT,'total',sum(len(v) for v in allmeta.values()))
+
+if __name__=='__main__': main()
