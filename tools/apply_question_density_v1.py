@@ -73,3 +73,4 @@ if '</head>' not in s:
 s = s.replace('</head>', css + '\n</head>', 1)
 HTML.write_text(s, encoding='utf-8')
 print('Question Density v1 applied.')
+# Build-trigger touch: keep this file deterministic while forcing a fresh Actions run.
