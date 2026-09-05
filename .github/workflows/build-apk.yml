@@ -60,6 +60,8 @@ jobs:
         run: python3 tools/apply_home_visual_redesign_v4.py
       - name: Apply Home V5 functional fixes
         run: python3 tools/apply_home_v5_fixes.py
+      - name: Remove legacy global streak injector
+        run: python3 tools/remove_legacy_streak_layer.py
       - name: Enforce CBT regression guardrails
         run: python3 tools/verify_cbt_invariants.py
       - name: Verify final generated app
@@ -80,9 +82,12 @@ jobs:
           grep -q 'nk-home-v4' app/src/main/assets/index.html
           grep -q 'nk-home-v4-style' app/src/main/assets/index.html
           grep -q 'NK_HOME_V5_FIXES' app/src/main/assets/index.html
-          grep -q "if(route && route.page==='dashboard')" app/src/main/assets/index.html
+          grep -q 'nk-topics-v2' app/src/main/assets/index.html
+          grep -q 'openSubjectTopics' app/src/main/assets/index.html
+          grep -q 'resetScrollPosition' app/src/main/assets/index.html
           grep -q 'requestAnimationFrame(() => window.scrollTo(0,0))' app/src/main/assets/index.html
           ! grep -q 'id="v102-streak-layer-script"' app/src/main/assets/index.html
+          ! grep -q 'id="v102-streak-layer"' app/src/main/assets/index.html
           ! grep -q 'home_polish_v3.js' app/src/main/java/com/qbank/biochemistry/MainActivity.java
           grep -q 'NK_SOURCE_VISUALS_V11' app/src/main/assets/index.html
           grep -q 'closeQuestionNavigator();' app/src/main/assets/index.html
@@ -109,6 +114,17 @@ jobs:
           gradle-version: '9.5.0'
       - name: Build debug APK
         run: gradle --no-daemon assembleDebug
+      - name: Verify packaged APK
+        run: |
+          APK=$(find app/build/outputs/apk/debug -type f -name '*.apk' -print -quit)
+          test -n "$APK"
+          unzip -p "$APK" assets/index.html > /tmp/packaged-index.html
+          ! grep -q 'id="v102-streak-layer-script"' /tmp/packaged-index.html
+          ! grep -q 'id="v102-streak-layer"' /tmp/packaged-index.html
+          grep -q 'nk-topics-v2' /tmp/packaged-index.html
+          grep -q 'resetScrollPosition' /tmp/packaged-index.html
+          test "$(unzip -l "$APK" | grep -c 'source_visuals/.*\.png')" -ge 400
+          echo "Packaged APK verification passed: legacy streak layer absent; Topics V2 and scroll reset packaged; source visuals retained."
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
