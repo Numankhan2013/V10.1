@@ -18,13 +18,14 @@ if marker not in s:
     next_start = old.find('<button class="primary-btn" id="cr-next"', first_button_end)
     if next_start < 0:
         raise SystemExit('CBT review Next button not found inside matched footer')
-    prev_seg = old[len('<div class="q-footer"><button class="ghost-btn" id="cr-prev"'):old.find('</button>')]
+    prev_open_start = len('<div class="q-footer"><button class="ghost-btn" id="cr-prev"')
+    prev_seg = old[prev_open_start:old.find('</button>')]
     next_seg = old[next_start:old.find('</button>', next_start) + len('</button>')]
     new = (
         '<div class="action-spacer"></div>'
         '<div class="fixed-actions review-fixed-actions">'
         '<div class="review-fixed-actions-inner">'
-        '<button class="ghost-btn" id="cr-prev"' + prev_seg +
+        '<button class="ghost-btn" id="cr-prev"' + prev_seg + '</button>' +
         next_seg +
         '</div></div>'
     )
