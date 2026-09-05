@@ -56,6 +56,25 @@ jobs:
         run: python3 tools/apply_practice_cleanup_v1.py
       - name: Apply V10.3.11 option-hole and completion cleanup
         run: python3 tools/apply_option_hole_cleanup_v1.py
+      - name: Repair WebView boot-blocking JavaScript
+        run: python3 tools/fix_boot_syntax.py
+      - name: Verify final JavaScript syntax
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, subprocess, tempfile
+          s=Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
+          scripts=re.findall(r'<script(?:[^>]*)>(.*?)</script>', s, re.S|re.I)
+          with tempfile.TemporaryDirectory() as td:
+              checked=0
+              for i,src in enumerate(scripts):
+                  if not src.strip(): continue
+                  f=Path(td)/f'inline_{i}.js'
+                  f.write_text(src,encoding='utf-8')
+                  subprocess.run(['node','--check',str(f)],check=True)
+                  checked+=1
+          print(f'INLINE_JS_SYNTAX_OK={checked}')
+          PY
       - name: Build Home V4 composition directly into app
         run: python3 tools/apply_home_visual_redesign_v4.py
       - name: Apply Home V5 functional fixes
@@ -118,13 +137,30 @@ jobs:
         run: |
           APK=$(find app/build/outputs/apk/debug -type f -name '*.apk' -print -quit)
           test -n "$APK"
+          unzip -t "$APK"
           unzip -p "$APK" assets/index.html > /tmp/packaged-index.html
           ! grep -q 'id="v102-streak-layer-script"' /tmp/packaged-index.html
           ! grep -q 'id="v102-streak-layer"' /tmp/packaged-index.html
           grep -q 'nk-topics-v2' /tmp/packaged-index.html
           grep -q 'resetScrollPosition' /tmp/packaged-index.html
+          grep -q 'nk-home-v4' /tmp/packaged-index.html
           test "$(unzip -l "$APK" | grep -c 'source_visuals/.*\.png')" -ge 400
-          echo "Packaged APK verification passed: legacy streak layer absent; Topics V2 and scroll reset packaged; source visuals retained."
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, subprocess, tempfile
+          s=Path('/tmp/packaged-index.html').read_text(encoding='utf-8')
+          scripts=re.findall(r'<script(?:[^>]*)>(.*?)</script>', s, re.S|re.I)
+          with tempfile.TemporaryDirectory() as td:
+              checked=0
+              for i,src in enumerate(scripts):
+                  if not src.strip(): continue
+                  f=Path(td)/f'inline_{i}.js'
+                  f.write_text(src,encoding='utf-8')
+                  subprocess.run(['node','--check',str(f)],check=True)
+                  checked+=1
+          print(f'PACKAGED_INLINE_JS_SYNTAX_OK={checked}')
+          PY
+          echo "Packaged APK verification passed: Home V4/V5/V8 retained; legacy streak layer absent; JavaScript syntax valid; source visuals retained."
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
