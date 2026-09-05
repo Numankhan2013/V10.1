@@ -6,7 +6,7 @@ This Android project wraps the QBank Biochemistry offline application.
 - Refined dashboard around a clear next-best-action workflow.
 - Organized study tools and review queue.
 - Refined More screen into Revision / Study / App & source groups.
-- Refined chapter screen with prominent Guide Practice and Timed Test actions plus chapter metrics.
-- Preserved the existing 719-question, 28-chapter source-faithful QBank behavior, practice, exam, bookmarks, wrong questions, review, analytics and offline storage.
+- Refined chapter screen with prominent Practice and Timed Test actions plus chapter metrics.
+- Preserved the existing source-faithful QBank behavior, practice, exam, bookmarks, wrong questions, review, analytics and offline storage.
 
 Build with the included GitHub Actions workflow or Android Studio.
