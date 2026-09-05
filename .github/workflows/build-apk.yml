@@ -1,9 +1,9 @@
-name: Build V10.3.6 Practice Analysis APK
+name: Build V10.3.7 UI Polish APK
 
 on:
   workflow_dispatch:
   push:
-    branches: [v10.3.6-practice-analysis]
+    branches: [v10.3.7-ui-polish]
 
 permissions:
   contents: read
@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout V10.3.6 Practice Analysis
+      - name: Checkout V10.3.7 UI Polish
         uses: actions/checkout@v5
 
       - name: Apply deterministic Review Solutions fix
@@ -51,6 +51,9 @@ jobs:
       - name: Apply Practice Analysis v1
         run: python3 tools/apply_practice_analysis_v1.py
 
+      - name: Apply V10.3.7 UI polish
+        run: python3 tools/apply_ui_polish_v1.py
+
       - name: Enforce CBT regression guardrails
         run: python3 tools/verify_cbt_invariants.py
 
@@ -63,6 +66,11 @@ jobs:
           grep -q 'qbank.local/anatomy/pdf' app/src/main/java/com/qbank/biochemistry/MainActivity.java
           grep -q 'qbank-question-ui-v2' app/src/main/assets/index.html
           grep -q 'qbank-practice-analysis-v1' app/src/main/assets/index.html
+          grep -q 'qbank-ui-polish-v1' app/src/main/assets/index.html
+          grep -q 'result-summary' app/src/main/assets/index.html
+          grep -q 'In-depth performance analysis' app/src/main/assets/index.html
+          grep -q 'text-align: justify' app/src/main/assets/index.html
+          grep -q 'display:block' app/src/main/assets/index.html
           grep -q 'finishPracticeSession' app/src/main/assets/index.html
           grep -q 'result-stat-icon' app/src/main/assets/index.html
           test -s app/src/main/assets/biochemistry_source_solution_map.js
@@ -88,6 +96,6 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: V10.3.6-practice-analysis-debug-apk
+          name: V10.3.7-ui-polish-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
