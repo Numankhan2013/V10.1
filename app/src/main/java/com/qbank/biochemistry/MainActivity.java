@@ -16,12 +16,15 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.view.Window;
 
+import org.json.JSONObject;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,6 +62,10 @@ public class MainActivity extends Activity {
         webView.setWebChromeClient(new WebChromeClient());
         webView.setWebViewClient(new WebViewClient() {
             @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) { return true; }
+            @Override public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                injectHomePolish();
+            }
             @Override public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
                 WebResourceResponse response = renderPhysiologyPdfRequest(request);
                 return response != null ? response : super.shouldInterceptRequest(view, request);
@@ -66,6 +73,16 @@ public class MainActivity extends Activity {
         });
         setContentView(webView);
         webView.loadUrl("file:///android_asset/index.html");
+    }
+
+    private void injectHomePolish() {
+        if (webView == null) return;
+        try (InputStream in = getAssets().open("home_polish_v1.js"); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+            byte[] buf = new byte[8192]; int n;
+            while ((n = in.read(buf)) >= 0) out.write(buf, 0, n);
+            String script = new String(out.toByteArray(), StandardCharsets.UTF_8);
+            webView.evaluateJavascript("eval(" + JSONObject.quote(script) + ")", null);
+        } catch (Exception ignored) { }
     }
 
     private void preparePhysiologyPdf() {
