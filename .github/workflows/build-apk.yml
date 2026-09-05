@@ -3,7 +3,7 @@ name: Build V11 Source Visuals APK
 on:
   workflow_dispatch:
   push:
-    branches: [v11-source-visuals]
+    branches: [v11-source-visuals, v11-home-polish]
 
 permissions:
   contents: read
