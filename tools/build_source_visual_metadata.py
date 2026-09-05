@@ -66,13 +66,14 @@ def image_rect_candidates(page):
 def crop_native_figure(pm):
     """Tight-crop meaningful figure content while removing presentation canvas/frame."""
     if pm.width < 40 or pm.height < 40:return None
-    img=Image.frombytes('RGB',[pm.width,pm.height],pm.samples)
+    rgbpm=fitz.Pixmap(fitz.csRGB,pm)
+    img=Image.frombytes('RGB',[rgbpm.width,rgbpm.height],rgbpm.samples)
     w,h=img.size; colors=[]
     for fx,fy in ((.08,.08),(.50,.08),(.92,.08),(.08,.50),(.50,.50),(.92,.50),(.08,.92),(.50,.92),(.92,.92)):
         cx,cy=int(w*fx),int(h*fy); rw=max(3,int(w*.02)); rh=max(3,int(h*.02))
         patch=img.crop((max(0,cx-rw),max(0,cy-rh),min(w,cx+rw),min(h,cy+rh)))
-        rgb=tuple(int(round(v)) for v in ImageStat.Stat(patch).mean[:3])
-        if min(rgb)>=220 and max(rgb)-min(rgb)<=40:colors.append(rgb)
+        c=tuple(int(round(v)) for v in ImageStat.Stat(patch).mean[:3])
+        if min(c)>=220 and max(c)-min(c)<=40:colors.append(c)
     if not colors:colors=[(248,248,248)]
     bgs=[]
     for c in colors:
