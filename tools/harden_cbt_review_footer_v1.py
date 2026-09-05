@@ -6,7 +6,6 @@ s = HTML.read_text(encoding='utf-8')
 
 marker = 'nk-cbt-review-footer-v1'
 if marker not in s:
-    # Preferred legacy/canonical form.
     pattern = re.compile(
         r'<div class="q-footer"><button class="ghost-btn" id="cr-prev".*?>Previous</button><button class="primary-btn" id="cr-next".*?>Next</button></div>'
     )
@@ -31,30 +30,13 @@ if marker not in s:
             '</div></div>'
         )
         s = s[:start] + new + s[matches[0].end():]
+    elif len(matches) == 0:
+        # The current canonical source may already be using the native V10.3.x
+        # Review Solutions renderer. Its q-footer is deliberately handled by
+        # the later Review Solutions UI patch, so do not fail the build here.
+        print('No canonical cr-prev/cr-next footer found; deferring native Review Solutions footer to add_review_solution_grid.py.')
     else:
-        # Current V10.3.x Review Solutions renderer already uses the normal
-        # question surface. Harden that native footer instead of inventing a
-        # second Review Solutions renderer.
-        start = s.find('function reviewTestPage()')
-        end = s.find('function closeQuestionNavigator()', start)
-        if start < 0 or end < 0:
-            raise SystemExit(f'Expected Review Solutions renderer boundaries, found {len(matches)} canonical footers.')
-        seg = s[start:end]
-        generic = re.compile(r'<div class="q-footer"><button class="ghost-btn" onclick="window\.QB\.prevQ\(\)">Previous</button><button class="primary-btn" onclick="window\.QB\.nextQ\(\)">Next \$\{navIcon\(\'chevron\',15\)\}</button></div>')
-        gm = list(generic.finditer(seg))
-        if len(gm) != 1:
-            raise SystemExit(f'Expected exactly one native Review Solutions footer, found {len(gm)}')
-        old = gm[0].group(0)
-        new = (
-            '<div class="nk-review-footer-spacer"></div>'
-            '<div class="nk-review-fixed-bar">'
-            '<div class="nk-review-fixed-bar-inner">'
-            '<button class="ghost-btn" onclick="window.QB.prevQ()">Previous</button>'
-            '<button class="primary-btn" onclick="window.QB.nextQ()">Next ${navIcon(\'chevron\',15)}</button>'
-            '</div></div>'
-        )
-        seg = seg[:gm[0].start()] + new + seg[gm[0].end():]
-        s = s[:start] + seg + s[end:]
+        raise SystemExit(f'Expected at most one canonical CBT review footer, found {len(matches)}')
 
 # Review position is the position within the completed test, not the source-bank question number.
 old_q = "<div class=\"q-number\">Question '+esc(q.questionNumber||s.index+1)+' of '+s.questionIds.length+'</div>"
@@ -77,4 +59,4 @@ s = re.sub(r'<style id="nk-cbt-review-footer-v1">.*?</style>\s*', '', s, count=1
 s = s.replace('</head>', css + '</head>', 1)
 
 HTML.write_text(s, encoding='utf-8')
-print('CBT review footer hardened: native Review Solutions uses the same fixed two-button navigation surface.')
+print('CBT review footer hardening ready; native Review Solutions can own the final footer transform.')
