@@ -1,9 +1,9 @@
-name: Build V10.3.5 Compact Question UI APK
+name: Build V10.3.6 Practice Analysis APK
 
 on:
   workflow_dispatch:
   push:
-    branches: [v10.3.5-question-ui]
+    branches: [v10.3.6-practice-analysis]
 
 permissions:
   contents: read
@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout V10.3.5 Compact Question UI
+      - name: Checkout V10.3.6 Practice Analysis
         uses: actions/checkout@v5
 
       - name: Apply deterministic Review Solutions fix
@@ -48,6 +48,9 @@ jobs:
       - name: Apply compact Question UI v2
         run: python3 tools/apply_question_ui_v2.py
 
+      - name: Apply Practice Analysis v1
+        run: python3 tools/apply_practice_analysis_v1.py
+
       - name: Enforce CBT regression guardrails
         run: python3 tools/verify_cbt_invariants.py
 
@@ -59,7 +62,9 @@ jobs:
           grep -q 'anatomy-' app/src/main/assets/index.html
           grep -q 'qbank.local/anatomy/pdf' app/src/main/java/com/qbank/biochemistry/MainActivity.java
           grep -q 'qbank-question-ui-v2' app/src/main/assets/index.html
-          grep -q 'cleanInjectedSessionCards' app/src/main/assets/index.html
+          grep -q 'qbank-practice-analysis-v1' app/src/main/assets/index.html
+          grep -q 'finishPracticeSession' app/src/main/assets/index.html
+          grep -q 'result-stat-icon' app/src/main/assets/index.html
           test -s app/src/main/assets/biochemistry_source_solution_map.js
           test -s app/src/main/assets/subject_source_solution_maps.js
           test -f app/src/main/assets/Biochemistry_QBank_Source.pdf
@@ -83,6 +88,6 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: V10.3.5-compact-question-ui-debug-apk
+          name: V10.3.6-practice-analysis-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
