@@ -23,7 +23,7 @@ jobs:
       - name: Install original source-PDF explanation renderer
         run: python3 tools/enable_both_pdf_renderers.py
       - name: Install PDF mapping dependency
-        run: python3 -m pip install --disable-pip-version-check PyMuPDF Pillow numpy
+        run: python3 -m pip install --disable-pip-version-check PyMuPDF Pillow
       - name: Build exact Biochemistry solution map
         run: python3 tools/build_biochem_solution_map.py
       - name: Repair source solution renderer
