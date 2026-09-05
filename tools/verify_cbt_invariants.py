@@ -24,12 +24,28 @@ for legacy in ('cbt-final-lock-v2', 'cbt-final-lock-v3'):
     if legacy in html:
         raise SystemExit(f'Forbidden legacy CBT runtime layer resurrected: {legacy}')
 
+if 'id="final-cbt-review-fix"' in html:
+    raise SystemExit('Competing final-cbt-review-fix override resurrected; Review Solutions must have one owner')
+
 if html.count('id="cbt-canonical-review"') != 1:
     raise SystemExit('CBT canonical entry point must exist exactly once')
 
 cta = re.findall(r'onclick="[^"]*__QB_OPEN_REVIEW\([^\"]*', html)
 if not cta:
     raise SystemExit('No Review Solutions CTA is wired to the canonical entry point')
+
+# The canonical entry must delegate to the already-tested live QB review engine.
+canon_start = html.find('<script id="cbt-canonical-review">')
+canon_end = html.find('</script>', canon_start)
+if canon_start < 0 or canon_end < 0:
+    raise SystemExit('Canonical Review Solutions script boundaries missing')
+canon = html[canon_start:canon_end]
+if 'qb.reviewTest(testId)' not in canon:
+    raise SystemExit('Canonical Review Solutions entry does not delegate to live QB.reviewTest')
+if 'window.render' in canon:
+    raise SystemExit('Canonical Review Solutions must not depend on lexical window.render()')
+if 'window.QB.reviewTest=' in canon:
+    raise SystemExit('Canonical Review Solutions must not replace the live QB.reviewTest implementation')
 
 # Review Solutions must not resurrect the redundant Test Review/Chapter header.
 start = html.find('function reviewTestPage()')
@@ -56,4 +72,4 @@ for p in (
     if not path.is_file() or path.stat().st_size == 0:
         raise SystemExit(f'Missing/empty CBT source asset: {p}')
 
-print('CBT regression guardrails passed: canonical entry point is sole owner; Review Solutions uses native question UI; legacy layers absent; source assets present.')
+print('CBT regression guardrails passed: one Review Solutions owner; entry delegates to live QB.reviewTest; native question UI retained; competing override absent; source assets present.')
