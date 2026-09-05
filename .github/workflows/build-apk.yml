@@ -56,6 +56,24 @@ jobs:
         run: python3 tools/apply_practice_cleanup_v1.py
       - name: Apply V10.3.11 option-hole and completion cleanup
         run: python3 tools/apply_option_hole_cleanup_v1.py
+      - name: Repair WebView boot-blocking JavaScript
+        run: python3 tools/fix_boot_syntax.py
+      - name: Verify final JavaScript syntax
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, subprocess, tempfile
+          s=Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
+          scripts=re.findall(r'<script(?:[^>]*)>(.*?)</script>', s, re.S|re.I)
+          checked=0
+          with tempfile.TemporaryDirectory() as td:
+              for i,src in enumerate(scripts):
+                  if not src.strip(): continue
+                  f=Path(td)/f'inline_{i}.js'; f.write_text(src,encoding='utf-8')
+                  subprocess.run(['node','--check',str(f)],check=True)
+                  checked+=1
+          print(f'INLINE_JS_SYNTAX_OK={checked}')
+          PY
       - name: Enforce CBT regression guardrails
         run: python3 tools/verify_cbt_invariants.py
       - name: Verify final generated app
@@ -98,6 +116,28 @@ jobs:
           gradle-version: '9.5.0'
       - name: Build debug APK
         run: gradle --no-daemon assembleDebug
+      - name: Verify packaged APK
+        run: |
+          apk=$(find app/build/outputs/apk/debug -type f -name '*.apk' -print -quit)
+          test -n "$apk"
+          unzip -t "$apk"
+          rm -rf /tmp/nk_apk_check && mkdir -p /tmp/nk_apk_check
+          unzip -p "$apk" assets/index.html > /tmp/nk_apk_check/index.html
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, subprocess, tempfile
+          s=Path('/tmp/nk_apk_check/index.html').read_text(encoding='utf-8')
+          assert '</button>;}).join(\'\')}</div>' not in s, 'boot-blocking malformed Topics template remains packaged'
+          scripts=re.findall(r'<script(?:[^>]*)>(.*?)</script>', s, re.S|re.I)
+          with tempfile.TemporaryDirectory() as td:
+              checked=0
+              for i,src in enumerate(scripts):
+                  if not src.strip(): continue
+                  f=Path(td)/f'inline_{i}.js'; f.write_text(src,encoding='utf-8')
+                  subprocess.run(['node','--check',str(f)],check=True)
+                  checked+=1
+          print(f'PACKAGED_INLINE_JS_SYNTAX_OK={checked}')
+          PY
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
