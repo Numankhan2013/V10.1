@@ -12,7 +12,7 @@ required = [
     '${bookmarkButton(q.id,21)}',
     "${navIcon('grid')}",
     'id="cr-grid"',
-    "document.getElementById('cr-grid').onclick",
+    'window.QB.openQuestionNavigator()',
     'nk-cbt-review-footer-v1',
     'nk-review-fixed-bar',
 ]
@@ -20,12 +20,12 @@ for token in required:
     if token not in html:
         raise SystemExit(f'Missing CBT invariant: {token}')
 
-for legacy in ('cbt-final-lock-v2', 'cbt-final-lock-v3'):
-    if legacy in html:
-        raise SystemExit(f'Forbidden legacy CBT runtime layer resurrected: {legacy}')
-
-if 'id="final-cbt-review-fix"' in html:
-    raise SystemExit('Competing final-cbt-review-fix override resurrected; Review Solutions must have one owner')
+# The v2 layer is the live Review Solutions engine. Canonical is only its
+# public entry adapter. A competing final override is never allowed.
+if 'cbt-final-lock-v2' not in html:
+    raise SystemExit('Live CBT Review engine missing: cbt-final-lock-v2')
+if 'cbt-final-lock-v3' in html or 'id="final-cbt-review-fix"' in html:
+    raise SystemExit('Competing CBT Review override resurrected')
 
 if html.count('id="cbt-canonical-review"') != 1:
     raise SystemExit('CBT canonical entry point must exist exactly once')
@@ -34,7 +34,6 @@ cta = re.findall(r'onclick="[^"]*__QB_OPEN_REVIEW\([^\"]*', html)
 if not cta:
     raise SystemExit('No Review Solutions CTA is wired to the canonical entry point')
 
-# The canonical entry must delegate to the already-tested live QB review engine.
 canon_start = html.find('<script id="cbt-canonical-review">')
 canon_end = html.find('</script>', canon_start)
 if canon_start < 0 or canon_end < 0:
@@ -45,7 +44,7 @@ if 'qb.reviewTest(testId)' not in canon:
 if 'window.render' in canon:
     raise SystemExit('Canonical Review Solutions must not depend on lexical window.render()')
 if 'window.QB.reviewTest=' in canon:
-    raise SystemExit('Canonical Review Solutions must not replace the live QB.reviewTest implementation')
+    raise SystemExit('Canonical adapter must not replace the live QB.reviewTest implementation')
 
 # Review Solutions must not resurrect the redundant Test Review/Chapter header.
 start = html.find('function reviewTestPage()')
@@ -61,15 +60,9 @@ if 'return shell(`' in review:
 if 'qbank.local/anatomy/pdf' not in Path('app/src/main/java/com/qbank/biochemistry/MainActivity.java').read_text(encoding='utf-8'):
     raise SystemExit('Anatomy PDF renderer route missing')
 
-for p in (
-    'app/src/main/assets/Biochemistry_QBank_Source.pdf',
-    'app/src/main/assets/Physiology_QBank_Source.pdf',
-    'app/src/main/assets/Anatomy_QBank_Source.pdf',
-    'app/src/main/assets/biochemistry_source_solution_map.js',
-    'app/src/main/assets/subject_source_solution_maps.js',
-):
+for p in ('app/src/main/assets/Biochemistry_QBank_Source.pdf','app/src/main/assets/Physiology_QBank_Source.pdf','app/src/main/assets/Anatomy_QBank_Source.pdf','app/src/main/assets/biochemistry_source_solution_map.js','app/src/main/assets/subject_source_solution_maps.js'):
     path = Path(p)
     if not path.is_file() or path.stat().st_size == 0:
         raise SystemExit(f'Missing/empty CBT source asset: {p}')
 
-print('CBT regression guardrails passed: one Review Solutions owner; entry delegates to live QB.reviewTest; native question UI retained; competing override absent; source assets present.')
+print('CBT regression guardrails passed: live review engine retained; canonical adapter unique; native question UI/grid retained; competing overrides absent; source assets present.')
