@@ -41,11 +41,8 @@ def replace_function(source, signature, replacement):
 # One authoritative navigation path. It handles both normal hash changes and
 # same-route navigation, and resets all likely WebView scroll containers.
 navigate_replacement = """function resetScrollPosition(){
-    requestAnimationFrame(() => {
-      window.scrollTo(0,0);
-      document.documentElement.scrollTop=0;
-      document.body.scrollTop=0;
-    });
+    requestAnimationFrame(() => window.scrollTo(0,0));
+    requestAnimationFrame(() => { document.documentElement.scrollTop=0; document.body.scrollTop=0; });
   }
   function navigate(page, id = '') {
     const target = id ? `${page}/${encodeURIComponent(id)}` : page;
@@ -160,7 +157,6 @@ if style_marker not in text:
         raise SystemExit('head close not found')
     text = text.replace('</head>', topic_style + '</head>', 1)
 
-# Final marker.
 marker = '<!-- NK_HOME_V5_FIXES -->'
 if marker not in text:
     text = text.replace('</head>', marker + '</head>', 1)
