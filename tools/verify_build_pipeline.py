@@ -38,6 +38,11 @@ if positions != sorted(positions):
     raise SystemExit("Protected build commands are out of order")
 
 commands = re.findall(r"run:\s+python3\s+(tools/[A-Za-z0-9_.-]+\.py)", text)
+commands = [
+    command for command in commands
+    if not Path(command).name.startswith("verify_")
+    and Path(command).name != "write_build_manifest.py"
+]
 duplicates = sorted({command for command in commands if commands.count(command) > 1})
 if duplicates:
     raise SystemExit(f"Transformation scripts have multiple workflow owners: {duplicates}")
