@@ -16,7 +16,7 @@ def main() -> None:
     required=[
       'id="nk-session-experience-v114"',
       "function nkSourceTakeaway(q)",
-      "function nkSessionHeader(q,s,mode,timerHtml='')",
+      "function nkSessionHeader(q,s,mode,timerHtml='',gridAttrs=",
       "function nkSessionOptions(q,selected,mode,submitted)",
       "function nkStudySupport(q,timeMs,unattempted=false,renderedSource='')",
       'class="nk-v114-session is-practice"',
