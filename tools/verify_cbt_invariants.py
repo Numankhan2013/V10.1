@@ -36,12 +36,16 @@ canon_end = html.find('</script>', canon_start)
 if canon_start < 0 or canon_end < 0:
     raise SystemExit('Canonical Review Solutions script boundaries missing')
 canon = html[canon_start:canon_end]
-if 'qb.reviewTest(testId)' not in canon:
-    raise SystemExit('Canonical Review Solutions entry does not delegate to live QB.reviewTest')
+if 'qb.reviewTest(testId)' in canon:
+    raise SystemExit('Canonical adapter must not delegate to QB.reviewTest: live engine is already exposed as __QB_OPEN_REVIEW and QB.reviewTest')
 if 'window.render' in canon:
     raise SystemExit('Canonical Review Solutions must not depend on lexical window.render()')
 if 'window.QB.reviewTest=' in canon:
     raise SystemExit('Canonical adapter must not replace the live QB.reviewTest implementation')
+if 'window.__QB_OPEN_REVIEW=openReview' in canon:
+    raise SystemExit('Canonical adapter must not replace __QB_OPEN_REVIEW and recurse into the live engine')
+if 'Preserve that function exactly' not in canon:
+    raise SystemExit('Canonical adapter preservation guard missing')
 
 start = html.find('function reviewTestPage()')
 end = html.find('function closeQuestionNavigator()', start)
@@ -69,4 +73,4 @@ for p in ('app/src/main/assets/Biochemistry_QBank_Source.pdf','app/src/main/asse
     if not path.is_file() or path.stat().st_size == 0:
         raise SystemExit(f'Missing/empty CBT source asset: {p}')
 
-print('CBT regression guardrails passed: live review engine retained; canonical adapter unique; native question UI/grid retained; competing overrides absent; source assets present.')
+print('CBT regression guardrails passed: live review engine retained; canonical adapter is non-recursive; native question UI/grid retained; competing overrides absent; source assets present.')
