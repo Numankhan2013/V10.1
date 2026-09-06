@@ -35,8 +35,8 @@ DASHBOARD = r'''function dashboard() {
           <div class="nk-home-v4-section-head"><div><div class="nk-home-v4-label">STUDY LIBRARY</div><h2>Subjects</h2></div><span>${fmtNum(SUBJECTS.length)} available</span></div>
           <div class="nk-home-v4-subject-list">
             ${SUBJECTS.map((x,i)=>{
-              const q=QUESTIONS.filter(v=>v.subject===x.subject), done=q.filter(v=>state.answers&&state.answers[v.id]).length, pct=q.length?Math.round(done/q.length*100):0;
-              return `<button type="button" class="nk-home-v4-subject ${x.subject===activeSubject?'is-active':''}" onclick="window.QB.setSubject('${esc(x.subject)}')"><span class="nk-home-v4-subject-index">${String(i+1).padStart(2,'0')}</span><span class="nk-home-v4-subject-main"><strong>${esc(x.subject)}</strong><small>${fmtNum(x.questions||q.length)} questions · ${fmtNum(x.topics||0)} topics</small><span class="nk-home-v4-progress"><i style="width:${Math.max(0,Math.min(100,pct))}%"></i></span></span><span class="nk-home-v4-subject-pct">${pct}%</span><span class="nk-home-v4-chevron">→</span></button>`;
+              const q=Array.isArray(x.questions)?x.questions:[], topics=Array.isArray(x.topics)?x.topics:[], done=q.filter(v=>qAttempts(v.id).length>0).length, pct=q.length?Math.round(done/q.length*100):0;
+              return `<button type="button" class="nk-home-v4-subject ${x.subject===activeSubject?'is-active':''}" onclick="window.QB.setSubject('${esc(x.subject)}')"><span class="nk-home-v4-subject-index">${String(i+1).padStart(2,'0')}</span><span class="nk-home-v4-subject-main"><strong>${esc(x.subject)}</strong><small>${fmtNum(q.length)} questions · ${fmtNum(topics.length)} topics</small><span class="nk-home-v4-progress"><i style="width:${Math.max(0,Math.min(100,pct))}%"></i></span></span><span class="nk-home-v4-subject-pct">${pct}%</span><span class="nk-home-v4-chevron">→</span></button>`;
             }).join('')}
           </div>
         </section>
