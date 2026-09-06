@@ -8,40 +8,31 @@ HTML = ROOT / "app/src/main/assets/index.html"
 
 s = HTML.read_text(encoding="utf-8")
 
-# This contract is deliberately conservative: it protects the existing QBank
-# experience without prescribing a future UI architecture.
+# Source-level contract: these are the existing systems that every future
+# polish/feature branch must preserve. Generated build-time markers are tested
+# by the APK build workflow, not by this source gate.
 required = [
-    "nk-home-v4",
-    "nk-home-v4-style",
-    "NK_HOME_V5_FIXES",
-    "nk-home-streak-header-v1",
-    "nk-home-actions-v1",
-    "Continue Practice",
-    "Practice 20 Random Questions",
-    "qbank-question-ui-v2",
-    "qbank-practice-analysis-v1",
-    "qbank-ui-polish-v1",
-    "qbank-ui-polish-v2",
-    "qbank-home-insights-polish-v1",
-    "qbank-option-feedback-polish-v1",
-    "qbank-practice-cleanup-v1",
-    "qbank-option-hole-cleanup-v1",
-    "NK_SOURCE_VISUALS_V11",
-    "nk-session-review",
-    "nk-cbt-review-footer-v1",
-    "review-fixed-actions",
-    "nk-review-solution-grid-style",
-    'id="cr-grid"',
-    "window.QB.openQuestionNavigator()",
+    ".bottom-nav",
+    ".navigator",
+    ".question-shell",
+    ".question-card",
+    ".question-text",
+    ".option-list",
+    ".feedback",
+    ".q-footer",
+    "sessionShell",
     "openQuestionNavigator",
     "closeQuestionNavigator();",
-    "sessionShell",
+    "window.QB.openQuestionNavigator()",
     "qb-nav-submit",
+    "localStorage",
+    "Bookmark",
 ]
 
 for marker in required:
-    assert marker in s, f"Protected marker missing: {marker}"
+    assert marker in s, f"Protected source marker missing: {marker}"
 
+# Known legacy layers that must never silently return.
 for forbidden in [
     'id="v102-streak-layer-script"',
     'id="v102-streak-layer"',
@@ -49,20 +40,22 @@ for forbidden in [
 ]:
     assert forbidden not in s, f"Legacy regression marker present: {forbidden}"
 
-# Question Navigator is an intentional component. Do not confuse it with
-# application navigation when doing future cleanup.
-assert len(re.findall(r'class=[\"\'][^\"\']*navigator[^\"\']*[\"\']', s)) >= 1
+# The Question Navigator is a legitimate question-level component. It must not
+# be removed as part of application-navigation cleanup.
+assert re.search(r'class=[\"\'][^\"\']*navigator[^\"\']*[\"\']', s)
 
-# Catch accidental duplicate application-level bottom navigation containers.
-# A Question Navigator is allowed and is separately protected above.
-bottom_nav_containers = re.findall(r'<[^>]+class=[\"\'][^\"\']*\\bbottom-nav\\b[^\"\']*[\"\'][^>]*>', s)
+# There must be no duplicate persistent application navigation containers.
+# Keep this intentionally structural rather than tying the test to a specific
+# future navigation label set.
+bottom_nav_containers = re.findall(
+    r'<[^>]+class=[\"\'][^\"\']*\bbottom-nav\b[^\"\']*[\"\'][^>]*>', s
+)
 assert len(bottom_nav_containers) <= 1, (
     f"Expected at most one persistent bottom-nav container; found {len(bottom_nav_containers)}"
 )
 
-# Every inline script must remain syntactically valid. This is cheap enough to
-# run on every safe-polish change and catches the class of boot failures we have
-# previously encountered.
+# Every inline script must remain syntactically valid. This catches boot
+# failures before a device is ever asked to install a build.
 scripts = re.findall(r'<script(?:[^>]*)>(.*?)</script>', s, re.S | re.I)
 with tempfile.TemporaryDirectory() as td:
     checked = 0
@@ -74,4 +67,4 @@ with tempfile.TemporaryDirectory() as td:
         subprocess.run(["node", "--check", str(f)], check=True)
         checked += 1
 
-print(f"SAFE_POLISH_BASELINE_OK scripts={checked} bottom_nav={len(bottom_nav_containers)}")
+print(f"SAFE_POLISH_SOURCE_OK scripts={checked} bottom_nav={len(bottom_nav_containers)}")
