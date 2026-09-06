@@ -21,6 +21,7 @@ def main() -> None:
         "function nkAppSubjectMeta(name=activeSubject)",
         "function nkSubjectGraphic(name,size=20)",
         "function nkFlameGraphic(size=24)",
+        "function nkStreakMilestoneCopy()",
         "function startAllSubjectPractice()",
         "function openMultiSubjectTestBuilder()",
         "function nkMultiExamPoolIds()",
