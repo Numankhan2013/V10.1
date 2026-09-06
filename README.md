@@ -31,9 +31,15 @@ Bookmarked, or Mixed question pools. Their question IDs and progress persist
 locally, and module answers feed the existing history, revision, and Insights
 systems. See [docs/CUSTOM_STUDY_MODULES.md](docs/CUSTOM_STUDY_MODULES.md).
 
+## Question content quality
+
+Question stems are sanitized centrally to remove extraction-source footers. Key
+takeaways preserve table-column ownership so comparison facts are not merged.
+The behavior is protected by a full-dataset contamination audit.
+
 ## Build
 
-Run **Build V11.5 Custom Study Modules APK** in GitHub Actions. A successful candidate produces:
+Run **Build V11.6 Content Quality APK** in GitHub Actions. A successful candidate produces:
 
 - the debug APK
 - \`NK-QBank-build-manifest.json\` containing the commit, file sizes, and SHA-256 fingerprints

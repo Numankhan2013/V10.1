@@ -1,9 +1,9 @@
-name: Build V11.5 Custom Study Modules APK
+name: Build V11.6 Content Quality APK
 
 on:
   workflow_dispatch:
   push:
-    branches: [v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision, v11.5-custom-study-modules]
+    branches: [v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision, v11.5-custom-study-modules, v11.6-content-quality]
 
 permissions:
   contents: read
@@ -96,6 +96,10 @@ jobs:
         run: python3 tools/apply_custom_study_modules_v1.py
       - name: Test Custom Study Modules
         run: python3 tools/test_custom_study_modules_v1.py
+      - name: Apply question content hygiene
+        run: python3 tools/apply_question_content_hygiene_v1.py
+      - name: Test question content hygiene
+        run: python3 tools/test_question_content_hygiene_v1.py
       - name: Repair WebView boot-blocking JavaScript after all transformations
         run: python3 tools/fix_boot_syntax.py
       - name: Verify final JavaScript syntax after all transformations
@@ -224,6 +228,8 @@ jobs:
           grep -q 'aria-label="NK QBank"' /tmp/packaged-index.html
           grep -q 'nk-flame-svg' /tmp/packaged-index.html
           grep -q 'nk-custom-study-modules-v1' /tmp/packaged-index.html
+          grep -q 'NK_QUESTION_CONTENT_HYGIENE_V1_START' /tmp/packaged-index.html
+          grep -q 'question.question=nkCleanQuestionStem(question.question)' /tmp/packaged-index.html
           grep -q 'openStudyModuleBuilder' /tmp/packaged-index.html
           grep -q 'nkSelectModuleQuestionIds' /tmp/packaged-index.html
           grep -q "route.page==='module-builder'" /tmp/packaged-index.html
@@ -255,7 +261,7 @@ jobs:
       - name: Upload debug APK and build manifest
         uses: actions/upload-artifact@v4
         with:
-          name: V11.5-custom-study-modules-debug-apk
+          name: V11.6-content-quality-debug-apk
           path: |
             app/build/outputs/apk/debug/*.apk
             app/build/outputs/apk/debug/NK-QBank-build-manifest.json

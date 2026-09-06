@@ -32,6 +32,8 @@ required_order = [
     "tools/test_whole_app_vision_v1.py",
     "tools/apply_custom_study_modules_v1.py",
     "tools/test_custom_study_modules_v1.py",
+    "tools/apply_question_content_hygiene_v1.py",
+    "tools/test_question_content_hygiene_v1.py",
     "tools/fix_boot_syntax.py",
     "tools/verify_product_contract.py --stage generated",
     "tools/verify_cbt_invariants.py",

@@ -1,19 +1,18 @@
 # NK QBank — Project Memory / Continuity
 
 **Updated:** 2026-09-06  
-**Current accepted baseline:** V11 / Run 220 (physically tested by the user and confirmed working)  
+**Current accepted baseline:** V11.5 Custom Study Modules (physically tested by the user and confirmed working)
 **Repository:** `Numankhan2013/V10.1`  
-**Active branch:** `v11-source-visuals`
+**Active branch:** `v11.6-content-quality`
 
-## Current candidate — V11.5 Custom Study Modules
+## Current candidate — V11.6 Content Quality
 
-Branch: `v11.5-custom-study-modules`
+Branch: `v11.6-content-quality`
 
-This candidate adds persistent, reusable study sets built from existing subjects,
-topics, Wrong, Unattempted, Bookmarked, and Mixed pools. Question IDs remain
-stable after creation; module progress resumes through the existing Practice
-engine and completion reuses Practice Analysis, Review Solutions, and Insights.
-It is not an accepted baseline until its GitHub build and physical-device test pass.
+This candidate makes generated key takeaways comparison/table-aware and removes
+source footer metadata from every affected question stem before it reaches any
+practice, module, CBT, or review flow. V11.5 remains the accepted baseline until
+this candidate passes GitHub CI and physical-device testing.
 
 ## 1. Project identity and north star
 

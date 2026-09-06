@@ -91,6 +91,8 @@ def main() -> None:
             "openStudyModuleBuilder", "nkSelectModuleQuestionIds",
             "route.page==='module-builder'", "studyModules: []",
             "nkSyncModuleFromSession",
+            "NK_QUESTION_CONTENT_HYGIENE_V1_START", "nkCleanQuestionStem",
+            "nkTableTakeaway",
         ], f"{args.stage} contract")
 
     checked = check_javascript(html)
