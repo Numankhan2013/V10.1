@@ -1,12 +1,38 @@
-# QBank Biochemistry — Android Project v10
+# NK QBank
 
-This Android project wraps the QBank Biochemistry offline application.
+NK QBank is a private, offline-first Android medical question bank for personal MBBS study. It currently covers Anatomy, Physiology, and Biochemistry.
 
-## v10 Experience Polish
-- Refined dashboard around a clear next-best-action workflow.
-- Organized study tools and review queue.
-- Refined More screen into Revision / Study / App & source groups.
-- Refined chapter screen with prominent Practice and Timed Test actions plus chapter metrics.
-- Preserved the existing source-faithful QBank behavior, practice, exam, bookmarks, wrong questions, review, analytics and offline storage.
+## Current baseline
 
-Build with the included GitHub Actions workflow or Android Studio.
+- Physically accepted build: V11 Run 220
+- Accepted product commit: \`73c04281696137fda712ae0b9b7079c9c4a15635\`
+- Accepted lineage: \`v11-source-visuals\`
+- Current hardening candidate: \`v11.1-engineering-foundation\`
+
+The compact V10.3.11 question-first architecture remains the behavioral foundation. V11 adds accepted Home, review, and source-visual improvements without replacing that architecture.
+
+## Architecture
+
+- Android WebView shell
+- offline HTML/CSS/JavaScript application
+- bundled subject data and source PDFs
+- local study-state persistence
+- native Android PDF rendering where useful
+- deterministic GitHub Actions APK generation
+
+## Protected workflows
+
+Practice, Timed CBT, question navigation, session review, Review Solutions, subject switching, persistence, and source-faithful visual/explanation rendering are protected by build-time regression contracts.
+
+## Build
+
+Run **Build V11 Source Visuals APK** in GitHub Actions. A successful candidate produces:
+
+- the debug APK
+- \`NK-QBank-build-manifest.json\` containing the commit, file sizes, and SHA-256 fingerprints
+
+CI success means **build-verified**, not device-verified. Install the candidate APK on the physical Android device before promoting it to the accepted baseline.
+
+## Engineering rules
+
+See [docs/ENGINEERING_BASELINE.md](docs/ENGINEERING_BASELINE.md). The core rule is: build forward from what works, and never trade an established study workflow for a new feature.

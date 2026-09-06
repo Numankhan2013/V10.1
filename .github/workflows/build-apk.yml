@@ -3,7 +3,7 @@ name: Build V11 Source Visuals APK
 on:
   workflow_dispatch:
   push:
-    branches: [v11-source-visuals, v11-home-polish]
+    branches: [v11-source-visuals, v11-home-polish, v11.1-engineering-foundation]
 
 permissions:
   contents: read
@@ -14,6 +14,10 @@ jobs:
     steps:
       - name: Checkout V11 source visuals
         uses: actions/checkout@v5
+      - name: Verify source product contract
+        run: python3 tools/verify_product_contract.py --stage source
+      - name: Verify deterministic build pipeline
+        run: python3 tools/verify_build_pipeline.py
       - name: Apply deterministic Review Solutions fix
         run: python3 tools/fix_review_build.py
       - name: Harden Review Solutions renderer
@@ -91,6 +95,8 @@ jobs:
                   checked+=1
           print(f'INLINE_JS_SYNTAX_OK={checked}')
           PY
+      - name: Verify generated product contract
+        run: python3 tools/verify_product_contract.py --stage generated
       - name: Enforce CBT regression guardrails
         run: python3 tools/verify_cbt_invariants.py
       - name: Verify final generated app
@@ -200,9 +206,15 @@ jobs:
           print(f'PACKAGED_INLINE_JS_SYNTAX_OK={checked}')
           PY
           echo "Packaged APK verification passed: Home V4/V5 retained; Home streak/header v2 present; Home three-action hierarchy present; CBT end-of-session review flow present; review footer hardened; Review Solutions question grid present; singleton toast behavior present; legacy streak layer absent; JavaScript syntax valid; source visuals retained."
-      - name: Upload debug APK
+      - name: Verify packaged product contract
+        run: python3 tools/verify_product_contract.py --stage packaged --html /tmp/packaged-index.html
+      - name: Write reproducibility manifest
+        run: python3 tools/write_build_manifest.py
+      - name: Upload debug APK and build manifest
         uses: actions/upload-artifact@v4
         with:
-          name: V11-source-visuals-debug-apk
-          path: app/build/outputs/apk/debug/*.apk
+          name: V11.1-engineering-foundation-debug-apk
+          path: |
+            app/build/outputs/apk/debug/*.apk
+            app/build/outputs/apk/debug/NK-QBank-build-manifest.json
           if-no-files-found: error
