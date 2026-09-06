@@ -3,7 +3,7 @@ name: Build V11 Source Visuals APK
 on:
   workflow_dispatch:
   push:
-    branches: [v11-source-visuals, v11-home-polish, v11.1-engineering-foundation]
+    branches: [v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity]
 
 permissions:
   contents: read
@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout V11 source visuals
         uses: actions/checkout@v5
+      - name: Test study metrics behavior
+        run: python3 tools/test_study_metrics.py
       - name: Verify source product contract
         run: python3 tools/verify_product_contract.py --stage source
       - name: Verify deterministic build pipeline
@@ -213,7 +215,7 @@ jobs:
       - name: Upload debug APK and build manifest
         uses: actions/upload-artifact@v4
         with:
-          name: V11.1-engineering-foundation-debug-apk
+          name: V11.2-study-clarity-debug-apk
           path: |
             app/build/outputs/apk/debug/*.apk
             app/build/outputs/apk/debug/NK-QBank-build-manifest.json
