@@ -3,7 +3,7 @@ name: Build V11 Source Visuals APK
 on:
   workflow_dispatch:
   push:
-    branches: [v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity]
+    branches: [v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience]
 
 permissions:
   contents: read
@@ -78,6 +78,10 @@ jobs:
         run: python3 tools/harden_cbt_review_footer_v1.py
       - name: Add question grid to Review Solutions
         run: python3 tools/add_review_solution_grid.py
+      - name: Apply approved V11.3 question experience
+        run: python3 tools/apply_question_experience_v1.py
+      - name: Test approved V11.3 question experience
+        run: python3 tools/test_question_experience_v1.py
       - name: Repair WebView boot-blocking JavaScript after all transformations
         run: python3 tools/fix_boot_syntax.py
       - name: Verify final JavaScript syntax after all transformations
@@ -142,6 +146,8 @@ jobs:
           grep -q 'nk-cbt-review-footer-v1' app/src/main/assets/index.html
           grep -q 'review-fixed-actions' app/src/main/assets/index.html
           grep -q 'nk-review-solution-grid-style' app/src/main/assets/index.html
+          grep -q 'nk-question-experience-v113' app/src/main/assets/index.html
+          grep -q '&scale=4' app/src/main/assets/index.html
           grep -q 'id="cr-grid"' app/src/main/assets/index.html
           grep -q 'window.QB.openQuestionNavigator()' app/src/main/assets/index.html
           grep -q 'showToast(msg,type' app/src/main/assets/index.html
@@ -188,6 +194,8 @@ jobs:
           grep -q 'nk-session-review' /tmp/packaged-index.html
           grep -q 'review-fixed-actions' /tmp/packaged-index.html
           grep -q 'nk-review-solution-grid-style' /tmp/packaged-index.html
+          grep -q 'nk-question-experience-v113' /tmp/packaged-index.html
+          grep -q '&scale=4' /tmp/packaged-index.html
           grep -q 'id="cr-grid"' /tmp/packaged-index.html
           grep -q 'window.QB.openQuestionNavigator()' /tmp/packaged-index.html
           grep -q 'root.innerHTML=' /tmp/packaged-index.html
@@ -215,7 +223,7 @@ jobs:
       - name: Upload debug APK and build manifest
         uses: actions/upload-artifact@v4
         with:
-          name: V11.2-study-clarity-debug-apk
+          name: V11.3-question-experience-debug-apk
           path: |
             app/build/outputs/apk/debug/*.apk
             app/build/outputs/apk/debug/NK-QBank-build-manifest.json
