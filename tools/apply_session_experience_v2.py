@@ -51,12 +51,12 @@ HELPERS_AND_PRACTICE = r'''function nkSessionSubject(q) {
     return best&&bestScore>=needed?best:'';
   }
 
-  function nkSessionHeader(q,s,mode,timerHtml='',gridAttrs='id="cr-grid" title="Question Navigator" onclick="window.QB.openQuestionNavigator()"') {
+  function nkSessionHeader(q,s,mode,timerHtml='',gridAttrs='id="cr-grid" title="Question Navigator" onclick="window.QB.openQuestionNavigator()"',headerClass='practice-focus-head nk-session-head') {
     const total=Math.max(1,s.questionIds.length),position=s.index+1;
     const progress=Math.max(0,Math.min(100,Math.round(position/total*100)));
     const backAction=mode==='review'?'window.QB.endReview()':'window.QB.openSessionReview()';
     const backLabel=mode==='review'?'End review':'Review or finish session';
-    return `<header class="practice-focus-head nk-session-head"><button class="icon-btn nk-session-back" aria-label="${backLabel}" onclick="${backAction}">${navIcon('back',24)}</button><div class="nk-session-count"><strong>${position}</strong> / ${total}</div><div class="q-actions">${bookmarkButton(q.id,21)}<button ${gridAttrs} class="icon-btn nk-grid-trigger" aria-label="Question navigator">${navIcon('grid',22)}</button></div></header><div class="nk-session-progress" role="progressbar" aria-label="Session progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}"><i style="width:${progress}%"></i><span>${progress}%</span></div>${timerHtml}`;
+    return `<header class="${headerClass}"><button class="icon-btn nk-session-back" aria-label="${backLabel}" onclick="${backAction}">${navIcon('back',24)}</button><div class="nk-session-count"><strong>${position}</strong> / ${total}</div><div class="q-actions">${bookmarkButton(q.id,21)}<button ${gridAttrs} class="icon-btn nk-grid-trigger" aria-label="Question navigator">${navIcon('grid',22)}</button></div></header><div class="nk-session-progress" role="progressbar" aria-label="Session progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}"><i style="width:${progress}%"></i><span>${progress}%</span></div>${timerHtml}`;
   }
 
   function nkQuestionContext(q) {
@@ -136,7 +136,8 @@ REVIEW_PAGE = r'''function reviewTestPage(){
     const selected=s.answers[q.id]||null;
     const renderedSource=q.explanation?renderExplanationText(q.explanation,q):'';
     const gridAttrs='id="cr-grid" title="Question Navigator" onclick="window.QB.openQuestionNavigator()"';
-    return sessionShell(`<div class="nk-v114-session is-review">${nkSessionHeader(q,s,'review','',gridAttrs)}<div class="question-shell"><section class="question-card">${nkQuestionContext(q)}<div class="question-text">${esc(q.question)}</div><div class="option-list">${nkSessionOptions(q,selected,'review',true)}</div>${nkStudySupport(q,s.questionTimes?.[q.id]||0,!selected,renderedSource)}</section></div></div>`,'tests')+nkSessionActionBar(s,'review');
+    const headerClass='practice-focus-head nk-session-head';
+    return sessionShell(`<div class="nk-v114-session is-review">${nkSessionHeader(q,s,'review','',gridAttrs,headerClass)}<div class="question-shell"><section class="question-card">${nkQuestionContext(q)}<div class="question-text">${esc(q.question)}</div><div class="option-list">${nkSessionOptions(q,selected,'review',true)}</div>${nkStudySupport(q,s.questionTimes?.[q.id]||0,!selected,renderedSource)}</section></div></div>`,'tests')+nkSessionActionBar(s,'review');
   }
 
   '''
