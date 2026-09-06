@@ -1,204 +1,538 @@
 # NK QBank — Project Memory / Continuity
 
-**Updated:** 2026-09-05  
-**Baseline:** V11 / Run 184 (physically tested and accepted)  
+**Updated:** 2026-09-06  
+**Current accepted baseline:** V11 / Run 220 (physically tested by the user and confirmed working)  
 **Repository:** `Numankhan2013/V10.1`  
 **Active branch:** `v11-source-visuals`
 
-## 1. Project goal
+## 1. Project identity and north star
 
-NK QBank is a personal Android medical QBank intended to become a dependable daily study tool. The priority is not version-number churn; the priority is making every existing study interaction better while preserving working behavior.
+NK QBank is a personal Android medical QBank intended to become a dependable daily study tool.
+
+The current phase has changed: **core/basic functionality is now considered complete and working without known regression.** Development should therefore move from feature rescue/build-out toward careful refinement, polish, consistency, usability, and engineering hardening.
 
 **Motto:** **We do not break anything while we build something.**
 
 Engineering loop:
 
-> Inspect → implement → build → verify → fix → rebuild → verify again.
+> Inspect → implement narrowly → build → verify → inspect packaged APK → fix → rebuild → verify again → physical-device test.
 
-Physical Android-device behavior is the final authority. Never hand over an APK merely because source checks pass; the packaged APK must pass verification first.
+Physical Android-device behavior is the final authority. CI success or static inspection alone is never sufficient to call a UI change accepted.
 
-## 2. Trusted baseline — Run 184
+The user's preference is **more building and less narrating**. Execute safe, concrete work rather than producing long speculative plans.
 
-Run 184 is the current accepted behavioral/UI baseline.
+---
 
-Confirmed working on device:
+## 2. Current accepted state — Run 220
+
+Run 220 is the latest CI-successful build on `v11-source-visuals` and was subsequently physically tested by the user.
+
+The user confirmed the app works and that the basic features are now done, with no regression observed.
+
+Run 220:
+- Workflow: `Build V11 Source Visuals APK`
+- Run number: `220`
+- Run ID: `34011265432`
+- Head commit: `73c04281696137fda712ae0b9b7079c9c4a15635`
+- Commit message: `Build Home three-action refinement`
+- CI conclusion: `success`
+- Active branch: `v11-source-visuals`
+
+The workflow passed:
+- source/visual generation
+- Home V4/V5 transformations
+- streak/header transformation
+- Home three-action hierarchy
+- CBT boundary/review flow
+- review footer
+- Review Solutions grid
+- final JS syntax validation
+- CBT regression guardrails
+- final generated-app verification
+- Gradle build
+- packaged APK verification
+- artifact upload
+
+### User-confirmed working areas
+
 - Practice sessions.
-- Timed CBT sessions.
-- Last-question boundary behavior: pressing Next on the final question opens the session-review grid instead of showing a persistent “End of session reached.” message.
+- Timed CBT.
+- Final-question boundary opens the session-review grid rather than leaving a persistent end-of-session toast.
 - Session-review grid with answered/unanswered state and question jumping.
-- Finish/Submit flow for practice and timed CBT.
-- Test Review / review-solutions flow.
-- Previous/Next navigation in review solutions.
-- Home V8 / V4 cohesive dashboard.
-- Topics V2.
-- Tests page.
-- Insights page.
-- More page.
-- Subject navigation and scroll reset.
-- Persistence/state behavior already present in the baseline.
-- Source-visual rendering with high-quality cropped native raster assets.
+- Submit/Finish flow.
+- Test Analysis / Review Solutions.
+- Review Solutions Previous/Next.
+- Review Solutions question navigator/grid and End Review flow.
+- Home.
+- Topics.
+- Tests.
+- Insights.
+- More.
+- Subject switching.
+- Scroll reset.
+- Persistence/state behavior.
+- Source-visual question rendering.
+- Source-visual full-screen viewing, zoom and pan.
+- Biochemistry renderer.
+- Physiology source-PDF visual/explanation pipeline.
+- Anatomy source visuals already integrated.
+- Home streak.
+- Home-only removal of the old QBank top header/logo.
 
-Run 184 was physically tested and accepted for both Practice and Timed CBT.
+**Important:** The user has physically tested the latest build and reported that it works. Do not claim any additional physical behavior beyond what the user has confirmed.
 
-## 3. Source Visual Renderer — frozen foundation
+---
 
-This is effectively complete and must not be casually altered.
+## 3. Trusted architectural baseline
 
-Original subject PDFs remain source of truth. Embedded raster figures are extracted at native resolution, tightly cropped to meaningful figure content, and stored as lossless PNG display assets. The app renders these assets without adding lossy intermediate processing. Source-PDF rendering remains available as fallback.
+The compact V10.3.11 question-first product architecture remains the behavioral/design baseline.
+
+A previous V11 clean-foundation attempt was rejected because it introduced:
+- duplicate persistent navigation
+- excessive chrome
+- a replacement application shell
+- loss of the compact question-first hierarchy
+- visual layering inconsistent with the proven product
+
+Do **not** revive that architecture.
+
+Do not perform a wholesale native Compose rewrite.
+
+Current broad architecture:
+- Android wrapper
+- WebView
+- monolithic `app/src/main/assets/index.html`
+- local/bundled data
+- localStorage persistence
+- native Android code only where genuinely useful
+- offline-first core QBank operation
+- GitHub Actions for deterministic APK generation
+
+Long-term native evolution may happen component-by-component, but it is not the current task.
+
+---
+
+## 4. Source Visual Renderer — frozen foundation
+
+The source visual system is effectively complete and should be treated as protected infrastructure.
+
+Original subject PDFs remain the source of truth.
+
+Current derived display assets:
+- native embedded raster figures extracted at native resolution
+- tightly cropped to meaningful figure content
+- saved as lossless PNGs
+- rendered responsively
+- source-PDF fallback remains available
 
 Current coverage:
-- Anatomy: 297 mapped questions.
-- Physiology: 62 mapped questions.
-- Biochemistry: 51 mapped questions.
-- 420 source-visual PNGs are retained in the packaged APK.
+- Anatomy: 297 mapped questions
+- Physiology: 62 mapped questions
+- Biochemistry: 51 mapped questions
+- 420 source-visual PNGs retained in the packaged APK
 
-Important rules:
-- Exact normalized question-stem matching; no fuzzy cross-subject image assignment.
-- Subject-specific PDFs only.
-- No heuristic “Question N has image” logic.
-- Preserve aspect ratio and medically meaningful content.
-- Full-screen image viewer with zoom/pan remains working.
-- Do not redesign or replace this pipeline while working on unrelated UI.
+Rules:
+- exact normalized question-stem matching
+- no fuzzy cross-subject image assignment
+- subject-specific PDFs only
+- no heuristic “Question N has image” logic
+- preserve aspect ratio
+- never crop medically meaningful content
+- full-screen viewer with zoom/pan remains protected
+- do not alter this pipeline during unrelated UI work
 
-## 4. Home / navigation foundation
+Source visual assets are a display cache; the original PDFs remain authoritative.
 
-Home V8 is accepted.
+---
 
-Home principles:
-- Cohesive application surface rather than a pile of floating cards.
-- Compact identity/header.
-- Today’s Focus command area.
-- Subjects as central study-library rows.
-- Progress snapshot.
-- Quick access.
-- Performance/recent sections.
+## 5. Subject/source rules
 
-Topics V2 is accepted:
-- Compact subject switcher.
-- Search/filter controls.
-- Topic counts/progress.
-- Direct chapter opening.
-- Unified subject navigation.
+### Physiology
+Authoritative source:
+`Physiology Prepladder Version X Qbank yw.pdf`
 
-Legacy global streak injector is removed. Streak belongs on Home only.
+Repository/runtime asset:
+`app/src/main/assets/Physiology_QBank_Source.pdf`
 
-Do not revert to the rejected V11 shell/Figma redesign that introduced duplicate navigation and excessive chrome.
+The PDF contains the genuine tables, diagrams, graphs, figures, and structured explanations.
 
-## 5. CBT / review architecture
+Use source-PDF rendering for Physiology where appropriate.
 
-The current system has a reusable question navigator/session-review grid used during active sessions.
+Do not reconstruct flattened explanations heuristically into fake tables/bullets.
 
-Current session-review behavior:
-- Final question → review grid.
-- Grid shows answered/unanswered state.
-- User can jump to any question.
-- User can review unanswered questions.
-- User can Finish Session / Submit Test.
+### Biochemistry
+The existing renderer is known-good and must remain isolated.
 
-Current review-solutions behavior:
-- Completed test opens a review session.
-- Previous/Next are fixed and functional.
-- Review footer is hardened against the earlier WebView/CSS positioning bug.
-- The review renderer must remain isolated from generic footer CSS.
+Do not globally replace the Biochemistry renderer.
 
-### Immediate next addition
+### Anatomy
+Anatomy is integrated and source visuals are working.
 
-**Add the question grid to Review Solutions itself.**
+Further Anatomy explanation/content refinement can happen later, but should be driven by inspection of the actual source material rather than heuristic reconstruction.
 
-Desired behavior:
-- While viewing a completed test’s review solution, a clear grid/navigator control is present in the review header.
-- Tapping it opens the existing question navigator.
-- User can jump directly to any reviewed question.
-- Reuse the existing navigator rather than creating a second grid implementation.
-- Preserve Previous/Next and all current review behavior.
+---
 
-A build-time patch has been added as `tools/add_review_solution_grid.py` and the workflow now runs it after the review-footer hardening step.
+## 6. Home — current state
 
-## 6. Current workflow hardening
+Home V8/V4 composition is accepted.
 
-`.github/workflows/build-apk.yml` now performs, in order:
-1. Existing source/CBT/UI transformations.
-2. Home V4/V5 transformations.
-3. Legacy streak removal.
-4. CBT end-of-session review/toast fix.
-5. CBT review footer hardening.
-6. Review Solutions question-grid patch.
-7. WebView boot-syntax repair after all transformations.
-8. Final inline-JavaScript syntax validation.
-9. CBT regression guardrails.
-10. Final generated-app checks.
-11. Gradle APK build.
-12. Packaged APK verification.
-13. Artifact upload.
+Core Home principles:
+- one cohesive application surface rather than floating card stacks
+- compact identity/header
+- Today’s Focus as the primary command area
+- Subjects as the central study library
+- compact progress snapshot
+- quick access
+- performance/recent sections
+- clear next action
 
-Packaged verification must include:
-- Home V8/V4 markers.
-- Topics V2 markers.
-- Subject navigation/scroll reset.
-- No legacy streak injector.
-- CBT session-review and fixed review-footer markers.
-- Review Solutions grid markers.
-- Valid packaged inline JavaScript.
-- At least 400 source-visual PNGs (expected current total: 420).
-- APK ZIP integrity.
+### Home streak
 
-## 7. Known historical failures — do not repeat
+The streak is now present below the greeting and is owned by Home only.
+
+The old global streak injector is removed.
+
+Current implementation uses the existing canonical streak/state functions rather than creating duplicate persistence.
+
+The user has specifically refined the desired aesthetic:
+- streak should align with the rectangular/chiseled geometry of the rest of Home
+- avoid unnecessary rounded-card treatment
+- avoid unexplained empty space
+- keep it visually integrated with the Home axis
+- subtle animation/graphic motion is acceptable when it improves polish and remains restrained
+
+### Home action hierarchy
+
+The intended Today’s Focus action order is:
+
+1. **Continue Practice**
+2. **Practice 20 Random Questions**
+3. **Timed CBT**
+
+`Continue Practice` should not sit beside `Good morning`; it belongs inside Today’s Focus with the other study actions.
+
+All three actions should be visually distinct while remaining part of the same cohesive system.
+
+Do not make them three visually unrelated buttons. Distinction should come from hierarchy, fill/border treatment, iconography, and restrained semantic color use.
+
+### Home top header
+
+The old QBank top logo/header was removed from Home only.
+
+Do not remove or alter shared navigation/chrome on other routes unless explicitly requested.
+
+---
+
+## 7. Topics / navigation
+
+Topics V2 is accepted.
+
+Current principles:
+- compact subject selector
+- search/filter
+- topic counts
+- progress/percentage
+- clean topic rows
+- direct chapter opening
+- unified subject navigation
+- reliable same-route scroll reset
+
+Do not replace this with a new shell.
+
+---
+
+## 8. CBT / Review architecture
+
+Current session-review system is protected.
+
+### Active sessions
+
+Final question → open session-review navigator.
+
+Navigator:
+- answered/unanswered state
+- question jumping
+- review unanswered
+- Submit Test / Finish Session
+
+The persistent “End of session reached.” toast regression is fixed.
+
+Toast behavior is singleton/transient rather than stacking.
+
+### Review Solutions
+
+Review Solutions is now considered working and protected.
+
+Current behavior:
+- completed test opens review
+- question-first review interface
+- Previous/Next fixed footer
+- question grid/navigator
+- jump between reviewed questions
+- End Review
+- ending review returns to the originating Test Analysis/result view
+- source-PDF-based explanations where applicable
+
+Do not regress or replace the existing navigator with a second implementation.
+
+---
+
+## 9. Workflow / build hardening
+
+`.github/workflows/build-apk.yml` currently applies deterministic transformations and then verifies the packaged result.
+
+Important order:
+1. Source/CBT/UI transformations.
+2. Home V4/V5.
+3. Remove legacy streak layer.
+4. Home streak/header.
+5. Home three-action hierarchy.
+6. CBT end-of-session behavior.
+7. Review footer.
+8. Review Solutions grid.
+9. WebView syntax repair after all transformations.
+10. Final inline-JS syntax validation.
+11. CBT regression guardrails.
+12. Final generated-app checks.
+13. Gradle build.
+14. Packaged APK verification.
+15. Artifact upload.
+
+Packaged verification must continue to protect:
+- Home V4/V5 markers
+- Topics V2
+- subject navigation/scroll reset
+- no legacy streak injector
+- CBT session-review
+- fixed review footer
+- Review Solutions grid
+- valid packaged JS
+- source visual assets (currently at least 400; expected 420)
+- APK ZIP integrity
+
+The final packaged APK matters more than source-only checks.
+
+---
+
+## 10. Historical failures — permanent lessons
 
 ### Failed V11 shell
-A clean V11 foundation build was rejected because it replaced the compact V10.3.x question-first architecture with duplicate navigation/excessive chrome. Do not revive that approach.
+Do not return to the duplicate-navigation/excessive-chrome shell.
 
-### Run 170 regression
-A later build reverted to the old Home UI. The recovery was to restore the exact accepted Home V8 baseline rather than recreate it approximately.
+### Run 170
+A transformation accidentally restored old Home UI. Recovery required restoring the exact accepted Home composition rather than approximating it.
 
-### WebView boot failures
-Home V8 transformations once introduced malformed inline JavaScript after an earlier syntax check. Therefore syntax repair/check must happen after every transformation, and the packaged APK must be checked too.
+### WebView syntax failures
+Home transformations previously introduced malformed inline JS after an earlier syntax check.
+
+Therefore:
+- syntax repair/check must occur after all transformations
+- packaged `index.html` must also be syntax checked
 
 ### Review footer regression
-Generic CSS caused Previous/Next in Test Review to appear clipped/misaligned. The fix isolated the review footer and anchored it correctly. Run 184 confirmed Practice and Timed CBT review navigation works.
+Generic CSS once clipped/misaligned Review Solutions Previous/Next.
 
-### Persistent toast regression
-“End of session reached.” once stacked and persisted. The boundary logic now opens the review grid and uses a singleton transient toast system.
+Keep review footer styling isolated.
 
-## 8. Next roadmap
+### Persistent end-session toast
+Do not reintroduce persistent boundary messaging. The final-question boundary is a navigator transition.
 
-### Phase 1 — Review Experience
-1. Review Solutions question grid — **current task**.
-2. Make review navigation consistent across Practice Review, CBT Review, and Test Review.
-3. Improve review-state indicators without overloading the grid.
+### Heuristic Physiology explanation reconstruction
+Rejected because it produced semantically unreliable and visually poor results.
 
-### Phase 2 — Gold-standard Question Screen
-Polish typography, spacing, option states, explanation hierarchy, source solution placement, long explanations, image/text relationships, and sticky navigation without changing the question engine unnecessarily.
+Source PDFs remain authoritative.
 
-### Phase 3 — Daily Study Loop
-Make Home → study → review → continue feel intelligent and actionable. Improve Continue, Wrong Questions, Due Review, Bookmarks, and unfinished-session recovery incrementally.
+---
 
-### Phase 4 — Study Intelligence
-Build robust Wrong Questions, persistent Bookmarks, then a restrained Spaced Review foundation.
+## 11. New development phase — Refinement, not feature rescue
 
-### Phase 5 — Analytics
-Turn Insights into decisions: weak chapters, accuracy trends, question volume, study time, and prioritized next actions.
+**Core features are now done.** The next work should be judged by whether it makes the existing product:
+- clearer
+- faster
+- more coherent
+- more professional
+- more visually consistent
+- easier to study with
+- more robust
 
-### Phase 6 — Test System
-Expand test configuration and history only after Practice/Review are stable: topic selection, question count, timing, results, unanswered review, and detailed analysis.
+Avoid adding complexity merely to make the version number larger.
 
-### Phase 7 — Engineering Hardening
-Add golden/screenshot regression coverage for Home, Topics, question screen, image questions, long explanations, Practice, CBT, Review, Review Grid, Insights, etc. Gradually improve state/data separation using principles learned from Now in Android without wholesale architectural replacement.
+### Refinement roadmap
 
-### Phase 8 — Final Visual Refinement
-Only after functionality is stable: spacing rhythm, typography, icon consistency, borders, radii, shadows, transitions, empty states, accessibility, and adaptive layouts.
+#### Phase R1 — Gold-standard Question Screen
+Highest priority.
 
-## 9. Architectural direction
+Refine:
+- typography rhythm
+- question/stem density
+- option spacing
+- selected/correct/wrong states
+- bookmark/grid affordances
+- explanation hierarchy
+- source visual placement
+- long explanation behavior
+- image/text relationship
+- sticky Previous/Next
+- mobile readability
+- reduced visual noise
+
+The question screen remains the measuring stick for product quality.
+
+#### Phase R2 — Home polish
+Refine:
+- three-action hierarchy
+- streak geometry
+- spacing rhythm
+- section alignment
+- subject rows
+- progress indicators
+- empty states
+- responsive behavior
+- subtle transitions
+
+Keep the current Home architecture.
+
+#### Phase R3 — Review consistency
+Make Practice Review, CBT Review, and Test Review feel like one system:
+- same header hierarchy
+- same grid language
+- same navigation behavior
+- same state indicators
+- same explanation surface
+- no duplicate implementations
+
+#### Phase R4 — Daily Study Loop
+Make:
+`Home → Continue/Practice → Review → Return Home`
+feel deliberate and frictionless.
+
+Improve:
+- Continue Practice
+- unfinished-session recovery
+- Wrong Questions
+- Due Review
+- Bookmarks
+- post-session next action
+
+Do not over-automate or clutter the Home screen.
+
+#### Phase R5 — Study Intelligence
+Build carefully:
+- robust Wrong Questions
+- persistent Bookmarks
+- restrained Spaced Review foundation
+- actionable weak-topic signals
+
+The goal is useful prioritization, not gamification overload.
+
+#### Phase R6 — Insights / Analytics
+Make analytics answer:
+- What am I weak at?
+- What should I study next?
+- How much have I done?
+- Is accuracy improving?
+- Where am I wasting time?
+
+Prefer actionable summaries over decorative graphs.
+
+#### Phase R7 — Test System refinement
+After review stability:
+- test builder clarity
+- topic selection
+- question count
+- timing
+- history
+- results
+- unanswered review
+- analysis
+
+#### Phase R8 — Engineering hardening
+Introduce regression protection:
+- golden/screenshot checks for Home
+- Topics
+- question screen
+- image questions
+- long explanations
+- Practice
+- CBT
+- Review
+- Review Grid
+- Insights
+
+Improve state/data separation incrementally.
+
+#### Phase R9 — Final visual system
+Only after behavior is stable:
+- spacing tokens
+- typography tokens
+- icon consistency
+- border/radius consistency
+- shadow discipline
+- transitions
+- accessibility
+- adaptive/tablet layouts
+
+---
+
+## 12. Design language
+
+Figma remains a visual foundation, not an architectural mandate.
+
+Figma file:
+**QBank V11 — Design Foundation**
+
+Design principle:
+**Every screen should make the next useful learning action obvious.**
+
+Current intended palette:
+- Primary cyan: `#3FCFE8`
+- Deep companion: `#135262`
+- Ink: `#171A2B`
+- Muted: `#6F7385`
+- Success: `#159A68`
+- Error: `#D64B58`
+- Info: `#3F7BE8`
+- Amber: `#D98B16`
+- Background: approximately `#F6F7FB`
+- Surface: `#FFFFFF`
+- Line: approximately `#E4E6EF`
+
+Do not scatter raw colors unnecessarily.
+
+Visual differentiation should primarily come from:
+- spacing
+- hierarchy
+- placement
+- density
+- state
+- restrained color
+- consistent geometry
+
+Mobile target:
+- readable
+- compact
+- professional
+- enough content visible
+- not cramped
+- not giant
+- not unnecessarily scroll-heavy
+
+Touch targets should generally remain around 44–48 px where practical.
+
+---
+
+## 13. Architecture direction
 
 Do not perform a wholesale rewrite.
 
-Use principles incrementally:
-- single source of truth for study state;
-- unidirectional data/state flow where practical;
-- small reusable UI components;
-- isolated feature responsibilities;
-- shared core utilities;
-- screenshot/golden regression testing;
-- adaptive layouts.
+Use architectural principles incrementally:
+- single source of truth for study state
+- unidirectional state flow where practical
+- small reusable UI components
+- isolated feature responsibilities
+- shared core utilities
+- screenshot/golden regression tests
+- adaptive layouts
 
 Potential long-term organization:
 
@@ -220,21 +554,50 @@ app
     └── spaced-repetition
 ```
 
-This is a direction, not an instruction to modularize immediately.
+This is a direction, not a command to modularize now.
 
-## 10. User preference / working style
+---
 
-The user wants **more building and less narrating**. Prefer executing the next safe step over lengthy discussion. When a build is requested, inspect the source, implement narrowly, build, verify, and report the concrete result.
+## 14. Working rules for future assistants
 
-Do not give an APK until the packaged artifact has passed the established verification gates.
+1. Treat Run 220 as the current physically accepted baseline.
+2. Preserve every working core feature.
+3. Do not revive the failed V11 shell.
+4. Do not replace WebView architecture just for convenience.
+5. Do not touch source visuals casually.
+6. Keep Biochemistry isolated.
+7. Keep Review Solutions and Question Navigator protected.
+8. Make changes narrowly and deterministically.
+9. Prefer one clear owner/script per build-time change.
+10. Run syntax checks after all transformations.
+11. Inspect the packaged APK.
+12. Never claim physical testing unless the user confirms it.
+13. For visual changes, compare against the existing accepted product, not a generic design ideal.
+14. Prefer small measurable improvements over large redesigns.
+15. Do not add features merely for novelty.
+16. Keep the app fast and medically serious.
+17. The physical device is the final judge.
 
-## 11. Golden rule for future changes
+---
+
+## 15. Current decision
+
+**The foundational build phase is finished.**
+
+The product is now in the **fine-tuning / refinement phase**.
+
+The next major goal is not “make more features.”
+
+It is:
+
+> **Make the existing QBank feel exceptionally polished without changing what already works.**
+
+Priority order for the next cycle:
+
+**Question screen → Home → Review consistency → Daily study loop → Intelligence → Analytics → Test refinement → Engineering hardening → final visual system.**
+
+---
+
+## 16. Golden rule
 
 > **Build forward from what already works; never make the user pay for a new feature with a regression in an old one.**
-
-Every new feature should be:
-- narrowly scoped;
-- deterministic;
-- build-time owned by one script where appropriate;
-- guarded by regression checks;
-- physically tested before becoming the new baseline.
