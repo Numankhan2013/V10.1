@@ -19,6 +19,19 @@ def main() -> None:
     required = [
         'id="nk-whole-app-vision-v114"',
         "function nkAppSubjectMeta(name=activeSubject)",
+        "function nkSubjectGraphic(name,size=20)",
+        "function nkFlameGraphic(size=24)",
+        "function startAllSubjectPractice()",
+        "function openMultiSubjectTestBuilder()",
+        "function nkMultiExamPoolIds()",
+        "function nkConfirmMultiSubjectExam()",
+        'aria-label="NK QBank"',
+        "All Subjects · Random Practice",
+        "All Subjects CBT",
+        'name="nk-multi-subject"',
+        'id="nk-multi-scope-topics"',
+        'class="nk-subject-svg"',
+        'class="nk-flame-svg"',
         'class="nk-app-v114 nk-home-v114"',
         'class="nk-app-v114 nk-topics-v114"',
         'class="nk-app-v114 nk-chapter-v114"',
@@ -29,7 +42,7 @@ def main() -> None:
         'class="nk-app-v114 nk-result-v114"',
         "window.QB.openSubjectTopics('${esc(x.subject)}')",
         "window.QB.openTestBuilder()",
-        "window.QB.startAllPractice()",
+        "window.QB.startAllSubjectPractice()",
         "window.QB.startLibrary('review')",
         "window.QB.practiceOne('${q.id}')",
         "window.QB.openChapter('${c.id}')",
@@ -56,7 +69,14 @@ def main() -> None:
         raise SystemExit("Whole-app style must be installed exactly once")
     if re.search(r"NaN Questions|NaN Topics", source):
         raise SystemExit("Invalid subject-count copy returned")
-    print("WHOLE_APP_VISION_OK: all non-question routes themed; actions retained; protected session engine untouched")
+    apply_subject = section(source, "function applySubject", "applySubject(activeSubject)")
+    if "SUBJECTS.flatMap" not in apply_subject:
+        raise SystemExit("Question lookup is still limited to the active subject")
+    if '<span>Q</span><strong>${esc(title)}</strong>' in source:
+        raise SystemExit("Legacy Q tile brand returned")
+    if "openSessionBuilder(null,'exam')" in section(source, "function openTestBuilder", "function openModeBuilder"):
+        raise SystemExit("App-level CBT still opens the active-subject-only builder")
+    print("WHOLE_APP_VISION_OK: professional subject identity, motivational streak, all-subject random practice and multi-subject CBT are installed; protected session UI retained")
 
 
 if __name__ == "__main__":
