@@ -71,8 +71,51 @@ if 'nk-review-fixed-bar' not in seg:
 
 s = s[:start] + seg + s[end:]
 
+# Review-specific end flow. The existing Question Navigator is shared by
+# Practice/CBT/Review, so keep its current behavior for those modes and only
+# add an End Review action for mode==='review'. The final Review Next opens the
+# same navigator automatically instead of wrapping back to question 1.
+if 'function endReview()' not in s:
+    next_marker = '  function nextQ(){'
+    helper = '''  function endReview(){
+    const s=state.activeSession;
+    if(!s || s.mode!=='review') return;
+    state.activeSession=null;
+    saveState();
+    closeQuestionNavigator();
+    navigate('tests');
+  }
+'''
+    if next_marker not in s:
+        raise SystemExit('Could not locate nextQ() for Review Solutions end-flow insertion.')
+    s = s.replace(next_marker, helper + next_marker, 1)
+
+old_branch = "else if(s.mode==='review'){s.index=0;render();}"
+new_branch = "else if(s.mode==='review'){openQuestionNavigator();}"
+if old_branch in s:
+    s = s.replace(old_branch, new_branch, 1)
+elif new_branch not in s:
+    raise SystemExit('Could not locate Review Solutions final-question branch.')
+
+old_submit = ":s.mode==='practice'?'<button type=\"button\" class=\"primary-btn qb-nav-submit\" onclick=\"window.QB.endSession()\">End session</button>':'';"
+new_submit = ":s.mode==='practice'?'<button type=\"button\" class=\"primary-btn qb-nav-submit\" onclick=\"window.QB.endSession()\">End session</button>':s.mode==='review'?'<button type=\"button\" class=\"primary-btn qb-nav-submit\" onclick=\"window.QB.endReview()\">End Review</button>':'';"
+if old_submit in s:
+    s = s.replace(old_submit, new_submit, 1)
+elif 'window.QB.endReview()' not in s:
+    raise SystemExit('Could not add End Review action to the existing Question Navigator.')
+
+# Expose the lexical helper through the existing public QB object without
+# replacing any existing navigator/session APIs.
+if 'endReview:endReview' not in s:
+    m = re.search(r'window\.QB=\{([^\n]+)\};', s)
+    if not m:
+        raise SystemExit('Could not locate canonical window.QB object assignment.')
+    body = m.group(1)
+    body += ',endReview:endReview'
+    s = s[:m.start(1)] + body + s[m.end(1):]
+
 if 'id="nk-review-solution-grid-style"' not in s:
     s = s.replace('</head>', '<style id="nk-review-solution-grid-style"></style>\n</head>', 1)
 
 p.write_text(s, encoding='utf-8')
-print('Review Solutions now uses source-PDF explanations plus the visible normal-question bookmark/grid header and fixed Previous/Next.')
+print('Review Solutions hardened: source-PDF explanations + bookmark/grid + fixed Previous/Next + End Review + automatic navigator at final question.')
