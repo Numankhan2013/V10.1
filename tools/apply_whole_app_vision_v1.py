@@ -37,6 +37,13 @@ FOUNDATION_AND_DASHBOARD = r'''function nkAppSubjectMeta(name=activeSubject) {
     return `<svg class="nk-flame-svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 10.941c2.333 -3.308 .167 -7.823 -1 -8.941c0 3.395 -2.235 5.299 -3.667 6.706c-1.43 1.408 -2.333 3.294 -2.333 5.588c0 3.704 3.134 6.706 7 6.706c3.866 0 7 -3.002 7 -6.706c0 -1.712 -1.232 -4.403 -2.333 -5.588c-2.084 3.353 -3.257 3.353 -4.667 2.235"/></svg>`;
   }
 
+  function nkStreakMilestoneCopy() {
+    const streak=currentStreak();
+    if(!streak) return 'Answer one question today to light the flame.';
+    const next=Math.max(7,Math.ceil((streak+1)/7)*7),remaining=next-streak;
+    return `${remaining} more day${remaining===1?'':'s'} to reach ${next} days`;
+  }
+
   function nkAppSubjectStats(name) {
     const record=SUBJECT_BY_NAME[name]||SUBJECTS.find(x=>x.subject===name)||{};
     const questions=Array.isArray(record.questions)?record.questions:[];
@@ -73,7 +80,7 @@ FOUNDATION_AND_DASHBOARD = r'''function nkAppSubjectMeta(name=activeSubject) {
     const focus=due?`Review ${due} due question${due===1?'':'s'}`:wrong?`Revisit ${wrong} missed question${wrong===1?'':'s'}`:'Build recall with 20 focused questions';
     return shell(`<div class="nk-app-v114 nk-home-v114">
       ${nkAppPageHead(`${activeSubject} · Personal QBank`,greetingCopy(),'Choose one useful study action and keep moving.')}
-      <section class="nk-streak-strip ${currentStreak()?'is-burning':''}"><div class="nk-streak-copy"><span class="nk-streak-flame">${nkFlameGraphic(28)}</span><div><strong>${currentStreak()} day streak</strong><small>${currentStreak()?`${Math.max(0,7-currentStreak())||7} ${currentStreak()>=7?'days into your next milestone':'more to reach a 7-day milestone'}`:'Answer one question today to light the flame.'}</small></div></div><div class="nk-week-strip">${nkWeekStrip()}</div></section>
+      <section class="nk-streak-strip ${currentStreak()?'is-burning':''}"><div class="nk-streak-copy"><span class="nk-streak-flame">${nkFlameGraphic(28)}</span><div><strong>${currentStreak()} day streak</strong><small>${nkStreakMilestoneCopy()}</small></div></div><div class="nk-week-strip">${nkWeekStrip()}</div></section>
       <section class="nk-focus-panel"><div class="nk-kicker">TODAY'S FOCUS</div><h2>${esc(focus)}</h2><p>${due?'Strengthen scheduled recall before adding new material.':wrong?'A second retrieval pass turns mistakes into memory.':'A compact mixed set is enough to build momentum.'}</p><div class="nk-focus-actions"><button class="nk-focus-primary" onclick="window.QB.continuePractice()">${navIcon('book',18)}<span>Continue Practice</span>${navIcon('chevron',17)}</button><button onclick="window.QB.startAllSubjectPractice()">Practice 20 Random Questions</button><button onclick="window.QB.openTestBuilder()">Timed CBT</button></div></section>
       <section class="nk-section"><div class="nk-section-head"><div><div class="nk-kicker">STUDY LIBRARY</div><h2>Subjects</h2></div><span>${fmtNum(SUBJECTS.length)} available</span></div><div class="nk-subject-list">${SUBJECTS.map(x=>{const m=nkAppSubjectMeta(x.subject),s=nkAppSubjectStats(x.subject);return `<button class="nk-subject-row is-${m.key} ${x.subject===activeSubject?'is-active':''}" onclick="window.QB.openSubjectTopics('${esc(x.subject)}')"><span class="nk-subject-mark">${nkAppSubjectIcon(x.subject,22)}</span><span class="nk-subject-copy"><strong>${esc(x.subject)}</strong><small>${fmtNum(s.questions)} questions · ${fmtNum(s.topics)} topics</small><span class="nk-line-progress"><i style="width:${s.pct}%"></i></span></span><span class="nk-subject-percent">${s.pct}%</span>${navIcon('chevron',18)}</button>`}).join('')}</div></section>
       <section class="nk-section"><div class="nk-section-head"><div><div class="nk-kicker">YOUR PROGRESS</div><h2>At a glance</h2></div><button class="nk-text-link" onclick="window.QB.nav('analytics')">Insights ${navIcon('chevron',15)}</button></div><div class="nk-metric-grid"><div><b>${fmtNum(attempted)}</b><strong>Questions</strong><small>of ${fmtNum(total)}</small></div><div><b>${fmtPct(acc)}</b><strong>Accuracy</strong><small>all attempts</small></div><div><b>${fmtNum(due)}</b><strong>Due</strong><small>review now</small></div><div><b>${fmtNum(tests)}</b><strong>Sessions</strong><small>completed</small></div></div></section>
