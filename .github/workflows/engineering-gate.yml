@@ -3,7 +3,7 @@ name: NK QBank Engineering Gate
 on:
   workflow_dispatch:
   push:
-    branches: [v11.1-engineering-foundation]
+    branches: [v11.1-engineering-foundation, v11.2-study-clarity]
   pull_request:
 
 permissions:
@@ -21,6 +21,8 @@ jobs:
           node-version: '20'
       - name: Compile Python tooling
         run: python3 -m compileall -q tools
+      - name: Test study metrics behavior
+        run: python3 tools/test_study_metrics.py
       - name: Verify source product contract
         run: python3 tools/verify_product_contract.py --stage source
       - name: Verify deterministic build pipeline
