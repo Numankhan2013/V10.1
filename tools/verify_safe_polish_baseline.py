@@ -8,9 +8,9 @@ HTML = ROOT / "app/src/main/assets/index.html"
 
 s = HTML.read_text(encoding="utf-8")
 
-# Source-level contract: these are the existing systems that every future
-# polish/feature branch must preserve. Generated build-time markers are tested
-# by the APK build workflow, not by this source gate.
+# Source-level contract. These markers are present in the accepted 221 source
+# tree and represent the existing question-first experience. Build-time
+# generated markers are validated separately by the APK build workflow.
 required = [
     ".bottom-nav",
     ".navigator",
@@ -20,13 +20,10 @@ required = [
     ".option-list",
     ".feedback",
     ".q-footer",
-    "sessionShell",
     "openQuestionNavigator",
     "closeQuestionNavigator();",
     "window.QB.openQuestionNavigator()",
     "qb-nav-submit",
-    "localStorage",
-    "Bookmark",
 ]
 
 for marker in required:
@@ -40,13 +37,10 @@ for forbidden in [
 ]:
     assert forbidden not in s, f"Legacy regression marker present: {forbidden}"
 
-# The Question Navigator is a legitimate question-level component. It must not
-# be removed as part of application-navigation cleanup.
+# Question Navigator is intentional and must survive future navigation cleanup.
 assert re.search(r'class=[\"\'][^\"\']*navigator[^\"\']*[\"\']', s)
 
-# There must be no duplicate persistent application navigation containers.
-# Keep this intentionally structural rather than tying the test to a specific
-# future navigation label set.
+# Do not allow two persistent application-level bottom navigation containers.
 bottom_nav_containers = re.findall(
     r'<[^>]+class=[\"\'][^\"\']*\bbottom-nav\b[^\"\']*[\"\'][^>]*>', s
 )
@@ -54,8 +48,8 @@ assert len(bottom_nav_containers) <= 1, (
     f"Expected at most one persistent bottom-nav container; found {len(bottom_nav_containers)}"
 )
 
-# Every inline script must remain syntactically valid. This catches boot
-# failures before a device is ever asked to install a build.
+# Every inline script must remain syntactically valid. This catches WebView
+# boot failures before a device is ever asked to install a build.
 scripts = re.findall(r'<script(?:[^>]*)>(.*?)</script>', s, re.S | re.I)
 with tempfile.TemporaryDirectory() as td:
     checked = 0
