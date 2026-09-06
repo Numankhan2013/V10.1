@@ -1,0 +1,36 @@
+name: Safe Polish Regression Gate
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [v11-safe-polish-batch-01]
+
+permissions:
+  contents: read
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout safe-polish branch
+        uses: actions/checkout@v5
+
+      - name: Set up Node 20
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+
+      - name: Verify protected QBank contract
+        run: python3 tools/verify_safe_polish_baseline.py
+
+      - name: Verify Android project structure
+        run: |
+          test -f settings.gradle
+          test -f build.gradle
+          test -f app/src/main/AndroidManifest.xml
+          test -f app/src/main/java/com/qbank/biochemistry/MainActivity.java
+          test -f app/src/main/assets/index.html
+          test -f app/src/main/assets/Biochemistry_QBank_Source.pdf
+          test -f app/src/main/assets/Physiology_QBank_Source.pdf
+          test -f app/src/main/assets/Anatomy_QBank_Source.pdf
+          echo 'ANDROID_PROJECT_STRUCTURE_OK'
