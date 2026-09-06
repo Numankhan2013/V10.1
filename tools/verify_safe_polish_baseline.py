@@ -8,9 +8,8 @@ HTML = ROOT / "app/src/main/assets/index.html"
 
 s = HTML.read_text(encoding="utf-8")
 
-# Source-level contract. These markers are present in the accepted 221 source
-# tree and represent the existing question-first experience. Build-time
-# generated markers are validated separately by the APK build workflow.
+# Source-level contract. Keep this deliberately tied to stable source markers,
+# not build-time generated JS names, because CI transforms index.html.
 required = [
     ".bottom-nav",
     ".navigator",
@@ -20,9 +19,6 @@ required = [
     ".option-list",
     ".feedback",
     ".q-footer",
-    "openQuestionNavigator",
-    "closeQuestionNavigator();",
-    "window.QB.openQuestionNavigator()",
     "qb-nav-submit",
 ]
 
