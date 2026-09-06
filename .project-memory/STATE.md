@@ -7,8 +7,8 @@
 
 - Repo: `Numankhan2013/V10.1` (private)
 - Active branch: `v11.5-custom-study-modules`
-- HEAD: `f13d12ff2708f518a9e6be839477623be5f471c4`
-  (`Label V11.5 APK artifact`, 2026-09-06)
+- HEAD: `aa6cebb54ae43d60c80cef4e93025e3e961087c7`
+  (`Add harness-agnostic agent memory: .project-memory/SESSION_LOG.md`, 2026-09-06; includes `AGENTS.md` + `.project-memory/` on top of `f13d12f`)
 - Parent lineage: `v11.4-whole-app-vision` fix
   `9e6abc71eca192808e6fbd70d4127011c6a47ef0`
   (`Restore Due Review action alongside permanent all-subject practice`)
@@ -20,6 +20,8 @@
 
 ## Last CI (verified via `gh run list`)
 
+- `v11.5` Build V10.1 APK `34051111714` — **success**, 1m33s
+  (`Add harness-agnostic agent memory`; artifact `V11.5-custom-study-modules-debug-apk`)
 - `v11.5` Build V10.1 APK `34049637559` — **success**, 1m40s
   (`Label V11.5 APK artifact`)
 - `v11.5` Engineering Gate `34049637590` — **success**
@@ -67,8 +69,7 @@
   treat `.project-memory/` + `git` as current, `memory.md` as background.
 - Large binaries (3 PDFs, ~420 PNGs, `index.html` ~6 MB) make full clones slow;
   prefer `gh api` file reads or partial clone for inspection.
-- This memory system (`AGENTS.md` + `.project-memory/`) is newly added and not
-  yet proven across harnesses; correct drift when found.
+- Agent memory (`AGENTS.md` + `.project-memory/`) is present as of this commit; fresh-harness reconstruction check still pending — correct drift when found.
 
 ## Unfinished work / next step
 
