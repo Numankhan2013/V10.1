@@ -18,7 +18,7 @@ def main() -> None:
       "function nkSourceTakeaway(q)",
       "function nkSessionHeader(q,s,mode,timerHtml='')",
       "function nkSessionOptions(q,selected,mode,submitted)",
-      "function nkStudySupport(q,timeMs,unattempted=false)",
+      "function nkStudySupport(q,timeMs,unattempted=false,renderedSource='')",
       'class="nk-v114-session is-practice"',
       'class="nk-v114-session is-exam"',
       'class="nk-v114-session is-review"',

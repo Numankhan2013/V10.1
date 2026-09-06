@@ -56,7 +56,7 @@ HELPERS_AND_PRACTICE = r'''function nkSessionSubject(q) {
     const progress=Math.max(0,Math.min(100,Math.round(position/total*100)));
     const backAction=mode==='review'?'window.QB.endReview()':'window.QB.openSessionReview()';
     const backLabel=mode==='review'?'End review':'Review or finish session';
-    return `<header class="nk-session-head"><button class="icon-btn nk-session-back" aria-label="${backLabel}" onclick="${backAction}">${navIcon('back',24)}</button><div class="nk-session-count"><strong>${position}</strong> / ${total}</div><div class="q-actions">${bookmarkButton(q.id,23)}<button id="cr-grid" class="icon-btn nk-grid-trigger" aria-label="Question navigator" onclick="window.QB.openQuestionNavigator()">${navIcon('grid',22)}</button></div></header><div class="nk-session-progress" role="progressbar" aria-label="Session progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}"><i style="width:${progress}%"></i><span>${progress}%</span></div>${timerHtml}`;
+    return `<header class="practice-focus-head nk-session-head"><button class="icon-btn nk-session-back" aria-label="${backLabel}" onclick="${backAction}">${navIcon('back',24)}</button><div class="nk-session-count"><strong>${position}</strong> / ${total}</div><div class="q-actions">${bookmarkButton(q.id,21)}<button id="cr-grid" class="icon-btn nk-grid-trigger" title="Question Navigator" aria-label="Question navigator" onclick="window.QB.openQuestionNavigator()">${navIcon('grid',22)}</button></div></header><div class="nk-session-progress" role="progressbar" aria-label="Session progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}"><i style="width:${progress}%"></i><span>${progress}%</span></div>${timerHtml}`;
   }
 
   function nkQuestionContext(q) {
@@ -79,12 +79,12 @@ HELPERS_AND_PRACTICE = r'''function nkSessionSubject(q) {
     }).join('');
   }
 
-  function nkStudySupport(q,timeMs,unattempted=false) {
+  function nkStudySupport(q,timeMs,unattempted=false,renderedSource='') {
     const takeaway=nkSourceTakeaway(q);
     const time=unattempted
       ? `<div class="nk-answer-time is-empty">${navIcon('clock',19)}<span>Not answered in this test</span></div>`
       : `<div class="nk-answer-time">${navIcon('clock',19)}<span>Answered in <strong>${esc(nkFormatQuestionTime(timeMs||0))}</strong></span></div>`;
-    return `<div class="nk-study-support">${time}${takeaway?`<section class="nk-key-takeaway"><span class="nk-takeaway-icon">${navIcon('bulb',22)}</span><div><div class="nk-takeaway-label">Key takeaway</div><p>${esc(takeaway)}</p></div></section>`:''}<section class="nk-source-section"><header><div>${navIcon('book',19)}<strong>Source explanation</strong></div><span>Original PDF</span></header>${q.explanation?`<div class="feedback-body source-explanation">${renderExplanationText(q.explanation,q)}</div>`:'<div class="nk-source-empty">No source explanation was provided for this question.</div>'}</section></div>`;
+    return `<div class="nk-study-support">${time}${takeaway?`<section class="nk-key-takeaway"><span class="nk-takeaway-icon">${navIcon('bulb',22)}</span><div><div class="nk-takeaway-label">Key takeaway</div><p>${esc(takeaway)}</p></div></section>`:''}<section class="nk-source-section"><header><div>${navIcon('book',19)}<strong>Source explanation</strong></div><span>Original PDF</span></header>${q.explanation?`<div class="feedback-body source-explanation">${renderedSource||renderExplanationText(q.explanation,q)}</div>`:'<div class="nk-source-empty">No source explanation was provided for this question.</div>'}</section></div>`;
   }
 
   function nkSessionActionBar(s,mode) {
@@ -134,7 +134,8 @@ REVIEW_PAGE = r'''function reviewTestPage(){
     }
     const q=BY_ID[s.questionIds[s.index]];if(!q)return testsPage();
     const selected=s.answers[q.id]||null;
-    return sessionShell(`<div class="nk-v114-session is-review">${nkSessionHeader(q,s,'review')}<div class="question-shell"><section class="question-card">${nkQuestionContext(q)}<div class="question-text">${esc(q.question)}</div><div class="option-list">${nkSessionOptions(q,selected,'review',true)}</div>${nkStudySupport(q,s.questionTimes?.[q.id]||0,!selected)}</section></div></div>`,'tests')+nkSessionActionBar(s,'review');
+    const renderedSource=q.explanation?renderExplanationText(q.explanation,q):'';
+    return sessionShell(`<div class="nk-v114-session is-review">${nkSessionHeader(q,s,'review')}<div class="question-shell"><section class="question-card">${nkQuestionContext(q)}<div class="question-text">${esc(q.question)}</div><div class="option-list">${nkSessionOptions(q,selected,'review',true)}</div>${nkStudySupport(q,s.questionTimes?.[q.id]||0,!selected,renderedSource)}</section></div></div>`,'tests')+nkSessionActionBar(s,'review');
   }
 
   '''
