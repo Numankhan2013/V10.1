@@ -11,7 +11,11 @@ required = [
     'return sessionShell(`',
     '${bookmarkButton(q.id,21)}',
     'id="cr-grid"',
+    'title="Question Navigator"',
     'window.QB.openQuestionNavigator()',
+    'renderExplanationText(q.explanation,q)',
+    'source-explanation',
+    'practice-focus-head',
     'nk-cbt-review-footer-v1',
     'nk-review-fixed-bar',
 ]
@@ -56,14 +60,20 @@ if 'Test Review</div>' in review or 'Back to Tests' in review:
     raise SystemExit('Redundant Review Solutions header chrome still present')
 if 'return shell(`' in review:
     raise SystemExit('Review Solutions still uses the topbar shell instead of the normal session question surface')
+if 'formatReviewExplanation(q.explanation)' in review or 'formatExplanation(q.explanation)' in review:
+    raise SystemExit('Review Solutions is still using a reconstructed/DOM-independent explanation formatter')
+if review.count('renderExplanationText(q.explanation,q)') != 1:
+    raise SystemExit('Review Solutions must use the source-PDF explanation renderer exactly once')
 
 # Grid contract: Review Solutions exposes the compact navigator control and
 # routes it through the existing question navigator. Do not require a specific
-# DOM wiring mechanism (inline onclick vs addEventListener).
-if not re.search(r'id="cr-grid"[^>]*', review):
-    raise SystemExit('Review Solutions question-grid control missing')
+# DOM wiring mechanism beyond the stable id/handler.
+if not re.search(r'id="cr-grid"[^>]*title="Question Navigator"', review):
+    raise SystemExit('Review Solutions question-grid control missing or not visibly labeled')
 if 'window.QB.openQuestionNavigator()' not in review:
     raise SystemExit('Review Solutions grid does not open the existing question navigator')
+if 'practice-focus-head' not in review:
+    raise SystemExit('Review Solutions grid/header is not placed on the normal question surface')
 
 if 'qbank.local/anatomy/pdf' not in Path('app/src/main/java/com/qbank/biochemistry/MainActivity.java').read_text(encoding='utf-8'):
     raise SystemExit('Anatomy PDF renderer route missing')
@@ -73,4 +83,4 @@ for p in ('app/src/main/assets/Biochemistry_QBank_Source.pdf','app/src/main/asse
     if not path.is_file() or path.stat().st_size == 0:
         raise SystemExit(f'Missing/empty CBT source asset: {p}')
 
-print('CBT regression guardrails passed: live review engine retained; canonical adapter is non-recursive; native question UI/grid retained; competing overrides absent; source assets present.')
+print('CBT regression guardrails passed: live review engine retained; canonical adapter is non-recursive; Review Solutions uses source-PDF renderer; visible navigator retained; competing overrides absent; source assets present.')
