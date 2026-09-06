@@ -1,4 +1,4 @@
-name: Build V11.4.1 Product Polish APK
+name: Build V11.5 Custom Study Modules APK
 
 on:
   workflow_dispatch:
@@ -255,7 +255,7 @@ jobs:
       - name: Upload debug APK and build manifest
         uses: actions/upload-artifact@v4
         with:
-          name: V11.4.1-product-polish-debug-apk
+          name: V11.5-custom-study-modules-debug-apk
           path: |
             app/build/outputs/apk/debug/*.apk
             app/build/outputs/apk/debug/NK-QBank-build-manifest.json

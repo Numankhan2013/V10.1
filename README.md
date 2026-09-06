@@ -33,7 +33,7 @@ systems. See [docs/CUSTOM_STUDY_MODULES.md](docs/CUSTOM_STUDY_MODULES.md).
 
 ## Build
 
-Run **Build V11 Source Visuals APK** in GitHub Actions. A successful candidate produces:
+Run **Build V11.5 Custom Study Modules APK** in GitHub Actions. A successful candidate produces:
 
 - the debug APK
 - \`NK-QBank-build-manifest.json\` containing the commit, file sizes, and SHA-256 fingerprints
