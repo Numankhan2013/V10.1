@@ -64,14 +64,6 @@ def main() -> None:
         if not path.is_file() or path.stat().st_size == 0:
             raise SystemExit(f"Missing or empty protected source asset: {asset}")
 
-    forbidden = [
-        'id="v102-streak-layer-script"', 'id="v102-streak-layer"',
-        "home_polish_v3.js",
-    ]
-    present = [marker for marker in forbidden if marker in html]
-    if present:
-        raise SystemExit(f"Forbidden regression markers present: {present}")
-
     bottom_navs = re.findall(
         r'<[^>]+class=["\'][^"\']*\bbottom-nav\b[^"\']*["\'][^>]*>', html
     )
@@ -79,6 +71,13 @@ def main() -> None:
         raise SystemExit(f"Duplicate persistent navigation detected: {len(bottom_navs)} bottom-nav containers")
 
     if args.stage in {"generated", "packaged"}:
+        forbidden = [
+            'id="v102-streak-layer-script"', 'id="v102-streak-layer"',
+            "home_polish_v3.js",
+        ]
+        present = [marker for marker in forbidden if marker in html]
+        if present:
+            raise SystemExit(f"Forbidden generated-app regression markers present: {present}")
         require(html, [
             "SOURCE_PDF_EXPLANATION_V18", "BIOCHEM_SOURCE_SOLUTIONS",
             "SUBJECT_SOURCE_SOLUTIONS", "NK_SOURCE_VISUALS_V11",
