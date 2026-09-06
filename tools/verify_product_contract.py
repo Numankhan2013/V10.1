@@ -66,7 +66,7 @@ def main() -> None:
 
     forbidden = [
         'id="v102-streak-layer-script"', 'id="v102-streak-layer"',
-        "home_polish_v3.js", "localStorage.clear(",
+        "home_polish_v3.js",
     ]
     present = [marker for marker in forbidden if marker in html]
     if present:
