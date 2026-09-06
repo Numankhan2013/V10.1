@@ -63,6 +63,25 @@ if 'endReview:endReview' not in s:
     if not m: raise SystemExit('Could not locate canonical window.QB object assignment.')
     body=m.group(1)+',endReview:endReview'
     s=s[:m.start(1)]+body+s[m.end(1):]
-if 'id="nk-review-solution-grid-style"' not in s: s=s.replace('</head>','<style id="nk-review-solution-grid-style"></style>\n</head>',1)
+
+# Keep the navigator fully above the fixed Previous/Next footer and reserve
+# a bottom-safe area so the Review Solutions End Review action is reachable.
+# The navigator remains a scrollable modal, but its bottom edge sits above the
+# persistent question footer instead of being covered by it on physical phones.
+review_nav_css = '''<style id="nk-review-solution-grid-style">
+.qb-nav-backdrop{z-index:1200!important;padding-bottom:calc(14px + 82px)!important;}
+.qb-nav-panel{max-height:calc(100vh - 120px)!important;}
+.qb-nav-submit{position:sticky;bottom:0;z-index:2;box-sizing:border-box;box-shadow:0 -8px 16px rgba(255,255,255,.96);}
+@media(max-width:640px){
+  .qb-nav-backdrop{padding:10px 10px calc(10px + 82px)!important;}
+  .qb-nav-panel{max-height:calc(100vh - 112px)!important;}
+  .qb-nav-submit{min-height:50px;margin-top:12px;}
+}
+</style>'''
+if 'id="nk-review-solution-grid-style"' in s:
+    s=re.sub(r'<style id="nk-review-solution-grid-style">.*?</style>', review_nav_css, s, count=1, flags=re.S)
+else:
+    s=s.replace('</head>',review_nav_css+'\n</head>',1)
+
 p.write_text(s,encoding='utf-8')
-print('Review Solutions hardened: source-PDF explanations + bookmark/grid + fixed Previous/Next + End Review + automatic navigator at final question + clean return to originating analysis.')
+print('Review Solutions hardened: source-PDF explanations + bookmark/grid + fixed Previous/Next + End Review + automatic navigator at final question + clean return to originating analysis + navigator safely above fixed footer.')
