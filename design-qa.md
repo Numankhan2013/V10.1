@@ -1,32 +1,34 @@
-# V11.3.1 Shared Session Experience Design QA
+# V11.4 Whole-App Vision Design QA
 
-## Target
+## Visual target
 
-The approved Calm Study Canvas question screen across Guided Practice, timed CBT, and Review Solutions: compact progress, a medically recognizable subject/topic tag, unambiguous answer states, a viewport-docked footer, a working question grid, useful source-grounded takeaways, and the canonical source-PDF explanation.
+The user-selected PrepLadder-inspired dashboard, topics, and analysis references, harmonized with the accepted V11.3.1 Calm Study Canvas question experience. The app should feel compact, medically serious, source-faithful, and phone-native, with one obvious next learning action on each screen.
 
-## Implemented corrections
+## Implemented scope
 
-- Removed all option-side circles and detached correctness icons; the option border, fill, and letter badge carry state.
-- Docked Previous/Next to the bottom viewport edge with explicit safe-area and content clearance.
-- Replaced Biochemistry's network-like symbol with a DNA double helix; retained the approved Physiology heart and Anatomy body icon.
-- Strengthened the answer-time treatment in blue without adding a duplicate Correct/Incorrect panel.
-- Removed the correct-option-only takeaway fallback. A takeaway appears only when reviewed content exists or a meaningful sentence can be extracted from the source explanation.
-- Removed the legacy inline navigator that caused the four-dot overlay to be deleted in Practice.
-- Applied the shared shell to Practice, CBT, and Review while preserving CBT answer privacy and changeability.
-- Preserved the exact source-PDF renderer at its existing 4x ceiling.
-- Added conservative source-image canvas trimming and post-crop Lanczos interpolation; it never generates or reconstructs medical content.
+- Shared compact white header and five-tab bottom navigation.
+- Home command center with streak, focus actions, accurate subject counts/progress, learning metrics, revision shortcuts, strongest chapters, and recent sessions.
+- Subject and Topic navigation with medically recognizable subject icons, search, supported progress filters, accurate completion, and direct chapter entry.
+- Chapter overview with Practice/CBT actions, coverage metrics, source-order question library, and attempt states.
+- Timed CBT landing page, focused builder modal, scope/topic selection, question count, and test history.
+- Practice and CBT result analysis with score, answer distribution, timing, completion, and canonical Review Solutions entry.
+- Insights with accuracy, timing, completion, spaced review, chapter coverage, and recent sessions.
+- Revision libraries and More reorganized into compact, descriptive lists and reliable empty states.
+
+## Protected behavior
+
+V11.3.1 Practice, CBT question answering, Review Solutions, the anytime navigator, bookmarks, exact source-PDF renderer, source-image handling, offline persistence, test history, and subject-specific datasets are not replaced by this visual layer.
 
 ## Automated checks
 
-- All three session renderers use the shared shell and fixed navigation footer.
-- CBT contains no correctness, takeaway, or source-explanation reveal before submission.
-- Practice and Review preserve timing, bookmarking, source explanation, question jumps, and terminal-session behavior.
-- Legacy option-hole and inline-navigator markup is absent.
-- Navigator status semantics are mode-specific.
-- Transformation ordering, generated JavaScript syntax, product contracts, CBT invariants, Gradle build, and packaged APK checks run in GitHub Actions.
+- Every non-question route has one canonical V11.4 renderer.
+- Primary actions retain their existing window.QB behavior.
+- Review Solutions retains its canonical entry attributes.
+- The V11.3.1 session UI, Review grid contract, and 4x source PDF markers remain present.
+- JavaScript syntax, product contracts, CBT invariants, deterministic build ordering, Gradle, packaged APK, and reproducibility checks run in GitHub Actions.
 
 ## Blocking visual checks
 
-The final Android WebView cannot be captured in this environment. Physical-device verification remains required for correct and incorrect Practice answers, unanswered and answered CBT states, Review Solutions, an anytime grid jump, long options, a multi-page PDF explanation, bottom safe-area behavior, a cropped dark-canvas figure, and pinch zoom.
+The Android WebView cannot be visually captured in this environment. Physical-device verification is required at 576px-class phone width for Home, all three subjects, Topics filters/search, a long chapter name, chapter question states, Test builder scrolling, empty and populated histories, Insights, More, Practice analysis, CBT analysis, and bottom safe-area behavior.
 
 Final result: blocked

@@ -1,9 +1,9 @@
-name: Build V11 Source Visuals APK
+name: Build V11.4.1 Product Polish APK
 
 on:
   workflow_dispatch:
   push:
-    branches: [v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience]
+    branches: [v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision]
 
 permissions:
   contents: read
@@ -88,6 +88,10 @@ jobs:
         run: python3 tools/apply_session_experience_v2.py
       - name: Test V11.3.1 shared session experience
         run: python3 tools/test_session_experience_v2.py
+      - name: Apply V11.4 whole-app visual system
+        run: python3 tools/apply_whole_app_vision_v1.py
+      - name: Test V11.4 whole-app visual system
+        run: python3 tools/test_whole_app_vision_v1.py
       - name: Repair WebView boot-blocking JavaScript after all transformations
         run: python3 tools/fix_boot_syntax.py
       - name: Verify final JavaScript syntax after all transformations
@@ -153,6 +157,11 @@ jobs:
           grep -q 'review-fixed-actions' app/src/main/assets/index.html
           grep -q 'nk-review-solution-grid-style' app/src/main/assets/index.html
           grep -q 'nk-session-experience-v114' app/src/main/assets/index.html
+          grep -q 'nk-whole-app-vision-v114' app/src/main/assets/index.html
+          grep -q 'startAllSubjectPractice' app/src/main/assets/index.html
+          grep -q 'openMultiSubjectTestBuilder' app/src/main/assets/index.html
+          grep -q 'aria-label="NK QBank"' app/src/main/assets/index.html
+          grep -q 'nk-flame-svg' app/src/main/assets/index.html
           grep -q '&scale=4' app/src/main/assets/index.html
           grep -q 'id="cr-grid"' app/src/main/assets/index.html
           grep -q 'window.QB.openQuestionNavigator()' app/src/main/assets/index.html
@@ -201,6 +210,11 @@ jobs:
           grep -q 'review-fixed-actions' /tmp/packaged-index.html
           grep -q 'nk-review-solution-grid-style' /tmp/packaged-index.html
           grep -q 'nk-session-experience-v114' /tmp/packaged-index.html
+          grep -q 'nk-whole-app-vision-v114' /tmp/packaged-index.html
+          grep -q 'startAllSubjectPractice' /tmp/packaged-index.html
+          grep -q 'openMultiSubjectTestBuilder' /tmp/packaged-index.html
+          grep -q 'aria-label="NK QBank"' /tmp/packaged-index.html
+          grep -q 'nk-flame-svg' /tmp/packaged-index.html
           grep -q '&scale=4' /tmp/packaged-index.html
           grep -q 'id="cr-grid"' /tmp/packaged-index.html
           grep -q 'window.QB.openQuestionNavigator()' /tmp/packaged-index.html
@@ -229,7 +243,7 @@ jobs:
       - name: Upload debug APK and build manifest
         uses: actions/upload-artifact@v4
         with:
-          name: V11.3.1-session-experience-debug-apk
+          name: V11.4.1-product-polish-debug-apk
           path: |
             app/build/outputs/apk/debug/*.apk
             app/build/outputs/apk/debug/NK-QBank-build-manifest.json
