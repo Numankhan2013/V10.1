@@ -50,7 +50,7 @@ def main() -> None:
     require(html, [
         ".bottom-nav", ".navigator", ".question-shell", ".question-card",
         ".question-text", ".option-list", ".feedback", ".q-footer",
-        "qb-nav-submit", "localStorage", "activeSession",
+        "localStorage", "activeSession",
     ], "source contract")
     require(manifest, ['android:label="NK QBank"', 'android:usesCleartextTraffic="false"'], "Android manifest")
     require(native, ["setJavaScriptEnabled(true)", "setDomStorageEnabled(true)",
@@ -86,6 +86,7 @@ def main() -> None:
             "nk-home-streak-header-v1", "nk-home-actions-v1",
             "nk-session-review", "nk-cbt-review-footer-v1",
             "nk-review-solution-grid-style", 'id="cr-grid"',
+            "qb-nav-submit",
             "window.QB.openQuestionNavigator()", "Continue Practice",
             "Practice 20 Random Questions",
         ], f"{args.stage} contract")
