@@ -216,6 +216,8 @@ def replace_function(source: str, name: str, replacement: str) -> str:
 def transform(source: str) -> str:
     source = re.sub(r'<style id="nk-question-experience-v113">.*?</style>\s*', '', source, flags=re.S)
     source = re.sub(rf'<style id="{STYLE_ID}">.*?</style>\s*', '', source, flags=re.S)
+    if "function nkPracticeTakeaway(" in source:
+        source = replace_function(source, "nkPracticeTakeaway", "")
     source = replace_function(source, "practicePage", HELPERS_AND_PRACTICE)
     source = replace_function(source, "practiceActionBar", PRACTICE_ACTION)
     source = replace_function(source, "examPage", EXAM_PAGE)
