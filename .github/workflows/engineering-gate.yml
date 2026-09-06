@@ -1,0 +1,27 @@
+name: NK QBank Engineering Gate
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [v11.1-engineering-foundation]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@v5
+      - name: Set up Node 20
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      - name: Compile Python tooling
+        run: python3 -m compileall -q tools
+      - name: Verify source product contract
+        run: python3 tools/verify_product_contract.py --stage source
+      - name: Verify deterministic build pipeline
+        run: python3 tools/verify_build_pipeline.py
