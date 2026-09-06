@@ -4,11 +4,40 @@ import re
 p = Path('app/src/main/assets/index.html')
 s = p.read_text(encoding='utf-8')
 
-start = s.find('function reviewTestPage()')
+# Review Solutions is a native question surface. Keep its renderer independent
+# from the separate DOM-only explanation formatter, which is intentionally scoped
+# inside another runtime layer and therefore is not a callable global function.
+s = s.replace('formatExplanation(q.explanation)', 'formatReviewExplanation(q.explanation)', 1)
+
+marker = 'function reviewTestPage()'
+start = s.find(marker)
 end = s.find('function closeQuestionNavigator()', start)
 if start < 0 or end < 0:
     raise SystemExit('Could not locate Review Solutions renderer boundaries; refusing ambiguous UI patch.')
 seg = s[start:end]
+
+# Add a small pure formatter immediately before reviewTestPage. It mirrors the
+# app\'s established explanation hierarchy but has no DOM dependency, so the
+# Review Solutions render path cannot throw ReferenceError.
+if 'function formatReviewExplanation(' not in s:
+    helper = r'''function formatReviewExplanation(raw){
+      const text=String(raw==null?'':raw).replace(/\r/g,'').trim();
+      if(!text) return '';
+      const escText=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      const lines=text.split('\n').map(x=>x.trim()).filter(Boolean),out=[]; let para=[],bullets=[];
+      const flushPara=()=>{if(para.length){out.push(`<p>${escText(para.join(' '))}</p>`);para=[];}};
+      const flushBullets=()=>{if(bullets.length){out.push(`<ul>${bullets.map(x=>`<li>${escText(x)}</li>`).join('')}</ul>`);bullets=[];}};
+      const heading=/^(explanation|why|mechanism|key concept|key point|clinical features|diagnosis|investigations|treatment|pathophysiology|algorithm|other options|summary|important|note|features|functions|complications|source explanation|solution for question)\s*:?[ \t]*$/i;
+      const option=/^option\s*([a-d])\s*[:.)-]\s*(.*)$/i;
+      lines.forEach(line=>{if(/^•\s*/.test(line)){flushPara();bullets.push(line.replace(/^•\s*/,''));return;}const hm=line.match(heading);if(hm){flushPara();flushBullets();out.push(`<div class="v102-explanation-heading">${escText(hm[1])}</div>`);return;}const om=line.match(option);if(om){flushPara();flushBullets();out.push(`<div class="v102-explanation-option"><strong>Option ${escText(om[1].toUpperCase())}</strong><span>${escText(om[2])}</span></div>`);return;}para.push(line);});
+      flushPara();flushBullets(); return out.join('');
+    }
+
+    '''
+    s = s[:start] + helper + s[start:]
+    start = s.find(marker)
+    end = s.find('function closeQuestionNavigator()', start)
+    seg = s[start:end]
 
 # Remove review-only title/header chrome. The question itself already tells us
 # the chapter and the user explicitly entered Review Solutions from Tests.
@@ -51,4 +80,4 @@ if 'id="nk-review-solution-grid-style"' not in s:
     s = s.replace('</head>', '<style id="nk-review-solution-grid-style"></style>\n</head>', 1)
 
 p.write_text(s, encoding='utf-8')
-print('Review Solutions now uses the normal compact question UI with bookmark + native grid controls and fixed Previous/Next.')
+print('Review Solutions render hardening applied: pure explanation formatter + compact question UI + native grid + fixed Previous/Next.')
