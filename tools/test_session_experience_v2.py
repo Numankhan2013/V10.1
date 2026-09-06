@@ -23,6 +23,7 @@ def main() -> None:
       'class="nk-v114-session is-exam"',
       'class="nk-v114-session is-review"',
       "window.QB.openQuestionNavigator()",
+      'id="cr-grid"',
       "window.QB.jumpFromNavigator(${i})",
       "window.QB.selectPractice('${q.id}',${n})",
       "window.QB.selectExam(${n})",

@@ -56,7 +56,7 @@ HELPERS_AND_PRACTICE = r'''function nkSessionSubject(q) {
     const progress=Math.max(0,Math.min(100,Math.round(position/total*100)));
     const backAction=mode==='review'?'window.QB.endReview()':'window.QB.openSessionReview()';
     const backLabel=mode==='review'?'End review':'Review or finish session';
-    return `<header class="nk-session-head"><button class="icon-btn nk-session-back" aria-label="${backLabel}" onclick="${backAction}">${navIcon('back',24)}</button><div class="nk-session-count"><strong>${position}</strong> / ${total}</div><div class="q-actions">${bookmarkButton(q.id,23)}<button class="icon-btn nk-grid-trigger" aria-label="Question navigator" onclick="window.QB.openQuestionNavigator()">${navIcon('grid',22)}</button></div></header><div class="nk-session-progress" role="progressbar" aria-label="Session progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}"><i style="width:${progress}%"></i><span>${progress}%</span></div>${timerHtml}`;
+    return `<header class="nk-session-head"><button class="icon-btn nk-session-back" aria-label="${backLabel}" onclick="${backAction}">${navIcon('back',24)}</button><div class="nk-session-count"><strong>${position}</strong> / ${total}</div><div class="q-actions">${bookmarkButton(q.id,23)}<button id="cr-grid" class="icon-btn nk-grid-trigger" aria-label="Question navigator" onclick="window.QB.openQuestionNavigator()">${navIcon('grid',22)}</button></div></header><div class="nk-session-progress" role="progressbar" aria-label="Session progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}"><i style="width:${progress}%"></i><span>${progress}%</span></div>${timerHtml}`;
   }
 
   function nkQuestionContext(q) {
