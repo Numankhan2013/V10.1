@@ -3,7 +3,7 @@ name: Build V11.4.1 Product Polish APK
 on:
   workflow_dispatch:
   push:
-    branches: [v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision]
+    branches: [v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision, v11.5-custom-study-modules]
 
 permissions:
   contents: read
@@ -92,6 +92,10 @@ jobs:
         run: python3 tools/apply_whole_app_vision_v1.py
       - name: Test V11.4 whole-app visual system
         run: python3 tools/test_whole_app_vision_v1.py
+      - name: Apply Custom Study Modules
+        run: python3 tools/apply_custom_study_modules_v1.py
+      - name: Test Custom Study Modules
+        run: python3 tools/test_custom_study_modules_v1.py
       - name: Repair WebView boot-blocking JavaScript after all transformations
         run: python3 tools/fix_boot_syntax.py
       - name: Verify final JavaScript syntax after all transformations
@@ -162,6 +166,10 @@ jobs:
           grep -q 'openMultiSubjectTestBuilder' app/src/main/assets/index.html
           grep -q 'aria-label="NK QBank"' app/src/main/assets/index.html
           grep -q 'nk-flame-svg' app/src/main/assets/index.html
+          grep -q 'nk-custom-study-modules-v1' app/src/main/assets/index.html
+          grep -q 'openStudyModuleBuilder' app/src/main/assets/index.html
+          grep -q 'nkSelectModuleQuestionIds' app/src/main/assets/index.html
+          grep -q "route.page==='module-builder'" app/src/main/assets/index.html
           grep -q '&scale=4' app/src/main/assets/index.html
           grep -q 'id="cr-grid"' app/src/main/assets/index.html
           grep -q 'window.QB.openQuestionNavigator()' app/src/main/assets/index.html
@@ -215,6 +223,10 @@ jobs:
           grep -q 'openMultiSubjectTestBuilder' /tmp/packaged-index.html
           grep -q 'aria-label="NK QBank"' /tmp/packaged-index.html
           grep -q 'nk-flame-svg' /tmp/packaged-index.html
+          grep -q 'nk-custom-study-modules-v1' /tmp/packaged-index.html
+          grep -q 'openStudyModuleBuilder' /tmp/packaged-index.html
+          grep -q 'nkSelectModuleQuestionIds' /tmp/packaged-index.html
+          grep -q "route.page==='module-builder'" /tmp/packaged-index.html
           grep -q '&scale=4' /tmp/packaged-index.html
           grep -q 'id="cr-grid"' /tmp/packaged-index.html
           grep -q 'window.QB.openQuestionNavigator()' /tmp/packaged-index.html

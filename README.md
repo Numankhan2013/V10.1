@@ -24,6 +24,13 @@ The compact V10.3.11 question-first architecture remains the behavioral foundati
 
 Practice, Timed CBT, question navigation, session review, Review Solutions, subject switching, persistence, and source-faithful visual/explanation rendering are protected by build-time regression contracts.
 
+## Custom Study Modules
+
+Reusable study sets can combine subjects and topics with Unattempted, Wrong,
+Bookmarked, or Mixed question pools. Their question IDs and progress persist
+locally, and module answers feed the existing history, revision, and Insights
+systems. See [docs/CUSTOM_STUDY_MODULES.md](docs/CUSTOM_STUDY_MODULES.md).
+
 ## Build
 
 Run **Build V11 Source Visuals APK** in GitHub Actions. A successful candidate produces:

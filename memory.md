@@ -5,6 +5,16 @@
 **Repository:** `Numankhan2013/V10.1`  
 **Active branch:** `v11-source-visuals`
 
+## Current candidate — V11.5 Custom Study Modules
+
+Branch: `v11.5-custom-study-modules`
+
+This candidate adds persistent, reusable study sets built from existing subjects,
+topics, Wrong, Unattempted, Bookmarked, and Mixed pools. Question IDs remain
+stable after creation; module progress resumes through the existing Practice
+engine and completion reuses Practice Analysis, Review Solutions, and Insights.
+It is not an accepted baseline until its GitHub build and physical-device test pass.
+
 ## 1. Project identity and north star
 
 NK QBank is a personal Android medical QBank intended to become a dependable daily study tool.

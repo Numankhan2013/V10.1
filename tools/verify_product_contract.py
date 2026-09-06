@@ -87,7 +87,10 @@ def main() -> None:
             "nk-review-solution-grid-style", 'id="cr-grid"',
             "qb-nav-submit",
             "window.QB.openQuestionNavigator()", "Continue Practice",
-            "Practice 20 Random Questions",
+            "Practice 20 Random Questions", "nk-custom-study-modules-v1",
+            "openStudyModuleBuilder", "nkSelectModuleQuestionIds",
+            "route.page==='module-builder'", "studyModules: []",
+            "nkSyncModuleFromSession",
         ], f"{args.stage} contract")
 
     checked = check_javascript(html)
