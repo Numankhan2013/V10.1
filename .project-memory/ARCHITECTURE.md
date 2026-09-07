@@ -70,7 +70,7 @@
 
 ## Deterministic build pipeline (order enforced)
 
-`tools/verify_build_pipeline.py` requires this order (26 protected steps):
+`tools/verify_build_pipeline.py` requires this order (31 protected steps):
 
 `fix_review_build` → `harden_review_renderer` →
 `build_source_visual_metadata` → `improve_source_visual_assets_v1` →
@@ -98,9 +98,8 @@ packaged JS check), packaged contract, `write_build_manifest.py`
 
 ## Workflows and gates
 
-- `.github/workflows/build-apk.yml` — full deterministic APK build
-  (GitHub UI name tracks the branch goal,
-  e.g. V11.4.1 Product Polish / V11.5 Custom Study Modules).
+- `.github/workflows/build-apk.yml` — full deterministic Android APK + PWA
+  artifact build, with optional Cloudflare Pages deployment when authorized.
 - `.github/workflows/engineering-gate.yml` — fast gate: `compileall`,
   study-metrics, source contract, pipeline order. Must stay green.
 - Many historical `v10*` workflows remain; ignore unless diagnosing old runs.

@@ -95,3 +95,19 @@ CI runs, what changed, verification, device status, next step.
   pattern; documented V11.6's separate lineage.
 - Added a schema README, thin Claude/Gemini/Cursor/Copilot adapters, and
   `tools/verify_project_memory.py` to enforce placement and low-drift rules.
+
+## 2026-09-07 — V11.6 accepted; V11.7 cross-device implementation started
+
+- User confirmed V11.6 (`125d68b`, full run `34050921180`) was physically
+  device-tested and accepted. V11.6 is now the immutable product baseline.
+- Created `v11.7-cross-device-pwa-sync` from V11.6 and merged the harness-neutral
+  memory lineage at `309aabb`; neither accepted/checkpoint branch was altered.
+- Added shared PWA assets, adaptive iPad/tablet layout, service-worker caching,
+  browser PDF.js source rendering, Cloudflare artifact/deployment wiring, public
+  runtime config generation, Firebase email/password + normalized Firestore sync,
+  ownership rules, local outbox/cursors, tombstones, and conflict tests.
+- Android now has a deterministic private HTTPS asset-origin transform and a
+  one-time bridge that migrates the prior file-origin localStorage before boot.
+- Source gates and sync behavior tests passed locally. Full generated/APK CI and
+  configured two-device testing remain pending; V11.7 is not yet build-verified,
+  device-verified, or accepted.

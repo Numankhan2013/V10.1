@@ -2,7 +2,8 @@
 
 ## What NK QBank is
 
-Private, offline-first Android medical QBank for personal MBBS study.
+Private, local-first medical QBank for personal MBBS study: accepted Android
+APK plus a V11.7 responsive PWA/cross-device evolution candidate.
 Currently covers **Anatomy, Physiology, Biochemistry** (Anatomy 1068 Q,
 Physiology 899 Q, Biochemistry 719 Q per build logs).
 

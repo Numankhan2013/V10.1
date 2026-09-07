@@ -49,7 +49,9 @@ baseline. Only explicit user physical-device approval promotes a candidate.
 ## Known problems / cautions
 
 - V11.7 is an unverified evolution branch that merges accepted V11.6 with the
-  memory lineage. Preserve `v11.6-content-quality` as the immutable checkpoint.
+  memory lineage. Its PWA/Firebase/Android-migration implementation is source-gate
+  verified locally but awaits full generated APK/PWA CI and configured devices.
+  Preserve `v11.6-content-quality` as the immutable checkpoint.
 - Root `AGENTS.md` placement is correct, but no filename can force every unknown
   harness to load it. Thin common-harness adapters and
   `tools/verify_project_memory.py` reduce discovery and drift risk.

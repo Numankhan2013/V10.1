@@ -79,7 +79,7 @@ commit/run when useful and tell the next agent to resolve live HEAD from Git.
 - Prefer building over narrating; verify by execution (`python3`, `node --check`,
   `gh run view`, artifact inspection) where possible.
 
-## File map (verified 2026-09-06, branch `v11.5-custom-study-modules`)
+## File map (verified 2026-09-07, branch `v11.7-cross-device-pwa-sync`)
 
 - `app/src/main/assets/index.html` — monolithic WebView app (source ~6 MB on
   V11 branches; 1.9 MB on stale `main`)
@@ -90,8 +90,8 @@ commit/run when useful and tell the next agent to resolve live HEAD from Git.
 - `tools/` — deterministic transform/test/verify files; order enforced by
   `tools/verify_build_pipeline.py`; contracts by
   `tools/verify_product_contract.py` and `tools/verify_cbt_invariants.py`
-- `.github/workflows/build-apk.yml` — deterministic APK pipeline
-  (`Build V11.5 Custom Study Modules APK`); `engineering-gate.yml` — fast contract gate
+- `.github/workflows/build-apk.yml` — deterministic Android + PWA pipeline
+  (`Build V11.7 Android + PWA`); `engineering-gate.yml` — fast contract gate
 - `data/subjects_qbank_lzma.b64.part*` — bundled subject data parts
 
 ## Harness adapters (thin only)
