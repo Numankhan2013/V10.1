@@ -37,6 +37,13 @@ def main():
     assert len(gold_q)==62
     assert set(gold_q)=={q['id'] for q in qs}
     assert all(len(v.get('rationales',{}))==3 for v in gold_q.values())
+    by_id={q['id']:q for q in qs}
+    letters=('a','b','c','d')
+    for qid,cfg in gold_q.items():
+        correct=letters[by_id[qid]['correctOption']-1]
+        assert set(cfg.get('rationales',{}))==set(letters)-{correct},qid
+        assert all(len(str(x).strip())<=300 for x in cfg.get('rationales',{}).values()),qid
+        assert 1<=len(cfg.get('emphasis',[]))<=4,qid
     assert all(v.get('emphasis') for v in gold_q.values())
     if args.data_only:
         print('MARROW_DATA_OK questions=62 topics=4 repaired=3 enhanced=62 rationales=186');return
