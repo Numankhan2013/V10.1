@@ -32,7 +32,7 @@
   function nkFirebaseConfig(){const c=window.NK_QBANK_FIREBASE_CONFIG||{};return {apiKey:String(c.apiKey||''),projectId:String(c.projectId||''),anatomyPdfUrl:String(c.anatomyPdfUrl||'')};}
   function nkCloudConfigured(){const c=nkFirebaseConfig();return Boolean(c.apiKey&&c.projectId);}
   function nkLoadAuth(){const a=nkJson(localStorage.getItem(NK_AUTH_KEY),null);return a&&a.refreshToken&&a.uid?a:null;}
-  let nkAuth=nkLoadAuth();
+  var nkAuth=nkLoadAuth();
   function nkSaveAuth(){if(nkAuth)localStorage.setItem(NK_AUTH_KEY,JSON.stringify(nkAuth));else localStorage.removeItem(NK_AUTH_KEY);}
   function nkAuthValid(){return Boolean(nkAuth?.idToken&&Number(nkAuth.expiresAt||0)>Date.now()+60000);}
 
