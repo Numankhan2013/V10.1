@@ -6,13 +6,24 @@
 ## Repo / branch
 
 - Repo: `Numankhan2013/V10.1` (private)
-- Active branch: `v11.7-cross-device-pwa-sync`
+- Active branch: `feature/marrow-bank-pilot` (isolated Marrow integration candidate; production PWA remains deliberately separate)
 - Resolve live branch/HEAD with `git branch --show-current` and
   `git rev-parse HEAD`; never hardcode a self-staling current-HEAD value here.
 - Accepted product parent: V11.6 `125d68b`; the V11.7 branch merged the
   harness-neutral memory lineage at `309aabb`. Resolve live HEAD with Git.
 - Earlier product lineage: V11.5 `f13d12f` → V11.6 `125d68b`.
 - `main` (`8bc0be4`) is stale and must not be used as the V11 baseline.
+
+## Marrow bank pilot handoff — 2026-09-08
+
+- User opened the Cloudflare feature preview and confirmed the new Marrow flow is working beautifully.
+- Final pilot commit lineage is on `feature/marrow-bank-pilot`; latest green verification: Engineering Gate `34159542431` and full Android+PWA run `34159542436`.
+- Live preview: `https://feature-marrow-bank-pilot.nk-qbank.pages.dev`; production promotion was intentionally skipped.
+- Anatomy now supports a bank/source selector: PrepLadder (existing 1,068 questions / 50 topics) and Marrow (62 questions / 4 topics) using the same Practice/CBT/Review/FSRS/sync/module architecture.
+- Marrow explanations are native structured text: **Key takeaway + Detailed explanation + Structured text**. PrepLadder keeps its existing PDF renderer. Do not rewrite Marrow wording during explanation polish; styling/typography/bolding/lists/tables only.
+- Three incomplete-list Anatomy source questions were resolved with provenance and no learner-facing manual-review flag: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`, `ANAT_CH04_Q013`.
+- Critical next-step architecture: the pilot currently has one Anatomy-specific `MARROW_RECORD`. Before adding Physiology/Biochemistry or scaling Anatomy, generalize to a subject-indexed/general bank registry; do **not** copy the special case per subject.
+- Canonical next-session procedure, schema, integrity rules, CI gates, and pilot lessons are in `docs/MARROW_BANK_INTEGRATION.md`.
 
 ## Verification and accepted baseline
 
