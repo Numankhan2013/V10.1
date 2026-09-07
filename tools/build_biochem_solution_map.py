@@ -1,5 +1,10 @@
 from pathlib import Path
 import json,re
+from verification_preflight import is_termux, pdf_preflight
+
+if is_termux() and not pdf_preflight():
+    raise SystemExit(0)
+
 import fitz
 
 PDF=Path('app/src/main/assets/Biochemistry_QBank_Source.pdf')

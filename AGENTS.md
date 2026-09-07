@@ -41,6 +41,21 @@ Fix the memory file in the same change when you notice drift.
 5. Run `python3 tools/verify_project_memory.py` when the task concerns memory,
    handoff, branch state, or release status.
 
+## Local environment and verification
+
+- Local development runs in Android Termux. Do not install or compile PyMuPDF
+  locally, even if CMake, SWIG, and Clang are available.
+- Run `python3 tools/verify_local.py` for source contracts, behavior tests,
+  Python compilation, and JavaScript syntax. It preserves app assets.
+- `python3 tools/verification_preflight.py` detects Android/Termux and clearly
+  skips PDF-only generation. The three PyMuPDF entry points also use this guard.
+- PDF generation and downstream generated-app/UI/mapping/package verification
+  belong to `.github/workflows/build-apk.yml` on Ubuntu. Its mandatory
+  `--require-pdf` preflight fails instead of skipping if dependencies are absent.
+- A local skip or passing source tests does not establish full verification.
+  Require a passing full GitHub Actions run for the candidate before claiming
+  build verification. See `docs/LOCAL_DEVELOPMENT.md`.
+
 ## Session end (required after substantial work)
 
 1. Update `.project-memory/STATE.md` so a new agent with zero history can

@@ -9,6 +9,11 @@ are not embedded rasters.
 """
 from pathlib import Path
 import hashlib, json, re, sys
+from verification_preflight import is_termux, pdf_preflight
+
+if is_termux() and not pdf_preflight():
+    raise SystemExit(0)
+
 import fitz
 from PIL import Image, ImageChops, ImageStat
 

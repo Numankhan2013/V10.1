@@ -61,25 +61,16 @@ baseline. Only explicit user physical-device approval promotes a candidate.
 - Source visual and protected session/review infrastructure must not be changed
   casually during unrelated work.
 
-## Active FSRS milestone
+## FSRS status — accepted functional milestone
 
-- The source app now contains the build-time-installed FSRS v6 scheduler using
-  vendored `ts-fsrs` 5.4.2 (MIT), deterministic fuzz-off scheduling, schema-v2
-  card state, immutable rated attempts, migration backup/due-date preservation,
-  all-subject daily queue, rating controls, forecast, settings, and undo.
-- Targeted FSRS behavior, source syntax, pipeline, sync-merge, product, and memory
-  checks pass locally. Full generated pipeline/APK and physical-device acceptance
-  remain required; this work is implemented, not yet build- or device-verified.
+- The source app contains the build-time-installed FSRS v6 scheduler using vendored `ts-fsrs` 5.4.2 (MIT), deterministic fuzz-off scheduling, schema-v2 card state, immutable rated attempts, migration backup/due-date preservation, all-subject daily queue, rating controls, forecast, settings, and undo.
+- The new APK was installed and confirmed working by the user. The website/PWA was also opened and confirmed functional. Treat FSRS as build-verified and device/user-verified in both targets; do not describe it as pending acceptance.
+- The detailed behavior and invariants are documented in `docs/FSRS.md`.
 
 ## Known problems / immediate next step
 
-- Synchronization follow-up is intentionally paused during the FSRS milestone.
-  Latest physical findings are Android Firestore HTTP 403 and a PWA update
-  refresh loop. They remain unresolved and must be diagnosed as a separate
-  milestone; do not blend speculative sync/service-worker changes into FSRS.
-- Next: run the complete deterministic Android/PWA build, inspect packaged FSRS
-  assets, then perform the upgrade/migration/rating/cap/restart/two-device physical
-  acceptance checklist. V11.6 remains the rollback checkpoint.
+- User confirmed Android synchronization succeeds on 2026-09-07. Stop the historical 403 investigation. Finish the pending PWA update UI/reliability improvements and Termux/CI verification; preserve accepted FSRS behavior.
+- Next: preserve the accepted FSRS behavior while completing the separate Android↔PWA synchronization verification. V11.6 remains the rollback checkpoint for unrelated V11.7 deployment work.
 
 <!-- V11.7_DEPLOYMENT_HANDOFF_2026-09-07 -->
 ## V11.7 deployment handoff — 2026-09-07
@@ -112,3 +103,24 @@ baseline. Only explicit user physical-device approval promotes a candidate.
 ## 2026-09-07 Firestore upload fix and auto-sync
 - Physical testing confirmed project-routing downloads work but the client upload through REST `:batchWrite` returns `Missing or insufficient permissions`. An authenticated production probe proved identical owner-scoped data succeeds through document PATCH under the strict checked-in rules.
 - Upload now uses bounded parallel PATCH requests. Strict rules were re-deployed to `nk-qbank`, compiled successfully, and passed an authenticated write probe; disposable probe accounts/data were removed. The client also retries silently every five minutes, on foreground, and on reconnect, in addition to debounced sync after saves and manual Sync now. Full build and production promotion run `34100302605` passed; live code contains PATCH, no batchWrite, and the five-minute timer. Physical two-device verification remains.
+
+
+## 2026-09-07 resumed sync implementation (local candidate)
+
+- Preserved the five integrated commits and prior FSRS acceptance documentation.
+- PWA installation now waits for explicit Update; controller changes reload only
+  after that action, once per page. Previously install called skipWaiting itself.
+- Upload acknowledgments retain newer local edits; partial batches settle before
+  retry. Downloads reconcile all revisions so late offline uploads cannot fall
+  behind a cursor based on client timestamps (increased reads are the tradeoff).
+- HTTP diagnostics retain backend reason codes and upload collection/method.
+  User subsequently confirmed Android sync succeeds; the 403 investigation is closed at their request.
+- Local sync/PWA lifecycle, FSRS, metrics, modules, content, source and pipeline
+  checks pass. Termux PDF generation is intentionally CI-only; do not install or
+  compile PyMuPDF locally. Run `python3 tools/verify_local.py` (27 applicable
+  checks pass). Five generated-artifact checks are explicitly deferred to CI.
+- Added Android/Termux preflight guards and strict Ubuntu CI PDF dependency
+  validation. Full verification of this candidate is pending its Linux CI run.
+- Sync error details now expose the full backend reason and failed download
+  collection. Android sync is user-confirmed successful. Push the pending UI and
+  reliability changes and verify full CI; broader two-device acceptance is separate.

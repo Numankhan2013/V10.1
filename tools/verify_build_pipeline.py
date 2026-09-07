@@ -44,6 +44,19 @@ required_order = [
     "tools/verify_cbt_invariants.py",
 ]
 
+# The full workflow must remain a strict Linux PDF/build gate, even though local
+# Termux generation is intentionally skipped by the preflight.
+for marker in ("runs-on: ubuntu-latest", "actions/setup-python@", "PyMuPDF Pillow",
+               "tools/verification_preflight.py --require-pdf",
+               "tools/build_biochem_solution_map.py", "tools/final_hardening.py",
+               "tools/verify_source_visual_contract.py",
+               "tools/verify_product_contract.py --stage packaged"):
+    if marker not in text:
+        raise SystemExit(f"Full Linux/PDF verification requirement missing: {marker}")
+if not (text.index("PyMuPDF Pillow") < text.index("tools/verification_preflight.py --require-pdf")
+        < text.index("tools/build_biochem_solution_map.py")):
+    raise SystemExit("Strict PDF preflight must follow dependency installation and precede generation")
+
 positions = []
 for command in required_order:
     position = text.find(command)

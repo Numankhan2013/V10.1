@@ -159,3 +159,55 @@ CI runs, what changed, verification, device status, next step.
 - Added pipeline/package contracts and behavior tests. Targeted local checks pass;
   full packaged build and physical upgrade/two-device acceptance remain pending.
 - Explicitly paused the separate Android HTTP 403 and PWA refresh-loop sync work.
+
+## 2026-09-07 — Confirm FSRS in APK and website
+
+- User confirmed the new APK works with FSRS enabled and that the website/PWA
+  also has functional FSRS review scheduling.
+- Promoted FSRS from implemented/pending acceptance to build-verified and
+  device/user-verified in project memory and documentation.
+- Cross-device Firebase synchronization remains a separate verification item.
+
+
+## 2026-09-07 — Resume sync after Termux access restored
+
+- Confirmed repository writes work and preserved pre-existing documentation edits.
+- Fixed upload acknowledgment races and waited for all concurrent batch requests
+  before reporting failure. Failed/newer revisions stay in the outbox.
+- Removed timestamp filtering from downloads: device-clock cursors miss late
+  offline uploads. Full per-user reconciliation costs more reads but recovers them.
+- Removed automatic service-worker skipWaiting during install and limited reload
+  to an explicit Update action. Added executable lifecycle regression coverage.
+- Added backend reason and upload collection/method diagnostics for the unresolved
+  Android HTTP 403. No backend rules or accepted FSRS behavior changed.
+- Local behavior and source/pipeline contract checks passed. An isolated generated
+  build stopped at final_hardening.py because PyMuPDF (fitz) is unavailable in
+  Termux; no physical acceptance or new APK build is claimed.
+
+
+## 2026-09-07 — Make verification Termux-aware
+
+- User confirmed PyMuPDF generation is CI-only; no installation/build retry made.
+- Added source/behavior verification runner, tested Android/Termux detection and
+  strict CI preflight, and guarded all three direct PyMuPDF generation entry points.
+- Full workflow retains Ubuntu PDF/generated/packaged checks, adds Python/Node
+  setup and a mandatory PDF dependency preflight. Pipeline contract enforces it.
+- Ran remaining standalone generated-artifact checks against source; they reported
+  missing generated UI/mappings as expected. Local runner explicitly defers these
+  five checks instead of claiming passes. All 27 applicable local checks passed.
+- Added expanded sync error details and collection-level download diagnostics;
+  Android 403 is not fixed or reproduced. Requested fresh device error/build text.
+- Preserved existing local work. Full CI verification of the candidate is pending;
+  existing green runs cover the committed parent, not these working-tree changes.
+
+
+## 2026-09-07 — Android sync confirmed; finish and push pending improvements
+
+- User confirmed Android synchronization succeeds and explicitly stopped the 403
+  investigation. Finish pending update UI, reliability, and verification changes.
+- Before that confirmation, an Android-origin disposable-account REST probe passed
+  authentication, all six collection queries, and PATCH (HTTP 200). Auth account
+  deletion succeeded. One inert preferences tombstone remains under the disposable
+  account path; no learner data or rules were changed. No further probing planned.
+- Preserve accepted FSRS behavior and all local documentation. Push candidate and
+  wait for full Linux CI, including PDF generation and packaged verification.

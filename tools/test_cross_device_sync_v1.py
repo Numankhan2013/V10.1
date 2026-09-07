@@ -2,6 +2,7 @@
 """Behavior tests for merge safety and PWA/sync source contracts."""
 
 from pathlib import Path
+import ast
 import json
 import subprocess
 import tempfile
@@ -38,13 +39,61 @@ const decoded=nkDecodeDocument(encoded);
 assert(decoded.kind==='tests'&&decoded.entityId==='t1'&&decoded.updatedAt===300,'Firestore envelope round trip failed');
 const jwtPayload=Buffer.from(JSON.stringify({aud:'nk-qbank',iss:'https://securetoken.google.com/nk-qbank'})).toString('base64url');
 assert(nkProjectIdFromToken(`header.${jwtPayload}.signature`)==='nk-qbank','Firebase project ID must come from authenticated token claims');
-console.log('CROSS_DEVICE_SYNC_BEHAVIOR_OK');
+async function testRequests(){
+  nkAuth={uid:'test-user'};
+  nkSyncMeta.outbox={};
+  const original=nkEnvelope('bookmarks','q1',{active:true},100);
+  nkSyncMeta.outbox['bookmarks/q1']=original;
+  let release;
+  globalThis.fetch=()=>new Promise(resolve=>release=()=>resolve({ok:true,text:async()=>'{}'}));
+  const upload=nkPushOutbox('test-token');
+  const newer=nkEnvelope('bookmarks','q1',null,200,true);
+  nkSyncMeta.outbox['bookmarks/q1']=newer;
+  release();await upload;
+  assert(nkSyncMeta.outbox['bookmarks/q1']===newer,'in-flight upload must retain a newer local revision');
+  globalThis.fetch=async()=>({ok:true,text:async()=>'{}'});
+  await nkPushOutbox('test-token');
+  assert(!nkSyncMeta.outbox['bookmarks/q1'],'acknowledged revision must leave outbox');
+  nkSyncMeta.cursors.attempts=999999;
+  globalThis.fetch=async(url,options)=>{
+    assert(!JSON.parse(options.body).structuredQuery.where,'client timestamps must not hide late offline uploads');
+    return {ok:true,text:async()=>JSON.stringify([{document:nkFirestoreDocument(nkEnvelope('attempts','offline',{qid:'q1',attempt:{id:'offline',at:1}},1))}])};
+  };
+  const late=await nkPullKind('attempts','test-token');
+  assert(late.length===1&&late[0].updatedAt===1,'old offline revisions must be downloaded');
+  globalThis.fetch=async()=>({ok:false,status:403,text:async()=>JSON.stringify({error:{message:'Forbidden',details:[{reason:'API_KEY_HTTP_REFERRER_BLOCKED'}]}})});
+  nkSyncMeta.outbox['bookmarks/q1']=newer;
+  try{await nkPushOutbox('test-token');throw new Error('expected HTTP failure');}
+  catch(error){assert(error.message.includes('bookmarks PATCH')&&error.message.includes('HTTP 403')&&error.message.includes('API_KEY_HTTP_REFERRER_BLOCKED'),'diagnostics must preserve request and backend reason');}
+  assert(nkSyncMeta.outbox['bookmarks/q1']===newer,'failed upload must remain pending');
+  try{await nkPullKind('attempts','test-token');throw new Error('expected download failure');}
+  catch(error){assert(error.message.includes('attempts runQuery')&&error.message.includes('HTTP 403'),'download diagnostic must identify collection and request');}
+  const longError='download: '+('detail '.repeat(40))+'API_KEY_HTTP_REFERRER_BLOCKED';
+  nkSyncMeta.lastError=longError;
+  window.NK_QBANK_FIREBASE_CONFIG={apiKey:'public-test-key',projectId:'test-project'};
+  assert(nkCloudAccountCard().includes(longError),'expanded diagnostics must preserve the untruncated backend reason');
+
+  nkSyncMeta.outbox['bookmarks/q2']=nkEnvelope('bookmarks','q2',{active:true},201);
+  let releaseSuccess,settled=false;
+  globalThis.fetch=async url=>{
+    if(url.endsWith('--q1'))return {ok:false,status:403,text:async()=>'{}'};
+    return new Promise(resolve=>releaseSuccess=()=>resolve({ok:true,text:async()=>'{}'}));
+  };
+  const partial=nkPushOutbox('test-token').catch(()=>{settled=true;});
+  await new Promise(resolve=>setImmediate(resolve));
+  assert(!settled,'failed batch must wait for remaining in-flight writes before retry');
+  releaseSuccess();await partial;
+  assert(nkSyncMeta.outbox['bookmarks/q1']&&!nkSyncMeta.outbox['bookmarks/q2'],'partial batch must retain failures and acknowledge successes');
+  console.log('CROSS_DEVICE_SYNC_BEHAVIOR_OK');
+}
+testRequests().catch(error=>{console.error(error);process.exitCode=1;});
 '''
     prelude = r'''
 const storage={};
 const localStorage={getItem:k=>Object.prototype.hasOwnProperty.call(storage,k)?storage[k]:null,setItem:(k,v)=>storage[k]=String(v),removeItem:k=>delete storage[k]};
 const window={NK_QBANK_FIREBASE_CONFIG:{}};
 const navigator={onLine:true};
+const location={hostname:'qbank.local'};
 const LS_KEY='qbank_state_v1';
 let state={};let activeSubject='Biochemistry';
 const SUBJECT_BY_NAME={Biochemistry:{}};
@@ -73,6 +122,29 @@ function applySubject(v){activeSubject=v}
     for marker in ("biochemistry_source_solution_map.js", "web_pdf_renderer.mjs", "SKIP_WAITING", "googleapis"):
         if marker not in worker:
             raise SystemExit(f"Service-worker contract missing: {marker}")
+    install = worker.split("self.addEventListener('install'", 1)[1].split("self.addEventListener('activate'", 1)[0]
+    if "skipWaiting" in install:
+        raise SystemExit("PWA installation must wait for an explicit update action")
+    transform_source = (ROOT / "tools/apply_cross_device_pwa_v1.py").read_text(encoding="utf-8")
+    update_sw = next(ast.literal_eval(node.value) for node in ast.walk(ast.parse(transform_source))
+                     if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == "update_sw" for t in node.targets))
+    lifecycle = r'''
+const assert=(v,m)=>{if(!v)throw new Error(m)};
+const events={},swEvents={};let reloads=0,click;
+const worker={postMessage:message=>{assert(message==='SKIP_WAITING','update message');swEvents.controllerchange();swEvents.controllerchange();}};
+const registration={waiting:worker,addEventListener:()=>{}};
+const navigator={serviceWorker:{controller:{},addEventListener:(name,fn)=>swEvents[name]=fn,register:async()=>registration}};
+const window={addEventListener:(name,fn)=>events[name]=fn};
+const location={hostname:'example.test',reload:()=>reloads++};
+const document={querySelector:()=>null,createElement:()=>({querySelector:()=>({set onclick(fn){click=fn}})}),body:{appendChild:()=>{}}};
+'''
+    lifecycle += update_sw + "\n" + r'''
+(async()=>{await events.load();swEvents.controllerchange();assert(reloads===0,'unrequested controller changes must not reload');click();assert(reloads===1,'explicit update must reload only once');console.log('PWA_UPDATE_LIFECYCLE_OK');})().catch(error=>{console.error(error);process.exitCode=1});
+'''
+    with tempfile.TemporaryDirectory() as directory:
+        script = Path(directory) / "pwa-test.js"
+        script.write_text(lifecycle, encoding="utf-8")
+        subprocess.run(["node", str(script)], check=True)
     sync_core = CORE.read_text(encoding="utf-8")
     pull_at = sync_core.find("pulled=await nkPullCloud(token)")
     push_at = sync_core.find("pushed=await nkPushOutbox(token)")

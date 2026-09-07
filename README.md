@@ -47,6 +47,10 @@ V11.7 preserves the Android app while adding an installable responsive PWA and
 optional Firebase synchronization. See [docs/CROSS_DEVICE_PWA.md](docs/CROSS_DEVICE_PWA.md)
 for the data model, migration safeguards, configuration, deployment, and tests.
 
+## FSRS smart review
+
+FSRS v6 review scheduling is functional in both the Android APK and the website/PWA. It provides deterministic offline scheduling, migration-safe review state, Again/Hard/Good/Easy ratings, a capped all-subject Today queue, forecast, settings, and undo. See [docs/FSRS.md](docs/FSRS.md).
+
 ## Build
 
 Run **Build V11.7 Android + PWA** in GitHub Actions. A successful candidate produces:
@@ -71,3 +75,12 @@ See [docs/ENGINEERING_BASELINE.md](docs/ENGINEERING_BASELINE.md). The core rule 
 - Latest hashed preview opens successfully on iPad. Before the production-promotion workflow change, the root `nk-qbank.pages.dev` still served the older blank production deployment. Source-PDF rendering, Anatomy/R2 CORS, final production URL, Android in-place upgrade, and full two-way sync still require physical verification.
 - Next: wait for CI on the current branch → manually dispatch **Build V11.7 Android + PWA** once → verify `https://nk-qbank.pages.dev` → add final Pages hostname to Firebase Authentication authorized domains → ensure R2 CORS allows the exact Pages origin and Range GETs → install V11.7 APK over V11.6 without uninstalling → verify old local data → same-account Android/iPad sync, offline/reconnect, force-close/reopen, sign-out/in tests.
 
+
+
+## Local development in Android Termux
+
+Run `python3 tools/verify_local.py` for the applicable local checks. Do not try to
+install or compile PyMuPDF in Termux. PDF generation and downstream generated-app
+verification run in GitHub Actions on Ubuntu, with a strict dependency preflight.
+A local PDF skip is not a verification pass; full verification requires a passing
+CI run for the candidate. See [Local development](docs/LOCAL_DEVELOPMENT.md).

@@ -17,6 +17,16 @@ jobs:
     steps:
       - name: Checkout V11 source visuals
         uses: actions/checkout@v5
+      - name: Set up Python for Linux PDF generation
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Set up Node for behavior and JavaScript checks
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      - name: Test local and CI verification preflight
+        run: python3 tools/test_verification_preflight.py
       - name: Write public runtime configuration
         env:
           QBANK_FIREBASE_API_KEY: ${{ vars.QBANK_FIREBASE_API_KEY }}
@@ -41,6 +51,8 @@ jobs:
         run: python3 tools/enable_both_pdf_renderers.py
       - name: Install PDF mapping dependency
         run: python3 -m pip install --disable-pip-version-check PyMuPDF Pillow
+      - name: Require Linux PDF dependencies (never skip in CI)
+        run: python3 tools/verification_preflight.py --require-pdf
       - name: Build exact Biochemistry solution map
         run: python3 tools/build_biochem_solution_map.py
       - name: Repair source solution renderer

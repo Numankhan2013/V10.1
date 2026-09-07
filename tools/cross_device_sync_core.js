@@ -53,7 +53,9 @@
     const response=await fetch(url,options),text=await response.text(),body=nkJson(text,{});
     if(!response.ok){
       const base=body?.error?.message||body?.error?.status||'Request failed';
-      const error=new Error(`${base} (HTTP ${response.status})`);
+      const details=Array.isArray(body?.error?.details)?body.error.details:[];
+      const reason=details.map(detail=>detail?.reason).filter(Boolean).join(', ');
+      const error=new Error(`${base} (HTTP ${response.status}${reason?'; '+reason:''})`);
       error.status=response.status;throw error;
     }
     return body;
@@ -130,15 +132,25 @@
     let sent=0;
     for(let i=0;i<entries.length;i+=20){
       const batch=entries.slice(i,i+20);
-      await Promise.all(batch.map(([,envelope])=>nkFetchJson(`${nkFirestoreRoot()}/users/${encodeURIComponent(nkAuth.uid)}/${encodeURIComponent(envelope.kind)}/${nkDocId(envelope)}`,{method:'PATCH',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify(nkFirestoreDocument(envelope))})));
-      batch.forEach(([key])=>delete nkSyncMeta.outbox[key]);sent+=batch.length;nkSaveSyncMeta();
+      const results=await Promise.allSettled(batch.map(async ([key,envelope])=>{
+        try{await nkFetchJson(`${nkFirestoreRoot()}/users/${encodeURIComponent(nkAuth.uid)}/${encodeURIComponent(envelope.kind)}/${nkDocId(envelope)}`,{method:'PATCH',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify(nkFirestoreDocument(envelope))});}
+        catch(error){throw new Error(`${envelope.kind} PATCH: ${error.message}`);}
+        // A save during the request may have queued a newer revision of this entity.
+        if(nkSyncMeta.outbox[key]===envelope)delete nkSyncMeta.outbox[key];
+        sent++;nkSaveSyncMeta();
+      }));
+      const failed=results.find(result=>result.status==='rejected');
+      if(failed)throw failed.reason;
     }
     return sent;
   }
   async function nkPullKind(kind,token){
     const cursor=Math.max(0,Number(nkSyncMeta.cursors[kind]||0)),structuredQuery={from:[{collectionId:kind}],orderBy:[{field:{fieldPath:'updatedAt'},direction:'ASCENDING'}]};
-    if(cursor)structuredQuery.where={fieldFilter:{field:{fieldPath:'updatedAt'},op:'GREATER_THAN_OR_EQUAL',value:{integerValue:String(Math.max(0,cursor-1))}}};
-    const rows=await nkFetchJson(`${nkFirestoreRoot()}/users/${encodeURIComponent(nkAuth.uid)}:runQuery`,{method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify({structuredQuery})});
+    // Reconcile all device revisions: updatedAt is a client clock, not an upload cursor.
+    // An offline device can upload a revision older than the last downloaded timestamp.
+    let rows;
+    try{rows=await nkFetchJson(`${nkFirestoreRoot()}/users/${encodeURIComponent(nkAuth.uid)}:runQuery`,{method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify({structuredQuery})});}
+    catch(error){throw new Error(`${kind} runQuery: ${error.message}`);}
     const docs=(Array.isArray(rows)?rows:[]).map(row=>row.document).filter(Boolean).map(nkDecodeDocument).filter(e=>e.schemaVersion===1&&e.kind===kind);
     if(docs.length)nkSyncMeta.cursors[kind]=Math.max(cursor,...docs.map(e=>e.updatedAt));
     return docs;
@@ -223,7 +235,7 @@
     const pwa=location.hostname==='qbank.local'?'Android app':'Install from Safari with Share → Add to Home Screen.';
     if(!nkCloudConfigured())return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="section-title"><span>QBank Sync</span><span class="sub">Not configured</span></div><p class="small-muted">This build keeps all progress locally. Add the Firebase public configuration to enable secure account sync.</p><div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
     if(!nkAuth)return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="section-title"><span>QBank Sync</span><span class="sub">Firebase</span></div><p class="small-muted">Use the same private account on Android and iPad. Existing progress is backed up before its first merge.</p><label>Email<input id="nk-cloud-email" type="email" autocomplete="username" inputmode="email"></label><label>Password<input id="nk-cloud-password" type="password" autocomplete="current-password" minlength="6"></label><div class="nk-cloud-actions"><button onclick="window.QB.nkCloudAuthenticate('signin')">Sign in</button><button class="primary-btn" onclick="window.QB.nkCloudAuthenticate('create')">Create account</button></div><div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
-    return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="nk-cloud-user"><span class="nk-cloud-dot ${nkSyncMeta.status==='error'?'is-error':navigator.onLine?'is-online':''}"></span><div><strong>${esc(nkAuth.email||'QBank account')}</strong><small>${esc(nkCloudStatusCopy())}</small></div></div><p class="small-muted">Attempts, bookmarks, tests, modules, active sessions and study preferences merge without replacing newer device data.</p><div class="nk-cloud-actions"><button class="primary-btn" onclick="window.QB.nkCloudSyncNow()">Sync now</button><button onclick="window.QB.nkCloudSignOut()">Sign out</button></div><div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
+    return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="nk-cloud-user"><span class="nk-cloud-dot ${nkSyncMeta.status==='error'?'is-error':navigator.onLine?'is-online':''}"></span><div><strong>${esc(nkAuth.email||'QBank account')}</strong><small>${esc(nkCloudStatusCopy())}</small></div></div>${nkSyncMeta.lastError?`<details class="nk-cloud-error"><summary>Sync error details</summary><p>${esc(nkSyncMeta.lastError)}</p></details>`:''}<p class="small-muted">Attempts, bookmarks, tests, modules, active sessions and study preferences merge without replacing newer device data.</p><div class="nk-cloud-actions"><button class="primary-btn" onclick="window.QB.nkCloudSyncNow()">Sync now</button><button onclick="window.QB.nkCloudSignOut()">Sign out</button></div><div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
   }
   function nkCloudAutoSync(){
     if(!nkAuth||!nkCloudConfigured()||!navigator.onLine||nkCloudBusy)return;

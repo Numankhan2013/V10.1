@@ -56,7 +56,9 @@ Prefer building over narrating.
 - **Insights:** Accuracy, Avg time, Due, Completion + chapter coverage +
   recent sessions; distinguish no-evidence from poor performance.
 - **Revision libraries:** Bookmarks (manual), Wrong (auto from incorrect),
-  Due Review (spaced queue); empty states explain how to fill them.
+  Due Review (FSRS spaced queue); empty states explain how to fill them. FSRS
+  ratings, Today queue, forecast, settings, migration, and undo work in both
+  the Android APK and website/PWA.
 - **Custom Study Modules (V11.5):** reusable sets from subject/topic +
   Unattempted/Wrong/Bookmarked/Mixed (seeded shuffle, Mixed weighted
   Wrong-heavy); frozen IDs at creation (status changes never rebuild);

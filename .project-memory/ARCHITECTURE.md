@@ -96,6 +96,14 @@ JDK 17 + Gradle `assembleDebug`, packaged-APK checks
 packaged JS check), packaged contract, `write_build_manifest.py`
 (`NK-QBank-build-manifest.json`), artifact upload.
 
+## Local verification environment
+
+Android Termux is the local development environment. `tools/verify_local.py`
+runs source/behavior checks without asset generation. PyMuPDF entry points use
+`verification_preflight.py` to skip Android/Termux before import or mutation.
+Full Ubuntu CI uses `--require-pdf` and fails closed; PDF generation and downstream
+generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT.md`.
+
 ## Workflows and gates
 
 - `.github/workflows/build-apk.yml` — full deterministic Android APK + PWA
@@ -164,6 +172,9 @@ packaged JS check), packaged contract, `write_build_manifest.py`
   config only as fallback. Firebase ID-token uploads use individual document
   PATCH requests in bounded parallel groups; the REST `:batchWrite` route is not
   used because it returned permission errors for otherwise valid owner-scoped writes.
+  Upload acknowledgments only remove the revision actually sent, and each parallel
+  batch settles before a retry. Downloads query all per-user revisions because
+  client timestamps cannot safely cursor late offline uploads.
   Saves trigger debounced upload; signed-in clients also retry silently every five
   minutes and on foreground. Security ownership is enforced by `firestore.rules`.
   See `docs/CROSS_DEVICE_PWA.md`.

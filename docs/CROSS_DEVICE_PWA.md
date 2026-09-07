@@ -178,3 +178,27 @@ Do not label V11.7 device-verified or accepted until these checks are performed.
 - Latest hashed preview opens successfully on iPad. Before the production-promotion workflow change, the root `nk-qbank.pages.dev` still served the older blank production deployment. Source-PDF rendering, Anatomy/R2 CORS, final production URL, Android in-place upgrade, and full two-way sync still require physical verification.
 - Next: wait for CI on the current branch → manually dispatch **Build V11.7 Android + PWA** once → verify `https://nk-qbank.pages.dev` → add final Pages hostname to Firebase Authentication authorized domains → ensure R2 CORS allows the exact Pages origin and Range GETs → install V11.7 APK over V11.6 without uninstalling → verify old local data → same-account Android/iPad sync, offline/reconnect, force-close/reopen, sign-out/in tests.
 
+
+
+### Sync hardening candidate (2026-09-07)
+
+Uploads acknowledge only the revision sent, preserving edits made while a request
+is in flight. All requests in a parallel batch settle before retry; failed entries
+remain pending. Downloads reconcile all user revisions rather than filtering by
+client timestamps, which can miss old revisions uploaded after offline study.
+This increases reads as history grows; a future incremental implementation needs
+a server-assigned cursor.
+
+PWA updates wait for the Update button. Controller changes reload the page only
+following that action, once per page. HTTP errors retain backend reason codes and
+identify the upload collection and method without logging tokens or payloads.
+The user confirmed Android sync succeeds on 2026-09-07 and stopped the historical
+403 investigation. Broader physical two-device acceptance remains separate.
+
+
+When reporting a sync failure, open **More → QBank Sync → Sync error details**
+and report the full stage, collection/request, HTTP status and backend reason,
+along with the APK build. The status summary is intentionally short; expanded
+error details retain the complete backend message. Do not share authentication
+tokens or local study payloads. A generic HTTP 403 alone does not establish which
+backend condition needs repair, and owner-scoped rules must remain protected.

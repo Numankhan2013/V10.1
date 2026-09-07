@@ -19,13 +19,18 @@ Check off only when build-verified **and** device-verified where UI is involved.
 - [ ] Deliver V11.7: responsive PWA plus conflict-safe Firebase synchronization
       while preserving the accepted Android behavior and existing local data.
 
-## Paused synchronization follow-up (after FSRS milestone)
+## Completed smart-review milestone
 
-- [ ] Resume Android/PWA synchronization diagnosis separately: physical Android
-      still reports Firestore HTTP 403, and the installed PWA has shown an update
-      refresh loop. Preserve the owner-scoped rules and collect fresh request/update
-      lifecycle evidence before changing sync or service-worker behavior. Do not mix
-      this deferred repair into the FSRS scheduler milestone.
+- [x] FSRS v6 review scheduling is functional in the new Android APK and website/PWA.
+      Keep the behavior documented in [docs/FSRS.md](../docs/FSRS.md) stable while
+      the separate cross-device synchronization work continues.
+
+## Synchronization follow-up
+
+- [ ] Verify the sync hardening candidate on Android/PWA: explicit PWA update
+      activation, preservation of edits during uploads, and late offline revision
+      reconciliation. Android sync is user-confirmed successful; the historical
+      HTTP 403 investigation is stopped. Owner-scoped rules and FSRS stay protected.
 
 ## R1 — Gold-standard Question Screen (highest priority per `memory.md`)
 
