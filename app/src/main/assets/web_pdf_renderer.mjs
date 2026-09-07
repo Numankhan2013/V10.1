@@ -23,14 +23,14 @@ if (location.hostname !== 'qbank.local') {
     node.dataset.rendered = 'loading';
     const subject = node.dataset.subject;
     try {
-      const document = await loadDocument(subject);
-      const page = await document.getPage(Number(node.dataset.page));
+      const pdfDocument = await loadDocument(subject);
+      const page = await pdfDocument.getPage(Number(node.dataset.page));
       const base = page.getViewport({scale: 1});
       const cssWidth = Math.max(280, Math.min(1180, node.clientWidth || 760));
       const density = Math.min(2, window.devicePixelRatio || 1);
       const scale = cssWidth / base.width * density;
       const viewport = page.getViewport({scale});
-      const full = document.createElement('canvas');
+      const full = window.document.createElement('canvas');
       full.width = Math.ceil(viewport.width); full.height = Math.ceil(viewport.height);
       await page.render({canvasContext: full.getContext('2d', {alpha:false}), viewport}).promise;
       const top = node.dataset.top ? Math.max(0, Number(node.dataset.top) * scale) : 0;
