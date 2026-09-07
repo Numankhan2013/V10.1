@@ -133,12 +133,12 @@ jobs:
         run: python3 tools/apply_fsrs_v1.py
       - name: Test FSRS scheduler and queue contracts
         run: python3 tools/test_fsrs_v1.py
+      - name: Repair WebView boot-blocking JavaScript after protected transformations
+        run: python3 tools/fix_boot_syntax.py
       - name: Install isolated Marrow bank pilot
         run: python3 tools/apply_marrow_bank_pilot.py
       - name: Verify isolated Marrow bank pilot
         run: python3 tools/test_marrow_bank_pilot.py
-      - name: Repair WebView boot-blocking JavaScript after all transformations
-        run: python3 tools/fix_boot_syntax.py
       - name: Verify final JavaScript syntax after all transformations
         run: |
           python3 - <<'PY'
@@ -241,12 +241,16 @@ jobs:
           python3 -m playwright install --with-deps chromium
       - name: Verify generated recall dock in browser
         run: python3 tools/verify_recall_dock_browser.py
-      - name: Upload recall dock screenshots
+      - name: Verify Marrow bank selector and native explanation in browser
+        run: python3 tools/verify_marrow_bank_browser.py
+      - name: Upload recall dock and Marrow pilot screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: recall-dock-screenshots
-          path: build/ui-checks/*.png
+          name: recall-dock-and-marrow-pilot-screenshots
+          path: |
+            build/ui-checks/*.png
+            build/marrow-ui-checks/*.png
           retention-days: 3
           if-no-files-found: warn
       - name: Set up JDK 17
