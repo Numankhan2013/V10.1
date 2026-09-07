@@ -25,6 +25,22 @@
 - Critical next-step architecture: the pilot currently has one Anatomy-specific `MARROW_RECORD`. Before adding Physiology/Biochemistry or scaling Anatomy, generalize to a subject-indexed/general bank registry; do **not** copy the special case per subject.
 - Canonical next-session procedure, schema, integrity rules, CI gates, and pilot lessons are in `docs/MARROW_BANK_INTEGRATION.md`.
 
+## Marrow explanation gold pilot — 2026-09-08
+
+- 20 Marrow Anatomy questions now use the gold-standard explanation pilot:
+  stronger readable typography, selective exam-discriminator emphasis, preserved
+  source tables, and a separate **Why the other options are wrong** section.
+- Source explanation wording is not rewritten. Generated distractor rationales
+  are stored separately in `data/marrow/explanation_gold_pilot.json`.
+- User explicitly clarified FSRS architecture: the recall dock remains fixed and
+  floating above Previous/Next after answer submission; it is not part of the
+  explanation flow and must not be moved by explanation work.
+- Verification is green: Engineering Gate `34161682358`; full Android+PWA
+  `34161682378`; browser verified distractor rows, preserved source table, and
+  fixed FSRS dock. Preview: `https://feature-marrow-bank-pilot.nk-qbank.pages.dev`.
+- Next step: user visually reviews the 20-question pilot. Refine the content/
+  typography grammar from that feedback before scaling to all Marrow questions.
+
 ## Verification and accepted baseline
 
 - Accepted baseline: **V11.6 Content Quality**. The user physically tested and
