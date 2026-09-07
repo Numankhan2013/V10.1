@@ -3,7 +3,7 @@ name: Build V11.7 Android + PWA
 on:
   workflow_dispatch:
   push:
-    branches: [v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision, v11.5-custom-study-modules, v11.6-content-quality, v11.7-cross-device-pwa-sync]
+    branches: [v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision, v11.5-custom-study-modules, v11.6-content-quality, v11.7-cross-device-pwa-sync, feature/marrow-bank-pilot]
 
 permissions:
   contents: read
@@ -133,6 +133,10 @@ jobs:
         run: python3 tools/apply_fsrs_v1.py
       - name: Test FSRS scheduler and queue contracts
         run: python3 tools/test_fsrs_v1.py
+      - name: Install isolated Marrow bank pilot
+        run: python3 tools/apply_marrow_bank_pilot.py
+      - name: Verify isolated Marrow bank pilot
+        run: python3 tools/test_marrow_bank_pilot.py
       - name: Repair WebView boot-blocking JavaScript after all transformations
         run: python3 tools/fix_boot_syntax.py
       - name: Verify final JavaScript syntax after all transformations
@@ -254,8 +258,14 @@ jobs:
         uses: gradle/actions/setup-gradle@v5
         with:
           gradle-version: '9.5.0'
+      - name: Configure side-by-side Marrow pilot APK
+        if: ${{ github.ref_name == 'feature/marrow-bank-pilot' }}
+        run: python3 tools/configure_marrow_pilot_android.py
       - name: Build debug APK
         run: gradle --no-daemon assembleDebug
+      - name: Restore production Android source identity
+        if: ${{ github.ref_name == 'feature/marrow-bank-pilot' }}
+        run: python3 tools/configure_marrow_pilot_android.py --restore
       - name: Verify packaged APK
         run: |
           APK=$(find app/build/outputs/apk/debug -type f -name '*.apk' -print -quit)
@@ -295,6 +305,10 @@ jobs:
           grep -q 'window.QB.openQuestionNavigator()' /tmp/packaged-index.html
           grep -q 'root.innerHTML=' /tmp/packaged-index.html
           grep -q 'NK_FSRS_V6_START' /tmp/packaged-index.html
+          grep -q 'NK_MARROW_BANK_PILOT_V1_START' /tmp/packaged-index.html
+          grep -q 'marrow__ANAT_CH01_Q001' /tmp/packaged-index.html
+          grep -q 'Detailed explanation' /tmp/packaged-index.html
+          grep -q 'qbank_active_bank_v1' /tmp/packaged-index.html
           unzip -l "$APK" | grep -q 'assets/vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js'
           unzip -l "$APK" | grep -q 'assets/vendor/ts-fsrs/LICENSE'
           test "$(unzip -l "$APK" | grep -c 'source_visuals/.*\.png')" -ge 400
@@ -343,7 +357,7 @@ jobs:
       # Direct Upload: omitting --branch targets the configured production
       # environment. Automatic pushes stay previews; manual dispatch promotes.
       - name: Promote PWA to Cloudflare Pages production
-        if: ${{ github.event_name == 'workflow_dispatch' && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}
+        if: ${{ github.event_name == 'workflow_dispatch' && github.ref_name != 'feature/marrow-bank-pilot' && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
