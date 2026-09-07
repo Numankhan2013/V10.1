@@ -55,8 +55,8 @@ def transform(source: str) -> str:
     )
     source = replace_once(
         source,
-        "    try { localStorage.setItem(LS_KEY, JSON.stringify(state)); }\n    catch (e) { showToast('Progress could not be saved on this device.', 'bad'); }",
-        "    try { localStorage.setItem(LS_KEY, JSON.stringify(state)); if(typeof nkScheduleCloudSync==='function')nkScheduleCloudSync(); }\n    catch (e) { showToast('Progress could not be saved on this device.', 'bad'); }",
+        "    try { nkSyncModuleFromSession(); localStorage.setItem(LS_KEY, JSON.stringify(state)); }\n    catch (e) { showToast('Progress could not be saved on this device.', 'bad'); }",
+        "    try { nkSyncModuleFromSession(); localStorage.setItem(LS_KEY, JSON.stringify(state)); if(typeof nkScheduleCloudSync==='function')nkScheduleCloudSync(); }\n    catch (e) { showToast('Progress could not be saved on this device.', 'bad'); }",
         "save hook",
     )
     source = replace_once(
