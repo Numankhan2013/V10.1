@@ -94,6 +94,8 @@ def main() -> None:
             "NK_QUESTION_CONTENT_HYGIENE_V1_START", "nkCleanQuestionStem",
             "nkTableTakeaway", "NK_CROSS_DEVICE_SYNC_V1_START",
             "nkCloudAccountCard", "manifest.webmanifest", "web_pdf_renderer.mjs",
+            "NK_MARROW_BANK_PILOT_V1_START", "function nkRenderMarrowExplanation(q)",
+            "qbank_active_bank_v1", "marrow__ANAT_CH01_Q001",
         ], f"{args.stage} contract")
 
     checked = check_javascript(html)
