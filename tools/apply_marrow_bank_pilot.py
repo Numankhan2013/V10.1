@@ -60,13 +60,14 @@ HTML.write_text(source,encoding="utf-8")
 print("MARROW_TAKEAWAY_FALLBACK_OK source-derived")
 
 
-# Gold-standard explanation pilot: preserve Marrow source wording, improve
-# presentation, and append separately stored exam-oriented distractor rationales.
+# Approved full-bank explanation architecture: preserve Marrow source wording in
+# storage, apply very light presentation-only de-duplication, improve hierarchy,
+# and append separately stored exam-oriented distractor rationales.
 import json, re
 GOLD_PATH=HERE.parent/"data/marrow/explanation_gold_pilot.json"
 gold=json.loads(GOLD_PATH.read_text(encoding="utf-8"))
-if len(gold.get("questions",{}))!=20:
-    raise SystemExit(f"Marrow gold pilot question count mismatch: {len(gold.get('questions',{}))}")
+if len(gold.get("questions",{}))!=62:
+    raise SystemExit(f"Marrow explanation rollout question count mismatch: {len(gold.get('questions',{}))}")
 if any(len(v.get("rationales",{}))!=3 for v in gold["questions"].values()):
     raise SystemExit("Every Marrow gold pilot question must have exactly three distractor rationales")
 
@@ -93,6 +94,36 @@ if "NK_MARROW_EXPLANATION_GOLD_V1" not in source:
       if(needle) html=html.split(needle).join('<strong class="nk-gold-em">'+needle+'</strong>');
     });
     return html;
+  }
+
+  function nkGoldSignalWords(text){
+    const stop=new Set(['the','and','for','from','that','this','with','into','are','was','were','has','have','had','its','their','during','after','before','through','about','which','when','where','then','than','only','also','known','called']);
+    return String(text||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').split(/\s+/).filter(w=>w.length>2&&!stop.has(w));
+  }
+
+  function nkGoldOverlap(a,b){
+    const aa=new Set(nkGoldSignalWords(a)),bb=new Set(nkGoldSignalWords(b));
+    if(!aa.size||!bb.size)return 0;
+    let hit=0;aa.forEach(w=>{if(bb.has(w))hit++;});
+    return hit/Math.min(aa.size,bb.size);
+  }
+
+  function nkGoldConciseText(text,q){
+    let blocks=String(text||'').replace(/\r/g,'').split(/\n\s*\n/).map(x=>x.trim()).filter(Boolean);
+    blocks=blocks.filter(block=>{
+      const flat=block.replace(/\s+/g,' ').trim();
+      if(/^options?\s+[a-d](?:\s*(?:,|and|&)\s*[a-d])*\s*:/i.test(flat))return false;
+      const boiler=/\b(image|figure|flowchart)\b/i.test(flat)&&/\b(given below|shown below|below shows|image below|flowchart below|figure below)\b/i.test(flat);
+      const sentences=(flat.match(/[.!?]+/g)||[]).length;
+      if(boiler&&flat.length<180&&sentences<=1)return false;
+      return true;
+    });
+    if(blocks.length>1){
+      const first=blocks[0].replace(/\s+/g,' ').trim();
+      const takeaway=nkMarrowTakeaway(q);
+      if(first.length<=280&&takeaway&&nkGoldOverlap(first,takeaway)>=0.72)blocks.shift();
+    }
+    return blocks.join('\n\n');
   }
 
   function nkRenderMarrowGoldText(text,cfg){
@@ -127,9 +158,10 @@ if "NK_MARROW_EXPLANATION_GOLD_V1" not in source:
     const cfg=NK_MARROW_EXPLANATION_GOLD_V1[String(q.id)];
     if(!cfg)return nkRenderMarrowExplanationBase(q);
     const data=q.structuredExplanation||{},text=data.text||q.explanation||'',tables=Array.isArray(data.tables)?data.tables:[];
+    const conciseText=nkGoldConciseText(text,q);
     const trace=q.provenance||{},pages=Array.isArray(trace.explanationPages)?trace.explanationPages:[];
     return '<div class="nk-marrow-native nk-gold-explanation">'+
-      nkRenderMarrowGoldText(text,cfg)+
+      nkRenderMarrowGoldText(conciseText,cfg)+
       tables.map(nkRenderMarrowTable).join('')+
       nkRenderGoldWrongOptions(q,cfg)+
       '<div class="nk-marrow-provenance">Marrow ED 8 structured transcription'+(pages.length?' · explanation page'+(pages.length===1?'':'s')+' '+pages.join(', '):'')+'. Figure metadata is preserved for later image-asset integration.</div></div>';
@@ -143,7 +175,7 @@ if "NK_MARROW_EXPLANATION_GOLD_V1" not in source:
 
     css=r'''
 <style id="nk-marrow-explanation-gold-v1">
-/* Presentation-only pilot. FSRS/session footer rules intentionally untouched. */
+/* Approved full-bank presentation. FSRS/session footer rules intentionally untouched. */
 .nk-source-section.is-marrow .nk-gold-explanation{color:#30344f}
 .nk-source-section.is-marrow .nk-gold-explanation>p{margin:0 0 18px;font-size:16.5px;line-height:1.68;font-weight:440;letter-spacing:-.08px;color:#36394f}
 .nk-source-section.is-marrow .nk-gold-explanation>.nk-marrow-heading{margin:24px 0 10px;font-size:17px;line-height:1.3;font-weight:820;letter-spacing:-.2px;color:#252946}
@@ -177,4 +209,4 @@ if "NK_MARROW_EXPLANATION_GOLD_V1" not in source:
         raise SystemExit(f"Marrow gold CSS head anchor count: {source.count('</head>')}")
     source=source.replace("</head>",css+"</head>",1)
     HTML.write_text(source,encoding="utf-8")
-    print("MARROW_EXPLANATION_GOLD_OK questions=20 rationales=60 source_text=preserved")
+    print("MARROW_EXPLANATION_GOLD_OK questions=62 rationales=186 source_text=preserved display_trim=micro")
