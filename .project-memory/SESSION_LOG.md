@@ -240,3 +240,42 @@ CI runs, what changed, verification, device status, next step.
   uploading, pre-answer absence, footer placement, and rating behavior. Added Linux
   browser checks and screenshot artifacts for generated app widths 320/390/768.
 - Candidate will be pushed, fully CI-verified, and promoted to production PWA.
+
+
+## 2026-09-08 — Marrow Anatomy multi-bank pilot accepted on PWA preview
+
+- Created isolated branch `feature/marrow-bank-pilot` from the working V11.7
+  baseline; production PWA was not overwritten.
+- Added a subject-level bank selector. Anatomy now exposes existing PrepLadder
+  (1,068 questions / 50 topics) and Marrow (62 questions / 4 topics) while
+  reusing the same Practice, CBT, Review, FSRS, sync, module and analytics
+  engines.
+- Marrow data is namespaced and hash-verified. The 62-question pilot covers
+  Gametogenesis (19), Pre-Embryonic (13), Embryonic (16), and
+  Placenta/Fetal Membranes/Twinning (14). Three incomplete-list source defects
+  were resolved with provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
+  `ANAT_CH04_Q013`.
+- Marrow explanations use native structured text/tables and preserve the shared
+  Key takeaway surface. PrepLadder remains on the source-PDF renderer. Added a
+  Marrow-only source-derived takeaway fallback so the support surface never
+  disappears when the general heuristic returns empty.
+- Added real-browser verification for Anatomy → bank selector → Marrow topic →
+  repaired question → answered structured explanation, plus regression back to
+  PrepLadder. A case-sensitive `Key takeaway` assertion was corrected after
+  the UI correctly rendered `KEY TAKEAWAY`.
+- Pilot packaging initially caught two non-product issues: a Gradle
+  `applicationId` quote mismatch in the side-by-side APK script and an early
+  oversized GitHub data write that was truncated. The final implementation uses
+  reversible single-quote-aware Android identity switching and chunked,
+  cryptographically verified data transport.
+- Final verification: Engineering Gate `34159542431` success; full Android+PWA
+  run `34159542436` success; preview deployment
+  `https://feature-marrow-bank-pilot.nk-qbank.pages.dev` success; production
+  promotion intentionally skipped.
+- User opened the preview and reported everything works beautifully. Requested
+  future explanation improvement is presentation-only (typing/typography,
+  bolding, spacing, structure), not wording changes.
+- Added `docs/MARROW_BANK_INTEGRATION.md` and updated canonical memory. Next
+  session must generalize the temporary Anatomy-only `MARROW_RECORD` to a
+  subject-indexed/general bank registry before importing additional Anatomy,
+  Physiology, and Biochemistry Marrow data.
