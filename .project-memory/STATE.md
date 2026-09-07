@@ -105,7 +105,7 @@ baseline. Only explicit user physical-device approval promotes a candidate.
 - Upload now uses bounded parallel PATCH requests. Strict rules were re-deployed to `nk-qbank`, compiled successfully, and passed an authenticated write probe; disposable probe accounts/data were removed. The client also retries silently every five minutes, on foreground, and on reconnect, in addition to debounced sync after saves and manual Sync now. Full build and production promotion run `34100302605` passed; live code contains PATCH, no batchWrite, and the five-minute timer. Physical two-device verification remains.
 
 
-## 2026-09-07 resumed sync implementation (local candidate)
+## 2026-09-07 update UI and reliability candidate (build-verified)
 
 - Preserved the five integrated commits and prior FSRS acceptance documentation.
 - PWA installation now waits for explicit Update; controller changes reload only
@@ -120,7 +120,9 @@ baseline. Only explicit user physical-device approval promotes a candidate.
   compile PyMuPDF locally. Run `python3 tools/verify_local.py` (27 applicable
   checks pass). Five generated-artifact checks are explicitly deferred to CI.
 - Added Android/Termux preflight guards and strict Ubuntu CI PDF dependency
-  validation. Full verification of this candidate is pending its Linux CI run.
+  validation. Product commit `9d77dcb`: Engineering Gate `34145834064` and full
+  APK/PWA build `34145834079` passed, including PDF/generated/packaged checks.
 - Sync error details now expose the full backend reason and failed download
-  collection. Android sync is user-confirmed successful. Push the pending UI and
-  reliability changes and verify full CI; broader two-device acceptance is separate.
+  collection. Android sync is user-confirmed successful. PWA preview deployed;
+  production promotion was not requested. Next: install the new APK or open the
+  preview to verify the update UI on devices; broader two-device acceptance is separate.

@@ -211,3 +211,14 @@ CI runs, what changed, verification, device status, next step.
   account path; no learner data or rules were changed. No further probing planned.
 - Preserve accepted FSRS behavior and all local documentation. Push candidate and
   wait for full Linux CI, including PDF generation and packaged verification.
+
+
+## 2026-09-07 — Verify pushed update/reliability candidate
+
+- Pushed product commit `9d77dcb` on `v11.7-cross-device-pwa-sync`.
+- Engineering Gate `34145834064` and full Android/PWA run `34145834079` passed.
+  Linux CI executed PyMuPDF generation, source visual validation, generated UI,
+  FSRS and CBT contracts, final JavaScript, Gradle APK, packaged validation and
+  artifact upload. Cloudflare preview deployment passed; production was skipped.
+- The candidate is build-verified. Its new update UI still needs physical testing;
+  the user's successful Android sync confirmation is preserved separately.
