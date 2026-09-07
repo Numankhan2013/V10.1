@@ -31,7 +31,7 @@ METHODS = r'''
         String url = request.getUrl().toString(); if (!url.startsWith(APP_ORIGIN)) return null;
         try {
             String path = URLDecoder.decode(request.getUrl().getPath().substring("/app/".length()), "UTF-8");
-            if (path.isEmpty()) path = "index.html"; if (path.contains("..") || path.startsWith("/")) return null;
+            if (path.isEmpty()) path = "index.html"; if(path.startsWith("assets/"))path=path.substring(7); if (path.contains("..") || path.startsWith("/")) return null;
             byte[] bytes;
             try (InputStream in = getAssets().open(path); ByteArrayOutputStream out = new ByteArrayOutputStream()) { byte[] buffer=new byte[16384];int count;while((count=in.read(buffer))>=0)out.write(buffer,0,count);bytes=out.toByteArray(); }
             if ("index.html".equals(path) && !migrationPrefs.getBoolean("complete", false)) {
@@ -43,7 +43,7 @@ METHODS = r'''
         } catch (Exception ignored) { return null; }
     }
     private String migrationPayload() {
-        try { JSONObject p=new JSONObject();p.put("qbank_state_v1",migrationPrefs.getString("state",""));p.put("qbank_active_subject_v1",migrationPrefs.getString("subject",""));p.put("qbank_sync_v1",migrationPrefs.getString("sync",""));p.put("qbank_firebase_auth_v1",migrationPrefs.getString("auth",""));p.put("qbank_state_pre_cloud_v1",migrationPrefs.getString("backup",""));return p.toString(); } catch(Exception ignored){return "{}";}
+        try { JSONObject p=new JSONObject();p.put("qbank_state_v1",migrationPrefs.getString("state",""));p.put("qbank_active_subject_v1",migrationPrefs.getString("subject",""));p.put("qbank_sync_v1",migrationPrefs.getString("sync",""));p.put("qbank_firebase_auth_v1",migrationPrefs.getString("auth",""));p.put("qbank_state_pre_cloud_v1",migrationPrefs.getString("backup",""));return p.toString().replace("<","\\u003c").replace(">","\\u003e").replace("&","\\u0026"); } catch(Exception ignored){return "{}";}
     }
     private static String mimeType(String path) {
         String p=path.toLowerCase();if(p.endsWith(".html"))return "text/html";if(p.endsWith(".js")||p.endsWith(".mjs"))return "application/javascript";if(p.endsWith(".css"))return "text/css";if(p.endsWith(".json")||p.endsWith(".webmanifest"))return "application/manifest+json";if(p.endsWith(".png"))return "image/png";if(p.endsWith(".jpg")||p.endsWith(".jpeg"))return "image/jpeg";if(p.endsWith(".pdf"))return "application/pdf";return "application/octet-stream";

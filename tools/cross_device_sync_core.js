@@ -84,7 +84,7 @@
       nkSyncMeta.known[kind]=[...current[kind]];
     }
     nkQueueEnvelope(nkEnvelope('sessions','active',state.activeSession||null,nkEntityTimestamp(state.activeSession,Date.now()),!state.activeSession));
-    nkQueueEnvelope(nkEnvelope('preferences','main',{activeSubject},Date.now()));
+    nkQueueEnvelope(nkEnvelope('preferences','main',{activeSubject,studyStartedAt:state.studyStartedAt||null},Date.now()));
     nkSaveSyncMeta();nkScheduleCloudFlush();
   }
   function nkScheduleCloudSync(){if(!nkAuth)return;nkCaptureCloudChanges();}
@@ -132,7 +132,7 @@
     });state.reviews=reviews;
   }
   function nkApplyCloudEnvelope(remote){
-    const winner=nkChooseWinner(remote);if(winner!==remote&&nkHash(winner)!==nkHash(remote))return false;
+    const winner=remote.kind==='attempts'?remote:nkChooseWinner(remote);if(winner!==remote&&nkHash(winner)!==nkHash(remote))return false;
     const payload=winner.deleted?null:nkJson(winner.payload,null),id=winner.entityId;
     if(winner.kind==='attempts'&&payload?.attempt?.id){const qid=String(payload.qid),list=Array.isArray(state.attempts[qid])?state.attempts[qid]:[];if(!list.some(a=>String(a.id)===String(payload.attempt.id)))state.attempts[qid]=[...list,payload.attempt].sort((a,b)=>Number(a.at||0)-Number(b.at||0));}
     else if(winner.kind==='bookmarks'){if(winner.deleted||!payload?.active)delete state.bookmarks[id];else state.bookmarks[id]={addedAt:Number(winner.updatedAt),updatedAt:Number(winner.updatedAt)};}
@@ -152,7 +152,7 @@
       }state.studyModules=list.slice(-100);
     }
     else if(winner.kind==='sessions'){state.activeSession=winner.deleted?null:payload;}
-    else if(winner.kind==='preferences'&&payload?.activeSubject&&typeof SUBJECT_BY_NAME!=='undefined'&&SUBJECT_BY_NAME[payload.activeSubject])applySubject(payload.activeSubject);
+    else if(winner.kind==='preferences'&&payload){if(payload.activeSubject&&typeof SUBJECT_BY_NAME!=='undefined'&&SUBJECT_BY_NAME[payload.activeSubject])applySubject(payload.activeSubject);if(payload.studyStartedAt)state.studyStartedAt=state.studyStartedAt?Math.min(Number(state.studyStartedAt),Number(payload.studyStartedAt)):Number(payload.studyStartedAt);}
     return true;
   }
   async function nkPullCloud(token){let count=0;for(const kind of NK_SYNC_KINDS){const docs=await nkPullKind(kind,token);docs.forEach(doc=>{nkApplyCloudEnvelope(doc);count++;});}nkRebuildReviews();if(typeof nkNormalizeStudyModules==='function')nkNormalizeStudyModules();return count;}
@@ -161,7 +161,7 @@
     nkCloudReady=false;await nkCloudSync(true);nkCloudReady=true;nkCaptureCloudChanges();
   }
   async function nkCloudSync(initial=false){
-    if(nkCloudBusy||!nkAuth||!nkCloudConfigured())return false;nkCloudBusy=true;nkSyncMeta.status='syncing';render();
+    if(nkCloudBusy||!nkAuth||!nkCloudConfigured())return false;clearTimeout(nkCloudTimer);nkCloudBusy=true;nkSyncMeta.status='syncing';render();
     try{
       const token=await nkRefreshAuth(),pulled=await nkPullCloud(token);
       localStorage.setItem(LS_KEY,JSON.stringify(state));

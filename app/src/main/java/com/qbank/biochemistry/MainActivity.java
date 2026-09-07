@@ -104,6 +104,7 @@ public class MainActivity extends Activity {
         try {
             String path = URLDecoder.decode(request.getUrl().getPath().substring("/app/".length()), "UTF-8");
             if (path.isEmpty()) path = "index.html";
+            if (path.startsWith("assets/")) path = path.substring(7);
             if (path.contains("..") || path.startsWith("/")) return null;
             byte[] bytes;
             try (InputStream in = getAssets().open(path); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
@@ -131,7 +132,7 @@ public class MainActivity extends Activity {
             payload.put("qbank_sync_v1", migrationPrefs.getString("sync", ""));
             payload.put("qbank_firebase_auth_v1", migrationPrefs.getString("auth", ""));
             payload.put("qbank_state_pre_cloud_v1", migrationPrefs.getString("backup", ""));
-            return payload.toString();
+            return payload.toString().replace("<","\\u003c").replace(">","\\u003e").replace("&","\\u0026");
         } catch (Exception ignored) { return "{}"; }
     }
 

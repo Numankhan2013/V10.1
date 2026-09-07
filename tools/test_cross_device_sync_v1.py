@@ -2,6 +2,7 @@
 """Behavior tests for merge safety and PWA/sync source contracts."""
 
 from pathlib import Path
+import json
 import subprocess
 import tempfile
 
@@ -63,6 +64,21 @@ function applySubject(v){activeSubject=v}
     missing = [str(path.relative_to(ROOT)) for path in required if not path.is_file()]
     if missing:
         raise SystemExit(f"Missing cross-device/PWA files: {missing}")
+    manifest = json.loads((ROOT / "app/src/main/assets/manifest.webmanifest").read_text(encoding="utf-8"))
+    if manifest.get("display") != "standalone" or manifest.get("start_url") != "/#dashboard":
+        raise SystemExit("PWA manifest is not installable with the dashboard start route")
+    worker = (ROOT / "app/src/main/assets/sw.js").read_text(encoding="utf-8")
+    for marker in ("biochemistry_source_solution_map.js", "web_pdf_renderer.mjs", "SKIP_WAITING", "googleapis"):
+        if marker not in worker:
+            raise SystemExit(f"Service-worker contract missing: {marker}")
+    transform = (ROOT / "tools/apply_cross_device_pwa_v1.py").read_text(encoding="utf-8")
+    for marker in ("@media (min-width:768px)", "min-width:1024px", "nk-pwa-update", "location.hostname !== 'qbank.local'"):
+        if marker not in transform:
+            raise SystemExit(f"Responsive/update transform contract missing: {marker}")
+    android = (ROOT / "tools/apply_android_secure_origin_v1.py").read_text(encoding="utf-8")
+    for marker in ("APP_ORIGIN", "migrate_local_state.html", "QBankMigration", "\\u003c"):
+        if marker not in android:
+            raise SystemExit(f"Android migration contract missing: {marker}")
     rules = (ROOT / "firestore.rules").read_text(encoding="utf-8")
     if "request.auth.uid == userId" not in rules or "allow delete: if false" not in rules:
         raise SystemExit("Firestore ownership/tombstone rules are not protected")
