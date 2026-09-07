@@ -6,7 +6,7 @@
   const NK_AUTH_KEY='qbank_firebase_auth_v1';
   const NK_PRE_CLOUD_BACKUP='qbank_state_pre_cloud_v1';
   const NK_SYNC_KINDS=['attempts','bookmarks','tests','modules','sessions','preferences'];
-  let nkCloudBusy=false,nkCloudReady=false,nkCloudTimer=null;
+  let nkCloudBusy=false,nkCloudReady=false,nkCloudTimer=null,nkResolvedProjectId='';
 
   function nkJson(value,fallback){try{return JSON.parse(value);}catch(_){return fallback;}}
   function nkStable(value){
@@ -38,8 +38,27 @@
 
   async function nkFetchJson(url,options={}){
     const response=await fetch(url,options),text=await response.text(),body=nkJson(text,{});
-    if(!response.ok){const error=new Error(body?.error?.message||body?.error?.status||`Request failed (${response.status})`);error.status=response.status;throw error;}
+    if(!response.ok){
+      const base=body?.error?.message||body?.error?.status||'Request failed';
+      const error=new Error(`${base} (HTTP ${response.status})`);
+      error.status=response.status;throw error;
+    }
     return body;
+  }
+  async function nkResolveFirebaseProjectId(){
+    if(nkResolvedProjectId)return nkResolvedProjectId;
+    const c=nkFirebaseConfig();
+    nkResolvedProjectId=c.projectId;
+    if(!c.apiKey)return nkResolvedProjectId;
+    try{
+      const data=await nkFetchJson(`https://identitytoolkit.googleapis.com/v1/projects?key=${encodeURIComponent(c.apiKey)}`);
+      const discovered=String(data?.projectId||'').trim();
+      if(discovered){
+        nkResolvedProjectId=discovered;
+        if(window.NK_QBANK_FIREBASE_CONFIG)window.NK_QBANK_FIREBASE_CONFIG.projectId=discovered;
+      }
+    }catch(_){}
+    return nkResolvedProjectId;
   }
   async function nkRefreshAuth(){
     if(!nkAuth?.refreshToken)throw new Error('Sign in to synchronize.');
@@ -97,13 +116,14 @@
   }
   function nkFirestoreDocument(envelope,docName){const fields={};Object.entries(envelope).forEach(([key,value])=>fields[key]=nkFirestoreValue(value));return {name:docName,fields};}
   function nkDecodeDocument(doc){const f=doc?.fields||{},read=k=>f[k]?.stringValue??f[k]?.integerValue??f[k]?.booleanValue;return {kind:String(read('kind')||''),entityId:String(read('entityId')||''),ownerDevice:String(read('ownerDevice')||''),updatedAt:Number(read('updatedAt')||0),deleted:Boolean(read('deleted')),payload:String(read('payload')||''),schemaVersion:Number(read('schemaVersion')||0)};}
-  function nkFirestoreRoot(){const c=nkFirebaseConfig();return `https://firestore.googleapis.com/v1/projects/${encodeURIComponent(c.projectId)}/databases/(default)/documents`;}
+  function nkFirestoreProjectId(){return String(nkResolvedProjectId||nkFirebaseConfig().projectId||'');}
+  function nkFirestoreRoot(){return `https://firestore.googleapis.com/v1/projects/${encodeURIComponent(nkFirestoreProjectId())}/databases/(default)/documents`;}
   function nkDocId(envelope){return encodeURIComponent(`${envelope.ownerDevice}--${envelope.entityId}`);}
   async function nkPushOutbox(token){
     const entries=Object.entries(nkSyncMeta.outbox||{});if(!entries.length)return 0;
     let sent=0;
     for(let i=0;i<entries.length;i+=200){
-      const batch=entries.slice(i,i+200),writes=batch.map(([,e])=>{const name=`projects/${nkFirebaseConfig().projectId}/databases/(default)/documents/users/${nkAuth.uid}/${e.kind}/${nkDocId(e)}`;return {update:nkFirestoreDocument(e,name)};});
+      const batch=entries.slice(i,i+200),writes=batch.map(([,e])=>{const name=`projects/${nkFirestoreProjectId()}/databases/(default)/documents/users/${nkAuth.uid}/${e.kind}/${nkDocId(e)}`;return {update:nkFirestoreDocument(e,name)};});
       const result=await nkFetchJson(`${nkFirestoreRoot()}:batchWrite`,{method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify({writes})});
       const failed=(result.status||[]).find(status=>Number(status?.code||0)!==0);if(failed)throw new Error(failed.message||'A synchronized write was rejected.');
       batch.forEach(([key])=>delete nkSyncMeta.outbox[key]);sent+=batch.length;nkSaveSyncMeta();
@@ -166,17 +186,25 @@
   }
   async function nkCloudSync(initial=false){
     if(nkCloudBusy||!nkAuth||!nkCloudConfigured())return false;clearTimeout(nkCloudTimer);nkCloudBusy=true;nkSyncMeta.status='syncing';render();
+    let stage='Firebase project';
     try{
-      const token=await nkRefreshAuth(),pulled=await nkPullCloud(token);
+      const projectId=await nkResolveFirebaseProjectId();
+      if(!projectId)throw new Error('Firebase project ID is unavailable.');
+      stage='authentication';
+      const token=await nkRefreshAuth();
+      stage='download';
+      const pulled=await nkPullCloud(token);
       localStorage.setItem(LS_KEY,JSON.stringify(state));
       if(initial){nkCloudReady=true;nkCaptureCloudChanges();}
-      const pushed=await nkPushOutbox(token);nkSyncMeta.lastSyncAt=Date.now();nkSyncMeta.status='synced';nkSyncMeta.lastError='';nkSaveSyncMeta();render();return {pulled,pushed};
+      stage='upload';
+      const pushed=await nkPushOutbox(token);
+      nkSyncMeta.lastSyncAt=Date.now();nkSyncMeta.status='synced';nkSyncMeta.lastError='';nkSaveSyncMeta();render();return {pulled,pushed};
     }catch(error){
       nkSyncMeta.status=navigator.onLine?'error':'offline';
-      nkSyncMeta.lastError=String(error.message||error);
+      nkSyncMeta.lastError=`${stage}: ${String(error.message||error)}`;
       nkSaveSyncMeta();
       if(!initial){
-        const detail=nkSyncMeta.lastError.slice(0,180);
+        const detail=nkSyncMeta.lastError.slice(0,220);
         showToast(navigator.onLine?`Sync paused: ${detail}`:'Offline. Changes will sync when connected.','bad');
       }
       return false;
