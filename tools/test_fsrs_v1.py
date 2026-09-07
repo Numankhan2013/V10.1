@@ -41,7 +41,7 @@ const store=new Map();global.localStorage={{getItem:k=>store.has(k)?store.get(k)
 const LS_KEY='qbank_state_v1',now=Date.now(),questions=Array.from({{length:190}},(_,i)=>({{id:'q'+i,subject:i<95?'Anatomy':'Physiology',chapterId:String(i%4),chapter:'Topic '+(i%4),correctOption:1}}));
 const SUBJECTS=[{{subject:'Anatomy',topics:[{{id:'0',title:'Topic 0'}}],questions:questions.slice(0,95)}},{{subject:'Physiology',topics:[{{id:'0',title:'Topic 0'}}],questions:questions.slice(95)}}];
 let state={{attempts:{{q0:[{{id:'legacy',selected:1,correct:true,at:now-86400000}}]}},reviews:{{q0:{{nextReviewAt:now+123456}}}},fsrsPreferences:null,activeSession:null}};
-let BY_ID=Object.fromEntries(questions.map(q=>[q.id,q])),dashboard=()=>'<main></main>',morePage=()=>'<main></main>',practicePage=()=>'<main><div class="action-spacer"></div></main>',submitPractice=()=>{{}},nextQ=()=>{{}},prevQ=()=>{{}},goIndex=()=>{{}},retryCurrent=()=>{{}},endSession=()=>{{}},navigate=()=>{{}},recordAttempt=()=>{{}},qAttempts=()=>[],nkRebuildReviews=()=>{{}};
+let BY_ID=Object.fromEntries(questions.map(q=>[q.id,q])),dashboard=()=>'<main></main>',morePage=()=>'<main></main>',practicePage=()=>'<main></main>',practiceActionBar=()=>'<div class="fixed-actions nk-session-footer"><div class="fixed-actions-inner"><button>Previous</button><button>Next</button></div></div>',submitPractice=()=>{{}},nextQ=()=>{{}},prevQ=()=>{{}},goIndex=()=>{{}},retryCurrent=()=>{{}},endSession=()=>{{}},navigate=()=>{{}},recordAttempt=()=>{{}},qAttempts=()=>[],nkRebuildReviews=()=>{{}};
 const saveState=()=>localStorage.setItem(LS_KEY,JSON.stringify(state)),startSession=()=>{{}},render=()=>{{}},showToast=()=>{{}},savePracticeElapsed=()=>{{}},haptic=()=>{{}},esc=x=>String(x),windowQB={{}};window.QB=windowQB;global.document={{getElementById:()=>null,body:{{insertAdjacentHTML:()=>{{}}}}}};window.addEventListener=()=>{{}};
 {core}
 nkFsrsInit();assert.equal(state.reviews.q0.schemaVersion,2);assert.equal(state.reviews.q0.nextReviewAt,now+123456,'legacy due date preserved');
@@ -56,8 +56,10 @@ nkFsrsSetPreference('desiredRetention',99);assert.equal(state.fsrsPreferences.de
 const countBefore=nkFsrsActiveAttempts('q0').length;nkFsrsUndo();assert.equal(nkFsrsActiveAttempts('q0').length,countBefore-1,'undo removes latest active rating through an event');
 const dueBefore=state.reviews.q1.due;nkFsrsSetPreference('desiredRetention',80);nkFsrsReplay('q1');assert.equal(state.reviews.q1.due,dueBefore,'settings must not reschedule past ratings on replay');
 state.activeSession={{mode:'practice',questionIds:['q188'],index:0,answers:{{q188:1}},submitted:{{}},questionTimes:{{q188:900}}}};
-submitPractice();assert(state.activeSession.pendingRating.q188);assert(practicePage().includes('nk-fsrs-rating'));nextQ();assert.equal(nkFsrsActiveAttempts('q188').at(-1).rating,3);nkFsrsRecoverPending();assert.equal(nkFsrsActiveAttempts('q188').length,1);
-state.activeSession={{mode:'practice',questionIds:['q187'],index:0,answers:{{q187:2}},submitted:{{}},questionTimes:{{}}}};submitPractice();assert.equal(nkFsrsActiveAttempts('q187').at(-1).rating,1);
+assert(!practiceActionBar().includes('nk-fsrs-rating'),'no recall dock before answer submission');
+submitPractice();assert(state.activeSession.pendingRating.q188);
+const dock=practiceActionBar();assert(dock.includes('nk-fsrs-docked'));assert(dock.indexOf('nk-fsrs-rating')<dock.indexOf('fixed-actions-inner'),'recall dock must be inside the fixed footer immediately above navigation');assert(dock.includes('Rate recall')&&dock.includes('Default: Good')&&dock.includes('nk-fsrs-medallion'));assert(!practicePage().includes('nk-fsrs-rating'),'no duplicate in content');nextQ();assert.equal(nkFsrsActiveAttempts('q188').at(-1).rating,3);nkFsrsRecoverPending();assert.equal(nkFsrsActiveAttempts('q188').length,1);
+state.activeSession={{mode:'practice',questionIds:['q187'],index:0,answers:{{q187:2}},submitted:{{}},questionTimes:{{}}}};submitPractice();assert.equal(nkFsrsActiveAttempts('q187').at(-1).rating,1);assert(!practiceActionBar().includes('nk-fsrs-rating'),'incorrect answer retains automatic Again without manual dock');
 console.log('FSRS_BEHAVIOR_OK');
 """
 

@@ -84,6 +84,31 @@ async function testRequests(){
   assert(!settled,'failed batch must wait for remaining in-flight writes before retry');
   releaseSuccess();await partial;
   assert(nkSyncMeta.outbox['bookmarks/q1']&&!nkSyncMeta.outbox['bookmarks/q2'],'partial batch must retain failures and acknowledge successes');
+  // Reproduce the original echo loop: remote preferences call the real save hook.
+  state={attempts:{},bookmarks:{},reviews:{},tests:[],studyModules:[],activeSession:null};
+  nkSyncMeta={deviceId:'local',outbox:{},localHashes:{},known:{},winners:{},cursors:{}};
+  nkAuth={uid:'user',idToken:'valid-token',refreshToken:'refresh',expiresAt:Date.now()+3600000};
+  let scheduled=0,renders=0,writes=0;
+  globalThis.setTimeout=()=>{scheduled++;return 1;};globalThis.clearTimeout=()=>{};
+  render=()=>{renders++;};
+  SUBJECT_BY_NAME.Anatomy={};
+  applySubject=value=>{activeSubject=value;nkScheduleCloudSync();};
+  const remote=nkEnvelope('preferences','main',{activeSubject:'Anatomy',studyStartedAt:null,fsrsPreferences:null},Date.now()+10000);
+  remote.ownerDevice='remote';
+  globalThis.fetch=async(url,options)=>{
+    if(options.method==='PATCH'){writes++;return {ok:true,text:async()=>'{}'};}
+    const kind=JSON.parse(options.body).structuredQuery.from[0].collectionId;
+    return {ok:true,text:async()=>JSON.stringify(kind==='preferences'?[{document:nkFirestoreDocument(remote)}]:[])};
+  };
+  await nkCloudSync(false,true);
+  assert(activeSubject==='Anatomy','remote preferences must still merge');
+  scheduled=0;renders=0;writes=0;
+  await nkCloudSync(false,true);await nkCloudSync(false,true);nkCaptureCloudChanges();
+  assert(scheduled===0,'unchanged remote sync must never schedule another sync');
+  assert(renders===0,'unchanged background sync must not rebuild the screen');
+  assert(writes===0,'remote preferences must not echo back as local writes');
+  state.bookmarks.q9={addedAt:Date.now()};nkCaptureCloudChanges();
+  assert(scheduled===1&&nkSyncMeta.outbox['bookmarks/q9'],'real local edits must still schedule upload');
   console.log('CROSS_DEVICE_SYNC_BEHAVIOR_OK');
 }
 testRequests().catch(error=>{console.error(error);process.exitCode=1;});
@@ -94,6 +119,7 @@ const localStorage={getItem:k=>Object.prototype.hasOwnProperty.call(storage,k)?s
 const window={NK_QBANK_FIREBASE_CONFIG:{}};
 const navigator={onLine:true};
 const location={hostname:'qbank.local'};
+const document={querySelector:()=>null};
 const LS_KEY='qbank_state_v1';
 let state={};let activeSubject='Biochemistry';
 const SUBJECT_BY_NAME={Biochemistry:{}};

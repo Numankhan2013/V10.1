@@ -222,3 +222,21 @@ CI runs, what changed, verification, device status, next step.
   artifact upload. Cloudflare preview deployment passed; production was skipped.
 - The candidate is build-verified. Its new update UI still needs physical testing;
   the user's successful Android sync confirmation is preserved separately.
+
+
+## 2026-09-07 — Correct missed FSRS dock and sync feedback loop
+
+- User reported the FSRS UI still did not match the supplied reference and both
+  apps flickered during continuous sync. Inspected the JPG and approved dock spec.
+- Moved recall markup from question content into the existing fixed practice footer
+  immediately before Previous/Next. Added the brain medallion, Rate recall/default
+  label, three text-only pills, purple Good, and static diffuse glow. Preserve
+  scheduler semantics and hide the dock until a correct answer is submitted.
+- Reproduced the sync loop: pulled preferences invoked the local-save hook, which
+  scheduled a new sync even with no changed envelopes. Suppress capture only during
+  synchronous remote merges, seed received hashes, and schedule only actual edits.
+  Update status elements in place; do not reconstruct the page for unchanged syncs.
+- Added regression coverage for no echo writes/timers/renders, local edits still
+  uploading, pre-answer absence, footer placement, and rating behavior. Added Linux
+  browser checks and screenshot artifacts for generated app widths 320/390/768.
+- Candidate will be pushed, fully CI-verified, and promoted to production PWA.

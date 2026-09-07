@@ -231,6 +231,20 @@ jobs:
           test -s build/web/vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js
           test -s build/web/vendor/ts-fsrs/LICENSE
           grep -q 'NK_FSRS_V6_START' build/web/index.html
+      - name: Install Linux browser verification dependencies
+        run: |
+          python3 -m pip install --disable-pip-version-check playwright
+          python3 -m playwright install --with-deps chromium
+      - name: Verify generated recall dock in browser
+        run: python3 tools/verify_recall_dock_browser.py
+      - name: Upload recall dock screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: recall-dock-screenshots
+          path: build/ui-checks/*.png
+          retention-days: 3
+          if-no-files-found: warn
       - name: Set up JDK 17
         uses: actions/setup-java@v5
         with:

@@ -17,3 +17,13 @@ NK QBank includes a functional offline FSRS v6 review system in both the Android
 The deterministic pipeline installs FSRS after cross-device integration and verifies the generated source, web artifact, and packaged APK assets. `tools/test_fsrs_v1.py` covers migration, replay, ratings, queue caps and filters, preferences, undo, pending-rating recovery, and the offline vendor assets.
 
 FSRS acceptance status as of 2026-09-07: the new APK was installed and confirmed working, and the website/PWA was opened and confirmed functional. The separate Firebase cross-device synchronization acceptance remains tracked in the project memory and deployment handoff.
+
+
+## Recall dock
+
+After a correct answer is submitted, the Hard / Good / Easy recall dock appears
+inside the fixed practice footer, immediately above Previous / Next. It uses the
+approved brain medallion, Rate recall / Default: Good label, text-only pills,
+purple Good default, and a static lilac glow. It is absent before answering and
+in CBT/review modes. Incorrect answers retain automatic Again; Next still commits
+an unanswered recall prompt as Good. Scheduler semantics are unchanged.

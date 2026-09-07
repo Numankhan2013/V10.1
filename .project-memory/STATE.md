@@ -126,3 +126,19 @@ baseline. Only explicit user physical-device approval promotes a candidate.
   collection. Android sync is user-confirmed successful. PWA preview deployed;
   production promotion was not requested. Next: install the new APK or open the
   preview to verify the update UI on devices; broader two-device acceptance is separate.
+
+
+## Urgent recall dock and sync flicker correction
+
+- User reported unchanged FSRS placement and continuous sync flicker on both
+  targets. Implemented the approved reference from docs/ui-reference: fixed recall
+  dock immediately above Previous/Next, brain medallion, text-only pills, purple
+  Good default and static lilac glow. Dock is absent before answer submission;
+  existing correct-answer pending rating / incorrect-answer Again semantics stay.
+- Removed preference/save echo loop, unchanged-save scheduling, and full-page sync
+  status renders. Received revisions seed hashes; only actual remote mutations
+  render once. Network waits do not suppress local saves.
+- Regression tests pass locally. New Linux browser test checks generated placement,
+  narrow layouts, pre-answer absence, scrolling, and rating behavior with screenshots.
+- New candidate CI and production promotion pending; prior passing runs do not
+  verify this correction. PyMuPDF/browser generation remain Linux CI-only.

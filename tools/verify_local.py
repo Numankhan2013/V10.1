@@ -14,7 +14,7 @@ CI_TESTS = {
     "test_session_experience_v2.py",
     "test_whole_app_vision_v1.py",
 }
-CI_VERIFIERS = {"verify_cbt_invariants.py", "verify_source_visual_contract.py"}
+CI_VERIFIERS = {"verify_cbt_invariants.py", "verify_source_visual_contract.py", "verify_recall_dock_browser.py"}
 
 
 def main():
