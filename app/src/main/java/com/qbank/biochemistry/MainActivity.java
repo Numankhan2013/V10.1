@@ -2,12 +2,15 @@ package com.qbank.biochemistry;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.pdf.PdfRenderer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
@@ -33,6 +36,9 @@ public class MainActivity extends Activity {
     private PdfRenderer physiologyRenderer;
     private ParcelFileDescriptor physiologyPfd;
     private final Object pdfLock = new Object();
+    private static final String APP_ORIGIN = "https://qbank.local/app/";
+    private static final String MIGRATION_PREFS = "qbank_origin_migration_v1";
+    private SharedPreferences migrationPrefs;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -42,6 +48,7 @@ public class MainActivity extends Activity {
         window.setStatusBarColor(Color.rgb(52, 46, 134));
         window.setNavigationBarColor(Color.rgb(244, 245, 248));
         preparePhysiologyPdf();
+        migrationPrefs = getSharedPreferences(MIGRATION_PREFS, Context.MODE_PRIVATE);
 
         webView = new WebView(this);
         WebSettings settings = webView.getSettings();
@@ -60,19 +67,84 @@ public class MainActivity extends Activity {
 
         webView.setBackgroundColor(Color.WHITE);
         webView.setWebChromeClient(new WebChromeClient());
+        webView.addJavascriptInterface(new MigrationBridge(), "QBankMigration");
         webView.setWebViewClient(new WebViewClient() {
-            @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) { return true; }
+            @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) { return !request.getUrl().toString().startsWith(APP_ORIGIN); }
             @Override public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                injectHomePolish();
+                if (url.startsWith(APP_ORIGIN)) injectHomePolish();
             }
             @Override public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
                 WebResourceResponse response = renderPhysiologyPdfRequest(request);
+                if (response == null) response = serveAppAsset(request);
                 return response != null ? response : super.shouldInterceptRequest(view, request);
             }
         });
         setContentView(webView);
-        webView.loadUrl("file:///android_asset/index.html");
+        if (migrationPrefs.getBoolean("complete", false)) webView.loadUrl(APP_ORIGIN + "index.html");
+        else webView.loadUrl("file:///android_asset/migrate_local_state.html");
+    }
+
+    private final class MigrationBridge {
+        @JavascriptInterface public void capture(String state, String subject, String sync, String auth, String backup) {
+            migrationPrefs.edit().putString("state", state).putString("subject", subject)
+                    .putString("sync", sync).putString("auth", auth).putString("backup", backup).apply();
+            runOnUiThread(() -> webView.loadUrl(APP_ORIGIN + "index.html"));
+        }
+        @JavascriptInterface public void complete() {
+            migrationPrefs.edit().putBoolean("complete", true).remove("state").remove("subject")
+                    .remove("sync").remove("auth").remove("backup").apply();
+            runOnUiThread(() -> { if (webView != null) webView.removeJavascriptInterface("QBankMigration"); });
+        }
+    }
+
+    private WebResourceResponse serveAppAsset(WebResourceRequest request) {
+        String url = request.getUrl().toString();
+        if (!url.startsWith(APP_ORIGIN)) return null;
+        try {
+            String path = URLDecoder.decode(request.getUrl().getPath().substring("/app/".length()), "UTF-8");
+            if (path.isEmpty()) path = "index.html";
+            if (path.contains("..") || path.startsWith("/")) return null;
+            byte[] bytes;
+            try (InputStream in = getAssets().open(path); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+                byte[] buffer = new byte[16384]; int count;
+                while ((count = in.read(buffer)) >= 0) out.write(buffer, 0, count);
+                bytes = out.toByteArray();
+            }
+            if ("index.html".equals(path) && !migrationPrefs.getBoolean("complete", false)) {
+                String html = new String(bytes, StandardCharsets.UTF_8);
+                String script = "<script>(function(){var p=" + migrationPayload() + ";" +
+                        "Object.keys(p).forEach(function(k){if(p[k]&&!localStorage.getItem(k))localStorage.setItem(k,p[k]);});" +
+                        "try{QBankMigration.complete();}catch(e){}})();</script>";
+                html = html.replace("<head>", "<head>" + script);
+                bytes = html.getBytes(StandardCharsets.UTF_8);
+            }
+            return new WebResourceResponse(mimeType(path), "UTF-8", new ByteArrayInputStream(bytes));
+        } catch (Exception ignored) { return null; }
+    }
+
+    private String migrationPayload() {
+        try {
+            JSONObject payload = new JSONObject();
+            payload.put("qbank_state_v1", migrationPrefs.getString("state", ""));
+            payload.put("qbank_active_subject_v1", migrationPrefs.getString("subject", ""));
+            payload.put("qbank_sync_v1", migrationPrefs.getString("sync", ""));
+            payload.put("qbank_firebase_auth_v1", migrationPrefs.getString("auth", ""));
+            payload.put("qbank_state_pre_cloud_v1", migrationPrefs.getString("backup", ""));
+            return payload.toString();
+        } catch (Exception ignored) { return "{}"; }
+    }
+
+    private static String mimeType(String path) {
+        String lower = path.toLowerCase();
+        if (lower.endsWith(".html")) return "text/html";
+        if (lower.endsWith(".js") || lower.endsWith(".mjs")) return "application/javascript";
+        if (lower.endsWith(".css")) return "text/css";
+        if (lower.endsWith(".json") || lower.endsWith(".webmanifest")) return "application/manifest+json";
+        if (lower.endsWith(".png")) return "image/png";
+        if (lower.endsWith(".jpg") || lower.endsWith(".jpeg")) return "image/jpeg";
+        if (lower.endsWith(".pdf")) return "application/pdf";
+        return "application/octet-stream";
     }
 
     private void injectHomePolish() {

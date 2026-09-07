@@ -6,31 +6,29 @@
 ## Repo / branch
 
 - Repo: `Numankhan2013/V10.1` (private)
-- Active branch: `v11.5-custom-study-modules`
+- Active branch: `v11.7-cross-device-pwa-sync`
 - Resolve live branch/HEAD with `git branch --show-current` and
   `git rev-parse HEAD`; never hardcode a self-staling current-HEAD value here.
-- Last substantive V11.5 product commit: `f13d12f` (`Label V11.5 APK artifact`),
-  followed by harness-neutral memory-only commits; inspect live Git for the
-  current tip.
-- Parent lineage: `v11.4-whole-app-vision` fix `9e6abc7`.
+- Accepted product parent: V11.6 `125d68b`; the V11.7 branch merged the
+  harness-neutral memory lineage at `309aabb`. Resolve live HEAD with Git.
+- Earlier product lineage: V11.5 `f13d12f` → V11.6 `125d68b`.
 - `main` (`8bc0be4`) is stale and must not be used as the V11 baseline.
 
 ## Verification and accepted baseline
 
-- Accepted baseline: **V11.5 Custom Study Modules**. The user physically tested
-  the APK and said it “works beautifully,” with no questions about the feature.
-- Accepted product commit: `f13d12f`; canonical APK run: `34049637559`.
+- Accepted baseline: **V11.6 Content Quality**. The user physically tested and
+  accepted the APK on 2026-09-06.
+- Accepted product commit: `125d68b`; canonical APK run: `34050921180`.
 - Latest V11.5 memory-head build `34051356682` and Engineering Gate
   `34051356708` both passed at `e6a2fc7`.
-- Separate branch `v11.6-content-quality`, commit `125d68b`: Engineering Gate
-  `34050921166` and full packaged build `34050921180` passed. It improves
-  comparison/table takeaways and removes PrepLadder/page metadata from 78 of
-  719 audited stems. It is build-verified, not yet device-verified or accepted.
+- V11.6 Engineering Gate `34050921166` and full packaged build `34050921180`
+  passed before physical-device acceptance. It improves comparison/table
+  takeaways and removes PrepLadder/page metadata from 78 of 719 audited stems.
 
 Labels are strict: implemented ≠ build-verified ≠ device-verified ≠ accepted
 baseline. Only explicit user physical-device approval promotes a candidate.
 
-## What currently works (V11.5 device-verified and accepted)
+## What currently works (V11.6 device-verified and accepted)
 
 - Practice, Timed CBT, final-question session review, navigator/jumping,
   Submit/Finish, Practice/CBT Analysis, and Review Solutions with grid,
@@ -50,9 +48,8 @@ baseline. Only explicit user physical-device approval promotes a candidate.
 
 ## Known problems / cautions
 
-- V11.6 content quality is on a separate branch forked from `f13d12f`; it does
-  not contain the later memory commits. Preserve both histories when
-  consolidating—do not overwrite either branch.
+- V11.7 is an unverified evolution branch that merges accepted V11.6 with the
+  memory lineage. Preserve `v11.6-content-quality` as the immutable checkpoint.
 - Root `AGENTS.md` placement is correct, but no filename can force every unknown
   harness to load it. Thin common-harness adapters and
   `tools/verify_project_memory.py` reduce discovery and drift risk.
@@ -63,9 +60,8 @@ baseline. Only explicit user physical-device approval promotes a candidate.
 
 ## Next step
 
-1. Physically test V11.6, especially table takeaways and cleaned stems; accept
-   only after explicit user confirmation.
-2. Consolidate V11.6 with this memory-system lineage without losing either set
-   of commits, then continue R1 gold-standard question-screen refinement.
-3. After substantial work, refresh this handoff, append `SESSION_LOG.md`, and
-   run `python3 tools/verify_project_memory.py`.
+1. Finish and build-verify V11.7 Android + PWA + Firebase sync.
+2. Configure the external Firebase/Cloudflare account values, then run the
+   Android migration and two-device acceptance checklist.
+3. Do not promote V11.7 until Android and iPad synchronization are physically
+   verified; V11.6 remains the rollback checkpoint.

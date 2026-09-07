@@ -4,11 +4,11 @@
 
 - Repository: `Numankhan2013/V10.1`
 - Physically accepted product: V11.5 Custom Study Modules
-- Accepted product commit: `f13d12f`
+- Accepted product commit: `125d68b`
 - Accepted lineage: `v11.5-custom-study-modules`
 - Current build-verified candidate: `v11.6-content-quality` (`125d68b`)
 
-V11.5 is the behavioral and accepted product baseline. Passing CI means a candidate is build-verified; only a successful physical-device test and explicit user approval can promote it to the accepted baseline.
+V11.6 is the behavioral and accepted product baseline. Passing CI means a candidate is build-verified; only a successful physical-device test and explicit user approval can promote it to the accepted baseline.
 
 ## Protected product contract
 

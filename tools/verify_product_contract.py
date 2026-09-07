@@ -52,9 +52,9 @@ def main() -> None:
         ".question-text", ".option-list", ".feedback", ".q-footer",
         "localStorage", "activeSession",
     ], "source contract")
-    require(manifest, ['android:label="NK QBank"', 'android:usesCleartextTraffic="false"'], "Android manifest")
+    require(manifest, ['android:label="NK QBank"', 'android:usesCleartextTraffic="false"', 'android.permission.INTERNET'], "Android manifest")
     require(native, ["setJavaScriptEnabled(true)", "setDomStorageEnabled(true)",
-                     "setAllowContentAccess(false)", "MIXED_CONTENT_NEVER_ALLOW"], "WebView contract")
+                     "setAllowContentAccess(false)", "MIXED_CONTENT_NEVER_ALLOW", "APP_ORIGIN", "serveAppAsset", "qbank_origin_migration_v1"], "WebView contract")
 
     for asset in (
         "Biochemistry_QBank_Source.pdf", "Physiology_QBank_Source.pdf",
@@ -92,7 +92,8 @@ def main() -> None:
             "route.page==='module-builder'", "studyModules: []",
             "nkSyncModuleFromSession",
             "NK_QUESTION_CONTENT_HYGIENE_V1_START", "nkCleanQuestionStem",
-            "nkTableTakeaway",
+            "nkTableTakeaway", "NK_CROSS_DEVICE_SYNC_V1_START",
+            "nkCloudAccountCard", "manifest.webmanifest", "web_pdf_renderer.mjs",
         ], f"{args.stage} contract")
 
     checked = check_javascript(html)

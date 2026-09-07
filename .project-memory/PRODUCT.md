@@ -12,8 +12,8 @@ Core/basic functionality is complete with no known regression.
 Work is **refinement, polish, consistency, usability, and engineering
 hardening** — not feature rescue. Avoid novelty for its own sake.
 
-V11.5 Custom Study Modules is the accepted device-tested product baseline;
-later candidates must build forward from it.
+V11.6 Content Quality is the accepted device-tested product baseline; it includes
+V11.5 Custom Study Modules. Later candidates must build forward from it.
 ## North star and motto
 
 > Every screen should make the next useful learning action obvious.

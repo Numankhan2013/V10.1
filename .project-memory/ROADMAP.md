@@ -12,10 +12,12 @@ Check off only when build-verified **and** device-verified where UI is involved.
 - [x] Fresh-agent reconstruction audit. It recovered architecture and release
       context, but exposed stale facts, self-staling HEAD, and missing non-AGENTS
       harness discovery. Fixed with thin adapters, schema, and an integrity check.
-- [ ] Physically test V11.6 content quality (`125d68b`, run `34050921180`):
-      comparison/table takeaways and removal of metadata from 78 affected stems.
-- [ ] Consolidate `v11.6-content-quality` with the V11.5 memory lineage without
-      losing either history, then continue R1.
+- [x] Physically test and accept V11.6 content quality (`125d68b`, run
+      `34050921180`): comparison/table takeaways and metadata cleanup.
+- [x] Consolidate accepted V11.6 with the harness-neutral memory lineage on
+      `v11.7-cross-device-pwa-sync` without altering either checkpoint branch.
+- [ ] Deliver V11.7: responsive PWA plus conflict-safe Firebase synchronization
+      while preserving the accepted Android behavior and existing local data.
 
 ## R1 — Gold-standard Question Screen (highest priority per `memory.md`)
 

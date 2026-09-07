@@ -115,3 +115,15 @@ and fall back to the correct answer when extraction is ambiguous. Source footer
 metadata is sanitized centrally before questions reach Practice, CBT, modules,
 or Review. The separate V11.6 candidate audited 719 questions and identified
 78 affected stems; build `34050921180` passed, pending device acceptance.
+
+## 12. Cross-device evolution keeps one product core (2026-09-07, V11.7)
+
+Android and PWA consume the same deterministically generated HTML/data instead
+of forking a simplified web rewrite. Question/source content stays static; only
+private learner state is synchronized. Firestore uses normalized entity
+collections and per-device revision envelopes: immutable records union, mutable
+records use timestamp/device tie-breaking and tombstones, and same-generation
+module completion merges. Android moves from `file://` to an intercepted private
+HTTPS asset origin with a one-time migration bridge, avoiding both data loss and
+unsafe universal file access. Cloudflare Pages hosts the PWA; the oversized
+Anatomy PDF uses configurable R2 while PDF.js preserves browser source rendering.

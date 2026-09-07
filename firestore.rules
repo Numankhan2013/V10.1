@@ -1,0 +1,26 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId}/{document=**} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow create, update: if request.auth != null
+        && request.auth.uid == userId
+        && request.resource.data.keys().hasOnly([
+          'kind', 'entityId', 'ownerDevice', 'updatedAt', 'deleted',
+          'payload', 'schemaVersion'
+        ])
+        && request.resource.data.kind is string
+        && request.resource.data.entityId is string
+        && request.resource.data.ownerDevice is string
+        && request.resource.data.updatedAt is int
+        && request.resource.data.deleted is bool
+        && request.resource.data.payload is string
+        && request.resource.data.payload.size() <= 900000
+        && request.resource.data.schemaVersion == 1;
+      allow delete: if false;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

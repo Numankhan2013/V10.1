@@ -32,13 +32,12 @@ The user's preference is **more building and less narrating**. Execute safe, con
 
 ---
 
-## 2. Current accepted state — V11.5 Custom Study Modules
+## 2. Current accepted state — V11.6 Content Quality
 
-V11.5 is the current accepted baseline. The user physically tested the module
-APK and reported that it works beautifully. Accepted product commit: `f13d12f`;
-canonical successful APK run: `34049637559`. It includes the previously accepted
-Home, review, source-visual, and question-experience foundation plus persistent
-Custom Study Modules.
+V11.6 is the current accepted baseline. The user physically tested and accepted
+the APK. Accepted product commit: `125d68b`; canonical successful APK run:
+`34050921180`. It includes V11.5 Custom Study Modules plus comparison-aware key
+takeaways and centralized removal of leaked source metadata from question stems.
 
 Run 220 remains the earlier foundational acceptance record:
 - Run number: `220`
@@ -570,7 +569,7 @@ This is a direction, not a command to modularize now.
 
 ## 14. Working rules for future assistants
 
-1. Treat V11.5 Custom Study Modules (`f13d12f`) as the current physically accepted baseline.
+1. Treat V11.6 Content Quality (`125d68b`) as the current physically accepted baseline.
 2. Preserve every working core feature.
 3. Do not revive the failed V11 shell.
 4. Do not replace WebView architecture just for convenience.
