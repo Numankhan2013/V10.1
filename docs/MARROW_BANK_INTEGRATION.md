@@ -226,47 +226,91 @@ automatically. Production promotion remains deliberate.
    verification before any production promotion.
 
 
-## Gold-standard explanation pilot — 2026-09-08
+## Approved Anatomy explanation architecture — full rollout 2026-09-08
 
-A 20-question Anatomy pilot now tests the next explanation architecture without
-changing the underlying Marrow wording.
+The 20-question gold pilot was physically reviewed by the user. The user called
+the result near-perfect and approved its typography, selective high-yield
+emphasis, preserved tables, and **Why the other options are wrong** grammar for
+all current Marrow Anatomy questions.
 
-Selected questions cover:
-- short factual explanations;
-- chronology and developmental sequences;
-- mechanisms;
-- long clinical explanations;
-- structured source tables.
+The only requested refinement was *very slight* additional concision. Treat that
+word literally: this is not permission to summarize or rewrite Marrow.
 
-Implementation:
-- `data/marrow/explanation_gold_pilot.json` stores presentation emphasis and
-  60 generated distractor rationales separately from source content.
-- `tools/apply_marrow_bank_pilot.py` keeps the imported explanation text intact,
-  applies selective high-yield emphasis at render time, strengthens typography,
-  preserves existing source tables, and appends **Why the other options are
-  wrong** for only the 20 pilot questions.
-- The remaining Marrow pilot questions keep the previous renderer so there is a
-  live comparison baseline.
-- Generated distractor content remains explicitly separate/auditable and can be
-  regenerated later without touching Marrow source text.
+Current full-rollout contract:
+- all 62 current Marrow Anatomy questions use the enhanced renderer;
+- each question has selective exam-discriminator emphasis;
+- each question has exactly three concise incorrect-option rationales (186
+  total), stored separately from the Marrow transcription;
+- existing structured source tables remain intact;
+- the source transcription remains stored unchanged and auditable.
 
-Permanent FSRS rule clarified by user:
-- The FSRS recall dock is **not part of the explanation document flow**.
-- After answer submission it remains in the existing fixed/floating session
-  footer above Previous/Next.
-- Explanation changes must never move, restyle, or couple the FSRS dock to the
-  detailed explanation.
-- Browser CI now asserts the rating control remains visible inside the fixed
-  `.nk-session-footer` while testing the enhanced Marrow explanation.
+### Micro-concision rule
 
-Final verification for this pilot:
-- Engineering Gate `34161682358` — success.
-- Full Android + PWA run `34161682378` — success.
-- Real-browser Marrow test verified 3 distractor rationales on the reconstructed
-  Pre-Embryonic sequence question, the floating FSRS dock, and preservation of
-  the `Stages of prenatal development` source table.
-- Side-by-side APK packaged successfully.
-- Cloudflare feature preview deployed successfully:
+`nkGoldConciseText` performs display-only de-duplication. It may:
+1. suppress a short first paragraph only when token overlap shows it
+   substantially duplicates the already-visible Key Takeaway;
+2. suppress short dead `image/figure/flowchart ... below` boilerplate when the
+   corresponding asset is not being rendered;
+3. suppress source paragraphs beginning `Option A/B/C/D:` (including grouped
+   option labels) because the standardized concise distractor section replaces
+   them.
+
+It must **not**:
+- paraphrase source sentences;
+- delete unique mechanism/timing/derivative nuance;
+- flatten or remove a source table;
+- convert every paragraph into bullets;
+- over-bold generic anatomical nouns.
+
+The original source text remains in the imported Marrow record. Concision is a
+render decision, not a data mutation.
+
+### Distractor rationale layer
+
+`data/marrow/explanation_gold_pilot.json` now covers all 62 questions. The
+historic filename is retained to avoid unnecessary pipeline churn, but its
+schema-v2 purpose is the approved full-bank augmentation map.
+
+Rationales should normally be one compact exam discriminator:
+- explain the single fact that makes the option wrong;
+- prefer NEET-PG / INI-CET / FMGE / USMLE-relevant distinctions;
+- do not add a mini-textbook paragraph;
+- do not invent uncertainty;
+- generated rationale text remains separate from Marrow source text.
+
+Tests enforce:
+- augmentation IDs exactly equal the 62 current Marrow question IDs;
+- exactly three rationale keys per question, matching the three incorrect
+  option letters;
+- concise rationale length bounds;
+- 1–4 selective emphasis spans per question.
+
+### Permanent FSRS rule
+
+The FSRS recall dock is **not part of the explanation document flow**.
+After answer submission it remains in the existing fixed/floating session footer
+above Previous/Next. Explanation work must never move, restyle, or couple the
+FSRS dock to the detailed explanation.
+
+### Verification
+
+Full rollout verification:
+- Engineering Gate `34163197757` — success.
+- Full Android + PWA run `34163197772` — success.
+- Browser verification proved:
+  - a question outside the original 20-question pilot now uses the full grammar;
+  - PGC Q1 removes only its redundant lead repeat while retaining migration
+    nuance;
+  - the `Stages of prenatal development` structured source table survives;
+  - every tested answer still exposes three distractor rows;
+  - the FSRS rating remains inside fixed `.nk-session-footer`.
+- Side-by-side pilot APK packaged successfully.
+- Cloudflare preview deployed:
   `https://feature-marrow-bank-pilot.nk-qbank.pages.dev`
-  (immutable deployment `https://ce68af84.nk-qbank.pages.dev`).
+  (immutable `https://bae56103.nk-qbank.pages.dev`).
 - Production promotion remains intentionally skipped.
+
+Next expansion work should reuse this explanation contract after first
+generalizing the temporary Anatomy-only bank record into the multi-subject bank
+registry described above.
+
