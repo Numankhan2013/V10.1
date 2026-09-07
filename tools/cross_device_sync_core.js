@@ -159,7 +159,10 @@
   async function nkPullCloud(token){let count=0;for(const kind of NK_SYNC_KINDS){const docs=await nkPullKind(kind,token);docs.forEach(doc=>{nkApplyCloudEnvelope(doc);count++;});}nkRebuildReviews();if(typeof nkNormalizeStudyModules==='function')nkNormalizeStudyModules();return count;}
   async function nkInitialCloudSync(){
     if(!localStorage.getItem(NK_PRE_CLOUD_BACKUP)){const raw=localStorage.getItem(LS_KEY);if(raw)localStorage.setItem(NK_PRE_CLOUD_BACKUP,raw);}
-    nkCloudReady=false;await nkCloudSync(true);nkCloudReady=true;nkCaptureCloudChanges();
+    nkCloudReady=false;
+    const result=await nkCloudSync(true);
+    if(!result)throw new Error(nkSyncMeta.lastError||'Cloud synchronization failed.');
+    nkCloudReady=true;nkCaptureCloudChanges();
   }
   async function nkCloudSync(initial=false){
     if(nkCloudBusy||!nkAuth||!nkCloudConfigured())return false;clearTimeout(nkCloudTimer);nkCloudBusy=true;nkSyncMeta.status='syncing';render();
@@ -168,11 +171,20 @@
       localStorage.setItem(LS_KEY,JSON.stringify(state));
       if(initial){nkCloudReady=true;nkCaptureCloudChanges();}
       const pushed=await nkPushOutbox(token);nkSyncMeta.lastSyncAt=Date.now();nkSyncMeta.status='synced';nkSyncMeta.lastError='';nkSaveSyncMeta();render();return {pulled,pushed};
-    }catch(error){nkSyncMeta.status=navigator.onLine?'error':'offline';nkSyncMeta.lastError=String(error.message||error);nkSaveSyncMeta();if(!initial)showToast(navigator.onLine?'Sync paused. Your progress is safe on this device.':'Offline. Changes will sync when connected.','bad');render();return false;}
-    finally{nkCloudBusy=false;}
+    }catch(error){
+      nkSyncMeta.status=navigator.onLine?'error':'offline';
+      nkSyncMeta.lastError=String(error.message||error);
+      nkSaveSyncMeta();
+      if(!initial){
+        const detail=nkSyncMeta.lastError.slice(0,180);
+        showToast(navigator.onLine?`Sync paused: ${detail}`:'Offline. Changes will sync when connected.','bad');
+      }
+      return false;
+    }
+    finally{nkCloudBusy=false;nkSaveSyncMeta();render();}
   }
   async function nkCloudSyncNow(){if(!nkAuth){showToast('Sign in to synchronize.','bad');return;}nkCaptureCloudChanges();await nkCloudSync(false);if(nkSyncMeta.status==='synced')showToast('Progress is up to date.','good');}
-  function nkCloudStatusCopy(){if(!navigator.onLine)return 'Offline · changes stay on this device';if(nkCloudBusy||nkSyncMeta.status==='syncing')return 'Synchronizing…';if(nkSyncMeta.status==='error')return 'Sync paused · tap Sync now';if(nkSyncMeta.lastSyncAt)return `Synced ${fmtDate(nkSyncMeta.lastSyncAt)}`;return 'Ready to synchronize';}
+  function nkCloudStatusCopy(){if(!navigator.onLine)return 'Offline · changes stay on this device';if(nkCloudBusy||nkSyncMeta.status==='syncing')return 'Synchronizing…';if(nkSyncMeta.status==='error')return `Sync paused · ${String(nkSyncMeta.lastError||'tap Sync now').slice(0,140)}`;if(nkSyncMeta.lastSyncAt)return `Synced ${fmtDate(nkSyncMeta.lastSyncAt)}`;return 'Ready to synchronize';}
   function nkCloudAccountCard(){
     const pwa=location.hostname==='qbank.local'?'Android app':'Install from Safari with Share → Add to Home Screen.';
     if(!nkCloudConfigured())return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="section-title"><span>QBank Sync</span><span class="sub">Not configured</span></div><p class="small-muted">This build keeps all progress locally. Add the Firebase public configuration to enable secure account sync.</p><div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
