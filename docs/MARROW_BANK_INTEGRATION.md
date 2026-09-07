@@ -224,3 +224,49 @@ automatically. Production promotion remains deliberate.
 6. Extend browser tests to each newly enabled subject.
 7. Build feature preview, inspect screenshots, then ask for/accept physical user
    verification before any production promotion.
+
+
+## Gold-standard explanation pilot — 2026-09-08
+
+A 20-question Anatomy pilot now tests the next explanation architecture without
+changing the underlying Marrow wording.
+
+Selected questions cover:
+- short factual explanations;
+- chronology and developmental sequences;
+- mechanisms;
+- long clinical explanations;
+- structured source tables.
+
+Implementation:
+- `data/marrow/explanation_gold_pilot.json` stores presentation emphasis and
+  60 generated distractor rationales separately from source content.
+- `tools/apply_marrow_bank_pilot.py` keeps the imported explanation text intact,
+  applies selective high-yield emphasis at render time, strengthens typography,
+  preserves existing source tables, and appends **Why the other options are
+  wrong** for only the 20 pilot questions.
+- The remaining Marrow pilot questions keep the previous renderer so there is a
+  live comparison baseline.
+- Generated distractor content remains explicitly separate/auditable and can be
+  regenerated later without touching Marrow source text.
+
+Permanent FSRS rule clarified by user:
+- The FSRS recall dock is **not part of the explanation document flow**.
+- After answer submission it remains in the existing fixed/floating session
+  footer above Previous/Next.
+- Explanation changes must never move, restyle, or couple the FSRS dock to the
+  detailed explanation.
+- Browser CI now asserts the rating control remains visible inside the fixed
+  `.nk-session-footer` while testing the enhanced Marrow explanation.
+
+Final verification for this pilot:
+- Engineering Gate `34161682358` — success.
+- Full Android + PWA run `34161682378` — success.
+- Real-browser Marrow test verified 3 distractor rationales on the reconstructed
+  Pre-Embryonic sequence question, the floating FSRS dock, and preservation of
+  the `Stages of prenatal development` source table.
+- Side-by-side APK packaged successfully.
+- Cloudflare feature preview deployed successfully:
+  `https://feature-marrow-bank-pilot.nk-qbank.pages.dev`
+  (immutable deployment `https://ce68af84.nk-qbank.pages.dev`).
+- Production promotion remains intentionally skipped.
