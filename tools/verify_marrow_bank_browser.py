@@ -39,7 +39,7 @@ def main():
                 if marker not in qtext: raise SystemExit(f'Reconstructed Q10 list missing {marker}')
             page.locator('.option-list button').nth(3).click();page.wait_for_timeout(120)
             support=page.locator('.nk-study-support').inner_text()
-            if 'Key takeaway' not in support or 'Detailed explanation' not in support or 'Structured text' not in support: raise SystemExit('Structured Marrow explanation surface did not render')
+            if 'Key takeaway' not in support or 'Detailed explanation' not in support or 'Structured text' not in support: raise SystemExit('Structured Marrow explanation surface did not render: '+repr(support))
             if 'Original PDF' in support: raise SystemExit('Marrow explanation incorrectly fell back to Original PDF')
             page.screenshot(path=str(OUT/'03-marrow-structured-explanation.png'),full_page=True)
             page.evaluate("window.QB.nav('banks','Anatomy')");page.wait_for_timeout(80)
