@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 1,
-  "purpose": "Gold-standard Marrow explanation-presentation pilot. Source explanation wording is preserved; distractor rationales are generated exam-oriented augmentation.",
+  "schemaVersion": 2,
+  "purpose": "Approved full-bank Marrow Anatomy explanation architecture. Source transcription remains preserved; presentation is selectively emphasized and minimally de-duplicated at render time; distractor rationales are separate exam-oriented augmentation.",
   "questions": {
     "marrow__ANAT_CH01_Q001": {
       "emphasis": [
@@ -12,6 +12,28 @@
         "a": "The gonads are a later destination of migrating primordial germ cells, not their site of origin; PGCs reach the developing gonads by about the end of the 5th week.",
         "c": "Primordial germ cells do not originate in the gonads. They arise earlier in the epiblast during the 2nd week and subsequently migrate.",
         "d": "The yolk sac is a temporary location along the migration pathway. PGCs leave the yolk-sac region in the 4th week; it is not their site of origin."
+      }
+    },
+    "marrow__ANAT_CH01_Q002": {
+      "emphasis": [
+        "totipotent > pluripotent > multipotent > oligopotent > unipotent"
+      ],
+      "rationales": {
+        "a": "Totipotent cells have greater developmental potential than pluripotent cells, so pluripotent cannot precede totipotent.",
+        "c": "Multipotent cells have broader differentiation potential than oligopotent cells; these two levels are reversed here.",
+        "d": "This order places pluripotent above totipotent and oligopotent above multipotent, reversing two key potency relationships."
+      }
+    },
+    "marrow__ANAT_CH01_Q003": {
+      "emphasis": [
+        "morphogenetic stimulus on adjacent parts",
+        "organizer",
+        "primary, secondary, and tertiary organizers"
+      ],
+      "rationales": {
+        "a": "“Differentiator” is not the source-defined term for an embryonic region that directs morphogenesis in adjacent tissue.",
+        "c": "A stem cell is defined by self-renewal and differentiation potential; it is not the named embryonic signaling region described here.",
+        "d": "“Inducer” is a broader induction term; the specific embryologic region that organizes morphogenesis of adjacent tissues is the organizer."
       }
     },
     "marrow__ANAT_CH01_Q004": {
@@ -37,6 +59,52 @@
         "d": "Weeks 10–12 lie within the fetal period, when growth and specialization predominate rather than early organogenesis."
       }
     },
+    "marrow__ANAT_CH01_Q006": {
+      "emphasis": [
+        "embryonic period at the 3rd week",
+        "bilaminar germ disc into a trilaminar structure"
+      ],
+      "rationales": {
+        "b": "The pre-embryonic period is the first 2 weeks; gastrulation begins in week 3, after this period ends.",
+        "c": "Gametogenesis produces the parental gametes before fertilization and is not a stage of prenatal embryonic development.",
+        "d": "The fetal period begins in week 9, well after gastrulation and early germ-layer formation."
+      }
+    },
+    "marrow__ANAT_CH01_Q007": {
+      "emphasis": [
+        "Spermatogenesis starts at puberty",
+        "seminiferous tubules",
+        "type A spermatogonia"
+      ],
+      "rationales": {
+        "a": "Male primordial germ cells remain dormant during fetal life rather than entering active spermatogenesis.",
+        "b": "Spermatogenesis does not begin at birth; the germ cells remain quiescent until pubertal activation.",
+        "d": "The trigger is puberty, not a fixed chronological age such as 18 years."
+      }
+    },
+    "marrow__ANAT_CH01_Q008": {
+      "emphasis": [
+        "Primordial germ cells (PGCs) remain dormant",
+        "until puberty",
+        "spermatogonial stem cells"
+      ],
+      "rationales": {
+        "b": "Primary spermatocytes are formed after spermatogenesis has begun; they are not the dormant prepubertal germ-cell population.",
+        "c": "Secondary spermatocytes arise only after meiosis I, so they appear during active spermatogenesis after puberty.",
+        "d": "Spermatids are post-meiotic cells produced later in spermatogenesis and are not present as the dormant childhood germ cells."
+      }
+    },
+    "marrow__ANAT_CH01_Q009": {
+      "emphasis": [
+        "Secondary spermatocytes have haploid",
+        "secondary spermatocytes, spermatids, and spermatozoa"
+      ],
+      "rationales": {
+        "a": "Type A spermatogonia are premeiotic diploid germ cells.",
+        "b": "Type B spermatogonia are also premeiotic diploid cells that give rise to primary spermatocytes.",
+        "c": "Primary spermatocytes have not yet completed meiosis I, so their chromosome number is still diploid even though DNA has replicated."
+      }
+    },
     "marrow__ANAT_CH01_Q010": {
       "emphasis": [
         "during meiosis I",
@@ -49,6 +117,29 @@
         "d": "Spermatid-to-spermatozoon is spermiogenesis, a maturation process without meiotic chromosome assortment."
       }
     },
+    "marrow__ANAT_CH01_Q011": {
+      "emphasis": [
+        "maturation of spermatids to spermatozoa",
+        "final stage of spermatogenesis"
+      ],
+      "rationales": {
+        "a": "Primordial germ cell to spermatogonial differentiation occurs earlier in germ-cell development, before spermiogenesis.",
+        "b": "Spermatogonia becoming primary spermatocytes belongs to the earlier proliferative/differentiation phase of spermatogenesis.",
+        "c": "Primary to secondary spermatocyte is meiosis I, whereas spermiogenesis occurs after meiosis is complete."
+      }
+    },
+    "marrow__ANAT_CH01_Q012": {
+      "emphasis": [
+        "approximately 74 days",
+        "entire process of sperm formation",
+        "Spermiogenesis"
+      ],
+      "rationales": {
+        "a": "About 54 days is too short for the complete spermatogenic sequence described in the source; the accepted approximate total is 74 days.",
+        "b": "About 94 days is longer than the source-defined approximate duration of complete spermatogenesis.",
+        "c": "Twenty-four days does not represent the full spermatogonial-to-spermatozoon process and should not be confused with a later maturation interval."
+      }
+    },
     "marrow__ANAT_CH01_Q013": {
       "emphasis": [
         "derived from the Golgi apparatus",
@@ -58,6 +149,89 @@
         "a": "The sperm nucleus forms the nuclear content of the head; it does not form the acrosomal cap.",
         "c": "The centrosome contributes the centriolar structures of the sperm neck/flagellar apparatus rather than the acrosome.",
         "d": "Mitochondria become the spiral mitochondrial sheath of the middle piece, supplying energy for motility."
+      }
+    },
+    "marrow__ANAT_CH01_Q014": {
+      "emphasis": [
+        "full motility",
+        "epididymis",
+        "CatSper"
+      ],
+      "rationales": {
+        "a": "Seminiferous tubules produce spermatozoa, but full progressive motility is acquired later during epididymal passage.",
+        "b": "The vas deferens mainly transports sperm that have already undergone epididymal maturation.",
+        "d": "The ejaculatory duct is a distal transport conduit and is not the site where sperm acquire full motility."
+      }
+    },
+    "marrow__ANAT_CH01_Q015": {
+      "emphasis": [
+        "Testosterone",
+        "Leydig cells",
+        "luteinizing hormone (LH)"
+      ],
+      "rationales": {
+        "a": "Primordial germ cells are germ-line precursors and do not secrete the testosterone described in testicular descent.",
+        "b": "Spermatogenic cells form the male gametes; they are not the endocrine source of testosterone.",
+        "c": "Sertoli cells support spermatogenesis and have different secretory functions; testosterone is produced by interstitial Leydig cells."
+      }
+    },
+    "marrow__ANAT_CH01_Q016": {
+      "emphasis": [
+        "Primary oocytes remain dormant",
+        "prophase (dictyotene/diplotene) of meiosis I",
+        "until puberty"
+      ],
+      "rationales": {
+        "a": "Primordial germ cells differentiate into oogonia and then primary oocytes during fetal development; the long ovarian arrest is at the primary-oocyte stage.",
+        "c": "A secondary oocyte forms only after completion of meiosis I around ovulation, not during the prepubertal dormant period.",
+        "d": "The first polar body is produced when meiosis I is completed and therefore is not the cell arrested in the ovary until puberty."
+      }
+    },
+    "marrow__ANAT_CH01_Q017": {
+      "emphasis": [
+        "secondary oocyte",
+        "metaphase of meiosis II",
+        "until fertilization"
+      ],
+      "rationales": {
+        "a": "Prophase I is the arrest stage of the primary oocyte before final maturation; hCG triggers resumption and completion of meiosis I.",
+        "b": "The ovulated/retrieved secondary oocyte does not physiologically arrest in prophase II.",
+        "c": "Metaphase I is traversed as meiosis I resumes; the mature secondary oocyte is arrested later at metaphase II."
+      }
+    },
+    "marrow__ANAT_CH01_Q018": {
+      "emphasis": [
+        "14 days i.e., 2 weeks",
+        "corpus luteum of menstruation",
+        "hCG secreted by the syncytiotrophoblast"
+      ],
+      "rationales": {
+        "a": "Forty-eight hours is far shorter than the usual lifespan of the corpus luteum when fertilization does not occur.",
+        "b": "One week is still shorter than the approximately 14-day luteal persistence described in the source.",
+        "d": "Three weeks is longer than the usual non-pregnant corpus-luteum lifespan; persistence is prolonged for months only when pregnancy hCG prevents regression."
+      }
+    },
+    "marrow__ANAT_CH01_Q019": {
+      "emphasis": [
+        "Meiosis occurs in the adult ovary",
+        "only in germ cells",
+        "haploid gametes"
+      ],
+      "rationales": {
+        "a": "Adrenal cells are somatic cells and divide by mitosis rather than entering gamete-producing meiosis.",
+        "c": "The prepubertal testis contains dormant germ cells; spermatogenesis and male meiosis begin at puberty.",
+        "d": "Hypothalamic cells are somatic neural cells and do not undergo meiosis."
+      }
+    },
+    "marrow__ANAT_CH02_Q001": {
+      "emphasis": [
+        "first 2 weeks of intrauterine development",
+        "fertilization to the formation of bilaminar germ disc"
+      ],
+      "rationales": {
+        "b": "A 3-week interval already includes the beginning of gastrulation, which belongs to the embryonic rather than pre-embryonic period.",
+        "c": "The first 4 weeks extend well beyond the pre-embryonic phase into the embryonic period.",
+        "d": "The first 8 weeks encompass essentially the entire embryonic period, not just the pre-embryonic first 2 weeks."
       }
     },
     "marrow__ANAT_CH02_Q002": {
@@ -84,6 +258,32 @@
         "d": "The cortical reaction is an oocyte response after sperm–oocyte interaction that helps block polyspermy; it is not sperm maturation."
       }
     },
+    "marrow__ANAT_CH02_Q004": {
+      "emphasis": [
+        "does not penetrate the nuclear membrane",
+        "Corona radiata",
+        "Zona pellucida",
+        "Oocyte cell membrane"
+      ],
+      "rationales": {
+        "a": "The sperm must traverse the corona radiata to reach the zona pellucida.",
+        "b": "The zona pellucida is penetrated after sperm binding and the acrosomal reaction.",
+        "c": "Sperm and oocyte cell membranes fuse during fertilization; the oocyte membrane is therefore part of the membrane barrier crossed at entry."
+      }
+    },
+    "marrow__ANAT_CH02_Q005": {
+      "emphasis": [
+        "Alkaline phosphatase is not an acrosomal enzyme",
+        "Acrosin",
+        "Hyaluronidase",
+        "Acid phosphatase"
+      ],
+      "rationales": {
+        "a": "Acrosin is one of the principal acrosomal enzymes released during the acrosome reaction.",
+        "b": "Hyaluronidase is an acrosomal enzyme that assists sperm passage through the coverings of the oocyte.",
+        "c": "Acid phosphatase is listed by the source among the main acrosomal enzymes."
+      }
+    },
     "marrow__ANAT_CH02_Q006": {
       "emphasis": [
         "prevent the entry of other sperms",
@@ -94,6 +294,18 @@
         "a": "Sperm penetration through the zona pellucida is facilitated by the acrosome reaction; the zona reaction is the subsequent modification that blocks additional sperm.",
         "b": "The zona pellucida is not completely dissolved. Its properties are altered so further sperm binding/penetration is prevented.",
         "d": "Binding of sperm to zona proteins precedes the acrosome reaction; it is distinct from the post-fertilization zona reaction."
+      }
+    },
+    "marrow__ANAT_CH02_Q007": {
+      "emphasis": [
+        "maternal origin",
+        "sperm's midpiece (with mitochondria) and tail are discarded",
+        "passed only through the female line"
+      ],
+      "rationales": {
+        "a": "Paternal mitochondria are not the normal source of the zygote's mitochondrial genome because the sperm midpiece is discarded.",
+        "c": "Mitochondrial DNA is not inherited 50:50 like nuclear autosomal DNA; the normal inheritance pattern is maternal.",
+        "d": "The parent of origin is not random: mitochondrial genetic variants are transmitted through the maternal line."
       }
     },
     "marrow__ANAT_CH02_Q008": {
@@ -108,6 +320,18 @@
         "d": "The myometrium is uterine smooth muscle and is not the normal implantation layer."
       }
     },
+    "marrow__ANAT_CH02_Q009": {
+      "emphasis": [
+        "inner cell mass gives rise to the embryoblast",
+        "forms the embryo proper",
+        "outer cell mass is called the trophoblast"
+      ],
+      "rationales": {
+        "a": "Cytotrophoblast develops from the trophoblastic outer cell mass, not from the inner cell mass.",
+        "b": "Syncytiotrophoblast is also a trophoblastic derivative and does not arise from the embryoblast-forming inner cell mass.",
+        "d": "The blastocele is the fluid-filled blastocyst cavity, not a cellular derivative of the inner cell mass."
+      }
+    },
     "marrow__ANAT_CH02_Q010": {
       "emphasis": [
         "cleavage - compaction - cavitation - implantation"
@@ -116,6 +340,121 @@
         "a": "This sequence places compaction before cleavage. Cleavage first produces blastomeres; compaction follows around the 8-cell stage.",
         "b": "This ordering starts with implantation and ends with cleavage, reversing the early-to-late developmental sequence.",
         "c": "This sequence places implantation before cavitation. Blastocyst cavitation and hatching must occur before implantation."
+      }
+    },
+    "marrow__ANAT_CH02_Q011": {
+      "emphasis": [
+        "epiblast layer (columnar cells) near the amniotic cavity",
+        "hypoblast layer (cuboidal cells) near the blastocyst cavity"
+      ],
+      "rationales": {
+        "a": "Hypoblast cells are cuboidal, but they lie adjacent to the blastocyst cavity rather than the amniotic cavity.",
+        "b": "Epiblast is adjacent to the amniotic cavity and is composed of high columnar, not cuboidal, cells.",
+        "d": "Hypoblast lies near the blastocyst cavity but is cuboidal rather than columnar."
+      }
+    },
+    "marrow__ANAT_CH02_Q012": {
+      "emphasis": [
+        "flattened cells derived from the hypoblast",
+        "day 9-10",
+        "exocoelomic cavity"
+      ],
+      "rationales": {
+        "a": "Heuser's membrane is not derived from columnar epiblast cells; its cells migrate from the hypoblast.",
+        "b": "Although flattened morphology is correct, the cellular origin is hypoblast rather than epiblast.",
+        "c": "Hypoblast is the correct origin, but the migrating cells forming Heuser's membrane are flattened rather than columnar."
+      }
+    },
+    "marrow__ANAT_CH02_Q013": {
+      "emphasis": [
+        "Parietal or somatopleuric extraembryonic mesoderm",
+        "lining the trophoblast and outside of the amniotic cavity",
+        "Visceral or splanchnopleuric extraembryonic mesoderm"
+      ],
+      "rationales": {
+        "a": "Parietal and splanchnopleuric are not synonyms; the parietal layer is the somatopleuric layer.",
+        "b": "Visceral/splanchnopleuric extraembryonic mesoderm lines the outside of the yolk sac, not the amniotic cavity.",
+        "d": "Visceral and somatopleuric describe different layers; the amniotic side is specifically parietal/somatopleuric."
+      }
+    },
+    "marrow__ANAT_CH03_Q001": {
+      "emphasis": [
+        "primitive streak",
+        "15th day of development",
+        "3rd week of gestation"
+      ],
+      "rationales": {
+        "a": "The notochord develops after gastrulation has already begun; it is not the landmark that marks its onset.",
+        "b": "The neural groove is a neurulation structure that appears later, after the neural plate forms.",
+        "c": "A neural pit is not the defining onset marker of gastrulation; the primitive streak is."
+      }
+    },
+    "marrow__ANAT_CH03_Q002": {
+      "emphasis": [
+        "all the 3 germ layers",
+        "Endoderm is the first germ layer to form",
+        "Cells remaining in the epiblast then form the ectoderm"
+      ],
+      "rationales": {
+        "a": "Ectoderm alone is incomplete: epiblast also gives rise to embryonic endoderm and mesoderm during gastrulation.",
+        "c": "This combination omits endoderm, which is also formed from invaginating epiblast cells.",
+        "d": "This combination omits ectoderm, which is formed by the epiblast cells that remain on the surface."
+      }
+    },
+    "marrow__ANAT_CH03_Q003": {
+      "emphasis": [
+        "except in the region of the prechordal plate and cloacal membrane",
+        "ectoderm is in direct contact with the endoderm"
+      ],
+      "rationales": {
+        "a": "This is a true statement: intraembryonic mesoderm is also termed secondary mesoderm.",
+        "b": "This is true because intraembryonic mesoderm forms from invaginating epiblast cells during gastrulation.",
+        "d": "This is true: mesoderm contributes to most body tissues, including connective tissues, muscle, blood, and much of the cardiovascular system."
+      }
+    },
+    "marrow__ANAT_CH03_Q004": {
+      "emphasis": [
+        "blastopore - notochordal process - notochordal canal - notochordal plate - definitive notochord"
+      ],
+      "rationales": {
+        "a": "This order places the notochordal canal before the notochordal process; the process must form before its cavity becomes the canal.",
+        "b": "This sequence begins with the notochordal plate, a relatively late stage, and ends with the primitive pit/blastopore, an early stage.",
+        "d": "This order incorrectly starts with the notochordal plate and places the primitive pit/blastopore last instead of first."
+      }
+    },
+    "marrow__ANAT_CH03_Q005": {
+      "emphasis": [
+        "derived from the epiblast and not from the hypoblast",
+        "Nucleus pulposus",
+        "Apical ligament of the dens"
+      ],
+      "rationales": {
+        "a": "This is true: the notochord induces overlying ectoderm to thicken and form the neural plate.",
+        "b": "This is a recognized notochordal remnant, so it is not the false statement.",
+        "c": "Nucleus pulposus is the classic persistent remnant of the notochord within the intervertebral disc."
+      }
+    },
+    "marrow__ANAT_CH03_Q006": {
+      "emphasis": [
+        "formation of the neural tube from the neural plate",
+        "central nervous system"
+      ],
+      "rationales": {
+        "a": "Primitive-streak formation marks the beginning of gastrulation, not neurulation.",
+        "b": "The neural plate is the starting ectodermal structure; neurulation refers to its transformation into the neural tube.",
+        "c": "The notochord forms earlier and induces neural-plate development but is not itself produced by neurulation."
+      }
+    },
+    "marrow__ANAT_CH03_Q007": {
+      "emphasis": [
+        "Melanocytes are derived from neural crest cells",
+        "fourth germ layer",
+        "epithelial-to-mesenchymal transition"
+      ],
+      "rationales": {
+        "a": "Lateral plate mesoderm forms somatic/splanchnic layers and contributes to body-wall, visceral, and serous-cavity structures, not melanocytes.",
+        "b": "Intermediate mesoderm primarily gives rise to the urinary and genital systems rather than melanocytes.",
+        "d": "Paraxial mesoderm forms somitomeres and somites; melanocytes are a neural-crest derivative."
       }
     },
     "marrow__ANAT_CH03_Q008": {
@@ -129,6 +468,17 @@
         "d": "Lateral plate mesoderm contributes to body-wall/visceral mesoderm and the serous cavities, not the renal system."
       }
     },
+    "marrow__ANAT_CH03_Q009": {
+      "emphasis": [
+        "vertebrae are derived from somites",
+        "derivatives of paraxial mesoderm"
+      ],
+      "rationales": {
+        "a": "Lateral plate mesoderm contributes to body-wall/visceral mesoderm and serous-cavity structures rather than vertebral somites.",
+        "c": "Intermediate mesoderm is chiefly associated with urogenital development, not the axial skeleton.",
+        "d": "Extraembryonic mesoderm supports extraembryonic structures and does not form the vertebral column."
+      }
+    },
     "marrow__ANAT_CH03_Q010": {
       "emphasis": [
         "intraembryonic celom in the lateral plate mesoderm",
@@ -138,6 +488,19 @@
         "a": "Paraxial mesoderm segments into somites and is not the source of the intraembryonic coelom.",
         "b": "Intermediate mesoderm is the principal mesodermal source of the urogenital system, not the serous body cavities.",
         "d": "Extraembryonic mesoderm lies outside the embryonic disc and contributes to extraembryonic support structures rather than the intraembryonic pericardial cavity."
+      }
+    },
+    "marrow__ANAT_CH03_Q011": {
+      "emphasis": [
+        "Nucleus pulposus is derived from the notochord (marked as 1)",
+        "2 - Ectoderm",
+        "3 - Endoderm",
+        "4 - Intraembryonic mesoderm"
+      ],
+      "rationales": {
+        "b": "Label 2 is ectoderm; nucleus pulposus is a remnant of the notochord, not an ectodermal derivative.",
+        "c": "Label 3 is endoderm, which does not form the nucleus pulposus.",
+        "d": "Label 4 is intraembryonic mesoderm; the nucleus pulposus specifically persists from the notochord."
       }
     },
     "marrow__ANAT_CH03_Q012": {
@@ -174,6 +537,96 @@
         "b": "Persistence of pluripotent primitive-streak cells is the classic basis of sacrococcygeal teratoma, not sirenomelia.",
         "c": "Notochordal defects primarily disturb axial patterning/vertebral development; the classic mechanism for sirenomelia is severe caudal mesoderm deficiency.",
         "d": "Loss of anterior midline cells during gastrulation is associated with holoprosencephaly and midline craniofacial defects, not caudal regression/sirenomelia."
+      }
+    },
+    "marrow__ANAT_CH03_Q015": {
+      "emphasis": [
+        "right vein in the connecting stalk disappears",
+        "2 arteries and 1 vein"
+      ],
+      "rationales": {
+        "a": "Both arteries remain as the two umbilical arteries; the disappearing vessel is not the right artery.",
+        "b": "The left artery also persists as one of the paired umbilical arteries.",
+        "d": "The left vein is the vein that persists, leaving the mature cord with two arteries and one vein."
+      }
+    },
+    "marrow__ANAT_CH03_Q016": {
+      "emphasis": [
+        "extraembryonic mesoderm of the connecting stalk",
+        "Wharton's jelly",
+        "protects the blood vessels"
+      ],
+      "rationales": {
+        "a": "Somatopleuric mesoderm is a layer designation; Wharton's jelly specifically comes from extraembryonic mesoderm within the connecting stalk.",
+        "b": "Splanchnopleuric extraembryonic mesoderm is associated with the yolk-sac side rather than forming the connecting-stalk jelly.",
+        "d": "Paraxial mesoderm forms somites and axial musculoskeletal derivatives, not Wharton's jelly."
+      }
+    },
+    "marrow__ANAT_CH04_Q001": {
+      "emphasis": [
+        "Decidua capsularis: part surrounding the embryo",
+        "Decidua basalis: part deeper to the developing blastocyst",
+        "Decidua parietalis: part lining the rest of the uterine cavity"
+      ],
+      "rationales": {
+        "a": "This swaps labels 1 and 3 and also identifies label 4 as the amniotic rather than uterine cavity.",
+        "b": "The decidual labels are ordered correctly here, but label 4 is the uterine cavity, not the amniotic cavity.",
+        "c": "Label 4 is correctly the uterine cavity, but labels 1 and 3 are reversed: parietalis is 1 and basalis is 3."
+      }
+    },
+    "marrow__ANAT_CH04_Q002": {
+      "emphasis": [
+        "Maternal component - contributed by the decidua basalis",
+        "Fetal component - contributed by chorion frondosum",
+        "fetomaternal organ"
+      ],
+      "rationales": {
+        "a": "Decidua basalis is the maternal component, but chorion laeve is the smooth chorion rather than the villous fetal placental component.",
+        "b": "Chorion frondosum is fetal placenta, but the maternal placental contribution is decidua basalis, not decidua capsularis.",
+        "c": "Both components are mismatched: decidua capsularis is not the maternal placental plate and chorion laeve is not the villous fetal component."
+      }
+    },
+    "marrow__ANAT_CH04_Q003": {
+      "emphasis": [
+        "Secondary villi do not contain fetal capillaries",
+        "Fetal capillaries are present in tertiary villi"
+      ],
+      "rationales": {
+        "a": "This is true: primary villi consist of cytotrophoblast covered by syncytiotrophoblast.",
+        "b": "This is true: invasion of extraembryonic mesoderm converts a primary villus into a secondary villus.",
+        "c": "This is true: tertiary villi retain their mesodermal core and additionally develop fetal capillaries."
+      }
+    },
+    "marrow__ANAT_CH04_Q004": {
+      "emphasis": [
+        "Extraembryonic somatic mesoderm",
+        "Cytotrophoblast",
+        "Syncytiotrophoblast"
+      ],
+      "rationales": {
+        "a": "This omits the extraembryonic somatic mesoderm, which is part of the definitive chorion.",
+        "b": "This omits syncytiotrophoblast, one of the trophoblastic layers of the chorion.",
+        "c": "This omits cytotrophoblast; all three listed components are required."
+      }
+    },
+    "marrow__ANAT_CH04_Q005": {
+      "emphasis": [
+        "(A) Langhan's layer, (B) Rohr's layer, and (C) Nitabuch's layer"
+      ],
+      "rationales": {
+        "a": "This reverses A and B: A is Langhan's layer and B is Rohr's layer.",
+        "c": "A is correct, but B and C are reversed; Rohr's layer is B and Nitabuch's layer is C.",
+        "d": "The sequence is incorrect from the first label: A is Langhan's rather than Nitabuch's layer."
+      }
+    },
+    "marrow__ANAT_CH04_Q006": {
+      "emphasis": [
+        "(1) amnion, (2) extraembryonic mesoderm, (3) cytotrophoblast, and (4) syncytiotrophoblast"
+      ],
+      "rationales": {
+        "a": "Labels 1 and 2 are correct, but labels 3 and 4 are reversed: cytotrophoblast is 3 and syncytiotrophoblast is 4.",
+        "b": "Both pairs are reversed: 1 is amnion rather than mesoderm, and 3 is cytotrophoblast rather than syncytiotrophoblast.",
+        "d": "Labels 3 and 4 are correct, but labels 1 and 2 are reversed."
       }
     },
     "marrow__ANAT_CH04_Q007": {
@@ -223,6 +676,18 @@
         "c": "Separation in the earlier 4–7-day window occurs before amnion formation and therefore does not produce the classic monochorionic monoamniotic configuration."
       }
     },
+    "marrow__ANAT_CH04_Q011": {
+      "emphasis": [
+        "fusion in the sacral region",
+        "pygopagus",
+        "conjoined twins"
+      ],
+      "rationales": {
+        "a": "Heteropagus describes asymmetric conjoined twinning with a dependent/parasitic component, not symmetric sacral fusion.",
+        "b": "Xiphopagus refers to fusion around the xiphoid/lower sternal region rather than the sacrum.",
+        "c": "Omphalopagus twins are joined anteriorly around the abdominal/umbilical region, not posteriorly at the sacrum."
+      }
+    },
     "marrow__ANAT_CH04_Q012": {
       "emphasis": [
         "dichorionic, diamniotic twins",
@@ -234,6 +699,38 @@
         "c": "Monochorionic diamniotic twins characteristically show a thin intertwin membrane and T-sign rather than the thick triangular lambda/twin-peak sign.",
         "d": "Monochorionic monoamniotic twins have no dividing amniotic membrane, so a lambda sign between two sacs would not be expected."
       }
+    },
+    "marrow__ANAT_CH04_Q013": {
+      "emphasis": [
+        "All monozygotic twins",
+        "identical HLA genes",
+        "regardless of the stage of separation"
+      ],
+      "rationales": {
+        "a": "The HLA identity is not limited to type 1; all of the listed monozygotic configurations arise from one zygote and are genetically identical.",
+        "b": "Types 2 and 3 are HLA identical, but excluding type 1 is incorrect because it is also monozygotic.",
+        "c": "Type 3 is not uniquely HLA identical; types 1 and 2 are also monozygotic and share the same HLA genes."
+      }
+    },
+    "marrow__ANAT_CH04_Q014": {
+      "emphasis": [
+        "single zygote has separated between 8-13 days",
+        "same chorion",
+        "single amniotic cavity"
+      ],
+      "rationales": {
+        "a": "Dizygotic twins arise from two separate ova and sperm and therefore are not the single-zygote configuration shown.",
+        "b": "Early monozygotic separation before chorion formation produces dichorionic diamniotic twins, not a shared chorion and amnion.",
+        "c": "Monochorionic diamniotic twins result from an earlier split before the amniotic cavity is established, so they retain two amniotic sacs."
+      }
     }
-  }
+  },
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "questions": 62,
+    "topics": 4
+  },
+  "concisionPolicy": "Very light presentation-only trim: suppress a short lead paragraph only when it substantially duplicates the Key Takeaway; suppress image/figure boilerplate when that asset is not rendered; replace source Option A/B/C/D paragraphs with the standardized concise distractor section. Original source text remains stored unchanged.",
+  "augmentationProvenance": "Distractor rationales are NK QBank generated exam-discriminator content, separate from Marrow source transcription."
 }
