@@ -138,4 +138,4 @@ CI runs, what changed, verification, device status, next step.
 ## 2026-09-07 — Fix Firestore download HTTP 404
 - Reproduced the deployed configuration and found `QBANK_FIREBASE_PROJECT_ID=nk_qbank`. The prior runtime discovery returned Firebase project number `174056010089`; Firestore returned 404 for that database path. The real Firebase/Firestore project ID is `nk-qbank`.
 - Corrected the GitHub Actions variable to `nk-qbank` and changed sync project resolution to use the authenticated ID token's `aud`/`iss` project claim after token refresh.
-- Added a regression test for JWT project resolution and updated the PWA sync documentation. Targeted sync/contract, syntax, compile, and project-memory checks pass locally; deployment and physical Android↔PWA verification follow.
+- Added a regression test for JWT project resolution and updated the PWA sync documentation. Targeted local checks and Engineering Gate `34095662853` passed. Manual run `34095870813` built the APK/PWA artifact and promoted it to Cloudflare production; live Pages serves the corrected config and resolver. Physical Android↔PWA verification remains.

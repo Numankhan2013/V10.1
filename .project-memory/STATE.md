@@ -95,4 +95,4 @@ baseline. Only explicit user physical-device approval promotes a candidate.
 ## 2026-09-07 sync 404 root cause and fix
 - Production runtime config used `nk_qbank`; Firebase's project-config endpoint then returned numeric project number `174056010089`. Neither is the Firestore database project ID, so downloads returned HTTP 404. The authoritative project ID is `nk-qbank`.
 - GitHub Actions variable `QBANK_FIREBASE_PROJECT_ID` is corrected to `nk-qbank`. The client now refreshes authentication first and derives the project ID from the ID token's `aud`/`iss` claims, preventing stale config or numeric project-number regressions.
-- Targeted sync behavior/contract, JavaScript syntax, Python compile, and project-memory checks pass locally. A fresh production PWA/APK build and physical two-device sync test remain required before V11.7 is device-verified.
+- Targeted local checks and Engineering Gate `34095662853` passed. Manual production run `34095870813` built the APK/PWA artifact and promoted it successfully; live Pages serves `projectId: "nk-qbank"` and the token-based resolver. A physical two-device sync test remains required before V11.7 is device-verified.
