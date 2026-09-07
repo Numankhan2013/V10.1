@@ -71,8 +71,15 @@ function applySubject(v){activeSubject=v}
     for marker in ("biochemistry_source_solution_map.js", "web_pdf_renderer.mjs", "SKIP_WAITING", "googleapis"):
         if marker not in worker:
             raise SystemExit(f"Service-worker contract missing: {marker}")
+    sync_core = CORE.read_text(encoding="utf-8")
+    pull_at = sync_core.find("pulled=await nkPullCloud(token)")
+    push_at = sync_core.find("pushed=await nkPushOutbox(token)")
+    if pull_at < 0 or push_at < 0 or pull_at > push_at:
+        raise SystemExit("Synchronization must pull/merge before uploading local revisions")
+    if "function nkScheduleCloudSync(){if(!nkAuth)return;nkCaptureCloudChanges();}" not in sync_core:
+        raise SystemExit("Local outbox capture must be synchronous with state saves")
     transform = (ROOT / "tools/apply_cross_device_pwa_v1.py").read_text(encoding="utf-8")
-    for marker in ("@media (min-width:768px)", "min-width:1024px", "nk-pwa-update", "location.hostname !== 'qbank.local'"):
+    for marker in ("@media (min-width:768px) and (min-height:600px)", "min-width:1024px", "nk-pwa-update", "location.hostname !== 'qbank.local'"):
         if marker not in transform:
             raise SystemExit(f"Responsive/update transform contract missing: {marker}")
     android = (ROOT / "tools/apply_android_secure_origin_v1.py").read_text(encoding="utf-8")

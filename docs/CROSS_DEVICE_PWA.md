@@ -32,7 +32,8 @@ the app boots. The bridge is then removed. A second backup,
 All documents live below `users/{uid}`. The committed rules permit an
 authenticated user to access only their own subtree and reject arbitrary
 fields, oversized payloads, physical deletes, or a schema version other than
-the supported one.
+the supported one. Large JSON payload fields are explicitly exempted from indexing;
+only `updatedAt` needs the automatic single-field query index.
 
 | Collection | Identity and merge behavior |
 | --- | --- |
@@ -60,14 +61,15 @@ available immediately and uploads after the `online` event or **Sync now**.
 ## Firebase setup (one-time account action)
 
 1. Create a Firebase project on the Spark plan.
-2. Enable Authentication → Sign-in method → Email/Password.
+2. Enable Authentication → Sign-in method → Email/Password. Add the final
+   Cloudflare Pages/custom hostname to Authentication → Authorized domains.
 3. Create the default Cloud Firestore database. Choose a region close to the
    devices; changing it later is not trivial.
 4. Install/authenticate the Firebase CLI and deploy the committed rules:
 
    ```sh
    firebase use YOUR_PROJECT_ID
-   firebase deploy --only firestore:rules
+   firebase deploy --only firestore:rules,firestore:indexes
    ```
 
 5. In GitHub repository **Settings → Secrets and variables → Actions →

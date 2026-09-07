@@ -104,7 +104,8 @@
     let sent=0;
     for(let i=0;i<entries.length;i+=200){
       const batch=entries.slice(i,i+200),writes=batch.map(([,e])=>{const name=`projects/${nkFirebaseConfig().projectId}/databases/(default)/documents/users/${nkAuth.uid}/${e.kind}/${nkDocId(e)}`;return {update:nkFirestoreDocument(e,name)};});
-      await nkFetchJson(`${nkFirestoreRoot()}:batchWrite`,{method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify({writes})});
+      const result=await nkFetchJson(`${nkFirestoreRoot()}:batchWrite`,{method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify({writes})});
+      const failed=(result.status||[]).find(status=>Number(status?.code||0)!==0);if(failed)throw new Error(failed.message||'A synchronized write was rejected.');
       batch.forEach(([key])=>delete nkSyncMeta.outbox[key]);sent+=batch.length;nkSaveSyncMeta();
     }
     return sent;
