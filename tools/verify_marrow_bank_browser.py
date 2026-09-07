@@ -52,6 +52,31 @@ def main():
             if footer_position!='fixed': raise SystemExit('FSRS/session footer is no longer floating/fixed: '+str(footer_position))
             page.screenshot(path=str(OUT/'03-marrow-gold-explanation.png'),full_page=True)
 
+            # Verify an originally non-pilot question now uses the approved full-bank grammar.
+            page.evaluate("window.QB.nav('banks','Anatomy')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Gametogenesis').click();page.wait_for_timeout(80)
+            page.locator('button.nk-library-row').nth(1).click();page.wait_for_timeout(80)
+            page.locator('.option-list button').nth(1).click();page.wait_for_timeout(120)
+            rollout=page.locator('.nk-gold-explanation').inner_text().lower()
+            if 'why the other options are wrong' not in rollout: raise SystemExit('Full-bank rollout missing from Gametogenesis Q2')
+            if page.locator('.nk-gold-wrong-row').count()!=3: raise SystemExit('Full-bank Q2 must render three distractor rationales')
+            if 'totipotent' not in rollout or 'oligopotent' not in rollout: raise SystemExit('Full-bank Q2 high-yield sequence missing')
+            page.screenshot(path=str(OUT/'04-marrow-full-rollout-q2.png'),full_page=True)
+
+            # Verify the micro-concision rule removes only the redundant lead repeat.
+            page.evaluate("window.QB.nav('banks','Anatomy')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Gametogenesis').click();page.wait_for_timeout(80)
+            page.locator('button.nk-library-row').nth(0).click();page.wait_for_timeout(80)
+            page.locator('.option-list button').nth(1).click();page.wait_for_timeout(120)
+            detail=page.locator('.nk-gold-explanation').inner_text()
+            repeated='Primordial germ cells originate in the epiblast, during the 2nd week of development.'
+            if repeated in detail: raise SystemExit('Micro-concision failed to remove duplicate takeaway paragraph')
+            if 'Primordial germ cells (PGCs) are also known as primitive sex cells.' not in detail: raise SystemExit('Micro-concision removed useful source explanation content')
+            if 'reach the developing gonads by the end of the 5th week' not in detail: raise SystemExit('Micro-concision removed source migration nuance')
+            page.screenshot(path=str(OUT/'05-marrow-micro-concision.png'),full_page=True)
+
             # Verify a real source table survives the presentation layer.
             page.evaluate("window.QB.nav('banks','Anatomy')");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
@@ -61,7 +86,7 @@ def main():
             if page.locator('.nk-gold-explanation .nk-marrow-table').count()!=1: raise SystemExit('Gold pilot source table did not survive')
             table_text=page.locator('.nk-gold-explanation .nk-marrow-table').inner_text()
             if 'Stages of prenatal development' not in table_text or 'Embryonic period (3-8 weeks)' not in table_text or 'Fetal period (9 weeks to birth)' not in table_text: raise SystemExit('Prenatal-development table content regressed')
-            page.screenshot(path=str(OUT/'04-marrow-gold-table.png'),full_page=True)
+            page.screenshot(path=str(OUT/'06-marrow-full-table.png'),full_page=True)
 
             page.evaluate("window.QB.nav('banks','Anatomy')");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click();page.wait_for_timeout(100)
@@ -70,5 +95,5 @@ def main():
             if errors: raise SystemExit('Browser errors: '+repr(errors))
             browser.close()
         server.shutdown()
-    print('MARROW_BROWSER_OK selector=2 marrow_topics=4 prepladder_topics=50 gold_explanation=20 rationales=3 table=preserved fsrs_dock=fixed')
+    print('MARROW_BROWSER_OK selector=2 marrow_topics=4 prepladder_topics=50 enhanced=62 rationales=186 micro_concision=verified table=preserved fsrs_dock=fixed')
 if __name__=='__main__':main()
