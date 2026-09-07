@@ -84,6 +84,13 @@ configuration; they are not privileged service credentials. Privacy comes from
 Authentication plus `firestore.rules`. Do not add service-account keys to the
 client or repository.
 
+At runtime, V11.7 also asks Firebase Authentication's public project-config endpoint
+for the project ID associated with the configured API key. If the GitHub
+`QBANK_FIREBASE_PROJECT_ID` value is stale or accidentally uses the display name,
+the client corrects it before any Firestore request. Sync failures are labeled by
+stage (`Firebase project`, `authentication`, `download`, `upload`) and include the
+HTTP status when Google returns a non-JSON/generic error.
+
 For a local configured build, set the same environment variables and run:
 
 ```sh
