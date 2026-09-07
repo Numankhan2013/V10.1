@@ -6,13 +6,16 @@ Check off only when build-verified **and** device-verified where UI is involved.
 
 ## Immediate (next 1–2 sessions)
 
-- [ ] Physical-device test of V11.5 APK from runs `34049523411` / `34049637559`
-      (Home, Topics, Modules create/resume/finish/restart, Practice/CBT/Review,
-      Insights, source visuals, safe-area). Promote to accepted baseline only on
-      explicit user approval; record run ID + commit in `STATE.md` + log.
-- [ ] Adopt this memory system across harnesses: verify a fresh Codex/OpenCode/
-      Claude session can reconstruct context from `AGENTS.md` + `STATE.md` +
-      `git`; fix drift immediately.
+- [x] V11.5 physical-device test and acceptance. User reported Custom Study
+      Modules work beautifully; accepted product commit `f13d12f`, build
+      `34049637559`.
+- [x] Fresh-agent reconstruction audit. It recovered architecture and release
+      context, but exposed stale facts, self-staling HEAD, and missing non-AGENTS
+      harness discovery. Fixed with thin adapters, schema, and an integrity check.
+- [ ] Physically test V11.6 content quality (`125d68b`, run `34050921180`):
+      comparison/table takeaways and removal of metadata from 78 affected stems.
+- [ ] Consolidate `v11.6-content-quality` with the V11.5 memory lineage without
+      losing either history, then continue R1.
 
 ## R1 — Gold-standard Question Screen (highest priority per `memory.md`)
 

@@ -71,3 +71,27 @@ CI runs, what changed, verification, device status, next step.
   55 tools, pipeline order, 420 visuals, subject counts).
 - No harness-specific duplicates created. Next: fresh-harness reconstruction
   check, then V11.5 device test → R1 question screen.
+
+## 2026-09-06 — V11.5 physically accepted
+
+- User installed the V11.5 Custom Study Modules APK and reported it “works
+  beautifully,” with no questions about the feature.
+- Promoted `f13d12f` / build `34049637559` from build-verified candidate to the
+  accepted product baseline.
+
+## 2026-09-06 — V11.6 content-quality candidate
+
+- Separate branch `v11.6-content-quality`, commit `125d68b`.
+- Added comparison/table-aware takeaway extraction and centralized question-stem
+  sanitation. Audit: 719 questions, 78 PrepLadder/page-contaminated stems.
+- Engineering Gate `34050921166` and full packaged APK build `34050921180`
+  passed. Artifact `V11.6-content-quality-debug-apk`; physical acceptance pending.
+
+## 2026-09-07 — Memory reconstruction audit and hardening
+
+- Read all canonical and legacy memory from a fresh agent context and verified
+  it against Git/GitHub. Structure and root placement were sound.
+- Fixed stale V11.5 acceptance/CI facts and the impossible hardcoded-current-HEAD
+  pattern; documented V11.6's separate lineage.
+- Added a schema README, thin Claude/Gemini/Cursor/Copilot adapters, and
+  `tools/verify_project_memory.py` to enforce placement and low-drift rules.

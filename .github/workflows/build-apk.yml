@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout V11 source visuals
         uses: actions/checkout@v5
+      - name: Verify project memory
+        run: python3 tools/verify_project_memory.py
       - name: Test study metrics behavior
         run: python3 tools/test_study_metrics.py
       - name: Verify source product contract

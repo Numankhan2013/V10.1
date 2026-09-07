@@ -70,7 +70,7 @@
 
 ## Deterministic build pipeline (order enforced)
 
-`tools/verify_build_pipeline.py` requires this order (27 protected steps):
+`tools/verify_build_pipeline.py` requires this order (26 protected steps):
 
 `fix_review_build` → `harden_review_renderer` →
 `build_source_visual_metadata` → `improve_source_visual_assets_v1` →
@@ -99,7 +99,7 @@ packaged JS check), packaged contract, `write_build_manifest.py`
 ## Workflows and gates
 
 - `.github/workflows/build-apk.yml` — full deterministic APK build
-  (GitHub UI name `Build V10.1 APK`; job names track the branch goal,
+  (GitHub UI name tracks the branch goal,
   e.g. V11.4.1 Product Polish / V11.5 Custom Study Modules).
 - `.github/workflows/engineering-gate.yml` — fast gate: `compileall`,
   study-metrics, source contract, pipeline order. Must stay green.
@@ -117,3 +117,18 @@ packaged JS check), packaged contract, `write_build_manifest.py`
   (`showToast(msg,type`), root (`root.innerHTML=`), navigator
   (`openQuestionNavigator`, `closeQuestionNavigator()`), `sessionShell`,
   `qb-nav-submit`, `s.mode==='practice'`.
+
+## Project-memory architecture
+
+- Root `AGENTS.md` is the canonical instruction router.
+- `.project-memory/README.md` defines roles and truth precedence; `STATE.md` is
+  replace-in-place handoff, while `SESSION_LOG.md` is append-only history.
+- Thin root/tool adapters contain no product knowledge and point to `AGENTS.md`
+  plus `.project-memory/STATE.md`.
+- `tools/verify_project_memory.py` checks required placement, adapter size and
+  routing, local links, state length, verification vocabulary, and forbids a
+  self-staling hardcoded HEAD field.
+- V11.6 content-quality implementation lives on separate branch
+  `v11.6-content-quality` at `125d68b`: `question_content_hygiene_core.js` plus
+  its deterministic apply/test scripts. It is not present in this V11.5 tree
+  until deliberately consolidated.

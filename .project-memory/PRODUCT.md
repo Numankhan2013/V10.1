@@ -12,6 +12,8 @@ Core/basic functionality is complete with no known regression.
 Work is **refinement, polish, consistency, usability, and engineering
 hardening** — not feature rescue. Avoid novelty for its own sake.
 
+V11.5 Custom Study Modules is the accepted device-tested product baseline;
+later candidates must build forward from it.
 ## North star and motto
 
 > Every screen should make the next useful learning action obvious.
@@ -64,7 +66,12 @@ Prefer building over narrating.
   stem matching, subject-specific PDFs only, no fuzzy cross-subject images,
   no `Question N has image` heuristics; aspect preserved; fullscreen viewer
   with zoom/pan.
-
+- **Content quality:** a takeaway must express one coherent fact and preserve
+  ownership in comparisons; table columns must never be flattened into a false
+  combined statement. Extraction footers, vendor labels, page counters, URLs,
+  and similar source metadata must not appear in displayed stems. Prefer a
+  concise correct-answer fallback over a confident but semantically merged
+  takeaway.
 ## Design language
 
 Compact, medically serious, phone-native (~576px-class width, 44–48px targets).

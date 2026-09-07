@@ -1,81 +1,71 @@
 # STATE.md — Current Project State and Handoff
 
-> Keep concise and current. History goes in `SESSION_LOG.md`,
-> durable reasoning in `DECISIONS.md`, future work in `ROADMAP.md`.
+> Keep concise and current. History goes in `SESSION_LOG.md`, durable reasoning
+> in `DECISIONS.md`, and future work in `ROADMAP.md`.
 
 ## Repo / branch
 
 - Repo: `Numankhan2013/V10.1` (private)
 - Active branch: `v11.5-custom-study-modules`
-- HEAD: `aa6cebb54ae43d60c80cef4e93025e3e961087c7`
-  (`Add harness-agnostic agent memory: .project-memory/SESSION_LOG.md`, 2026-09-06; includes `AGENTS.md` + `.project-memory/` on top of `f13d12f`)
-- Parent lineage: `v11.4-whole-app-vision` fix
-  `9e6abc71eca192808e6fbd70d4127011c6a47ef0`
-  (`Restore Due Review action alongside permanent all-subject practice`)
-- Stale branch: `main` (`8bc0be4`) — do not use as baseline; V11 work lives on
-  `v11-*` branches.
-- Accepted baseline (unchanged): V11 Run 220, commit
-  `73c04281696137fda712ae0b9b7079c9c4a15635` on `v11-source-visuals`,
-  run `34011265432` — physically tested and user-confirmed.
+- Resolve live branch/HEAD with `git branch --show-current` and
+  `git rev-parse HEAD`; never hardcode a self-staling current-HEAD value here.
+- Last substantive V11.5 product commit: `f13d12f` (`Label V11.5 APK artifact`),
+  followed by harness-neutral memory-only commits; inspect live Git for the
+  current tip.
+- Parent lineage: `v11.4-whole-app-vision` fix `9e6abc7`.
+- `main` (`8bc0be4`) is stale and must not be used as the V11 baseline.
 
-## Last CI (verified via `gh run list`)
+## Verification and accepted baseline
 
-- `v11.5` Build V10.1 APK `34051111714` — **success**, 1m33s
-  (`Add harness-agnostic agent memory`; artifact `V11.5-custom-study-modules-debug-apk`)
-- `v11.5` Build V10.1 APK `34049637559` — **success**, 1m40s
-  (`Label V11.5 APK artifact`)
-- `v11.5` Engineering Gate `34049637590` — **success**
-- `v11.5` Build V10.1 APK `34049523411` — **success**, 1m41s
-  (`Add persistent Custom Study Modules`)
-- `v11.4` fix Build V10.1 APK `34043059869` — **success**, 1m48s
-  (`Restore Due Review action…`); user confirmed this APK works and UI is great.
-- Prior `v11.4` failures `34034905290` / `34034904068` / `34034791899` were the
-  missing `window.QB.startLibrary('review')` marker; fixed, do not regress.
+- Accepted baseline: **V11.5 Custom Study Modules**. The user physically tested
+  the APK and said it “works beautifully,” with no questions about the feature.
+- Accepted product commit: `f13d12f`; canonical APK run: `34049637559`.
+- Latest V11.5 memory-head build `34051356682` and Engineering Gate
+  `34051356708` both passed at `e6a2fc7`.
+- Separate branch `v11.6-content-quality`, commit `125d68b`: Engineering Gate
+  `34050921166` and full packaged build `34050921180` passed. It improves
+  comparison/table takeaways and removes PrepLadder/page metadata from 78 of
+  719 audited stems. It is build-verified, not yet device-verified or accepted.
 
-## What currently works (build-verified; v11.4 fix also device-confirmed by user)
+Labels are strict: implemented ≠ build-verified ≠ device-verified ≠ accepted
+baseline. Only explicit user physical-device approval promotes a candidate.
 
-- Practice, Timed CBT, session-review navigator, Submit/Finish, Practice/CBT
-  Analysis, Review Solutions + grid + Previous/Next + End Review.
-- Home V4/V8 command center (streak + week strip, Today’s Focus with Continue /
-  Review-Due-when-due / Practice-20-always / Timed CBT, Subjects, progress,
-  Quick Access, Performance, Recent).
-- Topics V2 (subject switch, search/filter, counts, progress, chapter entry),
-  Chapter (Practice/Timed actions, metrics, source-order library), Tests
-  (multi-subject builder), Insights, More, Revision libraries.
-- All-subject random practice (`startAllSubjectPractice`) + multi-subject CBT
-  (`openMultiSubjectTestBuilder`, `nkMultiExamPoolIds`,
-  `nkConfirmMultiSubjectExam`); subject stats fixed (`SUBJECTS.flatMap`,
-  `state.attempts` as attempt history).
-- Source visuals frozen: 420 PNGs, Anatomy 297 / Physiology 62 / Biochemistry 51
-  mapped; source-PDF fallback + fullscreen zoom/pan; Biochemistry isolated;
-  Physiology source-PDF authoritative.
-- Custom Study Modules (V11.5): persistent reusable sets from subject/topic +
-  Unattempted/Wrong/Bookmarked/Mixed pools, frozen IDs, seeded shuffle,
-  resume via Practice engine, completion via Practice Analysis; owned by
-  `tools/apply_custom_study_modules_v1.py`, tested by
-  `tools/test_custom_study_modules_v1.py`.
-- Deterministic pipeline: `verify_build_pipeline.py` order enforced,
-  `fix_boot_syntax.py` + `node --check` after all transforms, packaged-APK
-  verification + `NK-QBank-build-manifest.json` upload.
+## What currently works (V11.5 device-verified and accepted)
+
+- Practice, Timed CBT, final-question session review, navigator/jumping,
+  Submit/Finish, Practice/CBT Analysis, and Review Solutions with grid,
+  Previous/Next, End Review, and source explanations.
+- Home V4/V8 command center, Topics V2, Chapters, Tests, Insights, More,
+  revision libraries, subject switching, and reliable scroll reset.
+- All-subject random practice, multi-subject CBT, accurate subject/topic counts,
+  persistent attempt history, bookmarks, wrong/due queues, and Insights.
+- Source visuals: 420 packaged PNGs (Anatomy 297, Physiology 62,
+  Biochemistry 51), source-PDF fallback, fullscreen zoom/pan, isolated
+  Biochemistry renderer, and authoritative Physiology source PDF.
+- Custom Study Modules: persistent reusable subject/topic sets using
+  Unattempted/Wrong/Bookmarked/Mixed pools, frozen IDs, deduplication, seeded
+  selection, resume, Home continuation, completion analysis, and unified history.
+- Deterministic transforms, final and packaged JavaScript checks, product/CBT
+  contracts, Gradle APK build, packaged verification, and build manifest.
 
 ## Known problems / cautions
 
-- `v11.5` APKs are **build-verified only**; no user physical-device confirmation
-  yet. Do not call V11.5 an accepted baseline.
-- Workflow display name is `Build V10.1 APK` (path
-  `.github/workflows/build-apk.yml`); internal job names vary by branch
-  (V11.4.1 Product Polish / V11.5 Custom Study Modules). Use run IDs, not names.
-- `main` is stale; `memory.md` still lists `v11-source-visuals` as active —
-  treat `.project-memory/` + `git` as current, `memory.md` as background.
-- Large binaries (3 PDFs, ~420 PNGs, `index.html` ~6 MB) make full clones slow;
-  prefer `gh api` file reads or partial clone for inspection.
-- Agent memory (`AGENTS.md` + `.project-memory/`) is present as of this commit; fresh-harness reconstruction check still pending — correct drift when found.
+- V11.6 content quality is on a separate branch forked from `f13d12f`; it does
+  not contain the later memory commits. Preserve both histories when
+  consolidating—do not overwrite either branch.
+- Root `AGENTS.md` placement is correct, but no filename can force every unknown
+  harness to load it. Thin common-harness adapters and
+  `tools/verify_project_memory.py` reduce discovery and drift risk.
+- Large binaries (three PDFs, ~420 PNGs, ~6 MB source app) make full clones slow;
+  prefer targeted inspection or partial clones when appropriate.
+- Source visual and protected session/review infrastructure must not be changed
+  casually during unrelated work.
 
-## Unfinished work / next step
+## Next step
 
-1. Physically test the V11.5 APK on device (Home, Topics, Modules create/resume/
-   finish, Practice/CBT/Review, Insights, source visuals); promote only on
-   explicit approval.
-2. Then continue the planned refinement: R1 gold-standard Question Screen
-   (typography/density/option states/explanation hierarchy — see `ROADMAP.md`).
-3. Keep `STATE.md` updated after each substantial change.
+1. Physically test V11.6, especially table takeaways and cleaned stems; accept
+   only after explicit user confirmation.
+2. Consolidate V11.6 with this memory-system lineage without losing either set
+   of commits, then continue R1 gold-standard question-screen refinement.
+3. After substantial work, refresh this handoff, append `SESSION_LOG.md`, and
+   run `python3 tools/verify_project_memory.py`.

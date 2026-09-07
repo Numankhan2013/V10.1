@@ -8,6 +8,7 @@ Do not duplicate project knowledge in harness-specific files.
 ## Canonical memory
 
 - Operational handoff: `.project-memory/STATE.md` (read first, keep current)
+- Memory schema and maintenance: `.project-memory/README.md`
 - Product goals: `.project-memory/PRODUCT.md`
 - Architecture: `.project-memory/ARCHITECTURE.md`
 - Decisions: `.project-memory/DECISIONS.md`
@@ -16,9 +17,8 @@ Do not duplicate project knowledge in harness-specific files.
 
 Preserved legacy references (do not delete, do not fork knowledge from them):
 
-- `memory.md` — long-form continuity note; accepted Run 220 baseline and
-  refinement phases. `STATE.md` is the current handoff; `memory.md` remains
-  background until explicitly migrated.
+- `memory.md` — long-form continuity note and historical rationale.
+  `STATE.md` is the concise current handoff; keep current facts aligned in both.
 - `docs/ENGINEERING_BASELINE.md`, `docs/STUDY_CLARITY.md`,
   `docs/V11_SOURCE_VISUALS.md`, `docs/CUSTOM_STUDY_MODULES.md`
 - `design-qa.md` — V11.4 visual QA scope (physical-device checks blocked in CI)
@@ -38,6 +38,8 @@ Fix the memory file in the same change when you notice drift.
    `.github/workflows/`, `docs/`.
 4. Reconstruct context (active branch, last CI result, what is
    build-verified vs device-verified vs accepted baseline) before editing.
+5. Run `python3 tools/verify_project_memory.py` when the task concerns memory,
+   handoff, branch state, or release status.
 
 ## Session end (required after substantial work)
 
@@ -49,6 +51,11 @@ Fix the memory file in the same change when you notice drift.
 3. Update `ARCHITECTURE.md` / `PRODUCT.md` only if the implementation
    actually changed.
 4. Never turn `STATE.md` into an ever-growing log.
+5. Run `python3 tools/verify_project_memory.py` before committing.
+
+Do not hardcode the current commit as `HEAD` in `STATE.md`: a commit that edits
+that value necessarily creates a new hash. Record the last substantive product
+commit/run when useful and tell the next agent to resolve live HEAD from Git.
 
 ## Working rules (NK QBank)
 
@@ -80,17 +87,19 @@ Fix the memory file in the same change when you notice drift.
 - `app/src/main/assets/source_visuals/` — ~420 lossless PNG display cache
 - `app/src/main/assets/source_visual_metadata.js`,
   `source_visual_renderer.js`, `subjects_qbank_data.js`
-- `tools/` — 55 deterministic transform/test/verify scripts; order enforced by
+- `tools/` — deterministic transform/test/verify files; order enforced by
   `tools/verify_build_pipeline.py`; contracts by
   `tools/verify_product_contract.py` and `tools/verify_cbt_invariants.py`
 - `.github/workflows/build-apk.yml` — deterministic APK pipeline
-  (GitHub display name `Build V10.1 APK`); `engineering-gate.yml` — fast contract gate
+  (`Build V11.5 Custom Study Modules APK`); `engineering-gate.yml` — fast contract gate
 - `data/subjects_qbank_lzma.b64.part*` — bundled subject data parts
 
 ## Harness adapters (thin only)
 
-If you add `CLAUDE.md`, `.cursorrules`, `.opencode/*`, Codex config, etc.,
-each file must contain only a pointer such as:
+Committed adapters for harnesses that do not reliably discover root
+`AGENTS.md`: `CLAUDE.md`, `GEMINI.md`, `.cursorrules`,
+`.cursor/rules/project-memory.mdc`, and `.github/copilot-instructions.md`.
+Each must remain a thin pointer such as:
 
 > Read `AGENTS.md` and `.project-memory/STATE.md` first; canonical memory lives
 > in `.project-memory/`; the repository is the source of truth.

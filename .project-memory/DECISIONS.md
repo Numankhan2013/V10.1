@@ -97,3 +97,21 @@ restart clears progress but preserves frozen set + global history. Owned by
 `PRODUCT` implementation/product, `SESSION_LOG` history). Harness files are
 thin pointers only; no duplicated knowledge. Repo is source of truth; fix
 memory on drift. `memory.md` + `docs/` preserved as background, not forked.
+
+## 12. Memory discovery needs thin adapters and executable checks (2026-09-07)
+
+No filename is automatically loaded by every possible coding harness.
+Keep root `AGENTS.md` canonical, add only tiny pointers for common conventions
+(Claude, Gemini, Cursor, Copilot), and reject duplicated project knowledge in
+those adapters. `verify_project_memory.py` protects placement and low-drift
+rules in CI. Exact live HEAD must be resolved from Git rather than committed to
+`STATE.md`, because the commit containing an updated hash changes that hash.
+
+## 13. Takeaways preserve semantic ownership (V11.6, `125d68b`)
+
+Flattened source tables may place unrelated columns in one text stream. A key
+takeaway must select the relevant column/fact, preserve comparison ownership,
+and fall back to the correct answer when extraction is ambiguous. Source footer
+metadata is sanitized centrally before questions reach Practice, CBT, modules,
+or Review. The separate V11.6 candidate audited 719 questions and identified
+78 affected stems; build `34050921180` passed, pending device acceptance.
