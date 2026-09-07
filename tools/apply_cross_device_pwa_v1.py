@@ -61,8 +61,8 @@ def transform(source: str) -> str:
     )
     source = replace_once(
         source,
-        '<section><div class="more-group-title">App & source</div>',
-        '${nkCloudAccountCard()}\n        <section><div class="more-group-title">App & source</div>',
+        '<section class="nk-settings-group"><div class="nk-kicker">APP & SOURCE</div>',
+        '${nkCloudAccountCard()}\n      <section class="nk-settings-group"><div class="nk-kicker">APP & SOURCE</div>',
         "More account card",
     )
     reset_pattern = re.compile(r"function resetProgress\(\)\{ if\(confirm\('Reset all local QBank progress,[^\n]+\}\}")
