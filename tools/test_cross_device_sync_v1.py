@@ -36,6 +36,8 @@ assert(state.reviews.q1.attempts===2&&state.reviews.q1.streak===1,'review schedu
 const encoded=nkFirestoreDocument(nkEnvelope('tests','t1',{id:'t1'},300),'/x');
 const decoded=nkDecodeDocument(encoded);
 assert(decoded.kind==='tests'&&decoded.entityId==='t1'&&decoded.updatedAt===300,'Firestore envelope round trip failed');
+const jwtPayload=Buffer.from(JSON.stringify({aud:'nk-qbank',iss:'https://securetoken.google.com/nk-qbank'})).toString('base64url');
+assert(nkProjectIdFromToken(`header.${jwtPayload}.signature`)==='nk-qbank','Firebase project ID must come from authenticated token claims');
 console.log('CROSS_DEVICE_SYNC_BEHAVIOR_OK');
 '''
     prelude = r'''
@@ -78,7 +80,7 @@ function applySubject(v){activeSubject=v}
         raise SystemExit("Synchronization must pull/merge before uploading local revisions")
     if "function nkScheduleCloudSync(){if(!nkAuth)return;nkCaptureCloudChanges();}" not in sync_core:
         raise SystemExit("Local outbox capture must be synchronous with state saves")
-    for marker in ("nkResolveFirebaseProjectId", "identitytoolkit.googleapis.com/v1/projects?key=", "stage='download'", "HTTP ${response.status}"):
+    for marker in ("nkResolveFirebaseProjectId", "nkProjectIdFromToken", "stage='download'", "HTTP ${response.status}"):
         if marker not in sync_core:
             raise SystemExit(f"Cross-device sync diagnostic/project-resolution contract missing: {marker}")
     transform = (ROOT / "tools/apply_cross_device_pwa_v1.py").read_text(encoding="utf-8")

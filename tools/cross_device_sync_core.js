@@ -36,6 +36,19 @@
   function nkSaveAuth(){if(nkAuth)localStorage.setItem(NK_AUTH_KEY,JSON.stringify(nkAuth));else localStorage.removeItem(NK_AUTH_KEY);}
   function nkAuthValid(){return Boolean(nkAuth?.idToken&&Number(nkAuth.expiresAt||0)>Date.now()+60000);}
 
+  function nkProjectIdFromToken(token){
+    try{
+      const part=String(token||'').split('.')[1];
+      if(!part)return '';
+      const normalized=part.replace(/-/g,'+').replace(/_/g,'/').padEnd(Math.ceil(part.length/4)*4,'=');
+      const claims=nkJson(atob(normalized),{});
+      const audience=Array.isArray(claims?.aud)?claims.aud[0]:claims?.aud;
+      if(audience)return String(audience).trim();
+      const issuer=String(claims?.iss||''),prefix='https://securetoken.google.com/';
+      return issuer.startsWith(prefix)?issuer.slice(prefix.length).trim():'';
+    }catch(_){return '';}
+  }
+
   async function nkFetchJson(url,options={}){
     const response=await fetch(url,options),text=await response.text(),body=nkJson(text,{});
     if(!response.ok){
@@ -48,16 +61,9 @@
   async function nkResolveFirebaseProjectId(){
     if(nkResolvedProjectId)return nkResolvedProjectId;
     const c=nkFirebaseConfig();
-    nkResolvedProjectId=c.projectId;
-    if(!c.apiKey)return nkResolvedProjectId;
-    try{
-      const data=await nkFetchJson(`https://identitytoolkit.googleapis.com/v1/projects?key=${encodeURIComponent(c.apiKey)}`);
-      const discovered=String(data?.projectId||'').trim();
-      if(discovered){
-        nkResolvedProjectId=discovered;
-        if(window.NK_QBANK_FIREBASE_CONFIG)window.NK_QBANK_FIREBASE_CONFIG.projectId=discovered;
-      }
-    }catch(_){}
+    const authenticatedProject=nkProjectIdFromToken(nkAuth?.idToken);
+    nkResolvedProjectId=authenticatedProject||c.projectId;
+    if(authenticatedProject&&window.NK_QBANK_FIREBASE_CONFIG)window.NK_QBANK_FIREBASE_CONFIG.projectId=authenticatedProject;
     return nkResolvedProjectId;
   }
   async function nkRefreshAuth(){
@@ -186,12 +192,12 @@
   }
   async function nkCloudSync(initial=false){
     if(nkCloudBusy||!nkAuth||!nkCloudConfigured())return false;clearTimeout(nkCloudTimer);nkCloudBusy=true;nkSyncMeta.status='syncing';render();
-    let stage='Firebase project';
+    let stage='authentication';
     try{
+      const token=await nkRefreshAuth();
+      stage='Firebase project';
       const projectId=await nkResolveFirebaseProjectId();
       if(!projectId)throw new Error('Firebase project ID is unavailable.');
-      stage='authentication';
-      const token=await nkRefreshAuth();
       stage='download';
       const pulled=await nkPullCloud(token);
       localStorage.setItem(LS_KEY,JSON.stringify(state));

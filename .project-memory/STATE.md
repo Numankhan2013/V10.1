@@ -90,3 +90,9 @@ baseline. Only explicit user physical-device approval promotes a candidate.
 - Fresh physical Android + PWA test after `6cd5322` no longer hangs, but both devices report a generic Firestore `Request failed` and no data transfers.
 - The sync client now resolves the real Firebase project ID from the public Identity Toolkit project-config endpoint before Firestore access, so a display-name/stale `QBANK_FIREBASE_PROJECT_ID` cannot silently point REST calls at the wrong project.
 - Errors are now stage-labeled (`Firebase project`, `authentication`, `download`, `upload`) and include HTTP status. This change still requires a fresh Android/PWA build-and-test before sync can be declared working.
+
+
+## 2026-09-07 sync 404 root cause and fix
+- Production runtime config used `nk_qbank`; Firebase's project-config endpoint then returned numeric project number `174056010089`. Neither is the Firestore database project ID, so downloads returned HTTP 404. The authoritative project ID is `nk-qbank`.
+- GitHub Actions variable `QBANK_FIREBASE_PROJECT_ID` is corrected to `nk-qbank`. The client now refreshes authentication first and derives the project ID from the ID token's `aud`/`iss` claims, preventing stale config or numeric project-number regressions.
+- Targeted sync behavior/contract, JavaScript syntax, Python compile, and project-memory checks pass locally. A fresh production PWA/APK build and physical two-device sync test remain required before V11.7 is device-verified.
