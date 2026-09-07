@@ -124,6 +124,35 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
 - The combined queue asserts globally unique IDs, prioritizes due learning/relearning,
   then low-retrievability overdue reviews, then capped new cards.
 
+## Marrow multi-bank extension — pilot architecture
+
+- `feature/marrow-bank-pilot` adds a **bank/source dimension** inside an
+  existing subject rather than a second study engine. Anatomy currently exposes
+  `PrepLadder | Marrow`; selecting a bank swaps the active question/topic
+  record while preserving Practice, CBT, Review, modules, FSRS, sync, analytics,
+  bookmarks, wrong/due queues, and navigation.
+- Pilot runtime globals add `activeBank`, `qbank_active_bank_v1`,
+  `nkBankRecords(name)`, `nkBankRecord(name,bank)`, `openBank(name,bank)`,
+  a `banks` route, and globally namespaced Marrow IDs. `BY_ID` spans all
+  bank questions so FSRS/review replay can resolve Marrow IDs safely.
+- Current pilot data is Anatomy-only through one `MARROW_RECORD`. This is a
+  temporary pilot shape. **Before Physiology or Biochemistry Marrow import,
+  replace it with a subject-indexed/general bank registry.** Do not duplicate
+  one hardcoded Marrow record or one bank-selector implementation per subject.
+- Marrow explanations bypass the PDF-source renderer and use structured native
+  text/tables; PrepLadder keeps its existing source-PDF renderer unchanged.
+  Marrow study support must always preserve Key takeaway + Detailed explanation
+  + Structured text. Typography/semantic markup may improve; source wording must
+  not be rewritten.
+- Data is committed as deterministic compressed/base64 shards with a manifest
+  and SHA-256 checks. Large monolithic connector writes are forbidden after an
+  early pilot payload was truncated.
+- The Marrow transform is late in the deterministic pipeline, after protected
+  sync/FSRS/UI transforms and before final JS/product/CBT/PWA/browser/APK gates.
+  Playwright verifies the real subject → bank → topic → question → explanation
+  flow.
+- Full runbook: `docs/MARROW_BANK_INTEGRATION.md`.
+
 ## Integration points to preserve
 
 - `richText(text)` insertion anchor for multi-subject workflows;
