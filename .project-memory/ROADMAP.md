@@ -19,6 +19,32 @@ Check off only when build-verified **and** device-verified where UI is involved.
 - [ ] Deliver V11.7: responsive PWA plus conflict-safe Firebase synchronization
       while preserving the accepted Android behavior and existing local data.
 
+## Marrow expansion — next session priority
+
+- [x] Anatomy Marrow pilot: 62 questions / 4 topics, source selector, native
+      structured explanations, browser smoke test, side-by-side APK, and
+      Cloudflare feature preview. Final runs: Engineering Gate
+      `34159542431`, full Android+PWA `34159542436`. User physically checked
+      the preview and reported it works beautifully.
+- [ ] Before adding another subject, generalize the temporary Anatomy-only
+      `MARROW_RECORD` into a subject-indexed/general bank registry while
+      keeping the accepted Anatomy pilot behavior unchanged.
+- [ ] Import remaining Marrow Anatomy chapters in bounded, manifest-verified
+      batches using stable `marrow__...` IDs.
+- [ ] Import Marrow Physiology through the same bank registry and extend the
+      browser smoke test to `Physiology → PrepLadder | Marrow`.
+- [ ] Import Marrow Biochemistry through the same bank registry and extend the
+      browser smoke test to `Biochemistry → PrepLadder | Marrow`.
+- [ ] Explanation visual polish: improve typography, semantic bolding, spacing,
+      lists and tables **without changing source wording**.
+- [ ] Images/figures remain a later pass. Preserve figure metadata during text
+      imports; do not block question-bank expansion on missing binaries.
+- [ ] Keep all expansion builds on feature previews until regression gates pass
+      and the user physically verifies them; production promotion is deliberate.
+
+See `docs/MARROW_BANK_INTEGRATION.md` for the exact schema, integrity rules,
+failure lessons, and required regression checklist.
+
 ## Completed smart-review milestone
 
 - [x] FSRS v6 review scheduling is functional in the new Android APK and website/PWA.
