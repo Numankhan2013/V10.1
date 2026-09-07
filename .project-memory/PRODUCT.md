@@ -87,9 +87,17 @@ Prefer building over narrating.
 - PrepLadder explanations remain source-PDF based. Marrow explanations are
   native structured text/tables and must expose Key takeaway + Detailed
   explanation + Structured text.
-- Marrow explanation wording is source-owned. Future readability polish may
-  change typography, semantic emphasis, spacing, bullets/lists and table
-  presentation, but not rewrite/paraphrase the source text.
+- Marrow explanation wording is source-owned and remains stored unchanged.
+  Readability may change typography, semantic emphasis, spacing, bullets/lists,
+  and table presentation. A very light display-only trim may suppress a short
+  lead paragraph that substantially duplicates the Key Takeaway, dead
+  figure/image boilerplate when no asset is rendered, and source Option A/B/C/D
+  paragraphs when the standardized concise distractor section replaces them.
+  Do not paraphrase or silently rewrite the stored source transcription.
+- Every current Marrow Anatomy question uses the approved explanation grammar:
+  Key Takeaway + readable structured Detailed Explanation + exactly three
+  concise exam-discriminator rationales for the incorrect options. Generated
+  rationales remain separate from source content.
 - Figure metadata is preserved even when image binaries are not yet integrated;
   text-bank expansion must not be blocked by deferred image work.
 
