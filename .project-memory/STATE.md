@@ -25,21 +25,32 @@
 - Critical next-step architecture: the pilot currently has one Anatomy-specific `MARROW_RECORD`. Before adding Physiology/Biochemistry or scaling Anatomy, generalize to a subject-indexed/general bank registry; do **not** copy the special case per subject.
 - Canonical next-session procedure, schema, integrity rules, CI gates, and pilot lessons are in `docs/MARROW_BANK_INTEGRATION.md`.
 
-## Marrow explanation gold pilot — 2026-09-08
+## Marrow explanation architecture — full Anatomy rollout 2026-09-08
 
-- 20 Marrow Anatomy questions now use the gold-standard explanation pilot:
-  stronger readable typography, selective exam-discriminator emphasis, preserved
-  source tables, and a separate **Why the other options are wrong** section.
-- Source explanation wording is not rewritten. Generated distractor rationales
-  are stored separately in `data/marrow/explanation_gold_pilot.json`.
-- User explicitly clarified FSRS architecture: the recall dock remains fixed and
-  floating above Previous/Next after answer submission; it is not part of the
-  explanation flow and must not be moved by explanation work.
-- Verification is green: Engineering Gate `34161682358`; full Android+PWA
-  `34161682378`; browser verified distractor rows, preserved source table, and
-  fixed FSRS dock. Preview: `https://feature-marrow-bank-pilot.nk-qbank.pages.dev`.
-- Next step: user visually reviews the 20-question pilot. Refine the content/
-  typography grammar from that feedback before scaling to all Marrow questions.
+- User visually reviewed the 20-question gold pilot and called it near-perfect,
+  approving the typography, selective bolding, tables, and concise
+  **Why the other options are wrong** grammar for full Marrow Anatomy rollout.
+- User requested only a *very small* additional concision pass. Implemented as a
+  display-only micro-trim: suppress short lead paragraphs only when they
+  substantially duplicate the Key Takeaway; suppress dead figure/image
+  boilerplate when the asset is not rendered; replace source `Option A/B/C/D`
+  rationale paragraphs with the standardized concise distractor section. The
+  stored Marrow transcription is unchanged.
+- All 62 current Marrow Anatomy questions now use the approved explanation
+  architecture with selective exam-discriminator emphasis and exactly 3
+  distractor rationales each (186 total). Existing structured source tables are
+  preserved.
+- Permanent FSRS rule remains protected: the recall dock stays fixed/floating
+  above Previous/Next after answering and is not part of explanation flow.
+- Full rollout verification: Engineering Gate `34163197757` success; full
+  Android+PWA run `34163197772` success; real browser verified a formerly
+  non-pilot question, micro-concision on PGC Q1, source-table preservation, and
+  the fixed FSRS dock. Preview:
+  `https://feature-marrow-bank-pilot.nk-qbank.pages.dev` (immutable
+  `https://bae56103.nk-qbank.pages.dev`). Production promotion remains skipped.
+- Next product step after user spot-check: generalize the temporary Anatomy-only
+  `MARROW_RECORD` into a subject-indexed/general bank registry before adding
+  remaining Anatomy, Physiology, and Biochemistry Marrow banks.
 
 ## Verification and accepted baseline
 
