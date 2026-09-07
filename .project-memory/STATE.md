@@ -98,6 +98,6 @@ baseline. Only explicit user physical-device approval promotes a candidate.
 - Targeted local checks and Engineering Gate `34095662853` passed. Manual production run `34095870813` built the APK/PWA artifact and promoted it successfully; live Pages serves `projectId: "nk-qbank"` and the token-based resolver. A physical two-device sync test remains required before V11.7 is device-verified.
 
 
-## 2026-09-07 Firestore permission blocker and auto-sync
-- Physical testing confirms the project-routing 404 is gone. Upload now reaches `nk-qbank` but Firestore returns `Missing or insufficient permissions`; GitHub has no Firebase deployment credential, so application builds cannot deploy `firestore.rules`.
-- Owner-authorized deployment of the checked-in rules to `nk-qbank` is the immediate blocker. The client now also retries silently every five minutes, on foreground, and on reconnect, in addition to debounced sync after saves and manual Sync now.
+## 2026-09-07 Firestore upload fix and auto-sync
+- Physical testing confirmed project-routing downloads work but the client upload through REST `:batchWrite` returns `Missing or insufficient permissions`. An authenticated production probe proved identical owner-scoped data succeeds through document PATCH under the strict checked-in rules.
+- Upload now uses bounded parallel PATCH requests. Strict rules were re-deployed to `nk-qbank`, compiled successfully, and passed an authenticated write probe; disposable probe accounts/data were removed. The client also retries silently every five minutes, on foreground, and on reconnect, in addition to debounced sync after saves and manual Sync now. Fresh APK/PWA build and physical two-device verification remain.

@@ -45,7 +45,9 @@ only `updatedAt` needs the automatic single-field query index.
 | `preferences` | `main`; newest revision wins |
 
 Every cloud document also records `ownerDevice`, `updatedAt`, `deleted`, and
-`schemaVersion`. Device-specific document IDs prevent two devices from
+`schemaVersion`. Authenticated uploads use bounded groups of individual Firestore
+document PATCH requests; `:batchWrite` is intentionally avoided because it rejects
+Firebase ID-token writes with a permission error. Device-specific document IDs prevent two devices from
 overwriting each other's revisions. Each sync pulls cloud revisions first,
 compares pending local envelopes, merges deterministically, and only then
 uploads changed local entities. Simply opening an older device therefore does

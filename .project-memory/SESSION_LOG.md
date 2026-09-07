@@ -141,6 +141,7 @@ CI runs, what changed, verification, device status, next step.
 - Added a regression test for JWT project resolution and updated the PWA sync documentation. Targeted local checks and Engineering Gate `34095662853` passed. Manual run `34095870813` built the APK/PWA artifact and promoted it to Cloudflare production; live Pages serves the corrected config and resolver. Physical Android↔PWA verification remains.
 
 
-## 2026-09-07 — Firestore permission diagnosis and automatic retries
-- The post-404 physical test reaches Firestore downloads but upload is rejected with `Missing or insufficient permissions`. Repository and GitHub inspection found no Firebase deployment credential in Actions, so PWA/APK builds deploy Cloudflare but cannot publish the checked-in Firestore rules; owner-authorized rules deployment is required.
+## 2026-09-07 — Fix Firestore upload permissions and add automatic retries
+- The post-404 physical test reached Firestore downloads but upload was rejected with `Missing or insufficient permissions`. An authenticated disposable probe reproduced the failure: the REST `:batchWrite` endpoint returned HTTP 403 even with a minimal valid owner-scoped document, while an individual document `PATCH` of the identical fields returned HTTP 200 under the strict checked-in rules.
+- Replaced batchWrite uploads with bounded groups of individual PATCH requests. Re-deployed and compilation-verified the strict owner-only/field-validating rules; a second authenticated probe passed, and both disposable Authentication users plus their one generated Firestore document were removed.
 - Added silent signed-in synchronization every five minutes, on app foreground, and on reconnection. Existing save-triggered debounced synchronization and manual detailed errors remain.
