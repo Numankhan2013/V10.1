@@ -150,3 +150,25 @@ Android/PWA determinism, preserve legacy due dates until each card's first new
 rating, and apply preference changes only to future ratings. Default retention is
 90%, maximum interval 365 days, and incorrect recall uses one 10-minute step.
 Anki export and on-device parameter optimization remain separate future work.
+
+
+## 15. Question-bank source is a data dimension, not a second product engine (2026-09-08)
+
+Marrow and PrepLadder must share the existing subject/topic/session/review
+architecture. A subject may expose multiple bank/source records, selected before
+Topics. Bank-specific content/rendering may differ, but Practice, CBT, Review,
+Custom Study Modules, FSRS, persistence, sync, bookmarks, wrong/due queues,
+analytics, and navigation must not fork.
+
+Marrow uses stable namespaced IDs and native structured explanations. PrepLadder
+retains its existing source-PDF renderer. Marrow wording is source-owned:
+readability work may change typography, semantic bolding, spacing, lists and
+tables, but must not paraphrase or silently rewrite the explanation text.
+
+The Anatomy pilot's single `MARROW_RECORD` is explicitly temporary. Scaling to
+Physiology/Biochemistry requires a subject-indexed/general bank registry, not
+copy-pasted special cases. Large imported bundles use deterministic sharding +
+hash manifests, and every new bank expansion stays preview-only until browser
+gates and user physical verification pass.
+
+Rationale and executable procedure: `docs/MARROW_BANK_INTEGRATION.md`.
