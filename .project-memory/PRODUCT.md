@@ -75,6 +75,24 @@ Prefer building over narrating.
   and similar source metadata must not appear in displayed stems. Prefer a
   concise correct-answer fallback over a confident but semantically merged
   takeaway.
+## Multi-bank source behavior
+
+- A medical subject may contain multiple question-bank sources. If so, selecting
+  the subject opens a source selector before Topics.
+- Current user-accepted preview behavior: `Anatomy → PrepLadder | Marrow`.
+  Marrow currently contributes 62 Anatomy questions across 4 topics.
+- Bank/source selection changes content provenance, not the learning engine.
+  Practice, CBT, Review, Custom Study Modules, FSRS, sync, analytics, bookmarks,
+  and revision queues remain shared.
+- PrepLadder explanations remain source-PDF based. Marrow explanations are
+  native structured text/tables and must expose Key takeaway + Detailed
+  explanation + Structured text.
+- Marrow explanation wording is source-owned. Future readability polish may
+  change typography, semantic emphasis, spacing, bullets/lists and table
+  presentation, but not rewrite/paraphrase the source text.
+- Figure metadata is preserved even when image binaries are not yet integrated;
+  text-bank expansion must not be blocked by deferred image work.
+
 ## Design language
 
 Compact, medically serious, phone-native (~576px-class width, 44–48px targets).
