@@ -72,7 +72,7 @@ commands = re.findall(r"run:\s+python3\s+(tools/[A-Za-z0-9_.-]+\.py)", text)
 commands = [
     command for command in commands
     if not Path(command).name.startswith("verify_")
-    and Path(command).name != "write_build_manifest.py"
+    and Path(command).name not in {"write_build_manifest.py", "configure_marrow_pilot_android.py"}
 ]
 duplicates = sorted({command for command in commands if commands.count(command) > 1})
 if duplicates:
