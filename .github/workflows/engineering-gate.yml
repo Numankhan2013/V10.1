@@ -19,6 +19,8 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: '20'
+      - name: Verify project memory
+        run: python3 tools/verify_project_memory.py
       - name: Compile Python tooling
         run: python3 -m compileall -q tools
       - name: Test study metrics behavior

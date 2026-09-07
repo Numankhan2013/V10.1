@@ -3,12 +3,12 @@
 ## Canonical product
 
 - Repository: `Numankhan2013/V10.1`
-- Physically accepted product: V11 Run 220
-- Accepted product commit: `73c04281696137fda712ae0b9b7079c9c4a15635`
-- Accepted lineage: `v11-source-visuals`
-- Hardening branch: `v11.1-engineering-foundation`
+- Physically accepted product: V11.5 Custom Study Modules
+- Accepted product commit: `f13d12f`
+- Accepted lineage: `v11.5-custom-study-modules`
+- Current build-verified candidate: `v11.6-content-quality` (`125d68b`)
 
-Run 220 remains the behavioral baseline. Passing CI means a candidate is build-verified; only a successful physical-device test can promote it to an accepted baseline.
+V11.5 is the behavioral and accepted product baseline. Passing CI means a candidate is build-verified; only a successful physical-device test and explicit user approval can promote it to the accepted baseline.
 
 ## Protected product contract
 

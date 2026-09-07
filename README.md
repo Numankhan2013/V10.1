@@ -4,12 +4,16 @@ NK QBank is a private, offline-first Android medical question bank for personal 
 
 ## Current baseline
 
-- Physically accepted build: V11 Run 220
-- Accepted product commit: \`73c04281696137fda712ae0b9b7079c9c4a15635\`
-- Accepted lineage: \`v11-source-visuals\`
-- Current hardening candidate: \`v11.1-engineering-foundation\`
+- Physically accepted build: V11.5 Custom Study Modules
+- Accepted product commit: `f13d12f`
+- Accepted APK run: `34049637559`
+- Current build-verified candidate: `v11.6-content-quality` at `125d68b`
 
 The compact V10.3.11 question-first architecture remains the behavioral foundation. V11 adds accepted Home, review, and source-visual improvements without replacing that architecture.
+
+## Project memory
+
+Start with [`AGENTS.md`](AGENTS.md) and [`.project-memory/STATE.md`](.project-memory/STATE.md). Canonical harness-neutral memory lives in `.project-memory/`; thin adapters cover common agent conventions, and `python3 tools/verify_project_memory.py` checks its integrity.
 
 ## Architecture
 

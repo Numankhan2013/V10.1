@@ -1,18 +1,18 @@
 # NK QBank — Project Memory / Continuity
 
-**Updated:** 2026-09-06  
-**Current accepted baseline:** V11.5 Custom Study Modules (physically tested by the user and confirmed working)
+**Updated:** 2026-09-07
+**Current accepted baseline:** V11.6 Content Quality (`125d68b`, run `34050921180`, physically tested and user-confirmed)
 **Repository:** `Numankhan2013/V10.1`  
-**Active branch:** `v11.6-content-quality`
+**Active branch:** `v11.7-cross-device-pwa-sync`
 
-## Current candidate — V11.6 Content Quality
+## Current candidate — V11.7 Cross-device PWA + Sync
 
-Branch: `v11.6-content-quality`
+Branch: `v11.7-cross-device-pwa-sync`, based on accepted V11.6 and merged with
+the harness-neutral project-memory lineage.
 
-This candidate makes generated key takeaways comparison/table-aware and removes
-source footer metadata from every affected question stem before it reaches any
-practice, module, CBT, or review flow. V11.5 remains the accepted baseline until
-this candidate passes GitHub CI and physical-device testing.
+The goal is to preserve the accepted Android APK while adding a first-class
+responsive iPad/web PWA and conflict-safe Firebase synchronization. It is under
+implementation and is not yet build-verified, device-verified, or accepted.
 
 ## 1. Project identity and north star
 
@@ -32,20 +32,21 @@ The user's preference is **more building and less narrating**. Execute safe, con
 
 ---
 
-## 2. Current accepted state — Run 220
+## 2. Current accepted state — V11.5 Custom Study Modules
 
-Run 220 is the latest CI-successful build on `v11-source-visuals` and was subsequently physically tested by the user.
+V11.5 is the current accepted baseline. The user physically tested the module
+APK and reported that it works beautifully. Accepted product commit: `f13d12f`;
+canonical successful APK run: `34049637559`. It includes the previously accepted
+Home, review, source-visual, and question-experience foundation plus persistent
+Custom Study Modules.
 
-The user confirmed the app works and that the basic features are now done, with no regression observed.
-
-Run 220:
-- Workflow: `Build V11 Source Visuals APK`
+Run 220 remains the earlier foundational acceptance record:
 - Run number: `220`
 - Run ID: `34011265432`
 - Head commit: `73c04281696137fda712ae0b9b7079c9c4a15635`
 - Commit message: `Build Home three-action refinement`
 - CI conclusion: `success`
-- Active branch: `v11-source-visuals`
+- Historical branch: `v11-source-visuals`
 
 The workflow passed:
 - source/visual generation
@@ -569,7 +570,7 @@ This is a direction, not a command to modularize now.
 
 ## 14. Working rules for future assistants
 
-1. Treat Run 220 as the current physically accepted baseline.
+1. Treat V11.5 Custom Study Modules (`f13d12f`) as the current physically accepted baseline.
 2. Preserve every working core feature.
 3. Do not revive the failed V11 shell.
 4. Do not replace WebView architecture just for convenience.
@@ -610,3 +611,14 @@ Priority order for the next cycle:
 ## 16. Golden rule
 
 > **Build forward from what already works; never make the user pay for a new feature with a regression in an old one.**
+
+---
+
+## 17. Harness-neutral project memory
+
+Root `AGENTS.md` is the universal instruction router. Canonical role-separated
+memory lives in `.project-memory/`; `STATE.md` is current handoff and
+`SESSION_LOG.md` is append-only history. Common Claude, Gemini, Cursor, and
+Copilot files are thin pointers only. Live Git/repository state overrides written
+memory, and current HEAD must be resolved rather than hardcoded. Run
+`python3 tools/verify_project_memory.py` after memory changes.
