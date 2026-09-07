@@ -146,3 +146,16 @@ CI runs, what changed, verification, device status, next step.
 - Replaced batchWrite uploads with bounded groups of individual PATCH requests. Re-deployed and compilation-verified the strict owner-only/field-validating rules; a second authenticated probe passed, and both disposable Authentication users plus their one generated Firestore document were removed.
 - Added silent signed-in synchronization every five minutes, on app foreground, and on reconnection. Existing save-triggered debounced synchronization and manual detailed errors remain.
 - Engineering Gate `34100092384`, packaged push build `34100092358`, and manual production-promotion build `34100302605` passed. Live `nk-qbank.pages.dev` was verified to contain document PATCH, the five-minute timer, no batchWrite marker, and project ID `nk-qbank`.
+
+
+## 2026-09-07 — Implement FSRS smart-review milestone
+
+- Vendored pinned `ts-fsrs` 5.4.2 UMD and MIT license for Android/PWA offline use.
+- Added schema-v2 scheduling, migration backup with legacy due preservation,
+  deterministic attempt replay, Again/Hard/Good/Easy audit records, pending-Good
+  recovery, CBT binary mapping, undo events, and synchronized FSRS preferences.
+- Added all-subject Today queue with filters, 150/30 caps and required priority,
+  counts, time estimate, seven-day forecast, lapse attention flags, and settings.
+- Added pipeline/package contracts and behavior tests. Targeted local checks pass;
+  full packaged build and physical upgrade/two-device acceptance remain pending.
+- Explicitly paused the separate Android HTTP 403 and PWA refresh-loop sync work.

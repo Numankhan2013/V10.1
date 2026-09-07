@@ -139,3 +139,14 @@ Anatomy PDF uses configurable R2 while PDF.js preserves browser source rendering
 - Latest hashed preview opens successfully on iPad. Before the production-promotion workflow change, the root `nk-qbank.pages.dev` still served the older blank production deployment. Source-PDF rendering, Anatomy/R2 CORS, final production URL, Android in-place upgrade, and full two-way sync still require physical verification.
 - Next: wait for CI on the current branch → manually dispatch **Build V11.7 Android + PWA** once → verify `https://nk-qbank.pages.dev` → add final Pages hostname to Firebase Authentication authorized domains → ensure R2 CORS allows the exact Pages origin and Range GETs → install V11.7 APK over V11.6 without uninstalling → verify old local data → same-account Android/iPad sync, offline/reconnect, force-close/reopen, sign-out/in tests.
 
+
+
+## 14. FSRS v6 schedules are derived from immutable attempts (2026-09-07)
+
+Use pinned, offline `ts-fsrs` 5.4.2 (MIT), which implements FSRS v6, rather
+than maintaining a custom interval ladder. Attempts are the synchronization and
+replay truth; reviews are schema-v2 derived card caches. Disable fuzz for
+Android/PWA determinism, preserve legacy due dates until each card's first new
+rating, and apply preference changes only to future ratings. Default retention is
+90%, maximum interval 365 days, and incorrect recall uses one 10-minute step.
+Anki export and on-device parameter optimization remain separate future work.

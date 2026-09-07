@@ -19,6 +19,14 @@ Check off only when build-verified **and** device-verified where UI is involved.
 - [ ] Deliver V11.7: responsive PWA plus conflict-safe Firebase synchronization
       while preserving the accepted Android behavior and existing local data.
 
+## Paused synchronization follow-up (after FSRS milestone)
+
+- [ ] Resume Android/PWA synchronization diagnosis separately: physical Android
+      still reports Firestore HTTP 403, and the installed PWA has shown an update
+      refresh loop. Preserve the owner-scoped rules and collect fresh request/update
+      lifecycle evidence before changing sync or service-worker behavior. Do not mix
+      this deferred repair into the FSRS scheduler milestone.
+
 ## R1 — Gold-standard Question Screen (highest priority per `memory.md`)
 
 Refine typography rhythm, stem density, option spacing, selected/correct/wrong
@@ -76,6 +84,10 @@ is stable.
 
 ## Explicitly deferred
 
+- Manual Anki export (`NK QBank::<Subject>::<Topic>`, stable IDs, and
+  subject/topic/source tags); no AnkiConnect/AnkiDroid-only dependency.
+- Private on-device monthly FSRS parameter optimization after at least 1,000
+  rated reviews.
 - Native Compose rewrite; second navigation/shell; global renderer rewrites.
 - Heuristic Physiology explanation reconstruction.
 - Re-cropping medically meaningful source content.

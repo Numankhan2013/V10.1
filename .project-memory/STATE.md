@@ -61,14 +61,25 @@ baseline. Only explicit user physical-device approval promotes a candidate.
 - Source visual and protected session/review infrastructure must not be changed
   casually during unrelated work.
 
-## Next step
+## Active FSRS milestone
 
-1. User creates/authorizes Firebase, Firestore, Cloudflare Pages, and optional
-   R2, then adds the documented GitHub variables/secrets.
-2. Rebuild/deploy and run the Android migration plus two-device acceptance
-   checklist in `docs/CROSS_DEVICE_PWA.md`.
-3. Do not promote V11.7 until Android and iPad synchronization are physically
-   verified; V11.6 remains the rollback checkpoint.
+- The source app now contains the build-time-installed FSRS v6 scheduler using
+  vendored `ts-fsrs` 5.4.2 (MIT), deterministic fuzz-off scheduling, schema-v2
+  card state, immutable rated attempts, migration backup/due-date preservation,
+  all-subject daily queue, rating controls, forecast, settings, and undo.
+- Targeted FSRS behavior, source syntax, pipeline, sync-merge, product, and memory
+  checks pass locally. Full generated pipeline/APK and physical-device acceptance
+  remain required; this work is implemented, not yet build- or device-verified.
+
+## Known problems / immediate next step
+
+- Synchronization follow-up is intentionally paused during the FSRS milestone.
+  Latest physical findings are Android Firestore HTTP 403 and a PWA update
+  refresh loop. They remain unresolved and must be diagnosed as a separate
+  milestone; do not blend speculative sync/service-worker changes into FSRS.
+- Next: run the complete deterministic Android/PWA build, inspect packaged FSRS
+  assets, then perform the upgrade/migration/rating/cap/restart/two-device physical
+  acceptance checklist. V11.6 remains the rollback checkpoint.
 
 <!-- V11.7_DEPLOYMENT_HANDOFF_2026-09-07 -->
 ## V11.7 deployment handoff — 2026-09-07

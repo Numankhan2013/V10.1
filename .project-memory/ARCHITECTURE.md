@@ -70,7 +70,7 @@
 
 ## Deterministic build pipeline (order enforced)
 
-`tools/verify_build_pipeline.py` requires this order (31 protected steps):
+`tools/verify_build_pipeline.py` requires this order (33 protected steps):
 
 `fix_review_build` → `harden_review_renderer` →
 `build_source_visual_metadata` → `improve_source_visual_assets_v1` →
@@ -103,6 +103,18 @@ packaged JS check), packaged contract, `write_build_manifest.py`
 - `.github/workflows/engineering-gate.yml` — fast gate: `compileall`,
   study-metrics, source contract, pipeline order. Must stay green.
 - Many historical `v10*` workflows remain; ignore unless diagnosing old runs.
+
+## FSRS smart-review extension
+
+- `tools/apply_fsrs_v1.py` installs `tools/fsrs_scheduler_core.js` after the
+  cross-device layer and loads vendored `ts-fsrs` 5.4.2 UMD plus its MIT license
+  from `app/src/main/assets/vendor/ts-fsrs/`; there is no runtime CDN.
+- Attempts remain synchronization truth. Rated attempts carry FSRS audit snapshots;
+  schema-v2 `state.reviews` is deterministically replayed from sorted attempts. A
+  one-time local backup and per-card legacy due override preserve existing due dates
+  until the first post-migration rating. Preferences sync in the existing envelope.
+- The combined queue asserts globally unique IDs, prioritizes due learning/relearning,
+  then low-retrievability overdue reviews, then capped new cards.
 
 ## Integration points to preserve
 

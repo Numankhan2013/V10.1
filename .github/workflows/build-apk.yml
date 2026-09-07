@@ -117,6 +117,10 @@ jobs:
         run: python3 tools/apply_cross_device_pwa_v1.py
       - name: Test cross-device merge and PWA contracts
         run: python3 tools/test_cross_device_sync_v1.py
+      - name: Apply FSRS smart review scheduler
+        run: python3 tools/apply_fsrs_v1.py
+      - name: Test FSRS scheduler and queue contracts
+        run: python3 tools/test_fsrs_v1.py
       - name: Repair WebView boot-blocking JavaScript after all transformations
         run: python3 tools/fix_boot_syntax.py
       - name: Verify final JavaScript syntax after all transformations
@@ -205,8 +209,16 @@ jobs:
           test -f app/src/main/assets/Biochemistry_QBank_Source.pdf
           test -f app/src/main/assets/Physiology_QBank_Source.pdf
           test -f app/src/main/assets/Anatomy_QBank_Source.pdf
+          test -s app/src/main/assets/vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js
+          test -s app/src/main/assets/vendor/ts-fsrs/LICENSE
+          grep -q 'NK_FSRS_V6_START' app/src/main/assets/index.html
       - name: Build Cloudflare Pages PWA artifact
         run: python3 tools/build_web_dist.py --version ${{ github.sha }}
+      - name: Verify offline FSRS assets in PWA artifact
+        run: |
+          test -s build/web/vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js
+          test -s build/web/vendor/ts-fsrs/LICENSE
+          grep -q 'NK_FSRS_V6_START' build/web/index.html
       - name: Set up JDK 17
         uses: actions/setup-java@v5
         with:
@@ -256,6 +268,9 @@ jobs:
           grep -q 'id="cr-grid"' /tmp/packaged-index.html
           grep -q 'window.QB.openQuestionNavigator()' /tmp/packaged-index.html
           grep -q 'root.innerHTML=' /tmp/packaged-index.html
+          grep -q 'NK_FSRS_V6_START' /tmp/packaged-index.html
+          unzip -l "$APK" | grep -q 'assets/vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js'
+          unzip -l "$APK" | grep -q 'assets/vendor/ts-fsrs/LICENSE'
           test "$(unzip -l "$APK" | grep -c 'source_visuals/.*\.png')" -ge 400
           python3 - <<'PY'
           from pathlib import Path
@@ -281,6 +296,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: V11.7-android-pwa
+          retention-days: 3
           path: |
             app/build/outputs/apk/debug/*.apk
             app/build/outputs/apk/debug/NK-QBank-build-manifest.json

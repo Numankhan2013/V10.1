@@ -109,7 +109,7 @@
       nkSyncMeta.known[kind]=[...current[kind]];
     }
     nkQueueEnvelope(nkEnvelope('sessions','active',state.activeSession||null,nkEntityTimestamp(state.activeSession,Date.now()),!state.activeSession));
-    nkQueueEnvelope(nkEnvelope('preferences','main',{activeSubject,studyStartedAt:state.studyStartedAt||null},Date.now()));
+    nkQueueEnvelope(nkEnvelope('preferences','main',{activeSubject,studyStartedAt:state.studyStartedAt||null,fsrsPreferences:state.fsrsPreferences||null},Date.now()));
     nkSaveSyncMeta();nkScheduleCloudFlush();
   }
   function nkScheduleCloudSync(){if(!nkAuth)return;nkCaptureCloudChanges();}
@@ -150,6 +150,7 @@
     const winner=candidates[0];nkSyncMeta.winners[key]=winner;return winner;
   }
   function nkRebuildReviews(){
+    if(typeof nkFsrsRebuildAll==='function')return nkFsrsRebuildAll(false);
     const intervals=[0.0069,0.04,1,3,7,14,30],reviews={};
     Object.entries(state.attempts||{}).forEach(([qid,list])=>{
       let streak=0,count=0,last=0,interval=0;
@@ -178,7 +179,7 @@
       }state.studyModules=list.slice(-100);
     }
     else if(winner.kind==='sessions'){state.activeSession=winner.deleted?null:payload;}
-    else if(winner.kind==='preferences'&&payload){if(payload.activeSubject&&typeof SUBJECT_BY_NAME!=='undefined'&&SUBJECT_BY_NAME[payload.activeSubject])applySubject(payload.activeSubject);if(payload.studyStartedAt)state.studyStartedAt=state.studyStartedAt?Math.min(Number(state.studyStartedAt),Number(payload.studyStartedAt)):Number(payload.studyStartedAt);}
+    else if(winner.kind==='preferences'&&payload){if(payload.activeSubject&&typeof SUBJECT_BY_NAME!=='undefined'&&SUBJECT_BY_NAME[payload.activeSubject])applySubject(payload.activeSubject);if(payload.studyStartedAt)state.studyStartedAt=state.studyStartedAt?Math.min(Number(state.studyStartedAt),Number(payload.studyStartedAt)):Number(payload.studyStartedAt);if(payload.fsrsPreferences)state.fsrsPreferences={...(state.fsrsPreferences||{}),...payload.fsrsPreferences};}
     return true;
   }
   async function nkPullCloud(token){let count=0;for(const kind of NK_SYNC_KINDS){const docs=await nkPullKind(kind,token);docs.forEach(doc=>{nkApplyCloudEnvelope(doc);count++;});}nkRebuildReviews();if(typeof nkNormalizeStudyModules==='function')nkNormalizeStudyModules();return count;}

@@ -29,6 +29,8 @@ jobs:
         run: python3 tools/test_custom_study_modules_v1.py
       - name: Test cross-device merge and PWA contracts
         run: python3 tools/test_cross_device_sync_v1.py
+      - name: Test FSRS scheduler and queue contracts
+        run: python3 tools/test_fsrs_v1.py
       - name: Test question content hygiene behavior
         run: python3 tools/test_question_content_hygiene_v1.py
       - name: Verify source product contract
