@@ -86,3 +86,7 @@ baseline. Only explicit user physical-device approval promotes a candidate.
 - Root cause of the stuck label is confirmed in `tools/cross_device_sync_core.js`: the error render happened while `nkCloudBusy` was still true and `finally` cleared the flag without a final render. Initial auth also treated a failed first sync as success because `nkCloudSync(true)` returned false without being rethrown.
 - Commit `6cd5322` fixes those control-flow defects and surfaces the actual Firebase/Firestore error text in the Sync card/toast. This is diagnostic plus correctness hardening; the underlying backend failure still needs one fresh physical test to reveal its exact message before calling sync working.
 
+## 2026-09-07 Firestore request-failure hardening
+- Fresh physical Android + PWA test after `6cd5322` no longer hangs, but both devices report a generic Firestore `Request failed` and no data transfers.
+- The sync client now resolves the real Firebase project ID from the public Identity Toolkit project-config endpoint before Firestore access, so a display-name/stale `QBANK_FIREBASE_PROJECT_ID` cannot silently point REST calls at the wrong project.
+- Errors are now stage-labeled (`Firebase project`, `authentication`, `download`, `upload`) and include HTTP status. This change still requires a fresh Android/PWA build-and-test before sync can be declared working.
