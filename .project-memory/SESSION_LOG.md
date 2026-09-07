@@ -306,3 +306,35 @@ CI runs, what changed, verification, device status, next step.
   intentionally skipped.
 - Next: user visually reviews the 20-question pilot; refine the explanation
   grammar before any full-bank rollout.
+
+
+## 2026-09-08 — Full 62-question Marrow Anatomy explanation rollout
+
+- User physically reviewed the 20-question gold explanation pilot and described
+  it as near-perfect. Typography, selective high-yield bolding, source-table
+  treatment, and concise wrong-option rationales were accepted for full rollout.
+- User requested only a *very, very small* increase in concision. Implemented
+  without rewriting the source: the renderer suppresses only a short
+  Key-Takeaway-duplicate lead paragraph, short dead image/figure boilerplate
+  when no asset is rendered, and legacy source Option A/B/C/D paragraphs that
+  are replaced by the standardized concise distractor section.
+- Expanded `data/marrow/explanation_gold_pilot.json` from 20 to all 62 current
+  Marrow Anatomy questions. The schema-v2 map now carries selective
+  exam-discriminator emphasis and 186 generated distractor rationales. Generated
+  rationales remain separate from the unchanged Marrow source transcription.
+- Existing structured tables remain rendered as real tables. No bulletization
+  is forced when paragraph prose is more appropriate.
+- Hardened contracts so augmentation IDs exactly equal the 62 Marrow IDs,
+  rationale keys equal the three incorrect option letters, rationales stay
+  concise, and emphasis stays selective.
+- Browser verification checks a question that was outside the original pilot,
+  verifies micro-concision on PGC Q1 without losing migration nuance, preserves
+  the prenatal-development table, and reasserts that the FSRS dock remains fixed
+  above Previous/Next.
+- Engineering Gate `34163197757` and full Android+PWA run `34163197772`
+  passed. Side-by-side APK packaged and Cloudflare preview deployed:
+  `https://feature-marrow-bank-pilot.nk-qbank.pages.dev` (immutable
+  `https://bae56103.nk-qbank.pages.dev`). Production promotion was skipped.
+- Next: user spot-checks the full rollout. Then generalize the temporary
+  Anatomy-only `MARROW_RECORD` to a multi-subject bank registry before adding
+  remaining Anatomy, Physiology and Biochemistry Marrow data.
