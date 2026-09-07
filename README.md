@@ -7,7 +7,7 @@ NK QBank is a private, offline-first Android medical question bank for personal 
 - Physically accepted build: V11.6 Content Quality
 - Accepted product commit: `125d68b`
 - Accepted APK run: `34050921180`
-- Current implementation branch: `v11.7-cross-device-pwa-sync` (not yet build/device verified)
+- Current build-verified candidate: `v11.7-cross-device-pwa-sync` at `1b1fc9f`
 
 The compact V10.3.11 question-first architecture remains the behavioral foundation. V11 adds accepted Home, review, and source-visual improvements without replacing that architecture.
 

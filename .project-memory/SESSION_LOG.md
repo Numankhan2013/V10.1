@@ -108,6 +108,7 @@ CI runs, what changed, verification, device status, next step.
   ownership rules, local outbox/cursors, tombstones, and conflict tests.
 - Android now has a deterministic private HTTPS asset-origin transform and a
   one-time bridge that migrates the prior file-origin localStorage before boot.
-- Source gates and sync behavior tests passed locally. Full generated/APK CI and
-  configured two-device testing remain pending; V11.7 is not yet build-verified,
-  device-verified, or accepted.
+- Final product commit `1b1fc9f`: Engineering Gate `34076883867` and full
+  generated/packaged Android + PWA run `34076883874` passed; artifact
+  `V11.7-android-pwa`. Cloud deployment was skipped because no account variables
+  or secrets exist. V11.7 is build-verified, not device-verified or accepted.

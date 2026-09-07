@@ -48,10 +48,11 @@ baseline. Only explicit user physical-device approval promotes a candidate.
 
 ## Known problems / cautions
 
-- V11.7 is an unverified evolution branch that merges accepted V11.6 with the
-  memory lineage. Its PWA/Firebase/Android-migration implementation is source-gate
-  verified locally but awaits full generated APK/PWA CI and configured devices.
-  Preserve `v11.6-content-quality` as the immutable checkpoint.
+- V11.7 is a **build-verified, not device-verified** evolution branch merging
+  accepted V11.6 with the memory lineage. Product commit `1b1fc9f`; Engineering
+  Gate `34076883867` and full APK/PWA run `34076883874` passed. Cloud deployment
+  was correctly skipped because account credentials are not configured. Preserve
+  `v11.6-content-quality` as the immutable accepted checkpoint.
 - Root `AGENTS.md` placement is correct, but no filename can force every unknown
   harness to load it. Thin common-harness adapters and
   `tools/verify_project_memory.py` reduce discovery and drift risk.
@@ -62,8 +63,9 @@ baseline. Only explicit user physical-device approval promotes a candidate.
 
 ## Next step
 
-1. Finish and build-verify V11.7 Android + PWA + Firebase sync.
-2. Configure the external Firebase/Cloudflare account values, then run the
-   Android migration and two-device acceptance checklist.
+1. User creates/authorizes Firebase, Firestore, Cloudflare Pages, and optional
+   R2, then adds the documented GitHub variables/secrets.
+2. Rebuild/deploy and run the Android migration plus two-device acceptance
+   checklist in `docs/CROSS_DEVICE_PWA.md`.
 3. Do not promote V11.7 until Android and iPad synchronization are physically
    verified; V11.6 remains the rollback checkpoint.

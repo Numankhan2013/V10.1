@@ -11,8 +11,8 @@ Branch: `v11.7-cross-device-pwa-sync`, based on accepted V11.6 and merged with
 the harness-neutral project-memory lineage.
 
 The goal is to preserve the accepted Android APK while adding a first-class
-responsive iPad/web PWA and conflict-safe Firebase synchronization. It is under
-implementation and is not yet build-verified, device-verified, or accepted.
+responsive iPad/web PWA and conflict-safe Firebase synchronization. It is build-verified at `1b1fc9f` (Engineering `34076883867`, full Android/PWA
+run `34076883874`) but is not device-verified or accepted.
 
 ## 1. Project identity and north star
 
