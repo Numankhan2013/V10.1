@@ -279,3 +279,30 @@ CI runs, what changed, verification, device status, next step.
   session must generalize the temporary Anatomy-only `MARROW_RECORD` to a
   subject-indexed/general bank registry before importing additional Anatomy,
   Physiology, and Biochemistry Marrow data.
+
+
+## 2026-09-08 — 20-question Marrow explanation gold-standard pilot
+
+- User approved testing the richer explanation architecture on 20–30 questions
+  before scaling and explicitly corrected one architecture point: the FSRS recall
+  dock must remain fixed/floating above Previous/Next after answer submission,
+  never moved into the explanation flow.
+- Selected 20 Anatomy Marrow questions (5 from each of the first four topics) to
+  cover short explanations, sequences, mechanisms, long clinical explanations,
+  and structured tables.
+- Added `data/marrow/explanation_gold_pilot.json` with selective exam-relevant
+  emphasis plus 60 concise generated distractor rationales. Generated content is
+  stored separately from Marrow source text for auditability/regeneration.
+- Enhanced only those 20 questions at render time: stronger typography,
+  selective emphasis, preserved source tables, and a **Why the other options are
+  wrong** section. The other 42 pilot questions remain unchanged as comparison.
+- Added regression/browser checks that the original source table survives and
+  that `.nk-fsrs-rating` remains visible inside fixed
+  `.nk-session-footer`.
+- Engineering Gate `34161682358` and full Android+PWA run `34161682378`
+  passed. Browser checks passed, APK packaged, and feature preview deployed:
+  `https://feature-marrow-bank-pilot.nk-qbank.pages.dev`
+  (immutable `https://ce68af84.nk-qbank.pages.dev`). Production promotion
+  intentionally skipped.
+- Next: user visually reviews the 20-question pilot; refine the explanation
+  grammar before any full-bank rollout.
