@@ -35,8 +35,11 @@ Check off only when build-verified **and** device-verified where UI is involved.
       browser smoke test to `Physiology → PrepLadder | Marrow`.
 - [ ] Import Marrow Biochemistry through the same bank registry and extend the
       browser smoke test to `Biochemistry → PrepLadder | Marrow`.
-- [ ] Explanation visual polish: improve typography, semantic bolding, spacing,
-      lists and tables **without changing source wording**.
+- [x] Marrow Anatomy explanation architecture: user-approved typography,
+      selective exam-discriminator emphasis, preserved source tables, 186
+      concise wrong-option rationales across all 62 current questions, and a
+      very light display-only redundancy trim while stored source wording stays
+      unchanged. Full browser/APK/PWA run `34163197772` passed.
 - [ ] Images/figures remain a later pass. Preserve figure metadata during text
       imports; do not block question-bank expansion on missing binaries.
 - [ ] Keep all expansion builds on feature previews until regression gates pass
