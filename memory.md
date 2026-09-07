@@ -638,20 +638,27 @@ memory, and current HEAD must be resolved rather than hardcoded. Run
 ## Marrow multi-bank pilot handoff — 2026-09-08
 
 - Active implementation branch: `feature/marrow-bank-pilot`.
-- User physically checked the Cloudflare feature preview and confirmed the
-  Anatomy PrepLadder/Marrow source selector and Marrow question flow work
-  beautifully.
-- Final green verification: Engineering Gate `34159542431`; full Android+PWA
-  run `34159542436`. Production Pages promotion remained intentionally
-  skipped for the feature branch.
+- User physically checked the Anatomy PrepLadder/Marrow selector and initial
+  Marrow flow, then visually reviewed the 20-question explanation pilot and
+  approved its explanation grammar for full rollout.
 - Current Marrow Anatomy pilot: 62 questions / 4 topics with namespaced IDs,
-  native structured explanations, and three resolved reconstruction cases.
+  native structured explanations, three resolved reconstruction cases, and the
+  approved explanation architecture on all 62 questions.
+- Full explanation layer: selective exam-discriminator emphasis, preserved
+  source tables, 186 separate concise wrong-option rationales, and a *very
+  light* display-only redundancy trim. Stored Marrow source transcription is
+  unchanged.
+- Full rollout verification: Engineering Gate `34163197757`; full Android+PWA
+  `34163197772`; preview
+  `https://feature-marrow-bank-pilot.nk-qbank.pages.dev` (immutable
+  `https://bae56103.nk-qbank.pages.dev`). Production promotion was skipped.
+- FSRS recall UI is a permanent fixed/floating dock above Previous/Next after
+  answering; explanation work must never move it into document flow.
 - Next expansion must first generalize the temporary Anatomy-only
   `MARROW_RECORD` to a subject-indexed/general bank registry, then add
   remaining Anatomy + Physiology + Biochemistry Marrow data in bounded,
   hash-verified batches.
-- Explanation polish requested next is presentation-only: typography, bolding,
-  spacing, lists and tables. Preserve source wording.
-- Canonical schema, procedure, failure lessons and regression checklist:
-  `docs/MARROW_BANK_INTEGRATION.md`. Canonical live handoff remains
-  `.project-memory/STATE.md`.
+- Canonical schema, explanation contract, procedure, failure lessons and
+  regression checklist: `docs/MARROW_BANK_INTEGRATION.md`. Canonical live
+  handoff remains `.project-memory/STATE.md`.
+
