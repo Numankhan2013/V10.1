@@ -56,7 +56,9 @@ merged canonical attempts instead of being maintained as divergent analytics.
 
 The outbox and cursors live in `qbank_sync_v1`. A save writes local QBank state
 and the outbox synchronously; network transfer is debounced. Offline work stays
-available immediately and uploads after the `online` event or **Sync now**.
+available immediately and uploads after the `online` event or **Sync now**. While
+signed in, the app also retries silently every five minutes and whenever it returns
+to the foreground; manual sync continues to show actionable failure details.
 
 ## Firebase setup (one-time account action)
 

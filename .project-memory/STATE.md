@@ -96,3 +96,8 @@ baseline. Only explicit user physical-device approval promotes a candidate.
 - Production runtime config used `nk_qbank`; Firebase's project-config endpoint then returned numeric project number `174056010089`. Neither is the Firestore database project ID, so downloads returned HTTP 404. The authoritative project ID is `nk-qbank`.
 - GitHub Actions variable `QBANK_FIREBASE_PROJECT_ID` is corrected to `nk-qbank`. The client now refreshes authentication first and derives the project ID from the ID token's `aud`/`iss` claims, preventing stale config or numeric project-number regressions.
 - Targeted local checks and Engineering Gate `34095662853` passed. Manual production run `34095870813` built the APK/PWA artifact and promoted it successfully; live Pages serves `projectId: "nk-qbank"` and the token-based resolver. A physical two-device sync test remains required before V11.7 is device-verified.
+
+
+## 2026-09-07 Firestore permission blocker and auto-sync
+- Physical testing confirms the project-routing 404 is gone. Upload now reaches `nk-qbank` but Firestore returns `Missing or insufficient permissions`; GitHub has no Firebase deployment credential, so application builds cannot deploy `firestore.rules`.
+- Owner-authorized deployment of the checked-in rules to `nk-qbank` is the immediate blocker. The client now also retries silently every five minutes, on foreground, and on reconnect, in addition to debounced sync after saves and manual Sync now.

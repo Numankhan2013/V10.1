@@ -80,7 +80,7 @@ function applySubject(v){activeSubject=v}
         raise SystemExit("Synchronization must pull/merge before uploading local revisions")
     if "function nkScheduleCloudSync(){if(!nkAuth)return;nkCaptureCloudChanges();}" not in sync_core:
         raise SystemExit("Local outbox capture must be synchronous with state saves")
-    for marker in ("nkResolveFirebaseProjectId", "nkProjectIdFromToken", "stage='download'", "HTTP ${response.status}"):
+    for marker in ("nkResolveFirebaseProjectId", "nkProjectIdFromToken", "stage='download'", "HTTP ${response.status}", "setInterval(nkCloudAutoSync,300000)", "visibilitychange"):
         if marker not in sync_core:
             raise SystemExit(f"Cross-device sync diagnostic/project-resolution contract missing: {marker}")
     transform = (ROOT / "tools/apply_cross_device_pwa_v1.py").read_text(encoding="utf-8")

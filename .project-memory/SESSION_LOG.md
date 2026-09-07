@@ -139,3 +139,8 @@ CI runs, what changed, verification, device status, next step.
 - Reproduced the deployed configuration and found `QBANK_FIREBASE_PROJECT_ID=nk_qbank`. The prior runtime discovery returned Firebase project number `174056010089`; Firestore returned 404 for that database path. The real Firebase/Firestore project ID is `nk-qbank`.
 - Corrected the GitHub Actions variable to `nk-qbank` and changed sync project resolution to use the authenticated ID token's `aud`/`iss` project claim after token refresh.
 - Added a regression test for JWT project resolution and updated the PWA sync documentation. Targeted local checks and Engineering Gate `34095662853` passed. Manual run `34095870813` built the APK/PWA artifact and promoted it to Cloudflare production; live Pages serves the corrected config and resolver. Physical Android↔PWA verification remains.
+
+
+## 2026-09-07 — Firestore permission diagnosis and automatic retries
+- The post-404 physical test reaches Firestore downloads but upload is rejected with `Missing or insufficient permissions`. Repository and GitHub inspection found no Firebase deployment credential in Actions, so PWA/APK builds deploy Cloudflare but cannot publish the checked-in Firestore rules; owner-authorized rules deployment is required.
+- Added silent signed-in synchronization every five minutes, on app foreground, and on reconnection. Existing save-triggered debounced synchronization and manual detailed errors remain.

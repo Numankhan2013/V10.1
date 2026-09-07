@@ -6,7 +6,7 @@
   const NK_AUTH_KEY='qbank_firebase_auth_v1';
   const NK_PRE_CLOUD_BACKUP='qbank_state_pre_cloud_v1';
   const NK_SYNC_KINDS=['attempts','bookmarks','tests','modules','sessions','preferences'];
-  let nkCloudBusy=false,nkCloudReady=false,nkCloudTimer=null,nkResolvedProjectId='';
+  let nkCloudBusy=false,nkCloudReady=false,nkCloudTimer=null,nkCloudInterval=null,nkResolvedProjectId='';
 
   function nkJson(value,fallback){try{return JSON.parse(value);}catch(_){return fallback;}}
   function nkStable(value){
@@ -190,7 +190,7 @@
     if(!result)throw new Error(nkSyncMeta.lastError||'Cloud synchronization failed.');
     nkCloudReady=true;nkCaptureCloudChanges();
   }
-  async function nkCloudSync(initial=false){
+  async function nkCloudSync(initial=false,silent=false){
     if(nkCloudBusy||!nkAuth||!nkCloudConfigured())return false;clearTimeout(nkCloudTimer);nkCloudBusy=true;nkSyncMeta.status='syncing';render();
     let stage='authentication';
     try{
@@ -209,7 +209,7 @@
       nkSyncMeta.status=navigator.onLine?'error':'offline';
       nkSyncMeta.lastError=`${stage}: ${String(error.message||error)}`;
       nkSaveSyncMeta();
-      if(!initial){
+      if(!initial&&!silent){
         const detail=nkSyncMeta.lastError.slice(0,220);
         showToast(navigator.onLine?`Sync paused: ${detail}`:'Offline. Changes will sync when connected.','bad');
       }
@@ -225,9 +225,20 @@
     if(!nkAuth)return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="section-title"><span>QBank Sync</span><span class="sub">Firebase</span></div><p class="small-muted">Use the same private account on Android and iPad. Existing progress is backed up before its first merge.</p><label>Email<input id="nk-cloud-email" type="email" autocomplete="username" inputmode="email"></label><label>Password<input id="nk-cloud-password" type="password" autocomplete="current-password" minlength="6"></label><div class="nk-cloud-actions"><button onclick="window.QB.nkCloudAuthenticate('signin')">Sign in</button><button class="primary-btn" onclick="window.QB.nkCloudAuthenticate('create')">Create account</button></div><div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
     return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="nk-cloud-user"><span class="nk-cloud-dot ${nkSyncMeta.status==='error'?'is-error':navigator.onLine?'is-online':''}"></span><div><strong>${esc(nkAuth.email||'QBank account')}</strong><small>${esc(nkCloudStatusCopy())}</small></div></div><p class="small-muted">Attempts, bookmarks, tests, modules, active sessions and study preferences merge without replacing newer device data.</p><div class="nk-cloud-actions"><button class="primary-btn" onclick="window.QB.nkCloudSyncNow()">Sync now</button><button onclick="window.QB.nkCloudSignOut()">Sign out</button></div><div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
   }
+  function nkCloudAutoSync(){
+    if(!nkAuth||!nkCloudConfigured()||!navigator.onLine||nkCloudBusy)return;
+    nkCloudSync(false,true);
+  }
+  function nkStartCloudAutoSync(){
+    clearInterval(nkCloudInterval);
+    nkCloudInterval=setInterval(nkCloudAutoSync,300000);
+  }
   async function nkCloudInit(){
-    window.addEventListener('online',()=>{if(nkAuth)nkCloudSync(false);});
+    window.addEventListener('online',()=>{if(nkAuth)nkCloudSync(false,true);});
     window.addEventListener('offline',()=>{nkSyncMeta.status='offline';nkSaveSyncMeta();render();});
+    window.addEventListener('focus',nkCloudAutoSync);
+    document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')nkCloudAutoSync();});
+    nkStartCloudAutoSync();
     if(!nkAuth||!nkCloudConfigured())return;
     try{await nkInitialCloudSync();}catch(_){nkCloudReady=true;}
   }
