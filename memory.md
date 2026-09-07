@@ -633,3 +633,25 @@ memory, and current HEAD must be resolved rather than hardcoded. Run
 - Latest hashed preview opens successfully on iPad. Before the production-promotion workflow change, the root `nk-qbank.pages.dev` still served the older blank production deployment. Source-PDF rendering, Anatomy/R2 CORS, final production URL, Android in-place upgrade, and full two-way sync still require physical verification.
 - Next: wait for CI on the current branch → manually dispatch **Build V11.7 Android + PWA** once → verify `https://nk-qbank.pages.dev` → add final Pages hostname to Firebase Authentication authorized domains → ensure R2 CORS allows the exact Pages origin and Range GETs → install V11.7 APK over V11.6 without uninstalling → verify old local data → same-account Android/iPad sync, offline/reconnect, force-close/reopen, sign-out/in tests.
 
+
+
+## Marrow multi-bank pilot handoff — 2026-09-08
+
+- Active implementation branch: `feature/marrow-bank-pilot`.
+- User physically checked the Cloudflare feature preview and confirmed the
+  Anatomy PrepLadder/Marrow source selector and Marrow question flow work
+  beautifully.
+- Final green verification: Engineering Gate `34159542431`; full Android+PWA
+  run `34159542436`. Production Pages promotion remained intentionally
+  skipped for the feature branch.
+- Current Marrow Anatomy pilot: 62 questions / 4 topics with namespaced IDs,
+  native structured explanations, and three resolved reconstruction cases.
+- Next expansion must first generalize the temporary Anatomy-only
+  `MARROW_RECORD` to a subject-indexed/general bank registry, then add
+  remaining Anatomy + Physiology + Biochemistry Marrow data in bounded,
+  hash-verified batches.
+- Explanation polish requested next is presentation-only: typography, bolding,
+  spacing, lists and tables. Preserve source wording.
+- Canonical schema, procedure, failure lessons and regression checklist:
+  `docs/MARROW_BANK_INTEGRATION.md`. Canonical live handoff remains
+  `.project-memory/STATE.md`.
