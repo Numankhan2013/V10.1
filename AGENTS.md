@@ -20,7 +20,8 @@ Preserved legacy references (do not delete, do not fork knowledge from them):
 - `memory.md` — long-form continuity note and historical rationale.
   `STATE.md` is the concise current handoff; keep current facts aligned in both.
 - `docs/ENGINEERING_BASELINE.md`, `docs/STUDY_CLARITY.md`,
-  `docs/V11_SOURCE_VISUALS.md`, `docs/CUSTOM_STUDY_MODULES.md`
+  `docs/V11_SOURCE_VISUALS.md`, `docs/CUSTOM_STUDY_MODULES.md`,
+  `docs/MARROW_BANK_INTEGRATION.md` (required for Marrow/multi-bank work)
 - `design-qa.md` — V11.4 visual QA scope (physical-device checks blocked in CI)
 - `README.md` — build and baseline summary
 
@@ -108,6 +109,7 @@ commit/run when useful and tell the next agent to resolve live HEAD from Git.
 - `.github/workflows/build-apk.yml` — deterministic Android + PWA pipeline
   (`Build V11.7 Android + PWA`); `engineering-gate.yml` — fast contract gate
 - `data/subjects_qbank_lzma.b64.part*` — bundled subject data parts
+- `data/marrow/*` + `docs/MARROW_BANK_INTEGRATION.md` — hash-verified Marrow pilot data and canonical multi-bank expansion runbook
 
 ## Harness adapters (thin only)
 
