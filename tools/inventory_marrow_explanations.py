@@ -117,6 +117,17 @@ def build_inventory() -> dict:
     }
 
 
+def inventory_manifest(inventory: dict) -> dict:
+    records = inventory["questions"]
+    encoded = json.dumps(records, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    return {
+        key: value for key, value in inventory.items() if key != "questions"
+    } | {
+        "questionRecords": len(records),
+        "questionRecordsSha256": hashlib.sha256(encoded).hexdigest(),
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--write", action="store_true")
@@ -128,7 +139,7 @@ def main() -> None:
     assert len({row["id"] for row in inventory["questions"]}) == 2115
     if args.write:
         target = DATA / "explanation_inventory_v1.json"
-        target.write_text(json.dumps(inventory, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        target.write_text(json.dumps(inventory_manifest(inventory), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     summary = inventory["summary"]
     print(f"MARROW_EXPLANATION_INVENTORY_OK questions={summary['questions']} enhanced=142 pending=1973 biochem_sample=20 flags={summary['flags']}")
 
