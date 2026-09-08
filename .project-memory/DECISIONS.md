@@ -242,3 +242,34 @@ Lesson from navigation wiring: the pilot-era topic-section shortcut grouped ever
 non-Physiology Marrow topic under General Embryology. Full cross-subject data
 requires subject-aware taxonomy; presentation classification must not rewrite
 question content.
+
+
+## 18. Topic indexes are an explicit source taxonomy, not a runtime heuristic (2026-09-08)
+
+The user physically approved the recovered journey UI but rejected the
+medical/source accuracy of the major-section grouping. Therefore the next Topics
+change must preserve the existing journey/glow/fixed-tray design and replace
+grouping with one centralized, explicit, reviewable subject+topic mapping.
+
+Required category order and current chapter guidance are canonicalized in
+`docs/MARROW_TOPIC_INDEX_TAXONOMY.md`. Ambiguous cross-system topics are review
+items; do not silently guess. PYQ topics stay at the end of their parent index.
+
+## 19. Recovered Topics/FSRS live on the Marrow feature line until deliberate consolidation (2026-09-08)
+
+The user confirmed the good Topics and FSRS customization implementations on the
+Marrow feature PWA. Their absence from the older production/main PWA is explained
+by branch/deployment separation: Git `main` is stale, the full recovery lives on
+`feature/marrow-bank-pilot`, and run 405 skipped production promotion.
+
+Future consolidation must carry forward the exact working feature implementation
+rather than recreating it. Detailed handoff:
+`docs/TOPICS_FSRS_FEATURE_HANDOFF.md`.
+
+## 20. Explanation fine-tuning is a separate immutable-source augmentation phase (2026-09-08)
+
+Question ingestion success does not mean learner-facing explanation quality is
+finished. Raw ED8 transcription remains immutable; OCR cleanup, Key Takeaway,
+selective emphasis, structured display and distractor rationales live in a
+separate auditable layer. Use the approved 142-question grammar as reference and
+follow `docs/MARROW_EXPLANATION_FINE_TUNING.md`.
