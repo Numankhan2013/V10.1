@@ -162,6 +162,27 @@ def main():
             page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click();page.wait_for_timeout(100)
             if page.locator('button.nk-topic-row').count()!=50: raise SystemExit('PrepLadder Anatomy topics regressed')
             if page.locator('body').get_by_text('Gametogenesis',exact=True).count(): raise SystemExit('Marrow topic leaked into PrepLadder')
+            # Candidate regression: Topics hierarchy, completion Back, and explicit settings save.
+            assert page.locator('.nk-topic-group').count() >= 8
+            page.screenshot(path=str(OUT/'07-topics-journey.png'),full_page=True)
+            page.locator('button.nk-topic-row').first.click();page.wait_for_timeout(80)
+            page.locator('button.nk-library-row').first.click();page.wait_for_timeout(80)
+            page.evaluate("window.QB.endSession()");page.wait_for_timeout(120)
+            assert '#result/' in page.url, page.url
+            page.go_back();page.wait_for_timeout(120)
+            assert page.url.endswith('#topics'), page.url
+            assert page.locator('.nk-topic-group').count() >= 8
+            page.evaluate("window.QB.nav('more')");page.wait_for_timeout(100)
+            page.locator('.nk-fsrs-customization summary').click()
+            before=page.evaluate("window.QB.getState().fsrsPreferences.desiredRetention")
+            value='85' if before != .85 else '90'
+            page.locator('.nk-fsrs-settings input').first.fill(value)
+            assert page.evaluate("window.QB.getState().fsrsPreferences.desiredRetention") == before
+            page.screenshot(path=str(OUT/'08-fsrs-customization.png'),full_page=True)
+            page.get_by_role('button',name='Save changes',exact=True).click();page.wait_for_timeout(100)
+            assert page.evaluate("window.QB.getState().fsrsPreferences.desiredRetention") == int(value)/100
+            page.reload(wait_until='networkidle')
+            assert page.evaluate("window.QB.getState().fsrsPreferences.desiredRetention") == int(value)/100
             if errors: raise SystemExit('Browser errors: '+repr(errors))
             browser.close()
         server.shutdown()

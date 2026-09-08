@@ -18,7 +18,7 @@ CSS = r'''<style id="nk-fsrs-v1">
 .nk-session-footer .nk-fsrs-rating .nk-fsrs-pill.is-default{background:#6941bd!important;color:#fff!important;border-color:#6941bd!important;box-shadow:0 3px 9px #6941bd40}.nk-fsrs-pill:focus-visible{outline:3px solid #ab89e8;outline-offset:2px}
 body:has(.nk-fsrs-docked) .nk-v114-session.is-practice{padding-bottom:86px}
 @media(prefers-reduced-motion:reduce){.nk-fsrs-rating,.nk-fsrs-rating::before{animation:none!important;transition:none!important}}
-.nk-fsrs-settings{display:grid;gap:12px}.nk-fsrs-settings label{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px;font-weight:750}.nk-fsrs-settings input{width:92px;min-height:42px;padding:0 9px;border:1px solid var(--line);border-radius:10px}.nk-fsrs-warning{padding:10px;border-radius:10px;background:#fff4dd;color:#835400;font-size:11px}.nk-fsrs-breakdown{padding:12px;border-radius:12px;background:#f5f7fb;font-size:11px;line-height:1.6}.modal label{display:grid;gap:6px;font-size:11px;font-weight:800}.modal select{min-height:44px;border:1px solid var(--line);border-radius:11px;padding:0 10px;background:#fff}
+.nk-fsrs-settings{display:grid;gap:12px}.nk-fsrs-settings label{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px;font-weight:750}.nk-fsrs-settings input{width:92px;min-height:42px;padding:0 9px;border:1px solid var(--line);border-radius:10px}.nk-fsrs-customization>summary{min-height:68px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:space-between;list-style:none;cursor:pointer}.nk-fsrs-customization>summary b,.nk-fsrs-customization>summary small{display:block}.nk-fsrs-customization>summary small{margin-top:4px;color:var(--muted);font-size:10px}.nk-fsrs-customization[open]>summary{border-radius:14px 14px 0 0}.nk-fsrs-customization[open] .nk-fsrs-settings{border-radius:0 0 14px 14px}.nk-fsrs-save-actions{display:grid;grid-template-columns:1.3fr 1fr;gap:9px}.nk-fsrs-warning{padding:10px;border-radius:10px;background:#fff4dd;color:#835400;font-size:11px}.nk-fsrs-breakdown{padding:12px;border-radius:12px;background:#f5f7fb;font-size:11px;line-height:1.6}.modal label{display:grid;gap:6px;font-size:11px;font-weight:800}.modal select{min-height:44px;border:1px solid var(--line);border-radius:11px;padding:0 10px;background:#fff}
 </style>'''
 
 
@@ -29,6 +29,7 @@ def transform(source: str) -> str:
         end = source.index(end_marker, start) + len(end_marker)
         source = source[:start] + CORE.read_text(encoding="utf-8").rstrip() + source[end:]
         source = re.sub(r'<style id="nk-fsrs-v1">.*?</style>', lambda _: CSS, source, count=1, flags=re.S)
+        source = source.replace("nkFsrsSetPreference,nkFsrsUndo,", "nkFsrsSetPreference,nkFsrsSaveSettings,nkFsrsUndo,", 1)
         print("FSRS scheduler already installed; core and recall-dock CSS refreshed")
         return source
     script = '<script src="vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js"></script>'
@@ -47,7 +48,7 @@ def transform(source: str) -> str:
         source = source.replace(plain_boot, "  nkFsrsInit();\n  render();\n})();", 1)
     else:
         raise SystemExit("boot anchor missing")
-    additions = "nkRateCurrent,nkStartTodaysReview,nkFsrsQueueDialog,nkFsrsTopicOptions,nkFsrsSetPreference,nkFsrsUndo,"
+    additions = "nkRateCurrent,nkStartTodaysReview,nkFsrsQueueDialog,nkFsrsTopicOptions,nkFsrsSetPreference,nkFsrsSaveSettings,nkFsrsUndo,"
     export_end = "nkCloudAuthenticate,nkCloudSignOut,nkCloudSyncNow,"
     if export_end in source:
         source = source.replace(export_end, export_end + additions, 1)
@@ -67,7 +68,7 @@ def main() -> None:
         source = re.sub(r'<style id="nk-fsrs-v1">.*?</style>\s*', "", source, flags=re.S)
         source = source.replace('<script src="vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js"></script>\n', "")
         source = source.replace("  nkFsrsInit();\n", "")
-        source = source.replace("nkRateCurrent,nkStartTodaysReview,nkFsrsQueueDialog,nkFsrsTopicOptions,nkFsrsSetPreference,nkFsrsUndo,", "")
+        source = source.replace("nkRateCurrent,nkStartTodaysReview,nkFsrsQueueDialog,nkFsrsTopicOptions,nkFsrsSetPreference,nkFsrsSaveSettings,nkFsrsUndo,", "")
         source = source.replace("\nwindow.QB={", "\n  window.QB={")
         HTML.write_text(source, encoding="utf-8")
         return

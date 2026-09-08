@@ -45,15 +45,14 @@ navigate_replacement = """function resetScrollPosition(){
     requestAnimationFrame(() => { document.documentElement.scrollTop=0; document.body.scrollTop=0; });
   }
   function navigate(page, id = '') {
-    const target = id ? `${page}/${encodeURIComponent(id)}` : page;
-    const targetHash = `#${target}`;
-    if(location.hash === targetHash){
-      route = parseHash();
-      render();
-      resetScrollPosition();
-      return;
+    const target=id?page+'/'+encodeURIComponent(id):page;
+    if(page==='result'&&(route.page==='practice'||route.page==='exam')){
+      history.replaceState(null,'','#topics');
+      history.pushState(null,'','#'+target);
+      route=parseHash();render();resetScrollPosition();return;
     }
-    location.hash = target;
+    if(location.hash==='#'+target){route=parseHash();render();resetScrollPosition();return;}
+    location.hash=target;
   }
   window.addEventListener('hashchange', () => {
     route = parseHash();

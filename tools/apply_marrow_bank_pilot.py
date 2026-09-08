@@ -240,7 +240,7 @@ if len(all_gold)!=142:
     raise SystemExit(f"Combined Marrow explanation count mismatch: {len(all_gold)}")
 
 source=HTML.read_text(encoding="utf-8")
-if "NK_MARROW_EXPLANATION_GOLD_V1" not in source:
+if "const NK_MARROW_EXPLANATION_GOLD_V1=" not in source:
     renamed,n=re.subn(
         r"function\s+nkRenderMarrowExplanation\s*\(\s*q\s*\)",
         "function nkRenderMarrowExplanationBase(q)",

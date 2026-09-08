@@ -377,3 +377,19 @@ CI runs, what changed, verification, device status, next step.
 - Next: user checks the feature preview Physiology Marrow flow; if accepted,
   continue with a bounded Biochemistry pilot through the same registry, then
   expand remaining verified Marrow chapters in batches.
+
+## 2026-09-08 — Topics depth, layered Back, and explicit FSRS save
+
+- Implemented the approved Topics journey in the owning V11.4 transform, with editable section taxonomy and state-driven milestone treatment.
+- Corrected completed session history to Analysis over Topics, matching the requested parent layer.
+- Reframed FSRS controls as a dedicated More subsection and removed change-on-input persistence in favor of explicit save.
+- Renamed the hidden Topics reference image to docs/ui-reference/topics-page-reference.jpg.
+- Python/JavaScript syntax, FSRS behavior, product contracts, build-order checks, and project-memory checks pass locally. Ordered generated-app/browser checks remain Linux CI work.\n
+
+## 2026-09-08 — Publish candidate and repair pre-existing build failure
+
+- User authorized push, Cloudflare feature PWA deployment, and APK build.
+- Corrected Analysis Back destination to Topics and restored the Marrow transform's required Topics heading anchor.
+- Fixed Marrow gold-renderer installation guard: a symbol reference must not count as the installed declaration.
+- Added browser coverage for grouped Topics, native Back after completion, and FSRS explicit save plus reload persistence.
+- Deployment and build verification are pending the candidate CI run; no physical acceptance is implied.

@@ -1,5 +1,11 @@
 # STATE.md — Current Project State and Handoff
 
+## Topics depth and navigation candidate — 2026-09-08
+
+- Implemented approved Topics syllabus sections, numbered journey milestones, three progress states, and Continue Learning.
+- Practice/CBT Analysis now sits over Topics in history; FSRS customization now requires explicit Save changes.
+- Source checks pass; ordered generation, browser screenshots, packaged build, and physical verification remain pending.
+
 > Keep concise and current. History goes in `SESSION_LOG.md`, durable reasoning
 > in `DECISIONS.md`, and future work in `ROADMAP.md`.
 
