@@ -35,10 +35,16 @@ Check off only when build-verified **and** device-verified where UI is involved.
 - [x] Final expanded bank contracts/browser/package gates:
       Engineering `34245190588`, full Android+PWA `34245190771`,
       browser total **2,115** Marrow questions.
-- [ ] Physical user review of the exact expanded feature PWA across all three subjects.
-- [ ] Explanation polish for the newly added questions. Keep this separate from
-      source ingestion; preserve stored wording and reuse the approved Anatomy
-      explanation grammar only after visual/content review.
+- [x] Physical user spot-check of the expanded feature PWA: user confirmed the
+      Marrow question integration succeeds and the recovered Topics/FSRS
+      customization surfaces are good. This is not blanket acceptance of all
+      content or production promotion.
+- [ ] Correct Topics **major-index taxonomy only** using
+      `docs/MARROW_TOPIC_INDEX_TAXONOMY.md`; preserve the approved journey,
+      glow, filters, Topic Index, and fixed Continue Learning tray.
+- [ ] Explanation fine-tuning for the newly added questions using
+      `docs/MARROW_EXPLANATION_FINE_TUNING.md`. Keep raw source immutable and
+      scale the approved 142-question grammar through a separate augmentation layer.
 - [ ] Images/figures remain a later pass. Preserve figure metadata and do not
       block source-faithful text-bank work on missing binaries.
 - [ ] Continue later Marrow chapters beyond the supplied current scope only when
