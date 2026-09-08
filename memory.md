@@ -1,9 +1,9 @@
 # NK QBank — Project Memory / Continuity
 
-**Updated:** 2026-09-07
+**Updated:** 2026-09-08
 **Current accepted baseline:** V11.6 Content Quality (`125d68b`, run `34050921180`, physically tested and user-confirmed)
 **Repository:** `Numankhan2013/V10.1`  
-**Active branch:** `v11.7-cross-device-pwa-sync`
+**Active branch:** `feature/marrow-bank-pilot`
 
 ## Current candidate — V11.7 Cross-device PWA + Sync
 
@@ -234,15 +234,43 @@ Do not remove or alter shared navigation/chrome on other routes unless explicitl
 
 ## 7. Topics / navigation
 
-Topics V2 is accepted.
+Topics V2 behavior remains the working foundation, but the user has now approved
+a specific visual/hierarchy refinement for the Topics surface.
 
-Current principles:
+### Approved Topics direction — 2026-09-08
+
+Use a mobile **learning-journey/path** composition:
+- numbered topic milestones/serials on the left
+- a soft curved/dashed connector path between milestones
+- one aligned topic card per milestone
+- green milestone hue + right green check for completed
+- blue milestone hue + right blue pause for paused/in-progress
+- subtle purple/lavender milestone hue for unattempted/not-started
+- **no right-side hollow circle/hole/placeholder on unattempted cards**
+- concise topic title + progress/count text
+- top filters: **All / In Progress / Completed / Not Started**
+- keep search and the index/list affordance
+- bottom **Continue Learning** tray for direct resume/jump-in
+- remove Free/locked/star/rating/paywall metadata from the Topics page
+
+The topic list also needs a real syllabus hierarchy instead of remaining flat.
+Topics should render beneath major subject section headers. Anatomy examples
+include **General Embryology** and **Histology**.
+
+There is no complete authoritative parent-group mapping already supplied for
+every existing topic. The implementing agent should create one centralized,
+explicit, editable topic→major-section taxonomy by inspecting current topic
+names and, where needed, representative question/source content. This is a
+presentation/navigation classification only: do not rewrite medical source
+content or duplicate the question engine. Ambiguous classifications should be
+marked for review rather than silently assigned arbitrarily.
+
+Preserve the existing working principles:
 - compact subject selector
 - search/filter
-- topic counts
+- accurate topic counts
 - progress/percentage
-- clean topic rows
-- direct chapter opening
+- direct chapter/topic opening
 - unified subject navigation
 - reliable same-route scroll reset
 
