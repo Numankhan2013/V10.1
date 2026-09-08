@@ -312,11 +312,53 @@ if any(not str(v.get("takeaway","")).strip() or not str(v.get("displayText",""))
     raise SystemExit("Every Marrow Physiology explanation needs takeaway and clean display text")
 if any(len(v.get("rationales",{}))!=3 for v in phys_gold_q.values()):
     raise SystemExit("Every Marrow Physiology explanation needs exactly three distractor rationales")
+# The first Biochemistry quality pass is deliberately bounded to the 20-question
+# cross-chapter gold sample selected by the deterministic inventory. It uses the
+# same learner-facing grammar as the approved 142, but remains a candidate until
+# the user physically reviews it. Raw Biochemistry records remain unchanged.
+BIOCHEM_GOLD_PATH=DATA/"explanation_biochem_gold_sample_v1.json"
+if not BIOCHEM_GOLD_PATH.exists():
+    raise SystemExit("Marrow Biochemistry explanation gold sample missing")
+biochem_gold=json.loads(BIOCHEM_GOLD_PATH.read_text(encoding="utf-8"))
+biochem_scope=biochem_gold.get("scope",{})
+biochem_gold_q=biochem_gold.get("questions",{})
+if (
+    biochem_scope.get("subject")!="Biochemistry"
+    or biochem_scope.get("bank")!="Marrow"
+    or biochem_scope.get("status")!="candidate-human-review"
+    or len(biochem_gold_q)!=20
+):
+    raise SystemExit("Marrow Biochemistry explanation sample identity/count mismatch")
+inventory=json.loads((DATA/"explanation_inventory_v1.json").read_text(encoding="utf-8"))
+sample_ids={str(row.get("id","")) for row in inventory.get("biochemistryGoldSample",[])}
+if set(biochem_gold_q)!=sample_ids or len(sample_ids)!=20:
+    raise SystemExit("Marrow Biochemistry explanation sample IDs do not match inventory")
+biochem_source_q={str(q.get("id","")):q for q in expanded_biochemistry.get("questions",[])}
+if not set(biochem_gold_q).issubset(biochem_source_q):
+    raise SystemExit("Marrow Biochemistry explanation sample has unknown source IDs")
+for qid,cfg in biochem_gold_q.items():
+    if not str(cfg.get("takeaway","")).strip() or not str(cfg.get("displayText","")).strip():
+        raise SystemExit(f"Marrow Biochemistry explanation missing takeaway/displayText: {qid}")
+    source_q=biochem_source_q[qid]
+    correct=int(source_q.get("correctOption",0))
+    wrong_letters={
+        str(option.get("letter") or chr(64+index)).lower()
+        for index,option in enumerate(source_q.get("options",[]),1)
+        if index!=correct
+    }
+    if len(cfg.get("rationales",{}))!=3 or set(cfg.get("rationales",{}))!=wrong_letters:
+        raise SystemExit(f"Marrow Biochemistry distractor rationales mismatch: {qid}")
+
 if set(gold["questions"]) & set(phys_gold_q):
     raise SystemExit("Marrow explanation augmentation IDs collide")
-all_gold={**gold["questions"],**phys_gold_q}
-if len(all_gold)!=142:
-    raise SystemExit(f"Combined Marrow explanation count mismatch: {len(all_gold)}")
+approved_gold={**gold["questions"],**phys_gold_q}
+if len(approved_gold)!=142:
+    raise SystemExit(f"Approved Marrow explanation reference count mismatch: {len(approved_gold)}")
+if set(approved_gold) & set(biochem_gold_q):
+    raise SystemExit("Marrow Biochemistry sample collides with approved explanation IDs")
+all_gold={**approved_gold,**biochem_gold_q}
+if len(all_gold)!=162:
+    raise SystemExit(f"Combined Marrow explanation candidate count mismatch: {len(all_gold)}")
 
 source=HTML.read_text(encoding="utf-8")
 if "const NK_MARROW_EXPLANATION_GOLD_V1=" not in source:
@@ -457,4 +499,4 @@ if "const NK_MARROW_EXPLANATION_GOLD_V1=" not in source:
         raise SystemExit(f"Marrow gold CSS head anchor count: {source.count('</head>')}")
     source=source.replace("</head>",css+"</head>",1)
     HTML.write_text(source,encoding="utf-8")
-    print("MARROW_EXPLANATION_GOLD_OK anatomy=62 physiology=80 enhanced=142 rationales=426 raw_source=preserved phys_display=clean fsrs=untouched")
+    print("MARROW_EXPLANATION_GOLD_OK anatomy=62 physiology=80 approved=142 biochemistry_candidate=20 rendered_candidate=162 rationales=486 raw_source=preserved fsrs=untouched")
