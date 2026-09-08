@@ -21,7 +21,10 @@ Preserved legacy references (do not delete, do not fork knowledge from them):
   `STATE.md` is the concise current handoff; keep current facts aligned in both.
 - `docs/ENGINEERING_BASELINE.md`, `docs/STUDY_CLARITY.md`,
   `docs/V11_SOURCE_VISUALS.md`, `docs/CUSTOM_STUDY_MODULES.md`,
-  `docs/MARROW_BANK_INTEGRATION.md` (required for Marrow/multi-bank work)
+  `docs/MARROW_BANK_INTEGRATION.md` (required for Marrow/multi-bank work),
+  `docs/MARROW_TOPIC_INDEX_TAXONOMY.md` (required for Topics taxonomy work),
+  `docs/MARROW_EXPLANATION_FINE_TUNING.md` (required for Marrow explanation work),
+  `docs/TOPICS_FSRS_FEATURE_HANDOFF.md` (required before consolidating Topics/FSRS recovery)
 - `design-qa.md` — V11.4 visual QA scope (physical-device checks blocked in CI)
 - `README.md` — build and baseline summary
 
