@@ -6,9 +6,9 @@
 ## Repo / branch
 
 - Repo: `Numankhan2013/V10.1` (private).
-- Active implementation branch: `consolidation/main-unified`, created from the
-  verified `feature/marrow-bank-pilot` head. It is the candidate for restoring
-  Git `main` as the authoritative product line; production is unchanged.
+- Git `main` is now the authoritative unified product line after PRs #6 and #7.
+  Current follow-up branch: `feature/marrow-explanation-inventory`.
+  Production remains unchanged.
 - Resolve live branch/HEAD with Git; never hardcode a self-staling current-HEAD field here.
 - Accepted product baseline remains **V11.6 Content Quality** at `125d68b`,
   canonical APK run `34050921180`. Do not promote the Marrow candidate without
@@ -54,12 +54,6 @@
 
 ## Verification / workflow status
 
-- Earlier full run `34244982211` (run 402) failed at the Marrow browser test
-  because the test still expected **Biochemistry = PrepLadder only**. The product
-  correctly exposed the newly integrated Marrow bank; this was a stale test
-  assumption, not a product/data failure.
-- The browser test was updated to exercise Biochemistry → PrepLadder | Marrow,
-  Chapter 1, source-faithful explanation, and return-to-PrepLadder regression.
 - Final integration checkpoint `bc500234`:
   - Engineering Gate `34245190588` / run 193 — **success**.
   - Full Android + PWA run `34245190771` / run 403 — **success**.
@@ -82,6 +76,8 @@
   - Preview: `https://consolidation-main-unified.nk-qbank.pages.dev`
     (immutable `https://e0d1385c.nk-qbank.pages.dev`).
   - Production promotion was skipped by the new explicit release guard.
+- Authoritative-main `e42a076`: Engineering run 201 and full Android/PWA run
+  409 succeeded; both Cloudflare steps were skipped, proving the release guard.
 
 ## User physical review — 2026-09-08
 
@@ -135,9 +131,10 @@
    Embryology placement. The approved Topics visuals are unchanged.
 2. Stale-main history is recorded by an `ours` merge after auditing its seven
    unique commits; the tested V11 tree remains unchanged.
-3. Merge the verified consolidation PR into `main`, then physically review the
-   exact main preview before any production dispatch.
-4. Next explanation phase: follow
+3. Prepare and review the selected 20-question Biochemistry explanation sample;
+   the deterministic inventory accounts for all 2,115 IDs, with 142 enhanced
+   references and 1,973 pending enhancements.
+4. The next explanation phase follows
    `docs/MARROW_EXPLANATION_FINE_TUNING.md` and scale the approved 142-question
    grammar source-faithfully across the remaining Marrow questions.
 5. Production promotion now requires an explicit `main` workflow dispatch plus

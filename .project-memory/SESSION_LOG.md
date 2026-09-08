@@ -541,3 +541,13 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Local checks passed. Engineering run 196 and full Android/PWA run 406 passed
   at `87faccd`, including generated browser, PDF, APK and packaged contracts.
   The consolidation preview deployed; production promotion was skipped.
+## 2026-09-08 — Main consolidation and explanation inventory
+
+- PR #6 merged the verified feature lineage and explicit taxonomy into `main`.
+- Canceled the first automatic main build before deployment after identifying
+  that a Pages `--branch=main` preview could target the production environment.
+- PR #7 made all main pushes skip Cloudflare. Main run 409 passed every build,
+  browser and package gate; both Cloudflare steps were skipped.
+- Added deterministic, text-free explanation triage for all 2,115 Marrow IDs and
+  selected a 20-question cross-chapter Biochemistry gold sample. No source or
+  learner-facing explanation was changed.

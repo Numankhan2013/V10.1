@@ -21,6 +21,9 @@ Check off only when build-verified **and** device-verified where UI is involved.
 
 ## Marrow expansion — current priority
 
+- [x] Consolidate the tested feature lineage into authoritative Git `main`
+      through PRs #6/#7; run 409 passed and both Cloudflare steps were skipped.
+
 - [x] Anatomy Marrow pilot: 62/4, source selector, native structured
       explanations, browser smoke test, side-by-side APK and feature preview;
       user physically confirmed the original Anatomy flow.
@@ -46,6 +49,7 @@ Check off only when build-verified **and** device-verified where UI is involved.
 - [ ] Explanation fine-tuning for the newly added questions using
       `docs/MARROW_EXPLANATION_FINE_TUNING.md`. Keep raw source immutable and
       scale the approved 142-question grammar through a separate augmentation layer.
+      The 2,115-ID inventory and 20-question Biochemistry sample selection are complete.
 - [ ] Images/figures remain a later pass. Preserve figure metadata and do not
       block source-faithful text-bank work on missing binaries.
 - [ ] Continue later Marrow chapters beyond the supplied current scope only when
