@@ -108,6 +108,14 @@ review flag and render the source-faithful remainder.
 
 ## Fine-tuning workflow
 
+Current deterministic inventory:
+- `data/marrow/explanation_inventory_v1.json` accounts for all 2,115 IDs without
+  copying source explanation text into the inventory;
+- `tools/inventory_marrow_explanations.py` regenerates it from hash-verified
+  source bundles and the approved augmentation subsets;
+- the inventory records 142 enhanced references and 1,973 pending questions and
+  identifies the 20-question Biochemistry gold-sample review set.
+
 1. **Inventory first**
    - enumerate all 2,115 IDs and review statuses;
    - separate clean source, OCR-cleanup candidates, source omissions,

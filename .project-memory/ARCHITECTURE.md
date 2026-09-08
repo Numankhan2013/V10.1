@@ -157,6 +157,9 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
 - Explanation architecture is layered and non-destructive: all Marrow uses native
   structured source text/tables; the approved enhanced layer remains only on the
   142-question subset until a later explanation phase.
+- `data/marrow/explanation_inventory_v1.json` is deterministic, text-free review
+  metadata for all 2,115 IDs. It is regenerated from source hashes and never
+  changes imported records or learner-facing explanations.
 - Three resolved Anatomy reconstructions remain deterministic and provenance-marked:
   `ANAT_CH02_Q010`, `ANAT_CH03_Q004`, `ANAT_CH04_Q013`.
 - Marrow topics use `data/marrow/topic_index_taxonomy.json`, an explicit mapping
