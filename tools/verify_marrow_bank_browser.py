@@ -8,6 +8,13 @@ ROOT=Path(__file__).resolve().parents[1]
 WEB=ROOT/'build/web'; OUT=ROOT/'build/marrow-ui-checks'; OUT.mkdir(parents=True,exist_ok=True)
 class Quiet(http.server.SimpleHTTPRequestHandler):
     def log_message(self,*args): pass
+    def translate_path(self,path):
+        # Cloudflare Pages serves this route through _worker.js. The CI smoke
+        # test intentionally uses a plain local static server, so map the same
+        # public route to the exact committed Anatomy source PDF here.
+        if path.split('?',1)[0].split('#',1)[0]=='/anatomy-source.pdf':
+            return str(ROOT/'app/src/main/assets/Anatomy_QBank_Source.pdf')
+        return super().translate_path(path)
 
 def main():
     handler=lambda *a,**k: Quiet(*a,directory=str(WEB),**k)
