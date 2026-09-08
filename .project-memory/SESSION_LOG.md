@@ -499,3 +499,33 @@ Implemented approved recovery in existing transform owners: Topics separate path
   handoff commit.
 - Status remains build/browser verified only. The user now owns the physical
   PWA review and will decide the next phase from observed behavior.
+
+
+## 2026-09-08 — User physically validates Marrow integration and recovered Topics/FSRS
+
+- User opened the run-405 Marrow feature PWA and confirmed the question
+  integration is successful.
+- User specifically confirmed the recovered Topics journey UI/fixed Continue
+  Learning tray and the dedicated FSRS customization controls are now live and
+  good in this feature PWA.
+- This resolves the earlier visual rejection of `6ba7ebe`; that rejection remains
+  historical evidence, not the current verdict.
+- The reason the older “main PWA” did not show these changes is branch/deployment
+  separation: the full recovery lives on `feature/marrow-bank-pilot`, Git
+  `main` is stale, and Marrow run 405 intentionally skipped Cloudflare production
+  promotion. Do not rebuild the features from scratch when consolidating later.
+- User identified the next Topics defect: **the major-section indexes are not
+  source-true**. The visual journey itself should stay. Added
+  `docs/MARROW_TOPIC_INDEX_TAXONOMY.md` with the requested Anatomy,
+  Physiology and Biochemistry index order, current chapter guidance, PYQ rules,
+  and explicit-review treatment for ambiguous cross-system topics.
+- User identified explanations as the next major content-quality phase after the
+  handoff. The Biochemistry screenshot demonstrates successful question/answer
+  integration but rough raw structured/OCR prose. Added
+  `docs/MARROW_EXPLANATION_FINE_TUNING.md` to preserve the existing
+  142-question gold grammar while scaling source-faithful cleanup, emphasis,
+  tables and wrong-option rationales through a separate augmentation layer.
+- Added `docs/TOPICS_FSRS_FEATURE_HANDOFF.md` so the main agent can recover the
+  exact good feature lineage and understand why production/main PWA can lag.
+- No product implementation was requested in this session; documentation/memory
+  only.
