@@ -3,7 +3,8 @@
 ## Recovery implementation — 2026-09-08
 
 - User rejects deployed 6ba7ebe: reference fidelity/glow absent, Continue Learning not floating, FSRS section inadequate; explanation PDFs now unreadable. Build success does not establish acceptance.
-- Recovery implemented: lossless high-density browser PDF crops/zoom, separate Topics milestone lane + fixed tray, dedicated FSRS settings route/drafts, origin-aware completion. Local checks pass; full CI and visual QA pending.
+- Recovery implemented: lossless high-density browser PDF crops/zoom, separate Topics milestone lane + fixed tray, dedicated FSRS settings route/drafts, origin-aware completion. The local CI browser server now maps `/anatomy-source.pdf` to the exact committed Anatomy PDF so it faithfully exercises the same-origin PWA route without requiring the Cloudflare worker.
+- Recovery checkpoint `1c9826ae` is fully build/browser verified: Engineering Gate `34241919403` success; full Android+PWA run `34241919548` success, including Marrow browser verification, side-by-side pilot APK build, packaged APK verification, packaged product contract, and artifact upload. Feature preview/production deployment remained intentionally skipped on the push.
 - Feature push builds now hold deployment; manually dispatch after visual artifact review. Rejection evidence: docs/REJECTED_TOPICS_FSRS_HANDOFF.md.
 
 > Keep concise and current. History goes in `SESSION_LOG.md`, durable reasoning
@@ -34,7 +35,7 @@
 - Latest Physiology candidate verification: Engineering Gate `34191865093` success and full Android+PWA run `34191865094` success. The real browser test passed Physiology → bank selector → Marrow topic → question → Structured text explanation → fixed FSRS dock → PrepLadder regression; the side-by-side APK packaged and the feature preview deployed. Production promotion was skipped.
 - **Status discipline:** Anatomy preview behavior is user/device-verified; the new Physiology pilot is build/browser verified but is **not yet user/device-verified or accepted**.
 - Live feature preview: `https://feature-marrow-bank-pilot.nk-qbank.pages.dev`.
-- Immediate next product checkpoint: user spot-checks the Physiology Marrow preview. If it passes, continue the same registry with a bounded Biochemistry pilot and then expand remaining verified Marrow chapters without changing navigation/engines.
+- Immediate next content checkpoint: the user will provide Marrow JSON/JSONL chunks for additional subjects/chapters. Integrate supplied chunks into the existing shared registry and existing Practice/CBT/Review/FSRS/sync engines **source-faithfully first**; defer explanation redesign/polish until after the content exists and works. Preserve the accepted Anatomy bank behavior while expanding Physiology, Biochemistry, and additional Anatomy content in bounded manifest-verified batches.
 - Canonical procedure, schema, integrity rules, CI gates, and pilot lessons are in `docs/MARROW_BANK_INTEGRATION.md`.
 
 ## Marrow explanation architecture — full Anatomy rollout 2026-09-08
