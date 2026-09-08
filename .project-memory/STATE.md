@@ -11,6 +11,7 @@
 - Accepted product baseline remains **V11.6 Content Quality** at `125d68b`,
   canonical APK run `34050921180`. Do not promote the Marrow candidate without
   explicit physical user acceptance.
+- Accepted product commit: `125d68b`.
 - `main` is stale relative to the V11 line and must not be used as the product baseline.
 
 ## Marrow Phase A expansion — 2026-09-08
