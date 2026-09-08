@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Candidate 20-question Marrow ED8 Biochemistry explanation-quality gold sample. Raw imported source remains immutable; this file contains learner-facing display augmentation only and is not an approved reference until physical user review.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "questions": 20,
+    "status": "candidate-human-review"
+  },
+  "referenceGrammar": {
+    "approvedQuestions": 142,
+    "anatomy": 62,
+    "physiology": 80
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH01_Q023": {
+      "takeaway": "Crumpled-tissue-paper Gaucher cells point to β-glucocerebrosidase deficiency.",
+      "displayText": "Gaucher disease is an autosomal-recessive lysosomal storage disorder caused by deficiency of β-glucocerebrosidase. Lipid-laden macrophages accumulate in the spleen, liver and other tissues.\n\nThe characteristic Gaucher cell has a fibrillary cytoplasm with a “crumpled tissue paper” appearance.",
+      "emphasis": ["β-glucocerebrosidase", "autosomal-recessive lysosomal storage disorder", "crumpled tissue paper"],
+      "rationales": {
+        "a": "β-Hexosaminidase A deficiency causes Tay-Sachs disease; deficiency of both A and B hexosaminidases causes Sandhoff disease.",
+        "c": "Sphingomyelinase deficiency causes Niemann-Pick disease, classically with lipid-laden foam cells rather than Gaucher cells.",
+        "d": "N-acetylglucosaminidase deficiency causes Sanfilippo syndrome (mucopolysaccharidosis type III), not Gaucher disease."
+      },
+      "sourceNotes": ["Obvious trailing extraction junk in the raw explanation is omitted from display only; source record is unchanged."]
+    },
+    "marrow__BIOCHEM_CH02_Q009": {
+      "takeaway": "Glucokinase has a high Km and high Vmax, is inducible, and is functionally glucose-specific in this source; “phosphorylates multiple hexoses” is the keyed false statement.",
+      "displayText": "Glucokinase is present mainly in the liver and pancreatic β-cells. Compared with hexokinase, it has a higher Km and higher Vmax, so it becomes most active when glucose is abundant, such as after a carbohydrate-rich meal. It is inducible and is not inhibited by glucose-6-phosphate.\n\nSource nuance:\nThe source notes that glucokinase can act on fructose and mannose, but its high Km for these sugars makes that activity insignificant. The source answer key is therefore preserved as option B.",
+      "emphasis": ["higher Km", "higher Vmax", "inducible", "not inhibited by glucose-6-phosphate", "source answer key is therefore preserved as option B"],
+      "rationales": {
+        "a": "A higher Km is a true distinguishing feature of glucokinase compared with hexokinase.",
+        "c": "Glucokinase is an inducible enzyme, particularly in the fed/high-glucose state.",
+        "d": "Glucokinase has a higher Vmax than hexokinase, allowing greater glucose phosphorylation when glucose is abundant."
+      },
+      "sourceNotes": ["The source explicitly acknowledges minor activity on other hexoses while still keying option B; this ambiguity is preserved rather than silently rewritten."]
+    },
+    "marrow__BIOCHEM_CH04_Q005": {
+      "takeaway": "Oxidant-drug–triggered hemolysis with bite/blister cells points to G6PD deficiency.",
+      "displayText": "Cotrimoxazole can create oxidative stress in a patient with G6PD deficiency and precipitate acute hemolysis. Typical symptoms include abrupt malaise, weakness, abdominal or lumbar pain, followed by jaundice, dark urine and hemoglobinuria.\n\nMechanism:\nOxidative stress denatures hemoglobin and forms Heinz bodies. Splenic macrophages remove these inclusions, producing characteristic bite cells (degmacytes) and blister cells.",
+      "emphasis": ["G6PD deficiency", "Cotrimoxazole", "Heinz bodies", "bite cells", "blister cells"],
+      "rationales": {
+        "a": "Hemolytic uremic syndrome is a microangiopathic hemolytic process associated with thrombocytopenia and renal injury, not the classic oxidant-drug/Heinz-body pattern.",
+        "b": "Autoimmune hemolytic anemia is immune-mediated and is classically associated with a positive antiglobulin test and spherocytes rather than oxidant-induced bite cells.",
+        "c": "Paroxysmal nocturnal hemoglobinuria is an acquired complement-mediated intravascular hemolysis and does not produce the characteristic oxidant-triggered Heinz-body/bite-cell pattern."
+      }
+    },
+    "marrow__BIOCHEM_CH05_Q013": {
+      "takeaway": "Ragged-red fibers plus lactic acidosis and stroke-like neurologic episodes indicate MELAS.",
+      "displayText": "MELAS stands for mitochondrial encephalopathy, lactic acidosis and stroke-like episodes. The child may have normal early development and later develop vomiting, seizures, focal neurologic deficits and lactic acidosis.\n\nMuscle biopsy with modified Gomori trichrome stain shows ragged-red fibers, reflecting abnormal mitochondrial accumulation. The source notes defects involving respiratory-chain complex I or IV.",
+      "emphasis": ["MELAS", "lactic acidosis", "stroke-like episodes", "ragged-red fibers", "complex I or IV"],
+      "rationales": {
+        "b": "Duchenne muscular dystrophy is a dystrophinopathy with progressive proximal weakness, not a mitochondrial syndrome characterized by lactic acidosis, stroke-like episodes and ragged-red fibers.",
+        "c": "Becker muscular dystrophy is also a dystrophinopathy and does not fit the mitochondrial encephalopathy/lactic-acidosis pattern.",
+        "d": "Myotonic dystrophy is characterized by myotonia and multisystem features rather than ragged-red fibers with lactic acidosis and stroke-like episodes."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q025": {
+      "takeaway": "Points at the two pKa values mark maximal buffering; the curve has two ionizable groups and no ionizable side chain.",
+      "displayText": "Points A and B correspond to pK₁ and pK₂, the pKa values of the carboxyl and amino groups. Buffering capacity is maximal around each pKa.\n\nBecause the curve shows only two pKa values, the amino acid has two ionizable groups—the carboxyl group and the amino group—and no additional ionizable side chain. The source notes that the curve resembles glycine.",
+      "emphasis": ["pK₁ and pK₂", "Buffering capacity is maximal around each pKa", "two ionizable groups", "no additional ionizable side chain"],
+      "rationales": {
+        "b": "A and B are pKa points where buffering is maximal and the relevant group is half-ionized; they are not a “range of maximum ionization.”",
+        "c": "Only two pKa values are shown, so there is no third ionizable side-chain group.",
+        "d": "The compound has two ionizable groups—an amino group and a carboxyl group—not one."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q018": {
+      "takeaway": "Creatine is synthesized from glycine, arginine and methionine—not alanine.",
+      "displayText": "Creatine synthesis uses glycine, arginine and methionine. The source places the first, second and third steps in the kidney, liver and muscle, respectively.\n\nCreatine phosphate rapidly donates phosphate to ADP to regenerate ATP during the early phase of intense muscle contraction. Creatinine is formed nonenzymatically from creatine/creatine phosphate and is excreted in urine; its excretion broadly reflects muscle mass.",
+      "emphasis": ["glycine, arginine and methionine", "kidney, liver and muscle", "Creatine phosphate", "Creatinine"],
+      "rationales": {
+        "a": "Glycine is one of the three amino-acid contributors used in creatine synthesis.",
+        "b": "Arginine contributes to creatine synthesis and participates in the initial transfer that forms the guanidino precursor.",
+        "c": "Methionine contributes its methyl group through S-adenosylmethionine during creatine synthesis."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q033": {
+      "takeaway": "The unambiguous true statement is that tertiary protein structure is three-dimensional.",
+      "displayText": "Protein structure is organized as primary, secondary, tertiary and quaternary structure. Primary structure is the linear amino-acid sequence. Secondary structure includes ordered local folding such as α-helices and β-sheets. Tertiary structure is the three-dimensional arrangement of these elements into a functional fold; quaternary structure describes the spatial association of multiple polypeptide chains.\n\nDenaturation disrupts secondary and tertiary structure without hydrolyzing the peptide bonds of primary structure. Hydrogen bonds and van der Waals interactions help stabilize secondary structure, whereas disulfide bonds are important in tertiary structure.",
+      "emphasis": ["tertiary structure is the three-dimensional", "Denaturation disrupts secondary and tertiary structure", "without hydrolyzing the peptide bonds of primary structure", "disulfide bonds"],
+      "rationales": {
+        "b": "Denaturation does not ordinarily hydrolyze the peptide bonds that define primary structure, so primary structure is not destroyed in the way secondary and tertiary structure are.",
+        "c": "Secondary structure is stabilized mainly by hydrogen bonding and other noncovalent interactions; disulfide bonds are associated with tertiary stabilization.",
+        "d": "Higher-order folding is constrained by amino-acid sequence, but this source item keys the unambiguous structural definition in option A; option D is not accepted as written in the source."
+      },
+      "sourceNotes": ["Option D has scientific nuance. The display preserves the source answer key and avoids claiming that amino-acid sequence is irrelevant to higher-order folding."]
+    },
+    "marrow__BIOCHEM_CH11_Q008": {
+      "takeaway": "Trichorrhexis nodosa in argininosuccinic aciduria points to argininosuccinate lyase deficiency.",
+      "displayText": "The hair microscopy shows trichorrhexis nodosa with longitudinal breaks, a finding associated in this source with argininosuccinic aciduria due to argininosuccinate lyase deficiency.\n\nTrichorrhexis nodosa is a hair-shaft defect with weak nodal points that fracture easily. It can also occur in disorders such as hypothyroidism, iron deficiency and Menkes disease.",
+      "emphasis": ["trichorrhexis nodosa", "argininosuccinic aciduria", "argininosuccinate lyase deficiency"],
+      "rationales": {
+        "b": "Arginase deficiency causes a different urea-cycle disorder (argininemia) and is not the enzyme defect linked here to trichorrhexis nodosa.",
+        "c": "Fumarase is a tricarboxylic-acid-cycle enzyme, not the urea-cycle enzyme deficient in argininosuccinic aciduria.",
+        "d": "Tyrosinase is required for melanin synthesis; its deficiency causes albinism rather than argininosuccinic aciduria."
+      }
+    },
+    "marrow__BIOCHEM_CH12_Q011": {
+      "takeaway": "Carnitine transports long-chain fatty acyl groups into mitochondria; deficiency causes exercise-related myopathy and impaired β-oxidation.",
+      "displayText": "Carnitine is required to transfer long-chain fatty acyl groups across the otherwise impermeable inner mitochondrial membrane for β-oxidation. Fatty acyl-CoA is converted to acylcarnitine for transport through the carnitine shuttle.\n\nCarnitine deficiency impairs fatty-acid oxidation and ATP production during increased energy demand. This can produce hypoglycemia, muscle aches, hypotonia, poor exercise tolerance, myoglobinuria and elevated creatine kinase.",
+      "emphasis": ["Carnitine", "inner mitochondrial membrane", "β-oxidation", "hypoglycemia", "elevated creatine kinase"],
+      "rationales": {
+        "a": "Creatine participates in rapid energy buffering through phosphocreatine but is not the transporter that carries long-chain fatty acyl groups across the inner mitochondrial membrane.",
+        "b": "Creatinine is a breakdown product excreted in urine and has no role in the mitochondrial fatty-acid transport shuttle.",
+        "d": "Acyl carrier protein carries growing acyl chains during fatty-acid synthesis; it is not the carnitine-shuttle transporter for mitochondrial β-oxidation."
+      }
+    },
+    "marrow__BIOCHEM_CH14_Q009": {
+      "takeaway": "Malonyl-CoA—not acetyl-CoA—is the major two-carbon donor during fatty-acid synthesis.",
+      "displayText": "Malonyl-CoA is a three-carbon molecule formed from acetyl-CoA by acetyl-CoA carboxylase. During fatty-acid synthesis it donates a two-carbon unit after decarboxylation. Acetyl-CoA primarily serves as the primer, while fatty-acid synthase repeatedly adds two-carbon units from malonyl-CoA.\n\nIn palmitate synthesis, the primer contributes two carbons and the remaining fourteen carbons are derived from malonyl-CoA.\n\nKey contrasts:\nFatty-acid synthesis is not simply the reverse of β-oxidation; the pathways use different enzymes and cellular compartments. Synthetic intermediates are carried on acyl carrier protein (ACP), whereas β-oxidation intermediates are linked to coenzyme A.",
+      "emphasis": ["Malonyl-CoA", "acetyl-CoA carboxylase", "two-carbon unit", "Acetyl-CoA primarily serves as the primer", "acyl carrier protein (ACP)"],
+      "rationales": {
+        "a": "Acetyl-CoA acts mainly as the primer; the repeated two-carbon additions during chain elongation come from malonyl-CoA.",
+        "c": "Fatty-acid synthesis and β-oxidation use different enzymes and occur in different cellular compartments, so synthesis is not a simple reversal of oxidation.",
+        "d": "Fatty-acid-synthesis intermediates are carried by ACP, not coenzyme A."
+      }
+    },
+    "marrow__BIOCHEM_CH16_Q013": {
+      "takeaway": "A chylomicron band remaining at the electrophoretic origin indicates hyperchylomicronemia from lipoprotein-lipase deficiency.",
+      "displayText": "Familial hyperchylomicronemia produces a prominent chylomicron band at the origin on serum lipoprotein electrophoresis. Chylomicrons have the lowest electrophoretic mobility, whereas HDL has the highest.\n\nThe clinical pattern can include eruptive/pruritic xanthomas, pancreatitis and hepatosplenomegaly, with marked elevation of chylomicrons and triglycerides. The enzyme defect is lipoprotein lipase.",
+      "emphasis": ["chylomicron band at the origin", "lowest electrophoretic mobility", "lipoprotein lipase", "eruptive/pruritic xanthomas"],
+      "rationales": {
+        "b": "Hormone-sensitive lipase mobilizes stored triacylglycerol within adipocytes; it does not clear circulating chylomicrons from plasma.",
+        "c": "LCAT esterifies cholesterol in plasma and is important in HDL maturation, not hydrolysis of chylomicron triglycerides.",
+        "d": "HMG-CoA reductase is the rate-limiting enzyme of cholesterol synthesis and does not explain a chylomicron band fixed at the origin."
+      }
+    },
+    "marrow__BIOCHEM_CH17_Q011": {
+      "takeaway": "Chronic blistering photosensitivity with increased urinary uroporphyrin points to porphyria cutanea tarda from uroporphyrinogen decarboxylase deficiency.",
+      "displayText": "Porphyria cutanea tarda (PCT) is the most common porphyria. It is caused by deficiency of uroporphyrinogen decarboxylase, which impairs conversion of uroporphyrinogen III toward coproporphyrinogen III.\n\nPCT typically presents in adulthood with photosensitivity and blistering lesions over sun-exposed skin, especially the backs of the hands, followed by crusting and scarring. It is associated with hemochromatosis and chronic liver disease. The source identifies increased urinary uroporphyrin as the biochemical clue.",
+      "emphasis": ["Porphyria cutanea tarda (PCT)", "uroporphyrinogen decarboxylase", "blistering lesions", "crusting and scarring", "increased urinary uroporphyrin"],
+      "rationales": {
+        "a": "Acute intermittent porphyria produces acute neurovisceral attacks and classically lacks the blistering photosensitivity seen here.",
+        "c": "Hereditary coproporphyria can combine neurovisceral attacks with photosensitivity, but the source vignette and urinary uroporphyrin clue favor PCT.",
+        "d": "Variegate porphyria can also have neurovisceral and cutaneous manifestations; the chronic blistering photosensitivity pattern in this source is keyed to PCT."
+      },
+      "sourceNotes": ["The question stem refers to laboratory values that are not visible on the rendered question page. No missing laboratory panel was reconstructed; the display uses only the explanation's explicit urinary-uroporphyrin clue.", "Raw extraction accidentally continues into later question solutions; those unrelated passages are omitted from display only."]
+    },
+    "marrow__BIOCHEM_CH18_Q009": {
+      "takeaway": "Oxygenases hydroxylate drugs; they do not catalyze drug carboxylation.",
+      "displayText": "Cytochrome P450 enzymes are heme-containing monooxygenases found mainly in the endoplasmic reticulum of the liver and intestine, with mitochondrial forms in some tissues. They participate in hydroxylation reactions involved in drug modification and degradation.\n\nMitochondrial cytochrome P450 systems in steroidogenic tissues—including adrenal cortex, testis, ovary and placenta—participate in steroid-hormone biosynthesis by hydroxylation.\n\nOxygenase classes:\n• Monooxygenases incorporate one oxygen atom into the substrate.\n• Dioxygenases incorporate two oxygen atoms into the substrate.",
+      "emphasis": ["do not catalyze drug carboxylation", "Cytochrome P450", "monooxygenases", "hydroxylation", "Dioxygenases"],
+      "rationales": {
+        "a": "Dioxygenases can incorporate two oxygen atoms into a substrate, so this statement is true.",
+        "b": "Monooxygenases incorporate one oxygen atom into a substrate, so this statement is true.",
+        "c": "Cytochrome P450 hydroxylation is important in steroid-hormone biosynthesis, so this statement is true."
+      },
+      "sourceNotes": ["Obvious OCR substitutions in the raw transcription are corrected from the rendered source page; raw source remains unchanged."]
+    },
+    "marrow__BIOCHEM_CH19_Q019": {
+      "takeaway": "An enzyme lowers activation energy without changing the overall Gibbs free-energy change (ΔG); the source identifies graph A, which is option B.",
+      "displayText": "The source identifies graph A as the valid Gibbs free-energy profile for the enzyme-catalyzed reaction.\n\nA reaction passes through a high-energy transition state, represented by a peak in the free-energy curve. If an intermediate is formed, it lies between transition states and must still be able to proceed toward product.\n\nEnzymes reduce activation energy by providing a lower-energy reaction pathway. They do not change the free-energy levels of reactants and products, so the overall ΔG of the reaction remains unchanged.",
+      "emphasis": ["graph A", "option B", "high-energy transition state", "reduce activation energy", "overall ΔG of the reaction remains unchanged"],
+      "rationales": {
+        "a": "Option A corresponds to graph B. In the source, its putative intermediate is drawn too stable—below the product—so it would not represent the productive enzyme-catalyzed pathway shown.",
+        "c": "Option C corresponds to graph C. A straight-line free-energy change omits the required high-energy transition state.",
+        "d": "Option D corresponds to graph D. The activation-energy relationship is drawn incorrectly; the source rejects this profile."
+      },
+      "sourceNotes": ["Graph-dependent item. Rationales preserve the source's A/B/C/D graph mapping; no missing graph labels are invented."]
+    },
+    "marrow__BIOCHEM_CH20_Q006": {
+      "takeaway": "The retinal chromophore required for vision is 11-cis retinaldehyde (retinal).",
+      "displayText": "In the retina, 11-cis retinaldehyde is the vitamin-A form used in Wald's visual cycle. Rhodopsin in rod cells consists of 11-cis retinal bound to opsin.\n\nLight triggers isomerization of the chromophore, bleaching of rhodopsin and release of all-trans-retinal and opsin. This photochemical sequence initiates the visual signal transmitted through the optic pathway.",
+      "emphasis": ["11-cis retinaldehyde", "Rhodopsin", "11-cis retinal", "opsin", "all-trans-retinal"],
+      "rationales": {
+        "a": "Retinol is the alcohol form of vitamin A and serves as a transport/storage precursor; it is not the chromophore directly bound to opsin in rhodopsin.",
+        "c": "Retinoic acid mainly regulates gene transcription and cannot substitute for retinal in the visual cycle.",
+        "d": "Isotretinoin is a synthetic retinoid drug, not the physiologic retinal chromophore used by rhodopsin."
+      }
+    },
+    "marrow__BIOCHEM_CH21_Q012": {
+      "takeaway": "Casal's necklace plus a beefy red tongue in an alcoholic patient indicates pellagra—ask for diarrhea and cognitive/memory symptoms.",
+      "displayText": "Pellagra is caused by niacin (vitamin B3) deficiency. Its classic four Ds are diarrhea, dermatitis, dementia and, if untreated, death.\n\nThe dermatitis is photosensitive and affects sun-exposed skin. A bright red glossitis produces the “beefy” tongue, and Casal's necklace is the pigmented, scaly eruption around the neck. Alcohol use and diets based heavily on maize/corn or jowar are recognized risk settings in the source.\n\nTherefore, asking about diarrhea and memory/cognitive symptoms directly looks for the other classic manifestations of pellagra.",
+      "emphasis": ["niacin (vitamin B3) deficiency", "four Ds", "diarrhea, dermatitis, dementia", "Casal's necklace", "beefy"],
+      "rationales": {
+        "b": "Thiamine deficiency causes beriberi or Wernicke-related features; those are not the defining associated manifestations of the pellagra pattern shown.",
+        "c": "The dermatitis here is nutritional/photosensitive rather than an allergic eruption, so an allergy history does not target the key diagnosis.",
+        "d": "Conjunctivitis is not one of the characteristic manifestations of niacin deficiency in this source."
+      }
+    },
+    "marrow__BIOCHEM_CH22_Q006": {
+      "takeaway": "The two vitamin-B12–dependent enzymes are methionine synthase and methylmalonyl-CoA mutase; in the source's combination key these are 1 and 4.",
+      "displayText": "Vitamin B12 is required for two key human enzyme reactions:\n\n• Methionine synthase (homocysteine methyltransferase) converts homocysteine to methionine.\n• Methylmalonyl-CoA mutase converts methylmalonyl-CoA to succinyl-CoA.\n\nThe source answer identifies these as items 1 and 4. Vitamin B12 deficiency can therefore disturb methionine/folate handling and methylmalonyl-CoA metabolism.",
+      "emphasis": ["methionine synthase", "methylmalonyl-CoA mutase", "1 and 4", "homocysteine to methionine", "methylmalonyl-CoA to succinyl-CoA"],
+      "rationales": {
+        "a": "This combination includes items 2 and 3, whereas the source identifies only items 1 and 4 as the B12-dependent enzymes.",
+        "c": "This combination substitutes item 3 for item 4; the source key supports 1 and 4.",
+        "d": "This combination includes items 2 and 3 and omits item 4; the source key supports only 1 and 4."
+      },
+      "sourceNotes": ["The rendered question page does not show the defining numbered enzyme list. The identities of items 2 and 3 are therefore not invented; the source's explicit explanation and answer key are preserved.", "The source first says 'methyl malonyl CoA isomerase' but then correctly names methylmalonyl-CoA mutase in the explanatory list; the display uses the explicit enzyme name from that list."]
+    },
+    "marrow__BIOCHEM_CH23_Q005": {
+      "takeaway": "NADPH oxidase initiates the neutrophil respiratory burst; its deficiency causes chronic granulomatous disease.",
+      "displayText": "During phagocytosis, NADPH oxidase in neutrophils and other phagocytes reduces oxygen to generate superoxide as part of the respiratory burst.\n\nDeficiency of NADPH oxidase causes chronic granulomatous disease (CGD), in which phagocytes cannot effectively kill catalase-positive organisms. The clinical clue is recurrent bacterial or fungal infections, including recurrent ear, lung or bone infections.",
+      "emphasis": ["NADPH oxidase", "respiratory burst", "superoxide", "chronic granulomatous disease (CGD)", "catalase-positive organisms"],
+      "rationales": {
+        "a": "Catalase removes hydrogen peroxide; it does not initiate the respiratory burst by generating superoxide.",
+        "c": "Superoxide dismutase converts superoxide to hydrogen peroxide after superoxide has been generated; it is not the deficient respiratory-burst enzyme in CGD.",
+        "d": "Myeloperoxidase uses hydrogen peroxide and chloride to form hypochlorous acid downstream of the respiratory burst; it is not NADPH oxidase."
+      },
+      "sourceNotes": ["The raw transcription says 'NADPH deficiency' once; the rendered/source context clearly identifies NADPH oxidase deficiency, which is used in display only."]
+    },
+    "marrow__BIOCHEM_CH24_Q016": {
+      "takeaway": "Failure to thrive with megaloblastic anemia despite normal B12/folate and urinary orotic acid indicates hereditary orotic aciduria.",
+      "displayText": "Orotic aciduria is an autosomal-recessive defect of de novo pyrimidine synthesis. The source associates the classic form with UMP-synthase deficiency.\n\nIt usually presents in infancy with growth failure, developmental delay and severe megaloblastic anemia despite normal vitamin B12 and folate levels. Increased urinary orotic acid supports the diagnosis, and the anemia responds to uridine therapy.",
+      "emphasis": ["Orotic aciduria", "UMP-synthase deficiency", "megaloblastic anemia", "normal vitamin B12 and folate", "urinary orotic acid", "uridine"],
+      "rationales": {
+        "a": "Gout is associated with excess uric acid/urate rather than the orotic-acid pattern with megaloblastic anemia.",
+        "b": "Lesch-Nyhan syndrome causes hyperuricemia with uric-acid overproduction, not hereditary orotic aciduria.",
+        "c": "Xanthinuria causes xanthine accumulation/crystalluria and does not produce the characteristic orotic-aciduria syndrome."
+      }
+    },
+    "marrow__BIOCHEM_CH26_Q014": {
+      "takeaway": "Eukaryotic pre-mRNA processing includes 5′ capping, polyadenylation and splicing—so all of the listed modifications occur.",
+      "displayText": "Newly synthesized eukaryotic pre-mRNA undergoes several post-transcriptional processing steps.\n\n• 5′ capping adds 7-methylguanosine to the 5′ end through an unusual 5′–5′ triphosphate linkage.\n• Polyadenylation adds a poly(A) tail using nuclear poly(A) polymerase; the tail supports mRNA stability, nuclear export and translation.\n• Splicing removes introns and joins exons to produce mature mRNA, with small nuclear RNAs participating in recognition of splice-site sequences.",
+      "emphasis": ["5′ capping", "7-methylguanosine", "5′–5′ triphosphate linkage", "Polyadenylation", "Splicing"],
+      "rationales": {
+        "a": "Capping is indeed a normal post-transcriptional modification, but it is only one of the listed processes; the best answer includes all three.",
+        "b": "Polyadenylation is also a normal processing step, but it is not the only one listed.",
+        "c": "Splicing is a normal pre-mRNA processing step, but capping and polyadenylation also occur."
+      },
+      "sourceNotes": ["Obvious OCR debris from the source figure caption/labels is omitted from display; the stored source remains unchanged."]
+    }
+  }
+}
