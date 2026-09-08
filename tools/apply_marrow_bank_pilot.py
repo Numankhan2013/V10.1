@@ -19,6 +19,70 @@ exec(compile(payload,str(Path(__file__).resolve()),"exec"),{
     "__builtins__":__builtins__,
 })
 
+# Generalize the pilot's one-off Anatomy MARROW_RECORD into the canonical
+# subject-indexed bank registry before any downstream Marrow presentation patches.
+# The current bundle remains valid; future imports may instead provide
+# {"records":[...]} without changing navigation, persistence, review, FSRS, or sync.
+HTML=HERE.parent/"app/src/main/assets/index.html"
+source=HTML.read_text(encoding="utf-8")
+legacy_marker="  const MARROW_RECORD = "
+generic_marker="  const BANKS_BY_SUBJECT = Object.create(null);"
+if legacy_marker in source:
+    record_start=source.index(legacy_marker)
+    registry_end=source.index("  let activeSubject = ",record_start)
+    generic_registry=r'''  const MARROW_RECORDS = Array.isArray(MARROW_DATA.records) ? MARROW_DATA.records : [MARROW_DATA];
+  const MARROW_BY_SUBJECT = Object.freeze(Object.fromEntries(
+    MARROW_RECORDS
+      .filter(record=>record&&record.subject)
+      .map(record=>{
+        const subject=String(record.subject);
+        return [subject,{
+          ...record,
+          subject,
+          bank:'Marrow',
+          topics:Array.isArray(record.topics)?record.topics:[],
+          questions:Array.isArray(record.questions)?record.questions:[]
+        }];
+      })
+  ));
+  const BANKS_BY_SUBJECT = Object.create(null);
+  SUBJECTS.forEach(record=>{
+    const subject=String(record.subject||'');
+    (record.questions||[]).forEach(question=>{
+      question.question=nkCleanQuestionStem(question.question);
+      question.subject=question.subject||subject;
+      question.bank=question.bank||'PrepLadder';
+    });
+    if(subject)BANKS_BY_SUBJECT[subject]=[{...record,subject,bank:'PrepLadder'}];
+  });
+  Object.values(MARROW_BY_SUBJECT).forEach(record=>{
+    (record.questions||[]).forEach(question=>{
+      question.question=nkCleanQuestionStem(question.question);
+      question.subject=question.subject||record.subject;
+      question.bank='Marrow';
+    });
+    if(!record.subject||!record.questions.length)return;
+    const list=BANKS_BY_SUBJECT[record.subject]||(BANKS_BY_SUBJECT[record.subject]=[]);
+    list.push(record);
+  });
+  function nkBankRecords(name){
+    return (BANKS_BY_SUBJECT[name]||[]).slice();
+  }
+  function nkBankRecord(name,bank){
+    const list=nkBankRecords(name);return list.find(x=>x.bank===bank)||list[0]||null;
+  }
+  function nkAllBankQuestions(){
+    return Object.values(BANKS_BY_SUBJECT).flatMap(records=>records.flatMap(record=>
+      (record.questions||[]).map(q=>({...q,subject:q.subject||record.subject,bank:q.bank||record.bank||'PrepLadder'}))
+    ));
+  }
+'''
+    source=source[:record_start]+generic_registry+source[registry_end:]
+    HTML.write_text(source,encoding="utf-8")
+elif generic_marker not in source:
+    raise SystemExit("Marrow bank registry anchor missing after pilot transform")
+print("MARROW_BANK_REGISTRY_OK subjects="+",".join(sorted(BANKS_BY_SUBJECT if False else [])) if False else "MARROW_BANK_REGISTRY_OK runtime=subject-indexed legacy_single_bundle=compatible")
+
 # Marrow must always preserve the existing study-support contract:
 # Key takeaway + native structured detailed explanation. The shared PrepLadder
 # takeaway heuristic can legitimately return an empty string, so add a
