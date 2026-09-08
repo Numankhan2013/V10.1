@@ -131,3 +131,17 @@ graphs over actionable summaries.
 ## 2026-09-08 — User rejection and corrective handoff
 
 User requires reference-faithful luminous Topics journey, a viewport-visible Continue Learning tray, and a genuine More -> FSRS customization destination with explicit Save/Cancel. The shipped candidate is rejected. PDF/source readability is a protected priority, not a polish tradeoff.
+
+
+## Feature-PWA recovery status — 2026-09-08
+
+The user physically confirmed the recovered Topics journey/fixed Continue
+Learning tray and dedicated FSRS customization page are good on
+`feature/marrow-bank-pilot`. Preserve that implementation exactly.
+
+The next Topics refinement is taxonomy accuracy, not another visual redesign.
+Use `docs/MARROW_TOPIC_INDEX_TAXONOMY.md`.
+
+The next Marrow content-quality phase is explanation fine-tuning through a
+separate augmentation/display layer while raw ED8 source text remains auditable.
+Use `docs/MARROW_EXPLANATION_FINE_TUNING.md`.
