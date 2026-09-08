@@ -46,8 +46,13 @@ navigate_replacement = """function resetScrollPosition(){
   }
   function navigate(page, id = '') {
     const target=id?page+'/'+encodeURIComponent(id):page;
+    if((page==='practice'||page==='exam')&&state.activeSession&&!state.activeSession.originRoute){
+      state.activeSession.originRoute=['chapter','topics','banks'].includes(route.page)?'topics':['tests','dashboard','bookmarks','wrong','review','modules'].includes(route.page)?route.page:'topics';
+      saveState();
+    }
     if(page==='result'&&(route.page==='practice'||route.page==='exam')){
-      history.replaceState(null,'','#topics');
+      const t=state.tests.find(t=>String(t.id)===String(id)),parent=t?.originRoute||(route.page==='exam'?'tests':'topics');
+      history.replaceState(null,'','#'+parent);
       history.pushState(null,'','#'+target);
       route=parseHash();render();resetScrollPosition();return;
     }

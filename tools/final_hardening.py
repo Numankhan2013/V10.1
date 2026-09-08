@@ -150,7 +150,7 @@ zoom_js=r'''<script id="final-source-zoom-js">
     let scale=1,x=0,y=0,baseScale=1,dragStart=null,pointers=new Map(),pinchDist=0,pinchScale=1,pinchMid=null;
     const clamp=()=>{const maxX=Math.max(0,(i.naturalWidth*scale-st.clientWidth)/2+st.clientWidth*.45),maxY=Math.max(0,(i.naturalHeight*scale-st.clientHeight)/2+st.clientHeight*.45);x=Math.max(-maxX,Math.min(maxX,x));y=Math.max(-maxY,Math.min(maxY,y));};
     const apply=()=>{clamp();i.style.transform=`translate3d(${x}px,${y}px,0) scale(${scale})`;};
-    const fit=()=>{if(!i.naturalWidth)return;baseScale=Math.min(st.clientWidth/i.naturalWidth,st.clientHeight/i.naturalHeight);scale=Math.max(.25,Math.min(1,baseScale));x=(st.clientWidth-i.naturalWidth*scale)/2;y=(st.clientHeight-i.naturalHeight*scale)/2;apply();};
+    const fit=()=>{if(!i.naturalWidth)return;baseScale=Math.min(st.clientWidth/i.naturalWidth,st.clientHeight/i.naturalHeight);scale=Math.min(1,baseScale);x=(st.clientWidth-i.naturalWidth*scale)/2;y=(st.clientHeight-i.naturalHeight*scale)/2;apply();};
     const zoomAt=(next,cx=st.clientWidth/2,cy=st.clientHeight/2)=>{const old=scale;next=Math.max(baseScale*.75,Math.min(6,next));const ix=(cx-x)/old,iy=(cy-y)/old;scale=next;x=cx-ix*scale;y=cy-iy*scale;apply();};
     i.addEventListener('load',fit);if(i.complete)fit();
     b.querySelector('#spz-close').onclick=()=>b.remove();b.querySelector('#spz-reset').onclick=fit;b.querySelector('#spz-plus').onclick=()=>zoomAt(scale*1.35);b.querySelector('#spz-minus').onclick=()=>zoomAt(scale/1.35);

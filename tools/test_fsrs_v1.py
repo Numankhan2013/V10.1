@@ -41,8 +41,8 @@ const store=new Map();global.localStorage={{getItem:k=>store.has(k)?store.get(k)
 const LS_KEY='qbank_state_v1',now=Date.now(),questions=Array.from({{length:190}},(_,i)=>({{id:'q'+i,subject:i<95?'Anatomy':'Physiology',chapterId:String(i%4),chapter:'Topic '+(i%4),correctOption:1}}));
 const SUBJECTS=[{{subject:'Anatomy',topics:[{{id:'0',title:'Topic 0'}}],questions:questions.slice(0,95)}},{{subject:'Physiology',topics:[{{id:'0',title:'Topic 0'}}],questions:questions.slice(95)}}];
 let state={{attempts:{{q0:[{{id:'legacy',selected:1,correct:true,at:now-86400000}}]}},reviews:{{q0:{{nextReviewAt:now+123456}}}},fsrsPreferences:null,activeSession:null}};
-let BY_ID=Object.fromEntries(questions.map(q=>[q.id,q])),dashboard=()=>'<main></main>',morePage=()=>'<main></main>',practicePage=()=>'<main></main>',practiceActionBar=()=>'<div class="fixed-actions nk-session-footer"><div class="fixed-actions-inner"><button>Previous</button><button>Next</button></div></div>',submitPractice=()=>{{}},nextQ=()=>{{}},prevQ=()=>{{}},goIndex=()=>{{}},retryCurrent=()=>{{}},endSession=()=>{{}},navigate=()=>{{}},recordAttempt=()=>{{}},qAttempts=()=>[],nkRebuildReviews=()=>{{}};
-const saveState=()=>localStorage.setItem(LS_KEY,JSON.stringify(state)),startSession=()=>{{}},render=()=>{{}},showToast=()=>{{}},savePracticeElapsed=()=>{{}},haptic=()=>{{}},esc=x=>String(x),windowQB={{}};window.QB=windowQB;global.document={{getElementById:()=>null,body:{{insertAdjacentHTML:()=>{{}}}}}};window.addEventListener=()=>{{}};
+let route={{page:'practice'}};let BY_ID=Object.fromEntries(questions.map(q=>[q.id,q])),dashboard=()=>'<main></main>',morePage=()=>'<main></main>',practicePage=()=>'<main></main>',practiceActionBar=()=>'<div class="fixed-actions nk-session-footer"><div class="fixed-actions-inner"><button>Previous</button><button>Next</button></div></div>',submitPractice=()=>{{}},nextQ=()=>{{}},prevQ=()=>{{}},goIndex=()=>{{}},retryCurrent=()=>{{}},endSession=()=>{{}},navigate=()=>{{}},recordAttempt=()=>{{}},qAttempts=()=>[],nkRebuildReviews=()=>{{}};
+const saveState=()=>localStorage.setItem(LS_KEY,JSON.stringify(state)),startSession=()=>{{}},render=()=>{{}},showToast=()=>{{}},savePracticeElapsed=()=>{{}},haptic=()=>{{}},esc=x=>String(x),windowQB={{}};window.QB=windowQB;global.document={{getElementById:()=>null,querySelector:()=>null,body:{{insertAdjacentHTML:()=>{{}}}}}};window.addEventListener=()=>{{}};
 {core}
 nkFsrsInit();assert.equal(state.reviews.q0.schemaVersion,2);assert.equal(state.reviews.q0.nextReviewAt,now+123456,'legacy due date preserved');
 const before=JSON.stringify(state.reviews.q0);nkFsrsReplay('q0',true);assert.equal(JSON.stringify(state.reviews.q0),before,'replay deterministic');
@@ -60,6 +60,11 @@ assert(!practiceActionBar().includes('nk-fsrs-rating'),'no recall dock before an
 submitPractice();assert(state.activeSession.pendingRating.q188);
 const dock=practiceActionBar();assert(dock.includes('nk-fsrs-docked'));assert(dock.indexOf('nk-fsrs-rating')<dock.indexOf('fixed-actions-inner'),'recall dock must be inside the fixed footer immediately above navigation');assert(dock.includes('Rate recall')&&dock.includes('Default: Good')&&dock.includes('nk-fsrs-medallion'));assert(!practicePage().includes('nk-fsrs-rating'),'no duplicate in content');nextQ();assert.equal(nkFsrsActiveAttempts('q188').at(-1).rating,3);nkFsrsRecoverPending();assert.equal(nkFsrsActiveAttempts('q188').length,1);
 state.activeSession={{mode:'practice',questionIds:['q187'],index:0,answers:{{q187:2}},submitted:{{}},questionTimes:{{}}}};submitPractice();assert.equal(nkFsrsActiveAttempts('q187').at(-1).rating,1);assert(!practiceActionBar().includes('nk-fsrs-rating'),'incorrect answer retains automatic Again without manual dock');
+const savedRetention=state.fsrsPreferences.desiredRetention;
+nkFsrsEditSetting('desiredRetention','86');assert.equal(state.fsrsPreferences.desiredRetention,savedRetention);assert(nkFsrsDirty());
+nkFsrsSaveSettings();assert.equal(state.fsrsPreferences.desiredRetention,.86);assert(!nkFsrsDirty());
+const dueAtSave=state.reviews.q1.due;nkFsrsEditSetting('desiredRetention','999');assert.equal(nkFsrsSaveSettings(),false);assert.equal(state.fsrsPreferences.desiredRetention,.86);assert.equal(state.reviews.q1.due,dueAtSave);
+nkFsrsDraft=null;assert(!nkFsrsDirty());
 console.log('FSRS_BEHAVIOR_OK');
 """
 

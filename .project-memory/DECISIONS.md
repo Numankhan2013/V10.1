@@ -200,3 +200,7 @@ explicitly reviewable rather than being silently guessed.
 Rationale: the user wants the topic list to communicate syllabus structure and
 study progression at a glance while preserving the current QBank architecture
 and avoiding decorative or paywall noise.
+
+## 2026-09-08 — User rejection and corrective handoff
+
+Do not equate passing CI or screenshot capture with reference fidelity or physical acceptance. The user rejected 6ba7ebe. Require visual comparison and initial-viewport dock checks, a dedicated settings destination, and same-question PDF legibility checks before claiming completion.

@@ -127,3 +127,6 @@ graphs over actionable summaries.
 - Latest hashed preview opens successfully on iPad. Before the production-promotion workflow change, the root `nk-qbank.pages.dev` still served the older blank production deployment. Source-PDF rendering, Anatomy/R2 CORS, final production URL, Android in-place upgrade, and full two-way sync still require physical verification.
 - Next: wait for CI on the current branch → manually dispatch **Build V11.7 Android + PWA** once → verify `https://nk-qbank.pages.dev` → add final Pages hostname to Firebase Authentication authorized domains → ensure R2 CORS allows the exact Pages origin and Range GETs → install V11.7 APK over V11.6 without uninstalling → verify old local data → same-account Android/iPad sync, offline/reconnect, force-close/reopen, sign-out/in tests.
 
+## 2026-09-08 — User rejection and corrective handoff
+
+User requires reference-faithful luminous Topics journey, a viewport-visible Continue Learning tray, and a genuine More -> FSRS customization destination with explicit Save/Cancel. The shipped candidate is rejected. PDF/source readability is a protected priority, not a polish tradeoff.

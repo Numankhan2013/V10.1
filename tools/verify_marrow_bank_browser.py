@@ -165,6 +165,17 @@ def main():
             # Candidate regression: Topics hierarchy, completion Back, and explicit settings save.
             assert page.locator('.nk-topic-group').count() >= 8
             page.screenshot(path=str(OUT/'07-topics-journey.png'),full_page=True)
+            for fraction in (0,.5,1):
+                page.evaluate('(f)=>window.scrollTo(0,(document.documentElement.scrollHeight-innerHeight)*f)',fraction)
+                page.wait_for_timeout(100)
+                box=page.locator('.nk-continue-learning').bounding_box()
+                assert box and box['y']>=0 and box['y']+box['height']<844-76, box
+            page.evaluate('window.scrollTo(0,0)')
+            page.screenshot(path=str(OUT/'07a-topics-first-viewport.png'))
+            page.get_by_role('button',name='Topic index',exact=True).click()
+            page.locator('.nk-index-link').filter(has_text='General Embryology').click()
+            page.screenshot(path=str(OUT/'07b-topics-reference-section.png'))
+            page.evaluate('window.scrollTo(0,0)')
             page.locator('button.nk-topic-row').first.click();page.wait_for_timeout(80)
             page.locator('button.nk-library-row').first.click();page.wait_for_timeout(80)
             page.evaluate("window.QB.endSession()");page.wait_for_timeout(120)
@@ -173,16 +184,62 @@ def main():
             assert page.url.endswith('#topics'), page.url
             assert page.locator('.nk-topic-group').count() >= 8
             page.evaluate("window.QB.nav('more')");page.wait_for_timeout(100)
-            page.locator('.nk-fsrs-customization summary').click()
+            page.locator('.nk-fsrs-settings-entry').click();page.wait_for_timeout(100)
+            assert page.url.endswith('#fsrs-settings')
             before=page.evaluate("window.QB.getState().fsrsPreferences.desiredRetention")
             value='85' if before != .85 else '90'
             page.locator('.nk-fsrs-settings input').first.fill(value)
             assert page.evaluate("window.QB.getState().fsrsPreferences.desiredRetention") == before
             page.screenshot(path=str(OUT/'08-fsrs-customization.png'),full_page=True)
+            page.screenshot(path=str(OUT/'08a-fsrs-first-viewport.png'))
+            page.evaluate("window.QB.nav('more')")
+            page.get_by_role('button',name='Keep editing',exact=True).click()
+            assert page.locator('.nk-fsrs-settings input').first.input_value()==value
+            page.go_back();page.wait_for_timeout(100)
+            page.get_by_role('button',name='Keep editing',exact=True).click()
+            assert page.url.endswith('#fsrs-settings')
             page.get_by_role('button',name='Save changes',exact=True).click();page.wait_for_timeout(100)
             assert page.evaluate("window.QB.getState().fsrsPreferences.desiredRetention") == int(value)/100
             page.reload(wait_until='networkidle')
             assert page.evaluate("window.QB.getState().fsrsPreferences.desiredRetention") == int(value)/100
+            # Cancel discards drafts, Save persists across route changes and reload.
+            page.locator('.nk-fsrs-settings input').first.fill('91')
+            page.get_by_role('button',name='Cancel',exact=True).click();page.wait_for_timeout(100)
+            assert page.url.endswith('#more')
+            page.locator('.nk-fsrs-settings-entry').click();page.wait_for_timeout(100)
+            assert page.locator('.nk-fsrs-settings input').first.input_value()==value
+            page.set_viewport_size({'width':1024,'height':768})
+            page.screenshot(path=str(OUT/'08b-fsrs-tablet.png'))
+            page.evaluate("window.QB.nav('topics')");page.wait_for_timeout(100)
+            page.screenshot(path=str(OUT/'07c-topics-tablet.png'))
+            page.set_viewport_size({'width':390,'height':844})
+            # Exercise authoritative source PDFs in real question explanations.
+            for subject in ('Biochemistry','Physiology','Anatomy'):
+                page.evaluate('(subject)=>window.QB.nav(\'banks\',subject)',subject);page.wait_for_timeout(100)
+                page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click();page.wait_for_timeout(100)
+                page.locator('button.nk-topic-row').first.click();page.wait_for_timeout(100)
+                page.locator('button.nk-library-row').first.click();page.wait_for_timeout(100)
+                page.locator('.option-list button').first.click();page.wait_for_timeout(100)
+                segment=page.locator('.nk-web-pdf-segment').first
+                segment.scroll_into_view_if_needed()
+                page.wait_for_function("document.querySelector('.nk-web-pdf-segment')?.dataset.rendered==='true'",timeout=90000)
+                metrics=segment.evaluate('(n)=>({width:n.clientWidth,pixels:n.querySelector(\'canvas\').width,height:n.querySelector(\'canvas\').height})')
+                assert metrics['pixels']>=metrics['width']*1.95,metrics
+                segment.screenshot(path=str(OUT/f'09-{subject}-pdf-inline.png'))
+                segment.click()
+                zoom=page.locator('.source-pdf-zoomimg')
+                zoom.wait_for(state='visible',timeout=90000)
+                page.wait_for_function("document.querySelector('.source-pdf-zoomimg')?.naturalWidth>0")
+                assert zoom.evaluate('(n)=>n.naturalWidth')>metrics['pixels']
+                page.locator('#spz-plus').click();page.locator('#spz-plus').click()
+                page.screenshot(path=str(OUT/f'10-{subject}-pdf-zoom.png'))
+                page.locator('#spz-close').click()
+                page.set_viewport_size({'width':1024,'height':768})
+                page.wait_for_timeout(1500)
+                page.wait_for_function("document.querySelector('.nk-web-pdf-segment')?.dataset.rendered==='true'",timeout=90000)
+                assert segment.evaluate('(n)=>n.querySelector(\'canvas\').width')>metrics['pixels']
+                segment.screenshot(path=str(OUT/f'11-{subject}-pdf-tablet.png'))
+                page.set_viewport_size({'width':390,'height':844})
             if errors: raise SystemExit('Browser errors: '+repr(errors))
             browser.close()
         server.shutdown()

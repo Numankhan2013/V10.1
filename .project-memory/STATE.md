@@ -1,10 +1,10 @@
 # STATE.md — Current Project State and Handoff
 
-## Topics depth and navigation candidate — 2026-09-08
+## Recovery implementation — 2026-09-08
 
-- Implemented approved Topics syllabus sections, numbered journey milestones, three progress states, and Continue Learning.
-- Practice/CBT Analysis now sits over Topics in history; FSRS customization now requires explicit Save changes.
-- Product commit `6ba7ebe`: Engineering Gate `34203639427` and full APK/PWA build `34203639327` passed. Feature PWA deployed at `https://7023d1b5.nk-qbank.pages.dev`; APK artifact `10046898472`. Physical verification remains pending.
+- User rejects deployed 6ba7ebe: reference fidelity/glow absent, Continue Learning not floating, FSRS section inadequate; explanation PDFs now unreadable. Build success does not establish acceptance.
+- Recovery implemented: lossless high-density browser PDF crops/zoom, separate Topics milestone lane + fixed tray, dedicated FSRS settings route/drafts, origin-aware completion. Local checks pass; full CI and visual QA pending.
+- Feature push builds now hold deployment; manually dispatch after visual artifact review. Rejection evidence: docs/REJECTED_TOPICS_FSRS_HANDOFF.md.
 
 > Keep concise and current. History goes in `SESSION_LOG.md`, durable reasoning
 > in `DECISIONS.md`, and future work in `ROADMAP.md`.

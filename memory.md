@@ -1,3 +1,7 @@
+# Latest user feedback — rejected release, 2026-09-08
+
+The user rejected Topics/FSRS release 6ba7ebe and reports unreadable PDF explanations. Prior completion claims are superseded. Read .project-memory/STATE.md and docs/REJECTED_TOPICS_FSRS_HANDOFF.md before further work. Restore PDF readability first; then deliver reference fidelity/glow, truly floating Continue Learning, and a dedicated FSRS settings page. PDF regression cause remains unconfirmed.
+
 # NK QBank — Project Memory / Continuity
 
 **Updated:** 2026-09-08

@@ -236,3 +236,6 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
 - Latest hashed preview opens successfully on iPad. Before the production-promotion workflow change, the root `nk-qbank.pages.dev` still served the older blank production deployment. Source-PDF rendering, Anatomy/R2 CORS, final production URL, Android in-place upgrade, and full two-way sync still require physical verification.
 - Next: wait for CI on the current branch → manually dispatch **Build V11.7 Android + PWA** once → verify `https://nk-qbank.pages.dev` → add final Pages hostname to Firebase Authentication authorized domains → ensure R2 CORS allows the exact Pages origin and Range GETs → install V11.7 APK over V11.6 without uninstalling → verify old local data → same-account Android/iPad sync, offline/reconnect, force-close/reopen, sign-out/in tests.
 
+## 2026-09-08 — User rejection and corrective handoff
+
+Observed candidate limitations: Topics continuation uses sticky positioning after the list; FSRS is inline details/summary; PWA PDF zoom reuses a width-derived raster capped at 2x density. See docs/REJECTED_TOPICS_FSRS_HANDOFF.md for file owners and diagnostic limits. No PDF regression root cause has been established.
