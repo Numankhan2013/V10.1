@@ -28,14 +28,31 @@ def main():
             page.route('**/*.pdf*',lambda route: route.fulfill(path=str(ROOT/'app/src/main/assets/Anatomy_QBank_Source.pdf'),content_type='application/pdf',headers={'Access-Control-Allow-Origin':'*'}) if 'anatomy' in route.request.url.lower() else route.continue_())
             errors=[];page.on('pageerror',lambda e: errors.append(str(e)))
             page.goto(f'http://127.0.0.1:{port}/index.html',wait_until='networkidle')
-            # Biochemistry remains the one-source control while Physiology proves
-            # that the generalized registry works for a second Marrow subject.
+            # All three supplied subjects now use the same shared bank registry.
+            # Biochemistry is the new-subject smoke test and deliberately checks
+            # the source-faithful base Marrow renderer, not explanation polish.
             page.locator('button.nk-subject-row').filter(has_text='Biochemistry').click();page.wait_for_timeout(80)
             if '#banks/Biochemistry' not in page.url: raise SystemExit(f'Biochemistry did not open bank selector: {page.url}')
-            single=page.locator('button.nk-bank-card')
-            if single.count()!=1: raise SystemExit(f'Expected only PrepLadder for Biochemistry, found {single.count()} banks')
-            single_text=single.first.inner_text()
-            if 'PrepLadder' not in single_text or 'Marrow' in single_text: raise SystemExit(f'Bank registry leaked Marrow into Biochemistry: {single_text!r}')
+            bcards=page.locator('button.nk-bank-card')
+            if bcards.count()!=2: raise SystemExit(f'Expected 2 Biochemistry banks, found {bcards.count()}')
+            bbody=page.locator('body').inner_text()
+            for marker in ('PrepLadder','Marrow','543'):
+                if marker not in bbody: raise SystemExit(f'Biochemistry bank selector missing {marker}')
+            page.screenshot(path=str(OUT/'00-biochemistry-bank-selector.png'),full_page=True)
+            bcards.filter(has_text='Marrow').click();page.wait_for_timeout(100)
+            if page.locator('button.nk-topic-row').count()!=26: raise SystemExit('Marrow Biochemistry topic count is not 26')
+            page.locator('button.nk-topic-row').filter(has_text='Chemistry of Carbohydrates, Amino sugars and Mucopolysaccharides').click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=23: raise SystemExit('Marrow Biochemistry Chapter 1 count is not 23')
+            page.locator('button.nk-library-row').first.click();page.wait_for_timeout(80)
+            page.locator('.option-list button').first.click();page.wait_for_timeout(120)
+            bsupport=page.locator('.nk-study-support').inner_text().lower()
+            for marker in ('key takeaway','detailed explanation','structured text'):
+                if marker not in bsupport: raise SystemExit(f'Marrow Biochemistry source-faithful explanation missing {marker}')
+            if 'original pdf' in bsupport: raise SystemExit('Marrow Biochemistry incorrectly used Original PDF')
+            page.screenshot(path=str(OUT/'00a-biochemistry-source-faithful-question.png'),full_page=True)
+            page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click();page.wait_for_timeout(100)
+            if page.locator('button.nk-topic-row').count()<1: raise SystemExit('PrepLadder Biochemistry topics regressed')
             page.evaluate("window.QB.nav('dashboard')");page.wait_for_timeout(80)
 
             page.locator('button.nk-subject-row').filter(has_text='Physiology').click();page.wait_for_timeout(80)
@@ -43,11 +60,11 @@ def main():
             pcards=page.locator('button.nk-bank-card')
             if pcards.count()!=2: raise SystemExit(f'Expected 2 Physiology banks, found {pcards.count()}')
             pbody=page.locator('body').inner_text()
-            for marker in ('PrepLadder','Marrow','80'):
+            for marker in ('PrepLadder','Marrow','753'):
                 if marker not in pbody: raise SystemExit(f'Physiology bank selector missing {marker}')
             page.screenshot(path=str(OUT/'00-physiology-bank-selector.png'),full_page=True)
             pcards.filter(has_text='Marrow').click();page.wait_for_timeout(100)
-            if page.locator('button.nk-topic-row').count()!=4: raise SystemExit('Marrow Physiology topic count is not 4')
+            if page.locator('button.nk-topic-row').count()!=33: raise SystemExit('Marrow Physiology topic count is not 33')
             page.locator('button.nk-topic-row').filter(has_text='Homeostasis and cellular physiology').click();page.wait_for_timeout(80)
             if page.locator('button.nk-library-row').count()!=21: raise SystemExit('Marrow Physiology Chapter 1 count is not 21')
             # User-reported regression target: Q2 previously dumped raw OCR debris
@@ -104,11 +121,11 @@ def main():
             cards=page.locator('button.nk-bank-card')
             if cards.count()!=2: raise SystemExit(f'Expected 2 Anatomy banks, found {cards.count()}')
             body=page.locator('body').inner_text()
-            for marker in ('PrepLadder','Marrow','1,068','62'):
+            for marker in ('PrepLadder','Marrow','1,068','819'):
                 if marker not in body: raise SystemExit(f'Bank selector missing {marker}')
             page.screenshot(path=str(OUT/'01-anatomy-bank-selector.png'),full_page=True)
             cards.filter(has_text='Marrow').click();page.wait_for_timeout(100)
-            if page.locator('button.nk-topic-row').count()!=4: raise SystemExit('Marrow Anatomy topic count is not 4')
+            if page.locator('button.nk-topic-row').count()!=48: raise SystemExit('Marrow Anatomy topic count is not 48')
             if 'Marrow' not in page.locator('body').inner_text(): raise SystemExit('Marrow bank context is missing')
             page.screenshot(path=str(OUT/'02-marrow-topics.png'),full_page=True)
             page.locator('button.nk-topic-row').filter(has_text='Pre-Embryonic Phase of Development').click();page.wait_for_timeout(80)
@@ -259,5 +276,5 @@ def main():
             if errors: raise SystemExit('Browser errors: '+repr(errors))
             browser.close()
         server.shutdown()
-    print('MARROW_BROWSER_OK registry=subject-indexed anatomy=62/4 physiology=80/4 biochemistry=prepladder-only enhanced=142 rationales=426 phys_q2=clean phys_table=preserved anatomy_table=preserved fsrs_dock=fixed')
+    print('MARROW_BROWSER_OK registry=subject-indexed anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115 enhanced_subset=142 rationales=426 phys_q2=clean phys_table=preserved anatomy_table=preserved fsrs_dock=fixed')
 if __name__=='__main__':main()
