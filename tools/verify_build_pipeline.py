@@ -92,6 +92,7 @@ for marker in (
     "inputs.promote_production",
     "inputs.release_sha == github.sha",
     'test "$EXPECTED_RELEASE_SHA" = "$GITHUB_SHA"',
+    "github.ref_name != 'main' && (github.ref_name != 'feature/marrow-bank-pilot'",
 ):
     if marker not in text:
         raise SystemExit(f"Explicit production release guard missing: {marker}")
