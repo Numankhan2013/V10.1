@@ -98,13 +98,13 @@
 
 ## Status discipline
 
+- The expanded feature candidate remains **build-verified** by run 405.
 - The user has now physically spot-checked the expanded feature PWA and confirmed
   successful Marrow question integration plus the recovered Topics/FSRS surfaces.
-- This is **user/device verification of those tested feature-PWA surfaces**, not
-  blanket verification of every one of the 2,115 questions and not promotion of
-  the overall product baseline.
-- V11.6 `125d68b` remains the accepted rollback baseline until the user explicitly
-  promotes a later candidate.
+- Those tested surfaces are **device-verified**; this is not blanket verification
+  of every one of the 2,115 questions and not promotion of the overall product.
+- V11.6 `125d68b` remains the **accepted baseline** / rollback checkpoint until
+  the user explicitly promotes a later candidate.
 
 ## Known problems / cautions
 
