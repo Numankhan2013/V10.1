@@ -62,7 +62,8 @@ def main():
             page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
             page.locator('button.nk-topic-row').filter(has_text='Chemistry of Carbohydrates, Amino sugars and Mucopolysaccharides').click();page.wait_for_timeout(80)
             page.locator('button.nk-library-row').nth(22).click();page.wait_for_timeout(80)
-            if 'crumpled' not in page.locator('.question-text').inner_text().lower():
+            q23_text=page.locator('.question-text').inner_text().lower()
+            if '5-year-old boy' not in q23_text or 'bone marrow aspiration' not in q23_text:
                 raise SystemExit('Biochemistry gold-sample Q23 did not open')
             page.locator('.option-list button').nth(1).click();page.wait_for_timeout(120)
             bgold=page.locator('.nk-study-support').inner_text()
