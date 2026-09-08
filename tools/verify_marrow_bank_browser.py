@@ -40,18 +40,49 @@ def main():
             if page.locator('button.nk-topic-row').count()!=4: raise SystemExit('Marrow Physiology topic count is not 4')
             page.locator('button.nk-topic-row').filter(has_text='Homeostasis and cellular physiology').click();page.wait_for_timeout(80)
             if page.locator('button.nk-library-row').count()!=21: raise SystemExit('Marrow Physiology Chapter 1 count is not 21')
-            page.locator('button.nk-library-row').nth(0).click();page.wait_for_timeout(80)
-            if 'Homeostasis is called as dynamic equilibrium because' not in page.locator('.question-text').inner_text():
-                raise SystemExit('Marrow Physiology first question did not open')
+            # User-reported regression target: Q2 previously dumped raw OCR debris
+            # and used "All of the above" as the takeaway. It must now use the
+            # same approved explanation grammar as Anatomy.
+            page.locator('button.nk-library-row').nth(1).click();page.wait_for_timeout(80)
+            if 'Which is a component of homeostatic control system' not in page.locator('.question-text').inner_text():
+                raise SystemExit('Marrow Physiology Q2 did not open')
             page.locator('.option-list button').nth(3).click();page.wait_for_timeout(120)
-            psupport=page.locator('.nk-study-support').inner_text().lower()
-            for marker in ('key takeaway','detailed explanation','structured text'):
-                if marker not in psupport: raise SystemExit(f'Marrow Physiology explanation missing {marker}: {psupport!r}')
-            if 'original pdf' in psupport: raise SystemExit('Marrow Physiology incorrectly used Original PDF')
+            psupport=page.locator('.nk-study-support').inner_text()
+            psupport_lc=psupport.lower()
+            for marker in ('key takeaway','detailed explanation','structured text','why the other options are wrong'):
+                if marker not in psupport_lc: raise SystemExit(f'Marrow Physiology enhanced explanation missing {marker}: {psupport!r}')
+            if 'original pdf' in psupport_lc: raise SystemExit('Marrow Physiology incorrectly used Original PDF')
+            takeaway_segment=psupport_lc.split('key takeaway',1)[1].split('detailed explanation',1)[0]
+            if 'all of the above' in takeaway_segment:
+                raise SystemExit('Physiology Q2 takeaway regressed to the correct-option label')
+            if 'homeostatic control system' not in takeaway_segment:
+                raise SystemExit('Physiology Q2 meaningful takeaway missing')
+            detail_text=page.locator('.nk-gold-explanation').inner_text()
+            detail_lc=detail_text.lower()
+            for garbage in ('wok no','internalef','components of homeostasis include: + a','marrow\n'):
+                if garbage in detail_lc: raise SystemExit('Physiology OCR debris leaked into learner explanation: '+garbage)
+            if page.locator('.nk-gold-explanation li').count()<4:
+                raise SystemExit('Physiology Q2 structured component bullets did not render')
+            if page.locator('.nk-gold-wrong-row').count()!=3:
+                raise SystemExit('Physiology Q2 must render exactly three distractor rationales')
             if not page.locator('.nk-fsrs-rating').is_visible(): raise SystemExit('FSRS recall dock missing in Marrow Physiology')
             pdock=page.locator('.nk-fsrs-rating').locator('xpath=ancestor::*[contains(@class,"nk-session-footer")]')
             if pdock.count()!=1: raise SystemExit('Marrow Physiology FSRS dock left the fixed footer')
-            page.screenshot(path=str(OUT/'00b-physiology-structured-explanation.png'),full_page=True)
+            if page.evaluate("getComputedStyle(document.querySelector('.nk-session-footer')).position")!='fixed':
+                raise SystemExit('Marrow Physiology session footer is no longer fixed')
+            page.screenshot(path=str(OUT/'00b-physiology-enhanced-explanation-q2.png'),full_page=True)
+
+            # Real structured-table regression: Physiology Q8 retains its source table.
+            page.evaluate("window.QB.nav('banks','Physiology')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Homeostasis and cellular physiology').click();page.wait_for_timeout(80)
+            page.locator('button.nk-library-row').nth(7).click();page.wait_for_timeout(80)
+            page.locator('.option-list button').nth(3).click();page.wait_for_timeout(120)
+            if page.locator('.nk-gold-explanation .nk-marrow-table').count()<1:
+                raise SystemExit('Physiology Q8 structured source table did not survive enhanced renderer')
+            if page.locator('.nk-gold-wrong-row').count()!=3:
+                raise SystemExit('Physiology Q8 distractor grammar missing')
+            page.screenshot(path=str(OUT/'00c-physiology-enhanced-table-q8.png'),full_page=True)
             page.evaluate("window.QB.nav('banks','Physiology')");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click();page.wait_for_timeout(100)
             if page.locator('button.nk-topic-row').count()!=38: raise SystemExit('PrepLadder Physiology topics regressed')
@@ -134,5 +165,5 @@ def main():
             if errors: raise SystemExit('Browser errors: '+repr(errors))
             browser.close()
         server.shutdown()
-    print('MARROW_BROWSER_OK registry=subject-indexed anatomy=62/4 physiology=80/4 biochemistry=prepladder-only anatomy_gold=62 rationales=186 micro_concision=verified table=preserved fsrs_dock=fixed')
+    print('MARROW_BROWSER_OK registry=subject-indexed anatomy=62/4 physiology=80/4 biochemistry=prepladder-only enhanced=142 rationales=426 phys_q2=clean phys_table=preserved anatomy_table=preserved fsrs_dock=fixed')
 if __name__=='__main__':main()

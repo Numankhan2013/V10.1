@@ -149,6 +149,9 @@ if helper_marker not in source:
     if source.count(anchor)!=1:
         raise SystemExit(f"Marrow study-support anchor count: {source.count(anchor)}")
     helper=r'''  function nkMarrowTakeaway(q) {
+    const augmented=(typeof NK_MARROW_EXPLANATION_GOLD_V1!=='undefined')?NK_MARROW_EXPLANATION_GOLD_V1[String(q?.id)]:null;
+    const augmentedTakeaway=String(augmented?.takeaway||'').trim();
+    if(augmentedTakeaway) return augmentedTakeaway;
     const reviewed=nkSourceTakeaway(q);
     if(reviewed) return reviewed;
     const structured=q?.structuredExplanation||{};
@@ -185,9 +188,56 @@ import json, re
 GOLD_PATH=HERE.parent/"data/marrow/explanation_gold_pilot.json"
 gold=json.loads(GOLD_PATH.read_text(encoding="utf-8"))
 if len(gold.get("questions",{}))!=62:
-    raise SystemExit(f"Marrow explanation rollout question count mismatch: {len(gold.get('questions',{}))}")
+    raise SystemExit(f"Marrow Anatomy explanation rollout question count mismatch: {len(gold.get('questions',{}))}")
 if any(len(v.get("rationales",{}))!=3 for v in gold["questions"].values()):
-    raise SystemExit("Every Marrow gold pilot question must have exactly three distractor rationales")
+    raise SystemExit("Every Marrow Anatomy explanation question must have exactly three distractor rationales")
+
+# Physiology uses the same approved learner-facing grammar as Anatomy, but its
+# OCR-assisted source transcription needs a separate, auditable display layer.
+# The raw Marrow record above remains unchanged; this augmentation supplies only
+# source-faithful cleanup, a meaningful takeaway, selective emphasis, and
+# separately-authored distractor rationales.
+PHYS_GOLD_MANIFEST_PATH=DATA/"explanation_physio_pilot_manifest.json"
+if not PHYS_GOLD_MANIFEST_PATH.exists():
+    raise SystemExit("Marrow Physiology explanation manifest missing")
+phys_gold_manifest=json.loads(PHYS_GOLD_MANIFEST_PATH.read_text(encoding="utf-8"))
+phys_gold_parts=sorted(DATA.glob("explanation_physio_pilot.zlib.b64.part*"))
+if len(phys_gold_parts)!=int(phys_gold_manifest.get("parts",0)):
+    raise SystemExit(f"Marrow Physiology explanation shard count mismatch: {len(phys_gold_parts)}")
+phys_gold_b64="".join(p.read_text(encoding="utf-8").strip() for p in phys_gold_parts)
+if len(phys_gold_b64)!=int(phys_gold_manifest.get("base64_chars",0)):
+    raise SystemExit("Marrow Physiology explanation base64 length mismatch")
+try:
+    phys_gold_compressed=base64.b64decode(phys_gold_b64,validate=True)
+except Exception as exc:
+    raise SystemExit(f"Marrow Physiology explanation base64 invalid: {exc}") from exc
+if len(phys_gold_compressed)!=int(phys_gold_manifest.get("compressed_bytes",0)):
+    raise SystemExit("Marrow Physiology explanation compressed length mismatch")
+if hashlib.sha256(phys_gold_compressed).hexdigest()!=phys_gold_manifest.get("compressed_sha256"):
+    raise SystemExit("Marrow Physiology explanation compressed SHA-256 mismatch")
+try:
+    phys_gold_raw=zlib.decompress(phys_gold_compressed)
+except Exception as exc:
+    raise SystemExit(f"Marrow Physiology explanation zlib invalid: {exc}") from exc
+if len(phys_gold_raw)!=int(phys_gold_manifest.get("raw_bytes",0)):
+    raise SystemExit("Marrow Physiology explanation raw length mismatch")
+if hashlib.sha256(phys_gold_raw).hexdigest()!=phys_gold_manifest.get("raw_sha256"):
+    raise SystemExit("Marrow Physiology explanation raw SHA-256 mismatch")
+phys_gold=json.loads(phys_gold_raw.decode("utf-8"))
+phys_gold_q=phys_gold.get("questions",{})
+if phys_gold.get("scope",{}).get("subject")!="Physiology" or len(phys_gold_q)!=80:
+    raise SystemExit("Marrow Physiology explanation identity/count mismatch")
+if set(phys_gold_q)!=set(q.get("id") for q in phys_record.get("questions",[])):
+    raise SystemExit("Marrow Physiology explanation IDs do not match the pilot bank")
+if any(not str(v.get("takeaway","")).strip() or not str(v.get("displayText","")).strip() for v in phys_gold_q.values()):
+    raise SystemExit("Every Marrow Physiology explanation needs takeaway and clean display text")
+if any(len(v.get("rationales",{}))!=3 for v in phys_gold_q.values()):
+    raise SystemExit("Every Marrow Physiology explanation needs exactly three distractor rationales")
+if set(gold["questions"]) & set(phys_gold_q):
+    raise SystemExit("Marrow explanation augmentation IDs collide")
+all_gold={**gold["questions"],**phys_gold_q}
+if len(all_gold)!=142:
+    raise SystemExit(f"Combined Marrow explanation count mismatch: {len(all_gold)}")
 
 source=HTML.read_text(encoding="utf-8")
 if "NK_MARROW_EXPLANATION_GOLD_V1" not in source:
@@ -201,7 +251,7 @@ if "NK_MARROW_EXPLANATION_GOLD_V1" not in source:
         raise SystemExit(f"Marrow renderer rename count: {n}")
     source=renamed
 
-    cfg=json.dumps(gold["questions"],ensure_ascii=False,separators=(",",":")).replace("</","<\\/")
+    cfg=json.dumps(all_gold,ensure_ascii=False,separators=(",",":")).replace("</","<\\/")
     wrapper=r'''
   const NK_MARROW_EXPLANATION_GOLD_V1=__GOLD_CONFIG__;
 
@@ -276,7 +326,8 @@ if "NK_MARROW_EXPLANATION_GOLD_V1" not in source:
     const cfg=NK_MARROW_EXPLANATION_GOLD_V1[String(q.id)];
     if(!cfg)return nkRenderMarrowExplanationBase(q);
     const data=q.structuredExplanation||{},text=data.text||q.explanation||'',tables=Array.isArray(data.tables)?data.tables:[];
-    const conciseText=nkGoldConciseText(text,q);
+    const displayText=String(cfg?.displayText||'').trim();
+    const conciseText=displayText||nkGoldConciseText(text,q);
     const trace=q.provenance||{},pages=Array.isArray(trace.explanationPages)?trace.explanationPages:[];
     return '<div class="nk-marrow-native nk-gold-explanation">'+
       nkRenderMarrowGoldText(conciseText,cfg)+
@@ -327,4 +378,4 @@ if "NK_MARROW_EXPLANATION_GOLD_V1" not in source:
         raise SystemExit(f"Marrow gold CSS head anchor count: {source.count('</head>')}")
     source=source.replace("</head>",css+"</head>",1)
     HTML.write_text(source,encoding="utf-8")
-    print("MARROW_EXPLANATION_GOLD_OK questions=62 rationales=186 source_text=preserved display_trim=micro")
+    print("MARROW_EXPLANATION_GOLD_OK anatomy=62 physiology=80 enhanced=142 rationales=426 raw_source=preserved phys_display=clean fsrs=untouched")
