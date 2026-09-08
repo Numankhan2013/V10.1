@@ -172,3 +172,31 @@ hash manifests, and every new bank expansion stays preview-only until browser
 gates and user physical verification pass.
 
 Rationale and executable procedure: `docs/MARROW_BANK_INTEGRATION.md`.
+
+
+## 16. Topics use journey-state UI plus explicit major-section taxonomy (2026-09-08)
+
+The accepted Topics-page direction is a mobile syllabus journey: numbered
+left-side milestones connected by a soft path, with aligned topic cards. State is
+communicated deliberately and minimally. Completed topics use a green-tinted
+milestone plus right-side green check; paused/in-progress topics use a blue-tinted
+milestone plus right-side blue pause; unattempted topics use a subtle
+purple/lavender milestone treatment **and no right-side hollow-circle/placeholder
+icon**.
+
+The useful controls are All / In Progress / Completed / Not Started, search,
+index/list access, and a bottom Continue Learning resume tray. Free/locked/star
+commerce metadata is excluded from this professional QBank surface.
+
+Topics are not a permanently flat list. The UI/data presentation must support a
+major-section parent above child topics (Anatomy examples: General Embryology,
+Histology). Because the present dataset does not expose a complete authoritative
+parent mapping, classification may be derived from existing topic labels and
+inspection of representative question/source content. The result must live in
+one centralized, reviewable mapping; it must not rewrite source question content
+or create duplicate question engines. Ambiguous assignments should remain
+explicitly reviewable rather than being silently guessed.
+
+Rationale: the user wants the topic list to communicate syllabus structure and
+study progression at a glance while preserving the current QBank architecture
+and avoiding decorative or paywall noise.
