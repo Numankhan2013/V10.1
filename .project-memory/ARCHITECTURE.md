@@ -124,50 +124,50 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
 - The combined queue asserts globally unique IDs, prioritizes due learning/relearning,
   then low-retrievability overdue reviews, then capped new cards.
 
-## Marrow multi-bank extension — pilot architecture
+## Marrow multi-bank extension — expanded Phase A architecture
 
-- `feature/marrow-bank-pilot` adds a **bank/source dimension** inside an
-  existing subject rather than a second study engine. Anatomy currently exposes
-  `PrepLadder | Marrow`; selecting a bank swaps the active question/topic
-  record while preserving Practice, CBT, Review, modules, FSRS, sync, analytics,
-  bookmarks, wrong/due queues, and navigation.
-- Pilot runtime globals add `activeBank`, `qbank_active_bank_v1`,
-  `nkBankRecords(name)`, `nkBankRecord(name,bank)`, `openBank(name,bank)`,
-  a `banks` route, and globally namespaced Marrow IDs. `BY_ID` spans all
-  bank questions so FSRS/review replay can resolve Marrow IDs safely.
-- Multi-bank runtime is now subject-indexed: `MARROW_RECORDS` normalizes the
-  Marrow payload, `MARROW_BY_SUBJECT` indexes Marrow records, and
-  `BANKS_BY_SUBJECT` owns the available bank records for each subject.
-  `nkBankRecords(name)`, `nkBankRecord(name,bank)`, and
-  `nkAllBankQuestions()` consume this registry; no per-subject question engine
-  or bank selector is duplicated.
-- Current feature candidate bank matrix:
-  Anatomy → PrepLadder + Marrow (62/4);
-  Physiology → PrepLadder + Marrow pilot (80/4, Chapters 1–4);
-  Biochemistry → PrepLadder only.
-- `MARROW_DATA.records` is backward-compatible with the original single Anatomy
-  payload and currently receives Anatomy plus the bounded Physiology record.
-  All Marrow questions remain globally bank-namespaced, so shared FSRS, review,
-  modules, sync, bookmarks, wrong/due queues, and analytics can resolve them
-  through the existing engines.
-- Physiology pilot transport uses
-  `data/marrow/physiology_pilot.zlib.b64.part00..10` plus
-  `physiology_pilot_manifest.json`; the launcher fails closed on shard count,
-  base64/compressed/raw lengths, SHA-256, identity, topic count, or question
-  count mismatch. The older Anatomy manifest remains backward compatible while
-  its cryptographic hashes stay mandatory.
-- Marrow explanations bypass the PDF-source renderer and use structured native
-  text/tables; PrepLadder keeps its existing source-PDF renderer unchanged.
-  Marrow study support must always preserve Key takeaway + Detailed explanation
-  + Structured text. Typography/semantic markup may improve; source wording must
-  not be rewritten.
-- Data is committed as deterministic compressed/base64 shards with a manifest
-  and SHA-256 checks. Large monolithic connector writes are forbidden after an
-  early pilot payload was truncated.
-- The Marrow transform is late in the deterministic pipeline, after protected
-  sync/FSRS/UI transforms and before final JS/product/CBT/PWA/browser/APK gates.
-  Playwright verifies the real subject → bank → topic → question → explanation
-  flow.
+- `feature/marrow-bank-pilot` implements question-bank source as a data
+  dimension inside the existing subject model. It does **not** create a second
+  study engine. `activeBank` / `qbank_active_bank_v1`, the `banks` route,
+  and the shared registry select data; Practice, CBT, Review, FSRS, sync,
+  modules, analytics, bookmarks, persistence and revision queues remain shared.
+- Runtime registry is subject-indexed:
+  `MARROW_RECORDS` → `MARROW_BY_SUBJECT` → `BANKS_BY_SUBJECT`.
+  `nkBankRecords`, `nkBankRecord`, `nkAllBankQuestions` and global
+  namespaced IDs let the existing engines resolve all bank questions safely.
+- Current Marrow records:
+  - Anatomy: 819 questions / 48 topics.
+  - Biochemistry: 543 / 26.
+  - Physiology: 753 / 33.
+  - Combined: 2,115 unique questions / 107 topics.
+- Expanded transport is manifest-verified compressed/base64 data:
+  `data/marrow/anatomy_phase_a.zlib.b64.part*` +
+  `anatomy_phase_a_manifest.json`;
+  `biochemistry_phase_a.zlib.b64.part*` +
+  `biochemistry_phase_a_manifest.json`;
+  `physiology_ch001_033.zlib.b64.part*` +
+  `physiology_ch001_033_manifest.json`.
+  The launcher validates shard count, base64/compressed/raw lengths, SHA-256,
+  subject/bank identity, topic/question counts, unique namespaced IDs, four-option
+  shape, correctOption bounds and question→topic linkage before use.
+- The earlier Anatomy 62-question and Physiology 80-question pilot bundles remain
+  compatibility/regression subsets. Expanded records replace the learner-facing
+  Marrow envelope; approved augmentation IDs remain subsets of the expanded banks.
+- Explanation architecture is layered and non-destructive: all Marrow uses native
+  structured source text/tables; the approved enhanced layer remains only on the
+  142-question subset until a later explanation phase.
+- Three resolved Anatomy reconstructions remain deterministic and provenance-marked:
+  `ANAT_CH02_Q010`, `ANAT_CH03_Q004`, `ANAT_CH04_Q013`.
+- Marrow topics use subject-aware major-section taxonomy. The previous pilot
+  shortcut that grouped every non-Physiology Marrow topic as General Embryology
+  is retired.
+- Data commits use small shards / Git blobs rather than monolithic connector writes;
+  an earlier pilot proved oversized writes can truncate. Temporary staging bridges
+  are transport-only and are never runtime dependencies or sources of truth.
+- The Marrow transform stays late in the deterministic pipeline, after protected
+  UI/sync/FSRS transforms and before final JavaScript/product/CBT/PWA/browser/APK
+  gates. Playwright covers all three subjects and returns to PrepLadder to detect
+  registry leakage.
 - Full runbook: `docs/MARROW_BANK_INTEGRATION.md`.
 
 ## Integration points to preserve

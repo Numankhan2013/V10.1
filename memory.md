@@ -1,8 +1,27 @@
-# Latest recovery and Marrow integration handoff — 2026-09-08
+# Latest Marrow Phase A handoff — 2026-09-08
 
-The rejected 6ba7ebe Topics/FSRS/PDF candidate has been superseded by the recovery line. The CI-only Anatomy PDF 404 was fixed without changing production routing: the local browser test server now maps the PWA's same-origin `/anatomy-source.pdf` route to the exact committed source PDF. Substantive fix `1c9826ae` passed Engineering Gate `34241919403` and full Android+PWA run `34241919548`, including the previously failing Marrow browser verification and packaged APK checks. Production promotion remains deliberate.
+**Accepted baseline remains V11.6 `125d68b`; the expanded Marrow candidate is not yet accepted.**
+Active branch: `feature/marrow-bank-pilot`.
 
-Next Marrow content phase: the user will provide chunked JSON/JSONL for additional Marrow content. Integrate those records into the existing shared bank registry and existing Practice/CBT/Review/FSRS/sync engines **as source-faithful content first**. Do not redesign or polish explanations during initial ingestion; explanation quality is a later phase. Preserve the accepted Anatomy Marrow behavior and use bounded manifest/hash-verified batches.
+The candidate now contains **2,115 Marrow questions** through the existing
+shared bank registry: Anatomy 819/48, Biochemistry 543/26, Physiology 753/33.
+Initial ingestion is deliberately source-faithful first; explanation redesign
+for newly added questions is deferred. The prior approved 62 Anatomy + 80
+Physiology enhanced subset remains intact.
+
+Integration checkpoint `bc500234` passed Engineering Gate `34245190588`
+and full Android+PWA run `34245190771`. The immediately prior full run
+`34244982211` failed only because its browser test still expected
+Biochemistry to be PrepLadder-only; the intended new Marrow Biochemistry bank
+made that assertion obsolete. The updated browser test passed all three banks.
+Automatic feature push deployment was intentionally skipped, so republish the
+exact expanded candidate to the feature preview before physical review.
+
+Permanent lessons: keep Marrow as a data/source dimension, never a second study
+engine; use manifest/hash-verified shards rather than oversized writes; keep
+stored source text separate from explanation augmentation; and update tests when
+the deliberate bank matrix changes instead of treating the intended change as
+a regression.
 
 # NK QBank — Project Memory / Continuity
 

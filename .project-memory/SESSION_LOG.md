@@ -411,3 +411,60 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Substantive fix commit: `1c9826ae`.
 - Verification: Engineering Gate `34241919403` success; full Android+PWA run `34241919548` success. The previously failing Marrow browser/PDF step passed, followed by side-by-side APK build, packaged APK verification, packaged product contract, reproducibility manifest, and artifact upload. Push deployment remained intentionally skipped.
 - User's next integration instruction: when chunked Marrow JSON/JSONL is supplied, integrate the content into the existing shared bank registry and existing study engines first, source-faithfully and without explanation redesign. Explanation polish will be a later phase.
+
+
+## 2026-09-08 — Expand Marrow to 2,115 questions across all three subjects
+
+- User supplied three archives for immediate source-faithful ingestion and
+  explicitly deferred explanation redesign:
+  Anatomy Phase A Ch1–48, Biochemistry Phase A Ch1–26, Physiology Ch1–33.
+- Validated the archive contents as JSONL and inventoried:
+  Anatomy 819 questions / 48 chapters; Biochemistry 543 / 26;
+  Physiology 753 / 33; total 2,115 questions.
+- Reused the existing subject-indexed Marrow registry and every existing study
+  engine. No new Practice, CBT, Review, FSRS, sync, module, persistence,
+  analytics or navigation engine was created.
+- Normalized the supplied records into deterministic Marrow bank envelopes and
+  built manifest-verified compressed/base64 transport bundles:
+  `anatomy_phase_a`, `biochemistry_phase_a`,
+  `physiology_ch001_033`. Validation covers shard count, encoded/compressed/raw
+  lengths, SHA-256, identity, topic/question counts, globally unique namespaced
+  IDs, option/correct-answer shape and question→topic linkage.
+- Kept the original 62 Anatomy and 80 Physiology pilot records as accepted
+  regression/augmentation subsets rather than overwriting their behavior.
+  The existing 142-question enhanced explanation map remains a subset; newly
+  added questions intentionally use the source-faithful structured renderer.
+- Preserved all three resolved Anatomy reconstructions:
+  `ANAT_CH02_Q010` (4-2-1-3 sequence),
+  `ANAT_CH03_Q004` (3-2-4-1 notochord sequence),
+  `ANAT_CH04_Q013` (DCDA/MCDA/MCMA categories).
+- Used small Git blob/tree writes for the generated bundles instead of a
+  monolithic connector write. A transient connector staging bridge was used
+  only to move generated text safely; committed shards/manifests are the sole
+  repository/runtime truth.
+- Updated `tools/apply_marrow_bank_pilot.py` so the expanded records replace
+  the learner-facing Marrow envelope after the shared registry exists.
+- Expanded `tools/test_marrow_bank_pilot.py` to assert 819/48 + 543/26 +
+  753/33, 2,115 globally unique IDs, pilot-subset compatibility and resolved
+  reconstructions.
+- Updated Playwright browser coverage for all three subjects. The first full
+  run after wiring failed at browser verification (run 402,
+  `34244982211`) because the old test still asserted Biochemistry had only
+  PrepLadder. That assertion was stale: two banks were now the intended
+  product. The test was rewritten to enter Marrow Biochemistry, verify Chapter 1
+  and its structured explanation, then return to PrepLadder.
+- Found and fixed a second pilot-era assumption before final verification:
+  Marrow topic grouping hard-coded every non-Physiology subject as
+  `General Embryology`. Replaced it with subject-aware grouping for expanded
+  Anatomy, Physiology and Biochemistry. This is navigation taxonomy only.
+- Final integration checkpoint `bc500234` passed:
+  Engineering Gate `34245190588` / run 193; full Android+PWA
+  `34245190771` / run 403. Browser emitted
+  `MARROW_BROWSER_OK registry=subject-indexed anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115`.
+  Side-by-side APK and packaged product contract passed.
+- Final build artifact: `V11.7-android-pwa`, artifact ID `10063767953`.
+- The push-run feature deployment step was intentionally skipped by branch
+  policy, so this green build was not yet the live preview. Next action is a
+  feature-preview-only publish for the user's physical visual review.
+- Status: expanded candidate is build/browser verified, not device-verified and
+  not accepted. V11.6 `125d68b` remains the accepted rollback checkpoint.

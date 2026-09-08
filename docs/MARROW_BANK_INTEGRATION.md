@@ -26,47 +26,52 @@ Final verification at the current pilot milestone:
 
 ## Current build-verified expansion candidate — 2026-09-08
 
-The Anatomy preview acceptance above remains the user/device-verified reference.
-A later candidate on the same feature branch has now generalized the bank
-architecture and added a bounded Marrow Physiology pilot.
+The original Anatomy preview remains the user/device-verified reference behavior.
+The current feature candidate has now ingested all JSONL supplied for this phase:
 
-- Shared runtime registry: `MARROW_RECORDS` → `MARROW_BY_SUBJECT` →
-  `BANKS_BY_SUBJECT`.
-- Anatomy remains PrepLadder 1,068/50 + Marrow 62/4 with the accepted behavior unchanged.
-- Physiology now exposes PrepLadder 899/38 + Marrow Chapters 1–4, 80 questions/4 topics.
-- Biochemistry remains PrepLadder-only and is the one-source regression control.
-- Physiology transport: 11 hash-verified compressed/base64 shards plus
-  `physiology_pilot_manifest.json`; all 80 IDs are `marrow__PHYS_...` and
-  combined Anatomy+Physiology Marrow IDs are unique.
-- Registry refactor verification: Engineering Gate `34190814897`; full
-  Android/PWA/browser run `34190814843`.
-- Physiology candidate verification: Engineering Gate `34191865093`; full
-  Android/PWA/browser run `34191865094`.
-- Real browser coverage proves Physiology → PrepLadder | Marrow, Marrow topic
-  count/question count, native Structured text explanation, fixed FSRS dock,
-  return to all 38 PrepLadder Physiology topics, and no Biochemistry Marrow leak.
-- Side-by-side APK packaging and feature-preview deployment passed; production
-  promotion was intentionally skipped.
-- **This Physiology candidate is build/browser verified, not yet user/device
-  verified or accepted.**
+- Anatomy Marrow: **819 questions / 48 topics**.
+- Biochemistry Marrow: **543 / 26**.
+- Physiology Marrow: **753 / 33**.
+- Combined Marrow: **2,115 questions / 107 topics**.
+- Shared runtime registry remains
+  `MARROW_RECORDS` → `MARROW_BY_SUBJECT` → `BANKS_BY_SUBJECT`.
+- No new question/study engine exists; all banks reuse the existing Practice,
+  CBT, Review, FSRS, sync, modules, analytics, bookmarks and persistence paths.
+- The previous 62-question Anatomy and 80-question Physiology pilots remain
+  accepted regression/augmentation subsets inside the expanded banks.
+- Newly ingested explanations are deliberately source-faithful first. The
+  approved enhanced explanation layer remains only on the existing 142-question
+  subset until the later polish phase.
+- Final verification checkpoint `bc500234`:
+  Engineering Gate `34245190588` success; full Android+PWA
+  `34245190771` success.
+- Browser verification reports
+  `anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115`,
+  exercises all three Marrow bank selectors and returns to PrepLadder.
+- Side-by-side APK, packaged APK verification and packaged product contract pass.
+- This expanded candidate is **build/browser verified, not yet user/device
+  verified and not accepted**.
+
+The immediately earlier full run `34244982211` failed because its browser test
+still asserted Biochemistry was PrepLadder-only. That requirement had changed;
+the product was correct to expose Marrow. The stale assertion was updated to
+test the new two-bank Biochemistry public contract.
 
 ## Product behavior that must be preserved
 
 The subject remains the top-level study domain. When a subject has more than one
 question-bank source, clicking the subject opens a source selector.
 
-Current accepted Anatomy flow:
+Current feature behavior:
 
 `Anatomy → PrepLadder | Marrow`
+`Biochemistry → PrepLadder | Marrow`
+`Physiology → PrepLadder | Marrow`
 
-- PrepLadder enters the existing bank unchanged: 1,068 questions / 50 topics.
-- Marrow enters the same Topics → Chapter → Practice/Test/Review architecture:
-  62 questions / 4 topics.
-- The source/bank context is visible in Topics and question context.
-- Question IDs are namespaced (for example `marrow__ANAT_CH01_Q001`) so
-  attempts, bookmarks, FSRS records, modules, sync, and review history do not
-  collide with PrepLadder IDs.
-- Existing PrepLadder PDF-source rendering must remain untouched.
+Bank selection only swaps data/provenance. Existing PrepLadder PDF-source
+rendering must remain untouched. Marrow uses the same Topics → Chapter →
+Practice/Test/Review architecture and globally namespaced IDs so attempts,
+bookmarks, FSRS, modules, sync and review history never collide.
 
 Do **not** build a second question engine for Marrow. Bank selection chooses the
 data/source; Practice, CBT, Review, FSRS, persistence, modules, sync, analytics,
@@ -101,26 +106,24 @@ The pilot therefore adds a Marrow-only, source-derived fallback:
 3. only then fall back to the correct option text.
 No new medical claim is invented.
 
-## Pilot data
+## Current expanded data
 
-Anatomy Marrow pilot:
-- Gametogenesis — 19 questions.
-- Pre-Embryonic Phase of Development — 13.
-- Embryonic Phase of Development — 16.
-- Placenta, Fetal Membranes and Twinning — 14.
-- Total — 62.
+Supplied/verified scope currently integrated:
+- Anatomy Chapters 1–48 — 819 questions.
+- Biochemistry Chapters 1–26 — 543 questions.
+- Physiology Chapters 1–33 — 753 questions.
 
-Three incomplete-list source defects were reconstructed and are normal learner
-questions, not learner-facing manual-review warnings:
-- `ANAT_CH02_Q010`: list reconstructed as Cavitation / Compaction /
-  Implantation / Cleavage so source answer `4-2-1-3` is internally coherent.
-- `ANAT_CH03_Q004`: notochord sequence list reconstructed with Primitive
-  pit/blastopore, Notochordal process, Notochordal canal, Notochordal plate.
-- `ANAT_CH04_Q013`: missing monozygotic-twin categories reconstructed as
-  DCDA / MCDA / MCMA.
+Historic accepted pilot subsets remain useful regression fixtures:
+- Anatomy Ch1–4 — 62 questions.
+- Physiology Ch1–4 — 80 questions.
 
-Keep reconstruction provenance internally. Do not expose a manual-review badge
-when the reconstruction is resolved with high confidence.
+Three Anatomy source defects remain deterministically reconstructed and carry
+internal provenance:
+- `ANAT_CH02_Q010`: Cavitation / Compaction / Implantation / Cleavage,
+  coherent with source answer `4-2-1-3`.
+- `ANAT_CH03_Q004`: Primitive pit / Notochordal process / Notochordal canal /
+  Notochordal plate, coherent with `3-2-4-1`.
+- `ANAT_CH04_Q013`: DCDA / MCDA / MCMA monozygotic categories.
 
 ## Data transport / integrity
 
@@ -144,9 +147,17 @@ the pilot, simultaneous independent writes could compete for the branch head.
 
 ## Current implementation files
 
-Key pilot files:
-- `data/marrow/anatomy_pilot.zlib.b64.part*`
-- `data/marrow/anatomy_pilot_manifest.json`
+Expanded bank transport:
+- `data/marrow/anatomy_phase_a.zlib.b64.part*`
+- `data/marrow/anatomy_phase_a_manifest.json`
+- `data/marrow/biochemistry_phase_a.zlib.b64.part*`
+- `data/marrow/biochemistry_phase_a_manifest.json`
+- `data/marrow/physiology_ch001_033.zlib.b64.part*`
+- `data/marrow/physiology_ch001_033_manifest.json`
+
+Compatibility/regression pilot data remains under `data/marrow/*pilot*`.
+
+Core implementation/tests:
 - `tools/apply_marrow_bank_pilot.py`
 - `tools/marrow_pilot_apply.b64.part*`
 - `tools/test_marrow_bank_pilot.py`
@@ -156,40 +167,30 @@ Key pilot files:
 - `.github/workflows/engineering-gate.yml`
 - `tools/verify_build_pipeline.py`
 
-The Marrow transform is deliberately late in the deterministic build chain,
-after the protected UI/sync/FSRS transforms and before final JavaScript,
-generated-product, CBT, PWA, browser, APK, and package verification.
+The Marrow transform remains deliberately late in the deterministic build chain,
+after protected UI/sync/FSRS transforms and before final JS, product, CBT, PWA,
+browser, APK and package verification.
 
-## Scaling beyond the current pilot
+## Scaling beyond the current supplied phase
 
-The Anatomy-specific registry special case is now retired. Do **not** reintroduce
-one-off bank records for Physiology, Biochemistry, or later subjects.
+The Anatomy-specific registry special case is retired. Do not reintroduce
+one-off subject implementations.
 
 Current safe sequence:
-1. user spot-checks the build-verified 80-question Physiology preview;
-2. add a bounded Marrow Biochemistry pilot through the same registry and extend
-   the real-browser bank/source smoke test;
-3. expand remaining verified Anatomy/Physiology/Biochemistry Marrow chapters in
-   bounded manifest-verified batches;
-4. keep learner-visible behavior and the shared Practice/CBT/Review/FSRS/sync/
-   modules/analytics engines unchanged;
-5. keep feature previews isolated until the user physically verifies each major
-   cross-subject milestone; production promotion remains deliberate.
+1. physically inspect this 2,115-question expanded feature preview across all
+   three subjects;
+2. record source/content/navigation defects separately from explanation polish;
+3. improve explanations only after the user chooses that phase, keeping stored
+   source text immutable and generated augmentation separate;
+4. integrate later verified chapters through the same normalized schema and
+   manifest/hash gates;
+5. preserve learner-visible behavior and all shared study engines;
+6. keep production promotion deliberate until the user explicitly accepts it.
 
 Prefer one normalized Marrow schema across subjects:
-- stable namespaced question ID;
-- subject;
-- bank/source;
-- topic/chapter ID + title;
-- question/stem;
-- four options;
-- correct option;
-- explanation text;
-- structured tables when present;
-- key-takeaway/source-fallback fields;
-- image/figure metadata;
-- provenance/source pages;
-- review/reconstruction provenance.
+stable namespaced ID, subject, bank, topic/chapter ID/title, stem, four options,
+correct option, explanation, structured tables, figure metadata, provenance and
+review/reconstruction metadata.
 
 ## Regression gates required for every expansion
 
@@ -212,7 +213,15 @@ Before calling a new subject/chunk integrated:
 Do not promote a feature branch to `nk-qbank.pages.dev` production
 automatically. Production promotion remains deliberate.
 
-## Lessons from the pilot
+## Lessons from the pilot and full Phase A ingestion
+
+- Full cross-subject data invalidated an old browser assumption that
+  Biochemistry was the one-source control. Run 402 failed on that stale test,
+  not on the product. Regression tests must follow deliberate public-contract
+  changes.
+- The pilot-era topic grouping shortcut treated every non-Physiology Marrow
+  topic as General Embryology. Expanded Anatomy/Biochemistry/Physiology require
+  subject-aware major-section taxonomy; this remains presentation only.
 
 - The first side-by-side Android identity script failed because Gradle uses
   single quotes around `applicationId`; the script now matches the actual

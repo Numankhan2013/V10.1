@@ -1,150 +1,105 @@
 # STATE.md — Current Project State and Handoff
 
-## Recovery implementation — 2026-09-08
-
-- User rejects deployed 6ba7ebe: reference fidelity/glow absent, Continue Learning not floating, FSRS section inadequate; explanation PDFs now unreadable. Build success does not establish acceptance.
-- Recovery implemented: lossless high-density browser PDF crops/zoom, separate Topics milestone lane + fixed tray, dedicated FSRS settings route/drafts, origin-aware completion. The local CI browser server now maps `/anatomy-source.pdf` to the exact committed Anatomy PDF so it faithfully exercises the same-origin PWA route without requiring the Cloudflare worker.
-- Recovery checkpoint `1c9826ae` is fully build/browser verified: Engineering Gate `34241919403` success; full Android+PWA run `34241919548` success, including Marrow browser verification, side-by-side pilot APK build, packaged APK verification, packaged product contract, and artifact upload. Feature preview/production deployment remained intentionally skipped on the push.
-- Feature push builds now hold deployment; manually dispatch after visual artifact review. Rejection evidence: docs/REJECTED_TOPICS_FSRS_HANDOFF.md.
-
 > Keep concise and current. History goes in `SESSION_LOG.md`, durable reasoning
 > in `DECISIONS.md`, and future work in `ROADMAP.md`.
 
 ## Repo / branch
 
-- Repo: `Numankhan2013/V10.1` (private)
-- Active branch: `feature/marrow-bank-pilot` (isolated Marrow integration candidate; production PWA remains deliberately separate)
-- Resolve live branch/HEAD with `git branch --show-current` and
-  `git rev-parse HEAD`; never hardcode a self-staling current-HEAD value here.
-- Accepted product parent: V11.6 `125d68b`; the V11.7 branch merged the
-  harness-neutral memory lineage at `309aabb`. Resolve live HEAD with Git.
-- Earlier product lineage: V11.5 `f13d12f` → V11.6 `125d68b`.
-- `main` (`8bc0be4`) is stale and must not be used as the V11 baseline.
+- Repo: `Numankhan2013/V10.1` (private).
+- Active candidate branch: `feature/marrow-bank-pilot`.
+- Resolve live branch/HEAD with Git; never hardcode a self-staling current-HEAD field here.
+- Accepted product baseline remains **V11.6 Content Quality** at `125d68b`,
+  canonical APK run `34050921180`. Do not promote the Marrow candidate without
+  explicit physical user acceptance.
+- `main` is stale relative to the V11 line and must not be used as the product baseline.
 
-## Marrow multi-bank handoff — 2026-09-08
+## Marrow Phase A expansion — 2026-09-08
 
-- Active candidate remains `feature/marrow-bank-pilot`; production PWA remains deliberately separate.
-- The user previously opened the Anatomy feature preview and confirmed that accepted Anatomy Marrow flow works beautifully.
-- The temporary Anatomy-only `MARROW_RECORD` has now been replaced by the shared subject-indexed registry: `MARROW_RECORDS` → `MARROW_BY_SUBJECT` → `BANKS_BY_SUBJECT`. No second question engine was introduced.
-- Registry-only refactor was fully build/browser verified before adding a second subject: Engineering Gate `34190814897`, full Android+PWA run `34190814843`.
-- Current bank state in the latest candidate:
-  - Anatomy → PrepLadder (1,068 / 50 topics) | Marrow (62 / 4 topics).
-  - Physiology → PrepLadder (899 / 38 topics) | Marrow pilot (80 / 4 topics; Chapters 1–4).
-  - Biochemistry → PrepLadder only.
-- Physiology pilot data is normalized from the verified MARROW ED8 JSONL output, uses stable namespaced `marrow__PHYS_...` IDs, and is transported as 11 compressed/base64 shards with fail-closed byte/count/SHA-256 validation.
-- Latest Physiology candidate verification: Engineering Gate `34191865093` success and full Android+PWA run `34191865094` success. The real browser test passed Physiology → bank selector → Marrow topic → question → Structured text explanation → fixed FSRS dock → PrepLadder regression; the side-by-side APK packaged and the feature preview deployed. Production promotion was skipped.
-- **Status discipline:** Anatomy preview behavior is user/device-verified; the new Physiology pilot is build/browser verified but is **not yet user/device-verified or accepted**.
-- Live feature preview: `https://feature-marrow-bank-pilot.nk-qbank.pages.dev`.
-- Immediate next content checkpoint: the user will provide Marrow JSON/JSONL chunks for additional subjects/chapters. Integrate supplied chunks into the existing shared registry and existing Practice/CBT/Review/FSRS/sync engines **source-faithfully first**; defer explanation redesign/polish until after the content exists and works. Preserve the accepted Anatomy bank behavior while expanding Physiology, Biochemistry, and additional Anatomy content in bounded manifest-verified batches.
-- Canonical procedure, schema, integrity rules, CI gates, and pilot lessons are in `docs/MARROW_BANK_INTEGRATION.md`.
+- The shared subject-indexed bank registry remains the only bank architecture:
+  `MARROW_RECORDS` → `MARROW_BY_SUBJECT` → `BANKS_BY_SUBJECT`.
+  No second Practice/CBT/Review/FSRS/sync/module/analytics engine was created.
+- Supplied Marrow ED8 content now exists in the candidate as:
+  - **Anatomy:** 819 questions / 48 topics.
+  - **Biochemistry:** 543 questions / 26 topics.
+  - **Physiology:** 753 questions / 33 topics.
+  - **Total Marrow:** 2,115 globally unique namespaced questions / 107 topics.
+- PrepLadder remains unchanged in parallel:
+  Anatomy 1,068/50; Biochemistry 719; Physiology 899/38.
+- Expanded data is transported in deterministic zlib/base64 shards with
+  manifest counts, byte lengths and SHA-256 validation. Runtime loader fails
+  closed on corruption, count drift, identity mismatch, duplicate IDs, bad
+  option shape, or question→topic linkage mismatch.
+- Expanded bundle names:
+  `anatomy_phase_a`, `biochemistry_phase_a`,
+  `physiology_ch001_033`.
+- The original accepted 62-question Anatomy pilot and 80-question Physiology
+  pilot remain regression/augmentation subsets. Their existing learner behavior
+  was not downgraded.
+- Three Anatomy reconstructed questions remain preserved with provenance:
+  `ANAT_CH02_Q010`, `ANAT_CH03_Q004`, `ANAT_CH04_Q013`.
 
-## Marrow explanation architecture — full Anatomy rollout 2026-09-08
+## Explanation status
 
-- User visually reviewed the 20-question gold pilot and called it near-perfect,
-  approving the typography, selective bolding, tables, and concise
-  **Why the other options are wrong** grammar for full Marrow Anatomy rollout.
-- User requested only a *very small* additional concision pass. Implemented as a
-  display-only micro-trim: suppress short lead paragraphs only when they
-  substantially duplicate the Key Takeaway; suppress dead figure/image
-  boilerplate when the asset is not rendered; replace source `Option A/B/C/D`
-  rationale paragraphs with the standardized concise distractor section. The
-  stored Marrow transcription is unchanged.
-- All 62 current Marrow Anatomy questions now use the approved explanation
-  architecture with selective exam-discriminator emphasis and exactly 3
-  distractor rationales each (186 total). Existing structured source tables are
-  preserved.
-- Permanent FSRS rule remains protected: the recall dock stays fixed/floating
-  above Previous/Next after answering and is not part of explanation flow.
-- Full rollout verification: Engineering Gate `34163197757` success; full
-  Android+PWA run `34163197772` success; real browser verified a formerly
-  non-pilot question, micro-concision on PGC Q1, source-table preservation, and
-  the fixed FSRS dock. Preview:
-  `https://feature-marrow-bank-pilot.nk-qbank.pages.dev` (immutable
-  `https://bae56103.nk-qbank.pages.dev`). Production promotion remains skipped.
-- The accepted Anatomy explanation grammar remains the reference presentation
-  contract. Physiology currently uses the shared native Marrow structured
-  explanation surface without changing the stored source wording.
+- Initial ingestion was deliberately **content-first** per user instruction.
+  Newly added questions use the supplied source-faithful structured explanation
+  surface without a new explanation rewrite phase.
+- The already-approved enhanced layer remains only on the existing 142-question
+  subset (62 Anatomy + 80 Physiology), with 426 stored distractor rationales.
+- Stored Marrow source transcription remains authoritative and unchanged.
+- Explanation improvement for the remaining questions is a later, separate phase.
+- FSRS remains protected: the rating dock stays fixed/floating above Previous/Next.
 
+## Verification / workflow status
 
-## Topics page target — 2026-09-08
+- Earlier full run `34244982211` (run 402) failed at the Marrow browser test
+  because the test still expected **Biochemistry = PrepLadder only**. The product
+  correctly exposed the newly integrated Marrow bank; this was a stale test
+  assumption, not a product/data failure.
+- The browser test was updated to exercise Biochemistry → PrepLadder | Marrow,
+  Chapter 1, source-faithful explanation, and return-to-PrepLadder regression.
+- Final integration checkpoint `bc500234`:
+  - Engineering Gate `34245190588` / run 193 — **success**.
+  - Full Android + PWA run `34245190771` / run 403 — **success**.
+  - Browser result: `anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115`.
+  - Side-by-side Marrow APK built; packaged APK/product contracts passed.
+  - Artifact `V11.7-android-pwa` ID `10063767953` uploaded successfully.
+- Automatic push deployment was intentionally skipped on the feature branch, so
+  the expanded candidate must be republished to the feature preview before
+  physical validation. Production promotion remains blocked.
 
-- Approved: mobile **journey/path** Topics UI with numbered left milestones on a soft curved/dashed path; refine Topics only, not the app shell.
-- State grammar: **green milestone + right green check = completed**; **blue milestone + right blue pause = paused/in-progress**; **purple/lavender milestone = unattempted/not-started, with NO right-side hollow circle/hole/icon**.
-- Keep **All / In Progress / Completed / Not Started**, search, index/list access, and the bottom **Continue Learning** direct-resume tray. Remove Free/lock/star/rating noise.
-- Group topics under major syllabus indexes/section headers (Anatomy examples: **General Embryology**, **Histology**) instead of one flat list.
-- Build one centralized editable topic→major-section taxonomy from topic names and, when needed, representative source/question content; ambiguous mappings stay flagged for review instead of guessed. Do not rewrite medical question content.
-- Durable rationale/details: .project-memory/DECISIONS.md §16 and memory.md §7.
+## Navigation / taxonomy
 
-## Verification and accepted baseline
+- The old pilot grouping rule incorrectly treated every non-Physiology Marrow
+  topic as General Embryology. It was replaced with subject-aware major-section
+  grouping for expanded Anatomy, Physiology and Biochemistry.
+- This grouping is navigation taxonomy only; it does not rewrite medical content.
 
-- Accepted baseline: **V11.6 Content Quality**. The user physically tested and
-  accepted the APK on 2026-09-06.
-- Accepted product commit: `125d68b`; canonical APK run: `34050921180`.
-- Latest V11.5 memory-head build `34051356682` and Engineering Gate
-  `34051356708` both passed at `e6a2fc7`.
-- V11.6 Engineering Gate `34050921166` and full packaged build `34050921180`
-  passed before physical-device acceptance. It improves comparison/table
-  takeaways and removes PrepLadder/page metadata from 78 of 719 audited stems.
+## Status discipline
 
-Labels are strict: implemented ≠ build-verified ≠ device-verified ≠ accepted
-baseline. Only explicit user physical-device approval promotes a candidate.
-
-## What currently works (V11.6 device-verified and accepted)
-
-- Practice, Timed CBT, final-question session review, navigator/jumping,
-  Submit/Finish, Practice/CBT Analysis, and Review Solutions with grid,
-  Previous/Next, End Review, and source explanations.
-- Home V4/V8 command center, Topics V2, Chapters, Tests, Insights, More,
-  revision libraries, subject switching, and reliable scroll reset.
-- All-subject random practice, multi-subject CBT, accurate subject/topic counts,
-  persistent attempt history, bookmarks, wrong/due queues, and Insights.
-- Source visuals: 420 packaged PNGs (Anatomy 297, Physiology 62,
-  Biochemistry 51), source-PDF fallback, fullscreen zoom/pan, isolated
-  Biochemistry renderer, and authoritative Physiology source PDF.
-- Custom Study Modules: persistent reusable subject/topic sets using
-  Unattempted/Wrong/Bookmarked/Mixed pools, frozen IDs, deduplication, seeded
-  selection, resume, Home continuation, completion analysis, and unified history.
-- Deterministic transforms, final and packaged JavaScript checks, product/CBT
-  contracts, Gradle APK build, packaged verification, and build manifest.
+- Existing accepted Anatomy Marrow preview behavior was previously user/device-verified.
+- The **2,115-question expanded candidate is build-verified/browser-verified,
+  not yet device-verified and not an accepted baseline**.
+- CI success does not establish visual/source acceptance.
 
 ## Known problems / cautions
 
-- V11.7 is a **build-verified, not device-verified** evolution branch merging
-  accepted V11.6 with the memory lineage. Product commit `1b1fc9f`; Engineering
-  Gate `34076883867` and full APK/PWA run `34076883874` passed. Cloud deployment
-  was correctly skipped because account credentials are not configured. Preserve
-  `v11.6-content-quality` as the immutable accepted checkpoint.
-- Root `AGENTS.md` placement is correct, but no filename can force every unknown
-  harness to load it. Thin common-harness adapters and
-  `tools/verify_project_memory.py` reduce discovery and drift risk.
-- Large binaries (three PDFs, ~420 PNGs, ~6 MB source app) make full clones slow;
-  prefer targeted inspection or partial clones when appropriate.
-- Source visual and protected session/review infrastructure must not be changed
-  casually during unrelated work.
+- The expanded candidate still needs the user's physical PWA review.
+- New explanations intentionally have not received the approved Anatomy-style
+  polish yet; this is deferred, not a regression claim.
+- Figure/image binaries remain a later pass; preserved metadata must not be lost.
+- Large connector/Git writes are unsafe; keep shard + manifest + hash validation.
+- Protected PrepLadder renderers, source PDFs, Practice/CBT/Review, FSRS, sync,
+  modules, persistence and navigation must not be modified casually.
 
-## FSRS status — accepted functional milestone
+## Next step
 
-- The source app contains the build-time-installed FSRS v6 scheduler using vendored `ts-fsrs` 5.4.2 (MIT), deterministic fuzz-off scheduling, schema-v2 card state, immutable rated attempts, migration backup/due-date preservation, all-subject daily queue, rating controls, forecast, settings, and undo.
-- The new APK was installed and confirmed working by the user. The website/PWA was also opened and confirmed functional. Treat FSRS as build-verified and device/user-verified in both targets; do not describe it as pending acceptance.
-- The detailed behavior and invariants are documented in `docs/FSRS.md`.
+1. Publish the exact current feature candidate to the isolated Cloudflare preview.
+2. User physically spot-checks subject → Marrow bank → topics → questions and
+   explanations across Anatomy, Biochemistry and Physiology.
+3. Record any visual/content defects without calling the candidate accepted.
+4. Only after the user's review, decide the next phase: explanation polish,
+   figures/assets, further chapters, or targeted corrections.
+5. Keep V11.6 `125d68b` as the immutable accepted rollback checkpoint.
 
-## Known problems / immediate next step
-
-- No current Marrow architecture blocker is known. The registry and 80-question Physiology pilot are fully build/browser verified.
-- The Physiology pilot still needs the user's physical preview spot-check before it can be labeled device-verified or accepted.
-- After that check, continue with a bounded Marrow Biochemistry pilot through the same registry; do not create another subject-specific bank implementation.
-- V11.6 `125d68b` remains the immutable accepted rollback checkpoint for unrelated platform work.
-
-## V11.7 platform continuity
-
-- Android app, responsive PWA, Firebase/Firestore synchronization, FSRS, update
-  flow, source-PDF rendering, and the existing three PrepLadder subjects are the
-  working foundation beneath the Marrow pilot.
-- User has confirmed the current app/PWA are functioning and synchronized.
-  Historical sync debugging and deployment chronology live in
-  `.project-memory/SESSION_LOG.md`; do not re-open those investigations unless
-  a fresh regression appears.
-- Cloudflare project remains `nk-qbank`; feature-branch pushes may deploy
-  previews, but Marrow pilot production promotion is intentionally disabled.
-- Keep the V11.6 accepted commit metadata unchanged until a deliberate baseline
-  promotion; it remains the rollback checkpoint required by memory contracts.
+Canonical integration procedure and detailed failure lessons:
+`docs/MARROW_BANK_INTEGRATION.md`.

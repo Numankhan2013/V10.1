@@ -19,35 +19,31 @@ Check off only when build-verified **and** device-verified where UI is involved.
 - [ ] Deliver V11.7: responsive PWA plus conflict-safe Firebase synchronization
       while preserving the accepted Android behavior and existing local data.
 
-## Marrow expansion — next session priority
+## Marrow expansion — current priority
 
-- [x] Anatomy Marrow pilot: 62 questions / 4 topics, source selector, native
-      structured explanations, browser smoke test, side-by-side APK, and
-      Cloudflare feature preview. Final runs: Engineering Gate
-      `34159542431`, full Android+PWA `34159542436`. User physically checked
-      the preview and reported it works beautifully.
-- [x] Generalize the temporary Anatomy-only `MARROW_RECORD` into the shared
-      subject-indexed `BANKS_BY_SUBJECT` registry while keeping Anatomy behavior
-      unchanged. Registry refactor passed Engineering Gate `34190814897` and
-      full browser/APK/PWA run `34190814843`.
-- [ ] Import remaining Marrow Anatomy chapters in bounded, manifest-verified
-      batches using stable `marrow__...` IDs.
-- [ ] Marrow Physiology through the shared registry: first bounded pilot is
-      implemented and build/browser verified (Chapters 1–4, 80 questions /
-      4 topics; Gate `34191865093`, full run `34191865094`). Await user
-      preview/device spot-check before marking this UI milestone complete; then
-      expand remaining verified Physiology chapters in bounded batches.
-- [ ] Import Marrow Biochemistry through the same bank registry and extend the
-      browser smoke test to `Biochemistry → PrepLadder | Marrow`.
-- [x] Marrow Anatomy explanation architecture: user-approved typography,
-      selective exam-discriminator emphasis, preserved source tables, 186
-      concise wrong-option rationales across all 62 current questions, and a
-      very light display-only redundancy trim while stored source wording stays
-      unchanged. Full browser/APK/PWA run `34163197772` passed.
-- [ ] Images/figures remain a later pass. Preserve figure metadata during text
-      imports; do not block question-bank expansion on missing binaries.
-- [ ] Keep all expansion builds on feature previews until regression gates pass
-      and the user physically verifies them; production promotion is deliberate.
+- [x] Anatomy Marrow pilot: 62/4, source selector, native structured
+      explanations, browser smoke test, side-by-side APK and feature preview;
+      user physically confirmed the original Anatomy flow.
+- [x] Generalize the Anatomy-only bank special case into the shared
+      subject-indexed `BANKS_BY_SUBJECT` registry.
+- [x] Integrate supplied Anatomy Phase A Chapters 1–48:
+      **819 questions / 48 topics**, manifest/hash verified.
+- [x] Integrate supplied Biochemistry Phase A Chapters 1–26:
+      **543 / 26**, through the same shared registry.
+- [x] Integrate supplied Physiology Chapters 1–33:
+      **753 / 33**, through the same shared registry.
+- [x] Final expanded bank contracts/browser/package gates:
+      Engineering `34245190588`, full Android+PWA `34245190771`,
+      browser total **2,115** Marrow questions.
+- [ ] Physical user review of the exact expanded feature PWA across all three subjects.
+- [ ] Explanation polish for the newly added questions. Keep this separate from
+      source ingestion; preserve stored wording and reuse the approved Anatomy
+      explanation grammar only after visual/content review.
+- [ ] Images/figures remain a later pass. Preserve figure metadata and do not
+      block source-faithful text-bank work on missing binaries.
+- [ ] Continue later Marrow chapters beyond the supplied current scope only when
+      verified source JSONL is available.
+- [ ] Keep production promotion deliberate; build/browser success is not acceptance.
 
 See `docs/MARROW_BANK_INTEGRATION.md` for the exact schema, integrity rules,
 failure lessons, and required regression checklist.

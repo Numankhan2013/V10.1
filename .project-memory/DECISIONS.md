@@ -204,3 +204,41 @@ and avoiding decorative or paywall noise.
 ## 2026-09-08 — User rejection and corrective handoff
 
 Do not equate passing CI or screenshot capture with reference fidelity or physical acceptance. The user rejected 6ba7ebe. Require visual comparison and initial-viewport dock checks, a dedicated settings destination, and same-question PDF legibility checks before claiming completion.
+
+
+## 17. Marrow expansion is content-first and enhancement is layered (2026-09-08)
+
+Decision: when verified Marrow JSON/JSONL is supplied, integrate the complete
+source-faithful content into the shared bank registry first. Do not block data
+existence on explanation redesign, figure binaries, or generated distractor work.
+
+The stored source transcription is the authoritative layer. Presentation and
+generated augmentation stay separate and auditable. The already approved
+62-question Anatomy + 80-question Physiology enhancement may remain active as a
+subset while newly ingested questions use the native structured source renderer.
+
+Why:
+- the user explicitly asked to make the questions exist and work first, then
+  improve explanations later;
+- keeping ingestion and enhancement separate prevents a broad presentation pass
+  from silently changing medical source content;
+- one shared registry preserves Practice/CBT/Review/FSRS/sync/modules/analytics
+  behavior and avoids a subject-specific fork.
+
+Durable implementation rules:
+- manifests + compressed/raw SHA-256 + count/shape/linkage checks fail closed;
+- globally namespaced IDs are mandatory;
+- accepted pilot IDs must remain subsets of expanded records;
+- transport/staging mechanisms are not runtime dependencies;
+- browser tests must evolve with intentional bank-matrix changes.
+
+Lesson from run 402: the product correctly added a Marrow Biochemistry bank, but
+the browser regression still asserted “Biochemistry is PrepLadder-only.” A
+regression test can become stale when a deliberate requirement changes; update
+the assertion to the new public contract rather than treating the intended new
+bank as a product failure.
+
+Lesson from navigation wiring: the pilot-era topic-section shortcut grouped every
+non-Physiology Marrow topic under General Embryology. Full cross-subject data
+requires subject-aware taxonomy; presentation classification must not rewrite
+question content.
