@@ -241,3 +241,19 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
 Observed candidate limitations: Topics continuation uses sticky positioning after the list; FSRS is inline details/summary; PWA PDF zoom reuses a width-derived raster capped at 2x density. See docs/REJECTED_TOPICS_FSRS_HANDOFF.md for file owners and diagnostic limits. No PDF regression root cause has been established.
 
 - Recovery: `build_web_dist.py` emits a narrowly routed Pages worker for `/anatomy-source.pdf`, streaming the unchanged configured R2 PDF with Range/ETag support. The web-only config points to that same-origin path; native source rendering is unchanged. Direct R2 GET lacked CORS headers for both feature and localhost origins on 2026-09-08. Worker behavior tests preserve bytes/ranges and static asset fallback.
+
+
+## Feature-line ownership for recovered Topics/FSRS — 2026-09-08
+
+The full recovered Topics fixed-tray/journey implementation and dedicated FSRS
+settings route currently live on `feature/marrow-bank-pilot`, not stale
+`main`. The feature preview was physically approved; Cloudflare production was
+not promoted.
+
+When consolidating, reuse the exact feature-line implementation and tests rather
+than re-creating UI behavior. See `docs/TOPICS_FSRS_FEATURE_HANDOFF.md`.
+
+Topics major-section classification must move to one explicit source-aligned
+mapping; see `docs/MARROW_TOPIC_INDEX_TAXONOMY.md`. Explanation fine-tuning
+remains a separate augmentation layer; see
+`docs/MARROW_EXPLANATION_FINE_TUNING.md`.
