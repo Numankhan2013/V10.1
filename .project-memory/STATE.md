@@ -58,6 +58,51 @@
   contract. Physiology currently uses the shared native Marrow structured
   explanation surface without changing the stored source wording.
 
+
+## Topics page visual target + hierarchical topic taxonomy — 2026-09-08
+
+- The user approved the mobile **journey/path** Topics-page concept as the target
+  direction. Keep the existing product architecture; this is a Topics-surface
+  refinement, not a replacement app shell.
+- Core visual grammar:
+  - numbered topic milestones/serials run down the left side;
+  - milestones are connected by a soft curved/dashed path so the syllabus feels
+    like a learning journey;
+  - each milestone aligns with one clean topic card;
+  - use restrained state color around the milestone itself: **green hue for
+    completed**, **blue hue for paused/in-progress**, and a subtle
+    **purple/lavender hue for unattempted/not-started**;
+  - completed cards keep the right-side **green check**;
+  - paused/in-progress cards keep the right-side **blue pause** control/state;
+  - **unattempted/not-started cards must have NO right-side hollow circle,
+    hole, dot, or placeholder status icon**. Their left milestone treatment is
+    sufficient.
+- Keep the useful top controls from the approved concept:
+  **All / In Progress / Completed / Not Started**, plus search and the
+  index/list affordance.
+- Keep a bottom **Continue Learning** tray for the active/resumable topic so the
+  learner can jump directly back in. It should identify the topic and remaining
+  questions and act as a direct resume affordance.
+- Remove irrelevant source-QBank commerce/noise from this surface: no **Free**
+  chip/state, no lock/paywall icons, no star/rating metadata.
+- Topic information stays concise: topic title + useful progress/count text only.
+- The Topics screen must no longer be conceptually flat. Topics should be grouped
+  under **major subject indexes/section headers**. For Anatomy, examples include
+  **General Embryology** and **Histology**, with their child topics displayed
+  beneath them.
+- The current app data does not provide a ready-made authoritative parent-group
+  mapping for every existing topic. The implementing agent is expected to build
+  a **centralized, explicit, reviewable topic→major-section taxonomy** by
+  inspecting the existing topic names and, where needed, representative question
+  content/source material. Do not invent or rewrite medical question content;
+  this classification changes presentation/navigation hierarchy only.
+- Where a topic is genuinely ambiguous, prefer an explicit review flag/default
+  bucket over silently making a medically arbitrary assignment. Keep the mapping
+  easy to edit without changing question records.
+- Immediate design intent is mobile-first and compact: professional medical
+  QBank, calm spacing, soft surfaces, no unnecessary gamification or decorative
+  clutter.
+
 ## Verification and accepted baseline
 
 - Accepted baseline: **V11.6 Content Quality**. The user physically tested and
