@@ -74,25 +74,45 @@
 - Production promotion was **skipped**; `nk-qbank.pages.dev` production was not
   changed by this Marrow preview publish.
 
+## User physical review — 2026-09-08
+
+- User physically opened the run-405 Marrow feature PWA and confirmed the
+  **question integration is successful**.
+- User also confirmed the recovered **Topics journey/fixed Continue Learning UI**
+  and **dedicated FSRS customization controls are live and good** on this feature PWA.
+- These recovered features are on `feature/marrow-bank-pilot`; the production/root
+  PWA was not promoted in run 405, and stale Git `main` is not the V11 source.
+  Missing features on the older “main PWA” are therefore a branch/deployment
+  separation issue, not a reason to rebuild them from scratch.
+- Exact lineage/deployment handoff: `docs/TOPICS_FSRS_FEATURE_HANDOFF.md`.
+
 ## Navigation / taxonomy
 
-- The old pilot grouping rule incorrectly treated every non-Physiology Marrow
-  topic as General Embryology. It was replaced with subject-aware major-section
-  grouping for expanded Anatomy, Physiology and Biochemistry.
-- This grouping is navigation taxonomy only; it does not rewrite medical content.
+- The journey visual design is now user-approved, but the **major index taxonomy
+  is wrong**. Do not change the approved journey/glow/fixed-tray treatment.
+- Replace heuristic grouping with one explicit source-aligned mapping using
+  `docs/MARROW_TOPIC_INDEX_TAXONOMY.md`.
+- Required source index families are recorded there for Anatomy, Physiology and
+  Biochemistry, including the user's exact order and PYQ rules.
+- Taxonomy is navigation-only; never rewrite medical content.
 
 ## Status discipline
 
-- Existing accepted Anatomy Marrow preview behavior was previously user/device-verified.
-- The **2,115-question expanded candidate is build-verified/browser-verified,
-  not yet device-verified and not an accepted baseline**.
-- CI success does not establish visual/source acceptance.
+- The user has now physically spot-checked the expanded feature PWA and confirmed
+  successful Marrow question integration plus the recovered Topics/FSRS surfaces.
+- This is **user/device verification of those tested feature-PWA surfaces**, not
+  blanket verification of every one of the 2,115 questions and not promotion of
+  the overall product baseline.
+- V11.6 `125d68b` remains the accepted rollback baseline until the user explicitly
+  promotes a later candidate.
 
 ## Known problems / cautions
 
-- The expanded candidate still needs the user's physical PWA review.
-- New explanations intentionally have not received the approved Anatomy-style
-  polish yet; this is deferred, not a regression claim.
+- Topics major-index grouping is currently inaccurate despite the approved visual
+  journey. The next Topics change is taxonomy-only.
+- New explanations intentionally have not received the approved full-bank polish.
+  The Biochemistry physical screenshot shows raw structured/OCR text quality that
+  belongs in a separate display/augmentation phase.
 - Figure/image binaries remain a later pass; preserved metadata must not be lost.
 - Large connector/Git writes are unsafe; keep shard + manifest + hash validation.
 - Protected PrepLadder renderers, source PDFs, Practice/CBT/Review, FSRS, sync,
@@ -100,12 +120,15 @@
 
 ## Next step
 
-1. User physically spot-checks the live feature preview across Anatomy,
-   Biochemistry and Physiology: bank selector → topics → questions → explanations.
-2. Record any visual/content defects without calling the candidate accepted.
-3. Only after the user's review, decide the next phase: explanation polish,
-   figures/assets, further chapters, or targeted corrections.
-4. Keep V11.6 `125d68b` as the immutable accepted rollback checkpoint.
+1. **No implementation in this handoff commit.**
+2. Next Topics implementation: correct only the source index taxonomy using
+   `docs/MARROW_TOPIC_INDEX_TAXONOMY.md`; preserve the user-approved journey and
+   FSRS customization exactly.
+3. Next explanation phase, when explicitly started: follow
+   `docs/MARROW_EXPLANATION_FINE_TUNING.md` and scale the approved 142-question
+   grammar source-faithfully across the remaining Marrow questions.
+4. Remaining Marrow chapters/questions and figure binaries are separate later work.
+5. Keep V11.6 `125d68b` as the immutable accepted rollback checkpoint.
 
 Canonical integration procedure and detailed failure lessons:
 `docs/MARROW_BANK_INTEGRATION.md`.
