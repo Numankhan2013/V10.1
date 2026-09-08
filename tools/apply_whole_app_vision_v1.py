@@ -119,7 +119,35 @@ TEST_ROW = r'''function testRow(t) {
 TOPICS = r'''function nkTopicSection(chapter) {
     const n=Number((String(chapter?.id||'').match(/(\d+)$/)||[])[1]||0),subject=String(activeSubject||'').toLowerCase();
     const sections=__TOPIC_SECTIONS__;
-    if(typeof activeBank!=='undefined'&&activeBank==='Marrow')return subject.includes('physiology')?'General Physiology':'General Embryology';
+    if(typeof activeBank!=='undefined'&&activeBank==='Marrow'){
+      if(subject.includes('anatomy')){
+        if(n<=10)return 'General Embryology';
+        if(n<=16)return 'Histology';
+        if(n<=27)return 'Neuroanatomy';
+        if(n<=34)return 'Head & Neck';
+        if(n<=40)return 'Upper Limb';
+        if(n<=46)return 'Thorax';
+        return 'Abdomen';
+      }
+      if(subject.includes('physiology')){
+        if(n<=5)return 'General Physiology';
+        if(n<=10)return 'Nerve & Muscle';
+        if(n<=18)return 'Neurophysiology';
+        if(n<=25)return 'Respiratory Physiology';
+        if(n<=30)return 'Cardiovascular Physiology';
+        return 'Gastrointestinal Physiology';
+      }
+      if(subject.includes('biochemistry')){
+        if(n<=6)return 'Carbohydrates & Bioenergetics';
+        if(n<=11)return 'Amino Acids & Proteins';
+        if(n<=16)return 'Lipid Metabolism';
+        if(n===17)return 'Heme Metabolism';
+        if(n<=19)return 'Enzymes';
+        if(n<=23)return 'Vitamins & Minerals';
+        return 'Molecular Biology & Genetics';
+      }
+      return 'Marrow';
+    }
     const key=subject.includes('anatomy')?'anatomy':subject.includes('physiology')?'physiology':'biochemistry';
     return sections[key]?.[String(n)]||'Other topics';
   }
