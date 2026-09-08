@@ -137,6 +137,85 @@ elif generic_marker not in source:
     raise SystemExit("Marrow bank registry anchor missing after pilot transform")
 print("MARROW_BANK_REGISTRY_OK runtime=subject-indexed legacy_single_bundle=compatible")
 
+
+# Promote the bounded pilots into the complete source-faithful banks supplied for
+# this ingestion phase. The old 62 Anatomy / 80 Physiology records remain useful
+# as accepted regression/augmentation subsets, but learner navigation now reads
+# these manifest-verified expanded records. No question engine is forked.
+def load_expanded_bank(prefix: str, expected_subject: str):
+    manifest_path=DATA/f"{prefix}_manifest.json"
+    if not manifest_path.exists():
+        raise SystemExit(f"Expanded Marrow manifest missing: {manifest_path.name}")
+    manifest=json.loads(manifest_path.read_text(encoding="utf-8"))
+    parts=sorted(DATA.glob(f"{prefix}.zlib.b64.part*"))
+    if len(parts)!=int(manifest.get("parts",0)):
+        raise SystemExit(f"{expected_subject} expanded shard count mismatch: {len(parts)}")
+    encoded="".join(p.read_text(encoding="utf-8").strip() for p in parts)
+    if len(encoded)!=int(manifest.get("base64_chars",0)):
+        raise SystemExit(f"{expected_subject} expanded base64 length mismatch")
+    try:
+        compressed=base64.b64decode(encoded,validate=True)
+    except Exception as exc:
+        raise SystemExit(f"{expected_subject} expanded base64 invalid: {exc}") from exc
+    if len(compressed)!=int(manifest.get("compressed_bytes",0)):
+        raise SystemExit(f"{expected_subject} expanded compressed length mismatch")
+    if hashlib.sha256(compressed).hexdigest()!=manifest.get("compressed_sha256"):
+        raise SystemExit(f"{expected_subject} expanded compressed SHA-256 mismatch")
+    try:
+        raw=zlib.decompress(compressed)
+    except Exception as exc:
+        raise SystemExit(f"{expected_subject} expanded zlib invalid: {exc}") from exc
+    if len(raw)!=int(manifest.get("raw_bytes",0)):
+        raise SystemExit(f"{expected_subject} expanded raw length mismatch")
+    if hashlib.sha256(raw).hexdigest()!=manifest.get("raw_sha256"):
+        raise SystemExit(f"{expected_subject} expanded raw SHA-256 mismatch")
+    record=json.loads(raw.decode("utf-8"))
+    if record.get("subject")!=expected_subject or record.get("bank")!="Marrow":
+        raise SystemExit(f"{expected_subject} expanded identity mismatch")
+    topics=record.get("topics",[])
+    questions=record.get("questions",[])
+    if len(topics)!=int(manifest.get("topics",0)):
+        raise SystemExit(f"{expected_subject} expanded topic count mismatch")
+    if len(questions)!=int(manifest.get("questions",0)):
+        raise SystemExit(f"{expected_subject} expanded question count mismatch")
+    ids=[str(q.get("id","")) for q in questions]
+    if len(ids)!=len(set(ids)) or any(not qid.startswith("marrow__") for qid in ids):
+        raise SystemExit(f"{expected_subject} expanded IDs are not unique/namespaced")
+    topic_ids={str(t.get("id")) for t in topics}
+    if any(str(q.get("chapterId")) not in topic_ids for q in questions):
+        raise SystemExit(f"{expected_subject} expanded question/topic linkage mismatch")
+    if any(len(q.get("options",[]))!=4 or q.get("correctOption") not in (1,2,3,4) or not str(q.get("question","")).strip() for q in questions):
+        raise SystemExit(f"{expected_subject} expanded question shape invalid")
+    return record,manifest
+
+expanded_anatomy,expanded_anatomy_manifest=load_expanded_bank("anatomy_phase_a","Anatomy")
+expanded_biochemistry,expanded_biochemistry_manifest=load_expanded_bank("biochemistry_phase_a","Biochemistry")
+expanded_physiology,expanded_physiology_manifest=load_expanded_bank("physiology_ch001_033","Physiology")
+expanded_records=[expanded_anatomy,expanded_biochemistry,expanded_physiology]
+expanded_ids=[q["id"] for record in expanded_records for q in record["questions"]]
+if len(expanded_ids)!=2115 or len(expanded_ids)!=len(set(expanded_ids)):
+    raise SystemExit(f"Expanded Marrow global ID mismatch: {len(expanded_ids)}")
+if not {q["id"] for q in anatomy_record.get("questions",[])}.issubset({q["id"] for q in expanded_anatomy["questions"]}):
+    raise SystemExit("Accepted Anatomy pilot IDs are not a subset of expanded Anatomy")
+if not {q["id"] for q in phys_record.get("questions",[])}.issubset({q["id"] for q in expanded_physiology["questions"]}):
+    raise SystemExit("Accepted Physiology pilot IDs are not a subset of expanded Physiology")
+
+source=HTML.read_text(encoding="utf-8")
+if source.count(data_marker)!=1:
+    raise SystemExit(f"Expanded Marrow data declaration count: {source.count(data_marker)}")
+data_start=source.index(data_marker)+len(data_marker)
+data_end=source.index(";\n",data_start)
+expanded_json=json.dumps({"records":expanded_records},ensure_ascii=False,separators=(",",":")).replace("</","<\\/")
+source=source[:data_start]+expanded_json+source[data_end:]
+HTML.write_text(source,encoding="utf-8")
+print(
+    "MARROW_EXPANDED_BANKS_OK "
+    f"anatomy={len(expanded_anatomy['questions'])}/{len(expanded_anatomy['topics'])} "
+    f"biochemistry={len(expanded_biochemistry['questions'])}/{len(expanded_biochemistry['topics'])} "
+    f"physiology={len(expanded_physiology['questions'])}/{len(expanded_physiology['topics'])} "
+    f"total={len(expanded_ids)}"
+)
+
 # Marrow must always preserve the existing study-support contract:
 # Key takeaway + native structured detailed explanation. The shared PrepLadder
 # takeaway heuristic can legitimately return an empty string, so add a
