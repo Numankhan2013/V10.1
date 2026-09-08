@@ -1,3 +1,28 @@
+# Latest feature-PWA validation and next-work handoff — 2026-09-08
+
+The user physically opened the Marrow feature PWA and confirmed: **Marrow question
+integration is successful; the recovered Topics journey/fixed Continue Learning
+tray is good; the dedicated FSRS customization page/buttons are good.**
+
+These good surfaces live on `feature/marrow-bank-pilot`. Their absence from the
+older “main PWA” is expected from branch/deployment separation: Git `main` is
+stale and run 405 did not promote Cloudflare production. Do not recreate the UI
+from scratch; preserve the feature implementation and use
+`docs/TOPICS_FSRS_FEATURE_HANDOFF.md`.
+
+The next Topics defect is taxonomy only. The visual design stays. Canonical user
+index order and mapping guidance are in
+`docs/MARROW_TOPIC_INDEX_TAXONOMY.md`.
+
+The next Marrow quality phase, when explicitly started, is explanation
+fine-tuning. Raw ED8 transcription remains immutable; cleanup/reconstruction,
+Key Takeaway, selective emphasis, tables and concise wrong-option rationales must
+live in a separate auditable layer. Use the approved 142-question grammar and
+`docs/MARROW_EXPLANATION_FINE_TUNING.md`.
+
+No implementation was requested in this handoff. V11.6 `125d68b` remains the
+accepted rollback baseline.
+
 # Latest Marrow Phase A handoff — 2026-09-08
 
 **Accepted baseline remains V11.6 `125d68b`; the expanded Marrow candidate is not yet accepted.**
