@@ -14,10 +14,10 @@ def load_data(prefix):
     b64=''.join(p.read_text().strip() for p in parts)
     assert len(b64)==m['base64_chars']
     comp=base64.b64decode(b64,validate=True)
-    assert len(comp)==m['compressed_bytes']
+    if 'compressed_bytes' in m: assert len(comp)==m['compressed_bytes']
     assert hashlib.sha256(comp).hexdigest()==m['compressed_sha256']
     raw=zlib.decompress(comp)
-    assert len(raw)==m['raw_bytes']
+    if 'raw_bytes' in m: assert len(raw)==m['raw_bytes']
     assert hashlib.sha256(raw).hexdigest()==m['raw_sha256']
     return json.loads(raw),m
 
