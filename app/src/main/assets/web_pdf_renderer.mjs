@@ -84,9 +84,13 @@ if (location.hostname !== 'qbank.local') {
     observer.unobserve(entry.target);
     renderQueue = renderQueue.then(() => renderSegment(entry.target));
   }), {rootMargin: '500px 0px'});
-  const mount = () => document.querySelectorAll('.nk-web-pdf-segment:not([data-observed])').forEach(node => {
-    node.dataset.observed = 'true'; observer.observe(node); resizeObserver.observe(node);
+  const tracked=new Set();
+  const mount = () => {
+    tracked.forEach(node=>{if(!node.isConnected){observer.unobserve(node);resizeObserver.unobserve(node);tracked.delete(node);}});
+    document.querySelectorAll('.nk-web-pdf-segment:not([data-observed])').forEach(node => {
+    node.dataset.observed = 'true'; tracked.add(node); observer.observe(node); resizeObserver.observe(node);
   });
+  };
   new MutationObserver(mount).observe(document.documentElement, {childList:true, subtree:true});
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount); else mount();
 }
