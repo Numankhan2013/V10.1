@@ -1,3 +1,10 @@
+> **Superseded current verdict (2026-09-08):** the user later physically tested
+> the recovered Marrow feature PWA and now approves the Topics journey/fixed
+> Continue Learning tray and dedicated FSRS customization UI. The document below
+> remains historical failure evidence for commit `6ba7ebe`; do not use its
+> “rejected” verdict as the current product state. Current handoff:
+> `docs/TOPICS_FSRS_FEATURE_HANDOFF.md`.
+
 # Rejected Topics/FSRS release — 2026-09-08
 
 ## User verdict and next-session priority
