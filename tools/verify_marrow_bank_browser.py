@@ -16,9 +16,9 @@ def main():
         with sync_playwright() as p:
             browser=p.chromium.launch(headless=True)
             page=browser.new_page(viewport={'width':390,'height':844})
-            # The CI localhost origin is outside the production R2 CORS policy.
+            # The CI static server does not execute the Pages streaming worker.
             # Serve the identical committed Anatomy PDF for deterministic raster checks.
-            page.route('**/*.pdf*',lambda route: route.fulfill(path=str(ROOT/'app/src/main/assets/Anatomy_QBank_Source.pdf'),content_type='application/pdf',headers={'Access-Control-Allow-Origin':'*'}) if 'anatomy' in route.request.url.lower() and not route.request.url.startswith(f'http://127.0.0.1:{port}/') else route.continue_())
+            page.route('**/*.pdf*',lambda route: route.fulfill(path=str(ROOT/'app/src/main/assets/Anatomy_QBank_Source.pdf'),content_type='application/pdf',headers={'Access-Control-Allow-Origin':'*'}) if 'anatomy' in route.request.url.lower() else route.continue_())
             errors=[];page.on('pageerror',lambda e: errors.append(str(e)))
             page.goto(f'http://127.0.0.1:{port}/index.html',wait_until='networkidle')
             # Biochemistry remains the one-source control while Physiology proves

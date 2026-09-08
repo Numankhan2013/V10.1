@@ -239,3 +239,5 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
 ## 2026-09-08 — User rejection and corrective handoff
 
 Observed candidate limitations: Topics continuation uses sticky positioning after the list; FSRS is inline details/summary; PWA PDF zoom reuses a width-derived raster capped at 2x density. See docs/REJECTED_TOPICS_FSRS_HANDOFF.md for file owners and diagnostic limits. No PDF regression root cause has been established.
+
+- Recovery: `build_web_dist.py` emits a narrowly routed Pages worker for `/anatomy-source.pdf`, streaming the unchanged configured R2 PDF with Range/ETag support. The web-only config points to that same-origin path; native source rendering is unchanged. Direct R2 GET lacked CORS headers for both feature and localhost origins on 2026-09-08. Worker behavior tests preserve bytes/ranges and static asset fallback.

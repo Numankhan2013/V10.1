@@ -355,6 +355,7 @@ body:has(.nk-app-v114){background:var(--nk114-canvas)!important;color:var(--nk11
 @media(prefers-reduced-motion:reduce){.nk-app-v114 *{scroll-behavior:auto!important;transition:none!important}}
 
 /* Reference journey: separate milestone lane, soft lilac glow and persistent resume. */
+.page:has(.nk-topics-v114){animation:none!important;transform:none!important}
 body:has(.nk-topics-v114){background:#f5f3fc!important}
 body:has(.nk-topics-v114) .nk-global-header-v114{display:none}
 body:has(.nk-topics-v114) .page{padding-top:22px!important;padding-bottom:210px!important}
@@ -415,6 +416,7 @@ def replace_function(source: str, name: str, replacement: str) -> str:
 
 
 def transform(source: str) -> str:
+    source=source.replace('</style>\n\nn\n<style id="v102-practice-layer">', '</style>\n<style id="v102-practice-layer">')
     source = source.replace("const paths={", 'const paths={pause:`<svg ${common}><path d="M9 5v14M15 5v14"/></svg>`,',1)
     source = re.sub(rf'<style id="{STYLE_ID}">.*?</style>\s*', '', source, flags=re.S)
     source=source.replace("state.tests.push(test);state.tests=state.tests.slice(-100);", "test.originRoute=s.originRoute;state.tests.push(test);state.tests=state.tests.slice(-100);",1)

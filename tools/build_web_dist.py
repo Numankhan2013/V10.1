@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import argparse
+import json
+import re
 import shutil
 from pathlib import Path
 
@@ -34,6 +36,15 @@ def main() -> None:
         target = out / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, target)
+    config_path=out / "qbank-config.js"
+    config=json.loads(re.search(r"=\s*(\{.*\})\s*;",config_path.read_text()).group(1))
+    anatomy_url=config.get("anatomyPdfUrl", "")
+    if anatomy_url:
+        worker=(ROOT / "tools/anatomy_pdf_worker.mjs").read_text().replace("__ANATOMY_SOURCE_URL__",json.dumps(anatomy_url))
+        (out / "_worker.js").write_text(worker)
+        (out / "_routes.json").write_text(json.dumps({"version":1,"include":["/anatomy-source.pdf"],"exclude":[]}))
+        config["anatomyPdfUrl"]="./anatomy-source.pdf"
+        config_path.write_text("window.NK_QBANK_FIREBASE_CONFIG = "+json.dumps(config)+";\n")
     html = out / "index.html"
     html.write_text(html.read_text(encoding="utf-8").replace('src="assets/physiology_image_pages.js"', 'src="physiology_image_pages.js"').replace('href="assets/Biochemistry_QBank_Source.pdf"', 'href="Biochemistry_QBank_Source.pdf"'), encoding="utf-8")
     sw = out / "sw.js"
