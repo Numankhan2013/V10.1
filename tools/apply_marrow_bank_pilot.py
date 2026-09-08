@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """SHA-verified launcher for the chunked Marrow pilot transformer."""
 from __future__ import annotations
-import base64, hashlib
+import base64, hashlib, json, zlib
 from pathlib import Path
 
 HERE=Path(__file__).resolve().parent
@@ -18,6 +18,60 @@ exec(compile(payload,str(Path(__file__).resolve()),"exec"),{
     "__file__":str(Path(__file__).resolve()),
     "__builtins__":__builtins__,
 })
+
+# Load the bounded Marrow Physiology pilot with the same fail-closed,
+# hash-verified shard contract used after the Anatomy transport failure.
+DATA=HERE.parent/"data/marrow"
+PHYS_MANIFEST_PATH=DATA/"physiology_pilot_manifest.json"
+if not PHYS_MANIFEST_PATH.exists():
+    raise SystemExit("Marrow Physiology pilot manifest missing")
+phys_manifest=json.loads(PHYS_MANIFEST_PATH.read_text(encoding="utf-8"))
+phys_parts=sorted(DATA.glob("physiology_pilot.zlib.b64.part*"))
+if len(phys_parts)!=int(phys_manifest.get("parts",0)):
+    raise SystemExit(f"Marrow Physiology shard count mismatch: {len(phys_parts)}")
+phys_b64="".join(p.read_text(encoding="utf-8").strip() for p in phys_parts)
+if len(phys_b64)!=int(phys_manifest.get("base64_chars",0)):
+    raise SystemExit("Marrow Physiology base64 length mismatch")
+try:
+    phys_compressed=base64.b64decode(phys_b64,validate=True)
+except Exception as exc:
+    raise SystemExit(f"Marrow Physiology base64 invalid: {exc}") from exc
+if len(phys_compressed)!=int(phys_manifest.get("compressed_bytes",0)):
+    raise SystemExit("Marrow Physiology compressed length mismatch")
+if hashlib.sha256(phys_compressed).hexdigest()!=phys_manifest.get("compressed_sha256"):
+    raise SystemExit("Marrow Physiology compressed SHA-256 mismatch")
+try:
+    phys_raw=zlib.decompress(phys_compressed)
+except Exception as exc:
+    raise SystemExit(f"Marrow Physiology zlib invalid: {exc}") from exc
+if len(phys_raw)!=int(phys_manifest.get("raw_bytes",0)):
+    raise SystemExit("Marrow Physiology raw length mismatch")
+if hashlib.sha256(phys_raw).hexdigest()!=phys_manifest.get("raw_sha256"):
+    raise SystemExit("Marrow Physiology raw SHA-256 mismatch")
+phys_record=json.loads(phys_raw.decode("utf-8"))
+if phys_record.get("subject")!="Physiology" or phys_record.get("bank")!="Marrow":
+    raise SystemExit("Marrow Physiology identity mismatch")
+if len(phys_record.get("topics",[]))!=int(phys_manifest.get("topics",0)):
+    raise SystemExit("Marrow Physiology topic count mismatch")
+if len(phys_record.get("questions",[]))!=int(phys_manifest.get("questions",0)):
+    raise SystemExit("Marrow Physiology question count mismatch")
+
+# The legacy Anatomy payload still owns the generated app transform. Replace only
+# its MARROW_DATA declaration with a multi-record envelope before the generic
+# registry rewrite; no question engine or learner flow is duplicated.
+HTML=HERE.parent/"app/src/main/assets/index.html"
+source=HTML.read_text(encoding="utf-8")
+data_marker="  const MARROW_DATA = "
+if source.count(data_marker)!=1:
+    raise SystemExit(f"Marrow data declaration count: {source.count(data_marker)}")
+data_start=source.index(data_marker)+len(data_marker)
+data_end=source.index(";\n",data_start)
+anatomy_record=json.loads(source[data_start:data_end])
+multi_record={"records":[anatomy_record,phys_record]}
+multi_json=json.dumps(multi_record,ensure_ascii=False,separators=(",",":")).replace("</","<\\/")
+source=source[:data_start]+multi_json+source[data_end:]
+HTML.write_text(source,encoding="utf-8")
+print("MARROW_PHYSIOLOGY_PILOT_OK topics=4 questions=80 sha="+phys_manifest["raw_sha256"][:12])
 
 # Generalize the pilot's one-off Anatomy MARROW_RECORD into the canonical
 # subject-indexed bank registry before any downstream Marrow presentation patches.
