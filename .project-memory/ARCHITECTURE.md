@@ -135,10 +135,27 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   `nkBankRecords(name)`, `nkBankRecord(name,bank)`, `openBank(name,bank)`,
   a `banks` route, and globally namespaced Marrow IDs. `BY_ID` spans all
   bank questions so FSRS/review replay can resolve Marrow IDs safely.
-- Current pilot data is Anatomy-only through one `MARROW_RECORD`. This is a
-  temporary pilot shape. **Before Physiology or Biochemistry Marrow import,
-  replace it with a subject-indexed/general bank registry.** Do not duplicate
-  one hardcoded Marrow record or one bank-selector implementation per subject.
+- Multi-bank runtime is now subject-indexed: `MARROW_RECORDS` normalizes the
+  Marrow payload, `MARROW_BY_SUBJECT` indexes Marrow records, and
+  `BANKS_BY_SUBJECT` owns the available bank records for each subject.
+  `nkBankRecords(name)`, `nkBankRecord(name,bank)`, and
+  `nkAllBankQuestions()` consume this registry; no per-subject question engine
+  or bank selector is duplicated.
+- Current feature candidate bank matrix:
+  Anatomy → PrepLadder + Marrow (62/4);
+  Physiology → PrepLadder + Marrow pilot (80/4, Chapters 1–4);
+  Biochemistry → PrepLadder only.
+- `MARROW_DATA.records` is backward-compatible with the original single Anatomy
+  payload and currently receives Anatomy plus the bounded Physiology record.
+  All Marrow questions remain globally bank-namespaced, so shared FSRS, review,
+  modules, sync, bookmarks, wrong/due queues, and analytics can resolve them
+  through the existing engines.
+- Physiology pilot transport uses
+  `data/marrow/physiology_pilot.zlib.b64.part00..10` plus
+  `physiology_pilot_manifest.json`; the launcher fails closed on shard count,
+  base64/compressed/raw lengths, SHA-256, identity, topic count, or question
+  count mismatch. The older Anatomy manifest remains backward compatible while
+  its cryptographic hashes stay mandatory.
 - Marrow explanations bypass the PDF-source renderer and use structured native
   text/tables; PrepLadder keeps its existing source-PDF renderer unchanged.
   Marrow study support must always preserve Key takeaway + Detailed explanation

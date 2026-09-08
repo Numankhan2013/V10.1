@@ -338,3 +338,42 @@ CI runs, what changed, verification, device status, next step.
 - Next: user spot-checks the full rollout. Then generalize the temporary
   Anatomy-only `MARROW_RECORD` to a multi-subject bank registry before adding
   remaining Anatomy, Physiology and Biochemistry Marrow data.
+
+
+## 2026-09-08 — Generalize Marrow registry and add bounded Physiology pilot
+
+- Replaced the generated Anatomy-only `MARROW_RECORD` special case with the
+  subject-indexed `MARROW_RECORDS` / `MARROW_BY_SUBJECT` /
+  `BANKS_BY_SUBJECT` registry. Existing bank selection and all shared Practice,
+  CBT, Review, FSRS, sync, module, persistence and analytics engines were reused.
+- Added static protection against the old singular registry and a real-browser
+  public-UI regression test. An initial browser assertion incorrectly called the
+  internal `nkBankRecords()` helper from `window`; this was a test-only failure
+  and was corrected to verify the learner-visible bank selector instead.
+- Registry refactor passed Engineering Gate `34190814897` and full
+  Android+PWA/browser/package run `34190814843`.
+- Built a bounded Marrow Physiology pilot from verified ED8 JSONL Chapters 1–4:
+  80 questions / 4 topics (21, 21, 24, 14). IDs are globally namespaced
+  `marrow__PHYS_...`; structured source text/tables/figure metadata and
+  provenance are preserved.
+- Transport uses 11 compressed/base64 shards with manifest SHA-256 and strict
+  length/count/identity validation. Data was added atomically through Git
+  objects to avoid the earlier Anatomy oversized-write truncation failure.
+- The loader converts the existing Anatomy payload plus Physiology pilot into
+  `MARROW_DATA.records` before the generic registry stage. PrepLadder renderers
+  and all existing question engines remain unchanged.
+- The first extended data test exposed only backward compatibility with the
+  older Anatomy manifest, which lacks the newer optional raw/compressed byte
+  length fields. Validation now keeps those lengths optional for old manifests
+  while retaining mandatory cryptographic hashes.
+- Final candidate: Engineering Gate `34191865093` success; full Android+PWA
+  run `34191865094` success. Real browser verified Physiology → bank selector
+  → Marrow topic → first question → Structured text explanation → fixed FSRS
+  dock → PrepLadder 38-topic regression; Biochemistry remains PrepLadder-only.
+  Side-by-side APK packaging and feature-preview deployment passed; production
+  promotion was skipped.
+- Status: build/browser verified only. The user has not yet physically
+  spot-checked or accepted the new Physiology pilot.
+- Next: user checks the feature preview Physiology Marrow flow; if accepted,
+  continue with a bounded Biochemistry pilot through the same registry, then
+  expand remaining verified Marrow chapters in batches.

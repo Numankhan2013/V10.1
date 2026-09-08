@@ -14,16 +14,22 @@
 - Earlier product lineage: V11.5 `f13d12f` → V11.6 `125d68b`.
 - `main` (`8bc0be4`) is stale and must not be used as the V11 baseline.
 
-## Marrow bank pilot handoff — 2026-09-08
+## Marrow multi-bank handoff — 2026-09-08
 
-- User opened the Cloudflare feature preview and confirmed the new Marrow flow is working beautifully.
-- Final pilot commit lineage is on `feature/marrow-bank-pilot`; latest green verification: Engineering Gate `34159542431` and full Android+PWA run `34159542436`.
-- Live preview: `https://feature-marrow-bank-pilot.nk-qbank.pages.dev`; production promotion was intentionally skipped.
-- Anatomy now supports a bank/source selector: PrepLadder (existing 1,068 questions / 50 topics) and Marrow (62 questions / 4 topics) using the same Practice/CBT/Review/FSRS/sync/module architecture.
-- Marrow explanations are native structured text: **Key takeaway + Detailed explanation + Structured text**. PrepLadder keeps its existing PDF renderer. Do not rewrite Marrow wording during explanation polish; styling/typography/bolding/lists/tables only.
-- Three incomplete-list Anatomy source questions were resolved with provenance and no learner-facing manual-review flag: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`, `ANAT_CH04_Q013`.
-- Critical next-step architecture: the pilot currently has one Anatomy-specific `MARROW_RECORD`. Before adding Physiology/Biochemistry or scaling Anatomy, generalize to a subject-indexed/general bank registry; do **not** copy the special case per subject.
-- Canonical next-session procedure, schema, integrity rules, CI gates, and pilot lessons are in `docs/MARROW_BANK_INTEGRATION.md`.
+- Active candidate remains `feature/marrow-bank-pilot`; production PWA remains deliberately separate.
+- The user previously opened the Anatomy feature preview and confirmed that accepted Anatomy Marrow flow works beautifully.
+- The temporary Anatomy-only `MARROW_RECORD` has now been replaced by the shared subject-indexed registry: `MARROW_RECORDS` → `MARROW_BY_SUBJECT` → `BANKS_BY_SUBJECT`. No second question engine was introduced.
+- Registry-only refactor was fully build/browser verified before adding a second subject: Engineering Gate `34190814897`, full Android+PWA run `34190814843`.
+- Current bank state in the latest candidate:
+  - Anatomy → PrepLadder (1,068 / 50 topics) | Marrow (62 / 4 topics).
+  - Physiology → PrepLadder (899 / 38 topics) | Marrow pilot (80 / 4 topics; Chapters 1–4).
+  - Biochemistry → PrepLadder only.
+- Physiology pilot data is normalized from the verified MARROW ED8 JSONL output, uses stable namespaced `marrow__PHYS_...` IDs, and is transported as 11 compressed/base64 shards with fail-closed byte/count/SHA-256 validation.
+- Latest Physiology candidate verification: Engineering Gate `34191865093` success and full Android+PWA run `34191865094` success. The real browser test passed Physiology → bank selector → Marrow topic → question → Structured text explanation → fixed FSRS dock → PrepLadder regression; the side-by-side APK packaged and the feature preview deployed. Production promotion was skipped.
+- **Status discipline:** Anatomy preview behavior is user/device-verified; the new Physiology pilot is build/browser verified but is **not yet user/device-verified or accepted**.
+- Live feature preview: `https://feature-marrow-bank-pilot.nk-qbank.pages.dev`.
+- Immediate next product checkpoint: user spot-checks the Physiology Marrow preview. If it passes, continue the same registry with a bounded Biochemistry pilot and then expand remaining verified Marrow chapters without changing navigation/engines.
+- Canonical procedure, schema, integrity rules, CI gates, and pilot lessons are in `docs/MARROW_BANK_INTEGRATION.md`.
 
 ## Marrow explanation architecture — full Anatomy rollout 2026-09-08
 
@@ -48,9 +54,9 @@
   the fixed FSRS dock. Preview:
   `https://feature-marrow-bank-pilot.nk-qbank.pages.dev` (immutable
   `https://bae56103.nk-qbank.pages.dev`). Production promotion remains skipped.
-- Next product step after user spot-check: generalize the temporary Anatomy-only
-  `MARROW_RECORD` into a subject-indexed/general bank registry before adding
-  remaining Anatomy, Physiology, and Biochemistry Marrow banks.
+- The accepted Anatomy explanation grammar remains the reference presentation
+  contract. Physiology currently uses the shared native Marrow structured
+  explanation surface without changing the stored source wording.
 
 ## Verification and accepted baseline
 
@@ -107,8 +113,10 @@ baseline. Only explicit user physical-device approval promotes a candidate.
 
 ## Known problems / immediate next step
 
-- User confirmed Android synchronization succeeds on 2026-09-07. Stop the historical 403 investigation. Finish the pending PWA update UI/reliability improvements and Termux/CI verification; preserve accepted FSRS behavior.
-- Next: preserve the accepted FSRS behavior while completing the separate Android↔PWA synchronization verification. V11.6 remains the rollback checkpoint for unrelated V11.7 deployment work.
+- No current Marrow architecture blocker is known. The registry and 80-question Physiology pilot are fully build/browser verified.
+- The Physiology pilot still needs the user's physical preview spot-check before it can be labeled device-verified or accepted.
+- After that check, continue with a bounded Marrow Biochemistry pilot through the same registry; do not create another subject-specific bank implementation.
+- V11.6 `125d68b` remains the immutable accepted rollback checkpoint for unrelated platform work.
 
 ## V11.7 platform continuity
 

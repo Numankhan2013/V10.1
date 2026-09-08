@@ -24,6 +24,32 @@ Final verification at the current pilot milestone:
 - Side-by-side Android pilot APK — built and packaged successfully.
 - Feature-branch production promotion — intentionally skipped.
 
+## Current build-verified expansion candidate — 2026-09-08
+
+The Anatomy preview acceptance above remains the user/device-verified reference.
+A later candidate on the same feature branch has now generalized the bank
+architecture and added a bounded Marrow Physiology pilot.
+
+- Shared runtime registry: `MARROW_RECORDS` → `MARROW_BY_SUBJECT` →
+  `BANKS_BY_SUBJECT`.
+- Anatomy remains PrepLadder 1,068/50 + Marrow 62/4 with the accepted behavior unchanged.
+- Physiology now exposes PrepLadder 899/38 + Marrow Chapters 1–4, 80 questions/4 topics.
+- Biochemistry remains PrepLadder-only and is the one-source regression control.
+- Physiology transport: 11 hash-verified compressed/base64 shards plus
+  `physiology_pilot_manifest.json`; all 80 IDs are `marrow__PHYS_...` and
+  combined Anatomy+Physiology Marrow IDs are unique.
+- Registry refactor verification: Engineering Gate `34190814897`; full
+  Android/PWA/browser run `34190814843`.
+- Physiology candidate verification: Engineering Gate `34191865093`; full
+  Android/PWA/browser run `34191865094`.
+- Real browser coverage proves Physiology → PrepLadder | Marrow, Marrow topic
+  count/question count, native Structured text explanation, fixed FSRS dock,
+  return to all 38 PrepLadder Physiology topics, and no Biochemistry Marrow leak.
+- Side-by-side APK packaging and feature-preview deployment passed; production
+  promotion was intentionally skipped.
+- **This Physiology candidate is build/browser verified, not yet user/device
+  verified or accepted.**
+
 ## Product behavior that must be preserved
 
 The subject remains the top-level study domain. When a subject has more than one
@@ -134,28 +160,21 @@ The Marrow transform is deliberately late in the deterministic build chain,
 after the protected UI/sync/FSRS transforms and before final JavaScript,
 generated-product, CBT, PWA, browser, APK, and package verification.
 
-## Tomorrow: scaling beyond the pilot
+## Scaling beyond the current pilot
 
-**Do not clone the Anatomy-specific special case.**
+The Anatomy-specific registry special case is now retired. Do **not** reintroduce
+one-off bank records for Physiology, Biochemistry, or later subjects.
 
-Today’s pilot uses one Anatomy `MARROW_RECORD`. Before importing Physiology,
-Biochemistry, or the remaining Anatomy Marrow chapters, generalize this into a
-subject-indexed bank registry, e.g. conceptually:
-
-`MARROW_BY_SUBJECT[subject] → {subject, bank:'Marrow', topics, questions}`
-
-or a general bank registry capable of:
-
-`BANKS_BY_SUBJECT[subject] → [PrepLadder record, Marrow record, ...]`
-
-Then:
-- Anatomy can grow from the 62-question pilot to the complete Marrow Anatomy
-  dataset without changing navigation.
-- Physiology can expose `Physiology → PrepLadder | Marrow`.
-- Biochemistry can expose `Biochemistry → PrepLadder | Marrow`.
-- A subject with only PrepLadder may either enter directly or show a one-source
-  selector according to the existing product decision; do not introduce
-  inconsistent per-subject navigation accidentally.
+Current safe sequence:
+1. user spot-checks the build-verified 80-question Physiology preview;
+2. add a bounded Marrow Biochemistry pilot through the same registry and extend
+   the real-browser bank/source smoke test;
+3. expand remaining verified Anatomy/Physiology/Biochemistry Marrow chapters in
+   bounded manifest-verified batches;
+4. keep learner-visible behavior and the shared Practice/CBT/Review/FSRS/sync/
+   modules/analytics engines unchanged;
+5. keep feature previews isolated until the user physically verifies each major
+   cross-subject milestone; production promotion remains deliberate.
 
 Prefer one normalized Marrow schema across subjects:
 - stable namespaced question ID;
@@ -171,8 +190,6 @@ Prefer one normalized Marrow schema across subjects:
 - image/figure metadata;
 - provenance/source pages;
 - review/reconstruction provenance.
-
-Import in bounded batches and verify counts/topic mapping per source manifest.
 
 ## Regression gates required for every expansion
 
@@ -216,14 +233,13 @@ automatically. Production promotion remains deliberate.
 
 1. Read this runbook + canonical project memory.
 2. Resolve live branch/HEAD and inspect latest green CI.
-3. Generalize the single Anatomy Marrow record into a multi-subject bank
-   registry **without changing learner-visible behavior**.
-4. Run existing Anatomy pilot tests unchanged; they must stay green.
-5. Add remaining Anatomy / Physiology / Biochemistry Marrow bundles in bounded
-   batches using the same normalized schema and hash-verified sharding.
-6. Extend browser tests to each newly enabled subject.
-7. Build feature preview, inspect screenshots, then ask for/accept physical user
-   verification before any production promotion.
+3. Confirm the shared bank registry and existing Anatomy regression tests remain green.
+4. For a new subject, add a bounded manifest/hash-verified Marrow bundle to the
+   existing registry; never fork navigation or question engines.
+5. Extend the real-browser test to the new subject and back to its PrepLadder bank.
+6. Build side-by-side APK + feature preview and inspect generated/package contracts.
+7. Require user physical verification before calling the cross-subject UI milestone
+   accepted or before any production promotion.
 
 
 ## Approved Anatomy explanation architecture — full rollout 2026-09-08

@@ -26,13 +26,17 @@ Check off only when build-verified **and** device-verified where UI is involved.
       Cloudflare feature preview. Final runs: Engineering Gate
       `34159542431`, full Android+PWA `34159542436`. User physically checked
       the preview and reported it works beautifully.
-- [ ] Before adding another subject, generalize the temporary Anatomy-only
-      `MARROW_RECORD` into a subject-indexed/general bank registry while
-      keeping the accepted Anatomy pilot behavior unchanged.
+- [x] Generalize the temporary Anatomy-only `MARROW_RECORD` into the shared
+      subject-indexed `BANKS_BY_SUBJECT` registry while keeping Anatomy behavior
+      unchanged. Registry refactor passed Engineering Gate `34190814897` and
+      full browser/APK/PWA run `34190814843`.
 - [ ] Import remaining Marrow Anatomy chapters in bounded, manifest-verified
       batches using stable `marrow__...` IDs.
-- [ ] Import Marrow Physiology through the same bank registry and extend the
-      browser smoke test to `Physiology → PrepLadder | Marrow`.
+- [ ] Marrow Physiology through the shared registry: first bounded pilot is
+      implemented and build/browser verified (Chapters 1–4, 80 questions /
+      4 topics; Gate `34191865093`, full run `34191865094`). Await user
+      preview/device spot-check before marking this UI milestone complete; then
+      expand remaining verified Physiology chapters in bounded batches.
 - [ ] Import Marrow Biochemistry through the same bank registry and extend the
       browser smoke test to `Biochemistry → PrepLadder | Marrow`.
 - [x] Marrow Anatomy explanation architecture: user-approved typography,
