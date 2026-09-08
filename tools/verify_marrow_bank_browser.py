@@ -54,6 +54,31 @@ def main():
                 if marker not in bsupport: raise SystemExit(f'Marrow Biochemistry source-faithful explanation missing {marker}')
             if 'original pdf' in bsupport: raise SystemExit('Marrow Biochemistry incorrectly used Original PDF')
             page.screenshot(path=str(OUT/'00a-biochemistry-source-faithful-question.png'),full_page=True)
+
+            # Explanation-quality candidate regression: Chapter 1 Q23 is one of
+            # the deterministic 20-question Biochemistry sample entries and must
+            # use the exact approved 142-question presentation grammar.
+            page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Chemistry of Carbohydrates, Amino sugars and Mucopolysaccharides').click();page.wait_for_timeout(80)
+            page.locator('button.nk-library-row').nth(22).click();page.wait_for_timeout(80)
+            if 'crumpled' not in page.locator('.question-text').inner_text().lower():
+                raise SystemExit('Biochemistry gold-sample Q23 did not open')
+            page.locator('.option-list button').nth(1).click();page.wait_for_timeout(120)
+            bgold=page.locator('.nk-study-support').inner_text()
+            bgold_lc=bgold.lower()
+            for marker in ('key takeaway','detailed explanation','structured text','why the other options are wrong','glucocerebrosidase','crumpled tissue paper'):
+                if marker not in bgold_lc:
+                    raise SystemExit(f'Biochemistry gold-sample explanation missing {marker}: {bgold!r}')
+            if page.locator('.nk-gold-wrong-row').count()!=3:
+                raise SystemExit('Biochemistry gold-sample Q23 must render exactly three distractor rationales')
+            if not page.locator('.nk-fsrs-rating').is_visible():
+                raise SystemExit('FSRS recall dock missing in Biochemistry gold-sample question')
+            bfooter=page.locator('.nk-fsrs-rating').locator('xpath=ancestor::*[contains(@class,"nk-session-footer")]')
+            if bfooter.count()!=1 or page.evaluate("getComputedStyle(document.querySelector('.nk-session-footer')).position")!='fixed':
+                raise SystemExit('Biochemistry gold-sample work moved FSRS out of the fixed footer')
+            page.screenshot(path=str(OUT/'00aa-biochemistry-gold-sample-q23.png'),full_page=True)
+
             page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click();page.wait_for_timeout(100)
             if page.locator('button.nk-topic-row').count()<1: raise SystemExit('PrepLadder Biochemistry topics regressed')
@@ -282,5 +307,5 @@ def main():
             if errors: raise SystemExit('Browser errors: '+repr(errors))
             browser.close()
         server.shutdown()
-    print('MARROW_BROWSER_OK registry=subject-indexed anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115 enhanced_subset=142 rationales=426 phys_q2=clean phys_table=preserved anatomy_table=preserved fsrs_dock=fixed')
+    print('MARROW_BROWSER_OK registry=subject-indexed anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115 approved_reference=142 biochemistry_candidate=20 rendered_candidate=162 rationales=486 phys_q2=clean biochem_q23=gold phys_table=preserved anatomy_table=preserved fsrs_dock=fixed')
 if __name__=='__main__':main()
