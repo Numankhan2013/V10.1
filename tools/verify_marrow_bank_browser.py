@@ -16,6 +16,9 @@ def main():
         with sync_playwright() as p:
             browser=p.chromium.launch(headless=True)
             page=browser.new_page(viewport={'width':390,'height':844})
+            # The CI localhost origin is outside the production R2 CORS policy.
+            # Serve the identical committed Anatomy PDF for deterministic raster checks.
+            page.route('**/*.pdf*',lambda route: route.fulfill(path=str(ROOT/'app/src/main/assets/Anatomy_QBank_Source.pdf'),content_type='application/pdf',headers={'Access-Control-Allow-Origin':'*'}) if 'anatomy' in route.request.url.lower() and not route.request.url.startswith(f'http://127.0.0.1:{port}/') else route.continue_())
             errors=[];page.on('pageerror',lambda e: errors.append(str(e)))
             page.goto(f'http://127.0.0.1:{port}/index.html',wait_until='networkidle')
             # Biochemistry remains the one-source control while Physiology proves
@@ -191,6 +194,9 @@ def main():
             page.locator('.nk-fsrs-settings input').first.fill(value)
             assert page.evaluate("window.QB.getState().fsrsPreferences.desiredRetention") == before
             page.screenshot(path=str(OUT/'08-fsrs-customization.png'),full_page=True)
+            print('SETTINGS_SAVE_POSITION',page.locator('.nk-fsrs-settings-save').evaluate('(n)=>({position:getComputedStyle(n).position,rect:n.getBoundingClientRect().toJSON()})'),flush=True)
+            box=page.locator('.nk-fsrs-settings-save').bounding_box()
+            assert box and box['y']>=0 and box['y']+box['height']<768,box
             page.screenshot(path=str(OUT/'08a-fsrs-first-viewport.png'))
             page.evaluate("window.QB.nav('more')")
             page.get_by_role('button',name='Keep editing',exact=True).click()
@@ -220,9 +226,11 @@ def main():
                 page.locator('button.nk-topic-row').first.click();page.wait_for_timeout(100)
                 page.locator('button.nk-library-row').first.click();page.wait_for_timeout(100)
                 page.locator('.option-list button').first.click();page.wait_for_timeout(100)
+                print('PDF_CHECK',subject,flush=True)
                 segment=page.locator('.nk-web-pdf-segment').first
                 segment.scroll_into_view_if_needed()
-                page.wait_for_function("document.querySelector('.nk-web-pdf-segment')?.dataset.rendered==='true'",timeout=90000)
+                page.wait_for_function("['true','error'].includes(document.querySelector('.nk-web-pdf-segment')?.dataset.rendered)",timeout=90000)
+                assert segment.get_attribute('data-rendered')=='true',segment.inner_text()
                 metrics=segment.evaluate('(n)=>({width:n.clientWidth,pixels:n.querySelector(\'canvas\').width,height:n.querySelector(\'canvas\').height})')
                 assert metrics['pixels']>=metrics['width']*1.95,metrics
                 segment.screenshot(path=str(OUT/f'09-{subject}-pdf-inline.png'))
@@ -236,7 +244,8 @@ def main():
                 page.locator('#spz-close').click()
                 page.set_viewport_size({'width':1024,'height':768})
                 page.wait_for_timeout(1500)
-                page.wait_for_function("document.querySelector('.nk-web-pdf-segment')?.dataset.rendered==='true'",timeout=90000)
+                page.wait_for_function("['true','error'].includes(document.querySelector('.nk-web-pdf-segment')?.dataset.rendered)",timeout=90000)
+                assert segment.get_attribute('data-rendered')=='true',segment.inner_text()
                 assert segment.evaluate('(n)=>n.querySelector(\'canvas\').width')>metrics['pixels']
                 segment.screenshot(path=str(OUT/f'11-{subject}-pdf-tablet.png'))
                 page.set_viewport_size({'width':390,'height':844})
