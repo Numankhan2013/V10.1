@@ -14,8 +14,12 @@ and full Android+PWA run `34245190771`. The immediately prior full run
 `34244982211` failed only because its browser test still expected
 Biochemistry to be PrepLadder-only; the intended new Marrow Biochemistry bank
 made that assertion obsolete. The updated browser test passed all three banks.
-Automatic feature push deployment was intentionally skipped, so republish the
-exact expanded candidate to the feature preview before physical review.
+The exact expanded candidate was subsequently republished in full run
+`34246876973` / run 405, which passed and deployed only the isolated feature
+preview. Live alias: `https://feature-marrow-bank-pilot.nk-qbank.pages.dev`;
+immutable deployment: `https://2278b62b.nk-qbank.pages.dev`. Production
+promotion was skipped. The expanded candidate remains build/browser verified,
+not device-verified or accepted.
 
 Permanent lessons: keep Marrow as a data/source dimension, never a second study
 engine; use manifest/hash-verified shards rather than oversized writes; keep

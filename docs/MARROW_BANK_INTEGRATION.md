@@ -42,9 +42,14 @@ The current feature candidate has now ingested all JSONL supplied for this phase
 - Newly ingested explanations are deliberately source-faithful first. The
   approved enhanced explanation layer remains only on the existing 142-question
   subset until the later polish phase.
-- Final verification checkpoint `bc500234`:
+- Final integration checkpoint `bc500234`:
   Engineering Gate `34245190588` success; full Android+PWA
   `34245190771` success.
+- Exact physical-review publish: Engineering `34246876859` success; full
+  run `34246876973` / run 405 success.
+- Live feature alias: `https://feature-marrow-bank-pilot.nk-qbank.pages.dev`.
+  Immutable run-405 deployment: `https://2278b62b.nk-qbank.pages.dev`.
+  Production promotion was skipped.
 - Browser verification reports
   `anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115`,
   exercises all three Marrow bank selectors and returns to PrepLadder.

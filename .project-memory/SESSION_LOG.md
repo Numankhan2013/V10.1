@@ -468,3 +468,34 @@ Implemented approved recovery in existing transform owners: Topics separate path
   feature-preview-only publish for the user's physical visual review.
 - Status: expanded candidate is build/browser verified, not device-verified and
   not accepted. V11.6 `125d68b` remains the accepted rollback checkpoint.
+
+
+## 2026-09-08 — Publish exact 2,115-question Marrow feature preview
+
+- The final integration push run 403 was green but intentionally skipped
+  Cloudflare deployment on `feature/marrow-bank-pilot`; the existing alias was
+  therefore stale and was not handed to the user as the new candidate.
+- Temporarily opened **feature-preview deployment only** in
+  `.github/workflows/build-apk.yml`. Production promotion retained its explicit
+  `github.ref_name != 'feature/marrow-bank-pilot'` guard throughout.
+- First publish attempt (Engineering `34246776564`, build `34246776483`)
+  stopped at `verify_project_memory.py`. The new STATE text preserved the
+  accepted V11.6 baseline semantically but omitted the verifier's required
+  literal `Accepted product commit:` field, so README/STATE alignment failed.
+  Added `Accepted product commit: 125d68b`; no product code/data was changed.
+- Fresh Engineering Gate `34246876859` / run 195 passed.
+- Full publish run `34246876973` / run 405 passed end-to-end:
+  Marrow browser verification, APK build, packaged APK verification, packaged
+  product contract, reproducibility manifest, artifact upload, and Cloudflare
+  feature-preview deployment.
+- Published feature alias:
+  `https://feature-marrow-bank-pilot.nk-qbank.pages.dev`.
+  Immutable deployment:
+  `https://2278b62b.nk-qbank.pages.dev`.
+- Run 405 artifact `V11.7-android-pwa`: ID `10064442860`;
+  screenshot artifact ID `10064414099`.
+- Cloudflare **production promotion was skipped**. The temporary feature-push
+  preview exception was restored immediately afterward in a `[skip ci]`
+  handoff commit.
+- Status remains build/browser verified only. The user now owns the physical
+  PWA review and will decide the next phase from observed behavior.

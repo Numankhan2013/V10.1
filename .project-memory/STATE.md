@@ -64,9 +64,15 @@
   - Browser result: `anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115`.
   - Side-by-side Marrow APK built; packaged APK/product contracts passed.
   - Artifact `V11.7-android-pwa` ID `10063767953` uploaded successfully.
-- Automatic push deployment was intentionally skipped on the feature branch, so
-  the expanded candidate must be republished to the feature preview before
-  physical validation. Production promotion remains blocked.
+- The exact expanded candidate was republished through full run `34246876973`
+  / run 405 — **success**, including memory verification, Marrow browser gate,
+  side-by-side APK, packaged product contract, artifact upload, and Cloudflare
+  feature-preview deployment.
+- Live mutable feature alias: `https://feature-marrow-bank-pilot.nk-qbank.pages.dev`.
+  Immutable deployment for this publish: `https://2278b62b.nk-qbank.pages.dev`.
+- Run 405 artifact `V11.7-android-pwa`: ID `10064442860`.
+- Production promotion was **skipped**; `nk-qbank.pages.dev` production was not
+  changed by this Marrow preview publish.
 
 ## Navigation / taxonomy
 
@@ -94,13 +100,12 @@
 
 ## Next step
 
-1. Publish the exact current feature candidate to the isolated Cloudflare preview.
-2. User physically spot-checks subject → Marrow bank → topics → questions and
-   explanations across Anatomy, Biochemistry and Physiology.
-3. Record any visual/content defects without calling the candidate accepted.
-4. Only after the user's review, decide the next phase: explanation polish,
+1. User physically spot-checks the live feature preview across Anatomy,
+   Biochemistry and Physiology: bank selector → topics → questions → explanations.
+2. Record any visual/content defects without calling the candidate accepted.
+3. Only after the user's review, decide the next phase: explanation polish,
    figures/assets, further chapters, or targeted corrections.
-5. Keep V11.6 `125d68b` as the immutable accepted rollback checkpoint.
+4. Keep V11.6 `125d68b` as the immutable accepted rollback checkpoint.
 
 Canonical integration procedure and detailed failure lessons:
 `docs/MARROW_BANK_INTEGRATION.md`.
