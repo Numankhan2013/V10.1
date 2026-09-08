@@ -48,9 +48,12 @@ def main():
     if args.data_only:
         print('MARROW_DATA_OK questions=62 topics=4 repaired=3 enhanced=62 rationales=186');return
     s=HTML.read_text(encoding='utf-8')
-    required=['NK_MARROW_BANK_PILOT_V1_START','nk-marrow-bank-pilot-v1','function nkBankRecords(name)','function openBank(name,bank)','function bankPage(name)',"route.page==='banks'",'Detailed explanation','Structured text','function nkRenderMarrowExplanation(q)',"q.bank==='Marrow'",'qbank_active_bank_v1','marrow__ANAT_CH01_Q001','NK_MARROW_EXPLANATION_GOLD_V1','nk-marrow-explanation-gold-v1','Why the other options are wrong','function nkRenderMarrowExplanationBase(q)','function nkRenderGoldWrongOptions(q,cfg)','function nkGoldConciseText(text,q)','function nkGoldOverlap(a,b)']
+    required=['NK_MARROW_BANK_PILOT_V1_START','nk-marrow-bank-pilot-v1','const MARROW_RECORDS = Array.isArray(MARROW_DATA.records) ? MARROW_DATA.records : [MARROW_DATA]','const MARROW_BY_SUBJECT = Object.freeze','const BANKS_BY_SUBJECT = Object.create(null)','Object.values(BANKS_BY_SUBJECT).flatMap','function nkBankRecords(name)','function openBank(name,bank)','function bankPage(name)',"route.page==='banks'",'Detailed explanation','Structured text','function nkRenderMarrowExplanation(q)',"q.bank==='Marrow'",'qbank_active_bank_v1','marrow__ANAT_CH01_Q001','NK_MARROW_EXPLANATION_GOLD_V1','nk-marrow-explanation-gold-v1','Why the other options are wrong','function nkRenderMarrowExplanationBase(q)','function nkRenderGoldWrongOptions(q,cfg)','function nkGoldConciseText(text,q)','function nkGoldOverlap(a,b)']
     missing=[x for x in required if x not in s]
     assert not missing,missing
+    assert 'const MARROW_RECORD =' not in s
+    assert s.count('const BANKS_BY_SUBJECT = Object.create(null)')==1
+    assert s.count('const MARROW_BY_SUBJECT = Object.freeze')==1
     assert 'const nkFsrsAllQuestions=()=>SUBJECTS.flatMap' in s
     assert 'return SUBJECTS.flatMap(record=>' in s
     assert 'BY_ID[s.questionIds[s.index]]||nkFsrsAllById()[s.questionIds[s.index]]' in s
