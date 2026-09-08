@@ -21,6 +21,20 @@ def load_data(prefix):
     assert hashlib.sha256(raw).hexdigest()==m['raw_sha256']
     return json.loads(raw),m
 
+def load_expanded(prefix):
+    m=json.loads((DATA/f'{prefix}_manifest.json').read_text())
+    parts=sorted(DATA.glob(f'{prefix}.zlib.b64.part*'))
+    assert len(parts)==m['parts'],(prefix,len(parts),m['parts'])
+    b64=''.join(p.read_text().strip() for p in parts)
+    assert len(b64)==m['base64_chars']
+    comp=base64.b64decode(b64,validate=True)
+    assert len(comp)==m['compressed_bytes']
+    assert hashlib.sha256(comp).hexdigest()==m['compressed_sha256']
+    raw=zlib.decompress(comp)
+    assert len(raw)==m['raw_bytes']
+    assert hashlib.sha256(raw).hexdigest()==m['raw_sha256']
+    return json.loads(raw),m
+
 def load_phys_explanations():
     m=json.loads((DATA/'explanation_physio_pilot_manifest.json').read_text())
     parts=sorted(DATA.glob('explanation_physio_pilot.zlib.b64.part*'))
@@ -39,6 +53,9 @@ def main():
     ap=argparse.ArgumentParser();ap.add_argument('--data-only',action='store_true');args=ap.parse_args()
     d,anatomy_manifest=load_data('anatomy');qs=d['questions'];topics=d['topics']
     phys,phys_manifest=load_data('physiology');pqs=phys['questions'];ptopics=phys['topics']
+    full_anatomy,full_anatomy_manifest=load_expanded('anatomy_phase_a')
+    full_biochem,full_biochem_manifest=load_expanded('biochemistry_phase_a')
+    full_phys,full_phys_manifest=load_expanded('physiology_ch001_033')
     gold=json.loads((DATA/'explanation_gold_pilot.json').read_text(encoding='utf-8'))
     phys_gold,phys_gold_manifest=load_phys_explanations()
     assert len(qs)==62 and len(topics)==4
@@ -53,6 +70,31 @@ def main():
     assert len({q['id'] for q in pqs})==80 and all(q['id'].startswith('marrow__PHYS_') for q in pqs)
     assert all(len(q['options'])==4 and q['correctOption'] in (1,2,3,4) for q in pqs)
     assert len({q['id'] for q in qs+pqs})==142
+
+    # Expanded ingestion banks: source-faithful content first. The accepted pilot
+    # IDs remain subsets so their existing explanation augmentation still applies.
+    fa_q=full_anatomy['questions'];fa_t=full_anatomy['topics']
+    fb_q=full_biochem['questions'];fb_t=full_biochem['topics']
+    fp_q=full_phys['questions'];fp_t=full_phys['topics']
+    assert full_anatomy['subject']=='Anatomy' and full_anatomy['bank']=='Marrow'
+    assert full_biochem['subject']=='Biochemistry' and full_biochem['bank']=='Marrow'
+    assert full_phys['subject']=='Physiology' and full_phys['bank']=='Marrow'
+    assert full_anatomy_manifest['scope']=='phase_a_ch001_048' and len(fa_q)==819 and len(fa_t)==48
+    assert full_biochem_manifest['scope']=='phase_a_ch001_026' and len(fb_q)==543 and len(fb_t)==26
+    assert full_phys_manifest['scope']=='complete_ch001_033' and len(fp_q)==753 and len(fp_t)==33
+    assert [t['questionCount'] for t in fa_t[:4]]==[19,13,16,14]
+    assert [t['questionCount'] for t in fp_t[:4]]==[21,21,24,14]
+    assert set(q['id'] for q in qs).issubset({q['id'] for q in fa_q})
+    assert set(q['id'] for q in pqs).issubset({q['id'] for q in fp_q})
+    all_expanded=fa_q+fb_q+fp_q
+    assert len(all_expanded)==2115 and len({q['id'] for q in all_expanded})==2115
+    assert all(q['id'].startswith('marrow__') for q in all_expanded)
+    assert all(len(q['options'])==4 and q['correctOption'] in (1,2,3,4) and q['question'] for q in all_expanded)
+    full_repaired={q['sourceQuestionId']:q for q in fa_q if q.get('reviewStatus')=='resolved_reconstruction'}
+    assert set(full_repaired)=={'ANAT_CH02_Q010','ANAT_CH03_Q004','ANAT_CH04_Q013'}
+    assert '1. Cavitation' in full_repaired['ANAT_CH02_Q010']['question'] and '4. Cleavage' in full_repaired['ANAT_CH02_Q010']['question']
+    assert '3. Primitive pit (blastopore)' in full_repaired['ANAT_CH03_Q004']['question']
+    assert '1. Dichorionic diamniotic monozygotic twins' in full_repaired['ANAT_CH04_Q013']['question']
     repaired={q['sourceQuestionId']:q for q in qs if q.get('reviewStatus')=='resolved_reconstruction'}
     assert set(repaired)=={'ANAT_CH02_Q010','ANAT_CH03_Q004','ANAT_CH04_Q013'}
     assert '1. Cavitation' in repaired['ANAT_CH02_Q010']['question'] and '4. Cleavage' in repaired['ANAT_CH02_Q010']['question']
@@ -88,9 +130,9 @@ def main():
     assert set(gold_q).isdisjoint(phys_gold_q)
     assert len(gold_q)+len(phys_gold_q)==142
     if args.data_only:
-        print('MARROW_DATA_OK anatomy_questions=62 anatomy_topics=4 physiology_questions=80 physiology_topics=4 combined=142 repaired=3 enhanced=142 rationales=426');return
+        print('MARROW_DATA_OK anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115 pilot_enhanced=142 rationales=426 repaired=3');return
     s=HTML.read_text(encoding='utf-8')
-    required=['NK_MARROW_BANK_PILOT_V1_START','nk-marrow-bank-pilot-v1','const MARROW_RECORDS = Array.isArray(MARROW_DATA.records) ? MARROW_DATA.records : [MARROW_DATA]','const MARROW_BY_SUBJECT = Object.freeze','const BANKS_BY_SUBJECT = Object.create(null)','Object.values(BANKS_BY_SUBJECT).flatMap','function nkBankRecords(name)','function openBank(name,bank)','function bankPage(name)',"route.page==='banks'",'Detailed explanation','Structured text','function nkRenderMarrowExplanation(q)',"q.bank==='Marrow'",'qbank_active_bank_v1','marrow__ANAT_CH01_Q001','marrow__PHYS_CH01_Q001','NK_MARROW_EXPLANATION_GOLD_V1','nk-marrow-explanation-gold-v1','Why the other options are wrong','function nkRenderMarrowExplanationBase(q)','function nkRenderGoldWrongOptions(q,cfg)','function nkGoldConciseText(text,q)','function nkGoldOverlap(a,b)','displayText','homeostatic control system']
+    required=['NK_MARROW_BANK_PILOT_V1_START','nk-marrow-bank-pilot-v1','const MARROW_RECORDS = Array.isArray(MARROW_DATA.records) ? MARROW_DATA.records : [MARROW_DATA]','const MARROW_BY_SUBJECT = Object.freeze','const BANKS_BY_SUBJECT = Object.create(null)','Object.values(BANKS_BY_SUBJECT).flatMap','function nkBankRecords(name)','function openBank(name,bank)','function bankPage(name)',"route.page==='banks'",'Detailed explanation','Structured text','function nkRenderMarrowExplanation(q)',"q.bank==='Marrow'",'qbank_active_bank_v1','marrow__ANAT_CH01_Q001','marrow__ANAT_CH48_Q011','marrow__BIOCHEM_CH01_Q001','marrow__BIOCHEM_CH26_Q022','marrow__PHYS_CH01_Q001','marrow__PHYSIO_CH33_Q025','NK_MARROW_EXPLANATION_GOLD_V1','nk-marrow-explanation-gold-v1','Why the other options are wrong','function nkRenderMarrowExplanationBase(q)','function nkRenderGoldWrongOptions(q,cfg)','function nkGoldConciseText(text,q)','function nkGoldOverlap(a,b)','displayText','homeostatic control system']
     missing=[x for x in required if x not in s]
     assert not missing,missing
     assert 'const MARROW_RECORD =' not in s
@@ -113,5 +155,5 @@ def main():
             p=Path(td)/f'i{i}.js';p.write_text(src)
             subprocess.run(['node','--check',str(p)],check=True,stdout=subprocess.DEVNULL)
             checked+=1
-    print(f'MARROW_BANK_PILOT_TEST_OK anatomy=62/4 physiology=80/4 combined=142 enhanced=142 rationales=426 phys_clean=80 micro_concision=on fsrs_dock=preserved scripts={checked}')
+    print(f'MARROW_BANK_PILOT_TEST_OK anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115 enhanced_subset=142 rationales=426 phys_clean_subset=80 micro_concision=on fsrs_dock=preserved scripts={checked}')
 if __name__=='__main__':main()
