@@ -393,3 +393,5 @@ CI runs, what changed, verification, device status, next step.
 - Fixed Marrow gold-renderer installation guard: a symbol reference must not count as the installed declaration.
 - Added browser coverage for grouped Topics, native Back after completion, and FSRS explicit save plus reload persistence.
 - Deployment and build verification are pending the candidate CI run; no physical acceptance is implied.
+
+- Publishing outcome: `6ba7ebe` pushed to feature/marrow-bank-pilot; Engineering Gate 34203639427 and full build 34203639327 succeeded. Browser regressions and packaged APK checks passed. Cloudflare deployment https://7023d1b5.nk-qbank.pages.dev updates the feature alias. APK/PWA artifact 10046898472 is available. Live markup was independently fetched and verified.

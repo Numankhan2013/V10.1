@@ -4,7 +4,7 @@
 
 - Implemented approved Topics syllabus sections, numbered journey milestones, three progress states, and Continue Learning.
 - Practice/CBT Analysis now sits over Topics in history; FSRS customization now requires explicit Save changes.
-- Source checks pass; ordered generation, browser screenshots, packaged build, and physical verification remain pending.
+- Product commit `6ba7ebe`: Engineering Gate `34203639427` and full APK/PWA build `34203639327` passed. Feature PWA deployed at `https://7023d1b5.nk-qbank.pages.dev`; APK artifact `10046898472`. Physical verification remains pending.
 
 > Keep concise and current. History goes in `SESSION_LOG.md`, durable reasoning
 > in `DECISIONS.md`, and future work in `ROADMAP.md`.
