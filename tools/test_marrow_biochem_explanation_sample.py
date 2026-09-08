@@ -37,7 +37,8 @@ def main() -> None:
         source = source_questions[qid]
         assert str(cfg.get("takeaway", "")).strip()
         assert str(cfg.get("displayText", "")).strip()
-        assert cfg.get("emphasis")
+        assert 1 <= len(cfg.get("emphasis", [])) <= 4
+        assert 20 <= len(str(cfg.get("takeaway", "")).strip()) <= 300
         assert "sourceText" not in cfg
         options = source["options"]
         correct = int(source["correctOption"])
