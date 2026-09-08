@@ -529,3 +529,12 @@ Implemented approved recovery in existing transform owners: Topics separate path
   exact good feature lineage and understand why production/main PWA can lag.
 - No product implementation was requested in this session; documentation/memory
   only.
+## 2026-09-08 — Unified-main consolidation begins
+
+- Created `consolidation/main-unified` from the user-tested Marrow feature head.
+- Audited stale `main`: its unique temporary workflow commits cancel out; the
+  Review/WebView fixes are superseded or already present in the V11 lineage.
+- Replaced Marrow section-number heuristics with an explicit 107-topic taxonomy,
+  title assertions, canonical section order and complete-coverage tests.
+- Hardened deployment so production requires an explicit `main` dispatch and
+  exact full release SHA. No production deployment occurred.

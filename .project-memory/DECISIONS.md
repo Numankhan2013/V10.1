@@ -273,3 +273,16 @@ finished. Raw ED8 transcription remains immutable; OCR cleanup, Key Takeaway,
 selective emphasis, structured display and distractor rationales live in a
 separate auditable layer. Use the approved 142-question grammar as reference and
 follow `docs/MARROW_EXPLANATION_FINE_TUNING.md`.
+
+## 21. Consolidate before further Marrow expansion (2026-09-08)
+
+Use the tested Marrow feature line as the foundation for a restored authoritative
+`main`, then continue question ingestion through the same subject-indexed bank
+registry. Waiting for every future chapter would extend branch drift without
+reducing architectural risk. Audit and preserve stale-main history, but resolve
+conflicts in favor of the tested V11 feature implementation.
+
+The first unified production candidate includes the explicit Topics taxonomy.
+Production promotion is a separate release action requiring `main`, an explicit
+boolean request, and an exact full commit SHA. V11.6 `125d68b` remains the
+accepted rollback baseline until a later candidate is physically accepted.

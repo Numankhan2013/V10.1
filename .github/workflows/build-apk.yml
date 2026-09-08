@@ -2,8 +2,18 @@ name: Build V11.7 Android + PWA
 
 on:
   workflow_dispatch:
+    inputs:
+      promote_production:
+        description: Promote this verified main build to the production PWA
+        required: true
+        type: boolean
+        default: false
+      release_sha:
+        description: Exact full commit SHA required when promoting production
+        required: false
+        type: string
   push:
-    branches: [v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision, v11.5-custom-study-modules, v11.6-content-quality, v11.7-cross-device-pwa-sync, feature/marrow-bank-pilot]
+    branches: [main, 'consolidation/**', v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision, v11.5-custom-study-modules, v11.6-content-quality, v11.7-cross-device-pwa-sync, feature/marrow-bank-pilot]
 
 permissions:
   contents: read
@@ -17,6 +27,14 @@ jobs:
     steps:
       - name: Checkout V11 source visuals
         uses: actions/checkout@v5
+      - name: Validate explicit production release target
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.promote_production }}
+        env:
+          EXPECTED_RELEASE_SHA: ${{ inputs.release_sha }}
+        run: |
+          test "${{ github.ref_name }}" = "main"
+          test -n "$EXPECTED_RELEASE_SHA"
+          test "$EXPECTED_RELEASE_SHA" = "$GITHUB_SHA"
       - name: Set up Python for Linux PDF generation
         uses: actions/setup-python@v5
         with:
@@ -139,6 +157,8 @@ jobs:
         run: python3 tools/apply_marrow_bank_pilot.py
       - name: Verify isolated Marrow bank pilot
         run: python3 tools/test_marrow_bank_pilot.py
+      - name: Validate explicit Marrow topic taxonomy
+        run: python3 tools/test_marrow_topic_taxonomy.py
       - name: Verify final JavaScript syntax after all transformations
         run: |
           python3 - <<'PY'
@@ -263,12 +283,12 @@ jobs:
         with:
           gradle-version: '9.5.0'
       - name: Configure side-by-side Marrow pilot APK
-        if: ${{ github.ref_name == 'feature/marrow-bank-pilot' }}
+        if: ${{ startsWith(github.ref_name, 'feature/') || startsWith(github.ref_name, 'consolidation/') }}
         run: python3 tools/configure_marrow_pilot_android.py
       - name: Build debug APK
         run: gradle --no-daemon assembleDebug
       - name: Restore production Android source identity
-        if: ${{ github.ref_name == 'feature/marrow-bank-pilot' }}
+        if: ${{ startsWith(github.ref_name, 'feature/') || startsWith(github.ref_name, 'consolidation/') }}
         run: python3 tools/configure_marrow_pilot_android.py --restore
       - name: Verify packaged APK
         run: |
@@ -361,7 +381,7 @@ jobs:
       # Direct Upload: omitting --branch targets the configured production
       # environment. Automatic pushes stay previews; manual dispatch promotes.
       - name: Promote PWA to Cloudflare Pages production
-        if: ${{ github.event_name == 'workflow_dispatch' && github.ref_name != 'feature/marrow-bank-pilot' && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}
+        if: ${{ github.event_name == 'workflow_dispatch' && github.ref_name == 'main' && inputs.promote_production && inputs.release_sha == github.sha && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

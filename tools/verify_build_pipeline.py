@@ -84,5 +84,18 @@ if text.find("Verify packaged APK") < text.find("Build debug APK"):
     raise SystemExit("Packaged verification must run after the APK build")
 if "v11.1-engineering-foundation" not in text:
     raise SystemExit("Engineering branch is not protected by the build workflow")
+for marker in (
+    "branches: [main, 'consolidation/**'",
+    "promote_production:",
+    "release_sha:",
+    'github.ref_name == \'main\'',
+    "inputs.promote_production",
+    "inputs.release_sha == github.sha",
+    'test "$EXPECTED_RELEASE_SHA" = "$GITHUB_SHA"',
+):
+    if marker not in text:
+        raise SystemExit(f"Explicit production release guard missing: {marker}")
+if "github.event_name == 'workflow_dispatch' && github.ref_name != 'feature/marrow-bank-pilot'" in text:
+    raise SystemExit("Branch-name-only production promotion guard must not return")
 
 print(f"BUILD_PIPELINE_OK python_steps={len(commands)} protected_order={len(required_order)}")

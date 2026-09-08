@@ -1,5 +1,7 @@
 # Latest feature-PWA validation and next-work handoff — 2026-09-08
 
+Accepted rollback baseline: V11.6 `125d68b`.
+
 The user physically opened the Marrow feature PWA and confirmed: **Marrow question
 integration is successful; the recovered Topics journey/fixed Continue Learning
 tray is good; the dedicated FSRS customization page/buttons are good.**
@@ -743,4 +745,3 @@ memory, and current HEAD must be resolved rather than hardcoded. Run
 - Canonical schema, explanation contract, procedure, failure lessons and
   regression checklist: `docs/MARROW_BANK_INTEGRATION.md`. Canonical live
   handoff remains `.project-memory/STATE.md`.
-

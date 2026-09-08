@@ -120,33 +120,8 @@ TOPICS = r'''function nkTopicSection(chapter) {
     const n=Number((String(chapter?.id||'').match(/(\d+)$/)||[])[1]||0),subject=String(activeSubject||'').toLowerCase();
     const sections=__TOPIC_SECTIONS__;
     if(typeof activeBank!=='undefined'&&activeBank==='Marrow'){
-      if(subject.includes('anatomy')){
-        if(n<=10)return 'General Embryology';
-        if(n<=16)return 'Histology';
-        if(n<=27)return 'Neuroanatomy';
-        if(n<=34)return 'Head & Neck';
-        if(n<=40)return 'Upper Limb';
-        if(n<=46)return 'Thorax';
-        return 'Abdomen';
-      }
-      if(subject.includes('physiology')){
-        if(n<=5)return 'General Physiology';
-        if(n<=10)return 'Nerve & Muscle';
-        if(n<=18)return 'Neurophysiology';
-        if(n<=25)return 'Respiratory Physiology';
-        if(n<=30)return 'Cardiovascular Physiology';
-        return 'Gastrointestinal Physiology';
-      }
-      if(subject.includes('biochemistry')){
-        if(n<=6)return 'Carbohydrates & Bioenergetics';
-        if(n<=11)return 'Amino Acids & Proteins';
-        if(n<=16)return 'Lipid Metabolism';
-        if(n===17)return 'Heme Metabolism';
-        if(n<=19)return 'Enzymes';
-        if(n<=23)return 'Vitamins & Minerals';
-        return 'Molecular Biology & Genetics';
-      }
-      return 'Marrow';
+      const config=__MARROW_TOPIC_TAXONOMY__,key=subject.includes('anatomy')?'Anatomy':subject.includes('physiology')?'Physiology':'Biochemistry';
+      return config[key]?.topics?.[String(chapter?.id||'')]?.section||'Needs classification review';
     }
     const key=subject.includes('anatomy')?'anatomy':subject.includes('physiology')?'physiology':'biochemistry';
     return sections[key]?.[String(n)]||'Other topics';
@@ -154,7 +129,16 @@ TOPICS = r'''function nkTopicSection(chapter) {
   function topics() {
     const term=searchTerm.trim().toLowerCase(),all=CHAPTERS.filter(c=>!term||c.title.toLowerCase().includes(term)||chapterQuestions(c.id).some(q=>q.question.toLowerCase().includes(term)));
     const chapters=all.filter(c=>{const x=chapterStats(c.id);return topicFilter==='completed'?x.total&&x.attempted===x.total:topicFilter==='unattempted'?x.attempted===0:topicFilter==='inprogress'?x.attempted>0&&x.attempted<x.total:true;});
-    const groups=[];chapters.forEach(c=>{const title=nkTopicSection(c),last=groups.at(-1);last&&last.title===title?last.items.push(c):groups.push({title,items:[c]});});
+    let groups=[];
+    if(typeof activeBank!=='undefined'&&activeBank==='Marrow'){
+      const taxonomy=__MARROW_TOPIC_TAXONOMY__,config=taxonomy[activeSubject],bySection=new Map();
+      chapters.forEach(c=>{const title=nkTopicSection(c);if(!bySection.has(title))bySection.set(title,[]);bySection.get(title).push(c);});
+      const order=[...(config?.sectionOrder||[]),'Needs classification review'];
+      groups=order.filter(title=>bySection.has(title)).map(title=>({title,items:bySection.get(title)}));
+      bySection.forEach((items,title)=>{if(!order.includes(title))groups.push({title,items});});
+    }else{
+      chapters.forEach(c=>{const title=nkTopicSection(c),last=groups.at(-1);last&&last.title===title?last.items.push(c):groups.push({title,items:[c]});});
+    }
     const candidate=state.activeSession?.mode==='practice'&&state.activeSession.questionIds?.length?BY_ID[state.activeSession.questionIds[state.activeSession.index||0]]:null,active=candidate&&chapterQuestions(candidate.chapterId).some(q=>q.id===candidate.id)?candidate:null,resume=active?CHAPTER_BY_ID[String(active.chapterId)]:CHAPTERS.find(c=>{const x=chapterStats(c.id);return x.attempted>0&&x.attempted<x.total;})||CHAPTERS.find(c=>chapterStats(c.id).attempted<chapterStats(c.id).total)||CHAPTERS[0];
     const matches=term?QUESTIONS.filter(q=>chapters.some(c=>String(c.id)===String(q.chapterId))&&q.question.toLowerCase().includes(term)).slice(0,30):[];
     const cards=groups.map(g=>`<section class="nk-topic-group"><h2>${esc(g.title)}</h2><div class="nk-topic-list">${g.items.map(c=>{const x=chapterStats(c.id),pct=x.total?Math.round(x.attempted/x.total*100):0,status=x.total&&x.attempted===x.total?'completed':x.attempted?'inprogress':'notstarted',serial=CHAPTERS.findIndex(v=>String(v.id)===String(c.id))+1;return `<button class="nk-topic-row is-${status}" onclick="window.QB.openChapter('${c.id}')"><svg class="nk-topic-path" viewBox="0 0 60 120" preserveAspectRatio="none" aria-hidden="true"><path d="M30 0 C60 30 0 30 30 60 S60 90 30 120"/></svg><span class="nk-topic-index">${serial}</span><span class="nk-topic-copy"><strong>${esc(c.title.replace(/^Lesson\s+\d+\s*-\s*/i,''))}</strong><small>${status==='completed'?`${fmtPct(x.accuracy)} accuracy`:status==='inprogress'?`${fmtNum(x.total-x.attempted)} questions left`:`${fmtNum(x.total)} questions`}</small></span>${status==='completed'?`<span class="nk-topic-state complete" aria-label="Completed">${navIcon('check',17)}</span>`:status==='inprogress'?`<span class="nk-topic-state progress" aria-label="In progress">${navIcon('pause',17)}</span>`:''}</button>`}).join('')}</div></section>`).join('');
@@ -449,12 +433,17 @@ def transform(source: str) -> str:
     source = re.sub(rf'<style id="{STYLE_ID}">.*?</style>\s*', '', source, flags=re.S)
     source=source.replace("state.tests.push(test);state.tests=state.tests.slice(-100);", "test.originRoute=s.originRoute;state.tests.push(test);state.tests=state.tests.slice(-100);",1)
     source=replace_function(source,"setSearch", "function setSearch(v){searchTerm=v;render();const input=document.querySelector('.nk-search input');if(input){input.closest('label').classList.add('is-searching');input.focus();input.setSelectionRange(v.length,v.length);}}")
+    root=Path(__file__).resolve().parents[1]
+    prepladder_sections=json.loads(root.joinpath("data/topic_sections.json").read_text())["sections"]
+    taxonomy=json.loads(root.joinpath("data/marrow/topic_index_taxonomy.json").read_text())["subjects"]
+    runtime_taxonomy={subject:{"sectionOrder":cfg["sectionOrder"],"topics":{str(topic["id"]):topic for topic in cfg["topics"]}} for subject,cfg in taxonomy.items()}
+    topics=TOPICS.replace("__TOPIC_SECTIONS__",json.dumps(prepladder_sections,separators=(",",":"))).replace("__MARROW_TOPIC_TAXONOMY__",json.dumps(runtime_taxonomy,separators=(",",":")))
     replacements = [
         ("header", HEADER),
         ("bottomNav", BOTTOM_NAV),
         ("dashboard", FOUNDATION_AND_DASHBOARD),
         ("testRow", TEST_ROW),
-        ("topics", TOPICS.replace("__TOPIC_SECTIONS__", json.dumps(json.loads(Path(__file__).resolve().parents[1].joinpath("data/topic_sections.json").read_text())["sections"]))),
+        ("topics", topics),
         ("analytics", ANALYTICS),
         ("testsPage", TESTS),
         ("morePage", MORE),

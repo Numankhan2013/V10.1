@@ -3,7 +3,7 @@ name: NK QBank Engineering Gate
 on:
   workflow_dispatch:
   push:
-    branches: [v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision, v11.5-custom-study-modules, v11.6-content-quality, v11.7-cross-device-pwa-sync, feature/marrow-bank-pilot]
+    branches: [main, 'consolidation/**', v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision, v11.5-custom-study-modules, v11.6-content-quality, v11.7-cross-device-pwa-sync, feature/marrow-bank-pilot]
   pull_request:
 
 permissions:
@@ -35,6 +35,8 @@ jobs:
         run: python3 tools/test_fsrs_v1.py
       - name: Validate Marrow pilot source bundle
         run: python3 tools/test_marrow_bank_pilot.py --data-only
+      - name: Validate explicit Marrow topic taxonomy
+        run: python3 tools/test_marrow_topic_taxonomy.py
       - name: Test question content hygiene behavior
         run: python3 tools/test_question_content_hygiene_v1.py
       - name: Verify source product contract

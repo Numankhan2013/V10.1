@@ -6,7 +6,9 @@
 ## Repo / branch
 
 - Repo: `Numankhan2013/V10.1` (private).
-- Active candidate branch: `feature/marrow-bank-pilot`.
+- Active implementation branch: `consolidation/main-unified`, created from the
+  verified `feature/marrow-bank-pilot` head. It is the candidate for restoring
+  Git `main` as the authoritative product line; production is unchanged.
 - Resolve live branch/HEAD with Git; never hardcode a self-staling current-HEAD field here.
 - Accepted product baseline remains **V11.6 Content Quality** at `125d68b`,
   canonical APK run `34050921180`. Do not promote the Marrow candidate without
@@ -120,15 +122,20 @@
 
 ## Next step
 
-1. **No implementation in this handoff commit.**
-2. Next Topics implementation: correct only the source index taxonomy using
-   `docs/MARROW_TOPIC_INDEX_TAXONOMY.md`; preserve the user-approved journey and
-   FSRS customization exactly.
-3. Next explanation phase, when explicitly started: follow
+1. Complete local and CI verification of the consolidation/taxonomy candidate.
+2. The explicit 107-topic Marrow taxonomy is implemented in
+   `data/marrow/topic_index_taxonomy.json`; four cross-system Anatomy topics
+   retain visible internal review status while using a provisional Systemic
+   Embryology placement. The approved Topics visuals are unchanged.
+3. Merge the seven-commit stale-main history only after auditing conflicts; the
+   relevant V10 fixes are already superseded or present in the feature lineage.
+4. Next explanation phase: follow
    `docs/MARROW_EXPLANATION_FINE_TUNING.md` and scale the approved 142-question
    grammar source-faithfully across the remaining Marrow questions.
-4. Remaining Marrow chapters/questions and figure binaries are separate later work.
-5. Keep V11.6 `125d68b` as the immutable accepted rollback checkpoint.
+5. Production promotion now requires an explicit `main` workflow dispatch plus
+   the exact full release SHA. Do not promote until the candidate artifact is
+   reviewed and the user explicitly approves it.
+6. Keep V11.6 `125d68b` as the immutable accepted rollback checkpoint.
 
 Canonical integration procedure and detailed failure lessons:
 `docs/MARROW_BANK_INTEGRATION.md`.

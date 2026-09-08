@@ -39,9 +39,10 @@ Check off only when build-verified **and** device-verified where UI is involved.
       Marrow question integration succeeds and the recovered Topics/FSRS
       customization surfaces are good. This is not blanket acceptance of all
       content or production promotion.
-- [ ] Correct Topics **major-index taxonomy only** using
-      `docs/MARROW_TOPIC_INDEX_TAXONOMY.md`; preserve the approved journey,
-      glow, filters, Topic Index, and fixed Continue Learning tray.
+- [ ] Build- and device-verify the implemented explicit Topics taxonomy from
+      `data/marrow/topic_index_taxonomy.json`; source order, canonical section
+      order and 107-topic coverage are locally verified. Approved journey UI is
+      unchanged; four cross-system Anatomy placements remain reviewable.
 - [ ] Explanation fine-tuning for the newly added questions using
       `docs/MARROW_EXPLANATION_FINE_TUNING.md`. Keep raw source immutable and
       scale the approved 142-question grammar through a separate augmentation layer.

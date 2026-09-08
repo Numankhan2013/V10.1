@@ -107,7 +107,8 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
 ## Workflows and gates
 
 - `.github/workflows/build-apk.yml` — full deterministic Android APK + PWA
-  artifact build, with optional Cloudflare Pages deployment when authorized.
+  artifact build. Production promotion requires an explicit dispatch from
+  `main` and an exact full-SHA match; branch-name defaults cannot promote it.
 - `.github/workflows/engineering-gate.yml` — fast gate: `compileall`,
   study-metrics, source contract, pipeline order. Must stay green.
 - Many historical `v10*` workflows remain; ignore unless diagnosing old runs.
@@ -158,9 +159,10 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   142-question subset until a later explanation phase.
 - Three resolved Anatomy reconstructions remain deterministic and provenance-marked:
   `ANAT_CH02_Q010`, `ANAT_CH03_Q004`, `ANAT_CH04_Q013`.
-- Marrow topics use subject-aware major-section taxonomy. The previous pilot
-  shortcut that grouped every non-Physiology Marrow topic as General Embryology
-  is retired.
+- Marrow topics use `data/marrow/topic_index_taxonomy.json`, an explicit mapping
+  keyed by subject and stable topic ID with title assertions and canonical
+  section order. The renderer does not infer Marrow sections from number ranges.
+  Four cross-system Anatomy entries remain internally marked for review.
 - Data commits use small shards / Git blobs rather than monolithic connector writes;
   an earlier pilot proved oversized writes can truncate. Temporary staging bridges
   are transport-only and are never runtime dependencies or sources of truth.
