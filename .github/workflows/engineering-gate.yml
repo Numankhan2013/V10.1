@@ -1,0 +1,45 @@
+name: NK QBank Engineering Gate
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, 'consolidation/**', v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision, v11.5-custom-study-modules, v11.6-content-quality, v11.7-cross-device-pwa-sync, feature/marrow-bank-pilot]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@v5
+      - name: Set up Node 20
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      - name: Verify project memory
+        run: python3 tools/verify_project_memory.py
+      - name: Test local and CI verification preflight
+        run: python3 tools/test_verification_preflight.py
+      - name: Compile Python tooling
+        run: python3 -m compileall -q tools
+      - name: Test study metrics behavior
+        run: python3 tools/test_study_metrics.py
+      - name: Test Custom Study Modules behavior
+        run: python3 tools/test_custom_study_modules_v1.py
+      - name: Test cross-device merge and PWA contracts
+        run: python3 tools/test_cross_device_sync_v1.py
+      - name: Test FSRS scheduler and queue contracts
+        run: python3 tools/test_fsrs_v1.py
+      - name: Validate Marrow pilot source bundle
+        run: python3 tools/test_marrow_bank_pilot.py --data-only
+      - name: Validate explicit Marrow topic taxonomy
+        run: python3 tools/test_marrow_topic_taxonomy.py
+      - name: Test question content hygiene behavior
+        run: python3 tools/test_question_content_hygiene_v1.py
+      - name: Verify source product contract
+        run: python3 tools/verify_product_contract.py --stage source
+      - name: Verify deterministic build pipeline
+        run: python3 tools/verify_build_pipeline.py

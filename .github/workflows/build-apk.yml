@@ -1,7 +1,19 @@
-name: Build V10.1 APK
+name: Build V11.7 Android + PWA
 
 on:
   workflow_dispatch:
+    inputs:
+      promote_production:
+        description: Promote this verified main build to the production PWA
+        required: true
+        type: boolean
+        default: false
+      release_sha:
+        description: Exact full commit SHA required when promoting production
+        required: false
+        type: string
+  push:
+    branches: [main, 'consolidation/**', v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision, v11.5-custom-study-modules, v11.6-content-quality, v11.7-cross-device-pwa-sync, feature/marrow-bank-pilot]
 
 permissions:
   contents: read
@@ -9,27 +21,372 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     steps:
-      - name: Checkout V10.1
+      - name: Checkout V11 source visuals
         uses: actions/checkout@v5
-
+      - name: Validate explicit production release target
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.promote_production }}
+        env:
+          EXPECTED_RELEASE_SHA: ${{ inputs.release_sha }}
+        run: |
+          test "${{ github.ref_name }}" = "main"
+          test -n "$EXPECTED_RELEASE_SHA"
+          test "$EXPECTED_RELEASE_SHA" = "$GITHUB_SHA"
+      - name: Set up Python for Linux PDF generation
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Set up Node for behavior and JavaScript checks
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      - name: Test local and CI verification preflight
+        run: python3 tools/test_verification_preflight.py
+      - name: Write public runtime configuration
+        env:
+          QBANK_FIREBASE_API_KEY: ${{ vars.QBANK_FIREBASE_API_KEY }}
+          QBANK_FIREBASE_PROJECT_ID: ${{ vars.QBANK_FIREBASE_PROJECT_ID }}
+          QBANK_ANATOMY_PDF_URL: ${{ vars.QBANK_ANATOMY_PDF_URL }}
+        run: python3 tools/write_runtime_config.py
+      - name: Verify project memory
+        run: python3 tools/verify_project_memory.py
+      - name: Test study metrics behavior
+        run: python3 tools/test_study_metrics.py
+      - name: Verify source product contract
+        run: python3 tools/verify_product_contract.py --stage source
+      - name: Verify deterministic build pipeline
+        run: python3 tools/verify_build_pipeline.py
+      - name: Apply deterministic Review Solutions fix
+        run: python3 tools/fix_review_build.py
+      - name: Harden Review Solutions renderer
+        run: python3 tools/harden_review_renderer.py
+      - name: Fix Physiology WebView boot export
+        run: python3 tools/fix_phys_webview_boot.py
+      - name: Install original source-PDF explanation renderer
+        run: python3 tools/enable_both_pdf_renderers.py
+      - name: Install PDF mapping dependency
+        run: python3 -m pip install --disable-pip-version-check PyMuPDF Pillow
+      - name: Require Linux PDF dependencies (never skip in CI)
+        run: python3 tools/verification_preflight.py --require-pdf
+      - name: Build exact Biochemistry solution map
+        run: python3 tools/build_biochem_solution_map.py
+      - name: Repair source solution renderer
+        run: python3 tools/repair_source_solution_renderer.py
+      - name: Final source-PDF and CBT hardening
+        run: python3 tools/final_hardening.py
+      - name: Generate source visual metadata and lossless figure assets
+        run: python3 tools/build_source_visual_metadata.py
+      - name: Improve source figures without inventing detail
+        run: python3 tools/improve_source_visual_assets_v1.py
+      - name: Install source visual renderer
+        run: python3 tools/install_source_visual_renderer.py
+      - name: Verify source visual contract
+        run: python3 tools/verify_source_visual_contract.py
+      - name: Apply legacy CBT UI cleanup
+        run: python3 tools/cbt_final_lock.py
+      - name: Install canonical CBT Review renderer
+        run: python3 tools/cbt_canonical.py
+      - name: Apply compact Question UI v2
+        run: python3 tools/apply_question_ui_v2.py
+      - name: Apply Practice Analysis v1
+        run: python3 tools/apply_practice_analysis_v1.py
+      - name: Apply V10.3.7 UI polish
+        run: python3 tools/apply_ui_polish_v1.py
+      - name: Apply V10.3.7 UI polish refinement
+        run: python3 tools/apply_ui_polish_v2.py
+      - name: Apply V10.3.8 Home and Insights polish
+        run: python3 tools/apply_home_insights_polish_v1.py
+      - name: Apply V10.3.9 option feedback polish
+        run: python3 tools/apply_option_feedback_polish_v1.py
+      - name: Apply V10.3.10 focused Practice cleanup
+        run: python3 tools/apply_practice_cleanup_v1.py
+      - name: Apply V10.3.11 option-hole and completion cleanup
+        run: python3 tools/apply_option_hole_cleanup_v1.py
+      - name: Build Home V4 composition directly into app
+        run: python3 tools/apply_home_visual_redesign_v4.py
+      - name: Apply Home V5 functional fixes
+        run: python3 tools/apply_home_v5_fixes.py
+      - name: Remove legacy global streak injector
+        run: python3 tools/remove_legacy_streak_layer.py
+      - name: Add Home streak and remove Home-only QBank header
+        run: python3 tools/apply_home_streak_and_header_v1.py
+      - name: Apply Home three-action hierarchy
+        run: python3 tools/apply_home_actions_v1.py
+      - name: Apply CBT end-of-session review and toast fix
+        run: python3 tools/apply_cbt_boundary_and_toast_fix_v1.py
+      - name: Harden CBT review navigation footer
+        run: python3 tools/harden_cbt_review_footer_v1.py
+      - name: Add question grid to Review Solutions
+        run: python3 tools/add_review_solution_grid.py
+      - name: Apply approved V11.3 question experience
+        run: python3 tools/apply_question_experience_v1.py
+      - name: Test approved V11.3 question experience
+        run: python3 tools/test_question_experience_v1.py
+      - name: Apply V11.3.1 shared session experience fixes
+        run: python3 tools/apply_session_experience_v2.py
+      - name: Test V11.3.1 shared session experience
+        run: python3 tools/test_session_experience_v2.py
+      - name: Apply V11.4 whole-app visual system
+        run: python3 tools/apply_whole_app_vision_v1.py
+      - name: Test V11.4 whole-app visual system
+        run: python3 tools/test_whole_app_vision_v1.py
+      - name: Apply Custom Study Modules
+        run: python3 tools/apply_custom_study_modules_v1.py
+      - name: Test Custom Study Modules
+        run: python3 tools/test_custom_study_modules_v1.py
+      - name: Apply question content hygiene
+        run: python3 tools/apply_question_content_hygiene_v1.py
+      - name: Test question content hygiene
+        run: python3 tools/test_question_content_hygiene_v1.py
+      - name: Install secure Android asset origin and migrate existing local data
+        run: python3 tools/apply_android_secure_origin_v1.py
+      - name: Apply cross-device sync and responsive PWA layer
+        run: python3 tools/apply_cross_device_pwa_v1.py
+      - name: Test cross-device merge and PWA contracts
+        run: python3 tools/test_cross_device_sync_v1.py
+      - name: Apply FSRS smart review scheduler
+        run: python3 tools/apply_fsrs_v1.py
+      - name: Test FSRS scheduler and queue contracts
+        run: python3 tools/test_fsrs_v1.py
+      - name: Repair WebView boot-blocking JavaScript after protected transformations
+        run: python3 tools/fix_boot_syntax.py
+      - name: Install isolated Marrow bank pilot
+        run: python3 tools/apply_marrow_bank_pilot.py
+      - name: Verify isolated Marrow bank pilot
+        run: python3 tools/test_marrow_bank_pilot.py
+      - name: Validate explicit Marrow topic taxonomy
+        run: python3 tools/test_marrow_topic_taxonomy.py
+      - name: Verify final JavaScript syntax after all transformations
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, subprocess, tempfile
+          s=Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
+          scripts=re.findall(r'<script(?:[^>]*)>(.*?)</script>', s, re.S|re.I)
+          with tempfile.TemporaryDirectory() as td:
+              checked=0
+              for i,src in enumerate(scripts):
+                  if not src.strip(): continue
+                  f=Path(td)/f'inline_{i}.js'
+                  f.write_text(src,encoding='utf-8')
+                  subprocess.run(['node','--check',str(f)],check=True)
+                  checked+=1
+          print(f'INLINE_JS_SYNTAX_OK={checked}')
+          PY
+      - name: Verify generated product contract
+        run: python3 tools/verify_product_contract.py --stage generated
+      - name: Enforce CBT regression guardrails
+        run: python3 tools/verify_cbt_invariants.py
+      - name: Verify final generated app
+        run: |
+          grep -q 'SOURCE_PDF_EXPLANATION_V18' app/src/main/assets/index.html
+          grep -q 'BIOCHEM_SOURCE_SOLUTIONS' app/src/main/assets/index.html
+          grep -q 'SUBJECT_SOURCE_SOLUTIONS' app/src/main/assets/index.html
+          grep -q 'anatomy-' app/src/main/assets/index.html
+          grep -q 'qbank.local/anatomy/pdf' app/src/main/java/com/qbank/biochemistry/MainActivity.java
+          grep -q 'qbank-question-ui-v2' app/src/main/assets/index.html
+          grep -q 'qbank-practice-analysis-v1' app/src/main/assets/index.html
+          grep -q 'qbank-ui-polish-v1' app/src/main/assets/index.html
+          grep -q 'qbank-ui-polish-v2' app/src/main/assets/index.html
+          grep -q 'qbank-home-insights-polish-v1' app/src/main/assets/index.html
+          grep -q 'qbank-option-feedback-polish-v1' app/src/main/assets/index.html
+          grep -q 'qbank-practice-cleanup-v1' app/src/main/assets/index.html
+          grep -q 'qbank-option-hole-cleanup-v1' app/src/main/assets/index.html
+          grep -q 'nk-home-v4' app/src/main/assets/index.html
+          grep -q 'nk-home-v4-style' app/src/main/assets/index.html
+          grep -q 'NK_HOME_V5_FIXES' app/src/main/assets/index.html
+          grep -q 'nk-topics-v2' app/src/main/assets/index.html
+          grep -q 'openSubjectTopics' app/src/main/assets/index.html
+          grep -q 'resetScrollPosition' app/src/main/assets/index.html
+          grep -q 'requestAnimationFrame(() => window.scrollTo(0,0)' app/src/main/assets/index.html
+          grep -q 'nk-home-streak-header-v1' app/src/main/assets/index.html
+          grep -q 'nk-home-streak' app/src/main/assets/index.html
+          grep -q 'currentStreak()' app/src/main/assets/index.html
+          grep -q 'body:has(.nk-home-v4) .topbar' app/src/main/assets/index.html
+          grep -q 'nk-home-actions-v1' app/src/main/assets/index.html
+          grep -q 'Continue Practice' app/src/main/assets/index.html
+          grep -q 'Practice 20 Random Questions' app/src/main/assets/index.html
+          ! grep -q 'id="v102-streak-layer-script"' app/src/main/assets/index.html
+          ! grep -q 'id="v102-streak-layer"' app/src/main/assets/index.html
+          ! grep -q 'home_polish_v3.js' app/src/main/java/com/qbank/biochemistry/MainActivity.java
+          grep -q 'NK_SOURCE_VISUALS_V11' app/src/main/assets/index.html
+          grep -q 'closeQuestionNavigator();' app/src/main/assets/index.html
+          grep -q 'sessionShell' app/src/main/assets/index.html
+          grep -q 'qb-nav-submit' app/src/main/assets/index.html
+          grep -q "s.mode==='practice'" app/src/main/assets/index.html
+          grep -q 'nk-session-review' app/src/main/assets/index.html
+          grep -q 'nk-cbt-review-footer-v1' app/src/main/assets/index.html
+          grep -q 'review-fixed-actions' app/src/main/assets/index.html
+          grep -q 'nk-review-solution-grid-style' app/src/main/assets/index.html
+          grep -q 'nk-session-experience-v114' app/src/main/assets/index.html
+          grep -q 'nk-whole-app-vision-v114' app/src/main/assets/index.html
+          grep -q 'startAllSubjectPractice' app/src/main/assets/index.html
+          grep -q 'openMultiSubjectTestBuilder' app/src/main/assets/index.html
+          grep -q 'aria-label="NK QBank"' app/src/main/assets/index.html
+          grep -q 'nk-flame-svg' app/src/main/assets/index.html
+          grep -q 'nk-custom-study-modules-v1' app/src/main/assets/index.html
+          grep -q 'openStudyModuleBuilder' app/src/main/assets/index.html
+          grep -q 'nkSelectModuleQuestionIds' app/src/main/assets/index.html
+          grep -q "route.page==='module-builder'" app/src/main/assets/index.html
+          grep -q '&scale=4' app/src/main/assets/index.html
+          grep -q 'id="cr-grid"' app/src/main/assets/index.html
+          grep -q 'window.QB.openQuestionNavigator()' app/src/main/assets/index.html
+          grep -q 'showToast(msg,type' app/src/main/assets/index.html
+          grep -q 'root.innerHTML=' app/src/main/assets/index.html
+          test -s app/src/main/assets/biochemistry_source_solution_map.js
+          test -s app/src/main/assets/subject_source_solution_maps.js
+          test -s app/src/main/assets/source_visual_metadata.js
+          test -s app/src/main/assets/source_visual_renderer.js
+          test -d app/src/main/assets/source_visuals
+          test -n "$(find app/src/main/assets/source_visuals -type f -name '*.png' -print -quit)"
+          test -f app/src/main/assets/Biochemistry_QBank_Source.pdf
+          test -f app/src/main/assets/Physiology_QBank_Source.pdf
+          test -f app/src/main/assets/Anatomy_QBank_Source.pdf
+          test -s app/src/main/assets/vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js
+          test -s app/src/main/assets/vendor/ts-fsrs/LICENSE
+          grep -q 'NK_FSRS_V6_START' app/src/main/assets/index.html
+      - name: Build Cloudflare Pages PWA artifact
+        run: python3 tools/build_web_dist.py --version ${{ github.sha }}
+      - name: Verify offline FSRS assets in PWA artifact
+        run: |
+          test -s build/web/vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js
+          test -s build/web/vendor/ts-fsrs/LICENSE
+          grep -q 'NK_FSRS_V6_START' build/web/index.html
+      - name: Install Linux browser verification dependencies
+        run: |
+          python3 -m pip install --disable-pip-version-check playwright
+          python3 -m playwright install --with-deps chromium
+      - name: Verify generated recall dock in browser
+        run: python3 tools/verify_recall_dock_browser.py
+      - name: Verify Marrow bank selector and native explanation in browser
+        run: python3 tools/verify_marrow_bank_browser.py
+      - name: Upload recall dock and Marrow pilot screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: recall-dock-and-marrow-pilot-screenshots
+          path: |
+            build/ui-checks/*.png
+            build/marrow-ui-checks/*.png
+          retention-days: 3
+          if-no-files-found: warn
       - name: Set up JDK 17
         uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
-
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v5
         with:
           gradle-version: '9.5.0'
-
+      - name: Configure side-by-side Marrow pilot APK
+        if: ${{ startsWith(github.ref_name, 'feature/') || startsWith(github.ref_name, 'consolidation/') }}
+        run: python3 tools/configure_marrow_pilot_android.py
       - name: Build debug APK
         run: gradle --no-daemon assembleDebug
-
-      - name: Upload debug APK
+      - name: Restore production Android source identity
+        if: ${{ startsWith(github.ref_name, 'feature/') || startsWith(github.ref_name, 'consolidation/') }}
+        run: python3 tools/configure_marrow_pilot_android.py --restore
+      - name: Verify packaged APK
+        run: |
+          APK=$(find app/build/outputs/apk/debug -type f -name '*.apk' -print -quit)
+          test -n "$APK"
+          unzip -t "$APK"
+          unzip -p "$APK" assets/index.html > /tmp/packaged-index.html
+          ! grep -q 'id="v102-streak-layer-script"' /tmp/packaged-index.html
+          ! grep -q 'id="v102-streak-layer"' /tmp/packaged-index.html
+          grep -q 'nk-home-streak-header-v1' /tmp/packaged-index.html
+          grep -q 'nk-home-streak' /tmp/packaged-index.html
+          grep -q 'body:has(.nk-home-v4) .topbar' /tmp/packaged-index.html
+          grep -q 'nk-home-actions-v1' /tmp/packaged-index.html
+          grep -q 'Continue Practice' /tmp/packaged-index.html
+          grep -q 'Practice 20 Random Questions' /tmp/packaged-index.html
+          grep -q 'nk-topics-v2' /tmp/packaged-index.html
+          grep -q 'openSubjectTopics' /tmp/packaged-index.html
+          grep -q 'resetScrollPosition' /tmp/packaged-index.html
+          grep -q 'nk-home-v4' /tmp/packaged-index.html
+          grep -q 'nk-home-v4-style' /tmp/packaged-index.html
+          grep -q 'nk-session-review' /tmp/packaged-index.html
+          grep -q 'review-fixed-actions' /tmp/packaged-index.html
+          grep -q 'nk-review-solution-grid-style' /tmp/packaged-index.html
+          grep -q 'nk-session-experience-v114' /tmp/packaged-index.html
+          grep -q 'nk-whole-app-vision-v114' /tmp/packaged-index.html
+          grep -q 'startAllSubjectPractice' /tmp/packaged-index.html
+          grep -q 'openMultiSubjectTestBuilder' /tmp/packaged-index.html
+          grep -q 'aria-label="NK QBank"' /tmp/packaged-index.html
+          grep -q 'nk-flame-svg' /tmp/packaged-index.html
+          grep -q 'nk-custom-study-modules-v1' /tmp/packaged-index.html
+          grep -q 'NK_QUESTION_CONTENT_HYGIENE_V1_START' /tmp/packaged-index.html
+          grep -q 'question.question=nkCleanQuestionStem(question.question)' /tmp/packaged-index.html
+          grep -q 'openStudyModuleBuilder' /tmp/packaged-index.html
+          grep -q 'nkSelectModuleQuestionIds' /tmp/packaged-index.html
+          grep -q "route.page==='module-builder'" /tmp/packaged-index.html
+          grep -q '&scale=4' /tmp/packaged-index.html
+          grep -q 'id="cr-grid"' /tmp/packaged-index.html
+          grep -q 'window.QB.openQuestionNavigator()' /tmp/packaged-index.html
+          grep -q 'root.innerHTML=' /tmp/packaged-index.html
+          grep -q 'NK_FSRS_V6_START' /tmp/packaged-index.html
+          grep -q 'NK_MARROW_BANK_PILOT_V1_START' /tmp/packaged-index.html
+          grep -q 'marrow__ANAT_CH01_Q001' /tmp/packaged-index.html
+          grep -q 'Detailed explanation' /tmp/packaged-index.html
+          grep -q 'qbank_active_bank_v1' /tmp/packaged-index.html
+          unzip -l "$APK" | grep -q 'assets/vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js'
+          unzip -l "$APK" | grep -q 'assets/vendor/ts-fsrs/LICENSE'
+          test "$(unzip -l "$APK" | grep -c 'source_visuals/.*\.png')" -ge 400
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, subprocess, tempfile
+          s=Path('/tmp/packaged-index.html').read_text(encoding='utf-8')
+          scripts=re.findall(r'<script(?:[^>]*)>(.*?)</script>', s, re.S|re.I)
+          with tempfile.TemporaryDirectory() as td:
+              checked=0
+              for i,src in enumerate(scripts):
+                  if not src.strip(): continue
+                  f=Path(td)/f'inline_{i}.js'
+                  f.write_text(src,encoding='utf-8')
+                  subprocess.run(['node','--check',str(f)],check=True)
+                  checked+=1
+          print(f'PACKAGED_INLINE_JS_SYNTAX_OK={checked}')
+          PY
+          echo "Packaged APK verification passed: Home V4/V5 retained; Home streak/header v2 present; Home three-action hierarchy present; CBT end-of-session review flow present; review footer hardened; Review Solutions question grid present; singleton toast behavior present; legacy streak layer absent; JavaScript syntax valid; source visuals retained."
+      - name: Verify packaged product contract
+        run: python3 tools/verify_product_contract.py --stage packaged --html /tmp/packaged-index.html
+      - name: Write reproducibility manifest
+        run: python3 tools/write_build_manifest.py
+      - name: Upload debug APK and build manifest
         uses: actions/upload-artifact@v4
         with:
-          name: V10.1-debug-apk
-          path: app/build/outputs/apk/debug/*.apk
+          name: V11.7-android-pwa
+          retention-days: 3
+          path: |
+            app/build/outputs/apk/debug/*.apk
+            app/build/outputs/apk/debug/NK-QBank-build-manifest.json
+            build/web/**
           if-no-files-found: error
+
+      - name: Deploy PWA preview to Cloudflare Pages
+        if: ${{ (github.ref_name != 'feature/marrow-bank-pilot' || github.event_name == 'workflow_dispatch') && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy build/web --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT || 'nk-qbank' }} --branch=${{ github.ref_name }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      # Direct Upload: omitting --branch targets the configured production
+      # environment. Automatic pushes stay previews; manual dispatch promotes.
+      - name: Promote PWA to Cloudflare Pages production
+        if: ${{ github.event_name == 'workflow_dispatch' && github.ref_name == 'main' && inputs.promote_production && inputs.release_sha == github.sha && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy build/web --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT || 'nk-qbank' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

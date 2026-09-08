@@ -2,8 +2,15 @@ package com.qbank.biochemistry;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.os.Bundle;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.pdf.PdfRenderer;
 import android.os.Build;
+import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
@@ -11,11 +18,27 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.view.Window;
-import android.view.WindowInsets;
-import android.graphics.Color;
+
+import org.json.JSONObject;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends Activity {
     private WebView webView;
+    private PdfRenderer physiologyRenderer;
+    private ParcelFileDescriptor physiologyPfd;
+    private final Object pdfLock = new Object();
+    private static final String APP_ORIGIN = "https://qbank.local/app/";
+    private static final String MIGRATION_PREFS = "qbank_origin_migration_v1";
+    private SharedPreferences migrationPrefs;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -24,6 +47,8 @@ public class MainActivity extends Activity {
         Window window = getWindow();
         window.setStatusBarColor(Color.rgb(52, 46, 134));
         window.setNavigationBarColor(Color.rgb(244, 245, 248));
+        preparePhysiologyPdf();
+        migrationPrefs = getSharedPreferences(MIGRATION_PREFS, Context.MODE_PRIVATE);
 
         webView = new WebView(this);
         WebSettings settings = webView.getSettings();
@@ -38,49 +63,147 @@ public class MainActivity extends Activity {
         settings.setLoadsImagesAutomatically(true);
         settings.setMediaPlaybackRequiresUserGesture(true);
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
-        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
 
         webView.setBackgroundColor(Color.WHITE);
         webView.setWebChromeClient(new WebChromeClient());
+        webView.addJavascriptInterface(new MigrationBridge(), "QBankMigration");
         webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                // Keep the app fully self-contained/offline. External navigation is not allowed.
-                return true;
+            @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) { return !request.getUrl().toString().startsWith(APP_ORIGIN); }
+            @Override public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                if (url.startsWith(APP_ORIGIN)) injectHomePolish();
             }
-
-            @Override
-            public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
-                // The bundled app does not need network access. Returning null lets Android serve local assets normally.
-                return super.shouldInterceptRequest(view, request);
+            @Override public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+                WebResourceResponse response = renderPhysiologyPdfRequest(request);
+                if (response == null) response = serveAppAsset(request);
+                return response != null ? response : super.shouldInterceptRequest(view, request);
             }
         });
-
         setContentView(webView);
-        webView.loadUrl("file:///android_asset/index.html");
+        if (migrationPrefs.getBoolean("complete", false)) webView.loadUrl(APP_ORIGIN + "index.html");
+        else webView.loadUrl("file:///android_asset/migrate_local_state.html");
     }
 
-    @Override
-    public void onBackPressed() {
-        if (webView != null && webView.canGoBack()) {
-            webView.goBack();
-        } else {
-            super.onBackPressed();
+    private final class MigrationBridge {
+        @JavascriptInterface public void capture(String state, String subject, String sync, String auth, String backup) {
+            migrationPrefs.edit().putString("state", state).putString("subject", subject)
+                    .putString("sync", sync).putString("auth", auth).putString("backup", backup).apply();
+            runOnUiThread(() -> webView.loadUrl(APP_ORIGIN + "index.html"));
+        }
+        @JavascriptInterface public void complete() {
+            migrationPrefs.edit().putBoolean("complete", true).remove("state").remove("subject")
+                    .remove("sync").remove("auth").remove("backup").apply();
+            runOnUiThread(() -> { if (webView != null) webView.removeJavascriptInterface("QBankMigration"); });
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        if (webView != null) {
-            webView.loadUrl("about:blank");
-            webView.stopLoading();
-            webView.setWebChromeClient(null);
-            webView.setWebViewClient(null);
-            webView.destroy();
-            webView = null;
-        }
-        super.onDestroy();
+    private WebResourceResponse serveAppAsset(WebResourceRequest request) {
+        String url = request.getUrl().toString();
+        if (!url.startsWith(APP_ORIGIN)) return null;
+        try {
+            String path = URLDecoder.decode(request.getUrl().getPath().substring("/app/".length()), "UTF-8");
+            if (path.isEmpty()) path = "index.html";
+            if (path.startsWith("assets/")) path = path.substring(7);
+            if (path.contains("..") || path.startsWith("/")) return null;
+            byte[] bytes;
+            try (InputStream in = getAssets().open(path); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+                byte[] buffer = new byte[16384]; int count;
+                while ((count = in.read(buffer)) >= 0) out.write(buffer, 0, count);
+                bytes = out.toByteArray();
+            }
+            if ("index.html".equals(path) && !migrationPrefs.getBoolean("complete", false)) {
+                String html = new String(bytes, StandardCharsets.UTF_8);
+                String script = "<script>(function(){var p=" + migrationPayload() + ";" +
+                        "Object.keys(p).forEach(function(k){if(p[k]&&!localStorage.getItem(k))localStorage.setItem(k,p[k]);});" +
+                        "try{QBankMigration.complete();}catch(e){}})();</script>";
+                html = html.replace("<head>", "<head>" + script);
+                bytes = html.getBytes(StandardCharsets.UTF_8);
+            }
+            return new WebResourceResponse(mimeType(path), "UTF-8", new ByteArrayInputStream(bytes));
+        } catch (Exception ignored) { return null; }
     }
+
+    private String migrationPayload() {
+        try {
+            JSONObject payload = new JSONObject();
+            payload.put("qbank_state_v1", migrationPrefs.getString("state", ""));
+            payload.put("qbank_active_subject_v1", migrationPrefs.getString("subject", ""));
+            payload.put("qbank_sync_v1", migrationPrefs.getString("sync", ""));
+            payload.put("qbank_firebase_auth_v1", migrationPrefs.getString("auth", ""));
+            payload.put("qbank_state_pre_cloud_v1", migrationPrefs.getString("backup", ""));
+            return payload.toString().replace("<","\\u003c").replace(">","\\u003e").replace("&","\\u0026");
+        } catch (Exception ignored) { return "{}"; }
+    }
+
+    private static String mimeType(String path) {
+        String lower = path.toLowerCase();
+        if (lower.endsWith(".html")) return "text/html";
+        if (lower.endsWith(".js") || lower.endsWith(".mjs")) return "application/javascript";
+        if (lower.endsWith(".css")) return "text/css";
+        if (lower.endsWith(".json") || lower.endsWith(".webmanifest")) return "application/manifest+json";
+        if (lower.endsWith(".png")) return "image/png";
+        if (lower.endsWith(".jpg") || lower.endsWith(".jpeg")) return "image/jpeg";
+        if (lower.endsWith(".pdf")) return "application/pdf";
+        return "application/octet-stream";
+    }
+
+    private void injectHomePolish() {
+        if (webView == null) return;
+        try (InputStream in = getAssets().open("home_polish_v3.js"); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+            byte[] buf = new byte[8192]; int n;
+            while ((n = in.read(buf)) >= 0) out.write(buf, 0, n);
+            String script = new String(out.toByteArray(), StandardCharsets.UTF_8);
+            webView.evaluateJavascript("eval(" + JSONObject.quote(script) + ")", null);
+        } catch (Exception ignored) { }
+    }
+
+    private void preparePhysiologyPdf() {
+        try {
+            File out = new File(getCacheDir(), "Physiology_QBank_Source.pdf");
+            if (!out.exists() || out.length() < 100000) {
+                try (InputStream in = getAssets().open("Physiology_QBank_Source.pdf"); FileOutputStream fos = new FileOutputStream(out)) {
+                    byte[] buf = new byte[8192]; int n;
+                    while ((n = in.read(buf)) >= 0) fos.write(buf, 0, n);
+                }
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                synchronized (pdfLock) {
+                    physiologyPfd = ParcelFileDescriptor.open(out, ParcelFileDescriptor.MODE_READ_ONLY);
+                    physiologyRenderer = new PdfRenderer(physiologyPfd);
+                }
+            }
+        } catch (Exception ignored) { physiologyRenderer = null; }
+    }
+
+    private WebResourceResponse renderPhysiologyPdfRequest(WebResourceRequest request) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP || physiologyRenderer == null) return null;
+        if (!request.getUrl().toString().startsWith("https://qbank.local/physiology/pdf")) return null;
+        try {
+            Map<String,String> q = query(request.getUrl().getQuery());
+            int page = Math.max(1, Integer.parseInt(q.getOrDefault("page", "1"))) - 1;
+            float scale = Math.max(1f, Math.min(3f, Float.parseFloat(q.getOrDefault("scale", "2.5"))));
+            float top=parseFloat(q.get("top"),0), bottom=parseFloat(q.get("bottom"),-1), left=parseFloat(q.get("left"),0), right=parseFloat(q.get("right"),-1);
+            byte[] jpeg;
+            synchronized (pdfLock) {
+                if (page < 0 || page >= physiologyRenderer.getPageCount()) return null;
+                PdfRenderer.Page p=physiologyRenderer.openPage(page);
+                int w=Math.max(1,Math.round(p.getWidth()*scale)), h=Math.max(1,Math.round(p.getHeight()*scale));
+                Bitmap full=Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888); full.eraseColor(Color.WHITE);
+                p.render(full,null,null,PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY); p.close();
+                int x0=Math.max(0,Math.round(left*scale)), y0=Math.max(0,Math.round(top*scale));
+                int x1=right>left?Math.min(w,Math.round(right*scale)):w, y1=bottom>top?Math.min(h,Math.round(bottom*scale)):h;
+                if(x1<=x0||y1<=y0){x0=0;y0=0;x1=w;y1=h;}
+                Bitmap crop=(x0==0&&y0==0&&x1==w&&y1==h)?full:Bitmap.createBitmap(full,x0,y0,x1-x0,y1-y0);
+                ByteArrayOutputStream out=new ByteArrayOutputStream(Math.max(32768,crop.getWidth()*crop.getHeight()/4)); crop.compress(Bitmap.CompressFormat.JPEG,92,out); jpeg=out.toByteArray();
+                if(crop!=full)crop.recycle(); full.recycle();
+            }
+            return new WebResourceResponse("image/jpeg","UTF-8",new ByteArrayInputStream(jpeg));
+        } catch(Exception ignored){ return null; }
+    }
+    private static float parseFloat(String s,float d){try{return s==null?d:Float.parseFloat(s);}catch(Exception e){return d;}}
+    private static Map<String,String> query(String raw)throws Exception{Map<String,String>m=new HashMap<>();if(raw==null)return m;for(String part:raw.split("&")){int k=part.indexOf('=');if(k<0)continue;m.put(URLDecoder.decode(part.substring(0,k),"UTF-8"),URLDecoder.decode(part.substring(k+1),"UTF-8"));}return m;}
+
+    @Override public void onBackPressed(){if(webView!=null&&webView.canGoBack())webView.goBack();else super.onBackPressed();}
+    @Override protected void onDestroy(){synchronized(pdfLock){try{if(physiologyRenderer!=null)physiologyRenderer.close();}catch(Exception ignored){}try{if(physiologyPfd!=null)physiologyPfd.close();}catch(Exception ignored){}physiologyRenderer=null;physiologyPfd=null;}if(webView!=null){webView.loadUrl("about:blank");webView.stopLoading();webView.setWebChromeClient(null);webView.setWebViewClient(null);webView.destroy();webView=null;}super.onDestroy();}
 }

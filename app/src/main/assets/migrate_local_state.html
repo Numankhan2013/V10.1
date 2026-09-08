@@ -1,0 +1,15 @@
+<!doctype html><meta charset="utf-8"><title>Preparing NK QBank</title>
+<body style="font:16px system-ui;background:#f6f7fb;color:#171a2b;display:grid;place-items:center;min-height:100vh;margin:0">
+<div>Preparing your QBank…</div>
+<script>
+try {
+  QBankMigration.capture(
+    localStorage.getItem('qbank_state_v1') || '',
+    localStorage.getItem('qbank_active_subject_v1') || '',
+    localStorage.getItem('qbank_sync_v1') || '',
+    localStorage.getItem('qbank_firebase_auth_v1') || '',
+    localStorage.getItem('qbank_state_pre_cloud_v1') || ''
+  );
+} catch (error) { QBankMigration.capture('', '', '', '', ''); }
+</script>
+</body>
