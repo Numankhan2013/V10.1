@@ -81,7 +81,7 @@ if legacy_marker in source:
     HTML.write_text(source,encoding="utf-8")
 elif generic_marker not in source:
     raise SystemExit("Marrow bank registry anchor missing after pilot transform")
-print("MARROW_BANK_REGISTRY_OK subjects="+",".join(sorted(BANKS_BY_SUBJECT if False else [])) if False else "MARROW_BANK_REGISTRY_OK runtime=subject-indexed legacy_single_bundle=compatible")
+print("MARROW_BANK_REGISTRY_OK runtime=subject-indexed legacy_single_bundle=compatible")
 
 # Marrow must always preserve the existing study-support contract:
 # Key takeaway + native structured detailed explanation. The shared PrepLadder
