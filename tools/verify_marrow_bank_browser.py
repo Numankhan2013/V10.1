@@ -28,6 +28,9 @@ def main():
             page.route('**/*.pdf*',lambda route: route.fulfill(path=str(ROOT/'app/src/main/assets/Anatomy_QBank_Source.pdf'),content_type='application/pdf',headers={'Access-Control-Allow-Origin':'*'}) if 'anatomy' in route.request.url.lower() else route.continue_())
             errors=[];page.on('pageerror',lambda e: errors.append(str(e)))
             page.goto(f'http://127.0.0.1:{port}/index.html',wait_until='networkidle')
+            def assert_sections(expected):
+                actual=page.locator('.nk-topic-group>h2').all_inner_texts()
+                if actual!=expected: raise SystemExit(f'Marrow topic sections/order mismatch: {actual!r}')
             # All three supplied subjects now use the same shared bank registry.
             # Biochemistry is the new-subject smoke test and deliberately checks
             # the source-faithful base Marrow renderer, not explanation polish.
@@ -41,6 +44,7 @@ def main():
             page.screenshot(path=str(OUT/'00-biochemistry-bank-selector.png'),full_page=True)
             bcards.filter(has_text='Marrow').click();page.wait_for_timeout(100)
             if page.locator('button.nk-topic-row').count()!=26: raise SystemExit('Marrow Biochemistry topic count is not 26')
+            assert_sections(['Carbohydrate Chemistry','Lipid Chemistry','Amino Acid & Protein Chemistry','Heme Synthesis','Enzymes','Free Radicals, Antioxidants, Trace Elements & Miscellaneous','Genetics','Vitamins'])
             page.locator('button.nk-topic-row').filter(has_text='Chemistry of Carbohydrates, Amino sugars and Mucopolysaccharides').click();page.wait_for_timeout(80)
             if page.locator('button.nk-library-row').count()!=23: raise SystemExit('Marrow Biochemistry Chapter 1 count is not 23')
             page.locator('button.nk-library-row').first.click();page.wait_for_timeout(80)
@@ -65,6 +69,7 @@ def main():
             page.screenshot(path=str(OUT/'00-physiology-bank-selector.png'),full_page=True)
             pcards.filter(has_text='Marrow').click();page.wait_for_timeout(100)
             if page.locator('button.nk-topic-row').count()!=33: raise SystemExit('Marrow Physiology topic count is not 33')
+            assert_sections(['CNS Physiology','General Physiology','Cellular Physiology','Neuromuscular Physiology','Cardiovascular System','Respiratory System','Gastrointestinal System'])
             page.locator('button.nk-topic-row').filter(has_text='Homeostasis and cellular physiology').click();page.wait_for_timeout(80)
             if page.locator('button.nk-library-row').count()!=21: raise SystemExit('Marrow Physiology Chapter 1 count is not 21')
             # User-reported regression target: Q2 previously dumped raw OCR debris
@@ -126,6 +131,7 @@ def main():
             page.screenshot(path=str(OUT/'01-anatomy-bank-selector.png'),full_page=True)
             cards.filter(has_text='Marrow').click();page.wait_for_timeout(100)
             if page.locator('button.nk-topic-row').count()!=48: raise SystemExit('Marrow Anatomy topic count is not 48')
+            assert_sections(['General Embryology','Histology','Neuroanatomy','Head & Neck','Upper Limb','Thorax','Abdomen','Systemic Embryology'])
             if 'Marrow' not in page.locator('body').inner_text(): raise SystemExit('Marrow bank context is missing')
             page.screenshot(path=str(OUT/'02-marrow-topics.png'),full_page=True)
             page.locator('button.nk-topic-row').filter(has_text='Pre-Embryonic Phase of Development').click();page.wait_for_timeout(80)

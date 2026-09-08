@@ -75,6 +75,13 @@
 - Run 405 artifact `V11.7-android-pwa`: ID `10064442860`.
 - Production promotion was **skipped**; `nk-qbank.pages.dev` production was not
   changed by this Marrow preview publish.
+- Unified consolidation checkpoint `87faccd`:
+  - Engineering Gate `34255508094` / run 196 — **success**.
+  - Full Android + PWA `34255508119` / run 406 — **success**.
+  - Generated browser, FSRS, Marrow, PDF, APK and packaged contracts passed.
+  - Preview: `https://consolidation-main-unified.nk-qbank.pages.dev`
+    (immutable `https://e0d1385c.nk-qbank.pages.dev`).
+  - Production promotion was skipped by the new explicit release guard.
 
 ## User physical review — 2026-09-08
 
@@ -122,13 +129,14 @@
 
 ## Next step
 
-1. Complete local and CI verification of the consolidation/taxonomy candidate.
-2. The explicit 107-topic Marrow taxonomy is implemented in
+1. The explicit 107-topic Marrow taxonomy is implemented in
    `data/marrow/topic_index_taxonomy.json`; four cross-system Anatomy topics
    retain visible internal review status while using a provisional Systemic
    Embryology placement. The approved Topics visuals are unchanged.
-3. Merge the seven-commit stale-main history only after auditing conflicts; the
-   relevant V10 fixes are already superseded or present in the feature lineage.
+2. Stale-main history is recorded by an `ours` merge after auditing its seven
+   unique commits; the tested V11 tree remains unchanged.
+3. Merge the verified consolidation PR into `main`, then physically review the
+   exact main preview before any production dispatch.
 4. Next explanation phase: follow
    `docs/MARROW_EXPLANATION_FINE_TUNING.md` and scale the approved 142-question
    grammar source-faithfully across the remaining Marrow questions.

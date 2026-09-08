@@ -538,3 +538,6 @@ Implemented approved recovery in existing transform owners: Topics separate path
   title assertions, canonical section order and complete-coverage tests.
 - Hardened deployment so production requires an explicit `main` dispatch and
   exact full release SHA. No production deployment occurred.
+- Local checks passed. Engineering run 196 and full Android/PWA run 406 passed
+  at `87faccd`, including generated browser, PDF, APK and packaged contracts.
+  The consolidation preview deployed; production promotion was skipped.
