@@ -344,3 +344,20 @@ Next expansion work should reuse this explanation contract after first
 generalizing the temporary Anatomy-only bank record into the multi-subject bank
 registry described above.
 
+
+
+## Physical feature-PWA validation and next phases — 2026-09-08
+
+The user physically confirmed the expanded Marrow question integration works in
+the feature PWA. The recovered Topics journey/fixed Continue Learning tray and
+dedicated FSRS customization page are also user-approved on that feature line.
+
+Do not treat the current Topics major-section labels as approved: the grouping is
+medically/source-wise inaccurate. Correct taxonomy separately using
+`docs/MARROW_TOPIC_INDEX_TAXONOMY.md` while preserving the approved visual
+journey.
+
+When explanation fine-tuning begins, follow
+`docs/MARROW_EXPLANATION_FINE_TUNING.md`. Raw imported records stay immutable;
+the existing 142-question enhanced layer is the reference presentation grammar.
+Remaining chapters/questions and figure binaries are later, separate work.
