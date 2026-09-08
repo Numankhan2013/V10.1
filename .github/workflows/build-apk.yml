@@ -348,7 +348,7 @@ jobs:
           if-no-files-found: error
 
       - name: Deploy PWA preview to Cloudflare Pages
-        if: ${{ (github.ref_name != 'feature/marrow-bank-pilot' || github.event_name == 'workflow_dispatch') && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}
+        if: ${{ env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
