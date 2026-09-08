@@ -1,6 +1,8 @@
-# Latest user feedback — rejected release, 2026-09-08
+# Latest recovery and Marrow integration handoff — 2026-09-08
 
-The user rejected Topics/FSRS release 6ba7ebe and reports unreadable PDF explanations. Prior completion claims are superseded. Read .project-memory/STATE.md and docs/REJECTED_TOPICS_FSRS_HANDOFF.md before further work. Restore PDF readability first; then deliver reference fidelity/glow, truly floating Continue Learning, and a dedicated FSRS settings page. PDF regression cause remains unconfirmed.
+The rejected 6ba7ebe Topics/FSRS/PDF candidate has been superseded by the recovery line. The CI-only Anatomy PDF 404 was fixed without changing production routing: the local browser test server now maps the PWA's same-origin `/anatomy-source.pdf` route to the exact committed source PDF. Substantive fix `1c9826ae` passed Engineering Gate `34241919403` and full Android+PWA run `34241919548`, including the previously failing Marrow browser verification and packaged APK checks. Production promotion remains deliberate.
+
+Next Marrow content phase: the user will provide chunked JSON/JSONL for additional Marrow content. Integrate those records into the existing shared bank registry and existing Practice/CBT/Review/FSRS/sync engines **as source-faithful content first**. Do not redesign or polish explanations during initial ingestion; explanation quality is a later phase. Preserve the accepted Anatomy Marrow behavior and use bounded manifest/hash-verified batches.
 
 # NK QBank — Project Memory / Continuity
 
