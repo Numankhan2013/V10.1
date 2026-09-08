@@ -7,27 +7,37 @@ ROOT=Path(__file__).resolve().parents[1]
 HTML=ROOT/'app/src/main/assets/index.html'
 DATA=ROOT/'data/marrow'
 
-def load_data():
-    m=json.loads((DATA/'anatomy_pilot_manifest.json').read_text())
-    parts=sorted(DATA.glob('anatomy_pilot.zlib.b64.part*'))
-    assert len(parts)==m['parts'],(len(parts),m['parts'])
+def load_data(prefix):
+    m=json.loads((DATA/f'{prefix}_pilot_manifest.json').read_text())
+    parts=sorted(DATA.glob(f'{prefix}_pilot.zlib.b64.part*'))
+    assert len(parts)==m['parts'],(prefix,len(parts),m['parts'])
     b64=''.join(p.read_text().strip() for p in parts)
     assert len(b64)==m['base64_chars']
     comp=base64.b64decode(b64,validate=True)
+    assert len(comp)==m['compressed_bytes']
     assert hashlib.sha256(comp).hexdigest()==m['compressed_sha256']
     raw=zlib.decompress(comp)
+    assert len(raw)==m['raw_bytes']
     assert hashlib.sha256(raw).hexdigest()==m['raw_sha256']
-    return json.loads(raw)
+    return json.loads(raw),m
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--data-only',action='store_true');args=ap.parse_args()
-    d=load_data();qs=d['questions'];topics=d['topics']
+    d,anatomy_manifest=load_data('anatomy');qs=d['questions'];topics=d['topics']
+    phys,phys_manifest=load_data('physiology');pqs=phys['questions'];ptopics=phys['topics']
     gold=json.loads((DATA/'explanation_gold_pilot.json').read_text(encoding='utf-8'))
     assert len(qs)==62 and len(topics)==4
     assert len({q['id'] for q in qs})==62 and all(q['id'].startswith('marrow__') for q in qs)
     assert [t['questionCount'] for t in topics]==[19,13,16,14]
     assert all(len(q['options'])==4 and q['correctOption'] in (1,2,3,4) for q in qs)
     assert not any(q.get('reviewStatus')=='needs_manual_review' for q in qs)
+    assert phys['subject']=='Physiology' and phys['bank']=='Marrow'
+    assert phys_manifest['scope']=='pilot_chapters_001_004'
+    assert len(pqs)==80 and len(ptopics)==4
+    assert [t['questionCount'] for t in ptopics]==[21,21,24,14]
+    assert len({q['id'] for q in pqs})==80 and all(q['id'].startswith('marrow__PHYS_') for q in pqs)
+    assert all(len(q['options'])==4 and q['correctOption'] in (1,2,3,4) for q in pqs)
+    assert len({q['id'] for q in qs+pqs})==142
     repaired={q['sourceQuestionId']:q for q in qs if q.get('reviewStatus')=='resolved_reconstruction'}
     assert set(repaired)=={'ANAT_CH02_Q010','ANAT_CH03_Q004','ANAT_CH04_Q013'}
     assert '1. Cavitation' in repaired['ANAT_CH02_Q010']['question'] and '4. Cleavage' in repaired['ANAT_CH02_Q010']['question']
@@ -46,9 +56,9 @@ def main():
         assert 1<=len(cfg.get('emphasis',[]))<=4,qid
     assert all(v.get('emphasis') for v in gold_q.values())
     if args.data_only:
-        print('MARROW_DATA_OK questions=62 topics=4 repaired=3 enhanced=62 rationales=186');return
+        print('MARROW_DATA_OK anatomy_questions=62 anatomy_topics=4 physiology_questions=80 physiology_topics=4 combined=142 repaired=3 enhanced=62 rationales=186');return
     s=HTML.read_text(encoding='utf-8')
-    required=['NK_MARROW_BANK_PILOT_V1_START','nk-marrow-bank-pilot-v1','const MARROW_RECORDS = Array.isArray(MARROW_DATA.records) ? MARROW_DATA.records : [MARROW_DATA]','const MARROW_BY_SUBJECT = Object.freeze','const BANKS_BY_SUBJECT = Object.create(null)','Object.values(BANKS_BY_SUBJECT).flatMap','function nkBankRecords(name)','function openBank(name,bank)','function bankPage(name)',"route.page==='banks'",'Detailed explanation','Structured text','function nkRenderMarrowExplanation(q)',"q.bank==='Marrow'",'qbank_active_bank_v1','marrow__ANAT_CH01_Q001','NK_MARROW_EXPLANATION_GOLD_V1','nk-marrow-explanation-gold-v1','Why the other options are wrong','function nkRenderMarrowExplanationBase(q)','function nkRenderGoldWrongOptions(q,cfg)','function nkGoldConciseText(text,q)','function nkGoldOverlap(a,b)']
+    required=['NK_MARROW_BANK_PILOT_V1_START','nk-marrow-bank-pilot-v1','const MARROW_RECORDS = Array.isArray(MARROW_DATA.records) ? MARROW_DATA.records : [MARROW_DATA]','const MARROW_BY_SUBJECT = Object.freeze','const BANKS_BY_SUBJECT = Object.create(null)','Object.values(BANKS_BY_SUBJECT).flatMap','function nkBankRecords(name)','function openBank(name,bank)','function bankPage(name)',"route.page==='banks'",'Detailed explanation','Structured text','function nkRenderMarrowExplanation(q)',"q.bank==='Marrow'",'qbank_active_bank_v1','marrow__ANAT_CH01_Q001','marrow__PHYS_CH01_Q001','NK_MARROW_EXPLANATION_GOLD_V1','nk-marrow-explanation-gold-v1','Why the other options are wrong','function nkRenderMarrowExplanationBase(q)','function nkRenderGoldWrongOptions(q,cfg)','function nkGoldConciseText(text,q)','function nkGoldOverlap(a,b)']
     missing=[x for x in required if x not in s]
     assert not missing,missing
     assert 'const MARROW_RECORD =' not in s
@@ -71,5 +81,5 @@ def main():
             p=Path(td)/f'i{i}.js';p.write_text(src)
             subprocess.run(['node','--check',str(p)],check=True,stdout=subprocess.DEVNULL)
             checked+=1
-    print(f'MARROW_BANK_PILOT_TEST_OK questions=62 topics=4 enhanced=62 rationales=186 micro_concision=on fsrs_dock=preserved scripts={checked}')
+    print(f'MARROW_BANK_PILOT_TEST_OK anatomy=62/4 physiology=80/4 combined=142 enhanced_anatomy=62 rationales=186 micro_concision=on fsrs_dock=preserved scripts={checked}')
 if __name__=='__main__':main()
