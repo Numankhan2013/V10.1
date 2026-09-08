@@ -18,13 +18,14 @@ def main():
             page=browser.new_page(viewport={'width':390,'height':844})
             errors=[];page.on('pageerror',lambda e: errors.append(str(e)))
             page.goto(f'http://127.0.0.1:{port}/index.html',wait_until='networkidle')
-            registry=page.evaluate("""() => ({
-              Anatomy:nkBankRecords('Anatomy').map(x=>x.bank),
-              Physiology:nkBankRecords('Physiology').map(x=>x.bank),
-              Biochemistry:nkBankRecords('Biochemistry').map(x=>x.bank)
-            })""")
-            if registry!={'Anatomy':['PrepLadder','Marrow'],'Physiology':['PrepLadder'],'Biochemistry':['PrepLadder']}:
-                raise SystemExit('General bank registry leaked or omitted a bank: '+repr(registry))
+            for subject in ('Physiology','Biochemistry'):
+                page.locator('button.nk-subject-row').filter(has_text=subject).click();page.wait_for_timeout(80)
+                if f'#banks/{subject}' not in page.url: raise SystemExit(f'{subject} did not open bank selector: {page.url}')
+                single=page.locator('button.nk-bank-card')
+                if single.count()!=1: raise SystemExit(f'Expected only PrepLadder for {subject}, found {single.count()} banks')
+                single_text=single.first.inner_text()
+                if 'PrepLadder' not in single_text or 'Marrow' in single_text: raise SystemExit(f'Bank registry leaked Marrow into {subject}: {single_text!r}')
+                page.evaluate("window.QB.nav('dashboard')");page.wait_for_timeout(80)
             page.locator('button.nk-subject-row').filter(has_text='Anatomy').click()
             page.wait_for_timeout(100)
             if '#banks/Anatomy' not in page.url: raise SystemExit(f'Anatomy did not open bank selector: {page.url}')
