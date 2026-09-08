@@ -18,6 +18,13 @@ def main():
             page=browser.new_page(viewport={'width':390,'height':844})
             errors=[];page.on('pageerror',lambda e: errors.append(str(e)))
             page.goto(f'http://127.0.0.1:{port}/index.html',wait_until='networkidle')
+            registry=page.evaluate("""() => ({
+              Anatomy:nkBankRecords('Anatomy').map(x=>x.bank),
+              Physiology:nkBankRecords('Physiology').map(x=>x.bank),
+              Biochemistry:nkBankRecords('Biochemistry').map(x=>x.bank)
+            })""")
+            if registry!={'Anatomy':['PrepLadder','Marrow'],'Physiology':['PrepLadder'],'Biochemistry':['PrepLadder']}:
+                raise SystemExit('General bank registry leaked or omitted a bank: '+repr(registry))
             page.locator('button.nk-subject-row').filter(has_text='Anatomy').click()
             page.wait_for_timeout(100)
             if '#banks/Anatomy' not in page.url: raise SystemExit(f'Anatomy did not open bank selector: {page.url}')
@@ -95,5 +102,5 @@ def main():
             if errors: raise SystemExit('Browser errors: '+repr(errors))
             browser.close()
         server.shutdown()
-    print('MARROW_BROWSER_OK selector=2 marrow_topics=4 prepladder_topics=50 enhanced=62 rationales=186 micro_concision=verified table=preserved fsrs_dock=fixed')
+    print('MARROW_BROWSER_OK registry=subject-indexed selector=2 marrow_topics=4 prepladder_topics=50 enhanced=62 rationales=186 micro_concision=verified table=preserved fsrs_dock=fixed')
 if __name__=='__main__':main()
