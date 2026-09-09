@@ -59,14 +59,17 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
   Key Takeaway → structured detailed explanation with selective emphasis and
   native tables → exactly three concise wrong-option rationales.
 - FSRS remains protected in the fixed/floating session footer above Previous/Next.
-- The deterministic inventory still accounts for all 2,115 IDs:
-  142 approved references + 1,973 not yet approved/enhanced.
+- The deterministic inventory originally accounted for all 2,115 IDs as
+  142 references + 1,973 pending. After approval of the 20-question
+  Biochemistry sample, **162 are approved references and 1,953 remain to roll out**.
 - A bounded, cross-chapter **20-question Biochemistry candidate** is now stored at
   `data/marrow/explanation_biochem_gold_sample_v1.json`.
 - The candidate uses the same renderer and grammar; it is augmentation/display
   only and does not alter the Biochemistry source bundle.
-- The candidate remains **candidate-human-review**, not part of the approved 142,
-  until the user visually accepts it.
+- On 2026-09-09 the user physically reviewed the 20-question Biochemistry sample
+  and explicitly approved it: “They are good. We need that kind of explanation everywhere.”
+  The approved explanation reference is therefore now **162 questions**
+  (62 Anatomy + 80 Physiology + 20 Biochemistry).
 - Source ambiguities remain explicit rather than invented. In particular:
   - the PCT question refers to a lab panel absent from the rendered question page;
   - the vitamin-B12 combination question omits the defining numbered enzyme list.
@@ -101,12 +104,12 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 
 ## Next step
 
-1. Make the current 20-question Biochemistry candidate pass project-memory,
-   source-hash/ID/rationale, browser, packaged-app and FSRS regression checks.
-2. Publish only a feature preview; visually review the 20 explanations.
-3. If the user approves the sample, promote its grammar as the Biochemistry
-   reference and scale explanation augmentation in deterministic chapter batches
-   across the remaining Marrow questions.
+1. Merge the approved 20-question Biochemistry sample into `main`; its CI/browser/
+   packaged-app/FSRS checks are green and the user has physically approved it.
+2. Scale the now-approved 162-question explanation grammar in deterministic
+   chapter batches across the remaining 1,953 Marrow questions.
+3. Start with Biochemistry chapter batches, then continue Anatomy and Physiology
+   pending questions, preserving the same renderer contract.
 4. Keep raw source unchanged and preserve unresolved review items per
    `docs/MARROW_EXPLANATION_FINE_TUNING.md`.
 5. Do not promote production merely because CI passes; keep V11.6 `125d68b`
