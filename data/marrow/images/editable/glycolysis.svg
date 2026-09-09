@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100">
+  <rect width="900" height="1100" fill="#ffffff"/>
+  <defs>
+    <marker id="teal-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#3e9aa3"/></marker>
+    <marker id="red-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#bd5860"/></marker>
+  </defs>
+  <g font-family="Arial, sans-serif" fill="#28383b" text-anchor="middle">
+    <text x="450" y="52" font-size="31" font-weight="700" fill="#45aeb9">Glycolysis</text>
+
+    <g font-size="20">
+      <text x="450" y="96">Glucose</text>
+      <text x="450" y="180">Glucose-6-phosphate</text>
+      <text x="450" y="250">Fructose-6-phosphate</text>
+      <text x="450" y="335">Fructose-1,6-bisphosphate</text>
+      <text x="300" y="422">Glyceraldehyde-</text><text x="300" y="446">3-phosphate</text>
+      <text x="600" y="422">Dihydroxyacetone</text><text x="600" y="446">phosphate</text>
+      <text x="450" y="570">1,3-Bisphosphoglycerate</text>
+      <text x="450" y="670">3-Phosphoglycerate</text>
+      <text x="450" y="750">2-Phosphoglycerate</text>
+      <text x="450" y="835">Phosphoenolpyruvate</text>
+      <text x="450" y="940">Pyruvate</text>
+    </g>
+
+    <!-- Main pathway arrows; red denotes the same irreversible steps marked in source. -->
+    <g fill="none" stroke-width="4">
+      <path d="M450 108V162" stroke="#bd5860" marker-end="url(#red-arrow)"/>
+      <path d="M450 192V232" stroke="#3e9aa3" marker-end="url(#teal-arrow)"/>
+      <path d="M450 262V317" stroke="#bd5860" marker-end="url(#red-arrow)"/>
+      <path d="M450 347V377L313 405" stroke="#3e9aa3" marker-end="url(#teal-arrow)"/>
+      <path d="M450 377L587 405" stroke="#3e9aa3" marker-end="url(#teal-arrow)"/>
+      <path d="M575 455C550 478 505 490 480 493" stroke="#3e9aa3" marker-end="url(#teal-arrow)"/>
+      <path d="M323 455V552" stroke="#3e9aa3" marker-end="url(#teal-arrow)"/>
+      <path d="M450 582V652" stroke="#3e9aa3" marker-end="url(#teal-arrow)"/>
+      <path d="M450 682V732" stroke="#3e9aa3" marker-end="url(#teal-arrow)"/>
+      <path d="M450 762V817" stroke="#3e9aa3" marker-end="url(#teal-arrow)"/>
+      <path d="M450 847V922" stroke="#bd5860" marker-end="url(#red-arrow)"/>
+    </g>
+
+    <g font-size="18" text-anchor="start">
+      <text x="205" y="127">ATP</text><text x="205" y="153">ADP</text>
+      <path d="M245 121H350M245 147H350" stroke="#3e9aa3" stroke-width="2"/>
+      <text x="555" y="139" fill="#ad4b55">Hexokinase</text>
+
+      <text x="92" y="222">Phosphohexose isomerase</text>
+
+      <text x="205" y="282">ATP</text><text x="205" y="308">ADP</text>
+      <path d="M245 276H350M245 302H350" stroke="#3e9aa3" stroke-width="2"/>
+      <text x="555" y="294" fill="#ad4b55">PFK-1</text>
+
+      <text x="520" y="369">Aldolase</text>
+      <text x="480" y="481">Triose phosphate</text><text x="480" y="503">isomerase</text>
+
+      <text x="80" y="493">NAD⁺ + P<tspan baseline-shift="sub" font-size="13">i</tspan></text>
+      <text x="80" y="525">NADH + H⁺</text>
+      <path d="M193 487H280M193 519H280" stroke="#3e9aa3" stroke-width="2"/>
+      <text x="500" y="520">Glyceraldehyde-3-phosphate</text><text x="500" y="542">dehydrogenase</text>
+
+      <text x="205" y="608">ADP</text><text x="205" y="636">ATP</text>
+      <path d="M245 602H365M245 630H365" stroke="#3e9aa3" stroke-width="2"/>
+      <text x="520" y="623">1,3-BPG kinase</text>
+
+      <text x="520" y="715">Phosphoglycerate mutase</text>
+      <text x="520" y="795">Enolase</text>
+
+      <text x="205" y="870">ADP</text><text x="205" y="900">ATP</text>
+      <path d="M245 864H350M245 894H350" stroke="#3e9aa3" stroke-width="2"/>
+      <text x="555" y="887" fill="#ad4b55">Pyruvate kinase</text>
+    </g>
+
+    <g transform="translate(128 992)" text-anchor="start" font-size="17">
+      <path d="M0 0H70" stroke="#bd5860" stroke-width="4"/><text x="84" y="6" fill="#ad4b55">Irreversible steps</text>
+    </g>
+    <text x="450" y="1060" font-size="19" fill="#45aeb9">©MARROW</text>
+  </g>
+</svg>

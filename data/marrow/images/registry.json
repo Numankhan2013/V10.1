@@ -339,7 +339,7 @@
           "questionId": "marrow__ANAT_CH03_Q004",
           "role": "explanation",
           "order": 1,
-          "alt": "Source figure"
+          "alt": "Formation of the notochord in four ordered stages"
         }
       ],
       "original": {
@@ -349,19 +349,19 @@
         "height": 726
       },
       "production": {
-        "path": "data/marrow/images/originals/babc1e59001cfa889249fd5ce15f7a2d61899b146128a6f551ec1e1d650c528d.jpg",
-        "sha256": "babc1e59001cfa889249fd5ce15f7a2d61899b146128a6f551ec1e1d650c528d",
-        "width": 600,
-        "height": 726
+        "path": "data/marrow/images/editable/formation-of-notochord.svg",
+        "sha256": "d4b04beb1faac0a3d19567a31834d5aef9856c165224158f6bbadef5b48a4b32",
+        "width": 900,
+        "height": 1100
       },
-      "method": "native-jpeg-stream",
+      "method": "svg-reconstruction",
       "status": "REVIEW_REQUIRED",
       "qa": {
-        "sourceCompared": true,
-        "notes": "Notochord: four inset stages present, but small soft labels would benefit from reconstruction. Keep out of production pending redraw. Production is the exact native JPEG; no crop or processing applied.",
-        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "sourceCompared": false,
+        "notes": "SVG reconstruction prepared from the source schematic. Awaiting rendered side-by-side QA of all twelve labels, four ordered stages, overview landmarks and arrow sequence before release.",
+        "evidence": "Pending CI-rendered source/production comparison.",
         "originalSha256": "babc1e59001cfa889249fd5ce15f7a2d61899b146128a6f551ec1e1d650c528d",
-        "productionSha256": "babc1e59001cfa889249fd5ce15f7a2d61899b146128a6f551ec1e1d650c528d"
+        "productionSha256": "d4b04beb1faac0a3d19567a31834d5aef9856c165224158f6bbadef5b48a4b32"
       }
     },
     {
@@ -477,7 +477,7 @@
           "questionId": "marrow__BIOCHEM_CH02_Q008",
           "role": "explanation",
           "order": 1,
-          "alt": "Source figure"
+          "alt": "Glycolysis pathway with enzymes and irreversible steps"
         }
       ],
       "original": {
@@ -487,19 +487,19 @@
         "height": 450
       },
       "production": {
-        "path": "data/marrow/images/originals/aa11f9fa6a08baeaa4949b752af3b5bea6275649598559118eb86862d522cef0.jpg",
-        "sha256": "aa11f9fa6a08baeaa4949b752af3b5bea6275649598559118eb86862d522cef0",
-        "width": 600,
-        "height": 450
+        "path": "data/marrow/images/editable/glycolysis.svg",
+        "sha256": "b3257f76d32e31461819c3d612c5232ab571992cd4b552f70a3b32a70ce2cef4",
+        "width": 900,
+        "height": 1100
       },
-      "method": "native-jpeg-stream",
+      "method": "svg-reconstruction",
       "status": "REVIEW_REQUIRED",
       "qa": {
-        "sourceCompared": true,
-        "notes": "Glycolysis: severe vertical compression and small labels in embedded source. Reconstruction needed; do not release this raster. Production is the exact native JPEG; no crop or processing applied.",
-        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "sourceCompared": false,
+        "notes": "SVG reconstruction prepared from the source pathway. Awaiting rendered side-by-side QA of all metabolites, enzymes, cofactors, branch relationship, arrows and irreversible-step markings before release.",
+        "evidence": "Pending CI-rendered source/production comparison.",
         "originalSha256": "aa11f9fa6a08baeaa4949b752af3b5bea6275649598559118eb86862d522cef0",
-        "productionSha256": "aa11f9fa6a08baeaa4949b752af3b5bea6275649598559118eb86862d522cef0"
+        "productionSha256": "b3257f76d32e31461819c3d612c5232ab571992cd4b552f70a3b32a70ce2cef4"
       }
     },
     {
