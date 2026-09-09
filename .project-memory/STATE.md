@@ -113,15 +113,18 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
   plus 58 text-cue candidates. Native candidates are not final asset counts.
 - Pilot: 15 PASS, one SOURCE_LIMITED microscopy image, two REVIEW_REQUIRED
   redraws. Sixteen assets release by stable question ID; two reviewed SVGs.
-- Local registry tests pass. Expanded batch still needs local gate, CI/browser/
-  package checks, user review, and full-bank classification.
+- Expanded batch is build-verified by full APK/PWA run `34328039057`: browser,
+  offline PWA, exact asset bytes, APK packaging and upload passed. Artifact
+  `V11.7-android-pwa` ID `10094653587`; preview
+  `https://334bc346.nk-qbank.pages.dev`. User/device review and full-bank
+  classification remain.
 - Audit and workflow: `docs/MARROW_IMAGE_PIPELINE.md`. Preserve raw sources and
   `tools/__pycache__/`; no production promotion. UI upgrade remains deferred.
 
 ## Next step
 
-1. Verify and publish the expanded pilot branch, then inspect CI evidence.
-2. Present pilot for user review before wider asset rollout.
+1. Present the build-verified pilot for user review before wider asset rollout.
+2. Merge only after user approval; production remains unchanged.
 3. Reconstruct the held notochord and compressed-glycolysis figures.
 4. Continue bounded classification and asset batches across all subjects.
 5. Resume explanation rollout separately after the image priority phase.

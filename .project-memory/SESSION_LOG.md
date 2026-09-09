@@ -617,3 +617,16 @@ Implemented approved recovery in existing transform owners: Topics separate path
   read-only package checker being called once for web and once for APK; fix on resume.
 - User requested a pause to preserve usage. Saved all work and resume instructions;
   expanded batch CI, physical review and full-bank classification remain unfinished.
+
+## 2026-09-09 — Expanded Marrow image pilot build verification
+
+- Resumed at the user's request and fixed the read-only package verifier's
+  pipeline ownership classification.
+- Full Android/PWA run `34328039057` passed for commit `748204b`, including
+  browser rendering/zoom, web offline-cache hashes, APK asset hashes, packaged
+  product contracts and artifact upload.
+- Artifact `V11.7-android-pwa` ID `10094653587`; immutable preview
+  `https://334bc346.nk-qbank.pages.dev`. Production promotion was skipped.
+- The 18-asset audit set remains 15 PASS, one SOURCE_LIMITED and two
+  REVIEW_REQUIRED. Sixteen reviewed assets are learner-facing; user/device
+  approval and broader classification remain outstanding.
