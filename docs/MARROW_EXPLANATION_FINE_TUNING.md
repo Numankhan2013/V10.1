@@ -113,10 +113,9 @@ Current deterministic inventory:
   copying source explanation text into the inventory;
 - `tools/inventory_marrow_explanations.py` regenerates it from hash-verified
   source bundles and the approved augmentation subsets;
-- the current inventory records 194 enhanced questions and 1,921 pending:
-  the 162-question approved reference, completed Biochemistry Chapter 1, and
-  completed Biochemistry Chapter 4; it still identifies the fixed 20-question
-  Biochemistry gold-sample set.
+- the current inventory records 223 enhanced questions and 1,892 pending:
+  the 162-question approved reference plus completed Biochemistry Chapters 1, 2,
+  and 4; it still identifies the fixed 20-question Biochemistry gold-sample set.
 
 1. **Inventory first**
    - enumerate all 2,115 IDs and review statuses;
