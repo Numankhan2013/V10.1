@@ -8,7 +8,7 @@
 - Repo: `Numankhan2013/V10.1`.
 - Git `main` is the authoritative unified V11/Marrow product line after PRs #6–#8.
 - Current explanation-quality branch:
-  `feature/marrow-explanation-rollout-biochem-ch01`.
+  `feature/marrow-explanation-rollout-biochem-ch02`.
 - Resolve live branch/HEAD from Git; never hardcode a self-staling HEAD value.
 - Accepted product baseline remains **V11.6 Content Quality** at `125d68b`,
   canonical APK run `34050921180`.
@@ -62,12 +62,13 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 - The deterministic inventory originally accounted for all 2,115 IDs as
   142 references + 1,973 pending. After approval of the 20-question sample and
   completion of the remaining 22 questions in Biochemistry Chapter 1,
-  **184 are enhanced and 1,931 remain to roll out**.
+  after completing Biochemistry Chapters 1–2, **213 are enhanced and 1,902 remain to roll out**.
 - The approved cross-chapter **20-question Biochemistry gold reference** is stored
   at `data/marrow/explanation_biochem_gold_sample_v1.json`.
-- Biochemistry Chapter 1 rollout is complete: the remaining **22 questions** are
-  stored in `data/marrow/explanation_biochem_ch01_v1.json`; together with gold
-  sample Q23, all 23 Chapter 1 questions now use the approved grammar.
+- Biochemistry Chapter 1 rollout is complete: 23/23 questions enhanced.
+- Biochemistry Chapter 2 rollout is complete on the current branch: 29 new
+  explanations in `data/marrow/explanation_biochem_ch02_v1.json`; together with
+  approved gold-sample Q9, all **30/30 Chapter 2 questions** use the grammar.
 - On 2026-09-09 the user physically reviewed the 20-question Biochemistry sample
   and explicitly approved it: “They are good. We need that kind of explanation everywhere.”
   The approved explanation reference is therefore now **162 questions**
@@ -107,11 +108,11 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 
 ## Next step
 
-1. Build/browser/package-verify the Biochemistry Chapter 1 rollout batch
-   (22 new explanations; 23/23 Chapter 1 enhanced including gold-sample Q23).
-2. Merge the Chapter 1 batch after green checks.
-3. Continue from **Biochemistry Chapter 2**, skipping already-approved gold-sample
-   Q9, then proceed sequentially through Chapters 3–26.
+1. Build/browser/package-verify the Biochemistry Chapter 2 rollout batch
+   (29 new explanations; 30/30 Chapter 2 enhanced including gold-sample Q9).
+2. Merge the Chapter 2 batch after green checks.
+3. Continue from **Biochemistry Chapter 3** and proceed sequentially through
+   Chapters 4–26, skipping any already-approved gold-sample question.
 4. After Biochemistry, continue the same approved grammar across remaining
    Anatomy and Physiology questions.
 5. Keep raw source, native tables, figure metadata and unresolved provenance
