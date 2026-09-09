@@ -747,3 +747,95 @@ Implemented approved recovery in existing transform owners: Topics separate path
   work resumes, exact next target is Physiology Chapter 6 — **Physiology of
   Nerve**.
 
+## 2026-09-09 — Physiology explanation rollout Chapters 6–9
+
+### Chapter 6 — Physiology of Nerve
+- 34/34 explanation augmentations completed.
+- Reconstruction policy was clarified with the user: standard medical-school
+  literature is valid evidence for high-confidence learner-facing reconstruction
+  when PDF/JSON transcription is damaged; raw source remains immutable.
+- Added reconstruction-provenance schema enforcement to
+  `tools/test_marrow_physio_explanation_rollout.py`.
+- Reconstruction-marked cases:
+  - Q23 EPP: `needs_manual_review`; standard physiology says EPP is a graded
+    depolarization, making both stored A and C false in the "except" item.
+  - Q29 Wallerian degeneration: `resolved_reconstruction`; distinguishes true
+    earliest distal axonal degeneration from myelin degeneration being the best
+    offered answer.
+  - Q31: restored OCR-corrupted sensory fiber Greek labels.
+  - Q32: restored Na+ channel inactivation-gate terminology.
+- Deterministic inventory after Ch6: **463 enhanced / 1,652 pending**,
+  fingerprint
+  `688c67011650b4ce59a7992fb92746ffd93329f17039d091711dcbe2b682b385`.
+- PR #25. Final verified candidate
+  `ba679eea486106299de7a93d5045b3e8b249cfeb`.
+- Engineering Gate 262 + full Android/PWA run 549 passed.
+- Live browser regression verified Q23 learner-facing reconstruction.
+- Verified preview: `https://7d9c78dd.nk-qbank.pages.dev`.
+- Production promotion skipped.
+
+### Chapter 7 — Muscle Physiology I
+- 35/35 explanation augmentations completed.
+- Reconstruction-marked cases:
+  Q10 titin structure, Q20 relaxation wording, Q23 optimal sarcomere-length
+  terminology, Q34 missing numbered statements = `resolved_reconstruction`;
+  Q35 remains `needs_manual_review` because only the educational meaning of
+  statement 3 is recoverable and exact missing statements 1/2/4 were not
+  invented.
+- Deterministic inventory after Ch7: **498 enhanced / 1,617 pending**,
+  fingerprint
+  `693193c3d4872ccf6d93761ad2c7eb7c4f7ad62b559f9b68be8025859f69db65`.
+- PR #26. Final verified candidate
+  `f1ba3c484a093df226bab0d5ae5995ec03167ca9`.
+- Engineering Gate 265 + full Android/PWA run 556 passed.
+- Browser-regression mistake/lesson: substring selector
+  `Muscle Physiology I` also matched `Muscle Physiology II`; a second
+  text-based attempt timed out. Stable chapter-ID selector
+  `onclick="window.QB.openChapter('7')"` fixed the test.
+- Verified preview: `https://ae74a324.nk-qbank.pages.dev`.
+- Production promotion skipped.
+
+### Chapter 8 — Muscle Physiology II
+- 14/14 explanation augmentations completed.
+- Q13 = `resolved_reconstruction`: autonomic effects on smooth muscle are
+  tissue/receptor dependent, so the source's categorical sympathetic wording
+  was corrected in augmentation while raw key/data stayed unchanged.
+- Deterministic inventory after Ch8: **512 enhanced / 1,603 pending**,
+  fingerprint
+  `8d35e1f870a1c414c1546327858d464055717fd0edf2eac683daa7e277ae10bf`.
+- PR #27. Final verified candidate
+  `0a1f31f9dd1689ef6be73948a3e77262ec5b2ff2`.
+- Engineering Gate 266 + full Android/PWA run 561 passed.
+- Live browser Q13, APK/package, reproducibility and preview deploy all passed.
+- Verified preview: `https://afdceb7d.nk-qbank.pages.dev`.
+- Production promotion skipped.
+
+### Chapter 9 — Synapse and Junctional Transmission — CURRENT STOP
+- 27/27 explanation augmentations authored and committed in
+  `data/marrow/explanation_physio_ch09_v1.json`.
+- Content checkpoint:
+  `9c7cf3f73320673f59ad0328cb9374085fd2e28a`.
+- Reconstruction-marked cases:
+  - Q1 `needs_manual_review`: defining numbered statements absent from JSON.
+  - Q5 `needs_manual_review`: stored option `DOPA` creates a second
+    non-monoamine classification problem; possible OCR/truncation of dopamine.
+  - Q24 `resolved_reconstruction`: opioid receptor symbols restored to
+    standard δ/κ/μ terminology.
+- Chapter 9 is **content-authored only**, not verified. No Ch9 deterministic
+  inventory update, browser regression, PR or exact-head CI certification has
+  yet been completed.
+- Exact resume order:
+  source correct-option/distractor audit → emphasis/reconstruction audit →
+  deterministic inventory regeneration → stable-ID browser regression → PR →
+  exact-head Engineering Gate + full Android/PWA gate → only then Chapter 10.
+
+### Efficiency and failure lessons
+- Pre-audit the next chapter while CI runs, but never commit it on an unverified
+  lineage.
+- Certify only workflow runs for the PR's exact current head SHA.
+- Prefer stable chapter IDs/attributes over fuzzy topic display-text selectors.
+- Treat case-sensitive emphasis mismatches as render-anchor fixes, not medical
+  rewrites.
+- Reconstruction status reflects certainty: medically correct explanation does
+  not automatically mean the damaged original item is fully resolved.
+
