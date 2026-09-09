@@ -1,0 +1,500 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Approved Marrow ED8 Biochemistry Chapter 10 explanation rollout. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "10",
+    "chapterTitle": "Protein structure and function",
+    "questions": 32,
+    "status": "approved-rollout"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 356,
+    "anatomy": 62,
+    "physiology": 80,
+    "biochemistry": 214
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH10_Q001": {
+      "takeaway": "Primary protein structure is the linear amino-acid sequence.",
+      "displayText": "Primary structure refers to the linear order of amino acids in a polypeptide chain. That sequence forms the foundation on which higher levels of structure are built.\n\nSecondary structure describes local ordered folding, tertiary structure describes the three-dimensional fold of a polypeptide, and quaternary structure describes association between multiple polypeptide chains.",
+      "emphasis": [
+        "Primary structure",
+        "linear order of amino acids",
+        "tertiary structure",
+        "quaternary structure"
+      ],
+      "rationales": {
+        "b": "Regular local conformations such as α-helices and β-sheets describe secondary, not primary, structure.",
+        "c": "The complete three-dimensional fold of a polypeptide is tertiary structure.",
+        "d": "Subunit association is quaternary structure."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q002": {
+      "takeaway": "α-Helices and β-pleated sheets are secondary protein structures.",
+      "displayText": "Secondary structure describes geometrically ordered local folding of the polypeptide backbone. The classic examples are the α-helix and β-pleated sheet, along with turns and bends.\n\nThese structures are stabilized mainly by backbone hydrogen bonding.",
+      "emphasis": [
+        "Secondary structure",
+        "α-helix",
+        "β-pleated sheet",
+        "hydrogen bonding"
+      ],
+      "rationales": {
+        "a": "Primary structure is the linear amino-acid sequence.",
+        "c": "Tertiary structure is the overall three-dimensional fold of one polypeptide chain.",
+        "d": "Quaternary structure describes association between multiple polypeptide subunits."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q003": {
+      "takeaway": "α-Helices are stabilized mainly by intrachain hydrogen bonds, not simply by the peptide bond itself.",
+      "displayText": "The false statement is that α-helix stability arises primarily from the peptide bond. The α-helix is stabilized mainly by intrachain hydrogen bonds between backbone carbonyl oxygen and amide hydrogen.\n\nA typical turn contains about 3.6 residues and has a pitch of 0.54 nm. Large numbers of charged residues can disrupt the helix through electrostatic effects.",
+      "emphasis": [
+        "intrachain hydrogen bonds",
+        "3.6 residues",
+        "0.54 nm",
+        "charged residues"
+      ],
+      "rationales": {
+        "b": "About 3.6 amino-acid residues per turn is a characteristic α-helix value.",
+        "c": "A pitch of about 0.54 nm per turn is correct for the α-helix.",
+        "d": "Clusters of charged amino acids can destabilize an α-helix through ionic interactions or repulsion."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q004": {
+      "takeaway": "The α-helix is the most common and stable regular polypeptide conformation.",
+      "displayText": "The α-helix is a common, stable secondary structure. Its regular backbone hydrogen-bonding pattern and favorable van der Waals interactions contribute to stability.\n\nProteins such as myoglobin and hemoglobin contain extensive α-helical structure.",
+      "emphasis": [
+        "α-helix",
+        "secondary structure",
+        "hydrogen-bonding pattern",
+        "myoglobin and hemoglobin"
+      ],
+      "rationales": {
+        "b": "β-Pleated sheets are important secondary structures but are not the source-keyed most common stable conformation here.",
+        "c": "Turns and bends connect structured regions but are not the source answer.",
+        "d": "Motifs are recurring combinations of secondary structures rather than the single conformation asked for."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q005": {
+      "takeaway": "Proline disrupts α-helices because its backbone nitrogen cannot donate the usual hydrogen bond.",
+      "displayText": "Proline is a classic α-helix breaker. Its cyclic structure constrains backbone geometry, and its peptide-bond nitrogen lacks the hydrogen needed for the regular helix-stabilizing hydrogen bond.\n\nFor that reason, proline commonly interrupts α-helical segments.",
+      "emphasis": [
+        "Proline",
+        "α-helix breaker",
+        "lacks the hydrogen",
+        "hydrogen bond"
+      ],
+      "rationales": {
+        "a": "Leucine commonly participates in α-helices.",
+        "b": "Methionine can be incorporated into α-helical segments.",
+        "d": "Lysine can occur in α-helices, although excessive charged residues can destabilize them."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q006": {
+      "takeaway": "Peptide bonds define primary structure; they are not the interactions that stabilize tertiary folding.",
+      "displayText": "Tertiary protein structure is stabilized by hydrophobic interactions, hydrogen bonds, ionic interactions and disulfide bonds.\n\nPeptide bonds instead covalently link amino acids in the primary sequence, so they are the exception in this list.",
+      "emphasis": [
+        "Tertiary protein structure",
+        "hydrophobic interactions",
+        "disulfide bonds",
+        "Peptide bonds"
+      ],
+      "rationales": {
+        "a": "Disulfide bonds can stabilize tertiary structure by covalently linking cysteine residues.",
+        "b": "Hydrogen bonds contribute to tertiary stabilization.",
+        "c": "Ionic interactions between charged side chains can stabilize tertiary folding."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q007": {
+      "takeaway": "Association of multiple folded polypeptide chains defines quaternary structure.",
+      "displayText": "Quaternary structure describes the spatial association of multiple already-folded polypeptide subunits. The subunits may be identical, forming a homomer, or different, forming a heteromer.\n\nDimers are a simple example of this level of protein organization.",
+      "emphasis": [
+        "Quaternary structure",
+        "multiple already-folded polypeptide subunits",
+        "homomer",
+        "heteromer"
+      ],
+      "rationales": {
+        "a": "Primary structure is the amino-acid sequence of a polypeptide.",
+        "b": "Secondary structure describes local backbone folding such as α-helices and β-sheets.",
+        "c": "Tertiary structure is the overall three-dimensional fold of a single polypeptide chain."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q008": {
+      "takeaway": "Protein denaturation usually disrupts higher-order structure and often causes insolubility without destroying primary peptide bonds.",
+      "displayText": "Denaturation unfolds or disorganizes secondary and tertiary structure, so biological activity is generally lost. The peptide bonds of primary structure are usually not hydrolyzed.\n\nDenatured proteins often become insoluble and precipitate. Denaturation is not always irreversible; some proteins can renature after the denaturing condition is removed.",
+      "emphasis": [
+        "Denaturation",
+        "biological activity is generally lost",
+        "primary structure",
+        "insoluble and precipitate"
+      ],
+      "rationales": {
+        "a": "Biological function is usually lost when the native fold is disrupted.",
+        "b": "Primary peptide bonds are ordinarily preserved during denaturation.",
+        "c": "Denaturation is not always irreversible; renaturation can occur under suitable conditions."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q009": {
+      "takeaway": "Molecular chaperones assist productive protein folding and prevent aggregation.",
+      "displayText": "Chaperones are commonly heat-shock proteins that bind exposed hydrophobic regions of nascent or misfolded polypeptides. This prevents inappropriate aggregation and gives the chain an opportunity to reach its correct fold.\n\nThey can also help rescue proteins trapped in nonproductive folding states.",
+      "emphasis": [
+        "Chaperones",
+        "heat-shock proteins",
+        "prevents inappropriate aggregation",
+        "correct fold"
+      ],
+      "rationales": {
+        "a": "Ubiquitination marks many proteins for degradation and is not the primary function of chaperones.",
+        "b": "Chaperones do not primarily perform covalent post-translational modification.",
+        "d": "Protein cleavage is performed by proteases rather than folding chaperones."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q010": {
+      "takeaway": "Myoglobin is an oxygen-binding protein, not a storage protein in the source classification.",
+      "displayText": "Myoglobin binds oxygen in muscle and acts as an oxygen reservoir/carrier rather than an amino-acid or metal-storage protein.\n\nThe source lists ovalbumin, ferritin and glutelin among storage proteins.",
+      "emphasis": [
+        "Myoglobin",
+        "oxygen reservoir/carrier",
+        "ovalbumin",
+        "ferritin"
+      ],
+      "rationales": {
+        "b": "Ovalbumin is classically listed as a storage protein of egg white.",
+        "c": "Ferritin stores iron and is a storage protein.",
+        "d": "Glutelin is listed among plant storage proteins."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q011": {
+      "takeaway": "Ion-exchange chromatography separates proteins on the basis of charge.",
+      "displayText": "Ion-exchange chromatography uses charged stationary groups to separate molecules according to ionic charge. Proteins bind differently depending on their net charge under the chosen pH conditions.\n\nThis makes it the source-keyed separation method based on molecular/ionic charge.",
+      "emphasis": [
+        "Ion-exchange chromatography",
+        "ionic charge",
+        "net charge",
+        "pH"
+      ],
+      "rationales": {
+        "a": "Affinity chromatography separates by specific molecular binding interactions rather than bulk charge.",
+        "b": "SDS-PAGE primarily separates denatured proteins by size after SDS equalizes charge-to-mass behavior.",
+        "c": "Absorption chromatography is not the source-keyed charge-based method."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q012": {
+      "takeaway": "Size-exclusion chromatography separates molecules according to molecular size.",
+      "displayText": "Size-exclusion chromatography separates solutes according to hydrodynamic size as they pass through a porous matrix. Larger molecules are excluded from more pores and therefore traverse the column differently from smaller molecules.\n\nThe source keys this as the molecular-size-based separation method.",
+      "emphasis": [
+        "Size-exclusion chromatography",
+        "hydrodynamic size",
+        "porous matrix",
+        "Larger molecules"
+      ],
+      "rationales": {
+        "a": "Agarose gel electrophoresis separates chiefly according to migration in an electric field and matrix sieving, not the source-keyed chromatography method.",
+        "c": "Ion-exchange chromatography separates on charge.",
+        "d": "Affinity chromatography separates through specific ligand binding."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q013": {
+      "takeaway": "Electrophoresis separates proteins but does not directly determine three-dimensional structure.",
+      "displayText": "X-ray crystallography and NMR spectroscopy are major methods for determining three-dimensional protein structure. Spectroscopic approaches can also provide structural information.\n\nElectrophoresis instead separates proteins according to properties such as size or charge and is therefore the exception.",
+      "emphasis": [
+        "X-ray crystallography",
+        "NMR spectroscopy",
+        "three-dimensional protein structure",
+        "Electrophoresis"
+      ],
+      "rationales": {
+        "a": "X-ray crystallography is a major structural method for proteins.",
+        "b": "NMR spectroscopy can determine protein structure in solution.",
+        "d": "Infrared spectroscopy can provide information about protein secondary structure and is included by the source among structural techniques."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q014": {
+      "takeaway": "The Rossmann NAD-binding fold is classically present in lactate dehydrogenase.",
+      "displayText": "The Rossmann fold is a common nucleotide-binding structural motif, especially for NAD(P)+. The source identifies lactate dehydrogenase as a classic enzyme containing a Rossmann-fold-associated NADH/NAD+ binding domain.\n\nSimilar folds occur in several other dehydrogenases.",
+      "emphasis": [
+        "Rossmann fold",
+        "NAD(P)+",
+        "lactate dehydrogenase",
+        "dehydrogenases"
+      ],
+      "rationales": {
+        "a": "Pyruvate dehydrogenase is a multienzyme complex and is not the source-keyed Rossmann example here.",
+        "c": "Acetyl-CoA dehydrogenase is not the source-keyed enzyme in this Rossmann-fold question.",
+        "d": "Isocitrate dehydrogenase is not the source-keyed answer for the classic Rossmann example listed."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q015": {
+      "takeaway": "HPLC is primarily a separation method, not a direct method for determining protein three-dimensional structure.",
+      "displayText": "X-ray crystallography, NMR spectroscopy and mass spectrometry can contribute directly to structural determination or characterization of proteins.\n\nHigh-performance liquid chromatography (HPLC) is principally used for separation, purification and analytical identification rather than direct determination of a protein's three-dimensional structure.",
+      "emphasis": [
+        "High-performance liquid chromatography (HPLC)",
+        "separation",
+        "purification",
+        "three-dimensional structure"
+      ],
+      "rationales": {
+        "a": "Mass spectrometry can provide structural information such as molecular mass, peptide mapping and sequence-related data.",
+        "b": "X-ray crystallography directly resolves three-dimensional protein structures.",
+        "d": "NMR spectroscopy can determine three-dimensional structures in solution."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q016": {
+      "takeaway": "The quarter-staggered molecular arrangement is characteristic of collagen fibrils.",
+      "displayText": "Collagen fibrils are built from tropocollagen molecules arranged side-by-side with a characteristic longitudinal offset known as the quarter-staggered arrangement.\n\nThis organization contributes to collagen's banding pattern and structural properties. The source collagen figure remains preserved separately.",
+      "emphasis": [
+        "Collagen fibrils",
+        "tropocollagen",
+        "quarter-staggered arrangement",
+        "structural properties"
+      ],
+      "rationales": {
+        "a": "Immunoglobulins do not form the characteristic quarter-staggered fibrillar array.",
+        "b": "Hemoglobin is a globular tetrameric protein and does not have the collagen quarter-staggered arrangement.",
+        "c": "Keratin forms coiled-coil fibrous structures rather than collagen's quarter-staggered fibrils."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q017": {
+      "takeaway": "Ehlers–Danlos syndrome is a collagen/connective-tissue disorder, not a classic protein-misfolding disease in the source classification.",
+      "displayText": "The source lists prion disease, Alzheimer disease and β-thalassemia among protein-misfolding disorders.\n\nEhlers–Danlos syndrome instead comprises inherited connective-tissue disorders caused by defects affecting collagen synthesis or structure, so it is the exception.",
+      "emphasis": [
+        "prion disease",
+        "Alzheimer disease",
+        "β-thalassemia",
+        "Ehlers–Danlos syndrome"
+      ],
+      "rationales": {
+        "a": "Prion diseases are prototypical protein-misfolding disorders.",
+        "b": "Alzheimer disease involves pathogenic protein aggregation and misfolding.",
+        "c": "The source includes β-thalassemia among protein-misfolding diseases."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q018": {
+      "takeaway": "Albumin and globulins are simple proteins rather than conjugated proteins.",
+      "displayText": "Simple proteins yield only amino acids on hydrolysis; the source lists albumin and globulins in this group.\n\nConjugated proteins contain a non-protein prosthetic component. Examples include phosphoproteins such as casein, heme/metalloproteins such as hemoglobin, and metalloproteins such as carbonic anhydrase.",
+      "emphasis": [
+        "Simple proteins",
+        "albumin and globulins",
+        "Conjugated proteins",
+        "prosthetic component"
+      ],
+      "rationales": {
+        "b": "Casein and vitellin are phosphoproteins and therefore conjugated proteins.",
+        "c": "Hemoglobin contains heme and is a conjugated protein.",
+        "d": "Carbonic anhydrase contains zinc and is classified as a metalloprotein/conjugated protein."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q019": {
+      "takeaway": "Insulin is a regulatory hormone, not a transport protein.",
+      "displayText": "Insulin is a peptide hormone that regulates metabolism and promotes anabolic processes; it does not function primarily as a transport protein.\n\nThe source lists myoglobin, hemoglobin and albumin among transport-related proteins because they bind or carry physiologically important molecules.",
+      "emphasis": [
+        "Insulin",
+        "peptide hormone",
+        "myoglobin",
+        "albumin"
+      ],
+      "rationales": {
+        "b": "Myoglobin binds oxygen in muscle and serves an oxygen reservoir/carrier role.",
+        "c": "Hemoglobin transports oxygen in blood.",
+        "d": "Albumin transports multiple ligands, including fatty acids and bilirubin."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q020": {
+      "takeaway": "Every third residue in collagen is glycine, not alanine.",
+      "displayText": "Collagen has a repeating Gly-X-Y pattern, so glycine occurs at every third position. Glycine's very small side chain is essential for tight packing of the triple helix.\n\nCollagen is the most abundant protein in the body, type IV collagen is found in basement membranes, and procollagen is synthesized intracellularly before extracellular processing.",
+      "emphasis": [
+        "Gly-X-Y",
+        "glycine occurs at every third position",
+        "type IV collagen",
+        "procollagen"
+      ],
+      "rationales": {
+        "a": "Collagen is the most abundant protein in the human body.",
+        "b": "Type IV collagen is a major component of basement membranes.",
+        "d": "Fibroblasts synthesize procollagen intracellularly before extracellular processing to mature collagen."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q021": {
+      "takeaway": "Menkes disease impairs copper-dependent lysyl oxidase activity.",
+      "displayText": "Sparse kinky hair, developmental regression, hypotonia and failure to thrive suggest Menkes disease. ATP7A dysfunction impairs intestinal copper handling, causing deficiency of copper-dependent enzymes.\n\nLysyl oxidase requires copper for collagen and elastin cross-linking, so its activity is reduced in Menkes disease. The source image remains preserved separately.",
+      "emphasis": [
+        "Menkes disease",
+        "ATP7A",
+        "copper-dependent enzymes",
+        "Lysyl oxidase"
+      ],
+      "rationales": {
+        "a": "Branched-chain α-ketoacid dehydrogenase defects cause MSUD, not Menkes disease.",
+        "b": "Prolyl hydroxylase depends mainly on vitamin C and iron rather than being the source-keyed copper-dependent enzyme here.",
+        "d": "Cystathionine synthase deficiency causes homocystinuria, not the kinky-hair copper-transport disorder."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q022": {
+      "takeaway": "Transferrin is a negative acute-phase reactant and falls during chronic inflammation.",
+      "displayText": "Acute-phase reactants change concentration during inflammation. Transferrin is a negative acute-phase reactant, so its plasma concentration tends to decrease.\n\nBy contrast, C-reactive protein, fibrinogen and ceruloplasmin are positive acute-phase reactants and generally increase.",
+      "emphasis": [
+        "Transferrin",
+        "negative acute-phase reactant",
+        "C-reactive protein",
+        "positive acute-phase reactants"
+      ],
+      "rationales": {
+        "a": "C-reactive protein is a positive acute-phase reactant and rises during inflammation.",
+        "b": "Fibrinogen is a positive acute-phase reactant.",
+        "d": "Ceruloplasmin is also listed as a positive acute-phase reactant."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q023": {
+      "takeaway": "Glycoproteins contain covalently attached oligosaccharide chains.",
+      "displayText": "Glycoproteins contain carbohydrate chains covalently linked to protein, and these carbohydrate portions are typically oligosaccharides rather than long storage polysaccharides.\n\nExamples include mucins, antibodies and several peptide hormones.",
+      "emphasis": [
+        "Glycoproteins",
+        "oligosaccharides",
+        "covalently linked",
+        "mucins"
+      ],
+      "rationales": {
+        "a": "A single monosaccharide is not the general carbohydrate form emphasized for glycoproteins.",
+        "c": "Long polysaccharide chains are not the characteristic glycan form of ordinary glycoproteins in this source classification.",
+        "d": "Disaccharide alone is too limited; glycoprotein carbohydrate chains are oligosaccharides."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q024": {
+      "takeaway": "PAS staining detects carbohydrate-rich mucins and other glycoprotein-associated polysaccharide material.",
+      "displayText": "Mucin is a glycoprotein rich in carbohydrate. The periodic acid–Schiff (PAS) reaction stains polysaccharides and carbohydrate-rich mucosubstances, making it useful for demonstrating mucin in tissue sections.\n\nThe source histology images remain preserved separately.",
+      "emphasis": [
+        "mucin",
+        "periodic acid–Schiff (PAS) reaction",
+        "polysaccharides",
+        "tissue sections"
+      ],
+      "rationales": {
+        "b": "Lectin chromatography is a biochemical separation method and is not the routine histochemical stain requested here.",
+        "c": "Mass spectrometry can characterize molecules but is not the source-keyed tissue stain for mucin.",
+        "d": "Masson trichrome highlights connective-tissue components such as collagen rather than specifically detecting mucin."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q025": {
+      "takeaway": "O-linked glycosylation occurs mainly in the Golgi apparatus.",
+      "displayText": "O-linked glycosylation attaches sugars to hydroxyl groups of serine or threonine residues. The source places synthesis and sequential sugar addition for O-linked glycoproteins in the Golgi apparatus.\n\nMucins and several proteoglycan/collagen-associated glycans use O-linked glycosylation.",
+      "emphasis": [
+        "O-linked glycosylation",
+        "serine or threonine",
+        "Golgi apparatus",
+        "Mucins"
+      ],
+      "rationales": {
+        "a": "The endoplasmic reticulum is central to initiation of N-linked glycosylation, not the source-keyed site for O-linked glycoprotein synthesis.",
+        "b": "Mitochondria are not the major organelle for O-linked glycoprotein synthesis.",
+        "d": "The cytoplasm is not the source-keyed site of classical secretory O-linked glycosylation."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q026": {
+      "takeaway": "Collagen is classified as an O-linked glycoprotein in the source.",
+      "displayText": "Collagen contains carbohydrate linked through hydroxylated amino-acid residues and is classified by the source among O-linked glycoproteins.\n\nO-linked glycans attach through oxygen-containing side-chain groups, whereas N-linked glycans attach through asparagine nitrogen.",
+      "emphasis": [
+        "Collagen",
+        "O-linked glycoproteins",
+        "O-linked glycans",
+        "N-linked glycans"
+      ],
+      "rationales": {
+        "b": "N-linked glycoproteins attach carbohydrate to asparagine and are not the source classification for collagen.",
+        "c": "GPI linkage anchors proteins to membranes and is not the glycosylation type of collagen.",
+        "d": "A defined O-linked classification is provided, so 'None' is incorrect."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q027": {
+      "takeaway": "Type III collagen is prominent early in wound healing and is later replaced by type I collagen.",
+      "displayText": "During early wound repair, type III collagen is synthesized in the healing matrix. As remodeling proceeds, much of it is replaced by stronger type I collagen.\n\nThis maturation contributes to increasing tensile strength over time.",
+      "emphasis": [
+        "type III collagen",
+        "wound repair",
+        "type I collagen",
+        "tensile strength"
+      ],
+      "rationales": {
+        "a": "Type II collagen is prominent in cartilage rather than being the source-keyed wound-healing collagen.",
+        "c": "Type IV collagen forms network-like basement membranes.",
+        "d": "Type V collagen participates in fibril organization but is not the source-keyed early wound-healing collagen."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q028": {
+      "takeaway": "Specific lysosomal glycoprotein-hydrolase deficiencies cause oligosaccharidoses.",
+      "displayText": "Oligosaccharidoses are glycoprotein storage diseases caused by deficiency of specific lysosomal hydrolases needed to sequentially degrade oligosaccharide chains.\n\nThe block causes partially degraded glycoprotein material to accumulate within lysosomes.",
+      "emphasis": [
+        "Oligosaccharidoses",
+        "lysosomal hydrolases",
+        "oligosaccharide chains",
+        "accumulate within lysosomes"
+      ],
+      "rationales": {
+        "b": "I-cell disease is a lysosomal targeting defect involving mannose-6-phosphate labeling, not deficiency of one specific glycoprotein hydrolase.",
+        "c": "Scurvy is caused by vitamin C deficiency and impaired collagen hydroxylation.",
+        "d": "Ehlers–Danlos syndromes are inherited connective-tissue disorders involving collagen-related defects."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q029": {
+      "takeaway": "Paroxysmal nocturnal hemoglobinuria results from defective GPI anchoring of complement-regulatory proteins.",
+      "displayText": "In paroxysmal nocturnal hemoglobinuria (PNH), defective glycosylphosphatidylinositol (GPI) anchoring causes loss of proteins such as CD55/DAF and CD59 from the red-cell surface.\n\nWithout these complement regulators, erythrocytes become vulnerable to complement-mediated intravascular hemolysis.",
+      "emphasis": [
+        "paroxysmal nocturnal hemoglobinuria (PNH)",
+        "glycosylphosphatidylinositol (GPI)",
+        "CD55/DAF and CD59",
+        "complement-mediated intravascular hemolysis"
+      ],
+      "rationales": {
+        "b": "Oligosaccharidoses are lysosomal glycoprotein-degradation disorders rather than GPI-anchor defects.",
+        "c": "Ehlers–Danlos syndrome is a collagen/connective-tissue disorder.",
+        "d": "I-cell disease is caused by defective lysosomal enzyme targeting through mannose-6-phosphate."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q030": {
+      "takeaway": "Buphthalmos is not a characteristic feature of I-cell disease.",
+      "displayText": "I-cell disease is caused by defective Golgi N-acetylglucosamine-1-phosphotransferase activity, leading to failure to add mannose-6-phosphate targeting signals to lysosomal enzymes.\n\nAffected children can have coarse facial features, corneal clouding, joint restriction and failure to thrive. Buphthalmos is not among the characteristic findings listed by the source.",
+      "emphasis": [
+        "I-cell disease",
+        "mannose-6-phosphate",
+        "corneal clouding",
+        "Buphthalmos"
+      ],
+      "rationales": {
+        "a": "Coarse facial features are characteristic of I-cell disease.",
+        "b": "Corneal clouding is a recognized feature.",
+        "c": "Failure to thrive can occur in affected infants."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q031": {
+      "takeaway": "Replacing glutamine with asparagine is the most conservative substitution among the options.",
+      "displayText": "Glutamine and asparagine are both uncharged polar amino acids with amide-containing side chains. Replacing glutamine with asparagine therefore preserves charge and much of the local side-chain chemistry.\n\nThis conservative substitution is the least likely among the options to alter protein function.",
+      "emphasis": [
+        "Glutamine and asparagine",
+        "uncharged polar amino acids",
+        "conservative substitution",
+        "least likely"
+      ],
+      "rationales": {
+        "b": "Alanine is nonpolar and much smaller, so replacing glutamine with alanine changes side-chain chemistry more substantially.",
+        "c": "Glutamate is negatively charged at physiologic pH, unlike neutral glutamine.",
+        "d": "Arginine is positively charged and chemically very different from glutamine."
+      }
+    },
+    "marrow__BIOCHEM_CH10_Q032": {
+      "takeaway": "The proteasome degrades polyubiquitinated proteins.",
+      "displayText": "The proteasome is a large cytosolic proteolytic complex that recognizes many polyubiquitinated proteins and degrades them into peptides.\n\nThis system regulates protein quality and turnover and also contributes peptides for antigen presentation.",
+      "emphasis": [
+        "proteasome",
+        "polyubiquitinated proteins",
+        "degrades them into peptides",
+        "antigen presentation"
+      ],
+      "rationales": {
+        "a": "Protein folding is assisted by molecular chaperones rather than the proteasome.",
+        "b": "Post-translational modification is not the core function of the proteasome.",
+        "d": "Protein sorting is performed by trafficking machinery rather than proteasomal proteolysis."
+      }
+    }
+  }
+}
