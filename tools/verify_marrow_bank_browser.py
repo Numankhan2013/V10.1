@@ -295,6 +295,26 @@ def main():
                 raise SystemExit('Physiology Chapter 6 Q23 must render exactly three option rationales')
             page.screenshot(path=str(OUT/'00aal-physiology-ch06-rollout-q23.png'),full_page=True)
 
+            # Physiology Chapter 7 reconstruction regression: Q35 must
+            # recover standard skeletal-muscle EC coupling without inventing
+            # the missing verbatim numbered statements.
+            page.evaluate("window.QB.nav('banks','Physiology')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Muscle Physiology I').click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=35:
+                raise SystemExit('Marrow Physiology Chapter 7 count is not 35')
+            page.locator('button.nk-library-row').nth(34).click();page.wait_for_timeout(80)
+            if 'skeletal muscle contraction' not in page.locator('.question-text').inner_text().lower():
+                raise SystemExit('Physiology Chapter 7 rollout Q35 did not open')
+            page.locator('.option-list button').nth(1).click();page.wait_for_timeout(120)
+            ph7=page.locator('.nk-study-support').inner_text().lower()
+            for required in ('key takeaway','detailed explanation','structured text','why the other options are wrong','ca2+ release from the sarcoplasmic reticulum','dhpr voltage sensors','extracellular ca2+ influx is not required'):
+                if required not in ph7:
+                    raise SystemExit(f'Physiology Chapter 7 rollout missing {required}')
+            if page.locator('.nk-gold-wrong-row').count()!=3:
+                raise SystemExit('Physiology Chapter 7 Q35 must render exactly three distractor rationales')
+            page.screenshot(path=str(OUT/'00aam-physiology-ch07-rollout-q35.png'),full_page=True)
+
             # Explanation-quality candidate regression: Chapter 1 Q23 is one of
             # the deterministic 20-question Biochemistry sample entries and must
             # use the exact approved 142-question presentation grammar.
