@@ -98,6 +98,31 @@ def main():
                 raise SystemExit('Biochemistry Chapter 2 Q1 must render exactly three distractor rationales')
             page.screenshot(path=str(OUT/'00aab-biochemistry-ch02-rollout-q1.png'),full_page=True)
 
+            # Chapter 3 OCR-cleanup regression: Q12 has raw source spillover into
+            # later solutions. The learner-facing augmentation must isolate the
+            # debranching explanation without mutating the source record.
+            page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Glycogen metabolism and glycogen storage disorders').click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=20:
+                raise SystemExit('Marrow Biochemistry Chapter 3 count is not 20')
+            page.locator('button.nk-library-row').nth(11).click();page.wait_for_timeout(80)
+            if 'debranching enzyme' not in page.locator('.question-text').inner_text().lower():
+                raise SystemExit('Biochemistry Chapter 3 rollout Q12 did not open')
+            page.locator('.option-list button').first.click();page.wait_for_timeout(120)
+            ch3=page.locator('.nk-study-support').inner_text().lower()
+            for required in ('key takeaway','detailed explanation','structured text','why the other options are wrong','amylo-1,6-glucosidase','α(1→6)'):
+                if required not in ch3:
+                    raise SystemExit(f'Biochemistry Chapter 3 rollout missing {required}')
+            for leaked in ('solution to question 13','solution to question 20','pompe disease is the glycogen'):
+                if leaked in ch3:
+                    raise SystemExit(f'Biochemistry Chapter 3 Q12 leaked raw spillover: {leaked}')
+            if page.locator('.nk-gold-wrong-row').count()!=3:
+                raise SystemExit('Biochemistry Chapter 3 Q12 must render exactly three distractor rationales')
+            if not page.locator('.nk-fsrs-rating').is_visible():
+                raise SystemExit('FSRS recall dock missing in Biochemistry Chapter 3 rollout')
+            page.screenshot(path=str(OUT/'00aac-biochemistry-ch03-rollout-q12.png'),full_page=True)
+
             # Explanation-quality candidate regression: Chapter 1 Q23 is one of
             # the deterministic 20-question Biochemistry sample entries and must
             # use the exact approved 142-question presentation grammar.
