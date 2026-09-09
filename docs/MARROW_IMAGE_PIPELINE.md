@@ -11,6 +11,9 @@ source viewer supplies fullscreen zoom and pan.
 - Inventory: `python3 tools/marrow_images.py audit` (writes `build/marrow-images/audit.json`).
 - Extract a native JPEG: `python3 tools/marrow_images.py extract --subject Biochemistry --page 10 --xref 19`.
 - Validate: `python3 tools/marrow_images.py validate`.
+- Render a precise region on Ubuntu: `python3 tools/marrow_images.py render-region --subject Biochemistry --page 10 --region 162 56 450 272 --dpi 300`.
+- Stage a bounded review batch: `python3 tools/stage_marrow_image_review.py --per-subject 6`.
+- Record a visual review: `python3 tools/marrow_images.py review --asset ID --status PASS --kind diagram --notes 'Observed comparison findings' --evidence 'Comparison artifact reference'`.
 - Package approved assets: `python3 tools/marrow_images.py release`.
 
 The registry is `data/marrow/images/registry.json`. Original extractions are
@@ -55,8 +58,16 @@ lower panel already contains compression/posterization in the authoritative PDF.
 
 ## Outstanding milestone
 
-Expand the three-asset technical pilot to the planned representative 15–20 assets,
-including Anatomy, molecular structures, multi-panel and hybrid examples. Inspect
-rendered SVG comparisons before releasing reconstruction candidates. Region
-rendering/compositing and full visual classification remain to be implemented.
-Do not bulk approve candidates or overwrite immutable extractions.
+The initial pilot now covers 18 inspected assets: 15 PASS, one SOURCE_LIMITED,
+and two REVIEW_REQUIRED reconstruction candidates (notochord and compressed
+glycolysis). Sixteen assets are released to sixteen questions: five Anatomy,
+five Biochemistry and six Physiology. Two are reviewed SVG reconstructions;
+the remainder retain exact native JPEG bytes. The pilot includes molecular
+structures, a hybrid reaction/photo image, microscopy, multi-panel diagrams,
+pathways, graphs and anatomical illustrations.
+
+User review of the pilot and full-bank visual classification remain outstanding.
+The page-level audit is complete; educational asset counts and quality/type totals
+outside the inspected pilot must not be inferred from image-stream counts.
+Region rendering is available on Ubuntu; masked and complex hybrid annotation
+reconstruction still requires an explicit asset-specific reviewed implementation.

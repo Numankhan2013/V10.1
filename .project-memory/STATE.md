@@ -107,13 +107,38 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 
 ## Next step
 
+### Paused at user request — 2026-09-09
+
+- Save-only checkpoint; user is near usage limit and will resume in a few hours.
+- Working branch: `feature/marrow-image-pipeline`. Initial pushed commit `07ee53d`
+  passed full APK/PWA CI `34311877059`. The expanded 18-asset batch is saved in
+  the next local checkpoint; it has NOT had a full CI run yet.
+- Immediate known issue: `verify_build_pipeline.py` rejects the two invocations
+  of read-only `tools/check_marrow_image_package.py` as duplicate transform owners.
+  On resume, exempt that checker (or use the established verifier convention),
+  then run local checks and full CI for the expanded batch.
+- Image registry tests and project-memory verification passed after expansion.
+  Do not call the expanded batch build-verified or device-verified yet.
+- Audit artifacts: `build/marrow-images/audit.json` and `summary.json` (local,
+  regenerable with pypdf 6.18.0; no PyMuPDF installation on Termux).
+- Downloaded comparison evidence is under
+  `/data/data/com.termux/files/home/V10.1-deployment-checks/marrow-image-pilot-34311877059/`.
+- Remaining work: expanded browser/package checks, user pilot review, full-bank
+  visual classification and later bounded rollout. Native candidate counts are
+  not verified educational asset counts. Two pilot diagrams still need redraw.
+- Keep the unrelated untracked `tools/__pycache__/` untouched. No merge or
+  production promotion was performed. The latest checkpoint stays local to
+  avoid starting another CI run during the requested pause.
+
 Image phase in progress on `feature/marrow-image-pipeline`: the PDF inventory
 inspects all 2,484 pages; 1,082 explicit references across 821 questions and
 58 additional text-cue candidates require visual triage. Native candidate
 availability does not mean quality approval. See `docs/MARROW_IMAGE_PIPELINE.md`.
-The first exact-byte microscopy asset is SOURCE_LIMITED; two reconstructed SVGs
-are REVIEW_REQUIRED pending rendered comparison. UI upgrade is deferred.
-Local source checks pass; full image pipeline CI/device verification pending.
+The 18-asset pilot has 15 PASS, one SOURCE_LIMITED microscopy asset and two
+REVIEW_REQUIRED redraw candidates. Sixteen assets are released; two are SVGs
+that passed rendered source comparisons. Initial APK/PWA CI 34311877059 passed;
+expanded batch verification is in progress. Physical review remains pending.
+UI upgrade is deferred; approved explanation work remains intact.
 
 1. Build/browser/package-verify the Biochemistry Chapter 1 rollout batch
    (22 new explanations; 23/23 Chapter 1 enhanced including gold-sample Q23).

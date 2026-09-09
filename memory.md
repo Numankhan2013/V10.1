@@ -1,5 +1,12 @@
 # Latest feature-PWA validation and next-work handoff — 2026-09-08
 
+2026-09-09 image-phase checkpoint: work is paused at the user's usage-limit request
+on `feature/marrow-image-pipeline`. Initial image pipeline commit `07ee53d` passed
+full CI `34311877059`; the expanded 18-asset pilot is saved locally and still needs
+its own CI/browser/package verification. A known duplicate-owner gate issue for
+the read-only image package checker must be fixed first. `.project-memory/STATE.md`
+contains the authoritative resume instructions. Production was not promoted.
+
 Accepted rollback baseline: V11.6 `125d68b`.
 
 The user physically opened the Marrow feature PWA and confirmed: **Marrow question

@@ -2,6 +2,14 @@
 
 ## Production shape (do not replace)
 
+Image-phase candidate adds `tools/marrow_images.py` as the Marrow image inventory,
+extraction and release owner. A separate `data/marrow/images/registry.json` keeps
+originals, production hashes, source coordinates, question bindings and QA status.
+`tools/install_marrow_images.py` runs after Marrow content generation, installs
+explicit ID-based question/explanation hooks and exposes the existing source viewer.
+PWA builds precache released content-hash image URLs. This candidate is in progress;
+see STATE for exact verification and the user-requested pause.
+
 - Android wrapper (`app/src/main/java/com/qbank/biochemistry/MainActivity.java`,
   `AndroidManifest.xml`) + **WebView** + monolithic
   `app/src/main/assets/index.html` (~6 MB on V11 branches; 1.9 MB on stale

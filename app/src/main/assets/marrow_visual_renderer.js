@@ -24,7 +24,10 @@ function mount(){
       caption.textContent=(figures.length>1?'Figure '+(index+1)+' · ':'')+'Tap to expand'+(figure.status==='SOURCE_LIMITED'?' · Source image has limited detail':'');
       item.append(button,caption);box.append(item);
     });
-    if(role==='question')node.after(box);else node.append(box);
+    if(role==='question')node.after(box);else{
+      const tail=node.querySelector('.nk-gold-wrong,.nk-marrow-provenance');
+      if(tail)tail.before(box);else node.append(box);
+    }
   });
 }
 const style=document.createElement('style');style.textContent='.nk-marrow-figures{display:grid;gap:16px;margin:14px 0 20px}.nk-marrow-figures figure{margin:0;min-width:0}.nk-marrow-figure-button{display:block;width:100%;padding:0;border:0;background:transparent;cursor:zoom-in}.nk-marrow-figure-button img{display:block;max-width:100%;width:auto;height:auto;max-height:72vh;object-fit:contain;margin:auto}.nk-marrow-figures figcaption{text-align:center;color:#6F7385;font-size:12px;margin-top:6px}.nk-marrow-figure-button:focus-visible{outline:2px solid #135262;outline-offset:4px}';

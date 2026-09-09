@@ -603,3 +603,17 @@ Implemented approved recovery in existing transform owners: Topics separate path
   checks. Raw source bundles remain unchanged.
 - Added dedicated Chapter 1 rollout tests and browser coverage. Exact next content
   start after this batch: **Biochemistry Chapter 2**, skipping already-approved Q9.
+
+## 2026-09-09 — Marrow image pipeline implementation; user-requested pause
+
+- Updated local checkout to remote main and created `feature/marrow-image-pipeline`.
+- Added PDF image audit, immutable native extraction, Ubuntu region-render fallback,
+  provenance/QA registry, ID-bound inline rendering and existing zoom viewer integration.
+- Initial commit `07ee53d` passed full Android/PWA CI `34311877059`; comparisons
+  and microscopy viewer were inspected. Production remains unchanged.
+- Expanded pilot: 18 inspected assets, 15 PASS, one SOURCE_LIMITED, two held for
+  reconstruction; 16 app assets including two source-compared SVG reconstructions.
+- Expanded batch registry tests pass. Pipeline ownership gate currently flags the
+  read-only package checker being called once for web and once for APK; fix on resume.
+- User requested a pause to preserve usage. Saved all work and resume instructions;
+  expanded batch CI, physical review and full-bank classification remain unfinished.

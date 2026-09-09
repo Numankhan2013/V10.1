@@ -29,6 +29,13 @@ def install():
         assert 'function stripLeakedReference(' in content
         content=content.replace('function stripLeakedReference(', 'window.NKSourceVisualViewer=viewer;\nfunction stripLeakedReference(',1)
         viewer.write_text(content)
+    # The legacy stem matcher must not attach a PrepLadder image to Marrow.
+    anchor='if(!qt)return;stripLeakedReference(qt);'
+    guard="if(!qt)return;if(qt.getAttribute('data-marrow-question')){mounted.add(card);return;}stripLeakedReference(qt);"
+    if guard not in content:
+        assert anchor in content, 'Legacy image mount anchor missing'
+        content=content.replace(anchor,guard,1)
+        viewer.write_text(content)
     print('MARROW_IMAGE_INSTALL_OK')
 
 if __name__=='__main__':install()

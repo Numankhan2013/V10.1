@@ -12,7 +12,6 @@ import hashlib
 import json
 from pathlib import Path
 import re
-import shutil
 import zlib
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -78,7 +77,17 @@ def pdf_inventory(path):
                            'filter':str(obj.get('/Filter')), 'mask':bool(obj.get('/SMask') or obj.get('/Mask')),
                            'region':rect, 'pageBackgroundCandidate':coverage > .90,
                            'streamSha256':sha(obj._data)})
-        page.extract_text(visitor_operand_before=visit)
+        # Walk graphics operators directly: damaged text encodings are irrelevant
+        # to image placement and must not make the inventory depend on OCR/fonts.
+        cm=[1,0,0,1,0,0];stack=[]
+        for args,op in page.get_contents().operations:
+            if op==b'q':stack.append(cm[:])
+            elif op==b'Q':cm=stack.pop() if stack else [1,0,0,1,0,0]
+            elif op==b'cm':
+                a,b,c,d,e,f=map(float,args)
+                g,h,i,j,k,l=cm
+                cm=[a*g+b*i,a*h+b*j,c*g+d*i,c*h+d*j,e*g+f*i+k,e*h+f*j+l]
+            elif op==b'Do':visit(op,args,cm,None)
         pages.append({'page':number, 'width':float(page.mediabox.width),
                       'height':float(page.mediabox.height), 'rotation':page.rotation,
                       'images':images,
@@ -125,6 +134,8 @@ def audit(output):
                               'Form XObjects, page rotation and composited annotations require region inspection.',
                               'Image stream counts are not educational asset counts.']}
     write_json(output,report)
+    write_json(output.with_name('summary.json'),{'schemaVersion':1,'summary':summaries,
+               'sourceHashes':{s:p['sha256'] for s,p in pdfs.items()},'limitations':report['limitations']})
     print(json.dumps(summaries,indent=2))
 
 def extract(subject, page_number, xref, output):
@@ -149,6 +160,29 @@ def extract(subject, page_number, xref, output):
                'width':obj['/Width'],'height':obj['/Height'],'status':'REVIEW_REQUIRED'})
     print(target)
 
+def render_region(subject, page_number, region, dpi, output):
+    from verification_preflight import is_termux
+    if is_termux():
+        raise SystemExit('Region rendering requires Ubuntu CI; do not install PyMuPDF in Termux.')
+    import fitz
+    assert 144<=dpi<=600
+    filename=SOURCES[subject][1]
+    source=DATA/'source_pdfs'/filename
+    with fitz.open(source) as document:
+        assert 1<=page_number<=len(document)
+        page=document[page_number-1]
+        assert page.rotation==0, 'Resolve rotation explicitly before rendering'
+        rect=fitz.Rect(region)
+        assert not rect.is_empty and page.rect.contains(rect)
+        png=page.get_pixmap(matrix=fitz.Matrix(dpi/72,dpi/72),clip=rect,alpha=False).tobytes('png')
+        digest=sha(png)
+        immutable(output/(digest+'.png'),png)
+        evidence={'source':filename,'sourceSha256':sha(source.read_bytes()),'page':page_number,
+                  'region':region,'dpi':dpi,'sha256':digest,'method':'region-render',
+                  'status':'REVIEW_REQUIRED','note':'Rendering does not recover lost raster detail.'}
+        immutable(output/(digest+'.json'),(json.dumps(evidence,indent=2)+'\n').encode())
+        print(output/(digest+'.png'))
+
 def validate(registry):
     qs = questions()
     value = json.loads(registry.read_text())
@@ -159,11 +193,14 @@ def validate(registry):
         ids.add(asset['id'])
         assert asset['status'] in {'PASS','REVIEW_REQUIRED','SOURCE_LIMITED','REJECTED'}
         assert asset['subject'] in SOURCES
+        assert asset['kind'] in {'diagram','medical','hybrid','table','unknown'}
         src = asset['source']
         source_path = DATA/'source_pdfs'/SOURCES[asset['subject']][1]
         assert src['file']==source_path.name and src['sha256']==sha(source_path.read_bytes())
         assert isinstance(src['page'],int) and src['page']>0
         assert len(src['region'])==4 and src['region'][0]<src['region'][2] and src['region'][1]<src['region'][3]
+        assert all(isinstance(n,(float,int)) and __import__('math').isfinite(n) for n in src['region'])
+        assert src['region'][0]>=0 and src['region'][1]>=0
         assert asset['method'] in {'native-jpeg-stream','region-render','svg-reconstruction','hybrid-overlay','conservative-processing'}
         for binding in asset['bindings']:
             assert qs[binding['questionId']]['subject']==asset['subject']
@@ -175,10 +212,14 @@ def validate(registry):
                 path = (ROOT/record['path']).resolve()
                 assert path.is_relative_to(ROOT)
                 assert sha(path.read_bytes())==record['sha256']
+        if asset.get('production'):
+            assert all(isinstance(asset['production'][k],int) and asset['production'][k]>0 for k in ('width','height'))
         if asset['status'] in {'PASS','SOURCE_LIMITED'}:
             assert asset.get('original') and asset.get('production') and asset.get('qa')
             assert asset['qa'].get('sourceCompared') is True
             assert asset['qa'].get('notes')
+            assert asset['qa'].get('originalSha256')==asset['original']['sha256'], 'Source changed since QA'
+            assert asset['qa'].get('productionSha256')==asset['production']['sha256'], 'Production changed since QA'
         if asset['kind']=='medical' and asset['method']=='native-jpeg-stream':
             assert asset['original']['sha256']==asset['production']['sha256']
         assert not (asset['kind']=='medical' and asset['method']=='svg-reconstruction')
@@ -211,17 +252,33 @@ def release(registry):
     (assets/'marrow_visual_metadata.js').write_text('window.MARROW_VISUALS='+json.dumps(runtime,separators=(',',':')).replace('</','<\\/')+';\n')
     print(f'MARROW_IMAGES_RELEASE_OK questions={len(runtime)} assets={sum(a["status"] in {"PASS","SOURCE_LIMITED"} for a in value["assets"])}')
 
+def review(registry, asset_id, status, kind, notes, evidence):
+    value=validate(registry)
+    matches=[a for a in value['assets'] if a['id']==asset_id]
+    assert len(matches)==1
+    a=matches[0]
+    a['status']=status;a['kind']=kind
+    a['qa']={'sourceCompared':True,'notes':notes,'evidence':evidence,
+             'originalSha256':a['original']['sha256'],'productionSha256':a['production']['sha256']}
+    write_json(registry,value)
+    validate(registry)
+    print('MARROW_IMAGE_REVIEW_RECORDED',asset_id,status)
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     sub=p.add_subparsers(dest='command',required=True)
     a=sub.add_parser('audit');a.add_argument('--output',type=Path,default=ROOT/'build/marrow-images/audit.json')
     e=sub.add_parser('extract');e.add_argument('--subject',choices=SOURCES,required=True);e.add_argument('--page',type=int,required=True);e.add_argument('--xref',type=int,required=True);e.add_argument('--output',type=Path,default=DATA/'images/originals')
+    r=sub.add_parser('render-region');r.add_argument('--subject',choices=SOURCES,required=True);r.add_argument('--page',type=int,required=True);r.add_argument('--region',type=float,nargs=4,required=True);r.add_argument('--dpi',type=int,default=300);r.add_argument('--output',type=Path,default=DATA/'images/originals')
     for command in ('validate','release'):
         a=sub.add_parser(command);a.add_argument('--registry',type=Path,default=DATA/'images/registry.json')
+    r=sub.add_parser('review');r.add_argument('--registry',type=Path,default=DATA/'images/registry.json');r.add_argument('--asset',required=True);r.add_argument('--status',choices=['PASS','SOURCE_LIMITED','REVIEW_REQUIRED','REJECTED'],required=True);r.add_argument('--kind',choices=['diagram','medical','hybrid','table','unknown'],required=True);r.add_argument('--notes',required=True);r.add_argument('--evidence',required=True)
     a=p.parse_args()
     if a.command=='audit':audit(a.output)
     elif a.command=='extract':extract(a.subject,a.page,a.xref,a.output)
+    elif a.command=='render-region':render_region(a.subject,a.page,a.region,a.dpi,a.output)
     elif a.command=='validate':validate(a.registry);print('MARROW_IMAGE_REGISTRY_OK')
+    elif a.command=='review':review(a.registry,a.asset,a.status,a.kind,a.notes,a.evidence)
     else:release(a.registry)
 
 if __name__=='__main__':main()

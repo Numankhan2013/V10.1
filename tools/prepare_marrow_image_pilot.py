@@ -3,6 +3,8 @@
 from marrow_images import DATA, ROOT, extract, sha, write_json
 
 def main():
+    if (DATA/'images/registry.json').exists():
+        raise SystemExit('Pilot registry already exists; use review/stage commands to preserve existing QA.')
     extract('Biochemistry',10,19,DATA/'images/originals')
     digest='62a5d0ea810266a026e2eae163014e45496c313ad0f426c304a34cd7fe9a6956'
     original='data/marrow/images/originals/'+digest+'.jpg'
@@ -14,7 +16,7 @@ def main():
         'bindings':[{'questionId':'marrow__BIOCHEM_CH01_Q023','role':'question','order':1,
                      'alt':'Two source microscopy panels labelled a and b'}],
         'original':record,'production':record,'method':'native-jpeg-stream','status':'SOURCE_LIMITED',
-        'qa':{'sourceCompared':True,'notes':'Inspected native xref 19 on source page 10: both panels a and b and their lettering preserved. Native JPEG bytes retained exactly. Lower panel shows source compression/posterization; no diagnostic pixels processed or recreated. Physical device review pending.'}
+        'qa':{'sourceCompared':True,'originalSha256':digest,'productionSha256':digest,'notes':'Inspected native xref 19 on source page 10: both panels a and b and their lettering preserved. Native JPEG bytes retained exactly. Lower panel shows source compression/posterization; no diagnostic pixels processed or recreated. Physical device review pending.'}
     }]
     for subject,page,xref,digest,name,qid,region in [
         ('Physiology',11,21,'fa647be99a1c86a886512e180a5100f22b486752dabb96ad624903f099d224e5','homeostasis','marrow__PHYS_CH01_Q002',[162,476,450,692]),
