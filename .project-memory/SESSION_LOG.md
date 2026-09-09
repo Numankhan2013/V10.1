@@ -573,3 +573,16 @@ Implemented approved recovery in existing transform owners: Topics separate path
   FSRS footer, Practice/CBT/Review flow, source tables or navigation.
 - The 142-question set remains the approved reference; the 20 Biochemistry
   questions remain candidate-human-review until visual approval.
+
+
+## 2026-09-09 — Biochemistry explanation sample approved
+
+- User physically reviewed the 20-question cross-chapter Biochemistry explanation
+  sample and explicitly approved its quality: “They are good. We need that kind
+  of explanation everywhere.”
+- This promotes the explanation reference from 142 to **162 approved questions**
+  (62 Anatomy + 80 Physiology + 20 Biochemistry).
+- Full Android/PWA and Engineering Gate were green on the approved candidate.
+- The remaining rollout target is **1,953 Marrow questions**, to be handled in
+  deterministic chapter batches with raw source immutable and source ambiguity
+  preserved rather than invented.
