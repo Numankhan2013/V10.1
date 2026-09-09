@@ -4269,6 +4269,29 @@
             "notes": "Answer-phase tetanization panels support calculation of minimum tetanizing frequency.",
             "evidence": "Physiology page 124/xref 2125 matched to Q34 explanation metadata."
           }
+        },
+        {
+          "questionId": "marrow__PHYS_CH08_Q014",
+          "role": "explanation",
+          "order": 3,
+          "alt": "Source explanation diagram/image on PDF page 172",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 172,
+            "xref": 2125,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 172/xref 2125."
+          }
         }
       ],
       "original": {
@@ -7730,6 +7753,29 @@
             "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
             "evidence": "Compared question metadata and source placement at page 161/xref 433."
           }
+        },
+        {
+          "questionId": "marrow__PHYS_CH08_Q007",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "REJECTED",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 161,
+            "xref": 433,
+            "region": [
+              162.0,
+              344.0,
+              450.0,
+              560.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": false,
+            "notes": "The page-161 Starling graph belongs to Q6 and does not depict unitary smooth muscle.",
+            "evidence": "Rejected after page-position and semantic comparison at page 161/xref 433."
+          }
         }
       ],
       "original": {
@@ -7839,6 +7885,1675 @@
         "evidence": "Compared native source page 167/xref 450 against exact question figure metadata and explanation.",
         "originalSha256": "9b77ec19ab75d2549828b14d2c5998cfb4758242280f99a6b58da8f325cd1f43",
         "productionSha256": "9b77ec19ab75d2549828b14d2c5998cfb4758242280f99a6b58da8f325cd1f43"
+      }
+    },
+    {
+      "id": "anatomy-d9407f2a9e2a8f73",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 137,
+        "xref": 361,
+        "region": [
+          162.0,
+          459.0,
+          450.0,
+          675.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH08_Q001",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Embryologic origin of face",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 137,
+            "xref": 361,
+            "region": [
+              162.0,
+              459.0,
+              450.0,
+              675.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 137/xref 361."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/d9407f2a9e2a8f73a63fa54b0696ee3560e3acac5c12f7d56fdfe55fde200a4b.jpg",
+        "sha256": "d9407f2a9e2a8f73a63fa54b0696ee3560e3acac5c12f7d56fdfe55fde200a4b",
+        "width": 677,
+        "height": 432
+      },
+      "production": {
+        "path": "data/marrow/images/originals/d9407f2a9e2a8f73a63fa54b0696ee3560e3acac5c12f7d56fdfe55fde200a4b.jpg",
+        "sha256": "d9407f2a9e2a8f73a63fa54b0696ee3560e3acac5c12f7d56fdfe55fde200a4b",
+        "width": 677,
+        "height": 432
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Embryologic facial-prominence map retains every colored region, leader line, and derivative label.",
+        "evidence": "Compared native source page 137/xref 361 with exact question metadata and source role.",
+        "originalSha256": "d9407f2a9e2a8f73a63fa54b0696ee3560e3acac5c12f7d56fdfe55fde200a4b",
+        "productionSha256": "d9407f2a9e2a8f73a63fa54b0696ee3560e3acac5c12f7d56fdfe55fde200a4b"
+      }
+    },
+    {
+      "id": "anatomy-8ec0f9446c2acb01",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 138,
+        "xref": 3515,
+        "region": [
+          162.0,
+          212.0,
+          450.0,
+          428.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH08_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Development of upper lip",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 138,
+            "xref": 3515,
+            "region": [
+              162.0,
+              212.0,
+              450.0,
+              428.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 138/xref 3515."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/8ec0f9446c2acb010d57afc86297e4b55284eedc2dc600657574c1c97943882e.jpg",
+        "sha256": "8ec0f9446c2acb010d57afc86297e4b55284eedc2dc600657574c1c97943882e",
+        "width": 600,
+        "height": 1353
+      },
+      "production": {
+        "path": "data/marrow/images/originals/8ec0f9446c2acb010d57afc86297e4b55284eedc2dc600657574c1c97943882e.jpg",
+        "sha256": "8ec0f9446c2acb010d57afc86297e4b55284eedc2dc600657574c1c97943882e",
+        "width": 600,
+        "height": 1353
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Four-stage upper-lip development sequence preserves ordering, process colors, fusion, and philtrum labels.",
+        "evidence": "Compared native source page 138/xref 3515 with exact question metadata and source role.",
+        "originalSha256": "8ec0f9446c2acb010d57afc86297e4b55284eedc2dc600657574c1c97943882e",
+        "productionSha256": "8ec0f9446c2acb010d57afc86297e4b55284eedc2dc600657574c1c97943882e"
+      }
+    },
+    {
+      "id": "anatomy-b84d6d4d99f29623",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 133,
+        "xref": 351,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH08_Q004",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 133,
+            "xref": 351,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 133/xref 351."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b84d6d4d99f296232da45e2727a071b51f3d64182cf64800ff1a79bc8d7708a2.jpg",
+        "sha256": "b84d6d4d99f296232da45e2727a071b51f3d64182cf64800ff1a79bc8d7708a2",
+        "width": 720,
+        "height": 983
+      },
+      "production": {
+        "path": "data/marrow/images/originals/b84d6d4d99f296232da45e2727a071b51f3d64182cf64800ff1a79bc8d7708a2.jpg",
+        "sha256": "b84d6d4d99f296232da45e2727a071b51f3d64182cf64800ff1a79bc8d7708a2",
+        "width": 720,
+        "height": 983
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic cleft-lip clinical photograph is preserved byte-for-byte with the required anomaly clearly visible. Authentic medical content was not regenerated.",
+        "evidence": "Compared native source page 133/xref 351 with exact question metadata and source role.",
+        "originalSha256": "b84d6d4d99f296232da45e2727a071b51f3d64182cf64800ff1a79bc8d7708a2",
+        "productionSha256": "b84d6d4d99f296232da45e2727a071b51f3d64182cf64800ff1a79bc8d7708a2"
+      }
+    },
+    {
+      "id": "anatomy-6a40b48824347489",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 140,
+        "xref": 368,
+        "region": [
+          162.0,
+          104.0,
+          450.0,
+          320.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH08_Q004",
+          "role": "explanation",
+          "order": 3,
+          "alt": "Cleft lip",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 140,
+            "xref": 368,
+            "region": [
+              162.0,
+              104.0,
+              450.0,
+              320.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 140/xref 368."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/6a40b48824347489ce378070d59972f4a3ee25d96dd32b4512009df79a694d8f.jpg",
+        "sha256": "6a40b48824347489ce378070d59972f4a3ee25d96dd32b4512009df79a694d8f",
+        "width": 575,
+        "height": 619
+      },
+      "production": {
+        "path": "data/marrow/images/originals/6a40b48824347489ce378070d59972f4a3ee25d96dd32b4512009df79a694d8f.jpg",
+        "sha256": "6a40b48824347489ce378070d59972f4a3ee25d96dd32b4512009df79a694d8f",
+        "width": 575,
+        "height": 619
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Clean native cleft-lip illustration clearly preserves the unilateral fusion defect.",
+        "evidence": "Compared native source page 140/xref 368 with exact question metadata and source role.",
+        "originalSha256": "6a40b48824347489ce378070d59972f4a3ee25d96dd32b4512009df79a694d8f",
+        "productionSha256": "6a40b48824347489ce378070d59972f4a3ee25d96dd32b4512009df79a694d8f"
+      }
+    },
+    {
+      "id": "anatomy-d838509b296373f8",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 141,
+        "xref": 371,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH08_Q005",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Development of palate",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 141,
+            "xref": 371,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 141/xref 371."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/d838509b296373f89d52a2f62a3cc7ff8d2e890c502ec31766e5fdc616db1125.jpg",
+        "sha256": "d838509b296373f89d52a2f62a3cc7ff8d2e890c502ec31766e5fdc616db1125",
+        "width": 576,
+        "height": 482
+      },
+      "production": {
+        "path": "data/marrow/images/originals/d838509b296373f89d52a2f62a3cc7ff8d2e890c502ec31766e5fdc616db1125.jpg",
+        "sha256": "d838509b296373f89d52a2f62a3cc7ff8d2e890c502ec31766e5fdc616db1125",
+        "width": 576,
+        "height": 482
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Clean native palate-development diagram preserves the intermaxillary segment, primary palate, and fused palatal plates.",
+        "evidence": "Compared native source page 141/xref 371 with exact question metadata and source role.",
+        "originalSha256": "d838509b296373f89d52a2f62a3cc7ff8d2e890c502ec31766e5fdc616db1125",
+        "productionSha256": "d838509b296373f89d52a2f62a3cc7ff8d2e890c502ec31766e5fdc616db1125"
+      }
+    },
+    {
+      "id": "anatomy-b8d3dabd4bb75809",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 142,
+        "xref": 374,
+        "region": [
+          162.0,
+          245.0,
+          450.0,
+          461.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH08_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Development of the eye",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 142,
+            "xref": 374,
+            "region": [
+              162.0,
+              245.0,
+              450.0,
+              461.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 142/xref 374."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b8d3dabd4bb758096235d0f65a73cee50d5385dda314b46b3582d7c1ec8c3b7b.jpg",
+        "sha256": "b8d3dabd4bb758096235d0f65a73cee50d5385dda314b46b3582d7c1ec8c3b7b",
+        "width": 576,
+        "height": 1411
+      },
+      "production": {
+        "path": "data/marrow/images/originals/b8d3dabd4bb758096235d0f65a73cee50d5385dda314b46b3582d7c1ec8c3b7b.jpg",
+        "sha256": "b8d3dabd4bb758096235d0f65a73cee50d5385dda314b46b3582d7c1ec8c3b7b",
+        "width": 576,
+        "height": 1411
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Five-stage eye-development sequence preserves ordering and all optic/lens/retinal relationships and labels.",
+        "evidence": "Compared native source page 142/xref 374 with exact question metadata and source role.",
+        "originalSha256": "b8d3dabd4bb758096235d0f65a73cee50d5385dda314b46b3582d7c1ec8c3b7b",
+        "productionSha256": "b8d3dabd4bb758096235d0f65a73cee50d5385dda314b46b3582d7c1ec8c3b7b"
+      }
+    },
+    {
+      "id": "anatomy-fa6864e3ebba639f",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 134,
+        "xref": 354,
+        "region": [
+          162.0,
+          505.0,
+          450.0,
+          721.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH08_Q009",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 134,
+            "xref": 354,
+            "region": [
+              162.0,
+              505.0,
+              450.0,
+              721.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 134/xref 354."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/fa6864e3ebba639f79f3186ae4a41ae39b5f6e26af30322ac86aeb7e41a006bb.jpg",
+        "sha256": "fa6864e3ebba639f79f3186ae4a41ae39b5f6e26af30322ac86aeb7e41a006bb",
+        "width": 720,
+        "height": 489
+      },
+      "production": {
+        "path": "data/marrow/images/originals/fa6864e3ebba639f79f3186ae4a41ae39b5f6e26af30322ac86aeb7e41a006bb.jpg",
+        "sha256": "fa6864e3ebba639f79f3186ae4a41ae39b5f6e26af30322ac86aeb7e41a006bb",
+        "width": 720,
+        "height": 489
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic coloboma clinical photograph is preserved byte-for-byte with the inferior iris defect clearly visible. Authentic medical content was not regenerated.",
+        "evidence": "Compared native source page 134/xref 354 with exact question metadata and source role.",
+        "originalSha256": "fa6864e3ebba639f79f3186ae4a41ae39b5f6e26af30322ac86aeb7e41a006bb",
+        "productionSha256": "fa6864e3ebba639f79f3186ae4a41ae39b5f6e26af30322ac86aeb7e41a006bb"
+      }
+    },
+    {
+      "id": "anatomy-89e9e36b656d1b8e",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 143,
+        "xref": 377,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH08_Q009",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Development of hyaloid vessels and choroid fissure",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 143,
+            "xref": 377,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 143/xref 377."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/89e9e36b656d1b8e93f085d3c1248eb904155db1b7f170ea599a85ce95fb9f66.jpg",
+        "sha256": "89e9e36b656d1b8e93f085d3c1248eb904155db1b7f170ea599a85ce95fb9f66",
+        "width": 576,
+        "height": 942
+      },
+      "production": {
+        "path": "data/marrow/images/originals/89e9e36b656d1b8e93f085d3c1248eb904155db1b7f170ea599a85ce95fb9f66.jpg",
+        "sha256": "89e9e36b656d1b8e93f085d3c1248eb904155db1b7f170ea599a85ce95fb9f66",
+        "width": 576,
+        "height": 942
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Three-panel hyaloid-vessel/choroid-fissure figure preserves the optic cup, stalk, fissure, artery, and lens relationships.",
+        "evidence": "Compared native source page 143/xref 377 with exact question metadata and source role.",
+        "originalSha256": "89e9e36b656d1b8e93f085d3c1248eb904155db1b7f170ea599a85ce95fb9f66",
+        "productionSha256": "89e9e36b656d1b8e93f085d3c1248eb904155db1b7f170ea599a85ce95fb9f66"
+      }
+    },
+    {
+      "id": "anatomy-893a7a209789fd37",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 145,
+        "xref": 382,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH08_Q014",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Development of the inner ear",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 145,
+            "xref": 382,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 145/xref 382."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/893a7a209789fd377ea9c7747a8e7ebfa17574bbc1c18fb8718c2609ba987f50.jpg",
+        "sha256": "893a7a209789fd377ea9c7747a8e7ebfa17574bbc1c18fb8718c2609ba987f50",
+        "width": 576,
+        "height": 1151
+      },
+      "production": {
+        "path": "data/marrow/images/originals/893a7a209789fd377ea9c7747a8e7ebfa17574bbc1c18fb8718c2609ba987f50.jpg",
+        "sha256": "893a7a209789fd377ea9c7747a8e7ebfa17574bbc1c18fb8718c2609ba987f50",
+        "width": 576,
+        "height": 1151
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inner-ear development sequence preserves otic placode through vesicle derivatives with labels and order intact.",
+        "evidence": "Compared native source page 145/xref 382 with exact question metadata and source role.",
+        "originalSha256": "893a7a209789fd377ea9c7747a8e7ebfa17574bbc1c18fb8718c2609ba987f50",
+        "productionSha256": "893a7a209789fd377ea9c7747a8e7ebfa17574bbc1c18fb8718c2609ba987f50"
+      }
+    },
+    {
+      "id": "anatomy-9e051824924a6ff7",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 153,
+        "xref": 402,
+        "region": [
+          162.0,
+          104.0,
+          450.0,
+          320.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH09_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Neuropores",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 153,
+            "xref": 402,
+            "region": [
+              162.0,
+              104.0,
+              450.0,
+              320.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 153/xref 402."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/9e051824924a6ff749a189a1a3bc3c1faea5a2f3d6be6c80ecffb920b2210719.jpg",
+        "sha256": "9e051824924a6ff749a189a1a3bc3c1faea5a2f3d6be6c80ecffb920b2210719",
+        "width": 576,
+        "height": 636
+      },
+      "production": {
+        "path": "data/marrow/images/originals/9e051824924a6ff749a189a1a3bc3c1faea5a2f3d6be6c80ecffb920b2210719.jpg",
+        "sha256": "9e051824924a6ff749a189a1a3bc3c1faea5a2f3d6be6c80ecffb920b2210719",
+        "width": 576,
+        "height": 636
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Clean neuropore diagram preserves cranial and caudal openings and somite orientation.",
+        "evidence": "Compared native source page 153/xref 402 with exact question metadata and source role.",
+        "originalSha256": "9e051824924a6ff749a189a1a3bc3c1faea5a2f3d6be6c80ecffb920b2210719",
+        "productionSha256": "9e051824924a6ff749a189a1a3bc3c1faea5a2f3d6be6c80ecffb920b2210719"
+      }
+    },
+    {
+      "id": "biochemistry-adf4581f4a62e44a",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 381,
+        "xref": 903,
+        "region": [
+          162.0,
+          340.0,
+          450.0,
+          556.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH25_Q002",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 381,
+            "xref": 903,
+            "region": [
+              162.0,
+              340.0,
+              450.0,
+              556.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 381/xref 903."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/adf4581f4a62e44ae1ea1ca67fe3a7a87d5e8d170dc3421c328d9e0a73b58b13.jpg",
+        "sha256": "adf4581f4a62e44ae1ea1ca67fe3a7a87d5e8d170dc3421c328d9e0a73b58b13",
+        "width": 720,
+        "height": 475
+      },
+      "production": {
+        "path": "data/marrow/images/originals/adf4581f4a62e44ae1ea1ca67fe3a7a87d5e8d170dc3421c328d9e0a73b58b13.jpg",
+        "sha256": "adf4581f4a62e44ae1ea1ca67fe3a7a87d5e8d170dc3421c328d9e0a73b58b13",
+        "width": 720,
+        "height": 475
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Answer-safe DNA question diagram preserves the marked hydrogen bond, base identities, polarity, and backbone chemistry.",
+        "evidence": "Compared native source page 381/xref 903 with exact question metadata and source role.",
+        "originalSha256": "adf4581f4a62e44ae1ea1ca67fe3a7a87d5e8d170dc3421c328d9e0a73b58b13",
+        "productionSha256": "adf4581f4a62e44ae1ea1ca67fe3a7a87d5e8d170dc3421c328d9e0a73b58b13"
+      }
+    },
+    {
+      "id": "biochemistry-92ad3d94507655b4",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 390,
+        "xref": 923,
+        "region": [
+          162.0,
+          315.0,
+          450.0,
+          531.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH25_Q002",
+          "role": "explanation",
+          "order": 2,
+          "alt": "DNA hydrogen bonds and sugar-phosphate backbone diagram",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 390,
+            "xref": 923,
+            "region": [
+              162.0,
+              315.0,
+              450.0,
+              531.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 390/xref 923."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/92ad3d94507655b47494fd7dad85df8ced3cf121ef3934885d9e4646bc739e0d.jpg",
+        "sha256": "92ad3d94507655b47494fd7dad85df8ced3cf121ef3934885d9e4646bc739e0d",
+        "width": 800,
+        "height": 400
+      },
+      "production": {
+        "path": "data/marrow/images/originals/92ad3d94507655b47494fd7dad85df8ced3cf121ef3934885d9e4646bc739e0d.jpg",
+        "sha256": "92ad3d94507655b47494fd7dad85df8ced3cf121ef3934885d9e4646bc739e0d",
+        "width": 800,
+        "height": 400
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Clean DNA structure diagram preserves base pairing, hydrogen bonds, polarity, and sugar-phosphate backbone labels.",
+        "evidence": "Compared native source page 390/xref 923 with exact question metadata and source role.",
+        "originalSha256": "92ad3d94507655b47494fd7dad85df8ced3cf121ef3934885d9e4646bc739e0d",
+        "productionSha256": "92ad3d94507655b47494fd7dad85df8ced3cf121ef3934885d9e4646bc739e0d"
+      }
+    },
+    {
+      "id": "biochemistry-51f68d59b8e883d8",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 392,
+        "xref": 928,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH25_Q006",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Nucleosome with core histones and histone H1",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 392,
+            "xref": 928,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 392/xref 928."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/51f68d59b8e883d8dadbd4e5434e7a3edc4d38d53899e25f86208f1ec8ca3084.jpg",
+        "sha256": "51f68d59b8e883d8dadbd4e5434e7a3edc4d38d53899e25f86208f1ec8ca3084",
+        "width": 440,
+        "height": 460
+      },
+      "production": {
+        "path": "data/marrow/images/originals/51f68d59b8e883d8dadbd4e5434e7a3edc4d38d53899e25f86208f1ec8ca3084.jpg",
+        "sha256": "51f68d59b8e883d8dadbd4e5434e7a3edc4d38d53899e25f86208f1ec8ca3084",
+        "width": 440,
+        "height": 460
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Nucleosome diagram clearly distinguishes the H2A/H2B/H3/H4 core octamer from linker histone H1.",
+        "evidence": "Compared native source page 392/xref 928 with exact question metadata and source role.",
+        "originalSha256": "51f68d59b8e883d8dadbd4e5434e7a3edc4d38d53899e25f86208f1ec8ca3084",
+        "productionSha256": "51f68d59b8e883d8dadbd4e5434e7a3edc4d38d53899e25f86208f1ec8ca3084"
+      }
+    },
+    {
+      "id": "biochemistry-71183b50680c7c9f",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 393,
+        "xref": 1331,
+        "region": [
+          162.0,
+          130.0,
+          450.0,
+          346.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH25_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Histone methylation and acetylation versus gene activity",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 393,
+            "xref": 1331,
+            "region": [
+              162.0,
+              130.0,
+              450.0,
+              346.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 393/xref 1331."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/71183b50680c7c9f03719c7aa334931c98d6741d7978fedd36955e54090ad778.jpg",
+        "sha256": "71183b50680c7c9f03719c7aa334931c98d6741d7978fedd36955e54090ad778",
+        "width": 601,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/71183b50680c7c9f03719c7aa334931c98d6741d7978fedd36955e54090ad778.jpg",
+        "sha256": "71183b50680c7c9f03719c7aa334931c98d6741d7978fedd36955e54090ad778",
+        "width": 601,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Histone-modification comparison preserves methylation/acetylation, chromatin packing, accessibility, and gene-state meaning.",
+        "evidence": "Compared native source page 393/xref 1331 with exact question metadata and source role.",
+        "originalSha256": "71183b50680c7c9f03719c7aa334931c98d6741d7978fedd36955e54090ad778",
+        "productionSha256": "71183b50680c7c9f03719c7aa334931c98d6741d7978fedd36955e54090ad778"
+      }
+    },
+    {
+      "id": "biochemistry-7a7700e2c27212ba",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 394,
+        "xref": 933,
+        "region": [
+          162.0,
+          160.0,
+          450.0,
+          376.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH25_Q010",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Structure of duplicated chromosome",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 394,
+            "xref": 933,
+            "region": [
+              162.0,
+              160.0,
+              450.0,
+              376.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 394/xref 933."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/7a7700e2c27212ba5d2ee18c60b69ad2d85d6c4694127dc60d7b5adaba74bef4.jpg",
+        "sha256": "7a7700e2c27212ba5d2ee18c60b69ad2d85d6c4694127dc60d7b5adaba74bef4",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/7a7700e2c27212ba5d2ee18c60b69ad2d85d6c4694127dc60d7b5adaba74bef4.jpg",
+        "sha256": "7a7700e2c27212ba5d2ee18c60b69ad2d85d6c4694127dc60d7b5adaba74bef4",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Duplicated-chromosome diagram preserves telomere, centromere, and sister-chromatid labels.",
+        "evidence": "Compared native source page 394/xref 933 with exact question metadata and source role.",
+        "originalSha256": "7a7700e2c27212ba5d2ee18c60b69ad2d85d6c4694127dc60d7b5adaba74bef4",
+        "productionSha256": "7a7700e2c27212ba5d2ee18c60b69ad2d85d6c4694127dc60d7b5adaba74bef4"
+      }
+    },
+    {
+      "id": "biochemistry-3b5fdd4e03477030",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 396,
+        "xref": 944,
+        "region": [
+          162.0,
+          315.0,
+          450.0,
+          531.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH25_Q014",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Cell cycle phases G1, S, G2 and M",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 396,
+            "xref": 944,
+            "region": [
+              162.0,
+              315.0,
+              450.0,
+              531.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 396/xref 944."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/3b5fdd4e034770308a70e9395aaae126db7bcc5683dc1560829feca2960adf60.jpg",
+        "sha256": "3b5fdd4e034770308a70e9395aaae126db7bcc5683dc1560829feca2960adf60",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/3b5fdd4e034770308a70e9395aaae126db7bcc5683dc1560829feca2960adf60.jpg",
+        "sha256": "3b5fdd4e034770308a70e9395aaae126db7bcc5683dc1560829feca2960adf60",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Cell-cycle chart clearly preserves G1, S, G2, M ordering and DNA-synthesis annotation.",
+        "evidence": "Compared native source page 396/xref 944 with exact question metadata and source role.",
+        "originalSha256": "3b5fdd4e034770308a70e9395aaae126db7bcc5683dc1560829feca2960adf60",
+        "productionSha256": "3b5fdd4e034770308a70e9395aaae126db7bcc5683dc1560829feca2960adf60"
+      }
+    },
+    {
+      "id": "biochemistry-54ca57c023b0c270",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 397,
+        "xref": 947,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH25_Q015",
+          "role": "explanation",
+          "order": 1,
+          "alt": "DNA replication fork showing leading and lagging strands",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 397,
+            "xref": 947,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 397/xref 947."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/54ca57c023b0c270861c37220a57055c691064024389fc3dba89dfd95ce47b8a.jpg",
+        "sha256": "54ca57c023b0c270861c37220a57055c691064024389fc3dba89dfd95ce47b8a",
+        "width": 800,
+        "height": 494
+      },
+      "production": {
+        "path": "data/marrow/images/originals/54ca57c023b0c270861c37220a57055c691064024389fc3dba89dfd95ce47b8a.jpg",
+        "sha256": "54ca57c023b0c270861c37220a57055c691064024389fc3dba89dfd95ce47b8a",
+        "width": 800,
+        "height": 494
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "DNA replication-fork diagram preserves helicase, polymerases, templates, and leading/lagging directionality.",
+        "evidence": "Compared native source page 397/xref 947 with exact question metadata and source role.",
+        "originalSha256": "54ca57c023b0c270861c37220a57055c691064024389fc3dba89dfd95ce47b8a",
+        "productionSha256": "54ca57c023b0c270861c37220a57055c691064024389fc3dba89dfd95ce47b8a"
+      }
+    },
+    {
+      "id": "biochemistry-7ffad66b9b6a306b",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 398,
+        "xref": 950,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH25_Q016",
+          "role": "explanation",
+          "order": 1,
+          "alt": "DNA replication machinery at replication fork",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 398,
+            "xref": 950,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 398/xref 950."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/7ffad66b9b6a306b0befc17ea1d1f82e41564cdb71170a59866f433eeab8b385.jpg",
+        "sha256": "7ffad66b9b6a306b0befc17ea1d1f82e41564cdb71170a59866f433eeab8b385",
+        "width": 730,
+        "height": 600
+      },
+      "production": {
+        "path": "data/marrow/images/originals/7ffad66b9b6a306b0befc17ea1d1f82e41564cdb71170a59866f433eeab8b385.jpg",
+        "sha256": "7ffad66b9b6a306b0befc17ea1d1f82e41564cdb71170a59866f433eeab8b385",
+        "width": 730,
+        "height": 600
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Detailed replication-machinery diagram preserves strand polarity, enzymes, Okazaki fragments, and ligation relationship.",
+        "evidence": "Compared native source page 398/xref 950 with exact question metadata and source role.",
+        "originalSha256": "7ffad66b9b6a306b0befc17ea1d1f82e41564cdb71170a59866f433eeab8b385",
+        "productionSha256": "7ffad66b9b6a306b0befc17ea1d1f82e41564cdb71170a59866f433eeab8b385"
+      }
+    },
+    {
+      "id": "biochemistry-99cd8d7ca76160ab",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 399,
+        "xref": 953,
+        "region": [
+          162.0,
+          463.0,
+          450.0,
+          679.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH25_Q020",
+          "role": "explanation",
+          "order": 1,
+          "alt": "DNA replication fork and polymerase machinery",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 399,
+            "xref": 953,
+            "region": [
+              162.0,
+              463.0,
+              450.0,
+              679.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 399/xref 953."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/99cd8d7ca76160ab6306e1cd388221964ff39b6652be09b33f46ee16c85e8d3d.jpg",
+        "sha256": "99cd8d7ca76160ab6306e1cd388221964ff39b6652be09b33f46ee16c85e8d3d",
+        "width": 730,
+        "height": 600
+      },
+      "production": {
+        "path": "data/marrow/images/originals/99cd8d7ca76160ab6306e1cd388221964ff39b6652be09b33f46ee16c85e8d3d.jpg",
+        "sha256": "99cd8d7ca76160ab6306e1cd388221964ff39b6652be09b33f46ee16c85e8d3d",
+        "width": 730,
+        "height": 600
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Detailed prokaryotic replication-fork diagram preserves DNA polymerase I/III, fragments, polarity, and ligase labels.",
+        "evidence": "Compared native source page 399/xref 953 with exact question metadata and source role.",
+        "originalSha256": "99cd8d7ca76160ab6306e1cd388221964ff39b6652be09b33f46ee16c85e8d3d",
+        "productionSha256": "99cd8d7ca76160ab6306e1cd388221964ff39b6652be09b33f46ee16c85e8d3d"
+      }
+    },
+    {
+      "id": "biochemistry-0f8de0bea8ea293b",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 400,
+        "xref": 956,
+        "region": [
+          162.0,
+          150.0,
+          450.0,
+          366.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH25_Q021",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Chromosome replication schematic",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 400,
+            "xref": 956,
+            "region": [
+              162.0,
+              150.0,
+              450.0,
+              366.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 400/xref 956."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/0f8de0bea8ea293b563d845208ac427b86806032791acee4ada348fbcd75f8d6.jpg",
+        "sha256": "0f8de0bea8ea293b563d845208ac427b86806032791acee4ada348fbcd75f8d6",
+        "width": 800,
+        "height": 494
+      },
+      "production": {
+        "path": "data/marrow/images/originals/0f8de0bea8ea293b563d845208ac427b86806032791acee4ada348fbcd75f8d6.jpg",
+        "sha256": "0f8de0bea8ea293b563d845208ac427b86806032791acee4ada348fbcd75f8d6",
+        "width": 800,
+        "height": 494
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "DNA replication schematic preserves helicase, polymerase, free nucleotides, and leading/lagging strand relationships.",
+        "evidence": "Compared native source page 400/xref 956 with exact question metadata and source role.",
+        "originalSha256": "0f8de0bea8ea293b563d845208ac427b86806032791acee4ada348fbcd75f8d6",
+        "productionSha256": "0f8de0bea8ea293b563d845208ac427b86806032791acee4ada348fbcd75f8d6"
+      }
+    },
+    {
+      "id": "physiology-af4179948f936e53",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 168,
+        "xref": 453,
+        "region": [
+          162.0,
+          172.0,
+          450.0,
+          388.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH08_Q006",
+          "role": "explanation",
+          "order": 3,
+          "alt": "Source explanation diagram/image on PDF page 168",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 168,
+            "xref": 453,
+            "region": [
+              162.0,
+              172.0,
+              450.0,
+              388.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 168/xref 453."
+          }
+        },
+        {
+          "questionId": "marrow__PHYS_CH08_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source explanation diagram/image on PDF page 168",
+          "status": "REJECTED",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 168,
+            "xref": 453,
+            "region": [
+              162.0,
+              172.0,
+              450.0,
+              388.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": false,
+            "notes": "The page-168 Starling graph is continuation material for Q6, not the smooth-muscle coupling figure for Q8.",
+            "evidence": "Rejected after page-position and semantic comparison at page 168/xref 453."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/af4179948f936e53d0d8130432fde61fc3b57ae939669a1df0e0ae3122e48a7f.jpg",
+        "sha256": "af4179948f936e53d0d8130432fde61fc3b57ae939669a1df0e0ae3122e48a7f",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/af4179948f936e53d0d8130432fde61fc3b57ae939669a1df0e0ae3122e48a7f.jpg",
+        "sha256": "af4179948f936e53d0d8130432fde61fc3b57ae939669a1df0e0ae3122e48a7f",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Clean Starling length-tension graph preserves axes and systolic, diastolic, and developed-pressure relationships.",
+        "evidence": "Compared native source page 168/xref 453 with exact question metadata and source role.",
+        "originalSha256": "af4179948f936e53d0d8130432fde61fc3b57ae939669a1df0e0ae3122e48a7f",
+        "productionSha256": "af4179948f936e53d0d8130432fde61fc3b57ae939669a1df0e0ae3122e48a7f"
+      }
+    },
+    {
+      "id": "physiology-b2030c37c9a791ce",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 169,
+        "xref": 456,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH08_Q008",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Source explanation diagram/image on PDF page 169",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 169,
+            "xref": 456,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 169/xref 456."
+          }
+        },
+        {
+          "questionId": "marrow__PHYS_CH08_Q009",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source explanation diagram/image on PDF page 169",
+          "status": "REJECTED",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 169,
+            "xref": 456,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": false,
+            "notes": "The page-169 flowchart precedes the Q9 heading and belongs to Q8; it does not compare calmodulin with troponin C.",
+            "evidence": "Rejected after page-position and semantic comparison at page 169/xref 456."
+          }
+        },
+        {
+          "questionId": "marrow__PHYS_CH08_Q010",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source explanation diagram/image on PDF page 169",
+          "status": "REJECTED",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 169,
+            "xref": 456,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": false,
+            "notes": "The page-169 flowchart belongs to Q8 and does not depict the latch mechanism asked about in Q10.",
+            "evidence": "Rejected after page-position and semantic comparison at page 169/xref 456."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b2030c37c9a791ceb31c391feb5c7fcc425165142fb00c254d5c655b9ee5f37e.jpg",
+        "sha256": "b2030c37c9a791ceb31c391feb5c7fcc425165142fb00c254d5c655b9ee5f37e",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/b2030c37c9a791ceb31c391feb5c7fcc425165142fb00c254d5c655b9ee5f37e.jpg",
+        "sha256": "b2030c37c9a791ceb31c391feb5c7fcc425165142fb00c254d5c655b9ee5f37e",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Smooth-muscle contraction flowchart preserves calcium-calmodulin, MLCK, phosphorylation, cross-bridge, and relaxation order.",
+        "evidence": "Compared native source page 169/xref 456 with exact question metadata and source role.",
+        "originalSha256": "b2030c37c9a791ceb31c391feb5c7fcc425165142fb00c254d5c655b9ee5f37e",
+        "productionSha256": "b2030c37c9a791ceb31c391feb5c7fcc425165142fb00c254d5c655b9ee5f37e"
+      }
+    },
+    {
+      "id": "physiology-e8e6160958af2e13",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 164,
+        "xref": 440,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH08_Q014",
+          "role": "question",
+          "order": 2,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 164,
+            "xref": 440,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 164/xref 440."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/e8e6160958af2e13b5acdc38a7a9bdbd962c238b76bc0a93af8e1dc1927631d2.jpg",
+        "sha256": "e8e6160958af2e13b5acdc38a7a9bdbd962c238b76bc0a93af8e1dc1927631d2",
+        "width": 720,
+        "height": 499
+      },
+      "production": {
+        "path": "data/marrow/images/originals/e8e6160958af2e13b5acdc38a7a9bdbd962c238b76bc0a93af8e1dc1927631d2.jpg",
+        "sha256": "e8e6160958af2e13b5acdc38a7a9bdbd962c238b76bc0a93af8e1dc1927631d2",
+        "width": 720,
+        "height": 499
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Answer-safe frog tetanization trace preserves scale, sweep speed, stimulus traces, and contraction curve.",
+        "evidence": "Compared native source page 164/xref 440 with exact question metadata and source role.",
+        "originalSha256": "e8e6160958af2e13b5acdc38a7a9bdbd962c238b76bc0a93af8e1dc1927631d2",
+        "productionSha256": "e8e6160958af2e13b5acdc38a7a9bdbd962c238b76bc0a93af8e1dc1927631d2"
+      }
+    },
+    {
+      "id": "physiology-4ac58802832e8876",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 181,
+        "xref": 482,
+        "region": [
+          162.0,
+          349.0,
+          450.0,
+          565.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH09_Q001",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source explanation diagram/image on PDF page 181",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 181,
+            "xref": 482,
+            "region": [
+              162.0,
+              349.0,
+              450.0,
+              565.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 181/xref 482."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/4ac58802832e8876be24849d151c7cf698ba3ea553259f85aa12608cf37885e3.jpg",
+        "sha256": "4ac58802832e8876be24849d151c7cf698ba3ea553259f85aa12608cf37885e3",
+        "width": 648,
+        "height": 600
+      },
+      "production": {
+        "path": "data/marrow/images/originals/4ac58802832e8876be24849d151c7cf698ba3ea553259f85aa12608cf37885e3.jpg",
+        "sha256": "4ac58802832e8876be24849d151c7cf698ba3ea553259f85aa12608cf37885e3",
+        "width": 648,
+        "height": 600
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Clean synapse anatomy diagram preserves presynaptic terminal, vesicles, cleft, transmitter, receptors, and postsynaptic cell.",
+        "evidence": "Compared native source page 181/xref 482 with exact question metadata and source role.",
+        "originalSha256": "4ac58802832e8876be24849d151c7cf698ba3ea553259f85aa12608cf37885e3",
+        "productionSha256": "4ac58802832e8876be24849d151c7cf698ba3ea553259f85aa12608cf37885e3"
+      }
+    },
+    {
+      "id": "physiology-7a0d4592f50fea1a",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-07-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 188,
+        "xref": 503,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH09_Q011",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source explanation diagram/image on PDF page 188",
+          "status": "PASS",
+          "reviewBatch": "rollout-07-native",
+          "source": {
+            "page": 188,
+            "xref": 503,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
+            "evidence": "Compared question metadata and source placement at page 188/xref 503."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/7a0d4592f50fea1a2cb38981edd409531be795065964e70851561a70dca84620.jpg",
+        "sha256": "7a0d4592f50fea1a2cb38981edd409531be795065964e70851561a70dca84620",
+        "width": 601,
+        "height": 451
+      },
+      "production": {
+        "path": "data/marrow/images/originals/7a0d4592f50fea1a2cb38981edd409531be795065964e70851561a70dca84620.jpg",
+        "sha256": "7a0d4592f50fea1a2cb38981edd409531be795065964e70851561a70dca84620",
+        "width": 601,
+        "height": 451
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Six-stage synaptic-transmission diagram preserves calcium entry, transmitter release/binding, channel opening, and termination.",
+        "evidence": "Compared native source page 188/xref 503 with exact question metadata and source role.",
+        "originalSha256": "7a0d4592f50fea1a2cb38981edd409531be795065964e70851561a70dca84620",
+        "productionSha256": "7a0d4592f50fea1a2cb38981edd409531be795065964e70851561a70dca84620"
       }
     }
   ]
