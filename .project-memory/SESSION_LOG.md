@@ -768,3 +768,20 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Held the native Golgi-tendon-organ sequence as REVIEW_REQUIRED because its dense labels are below the approved readability floor; it must be faithfully reconstructed rather than shipped blurry.
 - Current deterministic totals: 150 registry assets (145 PASS, 2 SOURCE_LIMITED, 2 REJECTED, 1 REVIEW_REQUIRED), 192 bindings (166 released), and 152 released questions: Anatomy 58, Biochemistry 55, Physiology 39.
 - Full Android/PWA CI passed Batches 05–07 (`34367383565`, `34367985338`, `34368514110`), including browser, offline hashes, APK packaging and exact packaged-image bytes. Latest immutable preview: `https://4d588745.nk-qbank.pages.dev`; artifact `V11.7-android-pwa` ID `10111037219`; production promotion skipped.
+
+## 2026-09-09 — ChatGPT image-automation runbook
+
+- Added `docs/MARROW_IMAGE_AUTOMATION_RUNBOOK.md` as the mandatory repository-
+  owned operating contract for short ChatGPT web automations. A small bootstrap
+  prompt can now point each subject automation to one canonical, versioned file.
+- Consolidated the lessons and failure history through Batch 07: native-first
+  extraction, immutable originals, authentic medical pixels, faithful diagram
+  reconstruction, independent asset/binding QA, question-versus-explanation
+  timing, fail-closed statuses, visual/package regressions, and mandatory memory.
+- Set a conservative operational budget because official OpenAI documentation
+  does not publish a fixed wall-clock maximum for these web automations: six
+  candidates by default, no new candidate after about 20 minutes, stop processing
+  by 25 minutes, and reserve at least five minutes for a safe checkpoint.
+- Serialized integration by design. Anatomy, Biochemistry and Physiology agents
+  may audit concurrently, but only one may write the shared registry at a time;
+  each writer must start from the latest incorporated image branch.

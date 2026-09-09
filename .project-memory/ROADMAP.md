@@ -64,6 +64,9 @@ Check off only when build-verified **and** device-verified where UI is involved.
       page-neighbor/reuse mappings were rejected and one below-baseline Golgi-tendon
       figure is held for reconstruction. Continue bounded native-first review, then
       resolve multi-candidate, masked, vector and reconstruction cases separately.
+      Subject-specific ChatGPT automations must follow
+      `docs/MARROW_IMAGE_AUTOMATION_RUNBOOK.md`, use a default six-candidate
+      budget, and serialize all writes to the shared registry.
 - [ ] Continue later Marrow chapters beyond the supplied current scope only when
       verified source JSONL is available.
 - [ ] Keep production promotion deliberate; build/browser success is not acceptance.

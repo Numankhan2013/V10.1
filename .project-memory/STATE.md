@@ -101,8 +101,16 @@ explanation and exactly three distractor rationales through the real learner UI.
 
 ## Next step / ownership split
 
-- **Primary agent:** inspect current GitHub state/code quality and continue the
-  Marrow source-image integration pipeline.
+- **Primary/image automations:** follow
+  `docs/MARROW_IMAGE_AUTOMATION_RUNBOOK.md` completely. Use one subject and a
+  default six-candidate batch, with one shared-registry writer at a time. Subject
+  automations must run sequentially from the latest image base; concurrent work
+  is proposal-only. Stop processing by the conservative runbook budget, reserve
+  time for validation/memory/commit, and never release uncertainty.
+- The runbook is the canonical compact-prompt target for ChatGPT web
+  automations. It preserves the native-first, medical-authenticity,
+  reconstruction, independent-binding-QA, regression, and timeout-safe
+  checkpoint lessons through Batch 07.
 - **Explanation refinement agent:** when resumed, continue from
   **Physiology Chapter 6 — Physiology of Nerve**, source order, without touching
   the image-integration ownership.
