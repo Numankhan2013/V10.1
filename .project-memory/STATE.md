@@ -15,6 +15,7 @@
 - Production promotion remains explicit and guarded; run 539 skipped production.
 - Accepted baseline / rollback baseline remains **V11.6 Content Quality** at `125d68b`
   until the user explicitly promotes a later product baseline.
+- Accepted product commit: `125d68b`.
 
 ## Current Marrow bank
 
@@ -84,7 +85,7 @@ explanation and exactly three distractor rationales through the real learner UI.
   REVIEW_REQUIRED candidates checkpointed separately. Reconcile live Git state
   before resuming that pipeline.
 
-## Verification / cautions
+## Known problems / cautions
 
 - Build-verified ≠ device-verified ≠ accepted production baseline.
 - User has independently checked the current preview; do not spend agent usage
@@ -94,7 +95,7 @@ explanation and exactly three distractor rationales through the real learner UI.
 - Do not alter Topics taxonomy during explanation or image work.
 - Keep production promotion deliberate.
 
-## Next ownership split
+## Next step / ownership split
 
 - **Primary agent:** inspect current GitHub state/code quality and continue the
   Marrow source-image integration pipeline.
