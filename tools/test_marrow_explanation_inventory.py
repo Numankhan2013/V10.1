@@ -12,8 +12,6 @@ def main() -> None:
     stored = json.loads((DATA / "explanation_inventory_v1.json").read_text(encoding="utf-8"))
     generated = build_inventory()
     manifest = inventory_manifest(generated)
-    if stored != manifest:
-        print("MARROW_GENERATED_INVENTORY_MANIFEST="+json.dumps(manifest, ensure_ascii=False, separators=(",", ":")))
     assert stored == manifest
     assert stored["summary"]["questions"] == 2115
     assert stored["summary"]["subjects"] == {"Anatomy": 819, "Biochemistry": 543, "Physiology": 753}
