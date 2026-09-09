@@ -1,0 +1,828 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "id": "biochemistry-ch01-q023-microscopy",
+      "subject": "Biochemistry",
+      "kind": "medical",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 10,
+        "xref": 19,
+        "region": [
+          162,
+          56,
+          450,
+          272
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH01_Q023",
+          "role": "question",
+          "order": 1,
+          "alt": "Two source microscopy panels labelled a and b"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/62a5d0ea810266a026e2eae163014e45496c313ad0f426c304a34cd7fe9a6956.jpg",
+        "sha256": "62a5d0ea810266a026e2eae163014e45496c313ad0f426c304a34cd7fe9a6956",
+        "width": 720,
+        "height": 1218
+      },
+      "production": {
+        "path": "data/marrow/images/originals/62a5d0ea810266a026e2eae163014e45496c313ad0f426c304a34cd7fe9a6956.jpg",
+        "sha256": "62a5d0ea810266a026e2eae163014e45496c313ad0f426c304a34cd7fe9a6956",
+        "width": 720,
+        "height": 1218
+      },
+      "method": "native-jpeg-stream",
+      "status": "SOURCE_LIMITED",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected native xref 19 on source page 10: both panels a and b and their lettering preserved. Native JPEG bytes retained exactly. Lower panel shows source compression/posterization; no diagnostic pixels processed or recreated. Physical device review pending.",
+        "originalSha256": "62a5d0ea810266a026e2eae163014e45496c313ad0f426c304a34cd7fe9a6956",
+        "productionSha256": "62a5d0ea810266a026e2eae163014e45496c313ad0f426c304a34cd7fe9a6956"
+      }
+    },
+    {
+      "id": "homeostasis",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 11,
+        "xref": 21,
+        "region": [
+          162,
+          476,
+          450,
+          692
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH01_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source homeostasis control diagram"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/fa647be99a1c86a886512e180a5100f22b486752dabb96ad624903f099d224e5.jpg",
+        "sha256": "fa647be99a1c86a886512e180a5100f22b486752dabb96ad624903f099d224e5"
+      },
+      "production": {
+        "path": "data/marrow/images/editable/homeostasis.svg",
+        "sha256": "17f0ec16cb2e73489eaf4d1612fbff9bb22661322577887d05cef567749b157b",
+        "width": 600,
+        "height": 450
+      },
+      "method": "svg-reconstruction",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Compared rendered SVG against native source at 600px and CI side-by-side. All five nodes, four forward arrows, negative feedback loop and minus sign, afferent/efferent labels and ordering preserved. No additional educational content.",
+        "evidence": "GitHub Actions 34311877059 / marrow-image-review/homeostasis.png",
+        "originalSha256": "fa647be99a1c86a886512e180a5100f22b486752dabb96ad624903f099d224e5",
+        "productionSha256": "17f0ec16cb2e73489eaf4d1612fbff9bb22661322577887d05cef567749b157b"
+      }
+    },
+    {
+      "id": "enzyme-activity",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 33,
+        "xref": 69,
+        "region": [
+          162,
+          212,
+          450,
+          428
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH02_Q009",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source enzyme activity graph"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/031ee7297698de79e56af46f711381b1b34a8be947e25cf6511fc5e8f1eff890.jpg",
+        "sha256": "031ee7297698de79e56af46f711381b1b34a8be947e25cf6511fc5e8f1eff890"
+      },
+      "production": {
+        "path": "data/marrow/images/editable/enzyme-activity.svg",
+        "sha256": "967a97f0d0e9817c801b5314fbeeb4028b0908809e9696aa26e5df4f6cb82715",
+        "width": 600,
+        "height": 450
+      },
+      "method": "svg-reconstruction",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Compared rendered SVG against native source. Both axes, curve ordering and shapes, both Vmax guides, both Km markers, half-maximum guides and enzyme labels retained. Qualitative source graph has no numeric scale; none invented.",
+        "evidence": "GitHub Actions 34311877059 / marrow-image-review/enzyme-activity.png",
+        "originalSha256": "031ee7297698de79e56af46f711381b1b34a8be947e25cf6511fc5e8f1eff890",
+        "productionSha256": "967a97f0d0e9817c801b5314fbeeb4028b0908809e9696aa26e5df4f6cb82715"
+      }
+    },
+    {
+      "id": "anatomy-01eccba2867cc7e7",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 15,
+        "xref": 3443,
+        "region": [
+          162.0,
+          491.0,
+          450.0,
+          707.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH01_Q013",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/01eccba2867cc7e728ad8391b8d170bc63560dd53dad4649409c43bbdbd912a1.jpg",
+        "sha256": "01eccba2867cc7e728ad8391b8d170bc63560dd53dad4649409c43bbdbd912a1",
+        "width": 576,
+        "height": 645
+      },
+      "production": {
+        "path": "data/marrow/images/originals/01eccba2867cc7e728ad8391b8d170bc63560dd53dad4649409c43bbdbd912a1.jpg",
+        "sha256": "01eccba2867cc7e728ad8391b8d170bc63560dd53dad4649409c43bbdbd912a1",
+        "width": 576,
+        "height": 645
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Acrosome reaction: all membrane/granule labels, sequential sperm figures and direction arrow readable and retained. Production is the exact native JPEG; no crop or processing applied.",
+        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "originalSha256": "01eccba2867cc7e728ad8391b8d170bc63560dd53dad4649409c43bbdbd912a1",
+        "productionSha256": "01eccba2867cc7e728ad8391b8d170bc63560dd53dad4649409c43bbdbd912a1"
+      }
+    },
+    {
+      "id": "anatomy-e583714bb71ea9df",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 26,
+        "xref": 3453,
+        "region": [
+          162.0,
+          252.0,
+          450.0,
+          468.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH02_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/e583714bb71ea9dfc98963a7232b4f6700496c4486950060abd4b146efcd7e33.jpg",
+        "sha256": "e583714bb71ea9dfc98963a7232b4f6700496c4486950060abd4b146efcd7e33",
+        "width": 576,
+        "height": 575
+      },
+      "production": {
+        "path": "data/marrow/images/originals/e583714bb71ea9dfc98963a7232b4f6700496c4486950060abd4b146efcd7e33.jpg",
+        "sha256": "e583714bb71ea9dfc98963a7232b4f6700496c4486950060abd4b146efcd7e33",
+        "width": 576,
+        "height": 575
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Implantation: epiblast, hypoblast, amnion, trophoblast layers, lacunae, cavity and maternal-vessel labels retained. Production is the exact native JPEG; no crop or processing applied.",
+        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "originalSha256": "e583714bb71ea9dfc98963a7232b4f6700496c4486950060abd4b146efcd7e33",
+        "productionSha256": "e583714bb71ea9dfc98963a7232b4f6700496c4486950060abd4b146efcd7e33"
+      }
+    },
+    {
+      "id": "anatomy-12699b9e38a38cf2",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 27,
+        "xref": 53,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH02_Q009",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/12699b9e38a38cf2abdd1a07cd3c68893a5da47d175708a923738e34f3f9613d.jpg",
+        "sha256": "12699b9e38a38cf2abdd1a07cd3c68893a5da47d175708a923738e34f3f9613d",
+        "width": 576,
+        "height": 533
+      },
+      "production": {
+        "path": "data/marrow/images/originals/12699b9e38a38cf2abdd1a07cd3c68893a5da47d175708a923738e34f3f9613d.jpg",
+        "sha256": "12699b9e38a38cf2abdd1a07cd3c68893a5da47d175708a923738e34f3f9613d",
+        "width": 576,
+        "height": 533
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Blastocyst: all four labelled structures and leader endpoints retained. Production is the exact native JPEG; no crop or processing applied.",
+        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "originalSha256": "12699b9e38a38cf2abdd1a07cd3c68893a5da47d175708a923738e34f3f9613d",
+        "productionSha256": "12699b9e38a38cf2abdd1a07cd3c68893a5da47d175708a923738e34f3f9613d"
+      }
+    },
+    {
+      "id": "anatomy-8f516b93ee9acb09",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 36,
+        "xref": 79,
+        "region": [
+          162.0,
+          311.0,
+          450.0,
+          527.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH03_Q001",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/8f516b93ee9acb09aa65e68fef3b5f88b948f5da2ff93205898e4391b4c45c45.jpg",
+        "sha256": "8f516b93ee9acb09aa65e68fef3b5f88b948f5da2ff93205898e4391b4c45c45",
+        "width": 576,
+        "height": 591
+      },
+      "production": {
+        "path": "data/marrow/images/originals/8f516b93ee9acb09aa65e68fef3b5f88b948f5da2ff93205898e4391b4c45c45.jpg",
+        "sha256": "8f516b93ee9acb09aa65e68fef3b5f88b948f5da2ff93205898e4391b4c45c45",
+        "width": 576,
+        "height": 591
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Primitive streak: seven labels, leader lines, relative positions and colored landmarks readable. Production is the exact native JPEG; no crop or processing applied.",
+        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "originalSha256": "8f516b93ee9acb09aa65e68fef3b5f88b948f5da2ff93205898e4391b4c45c45",
+        "productionSha256": "8f516b93ee9acb09aa65e68fef3b5f88b948f5da2ff93205898e4391b4c45c45"
+      }
+    },
+    {
+      "id": "anatomy-babc1e59001cfa88",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 38,
+        "xref": 86,
+        "region": [
+          162.0,
+          423.0,
+          450.0,
+          639.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH03_Q004",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/babc1e59001cfa889249fd5ce15f7a2d61899b146128a6f551ec1e1d650c528d.jpg",
+        "sha256": "babc1e59001cfa889249fd5ce15f7a2d61899b146128a6f551ec1e1d650c528d",
+        "width": 600,
+        "height": 726
+      },
+      "production": {
+        "path": "data/marrow/images/originals/babc1e59001cfa889249fd5ce15f7a2d61899b146128a6f551ec1e1d650c528d.jpg",
+        "sha256": "babc1e59001cfa889249fd5ce15f7a2d61899b146128a6f551ec1e1d650c528d",
+        "width": 600,
+        "height": 726
+      },
+      "method": "native-jpeg-stream",
+      "status": "REVIEW_REQUIRED",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Notochord: four inset stages present, but small soft labels would benefit from reconstruction. Keep out of production pending redraw. Production is the exact native JPEG; no crop or processing applied.",
+        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "originalSha256": "babc1e59001cfa889249fd5ce15f7a2d61899b146128a6f551ec1e1d650c528d",
+        "productionSha256": "babc1e59001cfa889249fd5ce15f7a2d61899b146128a6f551ec1e1d650c528d"
+      }
+    },
+    {
+      "id": "anatomy-d51736484d580d39",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 39,
+        "xref": 3463,
+        "region": [
+          162.0,
+          313.0,
+          450.0,
+          529.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH03_Q006",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/d51736484d580d39746d90bc8bf883291e3195c06c5a38aacf896b396df4659b.jpg",
+        "sha256": "d51736484d580d39746d90bc8bf883291e3195c06c5a38aacf896b396df4659b",
+        "width": 575,
+        "height": 506
+      },
+      "production": {
+        "path": "data/marrow/images/originals/d51736484d580d39746d90bc8bf883291e3195c06c5a38aacf896b396df4659b.jpg",
+        "sha256": "d51736484d580d39746d90bc8bf883291e3195c06c5a38aacf896b396df4659b",
+        "width": 575,
+        "height": 506
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Neural tube formation: three numbered panels, arrows, tissue labels and explanatory text are readable at native size. Production is the exact native JPEG; no crop or processing applied.",
+        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "originalSha256": "d51736484d580d39746d90bc8bf883291e3195c06c5a38aacf896b396df4659b",
+        "productionSha256": "d51736484d580d39746d90bc8bf883291e3195c06c5a38aacf896b396df4659b"
+      }
+    },
+    {
+      "id": "biochemistry-eb1f8b446eeaceb6",
+      "subject": "Biochemistry",
+      "kind": "hybrid",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 13,
+        "xref": 28,
+        "region": [
+          162.0,
+          511.0,
+          450.0,
+          727.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH01_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/eb1f8b446eeaceb6b85cbd9b35b9e30382beebd99c90bee788801a09ec5343b9.jpg",
+        "sha256": "eb1f8b446eeaceb6b85cbd9b35b9e30382beebd99c90bee788801a09ec5343b9",
+        "width": 600,
+        "height": 451
+      },
+      "production": {
+        "path": "data/marrow/images/originals/eb1f8b446eeaceb6b85cbd9b35b9e30382beebd99c90bee788801a09ec5343b9.jpg",
+        "sha256": "eb1f8b446eeaceb6b85cbd9b35b9e30382beebd99c90bee788801a09ec5343b9",
+        "width": 600,
+        "height": 451
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Benedict reaction: preserve both beaker photographs exactly, with existing reaction arrows and ion labels. No pixels or annotations altered. Production is the exact native JPEG; no crop or processing applied.",
+        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "originalSha256": "eb1f8b446eeaceb6b85cbd9b35b9e30382beebd99c90bee788801a09ec5343b9",
+        "productionSha256": "eb1f8b446eeaceb6b85cbd9b35b9e30382beebd99c90bee788801a09ec5343b9"
+      }
+    },
+    {
+      "id": "biochemistry-aa11f9fa6a08baea",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 32,
+        "xref": 1125,
+        "region": [
+          162.0,
+          277.0,
+          450.0,
+          493.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH02_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/aa11f9fa6a08baeaa4949b752af3b5bea6275649598559118eb86862d522cef0.jpg",
+        "sha256": "aa11f9fa6a08baeaa4949b752af3b5bea6275649598559118eb86862d522cef0",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/aa11f9fa6a08baeaa4949b752af3b5bea6275649598559118eb86862d522cef0.jpg",
+        "sha256": "aa11f9fa6a08baeaa4949b752af3b5bea6275649598559118eb86862d522cef0",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "REVIEW_REQUIRED",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Glycolysis: severe vertical compression and small labels in embedded source. Reconstruction needed; do not release this raster. Production is the exact native JPEG; no crop or processing applied.",
+        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "originalSha256": "aa11f9fa6a08baeaa4949b752af3b5bea6275649598559118eb86862d522cef0",
+        "productionSha256": "aa11f9fa6a08baeaa4949b752af3b5bea6275649598559118eb86862d522cef0"
+      }
+    },
+    {
+      "id": "biochemistry-3adf4c21da2ab956",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 37,
+        "xref": 78,
+        "region": [
+          162.0,
+          287.0,
+          450.0,
+          503.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH02_Q018",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/3adf4c21da2ab956a55c35395e0a35fb9f8de2a55b266bc04611f9ea9f23a3d6.jpg",
+        "sha256": "3adf4c21da2ab956a55c35395e0a35fb9f8de2a55b266bc04611f9ea9f23a3d6",
+        "width": 1279,
+        "height": 461
+      },
+      "production": {
+        "path": "data/marrow/images/originals/3adf4c21da2ab956a55c35395e0a35fb9f8de2a55b266bc04611f9ea9f23a3d6.jpg",
+        "sha256": "3adf4c21da2ab956a55c35395e0a35fb9f8de2a55b266bc04611f9ea9f23a3d6",
+        "width": 1279,
+        "height": 461
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "2,3-BPG shunt: all three molecular structures, charges, enzyme labels, reaction directions, ADP/ATP, water and phosphate retained. High native resolution is sufficient. Production is the exact native JPEG; no crop or processing applied.",
+        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "originalSha256": "3adf4c21da2ab956a55c35395e0a35fb9f8de2a55b266bc04611f9ea9f23a3d6",
+        "productionSha256": "3adf4c21da2ab956a55c35395e0a35fb9f8de2a55b266bc04611f9ea9f23a3d6"
+      }
+    },
+    {
+      "id": "biochemistry-413886fdf13f4253",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 42,
+        "xref": 95,
+        "region": [
+          162.0,
+          237.0,
+          450.0,
+          453.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH02_Q027",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/413886fdf13f4253f7c53cc9b1b45a57ace2ac38fe5c92f8812900c781c11a49.jpg",
+        "sha256": "413886fdf13f4253f7c53cc9b1b45a57ace2ac38fe5c92f8812900c781c11a49",
+        "width": 600,
+        "height": 1200
+      },
+      "production": {
+        "path": "data/marrow/images/originals/413886fdf13f4253f7c53cc9b1b45a57ace2ac38fe5c92f8812900c781c11a49.jpg",
+        "sha256": "413886fdf13f4253f7c53cc9b1b45a57ace2ac38fe5c92f8812900c781c11a49",
+        "width": 600,
+        "height": 1200
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Glycolysis/gluconeogenesis: both direction/color columns, all metabolite and enzyme labels, branches, oxaloacetate and pyruvate routes retained. Native tall aspect restores readability lost in page placement. Production is the exact native JPEG; no crop or processing applied.",
+        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "originalSha256": "413886fdf13f4253f7c53cc9b1b45a57ace2ac38fe5c92f8812900c781c11a49",
+        "productionSha256": "413886fdf13f4253f7c53cc9b1b45a57ace2ac38fe5c92f8812900c781c11a49"
+      }
+    },
+    {
+      "id": "physiology-307c3998964b5d44",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 14,
+        "xref": 28,
+        "region": [
+          162.0,
+          182.0,
+          450.0,
+          398.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH01_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/307c3998964b5d4485fd261b20d383bb0b3a4dd5dc882d63d288f165a4d4ba30.jpg",
+        "sha256": "307c3998964b5d4485fd261b20d383bb0b3a4dd5dc882d63d288f165a4d4ba30",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/307c3998964b5d4485fd261b20d383bb0b3a4dd5dc882d63d288f165a4d4ba30.jpg",
+        "sha256": "307c3998964b5d4485fd261b20d383bb0b3a4dd5dc882d63d288f165a4d4ba30",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Cell membrane: peripheral/integral/channel/carrier proteins and phospholipid bilayer labels readable. This asset contains only the diagram; existing structured explanation supplies its source table. Production is the exact native JPEG; no crop or processing applied.",
+        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "originalSha256": "307c3998964b5d4485fd261b20d383bb0b3a4dd5dc882d63d288f165a4d4ba30",
+        "productionSha256": "307c3998964b5d4485fd261b20d383bb0b3a4dd5dc882d63d288f165a4d4ba30"
+      }
+    },
+    {
+      "id": "physiology-9cfa79e30a3e0785",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 15,
+        "xref": 31,
+        "region": [
+          162.0,
+          210.0,
+          450.0,
+          426.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH01_Q010",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/9cfa79e30a3e078533a4ba304805c9f8186ed44f542d74b2495c4134d63fcc56.jpg",
+        "sha256": "9cfa79e30a3e078533a4ba304805c9f8186ed44f542d74b2495c4134d63fcc56",
+        "width": 600,
+        "height": 451
+      },
+      "production": {
+        "path": "data/marrow/images/originals/9cfa79e30a3e078533a4ba304805c9f8186ed44f542d74b2495c4134d63fcc56.jpg",
+        "sha256": "9cfa79e30a3e078533a4ba304805c9f8186ed44f542d74b2495c4134d63fcc56",
+        "width": 600,
+        "height": 451
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Vesicular transport: nucleus, rough ER, Golgi cis/trans ends, vesicles, cell membrane and exocytosis annotations preserved. Production is the exact native JPEG; no crop or processing applied.",
+        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "originalSha256": "9cfa79e30a3e078533a4ba304805c9f8186ed44f542d74b2495c4134d63fcc56",
+        "productionSha256": "9cfa79e30a3e078533a4ba304805c9f8186ed44f542d74b2495c4134d63fcc56"
+      }
+    },
+    {
+      "id": "physiology-bc28e0d4fab7f80c",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 16,
+        "xref": 34,
+        "region": [
+          162.0,
+          191.0,
+          450.0,
+          407.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH01_Q014",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/bc28e0d4fab7f80c308d991e37e470a123350729fcb12a6a3886c1a659b5c9ec.jpg",
+        "sha256": "bc28e0d4fab7f80c308d991e37e470a123350729fcb12a6a3886c1a659b5c9ec",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/bc28e0d4fab7f80c308d991e37e470a123350729fcb12a6a3886c1a659b5c9ec.jpg",
+        "sha256": "bc28e0d4fab7f80c308d991e37e470a123350729fcb12a6a3886c1a659b5c9ec",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Gap junction: both membranes, connexon, extracellular space and open/closed inset views preserved. Production is the exact native JPEG; no crop or processing applied.",
+        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "originalSha256": "bc28e0d4fab7f80c308d991e37e470a123350729fcb12a6a3886c1a659b5c9ec",
+        "productionSha256": "bc28e0d4fab7f80c308d991e37e470a123350729fcb12a6a3886c1a659b5c9ec"
+      }
+    },
+    {
+      "id": "physiology-84680f6e0f6dec35",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 17,
+        "xref": 37,
+        "region": [
+          162.0,
+          385.0,
+          450.0,
+          601.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH01_Q017",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/84680f6e0f6dec3528406bc1718c2a8ee2148efddaaf00010166e0ac54303c93.jpg",
+        "sha256": "84680f6e0f6dec3528406bc1718c2a8ee2148efddaaf00010166e0ac54303c93",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/84680f6e0f6dec3528406bc1718c2a8ee2148efddaaf00010166e0ac54303c93.jpg",
+        "sha256": "84680f6e0f6dec3528406bc1718c2a8ee2148efddaaf00010166e0ac54303c93",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Repeated gap junction figure: same labelled panels retained. This asset is the diagram; source intercellular table remains in structured explanation. Production is the exact native JPEG; no crop or processing applied.",
+        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "originalSha256": "84680f6e0f6dec3528406bc1718c2a8ee2148efddaaf00010166e0ac54303c93",
+        "productionSha256": "84680f6e0f6dec3528406bc1718c2a8ee2148efddaaf00010166e0ac54303c93"
+      }
+    },
+    {
+      "id": "physiology-d916b240eeaa6b79",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 28,
+        "xref": 64,
+        "region": [
+          162.0,
+          470.0,
+          450.0,
+          686.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH02_Q007",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/d916b240eeaa6b79d979a5572237071aecdba1e33cacdac621bd1dde88b19991.jpg",
+        "sha256": "d916b240eeaa6b79d979a5572237071aecdba1e33cacdac621bd1dde88b19991",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/d916b240eeaa6b79d979a5572237071aecdba1e33cacdac621bd1dde88b19991.jpg",
+        "sha256": "d916b240eeaa6b79d979a5572237071aecdba1e33cacdac621bd1dde88b19991",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "G-protein receptor: both inactive/active panels, ligand, alpha/beta/gamma, GDP/GTP, bidirectional arrows and cell-response arrow retained. Production is the exact native JPEG; no crop or processing applied.",
+        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "originalSha256": "d916b240eeaa6b79d979a5572237071aecdba1e33cacdac621bd1dde88b19991",
+        "productionSha256": "d916b240eeaa6b79d979a5572237071aecdba1e33cacdac621bd1dde88b19991"
+      }
+    }
+  ]
+}

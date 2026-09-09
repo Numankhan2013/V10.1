@@ -70,6 +70,14 @@ def main():
             q23_text=page.locator('.question-text').inner_text().lower()
             if '5-year-old boy' not in q23_text or 'bone marrow aspiration' not in q23_text:
                 raise SystemExit('Biochemistry gold-sample Q23 did not open')
+            figure=page.locator('.nk-marrow-figure-button')
+            assert figure.count()==1, 'Question microscopy figure missing or duplicated'
+            page.wait_for_function('document.querySelector(".nk-marrow-figure-button img")?.naturalWidth===720')
+            figure.click()
+            page.wait_for_function('document.querySelector("#nk-source-viewer img")?.naturalWidth===720')
+            page.locator('#nk-source-viewer [data-z="+"]').click()
+            page.screenshot(path=str(OUT/'00b-marrow-microscopy-zoom.png'))
+            page.locator('#nk-source-viewer .nk-sv-close').click()
             page.locator('.option-list button').nth(1).click();page.wait_for_timeout(120)
             bgold=page.locator('.nk-study-support').inner_text()
             bgold_lc=bgold.lower()

@@ -603,3 +603,40 @@ Implemented approved recovery in existing transform owners: Topics separate path
   checks. Raw source bundles remain unchanged.
 - Added dedicated Chapter 1 rollout tests and browser coverage. Exact next content
   start after this batch: **Biochemistry Chapter 2**, skipping already-approved Q9.
+
+## 2026-09-09 — Marrow image pipeline implementation; user-requested pause
+
+- Updated local checkout to remote main and created `feature/marrow-image-pipeline`.
+- Added PDF image audit, immutable native extraction, Ubuntu region-render fallback,
+  provenance/QA registry, ID-bound inline rendering and existing zoom viewer integration.
+- Initial commit `07ee53d` passed full Android/PWA CI `34311877059`; comparisons
+  and microscopy viewer were inspected. Production remains unchanged.
+- Expanded pilot: 18 inspected assets, 15 PASS, one SOURCE_LIMITED, two held for
+  reconstruction; 16 app assets including two source-compared SVG reconstructions.
+- Expanded batch registry tests pass. Pipeline ownership gate currently flags the
+  read-only package checker being called once for web and once for APK; fix on resume.
+- User requested a pause to preserve usage. Saved all work and resume instructions;
+  expanded batch CI, physical review and full-bank classification remain unfinished.
+
+## 2026-09-09 — Expanded Marrow image pilot build verification
+
+- Resumed at the user's request and fixed the read-only package verifier's
+  pipeline ownership classification.
+- Full Android/PWA run `34328039057` passed for commit `748204b`, including
+  browser rendering/zoom, web offline-cache hashes, APK asset hashes, packaged
+  product contracts and artifact upload.
+- Artifact `V11.7-android-pwa` ID `10094653587`; immutable preview
+  `https://334bc346.nk-qbank.pages.dev`. Production promotion was skipped.
+- The 18-asset audit set remains 15 PASS, one SOURCE_LIMITED and two
+  REVIEW_REQUIRED. Sixteen reviewed assets are learner-facing; user/device
+  approval and broader classification remain outstanding.
+## 2026-09-09 — Marrow image pilot user-approved
+
+- The user reviewed all sixteen released pilot figures in the deployed PWA and
+  approved them as readable and good given the authoritative PDF sources.
+- The approved pilot quality is now the minimum threshold for the wider image
+  rollout; later assets may improve on it but must not regress below it.
+- Authorization was given to merge the pilot, responsibly reconstruct the two
+  held diagrams, and continue the image rollout in bounded QA-checked batches.
+- Authentic medical/photo imagery remains source-preserved; reconstruction is
+  restricted to faithful educational diagrams and annotation layers.

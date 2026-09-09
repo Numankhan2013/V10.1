@@ -105,18 +105,31 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
   Practice/CBT/Review, sync, modules, persistence or navigation during explanation work.
 - Large connector/Git writes should remain bounded, deterministic and validated.
 
+## Image phase — active
+
+- Branch: `feature/marrow-image-pipeline`; initial commit `07ee53d` passed full
+  APK/PWA CI `34311877059`. Expanded 18-asset checkpoint: `1925eec`.
+- Audit covers 2,484 PDF pages: 1,082 explicit references across 821 questions,
+  plus 58 text-cue candidates. Native candidates are not final asset counts.
+- Pilot: 15 PASS, one SOURCE_LIMITED microscopy image, two REVIEW_REQUIRED
+  redraws. Sixteen assets release by stable question ID; two reviewed SVGs.
+- On 2026-09-09 the user reviewed all sixteen released pilot figures in the PWA
+  and approved them as the minimum quality threshold for wider rollout. Future
+  releases may improve on this baseline but must not fall below it.
+- Expanded batch is build-verified by full APK/PWA run `34328039057`: browser,
+  offline PWA, exact asset bytes, APK packaging and upload passed. Artifact
+  `V11.7-android-pwa` ID `10094653587`; preview
+  `https://334bc346.nk-qbank.pages.dev`. The image pilot is user/device-reviewed;
+  full-bank classification and rollout remain.
+- Audit and workflow: `docs/MARROW_IMAGE_PIPELINE.md`. Preserve raw sources and
+  `tools/__pycache__/`; no production promotion. UI upgrade remains deferred.
+
 ## Next step
 
-1. Build/browser/package-verify the Biochemistry Chapter 1 rollout batch
-   (22 new explanations; 23/23 Chapter 1 enhanced including gold-sample Q23).
-2. Merge the Chapter 1 batch after green checks.
-3. Continue from **Biochemistry Chapter 2**, skipping already-approved gold-sample
-   Q9, then proceed sequentially through Chapters 3–26.
-4. After Biochemistry, continue the same approved grammar across remaining
-   Anatomy and Physiology questions.
-5. Keep raw source, native tables, figure metadata and unresolved provenance
-   immutable; do not invent missing source evidence or alter protected UI/FSRS.
-6. Production remains guarded; V11.6 `125d68b` stays the rollback baseline
-   until explicit user promotion.
+1. Merge the now-approved pilot; production remains unchanged.
+2. Reconstruct the held notochord and compressed-glycolysis figures.
+3. Continue bounded classification and asset batches across all subjects while
+   enforcing the approved pilot as the minimum release quality.
+4. Resume explanation rollout separately after the image priority phase.
 
 Canonical Marrow procedure: `docs/MARROW_BANK_INTEGRATION.md`.

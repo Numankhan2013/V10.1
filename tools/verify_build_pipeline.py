@@ -41,6 +41,7 @@ required_order = [
     "tools/test_fsrs_v1.py",
     "tools/fix_boot_syntax.py",
     "tools/apply_marrow_bank_pilot.py",
+    "tools/install_marrow_images.py",
     "tools/test_marrow_bank_pilot.py",
     "tools/verify_product_contract.py --stage generated",
     "tools/verify_cbt_invariants.py",
@@ -72,7 +73,10 @@ commands = re.findall(r"run:\s+python3\s+(tools/[A-Za-z0-9_.-]+\.py)", text)
 commands = [
     command for command in commands
     if not Path(command).name.startswith("verify_")
-    and Path(command).name not in {"write_build_manifest.py", "configure_marrow_pilot_android.py"}
+    and Path(command).name not in {
+        "write_build_manifest.py", "configure_marrow_pilot_android.py",
+        "check_marrow_image_package.py",
+    }
 ]
 duplicates = sorted({command for command in commands if commands.count(command) > 1})
 if duplicates:

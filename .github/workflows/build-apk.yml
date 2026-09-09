@@ -155,6 +155,8 @@ jobs:
         run: python3 tools/fix_boot_syntax.py
       - name: Install isolated Marrow bank pilot
         run: python3 tools/apply_marrow_bank_pilot.py
+      - name: Install reviewed Marrow images
+        run: python3 tools/install_marrow_images.py
       - name: Verify isolated Marrow bank pilot
         run: python3 tools/test_marrow_bank_pilot.py
       - name: Validate explicit Marrow topic taxonomy
@@ -256,6 +258,8 @@ jobs:
           grep -q 'NK_FSRS_V6_START' app/src/main/assets/index.html
       - name: Build Cloudflare Pages PWA artifact
         run: python3 tools/build_web_dist.py --version ${{ github.sha }}
+      - name: Verify Marrow image bytes and offline cache
+        run: python3 tools/check_marrow_image_package.py
       - name: Verify offline FSRS assets in PWA artifact
         run: |
           test -s build/web/vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js
@@ -269,6 +273,8 @@ jobs:
         run: python3 tools/verify_recall_dock_browser.py
       - name: Verify Marrow bank selector and native explanation in browser
         run: python3 tools/verify_marrow_bank_browser.py
+      - name: Capture Marrow image comparisons
+        run: python3 tools/capture_marrow_image_review.py
       - name: Upload recall dock and Marrow pilot screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -277,6 +283,7 @@ jobs:
           path: |
             build/ui-checks/*.png
             build/marrow-ui-checks/*.png
+            build/marrow-image-review/*.png
           retention-days: 3
           if-no-files-found: warn
       - name: Set up JDK 17
@@ -362,6 +369,8 @@ jobs:
         run: python3 tools/verify_product_contract.py --stage packaged --html /tmp/packaged-index.html
       - name: Write reproducibility manifest
         run: python3 tools/write_build_manifest.py
+      - name: Verify packaged Marrow image bytes
+        run: python3 tools/check_marrow_image_package.py --apk
       - name: Upload debug APK and build manifest
         uses: actions/upload-artifact@v4
         with:
