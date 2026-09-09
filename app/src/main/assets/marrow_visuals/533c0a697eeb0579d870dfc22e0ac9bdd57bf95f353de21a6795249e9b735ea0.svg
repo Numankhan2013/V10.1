@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100">
+  <rect width="900" height="1100" fill="#ffffff"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#45aeb9"/>
+    </marker>
+  </defs>
+  <g font-family="Arial, sans-serif" fill="#26383c">
+    <text x="450" y="58" text-anchor="middle" font-size="30" font-weight="700" fill="#45aeb9">Formation of the Notochord</text>
+
+    <!-- Dorsal overview retained from the source figure. -->
+    <g transform="translate(25 175)">
+      <path d="M150 45C90 85 75 230 112 370C130 438 158 490 190 523C222 490 250 438 268 370C305 230 290 85 230 45C205 27 175 27 150 45Z" fill="#e5e6f5" stroke="#c8cada" stroke-width="2"/>
+      <path d="M190 72V350" stroke="#e8b62f" stroke-width="20" stroke-linecap="round"/>
+      <path d="M190 72V350" stroke="#45aeb9" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="190" cy="75" r="19" fill="#5268ce"/>
+      <path d="M174 351C174 329 206 329 206 351C206 365 195 370 190 382" fill="none" stroke="#55ad51" stroke-width="12" stroke-linecap="round"/>
+      <path d="M190 383V450" stroke="#ebcf3d" stroke-width="11" stroke-linecap="round"/>
+      <path d="M176 452C185 470 205 470 214 452" fill="none" stroke="#e94664" stroke-width="12" stroke-linecap="round"/>
+      <rect x="167" y="118" width="46" height="48" fill="none" stroke="#466a70" stroke-width="3"/>
+
+      <g font-size="20">
+        <text x="0" y="80">Prechordal</text><text x="0" y="104">plate</text>
+        <path d="M105 90H168" stroke="#26383c" stroke-width="2"/>
+        <text x="0" y="235">Developing</text><text x="0" y="259">notochord</text>
+        <path d="M105 242H179" stroke="#26383c" stroke-width="2"/>
+        <text x="0" y="350">Primitive knot</text><path d="M132 344H172" stroke="#26383c" stroke-width="2"/>
+        <text x="0" y="395">Primitive streak</text><path d="M142 389H180" stroke="#26383c" stroke-width="2"/>
+        <text x="0" y="468">Cloacal</text><text x="0" y="492">membrane</text>
+        <path d="M94 474H176" stroke="#26383c" stroke-width="2"/>
+      </g>
+      <path d="M214 142L322 85" fill="none" stroke="#466a70" stroke-width="2"/>
+      <path d="M214 142L322 467" fill="none" stroke="#466a70" stroke-width="2"/>
+    </g>
+
+    <!-- Four ordered histologic stages. Colored cell rows preserve source relationships. -->
+    <g transform="translate(360 115)">
+      <g id="stage1">
+        <rect x="0" y="0" width="505" height="185" rx="28" fill="#fbfcfc" stroke="#cad5d7" stroke-width="2"/>
+        <g stroke="#6c8589" stroke-width="1">
+          <path d="M125 52H365V83H125Z" fill="#9fc9eb"/>
+          <path d="M125 83H365V114H125Z" fill="#f2d65e"/>
+          <path d="M125 114H365V145H125Z" fill="#f2a5c0"/>
+          <path d="M223 83H280V114H223Z" fill="#ef995b"/>
+          <path d="M233 91L243 105M245 91L255 105M257 91L267 105"/>
+          <path d="M145 52V145M165 52V145M185 52V145M205 52V145M225 52V83M245 52V83M265 52V83M285 52V145M305 52V145M325 52V145M345 52V145"/>
+        </g>
+        <g font-size="18">
+          <text x="8" y="70">Ectoderm</text><path d="M88 65H120" stroke="#26383c"/>
+          <text x="8" y="101">Mesoderm</text><path d="M92 96H120" stroke="#26383c"/>
+          <text x="8" y="132">Endoderm</text><path d="M90 127H120" stroke="#26383c"/>
+          <text x="374" y="94">Notochordal</text><text x="374" y="116">process</text><path d="M280 99H368" stroke="#26383c"/>
+        </g>
+      </g>
+
+      <path d="M252 195V225" stroke="#45aeb9" stroke-width="4" marker-end="url(#arrow)"/>
+      <g transform="translate(0 235)">
+        <rect x="0" y="0" width="505" height="165" rx="28" fill="#fbfcfc" stroke="#cad5d7" stroke-width="2"/>
+        <g stroke="#6c8589" stroke-width="1">
+          <path d="M125 36H365V67H125Z" fill="#9fc9eb"/><path d="M125 67H365V98H125Z" fill="#f2d65e"/><path d="M125 98H365V129H125Z" fill="#f2a5c0"/>
+          <path d="M222 67H281V98H222Z" fill="#ef995b"/><ellipse cx="251" cy="82.5" rx="14" ry="8" fill="#ffffff" stroke="#9a5f37" stroke-width="2"/>
+          <path d="M145 36V129M165 36V129M185 36V129M205 36V129M225 36V67M245 36V67M265 36V67M285 36V129M305 36V129M325 36V129M345 36V129"/>
+        </g>
+        <g font-size="18"><text x="374" y="78">Notochordal</text><text x="374" y="100">canal</text><path d="M282 83H368" stroke="#26383c"/></g>
+      </g>
+
+      <path d="M252 410V440" stroke="#45aeb9" stroke-width="4" marker-end="url(#arrow)"/>
+      <g transform="translate(0 450)">
+        <rect x="0" y="0" width="505" height="165" rx="28" fill="#fbfcfc" stroke="#cad5d7" stroke-width="2"/>
+        <g stroke="#6c8589" stroke-width="1">
+          <path d="M125 34H365V65H125Z" fill="#9fc9eb"/><path d="M125 65H365V96H125Z" fill="#f2d65e"/>
+          <path d="M125 96H220V127H125Z" fill="#f2a5c0"/><path d="M283 96H365V127H283Z" fill="#f2a5c0"/>
+          <path d="M220 83Q251 112 283 83V108Q251 137 220 108Z" fill="#ef995b"/>
+          <path d="M145 34V127M165 34V127M185 34V127M205 34V127M225 34V65M245 34V65M265 34V65M285 34V127M305 34V127M325 34V127M345 34V127"/>
+        </g>
+        <g font-size="18"><text x="374" y="82">Notochordal</text><text x="374" y="104">plate</text><path d="M282 96H368" stroke="#26383c"/></g>
+      </g>
+
+      <path d="M252 625V655" stroke="#45aeb9" stroke-width="4" marker-end="url(#arrow)"/>
+      <g transform="translate(0 665)">
+        <rect x="0" y="0" width="505" height="165" rx="28" fill="#fbfcfc" stroke="#cad5d7" stroke-width="2"/>
+        <g stroke="#6c8589" stroke-width="1">
+          <path d="M125 34H365V65H125Z" fill="#9fc9eb"/><path d="M125 65H365V96H125Z" fill="#f2d65e"/><path d="M125 96H365V127H125Z" fill="#f2a5c0"/>
+          <ellipse cx="251" cy="88" rx="31" ry="19" fill="#ef995b"/>
+          <path d="M236 73Q251 88 236 103M251 69V107M266 73Q251 88 266 103" fill="none" stroke="#bd7044"/>
+          <path d="M145 34V127M165 34V127M185 34V127M205 34V65M225 34V65M245 34V65M265 34V65M285 34V65M305 34V127M325 34V127M345 34V127"/>
+        </g>
+        <g font-size="18"><text x="374" y="82">Definitive</text><text x="374" y="104">notochord</text><path d="M284 88H368" stroke="#26383c"/></g>
+      </g>
+    </g>
+    <text x="450" y="1060" text-anchor="middle" font-size="19" fill="#45aeb9">©MARROW</text>
+  </g>
+</svg>

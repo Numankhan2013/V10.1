@@ -93,6 +93,38 @@ def main():
                 raise SystemExit('Biochemistry gold-sample work moved FSRS out of the fixed footer')
             page.screenshot(path=str(OUT/'00aa-biochemistry-gold-sample-q23.png'),full_page=True)
 
+            # Reconstructed explanation diagrams must remain hidden until the
+            # learner answers, then use the same fullscreen source viewer.
+            page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Glycolysis and gluconeogenesis').click();page.wait_for_timeout(80)
+            page.locator('button.nk-library-row').nth(7).click();page.wait_for_timeout(80)
+            if page.locator('.nk-marrow-figure-button').count()!=0:
+                raise SystemExit('Explanation-only glycolysis figure leaked before answering')
+            page.locator('.option-list button').nth(2).click();page.wait_for_timeout(120)
+            glycolysis=page.locator('.nk-marrow-figure-button')
+            if glycolysis.count()!=1: raise SystemExit('Reconstructed glycolysis figure missing or duplicated')
+            page.wait_for_function('document.querySelector(".nk-marrow-figure-button img")?.naturalWidth===900')
+            glycolysis.click();page.wait_for_timeout(60)
+            page.wait_for_function('document.querySelector("#nk-source-viewer img")?.naturalWidth===900')
+            page.screenshot(path=str(OUT/'00ab-marrow-glycolysis-reconstruction.png'))
+            page.locator('#nk-source-viewer .nk-sv-close').click()
+
+            # Authentic microscopy required by a stem is visible before answer,
+            # retains native pixels, and uses neutral non-answering alt text.
+            page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Glycogen metabolism and glycogen storage disorders').click();page.wait_for_timeout(80)
+            page.locator('button.nk-library-row').nth(15).click();page.wait_for_timeout(80)
+            if '6-month-old baby' not in page.locator('.question-text').inner_text():
+                raise SystemExit('Biochemistry glycogen-storage Q16 did not open')
+            biopsy=page.locator('.nk-marrow-figure-button')
+            if biopsy.count()!=1: raise SystemExit('Question-critical muscle biopsy missing or duplicated')
+            page.wait_for_function('document.querySelector(".nk-marrow-figure-button img")?.naturalWidth===720')
+            biopsy_alt=biopsy.locator('img').get_attribute('alt').lower()
+            if 'pompe' in biopsy_alt: raise SystemExit('Question-critical image alt text reveals the diagnosis')
+            page.screenshot(path=str(OUT/'00ac-marrow-question-biopsy.png'),full_page=True)
+
             page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click();page.wait_for_timeout(100)
             if page.locator('button.nk-topic-row').count()<1: raise SystemExit('PrepLadder Biochemistry topics regressed')

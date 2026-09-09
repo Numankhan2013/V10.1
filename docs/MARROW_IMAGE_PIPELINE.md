@@ -12,14 +12,18 @@ source viewer supplies fullscreen zoom and pan.
 - Extract a native JPEG: `python3 tools/marrow_images.py extract --subject Biochemistry --page 10 --xref 19`.
 - Validate: `python3 tools/marrow_images.py validate`.
 - Render a precise region on Ubuntu: `python3 tools/marrow_images.py render-region --subject Biochemistry --page 10 --region 162 56 450 272 --dpi 300`.
-- Stage a bounded review batch: `python3 tools/stage_marrow_image_review.py --per-subject 6`.
-- Record a visual review: `python3 tools/marrow_images.py review --asset ID --status PASS --kind diagram --notes 'Observed comparison findings' --evidence 'Comparison artifact reference'`.
+- Stage a bounded review batch: `python3 tools/stage_marrow_image_review.py --per-subject 6 --batch-id rollout-02`.
+- Record an asset review: `python3 tools/marrow_images.py review --asset ID --status PASS --kind diagram --notes 'Observed comparison findings' --evidence 'Comparison artifact reference'`.
+- Record a repeated-image binding review: `python3 tools/marrow_images.py review-binding --asset ID --question QUESTION_ID --status PASS --notes 'Ownership/role findings' --evidence 'Source comparison'`.
 - Package approved assets: `python3 tools/marrow_images.py release`.
+- Refresh/check deterministic progress: `python3 tools/marrow_image_progress.py` then `python3 tools/marrow_image_progress.py --check`.
 
 The registry is `data/marrow/images/registry.json`. Original extractions are
 content-addressed, immutable files under `originals/`; editable SVGs live under
 `editable/`. Production assets use content-hash URLs under `marrow_visuals/`.
-Only PASS and explicitly reviewed SOURCE_LIMITED entries are packaged.
+Only PASS and explicitly reviewed SOURCE_LIMITED assets are eligible for packaging.
+Repeated-asset bindings have their own status and cited page/xref/region; rejected
+or unreviewed bindings are excluded even when the underlying asset is approved.
 PWA builds precache the released figures for offline use.
 
 ## Audit interpretation
@@ -56,21 +60,24 @@ the registry preserves the original alongside it. PASS does not imply physical
 device acceptance. The initial microscopy figure is SOURCE_LIMITED because its
 lower panel already contains compression/posterization in the authoritative PDF.
 
-## Outstanding milestone
-
-The initial pilot now covers 18 inspected assets: 15 PASS, one SOURCE_LIMITED,
-and two REVIEW_REQUIRED reconstruction candidates (notochord and compressed
-glycolysis). Sixteen assets are released to sixteen questions: five Anatomy,
-five Biochemistry and six Physiology. Two are reviewed SVG reconstructions;
-the remainder retain exact native JPEG bytes. The pilot includes molecular
-structures, a hybrid reaction/photo image, microscopy, multi-panel diagrams,
-pathways, graphs and anatomical illustrations.
+## Current rollout milestone
 
 The user reviewed all sixteen released pilot figures in the PWA on 2026-09-09
-and approved their readability and quality as the minimum release threshold for
-the wider rollout. Future assets may exceed this baseline but must not fall below
-it. Full-bank visual classification remains outstanding. The page-level audit is
-complete; educational asset counts and quality/type totals outside the inspected
-pilot must not be inferred from image-stream counts.
-Region rendering is available on Ubuntu; masked and complex hybrid annotation
-reconstruction still requires an explicit asset-specific reviewed implementation.
+and approved their readability and quality as the minimum release threshold. The
+pilot merged through PR #12; production was not promoted.
+
+Batch 01 expands the registry to 28 approved assets and 34 released question
+bindings: Anatomy 12, Biochemistry 11 and Physiology 11. The formerly held
+notochord and glycolysis figures are now clean, rendered, source-compared SVGs.
+Ten additional native assets passed inspection, including two authentic muscle
+biopsy/histology images whose bytes are unchanged. Six repeated-asset bindings
+passed independent ownership/role review. Two tempting matches were rejected:
+Biochemistry Ch2 Q10 (wrong enzyme graph) and Physiology Ch1 Q9 (wrong membrane
+diagram). They remain intentionally imageless until their correct source content
+is resolved.
+
+Full-bank visual classification remains outstanding. The page-level audit is
+complete; educational asset counts and quality/type totals outside reviewed
+registry entries must not be inferred from image-stream counts. Region rendering
+is available on Ubuntu; multi-candidate, masked and complex hybrid figures require
+an explicit asset-specific reviewed implementation.

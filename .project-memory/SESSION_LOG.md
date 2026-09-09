@@ -640,3 +640,20 @@ Implemented approved recovery in existing transform owners: Topics separate path
   held diagrams, and continue the image rollout in bounded QA-checked batches.
 - Authentic medical/photo imagery remains source-preserved; reconstruction is
   restricted to faithful educational diagrams and annotation layers.
+
+## 2026-09-09 — Marrow image rollout Batch 01 implemented
+
+- Merged the user-approved image pilot through PR #12; production remained unchanged.
+- Reconstructed the held notochord and glycolysis diagrams as source-faithful SVGs.
+  Rendered source/production comparison found and corrected a false notochord lumen,
+  a disconnected glycolysis branch and lost reversible-arrow semantics before PASS.
+- Expanded to 28 approved assets serving 34 questions: Anatomy 12, Biochemistry 11,
+  Physiology 11. Ten new native assets and six repeated-asset bindings passed review.
+- Preserved exact pixels for two new muscle biopsy/histology assets; the question-time
+  biopsy uses neutral alt text. No medical imagery was reconstructed or enhanced.
+- Added independent binding QA/provenance. Rejected two wrong reuse candidates instead
+  of attaching plausible but mismatched images. Added deterministic progress reporting,
+  stricter local-marker SVG validation, and browser checks for reconstruction timing,
+  fullscreen viewing and authentic question-time imagery.
+- Source/local validation passes. Full Batch 01 Android/PWA/browser/package CI remains
+  pending at this checkpoint; production promotion is forbidden.

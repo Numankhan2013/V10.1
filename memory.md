@@ -752,3 +752,15 @@ memory, and current HEAD must be resolved rather than hardcoded. Run
 - Canonical schema, explanation contract, procedure, failure lessons and
   regression checklist: `docs/MARROW_BANK_INTEGRATION.md`. Canonical live
   handoff remains `.project-memory/STATE.md`.
+
+
+## Marrow image rollout — 2026-09-09
+
+The user approved the 16-question image pilot as the minimum quality threshold.
+PR #12 merged the pilot without production promotion. Batch 01 then expanded the
+reviewed registry to 28 approved assets serving 34 questions, completed faithful
+SVG reconstructions of the held notochord and glycolysis figures, preserved new
+authentic biopsy/histology pixels exactly, and added per-binding provenance/QA so
+deduplicated assets cannot be silently attached to the wrong question. Two such
+false matches were explicitly rejected. Canonical live detail remains in
+`.project-memory/STATE.md` and `docs/MARROW_IMAGE_PIPELINE.md`.
