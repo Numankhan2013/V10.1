@@ -50,14 +50,17 @@ Check off only when build-verified **and** device-verified where UI is involved.
 - [ ] Explanation fine-tuning using
       `docs/MARROW_EXPLANATION_FINE_TUNING.md`. Raw source stays immutable and
       learner-facing improvements remain separate ID-keyed augmentation.
-      Biochemistry Chapters **1–11** are complete on the current stacked lineage;
-      Physiology Chapters **1–4** retain the approved 80-question pilot and
-      Chapter **5 — Body Fluids (28/28)** is now complete and fully verified.
-      Deterministic inventory: **429 enhanced / 1,686 pending**.
-      Engineering Gate 259 and full Android/PWA run 539 verified the Physiology
-      rollout loader, inventory, Q17 browser regression, APK/package contracts
-      and preview deployment. When explanation work resumes, continue in source
-      order from **Physiology Chapter 6 — Physiology of Nerve**.
+      Biochemistry Chapters **1–11** are complete. Physiology Chapters **1–8**
+      are now complete through the current verified lineage: Ch5 28/28, Ch6
+      34/34, Ch7 35/35 and Ch8 14/14. Latest verified deterministic inventory is
+      **512 enhanced / 1,603 pending**. Chapter 8 passed Engineering Gate 266 and
+      full Android/PWA run 561. Chapter 9 — **Synapse and Junctional
+      Transmission** has **27/27 explanations authored** at content checkpoint
+      `9c7cf3f`, but it is **not yet verification-certified**. Resume with the
+      Chapter 9 source-key/distractor/emphasis/reconstruction audit → inventory
+      regeneration → stable-ID browser regression → bounded PR → exact-head
+      Engineering + full Android/PWA gates. Do not start/commit Chapter 10 until
+      Chapter 9 is green.
 - [ ] Image integration is a separate workstream now owned by the **primary agent**.
       Reconcile current Git state before resuming. Historical Batch 01 was
       build-verified; Batch 02 contains six REVIEW_REQUIRED candidates on its
