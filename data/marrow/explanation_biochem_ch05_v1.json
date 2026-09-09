@@ -1,0 +1,275 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Approved Marrow ED8 Biochemistry Chapter 5 explanation rollout. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "5",
+    "chapterTitle": "ETC and bioenergetics",
+    "questions": 17,
+    "status": "approved-rollout"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 243,
+    "anatomy": 62,
+    "physiology": 80,
+    "biochemistry": 101
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH05_Q001": {
+      "takeaway": "The electron-transport-chain complexes are embedded in the inner mitochondrial membrane.",
+      "displayText": "The electron transport chain is located in the inner mitochondrial membrane. Its carriers accept electrons derived from oxidation of carbohydrates, fatty acids and amino acids and ultimately transfer them to oxygen.\n\nThis membrane localization is essential because electron transfer is coupled to proton pumping across the inner mitochondrial membrane, creating the electrochemical gradient used for ATP synthesis.",
+      "emphasis": [
+        "inner mitochondrial membrane",
+        "electron transport chain",
+        "oxygen",
+        "proton pumping"
+      ],
+      "rationales": {
+        "b": "The outer mitochondrial membrane does not contain the respiratory-chain complexes that generate the proton gradient.",
+        "c": "The mitochondrial matrix contains many metabolic enzymes, but the ETC complexes themselves are membrane-bound.",
+        "d": "The intermembrane space receives pumped protons, but it is not where the ETC complexes are located."
+      }
+    },
+    "marrow__BIOCHEM_CH05_Q002": {
+      "takeaway": "ATP synthase is an inner-mitochondrial-membrane complex, not a matrix enzyme.",
+      "displayText": "ATP synthase is embedded in the inner mitochondrial membrane, so it is the listed enzyme complex that is not present as a soluble mitochondrial-matrix enzyme.\n\nMost citric-acid-cycle enzymes, β-oxidation enzymes and pyruvate dehydrogenase are located in the matrix. The source also highlights succinate dehydrogenase as a special TCA-cycle enzyme bound to the inner membrane, where it functions as ETC complex II.",
+      "emphasis": [
+        "ATP synthase",
+        "inner mitochondrial membrane",
+        "β-oxidation enzymes",
+        "succinate dehydrogenase"
+      ],
+      "rationales": {
+        "a": "Most citric-acid-cycle enzymes are located in the mitochondrial matrix; succinate dehydrogenase is the important membrane-bound exception.",
+        "b": "β-oxidation of fatty acids takes place predominantly in the mitochondrial matrix.",
+        "c": "The pyruvate-dehydrogenase complex is located in the mitochondrial matrix."
+      }
+    },
+    "marrow__BIOCHEM_CH05_Q003": {
+      "takeaway": "ETC complex I is NADH–Q oxidoreductase and transfers electrons from NADH to coenzyme Q.",
+      "displayText": "Complex I of the electron transport chain is NADH–Q oxidoreductase. It accepts electrons from NADH, transfers them first to FMN and then through iron–sulfur centers, and ultimately reduces coenzyme Q.\n\nThe source contrasts the four major respiratory complexes: complex I = NADH–Q oxidoreductase, complex II = succinate–Q reductase, complex III = Q–cytochrome c oxidoreductase, and complex IV = cytochrome c oxidase.",
+      "emphasis": [
+        "NADH–Q oxidoreductase",
+        "FMN",
+        "iron–sulfur centers",
+        "coenzyme Q"
+      ],
+      "rationales": {
+        "a": "Q–cytochrome c oxidoreductase is complex III, not complex I.",
+        "b": "Succinate–Q reductase is complex II.",
+        "d": "Cytochrome c oxidase is complex IV, the terminal respiratory-chain complex."
+      }
+    },
+    "marrow__BIOCHEM_CH05_Q004": {
+      "takeaway": "Succinate–Q reductase is ETC complex II.",
+      "displayText": "Succinate–Q reductase is complex II of the electron transport chain. It contains FAD and iron–sulfur centers and accepts electrons during oxidation of succinate to fumarate.\n\nThose electrons are passed to coenzyme Q, which carries them onward toward complex III. Complex II is also succinate dehydrogenase, linking the citric-acid cycle directly to the ETC.",
+      "emphasis": [
+        "complex II",
+        "FAD",
+        "succinate to fumarate",
+        "coenzyme Q"
+      ],
+      "rationales": {
+        "a": "Complex I is NADH–Q oxidoreductase, not succinate–Q reductase.",
+        "c": "Complex III is Q–cytochrome c oxidoreductase.",
+        "d": "Complex IV is cytochrome c oxidase."
+      }
+    },
+    "marrow__BIOCHEM_CH05_Q005": {
+      "takeaway": "Cytochrome c oxidase contains copper as well as heme groups.",
+      "displayText": "Cytochrome c oxidase is ETC complex IV. Its prosthetic components include heme a, heme a3 and copper, so Cu²⁺ is the listed metal component.\n\nComplex IV accepts electrons from cytochrome c and transfers them to the final electron acceptor, oxygen, which is reduced to water.",
+      "emphasis": [
+        "Cytochrome c oxidase",
+        "complex IV",
+        "copper",
+        "oxygen"
+      ],
+      "rationales": {
+        "a": "Calcium is not the characteristic metal component of cytochrome c oxidase listed by the source.",
+        "c": "Manganese is not the metal prosthetic component identified for complex IV.",
+        "d": "Zinc is not the source-keyed metal component of cytochrome c oxidase."
+      }
+    },
+    "marrow__BIOCHEM_CH05_Q006": {
+      "takeaway": "Complex II is the only major ETC complex that does not pump protons.",
+      "displayText": "Complex II transfers electrons from succinate through FAD and iron–sulfur centers to coenzyme Q, but it does not pump hydrogen ions across the inner mitochondrial membrane.\n\nThe source proton-pumping pattern is: complex I pumps 4 H⁺, complex II pumps 0, complex III pumps 4 H⁺ and complex IV pumps 2 H⁺.",
+      "emphasis": [
+        "complex II",
+        "does not pump hydrogen ions",
+        "complex I pumps 4 H⁺",
+        "complex IV pumps 2 H⁺"
+      ],
+      "rationales": {
+        "a": "Complex I pumps protons across the inner mitochondrial membrane.",
+        "c": "Complex III contributes to the proton gradient by pumping protons.",
+        "d": "Complex IV also pumps protons while transferring electrons to oxygen."
+      }
+    },
+    "marrow__BIOCHEM_CH05_Q007": {
+      "takeaway": "ETC complex V is the F₀F₁ ATP synthase complex.",
+      "displayText": "ATP synthase is also called complex V of oxidative phosphorylation. It uses the proton-motive force generated by the respiratory chain to synthesize ATP from ADP and inorganic phosphate.\n\nIts F₀ domain spans the inner mitochondrial membrane and forms the proton-conducting portion, while the F₁ domain projects into the mitochondrial matrix and contains the catalytic machinery for ATP formation.",
+      "emphasis": [
+        "complex V",
+        "ATP synthase",
+        "F₀ domain",
+        "F₁ domain"
+      ],
+      "rationales": {
+        "a": "Q–cytochrome c oxidoreductase is complex III.",
+        "c": "NADH–Q oxidoreductase is complex I.",
+        "d": "Cytochrome c oxidase is complex IV."
+      }
+    },
+    "marrow__BIOCHEM_CH05_Q008": {
+      "takeaway": "Oligomycin inhibits ATP synthase by blocking the F₀ proton channel.",
+      "displayText": "Oligomycin inhibits the F₀ portion of ATP synthase. By blocking the proton channel, it prevents H⁺ from flowing back into the mitochondrial matrix through complex V.\n\nWithout proton re-entry through ATP synthase, phosphorylation of ADP to ATP stops and oxidative phosphorylation is inhibited.",
+      "emphasis": [
+        "Oligomycin",
+        "F₀ portion",
+        "blocking the proton channel",
+        "phosphorylation of ADP to ATP stops"
+      ],
+      "rationales": {
+        "a": "Atractyloside inhibits the ADP/ATP translocase rather than the F₀ proton channel.",
+        "c": "BAL is not the source-keyed inhibitor of the F₀F₁ ATP-synthase complex.",
+        "d": "Cyanide inhibits cytochrome c oxidase at complex IV, not ATP synthase."
+      }
+    },
+    "marrow__BIOCHEM_CH05_Q009": {
+      "takeaway": "Amobarbital inhibits ETC complex I by blocking electron transfer toward coenzyme Q.",
+      "displayText": "Amobarbital is a complex-I inhibitor. The source describes blockade of electron transfer from the iron–sulfur centers of complex I to coenzyme Q.\n\nOther complex-I inhibitors listed by the source include rotenone and piericidin A.",
+      "emphasis": [
+        "Amobarbital",
+        "complex-I inhibitor",
+        "iron–sulfur centers",
+        "coenzyme Q"
+      ],
+      "rationales": {
+        "a": "Carboxin inhibits complex II rather than complex I.",
+        "b": "Hydrogen sulfide inhibits cytochrome c oxidase at complex IV.",
+        "d": "Malonate inhibits succinate dehydrogenase/complex II, not complex I."
+      }
+    },
+    "marrow__BIOCHEM_CH05_Q010": {
+      "takeaway": "Atractyloside blocks the mitochondrial ADP/ATP translocase.",
+      "displayText": "Atractyloside inhibits oxidative phosphorylation by blocking exchange of adenine nucleotides across the inner mitochondrial membrane. ADP cannot enter the matrix efficiently and ATP cannot be exported.\n\nThe inhibited transporter is the ADP/ATP translocase, also called the adenine-nucleotide translocator.",
+      "emphasis": [
+        "Atractyloside",
+        "ADP cannot enter",
+        "ATP cannot be exported",
+        "ADP/ATP translocase"
+      ],
+      "rationales": {
+        "a": "Oligomycin inhibits the F₀ proton channel of ATP synthase rather than the ADP/ATP carrier.",
+        "c": "Amobarbital inhibits ETC complex I.",
+        "d": "Rotenone also inhibits complex I rather than adenine-nucleotide transport."
+      }
+    },
+    "marrow__BIOCHEM_CH05_Q011": {
+      "takeaway": "Thermogenin is a physiological mitochondrial uncoupler in brown adipose tissue.",
+      "displayText": "Thermogenin is a physiological uncoupling protein in brown adipose tissue. It increases proton permeability of the inner mitochondrial membrane, allowing H⁺ to return to the matrix without passing through ATP synthase.\n\nThe proton gradient is therefore dissipated as heat rather than captured as ATP. This mechanism is especially important for heat generation in newborns.",
+      "emphasis": [
+        "Thermogenin",
+        "physiological uncoupling protein",
+        "brown adipose tissue",
+        "dissipated as heat"
+      ],
+      "rationales": {
+        "a": "2,4-Dinitrophenol is an artificial chemical uncoupler, not the physiological uncoupler asked for.",
+        "b": "Oligomycin inhibits ATP synthase rather than uncoupling electron transport from phosphorylation.",
+        "c": "Atractyloside blocks ADP/ATP transport; it is not a physiological uncoupling protein."
+      }
+    },
+    "marrow__BIOCHEM_CH05_Q012": {
+      "takeaway": "Fumarate is not classified as a high-energy phosphate compound.",
+      "displayText": "Fumarate is the exception among the listed compounds because it is not a high-energy phosphate compound.\n\nThe source includes phosphoenolpyruvate, carbamoyl phosphate and creatine phosphate among compounds with high group-transfer potential. Their phosphate-bond hydrolysis can be coupled to energy-requiring reactions.",
+      "emphasis": [
+        "Fumarate",
+        "not a high-energy phosphate compound",
+        "phosphoenolpyruvate",
+        "creatine phosphate"
+      ],
+      "rationales": {
+        "a": "Phosphoenolpyruvate is a high-energy phosphate compound with very high phosphoryl-transfer potential.",
+        "b": "Carbamoyl phosphate is included among high-energy phosphate compounds.",
+        "c": "Creatine phosphate is a high-energy phosphagen used for rapid energy buffering."
+      }
+    },
+    "marrow__BIOCHEM_CH05_Q014": {
+      "takeaway": "Gluconeogenesis consumes energy; it is not a source of energy-conserving phosphate.",
+      "displayText": "The source identifies oxidative phosphorylation, glycolysis and the citric-acid cycle as major routes involved in conservation or capture of high-energy phosphate.\n\nGluconeogenesis is different: it is an energy-requiring biosynthetic pathway that consumes ATP/GTP to synthesize glucose, so it is not a source of phosphate-derived energy conservation in this comparison.",
+      "emphasis": [
+        "Gluconeogenesis",
+        "energy-requiring",
+        "consumes ATP/GTP",
+        "not a source"
+      ],
+      "rationales": {
+        "a": "Oxidative phosphorylation is a major mechanism for generating ATP from the proton gradient.",
+        "b": "Glycolysis conserves energy through substrate-level phosphorylation.",
+        "c": "The citric-acid cycle contributes high-energy reducing equivalents and includes substrate-level phosphorylation."
+      }
+    },
+    "marrow__BIOCHEM_CH05_Q015": {
+      "takeaway": "Creatine phosphate is abundant in high-energy tissues such as skeletal muscle, heart, brain and spermatozoa—not nephron tissue in the source comparison.",
+      "displayText": "Creatine phosphate is a phosphagen that serves as a rapidly available high-energy phosphate reserve. The source lists it in skeletal muscle, heart, brain and spermatozoa.\n\nNephron is the exception among the options and is not listed as a characteristic creatine-phosphate storage site.",
+      "emphasis": [
+        "Creatine phosphate",
+        "phosphagen",
+        "skeletal muscle, heart, brain and spermatozoa",
+        "Nephron"
+      ],
+      "rationales": {
+        "a": "Skeletal muscle contains abundant creatine phosphate for rapid ATP buffering.",
+        "b": "Cardiac muscle also uses the creatine-phosphate system.",
+        "c": "The source specifically includes spermatozoa among tissues containing creatine phosphate."
+      }
+    },
+    "marrow__BIOCHEM_CH05_Q016": {
+      "takeaway": "Cytochrome oxidase is a hemoprotein containing heme and copper.",
+      "displayText": "Cytochrome oxidase is a hemoprotein and is the terminal enzyme complex of the respiratory chain. It contains heme prosthetic groups and copper and transfers electrons ultimately to oxygen.\n\nIts activity can be blocked by poisons such as carbon monoxide, cyanide and hydrogen sulfide, thereby interrupting cellular respiration.",
+      "emphasis": [
+        "Cytochrome oxidase",
+        "hemoprotein",
+        "heme prosthetic groups",
+        "oxygen"
+      ],
+      "rationales": {
+        "b": "Xanthine oxidase is a molybdenum/flavin-containing oxidoreductase, not the hemoprotein identified here.",
+        "c": "L-amino-acid oxidase is a flavoprotein rather than a heme-containing respiratory-chain protein.",
+        "d": "Succinate dehydrogenase is an FAD-containing flavoprotein and ETC complex II, not a hemoprotein."
+      }
+    },
+    "marrow__BIOCHEM_CH05_Q017": {
+      "takeaway": "Methane is the exception; cytochrome oxidase is inhibited by cyanide, carbon monoxide and hydrogen sulfide.",
+      "displayText": "Cytochrome c oxidase is ETC complex IV and the terminal electron-transfer complex. The source lists cyanide, carbon monoxide and hydrogen sulfide among poisons that inhibit its activity.\n\nMethane is the exception among the listed substances and is not a classic cytochrome-oxidase inhibitor in this comparison.",
+      "emphasis": [
+        "Cytochrome c oxidase",
+        "complex IV",
+        "cyanide, carbon monoxide and hydrogen sulfide",
+        "Methane"
+      ],
+      "rationales": {
+        "a": "Hydrogen sulfide can inhibit cytochrome c oxidase and impair cellular respiration.",
+        "b": "Carbon monoxide inhibits cytochrome oxidase in addition to binding hemoglobin.",
+        "d": "Cyanide is a classic inhibitor of complex IV/cytochrome c oxidase."
+      }
+    },
+    "marrow__BIOCHEM_CH05_Q018": {
+      "takeaway": "TPN calories are calculated as carbohydrate 4 kcal/g, amino acid 4 kcal/g and fat 9 kcal/g: total 880 kcal.",
+      "displayText": "Use the source caloric values: carbohydrate = 4 kcal/g, protein/amino acid = 4 kcal/g and lipid = 9 kcal/g.\n\n100 g glucose contributes 400 kcal, 30 g amino acids contribute 120 kcal, and 40 g lipids contribute 360 kcal. Total energy = 400 + 120 + 360 = 880 kcal.",
+      "emphasis": [
+        "4 kcal/g",
+        "9 kcal/g",
+        "400 + 120 + 360",
+        "880 kcal"
+      ],
+      "rationales": {
+        "a": "840 kcal underestimates the total produced by applying the source caloric values to all three macronutrients.",
+        "c": "640 kcal omits a substantial portion of the lipid-derived energy.",
+        "d": "680 kcal is below the correct sum of carbohydrate, amino-acid and lipid calories."
+      }
+    }
+  }
+}
