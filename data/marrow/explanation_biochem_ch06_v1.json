@@ -1,0 +1,320 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Approved Marrow ED8 Biochemistry Chapter 6 explanation rollout. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "6",
+    "chapterTitle": "Krebs Cycle",
+    "questions": 20,
+    "status": "approved-rollout"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 260,
+    "anatomy": 62,
+    "physiology": 80,
+    "biochemistry": 118
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH06_Q001": {
+      "takeaway": "The TCA cycle occurs in the mitochondria.",
+      "displayText": "The tricarboxylic-acid cycle, also called the Krebs cycle or citric-acid cycle, occurs in the mitochondria. Its enzymes are located predominantly in the mitochondrial matrix, with succinate dehydrogenase as the important membrane-bound exception.\n\nThe cycle operates in aerobic tissues and oxidizes acetyl-CoA while generating reduced cofactors for oxidative phosphorylation.",
+      "emphasis": [
+        "mitochondria",
+        "mitochondrial matrix",
+        "succinate dehydrogenase",
+        "acetyl-CoA"
+      ],
+      "rationales": {
+        "a": "The cytosol is not the site of the TCA cycle.",
+        "b": "The endoplasmic reticulum does not house the TCA-cycle enzyme system.",
+        "d": "Lysosomes are involved in intracellular degradation rather than the TCA cycle."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q002": {
+      "takeaway": "The Krebs cycle is the final common oxidative pathway for carbohydrate, lipid and protein metabolism.",
+      "displayText": "The Krebs cycle is the final common pathway for oxidation of carbohydrates, lipids and proteins because these fuels converge on acetyl-CoA or TCA-cycle intermediates.\n\nAcetyl-CoA—not pyruvate—condenses with oxaloacetate to form citrate. Oxidative phosphorylation occurs in mitochondria, and α-ketoglutarate is a five-carbon compound.",
+      "emphasis": [
+        "final common pathway",
+        "acetyl-CoA",
+        "oxaloacetate",
+        "five-carbon compound"
+      ],
+      "rationales": {
+        "b": "Pyruvate is first converted to acetyl-CoA; acetyl-CoA is the molecule that condenses with oxaloacetate to form citrate.",
+        "c": "Oxidative phosphorylation occurs on the inner mitochondrial membrane, not in the cytoplasm.",
+        "d": "α-Ketoglutarate contains five carbons, not four."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q003": {
+      "takeaway": "Acetyl-CoA enters the TCA cycle but is not itself a cycle intermediate.",
+      "displayText": "Acetyl-CoA is a starting substrate for the TCA cycle rather than an intermediate regenerated within the cycle. It condenses with oxaloacetate to form citrate.\n\nCitrate, succinyl-CoA and fumarate are genuine TCA-cycle intermediates. Acetyl-CoA can be supplied by carbohydrate metabolism, fatty-acid oxidation and ketogenic amino-acid metabolism. The source pathway figure remains preserved separately.",
+      "emphasis": [
+        "Acetyl-CoA",
+        "starting substrate",
+        "citrate",
+        "TCA-cycle intermediates"
+      ],
+      "rationales": {
+        "a": "Citrate is formed within the TCA cycle and is a cycle intermediate.",
+        "c": "Succinyl-CoA is a TCA-cycle intermediate formed from α-ketoglutarate.",
+        "d": "Fumarate is a TCA-cycle intermediate formed from succinate."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q004": {
+      "takeaway": "Hyperammonemia depletes α-ketoglutarate and thereby suppresses the TCA cycle.",
+      "displayText": "In hyperammonemia, excess ammonia is incorporated into glutamate to form glutamine. As glutamate is consumed, α-ketoglutarate is diverted from the TCA cycle to regenerate glutamate.\n\nThis progressive depletion of α-ketoglutarate removes an important TCA-cycle intermediate and can impair energy production.",
+      "emphasis": [
+        "hyperammonemia",
+        "glutamine",
+        "α-ketoglutarate",
+        "impair energy production"
+      ],
+      "rationales": {
+        "a": "Oxaloacetate is not the source-keyed intermediate primarily depleted by ammonia trapping in this mechanism.",
+        "c": "Succinyl-CoA is not the TCA intermediate specifically depleted by hyperammonemia in the source explanation.",
+        "d": "Fumarate is not the source-keyed metabolite depleted through glutamate/glutamine formation."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q005": {
+      "takeaway": "Aconitase is an iron-containing enzyme that converts citrate to isocitrate.",
+      "displayText": "Aconitase contains iron and catalyzes the reversible conversion of citrate to isocitrate. The reaction proceeds through cis-aconitate: citrate is first dehydrated and then rehydrated to form isocitrate.\n\nThe source also notes aconitase's relationship to iron homeostasis. Its reaction diagram remains preserved separately.",
+      "emphasis": [
+        "Aconitase",
+        "iron",
+        "cis-aconitate",
+        "isocitrate"
+      ],
+      "rationales": {
+        "a": "Calcium is not the metal component identified for aconitase.",
+        "b": "Magnesium is not the source-keyed metal contained in aconitase.",
+        "d": "Manganese is not the characteristic metal component of aconitase."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q006": {
+      "takeaway": "Fluoroacetate inhibits aconitase after conversion to fluorocitrate.",
+      "displayText": "Fluoroacetate is metabolically activated to fluoroacetyl-CoA, which condenses with oxaloacetate to form fluorocitrate. Fluorocitrate then inhibits aconitase.\n\nThis blocks the citrate-to-isocitrate step of the TCA cycle.",
+      "emphasis": [
+        "Fluoroacetate",
+        "fluoroacetyl-CoA",
+        "fluorocitrate",
+        "inhibits aconitase"
+      ],
+      "rationales": {
+        "a": "Arsenite inhibits α-ketoglutarate dehydrogenase rather than aconitase.",
+        "b": "Malonate inhibits succinate dehydrogenase/complex II.",
+        "d": "Iodoacetate inhibits glyceraldehyde-3-phosphate dehydrogenase in glycolysis, not aconitase."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q007": {
+      "takeaway": "Valine enters the TCA cycle at the succinyl-CoA level.",
+      "displayText": "Valine is a glucogenic amino acid whose carbon skeleton is ultimately converted through propionyl-CoA and methylmalonyl-CoA to succinyl-CoA.\n\nIt therefore enters the TCA cycle at succinyl-CoA. The source amino-acid entry-point table remains preserved separately.",
+      "emphasis": [
+        "Valine",
+        "glucogenic amino acid",
+        "succinyl-CoA",
+        "enters the TCA cycle"
+      ],
+      "rationales": {
+        "a": "α-Ketoglutarate is the entry point for amino acids such as glutamate, not valine.",
+        "b": "Fumarate is an entry point for other amino-acid carbon skeletons but not the source-keyed entry for valine.",
+        "d": "Acetyl-CoA is not the TCA entry point of valine."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q008": {
+      "takeaway": "The first CO₂ of the TCA cycle is released by isocitrate dehydrogenase.",
+      "displayText": "Isocitrate dehydrogenase catalyzes the first oxidative decarboxylation of the TCA cycle: isocitrate is converted to α-ketoglutarate while CO₂ is released and NAD⁺ is reduced to NADH.\n\nThe second oxidative decarboxylation occurs when α-ketoglutarate is converted to succinyl-CoA by α-ketoglutarate dehydrogenase. The source Krebs-cycle figure remains preserved separately.",
+      "emphasis": [
+        "Isocitrate dehydrogenase",
+        "first oxidative decarboxylation",
+        "CO₂",
+        "NADH"
+      ],
+      "rationales": {
+        "a": "Aconitase converts citrate to isocitrate without releasing CO₂.",
+        "c": "Succinate thiokinase converts succinyl-CoA to succinate and generates GTP; it does not catalyze the first decarboxylation.",
+        "d": "Succinate dehydrogenase converts succinate to fumarate without releasing CO₂."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q009": {
+      "takeaway": "Isocitrate dehydrogenase requires Mg²⁺ or Mn²⁺; Mn²⁺ is the listed correct cofactor.",
+      "displayText": "Isocitrate dehydrogenase catalyzes oxidative decarboxylation of isocitrate to α-ketoglutarate. The reaction requires a divalent metal ion, classically Mg²⁺ or Mn²⁺.\n\nAmong the listed options, Mn²⁺ is therefore correct.",
+      "emphasis": [
+        "Isocitrate dehydrogenase",
+        "α-ketoglutarate",
+        "Mg²⁺ or Mn²⁺",
+        "Mn²⁺"
+      ],
+      "rationales": {
+        "a": "Copper is not the divalent metal cofactor specified for isocitrate dehydrogenase.",
+        "c": "Iron is not the source-keyed metal cofactor for this reaction.",
+        "d": "Calcium is not the required catalytic metal listed for isocitrate dehydrogenase."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q010": {
+      "takeaway": "The only substrate-level phosphorylation in the TCA cycle occurs at succinyl-CoA → succinate.",
+      "displayText": "Succinyl-CoA is converted to succinate by succinyl-CoA synthetase, also called succinate thiokinase. This reaction generates GTP directly and is the only substrate-level phosphorylation step of the TCA cycle.\n\nThe source pathway figure remains preserved separately.",
+      "emphasis": [
+        "Succinyl-CoA",
+        "succinate",
+        "GTP",
+        "only substrate-level phosphorylation"
+      ],
+      "rationales": {
+        "a": "Isocitrate → α-ketoglutarate generates NADH and CO₂, not GTP by substrate-level phosphorylation.",
+        "b": "α-Ketoglutarate → succinyl-CoA produces NADH and CO₂ but is not the substrate-level phosphorylation step.",
+        "d": "Succinate → fumarate generates FADH₂ through succinate dehydrogenase rather than directly producing GTP."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q011": {
+      "takeaway": "One turn of the TCA cycle yields about 10 ATP equivalents.",
+      "displayText": "Per acetyl-CoA oxidized, one turn of the TCA cycle produces 3 NADH, 1 FADH₂ and 1 GTP.\n\nUsing the source ATP equivalents: 3 NADH = 7.5 ATP, 1 FADH₂ = 1.5 ATP and 1 GTP = 1 ATP. Total yield = 10 ATP equivalents per turn.",
+      "emphasis": [
+        "3 NADH",
+        "1 FADH₂",
+        "1 GTP",
+        "10 ATP equivalents"
+      ],
+      "rationales": {
+        "b": "20 ATP is double the source-calculated yield for one turn of the cycle.",
+        "c": "25 ATP exceeds the energy captured from 3 NADH, 1 FADH₂ and 1 GTP.",
+        "d": "30 ATP is far above the source-keyed yield from a single acetyl-CoA turn."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q012": {
+      "takeaway": "Biotin is not a cofactor used by the TCA-cycle enzymes listed in the source.",
+      "displayText": "Biotin is the exception. The TCA cycle uses vitamin-derived cofactors including riboflavin-derived FAD, niacin-derived NAD⁺, thiamine pyrophosphate and coenzyme A derived from pantothenic acid.\n\nBiotin is primarily a cofactor for carboxylation reactions and is not one of the TCA-cycle cofactors in this comparison.",
+      "emphasis": [
+        "Biotin",
+        "FAD",
+        "NAD⁺",
+        "thiamine pyrophosphate"
+      ],
+      "rationales": {
+        "b": "Pantothenic acid contributes to coenzyme A, which participates in acetyl-CoA and succinyl-CoA metabolism.",
+        "c": "Riboflavin supplies FAD, the cofactor used by succinate dehydrogenase.",
+        "d": "Niacin supplies NAD⁺, used by several TCA-cycle dehydrogenases."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q013": {
+      "takeaway": "The TCA cycle is amphibolic because it participates in both catabolic oxidation and anabolic synthesis.",
+      "displayText": "The TCA cycle is called amphibolic because it serves both oxidative and synthetic roles. It oxidizes acetyl-CoA to capture energy, while its intermediates also supply carbon skeletons for biosynthetic pathways.\n\nTCA intermediates contribute to processes such as amino-acid synthesis, gluconeogenesis and fatty-acid synthesis.",
+      "emphasis": [
+        "amphibolic",
+        "oxidative and synthetic roles",
+        "amino-acid synthesis",
+        "gluconeogenesis"
+      ],
+      "rationales": {
+        "b": "Use of TCA metabolites in other pathways is part of its anabolic role, but the defining concept of amphibolic is the combination of catabolic and anabolic functions.",
+        "c": "The TCA cycle is not called amphibolic because the entire cycle simply runs forward and backward.",
+        "d": "The term does not refer to using the same enzymes in reverse direction."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q014": {
+      "takeaway": "Arsenite inhibits α-ketoglutarate dehydrogenase.",
+      "displayText": "Arsenite inhibits the α-ketoglutarate dehydrogenase complex. This enzyme carries out oxidative decarboxylation of α-ketoglutarate to succinyl-CoA.\n\nThe source inhibitor table contrasts aconitase–fluoroacetate, α-ketoglutarate dehydrogenase–arsenite and succinate dehydrogenase–malonate; the native table remains preserved separately.",
+      "emphasis": [
+        "Arsenite",
+        "α-ketoglutarate dehydrogenase",
+        "succinyl-CoA",
+        "succinate dehydrogenase–malonate"
+      ],
+      "rationales": {
+        "a": "Iodoacetate is a glycolytic inhibitor and is not the source-keyed inhibitor of α-ketoglutarate dehydrogenase.",
+        "b": "Fluoroacetate, through fluorocitrate, inhibits aconitase.",
+        "d": "Malonate inhibits succinate dehydrogenase."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q015": {
+      "takeaway": "Pyridoxal phosphate is not one of the five cofactors of α-ketoglutarate dehydrogenase.",
+      "displayText": "The α-ketoglutarate dehydrogenase complex uses five classic cofactors: thiamine pyrophosphate, lipoate, coenzyme A, FAD and NAD⁺.\n\nPyridoxal phosphate is therefore the exception. The same five-cofactor pattern is shared by other oxidative-decarboxylation complexes such as pyruvate dehydrogenase and branched-chain α-ketoacid dehydrogenase.",
+      "emphasis": [
+        "five classic cofactors",
+        "thiamine pyrophosphate",
+        "lipoate",
+        "Pyridoxal phosphate"
+      ],
+      "rationales": {
+        "a": "Lipoate is one of the required cofactors of α-ketoglutarate dehydrogenase.",
+        "b": "Thiamine pyrophosphate is required for oxidative decarboxylation in the complex.",
+        "c": "FAD is one of the five cofactors used by the complex."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q016": {
+      "takeaway": "Pyruvate kinase is not a component of the pyruvate-dehydrogenase complex.",
+      "displayText": "The pyruvate dehydrogenase complex contains three enzyme components: pyruvate dehydrogenase, dihydrolipoyl transacetylase and dihydrolipoyl dehydrogenase.\n\nPyruvate kinase is a glycolytic enzyme that catalyzes phosphoenolpyruvate → pyruvate with ATP generation; it is not part of the PDH complex. PDH converts pyruvate to acetyl-CoA by oxidative decarboxylation.",
+      "emphasis": [
+        "pyruvate dehydrogenase complex",
+        "dihydrolipoyl transacetylase",
+        "dihydrolipoyl dehydrogenase",
+        "Pyruvate kinase"
+      ],
+      "rationales": {
+        "a": "Pyruvate dehydrogenase is the E1 enzyme component of the PDH complex.",
+        "b": "Dihydrolipoyl transacetylase is the E2 component of the PDH complex.",
+        "d": "Dihydrolipoyl dehydrogenase is the E3 component of the PDH complex."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q017": {
+      "takeaway": "Thiamine deficiency inhibits pyruvate dehydrogenase, reducing conversion of pyruvate to acetyl-CoA.",
+      "displayText": "Thiamine pyrophosphate is a required cofactor for pyruvate dehydrogenase. In thiamine deficiency, the PDH reaction is impaired, so conversion of pyruvate to acetyl-CoA is reduced.\n\nPyruvate may then accumulate and be diverted toward lactate, contributing to lactic acidosis. The source pathway figure remains preserved separately.",
+      "emphasis": [
+        "Thiamine pyrophosphate",
+        "pyruvate dehydrogenase",
+        "pyruvate to acetyl-CoA",
+        "lactic acidosis"
+      ],
+      "rationales": {
+        "a": "Isocitrate → α-ketoglutarate is catalyzed by isocitrate dehydrogenase and does not depend on thiamine.",
+        "b": "Succinate → fumarate is catalyzed by FAD-dependent succinate dehydrogenase.",
+        "d": "Fumarate → malate is catalyzed by fumarase and does not require thiamine."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q018": {
+      "takeaway": "Acetyl-CoA is an allosteric inhibitor of the pyruvate-dehydrogenase complex.",
+      "displayText": "High-energy and product signals suppress pyruvate dehydrogenase. The source lists NADH, acetyl-CoA and ATP as allosteric inhibitors of the PDH complex.\n\nAcetyl-CoA therefore provides product feedback that limits further conversion of pyruvate to acetyl-CoA when mitochondrial energy supply is already abundant.",
+      "emphasis": [
+        "NADH",
+        "acetyl-CoA",
+        "ATP",
+        "product feedback"
+      ],
+      "rationales": {
+        "a": "AMP signals low energy and is not a source-keyed allosteric inhibitor of PDH.",
+        "b": "ADP is associated with low-energy signaling rather than inhibition of PDH in this comparison.",
+        "d": "Citrate is not one of the PDH allosteric inhibitors listed by the source."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q019": {
+      "takeaway": "Inherited pyruvate-dehydrogenase deficiency can cause congenital lactic acidosis.",
+      "displayText": "Deficiency of one or more components of the pyruvate dehydrogenase complex prevents efficient conversion of pyruvate to acetyl-CoA. Pyruvate is then diverted toward lactate, producing lactic acidosis.\n\nThe source includes PDH deficiency among important causes of lactic acidosis together with tissue hypoxia, mitochondrial disease, TCA-cycle enzyme defects, thiamine deficiency and selected poisons.",
+      "emphasis": [
+        "pyruvate dehydrogenase complex",
+        "pyruvate to acetyl-CoA",
+        "lactic acidosis",
+        "PDH deficiency"
+      ],
+      "rationales": {
+        "b": "Pyruvate-kinase deficiency primarily causes hemolytic anemia rather than the congenital lactic-acidosis pattern asked here.",
+        "c": "Pyruvate decarboxylase is not the human mitochondrial enzyme complex responsible for conversion of pyruvate to acetyl-CoA.",
+        "d": "Transketolase impairment can reflect thiamine deficiency but is not the source-keyed enzyme defect causing congenital lactic acidosis."
+      }
+    },
+    "marrow__BIOCHEM_CH06_Q020": {
+      "takeaway": "Pyruvate → oxaloacetate is an anaplerotic reaction that replenishes the TCA cycle.",
+      "displayText": "Pyruvate carboxylase converts pyruvate to oxaloacetate. This is an anaplerotic reaction because it replenishes a TCA-cycle intermediate that may have been withdrawn for biosynthesis.\n\nAcetyl-CoA activates pyruvate carboxylase, helping maintain enough oxaloacetate for condensation with acetyl-CoA and continued TCA-cycle function.",
+      "emphasis": [
+        "pyruvate to oxaloacetate",
+        "anaplerotic reaction",
+        "Pyruvate carboxylase",
+        "Acetyl-CoA"
+      ],
+      "rationales": {
+        "a": "Pyruvate → acetyl-CoA supplies the entering acetyl group but does not replenish a TCA-cycle intermediate.",
+        "c": "Conversion of pyruvate to acetaldehyde is not a human anaplerotic TCA reaction.",
+        "d": "Pyruvate → lactate regenerates NAD⁺ during anaerobic glycolysis and does not replenish the TCA-cycle intermediate pool."
+      }
+    }
+  }
+}
