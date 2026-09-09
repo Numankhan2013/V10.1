@@ -30,7 +30,7 @@ overwriting the imported source record.
 
 - Imported Marrow source text remains immutable and auditable.
 - Never silently paraphrase away unique medical meaning.
-- Never invent a missing list, table, diagram label, mechanism or fact.
+- Never invent unsupported content. High-confidence reconstruction from verified source evidence and/or standard medical literature is explicitly allowed and should be provenance-marked.
 - Existing source tables stay tables.
 - Figure/image metadata stays preserved even if binaries are deferred.
 - Source omissions/uncertain reconstructions stay flagged until source evidence
@@ -92,19 +92,37 @@ Safe examples:
 - source option-label debris represented elsewhere.
 
 ### Reconstruction
-Reconstruct missing educational content only when source evidence makes the
-result high confidence. Store:
-- original raw fragment;
-- reconstructed display content;
-- evidence/provenance used;
-- reconstruction status.
+Reconstruction is **expected** when the imported PDF/JSON transcription is
+incomplete, garbled, internally inconsistent, or has already been flagged for
+review and the intended undergraduate medical content can be recovered with
+high confidence.
+
+Permitted evidence is broader than the damaged transcription itself:
+- intact source stem/options/answer key and nearby source context;
+- verified source-PDF page/figure/table when available;
+- standard, well-established medical-school literature and consensus physiology,
+  anatomy or biochemistry used for MBBS / USMLE / NEET-PG / INI-CET level facts.
+
+Do not leave learner-facing content knowingly wrong merely because the raw
+transcription is defective. Correct/reconstruct the **augmentation layer** while
+leaving raw imported source immutable.
+
+Every reconstruction must remain auditable. Store, as applicable:
+- original raw fragment or precise source problem;
+- reconstructed learner-facing content;
+- evidence/provenance basis (for example source page, standard-literature
+  principle, or both);
+- reconstruction status such as `resolved_reconstruction` or
+  `needs_manual_review`;
+- a concise internal note explaining what changed and why.
 
 The existing resolved Anatomy cases are the pattern:
 `ANAT_CH02_Q010`, `ANAT_CH03_Q004`, `ANAT_CH04_Q013`.
 
-If defining list items, table cells, labels, or image-dependent facts are absent
-and cannot be recovered from source evidence, do **not** invent them. Keep a
-review flag and render the source-faithful remainder.
+If a defining image label, list item, table cell or other fact still cannot be
+recovered confidently after source inspection **and** standard-literature
+verification, do not guess. Keep the uncertainty explicit and leave it
+reviewable.
 
 ## Fine-tuning workflow
 
