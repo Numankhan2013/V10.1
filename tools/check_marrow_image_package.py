@@ -4,7 +4,7 @@ import argparse
 import json
 import zipfile
 from pathlib import Path
-from marrow_images import ROOT,DATA,sha,validate
+from marrow_images import ROOT,DATA,binding_is_released,sha,validate
 def main():
     p=argparse.ArgumentParser();p.add_argument('--apk',action='store_true');a=p.parse_args()
     if a.apk:
@@ -15,7 +15,7 @@ def main():
     manifest=json.loads(read('marrow_visual_metadata.js').decode().split('=',1)[1].rstrip(';\n'))
     expected=validate(DATA/'images/registry.json')
     released=[x for x in expected['assets'] if x['status'] in {'PASS','SOURCE_LIMITED'}]
-    expected_pairs={(x['id'],b['questionId'],b['role']) for x in released for b in x['bindings']}
+    expected_pairs={(x['id'],b['questionId'],b['role']) for x in released for b in x['bindings'] if binding_is_released(x,b)}
     actual_pairs={(x['id'],qid,x['role']) for qid,rows in manifest.items() for x in rows}
     assert actual_pairs==expected_pairs
     for qid,rows in manifest.items():

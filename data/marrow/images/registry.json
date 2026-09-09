@@ -112,6 +112,29 @@
           "role": "explanation",
           "order": 1,
           "alt": "Source enzyme activity graph"
+        },
+        {
+          "questionId": "marrow__BIOCHEM_CH02_Q010",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Glycolysis pathway diagram",
+          "status": "REJECTED",
+          "reviewBatch": "rollout-01",
+          "qa": {
+            "sourceCompared": false,
+            "notes": "Rejected mapping: metadata names a glycolysis pathway, but the sole native candidate is the hexokinase-versus-glucokinase activity graph. Displaying it here would be a provenance mismatch.",
+            "evidence": "Question metadata compared with Biochemistry page 33/xref 69 on 2026-09-09."
+          },
+          "source": {
+            "page": 33,
+            "xref": 69,
+            "region": [
+              162.0,
+              212.0,
+              450.0,
+              428.0
+            ]
+          }
         }
       ],
       "original": {
@@ -156,6 +179,75 @@
           "role": "explanation",
           "order": 1,
           "alt": "Source figure"
+        },
+        {
+          "questionId": "marrow__ANAT_CH02_Q004",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Acrosome reaction",
+          "status": "PASS",
+          "reviewBatch": "rollout-01",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Source metadata explicitly assigns the repeated acrosome-reaction diagram on page 24 to this fertilization-barriers explanation; explanation-only placement is answer-safe.",
+            "evidence": "Question metadata and Anatomy page 24/xref 3443 checked 2026-09-09."
+          },
+          "source": {
+            "page": 24,
+            "xref": 3443,
+            "region": [
+              162.0,
+              150.0,
+              450.0,
+              366.0
+            ]
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH02_Q005",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Acrosome reaction",
+          "status": "PASS",
+          "reviewBatch": "rollout-01",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Source metadata explicitly assigns the same page-24 acrosome-reaction diagram to Questions 4 and 5; it directly supports this acrosomal-enzyme explanation.",
+            "evidence": "Question metadata and Anatomy page 24/xref 3443 checked 2026-09-09."
+          },
+          "source": {
+            "page": 24,
+            "xref": 3443,
+            "region": [
+              162.0,
+              150.0,
+              450.0,
+              366.0
+            ]
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH02_Q006",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Acrosome reaction",
+          "status": "PASS",
+          "reviewBatch": "rollout-01",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Source metadata records the repeated acrosome-reaction diagram at the top of page 25 immediately before this solution; explanation-only placement is correct.",
+            "evidence": "Question metadata and Anatomy page 25/xref 3443 checked 2026-09-09."
+          },
+          "source": {
+            "page": 25,
+            "xref": 3443,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          }
         }
       ],
       "original": {
@@ -202,6 +294,29 @@
           "role": "explanation",
           "order": 1,
           "alt": "Source figure"
+        },
+        {
+          "questionId": "marrow__ANAT_CH02_Q011",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Implantation",
+          "status": "PASS",
+          "reviewBatch": "rollout-01",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The implantation figure explicitly supports the bilaminar disc by labeling epiblast and hypoblast; source metadata assigns it to this explanation.",
+            "evidence": "Question metadata and Anatomy page 28/xref 3453 checked 2026-09-09."
+          },
+          "source": {
+            "page": 28,
+            "xref": 3453,
+            "region": [
+              162.0,
+              136.0,
+              450.0,
+              352.0
+            ]
+          }
         }
       ],
       "original": {
@@ -339,7 +454,7 @@
           "questionId": "marrow__ANAT_CH03_Q004",
           "role": "explanation",
           "order": 1,
-          "alt": "Source figure"
+          "alt": "Formation of the notochord in four ordered stages"
         }
       ],
       "original": {
@@ -349,19 +464,19 @@
         "height": 726
       },
       "production": {
-        "path": "data/marrow/images/originals/babc1e59001cfa889249fd5ce15f7a2d61899b146128a6f551ec1e1d650c528d.jpg",
-        "sha256": "babc1e59001cfa889249fd5ce15f7a2d61899b146128a6f551ec1e1d650c528d",
-        "width": 600,
-        "height": 726
+        "path": "data/marrow/images/editable/formation-of-notochord.svg",
+        "sha256": "533c0a697eeb0579d870dfc22e0ac9bdd57bf95f353de21a6795249e9b735ea0",
+        "width": 900,
+        "height": 1100
       },
-      "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "method": "svg-reconstruction",
+      "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Notochord: four inset stages present, but small soft labels would benefit from reconstruction. Keep out of production pending redraw. Production is the exact native JPEG; no crop or processing applied.",
-        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "notes": "Rendered side-by-side against the native source. All twelve transcribed labels are present; the dorsal overview preserves prechordal plate, developing notochord, primitive knot, primitive streak and cloacal membrane; all four ordered histologic panels and arrows are retained; the canal is visibly hollow and the definitive notochord is a solid cellular rod. No additional educational content was introduced.",
+        "evidence": "GitHub Actions 34331480677 / marrow-image-review/anatomy-babc1e59001cfa88.png",
         "originalSha256": "babc1e59001cfa889249fd5ce15f7a2d61899b146128a6f551ec1e1d650c528d",
-        "productionSha256": "babc1e59001cfa889249fd5ce15f7a2d61899b146128a6f551ec1e1d650c528d"
+        "productionSha256": "533c0a697eeb0579d870dfc22e0ac9bdd57bf95f353de21a6795249e9b735ea0"
       }
     },
     {
@@ -386,6 +501,29 @@
           "role": "explanation",
           "order": 1,
           "alt": "Source figure"
+        },
+        {
+          "questionId": "marrow__ANAT_CH03_Q007",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Formation of neural crest and neural tube",
+          "status": "PASS",
+          "reviewBatch": "rollout-01",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The source assigns the neural crest/neural tube formation diagram to this lesion-origin explanation. It remains explanation-only; the separate clinical question image is not substituted by this diagram.",
+            "evidence": "Question metadata and Anatomy page 40/xref 3463 checked 2026-09-09."
+          },
+          "source": {
+            "page": 40,
+            "xref": 3463,
+            "region": [
+              162.0,
+              410.0,
+              450.0,
+              626.0
+            ]
+          }
         }
       ],
       "original": {
@@ -477,7 +615,7 @@
           "questionId": "marrow__BIOCHEM_CH02_Q008",
           "role": "explanation",
           "order": 1,
-          "alt": "Source figure"
+          "alt": "Glycolysis pathway with enzymes and irreversible steps"
         }
       ],
       "original": {
@@ -487,19 +625,19 @@
         "height": 450
       },
       "production": {
-        "path": "data/marrow/images/originals/aa11f9fa6a08baeaa4949b752af3b5bea6275649598559118eb86862d522cef0.jpg",
-        "sha256": "aa11f9fa6a08baeaa4949b752af3b5bea6275649598559118eb86862d522cef0",
-        "width": 600,
-        "height": 450
+        "path": "data/marrow/images/editable/glycolysis.svg",
+        "sha256": "e6b4d76fa9ff07dbf62b5094b8fdcd46a744837bb802aa55945ac7021f6fa8e2",
+        "width": 900,
+        "height": 1100
       },
-      "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "method": "svg-reconstruction",
+      "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Glycolysis: severe vertical compression and small labels in embedded source. Reconstruction needed; do not release this raster. Production is the exact native JPEG; no crop or processing applied.",
-        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "notes": "Rendered side-by-side against the native source. All metabolites, enzyme names, ATP/ADP and NAD+/NADH+H+ relationships, aldolase branch, triose-phosphate interconversion, and red irreversible-step distinction are present. Reversible reactions retain bidirectional arrows. No numeric or regulatory content was added.",
+        "evidence": "GitHub Actions 34331480677 / marrow-image-review/biochemistry-aa11f9fa6a08baea.png",
         "originalSha256": "aa11f9fa6a08baeaa4949b752af3b5bea6275649598559118eb86862d522cef0",
-        "productionSha256": "aa11f9fa6a08baeaa4949b752af3b5bea6275649598559118eb86862d522cef0"
+        "productionSha256": "e6b4d76fa9ff07dbf62b5094b8fdcd46a744837bb802aa55945ac7021f6fa8e2"
       }
     },
     {
@@ -616,6 +754,29 @@
           "role": "explanation",
           "order": 1,
           "alt": "Source figure"
+        },
+        {
+          "questionId": "marrow__PHYS_CH01_Q009",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Protein-to-lipid ratio table",
+          "status": "REJECTED",
+          "reviewBatch": "rollout-01",
+          "qa": {
+            "sourceCompared": false,
+            "notes": "Rejected mapping: metadata calls for a protein-to-lipid ratio table, while the native candidate is the cell-membrane protein diagram used by Q8. The wrong visual must not be reused.",
+            "evidence": "Question metadata compared with Physiology page 14/xref 28 on 2026-09-09."
+          },
+          "source": {
+            "page": 14,
+            "xref": 28,
+            "region": [
+              162.0,
+              182.0,
+              450.0,
+              398.0
+            ]
+          }
         }
       ],
       "original": {
@@ -822,6 +983,499 @@
         "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
         "originalSha256": "d916b240eeaa6b79d979a5572237071aecdba1e33cacdac621bd1dde88b19991",
         "productionSha256": "d916b240eeaa6b79d979a5572237071aecdba1e33cacdac621bd1dde88b19991"
+      }
+    },
+    {
+      "id": "anatomy-3d5f5a41dcdf6062",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-01",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 41,
+        "xref": 93,
+        "region": [
+          162.0,
+          341.0,
+          450.0,
+          557.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH03_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Intermediate mesoderm"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/3d5f5a41dcdf60620cf8ed6a1885491e3cc4570617981be90eb96160a48c919b.jpg",
+        "sha256": "3d5f5a41dcdf60620cf8ed6a1885491e3cc4570617981be90eb96160a48c919b",
+        "width": 576,
+        "height": 654
+      },
+      "production": {
+        "path": "data/marrow/images/originals/3d5f5a41dcdf60620cf8ed6a1885491e3cc4570617981be90eb96160a48c919b.jpg",
+        "sha256": "3d5f5a41dcdf60620cf8ed6a1885491e3cc4570617981be90eb96160a48c919b",
+        "width": 576,
+        "height": 654
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source diagram inspected at full resolution. Neural tube, paraxial/lateral/intermediate mesoderm, notochord, yolk sac and pronephros-to-mesonephros-to-metanephros relationships are complete and readable; production retains exact JPEG bytes.",
+        "evidence": "Direct comparison of immutable PDF xref 93 on Anatomy page 41, 2026-09-09.",
+        "originalSha256": "3d5f5a41dcdf60620cf8ed6a1885491e3cc4570617981be90eb96160a48c919b",
+        "productionSha256": "3d5f5a41dcdf60620cf8ed6a1885491e3cc4570617981be90eb96160a48c919b"
+      }
+    },
+    {
+      "id": "biochemistry-c2ffe82a4bf1b89e",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-01",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 52,
+        "xref": 118,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH03_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Glycogen structure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/c2ffe82a4bf1b89e85b3f29a807389495342b98c1e556213a2cabe6afd34fe44.jpg",
+        "sha256": "c2ffe82a4bf1b89e85b3f29a807389495342b98c1e556213a2cabe6afd34fe44",
+        "width": 601,
+        "height": 451
+      },
+      "production": {
+        "path": "data/marrow/images/originals/c2ffe82a4bf1b89e85b3f29a807389495342b98c1e556213a2cabe6afd34fe44.jpg",
+        "sha256": "c2ffe82a4bf1b89e85b3f29a807389495342b98c1e556213a2cabe6afd34fe44",
+        "width": 601,
+        "height": 451
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native glycogen-structure figure inspected at full resolution. Branched glucose polymer, central glycogenin core and source caption are complete and readable with fullscreen zoom; production retains exact JPEG bytes.",
+        "evidence": "Direct comparison of immutable PDF xref 118 on Biochemistry page 52, 2026-09-09.",
+        "originalSha256": "c2ffe82a4bf1b89e85b3f29a807389495342b98c1e556213a2cabe6afd34fe44",
+        "productionSha256": "c2ffe82a4bf1b89e85b3f29a807389495342b98c1e556213a2cabe6afd34fe44"
+      }
+    },
+    {
+      "id": "biochemistry-a20fd6323af3b847",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-01",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 54,
+        "xref": 1137,
+        "region": [
+          162.0,
+          252.0,
+          450.0,
+          468.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH03_Q010",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Regulation of glycogen phosphorylase"
+        },
+        {
+          "questionId": "marrow__BIOCHEM_CH03_Q011",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Regulation of glycogen phosphorylase",
+          "status": "PASS",
+          "reviewBatch": "rollout-01",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The source repeats the glycogen-phosphorylase regulation diagram on page 55 for this regulation question; explanation-only placement and ownership are correct.",
+            "evidence": "Question metadata and Biochemistry page 55/xref 1137 checked 2026-09-09."
+          },
+          "source": {
+            "page": 55,
+            "xref": 1137,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/a20fd6323af3b8479f4d718d780898cbc5649b192e6c246e88897877c3c33008.jpg",
+        "sha256": "a20fd6323af3b8479f4d718d780898cbc5649b192e6c246e88897877c3c33008",
+        "width": 600,
+        "height": 451
+      },
+      "production": {
+        "path": "data/marrow/images/originals/a20fd6323af3b8479f4d718d780898cbc5649b192e6c246e88897877c3c33008.jpg",
+        "sha256": "a20fd6323af3b8479f4d718d780898cbc5649b192e6c246e88897877c3c33008",
+        "width": 600,
+        "height": 451
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native glycogen-phosphorylase regulation diagram inspected at full resolution. Hormonal inputs, cAMP cascade, phosphorylation cycles, allosteric regulators and glucose-1-phosphate output are present and readable with zoom; production retains exact JPEG bytes.",
+        "evidence": "Direct comparison of immutable PDF xref 1137 on Biochemistry page 54, 2026-09-09.",
+        "originalSha256": "a20fd6323af3b8479f4d718d780898cbc5649b192e6c246e88897877c3c33008",
+        "productionSha256": "a20fd6323af3b8479f4d718d780898cbc5649b192e6c246e88897877c3c33008"
+      }
+    },
+    {
+      "id": "biochemistry-562d98b72d026d82",
+      "subject": "Biochemistry",
+      "kind": "medical",
+      "reviewBatch": "rollout-01",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 49,
+        "xref": 111,
+        "region": [
+          162.0,
+          82.0,
+          450.0,
+          298.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH03_Q016",
+          "role": "question",
+          "order": 1,
+          "alt": "Source muscle-biopsy microscopy image"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/562d98b72d026d82450de44d811c60dde53a90d74df25b7bcb44392bc95b88e3.jpg",
+        "sha256": "562d98b72d026d82450de44d811c60dde53a90d74df25b7bcb44392bc95b88e3",
+        "width": 720,
+        "height": 534
+      },
+      "production": {
+        "path": "data/marrow/images/originals/562d98b72d026d82450de44d811c60dde53a90d74df25b7bcb44392bc95b88e3.jpg",
+        "sha256": "562d98b72d026d82450de44d811c60dde53a90d74df25b7bcb44392bc95b88e3",
+        "width": 720,
+        "height": 534
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic source muscle-biopsy microscopy inspected at native resolution and bound before answering with neutral alt text. No diagnostic pixels, color, contrast or sharpness were altered; production retains exact JPEG bytes.",
+        "evidence": "Direct comparison of immutable PDF xref 111 on Biochemistry page 49 and question stem, 2026-09-09.",
+        "originalSha256": "562d98b72d026d82450de44d811c60dde53a90d74df25b7bcb44392bc95b88e3",
+        "productionSha256": "562d98b72d026d82450de44d811c60dde53a90d74df25b7bcb44392bc95b88e3"
+      }
+    },
+    {
+      "id": "biochemistry-940c4990f6f83e77",
+      "subject": "Biochemistry",
+      "kind": "medical",
+      "reviewBatch": "rollout-01",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 58,
+        "xref": 132,
+        "region": [
+          162.0,
+          455.0,
+          450.0,
+          671.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH03_Q020",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Muscle biopsy / myophosphorylase histochemistry images"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/940c4990f6f83e77174bf479241f73c16e13e102be1424228a7fe72bb3623943.jpg",
+        "sha256": "940c4990f6f83e77174bf479241f73c16e13e102be1424228a7fe72bb3623943",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/940c4990f6f83e77174bf479241f73c16e13e102be1424228a7fe72bb3623943.jpg",
+        "sha256": "940c4990f6f83e77174bf479241f73c16e13e102be1424228a7fe72bb3623943",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic source muscle histology inspected at native resolution. Tissue field and cellular detail are intact; no processing or generative recreation was applied. This is the first of two source figures for the explanation.",
+        "evidence": "Direct comparison of immutable PDF xref 132 on Biochemistry page 58, 2026-09-09.",
+        "originalSha256": "940c4990f6f83e77174bf479241f73c16e13e102be1424228a7fe72bb3623943",
+        "productionSha256": "940c4990f6f83e77174bf479241f73c16e13e102be1424228a7fe72bb3623943"
+      }
+    },
+    {
+      "id": "physiology-624181c2cbcd60f1",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-01",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 29,
+        "xref": 67,
+        "region": [
+          162.0,
+          224.0,
+          450.0,
+          440.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH02_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "G-protein alpha-subunit signaling diagram"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/624181c2cbcd60f11a7db88d8e3b09d6a28a164c925a302c373e9f57c37521db.jpg",
+        "sha256": "624181c2cbcd60f11a7db88d8e3b09d6a28a164c925a302c373e9f57c37521db",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/624181c2cbcd60f11a7db88d8e3b09d6a28a164c925a302c373e9f57c37521db.jpg",
+        "sha256": "624181c2cbcd60f11a7db88d8e3b09d6a28a164c925a302c373e9f57c37521db",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native G-alpha signaling diagram inspected at full resolution. Receptor, alpha/beta/gamma subunits, GTP, adenylyl cyclase, cAMP, kinase activation and cell-response arrows are complete and readable; exact JPEG retained.",
+        "evidence": "Direct comparison of immutable PDF xref 67 on Physiology page 29, 2026-09-09.",
+        "originalSha256": "624181c2cbcd60f11a7db88d8e3b09d6a28a164c925a302c373e9f57c37521db",
+        "productionSha256": "624181c2cbcd60f11a7db88d8e3b09d6a28a164c925a302c373e9f57c37521db"
+      }
+    },
+    {
+      "id": "physiology-95389f30f8277be3",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-01",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 43,
+        "xref": 97,
+        "region": [
+          162.0,
+          192.0,
+          450.0,
+          408.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH03_Q005",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Simple vs facilitated diffusion saturation plot"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/95389f30f8277be30269b5383372ac86179e0d237012b88a4ceeb087a80d5359.jpg",
+        "sha256": "95389f30f8277be30269b5383372ac86179e0d237012b88a4ceeb087a80d5359",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/95389f30f8277be30269b5383372ac86179e0d237012b88a4ceeb087a80d5359.jpg",
+        "sha256": "95389f30f8277be30269b5383372ac86179e0d237012b88a4ceeb087a80d5359",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native diffusion plot inspected at full resolution. Both axes, linear simple-diffusion line, saturating facilitated-diffusion curve and Vmax marker are complete and readable; exact JPEG retained.",
+        "evidence": "Direct comparison of immutable PDF xref 97 on Physiology page 43, 2026-09-09.",
+        "originalSha256": "95389f30f8277be30269b5383372ac86179e0d237012b88a4ceeb087a80d5359",
+        "productionSha256": "95389f30f8277be30269b5383372ac86179e0d237012b88a4ceeb087a80d5359"
+      }
+    },
+    {
+      "id": "physiology-4d1ff536befbd498",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-01",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 46,
+        "xref": 106,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH03_Q013",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Primary vs secondary active transport classification table"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/4d1ff536befbd498d57b7dfd960558e1e362d7df0c9b2029605aadf449f5568c.jpg",
+        "sha256": "4d1ff536befbd498d57b7dfd960558e1e362d7df0c9b2029605aadf449f5568c",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/4d1ff536befbd498d57b7dfd960558e1e362d7df0c9b2029605aadf449f5568c.jpg",
+        "sha256": "4d1ff536befbd498d57b7dfd960558e1e362d7df0c9b2029605aadf449f5568c",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native active-transport classification flowchart inspected at full resolution. Primary/secondary branches and both energy descriptions are complete and readable; exact JPEG retained.",
+        "evidence": "Direct comparison of immutable PDF xref 106 on Physiology page 46, 2026-09-09.",
+        "originalSha256": "4d1ff536befbd498d57b7dfd960558e1e362d7df0c9b2029605aadf449f5568c",
+        "productionSha256": "4d1ff536befbd498d57b7dfd960558e1e362d7df0c9b2029605aadf449f5568c"
+      }
+    },
+    {
+      "id": "physiology-300cf454f1faf380",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-01",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 49,
+        "xref": 117,
+        "region": [
+          162.0,
+          152.0,
+          450.0,
+          368.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH03_Q016",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Renal tubular sodium-glucose cotransport diagram"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/300cf454f1faf380badda0b7a50156680a792fc4822da655c08f64c82960952e.jpg",
+        "sha256": "300cf454f1faf380badda0b7a50156680a792fc4822da655c08f64c82960952e",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/300cf454f1faf380badda0b7a50156680a792fc4822da655c08f64c82960952e.jpg",
+        "sha256": "300cf454f1faf380badda0b7a50156680a792fc4822da655c08f64c82960952e",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native renal tubular cotransport diagram inspected at full resolution. Lumen/interstitium orientation, luminal SGLT, basolateral GLUT, sodium, glucose, potassium and ATP-dependent pump relationships are intact; exact JPEG retained.",
+        "evidence": "Direct comparison of immutable PDF xref 117 on Physiology page 49, 2026-09-09.",
+        "originalSha256": "300cf454f1faf380badda0b7a50156680a792fc4822da655c08f64c82960952e",
+        "productionSha256": "300cf454f1faf380badda0b7a50156680a792fc4822da655c08f64c82960952e"
+      }
+    },
+    {
+      "id": "physiology-34035f21ae05e6bd",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-01",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 51,
+        "xref": 125,
+        "region": [
+          162.0,
+          347.0,
+          450.0,
+          563.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH03_Q020",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Clathrin-dependent endocytosis diagram"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/34035f21ae05e6bddec28e154900fcd6fc8f620e76f464968ad137e4b63ea0ce.jpg",
+        "sha256": "34035f21ae05e6bddec28e154900fcd6fc8f620e76f464968ad137e4b63ea0ce",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/34035f21ae05e6bddec28e154900fcd6fc8f620e76f464968ad137e4b63ea0ce.jpg",
+        "sha256": "34035f21ae05e6bddec28e154900fcd6fc8f620e76f464968ad137e4b63ea0ce",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native clathrin-dependent endocytosis diagram inspected at full resolution. Receptor/AP-2 binding, clathrin coat formation, uncoating, fusion and early-endosome sequence plus AP-2 subunits are complete and readable; exact JPEG retained.",
+        "evidence": "Direct comparison of immutable PDF xref 125 on Physiology page 51, 2026-09-09.",
+        "originalSha256": "34035f21ae05e6bddec28e154900fcd6fc8f620e76f464968ad137e4b63ea0ce",
+        "productionSha256": "34035f21ae05e6bddec28e154900fcd6fc8f620e76f464968ad137e4b63ea0ce"
       }
     }
   ]

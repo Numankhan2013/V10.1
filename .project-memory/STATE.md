@@ -6,9 +6,8 @@
 ## Repo / branch
 
 - Repo: `Numankhan2013/V10.1`.
-- Git `main` is the authoritative unified V11/Marrow product line after PRs #6–#8.
-- Current explanation-quality branch:
-  `feature/marrow-explanation-rollout-biochem-ch01`.
+- Git `main` is the authoritative unified V11/Marrow product line; the user-approved image pilot merged through PR #12.
+- Current image rollout branch: `feature/marrow-image-rollout-batch-01`.
 - Resolve live branch/HEAD from Git; never hardcode a self-staling HEAD value.
 - Accepted product baseline remains **V11.6 Content Quality** at `125d68b`,
   canonical APK run `34050921180`.
@@ -85,9 +84,8 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 - Expanded Marrow bank integration is **build-verified** by prior successful
   Engineering/full Android+PWA runs, including run 405 and authoritative-main
   run 409.
-- The approved 20-question sample passed Engineering/full Android+PWA/browser
-  verification before merge. The Chapter 1 rollout branch still requires its own
-  final CI/browser/package pass before merge.
+- The approved 20-question sample and completed Biochemistry Chapter 1 rollout
+  are merged into `main`; their dedicated content and browser contracts remain.
 - Build-verified ≠ device-verified ≠ accepted baseline.
 - V11.6 `125d68b` remains the **accepted baseline** / rollback checkpoint until
   the user explicitly promotes a later candidate.
@@ -98,7 +96,8 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 
 - The remaining non-reference Marrow explanations still need the approved polish.
 - Preserve source tables, figure metadata and uncertainty/reconstruction notes.
-  Actual missing image binaries remain a later pass.
+  The image pass is active; ambiguous, composite, masked and vector-only figures
+  remain withheld until their source ownership and completeness are reviewed.
 - Do not invent missing list items, lab values, graph labels or image-dependent facts.
 - Do not rewrite raw JSONL/sharded source to make the UI prettier.
 - Do not alter the approved Topics journey, FSRS dock, source-PDF renderers,
@@ -107,29 +106,40 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 
 ## Image phase — active
 
-- Branch: `feature/marrow-image-pipeline`; initial commit `07ee53d` passed full
-  APK/PWA CI `34311877059`. Expanded 18-asset checkpoint: `1925eec`.
+- The approved pilot merged into `main` through PR #12 at merge commit `4faf0e5`.
+  Production was not promoted.
 - Audit covers 2,484 PDF pages: 1,082 explicit references across 821 questions,
   plus 58 text-cue candidates. Native candidates are not final asset counts.
-- Pilot: 15 PASS, one SOURCE_LIMITED microscopy image, two REVIEW_REQUIRED
-  redraws. Sixteen assets release by stable question ID; two reviewed SVGs.
 - On 2026-09-09 the user reviewed all sixteen released pilot figures in the PWA
   and approved them as the minimum quality threshold for wider rollout. Future
   releases may improve on this baseline but must not fall below it.
-- Expanded batch is build-verified by full APK/PWA run `34328039057`: browser,
-  offline PWA, exact asset bytes, APK packaging and upload passed. Artifact
-  `V11.7-android-pwa` ID `10094653587`; preview
-  `https://334bc346.nk-qbank.pages.dev`. The image pilot is user/device-reviewed;
-  full-bank classification and rollout remain.
+- Active Batch 01 currently has **28 approved assets / 34 released question
+  bindings**: Anatomy 12, Biochemistry 11, Physiology 11. It adds ten inspected
+  native assets, six approved repeated-asset bindings, and the two formerly held
+  SVG reconstructions. Two false reuse matches were explicitly REJECTED.
+- Authentic Pompe/McArdle muscle imagery retains exact native JPEG bytes. The
+  Pompe stem image uses question-time placement and neutral alt text. Diagrams
+  remain explanation-only unless their source explicitly makes them part of the stem.
+- Registry now gates repeated-image ownership separately from asset quality and
+  records source page/xref/region per reuse binding. Unsafe binding statuses are
+  excluded from web/APK manifests. `data/marrow/images/progress.json` records
+  deterministic rollout totals.
+- Batch 01 is build-verified by full Android/PWA run `34334231275` at product
+  commit `44990c0`: registry/progress, browser role timing, zoom viewer, offline
+  hashes, APK build/package and exact packaged bytes all passed. Generated
+  glycolysis and question-biopsy screenshots were inspected. Artifact
+  `V11.7-android-pwa` ID `10097131223`; immutable preview
+  `https://88a0ce10.nk-qbank.pages.dev`; production promotion was skipped.
 - Audit and workflow: `docs/MARROW_IMAGE_PIPELINE.md`. Preserve raw sources and
-  `tools/__pycache__/`; no production promotion. UI upgrade remains deferred.
+  `tools/__pycache__/`; UI upgrade remains deferred.
 
 ## Next step
 
-1. Merge the now-approved pilot; production remains unchanged.
-2. Reconstruct the held notochord and compressed-glycolysis figures.
-3. Continue bounded classification and asset batches across all subjects while
-   enforcing the approved pilot as the minimum release quality.
+1. Open/merge the fully build-verified Batch 01 PR; production remains unchanged.
+2. Continue deterministic batches, prioritizing unresolved question-critical and
+   multi-candidate figures; never substitute an explanation image for a missing stem image.
+3. Keep each batch behind registry/binding QA, browser timing checks, offline hashes
+   and packaged APK verification.
 4. Resume explanation rollout separately after the image priority phase.
 
 Canonical Marrow procedure: `docs/MARROW_BANK_INTEGRATION.md`.

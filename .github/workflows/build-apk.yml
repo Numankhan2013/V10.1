@@ -155,6 +155,8 @@ jobs:
         run: python3 tools/fix_boot_syntax.py
       - name: Install isolated Marrow bank pilot
         run: python3 tools/apply_marrow_bank_pilot.py
+      - name: Validate Marrow image registry, bindings, and progress
+        run: python3 tools/test_marrow_images.py
       - name: Install reviewed Marrow images
         run: python3 tools/install_marrow_images.py
       - name: Verify isolated Marrow bank pilot

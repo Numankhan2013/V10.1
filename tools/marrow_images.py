@@ -20,9 +20,13 @@ SOURCES = {'Anatomy': ('anatomy_phase_a', 'Anatomy_ed8.pdf'),
            'Biochemistry': ('biochemistry_phase_a', 'biochemistryed8.pdf'),
            'Physiology': ('physiology_ch001_033', 'physiologyed8.pdf')}
 SIGNAL = re.compile(r'\b(image|figure|diagram|graph|flowchart|shown below)\b', re.I)
+RELEASE_STATUSES = {'PASS','SOURCE_LIMITED'}
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
+
+def binding_is_released(asset,binding):
+    return asset['status'] in RELEASE_STATUSES and binding.get('status',asset['status']) in RELEASE_STATUSES
 
 def questions():
     result = {}
@@ -51,6 +55,28 @@ def immutable(path, data):
         assert path.read_bytes() == data, f'Immutable extraction conflict: {path}'
     else:
         path.write_bytes(data)
+
+def validate_svg(path):
+    """Allow inert SVG geometry and local marker arrows; reject active content."""
+    import xml.etree.ElementTree as ET
+    tree = ET.fromstring(path.read_text())
+    nodes = list(tree.iter());ids = {}
+    for node in nodes:
+        tag = node.tag.split('}')[-1]
+        assert tag not in {'script','foreignObject','image','use','style','animate','animateMotion','animateTransform','set'}
+        node_id = node.attrib.get('id')
+        if node_id:
+            assert re.fullmatch(r'[A-Za-z][A-Za-z0-9_.-]*', node_id)
+            assert node_id not in ids;ids[node_id] = tag
+    for node in nodes:
+        for key, value in node.attrib.items():
+            attr = key.split('}')[-1].lower()
+            assert not attr.startswith('on') and attr != 'href'
+            if 'url(' not in value.lower():continue
+            assert attr in {'marker-start','marker-mid','marker-end'}
+            match = re.fullmatch(r'url\(#([A-Za-z][A-Za-z0-9_.-]*)\)', value)
+            assert match and ids.get(match.group(1)) == 'marker'
+    return tree
 
 def pdf_inventory(path):
     from pypdf import PdfReader
@@ -206,6 +232,15 @@ def validate(registry):
             assert qs[binding['questionId']]['subject']==asset['subject']
             assert binding['role'] in {'question','explanation'}
             assert isinstance(binding['order'],int)
+            binding_status = binding.get('status')
+            if binding_status is not None:
+                assert binding_status in {'PASS','REVIEW_REQUIRED','REJECTED'}
+                binding_source=binding.get('source')
+                assert binding_source and isinstance(binding_source.get('page'),int) and isinstance(binding_source.get('xref'),int)
+                assert len(binding_source.get('region',[]))==4
+                if binding_status == 'PASS':
+                    assert binding.get('qa',{}).get('sourceCompared') is True
+                    assert binding['qa'].get('notes')
         for key in ('original','production'):
             record = asset.get(key)
             if record:
@@ -230,20 +265,18 @@ def release(registry):
     assets = ROOT/'app/src/main/assets'
     runtime = {}
     for a in value['assets']:
-        if a['status'] not in {'PASS','SOURCE_LIMITED'}:
+        if a['status'] not in RELEASE_STATUSES:
             continue
         p = a['production']
         src = ROOT/p['path']
         assert src.suffix.lower() in {'.svg','.png','.jpg','.webp'}
         if src.suffix.lower()=='.svg':
-            import xml.etree.ElementTree as ET
-            tree=ET.fromstring(src.read_text())
-            for node in tree.iter():
-                assert node.tag.split('}')[-1] not in {'script','foreignObject','image','use'}
-                assert not any(k.lower().startswith('on') or 'href' in k.lower() or 'url(' in v.lower() for k,v in node.attrib.items())
+            validate_svg(src)
         rel = 'marrow_visuals/'+p['sha256']+src.suffix.lower()
         immutable(assets/rel,src.read_bytes())
         for b in a['bindings']:
+            if not binding_is_released(a,b):
+                continue
             runtime.setdefault(b['questionId'],[]).append({'id':a['id'],'role':b['role'],
                  'order':b['order'],'src':rel,'alt':b.get('alt','Source figure'),
                  'status':a['status'],'width':p['width'],'height':p['height']})
@@ -264,6 +297,18 @@ def review(registry, asset_id, status, kind, notes, evidence):
     validate(registry)
     print('MARROW_IMAGE_REVIEW_RECORDED',asset_id,status)
 
+def review_binding(registry, asset_id, question_id, status, notes, evidence):
+    value=validate(registry)
+    matches=[a for a in value['assets'] if a['id']==asset_id]
+    assert len(matches)==1
+    bindings=[b for b in matches[0]['bindings'] if b['questionId']==question_id]
+    assert len(bindings)==1
+    binding=bindings[0];binding['status']=status
+    binding['qa']={'sourceCompared':status=='PASS','notes':notes,'evidence':evidence}
+    write_json(registry,value)
+    validate(registry)
+    print('MARROW_IMAGE_BINDING_REVIEW_RECORDED',asset_id,question_id,status)
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     sub=p.add_subparsers(dest='command',required=True)
@@ -273,12 +318,14 @@ def main():
     for command in ('validate','release'):
         a=sub.add_parser(command);a.add_argument('--registry',type=Path,default=DATA/'images/registry.json')
     r=sub.add_parser('review');r.add_argument('--registry',type=Path,default=DATA/'images/registry.json');r.add_argument('--asset',required=True);r.add_argument('--status',choices=['PASS','SOURCE_LIMITED','REVIEW_REQUIRED','REJECTED'],required=True);r.add_argument('--kind',choices=['diagram','medical','hybrid','table','unknown'],required=True);r.add_argument('--notes',required=True);r.add_argument('--evidence',required=True)
+    b=sub.add_parser('review-binding');b.add_argument('--registry',type=Path,default=DATA/'images/registry.json');b.add_argument('--asset',required=True);b.add_argument('--question',required=True);b.add_argument('--status',choices=['PASS','REVIEW_REQUIRED','REJECTED'],required=True);b.add_argument('--notes',required=True);b.add_argument('--evidence',required=True)
     a=p.parse_args()
     if a.command=='audit':audit(a.output)
     elif a.command=='extract':extract(a.subject,a.page,a.xref,a.output)
     elif a.command=='render-region':render_region(a.subject,a.page,a.region,a.dpi,a.output)
     elif a.command=='validate':validate(a.registry);print('MARROW_IMAGE_REGISTRY_OK')
     elif a.command=='review':review(a.registry,a.asset,a.status,a.kind,a.notes,a.evidence)
+    elif a.command=='review-binding':review_binding(a.registry,a.asset,a.question,a.status,a.notes,a.evidence)
     else:release(a.registry)
 
 if __name__=='__main__':main()

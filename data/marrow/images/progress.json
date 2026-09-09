@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "assets": {
+    "total": 28,
+    "byStatus": {
+      "PASS": 27,
+      "SOURCE_LIMITED": 1
+    },
+    "byKind": {
+      "diagram": 24,
+      "hybrid": 1,
+      "medical": 3
+    },
+    "byMethod": {
+      "native-jpeg-stream": 24,
+      "svg-reconstruction": 4
+    }
+  },
+  "bindings": {
+    "total": 36,
+    "byStatus": {
+      "PASS": 33,
+      "REJECTED": 2,
+      "SOURCE_LIMITED": 1
+    },
+    "releasedByRole": {
+      "explanation": 32,
+      "question": 2
+    },
+    "releasedQuestionCount": 34
+  },
+  "subjects": {
+    "Anatomy": {
+      "approvedAssets": 7,
+      "assets": 7,
+      "releasedQuestions": 12
+    },
+    "Biochemistry": {
+      "approvedAssets": 10,
+      "assets": 10,
+      "releasedQuestions": 11
+    },
+    "Physiology": {
+      "approvedAssets": 11,
+      "assets": 11,
+      "releasedQuestions": 11
+    }
+  },
+  "batches": {
+    "pilot": {
+      "bindings": 18,
+      "releasedBindings": 18
+    },
+    "rollout-01": {
+      "bindings": 18,
+      "rejectedBindings": 2,
+      "releasedBindings": 16
+    }
+  }
+}
