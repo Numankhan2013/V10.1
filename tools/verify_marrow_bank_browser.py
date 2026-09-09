@@ -162,6 +162,25 @@ def main():
                 raise SystemExit('Biochemistry Chapter 6 Q11 must render exactly three distractor rationales')
             page.screenshot(path=str(OUT/'00aae-biochemistry-ch06-rollout-q11.png'),full_page=True)
 
+            # Chapter 7 rollout regression: Q18 checks the distinction between
+            # isoelectric pH and the pKa region of maximum buffering.
+            page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Amino acids: Basics').click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=27:
+                raise SystemExit('Marrow Biochemistry Chapter 7 count is not 27')
+            page.locator('button.nk-library-row').nth(17).click();page.wait_for_timeout(80)
+            if 'isoelectric ph' not in page.locator('.question-text').inner_text().lower():
+                raise SystemExit('Biochemistry Chapter 7 rollout Q18 did not open')
+            page.locator('.option-list button').nth(1).click();page.wait_for_timeout(120)
+            ch7=page.locator('.nk-study-support').inner_text().lower()
+            for required in ('key takeaway','detailed explanation','structured text','why the other options are wrong','no net charge','maximum buffering occurs around a pka','minimum solubility'):
+                if required not in ch7:
+                    raise SystemExit(f'Biochemistry Chapter 7 rollout missing {required}')
+            if page.locator('.nk-gold-wrong-row').count()!=3:
+                raise SystemExit('Biochemistry Chapter 7 Q18 must render exactly three distractor rationales')
+            page.screenshot(path=str(OUT/'00aaf-biochemistry-ch07-rollout-q18.png'),full_page=True)
+
             # Explanation-quality candidate regression: Chapter 1 Q23 is one of
             # the deterministic 20-question Biochemistry sample entries and must
             # use the exact approved 142-question presentation grammar.

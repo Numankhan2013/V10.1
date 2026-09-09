@@ -1,0 +1,413 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Approved Marrow ED8 Biochemistry Chapter 7 explanation rollout. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "7",
+    "chapterTitle": "Amino acids: Basics",
+    "questions": 26,
+    "status": "approved-rollout"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 280,
+    "anatomy": 62,
+    "physiology": 80,
+    "biochemistry": 138
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH07_Q001": {
+      "takeaway": "The standard human genetic code encodes 20 amino acids.",
+      "displayText": "The standard genetic code specifies 20 canonical amino acids. Selenocysteine can be inserted during translation in human selenoproteins and is often called the 21st amino acid, but 21 is not among the answer choices.\n\nTherefore, the source-keyed answer for the standard genetically encoded amino acids is 20.",
+      "emphasis": [
+        "20 canonical amino acids",
+        "Selenocysteine",
+        "21st amino acid",
+        "20"
+      ],
+      "rationales": {
+        "b": "Twenty-five is greater than the standard set encoded by the human genetic code.",
+        "c": "Seventeen omits several canonical amino acids.",
+        "d": "Fifteen is below the standard complement of genetically encoded amino acids."
+      },
+      "sourceNotes": [
+        "The source explicitly notes that selenocysteine can be translationally inserted in humans but that 21 is not offered as an option; the keyed answer remains 20."
+      ]
+    },
+    "marrow__BIOCHEM_CH07_Q002": {
+      "takeaway": "Maple-syrup urine disease raises leucine, isoleucine and valine; lysine is not a branched-chain amino acid.",
+      "displayText": "The burnt-sugar odor suggests maple-syrup urine disease, caused by deficiency of the branched-chain α-ketoacid dehydrogenase complex.\n\nThe branched-chain amino acids are leucine, isoleucine and valine, so these accumulate along with their ketoacids. Lysine is not a branched-chain amino acid and is therefore the unlikely elevation.",
+      "emphasis": [
+        "maple-syrup urine disease",
+        "branched-chain α-ketoacid dehydrogenase",
+        "leucine, isoleucine and valine",
+        "Lysine"
+      ],
+      "rationales": {
+        "a": "Valine is a branched-chain amino acid and is elevated in MSUD.",
+        "b": "Isoleucine is one of the three branched-chain amino acids that accumulate.",
+        "c": "Leucine is a branched-chain amino acid and a major toxic metabolite in MSUD."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q003": {
+      "takeaway": "Arginine is not aromatic; phenylalanine, tyrosine and tryptophan are classic aromatic amino acids.",
+      "displayText": "Arginine is a basic amino acid with a guanidino group and is not classified as an aromatic amino acid.\n\nPhenylalanine, tyrosine and tryptophan contain aromatic ring systems. The source also includes histidine among amino acids with an aromatic heterocycle.",
+      "emphasis": [
+        "Arginine",
+        "not classified as an aromatic amino acid",
+        "Phenylalanine, tyrosine and tryptophan",
+        "guanidino group"
+      ],
+      "rationales": {
+        "a": "Phenylalanine contains a benzene ring and is aromatic.",
+        "b": "Tyrosine contains a phenolic aromatic ring.",
+        "c": "Tryptophan contains an indole aromatic ring."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q004": {
+      "takeaway": "Proline has a cyclic imino structure that restricts backbone flexibility.",
+      "displayText": "Proline is the amino acid with the distinctive cyclic imino structure. Its side chain loops back to the amino nitrogen, producing marked conformational rigidity.\n\nThat rigidity is important in protein structure, including collagen. The source structural figure remains preserved separately.",
+      "emphasis": [
+        "Proline",
+        "cyclic imino structure",
+        "conformational rigidity",
+        "collagen"
+      ],
+      "rationales": {
+        "b": "Tyrosine contains a phenolic aromatic group rather than an imino ring.",
+        "c": "Tryptophan contains an indole ring.",
+        "d": "Histidine contains an imidazole ring."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q005": {
+      "takeaway": "Tryptophan contains an indole group and can serve as a precursor for niacin.",
+      "displayText": "The clinical picture is pellagra, with photosensitive dermatitis, cognitive symptoms and diarrhea. Tryptophan can contribute to niacin synthesis, and tryptophan contains an indole group.\n\nThe source structure figure showing the indole group remains preserved separately.",
+      "emphasis": [
+        "pellagra",
+        "Tryptophan",
+        "niacin synthesis",
+        "indole group"
+      ],
+      "rationales": {
+        "b": "An imidazole group is characteristic of histidine, not tryptophan.",
+        "c": "A thioalcohol group is associated with cysteine chemistry rather than tryptophan.",
+        "d": "A thioester linkage is not the characteristic side-chain group of tryptophan."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q006": {
+      "takeaway": "Tyrosine contains a phenolic hydroxyl group.",
+      "displayText": "Tyrosine is an aromatic amino acid whose side chain contains a phenol group: an –OH directly attached to an aromatic ring.\n\nThe source structural figure of tyrosine remains preserved separately.",
+      "emphasis": [
+        "Tyrosine",
+        "aromatic amino acid",
+        "phenol group",
+        "–OH"
+      ],
+      "rationales": {
+        "a": "Arginine contains a guanidino group, not a phenol.",
+        "b": "Phenylalanine has a benzene ring but lacks the phenolic hydroxyl group of tyrosine.",
+        "d": "Proline has a cyclic imino structure rather than a phenol group."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q007": {
+      "takeaway": "Arginine contains a guanidino group.",
+      "displayText": "The distinctive basic side-chain group of arginine is the guanidino group. At physiological pH this group is strongly protonated, contributing to arginine's basic character.\n\nThe source structure figure remains preserved separately.",
+      "emphasis": [
+        "arginine",
+        "guanidino group",
+        "physiological pH",
+        "basic character"
+      ],
+      "rationales": {
+        "b": "A benzene ring is characteristic of phenylalanine and related aromatic structures, not arginine.",
+        "c": "An imidazole ring is found in histidine.",
+        "d": "An indole ring is found in tryptophan."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q008": {
+      "takeaway": "Glycine is neutral, whereas histidine, arginine and lysine are basic amino acids.",
+      "displayText": "The basic amino acids are histidine, arginine and lysine. Arginine is strongly basic, lysine has an ε-amino group, and histidine contains an imidazole group.\n\nGlycine has an uncharged hydrogen side chain and is not classified as a basic amino acid.",
+      "emphasis": [
+        "histidine, arginine and lysine",
+        "Glycine",
+        "not classified as a basic amino acid",
+        "uncharged hydrogen side chain"
+      ],
+      "rationales": {
+        "a": "Histidine is a basic amino acid because of its imidazole side chain.",
+        "b": "Arginine is a strongly basic amino acid.",
+        "c": "Lysine is basic because of its ε-amino side chain."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q009": {
+      "takeaway": "Aspartic acid is polar because its side chain contains a carboxyl group.",
+      "displayText": "Aspartic acid has a polar, acidic side chain containing a carboxyl group. At physiological pH that side chain is negatively charged.\n\nAmong the listed options, it is therefore the polar amino acid.",
+      "emphasis": [
+        "Aspartic acid",
+        "polar, acidic side chain",
+        "carboxyl group",
+        "negatively charged"
+      ],
+      "rationales": {
+        "b": "Alanine has a nonpolar methyl side chain.",
+        "c": "Proline is generally classified as nonpolar.",
+        "d": "Methionine has a nonpolar sulfur-containing thioether side chain."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q010": {
+      "takeaway": "Leucine and lysine are the only purely ketogenic amino acids and cannot provide net glucose.",
+      "displayText": "During fasting, glucogenic amino acids can contribute carbon to gluconeogenesis. Leucine cannot do so because leucine and lysine are the two purely ketogenic amino acids.\n\nTheir carbon skeletons yield acetyl-CoA or acetoacetate rather than a net gluconeogenic precursor. Tyrosine, phenylalanine and tryptophan are both ketogenic and glucogenic.",
+      "emphasis": [
+        "Leucine",
+        "leucine and lysine",
+        "purely ketogenic amino acids",
+        "cannot do so"
+      ],
+      "rationales": {
+        "a": "Tyrosine is both glucogenic and ketogenic and can contribute to gluconeogenesis.",
+        "c": "Phenylalanine is both glucogenic and ketogenic.",
+        "d": "Tryptophan has both glucogenic and ketogenic products."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q011": {
+      "takeaway": "Alanine is a purely glucogenic amino acid.",
+      "displayText": "Alanine is converted by transamination to pyruvate. Pyruvate can then enter gluconeogenesis, making alanine a purely glucogenic amino acid.\n\nThe other listed amino acids have ketogenic components.",
+      "emphasis": [
+        "Alanine",
+        "pyruvate",
+        "gluconeogenesis",
+        "purely glucogenic amino acid"
+      ],
+      "rationales": {
+        "a": "Leucine is purely ketogenic, not glucogenic.",
+        "b": "Tyrosine is both glucogenic and ketogenic.",
+        "c": "Tryptophan is both glucogenic and ketogenic."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q012": {
+      "takeaway": "Arginine is semi-essential because synthesis may be inadequate during growth.",
+      "displayText": "Arginine is classified as a semi-essential or conditionally essential amino acid. Adults can synthesize it, but endogenous production may be insufficient to support rapid growth in children.\n\nThe source classification table of essential, semi-essential and non-essential amino acids remains preserved separately.",
+      "emphasis": [
+        "Arginine",
+        "semi-essential",
+        "endogenous production",
+        "rapid growth in children"
+      ],
+      "rationales": {
+        "a": "Methionine is an essential amino acid rather than the semi-essential option here.",
+        "b": "Tryptophan is essential.",
+        "c": "Leucine is essential."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q013": {
+      "takeaway": "Aspartate is a non-essential amino acid.",
+      "displayText": "Aspartate can be synthesized in the body, principally by transamination of oxaloacetate, and is therefore classified as a non-essential amino acid.\n\nMethionine, valine and lysine must be supplied in the diet.",
+      "emphasis": [
+        "Aspartate",
+        "transamination of oxaloacetate",
+        "non-essential amino acid",
+        "supplied in the diet"
+      ],
+      "rationales": {
+        "a": "Methionine is an essential amino acid.",
+        "b": "Valine is an essential branched-chain amino acid.",
+        "c": "Lysine is an essential amino acid."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q014": {
+      "takeaway": "β-Alanine is a structural component of pantothenic acid (vitamin B5).",
+      "displayText": "β-Alanine is present in pantothenic acid, vitamin B5. Pantothenate is incorporated into coenzyme A and acyl-carrier protein.\n\nThe source also notes β-alanine in compounds such as carnosine and anserine.",
+      "emphasis": [
+        "β-Alanine",
+        "pantothenic acid",
+        "vitamin B5",
+        "coenzyme A"
+      ],
+      "rationales": {
+        "a": "Thiamine is vitamin B1 and does not contain β-alanine as the source-keyed component.",
+        "b": "Niacin is vitamin B3 and is not built from β-alanine.",
+        "d": "Biotin is vitamin B7 and does not contain β-alanine in this context."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q015": {
+      "takeaway": "Selenocysteine is inserted co-translationally, not created by post-translational modification.",
+      "displayText": "Selenocysteine is often called the 21st amino acid and is incorporated during translation using a recoded UGA codon. It is therefore formed co-translationally rather than by post-translational modification of a completed protein.\n\nBy contrast, hydroxyproline and hydroxylysine are produced by post-translational hydroxylation, and thyroid iodothyronines arise from modified tyrosine residues.",
+      "emphasis": [
+        "Selenocysteine",
+        "21st amino acid",
+        "co-translationally",
+        "UGA codon"
+      ],
+      "rationales": {
+        "b": "Triiodothyronine is generated through post-translational modification of tyrosine residues in thyroglobulin.",
+        "c": "Hydroxyproline is produced by post-translational hydroxylation of proline.",
+        "d": "Hydroxylysine is produced by post-translational hydroxylation of lysine."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q016": {
+      "takeaway": "Aromatic rings cause amino-acid UV absorption, with tryptophan absorbing most strongly near 280 nm.",
+      "displayText": "Aromatic amino acids absorb ultraviolet light because of their aromatic ring systems. Tryptophan, tyrosine and phenylalanine absorb in the 250–290 nm region, with tryptophan showing the strongest absorption near 280 nm.\n\nThe source wavelength table remains preserved separately.",
+      "emphasis": [
+        "aromatic ring systems",
+        "Tryptophan, tyrosine and phenylalanine",
+        "250–290 nm",
+        "280 nm"
+      ],
+      "rationales": {
+        "a": "The peptide bond is not the main reason the listed aromatic amino acids absorb near 280 nm.",
+        "c": "Disulfide bonds are not the source-keyed chromophore responsible for the characteristic amino-acid UV absorption.",
+        "d": "An imino group does not explain the UV absorption pattern of aromatic amino acids."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q017": {
+      "takeaway": "Glycine is the most sterically flexible amino acid because its side chain is only hydrogen.",
+      "displayText": "Glycine is the smallest amino acid; its side chain is a single hydrogen atom. Because there is essentially no bulky side-chain constraint, glycine permits greater conformational flexibility than other amino acids.\n\nGlycine is commonly found in β-turns. The source structural figure remains preserved separately.",
+      "emphasis": [
+        "Glycine",
+        "single hydrogen atom",
+        "conformational flexibility",
+        "β-turns"
+      ],
+      "rationales": {
+        "b": "Lysine has a long side chain and is more sterically constrained than glycine.",
+        "c": "Leucine has a bulky hydrophobic side chain.",
+        "d": "Aspartate has a carboxyl-containing side chain and is less sterically flexible than glycine."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q018": {
+      "takeaway": "At the isoelectric pH, amino acids have minimum buffering—not maximum buffering.",
+      "displayText": "At the isoelectric pH, an amino acid has no net charge and therefore shows no migration in an electric field. Solubility is minimal and precipitability is maximal.\n\nBuffering capacity is not maximal at the isoelectric point. Maximum buffering occurs around a pKa, whereas buffering is minimal at the isoelectric pH in the source comparison.",
+      "emphasis": [
+        "isoelectric pH",
+        "no net charge",
+        "Buffering capacity is not maximal",
+        "Maximum buffering occurs around a pKa"
+      ],
+      "rationales": {
+        "a": "Maximum precipitability is a characteristic property at the isoelectric pH.",
+        "c": "Minimum solubility occurs at the isoelectric point.",
+        "d": "With zero net charge, the amino acid shows no net mobility in an electric field."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q019": {
+      "takeaway": "Histidine buffers near physiological pH because its imidazole group has a pKa close to that range.",
+      "displayText": "Histidine is an effective physiologic buffer because the pKa of its imidazole side chain lies close to physiologic pH. The imidazole group can therefore readily accept or donate protons as pH changes.\n\nThis property contributes importantly to buffering by proteins such as hemoglobin.",
+      "emphasis": [
+        "Histidine",
+        "imidazole side chain",
+        "physiologic pH",
+        "accept or donate protons"
+      ],
+      "rationales": {
+        "b": "Methionine's thioether side chain does not have a pKa near physiologic pH.",
+        "c": "Arginine is strongly basic, but its guanidino group has a pKa too high for maximal buffering near physiologic pH.",
+        "d": "Glycine lacks an ionizable side chain suited to physiologic buffering."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q020": {
+      "takeaway": "Sanger's reagent labels the N-terminal amino acid and can be used in peptide sequencing.",
+      "displayText": "Sanger's reagent is 1-fluoro-2,4-dinitrobenzene (FDNB). It reacts with free amino groups, including the α-amino group of the N-terminal residue.\n\nAfter peptide hydrolysis, the labeled N-terminal amino acid can be identified and used as part of amino-acid sequence determination.",
+      "emphasis": [
+        "Sanger's reagent",
+        "1-fluoro-2,4-dinitrobenzene",
+        "N-terminal residue",
+        "sequence determination"
+      ],
+      "rationales": {
+        "b": "Benedict's reagent is used to detect reducing sugars, not to sequence peptides.",
+        "c": "Seliwanoff's reagent distinguishes ketose sugars from aldoses and is unrelated to peptide sequencing.",
+        "d": "A valid sequencing reagent is provided, so 'none of the above' is incorrect."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q021": {
+      "takeaway": "Ninhydrin detects amino acids, usually producing Ruhemann's purple.",
+      "displayText": "Ninhydrin reacts with free amino acids and commonly produces the purple chromophore known as Ruhemann's purple. Proline and hydroxyproline characteristically give a yellow product instead.\n\nBecause amino acids are present in fingerprint residues, ninhydrin can also be used to develop latent fingerprints.",
+      "emphasis": [
+        "Ninhydrin",
+        "amino acids",
+        "Ruhemann's purple",
+        "latent fingerprints"
+      ],
+      "rationales": {
+        "a": "Bile salts are not the target detected by the ninhydrin reaction.",
+        "c": "Nucleic acids are not identified by the ninhydrin amino-acid reaction.",
+        "d": "Lipids are not the analyte detected by ninhydrin."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q022": {
+      "takeaway": "The Sakaguchi test detects arginine through its guanidino group.",
+      "displayText": "The Sakaguchi reaction is a qualitative test for the amino acid arginine. The reaction depends on the guanidino group in arginine's side chain.\n\nTherefore, among the broad compound classes listed, amino acid is correct.",
+      "emphasis": [
+        "Sakaguchi reaction",
+        "arginine",
+        "guanidino group",
+        "amino acid"
+      ],
+      "rationales": {
+        "b": "Bile acids do not give the characteristic arginine-specific Sakaguchi reaction.",
+        "c": "Lipids are not detected by this amino-acid color test.",
+        "d": "Nucleic acids are not the target of the Sakaguchi test."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q023": {
+      "takeaway": "Pauly's test detects histidine and can also react with tyrosine.",
+      "displayText": "Pauly's test uses diazotized sulfanilic acid. Histidine reacts through its imidazole group to produce a red-colored coupling product under alkaline conditions.\n\nThe source also notes that tyrosine can give an orange product because of its phenolic group. In this question, urinary histidine accumulation is the keyed answer.",
+      "emphasis": [
+        "Pauly's test",
+        "Histidine",
+        "red-colored coupling product",
+        "tyrosine"
+      ],
+      "rationales": {
+        "a": "Tryptophan is not the source-keyed amino acid detected in this Pauly-test question.",
+        "b": "Cysteine is identified by sulfur-related chemistry rather than the Pauly histidine reaction.",
+        "d": "Arginine is classically tested by the Sakaguchi reaction, not Pauly's test."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q024": {
+      "takeaway": "Aspartate and glutamate give fibrinopeptides their negative charge.",
+      "displayText": "Aspartate and glutamate contain acidic side-chain carboxylates that are negatively charged at physiologic pH. These residues contribute negative charge to fibrinopeptides A and B.\n\nThe negative charge supports fibrinogen solubility and helps prevent premature aggregation through electrostatic repulsion.",
+      "emphasis": [
+        "Aspartate and glutamate",
+        "negatively charged",
+        "fibrinopeptides A and B",
+        "electrostatic repulsion"
+      ],
+      "rationales": {
+        "a": "Valine is neutral and does not pair with glutamate to account for the source-keyed negative charge.",
+        "b": "Histidine and lysine are basic residues and would not create the negative charge described.",
+        "d": "Serine and threonine are polar but uncharged side chains at physiologic pH."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q026": {
+      "takeaway": "Replacing alanine with tryptophan most increases protein absorbance at 280 nm.",
+      "displayText": "Tryptophan has the strongest ultraviolet absorbance among the common aromatic amino acids near 280 nm. Tyrosine and phenylalanine also absorb in this region, but less strongly.\n\nReplacing non-aromatic alanine with tryptophan therefore increases a protein's absorbance at 280 nm.",
+      "emphasis": [
+        "Tryptophan",
+        "strongest ultraviolet absorbance",
+        "280 nm",
+        "alanine"
+      ],
+      "rationales": {
+        "a": "Leucine is non-aromatic and contributes little absorbance at 280 nm.",
+        "b": "Proline is non-aromatic and does not strongly absorb at 280 nm.",
+        "c": "Arginine is not an aromatic amino acid with strong 280-nm absorption."
+      }
+    },
+    "marrow__BIOCHEM_CH07_Q027": {
+      "takeaway": "Nitric oxide synthase converts L-arginine to nitric oxide and L-citrulline.",
+      "displayText": "Nitric oxide is synthesized from L-arginine by nitric oxide synthase. The reaction produces L-citrulline and NO and uses cofactors including FMN, FAD, heme and tetrahydrobiopterin (BH₄).\n\nThe source arginine → citrulline + NO reaction figure remains preserved separately.",
+      "emphasis": [
+        "L-arginine",
+        "nitric oxide synthase",
+        "L-citrulline",
+        "tetrahydrobiopterin (BH₄)"
+      ],
+      "rationales": {
+        "b": "L-citrulline is a product of the nitric-oxide synthase reaction rather than the starting amino acid.",
+        "c": "Glycine is not the substrate used by nitric oxide synthase to generate NO.",
+        "d": "Lysine is not the source substrate for nitric-oxide synthesis."
+      }
+    }
+  }
+}
