@@ -286,3 +286,15 @@ The first unified production candidate includes the explicit Topics taxonomy.
 Production promotion is a separate release action requiring `main`, an explicit
 boolean request, and an exact full commit SHA. V11.6 `125d68b` remains the
 accepted rollback baseline until a later candidate is physically accepted.
+
+## 22. High-confidence medical reconstruction is preferred over preserving known transcription defects (2026-09-09)
+
+Raw Marrow ED8 imports remain immutable, but learner-facing augmentation should
+not knowingly preserve OCR damage, missing text, or a clearly defective
+transcription when the intended medical-school content can be recovered with
+high confidence. Reconstruction may use source context/PDF evidence **and**
+standard established MBBS / USMLE / NEET-PG / INI-CET level medical literature.
+Every reconstructed item must record provenance, the source problem, what was
+reconstructed, and a reconstruction/review status. If confidence remains
+insufficient after those checks, keep the item reviewable rather than guessing.
+

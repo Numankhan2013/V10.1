@@ -13,8 +13,9 @@
 - Engineering Gate 259 and full Android/PWA run 539 both passed.
 - Latest immutable verified preview: `https://3cce6bfb.nk-qbank.pages.dev`.
 - Production promotion remains explicit and guarded; run 539 skipped production.
-- Historical accepted rollback baseline remains V11.6 Content Quality `125d68b`
+- Accepted baseline / rollback baseline remains **V11.6 Content Quality** at `125d68b`
   until the user explicitly promotes a later product baseline.
+- Accepted product commit: `125d68b`.
 
 ## Current Marrow bank
 
@@ -45,7 +46,7 @@ Approved learner-facing contract:
   source options for four-option SBA;
 - ID-keyed augmentation separate from raw source;
 - source tables/figures/provenance remain source-owned and separate;
-- missing/ambiguous source content remains explicit; never invent it;
+- incomplete/garbled source content should be reconstructed when high-confidence recovery is possible from source evidence and/or standard medical literature; every reconstruction remains provenance-marked and auditable;
 - FSRS/session behavior is untouched.
 
 Current deterministic inventory:
@@ -84,7 +85,7 @@ explanation and exactly three distractor rationales through the real learner UI.
   REVIEW_REQUIRED candidates checkpointed separately. Reconcile live Git state
   before resuming that pipeline.
 
-## Verification / cautions
+## Known problems / cautions
 
 - Build-verified ≠ device-verified ≠ accepted production baseline.
 - User has independently checked the current preview; do not spend agent usage
@@ -94,7 +95,7 @@ explanation and exactly three distractor rationales through the real learner UI.
 - Do not alter Topics taxonomy during explanation or image work.
 - Keep production promotion deliberate.
 
-## Next ownership split
+## Next step / ownership split
 
 - **Primary agent:** inspect current GitHub state/code quality and continue the
   Marrow source-image integration pipeline.

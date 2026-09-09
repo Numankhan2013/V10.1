@@ -276,6 +276,25 @@ def main():
                 raise SystemExit('Physiology Chapter 5 Q17 must render exactly three distractor rationales')
             page.screenshot(path=str(OUT/'00aak-physiology-ch05-rollout-q17.png'),full_page=True)
 
+            # Physiology Chapter 6 reconstruction regression: Q23 must
+            # teach correct EPP physiology while preserving the source-key defect.
+            page.evaluate("window.QB.nav('banks','Physiology')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Physiology of Nerve').click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=34:
+                raise SystemExit('Marrow Physiology Chapter 6 count is not 34')
+            page.locator('button.nk-library-row').nth(22).click();page.wait_for_timeout(80)
+            if 'end plate potential' not in page.locator('.question-text').inner_text().lower():
+                raise SystemExit('Physiology Chapter 6 rollout Q23 did not open')
+            page.locator('.option-list button').nth(0).click();page.wait_for_timeout(120)
+            ph6=page.locator('.nk-study-support').inner_text().lower()
+            for required in ('key takeaway','detailed explanation','structured text','why the other options are wrong','graded depolarization','not an all-or-none event','option c','internally inconsistent'):
+                if required not in ph6:
+                    raise SystemExit(f'Physiology Chapter 6 rollout missing {required}')
+            if page.locator('.nk-gold-wrong-row').count()!=3:
+                raise SystemExit('Physiology Chapter 6 Q23 must render exactly three option rationales')
+            page.screenshot(path=str(OUT/'00aal-physiology-ch06-rollout-q23.png'),full_page=True)
+
             # Explanation-quality candidate regression: Chapter 1 Q23 is one of
             # the deterministic 20-question Biochemistry sample entries and must
             # use the exact approved 142-question presentation grammar.
