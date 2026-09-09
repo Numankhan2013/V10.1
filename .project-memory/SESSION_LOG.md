@@ -713,3 +713,37 @@ Implemented approved recovery in existing transform owners: Topics separate path
   pending**, with source hashes and review-flag counts unchanged.
 - Exact next fresh content start after this verification batch: **Biochemistry
   Chapter 3 — Glycogen metabolism and glycogen storage disorders**.
+
+## 2026-09-09 — Explanation rollout through Physiology Chapter 5
+
+- Biochemistry explanation refinement reached Chapters 1–11 on the stacked
+  immutable-source augmentation lineage. Chapter 11 exact candidate
+  `efa9a0a61997929c052aac760e88363c61acef8b` passed Engineering Gate 257 and
+  full Android/PWA run 529; production promotion was skipped.
+- Switched the explanation-refinement workflow to Physiology. Existing approved
+  Physiology pilot remains 80 questions across Chapters 1–4.
+- Added `data/marrow/explanation_physio_ch05_v1.json` for Chapter 5 **Body
+  Fluids**, 28/28 questions, preserving source figures/tables separately and
+  adding source-faithful display text, selective emphasis and exactly three
+  distractor rationales per SBA.
+- Generalized the shared augmentation loader and deterministic inventory to
+  discover `explanation_physio_ch*_v1.json`; added
+  `tools/test_marrow_physio_explanation_rollout.py` and wired it into both
+  Engineering Gate and full Android/PWA CI. Generalized the Biochemistry rollout
+  global-count assertion so subject-local guarantees remain valid when another
+  subject adds enhancement records.
+- Chapter 5 exact verified candidate:
+  `f170eb8517998cdaf4229240d2c2a273c6d98cf8`; PR #24; Engineering Gate 259
+  **success**; full Android/PWA run 539 **success**.
+- Real-browser regression: Physiology → Marrow → Body Fluids → Q17 verifies the
+  permeant-urea / tonicity distinction and exactly three distractor rationales.
+- Deterministic inventory after Chapter 5: **429 enhanced / 1,686 pending**,
+  fingerprint
+  `09989df1e8745f7338abf146fb4eb1337738ecaf4dafb1b69f9c76314e521ea8`.
+- Verified preview:
+  `https://3cce6bfb.nk-qbank.pages.dev`.
+- Ownership handoff: primary agent will continue **source-image integration**;
+  explanation refinement remains a separate workstream. If/when explanation
+  work resumes, exact next target is Physiology Chapter 6 — **Physiology of
+  Nerve**.
+
