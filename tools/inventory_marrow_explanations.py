@@ -43,6 +43,20 @@ def enhanced_ids() -> set[str]:
     anatomy = json.loads((DATA / "explanation_gold_pilot.json").read_text(encoding="utf-8"))["questions"]
     physiology, _ = load_sharded("explanation_physio_pilot")
     ids = set(anatomy) | set(physiology["questions"])
+    for path in sorted(DATA.glob("explanation_physio_ch*_v1.json")):
+        record = json.loads(path.read_text(encoding="utf-8"))
+        scope = record.get("scope", {})
+        if (
+            scope.get("subject") != "Physiology"
+            or scope.get("bank") != "Marrow"
+            or scope.get("status") != "approved-rollout"
+        ):
+            continue
+        questions = record.get("questions", {})
+        overlap = ids & set(questions)
+        if overlap:
+            raise AssertionError(f"duplicate enhanced IDs in {path.name}: {sorted(overlap)[:3]}")
+        ids.update(questions)
     for path in sorted(DATA.glob("explanation_biochem_*_v1.json")):
         record = json.loads(path.read_text(encoding="utf-8"))
         scope = record.get("scope", {})

@@ -1,0 +1,449 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Approved Marrow ED8 Physiology Chapter 5 explanation rollout. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "5",
+    "chapterTitle": "Body Fluids",
+    "questions": 28,
+    "status": "approved-rollout"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 401,
+    "anatomy": 62,
+    "physiology": 80,
+    "biochemistry": 259
+  },
+  "questions": {
+    "marrow__PHYS_CH05_Q001": {
+      "takeaway": "Total body water is about 60% of body weight in an average young adult male.",
+      "displayText": "In an average young adult male, total body water accounts for about 60% of body weight.\n\nThe proportion varies with age, sex and body composition: lean tissue contains more water than adipose tissue, so a lean young male generally has a higher body-water fraction than an obese person or an older adult.",
+      "emphasis": [
+        "60% of body weight",
+        "age, sex and body composition",
+        "lean tissue",
+        "adipose tissue"
+      ],
+      "rationales": {
+        "a": "40% is too low for total body water in an average young adult male; roughly 40% of body weight corresponds instead to intracellular fluid.",
+        "b": "50% can be seen in people with a higher fat fraction or in some women, but it is below the source-keyed average for a young adult male.",
+        "d": "70% is higher than the usual source value for an average young adult male."
+      }
+    },
+    "marrow__PHYS_CH05_Q002": {
+      "takeaway": "The 60-40-20 rule is: total body water 60%, ICF 40%, ECF 20% of body weight.",
+      "displayText": "About 60% of body weight is water. Of this, roughly two-thirds is intracellular fluid (ICF) and one-third is extracellular fluid (ECF).\n\nExpressed as body-weight percentages, this gives the classic 60-40-20 rule: total body water ≈ 60%, ICF ≈ 40%, and ECF ≈ 20%.",
+      "emphasis": [
+        "60-40-20 rule",
+        "ICF ≈ 40%",
+        "ECF ≈ 20%",
+        "two-thirds"
+      ],
+      "rationales": {
+        "b": "30% ICF and 30% ECF incorrectly divides total body water equally between the two compartments.",
+        "c": "40% ECF and 20% ICF reverses the normal relative sizes of the intracellular and extracellular compartments.",
+        "d": "10% ECF and 50% ICF does not match the usual two-thirds/one-third distribution of total body water."
+      }
+    },
+    "marrow__PHYS_CH05_Q003": {
+      "takeaway": "Blood volume = plasma volume ÷ (1 − hematocrit), giving 5 L here.",
+      "displayText": "Hematocrit is the fraction of blood volume occupied by red cells, so plasma fraction = 1 − hematocrit.\n\nWith plasma volume 3 L and hematocrit 0.40: blood volume = 3 ÷ (1 − 0.40) = 3 ÷ 0.60 = 5 L.",
+      "emphasis": [
+        "plasma fraction = 1 − hematocrit",
+        "3 ÷ 0.60",
+        "5 L",
+        "hematocrit 0.40"
+      ],
+      "rationales": {
+        "a": "4 L would correspond to a larger plasma fraction than the given hematocrit permits.",
+        "c": "6 L overestimates total blood volume for a 3-L plasma volume with hematocrit 40%.",
+        "d": "7 L is incompatible with the stated plasma volume and hematocrit."
+      }
+    },
+    "marrow__PHYS_CH05_Q004": {
+      "takeaway": "Normal blood volume in a child is about 70–80 mL/kg.",
+      "displayText": "The source gives a typical pediatric blood volume of about 75–80 mL/kg, so 70–80 mL/kg is the best answer.\n\nBlood volume is higher in the neonatal period and can transiently rise further during the first month of life before declining toward later childhood values.",
+      "emphasis": [
+        "75–80 mL/kg",
+        "70–80 mL/kg",
+        "neonatal period",
+        "first month of life"
+      ],
+      "rationales": {
+        "b": "100–150 mL/kg is above the usual childhood range and is not the source-keyed value.",
+        "c": "150–200 mL/kg is far above normal pediatric blood volume.",
+        "d": "200–150 mL/kg is both physiologically excessive and not the source range."
+      }
+    },
+    "marrow__PHYS_CH05_Q005": {
+      "takeaway": "Lean tissue contains about 71–72 mL of water per 100 g.",
+      "displayText": "Water content of lean body tissue is relatively constant at about 71–72 mL per 100 g of tissue.\n\nThis is why total body water tracks lean body mass more closely than total body weight: adipose tissue contains much less water.",
+      "emphasis": [
+        "71–72 mL per 100 g",
+        "lean body tissue",
+        "lean body mass",
+        "adipose tissue"
+      ],
+      "rationales": {
+        "a": "40 mL/100 g markedly underestimates the water content of lean tissue.",
+        "b": "50 mL/100 g is below the source value for lean tissue.",
+        "c": "60 mL/100 g is still lower than the approximately 71–72 mL/100 g source value."
+      }
+    },
+    "marrow__PHYS_CH05_Q006": {
+      "takeaway": "Body-fluid compartment volumes are measured by the indicator-dilution method.",
+      "displayText": "The indicator-dilution method uses conservation of mass: after a known amount of indicator distributes throughout a compartment, its equilibrium concentration is measured.\n\nFor an ideal indicator with no loss, compartment volume = amount of indicator ÷ equilibrium concentration. If some indicator is excreted or otherwise lost, that amount must be subtracted first.",
+      "emphasis": [
+        "indicator-dilution method",
+        "conservation of mass",
+        "compartment volume",
+        "equilibrium concentration"
+      ],
+      "rationales": {
+        "b": "The Kety method is classically used for blood-flow measurements, not routine body-fluid compartment volume determination.",
+        "c": "Fick's principle is used for flow or cardiac-output calculations from uptake and concentration differences, not for direct compartment-volume measurement here.",
+        "d": "A standard method is available, so 'None' is incorrect."
+      }
+    },
+    "marrow__PHYS_CH05_Q007": {
+      "takeaway": "Mannitol distribution gives an ECF volume of about 14 L.",
+      "displayText": "Start with 500 mg mannitol. Ten percent is excreted, so 450 mg remains available for distribution.\n\nThe equilibrium concentration is 3.2 mg/100 mL = 0.032 mg/mL. Therefore volume = 450 mg ÷ 0.032 mg/mL ≈ 14,063 mL ≈ 14 L.",
+      "emphasis": [
+        "450 mg",
+        "0.032 mg/mL",
+        "≈ 14 L",
+        "mannitol"
+      ],
+      "rationales": {
+        "a": "10 L is too low after correcting for the 10% excreted indicator.",
+        "c": "42 L approximates total body water, not the ECF volume measured by mannitol.",
+        "d": "52 L is far above the expected ECF volume in an adult."
+      }
+    },
+    "marrow__PHYS_CH05_Q008": {
+      "takeaway": "Inulin dilution gives an ECF volume of 18 L in this calculation.",
+      "displayText": "Ten grams of inulin are injected and 10% is excreted, leaving 9 g = 9000 mg to distribute in ECF.\n\nThe equilibrium concentration is 50 mg/100 mL = 0.5 mg/mL. Volume = 9000 mg ÷ 0.5 mg/mL = 18,000 mL = 18 L.",
+      "emphasis": [
+        "9 g = 9000 mg",
+        "0.5 mg/mL",
+        "18,000 mL",
+        "18 L"
+      ],
+      "rationales": {
+        "a": "1.8 L is a tenfold underestimation caused by mishandling the concentration units.",
+        "c": "2.4 L does not follow from the indicator-dilution calculation.",
+        "d": "24 L overestimates the ECF volume from the given dose and concentration."
+      }
+    },
+    "marrow__PHYS_CH05_Q009": {
+      "takeaway": "Sodium thiosulfate is an ECF indicator because it distributes extracellularly without freely entering cells.",
+      "displayText": "Extracellular-fluid volume can be estimated using markers that cross the capillary wall and distribute in plasma plus interstitial fluid but do not readily enter cells.\n\nSodium thiosulfate is one such ECF marker, as are inulin and selected radioactive sodium tracers.",
+      "emphasis": [
+        "Extracellular-fluid volume",
+        "Sodium thiosulfate",
+        "plasma plus interstitial fluid",
+        "do not readily enter cells"
+      ],
+      "rationales": {
+        "a": "Tritium oxide distributes throughout total body water, not only plasma volume.",
+        "b": "Evans blue binds plasma proteins and is used for plasma volume rather than red-cell volume.",
+        "d": "Total body water can be estimated directly with diffusible tracers such as deuterium oxide or tritiated water, so 'cannot be measured directly' is incorrect."
+      }
+    },
+    "marrow__PHYS_CH05_Q010": {
+      "takeaway": "An indicator that escapes capillaries gives a falsely high calculated plasma volume.",
+      "displayText": "If a plasma-volume dye leaks out of the capillaries, less indicator remains in plasma at equilibrium. The measured plasma concentration therefore falls.\n\nBecause calculated volume is inversely proportional to equilibrium concentration, the apparent plasma volume becomes falsely high.",
+      "emphasis": [
+        "measured plasma concentration therefore falls",
+        "inversely proportional",
+        "falsely high",
+        "leaks out of the capillaries"
+      ],
+      "rationales": {
+        "b": "A lower measured indicator concentration increases, rather than decreases, the calculated volume.",
+        "c": "The result does not remain unchanged because indicator loss from plasma changes the measured concentration.",
+        "d": "There is enough information to predict the direction of error from the dilution equation."
+      }
+    },
+    "marrow__PHYS_CH05_Q011": {
+      "takeaway": "Interstitial-fluid volume is obtained indirectly as ECF minus plasma volume.",
+      "displayText": "Interstitial-fluid volume is not usually measured with a unique direct indicator. Instead, measure ECF with inulin and plasma volume with Evans blue, then subtract.\n\nInterstitial fluid volume = ECF volume − plasma volume.",
+      "emphasis": [
+        "not usually measured with a unique direct indicator",
+        "ECF with inulin",
+        "plasma volume with Evans blue",
+        "Interstitial fluid volume = ECF volume − plasma volume"
+      ],
+      "rationales": {
+        "b": "Evans blue measures plasma volume, while D2O measures total body water; their difference does not isolate interstitial fluid.",
+        "c": "Tritium oxide measures total body water and inulin measures ECF, so this combination does not directly yield interstitial fluid by the standard subtraction.",
+        "d": "D2O measures total body water, and mannitol measures ECF; this combination is not the source-keyed pair for interstitial volume."
+      }
+    },
+    "marrow__PHYS_CH05_Q012": {
+      "takeaway": "ECF has a slightly higher pH than ICF.",
+      "displayText": "Extracellular fluid has a pH of about 7.4, whereas intracellular fluid is slightly more acidic, around pH 7.0 in the source comparison.\n\nContinuous intracellular metabolism generates acids, helping explain the lower intracellular pH.",
+      "emphasis": [
+        "pH of about 7.4",
+        "intracellular fluid",
+        "slightly more acidic",
+        "Continuous intracellular metabolism"
+      ],
+      "rationales": {
+        "a": "Potassium concentration is much higher in ICF than ECF.",
+        "b": "Protein concentration is higher intracellularly than in ECF.",
+        "c": "Phosphate concentration is higher in ICF and is a major intracellular anion."
+      }
+    },
+    "marrow__PHYS_CH05_Q013": {
+      "takeaway": "Phosphate is the major intracellular anion.",
+      "displayText": "Inside cells, potassium is the major cation and phosphate is the major anion in the source classification.\n\nExtracellular fluid is dominated instead by sodium as the principal cation and chloride/bicarbonate as major anions.",
+      "emphasis": [
+        "phosphate is the major anion",
+        "potassium",
+        "sodium",
+        "chloride/bicarbonate"
+      ],
+      "rationales": {
+        "b": "Intracellular proteins contribute substantial negative charge but are not the source-keyed most abundant intracellular anion.",
+        "c": "Chloride is predominantly an extracellular anion.",
+        "d": "Bicarbonate is important extracellularly and in acid-base balance but is not the principal intracellular anion."
+      }
+    },
+    "marrow__PHYS_CH05_Q014": {
+      "takeaway": "One mole of NaCl weighs 58.5 g.",
+      "displayText": "Molar mass is the molecular weight expressed in grams per mole. Sodium contributes about 23 g/mol and chloride about 35.5 g/mol.\n\nTherefore 1 mol NaCl = 23 + 35.5 = 58.5 g.",
+      "emphasis": [
+        "23 + 35.5",
+        "58.5 g",
+        "1 mol NaCl",
+        "Molar mass"
+      ],
+      "rationales": {
+        "b": "56.5 g is below the sum of the atomic masses of sodium and chloride.",
+        "c": "57.5 g is not the molar mass obtained from Na 23 plus Cl 35.5.",
+        "d": "50.5 g substantially underestimates the molar mass of NaCl."
+      }
+    },
+    "marrow__PHYS_CH05_Q015": {
+      "takeaway": "One equivalent of Ca2+ is 20 g because equivalent weight = molecular weight ÷ valence.",
+      "displayText": "Equivalent weight of an ion equals its molecular weight divided by its valence.\n\nFor calcium, molecular weight ≈ 40 and valence = 2, so equivalent weight = 40 ÷ 2 = 20 g.",
+      "emphasis": [
+        "molecular weight divided by its valence",
+        "40 ÷ 2",
+        "20 g",
+        "calcium"
+      ],
+      "rationales": {
+        "b": "30 g does not follow from dividing calcium's molecular weight by its divalent charge.",
+        "c": "40 g is one mole of calcium, not one equivalent of Ca2+.",
+        "d": "50 g exceeds both the molar and equivalent weights given in the question."
+      }
+    },
+    "marrow__PHYS_CH05_Q016": {
+      "takeaway": "Osmole expresses the amount of osmotically active particles.",
+      "displayText": "An osmole reflects the number of osmotically active particles in solution. One mole of a non-dissociating solute such as glucose contributes approximately one osmole.\n\nIn an ideal solution, one mole of NaCl dissociates into Na+ and Cl− and contributes about two osmoles, although real body fluids deviate somewhat from ideal behavior.",
+      "emphasis": [
+        "osmotically active particles",
+        "one osmole",
+        "one mole of NaCl",
+        "about two osmoles"
+      ],
+      "rationales": {
+        "a": "A mole measures amount of substance, not specifically the number of osmotically active particles after dissociation.",
+        "b": "An equivalent incorporates ionic valence and is not the unit used for osmotic particle concentration.",
+        "d": "Valency describes ionic charge and is not a concentration unit."
+      }
+    },
+    "marrow__PHYS_CH05_Q017": {
+      "takeaway": "300 mmol/L urea can lyse RBCs because urea is a permeant osmole and the solution is effectively hypotonic.",
+      "displayText": "Although 300 mmol/L urea is approximately iso-osmotic, urea rapidly crosses the red-cell membrane through urea transporters. It therefore does not remain an effective extracellular osmole.\n\nUrea enters RBCs, water follows, and the cells swell and can lyse. Tonicity depends on relatively impermeant solutes, not simply measured osmolarity.",
+      "emphasis": [
+        "urea rapidly crosses the red-cell membrane",
+        "effective extracellular osmole",
+        "water follows",
+        "Tonicity"
+      ],
+      "rationales": {
+        "a": "150 mmol/L NaCl provides roughly 300 mOsm/L of largely extracellular particles and is approximately isotonic to RBCs.",
+        "b": "300 mmol/L mannitol is effectively hypertonic because mannitol remains largely extracellular and draws water out of RBCs.",
+        "c": "350 mmol/L mannitol is even more hypertonic and would shrink, not lyse, RBCs."
+      }
+    },
+    "marrow__PHYS_CH05_Q018": {
+      "takeaway": "Plasma osmolarity is determined mainly by sodium and its accompanying anions.",
+      "displayText": "Sodium is the dominant extracellular cation, and Na+ together with accompanying anions—especially chloride and bicarbonate—accounts for most plasma osmolarity.\n\nA useful approximation is plasma osmolarity ≈ 2 × [Na+] plus smaller contributions from glucose and urea.",
+      "emphasis": [
+        "Sodium",
+        "chloride and bicarbonate",
+        "most plasma osmolarity",
+        "2 × [Na+]"
+      ],
+      "rationales": {
+        "b": "Glucose normally contributes only a small fraction of plasma osmolarity compared with sodium salts.",
+        "c": "Chloride contributes importantly, but its concentration largely tracks sodium; sodium is the source-keyed principal determinant.",
+        "d": "Plasma proteins contribute very little to total plasma osmolarity because their molar concentration is low."
+      }
+    },
+    "marrow__PHYS_CH05_Q019": {
+      "takeaway": "Plasma proteins contribute little to osmolarity because they have low molar concentration and high molecular weight.",
+      "displayText": "Osmolarity depends on the number of dissolved particles, not their mass concentration alone. Plasma proteins have very large molecular weights, so even a substantial g/L concentration corresponds to relatively few moles of particles.\n\nThus proteins have low molar concentration and contribute only slightly to total plasma osmolarity.",
+      "emphasis": [
+        "number of dissolved particles",
+        "very large molecular weights",
+        "low molar concentration",
+        "slightly to total plasma osmolarity"
+      ],
+      "rationales": {
+        "a": "High molar concentration would increase osmotic contribution and does not describe plasma proteins.",
+        "b": "Low molecular weight would produce more particles per gram and therefore a larger osmotic effect.",
+        "d": "High molar concentration plus low molecular weight would strongly increase osmolarity, the opposite of the source explanation."
+      }
+    },
+    "marrow__PHYS_CH05_Q020": {
+      "takeaway": "Normal daily sweat loss is about 50–100 mL, though it rises greatly with heat or exercise.",
+      "displayText": "Under ordinary resting conditions, sweat loss is small—about 100 mL/day in the source.\n\nDuring heavy exercise or hot weather, sweating can increase dramatically and may reach liters per hour.",
+      "emphasis": [
+        "about 100 mL/day",
+        "ordinary resting conditions",
+        "heavy exercise",
+        "liters per hour"
+      ],
+      "rationales": {
+        "b": "300–400 mL/day is above the source value for ordinary sweat loss.",
+        "c": "500–700 mL/day is closer to total insensible water loss from skin and lungs than to normal resting sweat volume.",
+        "d": "1000–1200 mL/day is much higher than normal resting sweat loss."
+      }
+    },
+    "marrow__PHYS_CH05_Q021": {
+      "takeaway": "Sweating causes hyperosmotic volume contraction because hypotonic fluid is lost.",
+      "displayText": "Sweat is hypotonic relative to plasma, so sweating removes proportionally more water than salt from ECF.\n\nECF volume decreases and ECF osmolarity rises. Water then shifts from ICF to ECF until osmotic equilibrium is restored, so ICF volume also falls and both compartments become more concentrated.",
+      "emphasis": [
+        "hypotonic relative to plasma",
+        "ECF volume decreases",
+        "ECF osmolarity rises",
+        "both compartments become more concentrated"
+      ],
+      "rationales": {
+        "a": "Isosmotic contraction occurs with loss of isotonic fluid, such as uncomplicated diarrhea in the classic model.",
+        "c": "Hyposmotic contraction occurs when relatively hypertonic fluid or sodium is lost, as in mineralocorticoid deficiency.",
+        "d": "Sweating causes volume loss, not volume expansion."
+      }
+    },
+    "marrow__PHYS_CH05_Q022": {
+      "takeaway": "Calculated serum osmolality = 2 × Na + glucose/18 + BUN/2.8.",
+      "displayText": "When sodium is in mEq/L and glucose and BUN are in mg/dL, calculated serum osmolality is:\n\n2 × [Na+] + glucose/18 + BUN/2.8.\n\nThis formula is particularly useful in hyperosmolar hyperglycemic states, where severe hyperglycemia markedly raises measured osmolality.",
+      "emphasis": [
+        "2 × [Na+] + glucose/18 + BUN/2.8",
+        "hyperosmolar hyperglycemic states",
+        "glucose",
+        "BUN"
+      ],
+      "rationales": {
+        "a": "This option reverses the glucose and BUN conversion factors.",
+        "c": "Using 3 × sodium is incorrect and the remaining conversion factors are also not the standard formula.",
+        "d": "This option uses an incorrect sodium multiplier and incorrect glucose conversion."
+      }
+    },
+    "marrow__PHYS_CH05_Q023": {
+      "takeaway": "Adding hypertonic saline expands ECF, raises osmolarity, and pulls water out of ICF.",
+      "displayText": "Hypertonic saline initially raises extracellular osmolarity. Water therefore moves from ICF into ECF until the two compartments again reach equal osmolarity.\n\nFinal effects: ECF volume increases, ICF volume decreases, and osmolarity rises in both compartments. The source Darrow–Yannet figure remains the authoritative visual for selecting option D.",
+      "emphasis": [
+        "ECF volume increases",
+        "ICF volume decreases",
+        "osmolarity rises in both compartments",
+        "option D"
+      ],
+      "rationales": {
+        "a": "Option A does not match the source Darrow–Yannet pattern for hypertonic volume expansion.",
+        "b": "Option B depicts a different body-fluid disturbance than hypertonic saline addition.",
+        "c": "Option C does not show the source-keyed combination of ECF expansion, ICF contraction and increased osmolarity."
+      },
+      "sourceNotes": [
+        "This is figure-dependent. The source Darrow–Yannet diagram is preserved separately and remains authoritative for the lettered choice; the augmentation states only the physiologic changes supported by the source."
+      ]
+    },
+    "marrow__PHYS_CH05_Q024": {
+      "takeaway": "SIADH causes hypo-osmotic volume expansion.",
+      "displayText": "In SIADH, excess ADH causes retention of water without a proportional gain of solute. ECF volume therefore increases while ECF osmolarity falls.\n\nWater moves into cells until osmotic equilibrium is restored, so ICF volume also increases and osmolarity falls in both compartments. The source Darrow–Yannet diagram shows this hypo-osmotic expansion pattern.",
+      "emphasis": [
+        "SIADH",
+        "ECF volume therefore increases",
+        "ECF osmolarity falls",
+        "ICF volume also increases"
+      ],
+      "rationales": {
+        "b": "Diarrhea classically causes approximately isosmotic volume contraction rather than hypo-osmotic expansion.",
+        "c": "Diabetes insipidus causes water loss and hyperosmotic volume contraction.",
+        "d": "Adrenal insufficiency causes sodium loss with hypo-osmotic volume contraction, not expansion."
+      },
+      "sourceNotes": [
+        "Figure-dependent item. The source Darrow–Yannet diagram is preserved separately and is not reconstructed in the augmentation."
+      ]
+    },
+    "marrow__PHYS_CH05_Q025": {
+      "takeaway": "Adrenal insufficiency produces hypo-osmotic volume contraction.",
+      "displayText": "Loss of aldosterone in adrenal insufficiency promotes renal sodium loss. ECF volume falls and ECF osmolarity decreases.\n\nWater shifts from ECF into ICF until equilibrium is re-established, so ICF volume rises while osmolarity falls in both compartments. The source Darrow–Yannet diagram is consistent with hypo-osmotic volume contraction.",
+      "emphasis": [
+        "adrenal insufficiency",
+        "ECF volume falls",
+        "ECF osmolarity decreases",
+        "ICF volume rises"
+      ],
+      "rationales": {
+        "a": "Excessive sweating causes loss of hypotonic fluid and therefore hyperosmotic volume contraction.",
+        "c": "Diarrhea classically causes isosmotic volume contraction.",
+        "d": "SIADH causes hypo-osmotic volume expansion rather than contraction."
+      },
+      "sourceNotes": [
+        "Figure-dependent item. The source Darrow–Yannet diagram remains authoritative and is preserved separately."
+      ]
+    },
+    "marrow__PHYS_CH05_Q026": {
+      "takeaway": "The total physiologic safety factor against edema is about 17 mmHg.",
+      "displayText": "Several mechanisms resist edema formation. The source assigns about 3 mmHg to low tissue compliance, about 7 mmHg to increased lymph flow, and about 7 mmHg to washdown of interstitial proteins.\n\nTogether these provide a total safety factor of about 17 mmHg.",
+      "emphasis": [
+        "3 mmHg",
+        "7 mmHg",
+        "washdown of interstitial proteins",
+        "17 mmHg"
+      ],
+      "rationales": {
+        "a": "7 mmHg represents only one component of the safety system, not the total.",
+        "c": "27 mmHg is greater than the summed source values.",
+        "d": "37 mmHg is not supported by the component safety factors listed."
+      }
+    },
+    "marrow__PHYS_CH05_Q027": {
+      "takeaway": "Insensible water loss is about 500–600 mL/day in the source calculation.",
+      "displayText": "Even at rest, water is continuously lost by evaporation from skin and through the lungs. This is termed insensible water loss.\n\nThe source uses about 500–600 mL/day for the amount to include in routine fluid calculations, while noting that total evaporative loss is often quoted around 600–700 mL/day.",
+      "emphasis": [
+        "insensible water loss",
+        "500–600 mL/day",
+        "skin",
+        "lungs"
+      ],
+      "rationales": {
+        "a": "150–200 mL/day is below the source estimate for routine insensible losses.",
+        "c": "200–350 mL/day underestimates evaporation from skin and lungs.",
+        "d": "350–400 mL/day remains below the source-keyed range."
+      }
+    },
+    "marrow__PHYS_CH05_Q028": {
+      "takeaway": "Iodine-125–labelled albumin is used to measure plasma volume.",
+      "displayText": "Radiolabelled albumin remains largely within the vascular compartment because albumin does not freely cross intact capillary walls.\n\nIodine-125–labelled albumin can therefore be used as an indicator for plasma volume.",
+      "emphasis": [
+        "Radiolabelled albumin",
+        "vascular compartment",
+        "Iodine-125–labelled albumin",
+        "plasma volume"
+      ],
+      "rationales": {
+        "b": "Interstitial-fluid volume is generally calculated indirectly rather than measured with labelled albumin.",
+        "c": "Labelled albumin does not distribute throughout intracellular fluid.",
+        "d": "ECF requires an indicator that crosses capillary walls into interstitial fluid, such as inulin; labelled albumin remains intravascular."
+      }
+    }
+  }
+}

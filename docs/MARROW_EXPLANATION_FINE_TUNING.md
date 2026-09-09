@@ -1,6 +1,6 @@
 # Marrow explanation fine-tuning runbook
 
-> Status: **next content-quality phase; do not execute until explicitly asked**.
+> Status: **active chapter-by-chapter content-quality phase**.
 > Read with `docs/MARROW_BANK_INTEGRATION.md` and the approved 142-question
 > explanation augmentation already in the repository.
 
@@ -112,10 +112,15 @@ Current deterministic inventory:
 - `data/marrow/explanation_inventory_v1.json` accounts for all 2,115 IDs without
   copying source explanation text into the inventory;
 - `tools/inventory_marrow_explanations.py` regenerates it from hash-verified
-  source bundles and the approved augmentation subsets;
-- the current inventory records 223 enhanced questions and 1,892 pending:
-  the 162-question approved reference plus completed Biochemistry Chapters 1, 2,
-  and 4; it still identifies the fixed 20-question Biochemistry gold-sample set.
+  source bundles and all approved augmentation subsets;
+- the current verified inventory records **429 enhanced / 1,686 pending**;
+- Biochemistry Chapters **1–11** are complete on the current stacked lineage;
+- Physiology retains the approved 80-question Chapters 1–4 pilot and Chapter
+  **5 — Body Fluids (28/28)** is complete and fully verified;
+- Physiology chapter rollouts use `explanation_physio_ch*_v1.json` and are
+  protected by `tools/test_marrow_physio_explanation_rollout.py`;
+- when explanation refinement resumes, the next source-order target is
+  **Physiology Chapter 6 — Physiology of Nerve**.
 
 1. **Inventory first**
    - enumerate all 2,115 IDs and review statuses;

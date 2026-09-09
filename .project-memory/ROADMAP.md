@@ -47,21 +47,22 @@ Check off only when build-verified **and** device-verified where UI is involved.
       newly deployed PWA and declared the current Marrow integration/taxonomy
       verification phase complete. Approved journey UI is unchanged; four
       cross-system Anatomy placements remain internally reviewable.
-- [ ] Explanation fine-tuning for the newly added questions using
-      `docs/MARROW_EXPLANATION_FINE_TUNING.md`. **Active phase.** Keep raw source
-      immutable and scale the approved 142-question grammar through a separate
-      augmentation layer. The 2,115-ID inventory is complete and the selected
-      20-question cross-chapter Biochemistry sample passed CI/browser verification
-      and was physically approved by the user on 2026-09-09. The approved reference
-      is now the canonical grammar. Biochemistry Chapters 1, 2 and 4 are now complete at the augmentation layer:
-      Chapter 1 is 23/23, Chapter 2 is 30/30, and Chapter 4 is 11/11 using their
-      approved gold-sample questions. The deterministic inventory is **223 enhanced**
-      with **1,892 remaining**. Chapter 4 passed full CI/browser/APK verification;
-      the rebased Chapter 2 batch is the current verification candidate. Chapter 3
-      is the exact next fresh content start.
-- [ ] Image rollout is paused after build-verified Batch 01. Six Batch 02 native
-      candidates are checkpointed on a separate branch as REVIEW_REQUIRED and
-      remain unreleased while explanation refinement is prioritized.
+- [ ] Explanation fine-tuning using
+      `docs/MARROW_EXPLANATION_FINE_TUNING.md`. Raw source stays immutable and
+      learner-facing improvements remain separate ID-keyed augmentation.
+      Biochemistry Chapters **1–11** are complete on the current stacked lineage;
+      Physiology Chapters **1–4** retain the approved 80-question pilot and
+      Chapter **5 — Body Fluids (28/28)** is now complete and fully verified.
+      Deterministic inventory: **429 enhanced / 1,686 pending**.
+      Engineering Gate 259 and full Android/PWA run 539 verified the Physiology
+      rollout loader, inventory, Q17 browser regression, APK/package contracts
+      and preview deployment. When explanation work resumes, continue in source
+      order from **Physiology Chapter 6 — Physiology of Nerve**.
+- [ ] Image integration is a separate workstream now owned by the **primary agent**.
+      Reconcile current Git state before resuming. Historical Batch 01 was
+      build-verified; Batch 02 contains six REVIEW_REQUIRED candidates on its
+      separate checkpoint. Preserve source-native assets/metadata and do not
+      invent or redraw medically meaningful source detail.
 - [ ] Continue later Marrow chapters beyond the supplied current scope only when
       verified source JSONL is available.
 - [ ] Keep production promotion deliberate; build/browser success is not acceptance.
