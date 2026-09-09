@@ -200,6 +200,25 @@ def main():
                 raise SystemExit('Biochemistry Chapter 8 Q19 must render exactly three distractor rationales')
             page.screenshot(path=str(OUT/'00aag-biochemistry-ch08-rollout-q19.png'),full_page=True)
 
+            # Chapter 9 rollout regression: Q15 checks the high-yield
+            # homocystinuria lens-direction and thrombosis distinction.
+            page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Amino acid: Metabolic disorder').click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=28:
+                raise SystemExit('Marrow Biochemistry Chapter 9 count is not 28')
+            page.locator('button.nk-library-row').nth(14).click();page.wait_for_timeout(80)
+            if 'left side of the body' not in page.locator('.question-text').inner_text().lower():
+                raise SystemExit('Biochemistry Chapter 9 rollout Q15 did not open')
+            page.locator('.option-list button').nth(1).click();page.wait_for_timeout(120)
+            ch9=page.locator('.nk-study-support').inner_text().lower()
+            for required in ('key takeaway','detailed explanation','structured text','why the other options are wrong','cystathionine β-synthase deficiency','downward/nasal subluxation','thrombotic'):
+                if required not in ch9:
+                    raise SystemExit(f'Biochemistry Chapter 9 rollout missing {required}')
+            if page.locator('.nk-gold-wrong-row').count()!=3:
+                raise SystemExit('Biochemistry Chapter 9 Q15 must render exactly three distractor rationales')
+            page.screenshot(path=str(OUT/'00aah-biochemistry-ch09-rollout-q15.png'),full_page=True)
+
             # Explanation-quality candidate regression: Chapter 1 Q23 is one of
             # the deterministic 20-question Biochemistry sample entries and must
             # use the exact approved 142-question presentation grammar.
