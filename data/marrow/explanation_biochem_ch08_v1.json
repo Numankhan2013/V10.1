@@ -1,0 +1,353 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Approved Marrow ED8 Biochemistry Chapter 8 explanation rollout. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "8",
+    "chapterTitle": "Amino acid: Metabolism",
+    "questions": 22,
+    "status": "approved-rollout"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 306,
+    "anatomy": 62,
+    "physiology": 80,
+    "biochemistry": 164
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH08_Q001": {
+      "takeaway": "Aminotransferases transfer an amino group from an amino acid to a keto acid.",
+      "displayText": "Transamination is the transfer of an amino group from an amino acid to a keto acid. The enzymes that catalyze these reactions are aminotransferases, also called transaminases.\n\nMost aminotransferases require pyridoxal phosphate (PLP), the active coenzyme form of vitamin B6. Clinically important examples include AST and ALT.",
+      "emphasis": [
+        "aminotransferases",
+        "transaminases",
+        "pyridoxal phosphate (PLP)",
+        "vitamin B6"
+      ],
+      "rationales": {
+        "b": "Aminases is not the source term for enzymes that transfer amino groups between amino acids and keto acids.",
+        "c": "Transketolases transfer two-carbon units in carbohydrate metabolism rather than amino groups.",
+        "d": "Deaminases remove amino groups; they do not perform the amino-group transfer described here."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q002": {
+      "takeaway": "Threonine is one of the amino acids that does not undergo typical transamination.",
+      "displayText": "Most amino acids can undergo transamination, but the source lists important exceptions including proline, lysine, threonine and hydroxyproline.\n\nAmong the options given, threonine is therefore the amino acid that does not undergo the usual aminotransferase reaction. The source figure remains preserved separately.",
+      "emphasis": [
+        "proline, lysine, threonine and hydroxyproline",
+        "threonine",
+        "does not undergo",
+        "transamination"
+      ],
+      "rationales": {
+        "a": "Methionine can participate in transamination and is not one of the source-listed exceptions.",
+        "c": "Leucine undergoes transamination as part of branched-chain amino-acid metabolism.",
+        "d": "Glycine is not the source-keyed transamination exception among these options."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q003": {
+      "takeaway": "Homogentisate oxidase does not use tetrahydrobiopterin (BH4).",
+      "displayText": "Tetrahydrobiopterin (BH4) is a cofactor for several hydroxylation reactions, including phenylalanine hydroxylase, tyrosine hydroxylase and tryptophan hydroxylase. It is also used by nitric oxide synthase.\n\nHomogentisate oxidase does not use BH4 and is therefore the exception. BH4 is synthesized from GTP, and the source pathway figure remains preserved separately.",
+      "emphasis": [
+        "Tetrahydrobiopterin (BH4)",
+        "phenylalanine hydroxylase",
+        "tryptophan hydroxylase",
+        "Homogentisate oxidase"
+      ],
+      "rationales": {
+        "a": "Phenylalanine hydroxylase requires BH4 to convert phenylalanine to tyrosine.",
+        "b": "Tyrosine hydroxylase uses BH4 during catecholamine synthesis.",
+        "c": "Tryptophan hydroxylase uses BH4 during serotonin synthesis."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q004": {
+      "takeaway": "Melatonin is derived from tryptophan, not phenylalanine.",
+      "displayText": "Phenylalanine is converted to tyrosine, which can then give rise to catecholamines such as epinephrine and to thyroid-hormone precursors.\n\nMelatonin follows a different pathway: it is synthesized from tryptophan through serotonin. It is therefore the phenylalanine-derivative exception.",
+      "emphasis": [
+        "Phenylalanine",
+        "tyrosine",
+        "Melatonin",
+        "tryptophan through serotonin"
+      ],
+      "rationales": {
+        "a": "Tyrosine is directly formed from phenylalanine by phenylalanine hydroxylase.",
+        "b": "Epinephrine is synthesized through the tyrosine-derived catecholamine pathway.",
+        "d": "Thyroxine is formed from iodinated tyrosine residues and is therefore linked to phenylalanine through tyrosine."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q005": {
+      "takeaway": "Methionine supplies the methyl group used to convert norepinephrine to epinephrine.",
+      "displayText": "Norepinephrine is methylated to epinephrine by phenylethanolamine N-methyltransferase. The methyl donor is S-adenosylmethionine (SAM), which is derived from methionine.\n\nMethionine therefore supplies the methyl group for this transmethylation reaction.",
+      "emphasis": [
+        "Norepinephrine is methylated to epinephrine",
+        "S-adenosylmethionine (SAM)",
+        "methionine",
+        "methyl group"
+      ],
+      "rationales": {
+        "a": "Glycine is not the methyl-group donor for conversion of norepinephrine to epinephrine.",
+        "b": "Alanine does not supply the SAM-derived methyl group in this reaction.",
+        "d": "Serine is not the source amino acid for the SAM methyl donor used here."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q006": {
+      "takeaway": "Melatonin is a metabolic derivative of tryptophan.",
+      "displayText": "Tryptophan is hydroxylated to 5-hydroxytryptophan, which is then converted to serotonin. Serotonin can subsequently be converted to melatonin.\n\nThus melatonin is a tryptophan-derived product. The catecholamines epinephrine and norepinephrine, and the thyroid-hormone pathway, are instead linked to tyrosine.",
+      "emphasis": [
+        "Tryptophan",
+        "5-hydroxytryptophan",
+        "serotonin",
+        "melatonin"
+      ],
+      "rationales": {
+        "b": "Thyroxine is derived from iodinated tyrosine residues, not tryptophan.",
+        "c": "Epinephrine is a tyrosine-derived catecholamine.",
+        "d": "Norepinephrine is also synthesized from tyrosine through the catecholamine pathway."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q007": {
+      "takeaway": "Albinism with normal development is caused by deficient tyrosinase activity.",
+      "displayText": "Fair hair, very light skin and pale eyes with photophobia point to albinism. The key biochemical defect is reduced or absent tyrosinase activity, impairing conversion of tyrosine toward melanin.\n\nTyrosinase is a copper-containing enzyme in the melanin-synthesis pathway.",
+      "emphasis": [
+        "albinism",
+        "tyrosinase",
+        "melanin",
+        "copper-containing enzyme"
+      ],
+      "rationales": {
+        "b": "Tyrosine hydroxylase participates in catecholamine synthesis rather than melanin production.",
+        "c": "Tyrosine transaminase is involved in tyrosine catabolism and does not cause the classic albinism phenotype.",
+        "d": "Phenylalanine hydroxylase deficiency causes phenylketonuria rather than isolated albinism with the described phenotype."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q008": {
+      "takeaway": "Tryptophan can be converted to niacin and therefore helps reduce dietary vitamin B3 requirement.",
+      "displayText": "Tryptophan contributes to endogenous niacin synthesis. The source uses the approximate equivalence that 60 mg of tryptophan can yield about 1 mg of niacin.\n\nThis pathway is why adequate tryptophan intake can reduce dietary vitamin B3 requirement. The source also notes vitamin B6 dependence within the kynurenine pathway.",
+      "emphasis": [
+        "Tryptophan",
+        "niacin synthesis",
+        "60 mg of tryptophan",
+        "1 mg of niacin"
+      ],
+      "rationales": {
+        "a": "Arginine is not the amino-acid precursor used for endogenous niacin synthesis.",
+        "b": "Tyrosine does not provide the source-keyed pathway for vitamin B3 formation.",
+        "d": "Histidine is not the amino acid converted to niacin in this pathway."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q009": {
+      "takeaway": "Urinary 5-HIAA in a patient with flushing and diarrhea indicates excess serotonin (5-hydroxytryptamine).",
+      "displayText": "Flushing, abdominal pain and watery diarrhea with elevated urinary 5-HIAA are classic for carcinoid syndrome. 5-HIAA is the major urinary metabolite of serotonin.\n\nSerotonin is 5-hydroxytryptamine (5-HT), so excess 5-hydroxytryptamine is the source-keyed metabolite in this presentation.",
+      "emphasis": [
+        "carcinoid syndrome",
+        "5-HIAA",
+        "serotonin",
+        "5-hydroxytryptamine (5-HT)"
+      ],
+      "rationales": {
+        "b": "5-Hydroxytryptophan is a precursor of serotonin rather than the bioactive amine associated with the syndrome.",
+        "c": "5-Carboxytryptamine is not the source-keyed mediator reflected by urinary 5-HIAA.",
+        "d": "5-Carboxytryptophan is not the serotonin product responsible for the carcinoid-syndrome findings."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q010": {
+      "takeaway": "Serine-to-glycine conversion requires folate in addition to PLP.",
+      "displayText": "Serine hydroxymethyltransferase converts serine to glycine while transferring a one-carbon unit to tetrahydrofolate. The reaction requires pyridoxal phosphate as an enzyme cofactor and folate as the one-carbon acceptor system.\n\nAmong the options, folic acid is therefore required for this serine-to-glycine reaction.",
+      "emphasis": [
+        "serine to glycine",
+        "tetrahydrofolate",
+        "pyridoxal phosphate",
+        "folic acid"
+      ],
+      "rationales": {
+        "b": "Thiamine is not the vitamin required for this serine hydroxymethyltransferase reaction.",
+        "c": "Vitamin C is not the one-carbon carrier used in conversion of serine to glycine.",
+        "d": "Vitamin B12 participates in other one-carbon reactions but is not the source-keyed vitamin required directly in this conversion."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q011": {
+      "takeaway": "Nitric oxide is not synthesized from glycine; it is produced from arginine.",
+      "displayText": "Glycine contributes to synthesis of several important compounds, including creatine, heme, glutathione and specific atoms of the purine ring.\n\nNitric oxide is different: it is generated from arginine by nitric oxide synthase. Therefore nitric oxide is the product not obtained from glycine.",
+      "emphasis": [
+        "Glycine",
+        "creatine",
+        "glutathione",
+        "Nitric oxide"
+      ],
+      "rationales": {
+        "a": "Glycine is one of the amino-acid precursors used in creatine synthesis.",
+        "b": "Glycine contributes specific carbon and nitrogen atoms to the purine ring.",
+        "c": "Glycine is incorporated into heme during porphyrin synthesis."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q012": {
+      "takeaway": "Ethanolamine can be synthesized by decarboxylation of serine.",
+      "displayText": "Serine can undergo decarboxylation to form ethanolamine. Ethanolamine is then used in phospholipid metabolism, including phosphatidylethanolamine synthesis.\n\nAmong the listed amino acids, serine is therefore the source precursor.",
+      "emphasis": [
+        "Serine",
+        "decarboxylation",
+        "ethanolamine",
+        "phospholipid metabolism"
+      ],
+      "rationales": {
+        "b": "Tryptophan is a precursor for products such as serotonin, melatonin and niacin, not ethanolamine.",
+        "c": "Lysine is not the source amino acid converted to ethanolamine.",
+        "d": "Histidine is a precursor of histamine and related compounds, not ethanolamine."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q013": {
+      "takeaway": "Thiamine (vitamin B1) is not one of the key vitamins in sulfur-amino-acid metabolism.",
+      "displayText": "Sulfur-amino-acid metabolism prominently uses vitamin B6, folate (B9) and vitamin B12 in reactions involving homocysteine, methionine and cystathionine.\n\nThiamine (vitamin B1) is therefore the exception among the listed vitamins.",
+      "emphasis": [
+        "vitamin B6",
+        "folate (B9)",
+        "vitamin B12",
+        "Thiamine (vitamin B1)"
+      ],
+      "rationales": {
+        "a": "Vitamin B6 is required for transsulfuration reactions involving cystathionine.",
+        "b": "Folate participates in remethylation of homocysteine through one-carbon metabolism.",
+        "d": "Vitamin B12 is required for methionine synthase during homocysteine remethylation."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q014": {
+      "takeaway": "Taurine is synthesized from cysteine.",
+      "displayText": "Taurine is synthesized from cysteine through sulfur-amino-acid metabolism, including oxidation by cysteine dioxygenase and subsequent reactions.\n\nTaurine is important in conjugation of bile acids, forming bile salts such as taurocholate.",
+      "emphasis": [
+        "Taurine",
+        "cysteine",
+        "cysteine dioxygenase",
+        "conjugation of bile acids"
+      ],
+      "rationales": {
+        "a": "Leucine is not the amino-acid precursor for taurine synthesis.",
+        "b": "Arginine is a precursor for products such as nitric oxide and creatine, not taurine.",
+        "d": "Valine is not converted to taurine in the source pathway."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q015": {
+      "takeaway": "Homocysteine is a methionine metabolite, not a histidine derivative.",
+      "displayText": "Histidine gives rise to compounds such as carnosine, anserine and ergothioneine.\n\nHomocysteine belongs to methionine metabolism and is therefore not a histidine derivative.",
+      "emphasis": [
+        "Histidine",
+        "carnosine",
+        "ergothioneine",
+        "Homocysteine"
+      ],
+      "rationales": {
+        "a": "Carnosine contains histidine and is a histidine-related derivative.",
+        "b": "Ergothioneine is a histidine-derived sulfur-containing compound.",
+        "c": "Anserine is a methylated histidine-containing dipeptide."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q016": {
+      "takeaway": "FIGLU is an intermediate of histidine catabolism and accumulates in folate deficiency.",
+      "displayText": "Histidine catabolism produces formiminoglutamate (FIGLU). The formimino group is normally transferred to tetrahydrofolate.\n\nWhen folate is deficient, FIGLU handling is impaired and urinary FIGLU increases. The source pathway figure remains preserved separately.",
+      "emphasis": [
+        "Histidine",
+        "formiminoglutamate (FIGLU)",
+        "tetrahydrofolate",
+        "folate is deficient"
+      ],
+      "rationales": {
+        "a": "Valine is catabolized through propionyl-CoA and does not generate FIGLU.",
+        "c": "Methionine metabolism centers on SAM and homocysteine rather than FIGLU.",
+        "d": "Arginine metabolism does not produce FIGLU as the source-keyed intermediate."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q017": {
+      "takeaway": "GABA is synthesized by decarboxylation of glutamate.",
+      "displayText": "Gamma-aminobutyric acid (GABA) is formed from glutamate by glutamate decarboxylase. The reaction removes CO₂ and requires pyridoxal phosphate.\n\nGABA is an important inhibitory neurotransmitter. The source comparison table remains preserved separately.",
+      "emphasis": [
+        "Gamma-aminobutyric acid (GABA)",
+        "glutamate",
+        "glutamate decarboxylase",
+        "inhibitory neurotransmitter"
+      ],
+      "rationales": {
+        "a": "Fumarate is a TCA-cycle intermediate and is not decarboxylated to form GABA.",
+        "c": "Histidine is decarboxylated to histamine, not GABA.",
+        "d": "Glycine is itself an inhibitory neurotransmitter in some pathways but is not the precursor of GABA."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q019": {
+      "takeaway": "Glutathione is a tripeptide composed of glutamate, cysteine and glycine.",
+      "displayText": "Glutathione is a three-amino-acid antioxidant composed of glutamate, cysteine and glycine. Its thiol group, supplied by cysteine, is central to its reducing function.\n\nThe source key selects the option listing glutamic acid, cysteine and glycine. Reduced glutathione helps protect cells against oxidative injury.",
+      "emphasis": [
+        "Glutathione",
+        "glutamate, cysteine and glycine",
+        "thiol group",
+        "oxidative injury"
+      ],
+      "rationales": {
+        "a": "Cysteine and glycine alone omit the glutamate residue and therefore do not form complete glutathione.",
+        "c": "This option lists the same three amino-acid components in a different order, but the source explicitly keys the glutamic acid–cysteine–glycine option; no additional distinction is invented here.",
+        "d": "Lysine and methionine are not the three residues that make up glutathione."
+      },
+      "sourceNotes": [
+        "Options B and C contain the same three amino-acid components in different stated order. The source answer key is B. This augmentation preserves the source key and does not invent an unsupported biochemical distinction between the two option wordings."
+      ]
+    },
+    "marrow__BIOCHEM_CH08_Q020": {
+      "takeaway": "Arginine is a common precursor for urea-cycle metabolism, creatine synthesis and nitric oxide formation.",
+      "displayText": "Arginine participates in several major pathways. It is an intermediate of the urea cycle, contributes its guanidino group during creatine synthesis and serves as the substrate for nitric oxide synthase.\n\nIt is therefore the common precursor linking urea, creatine and nitric oxide.",
+      "emphasis": [
+        "Arginine",
+        "urea cycle",
+        "creatine synthesis",
+        "nitric oxide synthase"
+      ],
+      "rationales": {
+        "a": "Glycine contributes to creatine but is not the common precursor for urea-cycle metabolism and nitric oxide.",
+        "c": "Aspartate contributes nitrogen to the urea cycle but is not the common precursor for creatine and nitric oxide.",
+        "d": "Alanine transports amino nitrogen and participates in the glucose-alanine cycle but does not link all three products."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q021": {
+      "takeaway": "Hyperammonemia raises glutamine because ammonia is detoxified by glutamine synthetase.",
+      "displayText": "In tissues such as brain, free ammonia is detoxified by incorporation into glutamate to form glutamine through glutamine synthetase.\n\nHyperammonemia therefore increases glutamine. Excess glutamine formation also consumes glutamate and α-ketoglutarate, which can impair cerebral energy metabolism.",
+      "emphasis": [
+        "Hyperammonemia",
+        "glutamine",
+        "glutamine synthetase",
+        "α-ketoglutarate"
+      ],
+      "rationales": {
+        "a": "Urea production may be impaired in hyperammonemic states and is not the source-keyed metabolite that rises through direct ammonia trapping.",
+        "c": "GABA is derived from glutamate but is not the primary ammonia-detoxification product that increases.",
+        "d": "Uric acid is a purine-degradation product and is not the source-keyed metabolite elevated by ammonia detoxification."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q022": {
+      "takeaway": "Alanine is the major carrier of amino nitrogen from skeletal muscle to the liver in the glucose-alanine cycle.",
+      "displayText": "In skeletal muscle, amino groups are transferred to pyruvate to form alanine. Alanine travels in blood to the liver, where ALT converts it back to pyruvate while transferring the amino group for urea formation.\n\nThis glucose-alanine, or Cahill, cycle is a major route for transporting amino nitrogen from muscle to liver.",
+      "emphasis": [
+        "alanine",
+        "ALT",
+        "glucose-alanine",
+        "Cahill"
+      ],
+      "rationales": {
+        "b": "Glutamine transports ammonia from many tissues, but the source asks specifically for the major muscle-to-liver carrier in the glucose-alanine cycle.",
+        "c": "Glutamate usually transfers amino groups intracellularly rather than serving as the principal circulating muscle-to-liver carrier here.",
+        "d": "Aspartate participates in nitrogen metabolism but is not the source-keyed carrier in the Cahill cycle."
+      }
+    },
+    "marrow__BIOCHEM_CH08_Q023": {
+      "takeaway": "Glutamate dehydrogenase catalyzes oxidative deamination of glutamate and releases free ammonia.",
+      "displayText": "Glutamate dehydrogenase catalyzes oxidative deamination of glutamate, producing α-ketoglutarate and free ammonia. The reaction occurs in mitochondria and links amino-acid nitrogen metabolism with the TCA cycle.\n\nThe source notes that glutamate dehydrogenase can use pyridine nucleotides in the reaction. The source figure remains preserved separately.",
+      "emphasis": [
+        "Glutamate dehydrogenase",
+        "oxidative deamination",
+        "α-ketoglutarate",
+        "free ammonia"
+      ],
+      "rationales": {
+        "a": "Glutamate synthetase is not the source enzyme carrying out oxidative deamination of glutamate.",
+        "b": "Glutaminase releases ammonia from glutamine, not by oxidative deamination of glutamate.",
+        "d": "Glutamate aminotransferase transfers amino groups rather than directly releasing free ammonia by oxidative deamination."
+      }
+    }
+  }
+}
