@@ -143,6 +143,25 @@ def main():
                 raise SystemExit('Biochemistry Chapter 5 Q18 must render exactly three distractor rationales')
             page.screenshot(path=str(OUT/'00aad-biochemistry-ch05-rollout-q18.png'),full_page=True)
 
+            # Chapter 6 rollout regression: Q11 tests a source-faithful ATP
+            # yield calculation outside the fixed gold sample.
+            page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Krebs Cycle').click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=20:
+                raise SystemExit('Marrow Biochemistry Chapter 6 count is not 20')
+            page.locator('button.nk-library-row').nth(10).click();page.wait_for_timeout(80)
+            if 'atps are generated per turn' not in page.locator('.question-text').inner_text().lower():
+                raise SystemExit('Biochemistry Chapter 6 rollout Q11 did not open')
+            page.locator('.option-list button').first.click();page.wait_for_timeout(120)
+            ch6=page.locator('.nk-study-support').inner_text().lower()
+            for required in ('key takeaway','detailed explanation','structured text','why the other options are wrong','10 atp','3 nadh','1 fadh₂','1 gtp'):
+                if required not in ch6:
+                    raise SystemExit(f'Biochemistry Chapter 6 rollout missing {required}')
+            if page.locator('.nk-gold-wrong-row').count()!=3:
+                raise SystemExit('Biochemistry Chapter 6 Q11 must render exactly three distractor rationales')
+            page.screenshot(path=str(OUT/'00aae-biochemistry-ch06-rollout-q11.png'),full_page=True)
+
             # Explanation-quality candidate regression: Chapter 1 Q23 is one of
             # the deterministic 20-question Biochemistry sample entries and must
             # use the exact approved 142-question presentation grammar.
