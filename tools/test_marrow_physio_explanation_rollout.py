@@ -50,6 +50,14 @@ def main() -> None:
             assert len(cfg.get("rationales", {})) == 3
             assert set(cfg["rationales"]) == wrong_letters
             assert all(str(reason).strip() for reason in cfg["rationales"].values())
+            reconstruction = cfg.get("reconstruction")
+            if reconstruction is not None:
+                assert reconstruction.get("status") in {"resolved_reconstruction", "needs_manual_review"}
+                assert str(reconstruction.get("sourceProblem", "")).strip()
+                assert str(reconstruction.get("reconstructedContent", "")).strip()
+                evidence = reconstruction.get("evidenceBasis")
+                assert isinstance(evidence, list) and evidence and all(str(item).strip() for item in evidence)
+                assert str(reconstruction.get("reviewNote", "")).strip()
 
         source_chapter = {
             qid for qid, question in source_questions.items()
