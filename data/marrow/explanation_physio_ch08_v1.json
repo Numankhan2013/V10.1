@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Approved Marrow ED8 Physiology Chapter 8 explanation rollout. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "8",
+    "chapterTitle": "Muscle Physiology II",
+    "questions": 14,
+    "status": "approved-rollout"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 498,
+    "anatomy": 62,
+    "physiology": 177,
+    "biochemistry": 259
+  },
+  "questions": {
+    "marrow__PHYS_CH08_Q001": {
+      "takeaway": "The human heart contains both α- and β-myosin heavy-chain isoforms.",
+      "displayText": "Human cardiac muscle expresses both major myosin heavy-chain isoforms. In adults, α-MHC predominates relatively more in the atria, while β-MHC predominates in the ventricles.\n\nβ-MHC has lower ATPase activity and slower shortening kinetics than α-MHC, which contributes to regional differences in cardiac contraction.",
+      "emphasis": [
+        "both major myosin heavy-chain isoforms",
+        "α-MHC",
+        "β-MHC",
+        "lower ATPase activity"
+      ],
+      "rationales": {
+        "a": "α-MHC is present in human cardiac muscle, but it is not the only myosin heavy-chain isoform.",
+        "b": "β-MHC is also present and is especially prominent in adult ventricular myocardium, so it is not the sole isoform either.",
+        "d": "Because both α- and β-MHC are present, 'none' is incorrect."
+      }
+    },
+    "marrow__PHYS_CH08_Q002": {
+      "takeaway": "Intercalated discs are a defining structural feature of cardiac muscle.",
+      "displayText": "Cardiac myocytes connect end-to-end at intercalated discs. These junctional complexes contain fascia adherens and desmosomes for mechanical coupling, plus gap junctions for low-resistance electrical coupling.\n\nTogether they allow cardiac muscle to behave as a functional syncytium while preserving individual cell boundaries.",
+      "emphasis": [
+        "intercalated discs",
+        "desmosomes",
+        "gap junctions",
+        "functional syncytium"
+      ],
+      "rationales": {
+        "a": "Skeletal muscle fibers are multinucleated syncytia and do not connect through intercalated discs.",
+        "b": "Smooth muscle has gap junctions in many tissues but does not have true intercalated discs.",
+        "d": "Intercalated discs are specific to cardiac muscle among these choices."
+      }
+    },
+    "marrow__PHYS_CH08_Q003": {
+      "takeaway": "β1-adrenergic stimulation phosphorylates phospholamban, disinhibiting SERCA and increasing SR Ca2+ loading.",
+      "displayText": "Sympathetic β1 stimulation raises cAMP and activates protein kinase A. PKA phosphorylates phospholamban, reducing its inhibitory effect on SERCA.\n\nThe result is faster Ca2+ reuptake into the sarcoplasmic reticulum, faster relaxation, and greater SR Ca2+ content available for release on the next beat—supporting positive inotropy and lusitropy.",
+      "emphasis": [
+        "PKA phosphorylates phospholamban",
+        "SERCA",
+        "faster relaxation",
+        "greater SR Ca2+ content"
+      ],
+      "rationales": {
+        "b": "Dephosphorylated phospholamban inhibits SERCA and would reduce, not enhance, SR Ca2+ uptake.",
+        "c": "Sympathetic β1 signaling increases cAMP rather than decreasing it.",
+        "d": "A nonspecific increase in membrane permeability does not describe the regulated β1–cAMP–PKA mechanism."
+      }
+    },
+    "marrow__PHYS_CH08_Q004": {
+      "takeaway": "Phospholamban regulates Ca2+ uptake into the cardiac sarcoplasmic reticulum by modulating SERCA.",
+      "displayText": "In its dephosphorylated state, phospholamban inhibits SERCA. Phosphorylation relieves this inhibition and increases Ca2+ transport from cytosol into the sarcoplasmic reticulum.\n\nThis regulation controls both the rate of relaxation and the amount of Ca2+ stored for subsequent contraction.",
+      "emphasis": [
+        "phospholamban inhibits SERCA",
+        "Phosphorylation relieves this inhibition",
+        "Ca2+ transport",
+        "rate of relaxation"
+      ],
+      "rationales": {
+        "a": "Phospholamban does not regulate the Na+/K+ ATPase.",
+        "b": "It does not mediate Ca2+ export from mitochondria.",
+        "d": "It does not directly bind actin to myosin; its role is Ca2+ handling through SERCA regulation."
+      }
+    },
+    "marrow__PHYS_CH08_Q005": {
+      "takeaway": "Cardiac muscle cannot be tetanized because its action potential and absolute refractory period are prolonged.",
+      "displayText": "The cardiac action potential contains a prolonged plateau generated largely by Ca2+ entry through L-type channels with reduced outward K+ current. This keeps the membrane refractory through most of the mechanical contraction.\n\nBecause a second propagated action potential cannot be triggered early enough for twitch summation, normal cardiac muscle cannot undergo tetanus.",
+      "emphasis": [
+        "prolonged plateau",
+        "L-type channels",
+        "refractory through most of the mechanical contraction",
+        "cannot undergo tetanus"
+      ],
+      "rationales": {
+        "a": "Cardiac muscle shows an all-or-none behavior at the functional syncytium level.",
+        "b": "Cardiac muscle exhibits an important length–tension relationship underlying the Frank–Starling mechanism.",
+        "d": "A plateau phase is a characteristic feature of the ventricular cardiac action potential."
+      }
+    },
+    "marrow__PHYS_CH08_Q006": {
+      "takeaway": "The graph illustrates the Frank–Starling length–tension relationship of the heart.",
+      "displayText": "As ventricular filling increases, myocardial fibers begin contraction at a greater initial length. Within the physiologic range, this improves force generation so developed pressure/tension rises with end-diastolic volume.\n\nThis intrinsic matching of force to filling is the Frank–Starling law of the heart.",
+      "emphasis": [
+        "ventricular filling increases",
+        "greater initial length",
+        "developed pressure/tension rises",
+        "Frank–Starling law"
+      ],
+      "rationales": {
+        "b": "Laplace's law relates wall tension to pressure and radius, not the ventricular length–tension curve shown.",
+        "c": "The Bainbridge reflex is a heart-rate response to increased venous return/atrial stretch.",
+        "d": "The Bell–Magendie law concerns dorsal sensory and ventral motor spinal roots."
+      },
+      "sourceNotes": [
+        "Figure-dependent item. The source length–tension graph remains authoritative for the visual relationship."
+      ]
+    },
+    "marrow__PHYS_CH08_Q007": {
+      "takeaway": "Most hollow viscera contain single-unit (unitary/visceral) smooth muscle.",
+      "displayText": "Single-unit smooth muscle cells are electrically coupled through gap junctions and often contract together as a functional syncytium. This arrangement is typical of hollow organs such as the gastrointestinal tract, uterus, ureter and bladder.\n\nMultiunit smooth muscle instead allows more independent control of individual fibers.",
+      "emphasis": [
+        "Single-unit smooth muscle",
+        "gap junctions",
+        "functional syncytium",
+        "hollow organs"
+      ],
+      "rationales": {
+        "b": "Multiunit smooth muscle is typical of structures requiring fine independent control, such as the iris and ciliary muscle.",
+        "c": "Although some organs contain mixed smooth-muscle organization, hollow viscera are classically dominated by single-unit smooth muscle.",
+        "d": "A well-established smooth-muscle type characterizes hollow viscera, so 'none' is incorrect."
+      }
+    },
+    "marrow__PHYS_CH08_Q008": {
+      "takeaway": "An increase in cytosolic Ca2+ is essential to initiate smooth-muscle contraction.",
+      "displayText": "Smooth muscle lacks troponin. Instead, Ca2+ binds calmodulin, and the Ca2+–calmodulin complex activates myosin light-chain kinase (MLCK). MLCK phosphorylates the regulatory myosin light chain, permitting actin–myosin cycling.\n\nOnce contraction is established, the latch state can maintain tension with lower Ca2+ and low energy expenditure, but Ca2+-dependent activation is required to initiate contraction.",
+      "emphasis": [
+        "Ca2+ binds calmodulin",
+        "myosin light-chain kinase",
+        "phosphorylates the regulatory myosin light chain",
+        "required to initiate contraction"
+      ],
+      "rationales": {
+        "a": "Troponin is absent from smooth muscle, so it is not essential for smooth-muscle EC coupling.",
+        "b": "Sustained latch-state tension may persist even after cytosolic Ca2+ falls from its initial peak.",
+        "c": "Smooth-muscle contraction is regulated mainly by phosphorylation of myosin light chains, not actin phosphorylation."
+      }
+    },
+    "marrow__PHYS_CH08_Q009": {
+      "takeaway": "Calmodulin is structurally and functionally analogous to troponin C as a Ca2+-binding regulatory protein.",
+      "displayText": "Both calmodulin and troponin C contain EF-hand Ca2+-binding domains and act as intracellular Ca2+ sensors.\n\nIn smooth muscle, Ca2+–calmodulin activates MLCK; in striated muscle, Ca2+ binding to troponin C shifts the troponin–tropomyosin complex to permit actin–myosin interaction.",
+      "emphasis": [
+        "EF-hand Ca2+-binding domains",
+        "Ca2+–calmodulin activates MLCK",
+        "troponin C",
+        "actin–myosin interaction"
+      ],
+      "rationales": {
+        "a": "Actin is the contractile thin-filament protein, not the closest Ca2+-sensor analogue of calmodulin.",
+        "b": "MLCK is activated by Ca2+–calmodulin but is not structurally analogous to calmodulin.",
+        "d": "Tropomyosin is a filament-associated regulatory protein and does not serve as the primary Ca2+-binding sensor."
+      }
+    },
+    "marrow__PHYS_CH08_Q010": {
+      "takeaway": "The latch mechanism allows smooth muscle to maintain prolonged force with very low ATP consumption.",
+      "displayText": "After myosin light chains are dephosphorylated, some smooth-muscle cross-bridges detach very slowly. These latch bridges can therefore maintain tension for long periods with little cross-bridge cycling and low energy use.\n\nThis is especially important in tonic smooth muscle such as blood vessels and sphincters.",
+      "emphasis": [
+        "latch bridges",
+        "detach very slowly",
+        "maintain tension",
+        "low energy use"
+      ],
+      "rationales": {
+        "a": "Skeletal muscle does not use the smooth-muscle latch mechanism to maintain tonic force.",
+        "c": "Cardiac muscle relies on repeated excitation–contraction cycles and does not use the classic latch state.",
+        "d": "The latch mechanism is a smooth-muscle specialization rather than a feature of all muscle types."
+      }
+    },
+    "marrow__PHYS_CH08_Q011": {
+      "takeaway": "Troponin distinguishes skeletal from smooth muscle because smooth muscle lacks troponin.",
+      "displayText": "Both skeletal and smooth muscle contain actin, myosin and tropomyosin. Smooth muscle, however, lacks the troponin complex and regulates contraction through Ca2+–calmodulin and MLCK.\n\nTherefore troponin is the most distinguishing protein among the listed options.",
+      "emphasis": [
+        "Smooth muscle",
+        "lacks the troponin complex",
+        "Ca2+–calmodulin",
+        "MLCK"
+      ],
+      "rationales": {
+        "b": "Tropomyosin is present in both skeletal and smooth muscle.",
+        "c": "Myosin is present in both muscle types, although smooth-muscle myosin is regulated differently.",
+        "d": "Actin is a fundamental contractile protein in both skeletal and smooth muscle."
+      }
+    },
+    "marrow__PHYS_CH08_Q012": {
+      "takeaway": "IP3 increases Ca2+ release from smooth-muscle sarcoplasmic reticulum by opening IP3-receptor Ca2+ channels.",
+      "displayText": "Activation of phospholipase C generates inositol 1,4,5-trisphosphate (IP3). IP3 binds its receptor on the sarcoplasmic/endoplasmic reticulum and opens Ca2+ channels, increasing cytosolic Ca2+.\n\nSmooth muscle can also obtain activating Ca2+ through plasma-membrane Ca2+ channels and, in some settings, ryanodine receptors.",
+      "emphasis": [
+        "inositol 1,4,5-trisphosphate (IP3)",
+        "IP3 binds its receptor",
+        "opens Ca2+ channels",
+        "increasing cytosolic Ca2+"
+      ],
+      "rationales": {
+        "a": "Calsequestrin is an intraluminal Ca2+-binding/storage protein and does not trigger Ca2+ release by acting as a second messenger.",
+        "b": "DAG is another PLC product but does not directly open the IP3-receptor Ca2+ channel.",
+        "d": "1,25-dihydroxyvitamin D regulates calcium homeostasis and gene transcription rather than acute SR Ca2+ release."
+      }
+    },
+    "marrow__PHYS_CH08_Q013": {
+      "takeaway": "A blanket statement that sympathetic stimulation always excites smooth muscle is false; autonomic effects depend on tissue and receptor subtype.",
+      "displayText": "Smooth-muscle autonomic responses are not uniform. Sympathetic norepinephrine can contract some smooth muscles through α-adrenergic receptors and relax others through β2-adrenergic signaling; parasympathetic effects are likewise organ-specific.\n\nTherefore the generic statement that sympathetic stimulation produces excitatory membrane potentials in smooth muscle is not universally valid. The other source statements—unstable membrane potential in unitary smooth muscle, dense bodies replacing Z discs, and variable tension over a broad length range—describe recognized smooth-muscle properties.",
+      "emphasis": [
+        "autonomic responses are not uniform",
+        "α-adrenergic receptors",
+        "β2-adrenergic signaling",
+        "not universally valid"
+      ],
+      "rationales": {
+        "a": "Unitary smooth muscle often has spontaneous/unstable membrane activity and intrinsic tone.",
+        "b": "Dense bodies serve as anchoring sites for actin in smooth muscle and function analogously to Z-disc attachment points.",
+        "c": "Smooth muscle shows marked plasticity and can generate force over a broad range of lengths."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanation teaches the sympathetic effect on smooth muscle too categorically as inhibitory/relaxing. In standard physiology, sympathetic responses vary by tissue and adrenergic receptor subtype.",
+        "reconstructedContent": "The learner-facing explanation reframes the keyed option as false because the blanket claim of sympathetic excitation is not universally true, while explicitly stating receptor- and tissue-dependent autonomic effects.",
+        "evidenceBasis": [
+          "Stored source key and options",
+          "Standard autonomic/smooth-muscle physiology: α- and β-adrenergic receptor effects vary by tissue"
+        ],
+        "reviewNote": "Raw key D remains unchanged; reconstruction removes the misleading implication that sympathetic stimulation universally relaxes smooth muscle."
+      }
+    },
+    "marrow__PHYS_CH08_Q014": {
+      "takeaway": "The source tracing gives a tetanizing frequency of about 33 Hz.",
+      "displayText": "The recording paper speed is 1000 mm/s and the contraction period spans about 30 mm on the source tracing.\n\nContraction time = 30/1000 s = 0.03 s. Minimum tetanizing frequency ≈ 1/0.03 ≈ 33 Hz, which falls in the 30–35 Hz option.",
+      "emphasis": [
+        "1000 mm/s",
+        "30/1000 s = 0.03 s",
+        "1/0.03 ≈ 33 Hz",
+        "30–35 Hz"
+      ],
+      "rationales": {
+        "a": "25–20 Hz corresponds to a longer contraction period than the approximately 30 ms shown.",
+        "c": "15–20 Hz would require a contraction period of roughly 50–67 ms.",
+        "d": "10–15 Hz would require an even longer contraction period and does not match the source tracing."
+      },
+      "sourceNotes": [
+        "Figure-dependent calculation. The source gastrocnemius tracing and scale remain authoritative for the measured 30-mm contraction period."
+      ]
+    }
+  }
+}

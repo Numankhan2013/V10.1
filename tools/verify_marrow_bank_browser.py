@@ -315,6 +315,26 @@ def main():
                 raise SystemExit('Physiology Chapter 7 Q35 must render exactly three distractor rationales')
             page.screenshot(path=str(OUT/'00aam-physiology-ch07-rollout-q35.png'),full_page=True)
 
+            # Physiology Chapter 8 reconstruction regression: Q13 must
+            # teach receptor/tissue-dependent autonomic smooth-muscle effects
+            # rather than a blanket sympathetic excitation/relaxation rule.
+            page.evaluate("window.QB.nav('banks','Physiology')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator("button.nk-topic-row[onclick=\"window.QB.openChapter('8')\"]").click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=14:
+                raise SystemExit('Marrow Physiology Chapter 8 count is not 14')
+            page.locator('button.nk-library-row').nth(12).click();page.wait_for_timeout(80)
+            if 'smooth-muscle' not in page.locator('.question-text').inner_text().lower():
+                raise SystemExit('Physiology Chapter 8 rollout Q13 did not open')
+            page.locator('.option-list button').nth(3).click();page.wait_for_timeout(120)
+            ph8=page.locator('.nk-study-support').inner_text().lower()
+            for required in ('key takeaway','detailed explanation','structured text','why the other options are wrong','autonomic responses are not uniform','not universally valid','receptor'):
+                if required not in ph8:
+                    raise SystemExit(f'Physiology Chapter 8 rollout missing {required}')
+            if page.locator('.nk-gold-wrong-row').count()!=3:
+                raise SystemExit('Physiology Chapter 8 Q13 must render exactly three distractor rationales')
+            page.screenshot(path=str(OUT/'00aan-physiology-ch08-rollout-q13.png'),full_page=True)
+
             # Explanation-quality candidate regression: Chapter 1 Q23 is one of
             # the deterministic 20-question Biochemistry sample entries and must
             # use the exact approved 142-question presentation grammar.
