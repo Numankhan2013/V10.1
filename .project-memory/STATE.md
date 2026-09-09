@@ -82,11 +82,12 @@ explanation and exactly three distractor rationales through the real learner UI.
 - Do not reconstruct medically meaningful figures from prose when source assets
   exist or when the source is ambiguous.
 - Historical Batch 01 remains build-verified and user-approved as the minimum quality threshold.
-- Working rollout now contains **79 approved assets / 94 released bindings / 87 released questions**: Batch 02 released 6/6 bindings; Batch 03 released 27/30 and rejected 3; Batch 04 released 27/30 and rejected 3.
-- Authentic ultrasound, specimen, histology and microscopy assets preserve native bytes. Educational diagrams use native PDF streams where readable.
-- False neighboring-page/reuse matches remain explicitly REJECTED; no rejected binding enters runtime metadata.
-- Batch 04 strengthens staging so every new primary binding carries independent page/xref/region and QA status.
-- Full CI for the current 87-question candidate is pending. The first Batch 03 run failed only because the inherited STATE lacked verifier-required literal handoff fields; product/image tests had not run yet.
+- Current rollout contains **147 approved assets / 166 released bindings / 152 released questions**. By subject: Anatomy 58, Biochemistry 55, Physiology 39 questions.
+- Batches 05–07 reviewed 90 candidate bindings and released 72: Batch 05 23/30, Batch 06 23/30 with one quality hold, Batch 07 26/30. Seventeen false ownership/reuse mappings were rejected.
+- Authentic ultrasound, radiology, clinical, specimen, histology and microscopy assets preserve native bytes. Educational diagrams use native PDF streams only where they meet the approved readability floor.
+- The Golgi-tendon-organ sequence remains REVIEW_REQUIRED because its native labels are below the approved baseline; it must be faithfully reconstructed before release.
+- Every staged binding carries independent page/xref/region provenance and QA status. Rejected or unreviewed bindings never enter runtime metadata.
+- Batches 05–07 passed full Android/PWA CI (`34367383565`, `34367985338`, `34368514110`). Latest immutable preview: `https://4d588745.nk-qbank.pages.dev`; production promotion was skipped.
 
 ## Known problems / verification cautions
 

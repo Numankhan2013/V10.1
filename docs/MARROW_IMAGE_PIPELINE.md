@@ -88,18 +88,22 @@ is available on Ubuntu; multi-candidate, masked and complex hybrid figures requi
 an explicit asset-specific reviewed implementation.
 
 
-## Current native rollout — Batches 02–04
+## Current native rollout — Batches 02–07
 
 The current image branch is based on the verified explanation lineage through
-Biochemistry Chapters 1–11 and Physiology Chapter 5. Batch 02 released six
-source-compared native assets. Batches 03 and 04 each audited 30 bindings and
-released 27; six misleading page-neighbor/reuse matches were rejected. The
-working registry now has 79 approved assets serving 87 questions through 94
-released bindings.
+Biochemistry Chapters 1–11 and Physiology Chapter 5. Batches 02–04 reached 79
+approved assets serving 87 questions. Batches 05–07 then reviewed 90 additional
+candidate bindings and released 72, bringing the registry to 147 approved assets
+and 166 released bindings serving 152 questions: Anatomy 58, Biochemistry 55 and
+Physiology 39.
 
-Starting with Batch 04, every newly staged primary binding receives its own
-REVIEW_REQUIRED status and page/xref/region provenance, matching the existing
-rule for reused assets. Asset quality and question ownership can therefore be
-reviewed independently even when the first page-level association is wrong.
-Authentic specimen, ultrasound, histology and microscopy pixels remain unchanged.
-Full Android/PWA verification of this current candidate is pending.
+Every newly staged primary or reused binding receives an independent
+REVIEW_REQUIRED status and exact page/xref/region provenance. Across Batches
+05–07, 17 plausible but wrong page-neighbor/reuse associations were rejected.
+One semantically correct Golgi-tendon-organ sequence remains held because its
+native labels fall below the user-approved readability floor; it requires a
+source-faithful reconstruction before release. Authentic radiology, clinical,
+histology, microscopy and specimen pixels remain byte-identical to their native
+PDF streams.
+
+Full Android/PWA runs `34367383565`, `34367985338` and `34368514110` passed Batches 05–07. The latest immutable preview is `https://4d588745.nk-qbank.pages.dev`; artifact `V11.7-android-pwa` is ID `10111037219`, and production promotion was skipped.
