@@ -85,6 +85,25 @@ def main():
                 raise SystemExit('Biochemistry gold-sample work moved FSRS out of the fixed footer')
             page.screenshot(path=str(OUT/'00aa-biochemistry-gold-sample-q23.png'),full_page=True)
 
+            # Chapter 2 rollout regression: Q1 must now use the same approved
+            # grammar while remaining in the original source topic.
+            page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Glycolysis and gluconeogenesis').click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=30:
+                raise SystemExit('Marrow Biochemistry Chapter 2 count is not 30')
+            page.locator('button.nk-library-row').first.click();page.wait_for_timeout(80)
+            if 'glucose transporter' not in page.locator('.question-text').inner_text().lower():
+                raise SystemExit('Biochemistry Chapter 2 rollout Q1 did not open')
+            page.locator('.option-list button').nth(3).click();page.wait_for_timeout(120)
+            ch2=page.locator('.nk-study-support').inner_text().lower()
+            for marker in ('key takeaway','detailed explanation','structured text','why the other options are wrong','glut4','insulin-responsive'):
+                if marker not in ch2:
+                    raise SystemExit(f'Biochemistry Chapter 2 rollout missing {marker}')
+            if page.locator('.nk-gold-wrong-row').count()!=3:
+                raise SystemExit('Biochemistry Chapter 2 Q1 must render exactly three distractor rationales')
+            page.screenshot(path=str(OUT/'00ab-biochemistry-ch02-rollout-q1.png'),full_page=True)
+
             page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click();page.wait_for_timeout(100)
             if page.locator('button.nk-topic-row').count()<1: raise SystemExit('PrepLadder Biochemistry topics regressed')
@@ -313,5 +332,5 @@ def main():
             if errors: raise SystemExit('Browser errors: '+repr(errors))
             browser.close()
         server.shutdown()
-    print('MARROW_BROWSER_OK registry=subject-indexed anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115 anatomy_phys_reference=142 biochemistry=42 enhanced=184 rationales=552 phys_q2=clean biochem_q23=gold phys_table=preserved anatomy_table=preserved fsrs_dock=fixed')
+    print('MARROW_BROWSER_OK registry=subject-indexed anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115 anatomy_phys_reference=142 biochemistry=71 enhanced=213 rationales=639 phys_q2=clean biochem_q23=gold phys_table=preserved anatomy_table=preserved fsrs_dock=fixed')
 if __name__=='__main__':main()
