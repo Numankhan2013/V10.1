@@ -51,9 +51,10 @@ Check off only when build-verified **and** device-verified where UI is involved.
       `docs/MARROW_EXPLANATION_FINE_TUNING.md`. **Active phase.** Keep raw source
       immutable and scale the approved 142-question grammar through a separate
       augmentation layer. The 2,115-ID inventory is complete and the selected
-      20-question cross-chapter Biochemistry candidate is now implemented on
-      `feature/marrow-biochem-explanation-gold-sample`; next gate is CI + user
-      visual review before any broad rollout.
+      20-question cross-chapter Biochemistry sample passed CI/browser verification
+      and was physically approved by the user on 2026-09-09. The approved reference
+      is now 162 questions; proceed with deterministic full-bank chapter batches
+      across the remaining 1,953 questions.
 - [ ] Images/figures remain a later pass. Preserve figure metadata and do not
       block source-faithful text-bank work on missing binaries.
 - [ ] Continue later Marrow chapters beyond the supplied current scope only when
