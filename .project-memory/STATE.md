@@ -107,6 +107,14 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 
 ## Next step
 
+Image phase in progress on `feature/marrow-image-pipeline`: the PDF inventory
+inspects all 2,484 pages; 1,082 explicit references across 821 questions and
+58 additional text-cue candidates require visual triage. Native candidate
+availability does not mean quality approval. See `docs/MARROW_IMAGE_PIPELINE.md`.
+The first exact-byte microscopy asset is SOURCE_LIMITED; two reconstructed SVGs
+are REVIEW_REQUIRED pending rendered comparison. UI upgrade is deferred.
+Local source checks pass; full image pipeline CI/device verification pending.
+
 1. Build/browser/package-verify the Biochemistry Chapter 1 rollout batch
    (22 new explanations; 23/23 Chapter 1 enhanced including gold-sample Q23).
 2. Merge the Chapter 1 batch after green checks.

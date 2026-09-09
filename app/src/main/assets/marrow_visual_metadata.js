@@ -1,0 +1,1 @@
+window.MARROW_VISUALS={"marrow__BIOCHEM_CH01_Q023":[{"id":"biochemistry-ch01-q023-microscopy","role":"question","order":1,"src":"marrow_visuals/62a5d0ea810266a026e2eae163014e45496c313ad0f426c304a34cd7fe9a6956.jpg","alt":"Two source microscopy panels labelled a and b","status":"SOURCE_LIMITED","width":720,"height":1218}]};

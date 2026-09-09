@@ -41,6 +41,7 @@ required_order = [
     "tools/test_fsrs_v1.py",
     "tools/fix_boot_syntax.py",
     "tools/apply_marrow_bank_pilot.py",
+    "tools/install_marrow_images.py",
     "tools/test_marrow_bank_pilot.py",
     "tools/verify_product_contract.py --stage generated",
     "tools/verify_cbt_invariants.py",

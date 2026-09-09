@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "id": "biochemistry-ch01-q023-microscopy",
+      "subject": "Biochemistry",
+      "kind": "medical",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 10,
+        "xref": 19,
+        "region": [
+          162,
+          56,
+          450,
+          272
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH01_Q023",
+          "role": "question",
+          "order": 1,
+          "alt": "Two source microscopy panels labelled a and b"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/62a5d0ea810266a026e2eae163014e45496c313ad0f426c304a34cd7fe9a6956.jpg",
+        "sha256": "62a5d0ea810266a026e2eae163014e45496c313ad0f426c304a34cd7fe9a6956",
+        "width": 720,
+        "height": 1218
+      },
+      "production": {
+        "path": "data/marrow/images/originals/62a5d0ea810266a026e2eae163014e45496c313ad0f426c304a34cd7fe9a6956.jpg",
+        "sha256": "62a5d0ea810266a026e2eae163014e45496c313ad0f426c304a34cd7fe9a6956",
+        "width": 720,
+        "height": 1218
+      },
+      "method": "native-jpeg-stream",
+      "status": "SOURCE_LIMITED",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected native xref 19 on source page 10: both panels a and b and their lettering preserved. Native JPEG bytes retained exactly. Lower panel shows source compression/posterization; no diagnostic pixels processed or recreated. Physical device review pending."
+      }
+    },
+    {
+      "id": "homeostasis",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 11,
+        "xref": 21,
+        "region": [
+          162,
+          476,
+          450,
+          692
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH01_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source homeostasis control diagram"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/fa647be99a1c86a886512e180a5100f22b486752dabb96ad624903f099d224e5.jpg",
+        "sha256": "fa647be99a1c86a886512e180a5100f22b486752dabb96ad624903f099d224e5"
+      },
+      "production": {
+        "path": "data/marrow/images/editable/homeostasis.svg",
+        "sha256": "17f0ec16cb2e73489eaf4d1612fbff9bb22661322577887d05cef567749b157b",
+        "width": 600,
+        "height": 450
+      },
+      "method": "svg-reconstruction",
+      "status": "REVIEW_REQUIRED",
+      "qa": {
+        "sourceCompared": false,
+        "notes": "Geometry and all educational labels transcribed from inspected native image. Await rendered SVG comparison before release."
+      }
+    },
+    {
+      "id": "enzyme-activity",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 33,
+        "xref": 69,
+        "region": [
+          162,
+          212,
+          450,
+          428
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH02_Q009",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source enzyme activity graph"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/031ee7297698de79e56af46f711381b1b34a8be947e25cf6511fc5e8f1eff890.jpg",
+        "sha256": "031ee7297698de79e56af46f711381b1b34a8be947e25cf6511fc5e8f1eff890"
+      },
+      "production": {
+        "path": "data/marrow/images/editable/enzyme-activity.svg",
+        "sha256": "967a97f0d0e9817c801b5314fbeeb4028b0908809e9696aa26e5df4f6cb82715",
+        "width": 600,
+        "height": 450
+      },
+      "method": "svg-reconstruction",
+      "status": "REVIEW_REQUIRED",
+      "qa": {
+        "sourceCompared": false,
+        "notes": "Geometry and all educational labels transcribed from inspected native image. Await rendered SVG comparison before release."
+      }
+    }
+  ]
+}
