@@ -22,7 +22,8 @@ def main():
     rejected=[(a,b) for a in value['assets'] for b in a['bindings'] if b.get('status')=='REJECTED']
     assert rejected and all(not binding_is_released(a,b) for a,b in rejected)
     progress=build_progress(value)
-    assert progress['bindings']['releasedQuestionCount']>=34
+    assert progress['bindings']['releasedQuestionCount']>=39
+    assert progress['batches']['rollout-02-small']['releasedBindings']==6
     assert progress['bindings']['byStatus']['REJECTED']>=2
     assert json.loads((DATA/'images/progress.json').read_text())==progress
     with tempfile.TemporaryDirectory() as directory:
