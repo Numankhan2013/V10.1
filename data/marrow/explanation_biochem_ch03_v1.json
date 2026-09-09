@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Approved Marrow ED8 Biochemistry Chapter 3 explanation rollout. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "3",
+    "chapterTitle": "Glycogen metabolism and glycogen storage disorders",
+    "questions": 20,
+    "status": "approved-rollout"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 223,
+    "anatomy": 62,
+    "physiology": 80,
+    "biochemistry": 81
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH03_Q001": {
+      "takeaway": "Glycogen uses α(1→4) bonds along its chains and α(1→6) bonds at branch points.",
+      "displayText": "Glycogen is a highly branched homopolysaccharide made from α-D-glucose. The glucose residues within each chain are joined mainly by α(1→4) glycosidic bonds.\n\nBranch points are created by α(1→6) glycosidic bonds. Therefore, the primary linkage is α(1→4), while the branch-point linkage is α(1→6).",
+      "emphasis": [
+        "α(1→4) glycosidic bonds",
+        "α(1→6) glycosidic bonds",
+        "primary linkage is α(1→4)"
+      ],
+      "rationales": {
+        "b": "This reverses the two linkages: α(1→6) forms branch points, not the main linear chain.",
+        "c": "Using α(1→4) for both positions omits the α(1→6) bond that creates a glycogen branch.",
+        "d": "α(1→6) is not the predominant linkage along the glycogen chain; it is confined to branch points."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q002": {
+      "takeaway": "The major sites of glycogen synthesis are the liver and skeletal muscle.",
+      "displayText": "Glycogenesis occurs predominantly in the liver and skeletal muscle. These tissues build glycogen as a readily accessible glucose reserve.\n\nMuscle glycogen is used locally to support glycolysis during muscular activity, whereas liver glycogen can ultimately contribute glucose to the blood. The source therefore identifies liver and muscle as the major sites of glycogen synthesis.",
+      "emphasis": [
+        "liver and skeletal muscle",
+        "Muscle glycogen",
+        "liver glycogen"
+      ],
+      "rationales": {
+        "a": "The source identifies liver together with skeletal muscle, not kidney, as the major pair of glycogen-synthesizing tissues.",
+        "c": "Skeletal muscle stores glycogen, but mature erythrocytes are not a major glycogen-storage site.",
+        "d": "Muscle is a major site, but kidney does not replace liver in the source-keyed pair."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q003": {
+      "takeaway": "Glycogen synthesis occurs in the cytosol of liver and skeletal-muscle cells.",
+      "displayText": "The enzymes of glycogen synthesis operate in the cytosol, particularly in hepatocytes and skeletal-muscle cells. Glycogen is stored there as cytoplasmic granules associated with the enzymes that synthesize and degrade it.\n\nThe source also notes that stored glycogen is highly hydrated. The accompanying glycogen-structure figure remains preserved separately by its source-page metadata.",
+      "emphasis": [
+        "operate in the cytosol",
+        "hepatocytes and skeletal-muscle cells",
+        "highly hydrated"
+      ],
+      "rationales": {
+        "a": "Mitochondria are not the cellular compartment in which glycogen synthesis occurs.",
+        "b": "The Golgi apparatus processes and sorts macromolecules; it is not the site of glycogenesis.",
+        "d": "The endoplasmic reticulum is not the main site of glycogen synthesis, which occurs in the cytosol."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q004": {
+      "takeaway": "Glycogenin is the protein primer that accepts the first glucose residues during glycogen synthesis.",
+      "displayText": "Glycogen synthesis requires a primer because glycogen synthase cannot initiate a new glycogen molecule de novo. The primer is glycogenin, a protein that accepts glucose residues from UDP-glucose.\n\nGlycogenin catalyzes addition of the first several glucose residues in α(1→4) linkage, creating a short glycogen primer. Glycogen synthase then extends this primer to build the glycogen chain.",
+      "emphasis": [
+        "glycogenin",
+        "protein",
+        "UDP-glucose",
+        "short glycogen primer"
+      ],
+      "rationales": {
+        "b": "A carbohydrate is not the initiating acceptor specified by the source; the primer is the protein glycogenin.",
+        "c": "A lipid does not serve as the primer for glycogen synthesis.",
+        "d": "A nucleic acid is not the acceptor that initiates glycogen synthesis."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q005": {
+      "takeaway": "UDP-glucose is the activated glucose donor used for glycogen synthesis.",
+      "displayText": "Glucose is added to a growing glycogen molecule in the activated form UDP-glucose. UDP-glucose is formed from glucose-1-phosphate and UTP by UDP-glucose pyrophosphorylase.\n\nThe glucose residue carried by UDP is then transferred into glycogen during chain elongation.",
+      "emphasis": [
+        "UDP-glucose",
+        "glucose-1-phosphate and UTP",
+        "UDP-glucose pyrophosphorylase"
+      ],
+      "rationales": {
+        "b": "ITP is not the nucleotide carrier used to donate glucose during glycogen synthesis.",
+        "c": "ATP supplies energy in many reactions but is not the activated nucleotide-sugar donor for glycogen synthesis.",
+        "d": "GTP is not the nucleotide attached to glucose in the glycogen-synthesis donor molecule."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q006": {
+      "takeaway": "In the source-keyed hepatic sequence, glycogen phosphorylase acts first, branch handling follows, and glucose-6-phosphatase enables release of free glucose.",
+      "displayText": "Hepatic glycogenolysis begins with glycogen phosphorylase, which removes glucose residues from α(1→4)-linked chains as glucose-1-phosphate. As a branch is approached, debranching activity including glucan transferase is required so degradation can continue.\n\nThe resulting glucose phosphate is converted to glucose-6-phosphate, and hepatic glucose-6-phosphatase performs the terminal dephosphorylation that permits free glucose to be released. This preserves the source-keyed order: phosphorylase → glucan transferase → glucose-6-phosphatase.",
+      "emphasis": [
+        "glycogen phosphorylase",
+        "glucan transferase",
+        "glucose-6-phosphatase",
+        "phosphorylase → glucan transferase → glucose-6-phosphatase"
+      ],
+      "rationales": {
+        "b": "Glycogen synthase belongs to glycogen synthesis, so it cannot be the first enzyme in a glycogenolytic sequence.",
+        "c": "Glucose-6-phosphatase acts near the end of hepatic glycogenolysis, not before phosphorylase and debranching activity.",
+        "d": "This places glucose-6-phosphatase before branch handling; the source-keyed sequence places glucan transferase before the terminal phosphatase step."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q007": {
+      "takeaway": "Glycogen phosphorylase catalyzes the rate-limiting step of glycogenolysis.",
+      "displayText": "Glycogen phosphorylase catalyzes phosphorolytic cleavage of α(1→4) glycosidic bonds at the non-reducing ends of glycogen, releasing glucose-1-phosphate. It is the rate-limiting enzyme of glycogenolysis.\n\nThe enzyme requires pyridoxal phosphate as a coenzyme, and distinct phosphorylase isoenzymes are present in tissues such as liver and muscle.",
+      "emphasis": [
+        "Glycogen phosphorylase",
+        "rate-limiting enzyme of glycogenolysis",
+        "glucose-1-phosphate",
+        "pyridoxal phosphate"
+      ],
+      "rationales": {
+        "a": "Glycogen synthase is the key enzyme of glycogen synthesis, not glycogen breakdown.",
+        "c": "Glucose-6-phosphatase releases free glucose from glucose-6-phosphate in tissues such as liver but is not the rate-limiting enzyme of glycogenolysis.",
+        "d": "Phosphoglucomutase interconverts glucose-1-phosphate and glucose-6-phosphate; it does not catalyze the rate-limiting glycogen-cleavage step."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q008": {
+      "takeaway": "Muscle lacks glucose-6-phosphatase, so muscle glycogen cannot directly supply free glucose to the blood.",
+      "displayText": "Skeletal muscle can degrade glycogen to glucose-6-phosphate, but it lacks glucose-6-phosphatase. It therefore cannot dephosphorylate glucose-6-phosphate to free glucose for release into the circulation.\n\nIn contrast, liver contains glucose-6-phosphatase and can release glycogen-derived glucose to help maintain blood glucose. Muscle instead uses its glycogen-derived glucose-6-phosphate locally for glycolysis.",
+      "emphasis": [
+        "lacks glucose-6-phosphatase",
+        "free glucose",
+        "liver contains glucose-6-phosphatase",
+        "locally for glycolysis"
+      ],
+      "rationales": {
+        "a": "Glucokinase is not the missing enzyme that prevents muscle from releasing free glucose.",
+        "b": "Phosphoglucomutase participates in glycogen metabolism in muscle and does not explain the inability to export glucose.",
+        "d": "Muscle glycogen phosphorylase is required for glycogen breakdown; its normal presence does not permit free-glucose release without glucose-6-phosphatase."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q009": {
+      "takeaway": "Glycogen phosphorylase requires pyridoxal phosphate, the active coenzyme form of vitamin B6.",
+      "displayText": "Glycogen phosphorylase uses pyridoxal phosphate (PLP) as its coenzyme during phosphorolytic cleavage of glycogen. PLP is derived from vitamin B6.\n\nThis reaction releases glucose-1-phosphate from α(1→4)-linked glycogen chains.",
+      "emphasis": [
+        "pyridoxal phosphate (PLP)",
+        "vitamin B6",
+        "glucose-1-phosphate"
+      ],
+      "rationales": {
+        "a": "Vitamin B1 forms thiamine pyrophosphate and is not the cofactor used by glycogen phosphorylase.",
+        "c": "Vitamin B2 supplies flavin cofactors such as FAD and FMN, not the PLP required by glycogen phosphorylase.",
+        "d": "Vitamin B7 is biotin, a cofactor for carboxylation reactions rather than glycogen phosphorylase."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q010": {
+      "takeaway": "5′AMP is an allosteric activator of muscle glycogen phosphorylase.",
+      "displayText": "Muscle glycogen phosphorylase is regulated both by covalent phosphorylation and by the energy state of the cell. 5′AMP binds the muscle isoenzyme and allosterically activates the less-active dephosphorylated phosphorylase b form when cellular energy is low.\n\nPhosphorylase kinase activates glycogen phosphorylase by phosphorylation, whereas protein phosphatase-1 reverses that activation by dephosphorylation. The source regulation table and figure remain preserved separately.",
+      "emphasis": [
+        "5′AMP",
+        "allosterically activates",
+        "phosphorylase b",
+        "protein phosphatase-1"
+      ],
+      "rationales": {
+        "a": "ATP signals adequate cellular energy and does not serve as the source-keyed allosteric activator of muscle glycogen phosphorylase.",
+        "b": "Insulin favors glycogen storage and dephosphorylation rather than acting as the direct allosteric activator asked for here.",
+        "c": "Glucose is not the source-keyed allosteric activator of the muscle phosphorylase isoenzyme; the distinctive activator is 5′AMP."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q011": {
+      "takeaway": "Glycogenin primes glycogen synthesis; it does not regulate glycogen phosphorylase.",
+      "displayText": "Glycogen phosphorylase is regulated through several signaling mechanisms. cAMP activates phosphorylase kinase through cAMP-dependent protein kinase, calcium activates the calmodulin component of phosphorylase kinase, and protein phosphatase-1 inactivates glycogen phosphorylase by dephosphorylation.\n\nGlycogenin has a different role: it is the protein primer that initiates glycogen synthesis. It therefore does not participate in regulation of glycogen phosphorylase.",
+      "emphasis": [
+        "cAMP",
+        "calmodulin",
+        "protein phosphatase-1",
+        "Glycogenin"
+      ],
+      "rationales": {
+        "a": "cAMP participates in the kinase cascade that activates phosphorylase kinase and thereby glycogen phosphorylase.",
+        "b": "Calmodulin is the calcium-sensing component through which calcium can activate phosphorylase kinase.",
+        "c": "Protein phosphatase-1 directly participates in regulation by dephosphorylating and inactivating glycogen phosphorylase."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q012": {
+      "takeaway": "The glycogen debranching enzyme includes amylo-1,6-glucosidase activity, which hydrolyzes the α(1→6) branch bond.",
+      "displayText": "Debranching requires two coordinated activities. When glycogen phosphorylase approaches a branch, α(1→4) glucan-transferase activity moves a short block of glucose residues away from the branch point.\n\nAmylo-1,6-glucosidase then hydrolyzes the remaining α(1→6) glycosidic bond and releases free glucose. The source therefore identifies amylo-1,6-glucosidase as the debranching-enzyme activity represented among the options.",
+      "emphasis": [
+        "α(1→4) glucan-transferase",
+        "Amylo-1,6-glucosidase",
+        "α(1→6) glycosidic bond",
+        "free glucose"
+      ],
+      "rationales": {
+        "a": "Phosphoglucomutase interconverts glucose-1-phosphate and glucose-6-phosphate and is not the glycogen debranching activity.",
+        "b": "Glucose-6-phosphatase removes phosphate from glucose-6-phosphate in tissues such as liver; it does not remove glycogen branch points.",
+        "d": "Amylo-1,4→1,6 transglucosidase describes branch-forming activity rather than the α(1→6)-hydrolyzing debranching activity asked for here."
+      },
+      "sourceNotes": [
+        "The stored source explanation for Q12 contains OCR spillover from subsequent Chapter 3 solutions. This display text preserves only the Q12 debranching content recoverable before that spillover; the raw source record remains unchanged and auditable."
+      ]
+    },
+    "marrow__BIOCHEM_CH03_Q013": {
+      "takeaway": "Anaerobic glycolysis of glycogen yields 3 ATP per glycogen-derived glucosyl unit because the hexokinase ATP cost is bypassed.",
+      "displayText": "Glycogen breakdown supplies glucose-1-phosphate, which is converted to glucose-6-phosphate before entering glycolysis. Because the pathway enters as glucose-6-phosphate, it bypasses the ATP-consuming hexokinase step required for free glucose.\n\nAnaerobic glycolysis still consumes one ATP at phosphofructokinase and produces four ATP by substrate-level phosphorylation. The net yield from a glycogen-derived glucosyl unit is therefore 3 ATP. The source ATP-production table remains preserved separately.",
+      "emphasis": [
+        "bypasses the ATP-consuming hexokinase step",
+        "produces four ATP",
+        "net yield",
+        "3 ATP"
+      ],
+      "rationales": {
+        "b": "An amino acid is not the source-keyed substrate whose anaerobic entry into glycolysis saves the hexokinase ATP.",
+        "c": "Free glucose requires ATP for phosphorylation to glucose-6-phosphate, giving the usual net anaerobic glycolytic yield rather than 3 ATP.",
+        "d": "Galactose must first be converted into glycolytic intermediates and is not the source-keyed substrate yielding 3 ATP in this comparison."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q014": {
+      "takeaway": "Scheie disease is a mucopolysaccharidosis, not a glycogen-storage disorder.",
+      "displayText": "Scheie disease belongs to the mucopolysaccharidoses and is therefore the exception among the listed disorders.\n\nThe other options are glycogen-storage diseases: Hers disease is associated with hepatic glycogen phosphorylase deficiency, Tarui disease with phosphofructokinase deficiency, and Andersen disease with branching-enzyme deficiency.",
+      "emphasis": [
+        "Scheie disease",
+        "mucopolysaccharidoses",
+        "Hers disease",
+        "Tarui disease"
+      ],
+      "rationales": {
+        "a": "Hers disease is a glycogen-storage disorder involving liver glycogen phosphorylase deficiency.",
+        "b": "Tarui disease is a glycogen-storage disorder caused by phosphofructokinase deficiency.",
+        "d": "Andersen disease is a glycogen-storage disorder caused by deficient glycogen branching activity."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q015": {
+      "takeaway": "Pompe disease is both glycogen-storage disease type II and a lysosomal storage disorder.",
+      "displayText": "Pompe disease results from deficiency of lysosomal acid α-glucosidase, also called acid maltase. Because lysosomal glycogen cannot be degraded normally, glycogen accumulates within lysosomal vacuoles.\n\nThis makes Pompe disease a glycogen-storage disorder with a lysosomal mechanism. The source identifies it as type II GSD and notes lysosomal glycogen accumulation as its defining distinction.",
+      "emphasis": [
+        "Pompe disease",
+        "lysosomal acid α-glucosidase",
+        "acid maltase",
+        "type II GSD"
+      ],
+      "rationales": {
+        "a": "Von Gierke disease is type I GSD due to glucose-6-phosphatase deficiency, not a lysosomal glycogen-degradation defect.",
+        "c": "McArdle disease is caused by muscle glycogen phosphorylase deficiency and is not the lysosomal GSD in this comparison.",
+        "d": "Cori disease is a debranching-enzyme defect rather than a lysosomal acid-maltase deficiency."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q016": {
+      "takeaway": "Infantile Pompe disease is treated with recombinant acid α-glucosidase, alglucosidase alfa.",
+      "displayText": "Failure to thrive, generalized hypotonia, hepatomegaly and massive cardiomegaly in an infant, together with vacuolated muscle, are characteristic of infantile Pompe disease. The underlying defect is lysosomal acid α-glucosidase deficiency, causing glycogen accumulation in skeletal and cardiac muscle.\n\nEnzyme-replacement therapy is alglucosidase alfa (Myozyme), recombinant acid α-glucosidase. The source muscle-biopsy image remains preserved separately with its provenance.",
+      "emphasis": [
+        "infantile Pompe disease",
+        "acid α-glucosidase deficiency",
+        "alglucosidase alfa (Myozyme)",
+        "Enzyme-replacement therapy"
+      ],
+      "rationales": {
+        "a": "Naglazyme (galsulfase) is enzyme replacement for mucopolysaccharidosis VI, not Pompe disease.",
+        "c": "Aldurazyme (laronidase) is used for mucopolysaccharidosis I rather than acid-maltase deficiency.",
+        "d": "Elaprase (idursulfase) is used for mucopolysaccharidosis II, not Pompe disease."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q017": {
+      "takeaway": "Severe fasting hypoglycemia with lactic acidosis, hyperuricemia, hyperlipidemia and hepatorenomegaly points to von Gierke disease.",
+      "displayText": "The combination of rapid hypoglycemia, elevated ketone bodies, lactic acidosis, hypertriglyceridemia and enlargement of both liver and kidneys is characteristic of von Gierke disease (type I glycogen-storage disease).\n\nThe deficient enzyme is glucose-6-phosphatase, affecting the final release of free glucose from both glycogenolysis and gluconeogenesis in tissues such as liver and kidney. The disorder is inherited in an autosomal-recessive pattern.",
+      "emphasis": [
+        "von Gierke disease",
+        "glucose-6-phosphatase",
+        "glycogenolysis and gluconeogenesis",
+        "autosomal-recessive"
+      ],
+      "rationales": {
+        "b": "Pompe disease is a lysosomal acid-maltase deficiency classically associated with hypotonia and cardiomyopathy rather than this metabolic profile.",
+        "c": "McArdle disease primarily affects skeletal muscle and presents with exercise intolerance rather than severe fasting hypoglycemia with hepatorenomegaly.",
+        "d": "Cori disease is a debranching-enzyme defect and does not match the classic glucose-6-phosphatase-deficiency pattern described here."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q018": {
+      "takeaway": "Von Gierke disease is inherited in an autosomal-recessive pattern.",
+      "displayText": "Von Gierke disease (type I glycogen-storage disease) is an autosomal-recessive disorder caused by glucose-6-phosphatase deficiency.\n\nThe resulting inability to release free glucose normally produces severe hypoglycemia, with characteristic associated findings such as lactic acidosis, hyperuricemia, hyperlipidemia and hepatomegaly.",
+      "emphasis": [
+        "autosomal-recessive",
+        "glucose-6-phosphatase deficiency",
+        "severe hypoglycemia",
+        "lactic acidosis"
+      ],
+      "rationales": {
+        "a": "Von Gierke disease is not inherited as an autosomal-dominant condition.",
+        "c": "The source identifies autosomal-recessive inheritance, not X-linked recessive transmission.",
+        "d": "The disease is not X-linked dominant; its inheritance is autosomal recessive."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q019": {
+      "takeaway": "Cardiomyopathy is not a typical complication of von Gierke disease; it is classically associated with Pompe disease.",
+      "displayText": "The clinical picture is von Gierke disease: recurrent hypoglycemia, doll-like facies, massive hepatomegaly, lactic acidosis, hypertriglyceridemia and hyperuricemia from glucose-6-phosphatase deficiency.\n\nThe source lists hepatic adenoma, pancreatitis and renal failure among recognized complications of von Gierke disease. Cardiomyopathy is the exception in this question and instead points toward Pompe disease.",
+      "emphasis": [
+        "von Gierke disease",
+        "hepatic adenoma",
+        "pancreatitis and renal failure",
+        "Cardiomyopathy"
+      ],
+      "rationales": {
+        "a": "Hepatic adenoma is a recognized long-term complication of von Gierke disease.",
+        "b": "Pancreatitis can occur in von Gierke disease, particularly in the setting of marked hypertriglyceridemia.",
+        "d": "Renal dysfunction and eventual renal failure are recognized complications of von Gierke disease."
+      }
+    },
+    "marrow__BIOCHEM_CH03_Q020": {
+      "takeaway": "Exercise-induced muscle pain with excess muscle glycogen is characteristic of McArdle disease from muscle glycogen phosphorylase deficiency.",
+      "displayText": "Exercise-related calf pain with excessive glycogen in skeletal muscle is characteristic of McArdle disease. The deficient enzyme is muscle glycogen phosphorylase (myophosphorylase), so muscle cannot mobilize its glycogen normally during exercise.\n\nThe source notes poor exercise tolerance, increased muscle glycogen and a very low blood-lactate response after exercise. The biopsy and myophosphorylase-histochemistry images remain preserved separately with source provenance.",
+      "emphasis": [
+        "McArdle disease",
+        "muscle glycogen phosphorylase",
+        "poor exercise tolerance",
+        "very low blood-lactate response"
+      ],
+      "rationales": {
+        "a": "Muscle debranching-enzyme deficiency is not the classic defect in McArdle disease.",
+        "b": "Phosphofructokinase deficiency causes Tarui disease rather than McArdle disease.",
+        "c": "Glucose-6-phosphatase deficiency causes von Gierke disease, which primarily produces fasting hypoglycemia and hepatorenal glycogen accumulation."
+      }
+    }
+  }
+}
