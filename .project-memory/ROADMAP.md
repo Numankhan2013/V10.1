@@ -55,7 +55,9 @@ Check off only when build-verified **and** device-verified where UI is involved.
       and was physically approved by the user on 2026-09-09. The approved reference
       is now the canonical grammar. Biochemistry Chapter 1 rollout is complete
       (22 additional questions; 23/23 Chapter 1 enhanced), bringing the enhanced
-      total to **184** with **1,931** remaining. Continue at Biochemistry Chapter 2.
+      total to **184**. Biochemistry Chapter 2 is now complete on the rollout
+      branch (29 additional questions; 30/30 enhanced including gold-sample Q9),
+      bringing the total to **213** with **1,902** remaining. Continue at Chapter 3.
 - [ ] Images/figures remain a later pass. Preserve figure metadata and do not
       block source-faithful text-bank work on missing binaries.
 - [ ] Continue later Marrow chapters beyond the supplied current scope only when
