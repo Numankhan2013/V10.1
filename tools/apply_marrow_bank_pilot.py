@@ -312,6 +312,52 @@ if any(not str(v.get("takeaway","")).strip() or not str(v.get("displayText",""))
     raise SystemExit("Every Marrow Physiology explanation needs takeaway and clean display text")
 if any(len(v.get("rationales",{}))!=3 for v in phys_gold_q.values()):
     raise SystemExit("Every Marrow Physiology explanation needs exactly three distractor rationales")
+
+# Continue Physiology refinement chapter-by-chapter using the same immutable-source
+# augmentation contract as the approved pilot.
+physio_paths=sorted(DATA.glob("explanation_physio_ch*_v1.json"))
+physio_source_q={str(q.get("id","")):q for q in expanded_physiology.get("questions",[])}
+physio_rollout_q={}
+physio_file_counts={}
+for path in physio_paths:
+    record=json.loads(path.read_text(encoding="utf-8"))
+    scope=record.get("scope",{})
+    questions=record.get("questions",{})
+    if (
+        scope.get("subject")!="Physiology"
+        or scope.get("bank")!="Marrow"
+        or scope.get("status")!="approved-rollout"
+        or not questions
+    ):
+        raise SystemExit(f"Marrow Physiology explanation batch identity/status mismatch: {path.name}")
+    if int(scope.get("questions",0))!=len(questions):
+        raise SystemExit(f"Marrow Physiology explanation batch count mismatch: {path.name}")
+    overlap=(set(phys_gold_q)|set(physio_rollout_q))&set(questions)
+    if overlap:
+        raise SystemExit(f"Marrow Physiology explanation batch ID collision: {path.name} {sorted(overlap)[:3]}")
+    if not set(questions).issubset(physio_source_q):
+        raise SystemExit(f"Marrow Physiology explanation batch has unknown source IDs: {path.name}")
+    chapter=str(scope.get("chapterId"))
+    for qid,cfg in questions.items():
+        source_q=physio_source_q[qid]
+        if str(source_q.get("chapterId"))!=chapter:
+            raise SystemExit(f"Marrow Physiology explanation chapter mismatch: {qid}")
+        if not str(cfg.get("takeaway","")).strip() or not str(cfg.get("displayText","")).strip():
+            raise SystemExit(f"Marrow Physiology explanation missing takeaway/displayText: {qid}")
+        emphasis=cfg.get("emphasis",[])
+        if not (1<=len(emphasis)<=4) or any(str(p) not in str(cfg["displayText"]) for p in emphasis):
+            raise SystemExit(f"Marrow Physiology emphasis invalid: {qid}")
+        correct=int(source_q.get("correctOption",0))
+        wrong_letters={
+            str(option.get("letter") or chr(64+index)).lower()
+            for index,option in enumerate(source_q.get("options",[]),1)
+            if index!=correct
+        }
+        if len(cfg.get("rationales",{}))!=3 or set(cfg.get("rationales",{}))!=wrong_letters:
+            raise SystemExit(f"Marrow Physiology distractor rationales mismatch: {qid}")
+    physio_rollout_q.update(questions)
+    physio_file_counts[path.name]=len(questions)
+
 # Biochemistry explanation augmentation now uses the user-approved grammar.
 # Keep batches in separate audited JSON files so rollout can proceed chapter by
 # chapter without touching the raw Marrow source bundles or creating new UI.
@@ -367,16 +413,18 @@ for qid,cfg in biochem_gold_q.items():
 
 if set(gold["questions"]) & set(phys_gold_q):
     raise SystemExit("Marrow explanation augmentation IDs collide")
-approved_gold={**gold["questions"],**phys_gold_q}
-if len(approved_gold)!=142:
+approved_gold={**gold["questions"],**phys_gold_q,**physio_rollout_q}
+expected_reference=142+len(physio_rollout_q)
+if len(approved_gold)!=expected_reference:
     raise SystemExit(f"Approved Anatomy/Physiology reference count mismatch: {len(approved_gold)}")
 if set(approved_gold) & set(biochem_gold_q):
     raise SystemExit("Marrow Biochemistry rollout collides with Anatomy/Physiology explanation IDs")
 all_gold={**approved_gold,**biochem_gold_q}
 print(
-    "MARROW_BIOCHEM_EXPLANATION_BATCHES_OK "
-    f"files={len(biochem_paths)} biochemistry={len(biochem_gold_q)} "
-    f"rendered_total={len(all_gold)} batches={biochem_file_counts}"
+    "MARROW_EXPLANATION_BATCHES_OK "
+    f"physiology_files={len(physio_paths)} physiology_rollout={len(physio_rollout_q)} "
+    f"biochemistry_files={len(biochem_paths)} biochemistry={len(biochem_gold_q)} "
+    f"rendered_total={len(all_gold)} physio_batches={physio_file_counts} biochem_batches={biochem_file_counts}"
 )
 
 source=HTML.read_text(encoding="utf-8")
