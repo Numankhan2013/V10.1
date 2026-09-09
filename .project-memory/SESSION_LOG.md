@@ -586,3 +586,20 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - The remaining rollout target is **1,953 Marrow questions**, to be handled in
   deterministic chapter batches with raw source immutable and source ambiguity
   preserved rather than invented.
+
+
+## 2026-09-09 — Full explanation rollout started: Biochemistry Chapter 1
+
+- Merged the user-approved 20-question Biochemistry gold sample into `main`
+  via PR #9 at merge commit `4d93f6f9`.
+- Started deterministic full-bank rollout on
+  `feature/marrow-explanation-rollout-biochem-ch01`.
+- Added approved learner-facing augmentation for the remaining 22 questions in
+  Biochemistry Chapter 1. Gold-sample Q23 already covered the chapter's final
+  question, so Chapter 1 is now **23/23 enhanced**.
+- Explanation inventory is now **184 enhanced / 1,931 pending**.
+- Generalized the Biochemistry augmentation loader to accept future approved
+  chapter batch files with collision, option/rationale, emphasis and source-ID
+  checks. Raw source bundles remain unchanged.
+- Added dedicated Chapter 1 rollout tests and browser coverage. Exact next content
+  start after this batch: **Biochemistry Chapter 2**, skipping already-approved Q9.
