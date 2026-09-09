@@ -300,7 +300,7 @@ def main():
             # the missing verbatim numbered statements.
             page.evaluate("window.QB.nav('banks','Physiology')");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
-            page.locator('button.nk-topic-row').filter(has_text='Muscle Physiology I').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Muscle Physiology I 35 questions').click();page.wait_for_timeout(80)
             if page.locator('button.nk-library-row').count()!=35:
                 raise SystemExit('Marrow Physiology Chapter 7 count is not 35')
             page.locator('button.nk-library-row').nth(34).click();page.wait_for_timeout(80)
