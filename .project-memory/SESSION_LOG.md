@@ -670,3 +670,10 @@ Implemented approved recovery in existing transform owners: Topics separate path
   `https://feature-marrow-image-rollout.nk-qbank.pages.dev`.
 - Production promotion was skipped. This is build-verified, not a new physically
   accepted overall product baseline.
+
+## 2026-09-09 — Marrow image rollout Batch 01 merged
+
+- PR #13 merged the build-verified 28-asset / 34-question Batch 01 into `main`
+  at merge commit `6d1b520`.
+- Production remained unchanged. Full-bank image rollout is still active; Batch 02
+  should prioritize unresolved stem-critical and multi-candidate figures.

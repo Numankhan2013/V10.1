@@ -7,7 +7,8 @@
 
 - Repo: `Numankhan2013/V10.1`.
 - Git `main` is the authoritative unified V11/Marrow product line; the user-approved image pilot merged through PR #12.
-- Current image rollout branch: `feature/marrow-image-rollout-batch-01`.
+- Current branch: `main`. Batch 01 merged through PR #13; begin the next
+  bounded image batch from current `main`.
 - Resolve live branch/HEAD from Git; never hardcode a self-staling HEAD value.
 - Accepted product baseline remains **V11.6 Content Quality** at `125d68b`,
   canonical APK run `34050921180`.
@@ -113,8 +114,8 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 - On 2026-09-09 the user reviewed all sixteen released pilot figures in the PWA
   and approved them as the minimum quality threshold for wider rollout. Future
   releases may improve on this baseline but must not fall below it.
-- Active Batch 01 currently has **28 approved assets / 34 released question
-  bindings**: Anatomy 12, Biochemistry 11, Physiology 11. It adds ten inspected
+- Merged Batch 01 has **28 approved assets / 34 released question bindings**:
+  Anatomy 12, Biochemistry 11, Physiology 11. It adds ten inspected
   native assets, six approved repeated-asset bindings, and the two formerly held
   SVG reconstructions. Two false reuse matches were explicitly REJECTED.
 - Authentic Pompe/McArdle muscle imagery retains exact native JPEG bytes. The
@@ -135,11 +136,12 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 
 ## Next step
 
-1. Open/merge the fully build-verified Batch 01 PR; production remains unchanged.
-2. Continue deterministic batches, prioritizing unresolved question-critical and
-   multi-candidate figures; never substitute an explanation image for a missing stem image.
-3. Keep each batch behind registry/binding QA, browser timing checks, offline hashes
+1. Create Batch 02 from current `main`, prioritizing unresolved question-critical
+   and multi-candidate figures; never substitute an explanation image for a missing stem image.
+2. Keep each batch behind registry/binding QA, browser timing checks, offline hashes
    and packaged APK verification.
+3. Continue until the audit queue is resolved across all three subjects, preserving
+   explicit REVIEW_REQUIRED/SOURCE_LIMITED outcomes where the source prevents release.
 4. Resume explanation rollout separately after the image priority phase.
 
 Canonical Marrow procedure: `docs/MARROW_BANK_INTEGRATION.md`.
