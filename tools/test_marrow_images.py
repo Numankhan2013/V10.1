@@ -24,6 +24,8 @@ def main():
     progress=build_progress(value)
     assert progress['bindings']['releasedQuestionCount']>=39
     assert progress['batches']['rollout-02-small']['releasedBindings']==6
+    assert progress['bindings']['releasedQuestionCount']>=62
+    assert progress['batches']['rollout-03-native']=={'bindings':30,'rejectedBindings':3,'releasedBindings':27}
     assert progress['bindings']['byStatus']['REJECTED']>=2
     assert json.loads((DATA/'images/progress.json').read_text())==progress
     with tempfile.TemporaryDirectory() as directory:

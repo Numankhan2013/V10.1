@@ -1642,6 +1642,29 @@
           "role": "explanation",
           "order": 1,
           "alt": "HMP/PPP pathway diagram"
+        },
+        {
+          "questionId": "marrow__BIOCHEM_CH04_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "HMP/PPP pathway diagram",
+          "status": "PASS",
+          "reviewBatch": "rollout-03-native",
+          "source": {
+            "page": 64,
+            "xref": 147,
+            "region": [
+              162.0,
+              136.0,
+              450.0,
+              352.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The same complete HMP pathway legitimately supports the tissue-distribution question explanation; it is explanation-only.",
+            "evidence": "Native HMP stream confirmed on cited Biochemistry page 64 and matched to Q3 metadata."
+          }
         }
       ],
       "original": {
@@ -1758,6 +1781,1249 @@
         "evidence": "Native stream xref 149 visually compared with Physiology page 60 metadata and owning question marrow__PHYS_CH04_Q001.",
         "originalSha256": "bcb1af48abc939bd16d221a6fd8100d57a956f22662f302431a9a6e92a77e48d",
         "productionSha256": "bcb1af48abc939bd16d221a6fd8100d57a956f22662f302431a9a6e92a77e48d"
+      }
+    },
+    {
+      "id": "anatomy-4305fadd5f51c2a4",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 43,
+        "xref": 3464,
+        "region": [
+          162.0,
+          339.0,
+          450.0,
+          555.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH03_Q012",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Primitive gut"
+        },
+        {
+          "questionId": "marrow__ANAT_CH03_Q013",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Primitive gut and vitellointestinal tract",
+          "status": "PASS",
+          "reviewBatch": "rollout-03-native",
+          "source": {
+            "page": 44,
+            "xref": 3464,
+            "region": [
+              162.0,
+              118.0,
+              450.0,
+              334.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact repeated primitive-gut/vitellointestinal-tract figure supports the patent vitelline duct explanation and remains answer-safe after submission.",
+            "evidence": "Same native xref 3464 confirmed on cited Anatomy page 44 and matched to Q13 metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/4305fadd5f51c2a4277ade325e832f46cadf5030c9fba6322838a6e02b53a232.jpg",
+        "sha256": "4305fadd5f51c2a4277ade325e832f46cadf5030c9fba6322838a6e02b53a232",
+        "width": 576,
+        "height": 576
+      },
+      "production": {
+        "path": "data/marrow/images/originals/4305fadd5f51c2a4277ade325e832f46cadf5030c9fba6322838a6e02b53a232.jpg",
+        "sha256": "4305fadd5f51c2a4277ade325e832f46cadf5030c9fba6322838a6e02b53a232",
+        "width": 576,
+        "height": 576
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Complete primitive-gut diagram; foregut, midgut, hindgut, vitellointestinal tract and yolk sac labels and relationships are readable.",
+        "evidence": "Native xref 3464 compared with Anatomy page 43 and ANAT_CH03_Q012 metadata.",
+        "originalSha256": "4305fadd5f51c2a4277ade325e832f46cadf5030c9fba6322838a6e02b53a232",
+        "productionSha256": "4305fadd5f51c2a4277ade325e832f46cadf5030c9fba6322838a6e02b53a232"
+      }
+    },
+    {
+      "id": "anatomy-04c1cbb8247f2a36",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 34,
+        "xref": 74,
+        "region": [
+          162.0,
+          408.0,
+          450.0,
+          624.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH03_Q014",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/04c1cbb8247f2a362f602137ba46e35ffa81a730e0597c578c3b85b8a712e3a9.jpg",
+        "sha256": "04c1cbb8247f2a362f602137ba46e35ffa81a730e0597c578c3b85b8a712e3a9",
+        "width": 720,
+        "height": 446
+      },
+      "production": {
+        "path": "data/marrow/images/originals/04c1cbb8247f2a362f602137ba46e35ffa81a730e0597c578c3b85b8a712e3a9.jpg",
+        "sha256": "04c1cbb8247f2a362f602137ba46e35ffa81a730e0597c578c3b85b8a712e3a9",
+        "width": 720,
+        "height": 446
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic sirenomelia specimen photograph is complete, uncropped and unprocessed; the deformity required by the stem is clearly visible.",
+        "evidence": "Native xref 74 compared with Anatomy page 34 and question-critical ANAT_CH03_Q014 metadata; original bytes preserved.",
+        "originalSha256": "04c1cbb8247f2a362f602137ba46e35ffa81a730e0597c578c3b85b8a712e3a9",
+        "productionSha256": "04c1cbb8247f2a362f602137ba46e35ffa81a730e0597c578c3b85b8a712e3a9"
+      }
+    },
+    {
+      "id": "anatomy-4f2131360c1baa76",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 46,
+        "xref": 105,
+        "region": [
+          162.0,
+          176.0,
+          450.0,
+          392.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q001",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/4f2131360c1baa76372ade2e37d95ed687ce1e6f49bd2231f91ff755a0d0ce67.jpg",
+        "sha256": "4f2131360c1baa76372ade2e37d95ed687ce1e6f49bd2231f91ff755a0d0ce67",
+        "width": 720,
+        "height": 779
+      },
+      "production": {
+        "path": "data/marrow/images/originals/4f2131360c1baa76372ade2e37d95ed687ce1e6f49bd2231f91ff755a0d0ce67.jpg",
+        "sha256": "4f2131360c1baa76372ade2e37d95ed687ce1e6f49bd2231f91ff755a0d0ce67",
+        "width": 720,
+        "height": 779
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Unanswered decidua diagram retains numeric labels 1–4 with unambiguous endpoints and no answer-revealing text.",
+        "evidence": "Native xref 105 compared with Anatomy page 46 and question-critical ANAT_CH04_Q001 metadata.",
+        "originalSha256": "4f2131360c1baa76372ade2e37d95ed687ce1e6f49bd2231f91ff755a0d0ce67",
+        "productionSha256": "4f2131360c1baa76372ade2e37d95ed687ce1e6f49bd2231f91ff755a0d0ce67"
+      }
+    },
+    {
+      "id": "anatomy-29c4f49f1ef74a7d",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 54,
+        "xref": 135,
+        "region": [
+          162.0,
+          423.0,
+          450.0,
+          639.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q001",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Parts of decidua"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/29c4f49f1ef74a7d1eb79c63819c46195cb03f2afaf96b6eb66f4053b99bcc0e.jpg",
+        "sha256": "29c4f49f1ef74a7d1eb79c63819c46195cb03f2afaf96b6eb66f4053b99bcc0e",
+        "width": 575,
+        "height": 587
+      },
+      "production": {
+        "path": "data/marrow/images/originals/29c4f49f1ef74a7d1eb79c63819c46195cb03f2afaf96b6eb66f4053b99bcc0e.jpg",
+        "sha256": "29c4f49f1ef74a7d1eb79c63819c46195cb03f2afaf96b6eb66f4053b99bcc0e",
+        "width": 575,
+        "height": 587
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Answer-phase decidua diagram contains all named regions and uterine cavity with readable labels and correct relationships.",
+        "evidence": "Native xref 135 compared with Anatomy page 54 and ANAT_CH04_Q001 explanation metadata.",
+        "originalSha256": "29c4f49f1ef74a7d1eb79c63819c46195cb03f2afaf96b6eb66f4053b99bcc0e",
+        "productionSha256": "29c4f49f1ef74a7d1eb79c63819c46195cb03f2afaf96b6eb66f4053b99bcc0e"
+      }
+    },
+    {
+      "id": "anatomy-6b2c6b66ccb3ba59",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 47,
+        "xref": 108,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q002",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/6b2c6b66ccb3ba5920a171cea13d9e0b4f43cd9466ca33fc736ce8366e214b8d.jpg",
+        "sha256": "6b2c6b66ccb3ba5920a171cea13d9e0b4f43cd9466ca33fc736ce8366e214b8d",
+        "width": 649,
+        "height": 431
+      },
+      "production": {
+        "path": "data/marrow/images/originals/6b2c6b66ccb3ba5920a171cea13d9e0b4f43cd9466ca33fc736ce8366e214b8d.jpg",
+        "sha256": "6b2c6b66ccb3ba5920a171cea13d9e0b4f43cd9466ca33fc736ce8366e214b8d",
+        "width": 649,
+        "height": 431
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic placenta specimen photograph is preserved without synthetic processing and clearly shows the organ and cord required by the stem.",
+        "evidence": "Native xref 108 compared with Anatomy page 47 and question-critical ANAT_CH04_Q002 metadata; original bytes preserved.",
+        "originalSha256": "6b2c6b66ccb3ba5920a171cea13d9e0b4f43cd9466ca33fc736ce8366e214b8d",
+        "productionSha256": "6b2c6b66ccb3ba5920a171cea13d9e0b4f43cd9466ca33fc736ce8366e214b8d"
+      }
+    },
+    {
+      "id": "anatomy-b3260f13f3a7e801",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 55,
+        "xref": 138,
+        "region": [
+          162.0,
+          192.0,
+          450.0,
+          408.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q002",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Development of placenta"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b3260f13f3a7e801eddf74570dfd2082456b0f54dabeae0f93e8ff4aa3e81a25.jpg",
+        "sha256": "b3260f13f3a7e801eddf74570dfd2082456b0f54dabeae0f93e8ff4aa3e81a25",
+        "width": 575,
+        "height": 587
+      },
+      "production": {
+        "path": "data/marrow/images/originals/b3260f13f3a7e801eddf74570dfd2082456b0f54dabeae0f93e8ff4aa3e81a25.jpg",
+        "sha256": "b3260f13f3a7e801eddf74570dfd2082456b0f54dabeae0f93e8ff4aa3e81a25",
+        "width": 575,
+        "height": 587
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Placental-development diagram clearly preserves chorion frondosum as fetal part and decidua basalis as maternal part.",
+        "evidence": "Native xref 138 compared with Anatomy page 55 and ANAT_CH04_Q002 explanation metadata.",
+        "originalSha256": "b3260f13f3a7e801eddf74570dfd2082456b0f54dabeae0f93e8ff4aa3e81a25",
+        "productionSha256": "b3260f13f3a7e801eddf74570dfd2082456b0f54dabeae0f93e8ff4aa3e81a25"
+      }
+    },
+    {
+      "id": "anatomy-2f174293d2712f6d",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 48,
+        "xref": 111,
+        "region": [
+          162.0,
+          113.0,
+          450.0,
+          329.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q005",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/2f174293d2712f6d609c30bb0186b4799cb09fabb5e6188461702fac4ad8f767.jpg",
+        "sha256": "2f174293d2712f6d609c30bb0186b4799cb09fabb5e6188461702fac4ad8f767",
+        "width": 720,
+        "height": 978
+      },
+      "production": {
+        "path": "data/marrow/images/originals/2f174293d2712f6d609c30bb0186b4799cb09fabb5e6188461702fac4ad8f767.jpg",
+        "sha256": "2f174293d2712f6d609c30bb0186b4799cb09fabb5e6188461702fac4ad8f767",
+        "width": 720,
+        "height": 978
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Unanswered definitive-placenta diagram preserves A/B/C endpoints, maternal/fetal orientation and all question-relevant layers without revealing their names.",
+        "evidence": "Native xref 111 compared with Anatomy page 48 and question-critical ANAT_CH04_Q005 metadata.",
+        "originalSha256": "2f174293d2712f6d609c30bb0186b4799cb09fabb5e6188461702fac4ad8f767",
+        "productionSha256": "2f174293d2712f6d609c30bb0186b4799cb09fabb5e6188461702fac4ad8f767"
+      }
+    },
+    {
+      "id": "anatomy-301df78f965e054c",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 49,
+        "xref": 114,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q006",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/301df78f965e054cadf9a9e590620575db2c1fff925466ccfc328b7f40b02092.jpg",
+        "sha256": "301df78f965e054cadf9a9e590620575db2c1fff925466ccfc328b7f40b02092",
+        "width": 720,
+        "height": 1058
+      },
+      "production": {
+        "path": "data/marrow/images/originals/301df78f965e054cadf9a9e590620575db2c1fff925466ccfc328b7f40b02092.jpg",
+        "sha256": "301df78f965e054cadf9a9e590620575db2c1fff925466ccfc328b7f40b02092",
+        "width": 720,
+        "height": 1058
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Unanswered chorionic-plate diagram preserves numeric labels 1–4, maternal/fetal orientation and exact layer endpoints without answer text.",
+        "evidence": "Native xref 114 compared with Anatomy page 49 and question-critical ANAT_CH04_Q006 metadata.",
+        "originalSha256": "301df78f965e054cadf9a9e590620575db2c1fff925466ccfc328b7f40b02092",
+        "productionSha256": "301df78f965e054cadf9a9e590620575db2c1fff925466ccfc328b7f40b02092"
+      }
+    },
+    {
+      "id": "anatomy-befcb535860c0898",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 58,
+        "xref": 149,
+        "region": [
+          162.0,
+          212.0,
+          450.0,
+          428.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q007",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Definitive placenta and intervillous space"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/befcb535860c089842f6abefe9cd72d00c1c3d9025892118f880918fc86578f6.jpg",
+        "sha256": "befcb535860c089842f6abefe9cd72d00c1c3d9025892118f880918fc86578f6",
+        "width": 576,
+        "height": 823
+      },
+      "production": {
+        "path": "data/marrow/images/originals/befcb535860c089842f6abefe9cd72d00c1c3d9025892118f880918fc86578f6.jpg",
+        "sha256": "befcb535860c089842f6abefe9cd72d00c1c3d9025892118f880918fc86578f6",
+        "width": 576,
+        "height": 823
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Complete definitive-placenta explanation diagram preserves basal plate, intervillous space, chorionic plate and all labelled maternal/fetal layers.",
+        "evidence": "Native xref 149 compared with Anatomy page 58 and ANAT_CH04_Q007 metadata.",
+        "originalSha256": "befcb535860c089842f6abefe9cd72d00c1c3d9025892118f880918fc86578f6",
+        "productionSha256": "befcb535860c089842f6abefe9cd72d00c1c3d9025892118f880918fc86578f6"
+      }
+    },
+    {
+      "id": "biochemistry-ee8bbd06b62ac0ce",
+      "subject": "Biochemistry",
+      "kind": "medical",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 61,
+        "xref": 140,
+        "region": [
+          162.0,
+          212.0,
+          450.0,
+          428.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH04_Q005",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/ee8bbd06b62ac0ce8bd32bd4f05aab62592c4e4a49f0043a08dbef5e4b7940cd.jpg",
+        "sha256": "ee8bbd06b62ac0ce8bd32bd4f05aab62592c4e4a49f0043a08dbef5e4b7940cd",
+        "width": 720,
+        "height": 515
+      },
+      "production": {
+        "path": "data/marrow/images/originals/ee8bbd06b62ac0ce8bd32bd4f05aab62592c4e4a49f0043a08dbef5e4b7940cd.jpg",
+        "sha256": "ee8bbd06b62ac0ce8bd32bd4f05aab62592c4e4a49f0043a08dbef5e4b7940cd",
+        "width": 720,
+        "height": 515
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic peripheral-smear field preserves bite/blister-cell morphology required by the question; no medical pixels were altered.",
+        "evidence": "Native xref 140 compared with Biochemistry page 61 and question-critical BIOCHEM_CH04_Q005 metadata; original bytes preserved.",
+        "originalSha256": "ee8bbd06b62ac0ce8bd32bd4f05aab62592c4e4a49f0043a08dbef5e4b7940cd",
+        "productionSha256": "ee8bbd06b62ac0ce8bd32bd4f05aab62592c4e4a49f0043a08dbef5e4b7940cd"
+      }
+    },
+    {
+      "id": "biochemistry-6c8b24035a488a25",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 67,
+        "xref": 155,
+        "region": [
+          162.0,
+          184.0,
+          450.0,
+          400.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH04_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Fructose metabolism pathway"
+        },
+        {
+          "questionId": "marrow__BIOCHEM_CH04_Q009",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Fructose metabolism pathway",
+          "status": "PASS",
+          "reviewBatch": "rollout-03-native",
+          "source": {
+            "page": 67,
+            "xref": 155,
+            "region": [
+              162.0,
+              184.0,
+              450.0,
+              400.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The repeated fructose pathway directly supports hereditary fructose intolerance and its aldolase B block.",
+            "evidence": "Same native xref 155 confirmed on cited Biochemistry page 67 and matched to Q9 metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/6c8b24035a488a251179bfac2e1962846955764718da09ccbc0fcd88bc9615f3.jpg",
+        "sha256": "6c8b24035a488a251179bfac2e1962846955764718da09ccbc0fcd88bc9615f3",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/6c8b24035a488a251179bfac2e1962846955764718da09ccbc0fcd88bc9615f3.jpg",
+        "sha256": "6c8b24035a488a251179bfac2e1962846955764718da09ccbc0fcd88bc9615f3",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Complete fructose-metabolism pathway preserves fructokinase and aldolase B disease points, intermediates and downstream TCA/TAG branches.",
+        "evidence": "Native xref 155 compared with Biochemistry page 67 and BIOCHEM_CH04_Q008 metadata.",
+        "originalSha256": "6c8b24035a488a251179bfac2e1962846955764718da09ccbc0fcd88bc9615f3",
+        "productionSha256": "6c8b24035a488a251179bfac2e1962846955764718da09ccbc0fcd88bc9615f3"
+      }
+    },
+    {
+      "id": "biochemistry-bb781d8346ed1c36",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 68,
+        "xref": 1146,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH04_Q010",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Fructose metabolism pathway"
+        },
+        {
+          "questionId": "marrow__BIOCHEM_CH04_Q011",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Galactose metabolism pathway",
+          "status": "REJECTED",
+          "reviewBatch": "rollout-03-native",
+          "source": {
+            "page": 69,
+            "xref": 1146,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": false,
+            "notes": "Rejected: the native stream is a fructose-metabolism pathway, while Q11 requires a galactose-metabolism pathway.",
+            "evidence": "Visual identity conflicts with Q11 metadata despite reuse of xref 1146 on cited page 69."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/bb781d8346ed1c3677ac8faf3a5a54501d09f583509a91d1aa0d7ecf9d1198d4.jpg",
+        "sha256": "bb781d8346ed1c3677ac8faf3a5a54501d09f583509a91d1aa0d7ecf9d1198d4",
+        "width": 600,
+        "height": 451
+      },
+      "production": {
+        "path": "data/marrow/images/originals/bb781d8346ed1c3677ac8faf3a5a54501d09f583509a91d1aa0d7ecf9d1198d4.jpg",
+        "sha256": "bb781d8346ed1c3677ac8faf3a5a54501d09f583509a91d1aa0d7ecf9d1198d4",
+        "width": 600,
+        "height": 451
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Complete fructose-metabolism pathway is readable and correctly supports essential fructosuria in BIOCHEM_CH04_Q010.",
+        "evidence": "Native xref 1146 compared with Biochemistry page 68 and BIOCHEM_CH04_Q010 metadata; separate galactose reuse is rejected.",
+        "originalSha256": "bb781d8346ed1c3677ac8faf3a5a54501d09f583509a91d1aa0d7ecf9d1198d4",
+        "productionSha256": "bb781d8346ed1c3677ac8faf3a5a54501d09f583509a91d1aa0d7ecf9d1198d4"
+      }
+    },
+    {
+      "id": "biochemistry-84a628031e475ffd",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 77,
+        "xref": 178,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH05_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Mitochondrial compartments and associated enzymes"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/84a628031e475ffd4bc16c2789a55ba173e19a9921489cc19928442d62b649dd.jpg",
+        "sha256": "84a628031e475ffd4bc16c2789a55ba173e19a9921489cc19928442d62b649dd",
+        "width": 600,
+        "height": 451
+      },
+      "production": {
+        "path": "data/marrow/images/originals/84a628031e475ffd4bc16c2789a55ba173e19a9921489cc19928442d62b649dd.jpg",
+        "sha256": "84a628031e475ffd4bc16c2789a55ba173e19a9921489cc19928442d62b649dd",
+        "width": 600,
+        "height": 451
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Mitochondrial compartment diagram preserves matrix, inner/outer membrane and cristae ownership with complete associated enzyme lists.",
+        "evidence": "Native xref 178 compared with Biochemistry page 77 and BIOCHEM_CH05_Q002 metadata.",
+        "originalSha256": "84a628031e475ffd4bc16c2789a55ba173e19a9921489cc19928442d62b649dd",
+        "productionSha256": "84a628031e475ffd4bc16c2789a55ba173e19a9921489cc19928442d62b649dd"
+      }
+    },
+    {
+      "id": "biochemistry-7db8a11adfbb554a",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 79,
+        "xref": 183,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH05_Q007",
+          "role": "explanation",
+          "order": 1,
+          "alt": "F0-F1 ATP synthase complex"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/7db8a11adfbb554ae69937f8e7b9b273a3b452d16fbf931e0f678ecea08ca915.jpg",
+        "sha256": "7db8a11adfbb554ae69937f8e7b9b273a3b452d16fbf931e0f678ecea08ca915",
+        "width": 600,
+        "height": 451
+      },
+      "production": {
+        "path": "data/marrow/images/originals/7db8a11adfbb554ae69937f8e7b9b273a3b452d16fbf931e0f678ecea08ca915.jpg",
+        "sha256": "7db8a11adfbb554ae69937f8e7b9b273a3b452d16fbf931e0f678ecea08ca915",
+        "width": 600,
+        "height": 451
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "F0/F1 ATP-synthase molecular figure clearly preserves membrane orientation and both complex labels.",
+        "evidence": "Native xref 183 compared with Biochemistry page 79 and BIOCHEM_CH05_Q007 metadata.",
+        "originalSha256": "7db8a11adfbb554ae69937f8e7b9b273a3b452d16fbf931e0f678ecea08ca915",
+        "productionSha256": "7db8a11adfbb554ae69937f8e7b9b273a3b452d16fbf931e0f678ecea08ca915"
+      }
+    },
+    {
+      "id": "biochemistry-636ea090cf45a508",
+      "subject": "Biochemistry",
+      "kind": "medical",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 74,
+        "xref": 171,
+        "region": [
+          162.0,
+          188.0,
+          450.0,
+          404.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH05_Q013",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/636ea090cf45a5084ba8c6ada7efe2e0dfee59aae6a0f5d1b482376c19ef5b32.jpg",
+        "sha256": "636ea090cf45a5084ba8c6ada7efe2e0dfee59aae6a0f5d1b482376c19ef5b32",
+        "width": 720,
+        "height": 581
+      },
+      "production": {
+        "path": "data/marrow/images/originals/636ea090cf45a5084ba8c6ada7efe2e0dfee59aae6a0f5d1b482376c19ef5b32.jpg",
+        "sha256": "636ea090cf45a5084ba8c6ada7efe2e0dfee59aae6a0f5d1b482376c19ef5b32",
+        "width": 720,
+        "height": 581
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic question-time muscle histology preserves ragged-red fiber morphology and source arrows without pixel alteration.",
+        "evidence": "Native xref 171 compared with Biochemistry page 74 and question-critical BIOCHEM_CH05_Q013 metadata; original bytes preserved.",
+        "originalSha256": "636ea090cf45a5084ba8c6ada7efe2e0dfee59aae6a0f5d1b482376c19ef5b32",
+        "productionSha256": "636ea090cf45a5084ba8c6ada7efe2e0dfee59aae6a0f5d1b482376c19ef5b32"
+      }
+    },
+    {
+      "id": "biochemistry-896d7cdebbd899ac",
+      "subject": "Biochemistry",
+      "kind": "medical",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 81,
+        "xref": 188,
+        "region": [
+          162.0,
+          172.0,
+          450.0,
+          388.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH05_Q013",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Modified Gomori trichrome ragged red fibers"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/896d7cdebbd899ac143129cc6beabe9148078f0b1ee68e9f2b7e9e9295c5bb2e.jpg",
+        "sha256": "896d7cdebbd899ac143129cc6beabe9148078f0b1ee68e9f2b7e9e9295c5bb2e",
+        "width": 720,
+        "height": 581
+      },
+      "production": {
+        "path": "data/marrow/images/originals/896d7cdebbd899ac143129cc6beabe9148078f0b1ee68e9f2b7e9e9295c5bb2e.jpg",
+        "sha256": "896d7cdebbd899ac143129cc6beabe9148078f0b1ee68e9f2b7e9e9295c5bb2e",
+        "width": 720,
+        "height": 581
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic modified Gomori trichrome explanation image preserves the ragged-red fibers and arrow annotations without pixel alteration.",
+        "evidence": "Native xref 188 compared with Biochemistry page 81 and BIOCHEM_CH05_Q013 metadata; original bytes preserved.",
+        "originalSha256": "896d7cdebbd899ac143129cc6beabe9148078f0b1ee68e9f2b7e9e9295c5bb2e",
+        "productionSha256": "896d7cdebbd899ac143129cc6beabe9148078f0b1ee68e9f2b7e9e9295c5bb2e"
+      }
+    },
+    {
+      "id": "physiology-52d79eab4c3b01d6",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 61,
+        "xref": 152,
+        "region": [
+          162.0,
+          110.0,
+          450.0,
+          326.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH04_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Goldman-Hodgkin-Katz equation figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/52d79eab4c3b01d647d53b177fcf1fbd7d47e09cd1eaa50572eb3c974e84aeba.jpg",
+        "sha256": "52d79eab4c3b01d647d53b177fcf1fbd7d47e09cd1eaa50572eb3c974e84aeba",
+        "width": 1278,
+        "height": 451
+      },
+      "production": {
+        "path": "data/marrow/images/originals/52d79eab4c3b01d647d53b177fcf1fbd7d47e09cd1eaa50572eb3c974e84aeba.jpg",
+        "sha256": "52d79eab4c3b01d647d53b177fcf1fbd7d47e09cd1eaa50572eb3c974e84aeba",
+        "width": 1278,
+        "height": 451
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Goldman-Hodgkin-Katz equation is complete and sharply readable, including ion concentrations, permeabilities and chloride inversion.",
+        "evidence": "Native xref 152 compared with Physiology page 61 and PHYS_CH04_Q002 metadata.",
+        "originalSha256": "52d79eab4c3b01d647d53b177fcf1fbd7d47e09cd1eaa50572eb3c974e84aeba",
+        "productionSha256": "52d79eab4c3b01d647d53b177fcf1fbd7d47e09cd1eaa50572eb3c974e84aeba"
+      }
+    },
+    {
+      "id": "physiology-ea95960d9797114b",
+      "subject": "Physiology",
+      "kind": "table",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 58,
+        "xref": 144,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH04_Q011",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/ea95960d9797114bb137a1c6be3678cae2e94c9fadfe774a41ae978e6f1debe4.jpg",
+        "sha256": "ea95960d9797114bb137a1c6be3678cae2e94c9fadfe774a41ae978e6f1debe4",
+        "width": 720,
+        "height": 486
+      },
+      "production": {
+        "path": "data/marrow/images/originals/ea95960d9797114bb137a1c6be3678cae2e94c9fadfe774a41ae978e6f1debe4.jpg",
+        "sha256": "ea95960d9797114bb137a1c6be3678cae2e94c9fadfe774a41ae978e6f1debe4",
+        "width": 720,
+        "height": 486
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Question-time equilibrium-potential table preserves all four ions and values clearly without adding interpretive answer cues.",
+        "evidence": "Native xref 144 compared with Physiology page 58 and question-critical PHYS_CH04_Q011 metadata.",
+        "originalSha256": "ea95960d9797114bb137a1c6be3678cae2e94c9fadfe774a41ae978e6f1debe4",
+        "productionSha256": "ea95960d9797114bb137a1c6be3678cae2e94c9fadfe774a41ae978e6f1debe4"
+      }
+    },
+    {
+      "id": "physiology-168fc35ffd3d28de",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 75,
+        "xref": 191,
+        "region": [
+          162.0,
+          232.0,
+          450.0,
+          448.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH05_Q025",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/168fc35ffd3d28de99b47e36fa0f16c59acf6467a3f6e84ebcc036db10172779.jpg",
+        "sha256": "168fc35ffd3d28de99b47e36fa0f16c59acf6467a3f6e84ebcc036db10172779",
+        "width": 720,
+        "height": 574
+      },
+      "production": {
+        "path": "data/marrow/images/originals/168fc35ffd3d28de99b47e36fa0f16c59acf6467a3f6e84ebcc036db10172779.jpg",
+        "sha256": "168fc35ffd3d28de99b47e36fa0f16c59acf6467a3f6e84ebcc036db10172779",
+        "width": 720,
+        "height": 574
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Question-time Darrow-Yannet diagram preserves original and changed compartments, 300 mOsm/L height, volume axes and ICF/ECF boundary.",
+        "evidence": "Native xref 191 compared with Physiology page 75 and question-critical PHYS_CH05_Q025 metadata.",
+        "originalSha256": "168fc35ffd3d28de99b47e36fa0f16c59acf6467a3f6e84ebcc036db10172779",
+        "productionSha256": "168fc35ffd3d28de99b47e36fa0f16c59acf6467a3f6e84ebcc036db10172779"
+      }
+    },
+    {
+      "id": "physiology-3b068c7b8dd91874",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 105,
+        "xref": 272,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH06_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Neuron structural diagram"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/3b068c7b8dd918744ab26014d138d4863488a55df001c0afea822d1c87ec7262.jpg",
+        "sha256": "3b068c7b8dd918744ab26014d138d4863488a55df001c0afea822d1c87ec7262",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/3b068c7b8dd918744ab26014d138d4863488a55df001c0afea822d1c87ec7262.jpg",
+        "sha256": "3b068c7b8dd918744ab26014d138d4863488a55df001c0afea822d1c87ec7262",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "REJECTED",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Rejected: extracted native stream is a types-of-glial-cells flowchart, not the neuron structural diagram named by the metadata.",
+        "evidence": "Native xref 272 on Physiology page 105 visibly conflicts with PHYS_CH06_Q003 figure identity; do not release.",
+        "originalSha256": "3b068c7b8dd918744ab26014d138d4863488a55df001c0afea822d1c87ec7262",
+        "productionSha256": "3b068c7b8dd918744ab26014d138d4863488a55df001c0afea822d1c87ec7262"
+      }
+    },
+    {
+      "id": "physiology-03662be0ff19814b",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 106,
+        "xref": 275,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH06_Q004",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Neuron/myelin/node of Ranvier diagram"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/03662be0ff19814b9325aa124f5c322d19089d33e2d5f9a5b3662c5e7b918856.jpg",
+        "sha256": "03662be0ff19814b9325aa124f5c322d19089d33e2d5f9a5b3662c5e7b918856",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/03662be0ff19814b9325aa124f5c322d19089d33e2d5f9a5b3662c5e7b918856.jpg",
+        "sha256": "03662be0ff19814b9325aa124f5c322d19089d33e2d5f9a5b3662c5e7b918856",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Complete neuron diagram preserves soma, dendrites, axon hillock, axon, oligodendrocyte, myelin, nodes of Ranvier and terminals.",
+        "evidence": "Native xref 275 compared with Physiology page 106 and PHYS_CH06_Q004 metadata.",
+        "originalSha256": "03662be0ff19814b9325aa124f5c322d19089d33e2d5f9a5b3662c5e7b918856",
+        "productionSha256": "03662be0ff19814b9325aa124f5c322d19089d33e2d5f9a5b3662c5e7b918856"
+      }
+    },
+    {
+      "id": "physiology-c68202277014d7a7",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 107,
+        "xref": 2123,
+        "region": [
+          162.0,
+          469.0,
+          450.0,
+          685.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH06_Q007",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Action potential diagram"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/c68202277014d7a7fc5a4b99d2b9e0b02002c509713746c2a9f558bbf24d2c0e.jpg",
+        "sha256": "c68202277014d7a7fc5a4b99d2b9e0b02002c509713746c2a9f558bbf24d2c0e",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/c68202277014d7a7fc5a4b99d2b9e0b02002c509713746c2a9f558bbf24d2c0e.jpg",
+        "sha256": "c68202277014d7a7fc5a4b99d2b9e0b02002c509713746c2a9f558bbf24d2c0e",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Voltage-gated sodium-channel feedback schematic preserves depolarization, increased permeability/influx, positive feedback and inactivation branches.",
+        "evidence": "Native xref 2123 compared with Physiology page 107 and PHYS_CH06_Q007 explanation context.",
+        "originalSha256": "c68202277014d7a7fc5a4b99d2b9e0b02002c509713746c2a9f558bbf24d2c0e",
+        "productionSha256": "c68202277014d7a7fc5a4b99d2b9e0b02002c509713746c2a9f558bbf24d2c0e"
+      }
+    },
+    {
+      "id": "physiology-bf79566225f11215",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 108,
+        "xref": 2124,
+        "region": [
+          162.0,
+          205.0,
+          450.0,
+          421.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH06_Q008",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Ion conductance/action potential diagram"
+        },
+        {
+          "questionId": "marrow__PHYS_CH06_Q033",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Conductance graph",
+          "status": "PASS",
+          "reviewBatch": "rollout-03-native",
+          "source": {
+            "page": 122,
+            "xref": 2124,
+            "region": [
+              162.0,
+              301.0,
+              450.0,
+              517.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The repeated full action-potential conductance diagram is a valid answer-phase companion to the question's simplified Na/K conductance graph.",
+            "evidence": "Same native xref 2124 confirmed on cited Physiology page 122 and matched to Q33 explanation context."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/bf79566225f11215ba286a45713afab832968e418fc9c3c1feb7526be0e97c25.jpg",
+        "sha256": "bf79566225f11215ba286a45713afab832968e418fc9c3c1feb7526be0e97c25",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/bf79566225f11215ba286a45713afab832968e418fc9c3c1feb7526be0e97c25.jpg",
+        "sha256": "bf79566225f11215ba286a45713afab832968e418fc9c3c1feb7526be0e97c25",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Complete action-potential/conductance figure preserves membrane phases, Na/K conductance curves, channel states and refractory periods.",
+        "evidence": "Native xref 2124 compared with Physiology page 108 and PHYS_CH06_Q008 metadata.",
+        "originalSha256": "bf79566225f11215ba286a45713afab832968e418fc9c3c1feb7526be0e97c25",
+        "productionSha256": "bf79566225f11215ba286a45713afab832968e418fc9c3c1feb7526be0e97c25"
+      }
+    },
+    {
+      "id": "physiology-5aa55964b7b23c30",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-03-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 102,
+        "xref": 264,
+        "region": [
+          162.0,
+          220.0,
+          450.0,
+          436.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH06_Q033",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure"
+        },
+        {
+          "questionId": "marrow__PHYS_CH06_Q034",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "REJECTED",
+          "reviewBatch": "rollout-03-native",
+          "source": {
+            "page": 102,
+            "xref": 264,
+            "region": [
+              162.0,
+              220.0,
+              450.0,
+              436.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": false,
+            "notes": "Rejected: the native stream is the Na/K ion-conductance graph for Q33, not the simple muscle-twitch/time-trace figure required by Q34.",
+            "evidence": "Visual identity conflicts with Q34 metadata despite page-level candidate reuse on Physiology page 102."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/5aa55964b7b23c30e8f521648c1025a4e0a53dfe71bf2b21f18baa163256edbb.jpg",
+        "sha256": "5aa55964b7b23c30e8f521648c1025a4e0a53dfe71bf2b21f18baa163256edbb",
+        "width": 720,
+        "height": 553
+      },
+      "production": {
+        "path": "data/marrow/images/originals/5aa55964b7b23c30e8f521648c1025a4e0a53dfe71bf2b21f18baa163256edbb.jpg",
+        "sha256": "5aa55964b7b23c30e8f521648c1025a4e0a53dfe71bf2b21f18baa163256edbb",
+        "width": 720,
+        "height": 553
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Question-time Na/K conductance graph preserves A/B curves, axes, units and timing without identifying the ions.",
+        "evidence": "Native xref 264 compared with Physiology page 102 and question-critical PHYS_CH06_Q033 metadata; separate muscle-twitch reuse is rejected.",
+        "originalSha256": "5aa55964b7b23c30e8f521648c1025a4e0a53dfe71bf2b21f18baa163256edbb",
+        "productionSha256": "5aa55964b7b23c30e8f521648c1025a4e0a53dfe71bf2b21f18baa163256edbb"
       }
     }
   ]
