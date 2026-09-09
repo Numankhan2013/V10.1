@@ -603,3 +603,17 @@ Implemented approved recovery in existing transform owners: Topics separate path
   checks. Raw source bundles remain unchanged.
 - Added dedicated Chapter 1 rollout tests and browser coverage. Exact next content
   start after this batch: **Biochemistry Chapter 2**, skipping already-approved Q9.
+
+
+## 2026-09-09 — Biochemistry Chapter 2 explanation rollout
+
+- Continued the approved explanation grammar into Biochemistry Chapter 2.
+- Added augmentation for 29 questions; approved gold-sample Q9 already covered
+  the remaining question, so Chapter 2 is now **30/30 enhanced**.
+- Combined enhanced inventory is **213 / 2,115**, leaving **1,902** pending.
+- Generalized rollout validation now checks every approved Biochemistry chapter
+  batch, source chapter membership, no collisions with the gold sample, exactly
+  three wrong-option rationales, selective emphasis and full covered-chapter
+  accounting.
+- Added browser regression coverage for Chapter 2 Q1.
+- Exact next content start after merge: **Biochemistry Chapter 3**.
