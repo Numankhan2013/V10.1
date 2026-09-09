@@ -58,16 +58,20 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
   explanation with selective emphasis/native tables → exactly three concise
   wrong-option rationales. FSRS stays in the fixed session footer.
 - After the approved 20-question Biochemistry sample and completion of Chapters
-  1 and 4, **194 of 2,115 are enhanced; 1,921 remain**.
+  1, 2 and 4, **223 of 2,115 are enhanced; 1,892 remain**.
 - The approved cross-chapter **20-question Biochemistry gold reference** is stored
   at `data/marrow/explanation_biochem_gold_sample_v1.json`.
 - Biochemistry Chapter 1 rollout is complete: the remaining **22 questions** are
   stored in `data/marrow/explanation_biochem_ch01_v1.json`; together with gold
   sample Q23, all 23 Chapter 1 questions now use the approved grammar.
+- Biochemistry Chapter 2 rollout is implemented for its remaining **29 questions**
+  in `data/marrow/explanation_biochem_ch02_v1.json`; together with approved gold
+  sample Q9, all 30 questions use the approved grammar. It is rebased onto the
+  current Chapter 4 lineage and is undergoing full verification.
 - Biochemistry Chapter 4 rollout is implemented for its remaining **10 questions**
   in `data/marrow/explanation_biochem_ch04_v1.json`; together with approved gold
-  sample Q5, all 11 questions use the approved grammar. Local checks pass; full
-  generated-app/browser/APK verification is pending.
+  sample Q5, all 11 questions use the approved grammar. Full Android/PWA run 475
+  passed generated-app, browser, APK and packaged-contract verification.
 - On 2026-09-09 the user physically reviewed the 20-question Biochemistry sample
   and explicitly approved it: “They are good. We need that kind of explanation everywhere.”
   The approved explanation reference is therefore now **162 questions**
@@ -139,10 +143,11 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 
 ## Next step
 
-1. Finish full CI/browser/package verification for the bounded Biochemistry
-   Chapter 4 explanation rollout, then provide its 11 exact question IDs for review.
-2. Continue explanations in another small complete chapter only after this batch is
-   stable; keep raw source immutable and preserve source tables/figures and ambiguity.
+1. Finish full CI/browser/package verification for the rebased Biochemistry
+   Chapter 2 explanation rollout; keep the 30/30 chapter complete and source-owned.
+2. The exact next fresh content start is Biochemistry Chapter 3. Continue only as
+   another bounded chapter augmentation; keep raw source immutable and preserve
+   source tables/figures and ambiguity.
 3. Image Batch 02 is paused on its separate branch with six REVIEW_REQUIRED native
    candidates checkpointed; none is released or present in the app.
 4. Keep production promotion deliberate and protect Practice/CBT/Review/FSRS/navigation.
