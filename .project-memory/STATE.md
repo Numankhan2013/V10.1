@@ -8,7 +8,7 @@
 - Repo: `Numankhan2013/V10.1`.
 - Git `main` is the authoritative unified V11/Marrow product line after PRs #6–#8.
 - Current explanation-quality branch:
-  `feature/marrow-biochem-explanation-gold-sample`.
+  `feature/marrow-explanation-rollout-biochem-ch01`.
 - Resolve live branch/HEAD from Git; never hardcode a self-staling HEAD value.
 - Accepted product baseline remains **V11.6 Content Quality** at `125d68b`,
   canonical APK run `34050921180`.
@@ -60,12 +60,14 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
   native tables → exactly three concise wrong-option rationales.
 - FSRS remains protected in the fixed/floating session footer above Previous/Next.
 - The deterministic inventory originally accounted for all 2,115 IDs as
-  142 references + 1,973 pending. After approval of the 20-question
-  Biochemistry sample, **162 are approved references and 1,953 remain to roll out**.
-- A bounded, cross-chapter **20-question Biochemistry candidate** is now stored at
-  `data/marrow/explanation_biochem_gold_sample_v1.json`.
-- The candidate uses the same renderer and grammar; it is augmentation/display
-  only and does not alter the Biochemistry source bundle.
+  142 references + 1,973 pending. After approval of the 20-question sample and
+  completion of the remaining 22 questions in Biochemistry Chapter 1,
+  **184 are enhanced and 1,931 remain to roll out**.
+- The approved cross-chapter **20-question Biochemistry gold reference** is stored
+  at `data/marrow/explanation_biochem_gold_sample_v1.json`.
+- Biochemistry Chapter 1 rollout is complete: the remaining **22 questions** are
+  stored in `data/marrow/explanation_biochem_ch01_v1.json`; together with gold
+  sample Q23, all 23 Chapter 1 questions now use the approved grammar.
 - On 2026-09-09 the user physically reviewed the 20-question Biochemistry sample
   and explicitly approved it: “They are good. We need that kind of explanation everywhere.”
   The approved explanation reference is therefore now **162 questions**
@@ -83,8 +85,9 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 - Expanded Marrow bank integration is **build-verified** by prior successful
   Engineering/full Android+PWA runs, including run 405 and authoritative-main
   run 409.
-- The current 20-question explanation candidate still requires its own CI/browser
-  verification; do not call it build-verified until those checks pass.
+- The approved 20-question sample passed Engineering/full Android+PWA/browser
+  verification before merge. The Chapter 1 rollout branch still requires its own
+  final CI/browser/package pass before merge.
 - Build-verified ≠ device-verified ≠ accepted baseline.
 - V11.6 `125d68b` remains the **accepted baseline** / rollback checkpoint until
   the user explicitly promotes a later candidate.
@@ -104,15 +107,16 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 
 ## Next step
 
-1. Merge the approved 20-question Biochemistry sample into `main`; its CI/browser/
-   packaged-app/FSRS checks are green and the user has physically approved it.
-2. Scale the now-approved 162-question explanation grammar in deterministic
-   chapter batches across the remaining 1,953 Marrow questions.
-3. Start with Biochemistry chapter batches, then continue Anatomy and Physiology
-   pending questions, preserving the same renderer contract.
-4. Keep raw source unchanged and preserve unresolved review items per
-   `docs/MARROW_EXPLANATION_FINE_TUNING.md`.
-5. Do not promote production merely because CI passes; keep V11.6 `125d68b`
-   as the rollback baseline until explicit user promotion.
+1. Build/browser/package-verify the Biochemistry Chapter 1 rollout batch
+   (22 new explanations; 23/23 Chapter 1 enhanced including gold-sample Q23).
+2. Merge the Chapter 1 batch after green checks.
+3. Continue from **Biochemistry Chapter 2**, skipping already-approved gold-sample
+   Q9, then proceed sequentially through Chapters 3–26.
+4. After Biochemistry, continue the same approved grammar across remaining
+   Anatomy and Physiology questions.
+5. Keep raw source, native tables, figure metadata and unresolved provenance
+   immutable; do not invent missing source evidence or alter protected UI/FSRS.
+6. Production remains guarded; V11.6 `125d68b` stays the rollback baseline
+   until explicit user promotion.
 
 Canonical Marrow procedure: `docs/MARROW_BANK_INTEGRATION.md`.
