@@ -40,6 +40,7 @@ def main() -> None:
             assert str(cfg.get("takeaway", "")).strip()
             assert str(cfg.get("displayText", "")).strip()
             assert 1 <= len(cfg.get("emphasis", [])) <= 4
+            assert all(str(phrase) in str(cfg["displayText"]) for phrase in cfg.get("emphasis", []))
             assert "sourceText" not in cfg
             correct = int(source["correctOption"])
             wrong_letters = {
