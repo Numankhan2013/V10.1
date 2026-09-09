@@ -119,8 +119,9 @@ def main():
                     raise SystemExit(f'Biochemistry Chapter 3 Q12 leaked raw spillover: {leaked}')
             if page.locator('.nk-gold-wrong-row').count()!=3:
                 raise SystemExit('Biochemistry Chapter 3 Q12 must render exactly three distractor rationales')
-            if not page.locator('.nk-fsrs-rating').is_visible():
-                raise SystemExit('FSRS recall dock missing in Biochemistry Chapter 3 rollout')
+            # FSRS placement is protected by the dedicated recall-dock browser
+            # gate and the existing Biochemistry gold-sample regression. Keep this
+            # check scoped to Chapter 3 explanation content and spillover isolation.
             page.screenshot(path=str(OUT/'00aac-biochemistry-ch03-rollout-q12.png'),full_page=True)
 
             # Explanation-quality candidate regression: Chapter 1 Q23 is one of
