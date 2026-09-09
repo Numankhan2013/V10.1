@@ -1,0 +1,585 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Approved Marrow ED8 Physiology Chapter 6 explanation rollout. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "6",
+    "chapterTitle": "Physiology of Nerve",
+    "questions": 34,
+    "status": "approved-rollout"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 429,
+    "anatomy": 62,
+    "physiology": 108,
+    "biochemistry": 259
+  },
+  "questions": {
+    "marrow__PHYS_CH06_Q001": {
+      "takeaway": "Microglia are embryologically and physiologically distinct from the other major neural glial cells.",
+      "displayText": "Microglia are the immune cells of the central nervous system and arise from macrophage-lineage precursors rather than the neuroectodermal lineage of the other major CNS glia.\n\nAstrocytes and oligodendrocytes are CNS macroglia, while Schwann cells are peripheral glia. Microglia primarily perform immune-surveillance and phagocytic functions.",
+      "emphasis": [
+        "Microglia",
+        "immune cells of the central nervous system",
+        "macrophage-lineage precursors",
+        "immune-surveillance and phagocytic functions"
+      ],
+      "rationales": {
+        "a": "Astrocytes are neuroectoderm-derived CNS macroglia and are not the embryologic outlier.",
+        "b": "Schwann cells are neural-crest-derived peripheral glia, but they remain neural-support cells rather than macrophage-lineage immune cells.",
+        "c": "Oligodendrocytes are neuroectoderm-derived CNS macroglia that form myelin."
+      }
+    },
+    "marrow__PHYS_CH06_Q002": {
+      "takeaway": "Pseudo-unipolar neurons are classically found in dorsal root ganglia.",
+      "displayText": "Dorsal root ganglion neurons are pseudo-unipolar sensory neurons. A single process leaves the soma and divides into peripheral and central branches.\n\nThis arrangement allows sensory impulses to pass from the periphery toward the spinal cord while the cell body lies off the main conduction pathway.",
+      "emphasis": [
+        "Dorsal root ganglion neurons",
+        "pseudo-unipolar sensory neurons",
+        "peripheral and central branches",
+        "sensory impulses"
+      ],
+      "rationales": {
+        "b": "Sympathetic ganglia mainly contain multipolar postganglionic autonomic neurons.",
+        "c": "Parasympathetic ganglia also contain multipolar postganglionic neurons.",
+        "d": "Cranial nerve nuclei contain central neurons and are not the classic location of pseudo-unipolar sensory cell bodies."
+      }
+    },
+    "marrow__PHYS_CH06_Q003": {
+      "takeaway": "In spinal motor neurons, the action potential is initiated at the axon hillock–initial segment trigger zone.",
+      "displayText": "The axon hillock and especially the initial segment contain a very high density of voltage-gated Na+ channels. This makes the region the trigger zone where integrated local potentials are converted into a propagated action potential.\n\nThe source contrasts this with cutaneous sensory neurons, where the propagated action potential begins at the first node of Ranvier.",
+      "emphasis": [
+        "axon hillock",
+        "initial segment",
+        "voltage-gated Na+ channels",
+        "trigger zone"
+      ],
+      "rationales": {
+        "a": "The first node of Ranvier is the source-keyed initiation site for cutaneous sensory neurons, not spinal motor neurons.",
+        "c": "The cell body integrates synaptic inputs but is not the principal trigger zone.",
+        "d": "Dendrites receive and integrate graded potentials but do not normally initiate the propagated spike in a spinal motor neuron."
+      }
+    },
+    "marrow__PHYS_CH06_Q004": {
+      "takeaway": "Nodes of Ranvier have the highest density of voltage-gated Na+ channels in a myelinated axon.",
+      "displayText": "Myelin electrically insulates most of the axonal membrane, so voltage-gated Na+ channels are concentrated at nodes of Ranvier.\n\nThe source notes an extremely high nodal channel density, allowing rapid regeneration of the action potential from node to node during saltatory conduction.",
+      "emphasis": [
+        "nodes of Ranvier",
+        "voltage-gated Na+ channels",
+        "saltatory conduction",
+        "rapid regeneration"
+      ],
+      "rationales": {
+        "a": "The cell body has far fewer voltage-gated Na+ channels per unit area than a node of Ranvier.",
+        "b": "The axon terminal contains channels needed for transmitter release but is not the site of maximum Na+ channel density.",
+        "c": "The myelinated internodal membrane has a low channel density because it is insulated by myelin."
+      }
+    },
+    "marrow__PHYS_CH06_Q005": {
+      "takeaway": "In cutaneous sensory neurons, the propagated action potential begins at the first node of Ranvier.",
+      "displayText": "A cutaneous sensory ending first generates a local receptor potential. When threshold is reached, the first excitable nodal region generates the all-or-none action potential that travels centrally.\n\nThus the source keys the first node of Ranvier rather than the receptor ending itself.",
+      "emphasis": [
+        "receptor potential",
+        "first node of Ranvier",
+        "threshold",
+        "all-or-none action potential"
+      ],
+      "rationales": {
+        "b": "The initial segment is the classic trigger zone in spinal motor neurons, not the source-keyed site for cutaneous sensory neurons.",
+        "c": "A dendritic/receptor region produces graded local potentials rather than the propagated spike.",
+        "d": "The nerve ending transduces the stimulus but is not the source-keyed site of propagated action-potential generation."
+      }
+    },
+    "marrow__PHYS_CH06_Q006": {
+      "takeaway": "In myelinated fibers, conduction velocity increases approximately linearly with fiber diameter.",
+      "displayText": "A larger axonal diameter lowers internal resistance to longitudinal current flow. In myelinated fibers this produces an approximately linear increase in conduction velocity with diameter.\n\nMyelination further accelerates conduction by allowing saltatory propagation between nodes of Ranvier.",
+      "emphasis": [
+        "larger axonal diameter",
+        "lowers internal resistance",
+        "linear increase in conduction velocity",
+        "saltatory propagation"
+      ],
+      "rationales": {
+        "b": "A parabolic relationship is not the source description for myelinated fibers.",
+        "c": "The source does not describe a hyperbolic relationship.",
+        "d": "Fiber diameter has a major effect on conduction velocity, so there is a clear relationship."
+      }
+    },
+    "marrow__PHYS_CH06_Q007": {
+      "takeaway": "The action-potential upstroke is produced by Na+ influx through voltage-gated Na+ channels.",
+      "displayText": "Once threshold is reached, voltage-gated Na+ channels open rapidly. Na+ moves into the neuron down its electrochemical gradient, producing the steep depolarizing upstroke.\n\nThis Na+ entry recruits additional voltage-gated Na+ channels by positive feedback until channel inactivation and delayed K+ opening terminate the upstroke.",
+      "emphasis": [
+        "voltage-gated Na+ channels",
+        "Na+ moves into the neuron",
+        "depolarizing upstroke",
+        "positive feedback"
+      ],
+      "rationales": {
+        "b": "Na+ efflux would drive the membrane away from the source-keyed depolarizing upstroke.",
+        "c": "K+ influx is not the principal current responsible for the rapid rising phase.",
+        "d": "K+ efflux is the major current driving repolarization, not the upstroke."
+      },
+      "sourceNotes": [
+        "Figure-dependent item. The source action-potential graph remains authoritative for the numbered points."
+      ]
+    },
+    "marrow__PHYS_CH06_Q008": {
+      "takeaway": "Potassium conductance is maximal during repolarization, at source point 3.",
+      "displayText": "Voltage-gated K+ channels open more slowly than Na+ channels. Their conductance rises during repolarization and remains elevated into the after-hyperpolarization phase.\n\nThe source graph labels maximal K+ conductance at point 3.",
+      "emphasis": [
+        "Voltage-gated K+ channels",
+        "repolarization",
+        "after-hyperpolarization",
+        "point 3"
+      ],
+      "rationales": {
+        "a": "Point 1 is not the source-labeled point of maximal K+ conductance.",
+        "b": "Point 2 occurs before the source-labeled K+ conductance maximum.",
+        "c": "Point 4 is later than the source-labeled peak at point 3."
+      },
+      "sourceNotes": [
+        "Figure-dependent item. The source conductance graph remains authoritative for point numbering."
+      ]
+    },
+    "marrow__PHYS_CH06_Q009": {
+      "takeaway": "During the upstroke there is net inward current and the cell interior becomes less negative.",
+      "displayText": "Rapid Na+ influx creates a net inward positive current during the action-potential upstroke. As positive charge enters, membrane potential rises toward the Na+ equilibrium potential and the cell interior becomes less negative, then briefly positive during overshoot.",
+      "emphasis": [
+        "net inward positive current",
+        "Na+ influx",
+        "cell interior becomes less negative",
+        "overshoot"
+      ],
+      "rationales": {
+        "a": "A net outward current would not produce the source-keyed depolarizing upstroke.",
+        "b": "Although the interior becomes less negative, the current is inward rather than outward.",
+        "c": "The current is inward, but inward positive charge makes the cell less negative, not more negative."
+      }
+    },
+    "marrow__PHYS_CH06_Q010": {
+      "takeaway": "The source keys option 1; the figure is authoritative for the exact numbered matching.",
+      "displayText": "The physiologic sequence is: rapid Na+ conductance causes depolarization, Na+ channels then inactivate, delayed K+ conductance drives repolarization, and prolonged K+ opening produces after-hyperpolarization.\n\nBecause the answer choices are only numbered figure matches, the original source figure remains authoritative for why match 1 is correct.",
+      "emphasis": [
+        "Na+ conductance",
+        "Na+ channels then inactivate",
+        "K+ conductance drives repolarization",
+        "after-hyperpolarization"
+      ],
+      "rationales": {
+        "b": "The source does not key numbered match 2; the original figure is required for the exact visual mapping.",
+        "c": "The source does not key numbered match 3; no unsupported figure interpretation is added.",
+        "d": "The source does not key numbered match 4; the source figure remains authoritative."
+      },
+      "sourceNotes": [
+        "Figure-dependent item. The option meanings depend on the original figure; no missing visual labels are invented."
+      ]
+    },
+    "marrow__PHYS_CH06_Q011": {
+      "takeaway": "A stronger-than-normal stimulus can trigger another action potential during the relative refractory period.",
+      "displayText": "During the absolute refractory period, most voltage-gated Na+ channels are inactivated and no stimulus can generate a second action potential.\n\nDuring the relative refractory period, some Na+ channels have recovered but K+ conductance remains elevated, so threshold is higher and a stronger-than-normal stimulus is required.",
+      "emphasis": [
+        "absolute refractory period",
+        "no stimulus",
+        "relative refractory period",
+        "stronger-than-normal stimulus"
+      ],
+      "rationales": {
+        "a": "During the absolute refractory period, even a very strong stimulus cannot elicit another action potential.",
+        "c": "A latent refractory period is not the source term for the interval in which a stronger stimulus can succeed.",
+        "d": "A local response is a graded membrane response, not the refractory interval asked for."
+      }
+    },
+    "marrow__PHYS_CH06_Q012": {
+      "takeaway": "The relative refractory period begins when repolarization is about one-third complete.",
+      "displayText": "The source divides the refractory period so that the absolute refractory period lasts from threshold until repolarization is roughly one-third complete.\n\nFrom that point until the start of after-depolarization is the relative refractory period, when stronger stimuli may again excite the membrane.",
+      "emphasis": [
+        "one-third complete",
+        "relative refractory period",
+        "after-depolarization",
+        "stronger stimuli"
+      ],
+      "rationales": {
+        "a": "Half-repolarization is later than the source-defined start.",
+        "c": "One-quarter repolarization is earlier than the source-defined transition.",
+        "d": "Two-thirds repolarization is well after the source-defined start."
+      }
+    },
+    "marrow__PHYS_CH06_Q013": {
+      "takeaway": "Rheobase measures the minimum current strength required for excitation with a very long-duration stimulus.",
+      "displayText": "Rheobase is the minimum stimulus intensity capable of exciting a tissue when stimulus duration is effectively infinite.\n\nChronaxie measures duration: it is the minimum time required for a stimulus of twice the rheobase strength to excite the tissue.",
+      "emphasis": [
+        "Rheobase",
+        "minimum stimulus intensity",
+        "Chronaxie",
+        "twice the rheobase strength"
+      ],
+      "rationales": {
+        "a": "Rheobase does not measure specificity of impulse transmission.",
+        "c": "It is not a measure of discharge rate.",
+        "d": "Rheobase reflects excitability/current strength, not nerve-conduction velocity."
+      }
+    },
+    "marrow__PHYS_CH06_Q014": {
+      "takeaway": "A slowly rising depolarizing stimulus may fail to fire a nerve because of accommodation.",
+      "displayText": "With a slowly rising stimulus, only small groups of voltage-gated Na+ channels activate at any one time. Many become inactivated before enough additional channels open to reach the regenerative threshold.\n\nThis failure of excitation during a gradually increasing stimulus is called accommodation.",
+      "emphasis": [
+        "slowly rising stimulus",
+        "voltage-gated Na+ channels",
+        "inactivated",
+        "accommodation"
+      ],
+      "rationales": {
+        "a": "Adaptation is a broader reduction in response during a sustained stimulus; the source specifically names accommodation here.",
+        "c": "Refractoriness follows a prior action potential and is not the process described.",
+        "d": "Electrotonus refers to passive local membrane-potential changes, not this progressive Na+ channel inactivation."
+      }
+    },
+    "marrow__PHYS_CH06_Q015": {
+      "takeaway": "Type C fibers are unmyelinated and have the slowest conduction velocity.",
+      "displayText": "Type C fibers have the smallest diameter and lack myelin, so they conduct most slowly.\n\nType A fibers are myelinated and include Aα, Aβ, Aγ and Aδ subtypes with different diameters and functions.",
+      "emphasis": [
+        "Type C fibers",
+        "smallest diameter",
+        "lack myelin",
+        "conduct most slowly"
+      ],
+      "rationales": {
+        "a": "Pressure and touch are carried mainly by Aβ fibers rather than being the defining function of Aα fibers.",
+        "b": "Aα, not Aβ, fibers have the largest diameter among A-fiber subtypes.",
+        "c": "Aγ fibers are myelinated; type C fibers are the classic unmyelinated group."
+      }
+    },
+    "marrow__PHYS_CH06_Q016": {
+      "takeaway": "Joint-position sense is proprioception and is carried by large Aα/group I afferents.",
+      "displayText": "Testing whether a patient can identify passive movement of the great toe assesses proprioception.\n\nLarge, rapidly conducting Aα fibers carry proprioceptive information from receptors such as muscle spindles and Golgi tendon organs.",
+      "emphasis": [
+        "proprioception",
+        "Aα fibers",
+        "rapidly conducting",
+        "muscle spindles and Golgi tendon organs"
+      ],
+      "rationales": {
+        "b": "Aγ fibers are mainly motor fibers to intrafusal muscle fibers rather than the principal afferents for conscious joint-position sense.",
+        "c": "Aβ fibers carry touch/pressure and some secondary spindle afferents, but the source keys the largest Aα/group I fibers here.",
+        "d": "Aδ fibers carry fast pain, cold and crude touch rather than proprioception."
+      }
+    },
+    "marrow__PHYS_CH06_Q017": {
+      "takeaway": "Type B fibers are small myelinated preganglionic autonomic fibers.",
+      "displayText": "In the Erlanger–Gasser classification, type B fibers are smaller and more lightly myelinated than type A fibers.\n\nThey characteristically carry preganglionic autonomic impulses in both sympathetic and parasympathetic pathways.",
+      "emphasis": [
+        "type B fibers",
+        "lightly myelinated",
+        "preganglionic autonomic impulses",
+        "sympathetic and parasympathetic"
+      ],
+      "rationales": {
+        "a": "Proprioceptive information is carried mainly by large type A fibers.",
+        "c": "Motor supply to muscle-spindle intrafusal fibers is carried by Aγ fibers.",
+        "d": "Crude touch is carried by somatic sensory fibers rather than type B preganglionic autonomic fibers."
+      }
+    },
+    "marrow__PHYS_CH06_Q018": {
+      "takeaway": "Large myelinated A fibers are more susceptible to pressure block than small unmyelinated C fibers.",
+      "displayText": "Prolonged compression can preferentially block conduction in large myelinated fibers. Motor, touch and pressure functions may therefore be lost while pain carried by small C fibers remains relatively preserved.\n\nThe source summarizes pressure susceptibility as A > B > C.",
+      "emphasis": [
+        "large myelinated fibers",
+        "pain carried by small C fibers",
+        "A > B > C",
+        "pressure"
+      ],
+      "rationales": {
+        "a": "Type B fibers are not more pressure-sensitive than type A fibers in the source ordering.",
+        "c": "C fibers are relatively resistant to pressure compared with A fibers.",
+        "d": "The pattern is explained by differential fiber susceptibility to compression, not sleep selectively affecting motor nerves."
+      }
+    },
+    "marrow__PHYS_CH06_Q019": {
+      "takeaway": "Type C fibers have the longest spike duration and absolute refractory period.",
+      "displayText": "Among A, B and C fibers, the source gives the longest action-potential spike duration in C fibers.\n\nThe same ordering applies to absolute refractory period: C > B > A.",
+      "emphasis": [
+        "C fibers",
+        "longest action-potential spike duration",
+        "absolute refractory period",
+        "C > B > A"
+      ],
+      "rationales": {
+        "a": "Aα fibers conduct rapidly and do not have the longest spike duration.",
+        "b": "Type B fibers have an intermediate spike duration rather than the maximum.",
+        "d": "Aβ fibers are myelinated A fibers and do not exceed C fibers in spike duration."
+      }
+    },
+    "marrow__PHYS_CH06_Q020": {
+      "takeaway": "Golgi tendon-organ afferents are group Ib sensory fibers.",
+      "displayText": "The Golgi tendon organ senses muscle tension and provides the afferent limb of the inverse stretch reflex.\n\nIts large myelinated sensory axons are classified as group Ib fibers.",
+      "emphasis": [
+        "Golgi tendon organ",
+        "muscle tension",
+        "inverse stretch reflex",
+        "group Ib fibers"
+      ],
+      "rationales": {
+        "a": "Group Ia fibers arise mainly from primary annulospiral endings of muscle spindles.",
+        "c": "Group I is a broader category; the specific Golgi tendon-organ subclass is Ib.",
+        "d": "Group III fibers are smaller Aδ-type sensory fibers carrying modalities such as fast pain and temperature."
+      }
+    },
+    "marrow__PHYS_CH06_Q021": {
+      "takeaway": "Group IV sensory fibers are type C fibers and are least susceptible to hypoxia.",
+      "displayText": "The source gives susceptibility to hypoxia as B > A > C in the Erlanger–Gasser classification.\n\nGroup IV sensory fibers correspond to unmyelinated type C fibers, making them the least susceptible among the listed sensory groups.",
+      "emphasis": [
+        "B > A > C",
+        "Group IV sensory fibers",
+        "type C fibers",
+        "least susceptible"
+      ],
+      "rationales": {
+        "a": "Group I fibers correspond to large Aα afferents and are not the least hypoxia-susceptible group.",
+        "b": "Group II fibers are myelinated Aβ sensory fibers.",
+        "c": "Group III fibers are Aδ fibers and remain more hypoxia-sensitive than C fibers in the source ordering."
+      }
+    },
+    "marrow__PHYS_CH06_Q022": {
+      "takeaway": "A biphasic surface-recorded action potential has one positive and one negative deflection, not two or more positive waves.",
+      "displayText": "When both recording electrodes lie on the surface of a stimulated axon, the travelling impulse reaches them sequentially and produces a biphasic record.\n\nThe tracing shows an upward deflection, an isoelectric interval and then a downward deflection.",
+      "emphasis": [
+        "biphasic record",
+        "upward deflection",
+        "isoelectric interval",
+        "downward deflection"
+      ],
+      "rationales": {
+        "a": "The underlying nerve action potential is an all-or-none event.",
+        "c": "A refractory period is a normal property of excitable nerve membrane.",
+        "d": "A biphasic extracellular recording is obtained with both electrodes placed on the nerve surface."
+      }
+    },
+    "marrow__PHYS_CH06_Q023": {
+      "takeaway": "End-plate potential is graded and depolarizing; the source item is internally inconsistent because option C is also false.",
+      "displayText": "A neuromuscular end-plate potential (EPP) is a local graded depolarization produced by acetylcholine at nicotinic receptors. Its amplitude varies with transmitter release, it can summate, and it is not an all-or-none event.\n\nTherefore option A is false as the source key indicates. However, option C ('Hyperpolarization') is also physiologically false for a normal EPP. The imported item is thus internally inconsistent as written; the learner-facing explanation corrects the physiology while preserving the raw source key for auditability.",
+      "emphasis": [
+        "graded depolarization",
+        "not an all-or-none event",
+        "option C ('Hyperpolarization')",
+        "internally inconsistent"
+      ],
+      "rationales": {
+        "b": "Depolarization is a defining property of a normal neuromuscular end-plate potential, so it is not the best 'except' choice.",
+        "c": "This option is also physiologically false: a normal EPP is depolarizing, not hyperpolarizing. This creates a second exception and makes the source item internally inconsistent.",
+        "d": "Summation is a standard property of graded postsynaptic potentials, including EPPs."
+      },
+      "reconstruction": {
+        "status": "needs_manual_review",
+        "sourceProblem": "The stored stem asks for the exception among EPP properties, source key A. The supplied source explanation broadens to generic local potentials and says they can depolarize or hyperpolarize, which is not true for a normal neuromuscular EPP. Option C is therefore also false.",
+        "reconstructedContent": "Learner-facing explanation states standard physiology: EPP is a graded depolarizing potential, not all-or-none, and explicitly flags option C as a second false statement.",
+        "evidenceBasis": [
+          "Stored stem/options/key and source explanation",
+          "Standard medical physiology: EPP is the local depolarization of skeletal muscle end plate produced by ACh"
+        ],
+        "reviewNote": "Preserve source key A in raw data; item should be reviewed because the stem/options yield two false statements."
+      }
+    },
+    "marrow__PHYS_CH06_Q024": {
+      "takeaway": "Synaptic potentials are classically recorded intracellularly with a glass microelectrode.",
+      "displayText": "A membrane or synaptic potential can be measured by placing a fine glass microelectrode inside the cell while using a reference electrode outside.\n\nThe voltage difference is then amplified and displayed, classically on an oscilloscope.",
+      "emphasis": [
+        "glass microelectrode",
+        "inside the cell",
+        "reference electrode",
+        "voltage difference"
+      ],
+      "rationales": {
+        "a": "Patch clamp can measure membrane currents and potentials, but the source asks for the conventional instrument used to record a synaptic potential.",
+        "c": "Voltage clamp controls membrane voltage while measuring ionic current and is not the source-keyed recording instrument.",
+        "d": "ECG records summed cardiac surface potentials and cannot measure a neuronal synaptic potential."
+      }
+    },
+    "marrow__PHYS_CH06_Q025": {
+      "takeaway": "Pufferfish poisoning is caused by tetrodotoxin, which blocks voltage-gated Na+ channels from the extracellular side.",
+      "displayText": "Tetrodotoxin binds to the outer pore of voltage-gated Na+ channels and prevents Na+ entry.\n\nBlocking the inward Na+ current prevents normal action-potential initiation and propagation, producing the neurologic manifestations of pufferfish poisoning.",
+      "emphasis": [
+        "Tetrodotoxin",
+        "voltage-gated Na+ channels",
+        "prevents Na+ entry",
+        "action-potential initiation and propagation"
+      ],
+      "rationales": {
+        "a": "Saxitoxin also blocks voltage-gated Na+ channels but is classically associated with paralytic shellfish poisoning rather than pufferfish.",
+        "c": "Curare blocks nicotinic acetylcholine receptors at the neuromuscular junction rather than voltage-gated axonal Na+ channels.",
+        "d": "Ciguatoxin alters voltage-gated Na+ channel behavior in ciguatera fish poisoning but is not the pufferfish toxin."
+      }
+    },
+    "marrow__PHYS_CH06_Q026": {
+      "takeaway": "Chemical synapses conduct in one physiologic direction: orthodromically from presynaptic to postsynaptic cell.",
+      "displayText": "A chemical synapse is structurally polarized. Neurotransmitter vesicles are released from the presynaptic terminal and receptors are located on the postsynaptic membrane.\n\nTherefore transmission across a chemical synapse is unidirectional and physiologically orthodromic.",
+      "emphasis": [
+        "structurally polarized",
+        "presynaptic terminal",
+        "postsynaptic membrane",
+        "unidirectional"
+      ],
+      "rationales": {
+        "a": "Chemical synaptic transmission is not bidirectional because transmitter release and receptor organization are asymmetric.",
+        "b": "Always antidromic is the opposite of normal chemical-synapse direction.",
+        "d": "Artificial stimulation can produce antidromic conduction along an axon, but not reverse transmission across a chemical synapse."
+      }
+    },
+    "marrow__PHYS_CH06_Q027": {
+      "takeaway": "Neurofilaments are not the machinery for fast axonal transport.",
+      "displayText": "Fast axonal transport occurs along microtubules using molecular motors. Kinesin drives mainly anterograde transport and dynein drives retrograde transport.\n\nNeurofilaments are structural cytoskeletal proteins and are themselves moved mainly by slow axonal transport rather than serving as the fast-transport motor system.",
+      "emphasis": [
+        "microtubules",
+        "Kinesin",
+        "dynein",
+        "Neurofilaments"
+      ],
+      "rationales": {
+        "a": "Dynein is a molecular motor for retrograde fast axonal transport.",
+        "b": "Kinesin is a molecular motor for anterograde fast axonal transport.",
+        "d": "Microtubules form the tracks along which fast axonal transport occurs."
+      }
+    },
+    "marrow__PHYS_CH06_Q028": {
+      "takeaway": "Slow orthograde axonal transport is measured in a few millimeters per day, not 100 mm/day.",
+      "displayText": "Slow axonal transport carries cytoskeletal and soluble proteins at roughly millimeters-per-day rates. The source gives about 0.5–10 mm/day, whereas fast transport is hundreds of millimeters per day.\n\nTherefore the statement that slow orthograde transport occurs at 100 mm/day is incorrect.",
+      "emphasis": [
+        "0.5–10 mm/day",
+        "fast transport",
+        "hundreds of millimeters per day",
+        "100 mm/day"
+      ],
+      "rationales": {
+        "a": "Axonal transport uses microtubule-based intracellular trafficking.",
+        "c": "Kinesin is the principal motor for anterograde transport.",
+        "d": "Several neurotropic viruses can exploit retrograde axonal transport to reach neuronal cell bodies."
+      }
+    },
+    "marrow__PHYS_CH06_Q029": {
+      "takeaway": "After nerve transection, distal axonal degeneration begins before myelin breakdown; among the listed choices, myelin degeneration is the earliest available answer.",
+      "displayText": "True Wallerian degeneration begins distal to the lesion with axonal fragmentation after interruption of axonal continuity and transport. Myelin then degenerates slightly later, followed by debris clearance and Schwann-cell responses.\n\nBecause 'axonal degeneration' is not offered among the options, the source key chooses myelin degeneration as the best available earliest choice. This distinction is preserved explicitly rather than implying that myelin is the first biological structure to degenerate.",
+      "emphasis": [
+        "axonal fragmentation",
+        "Myelin then degenerates slightly later",
+        "best available earliest choice",
+        "Wallerian degeneration"
+      ],
+      "rationales": {
+        "b": "Regenerative sprouting occurs after the degenerative/clearance phase begins and is not the earliest listed event.",
+        "c": "Denervation supersensitivity develops later in the target tissue after loss of neural input.",
+        "d": "Schwann-cell proliferation is an early repair response but follows the onset of distal axonal degeneration and is not earlier than the keyed myelin-degeneration option."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source key A is the best answer among the options, but the supplied explanation itself notes that distal axonal degeneration is the actual earliest Wallerian change.",
+        "reconstructedContent": "Learner-facing explanation distinguishes the true earliest biological event (distal axonal degeneration) from the earliest available option (myelin degeneration).",
+        "evidenceBasis": [
+          "Stored source explanation",
+          "Standard peripheral nerve injury literature: distal axonal degeneration precedes slightly slower myelin disintegration"
+        ],
+        "reviewNote": "Raw source key remains A; reconstruction prevents teaching the keyed option as the literal first biological event."
+      }
+    },
+    "marrow__PHYS_CH06_Q030": {
+      "takeaway": "Increasing extracellular K+ makes the neuronal resting membrane potential less negative.",
+      "displayText": "Resting membrane potential lies close to the K+ equilibrium potential because resting membrane permeability is dominated by K+.\n\nRaising extracellular K+ reduces the outward K+ concentration gradient, making the K+ equilibrium potential and therefore the resting membrane potential less negative (more positive).",
+      "emphasis": [
+        "K+ equilibrium potential",
+        "Raising extracellular K+",
+        "less negative",
+        "more positive"
+      ],
+      "rationales": {
+        "a": "Inner hair cells have a different resting membrane potential from a typical nerve fiber.",
+        "b": "Resting membrane potential requires an intracellular electrode relative to an extracellular reference; it cannot be measured accurately with surface electrodes alone.",
+        "d": "Resting membrane potential depends much more strongly on K+ than on the Na+ equilibrium potential."
+      }
+    },
+    "marrow__PHYS_CH06_Q031": {
+      "takeaway": "Group III sensory fibers correspond to Aδ fibers, not Aγ fibers.",
+      "displayText": "The numerical sensory classification maps group I to Aα fibers, group II mainly to Aβ fibers, group III to Aδ fibers, and group IV to unmyelinated C fibers.\n\nTherefore the pairing 'III – A gamma' is incorrect.",
+      "emphasis": [
+        "group I to Aα",
+        "group II mainly to Aβ",
+        "group III to Aδ",
+        "group IV to unmyelinated C"
+      ],
+      "rationales": {
+        "a": "Group Ia and Ib sensory afferents are large Aα fibers.",
+        "b": "Group II afferents correspond mainly to Aβ fibers.",
+        "d": "Group IV afferents are unmyelinated C fibers."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanation contains OCR substitutions for Greek fiber labels.",
+        "reconstructedContent": "Restored standard mapping: I=Aα, II=Aβ, III=Aδ, IV=C.",
+        "evidenceBasis": [
+          "Source key and intended classification",
+          "Standard sensory nerve-fiber classification"
+        ],
+        "reviewNote": "No source answer change; reconstruction only restores corrupted fiber labels."
+      }
+    },
+    "marrow__PHYS_CH06_Q032": {
+      "takeaway": "The absolute refractory period is caused by inactivation of voltage-gated Na+ channels.",
+      "displayText": "Soon after voltage-gated Na+ channels open, their inactivation gates close. While channels remain in this inactivated state they cannot reopen, regardless of stimulus strength.\n\nThis Na+ channel inactivation is the principal basis of the absolute refractory period.",
+      "emphasis": [
+        "inactivation gates close",
+        "inactivated state",
+        "cannot reopen",
+        "absolute refractory period"
+      ],
+      "rationales": {
+        "a": "Opening Ca2+ channels is not the primary cause of neuronal absolute refractoriness.",
+        "b": "K+ channel closure does not create the absolute refractory period.",
+        "c": "Closure of the activation gate describes a resting closed state that can reopen with depolarization; the refractory state is produced by Na+ channel inactivation."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Source wording 'closure of inactive gates' is OCR/terminology-corrupted.",
+        "reconstructedContent": "Restored standard terminology: closure of the Na+ channel inactivation gate / Na+ channel inactivation.",
+        "evidenceBasis": [
+          "Source key D",
+          "Standard voltage-gated Na+ channel gating physiology"
+        ],
+        "reviewNote": "Learner-facing wording corrected without altering raw option text or source key."
+      }
+    },
+    "marrow__PHYS_CH06_Q033": {
+      "takeaway": "On a neuronal conductance graph, the early brief rise is Na+ conductance and the delayed prolonged rise is K+ conductance.",
+      "displayText": "Voltage-gated Na+ channels activate rapidly and inactivate quickly, producing the early conductance peak associated with depolarization.\n\nVoltage-gated K+ channels activate more slowly and remain open longer, producing the delayed conductance rise responsible for repolarization and after-hyperpolarization. Thus A = Na+ and B = K+.",
+      "emphasis": [
+        "Na+ channels activate rapidly",
+        "K+ channels activate more slowly",
+        "repolarization and after-hyperpolarization",
+        "A = Na+ and B = K+"
+      ],
+      "rationales": {
+        "b": "Reversing K+ and Na+ contradicts the fast early Na+ peak and delayed K+ conductance.",
+        "c": "Ca2+ is not the delayed conductance labeled B in this standard nerve action-potential graph.",
+        "d": "Neither curve is source-keyed as a Ca2+-then-Na+ sequence."
+      },
+      "sourceNotes": [
+        "Figure-dependent item. The original conductance graph remains source-owned and authoritative."
+      ]
+    },
+    "marrow__PHYS_CH06_Q034": {
+      "takeaway": "Minimum tetanizing frequency = 1/contraction period; five 100-Hz time marks give 0.05 s, so the answer is 20/s.",
+      "displayText": "A 100-Hz tuning fork marks time at 0.01 s per wave. In the source twitch tracing there are about five time waves from the end of the latent period to peak contraction.\n\nContraction period ≈ 5 × 0.01 = 0.05 s. Minimum tetanizing frequency = 1 ÷ 0.05 = 20 per second.",
+      "emphasis": [
+        "0.01 s per wave",
+        "5 × 0.01 = 0.05 s",
+        "1 ÷ 0.05",
+        "20 per second"
+      ],
+      "rationales": {
+        "a": "25/s would require a contraction period of 0.04 s rather than the approximately 0.05 s shown.",
+        "b": "15/s would require a longer contraction period of about 0.067 s.",
+        "c": "17/s would require about 0.059 s and does not match the source time tracing."
+      },
+      "sourceNotes": [
+        "Figure-dependent calculation. The source twitch/time-trace image remains authoritative for the count of approximately five 100-Hz waves."
+      ]
+    }
+  }
+}
