@@ -50,10 +50,14 @@ def main():
             page.locator('button.nk-library-row').first.click();page.wait_for_timeout(80)
             page.locator('.option-list button').first.click();page.wait_for_timeout(120)
             bsupport=page.locator('.nk-study-support').inner_text().lower()
-            for marker in ('key takeaway','detailed explanation','structured text'):
-                if marker not in bsupport: raise SystemExit(f'Marrow Biochemistry source-faithful explanation missing {marker}')
+            for marker in ('key takeaway','detailed explanation','structured text','why the other options are wrong','erythrose','ketose'):
+                if marker not in bsupport: raise SystemExit(f'Marrow Biochemistry Chapter 1 rollout explanation missing {marker}')
+            if page.locator('.nk-gold-wrong-row').count()!=3:
+                raise SystemExit('Marrow Biochemistry Chapter 1 Q1 must render exactly three distractor rationales')
             if 'original pdf' in bsupport: raise SystemExit('Marrow Biochemistry incorrectly used Original PDF')
-            page.screenshot(path=str(OUT/'00a-biochemistry-source-faithful-question.png'),full_page=True)
+            if not page.locator('.nk-fsrs-rating').is_visible():
+                raise SystemExit('FSRS recall dock missing in Biochemistry Chapter 1 rollout')
+            page.screenshot(path=str(OUT/'00a-biochemistry-ch01-rollout-q1.png'),full_page=True)
 
             # Explanation-quality candidate regression: Chapter 1 Q23 is one of
             # the deterministic 20-question Biochemistry sample entries and must
@@ -308,5 +312,5 @@ def main():
             if errors: raise SystemExit('Browser errors: '+repr(errors))
             browser.close()
         server.shutdown()
-    print('MARROW_BROWSER_OK registry=subject-indexed anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115 approved_reference=142 biochemistry_candidate=20 rendered_candidate=162 rationales=486 phys_q2=clean biochem_q23=gold phys_table=preserved anatomy_table=preserved fsrs_dock=fixed')
+    print('MARROW_BROWSER_OK registry=subject-indexed anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115 anatomy_phys_reference=142 biochemistry=42 enhanced=184 rationales=552 phys_q2=clean biochem_q23=gold phys_table=preserved anatomy_table=preserved fsrs_dock=fixed')
 if __name__=='__main__':main()
