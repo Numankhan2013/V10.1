@@ -45,6 +45,8 @@ jobs:
         run: python3 tools/test_marrow_biochem_explanation_sample.py
       - name: Validate Marrow Biochemistry explanation rollout
         run: python3 tools/test_marrow_biochem_explanation_rollout.py
+      - name: Validate Marrow Physiology explanation rollout
+        run: python3 tools/test_marrow_physio_explanation_rollout.py
       - name: Test question content hygiene behavior
         run: python3 tools/test_question_content_hygiene_v1.py
       - name: Verify source product contract
