@@ -13,7 +13,7 @@
 - Engineering Gate 259 and full Android/PWA run 539 both passed.
 - Latest immutable verified preview: `https://3cce6bfb.nk-qbank.pages.dev`.
 - Production promotion remains explicit and guarded; run 539 skipped production.
-- Historical accepted rollback baseline remains V11.6 Content Quality `125d68b`
+- Accepted baseline / rollback baseline remains **V11.6 Content Quality** at `125d68b`
   until the user explicitly promotes a later product baseline.
 
 ## Current Marrow bank
