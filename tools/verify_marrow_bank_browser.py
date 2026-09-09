@@ -238,6 +238,25 @@ def main():
                 raise SystemExit('Biochemistry Chapter 10 Q20 must render exactly three distractor rationales')
             page.screenshot(path=str(OUT/'00aai-biochemistry-ch10-rollout-q20.png'),full_page=True)
 
+            # Chapter 11 rollout regression: Q3 checks OTC deficiency as
+            # the X-linked urea-cycle disorder with orotic-acid excess.
+            page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Urea cycle and its disorders').click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=14:
+                raise SystemExit('Marrow Biochemistry Chapter 11 count is not 14')
+            page.locator('button.nk-library-row').nth(2).click();page.wait_for_timeout(80)
+            if 'x-linked recessive' not in page.locator('.question-text').inner_text().lower():
+                raise SystemExit('Biochemistry Chapter 11 rollout Q3 did not open')
+            page.locator('.option-list button').nth(2).click();page.wait_for_timeout(120)
+            ch11=page.locator('.nk-study-support').inner_text().lower()
+            for required in ('key takeaway','detailed explanation','structured text','why the other options are wrong','ornithine transcarbamylase','hyperammonemia type ii','urinary orotic acid'):
+                if required not in ch11:
+                    raise SystemExit(f'Biochemistry Chapter 11 rollout missing {required}')
+            if page.locator('.nk-gold-wrong-row').count()!=3:
+                raise SystemExit('Biochemistry Chapter 11 Q3 must render exactly three distractor rationales')
+            page.screenshot(path=str(OUT/'00aaj-biochemistry-ch11-rollout-q03.png'),full_page=True)
+
             # Explanation-quality candidate regression: Chapter 1 Q23 is one of
             # the deterministic 20-question Biochemistry sample entries and must
             # use the exact approved 142-question presentation grammar.

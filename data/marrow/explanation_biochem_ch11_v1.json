@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Approved Marrow ED8 Biochemistry Chapter 11 explanation rollout. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "11",
+    "chapterTitle": "Urea cycle and its disorders",
+    "questions": 13,
+    "status": "approved-rollout"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 388,
+    "anatomy": 62,
+    "physiology": 80,
+    "biochemistry": 246
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH11_Q001": {
+      "takeaway": "The urea cycle spans both mitochondria and cytoplasm.",
+      "displayText": "The urea cycle, also called the ornithine or Krebs–Henseleit cycle, is divided between mitochondria and cytoplasm. Its first reactions occur in mitochondria, while later reactions proceed in the cytosol.\n\nThis compartmentalization is a high-yield feature of the pathway.",
+      "emphasis": [
+        "urea cycle",
+        "mitochondria",
+        "cytoplasm",
+        "compartmentalization"
+      ],
+      "rationales": {
+        "a": "The urea cycle is not confined to the cytoplasm.",
+        "b": "It is not confined to mitochondria because several later reactions occur in the cytosol.",
+        "d": "The nucleus is not one of the two main compartments of the urea cycle."
+      }
+    },
+    "marrow__BIOCHEM_CH11_Q002": {
+      "takeaway": "N-acetylglutamate is the obligatory allosteric activator of CPS I.",
+      "displayText": "Carbamoyl phosphate synthetase I (CPS I) catalyzes the rate-limiting mitochondrial step of the urea cycle. It requires N-acetylglutamate as an essential allosteric activator.\n\nLoss of N-acetylglutamate therefore markedly reduces CPS I activity.",
+      "emphasis": [
+        "Carbamoyl phosphate synthetase I (CPS I)",
+        "rate-limiting",
+        "N-acetylglutamate",
+        "allosteric activator"
+      ],
+      "rationales": {
+        "a": "Alanine is not the obligatory allosteric activator of CPS I.",
+        "c": "Ornithine participates in the urea cycle but does not activate CPS I allosterically.",
+        "d": "Citrulline is a urea-cycle intermediate, not the CPS I activator."
+      }
+    },
+    "marrow__BIOCHEM_CH11_Q003": {
+      "takeaway": "The X-linked urea-cycle disorder is OTC deficiency, or hyperammonemia type II.",
+      "displayText": "An X-linked recessive urea-cycle disorder points to ornithine transcarbamylase (OTC) deficiency, classically called hyperammonemia type II.\n\nOTC deficiency causes hyperammonemia, low citrulline and excess carbamoyl phosphate that spills into pyrimidine synthesis, producing elevated urinary orotic acid.",
+      "emphasis": [
+        "X-linked recessive",
+        "ornithine transcarbamylase (OTC) deficiency",
+        "hyperammonemia type II",
+        "urinary orotic acid"
+      ],
+      "rationales": {
+        "a": "Citrullinemia is caused by argininosuccinate synthetase deficiency and is not the classic X-linked disorder.",
+        "b": "Hyperammonemia type I is caused by CPS I deficiency and is not X-linked.",
+        "d": "Argininosuccinic aciduria is due to argininosuccinate lyase deficiency."
+      }
+    },
+    "marrow__BIOCHEM_CH11_Q004": {
+      "takeaway": "High glutamine with orotic-acid/uracil excess indicates OTC deficiency.",
+      "displayText": "Hyperammonemia with high glutamine and excess uracil/orotic acid strongly suggests ornithine transcarbamylase deficiency. Accumulated mitochondrial carbamoyl phosphate enters cytosolic pyrimidine synthesis, increasing orotic acid and uracil.\n\nThis pattern distinguishes OTC deficiency from CPS I deficiency, which does not produce the same orotic-acid excess.",
+      "emphasis": [
+        "ornithine transcarbamylase deficiency",
+        "carbamoyl phosphate",
+        "orotic acid",
+        "uracil"
+      ],
+      "rationales": {
+        "a": "CPS I deficiency causes hyperammonemia but does not characteristically cause increased orotic acid from carbamoyl-phosphate overflow.",
+        "c": "Argininosuccinate synthetase deficiency causes citrullinemia rather than the source-keyed orotic-acid pattern.",
+        "d": "Argininosuccinate lyase deficiency causes argininosuccinic aciduria."
+      }
+    },
+    "marrow__BIOCHEM_CH11_Q005": {
+      "takeaway": "Argininosuccinate synthetase deficiency causes citrullinemia.",
+      "displayText": "Argininosuccinate synthetase normally combines citrulline with aspartate to form argininosuccinate. Deficiency blocks this step and causes citrulline accumulation, producing citrullinemia.\n\nThe defect is part of the urea-cycle disorder spectrum.",
+      "emphasis": [
+        "Argininosuccinate synthetase",
+        "citrulline",
+        "argininosuccinate",
+        "citrullinemia"
+      ],
+      "rationales": {
+        "a": "Hyperargininemia is caused by arginase deficiency.",
+        "b": "Argininosuccinic aciduria is caused by argininosuccinate lyase deficiency.",
+        "d": "Hyperammonemia type I is caused by CPS I deficiency."
+      }
+    },
+    "marrow__BIOCHEM_CH11_Q006": {
+      "takeaway": "The two nitrogen atoms of urea come from free ammonia and aspartate.",
+      "displayText": "Urea contains two nitrogen atoms. One is introduced as free ammonia during carbamoyl-phosphate formation, and the other is donated by aspartate during argininosuccinate formation.\n\nThis is the source of both nitrogens ultimately excreted as urea.",
+      "emphasis": [
+        "free ammonia",
+        "aspartate",
+        "two nitrogen atoms",
+        "urea"
+      ],
+      "rationales": {
+        "a": "Glutamate is an important nitrogen carrier but is not directly the second nitrogen donor in urea.",
+        "c": "Glutamine and arginine are not the two direct nitrogen sources of urea.",
+        "d": "Arginine is the immediate precursor that is cleaved to release urea but does not directly supply the second nitrogen in the way stated here."
+      }
+    },
+    "marrow__BIOCHEM_CH11_Q007": {
+      "takeaway": "Fumarate is the metabolic link between the urea cycle and TCA cycle.",
+      "displayText": "Argininosuccinate lyase splits argininosuccinate into arginine and fumarate. Fumarate can enter the TCA pathway through conversion to malate and then oxaloacetate.\n\nThis fumarate connection forms the aspartate–argininosuccinate shunt linking the urea and Krebs cycles.",
+      "emphasis": [
+        "Argininosuccinate lyase",
+        "fumarate",
+        "malate",
+        "linking the urea and Krebs cycles"
+      ],
+      "rationales": {
+        "a": "Arginine is a urea-cycle intermediate but is not the direct metabolic bridge into the TCA cycle.",
+        "b": "Ornithine participates in the urea cycle but does not provide the TCA linkage asked here.",
+        "d": "Oxaloacetate participates downstream after fumarate conversion, but fumarate is the source-keyed link generated directly by the urea cycle."
+      }
+    },
+    "marrow__BIOCHEM_CH11_Q009": {
+      "takeaway": "High argininosuccinate with low arginine indicates argininosuccinate lyase deficiency.",
+      "displayText": "Argininosuccinate lyase converts argininosuccinate into arginine and fumarate. Deficiency therefore causes argininosuccinate accumulation with reduced arginine and produces argininosuccinic aciduria.\n\nAffected neonates can develop severe hyperammonemia, neurologic deterioration and trichorrhexis nodosa.",
+      "emphasis": [
+        "Argininosuccinate lyase",
+        "argininosuccinate accumulation",
+        "reduced arginine",
+        "argininosuccinic aciduria"
+      ],
+      "rationales": {
+        "a": "Argininosuccinate synthetase deficiency causes citrullinemia rather than high argininosuccinate.",
+        "c": "Arginase deficiency causes hyperargininemia.",
+        "d": "CPS I deficiency causes hyperammonemia type I and does not produce high argininosuccinate."
+      }
+    },
+    "marrow__BIOCHEM_CH11_Q010": {
+      "takeaway": "Hydrolysis in the urea cycle occurs when arginase cleaves arginine to urea and ornithine.",
+      "displayText": "The hydrolytic step of the urea cycle is the arginase reaction. Arginine is hydrolyzed to produce urea and regenerate ornithine.\n\nArginase deficiency causes hyperargininemia.",
+      "emphasis": [
+        "arginase",
+        "Arginine is hydrolyzed",
+        "urea",
+        "ornithine"
+      ],
+      "rationales": {
+        "b": "Formation of argininosuccinate is an ATP-dependent condensation reaction, not hydrolysis.",
+        "c": "Formation of citrulline is catalyzed by OTC and is not the hydrolytic step.",
+        "d": "Cleavage of argininosuccinate is catalyzed by argininosuccinate lyase and is not the arginase hydrolysis reaction."
+      }
+    },
+    "marrow__BIOCHEM_CH11_Q011": {
+      "takeaway": "HHH syndrome is caused by a mitochondrial ornithine transporter defect.",
+      "displayText": "Hyperammonemia, hyperornithinemia and homocitrullinuria define HHH syndrome. The defect is impaired mitochondrial ornithine transport, which disrupts normal urea-cycle function.\n\nThe characteristic triad directly points to an ornithine transporter defect.",
+      "emphasis": [
+        "HHH syndrome",
+        "Hyperammonemia, hyperornithinemia and homocitrullinuria",
+        "mitochondrial ornithine transport",
+        "ornithine transporter defect"
+      ],
+      "rationales": {
+        "a": "Citrin defects cause a different mitochondrial transport disorder and do not match the HHH triad.",
+        "c": "Carnitine acyl-transferase defects impair fatty-acid oxidation rather than producing HHH syndrome.",
+        "d": "The source specifically keys the ornithine transporter defect option; 'ornithine permease' is not the accepted wording here."
+      }
+    },
+    "marrow__BIOCHEM_CH11_Q012": {
+      "takeaway": "Phenylbutyrate lowers ammonia by providing an alternate route for nitrogen excretion.",
+      "displayText": "Phenylbutyrate acts as a nitrogen scavenger in urea-cycle disorders. It is converted to phenylacetate, which conjugates amino-acid nitrogen into a water-soluble product that can be excreted by the kidneys.\n\nThis provides an alternate route for nitrogen disposal and lowers ammonia.",
+      "emphasis": [
+        "Phenylbutyrate",
+        "nitrogen scavenger",
+        "alternate route for nitrogen disposal",
+        "lowers ammonia"
+      ],
+      "rationales": {
+        "a": "Glutamate is a nitrogen carrier but is not the source-keyed ammonia-scavenging therapy.",
+        "c": "Isoleucine is an amino acid and does not provide the alternate nitrogen-excretion pathway described.",
+        "d": "L-carnitine is used in selected metabolic disorders but is not the source-keyed scavenger for urea-cycle hyperammonemia."
+      }
+    },
+    "marrow__BIOCHEM_CH11_Q013": {
+      "takeaway": "CPS II belongs to pyrimidine synthesis, not the urea cycle.",
+      "displayText": "Carbamoyl phosphate synthetase II (CPS II) is a cytosolic enzyme of de novo pyrimidine synthesis. The urea cycle instead uses mitochondrial CPS I.\n\nOTC, argininosuccinate lyase and arginase are genuine urea-cycle enzymes.",
+      "emphasis": [
+        "Carbamoyl phosphate synthetase II (CPS II)",
+        "pyrimidine synthesis",
+        "mitochondrial CPS I",
+        "urea-cycle enzymes"
+      ],
+      "rationales": {
+        "b": "Ornithine transcarbamylase is a urea-cycle enzyme.",
+        "c": "Argininosuccinate lyase is part of the urea cycle.",
+        "d": "Arginase catalyzes the final urea-cycle step that releases urea."
+      }
+    },
+    "marrow__BIOCHEM_CH11_Q014": {
+      "takeaway": "CPS I catalyzes the rate-limiting mitochondrial step of the urea cycle.",
+      "displayText": "Carbamoyl phosphate synthetase I is a mitochondrial enzyme that uses free ammonia to generate carbamoyl phosphate in the first committed, rate-limiting step of the urea cycle.\n\nCPS II is the cytosolic isoenzyme used in pyrimidine synthesis.",
+      "emphasis": [
+        "Carbamoyl phosphate synthetase I",
+        "mitochondrial enzyme",
+        "rate-limiting step",
+        "urea cycle"
+      ],
+      "rationales": {
+        "b": "Purine synthesis does not use CPS I.",
+        "c": "Pyrimidine synthesis uses cytosolic CPS II rather than mitochondrial CPS I.",
+        "d": "The glucuronic pathway is unrelated to CPS I."
+      }
+    }
+  }
+}
