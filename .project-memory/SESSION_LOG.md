@@ -692,3 +692,24 @@ Implemented approved recovery in existing transform owners: Topics separate path
   checks plus browser coverage for the long classic-galactosemia explanation.
   Inventory is now 194 enhanced / 1,921 pending. Local verification passes 36
   checks; full generated-app/browser/APK CI is pending.
+
+
+## 2026-09-09 — Reconcile Biochemistry Chapter 2 onto current explanation lineage
+
+- Re-read the canonical Marrow explanation fine-tuning, bank integration,
+  architecture, product and decision contracts before continuing.
+- Recovered the previously authored 29-question Chapter 2 augmentation from the
+  stale pre-image branch and rebased it as a bounded batch on top of the current
+  Chapter 4 explanation lineage. Raw Marrow source remains unchanged.
+- Corrected Chapter 2 batch metadata to the canonical source title
+  `Glycolysis and gluconeogenesis` and current pre-batch reference count.
+- Audited selective emphasis anchors and corrected exact-string mismatches so
+  intended high-yield emphasis actually renders; no medical prose was rewritten.
+- Restored generalized per-chapter rollout validation and added an executable
+  requirement that every emphasis anchor exists in its display text.
+- Added browser coverage for Chapter 2 Q1 while preserving existing Chapter 4,
+  gold-sample, FSRS-footer and source-figure regressions.
+- Regenerated the deterministic inventory through CI: **223 enhanced / 1,892
+  pending**, with source hashes and review-flag counts unchanged.
+- Exact next fresh content start after this verification batch: **Biochemistry
+  Chapter 3 — Glycogen metabolism and glycogen storage disorders**.
