@@ -18,6 +18,11 @@ Check off only when build-verified **and** device-verified where UI is involved.
       `v11.7-cross-device-pwa-sync` without altering either checkpoint branch.
 - [ ] Deliver V11.7: responsive PWA plus conflict-safe Firebase synchronization
       while preserving the accepted Android behavior and existing local data.
+- [ ] Complete the bounded Home “Today’s Focus” command center on
+      `feature/home-command-center-current`: preserve saved modules, Due Review,
+      Continue Practice, Practice 20 and Timed CBT; visually recommend unfinished
+      module first, then due review, then Practice 20. Run after the Custom Study
+      Modules transform and require mobile browser screenshot plus full APK/PWA CI.
 
 ## Marrow expansion — current priority
 

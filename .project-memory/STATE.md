@@ -6,7 +6,7 @@
 ## Repo / release state
 
 - Repo: `Numankhan2013/V10.1`.
-- Current image branch: `feature/marrow-image-rollout-current`, based on the verified Physiology Chapter 5 explanation lineage.
+- Current working branch: `feature/home-command-center-current`, stacked directly on the verified image branch `feature/marrow-image-rollout-current`. No Home product files have been changed yet.
 - Resolve live branch/HEAD from Git; do not hardcode self-staling HEAD values.
 - Current verified explanation lineage reaches
   `feature/marrow-explanation-rollout-physio-ch05-current` / PR #24.
@@ -101,8 +101,20 @@ explanation and exactly three distractor rationales through the real learner UI.
 
 ## Next step / ownership split
 
-- **Primary agent:** inspect current GitHub state/code quality and continue the
-  Marrow source-image integration pipeline.
+- **Immediate primary-agent task:** implement the bounded Home “Today’s Focus”
+  command-center enhancement on `feature/home-command-center-current`. Preserve
+  all existing actions and flows; make the recommended action context-aware with
+  priority **unfinished saved module → due FSRS review → Practice 20**.
+- The new deterministic transform must run **after**
+  `apply_custom_study_modules_v1.py` / `test_custom_study_modules_v1.py`, because
+  Custom Study Modules owns a later Home mutation than the V11.4 visual transform.
+  Add a dedicated transform/test, workflow-order protection, mobile browser
+  screenshot/assertions, full Android/PWA CI, and visual QA before calling it done.
+- Investigation is complete but implementation intentionally paused at low usage.
+  The attempted patch failed before writing because of the known Termux
+  `apply_patch` sandbox limitation; no partial product change exists.
+- **Image integration:** resume later from the verified Batch 07 state; do not mix
+  it into this bounded Home branch.
 - **Explanation refinement agent:** when resumed, continue from
   **Physiology Chapter 6 — Physiology of Nerve**, source order, without touching
   the image-integration ownership.

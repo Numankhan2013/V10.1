@@ -768,3 +768,25 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Held the native Golgi-tendon-organ sequence as REVIEW_REQUIRED because its dense labels are below the approved readability floor; it must be faithfully reconstructed rather than shipped blurry.
 - Current deterministic totals: 150 registry assets (145 PASS, 2 SOURCE_LIMITED, 2 REJECTED, 1 REVIEW_REQUIRED), 192 bindings (166 released), and 152 released questions: Anatomy 58, Biochemistry 55, Physiology 39.
 - Full Android/PWA CI passed Batches 05–07 (`34367383565`, `34367985338`, `34368514110`), including browser, offline hashes, APK packaging and exact packaged-image bytes. Latest immutable preview: `https://4d588745.nk-qbank.pages.dev`; artifact `V11.7-android-pwa` ID `10111037219`; production promotion skipped.
+
+
+## 2026-09-09 — Home enhancement scoped and safely paused
+
+- Chose a bounded Home-page enhancement as the best quality-to-usage task after
+  the user deferred another large image phase. Created
+  `feature/home-command-center-current` directly from the verified Batch 07 image
+  branch; no product behavior or asset was changed.
+- Audited the active Home renderer and ordered CI transform chain. The key build
+  constraint is that Custom Study Modules modifies the V11.4 Today’s Focus panel
+  after the whole-app visual transform, so the new Home transform must run after
+  `apply_custom_study_modules_v1.py` and its test.
+- Fixed implementation scope for the next session: retain every established Home
+  action, add clearer action microcopy/accessibility/responsive layout, and use
+  recommendation priority unfinished saved module → due FSRS review → Practice 20.
+  This is presentation/action hierarchy only; Practice, CBT, Review, FSRS, sync,
+  modules, content, and image pipelines remain protected.
+- Stopped when the user reported about 15% usage remaining. Two
+  `apply_patch` attempts failed at the Termux sandbox boundary before writing.
+  No partial product edit exists. Resume with the deterministic transform and contract test, wire it
+  after Custom Study Modules, add a Home browser screenshot/assertions, run local
+  checks and full Android/PWA CI, then visually inspect the artifact.
