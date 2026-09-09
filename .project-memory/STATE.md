@@ -45,7 +45,7 @@ Approved learner-facing contract:
   source options for four-option SBA;
 - ID-keyed augmentation separate from raw source;
 - source tables/figures/provenance remain source-owned and separate;
-- missing/ambiguous source content remains explicit; never invent it;
+- incomplete/garbled source content should be reconstructed when high-confidence recovery is possible from source evidence and/or standard medical literature; every reconstruction remains provenance-marked and auditable;
 - FSRS/session behavior is untouched.
 
 Current deterministic inventory:
