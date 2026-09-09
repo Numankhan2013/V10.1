@@ -551,3 +551,38 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Added deterministic, text-free explanation triage for all 2,115 Marrow IDs and
   selected a 20-question cross-chapter Biochemistry gold sample. No source or
   learner-facing explanation was changed.
+
+
+## 2026-09-08 — Marrow explanation-quality phase started
+
+- User physically verified the newly deployed Marrow PWA, confirmed the current
+  question/integration/taxonomy experience is correct, and declared that
+  verification phase complete.
+- User explicitly designated the existing 142 enhanced Marrow questions
+  (62 Anatomy + 80 Physiology) as the gold-standard explanation reference.
+- Started bounded Biochemistry quality work on
+  `feature/marrow-biochem-explanation-gold-sample`.
+- Added `data/marrow/explanation_biochem_gold_sample_v1.json`: the deterministic
+  20-question cross-chapter sample now has takeaway, cleaned display text,
+  selective emphasis and exactly three distractor rationales per question.
+- Raw Marrow source bundles remain unchanged. Source ambiguity is preserved
+  rather than invented, including the missing PCT lab panel and the missing
+  numbered enzyme list in the vitamin-B12 combination question.
+- Added a source-hash/ID/rationale contract test and wired the 20-question
+  candidate through the existing Marrow renderer without changing its UI,
+  FSRS footer, Practice/CBT/Review flow, source tables or navigation.
+- The 142-question set remains the approved reference; the 20 Biochemistry
+  questions remain candidate-human-review until visual approval.
+
+
+## 2026-09-09 — Biochemistry explanation sample approved
+
+- User physically reviewed the 20-question cross-chapter Biochemistry explanation
+  sample and explicitly approved its quality: “They are good. We need that kind
+  of explanation everywhere.”
+- This promotes the explanation reference from 142 to **162 approved questions**
+  (62 Anatomy + 80 Physiology + 20 Biochemistry).
+- Full Android/PWA and Engineering Gate were green on the approved candidate.
+- The remaining rollout target is **1,953 Marrow questions**, to be handled in
+  deterministic chapter batches with raw source immutable and source ambiguity
+  preserved rather than invented.

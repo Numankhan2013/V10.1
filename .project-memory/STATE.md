@@ -1,146 +1,118 @@
 # STATE.md — Current Project State and Handoff
 
-> Keep concise and current. History goes in `SESSION_LOG.md`, durable reasoning
-> in `DECISIONS.md`, and future work in `ROADMAP.md`.
+> Concise operational handoff. History belongs in `SESSION_LOG.md`; durable
+> reasoning in `DECISIONS.md`; future work in `ROADMAP.md`.
 
 ## Repo / branch
 
-- Repo: `Numankhan2013/V10.1` (private).
-- Git `main` is now the authoritative unified product line after PRs #6 and #7.
-  Current follow-up branch: `feature/marrow-explanation-inventory`.
-  Production remains unchanged.
-- Resolve live branch/HEAD with Git; never hardcode a self-staling current-HEAD field here.
+- Repo: `Numankhan2013/V10.1`.
+- Git `main` is the authoritative unified V11/Marrow product line after PRs #6–#8.
+- Current explanation-quality branch:
+  `feature/marrow-biochem-explanation-gold-sample`.
+- Resolve live branch/HEAD from Git; never hardcode a self-staling HEAD value.
 - Accepted product baseline remains **V11.6 Content Quality** at `125d68b`,
-  canonical APK run `34050921180`. Do not promote the Marrow candidate without
-  explicit physical user acceptance.
+  canonical APK run `34050921180`.
 - Accepted product commit: `125d68b`.
-- `main` is stale relative to the V11 line and must not be used as the product baseline.
+- Production promotion remains explicit and guarded.
 
-## Marrow Phase A expansion — 2026-09-08
+## Current Marrow bank
 
-- The shared subject-indexed bank registry remains the only bank architecture:
-  `MARROW_RECORDS` → `MARROW_BY_SUBJECT` → `BANKS_BY_SUBJECT`.
-  No second Practice/CBT/Review/FSRS/sync/module/analytics engine was created.
-- Supplied Marrow ED8 content now exists in the candidate as:
-  - **Anatomy:** 819 questions / 48 topics.
-  - **Biochemistry:** 543 questions / 26 topics.
-  - **Physiology:** 753 questions / 33 topics.
-  - **Total Marrow:** 2,115 globally unique namespaced questions / 107 topics.
-- PrepLadder remains unchanged in parallel:
-  Anatomy 1,068/50; Biochemistry 719; Physiology 899/38.
-- Expanded data is transported in deterministic zlib/base64 shards with
-  manifest counts, byte lengths and SHA-256 validation. Runtime loader fails
-  closed on corruption, count drift, identity mismatch, duplicate IDs, bad
-  option shape, or question→topic linkage mismatch.
-- Expanded bundle names:
-  `anatomy_phase_a`, `biochemistry_phase_a`,
-  `physiology_ch001_033`.
-- The original accepted 62-question Anatomy pilot and 80-question Physiology
-  pilot remain regression/augmentation subsets. Their existing learner behavior
-  was not downgraded.
-- Three Anatomy reconstructed questions remain preserved with provenance:
-  `ANAT_CH02_Q010`, `ANAT_CH03_Q004`, `ANAT_CH04_Q013`.
+The shared subject-indexed architecture remains:
+`MARROW_RECORDS` → `MARROW_BY_SUBJECT` → `BANKS_BY_SUBJECT`.
+There is no duplicate Practice/CBT/Review/FSRS/sync/module/analytics engine.
 
-## Explanation status
+Current supplied Marrow ED8 scope:
+- Anatomy: **819 questions / 48 topics**.
+- Biochemistry: **543 / 26**.
+- Physiology: **753 / 33**.
+- Total: **2,115 globally unique questions / 107 topics**.
 
-- Initial ingestion was deliberately **content-first** per user instruction.
-  Newly added questions use the supplied source-faithful structured explanation
-  surface without a new explanation rewrite phase.
-- The already-approved enhanced layer remains only on the existing 142-question
-  subset (62 Anatomy + 80 Physiology), with 426 stored distractor rationales.
-- Stored Marrow source transcription remains authoritative and unchanged.
-- Explanation improvement for the remaining questions is a later, separate phase.
-- FSRS remains protected: the rating dock stays fixed/floating above Previous/Next.
+Expanded source bundles are deterministic zlib/base64 shards with manifest
+counts, byte lengths and SHA-256 validation. Runtime ingestion fails closed on
+corruption, count drift, duplicate IDs, bad option shape or topic-link mismatch.
+Raw imported Marrow source remains authoritative and immutable.
 
-## Verification / workflow status
+The original 62-question Anatomy and 80-question Physiology enhanced subsets
+remain regression/augmentation references. Three resolved Anatomy
+reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
+`ANAT_CH04_Q013`.
 
-- Final integration checkpoint `bc500234`:
-  - Engineering Gate `34245190588` / run 193 — **success**.
-  - Full Android + PWA run `34245190771` / run 403 — **success**.
-  - Browser result: `anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115`.
-  - Side-by-side Marrow APK built; packaged APK/product contracts passed.
-  - Artifact `V11.7-android-pwa` ID `10063767953` uploaded successfully.
-- The exact expanded candidate was republished through full run `34246876973`
-  / run 405 — **success**, including memory verification, Marrow browser gate,
-  side-by-side APK, packaged product contract, artifact upload, and Cloudflare
-  feature-preview deployment.
-- Live mutable feature alias: `https://feature-marrow-bank-pilot.nk-qbank.pages.dev`.
-  Immutable deployment for this publish: `https://2278b62b.nk-qbank.pages.dev`.
-- Run 405 artifact `V11.7-android-pwa`: ID `10064442860`.
-- Production promotion was **skipped**; `nk-qbank.pages.dev` production was not
-  changed by this Marrow preview publish.
-- Unified consolidation checkpoint `87faccd`:
-  - Engineering Gate `34255508094` / run 196 — **success**.
-  - Full Android + PWA `34255508119` / run 406 — **success**.
-  - Generated browser, FSRS, Marrow, PDF, APK and packaged contracts passed.
-  - Preview: `https://consolidation-main-unified.nk-qbank.pages.dev`
-    (immutable `https://e0d1385c.nk-qbank.pages.dev`).
-  - Production promotion was skipped by the new explicit release guard.
-- Authoritative-main `e42a076`: Engineering run 201 and full Android/PWA run
-  409 succeeded; both Cloudflare steps were skipped, proving the release guard.
+## User/device verification — 2026-09-08
 
-## User physical review — 2026-09-08
+- The user physically verified the newly deployed Marrow PWA.
+- The user confirmed the questions/current integration are correct and declared
+  the integration/taxonomy verification phase complete.
+- The recovered Topics journey, fixed Continue Learning tray and dedicated FSRS
+  controls are also user-approved.
+- The explicit source-aligned 107-topic taxonomy is therefore **device-verified**
+  for the current deployed experience. Four cross-system Anatomy placements
+  remain internally reviewable but do not block explanation work.
+- This does not mean every one of the 2,115 raw explanations was individually
+  reviewed, and it is not an explicit production-baseline promotion.
 
-- User physically opened the run-405 Marrow feature PWA and confirmed the
-  **question integration is successful**.
-- User also confirmed the recovered **Topics journey/fixed Continue Learning UI**
-  and **dedicated FSRS customization controls are live and good** on this feature PWA.
-- These recovered features are on `feature/marrow-bank-pilot`; the production/root
-  PWA was not promoted in run 405, and stale Git `main` is not the V11 source.
-  Missing features on the older “main PWA” are therefore a branch/deployment
-  separation issue, not a reason to rebuild them from scratch.
-- Exact lineage/deployment handoff: `docs/TOPICS_FSRS_FEATURE_HANDOFF.md`.
+## Explanation-quality phase
 
-## Navigation / taxonomy
+- The user explicitly designated the existing **142 enhanced questions**
+  (62 Anatomy + 80 Physiology) as the gold-standard explanation reference.
+- Those 142 contain 426 stored distractor rationales and define the approved
+  presentation grammar:
+  Key Takeaway → structured detailed explanation with selective emphasis and
+  native tables → exactly three concise wrong-option rationales.
+- FSRS remains protected in the fixed/floating session footer above Previous/Next.
+- The deterministic inventory originally accounted for all 2,115 IDs as
+  142 references + 1,973 pending. After approval of the 20-question
+  Biochemistry sample, **162 are approved references and 1,953 remain to roll out**.
+- A bounded, cross-chapter **20-question Biochemistry candidate** is now stored at
+  `data/marrow/explanation_biochem_gold_sample_v1.json`.
+- The candidate uses the same renderer and grammar; it is augmentation/display
+  only and does not alter the Biochemistry source bundle.
+- On 2026-09-09 the user physically reviewed the 20-question Biochemistry sample
+  and explicitly approved it: “They are good. We need that kind of explanation everywhere.”
+  The approved explanation reference is therefore now **162 questions**
+  (62 Anatomy + 80 Physiology + 20 Biochemistry).
+- Source ambiguities remain explicit rather than invented. In particular:
+  - the PCT question refers to a lab panel absent from the rendered question page;
+  - the vitamin-B12 combination question omits the defining numbered enzyme list.
+- Contract test:
+  `tools/test_marrow_biochem_explanation_sample.py` validates the exact 20 IDs,
+  source SHA, nonempty display content and exactly three rationales mapped to the
+  three incorrect options.
 
-- The journey visual design is now user-approved, but the **major index taxonomy
-  is wrong**. Do not change the approved journey/glow/fixed-tray treatment.
-- Replace heuristic grouping with one explicit source-aligned mapping using
-  `docs/MARROW_TOPIC_INDEX_TAXONOMY.md`.
-- Required source index families are recorded there for Anatomy, Physiology and
-  Biochemistry, including the user's exact order and PYQ rules.
-- Taxonomy is navigation-only; never rewrite medical content.
+## Verification / release status
 
-## Status discipline
-
-- The expanded feature candidate remains **build-verified** by run 405.
-- The user has now physically spot-checked the expanded feature PWA and confirmed
-  successful Marrow question integration plus the recovered Topics/FSRS surfaces.
-- Those tested surfaces are **device-verified**; this is not blanket verification
-  of every one of the 2,115 questions and not promotion of the overall product.
+- Expanded Marrow bank integration is **build-verified** by prior successful
+  Engineering/full Android+PWA runs, including run 405 and authoritative-main
+  run 409.
+- The current 20-question explanation candidate still requires its own CI/browser
+  verification; do not call it build-verified until those checks pass.
+- Build-verified ≠ device-verified ≠ accepted baseline.
 - V11.6 `125d68b` remains the **accepted baseline** / rollback checkpoint until
   the user explicitly promotes a later candidate.
+- Main/production release guard requires explicit workflow dispatch plus exact
+  full release SHA; CI success alone must never promote production.
 
 ## Known problems / cautions
 
-- Topics major-index grouping is currently inaccurate despite the approved visual
-  journey. The next Topics change is taxonomy-only.
-- New explanations intentionally have not received the approved full-bank polish.
-  The Biochemistry physical screenshot shows raw structured/OCR text quality that
-  belongs in a separate display/augmentation phase.
-- Figure/image binaries remain a later pass; preserved metadata must not be lost.
-- Large connector/Git writes are unsafe; keep shard + manifest + hash validation.
-- Protected PrepLadder renderers, source PDFs, Practice/CBT/Review, FSRS, sync,
-  modules, persistence and navigation must not be modified casually.
+- The remaining non-reference Marrow explanations still need the approved polish.
+- Preserve source tables, figure metadata and uncertainty/reconstruction notes.
+  Actual missing image binaries remain a later pass.
+- Do not invent missing list items, lab values, graph labels or image-dependent facts.
+- Do not rewrite raw JSONL/sharded source to make the UI prettier.
+- Do not alter the approved Topics journey, FSRS dock, source-PDF renderers,
+  Practice/CBT/Review, sync, modules, persistence or navigation during explanation work.
+- Large connector/Git writes should remain bounded, deterministic and validated.
 
 ## Next step
 
-1. The explicit 107-topic Marrow taxonomy is implemented in
-   `data/marrow/topic_index_taxonomy.json`; four cross-system Anatomy topics
-   retain visible internal review status while using a provisional Systemic
-   Embryology placement. The approved Topics visuals are unchanged.
-2. Stale-main history is recorded by an `ours` merge after auditing its seven
-   unique commits; the tested V11 tree remains unchanged.
-3. Prepare and review the selected 20-question Biochemistry explanation sample;
-   the deterministic inventory accounts for all 2,115 IDs, with 142 enhanced
-   references and 1,973 pending enhancements.
-4. The next explanation phase follows
-   `docs/MARROW_EXPLANATION_FINE_TUNING.md` and scale the approved 142-question
-   grammar source-faithfully across the remaining Marrow questions.
-5. Production promotion now requires an explicit `main` workflow dispatch plus
-   the exact full release SHA. Do not promote until the candidate artifact is
-   reviewed and the user explicitly approves it.
-6. Keep V11.6 `125d68b` as the immutable accepted rollback checkpoint.
+1. Merge the approved 20-question Biochemistry sample into `main`; its CI/browser/
+   packaged-app/FSRS checks are green and the user has physically approved it.
+2. Scale the now-approved 162-question explanation grammar in deterministic
+   chapter batches across the remaining 1,953 Marrow questions.
+3. Start with Biochemistry chapter batches, then continue Anatomy and Physiology
+   pending questions, preserving the same renderer contract.
+4. Keep raw source unchanged and preserve unresolved review items per
+   `docs/MARROW_EXPLANATION_FINE_TUNING.md`.
+5. Do not promote production merely because CI passes; keep V11.6 `125d68b`
+   as the rollback baseline until explicit user promotion.
 
-Canonical integration procedure and detailed failure lessons:
-`docs/MARROW_BANK_INTEGRATION.md`.
+Canonical Marrow procedure: `docs/MARROW_BANK_INTEGRATION.md`.

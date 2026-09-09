@@ -42,14 +42,19 @@ Check off only when build-verified **and** device-verified where UI is involved.
       Marrow question integration succeeds and the recovered Topics/FSRS
       customization surfaces are good. This is not blanket acceptance of all
       content or production promotion.
-- [ ] Build- and device-verify the implemented explicit Topics taxonomy from
-      `data/marrow/topic_index_taxonomy.json`; source order, canonical section
-      order and 107-topic coverage are locally verified. Approved journey UI is
-      unchanged; four cross-system Anatomy placements remain reviewable.
+- [x] Build/device verification of the implemented explicit Topics taxonomy from
+      `data/marrow/topic_index_taxonomy.json`: the user physically verified the
+      newly deployed PWA and declared the current Marrow integration/taxonomy
+      verification phase complete. Approved journey UI is unchanged; four
+      cross-system Anatomy placements remain internally reviewable.
 - [ ] Explanation fine-tuning for the newly added questions using
-      `docs/MARROW_EXPLANATION_FINE_TUNING.md`. Keep raw source immutable and
-      scale the approved 142-question grammar through a separate augmentation layer.
-      The 2,115-ID inventory and 20-question Biochemistry sample selection are complete.
+      `docs/MARROW_EXPLANATION_FINE_TUNING.md`. **Active phase.** Keep raw source
+      immutable and scale the approved 142-question grammar through a separate
+      augmentation layer. The 2,115-ID inventory is complete and the selected
+      20-question cross-chapter Biochemistry sample passed CI/browser verification
+      and was physically approved by the user on 2026-09-09. The approved reference
+      is now 162 questions; proceed with deterministic full-bank chapter batches
+      across the remaining 1,953 questions.
 - [ ] Images/figures remain a later pass. Preserve figure metadata and do not
       block source-faithful text-bank work on missing binaries.
 - [ ] Continue later Marrow chapters beyond the supplied current scope only when
