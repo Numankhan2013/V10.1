@@ -53,8 +53,9 @@ Check off only when build-verified **and** device-verified where UI is involved.
       augmentation layer. The 2,115-ID inventory is complete and the selected
       20-question cross-chapter Biochemistry sample passed CI/browser verification
       and was physically approved by the user on 2026-09-09. The approved reference
-      is now 162 questions; proceed with deterministic full-bank chapter batches
-      across the remaining 1,953 questions.
+      is now the canonical grammar. Biochemistry Chapter 1 rollout is complete
+      (22 additional questions; 23/23 Chapter 1 enhanced), bringing the enhanced
+      total to **184** with **1,931** remaining. Continue at Biochemistry Chapter 2.
 - [ ] Images/figures remain a later pass. Preserve figure metadata and do not
       block source-faithful text-bank work on missing binaries.
 - [ ] Continue later Marrow chapters beyond the supplied current scope only when
