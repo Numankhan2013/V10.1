@@ -1,0 +1,95 @@
+name: Marrow Anatomy Automation Stage
+
+on:
+  push:
+    branches:
+      - automation/marrow-images-anatomy-NKQ_ANATOMY_20260910
+
+permissions:
+  contents: write
+
+jobs:
+  stage:
+    if: ${{ !contains(github.event.head_commit.message, '[staged]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout candidate branch
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Single-writer and base guard
+        run: |
+          git fetch origin feature/marrow-image-rollout-current
+          test "$(git rev-parse origin/feature/marrow-image-rollout-current)" = "20161bbeac6440ac93ddff7ca55e08f9c5be4909"
+          test "$(git rev-parse origin/feature/marrow-image-rollout-current:data/marrow/images/registry.json)" = "c32eaa5ed71bbab43eb9b20d83b60fd0216f1444"
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install audit and review dependencies
+        run: python3 -m pip install --disable-pip-version-check pypdf==6.18.0 PyMuPDF Pillow
+      - name: Audit source PDFs
+        run: python3 tools/marrow_images.py audit
+      - name: Stage six Anatomy candidates as REVIEW_REQUIRED
+        run: python3 tools/stage_marrow_image_review.py --subject Anatomy --per-subject 6 --batch-id NKQ_ANATOMY_20260910 | tee /tmp/staged.txt
+      - name: Validate staged registry and refresh deterministic progress
+        run: |
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_image_progress.py
+          python3 tools/marrow_image_progress.py --check
+      - name: Build candidate review evidence
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          import fitz
+          from PIL import Image, ImageDraw
+          import sys
+          sys.path.insert(0,'tools')
+          from marrow_images import questions, SOURCES
+          root=Path('.')
+          batch='NKQ_ANATOMY_20260910'
+          reg=json.loads((root/'data/marrow/images/registry.json').read_text())
+          qs=questions()
+          out=root/'build/marrow-anatomy-automation-review'; out.mkdir(parents=True,exist_ok=True)
+          rows=[]
+          for a in reg['assets']:
+              batch_bindings=[b for b in a['bindings'] if b.get('reviewBatch')==batch]
+              if a.get('reviewBatch')!=batch and not batch_bindings:
+                  continue
+              bindings=batch_bindings or a['bindings']
+              pdf=root/'data/marrow/source_pdfs'/SOURCES[a['subject']][1]
+              doc=fitz.open(pdf)
+              page_no=a['source']['page']
+              page=doc[page_no-1]
+              pix=page.get_pixmap(matrix=fitz.Matrix(1.5,1.5),alpha=False)
+              page_png=out/f"{a['id']}-page-{page_no}.png"; pix.save(page_png)
+              asset_path=root/a['original']['path']
+              asset=Image.open(asset_path).convert('RGB')
+              page_img=Image.open(page_png).convert('RGB')
+              width=1400
+              page_img.thumbnail((850,1200)); asset.thumbnail((500,900))
+              canvas=Image.new('RGB',(width,max(page_img.height,asset.height)+120),'white')
+              canvas.paste(page_img,(20,90)); canvas.paste(asset,(900,90))
+              d=ImageDraw.Draw(canvas); d.text((20,20),f"{a['id']} | source page {page_no} | xref {a['source'].get('xref')} | REVIEW_REQUIRED",fill='black')
+              d.text((900,60),'Native candidate',fill='black')
+              comp=out/f"{a['id']}-comparison.png"; canvas.save(comp)
+              for b in bindings:
+                  q=qs[b['questionId']]
+                  rows.append({'assetId':a['id'],'questionId':b['questionId'],'role':b['role'],'order':b['order'],'page':b.get('source',a['source']).get('page'),'xref':b.get('source',a['source']).get('xref'),'region':b.get('source',a['source']).get('region'),'stem':q.get('question'),'explanation':q.get('explanation'),'structuredFigures':q.get('structuredExplanation',{}).get('figures',[]),'candidateKind':a['kind'],'assetStatus':a['status'],'bindingStatus':b.get('status',a['status']),'comparison':str(comp)})
+          (out/'candidates.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n')
+          print(json.dumps(rows,ensure_ascii=False,indent=2))
+          PY
+      - name: Upload review evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: marrow-anatomy-NKQ_ANATOMY_20260910-review
+          path: build/marrow-anatomy-automation-review/**
+          retention-days: 3
+      - name: Commit safe REVIEW_REQUIRED checkpoint
+        run: |
+          git config user.name "nk-qbank-automation"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/marrow/images/registry.json data/marrow/images/progress.json data/marrow/images/originals
+          git commit -m "Stage Anatomy image candidates NKQ_ANATOMY_20260910 [staged]"
+          git push origin HEAD
