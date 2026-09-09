@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the bounded Marrow Biochemistry explanation candidate against source."""
+"""Validate the approved Marrow Biochemistry gold reference against source."""
 from __future__ import annotations
 
 import json
@@ -16,7 +16,7 @@ def main() -> None:
         "subject": "Biochemistry",
         "bank": "Marrow",
         "questions": 20,
-        "status": "candidate-human-review",
+        "status": "approved-reference",
     }
     assert candidate["referenceGrammar"] == {
         "approvedQuestions": 142,
@@ -51,16 +51,16 @@ def main() -> None:
         assert set(cfg["rationales"]) == wrong_letters
         assert all(str(reason).strip() for reason in cfg["rationales"].values())
 
-    # The approved 142 remain the reference set until the user reviews this sample.
     anatomy = json.loads((DATA / "explanation_gold_pilot.json").read_text(encoding="utf-8"))["questions"]
     physiology, _ = load_sharded("explanation_physio_pilot")
-    approved_ids = set(anatomy) | set(physiology["questions"])
-    assert len(approved_ids) == 142
-    assert not (approved_ids & set(questions))
+    prior_reference = set(anatomy) | set(physiology["questions"])
+    assert len(prior_reference) == 142
+    assert not (prior_reference & set(questions))
+    assert all(item["status"] == "approved-reference" for item in inventory["biochemistryGoldSample"])
 
     print(
         "MARROW_BIOCHEM_EXPLANATION_SAMPLE_TEST_OK "
-        "candidate=20 approved_reference=142 rationales=60 raw_source=unchanged"
+        "approved_sample=20 prior_reference=142 approved_reference=162 rationales=60 raw_source=unchanged"
     )
 
 
