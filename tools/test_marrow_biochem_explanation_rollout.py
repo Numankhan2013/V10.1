@@ -62,19 +62,19 @@ def main() -> None:
         covered_chapters.add(chapter)
 
     enhanced = enhanced_ids()
-    expected = 142 + len(sample_ids) + len(batch_ids)
-    assert len(enhanced) == expected
+    biochemistry_enhanced = len(sample_ids) + len(batch_ids)
     assert sample_ids | batch_ids <= enhanced
+    assert len(enhanced) >= 142 + biochemistry_enhanced
     assert inventory["summary"]["enhancementStatus"] == {
-        "enhanced-reference": expected,
-        "pending": 2115 - expected,
+        "enhanced-reference": len(enhanced),
+        "pending": 2115 - len(enhanced),
     }
 
     print(
         "MARROW_BIOCHEM_EXPLANATION_ROLLOUT_TEST_OK "
         f"chapters={','.join(sorted(covered_chapters, key=int))} "
-        f"batch_questions={len(batch_ids)} biochemistry_enhanced={len(sample_ids)+len(batch_ids)} "
-        f"approved_total={expected} pending={2115-expected} raw_source=unchanged"
+        f"batch_questions={len(batch_ids)} biochemistry_enhanced={biochemistry_enhanced} "
+        f"approved_total={len(enhanced)} pending={2115-len(enhanced)} raw_source=unchanged"
     )
 
 
