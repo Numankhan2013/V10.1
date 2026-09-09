@@ -630,3 +630,13 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - The 18-asset audit set remains 15 PASS, one SOURCE_LIMITED and two
   REVIEW_REQUIRED. Sixteen reviewed assets are learner-facing; user/device
   approval and broader classification remain outstanding.
+## 2026-09-09 — Marrow image pilot user-approved
+
+- The user reviewed all sixteen released pilot figures in the deployed PWA and
+  approved them as readable and good given the authoritative PDF sources.
+- The approved pilot quality is now the minimum threshold for the wider image
+  rollout; later assets may improve on it but must not regress below it.
+- Authorization was given to merge the pilot, responsibly reconstruct the two
+  held diagrams, and continue the image rollout in bounded QA-checked batches.
+- Authentic medical/photo imagery remains source-preserved; reconstruction is
+  restricted to faithful educational diagrams and annotation layers.

@@ -113,20 +113,23 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
   plus 58 text-cue candidates. Native candidates are not final asset counts.
 - Pilot: 15 PASS, one SOURCE_LIMITED microscopy image, two REVIEW_REQUIRED
   redraws. Sixteen assets release by stable question ID; two reviewed SVGs.
+- On 2026-09-09 the user reviewed all sixteen released pilot figures in the PWA
+  and approved them as the minimum quality threshold for wider rollout. Future
+  releases may improve on this baseline but must not fall below it.
 - Expanded batch is build-verified by full APK/PWA run `34328039057`: browser,
   offline PWA, exact asset bytes, APK packaging and upload passed. Artifact
   `V11.7-android-pwa` ID `10094653587`; preview
-  `https://334bc346.nk-qbank.pages.dev`. User/device review and full-bank
-  classification remain.
+  `https://334bc346.nk-qbank.pages.dev`. The image pilot is user/device-reviewed;
+  full-bank classification and rollout remain.
 - Audit and workflow: `docs/MARROW_IMAGE_PIPELINE.md`. Preserve raw sources and
   `tools/__pycache__/`; no production promotion. UI upgrade remains deferred.
 
 ## Next step
 
-1. Present the build-verified pilot for user review before wider asset rollout.
-2. Merge only after user approval; production remains unchanged.
-3. Reconstruct the held notochord and compressed-glycolysis figures.
-4. Continue bounded classification and asset batches across all subjects.
-5. Resume explanation rollout separately after the image priority phase.
+1. Merge the now-approved pilot; production remains unchanged.
+2. Reconstruct the held notochord and compressed-glycolysis figures.
+3. Continue bounded classification and asset batches across all subjects while
+   enforcing the approved pilot as the minimum release quality.
+4. Resume explanation rollout separately after the image priority phase.
 
 Canonical Marrow procedure: `docs/MARROW_BANK_INTEGRATION.md`.

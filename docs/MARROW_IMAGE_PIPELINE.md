@@ -66,8 +66,11 @@ the remainder retain exact native JPEG bytes. The pilot includes molecular
 structures, a hybrid reaction/photo image, microscopy, multi-panel diagrams,
 pathways, graphs and anatomical illustrations.
 
-User review of the pilot and full-bank visual classification remain outstanding.
-The page-level audit is complete; educational asset counts and quality/type totals
-outside the inspected pilot must not be inferred from image-stream counts.
+The user reviewed all sixteen released pilot figures in the PWA on 2026-09-09
+and approved their readability and quality as the minimum release threshold for
+the wider rollout. Future assets may exceed this baseline but must not fall below
+it. Full-bank visual classification remains outstanding. The page-level audit is
+complete; educational asset counts and quality/type totals outside the inspected
+pilot must not be inferred from image-stream counts.
 Region rendering is available on Ubuntu; masked and complex hybrid annotation
 reconstruction still requires an explicit asset-specific reviewed implementation.
