@@ -785,3 +785,14 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Serialized integration by design. Anatomy, Biochemistry and Physiology agents
   may audit concurrently, but only one may write the shared registry at a time;
   each writer must start from the latest incorporated image branch.
+
+
+## 2026-09-10 — Anatomy image automation safe checkpoint NKQ_ANATOMY_20260910
+
+- Read the complete image automation runbook and all mandatory repository documents before editing. Single-writer preflight found no competing image-integration branch; CI rechecked the exact integration-base SHA and registry blob before staging.
+- Created `automation/marrow-images-anatomy-NKQ_ANATOMY_20260910` from `20161bbeac6440ac93ddff7ca55e08f9c5be4909`. Added a backward-compatible `--subject` filter to `stage_marrow_image_review.py` so automation staging can be Anatomy-only.
+- Deterministically staged six Chapter 9 native JPEG candidates: Q005 / asset `anatomy-d3f9220198201a07` (brain-flexure diagram, p154/xref405); Q008 / `anatomy-3baaad0ddf8e32e3` (labelled gross-brain specimen, p156/xref3533); Q009 / `anatomy-267154fe7beac514` (question-time axial brain specimen, p148/xref389); Q010 / `anatomy-1ea13802a456a2f9` (septum-pellucidum gross-brain specimen, p157/xref413); Q012 / `anatomy-390f89119b18e515` (question-time encephalocele clinical photo, p149/xref392); Q013 / `anatomy-e0c1ff1656105c71` (question-time anencephaly clinical photo, p150/xref395).
+- Source-page/native-candidate comparisons support ownership and were recorded with concrete QA notes. Medical/specimen/clinical images remain authentic native bytes. No reconstruction or processing was performed.
+- All six assets and bindings remain `REVIEW_REQUIRED` because phone/expanded learner display, answer-timing behavior and packaged/browser visual QA have not yet been completed. No runtime release, main merge, or production promotion occurred.
+- Staged progress: 156 assets total (145 PASS, 2 SOURCE_LIMITED, 7 REVIEW_REQUIRED, 2 REJECTED), 198 bindings with 7 pending; released totals unchanged at 166 bindings / 152 questions, Anatomy 58 released questions.
+- Review evidence artifact from staging run 34398425559: `marrow-anatomy-NKQ_ANATOMY_20260910-review`. Resume by reviewing these six held items in generated phone + expanded views before considering PASS; do not select a seventh Anatomy candidate until this batch is resolved.

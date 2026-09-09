@@ -89,6 +89,14 @@ explanation and exactly three distractor rationales through the real learner UI.
 - Every staged binding carries independent page/xref/region provenance and QA status. Rejected or unreviewed bindings never enter runtime metadata.
 - Batches 05–07 passed full Android/PWA CI (`34367383565`, `34367985338`, `34368514110`). Latest immutable preview: `https://4d588745.nk-qbank.pages.dev`; production promotion was skipped.
 
+## Anatomy image automation checkpoint — NKQ_ANATOMY_20260910
+
+- Candidate branch: `automation/marrow-images-anatomy-NKQ_ANATOMY_20260910`, based exactly on image integration base `20161bbeac6440ac93ddff7ca55e08f9c5be4909`.
+- Six Anatomy Chapter 9 native candidates were staged and source-page compared: `marrow__ANAT_CH09_Q005`, Q008, Q009, Q010, Q012, Q013. Assets: `anatomy-d3f9220198201a07`, `anatomy-3baaad0ddf8e32e3`, `anatomy-267154fe7beac514`, `anatomy-1ea13802a456a2f9`, `anatomy-390f89119b18e515`, `anatomy-e0c1ff1656105c71`.
+- All six remain `REVIEW_REQUIRED`; none is released. Q5 is an educational diagram; Q8/Q9/Q10 are authentic labelled gross-brain specimens and Q12/Q13 are authentic clinical photographs, all preserved as native JPEG bytes.
+- Source ownership is supported by direct source-page placement, but phone/expanded learner-view readability, question/explanation timing, and final packaged-byte/browser QA have not been completed. Resume this exact held batch before selecting further Anatomy candidates.
+- Registry checkpoint totals: 156 assets, 198 bindings, still 166 released bindings / 152 released questions; Anatomy remains 58 released questions.
+
 ## Known problems / verification cautions
 
 - Build-verified ≠ device-verified ≠ accepted production baseline.
