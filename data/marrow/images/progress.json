@@ -1,51 +1,51 @@
 {
   "schemaVersion": 1,
   "assets": {
-    "total": 80,
+    "total": 103,
     "byStatus": {
-      "PASS": 77,
-      "REJECTED": 1,
+      "PASS": 99,
+      "REJECTED": 2,
       "SOURCE_LIMITED": 2
     },
     "byKind": {
-      "diagram": 65,
-      "hybrid": 2,
-      "medical": 12,
+      "diagram": 82,
+      "hybrid": 3,
+      "medical": 17,
       "table": 1
     },
     "byMethod": {
-      "native-jpeg-stream": 76,
+      "native-jpeg-stream": 99,
       "svg-reconstruction": 4
     }
   },
   "bindings": {
-    "total": 102,
+    "total": 132,
     "byStatus": {
-      "PASS": 93,
-      "REJECTED": 8,
+      "PASS": 116,
+      "REJECTED": 15,
       "SOURCE_LIMITED": 1
     },
     "releasedByRole": {
-      "explanation": 76,
-      "question": 18
+      "explanation": 91,
+      "question": 26
     },
-    "releasedQuestionCount": 87
+    "releasedQuestionCount": 109
   },
   "subjects": {
     "Anatomy": {
-      "approvedAssets": 27,
-      "assets": 27,
-      "releasedQuestions": 31
+      "approvedAssets": 37,
+      "assets": 37,
+      "releasedQuestions": 40
     },
     "Biochemistry": {
-      "approvedAssets": 27,
-      "assets": 27,
-      "releasedQuestions": 28
+      "approvedAssets": 36,
+      "assets": 37,
+      "releasedQuestions": 37
     },
     "Physiology": {
-      "approvedAssets": 25,
-      "assets": 26,
-      "releasedQuestions": 28
+      "approvedAssets": 28,
+      "assets": 29,
+      "releasedQuestions": 32
     }
   },
   "batches": {
@@ -71,6 +71,11 @@
       "bindings": 30,
       "rejectedBindings": 3,
       "releasedBindings": 27
+    },
+    "rollout-05-native": {
+      "bindings": 30,
+      "rejectedBindings": 7,
+      "releasedBindings": 23
     }
   }
 }

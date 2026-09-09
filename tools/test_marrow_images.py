@@ -28,6 +28,8 @@ def main():
     assert progress['batches']['rollout-03-native']=={'bindings':30,'rejectedBindings':3,'releasedBindings':27}
     assert progress['bindings']['releasedQuestionCount']>=87
     assert progress['batches']['rollout-04-native']=={'bindings':30,'rejectedBindings':3,'releasedBindings':27}
+    assert progress['bindings']['releasedQuestionCount']>=109
+    assert progress['batches']['rollout-05-native']=={'bindings':30,'rejectedBindings':7,'releasedBindings':23}
     assert progress['bindings']['byStatus']['REJECTED']>=2
     assert json.loads((DATA/'images/progress.json').read_text())==progress
     with tempfile.TemporaryDirectory() as directory:
