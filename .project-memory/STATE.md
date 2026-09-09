@@ -40,6 +40,8 @@ reconstruction belong only in ID-keyed augmentation.
 ## Explanation-quality contract
 
 Canonical procedure: `docs/MARROW_EXPLANATION_FINE_TUNING.md`.
+For unattended Scheduled Tasks, `docs/MARROW_EXPLANATION_AUTOMATION_RUNBOOK.md`
+is the mandatory execution/safety protocol.
 
 Every refined four-option SBA should have:
 - one meaningful Key Takeaway;
