@@ -53,11 +53,12 @@ Check off only when build-verified **and** device-verified where UI is involved.
       augmentation layer. The 2,115-ID inventory is complete and the selected
       20-question cross-chapter Biochemistry sample passed CI/browser verification
       and was physically approved by the user on 2026-09-09. The approved reference
-      is now the canonical grammar. Biochemistry Chapter 1 rollout is complete
-      (22 additional questions; 23/23 Chapter 1 enhanced), bringing the enhanced
-      total to **194** with **1,921** remaining. Biochemistry Chapter 4 is now
-      complete (10 new augmentations plus approved gold-sample Q5); full
-      CI/browser/package verification remains before review.
+      is now the canonical grammar. Biochemistry Chapters 1, 2 and 4 are now complete at the augmentation layer:
+      Chapter 1 is 23/23, Chapter 2 is 30/30, and Chapter 4 is 11/11 using their
+      approved gold-sample questions. The deterministic inventory is **223 enhanced**
+      with **1,892 remaining**. Chapter 4 passed full CI/browser/APK verification;
+      the rebased Chapter 2 batch is the current verification candidate. Chapter 3
+      is the exact next fresh content start.
 - [ ] Image rollout is paused after build-verified Batch 01. Six Batch 02 native
       candidates are checkpointed on a separate branch as REVIEW_REQUIRED and
       remain unreleased while explanation refinement is prioritized.
