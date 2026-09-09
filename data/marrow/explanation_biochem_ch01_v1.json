@@ -1,0 +1,352 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Approved Marrow ED8 Biochemistry Chapter 1 explanation rollout. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "1",
+    "chapterTitle": "Chemistry of Carbohydrates, Amino sugars and Mucopolysaccharides",
+    "questions": 22,
+    "status": "approved-rollout"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 162,
+    "anatomy": 62,
+    "physiology": 80,
+    "biochemistryGoldSample": 20
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH01_Q001": {
+      "takeaway": "Erythrose is an aldose; erythrulose, ribulose and fructose are ketoses.",
+      "displayText": "An aldose contains an aldehyde group in its open-chain form, whereas a ketose contains a ketone group.\n\nErythrose is an aldotetrose and is therefore the aldose in this list. Erythrulose and ribulose are ketoses, and fructose is a ketohexose.",
+      "emphasis": [
+        "Erythrose",
+        "aldose",
+        "ketoses"
+      ],
+      "rationales": {
+        "a": "Erythrulose is a ketotetrose, so its carbonyl group is a ketone rather than an aldehyde.",
+        "b": "Ribulose is a ketopentose and therefore is not an aldose.",
+        "c": "Fructose is a ketohexose, not an aldose."
+      },
+      "sourceNotes": [
+        "Obvious OCR debris in the raw source explanation is omitted from display only."
+      ]
+    },
+    "marrow__BIOCHEM_CH01_Q002": {
+      "takeaway": "Lactose is made of galactose plus glucose joined by a β-1,4 glycosidic bond.",
+      "displayText": "Lactose is the disaccharide of milk. It consists of galactose and glucose linked through a β-1,4 glycosidic bond.",
+      "emphasis": [
+        "galactose and glucose",
+        "β-1,4 glycosidic bond"
+      ],
+      "rationales": {
+        "a": "Glucose plus fructose forms sucrose, not lactose.",
+        "b": "Glucose plus mannose is not the monosaccharide pair that forms lactose.",
+        "d": "Two glucose residues form disaccharides such as maltose, not lactose."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q003": {
+      "takeaway": "D-mannose and L-mannose are enantiomers because they are non-superimposable mirror images of the same sugar.",
+      "displayText": "Enantiomers are stereoisomers that are mirror images of one another. For monosaccharides, the D/L designation is determined by the configuration around the penultimate carbon relative to glyceraldehyde.\n\nD-mannose and L-mannose therefore form an enantiomeric pair. D and L forms of the same monosaccharide have opposite configurations at all corresponding chiral centers.",
+      "emphasis": [
+        "Enantiomers",
+        "D-mannose and L-mannose",
+        "penultimate carbon"
+      ],
+      "rationales": {
+        "a": "D-galactose and L-fructose are different sugars, not the D/L mirror-image pair of one compound.",
+        "b": "Galactose and glucose are epimers, differing at one stereocenter rather than being mirror images.",
+        "d": "D-glucose and D-mannose are C-2 epimers, not enantiomers."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q004": {
+      "takeaway": "D-glucose and D-mannose are C-2 epimers: they differ in configuration at only one chiral carbon.",
+      "displayText": "Epimers are stereoisomers that differ in configuration at exactly one chiral carbon other than the carbonyl carbon.\n\nD-glucose and D-mannose differ only at carbon 2, making them C-2 epimers. A second classic example is D-glucose and D-galactose, which are C-4 epimers.",
+      "emphasis": [
+        "Epimers",
+        "D-glucose and D-mannose",
+        "carbon 2",
+        "C-4 epimers"
+      ],
+      "rationales": {
+        "a": "D-glucose and L-glucose are enantiomers, not epimers.",
+        "c": "D-glucose is an aldose and D-fructose is a ketose; they are not a one-carbon epimeric pair.",
+        "d": "D-fructose and D-talose are not identical sugars differing at only one chiral carbon."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q005": {
+      "takeaway": "Glycogen branches are created by α-1,6 glycosidic bonds; the linear chains use α-1,4 bonds.",
+      "displayText": "Glycogen is the major storage polysaccharide of animals. Glucose residues in the straight portions of the polymer are connected by α-1,4 glycosidic bonds.\n\nAt each branch point, the branching glucose is connected through an α-1,6 glycosidic bond.",
+      "emphasis": [
+        "α-1,6 glycosidic bond",
+        "α-1,4 glycosidic bonds",
+        "branch point"
+      ],
+      "rationales": {
+        "a": "α-1,4 bonds form the linear portions of glycogen rather than its branch points.",
+        "c": "α-1,1 linkage is not the characteristic glycogen branch linkage.",
+        "d": "α-1,2 linkage is not the characteristic glycogen branch linkage."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q006": {
+      "takeaway": "Glucose is the reference carbohydrate for glycemic index and has the highest value among these options.",
+      "displayText": "Glycemic index compares the rise in blood glucose after a carbohydrate-containing food with the response to a reference carbohydrate, commonly glucose.\n\nAmong the listed choices, glucose produces the greatest glycemic response. Fructose, sucrose and sugar alcohols have lower glycemic effects.",
+      "emphasis": [
+        "Glycemic index",
+        "glucose",
+        "greatest glycemic response"
+      ],
+      "rationales": {
+        "b": "Fructose has a lower glycemic index than glucose because it produces a smaller immediate rise in blood glucose.",
+        "c": "Sucrose has a lower glycemic index than pure glucose.",
+        "d": "Sugar alcohols generally produce a much smaller glycemic response than glucose."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q007": {
+      "takeaway": "Ferric chloride is not a glucose-detection method; it is classically used for compounds such as homogentisic acid and phenylpyruvate.",
+      "displayText": "The ferric chloride test is not used to detect urinary glucose. It produces characteristic color reactions with certain abnormal metabolites and has classically been used in disorders such as alkaptonuria and phenylketonuria.\n\nThe other listed methods have been used for glucose or reducing-sugar estimation.",
+      "emphasis": [
+        "ferric chloride test",
+        "not used to detect urinary glucose",
+        "alkaptonuria",
+        "phenylketonuria"
+      ],
+      "rationales": {
+        "a": "The Nelson-Somogyi method is a copper-reduction method used for reducing-sugar estimation.",
+        "c": "The o-toluidine method has been used for glucose estimation.",
+        "d": "The Folin-Wu method is a classical blood-glucose/reducing-sugar estimation method."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q008": {
+      "takeaway": "Sucrose is non-reducing, so it does not give a positive Benedict test.",
+      "displayText": "Benedict's test detects reducing substances. Reducing sugars possess a free reactive carbonyl group that can reduce cupric ions in alkaline solution to red cuprous oxide.\n\nSucrose is non-reducing because its glycosidic bond involves both anomeric carbons, leaving no free anomeric carbon to participate in the reaction. Lactose is a reducing disaccharide, while ascorbic acid and homogentisic acid can also reduce Benedict's reagent.\n\nThe source table relating precipitate color to the approximate amount of reducing sugar is preserved below.",
+      "emphasis": [
+        "Sucrose is non-reducing",
+        "Benedict's test",
+        "red cuprous oxide",
+        "free anomeric carbon"
+      ],
+      "rationales": {
+        "a": "Ascorbic acid is a reducing substance and can produce a positive Benedict reaction.",
+        "b": "Homogentisic acid is reducing and can give a positive Benedict reaction.",
+        "d": "Lactose is a reducing disaccharide and therefore gives a positive Benedict test."
+      },
+      "sourceNotes": [
+        "The native source table is preserved by the renderer; OCR debris around the raw text is omitted from display only."
+      ]
+    },
+    "marrow__BIOCHEM_CH01_Q009": {
+      "takeaway": "Pure carbohydrate oxidation has a respiratory quotient of 1.0.",
+      "displayText": "Respiratory quotient (RQ) is the ratio of carbon dioxide produced to oxygen consumed:\n\nRQ = CO₂ produced / O₂ consumed\n\nFor carbohydrate oxidation, the amount of CO₂ produced equals the amount of O₂ consumed, so the RQ is 1.0. The source comparison table for other fuels is preserved below.",
+      "emphasis": [
+        "Respiratory quotient (RQ)",
+        "CO₂ produced / O₂ consumed",
+        "1.0"
+      ],
+      "rationales": {
+        "a": "An RQ near 0.7 is characteristic of predominant fat oxidation, not carbohydrate.",
+        "b": "An RQ around 0.8 is closer to protein or a mixed substrate pattern than pure carbohydrate.",
+        "d": "An RQ of 1.2 is not the standard value for complete oxidation of dietary carbohydrate."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q010": {
+      "takeaway": "Galactose tolerance reflects hepatic functional capacity because galactose is metabolized predominantly by the liver.",
+      "displayText": "The galactose tolerance test has historically been used to assess liver function because galactose is metabolized to glucose predominantly in the liver.\n\nWhen hepatic function is impaired, galactose clearance falls and urinary galactose excretion increases after administration of a known dose. The source notes that normally less than 3 g appears in urine within 5 hours after ingestion of 40 g galactose.",
+      "emphasis": [
+        "galactose tolerance test",
+        "predominantly in the liver",
+        "urinary galactose excretion"
+      ],
+      "rationales": {
+        "a": "The glucose tolerance test primarily assesses glucose handling and disorders such as diabetes, not specifically hepatic galactose clearance.",
+        "b": "Fructose tolerance is not the classical liver-function test described in the source.",
+        "d": "Lactose tolerance is used to assess lactose digestion/absorption rather than hepatic functional capacity."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q011": {
+      "takeaway": "Sanfilippo syndrome (MPS III) is identified in this source as the most common mucopolysaccharidosis.",
+      "displayText": "Sanfilippo syndrome is mucopolysaccharidosis type III. It comprises several enzyme defects that impair degradation of heparan sulfate.\n\nThe source emphasizes disproportionate central nervous system involvement with comparatively mild somatic disease. Symptoms often begin in early childhood and can include developmental deterioration, sleep disturbance, behavioral problems and hirsutism.",
+      "emphasis": [
+        "Sanfilippo syndrome",
+        "MPS III",
+        "heparan sulfate",
+        "central nervous system involvement"
+      ],
+      "rationales": {
+        "a": "Hurler syndrome is MPS I due to α-L-iduronidase deficiency; it is not the disorder identified as most common in this source.",
+        "b": "Hunter syndrome is MPS II due to iduronate-2-sulfatase deficiency and is X-linked recessive; it is not the source's most-common answer.",
+        "d": "Sly syndrome is MPS VII due to β-glucuronidase deficiency and is not the most common MPS in the source."
+      },
+      "sourceNotes": [
+        "The raw transcription contains an OCR-corrupted MPS numeral; the display uses the source-intended MPS III designation."
+      ]
+    },
+    "marrow__BIOCHEM_CH01_Q012": {
+      "takeaway": "Proteoglycan core proteins are synthesized in the ER, while most GAG-chain synthesis and modification occur in the Golgi.",
+      "displayText": "Glycosaminoglycans (GAGs) are major carbohydrate components of proteoglycans in connective-tissue ground substance.\n\nFor most proteoglycans, the core protein is synthesized in the endoplasmic reticulum, while GAG-chain assembly and subsequent modification occur mainly in the Golgi apparatus. Hyaluronic acid is the important exception: it is synthesized at the plasma membrane rather than in the Golgi.",
+      "emphasis": [
+        "endoplasmic reticulum",
+        "Golgi apparatus",
+        "Hyaluronic acid",
+        "plasma membrane"
+      ],
+      "rationales": {
+        "a": "Mitochondria are not a principal site of proteoglycan/GAG biosynthesis.",
+        "c": "Lysosomes degrade GAGs; they are not the paired synthesis site with the ER.",
+        "d": "Mitochondria do not replace the Golgi in the normal synthesis and modification of proteoglycan GAG chains."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q013": {
+      "takeaway": "Chondroitin sulfate contains N-acetylgalactosamine and glucuronic acid.",
+      "displayText": "Chondroitin sulfate is a highly abundant glycosaminoglycan composed of repeating units containing N-acetylgalactosamine and glucuronic acid.\n\nIt is abundant in cartilage and is also found in structures such as tendons, ligaments and the aorta, where it contributes to the extracellular matrix.",
+      "emphasis": [
+        "Chondroitin sulfate",
+        "N-acetylgalactosamine",
+        "glucuronic acid"
+      ],
+      "rationales": {
+        "a": "N-acetylglucosamine plus glucuronic acid is the repeating disaccharide of hyaluronic acid.",
+        "c": "N-acetylglucosamine plus galactose is characteristic of keratan sulfate.",
+        "d": "N-sulfated glucosamine with iduronic acid is associated with highly sulfated heparin/heparan-type structures, not chondroitin sulfate."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q014": {
+      "takeaway": "Keratan sulfate is the GAG that lacks uronic acid; its repeating unit contains galactose and N-acetylglucosamine.",
+      "displayText": "Keratan sulfate is unusual among the listed glycosaminoglycans because it does not contain a uronic acid. Its repeating disaccharide contains galactose and N-acetylglucosamine.\n\nKeratan sulfate I is prominent in the cornea, whereas keratan sulfate II is found in cartilage. Corneal keratan sulfate contributes to the organization required for transparency.",
+      "emphasis": [
+        "Keratan sulfate",
+        "does not contain a uronic acid",
+        "galactose and N-acetylglucosamine"
+      ],
+      "rationales": {
+        "a": "Chondroitin sulfate contains glucuronic acid.",
+        "b": "Hyaluronic acid contains glucuronic acid together with N-acetylglucosamine.",
+        "d": "Dermatan sulfate contains iduronic acid, a uronic acid."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q015": {
+      "takeaway": "Keratan sulfate I helps organize corneal collagen and is important for corneal transparency.",
+      "displayText": "Keratan sulfate I is found between collagen fibrils in the cornea and contributes to the highly ordered extracellular matrix required for transparency. Deficiency or abnormal handling of corneal keratan sulfate can therefore be associated with corneal opacity.\n\nKeratan sulfate is built from repeating galactose and N-acetylglucosamine units. Keratan sulfate II is found mainly in cartilage.",
+      "emphasis": [
+        "Keratan sulfate I",
+        "corneal transparency",
+        "corneal opacity",
+        "Keratan sulfate II"
+      ],
+      "rationales": {
+        "b": "Hyaluronic acid is important in lubrication, extracellular hydration and cell migration, but it is not the GAG singled out here for corneal transparency.",
+        "c": "Chondroitin sulfate is abundant in cartilage and other connective tissues rather than being the key corneal GAG in this question.",
+        "d": "Heparan sulfate is important at cell surfaces and basement membranes, including glomerular charge selectivity, not the corneal-transparency role tested here."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q016": {
+      "takeaway": "Hyaluronic acid facilitates cell migration during morphogenesis, wound repair and tumor spread.",
+      "displayText": "Hyaluronic acid is a nonsulfated GAG composed of repeating N-acetylglucosamine and glucuronic acid units. Unlike most GAGs, it is not covalently attached to a core protein.\n\nIts highly hydrated extracellular matrix provides lubrication and shock absorption and also permits cell migration during morphogenesis, wound repair and tumor-cell metastasis.",
+      "emphasis": [
+        "Hyaluronic acid",
+        "nonsulfated GAG",
+        "cell migration",
+        "wound repair"
+      ],
+      "rationales": {
+        "a": "Dermatan sulfate is prominent in skin and other connective tissues but is not the GAG emphasized for permitting cell migration.",
+        "b": "Heparan sulfate participates in cell signaling, basement-membrane charge and lipoprotein-lipase anchoring rather than being the principal migration GAG here.",
+        "c": "Chondroitin sulfate is a major structural GAG of cartilage and connective tissue, not the migration-focused answer."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q017": {
+      "takeaway": "Negatively charged heparan sulfate contributes to charge selectivity of the glomerular basement membrane.",
+      "displayText": "Heparan sulfate is a negatively charged glycosaminoglycan present at cell surfaces and in basement membranes.\n\nIn the glomerular filtration barrier, its negative charge contributes to repulsion of negatively charged plasma proteins and therefore to charge selectivity. The source also notes roles in cell-cell signaling and as an anchor for lipoprotein lipase.",
+      "emphasis": [
+        "Heparan sulfate",
+        "negative charge",
+        "glomerular filtration barrier",
+        "charge selectivity"
+      ],
+      "rationales": {
+        "b": "Heparin is a highly sulfated anticoagulant GAG stored mainly in mast-cell granules; it is not the glomerular-basement-membrane answer here.",
+        "c": "Dermatan sulfate is abundant in skin and vascular connective tissue rather than being the principal GAG responsible for glomerular charge selectivity.",
+        "d": "Hyaluronic acid functions mainly in extracellular hydration, lubrication and cell migration, not charge-selective glomerular filtration."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q018": {
+      "takeaway": "Hunter syndrome is the MPS exception: it is X-linked recessive, whereas the other classic mucopolysaccharidoses are autosomal recessive.",
+      "displayText": "Hunter syndrome (MPS II) is caused by deficiency of iduronate-2-sulfatase and is inherited in an X-linked recessive pattern.\n\nThe source contrasts this with the usual autosomal-recessive inheritance of the other mucopolysaccharidoses. Clinical clues to Hunter syndrome include coarse features and the notable absence of corneal clouding; severe disease can have progressive CNS involvement.",
+      "emphasis": [
+        "Hunter syndrome (MPS II)",
+        "iduronate-2-sulfatase",
+        "X-linked recessive",
+        "absence of corneal clouding"
+      ],
+      "rationales": {
+        "a": "Hurler syndrome (MPS I) is autosomal recessive.",
+        "c": "Maroteaux-Lamy syndrome (MPS VI) is autosomal recessive.",
+        "d": "Sanfilippo type A (MPS IIIA) is autosomal recessive."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q019": {
+      "takeaway": "Coarse facies, corneal clouding, dysostosis multiplex and intellectual impairment indicate Hurler syndrome from α-L-iduronidase deficiency.",
+      "displayText": "The vignette is classic for Hurler syndrome (MPS I): coarse facial features, corneal clouding, short stature, hepatosplenomegaly and dysostosis multiplex with developmental impairment.\n\nHurler syndrome is caused by α-L-iduronidase deficiency, leading to accumulation of dermatan sulfate and heparan sulfate. The source also notes leukocyte inclusions and availability of enzyme-replacement therapy.",
+      "emphasis": [
+        "Hurler syndrome (MPS I)",
+        "α-L-iduronidase deficiency",
+        "corneal clouding",
+        "dermatan sulfate and heparan sulfate"
+      ],
+      "rationales": {
+        "a": "Iduronate-2-sulfatase deficiency causes Hunter syndrome, which classically lacks corneal clouding.",
+        "b": "β-Galactosidase deficiency is associated with disorders such as Morquio type B in this MPS context, not classic Hurler syndrome.",
+        "d": "β-Glucuronidase deficiency causes Sly syndrome (MPS VII), not Hurler syndrome."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q020": {
+      "takeaway": "A boy with an MPS phenotype but clear corneas points to Hunter syndrome.",
+      "displayText": "Hunter syndrome (MPS II) should be suspected in a male child with coarse facial features, dysostosis multiplex and neurodevelopmental involvement when corneal clouding is absent.\n\nThe enzyme defect is iduronate-2-sulfatase deficiency, and inheritance is X-linked recessive. The lack of corneal clouding is a high-yield discriminator from Hurler syndrome.",
+      "emphasis": [
+        "Hunter syndrome (MPS II)",
+        "corneal clouding is absent",
+        "iduronate-2-sulfatase",
+        "X-linked recessive"
+      ],
+      "rationales": {
+        "a": "Hurler syndrome commonly causes corneal clouding, making the clear cornea an important argument against it.",
+        "c": "Maroteaux-Lamy syndrome can have coarse somatic features but typically preserves intelligence and does not match this neurodevelopmental pattern.",
+        "d": "Sly syndrome is due to β-glucuronidase deficiency and is not the classic clear-cornea, X-linked MPS pattern."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q021": {
+      "takeaway": "Severe skeletal disease with normal intelligence and no hepatosplenomegaly is the classic Morquio pattern.",
+      "displayText": "Morquio syndrome (MPS IV) is distinguished by prominent skeletal dysplasia with preserved intelligence and little or no visceromegaly. Patients may have short-trunk dwarfism, genu valgum, kyphosis, a waddling gait and potentially dangerous atlantoaxial instability.\n\nMorquio type A results from N-acetylgalactosamine-6-sulfatase deficiency, while type B results from β-galactosidase deficiency. Both impair keratan-sulfate degradation. The source comparison table is preserved below.",
+      "emphasis": [
+        "Morquio syndrome (MPS IV)",
+        "preserved intelligence",
+        "no visceromegaly",
+        "atlantoaxial instability"
+      ],
+      "rationales": {
+        "a": "Hurler syndrome causes developmental impairment and prominent visceromegaly in addition to skeletal disease.",
+        "b": "Hunter syndrome commonly has visceromegaly and can have progressive CNS involvement, unlike this preserved-intelligence/no-visceromegaly pattern.",
+        "c": "Sanfilippo syndrome is dominated by severe CNS deterioration rather than the marked skeletal phenotype with preserved intelligence described here."
+      }
+    },
+    "marrow__BIOCHEM_CH01_Q022": {
+      "takeaway": "Naglazyme (galsulfase) is enzyme-replacement therapy for Maroteaux-Lamy syndrome (MPS VI).",
+      "displayText": "Maroteaux-Lamy syndrome is mucopolysaccharidosis type VI and is caused by arylsulfatase B deficiency. Intelligence is generally preserved despite progressive somatic disease such as coarse features, short stature, joint contractures and organ involvement.\n\nNaglazyme is galsulfase, an enzyme-replacement therapy used for MPS VI.",
+      "emphasis": [
+        "Maroteaux-Lamy syndrome",
+        "MPS VI",
+        "arylsulfatase B deficiency",
+        "Naglazyme is galsulfase"
+      ],
+      "rationales": {
+        "b": "Morquio syndrome is MPS IV and involves different enzyme defects; Naglazyme is not its enzyme-replacement product.",
+        "c": "Von Gierke disease is glycogen-storage disease type I due to glucose-6-phosphatase-system deficiency, not an indication for galsulfase.",
+        "d": "Niemann-Pick disease is a sphingolipid-storage disorder and is not treated with Naglazyme."
+      },
+      "sourceNotes": [
+        "Obvious OCR corruption in the raw Maroteaux-Lamy explanation is normalized in display only."
+      ]
+    }
+  }
+}

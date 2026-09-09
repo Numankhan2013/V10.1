@@ -42,7 +42,18 @@ def load_sharded(prefix: str) -> tuple[dict, str]:
 def enhanced_ids() -> set[str]:
     anatomy = json.loads((DATA / "explanation_gold_pilot.json").read_text(encoding="utf-8"))["questions"]
     physiology, _ = load_sharded("explanation_physio_pilot")
-    return set(anatomy) | set(physiology["questions"])
+    ids = set(anatomy) | set(physiology["questions"])
+    for path in sorted(DATA.glob("explanation_biochem_*_v1.json")):
+        record = json.loads(path.read_text(encoding="utf-8"))
+        scope = record.get("scope", {})
+        if scope.get("status") not in {"approved-reference", "approved-rollout"}:
+            continue
+        questions = record.get("questions", {})
+        overlap = ids & set(questions)
+        if overlap:
+            raise AssertionError(f"duplicate enhanced IDs in {path.name}: {sorted(overlap)[:3]}")
+        ids.update(questions)
+    return ids
 
 
 def classify(question: dict, enhanced: set[str]) -> dict:
@@ -84,7 +95,12 @@ def choose_biochem_sample(rows: list[dict]) -> list[dict]:
         choices.sort(key=lambda row: (-len(row["flags"]), -row["sourceTextChars"], row["questionNumber"], row["id"]))
         selected.append(choices[0])
     return [
-        {"id": row["id"], "chapterId": row["chapterId"], "flags": row["flags"], "status": "pending-human-review"}
+        {
+            "id": row["id"],
+            "chapterId": row["chapterId"],
+            "flags": row["flags"],
+            "status": "approved-reference" if row["enhancementStatus"] == "enhanced-reference" else "pending-human-review",
+        }
         for row in selected
     ]
 
@@ -133,15 +149,16 @@ def main() -> None:
     parser.add_argument("--write", action="store_true")
     args = parser.parse_args()
     inventory = build_inventory()
+    enhanced = len(enhanced_ids())
     assert inventory["summary"]["questions"] == 2115
-    assert inventory["summary"]["enhancementStatus"] == {"enhanced-reference": 142, "pending": 1973}
+    assert inventory["summary"]["enhancementStatus"] == {"enhanced-reference": enhanced, "pending": 2115 - enhanced}
     assert len(inventory["biochemistryGoldSample"]) == 20
     assert len({row["id"] for row in inventory["questions"]}) == 2115
     if args.write:
         target = DATA / "explanation_inventory_v1.json"
         target.write_text(json.dumps(inventory_manifest(inventory), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     summary = inventory["summary"]
-    print(f"MARROW_EXPLANATION_INVENTORY_OK questions={summary['questions']} enhanced=142 pending=1973 biochem_sample=20 flags={summary['flags']}")
+    print(f"MARROW_EXPLANATION_INVENTORY_OK questions={summary['questions']} enhanced={enhanced} pending={2115-enhanced} biochem_sample=20 flags={summary['flags']}")
 
 
 if __name__ == "__main__":
