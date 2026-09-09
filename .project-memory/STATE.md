@@ -124,18 +124,22 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
   records source page/xref/region per reuse binding. Unsafe binding statuses are
   excluded from web/APK manifests. `data/marrow/images/progress.json` records
   deterministic rollout totals.
-- The current Batch 01 source/local tests pass; final browser/offline/APK/package
-  CI is pending on the next pushed checkpoint. No production promotion is allowed.
+- Batch 01 is build-verified by full Android/PWA run `34334231275` at product
+  commit `44990c0`: registry/progress, browser role timing, zoom viewer, offline
+  hashes, APK build/package and exact packaged bytes all passed. Generated
+  glycolysis and question-biopsy screenshots were inspected. Artifact
+  `V11.7-android-pwa` ID `10097131223`; immutable preview
+  `https://88a0ce10.nk-qbank.pages.dev`; production promotion was skipped.
 - Audit and workflow: `docs/MARROW_IMAGE_PIPELINE.md`. Preserve raw sources and
   `tools/__pycache__/`; UI upgrade remains deferred.
 
 ## Next step
 
-1. Push Batch 01 and require the full Android/PWA/browser/package gate.
-2. Inspect generated question-time biopsy and reconstructed-glycolysis screenshots.
-3. Open a review PR; merge only after the batch is fully build-verified.
-4. Continue deterministic batches, prioritizing unresolved question-critical and
+1. Open/merge the fully build-verified Batch 01 PR; production remains unchanged.
+2. Continue deterministic batches, prioritizing unresolved question-critical and
    multi-candidate figures; never substitute an explanation image for a missing stem image.
-5. Resume explanation rollout separately after the image priority phase.
+3. Keep each batch behind registry/binding QA, browser timing checks, offline hashes
+   and packaged APK verification.
+4. Resume explanation rollout separately after the image priority phase.
 
 Canonical Marrow procedure: `docs/MARROW_BANK_INTEGRATION.md`.

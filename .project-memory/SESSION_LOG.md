@@ -657,3 +657,16 @@ Implemented approved recovery in existing transform owners: Topics separate path
   fullscreen viewing and authentic question-time imagery.
 - Source/local validation passes. Full Batch 01 Android/PWA/browser/package CI remains
   pending at this checkpoint; production promotion is forbidden.
+
+## 2026-09-09 — Marrow image rollout Batch 01 build-verified
+
+- Full Android/PWA run `34334231275` passed at product commit `44990c0`.
+- CI released 28 assets to 34 questions; web and APK package verifiers confirmed
+  exact content hashes, and the browser suite verified explanation-only timing,
+  question-time biopsy placement, neutral alt text and fullscreen SVG viewing.
+- Generated glycolysis-viewer and authentic-biopsy screenshots were inspected.
+- Artifact `V11.7-android-pwa` ID `10097131223`; immutable preview
+  `https://88a0ce10.nk-qbank.pages.dev`; alias
+  `https://feature-marrow-image-rollout.nk-qbank.pages.dev`.
+- Production promotion was skipped. This is build-verified, not a new physically
+  accepted overall product baseline.

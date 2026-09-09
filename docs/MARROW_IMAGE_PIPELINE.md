@@ -76,6 +76,11 @@ Biochemistry Ch2 Q10 (wrong enzyme graph) and Physiology Ch1 Q9 (wrong membrane
 diagram). They remain intentionally imageless until their correct source content
 is resolved.
 
+Batch 01 passed full Android/PWA run `34334231275`: browser role/timing and zoom
+checks, offline PWA hashes, APK packaging and exact packaged image-byte checks all
+passed. The immutable preview is `https://88a0ce10.nk-qbank.pages.dev`; production
+promotion was skipped.
+
 Full-bank visual classification remains outstanding. The page-level audit is
 complete; educational asset counts and quality/type totals outside reviewed
 registry entries must not be inferred from image-stream counts. Region rendering
