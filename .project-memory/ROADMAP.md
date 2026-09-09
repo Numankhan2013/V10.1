@@ -58,11 +58,12 @@ Check off only when build-verified **and** device-verified where UI is involved.
       rollout loader, inventory, Q17 browser regression, APK/package contracts
       and preview deployment. When explanation work resumes, continue in source
       order from **Physiology Chapter 6 — Physiology of Nerve**.
-- [ ] Image integration is a separate workstream now owned by the **primary agent**.
-      Reconcile current Git state before resuming. Historical Batch 01 was
-      build-verified; Batch 02 contains six REVIEW_REQUIRED candidates on its
-      separate checkpoint. Preserve source-native assets/metadata and do not
-      invent or redraw medically meaningful source detail.
+- [ ] Image integration is a separate workstream owned by the **primary agent**.
+      The current branch has 79 approved assets serving 87 questions: Batch 02
+      released 6/6 bindings, Batch 03 released 27/30, and Batch 04 released
+      27/30. Six false ownership/reuse matches across Batches 03–04 were rejected.
+      Full current-branch CI is pending; continue in bounded native-first batches,
+      then resolve multi-candidate/vector/reconstruction cases separately.
 - [ ] Continue later Marrow chapters beyond the supplied current scope only when
       verified source JSONL is available.
 - [ ] Keep production promotion deliberate; build/browser success is not acceptance.

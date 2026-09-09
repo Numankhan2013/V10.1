@@ -58,7 +58,10 @@ def main():
                 existing={'id':subject.lower()+'-'+digest[:16],'subject':subject,'kind':'unknown','reviewBatch':args.batch_id,
                     'source':{'file':audit['sources'][subject]['file'],'sha256':audit['sources'][subject]['sha256'],
                               'page':c['page'],'xref':c['xref'],'region':c['region']},
-                    'bindings':[{'questionId':binding['questionId'],'role':role,'order':order,'alt':alt_text(f,role)}],
+                    'bindings':[{'questionId':binding['questionId'],'role':role,'order':order,'alt':alt_text(f,role),
+                        'status':'REVIEW_REQUIRED','reviewBatch':args.batch_id,
+                        'source':{'page':c['page'],'xref':c['xref'],'region':c['region']},
+                        'qa':{'sourceCompared':False,'notes':'Verify this asset ownership, role and answer-safety against the cited source page.'}}],
                     'original':record,'production':record,'method':'native-jpeg-stream','status':'REVIEW_REQUIRED',
                     'qa':{'sourceCompared':False,'notes':'Candidate: '+str(f.get('title') or f.get('description') or '')+'. Verify role, ownership, overlays, classification and readability.'}}
                 value['assets'].append(existing);known[digest]=existing

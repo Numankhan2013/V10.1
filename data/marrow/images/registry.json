@@ -3025,6 +3025,1598 @@
         "originalSha256": "5aa55964b7b23c30e8f521648c1025a4e0a53dfe71bf2b21f18baa163256edbb",
         "productionSha256": "5aa55964b7b23c30e8f521648c1025a4e0a53dfe71bf2b21f18baa163256edbb"
       }
+    },
+    {
+      "id": "anatomy-d57e2d8a2e4d8e4d",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 59,
+        "xref": 152,
+        "region": [
+          162.0,
+          158.0,
+          450.0,
+          374.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q009",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Fraternal and identical twins",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 59,
+            "xref": 152,
+            "region": [
+              162.0,
+              158.0,
+              450.0,
+              374.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact answer-phase fraternal/identical twinning comparison supports the fertilization question.",
+            "evidence": "Anatomy page 59/xref 152 matched to Q9 explanation metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/d57e2d8a2e4d8e4d92f8c2fd4ca1e774fe0d8b79759cbc7c7d264c08f12be110.jpg",
+        "sha256": "d57e2d8a2e4d8e4d92f8c2fd4ca1e774fe0d8b79759cbc7c7d264c08f12be110",
+        "width": 575,
+        "height": 500
+      },
+      "production": {
+        "path": "data/marrow/images/originals/d57e2d8a2e4d8e4d92f8c2fd4ca1e774fe0d8b79759cbc7c7d264c08f12be110.jpg",
+        "sha256": "d57e2d8a2e4d8e4d92f8c2fd4ca1e774fe0d8b79759cbc7c7d264c08f12be110",
+        "width": 575,
+        "height": 500
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Complete fraternal-versus-identical twinning comparison with fertilization and division sequence preserved.",
+        "evidence": "Native xref 152 compared with Anatomy page 59.",
+        "originalSha256": "d57e2d8a2e4d8e4d92f8c2fd4ca1e774fe0d8b79759cbc7c7d264c08f12be110",
+        "productionSha256": "d57e2d8a2e4d8e4d92f8c2fd4ca1e774fe0d8b79759cbc7c7d264c08f12be110"
+      }
+    },
+    {
+      "id": "anatomy-3c4ffb14f71b568d",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 52,
+        "xref": 126,
+        "region": [
+          162.0,
+          216.0,
+          450.0,
+          432.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q012",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 52,
+            "xref": 126,
+            "region": [
+              162.0,
+              216.0,
+              450.0,
+              432.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact question-time twin ultrasound; neutral alt text does not name the diagnosis.",
+            "evidence": "Anatomy page 52/xref 126 matched to Q12 question metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/3c4ffb14f71b568d382f3506bd4e0906c548b1aae3067f2f9fe8ff17fa47affa.jpg",
+        "sha256": "3c4ffb14f71b568d382f3506bd4e0906c548b1aae3067f2f9fe8ff17fa47affa",
+        "width": 720,
+        "height": 581
+      },
+      "production": {
+        "path": "data/marrow/images/originals/3c4ffb14f71b568d382f3506bd4e0906c548b1aae3067f2f9fe8ff17fa47affa.jpg",
+        "sha256": "3c4ffb14f71b568d382f3506bd4e0906c548b1aae3067f2f9fe8ff17fa47affa",
+        "width": 720,
+        "height": 581
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic twin-pregnancy ultrasound is preserved byte-for-byte; both sacs and the intertwin membrane are visible.",
+        "evidence": "Native xref 126 compared with Anatomy page 52; no synthetic processing.",
+        "originalSha256": "3c4ffb14f71b568d382f3506bd4e0906c548b1aae3067f2f9fe8ff17fa47affa",
+        "productionSha256": "3c4ffb14f71b568d382f3506bd4e0906c548b1aae3067f2f9fe8ff17fa47affa"
+      }
+    },
+    {
+      "id": "anatomy-0c7fb3d520d1ad6e",
+      "subject": "Anatomy",
+      "kind": "hybrid",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 61,
+        "xref": 159,
+        "region": [
+          162.0,
+          164.0,
+          450.0,
+          380.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q012",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Lambda sign / Twin peak sign",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 61,
+            "xref": 159,
+            "region": [
+              162.0,
+              164.0,
+              450.0,
+              380.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact answer-phase lambda/twin-peak ultrasound and caption.",
+            "evidence": "Anatomy page 61/xref 159 matched to Q12 explanation metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/0c7fb3d520d1ad6e4b67af78b718105c8c0e92f1498465a4f6fc0dc44afe80a1.jpg",
+        "sha256": "0c7fb3d520d1ad6e4b67af78b718105c8c0e92f1498465a4f6fc0dc44afe80a1",
+        "width": 510,
+        "height": 479
+      },
+      "production": {
+        "path": "data/marrow/images/originals/0c7fb3d520d1ad6e4b67af78b718105c8c0e92f1498465a4f6fc0dc44afe80a1.jpg",
+        "sha256": "0c7fb3d520d1ad6e4b67af78b718105c8c0e92f1498465a4f6fc0dc44afe80a1",
+        "width": 510,
+        "height": 479
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic ultrasound pixels and source lambda-sign caption are preserved unchanged and readable.",
+        "evidence": "Native xref 159 compared with Anatomy page 61; original and production bytes identical.",
+        "originalSha256": "0c7fb3d520d1ad6e4b67af78b718105c8c0e92f1498465a4f6fc0dc44afe80a1",
+        "productionSha256": "0c7fb3d520d1ad6e4b67af78b718105c8c0e92f1498465a4f6fc0dc44afe80a1"
+      }
+    },
+    {
+      "id": "anatomy-387e433b56e15d19",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 76,
+        "xref": 196,
+        "region": [
+          162.0,
+          222.0,
+          450.0,
+          438.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH05_Q006",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Structures derived from 1st arch cartilage",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 76,
+            "xref": 196,
+            "region": [
+              162.0,
+              222.0,
+              450.0,
+              438.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "First-arch cartilage derivative diagram directly supports Meckel cartilage discrimination.",
+            "evidence": "Anatomy page 76/xref 196 matched to Q6 metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/387e433b56e15d19e3d140c753d10c562532c777d5ad8f78ecd63ed97ea0ddc3.jpg",
+        "sha256": "387e433b56e15d19e3d140c753d10c562532c777d5ad8f78ecd63ed97ea0ddc3",
+        "width": 575,
+        "height": 640
+      },
+      "production": {
+        "path": "data/marrow/images/originals/387e433b56e15d19e3d140c753d10c562532c777d5ad8f78ecd63ed97ea0ddc3.jpg",
+        "sha256": "387e433b56e15d19e3d140c753d10c562532c777d5ad8f78ecd63ed97ea0ddc3",
+        "width": 575,
+        "height": 640
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "First-arch cartilage derivative diagram preserves every named structure and endpoint.",
+        "evidence": "Native xref 196 compared with Anatomy page 76.",
+        "originalSha256": "387e433b56e15d19e3d140c753d10c562532c777d5ad8f78ecd63ed97ea0ddc3",
+        "productionSha256": "387e433b56e15d19e3d140c753d10c562532c777d5ad8f78ecd63ed97ea0ddc3"
+      }
+    },
+    {
+      "id": "anatomy-ca47e569dea33b05",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 77,
+        "xref": 199,
+        "region": [
+          162.0,
+          130.0,
+          450.0,
+          346.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH05_Q007",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Structures derived from 2nd arch cartilage",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 77,
+            "xref": 199,
+            "region": [
+              162.0,
+              130.0,
+              450.0,
+              346.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Second-arch derivative diagram directly identifies the stylohyoid ligament relationship.",
+            "evidence": "Anatomy page 77/xref 199 matched to Q7 metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/ca47e569dea33b050946814d886242df130ff14f54421872b03f24fbcb5adc13.jpg",
+        "sha256": "ca47e569dea33b050946814d886242df130ff14f54421872b03f24fbcb5adc13",
+        "width": 600,
+        "height": 641
+      },
+      "production": {
+        "path": "data/marrow/images/originals/ca47e569dea33b050946814d886242df130ff14f54421872b03f24fbcb5adc13.jpg",
+        "sha256": "ca47e569dea33b050946814d886242df130ff14f54421872b03f24fbcb5adc13",
+        "width": 600,
+        "height": 641
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Second-arch cartilage derivative diagram preserves stapes, styloid, ligament and hyoid derivatives.",
+        "evidence": "Native xref 199 compared with Anatomy page 77.",
+        "originalSha256": "ca47e569dea33b050946814d886242df130ff14f54421872b03f24fbcb5adc13",
+        "productionSha256": "ca47e569dea33b050946814d886242df130ff14f54421872b03f24fbcb5adc13"
+      }
+    },
+    {
+      "id": "anatomy-2208c21e24081d15",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 78,
+        "xref": 202,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH05_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Structures derived from 3rd arch cartilage",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 78,
+            "xref": 202,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Third-arch cartilage diagram directly supports the hyoid derivative question.",
+            "evidence": "Anatomy page 78/xref 202 matched to Q8 metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/2208c21e24081d151ce697f068cb0fe1df587f4f1565505918262bd2663a56ff.jpg",
+        "sha256": "2208c21e24081d151ce697f068cb0fe1df587f4f1565505918262bd2663a56ff",
+        "width": 600,
+        "height": 641
+      },
+      "production": {
+        "path": "data/marrow/images/originals/2208c21e24081d151ce697f068cb0fe1df587f4f1565505918262bd2663a56ff.jpg",
+        "sha256": "2208c21e24081d151ce697f068cb0fe1df587f4f1565505918262bd2663a56ff",
+        "width": 600,
+        "height": 641
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Third-arch cartilage derivative diagram preserves greater cornu and lower hyoid body relationships.",
+        "evidence": "Native xref 202 compared with Anatomy page 78.",
+        "originalSha256": "2208c21e24081d151ce697f068cb0fe1df587f4f1565505918262bd2663a56ff",
+        "productionSha256": "2208c21e24081d151ce697f068cb0fe1df587f4f1565505918262bd2663a56ff"
+      }
+    },
+    {
+      "id": "anatomy-4754bc99b8e82f1d",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 80,
+        "xref": 3483,
+        "region": [
+          162.0,
+          431.0,
+          450.0,
+          647.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH05_Q014",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Pharyngeal pouch derivatives",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 80,
+            "xref": 3483,
+            "region": [
+              162.0,
+              431.0,
+              450.0,
+              647.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Pharyngeal-pouch map directly supports thymus/inferior-parathyroid development.",
+            "evidence": "Anatomy page 80/xref 3483 matched to Q14 metadata."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH05_Q015",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Pharyngeal pouch derivatives",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 81,
+            "xref": 3483,
+            "region": [
+              162.0,
+              214.0,
+              450.0,
+              430.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Repeated pouch map directly supports ultimobranchial-body/C-cell development.",
+            "evidence": "Anatomy page 81/xref 3483 matched to Q15 metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/4754bc99b8e82f1dd8b47c770561227834d46d72e86c042010c23d636806a264.jpg",
+        "sha256": "4754bc99b8e82f1dd8b47c770561227834d46d72e86c042010c23d636806a264",
+        "width": 600,
+        "height": 660
+      },
+      "production": {
+        "path": "data/marrow/images/originals/4754bc99b8e82f1dd8b47c770561227834d46d72e86c042010c23d636806a264.jpg",
+        "sha256": "4754bc99b8e82f1dd8b47c770561227834d46d72e86c042010c23d636806a264",
+        "width": 600,
+        "height": 660
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Complete pharyngeal-pouch derivative map preserves pouch numbers and all named derivatives.",
+        "evidence": "Native xref 3483 compared with Anatomy page 80.",
+        "originalSha256": "4754bc99b8e82f1dd8b47c770561227834d46d72e86c042010c23d636806a264",
+        "productionSha256": "4754bc99b8e82f1dd8b47c770561227834d46d72e86c042010c23d636806a264"
+      }
+    },
+    {
+      "id": "anatomy-97f25bd9c71841ed",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 67,
+        "xref": 3481,
+        "region": [
+          162.0,
+          196.0,
+          450.0,
+          412.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH05_Q016",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 67,
+            "xref": 3481,
+            "region": [
+              162.0,
+              196.0,
+              450.0,
+              412.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Question-time thymic histology and arrow are exact and use neutral alt text.",
+            "evidence": "Anatomy page 67/xref 3481 matched to Q16 question metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/97f25bd9c71841ed245378f3e98bd00506db8f8ed95a72560bb79bbac41b7e76.jpg",
+        "sha256": "97f25bd9c71841ed245378f3e98bd00506db8f8ed95a72560bb79bbac41b7e76",
+        "width": 720,
+        "height": 754
+      },
+      "production": {
+        "path": "data/marrow/images/originals/97f25bd9c71841ed245378f3e98bd00506db8f8ed95a72560bb79bbac41b7e76.jpg",
+        "sha256": "97f25bd9c71841ed245378f3e98bd00506db8f8ed95a72560bb79bbac41b7e76",
+        "width": 720,
+        "height": 754
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic thymic histology with marked Hassall corpuscle is preserved without pixel alteration.",
+        "evidence": "Native xref 3481 compared with Anatomy page 67.",
+        "originalSha256": "97f25bd9c71841ed245378f3e98bd00506db8f8ed95a72560bb79bbac41b7e76",
+        "productionSha256": "97f25bd9c71841ed245378f3e98bd00506db8f8ed95a72560bb79bbac41b7e76"
+      }
+    },
+    {
+      "id": "anatomy-c8ab42586b4acc03",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 68,
+        "xref": 174,
+        "region": [
+          162.0,
+          129.0,
+          450.0,
+          345.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH05_Q018",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 68,
+            "xref": 174,
+            "region": [
+              162.0,
+              129.0,
+              450.0,
+              345.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Question-time numeric pouch map is exact, complete and answer-safe.",
+            "evidence": "Anatomy page 68/xref 174 matched to Q18 question metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/c8ab42586b4acc0325a4fafd3bd9ea4d15b20b5fdaeb1b37efa7e9ec1c07ae0a.jpg",
+        "sha256": "c8ab42586b4acc0325a4fafd3bd9ea4d15b20b5fdaeb1b37efa7e9ec1c07ae0a",
+        "width": 720,
+        "height": 744
+      },
+      "production": {
+        "path": "data/marrow/images/originals/c8ab42586b4acc0325a4fafd3bd9ea4d15b20b5fdaeb1b37efa7e9ec1c07ae0a.jpg",
+        "sha256": "c8ab42586b4acc0325a4fafd3bd9ea4d15b20b5fdaeb1b37efa7e9ec1c07ae0a",
+        "width": 720,
+        "height": 744
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Question-safe pharyngeal-pouch map preserves numeric labels 1–4 and endpoints without revealing their names.",
+        "evidence": "Native xref 174 compared with Anatomy page 68.",
+        "originalSha256": "c8ab42586b4acc0325a4fafd3bd9ea4d15b20b5fdaeb1b37efa7e9ec1c07ae0a",
+        "productionSha256": "c8ab42586b4acc0325a4fafd3bd9ea4d15b20b5fdaeb1b37efa7e9ec1c07ae0a"
+      }
+    },
+    {
+      "id": "biochemistry-4d1ba61acf94f1d2",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 90,
+        "xref": 207,
+        "region": [
+          162.0,
+          425.0,
+          450.0,
+          641.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH06_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Krebs cycle pathway diagram",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 90,
+            "xref": 207,
+            "region": [
+              162.0,
+              425.0,
+              450.0,
+              641.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Full Krebs cycle directly supports intermediate identification.",
+            "evidence": "Biochemistry page 90/xref 207 matched to Q3 metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/4d1ba61acf94f1d23fe1feebb274676d33a68be49fad2a7372e89ade8a628852.jpg",
+        "sha256": "4d1ba61acf94f1d23fe1feebb274676d33a68be49fad2a7372e89ade8a628852",
+        "width": 600,
+        "height": 451
+      },
+      "production": {
+        "path": "data/marrow/images/originals/4d1ba61acf94f1d23fe1feebb274676d33a68be49fad2a7372e89ade8a628852.jpg",
+        "sha256": "4d1ba61acf94f1d23fe1feebb274676d33a68be49fad2a7372e89ade8a628852",
+        "width": 600,
+        "height": 451
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Complete citric-acid-cycle pathway preserves intermediates, enzymes, cofactors and pyruvate/oxaloacetate links.",
+        "evidence": "Native xref 207 compared with Biochemistry page 90.",
+        "originalSha256": "4d1ba61acf94f1d23fe1feebb274676d33a68be49fad2a7372e89ade8a628852",
+        "productionSha256": "4d1ba61acf94f1d23fe1feebb274676d33a68be49fad2a7372e89ade8a628852"
+      }
+    },
+    {
+      "id": "biochemistry-6d5e016ed4d9221e",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 91,
+        "xref": 210,
+        "region": [
+          162.0,
+          339.0,
+          450.0,
+          555.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH06_Q005",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Aconitase citrate-to-isocitrate reaction diagram",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 91,
+            "xref": 210,
+            "region": [
+              162.0,
+              339.0,
+              450.0,
+              555.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Aconitase reaction figure directly supports the enzyme cofactor question.",
+            "evidence": "Biochemistry page 91/xref 210 matched to Q5 metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/6d5e016ed4d9221e2c407066ddc78920539fbb31480512f0d01a1d1f6b277e57.jpg",
+        "sha256": "6d5e016ed4d9221e2c407066ddc78920539fbb31480512f0d01a1d1f6b277e57",
+        "width": 765,
+        "height": 409
+      },
+      "production": {
+        "path": "data/marrow/images/originals/6d5e016ed4d9221e2c407066ddc78920539fbb31480512f0d01a1d1f6b277e57.jpg",
+        "sha256": "6d5e016ed4d9221e2c407066ddc78920539fbb31480512f0d01a1d1f6b277e57",
+        "width": 765,
+        "height": 409
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Aconitase reaction sequence preserves citrate, cis-aconitate, isocitrate, hydration/dehydration and iron-sulfur context.",
+        "evidence": "Native xref 210 compared with Biochemistry page 91.",
+        "originalSha256": "6d5e016ed4d9221e2c407066ddc78920539fbb31480512f0d01a1d1f6b277e57",
+        "productionSha256": "6d5e016ed4d9221e2c407066ddc78920539fbb31480512f0d01a1d1f6b277e57"
+      }
+    },
+    {
+      "id": "biochemistry-57864584c71cd858",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 92,
+        "xref": 1163,
+        "region": [
+          162.0,
+          423.0,
+          450.0,
+          639.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH06_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Krebs cycle pathway diagram highlighting oxidative decarboxylation",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 92,
+            "xref": 1163,
+            "region": [
+              162.0,
+              423.0,
+              450.0,
+              639.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Krebs pathway directly shows the first oxidative decarboxylation.",
+            "evidence": "Biochemistry page 92/xref 1163 matched to Q8 metadata."
+          }
+        },
+        {
+          "questionId": "marrow__BIOCHEM_CH06_Q010",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Krebs cycle pathway diagram highlighting succinyl-CoA to succinate",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 93,
+            "xref": 1163,
+            "region": [
+              162.0,
+              287.0,
+              450.0,
+              503.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Repeated Krebs pathway directly shows succinyl-CoA to succinate substrate-level phosphorylation.",
+            "evidence": "Biochemistry page 93/xref 1163 matched to Q10 metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/57864584c71cd8580b232a7eceab246bfa7a6b6c94f1176bc425de11d8c0ed31.jpg",
+        "sha256": "57864584c71cd8580b232a7eceab246bfa7a6b6c94f1176bc425de11d8c0ed31",
+        "width": 600,
+        "height": 451
+      },
+      "production": {
+        "path": "data/marrow/images/originals/57864584c71cd8580b232a7eceab246bfa7a6b6c94f1176bc425de11d8c0ed31.jpg",
+        "sha256": "57864584c71cd8580b232a7eceab246bfa7a6b6c94f1176bc425de11d8c0ed31",
+        "width": 600,
+        "height": 451
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Complete citric-acid-cycle pathway is readable and preserves oxidative-decarboxylation and substrate-level-phosphorylation steps.",
+        "evidence": "Native xref 1163 compared with Biochemistry page 92.",
+        "originalSha256": "57864584c71cd8580b232a7eceab246bfa7a6b6c94f1176bc425de11d8c0ed31",
+        "productionSha256": "57864584c71cd8580b232a7eceab246bfa7a6b6c94f1176bc425de11d8c0ed31"
+      }
+    },
+    {
+      "id": "biochemistry-08cbee5aa63919bc",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 96,
+        "xref": 221,
+        "region": [
+          162.0,
+          489.0,
+          450.0,
+          705.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH06_Q017",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Krebs cycle / pyruvate dehydrogenase pathway diagram",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 96,
+            "xref": 221,
+            "region": [
+              162.0,
+              489.0,
+              450.0,
+              705.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "TCA/PDH figure directly supports thiamine-dependent enzyme discrimination.",
+            "evidence": "Biochemistry page 96/xref 221 matched to Q17 metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/08cbee5aa63919bc2ca51a9a42ab292acf6d54d097771f05241354b02dfd4527.jpg",
+        "sha256": "08cbee5aa63919bc2ca51a9a42ab292acf6d54d097771f05241354b02dfd4527",
+        "width": 600,
+        "height": 451
+      },
+      "production": {
+        "path": "data/marrow/images/originals/08cbee5aa63919bc2ca51a9a42ab292acf6d54d097771f05241354b02dfd4527.jpg",
+        "sha256": "08cbee5aa63919bc2ca51a9a42ab292acf6d54d097771f05241354b02dfd4527",
+        "width": 600,
+        "height": 451
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Complete TCA/pyruvate-dehydrogenase overview preserves thiamine-relevant enzyme steps and cofactors.",
+        "evidence": "Native xref 221 compared with Biochemistry page 96.",
+        "originalSha256": "08cbee5aa63919bc2ca51a9a42ab292acf6d54d097771f05241354b02dfd4527",
+        "productionSha256": "08cbee5aa63919bc2ca51a9a42ab292acf6d54d097771f05241354b02dfd4527"
+      }
+    },
+    {
+      "id": "biochemistry-fad05dcbc739cc6d",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 105,
+        "xref": 240,
+        "region": [
+          162.0,
+          216.0,
+          450.0,
+          432.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH07_Q025",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 105,
+            "xref": 240,
+            "region": [
+              162.0,
+              216.0,
+              450.0,
+              432.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Question-time A/B titration curve is exact and does not reveal the compound identity.",
+            "evidence": "Biochemistry page 105/xref 240 matched to Q25 question metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/fad05dcbc739cc6dae58b5047e94697ee424af63e6eb6e92f1cf63262f7633af.jpg",
+        "sha256": "fad05dcbc739cc6dae58b5047e94697ee424af63e6eb6e92f1cf63262f7633af",
+        "width": 720,
+        "height": 689
+      },
+      "production": {
+        "path": "data/marrow/images/originals/fad05dcbc739cc6dae58b5047e94697ee424af63e6eb6e92f1cf63262f7633af.jpg",
+        "sha256": "fad05dcbc739cc6dae58b5047e94697ee424af63e6eb6e92f1cf63262f7633af",
+        "width": 720,
+        "height": 689
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Question-time titration curve preserves axes, two buffering regions and neutral A/B labels without answer text.",
+        "evidence": "Native xref 240 compared with Biochemistry page 105.",
+        "originalSha256": "fad05dcbc739cc6dae58b5047e94697ee424af63e6eb6e92f1cf63262f7633af",
+        "productionSha256": "fad05dcbc739cc6dae58b5047e94697ee424af63e6eb6e92f1cf63262f7633af"
+      }
+    },
+    {
+      "id": "biochemistry-d1b8a4aea7004c7e",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 115,
+        "xref": 275,
+        "region": [
+          162.0,
+          76.0,
+          450.0,
+          292.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH07_Q025",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Titration curve of glycine",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 115,
+            "xref": 275,
+            "region": [
+              162.0,
+              76.0,
+              450.0,
+              292.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Answer-phase glycine titration curve directly explains the two pKa regions and pI.",
+            "evidence": "Biochemistry page 115/xref 275 matched to Q25 explanation metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/d1b8a4aea7004c7e24e595cf305a249cb5681340711e73d1739e240cefc23a7a.jpg",
+        "sha256": "d1b8a4aea7004c7e24e595cf305a249cb5681340711e73d1739e240cefc23a7a",
+        "width": 477,
+        "height": 528
+      },
+      "production": {
+        "path": "data/marrow/images/originals/d1b8a4aea7004c7e24e595cf305a249cb5681340711e73d1739e240cefc23a7a.jpg",
+        "sha256": "d1b8a4aea7004c7e24e595cf305a249cb5681340711e73d1739e240cefc23a7a",
+        "width": 477,
+        "height": 528
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Glycine titration curve preserves structures, pK1, pK2, pI, axes and transition regions.",
+        "evidence": "Native xref 275 compared with Biochemistry page 115.",
+        "originalSha256": "d1b8a4aea7004c7e24e595cf305a249cb5681340711e73d1739e240cefc23a7a",
+        "productionSha256": "d1b8a4aea7004c7e24e595cf305a249cb5681340711e73d1739e240cefc23a7a"
+      }
+    },
+    {
+      "id": "biochemistry-cc0e227944809f2d",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 124,
+        "xref": 1183,
+        "region": [
+          161.715,
+          55.719,
+          450.285,
+          272.281
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH08_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Transamination reaction diagram",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 124,
+            "xref": 1183,
+            "region": [
+              161.715,
+              55.719,
+              450.285,
+              272.281
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Transamination reaction directly supports the amino-acid exception question.",
+            "evidence": "Biochemistry page 124/xref 1183 matched to Q2 metadata."
+          }
+        },
+        {
+          "questionId": "marrow__BIOCHEM_CH08_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Transamination reaction diagram",
+          "status": "REJECTED",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 125,
+            "xref": 1183,
+            "region": [
+              161.715,
+              55.719,
+              450.285,
+              272.281
+            ]
+          },
+          "qa": {
+            "sourceCompared": false,
+            "notes": "Rejected: transamination artwork does not support the tetrahydrobiopterin coenzyme question.",
+            "evidence": "Visual identity conflicts with Q3 metadata despite page-level reuse on Biochemistry page 125."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/cc0e227944809f2dd765cfacf6aab3765587cf9a83d745e4b38f8fa684c0bbf6.jpg",
+        "sha256": "cc0e227944809f2dd765cfacf6aab3765587cf9a83d745e4b38f8fa684c0bbf6",
+        "width": 603,
+        "height": 452
+      },
+      "production": {
+        "path": "data/marrow/images/originals/cc0e227944809f2dd765cfacf6aab3765587cf9a83d745e4b38f8fa684c0bbf6.jpg",
+        "sha256": "cc0e227944809f2dd765cfacf6aab3765587cf9a83d745e4b38f8fa684c0bbf6",
+        "width": 603,
+        "height": 452
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Transamination schematic preserves both amino/keto acid pairs, PLP and reversible arrows; source contrast remains readable.",
+        "evidence": "Native xref 1183 compared with Biochemistry page 124.",
+        "originalSha256": "cc0e227944809f2dd765cfacf6aab3765587cf9a83d745e4b38f8fa684c0bbf6",
+        "productionSha256": "cc0e227944809f2dd765cfacf6aab3765587cf9a83d745e4b38f8fa684c0bbf6"
+      }
+    },
+    {
+      "id": "biochemistry-a9e693872947f33c",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 129,
+        "xref": 1184,
+        "region": [
+          162.0,
+          422.0,
+          450.0,
+          638.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH08_Q016",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Metabolism of histidine / FIGLU pathway diagram",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 129,
+            "xref": 1184,
+            "region": [
+              162.0,
+              422.0,
+              450.0,
+              638.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "FIGLU/histidine pathway directly supports the metabolite-origin question.",
+            "evidence": "Biochemistry page 129/xref 1184 matched to Q16 metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/a9e693872947f33c3a37a1be6bfd412175a6173240a6b5114e268243a1b6f1b5.jpg",
+        "sha256": "a9e693872947f33c3a37a1be6bfd412175a6173240a6b5114e268243a1b6f1b5",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/a9e693872947f33c3a37a1be6bfd412175a6173240a6b5114e268243a1b6f1b5.jpg",
+        "sha256": "a9e693872947f33c3a37a1be6bfd412175a6173240a6b5114e268243a1b6f1b5",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Histidine/FIGLU pathway preserves folate-dependent conversion, block and urinary excretion branch.",
+        "evidence": "Native xref 1184 compared with Biochemistry page 129.",
+        "originalSha256": "a9e693872947f33c3a37a1be6bfd412175a6173240a6b5114e268243a1b6f1b5",
+        "productionSha256": "a9e693872947f33c3a37a1be6bfd412175a6173240a6b5114e268243a1b6f1b5"
+      }
+    },
+    {
+      "id": "physiology-64a3e9fe81414aca",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 124,
+        "xref": 2125,
+        "region": [
+          162.0,
+          333.0,
+          450.0,
+          549.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH06_Q034",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Muscle twitch/time-trace diagram",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 124,
+            "xref": 2125,
+            "region": [
+              162.0,
+              333.0,
+              450.0,
+              549.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Answer-phase tetanization panels support calculation of minimum tetanizing frequency.",
+            "evidence": "Physiology page 124/xref 2125 matched to Q34 explanation metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/64a3e9fe81414aca68c799731c11a5161a697af35b187630abf924c52bbf837b.jpg",
+        "sha256": "64a3e9fe81414aca68c799731c11a5161a697af35b187630abf924c52bbf837b",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/64a3e9fe81414aca68c799731c11a5161a697af35b187630abf924c52bbf837b.jpg",
+        "sha256": "64a3e9fe81414aca68c799731c11a5161a697af35b187630abf924c52bbf837b",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Twitch, wave-summation and incomplete/complete tetanus panels retain timing axes, stimuli and contraction curves.",
+        "evidence": "Native xref 2125 compared with Physiology page 124.",
+        "originalSha256": "64a3e9fe81414aca68c799731c11a5161a697af35b187630abf924c52bbf837b",
+        "productionSha256": "64a3e9fe81414aca68c799731c11a5161a697af35b187630abf924c52bbf837b"
+      }
+    },
+    {
+      "id": "physiology-bbb157ba39deea3d",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 138,
+        "xref": 360,
+        "region": [
+          162.0,
+          375.0,
+          450.0,
+          591.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH07_Q002",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Source explanation diagram/image on PDF page 138",
+          "status": "REJECTED",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 138,
+            "xref": 360,
+            "region": [
+              162.0,
+              375.0,
+              450.0,
+              591.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": false,
+            "notes": "Rejected: dystrophin-glycoprotein artwork is not the regulatory-protein figure for Q2.",
+            "evidence": "Page-neighbor association conflicts with Q2 meaning on Physiology page 138."
+          }
+        },
+        {
+          "questionId": "marrow__PHYS_CH07_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source explanation diagram/image on PDF page 138",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 138,
+            "xref": 360,
+            "region": [
+              162.0,
+              375.0,
+              450.0,
+              591.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Dystrophin-glycoprotein complex directly supports component discrimination.",
+            "evidence": "Physiology page 138/xref 360 matched to Q3 metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/bbb157ba39deea3d9d330f6598fdc1c54cd993700fd8eb6b2b64b94c0b6a103c.jpg",
+        "sha256": "bbb157ba39deea3d9d330f6598fdc1c54cd993700fd8eb6b2b64b94c0b6a103c",
+        "width": 600,
+        "height": 613
+      },
+      "production": {
+        "path": "data/marrow/images/originals/bbb157ba39deea3d9d330f6598fdc1c54cd993700fd8eb6b2b64b94c0b6a103c.jpg",
+        "sha256": "bbb157ba39deea3d9d330f6598fdc1c54cd993700fd8eb6b2b64b94c0b6a103c",
+        "width": 600,
+        "height": 613
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Dystrophin-glycoprotein complex is complete with membrane, laminin, dystrophin, actin and associated components.",
+        "evidence": "Native xref 360 compared with Physiology page 138; Q2 ownership separately rejected.",
+        "originalSha256": "bbb157ba39deea3d9d330f6598fdc1c54cd993700fd8eb6b2b64b94c0b6a103c",
+        "productionSha256": "bbb157ba39deea3d9d330f6598fdc1c54cd993700fd8eb6b2b64b94c0b6a103c"
+      }
+    },
+    {
+      "id": "physiology-0d5e7a0ca7fc5e9e",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 139,
+        "xref": 363,
+        "region": [
+          162.0,
+          385.0,
+          450.0,
+          601.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH07_Q003",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Source explanation diagram/image on PDF page 139",
+          "status": "REJECTED",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 139,
+            "xref": 363,
+            "region": [
+              162.0,
+              385.0,
+              450.0,
+              601.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": false,
+            "notes": "Rejected: sarcomere/thick-thin filament artwork is not part of the dystrophin-complex explanation.",
+            "evidence": "Page-neighbor association conflicts with Q3 meaning on Physiology page 139."
+          }
+        },
+        {
+          "questionId": "marrow__PHYS_CH07_Q004",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source explanation diagram/image on PDF page 139",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 139,
+            "xref": 363,
+            "region": [
+              162.0,
+              385.0,
+              450.0,
+              601.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Sarcomere diagram directly identifies thin-filament components.",
+            "evidence": "Physiology page 139/xref 363 matched to Q4 metadata."
+          }
+        },
+        {
+          "questionId": "marrow__PHYS_CH07_Q005",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source explanation diagram/image on PDF page 139",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 139,
+            "xref": 363,
+            "region": [
+              162.0,
+              385.0,
+              450.0,
+              601.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Sarcomere diagram includes troponin and directly supports skeletal-versus-smooth muscle discrimination.",
+            "evidence": "Physiology page 139/xref 363 matched to Q5 metadata."
+          }
+        },
+        {
+          "questionId": "marrow__PHYS_CH07_Q006",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source explanation diagram/image on PDF page 139",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 139,
+            "xref": 363,
+            "region": [
+              162.0,
+              385.0,
+              450.0,
+              601.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Sarcomere diagram directly supports myosin filament structure and fixed-length context.",
+            "evidence": "Physiology page 139/xref 363 matched to Q6 metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/0d5e7a0ca7fc5e9e3318645dc7105cfde05c8f50ad409c2660aefeac9437c863.jpg",
+        "sha256": "0d5e7a0ca7fc5e9e3318645dc7105cfde05c8f50ad409c2660aefeac9437c863",
+        "width": 650,
+        "height": 599
+      },
+      "production": {
+        "path": "data/marrow/images/originals/0d5e7a0ca7fc5e9e3318645dc7105cfde05c8f50ad409c2660aefeac9437c863.jpg",
+        "sha256": "0d5e7a0ca7fc5e9e3318645dc7105cfde05c8f50ad409c2660aefeac9437c863",
+        "width": 650,
+        "height": 599
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Complete sarcomere/thick/thin-filament diagram preserves bands, zones, proteins and binding sites.",
+        "evidence": "Native xref 363 compared with Physiology page 139; Q3 ownership separately rejected.",
+        "originalSha256": "0d5e7a0ca7fc5e9e3318645dc7105cfde05c8f50ad409c2660aefeac9437c863",
+        "productionSha256": "0d5e7a0ca7fc5e9e3318645dc7105cfde05c8f50ad409c2660aefeac9437c863"
+      }
+    },
+    {
+      "id": "physiology-79f4c62eea794bd3",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 141,
+        "xref": 368,
+        "region": [
+          162.0,
+          198.0,
+          450.0,
+          414.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH07_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source explanation diagram/image on PDF page 141",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 141,
+            "xref": 368,
+            "region": [
+              162.0,
+              198.0,
+              450.0,
+              414.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Myofibril diagram directly shows the pseudo-H-zone boundaries.",
+            "evidence": "Physiology page 141/xref 368 matched to Q8 metadata."
+          }
+        },
+        {
+          "questionId": "marrow__PHYS_CH07_Q009",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source explanation diagram/image on PDF page 141",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 141,
+            "xref": 368,
+            "region": [
+              162.0,
+              198.0,
+              450.0,
+              414.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Repeated myofibril diagram directly supports H-zone cross-sectional filament content.",
+            "evidence": "Physiology page 141/xref 368 matched to Q9 metadata."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/79f4c62eea794bd32eb85eb5f9f6036226bfb7de930986a174b9a94651d4952b.jpg",
+        "sha256": "79f4c62eea794bd32eb85eb5f9f6036226bfb7de930986a174b9a94651d4952b",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/79f4c62eea794bd32eb85eb5f9f6036226bfb7de930986a174b9a94651d4952b.jpg",
+        "sha256": "79f4c62eea794bd32eb85eb5f9f6036226bfb7de930986a174b9a94651d4952b",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Myofibril diagram preserves I/A bands, H zone, Z/M lines, sarcomere and filament components.",
+        "evidence": "Native xref 368 compared with Physiology page 141.",
+        "originalSha256": "79f4c62eea794bd32eb85eb5f9f6036226bfb7de930986a174b9a94651d4952b",
+        "productionSha256": "79f4c62eea794bd32eb85eb5f9f6036226bfb7de930986a174b9a94651d4952b"
+      }
+    },
+    {
+      "id": "physiology-d1965937a6a34441",
+      "subject": "Physiology",
+      "kind": "medical",
+      "reviewBatch": "rollout-04-native",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 129,
+        "xref": 339,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH07_Q011",
+          "role": "question",
+          "order": 2,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "rollout-04-native",
+          "source": {
+            "page": 129,
+            "xref": 339,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Source-limited question electron micrograph is the exact marked striated-muscle visual and uses neutral alt text.",
+            "evidence": "Physiology page 129/xref 339 matched to Q11 question metadata; authentic bytes retained."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/d1965937a6a3444189d629799681ea0833f2c74be69a5ce4adf05ae768e28472.jpg",
+        "sha256": "d1965937a6a3444189d629799681ea0833f2c74be69a5ce4adf05ae768e28472",
+        "width": 720,
+        "height": 174
+      },
+      "production": {
+        "path": "data/marrow/images/originals/d1965937a6a3444189d629799681ea0833f2c74be69a5ce4adf05ae768e28472.jpg",
+        "sha256": "d1965937a6a3444189d629799681ea0833f2c74be69a5ce4adf05ae768e28472",
+        "width": 720,
+        "height": 174
+      },
+      "method": "native-jpeg-stream",
+      "status": "SOURCE_LIMITED",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic source electron micrograph is preserved byte-for-byte; striations and marked region are visible, but detail is limited by the narrow low-resolution source stream.",
+        "evidence": "Native xref 339 compared with Physiology page 129; no synthetic enhancement.",
+        "originalSha256": "d1965937a6a3444189d629799681ea0833f2c74be69a5ce4adf05ae768e28472",
+        "productionSha256": "d1965937a6a3444189d629799681ea0833f2c74be69a5ce4adf05ae768e28472"
+      }
     }
   ]
 }

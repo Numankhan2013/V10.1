@@ -6,6 +6,7 @@
 ## Repo / release state
 
 - Repo: `Numankhan2013/V10.1`.
+- Current image branch: `feature/marrow-image-rollout-current`, based on the verified Physiology Chapter 5 explanation lineage.
 - Resolve live branch/HEAD from Git; do not hardcode self-staling HEAD values.
 - Current verified explanation lineage reaches
   `feature/marrow-explanation-rollout-physio-ch05-current` / PR #24.
@@ -13,8 +14,8 @@
 - Engineering Gate 259 and full Android/PWA run 539 both passed.
 - Latest immutable verified preview: `https://3cce6bfb.nk-qbank.pages.dev`.
 - Production promotion remains explicit and guarded; run 539 skipped production.
-- Historical accepted rollback baseline remains V11.6 Content Quality `125d68b`
-  until the user explicitly promotes a later product baseline.
+- Accepted baseline remains V11.6 Content Quality `125d68b` until the user explicitly promotes a later product baseline.
+- Accepted product commit: `125d68b`.
 
 ## Current Marrow bank
 
@@ -80,11 +81,14 @@ explanation and exactly three distractor rationales through the real learner UI.
 - Preserve source-native figure/image metadata and source fidelity.
 - Do not reconstruct medically meaningful figures from prose when source assets
   exist or when the source is ambiguous.
-- Historical image Batch 01 was build-verified; Batch 02 had six
-  REVIEW_REQUIRED candidates checkpointed separately. Reconcile live Git state
-  before resuming that pipeline.
+- Historical Batch 01 remains build-verified and user-approved as the minimum quality threshold.
+- Working rollout now contains **79 approved assets / 94 released bindings / 87 released questions**: Batch 02 released 6/6 bindings; Batch 03 released 27/30 and rejected 3; Batch 04 released 27/30 and rejected 3.
+- Authentic ultrasound, specimen, histology and microscopy assets preserve native bytes. Educational diagrams use native PDF streams where readable.
+- False neighboring-page/reuse matches remain explicitly REJECTED; no rejected binding enters runtime metadata.
+- Batch 04 strengthens staging so every new primary binding carries independent page/xref/region and QA status.
+- Full CI for the current 87-question candidate is pending. The first Batch 03 run failed only because the inherited STATE lacked verifier-required literal handoff fields; product/image tests had not run yet.
 
-## Verification / cautions
+## Known problems / verification cautions
 
 - Build-verified ≠ device-verified ≠ accepted production baseline.
 - User has independently checked the current preview; do not spend agent usage
@@ -94,7 +98,7 @@ explanation and exactly three distractor rationales through the real learner UI.
 - Do not alter Topics taxonomy during explanation or image work.
 - Keep production promotion deliberate.
 
-## Next ownership split
+## Next step / ownership split
 
 - **Primary agent:** inspect current GitHub state/code quality and continue the
   Marrow source-image integration pipeline.

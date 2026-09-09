@@ -747,3 +747,14 @@ Implemented approved recovery in existing transform owners: Topics separate path
   work resumes, exact next target is Physiology Chapter 6 — **Physiology of
   Nerve**.
 
+
+
+## 2026-09-09 — Marrow image rollout resumed through Batch 04
+
+- Rebased image work on the verified explanation lineage through Biochemistry Chapters 1–11 and Physiology Chapter 5; explanation files were not altered.
+- Released Batch 02's six source-compared candidates, then inspected two 30-binding native batches at native resolution against owning question metadata.
+- Working totals: 79 approved assets, 94 released bindings and 87 released questions. Batch 03 and Batch 04 each released 27/30 bindings.
+- Preserved native bytes for all medical/photo material. Rejected six false page-neighbor or reuse associations, including fructose-for-galactose, conductance-for-muscle-twitch, glial-chart-for-neuron, transamination-for-BH4 and two muscle-protein neighbor mismatches.
+- Strengthened staging so new primary bindings carry independent QA status and exact page/xref/region, allowing valid assets to survive while wrong question ownership is rejected.
+- Added browser coverage for two-stage MELAS imagery: one neutral question image before answering, then the authentic explanation panel after answering.
+- Initial Batch 03 CI failed at inherited project-memory validation before product tests; restored the required accepted-baseline/product-commit/known-problems/next-step handoff fields. Full current candidate verification remains pending.

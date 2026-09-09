@@ -86,3 +86,20 @@ complete; educational asset counts and quality/type totals outside reviewed
 registry entries must not be inferred from image-stream counts. Region rendering
 is available on Ubuntu; multi-candidate, masked and complex hybrid figures require
 an explicit asset-specific reviewed implementation.
+
+
+## Current native rollout — Batches 02–04
+
+The current image branch is based on the verified explanation lineage through
+Biochemistry Chapters 1–11 and Physiology Chapter 5. Batch 02 released six
+source-compared native assets. Batches 03 and 04 each audited 30 bindings and
+released 27; six misleading page-neighbor/reuse matches were rejected. The
+working registry now has 79 approved assets serving 87 questions through 94
+released bindings.
+
+Starting with Batch 04, every newly staged primary binding receives its own
+REVIEW_REQUIRED status and page/xref/region provenance, matching the existing
+rule for reused assets. Asset quality and question ownership can therefore be
+reviewed independently even when the first page-level association is wrong.
+Authentic specimen, ultrasound, histology and microscopy pixels remain unchanged.
+Full Android/PWA verification of this current candidate is pending.
