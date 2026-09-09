@@ -3,6 +3,8 @@
 > Status: **active chapter-by-chapter content-quality phase**.
 > Read with `docs/MARROW_BANK_INTEGRATION.md` and the approved 142-question
 > explanation augmentation already in the repository.
+> For unattended ChatGPT Scheduled Tasks, also read the complete
+> `docs/MARROW_EXPLANATION_AUTOMATION_RUNBOOK.md` before every run.
 
 ## Goal
 
