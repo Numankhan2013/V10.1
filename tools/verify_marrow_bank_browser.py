@@ -60,6 +60,25 @@ def main():
             # the new Chapter 1 explanation rollout itself.
             page.screenshot(path=str(OUT/'00a-biochemistry-ch01-rollout-q1.png'),full_page=True)
 
+            # The next bounded rollout completes Chapter 4 without changing the
+            # raw Marrow record or the fixed explanation/session layout.
+            page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='HMP shunt pathway, Fructose , Galactose metabolism').click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=11: raise SystemExit('Marrow Biochemistry Chapter 4 count is not 11')
+            page.locator('button.nk-library-row').nth(10).click();page.wait_for_timeout(80)
+            if 'newborn baby refuses breast milk' not in page.locator('.question-text').inner_text().lower():
+                raise SystemExit('Biochemistry Chapter 4 Q11 did not open')
+            page.locator('.option-list button').nth(2).click();page.wait_for_timeout(120)
+            bchapter4=page.locator('.nk-study-support').inner_text().lower()
+            for marker in ('classic galactosemia','galactose-1-phosphate uridyltransferase','oil-drop cataract','why the other options are wrong'):
+                if marker not in bchapter4: raise SystemExit(f'Biochemistry Chapter 4 explanation missing {marker}')
+            if page.locator('.nk-gold-wrong-row').count()!=3:
+                raise SystemExit('Marrow Biochemistry Chapter 4 Q11 must render exactly three distractor rationales')
+            if page.locator('.nk-fsrs-rating').locator('xpath=ancestor::*[contains(@class,"nk-session-footer")]').count()!=1:
+                raise SystemExit('Biochemistry Chapter 4 work moved FSRS out of the fixed footer')
+            page.screenshot(path=str(OUT/'00aaa-biochemistry-ch04-rollout-q11.png'),full_page=True)
+
             # Explanation-quality candidate regression: Chapter 1 Q23 is one of
             # the deterministic 20-question Biochemistry sample entries and must
             # use the exact approved 142-question presentation grammar.
@@ -353,5 +372,5 @@ def main():
             if errors: raise SystemExit('Browser errors: '+repr(errors))
             browser.close()
         server.shutdown()
-    print('MARROW_BROWSER_OK registry=subject-indexed anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115 anatomy_phys_reference=142 biochemistry=42 enhanced=184 rationales=552 phys_q2=clean biochem_q23=gold phys_table=preserved anatomy_table=preserved fsrs_dock=fixed')
+    print('MARROW_BROWSER_OK registry=subject-indexed anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115 anatomy_phys_reference=142 biochemistry=52 enhanced=194 rationales=582 phys_q2=clean biochem_q23=gold phys_table=preserved anatomy_table=preserved fsrs_dock=fixed')
 if __name__=='__main__':main()

@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Marrow ED8 Biochemistry Chapter 4 explanation rollout using the approved learner-facing grammar. Raw imported source remains immutable; this file contains display augmentation only.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "4",
+    "chapterTitle": "HMP shunt pathway, Fructose , Galactose metabolism",
+    "questions": 10,
+    "status": "approved-rollout"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 184,
+    "anatomy": 62,
+    "physiology": 80,
+    "biochemistryGoldSample": 20,
+    "biochemistryChapter1": 22
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH04_Q001": {
+      "takeaway": "The oxidative HMP phase is irreversible, whereas the non-oxidative phase is reversible.",
+      "displayText": "The pentose phosphate pathway, or HMP shunt, is an alternative route of glucose metabolism that does not generate ATP. Its major products are NADPH, used for fatty-acid and steroid synthesis and maintenance of reduced glutathione, and ribose-5-phosphate, used for nucleotide synthesis.\n\nThe pathway has two phases: the oxidative phase is irreversible, while the non-oxidative phase is reversible. Therefore, the statement that the non-oxidative phase is irreversible is false.",
+      "emphasis": [
+        "does not generate ATP",
+        "NADPH",
+        "ribose-5-phosphate",
+        "non-oxidative phase is reversible"
+      ],
+      "rationales": {
+        "a": "No ATP is formed directly in the HMP shunt, so this statement is true.",
+        "b": "NADPH is generated during the irreversible oxidative phase, so this statement is true.",
+        "c": "Ribose-5-phosphate is an important product of the pathway, so this statement is true."
+      }
+    },
+    "marrow__BIOCHEM_CH04_Q002": {
+      "takeaway": "The HMP shunt occurs in the cytosol because all of its enzymes are cytosolic.",
+      "displayText": "The HMP shunt, also called the pentose phosphate pathway, takes place in the cytosol. The enzymes required for both its oxidative and non-oxidative phases are located in the cytoplasm.",
+      "emphasis": [
+        "HMP shunt",
+        "cytosol",
+        "oxidative and non-oxidative phases"
+      ],
+      "rationales": {
+        "a": "The Golgi apparatus processes and sorts proteins and lipids; it is not the site of the HMP shunt.",
+        "b": "Mitochondria contain pathways such as the TCA cycle and oxidative phosphorylation, not the HMP shunt enzymes.",
+        "c": "The endoplasmic reticulum is not the cellular compartment in which the pentose phosphate pathway operates."
+      }
+    },
+    "marrow__BIOCHEM_CH04_Q003": {
+      "takeaway": "The HMP shunt is prominent in NADPH-demanding tissues; skeletal muscle is the source-keyed exception.",
+      "displayText": "The HMP shunt is active in tissues with a high requirement for NADPH. These include liver, adipose tissue, adrenal cortex, thyroid, erythrocytes, testis and lactating mammary gland.\n\nIn the source comparison, skeletal muscle is the exception because it has insufficient glucose-6-phosphate dehydrogenase activity for significant HMP-shunt flux.",
+      "emphasis": [
+        "high requirement for NADPH",
+        "skeletal muscle is the exception",
+        "glucose-6-phosphate dehydrogenase"
+      ],
+      "rationales": {
+        "a": "The liver uses HMP-derived NADPH for reductive biosynthesis and antioxidant defense.",
+        "b": "Adipose tissue requires NADPH for fatty-acid synthesis and therefore has active HMP-shunt flux.",
+        "c": "The adrenal cortex uses NADPH for steroid synthesis, so the pathway is active there."
+      },
+      "sourceNotes": [
+        "The source explicitly keys muscle as the exception and describes it as deficient in G6PD; the display preserves that answer while expressing the distinction as insufficient activity for significant pathway flux."
+      ]
+    },
+    "marrow__BIOCHEM_CH04_Q004": {
+      "takeaway": "NADPH supplies reducing equivalents for fatty-acid synthesis.",
+      "displayText": "Fatty-acid synthesis is a reductive biosynthetic pathway and requires NADPH as its reducing equivalent. The HMP shunt is the main source of cytosolic NADPH; minor sources include cytosolic isocitrate dehydrogenase and malic enzyme.",
+      "emphasis": [
+        "Fatty-acid synthesis",
+        "NADPH",
+        "HMP shunt is the main source",
+        "malic enzyme"
+      ],
+      "rationales": {
+        "b": "Ketone-body synthesis uses mitochondrial acetyl-CoA and does not directly consume NADPH as its reducing equivalent.",
+        "c": "Gluconeogenesis primarily consumes ATP/GTP and uses NADH at the glyceraldehyde-3-phosphate dehydrogenase step, not NADPH.",
+        "d": "Glycolysis produces ATP and NADH; it is not a biosynthetic pathway that uses NADPH."
+      }
+    },
+    "marrow__BIOCHEM_CH04_Q006": {
+      "takeaway": "Humans cannot synthesize vitamin C through the uronic-acid pathway because they lack L-gulonolactone oxidase.",
+      "displayText": "The uronic-acid pathway supplies glucuronic acid for conjugation of endogenous and exogenous compounds before their excretion in urine or bile. It also contributes pentose sugars and uronic-acid residues used in proteoglycans.\n\nHumans and other primates lack L-gulonolactone oxidase, so the pathway cannot complete vitamin C synthesis. Vitamin C must therefore be obtained from the diet.",
+      "emphasis": [
+        "lack L-gulonolactone oxidase",
+        "cannot complete vitamin C synthesis",
+        "glucuronic acid",
+        "obtained from the diet"
+      ],
+      "rationales": {
+        "b": "Glucuronic acid is a central product of the uronic-acid pathway and is used in conjugation reactions.",
+        "c": "The uronic-acid pathway can produce pentose sugars, so they are not the exception.",
+        "d": "Uronic-acid derivatives contribute to proteoglycan synthesis, so proteoglycans are included among the source-listed products."
+      }
+    },
+    "marrow__BIOCHEM_CH04_Q007": {
+      "takeaway": "Essential pentosuria is caused by L-xylulose reductase deficiency in the uronic-acid pathway.",
+      "displayText": "Isolated urinary L-xylulose with normal blood glucose indicates essential pentosuria, a benign defect of the uronic-acid pathway caused by L-xylulose reductase deficiency.\n\nL-xylulose is a reducing sugar, so it can produce a false-positive Benedict test for urinary glucose. Essential pentosuria belongs to Garrod's tetrad with albinism, cystinuria and alkaptonuria.",
+      "emphasis": [
+        "essential pentosuria",
+        "L-xylulose reductase deficiency",
+        "uronic-acid pathway",
+        "false-positive Benedict test"
+      ],
+      "rationales": {
+        "a": "A Krebs-cycle defect does not characteristically cause isolated urinary L-xylulose with normal blood glucose.",
+        "c": "Ketone synthesis produces ketone bodies rather than L-xylulose and does not explain essential pentosuria.",
+        "d": "The HMP shunt handles pentose phosphates, but essential pentosuria specifically results from a defect in the uronic-acid pathway."
+      }
+    },
+    "marrow__BIOCHEM_CH04_Q008": {
+      "takeaway": "Fructokinase is the first enzyme of the principal fructose-metabolism pathway in liver, kidney and intestine.",
+      "displayText": "Fructokinase initiates the principal pathway of fructose metabolism by phosphorylating fructose to fructose-1-phosphate in the liver, kidney and intestine. Unlike glucokinase, its activity is not regulated by fasting or insulin, and it does not act on glucose.\n\nFructokinase deficiency causes essential fructosuria, a benign condition.",
+      "emphasis": [
+        "Fructokinase",
+        "fructose-1-phosphate",
+        "liver, kidney and intestine",
+        "essential fructosuria"
+      ],
+      "rationales": {
+        "a": "Aldolase B acts after fructokinase by cleaving fructose-1-phosphate; it is not the first enzyme.",
+        "c": "Glucokinase primarily phosphorylates glucose and is not the first enzyme of the principal fructose pathway.",
+        "d": "Hexokinase can metabolize some fructose through an alternate route, but fructokinase initiates the principal hepatic pathway."
+      }
+    },
+    "marrow__BIOCHEM_CH04_Q009": {
+      "takeaway": "Hereditary fructose intolerance is due to aldolase B deficiency and appears after fructose or sucrose is introduced.",
+      "displayText": "Vomiting, lethargy, jaundice and hypoglycemia after fruit juice is introduced indicate hereditary fructose intolerance. The defect is aldolase B deficiency, which prevents normal metabolism of fructose-1-phosphate.\n\nAffected infants are asymptomatic until fructose or sucrose enters the diet. Hepatomegaly and convulsions may accompany the vomiting, lethargy, jaundice and hypoglycemia. Management requires removal of fructose and sucrose; urine tests for reducing sugar and ketoses may be positive.",
+      "emphasis": [
+        "hereditary fructose intolerance",
+        "aldolase B deficiency",
+        "after fruit juice is introduced",
+        "removal of fructose and sucrose"
+      ],
+      "rationales": {
+        "a": "Aldolase A functions mainly in glycolysis and does not cause hereditary fructose intolerance.",
+        "c": "Fructokinase deficiency causes benign essential fructosuria rather than severe illness after fructose ingestion.",
+        "d": "Hexokinase provides an alternate route for fructose metabolism and is not the enzyme deficient in hereditary fructose intolerance."
+      }
+    },
+    "marrow__BIOCHEM_CH04_Q010": {
+      "takeaway": "Essential fructosuria is an asymptomatic autosomal-recessive disorder caused by hepatic fructokinase deficiency.",
+      "displayText": "Essential fructosuria results from hepatic fructokinase deficiency and is inherited in an autosomal-recessive pattern. It is benign and usually discovered incidentally.\n\nFructose is either excreted unchanged in urine or phosphorylated to fructose-6-phosphate through an alternate pathway, most commonly by hexokinase in adipose tissue and muscle. No treatment is required.",
+      "emphasis": [
+        "hepatic fructokinase deficiency",
+        "autosomal-recessive",
+        "benign",
+        "No treatment is required"
+      ],
+      "rationales": {
+        "a": "Aldolase A is primarily a glycolytic enzyme and its deficiency does not cause essential fructosuria.",
+        "b": "Aldolase B deficiency causes hereditary fructose intolerance, a symptomatic disorder after fructose ingestion.",
+        "d": "Hexokinase can provide an alternate route for fructose phosphorylation; it is not the deficient enzyme in essential fructosuria."
+      }
+    },
+    "marrow__BIOCHEM_CH04_Q011": {
+      "takeaway": "Classic galactosemia is caused by galactose-1-phosphate uridyltransferase deficiency.",
+      "displayText": "Vomiting, jaundice and hypoglycemia after breast-milk feeding indicate classic galactosemia. The disorder is autosomal recessive and is caused by galactose-1-phosphate uridyltransferase deficiency.\n\nGalactose-1-phosphate accumulation damages the liver and contributes to hepatomegaly, vomiting and convulsions, while phosphate trapping impairs ATP generation and promotes hypoglycemia. Accumulation in nervous tissue can cause intellectual disability, and galactitol accumulation in the lens causes an oil-drop cataract. Urinary reducing-sugar and mucic-acid tests may be positive. Treatment is a galactose-free diet.",
+      "emphasis": [
+        "classic galactosemia",
+        "galactose-1-phosphate uridyltransferase deficiency",
+        "oil-drop cataract",
+        "galactose-free diet"
+      ],
+      "rationales": {
+        "a": "Aldose reductase converts galactose to galactitol; it contributes to cataract formation but is not the deficient enzyme in classic galactosemia.",
+        "b": "Galactokinase deficiency mainly causes infantile cataracts and does not usually produce the severe hepatic classic-galactosemia picture.",
+        "d": "UDP-galactose 4-epimerase deficiency causes a different, rarer galactosemia variant; the classic neonatal syndrome is keyed to uridyltransferase deficiency."
+      }
+    }
+  }
+}

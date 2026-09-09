@@ -15,8 +15,8 @@ Current imported scope:
 - Physiology: 753 / 33.
 - Total: 2,115 questions.
 
-The current 142-question enhanced subset (62 Anatomy + 80 Physiology) is the
-reference grammar. It already establishes the desired hierarchy, selective
+The original 142-question enhanced subset (62 Anatomy + 80 Physiology), plus
+its user-approved 20-question Biochemistry sample, is the reference grammar. It already establishes the desired hierarchy, selective
 bolding, source-table handling and concise **Why the other options are wrong**
 section.
 
@@ -113,8 +113,10 @@ Current deterministic inventory:
   copying source explanation text into the inventory;
 - `tools/inventory_marrow_explanations.py` regenerates it from hash-verified
   source bundles and the approved augmentation subsets;
-- the inventory records 142 enhanced references and 1,973 pending questions and
-  identifies the 20-question Biochemistry gold-sample review set.
+- the current inventory records 194 enhanced questions and 1,921 pending:
+  the 162-question approved reference, completed Biochemistry Chapter 1, and
+  completed Biochemistry Chapter 4; it still identifies the fixed 20-question
+  Biochemistry gold-sample set.
 
 1. **Inventory first**
    - enumerate all 2,115 IDs and review statuses;

@@ -55,9 +55,12 @@ Check off only when build-verified **and** device-verified where UI is involved.
       and was physically approved by the user on 2026-09-09. The approved reference
       is now the canonical grammar. Biochemistry Chapter 1 rollout is complete
       (22 additional questions; 23/23 Chapter 1 enhanced), bringing the enhanced
-      total to **184** with **1,931** remaining. Continue at Biochemistry Chapter 2.
-- [ ] Images/figures remain a later pass. Preserve figure metadata and do not
-      block source-faithful text-bank work on missing binaries.
+      total to **194** with **1,921** remaining. Biochemistry Chapter 4 is now
+      complete (10 new augmentations plus approved gold-sample Q5); full
+      CI/browser/package verification remains before review.
+- [ ] Image rollout is paused after build-verified Batch 01. Six Batch 02 native
+      candidates are checkpointed on a separate branch as REVIEW_REQUIRED and
+      remain unreleased while explanation refinement is prioritized.
 - [ ] Continue later Marrow chapters beyond the supplied current scope only when
       verified source JSONL is available.
 - [ ] Keep production promotion deliberate; build/browser success is not acceptance.

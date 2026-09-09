@@ -677,3 +677,18 @@ Implemented approved recovery in existing transform owners: Topics separate path
   at merge commit `6d1b520`.
 - Production remained unchanged. Full-bank image rollout is still active; Batch 02
   should prioritize unresolved stem-critical and multi-candidate figures.
+
+## 2026-09-09 — Biochemistry Chapter 4 explanation refinement
+
+- The user spot-checked roughly 10–15 questions from image Batch 01 and gave a
+  green light to continue, then reprioritized work from images to explanations.
+- Paused image Batch 02 before release. Its six native candidates are preserved
+  as REVIEW_REQUIRED on `feature/marrow-image-rollout-batch-02-small` at
+  checkpoint `6823d70`; none is learner-facing.
+- Selected Biochemistry Chapter 4 because it has 11 questions and gold-sample Q5
+  was already approved. Added source-preserving display augmentation for the
+  remaining 10 questions, completing the chapter under the approved grammar.
+- Added full chapter-ID, source-hash, distractor-key, emphasis and inventory
+  checks plus browser coverage for the long classic-galactosemia explanation.
+  Inventory is now 194 enhanced / 1,921 pending. Local verification passes 36
+  checks; full generated-app/browser/APK CI is pending.
