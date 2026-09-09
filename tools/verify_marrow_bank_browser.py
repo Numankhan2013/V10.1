@@ -79,6 +79,25 @@ def main():
                 raise SystemExit('Biochemistry Chapter 4 work moved FSRS out of the fixed footer')
             page.screenshot(path=str(OUT/'00aaa-biochemistry-ch04-rollout-q11.png'),full_page=True)
 
+            # Chapter 2 rollout regression: Q1 must use the same approved
+            # grammar while remaining in the original source topic.
+            page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Glycolysis and gluconeogenesis').click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=30:
+                raise SystemExit('Marrow Biochemistry Chapter 2 count is not 30')
+            page.locator('button.nk-library-row').first.click();page.wait_for_timeout(80)
+            if 'glucose transporter' not in page.locator('.question-text').inner_text().lower():
+                raise SystemExit('Biochemistry Chapter 2 rollout Q1 did not open')
+            page.locator('.option-list button').nth(3).click();page.wait_for_timeout(120)
+            ch2=page.locator('.nk-study-support').inner_text().lower()
+            for marker in ('key takeaway','detailed explanation','structured text','why the other options are wrong','glut4','insulin-responsive'):
+                if marker not in ch2:
+                    raise SystemExit(f'Biochemistry Chapter 2 rollout missing {marker}')
+            if page.locator('.nk-gold-wrong-row').count()!=3:
+                raise SystemExit('Biochemistry Chapter 2 Q1 must render exactly three distractor rationales')
+            page.screenshot(path=str(OUT/'00aab-biochemistry-ch02-rollout-q1.png'),full_page=True)
+
             # Explanation-quality candidate regression: Chapter 1 Q23 is one of
             # the deterministic 20-question Biochemistry sample entries and must
             # use the exact approved 142-question presentation grammar.
