@@ -163,6 +163,8 @@ jobs:
         run: python3 tools/test_marrow_explanation_inventory.py
       - name: Validate Marrow Biochemistry explanation gold sample
         run: python3 tools/test_marrow_biochem_explanation_sample.py
+      - name: Validate Marrow Biochemistry explanation rollout
+        run: python3 tools/test_marrow_biochem_explanation_rollout.py
       - name: Verify final JavaScript syntax after all transformations
         run: |
           python3 - <<'PY'
