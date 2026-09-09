@@ -3,12 +3,12 @@
 > Concise operational handoff. History belongs in `SESSION_LOG.md`; durable
 > reasoning in `DECISIONS.md`; future work in `ROADMAP.md`.
 
-## Repo / branch
+## Repo / release state
 
 - Repo: `Numankhan2013/V10.1`.
-- Git `main` is the authoritative unified V11/Marrow product line; the user-approved image pilot merged through PR #12.
-- Current branch: `main`. Batch 01 merged through PR #13; begin the next
-  bounded image batch from current `main`.
+- Git `main` is the authoritative unified V11/Marrow product line.
+- Current explanation candidate: `feature/marrow-explanation-rollout-biochem-ch02-current`,
+  stacked on `feature/marrow-explanations-next-chapter` (Chapter 4 / PR #14).
 - Resolve live branch/HEAD from Git; never hardcode a self-staling HEAD value.
 - Accepted product baseline remains **V11.6 Content Quality** at `125d68b`,
   canonical APK run `34050921180`.
@@ -17,139 +17,80 @@
 
 ## Current Marrow bank
 
-The shared subject-indexed architecture remains:
+Shared architecture:
 `MARROW_RECORDS` → `MARROW_BY_SUBJECT` → `BANKS_BY_SUBJECT`.
 There is no duplicate Practice/CBT/Review/FSRS/sync/module/analytics engine.
 
-Current supplied Marrow ED8 scope:
+Supplied Marrow ED8 scope:
 - Anatomy: **819 questions / 48 topics**.
 - Biochemistry: **543 / 26**.
 - Physiology: **753 / 33**.
 - Total: **2,115 globally unique questions / 107 topics**.
 
-Expanded source bundles are deterministic zlib/base64 shards with manifest
-counts, byte lengths and SHA-256 validation. Runtime ingestion fails closed on
-corruption, count drift, duplicate IDs, bad option shape or topic-link mismatch.
-Raw imported Marrow source remains authoritative and immutable.
+Raw imported Marrow source is authoritative and immutable. Source bundles are
+manifest/hash validated and runtime ingestion fails closed on corruption,
+count/ID/option/topic-link drift. The user device-verified the expanded Marrow
+integration/taxonomy and approved Topics/Continue Learning/FSRS behavior.
 
-The original 62-question Anatomy and 80-question Physiology enhanced subsets
-remain regression/augmentation references. Three resolved Anatomy
-reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
-`ANAT_CH04_Q013`.
+## Explanation-quality phase — active priority
 
-## User/device verification — 2026-09-08
+Canonical procedure: `docs/MARROW_EXPLANATION_FINE_TUNING.md` +
+`docs/MARROW_BANK_INTEGRATION.md`.
 
-- The user physically verified the newly deployed Marrow PWA.
-- The user confirmed the questions/current integration are correct and declared
-  the integration/taxonomy verification phase complete.
-- The recovered Topics journey, fixed Continue Learning tray and dedicated FSRS
-  controls are also user-approved.
-- The explicit source-aligned 107-topic taxonomy is therefore **device-verified**
-  for the current deployed experience. Four cross-system Anatomy placements
-  remain internally reviewable but do not block explanation work.
-- This does not mean every one of the 2,115 raw explanations was individually
-  reviewed, and it is not an explicit production-baseline promotion.
+Gold-standard contract:
+- approved reference = 62 Anatomy + 80 Physiology + user-approved 20-question
+  Biochemistry sample = **162 questions**;
+- one meaningful Key Takeaway;
+- source-faithful structured detailed explanation with 1–4 selective emphasis
+  anchors and native source tables preserved;
+- exactly three concise wrong-option rationales mapped to the three incorrect options;
+- augmentation is ID-keyed and separate from raw source;
+- missing/ambiguous lists, values, figures or mechanisms remain explicit rather
+  than being invented;
+- FSRS stays in the fixed session footer.
 
-## Explanation-quality phase
+Current deterministic inventory after completed augmentation layers:
+- **223 enhanced / 1,892 pending**.
+- Chapter 1: **23/23** (22 rollout + approved sample Q23).
+- Chapter 2: **30/30** (29 rollout + approved sample Q9), on current candidate.
+- Chapter 4: **11/11** (10 rollout + approved sample Q5).
+- Chapter 4 full Android/PWA run 475 passed generated-app, browser, APK and
+  packaged-contract verification.
+- Chapter 2 was recovered from stale PR #11 onto the current Chapter 4 lineage.
+  Its metadata, emphasis anchors, generalized chapter contracts, browser coverage
+  and regenerated inventory are now aligned with the current architecture.
 
-- The user explicitly designated the existing **142 enhanced questions**
-  (62 Anatomy + 80 Physiology) as the gold-standard explanation reference.
-- Approved grammar: one meaningful Key Takeaway → structured detailed
-  explanation with selective emphasis/native tables → exactly three concise
-  wrong-option rationales. FSRS stays in the fixed session footer.
-- After the approved 20-question Biochemistry sample and completion of Chapters
-  1, 2 and 4, **223 of 2,115 are enhanced; 1,892 remain**.
-- The approved cross-chapter **20-question Biochemistry gold reference** is stored
-  at `data/marrow/explanation_biochem_gold_sample_v1.json`.
-- Biochemistry Chapter 1 rollout is complete: the remaining **22 questions** are
-  stored in `data/marrow/explanation_biochem_ch01_v1.json`; together with gold
-  sample Q23, all 23 Chapter 1 questions now use the approved grammar.
-- Biochemistry Chapter 2 rollout is implemented for its remaining **29 questions**
-  in `data/marrow/explanation_biochem_ch02_v1.json`; together with approved gold
-  sample Q9, all 30 questions use the approved grammar. It is rebased onto the
-  current Chapter 4 lineage and is undergoing full verification.
-- Biochemistry Chapter 4 rollout is implemented for its remaining **10 questions**
-  in `data/marrow/explanation_biochem_ch04_v1.json`; together with approved gold
-  sample Q5, all 11 questions use the approved grammar. Full Android/PWA run 475
-  passed generated-app, browser, APK and packaged-contract verification.
-- On 2026-09-09 the user physically reviewed the 20-question Biochemistry sample
-  and explicitly approved it: “They are good. We need that kind of explanation everywhere.”
-  The approved explanation reference is therefore now **162 questions**
-  (62 Anatomy + 80 Physiology + 20 Biochemistry).
-- Source ambiguities remain explicit rather than invented. In particular:
-  - the PCT question refers to a lab panel absent from the rendered question page;
-  - the vitamin-B12 combination question omits the defining numbered enzyme list.
-- Contract test:
-  `tools/test_marrow_biochem_explanation_sample.py` validates the exact 20 IDs,
-  source SHA, nonempty display content and exactly three rationales mapped to the
-  three incorrect options.
+Source ambiguities remain reviewable, including the PCT question with an absent
+lab panel and the vitamin-B12 combination question with a missing numbered enzyme list.
 
 ## Verification / release status
 
 - Expanded Marrow bank integration is **build-verified** by prior successful
-  Engineering/full Android+PWA runs, including run 405 and authoritative-main
-  run 409.
-- The approved 20-question sample and completed Biochemistry Chapter 1 rollout
-  are merged into `main`; their dedicated content and browser contracts remain.
+  Engineering/full Android+PWA runs.
 - Build-verified ≠ device-verified ≠ accepted baseline.
-- V11.6 `125d68b` remains the **accepted baseline** / rollback checkpoint until
-  the user explicitly promotes a later candidate.
-- Main/production release guard requires explicit workflow dispatch plus exact
-  full release SHA; CI success alone must never promote production.
+- Chapter 4 candidate is build/browser/package verified; PR #14 remains unmerged.
+- Chapter 2 candidate PR #15 is not yet build-verified until its current full CI
+  run passes all source, explanation, browser, PWA, APK and package gates.
+- V11.6 `125d68b` remains the **accepted baseline** until explicit user promotion.
+- CI success alone must never promote production.
 
 ## Known problems / cautions
 
-- The remaining non-reference Marrow explanations still need the approved polish.
+- Remaining non-reference Marrow explanations still need approved refinement.
 - Preserve source tables, figure metadata and uncertainty/reconstruction notes.
-  The image pass is active; ambiguous, composite, masked and vector-only figures
-  remain withheld until their source ownership and completeness are reviewed.
+- Do not rewrite raw JSONL/sharded source to improve display.
 - Do not invent missing list items, lab values, graph labels or image-dependent facts.
-- Do not rewrite raw JSONL/sharded source to make the UI prettier.
-- Do not alter the approved Topics journey, FSRS dock, source-PDF renderers,
-  Practice/CBT/Review, sync, modules, persistence or navigation during explanation work.
-- Large connector/Git writes should remain bounded, deterministic and validated.
-
-## Image phase — paused after Batch 01
-
-- The approved pilot merged into `main` through PR #12 at merge commit `4faf0e5`.
-  Production was not promoted.
-- Audit covers 2,484 PDF pages: 1,082 explicit references across 821 questions,
-  plus 58 text-cue candidates. Native candidates are not final asset counts.
-- On 2026-09-09 the user reviewed all sixteen released pilot figures in the PWA
-  and approved them as the minimum quality threshold for wider rollout. Future
-  releases may improve on this baseline but must not fall below it.
-- Merged Batch 01 has **28 approved assets / 34 released question bindings**:
-  Anatomy 12, Biochemistry 11, Physiology 11. It adds ten inspected
-  native assets, six approved repeated-asset bindings, and the two formerly held
-  SVG reconstructions. Two false reuse matches were explicitly REJECTED.
-- The user spot-checked roughly 10–15 Batch 01 questions and gave a green light
-  to continue for now; this is sufficient rollout approval, not a claim that all
-  34 released question bindings were individually device-reviewed.
-- Authentic Pompe/McArdle muscle imagery retains exact native JPEG bytes. The
-  Pompe stem image uses question-time placement and neutral alt text. Diagrams
-  remain explanation-only unless their source explicitly makes them part of the stem.
-- Registry now gates repeated-image ownership separately from asset quality and
-  records source page/xref/region per reuse binding. Unsafe binding statuses are
-  excluded from web/APK manifests. `data/marrow/images/progress.json` records
-  deterministic rollout totals.
-- Batch 01 is build-verified by full Android/PWA run `34334231275` at product
-  commit `44990c0`: registry/progress, browser role timing, zoom viewer, offline
-  hashes, APK build/package and exact packaged bytes all passed. Generated
-  glycolysis and question-biopsy screenshots were inspected. Artifact
-  `V11.7-android-pwa` ID `10097131223`; immutable preview
-  `https://88a0ce10.nk-qbank.pages.dev`; production promotion was skipped.
-- Audit and workflow: `docs/MARROW_IMAGE_PIPELINE.md`. Preserve raw sources and
-  `tools/__pycache__/`; UI upgrade remains deferred.
+- Do not alter Topics, source-PDF renderers, Practice/CBT/Review, FSRS, sync,
+  modules, persistence or navigation during explanation work.
+- Keep connector/Git writes bounded, deterministic and validated.
+- Image rollout is paused after build-verified Batch 01. Batch 02 has six
+  REVIEW_REQUIRED candidates checkpointed separately and none is learner-facing.
 
 ## Next step
 
-1. Finish full CI/browser/package verification for the rebased Biochemistry
-   Chapter 2 explanation rollout; keep the 30/30 chapter complete and source-owned.
-2. The exact next fresh content start is Biochemistry Chapter 3. Continue only as
-   another bounded chapter augmentation; keep raw source immutable and preserve
-   source tables/figures and ambiguity.
-3. Image Batch 02 is paused on its separate branch with six REVIEW_REQUIRED native
-   candidates checkpointed; none is released or present in the app.
+1. Make PR #15 / Chapter 2 pass the complete current CI/browser/PWA/APK/package gate.
+2. Once stable, exact next fresh content start is **Biochemistry Chapter 3 —
+   Glycogen metabolism and glycogen storage disorders**.
+3. Implement Chapter 3 only as another bounded ID-keyed augmentation batch,
+   preserving raw source, native tables/figures, ambiguity and the approved grammar.
 4. Keep production promotion deliberate and protect Practice/CBT/Review/FSRS/navigation.
-
-Canonical Marrow procedure: `docs/MARROW_BANK_INTEGRATION.md`.
