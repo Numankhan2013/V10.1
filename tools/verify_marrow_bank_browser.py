@@ -219,6 +219,25 @@ def main():
                 raise SystemExit('Biochemistry Chapter 9 Q15 must render exactly three distractor rationales')
             page.screenshot(path=str(OUT/'00aah-biochemistry-ch09-rollout-q15.png'),full_page=True)
 
+            # Chapter 10 rollout regression: Q20 checks the collagen
+            # Gly-X-Y explanation through the real learner-facing surface.
+            page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Protein structure and function').click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=33:
+                raise SystemExit('Marrow Biochemistry Chapter 10 count is not 33')
+            page.locator('button.nk-library-row').nth(19).click();page.wait_for_timeout(80)
+            if 'all are true about collagen' not in page.locator('.question-text').inner_text().lower():
+                raise SystemExit('Biochemistry Chapter 10 rollout Q20 did not open')
+            page.locator('.option-list button').nth(2).click();page.wait_for_timeout(120)
+            ch10=page.locator('.nk-study-support').inner_text().lower()
+            for required in ('key takeaway','detailed explanation','structured text','why the other options are wrong','gly-x-y','glycine occurs at every third position','type iv collagen','procollagen'):
+                if required not in ch10:
+                    raise SystemExit(f'Biochemistry Chapter 10 rollout missing {required}')
+            if page.locator('.nk-gold-wrong-row').count()!=3:
+                raise SystemExit('Biochemistry Chapter 10 Q20 must render exactly three distractor rationales')
+            page.screenshot(path=str(OUT/'00aai-biochemistry-ch10-rollout-q20.png'),full_page=True)
+
             # Explanation-quality candidate regression: Chapter 1 Q23 is one of
             # the deterministic 20-question Biochemistry sample entries and must
             # use the exact approved 142-question presentation grammar.
