@@ -298,3 +298,97 @@ Every reconstructed item must record provenance, the source problem, what was
 reconstructed, and a reconstruction/review status. If confidence remains
 insufficient after those checks, keep the item reviewable rather than guessing.
 
+## 23. Explanation rollout execution discipline: exact-head certification, stable selectors, and bounded reconstruction (2026-09-09)
+
+The Physiology Chapters 5–9 rollout established a faster but still high-confidence
+execution pattern. Preserve it for future explanation batches.
+
+### Exact-head CI is authoritative
+
+A green workflow on a neighboring commit is not evidence for the current PR.
+Multiple file updates can trigger overlapping runs on adjacent SHAs. Always:
+1. resolve the PR's current exact head SHA;
+2. identify Engineering Gate and full Android/PWA runs for that exact SHA;
+3. ignore/supersede earlier content-only or neighboring runs;
+4. do not branch the next chapter until both authoritative runs are green.
+
+This prevented false certification during the Physiology rollout.
+
+### Browser tests should target stable product identity, not fuzzy display text
+
+A Chapter 7 regression initially used a substring selector for
+`Muscle Physiology I`, which also matched `Muscle Physiology II`.
+Trying to append `35 questions` still failed because accessible-name text was
+not guaranteed to be contiguous DOM text. The robust solution was to target the
+stable chapter identity already present in markup, e.g.
+`button.nk-topic-row[onclick="window.QB.openChapter('7')"]`.
+
+Future browser regressions should prefer stable IDs/attributes/semantic state over
+substring text whenever available. Display text is appropriate only when it is
+known to be unique and structurally stable.
+
+### Reconstruction status must describe certainty, not desirability
+
+Use `resolved_reconstruction` only when the educational defect is actually
+recoverable with high confidence. Use `needs_manual_review` when the learner
+can be taught the correct standard physiology but the original item's exact
+wording/options remain defective or incomplete.
+
+Examples from the Physiology rollout:
+- Ch6 Q23 EPP: standard physiology proves the EPP is a graded depolarization, but
+  the stored item contains two false "except" choices → `needs_manual_review`.
+- Ch6 Q29 Wallerian degeneration: distinguish true first biological change from
+  the best offered source answer → `resolved_reconstruction`.
+- Ch7 Q34: missing numbered statements, but source explanation preserves enough
+  statement meaning to recover the keyed physiology → `resolved_reconstruction`.
+- Ch7 Q35: only statement 3's educational meaning is recoverable; exact missing
+  statements 1/2/4 are not → `needs_manual_review`.
+- Ch9 Q5: stored `DOPA` creates a second classification problem and may be an
+  OCR/truncation of dopamine → keep `needs_manual_review` pending source-page
+  confirmation.
+
+Never invent verbatim missing numbered statements merely because the underlying
+medical principle is standard.
+
+### Pre-commit validators are part of authoring, not a final cleanup step
+
+Case-sensitive emphasis anchors repeatedly caught harmless rendering defects
+before commit. Treat this as a normal authoring loop:
+- write the medical explanation;
+- validate that each 1–4 emphasis anchor appears verbatim;
+- validate exactly three rationales;
+- validate reconstruction schema;
+- only then commit.
+
+If the validator catches an emphasis mismatch, fix the anchor string rather than
+rewriting correct medical content.
+
+### Source answer ownership and learner-facing correctness are separate
+
+The raw source key is immutable even when:
+- it is only the best available option rather than the literal first/most precise
+  biological truth;
+- source prose is OCR-corrupted;
+- a stem/options set is internally inconsistent.
+
+The augmentation should explicitly teach the medically correct distinction and
+record why it differs from the raw source wording. Do not silently "correct" raw
+keys and do not knowingly teach a false simplification just to match them.
+
+### Safe speed-up pattern
+
+The user prefers quality over quantity, but both are possible by overlapping
+work safely:
+- while exact-head CI runs for chapter N, pre-audit chapter N+1 medically;
+- map question count, figure-heavy items, source notes and reconstruction
+  candidates;
+- do not commit chapter N+1 until chapter N is fully green;
+- keep one bounded PR per chapter;
+- use one representative browser regression per chapter, preferably on the most
+  reconstruction-sensitive question;
+- reuse the generic inventory/rollout validators rather than creating chapter-
+  specific infrastructure.
+
+This pattern completed Physiology Chapters 7 (35 questions) and 8 (14 questions)
+in one session while retaining full Engineering/browser/APK/package gates.
+
