@@ -20,6 +20,13 @@ for subject in ("Biochemistry", "Physiology"):
         raise SystemExit(f"Initial {subject} navigation anchor count: {count}")
     source = source.replace(legacy_subject_open, current_subject_open, 1)
 
+# Anatomy uses a two-line click + wait form in the legacy verifier.
+anatomy_legacy = "            page.locator('button.nk-subject-row').filter(has_text='Anatomy').click()\n            page.wait_for_timeout(100)"
+anatomy_current = "            page.evaluate(\"window.QB.nav('banks','Anatomy')\");page.wait_for_timeout(100)"
+if source.count(anatomy_legacy) != 1:
+    raise SystemExit(f"Initial Anatomy navigation anchor count: {source.count(anatomy_legacy)}")
+source = source.replace(anatomy_legacy, anatomy_current, 1)
+
 replacements = {
     "            for marker in ('PrepLadder','Marrow','753'):": "            for marker in ('PrepLadder','Marrow','1,014'):",
     "            if page.locator('button.nk-topic-row').count()!=33: raise SystemExit('Marrow Physiology topic count is not 33')": "            if page.locator('button.nk-topic-row').count()!=43: raise SystemExit('Marrow Physiology topic count is not 43')",
