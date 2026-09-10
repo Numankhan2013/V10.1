@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "marrow"
 BANKS = {
-    "Anatomy": "anatomy_phase_a",
+    "Anatomy": "anatomy_ch001_048_plus_060_063",
     "Biochemistry": "biochemistry_phase_a",
     "Physiology": "physiology_ch001_043",
 }
@@ -242,8 +242,14 @@ def main() -> None:
 
     anatomy = subjects["Anatomy"]
     validate_planned("Anatomy", anatomy, ANATOMY_SECTION_ORDER, ANATOMY_PLANNED, 71)
-    assert nonempty_sections(anatomy) == ANATOMY_SECTION_ORDER[:7]
-    assert flatten_current(anatomy) == [str(i) for i in range(1, 49)]
+    assert nonempty_sections(anatomy) == ANATOMY_SECTION_ORDER[:7] + ["General anatomy"]
+    assert flatten_current(anatomy) == [str(i) for i in range(1, 49)] + ["60", "61", "62", "63"]
+    assert {str(item["id"]): item["plannedSlots"] for item in anatomy["topics"] if int(item["id"]) >= 60} == {
+        "60": ["general-anatomy:01"],
+        "61": ["general-anatomy:02"],
+        "62": ["general-anatomy:03"],
+        "63": ["general-anatomy:04", "general-anatomy:05"],
+    }
 
     biochem = subjects["Biochemistry"]
     validate_planned("Biochemistry", biochem, BIOCHEM_SECTION_ORDER, BIOCHEM_PLANNED, 32)
@@ -257,10 +263,10 @@ def main() -> None:
     assert {str(item["id"]): item["plannedSlots"] for item in phys["topics"]} == PHYSIOLOGY_SLOT_MAP
     assert set(PHYSIOLOGY_VISIBLE_IDS) == {str(i) for i in range(1, 44)}
 
-    assert total == 117
+    assert total == 121
     print(
-        "MARROW_TOPIC_TAXONOMY_OK subjects=3 current_topics=117 "
-        "anatomy_plan=71 anatomy_visible=48 biochemistry_plan=32 biochemistry_visible=26 "
+        "MARROW_TOPIC_TAXONOMY_OK subjects=3 current_topics=121 "
+        "anatomy_plan=71 anatomy_visible=52 biochemistry_plan=32 biochemistry_visible=26 "
         "physiology_plan=42 physiology_visible=43 numbering=contiguous placeholders=none"
     )
 

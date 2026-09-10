@@ -9,7 +9,7 @@ from stage_marrow_image_review import normalize_role, alt_text, binding_order
 from marrow_image_progress import build_progress
 
 def main():
-    assert len(questions())==2376
+    assert len(questions())==2455
     assert normalize_role('question-critical image')=='question'
     assert normalize_role(None)=='explanation'
     assert normalize_role(None,'Microscopy is shown in the given image.')=='question'

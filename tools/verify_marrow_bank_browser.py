@@ -46,6 +46,37 @@ if source.count(old_summary) != 1:
     raise SystemExit(f"Marrow browser summary anchor count: {source.count(old_summary)}")
 source = source.replace(old_summary, new_summary, 1)
 
+# Anatomy Ch60-63 source expansion layered on top of the current core.
+anatomy_replacements = {
+    "            for marker in ('PrepLadder','Marrow','1,068','819'):": "            for marker in ('PrepLadder','Marrow','1,068','898'):",
+    "            if page.locator('button.nk-topic-row').count()!=48: raise SystemExit('Marrow Anatomy topic count is not 48')": "            if page.locator('button.nk-topic-row').count()!=52: raise SystemExit('Marrow Anatomy topic count is not 52')",
+    "            assert_sections(['Embryology','Histology','Neuroanatomy','Head, neck, and face','Upper limb','Thorax','Abdomen and pelvis'])": "            assert_sections(['Embryology','Histology','Neuroanatomy','Head, neck, and face','Upper limb','Thorax','Abdomen and pelvis','General anatomy'])",
+    "            if serials!=[str(i) for i in range(1,49)]: raise SystemExit(f'Marrow Anatomy learner numbering is not contiguous: {serials!r}')": "            if serials!=[str(i) for i in range(1,53)]: raise SystemExit(f'Marrow Anatomy learner numbering is not contiguous 1-52: {serials!r}')",
+}
+for old, new in anatomy_replacements.items():
+    if source.count(old) != 1:
+        raise SystemExit(f"Anatomy browser source-count/taxonomy anchor count for {old!r}: {source.count(old)}")
+    source = source.replace(old, new, 1)
+
+shot_anchor = "            page.screenshot(path=str(OUT/'02-marrow-topics.png'),full_page=True)"
+shot_new = shot_anchor + """
+            page.locator('button.nk-topic-row').filter(has_text='Bones, Joints and Cartilage').click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=30: raise SystemExit('Marrow Anatomy Bones, Joints and Cartilage count is not 30')
+            page.locator('button.nk-library-row').nth(0).click();page.wait_for_timeout(80)
+            anatomy_learner_text=page.locator('body').inner_text()
+            for raw_marker in ('question_id','chapter_number','correct_option','schema_version','review_status','source_fidelity'):
+                if raw_marker in anatomy_learner_text: raise SystemExit(f'Raw Anatomy automation JSON key leaked into learner view: {raw_marker}')
+            for raw_fragment in ('{\"question_id\"','\"correct_option\":','\"source_fidelity\":'):
+                if raw_fragment in anatomy_learner_text: raise SystemExit(f'Serialized Anatomy automation JSON leaked into learner view: {raw_fragment}')
+            if 'total number of bones' not in page.locator('.question-text').inner_text().lower(): raise SystemExit('New Anatomy Ch60 source question did not render normally')
+            page.evaluate("window.QB.nav('banks','Anatomy')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+"""
+if source.count(shot_anchor) != 1:
+    raise SystemExit(f"Anatomy learner leakage insertion anchor count: {source.count(shot_anchor)}")
+source = source.replace(shot_anchor, shot_new, 1)
+source = source.replace('anatomy=819/48', 'anatomy=898/52')
+
 exec(
     compile(source, str(CORE), "exec"),
     {"__name__": "__main__", "__file__": str(CORE), "__builtins__": __builtins__},
