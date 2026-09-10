@@ -42,6 +42,8 @@ window.QB={openStudyModuleBuilder};
         'minutes total. Spend that total time across questions however you need.','Practice has no limiting countdown. Time is still recorded for your analysis.',
         "timerMode='global'","timerMode='per-question'",'Topic Test · 60 sec this question','nkExpireTopicQuestion','Time expired','submitExam(true)',
         "state.fsrsReviewEligible", "reason:'skipped'", 'nkReviewEligibility', 'nkReviewDue',
+        'function nkFsrsLaunchQueue', 'nkFsrsQueue({subject})', 'queue.cards||[]', 'queue.rolledOver',
+        'due reviews roll forward under your daily limit.',
         'function nkSessionQuestionEncountered(s,id)', 'Number(s.questionTimes?.[key]||0)>0',
         'Number(s.strictQuestionTime?.[key]||0)>0', 'Boolean(s.strictExpired?.[key])',
         'if(nkSessionQuestionEncountered(s,key)&&!answered&&!submitted)', 'nkMarkSkippedFromSession(s)',
@@ -55,7 +57,8 @@ window.QB={openStudyModuleBuilder};
         "nkOpenPracticeSubjects","nkOpenPracticeTopics","nkSetTestTimer","One minute per question when enabled.",
         "nk-test-toggle-grid","Timer off","Practice 20 Random Questions",
         "['topics','Topics','book']",
-        "s.questionIds.forEach(id=>{if(!s.answers?.[id])state.fsrsReviewEligible"
+        "s.questionIds.forEach(id=>{if(!s.answers?.[id])state.fsrsReviewEligible",
+        "function nkStartReviewOnly(subject=nkFsrsSubjectFilter){const rows=nkReviewDue(subject)"
     )
     survived=[x for x in prohibited if x in updated]
     if survived:raise SystemExit(f'Obsolete Home/Test behavior survived: {survived}')
@@ -72,10 +75,11 @@ window.QB={openStudyModuleBuilder};
         if FLOW_MARKER in html:
             absent=[x for x in required if x not in html]
             if absent:raise SystemExit(f'Generated Home V3 integration missing: {absent}')
-            if prohibited[-1] in html:raise SystemExit('Generated app marks unseen future session questions as skipped')
+            for bad in prohibited[-2:]:
+                if bad in html:raise SystemExit(f'Generated app retained prohibited FSRS behavior: {bad}')
             print('HOME_V3_INTEGRATION_OK')
 
-    print('HOME_V3_CONTRACT_OK: hybrid Home, subject→Topics, FSRS wrong/encountered-skip only, global Test budget, strict topic timer')
+    print('HOME_V3_CONTRACT_OK: hybrid Home, subject→Topics, capped FSRS wrong/encountered-skip only, global Test budget, strict topic timer')
 
 
 if __name__=='__main__':main()
