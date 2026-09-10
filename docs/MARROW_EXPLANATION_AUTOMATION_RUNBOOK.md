@@ -113,7 +113,7 @@ Do not copy phrases mechanically. Copy the **grammar and quality standard**.
 The current full Marrow ED8 source is stored as immutable sharded bundles:
 
 - Anatomy:
-  `data/marrow/anatomy_phase_a.zlib.b64.part*`
+  `data/marrow/anatomy_ch001_048_plus_060_063.zlib.b64.part*`
 - Biochemistry:
   `data/marrow/biochemistry_phase_a.zlib.b64.part*`
 - Physiology:
@@ -123,10 +123,10 @@ Corresponding manifests must remain valid.
 
 Current total imported scope:
 
-- Anatomy: 819 questions / 48 topics
+- Anatomy: 898 questions / 52 imported topics (source Ch1-48 + Ch60-63; Ch49-59 unavailable)
 - Biochemistry: 543 / 26
-- Physiology: 753 / 33
-- Total: 2,376 questions
+- Physiology: 1,014 / 43
+- Total: 2,455 questions
 
 Never rewrite these bundles to improve learner-facing wording.
 
@@ -538,7 +538,7 @@ If this fails, fix only the relevant defect and rerun the check.
 
 ### PHASE 6 — Deterministic inventory
 
-Regenerate the full 2,376-ID explanation inventory.
+Regenerate the full 2,455-ID explanation inventory.
 
 Verify:
 

@@ -50,14 +50,16 @@ Check off only when build-verified **and** device-verified where UI is involved.
 - [ ] Explanation fine-tuning for the newly added questions using
       `docs/MARROW_EXPLANATION_FINE_TUNING.md`. **Active phase.** Keep raw source
       immutable and scale the approved 142-question grammar through a separate
-      augmentation layer. The 2,376-ID inventory is complete and the selected
+      augmentation layer. The 2,455-ID inventory is complete and the selected
       20-question cross-chapter Biochemistry sample passed CI/browser verification
       and was physically approved by the user on 2026-09-09. The approved reference
       is now the canonical grammar. Biochemistry Chapter 1 rollout is complete
       (22 additional questions; 23/23 Chapter 1 enhanced), bringing the enhanced
-      total to **184** with **2,192** remaining. Continue at Biochemistry Chapter 2.
+      total to **184** with **2,271** remaining after source expansion. Continue explanation work separately from source integration.
 - [ ] Images/figures remain a later pass. Preserve figure metadata and do not
       block source-faithful text-bank work on missing binaries.
+- [x] Integrate verified Physiology Ch34–43 automation handoff: **+261 Q / +10 topics**, now **1,014 / 43**.
+- [x] Integrate verified Anatomy Ch60–63 automation handoff: **+79 Q / +4 topics**, now **898 / 52**; Ch49–59 remain an explicit source gap.
 - [ ] Continue later Marrow chapters beyond the supplied current scope only when
       verified source JSONL is available.
 - [ ] Keep production promotion deliberate; build/browser success is not acceptance.

@@ -6,8 +6,8 @@ Private, local-first medical QBank for personal MBBS study: accepted Android
 APK plus a V11.7 responsive PWA/cross-device evolution candidate.
 Currently covers **Anatomy, Physiology, Biochemistry**. PrepLadder remains
 Anatomy 1,068 Q, Physiology 899 Q, Biochemistry 719 Q. The active Marrow
-feature candidate additionally contains Anatomy 819/48, Biochemistry 543/26,
-and Physiology 753/33 (2,376 Marrow questions total).
+feature candidate additionally contains Anatomy 898/52, Biochemistry 543/26,
+and Physiology 1,014/43 (2,455 Marrow questions total).
 
 ## Phase
 
@@ -82,18 +82,18 @@ Prefer building over narrating.
 - A medical subject may contain multiple question-bank sources. If so, selecting
   the subject opens a source selector before Topics.
 - Current Marrow feature candidate:
-  - Anatomy → PrepLadder | Marrow (819 questions / 48 Marrow topics).
+  - Anatomy → PrepLadder | Marrow (898 questions / 52 imported Marrow topics).
   - Biochemistry → PrepLadder | Marrow (543 / 26).
-  - Physiology → PrepLadder | Marrow (753 / 33).
+  - Physiology → PrepLadder | Marrow (1,014 / 43).
 - Bank/source selection changes content provenance, not the learning engine.
   Practice, CBT, Review, Custom Study Modules, FSRS, sync, analytics, bookmarks,
   persistence and revision queues remain shared.
 - Initial cross-subject ingestion is **source-faithful first**. Newly added
   Marrow questions render their supplied structured explanation without a new
   rewrite/polish phase.
-- The previously approved enhanced explanation layer remains an auditable
-  augmentation subset (62 Anatomy + 80 Physiology) and must not be generalized
-  by silently rewriting stored source text.
+- The approved enhanced explanation layer remains an auditable 184-question
+  augmentation subset. Newly source-ingested questions stay pending and must not
+  be silently rewritten during integration.
 - PrepLadder explanations remain source-PDF based. Marrow uses native structured
   text/tables and must expose Key takeaway + Detailed explanation + Structured text.
 - Stored Marrow wording is source-owned and remains unchanged. Later readability

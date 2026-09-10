@@ -28,7 +28,7 @@ PWA builds precache the released figures for offline use.
 
 ## Audit interpretation
 
-The audit checks the hashes of all 2,376 imported questions and inspects all
+The audit checks the hashes of all 2,455 imported questions and inspects all
 2,484 PDF pages. Current metadata contains 1,082 references across 821 questions:
 Anatomy 769/560, Biochemistry 95/89, Physiology 218/172.
 Stem and explanation cues add 58 review candidates. This differs from the old
