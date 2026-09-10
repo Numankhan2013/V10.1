@@ -15,36 +15,42 @@ jobs:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 1
-      - name: Fetch automation handoff branch
-        run: git fetch --depth=50 origin feature/marrow-bank-pilot:refs/remotes/origin/feature/marrow-bank-pilot
-      - name: Inspect safe schemas only
+      - name: Fetch all branch tips
+        run: git fetch --depth=1 origin '+refs/heads/*:refs/remotes/origin/*'
+      - name: Search safe handoff paths and count Physiology additions
         shell: bash
         run: |
           python3 - <<'PY'
-          import base64, json, zlib, subprocess
-          from pathlib import Path
+          import json, subprocess
 
-          data=Path('data/marrow')
-          manifest=json.loads((data/'physiology_ch001_033_manifest.json').read_text())
-          encoded=''.join(p.read_text().strip() for p in sorted(data.glob('physiology_ch001_033.zlib.b64.part*')))
-          record=json.loads(zlib.decompress(base64.b64decode(encoded)).decode())
-          print('CURRENT_RECORD_KEYS', sorted(record.keys()))
-          print('CURRENT_TOPIC_KEYS', sorted(record['topics'][0].keys()))
-          print('CURRENT_Q_KEYS', sorted(record['questions'][0].keys()))
-          print('CURRENT_OPTION_KEYS', sorted(record['questions'][0]['options'][0].keys()))
-          print('CURRENT_LAST_TOPICS', [(t.get('id'),t.get('title')) for t in record['topics'][-3:]])
-          print('CURRENT_LAST_Q_ID', record['questions'][-1].get('id'))
-          for k in ('sourceRef','structuredExplanation'):
-              v=record['questions'][0].get(k)
-              print(k+'_TYPE', type(v).__name__)
-              if isinstance(v,dict): print(k+'_KEYS', sorted(v.keys()))
+          refs=subprocess.check_output(['git','for-each-ref','--format=%(refname)','refs/remotes/origin/'],text=True).splitlines()
+          hits=[]
+          for ref in refs:
+              try:
+                  paths=subprocess.check_output(['git','ls-tree','-r','--name-only',ref],text=True,stderr=subprocess.DEVNULL).splitlines()
+              except subprocess.CalledProcessError:
+                  continue
+              for p in paths:
+                  low=p.lower()
+                  if ('automation_ingest/biochemistry/' in low or
+                      ('biochem' in low and ('027' in low or '028' in low or 'chapter_27' in low or 'chapter_28' in low))):
+                      hits.append((ref.replace('refs/remotes/origin/',''),p))
+          print('BIOCHEM_HANDOFF_PATH_HITS', len(hits))
+          for item in hits[:50]: print('BIOCHEM_HIT', *item)
 
-          path='data/marrow/automation_ingest/physiology/qbank_physio_chunk_034_glomerular_filtration_rate_renal_blood_flow_and_renal_clearance.jsonl'
-          raw=subprocess.check_output(['git','show','origin/feature/marrow-bank-pilot:'+path], text=True)
-          first=json.loads(next(line for line in raw.splitlines() if line.strip()))
-          print('RAW_Q_KEYS', sorted(first.keys()))
-          print('RAW_OPTION_KEYS', sorted(first['options'][0].keys()))
-          print('RAW_EXPLANATION_KEYS', sorted(first.get('explanation',{}).keys()))
-          print('RAW_SOURCE_PROVENANCE_KEYS', sorted(first.get('source_provenance',{}).keys()))
-          print('RAW_SAMPLE_ID', first.get('id'), 'CHAPTER', first.get('chapter_number'), first.get('chapter'))
+          phys_prefix='data/marrow/automation_ingest/physiology/'
+          phys=[]
+          ref='refs/remotes/origin/feature/marrow-bank-pilot'
+          paths=subprocess.check_output(['git','ls-tree','-r','--name-only',ref],text=True).splitlines()
+          for p in paths:
+              if p.startswith(phys_prefix) and p.endswith('.jsonl'):
+                  name=p.rsplit('/',1)[-1]
+                  try: chapter=int(name.split('_chunk_')[1][:3])
+                  except Exception: continue
+                  if 34 <= chapter <= 43:
+                      raw=subprocess.check_output(['git','show',f'{ref}:{p}'],text=True)
+                      rows=[json.loads(line) for line in raw.splitlines() if line.strip()]
+                      phys.append((chapter,len(rows),rows[0].get('chapter','')))
+          print('PHYS_ADDITIONS', phys)
+          print('PHYS_NEW_QUESTIONS', sum(x[1] for x in phys))
           PY
