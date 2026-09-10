@@ -8,7 +8,7 @@
 - Repo: `Numankhan2013/V10.1`.
 - `main` is the authoritative unified V11/Marrow product line.
 - Anatomy topic-index v2 merged through PR #29 at `424d7b2`.
-- Biochemistry topic-index v2 is on `feature/marrow-biochemistry-topic-index-v2` at `fe8067e`, pending full feature CI/PR.
+- Biochemistry topic-index v2 merged through PR #30 at `3b0d9dc`.
 - Resolve live branch/HEAD from Git; never hardcode a self-staling HEAD value.
 - Accepted baseline: **V11.6 Content Quality** at `125d68b`, run `34050921180`.
 - Accepted product commit: `125d68b`.
@@ -70,7 +70,8 @@ Lipids → Enzymes and phenylketonuria → Clinical biochemistry and nutrition �
 - Current placement: Ch 1–6 Carbohydrates; 7–11 Amino acids/proteins; 12–16 Lipids; 17–19 Enzymes/phenylketonuria; 20–23 Clinical biochemistry/nutrition; 24–26 Genetics.
 - Combined source chapters stay combined; `plannedSlots` maps Ch 1, 4, 20 and 24 to multiple finer learner slots.
 - Missing future topics never render as placeholders; learner numbering is visible-contiguous 1–26; source IDs/titles/question linkage/FSRS remain untouched.
-- Static taxonomy + project-memory validation passed before commit; full Android/PWA/browser feature CI is the remaining gate before merge.
+- Full feature CI run `34444405972` passed end-to-end, including taxonomy validation, real-browser six-index grouping and 1–26 numbering, APK packaging, and feature preview deployment. Production promotion was skipped.
+- Merged to `main` through PR #30 at `3b0d9dc`; device verification of the new Biochemistry arrangement is still pending.
 - Physiology taxonomy is still pending the user's revised arrangement.
 
 ## User/device verification
@@ -104,9 +105,8 @@ Lipids → Enzymes and phenylketonuria → Clinical biochemistry and nutrition �
 
 ## Verification / release status
 
-- Expanded Marrow integration and Anatomy topic-index v2 are build-verified.
-- Anatomy v2 is merged to `main` but not yet device-verified as a new arrangement.
-- Biochemistry v2 has passed static taxonomy/memory validation; full feature build/browser verification is pending.
+- Expanded Marrow integration plus Anatomy and Biochemistry topic-index v2 are build-verified and merged to `main`.
+- Anatomy v2 and Biochemistry v2 are not yet device-verified as new arrangements.
 - Main/production release requires explicit guarded promotion; CI success alone
   must never promote production.
 - Accepted rollback checkpoint remains V11.6 `125d68b` until explicit user
@@ -123,7 +123,7 @@ Lipids → Enzymes and phenylketonuria → Clinical biochemistry and nutrition �
 
 ## Next step
 
-1. Complete Biochemistry v2 full feature CI/browser verification and merge only after green.
+1. Device-check the merged Anatomy and Biochemistry Marrow Topics arrangements when convenient.
 2. Apply the user's revised Physiology taxonomy when supplied.
 3. Continue image and explanation rollout separately from taxonomy changes.
 
