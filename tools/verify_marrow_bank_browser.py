@@ -504,8 +504,7 @@ def main():
                 raise SystemExit('Anatomy Chapter 9 Q5 flexure diagram missing after answer')
             page.wait_for_function("document.querySelector('.nk-marrow-figure-button img')?.naturalWidth===575")
             flexure.click();page.wait_for_timeout(80)
-            if not page.locator('#nk-source-viewer').is_visible():
-                raise SystemExit('Batch 08 flexure diagram did not open fullscreen viewer')
+            page.wait_for_function("document.querySelector('#nk-source-viewer img')?.naturalWidth===575")
             page.screenshot(path=str(OUT/'06a-anatomy-batch08-flexure-viewer.png'),full_page=True)
             page.locator('#nk-source-viewer .nk-sv-close').click();page.wait_for_timeout(60)
 

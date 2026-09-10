@@ -805,3 +805,7 @@ Implemented approved recovery in existing transform owners: Topics separate path
   assertion named a nonexistent viewer class. Updated it to the established
   `#nk-source-viewer` / `.nk-sv-close` contract used by prior image tests; product
   behavior and image release data were unchanged.
+- The second run confirmed the viewer click but exposed that its fixed child does
+  not give the zero-height `#nk-source-viewer` parent a Playwright-visible box.
+  Aligned the assertion exactly with prior verified tests by waiting for the
+  fullscreen image's natural width; no product code or asset changed.
