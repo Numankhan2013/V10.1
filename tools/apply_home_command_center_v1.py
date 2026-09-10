@@ -170,7 +170,7 @@ def transform(source: str) -> str:
         "nk-home-approved-v1",
         "nk-home-command-center",
         "Recommended now",
-        "Continue Learning",
+        "CONTINUE LEARNING",
         "Practice 20 Random Questions",
         "Timed Test",
         "Timed CBT",
