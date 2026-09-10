@@ -9,14 +9,16 @@ CORE = ROOT / "tools" / "verify_marrow_bank_browser_core.py"
 
 source = CORE.read_text(encoding="utf-8")
 
-# The approved Home redesign no longer exposes the legacy nk-subject-row control
-# on first load. Use the stable public navigation API that the rest of this
-# verifier already uses, without changing learner behavior.
-legacy_subject_open = "            page.locator('button.nk-subject-row').filter(has_text='Biochemistry').click();page.wait_for_timeout(80)"
-current_subject_open = "            page.evaluate(\"window.QB.nav('banks','Biochemistry')\");page.wait_for_timeout(80)"
-if source.count(legacy_subject_open) != 1:
-    raise SystemExit(f"Initial Biochemistry navigation anchor count: {source.count(legacy_subject_open)}")
-source = source.replace(legacy_subject_open, current_subject_open, 1)
+# The approved Home redesign no longer exposes the legacy nk-subject-row controls.
+# Use the stable public navigation API throughout the smoke test; learner behavior
+# remains unchanged and all content/taxonomy assertions stay intact.
+for subject in ("Biochemistry", "Physiology", "Anatomy"):
+    legacy_subject_open = f"            page.locator('button.nk-subject-row').filter(has_text='{subject}').click();page.wait_for_timeout(80)"
+    current_subject_open = f"            page.evaluate(\"window.QB.nav('banks','{subject}')\");page.wait_for_timeout(80)"
+    count = source.count(legacy_subject_open)
+    if count != 1:
+        raise SystemExit(f"Initial {subject} navigation anchor count: {count}")
+    source = source.replace(legacy_subject_open, current_subject_open, 1)
 
 replacements = {
     "            for marker in ('PrepLadder','Marrow','753'):": "            for marker in ('PrepLadder','Marrow','1,014'):",
