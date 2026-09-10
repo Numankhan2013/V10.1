@@ -16,7 +16,7 @@ def main() -> None:
     core = CORE.read_text(encoding="utf-8")
     harness = r'''
 const assert=(condition,message)=>{if(!condition)throw new Error(message);};
-state={attempts:{q1:[{id:'a1',at:10,correct:false,selected:1,timeSpent:5}]},bookmarks:{},reviews:{},tests:[],studyModules:[],activeSession:null};
+state={attempts:{q1:[{id:'a1',at:10,correct:false,selected:1,timeSpent:5}]},bookmarks:{},reviews:{},tests:[],studyModules:[],activeSession:null,fsrsReviewEligible:{}};
 nkApplyCloudEnvelope({kind:'attempts',entityId:'a2',ownerDevice:'ipad',updatedAt:20,deleted:false,payload:JSON.stringify({qid:'q1',attempt:{id:'a2',at:20,correct:true,selected:2,timeSpent:7}}),schemaVersion:1});
 assert(state.attempts.q1.length===2,'immutable attempts must merge');
 nkApplyCloudEnvelope({kind:'attempts',entityId:'a2',ownerDevice:'ipad',updatedAt:20,deleted:false,payload:JSON.stringify({qid:'q1',attempt:{id:'a2',at:20,correct:true,selected:2,timeSpent:7}}),schemaVersion:1});
@@ -32,6 +32,11 @@ assert(state.activeSession.id==='new'&&state.activeSession.index===4,'opening an
 state.studyModules=[{id:'m1',syncEpoch:'e1',submitted:{q1:true},answers:{q1:1},completedQuestionIds:['q1'],questionTimes:{q1:10}}];
 nkApplyCloudEnvelope({kind:'modules',entityId:'m1',ownerDevice:'ipad',updatedAt:300,deleted:false,payload:JSON.stringify({id:'m1',syncEpoch:'e1',submitted:{q2:true},answers:{q2:2},completedQuestionIds:['q2'],questionTimes:{q2:20}}),schemaVersion:1});
 assert(state.studyModules[0].submitted.q1&&state.studyModules[0].submitted.q2,'same-generation module progress must merge across devices');
+state.fsrsReviewEligible={qLocal:{reason:'skipped',at:310}};
+nkApplyCloudEnvelope({kind:'preferences',entityId:'main',ownerDevice:'ipad',updatedAt:400,deleted:false,payload:JSON.stringify({fsrsReviewEligible:{qRemote:{reason:'skipped',at:390}}}),schemaVersion:1});
+assert(state.fsrsReviewEligible.qLocal&&state.fsrsReviewEligible.qRemote,'FSRS skipped-review eligibility must union across devices instead of replacing local entries');
+nkApplyCloudEnvelope({kind:'preferences',entityId:'main',ownerDevice:'android',updatedAt:410,deleted:false,payload:JSON.stringify({fsrsReviewEligible:{qRemote:{reason:'skipped',at:405},qIgnored:{reason:'new',at:405}}}),schemaVersion:1});
+assert(state.fsrsReviewEligible.qRemote.at===405&&!state.fsrsReviewEligible.qIgnored,'skip eligibility merge must keep newest skip timestamp and reject non-review-only reasons');
 nkRebuildReviews();
 assert(state.reviews.q1.attempts===2&&state.reviews.q1.streak===1,'review schedule must derive from merged attempts');
 const encoded=nkFirestoreDocument(nkEnvelope('tests','t1',{id:'t1'},300),'/x');
@@ -84,7 +89,7 @@ async function testRequests(){
   assert(!settled,'failed batch must wait for remaining in-flight writes before retry');
   releaseSuccess();await partial;
   assert(nkSyncMeta.outbox['bookmarks/q1']&&!nkSyncMeta.outbox['bookmarks/q2'],'partial batch must retain failures and acknowledge successes');
-  // Reproduce the original echo loop: remote preferences call the real save hook.
+  // Reproduce the original echo loop: legacy remote preferences without review eligibility must not create an echo.
   state={attempts:{},bookmarks:{},reviews:{},tests:[],studyModules:[],activeSession:null};
   nkSyncMeta={deviceId:'local',outbox:{},localHashes:{},known:{},winners:{},cursors:{}};
   nkAuth={uid:'user',idToken:'valid-token',refreshToken:'refresh',expiresAt:Date.now()+3600000};
@@ -178,9 +183,9 @@ const document={querySelector:()=>null,createElement:()=>({querySelector:()=>({s
         raise SystemExit("Synchronization must pull/merge before uploading local revisions")
     if "function nkScheduleCloudSync(){if(!nkAuth)return;nkCaptureCloudChanges();}" not in sync_core:
         raise SystemExit("Local outbox capture must be synchronous with state saves")
-    for marker in ("nkResolveFirebaseProjectId", "nkProjectIdFromToken", "stage='download'", "HTTP ${response.status}", "method:'PATCH'", "setInterval(nkCloudAutoSync,300000)", "visibilitychange"):
+    for marker in ("nkResolveFirebaseProjectId", "nkProjectIdFromToken", "stage='download'", "HTTP ${response.status}", "method:'PATCH'", "setInterval(nkCloudAutoSync,300000)", "visibilitychange", "fsrsReviewEligible", "nkMergeFsrsReviewEligible"):
         if marker not in sync_core:
-            raise SystemExit(f"Cross-device sync diagnostic/project-resolution contract missing: {marker}")
+            raise SystemExit(f"Cross-device sync diagnostic/project-resolution/review-eligibility contract missing: {marker}")
     if ":batchWrite" in sync_core:
         raise SystemExit("Firebase ID-token clients must not use the IAM-oriented batchWrite endpoint")
     transform = (ROOT / "tools/apply_cross_device_pwa_v1.py").read_text(encoding="utf-8")
