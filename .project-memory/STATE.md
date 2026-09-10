@@ -91,8 +91,12 @@ Current plans/imports:
 - The source/data transformation is **build-verified at its deterministic prechecks**; the full browser/APK/PWA build remains the final feature verification gate.
 - Browser wrapper includes a new Ch60 learner-view check that fails on raw keys such as `question_id`, `chapter_number`, `correct_option`, `schema_version`, `review_status`, or `source_fidelity`, plus serialized JSON fragments.
 - Current operational source consumers and docs have been aligned to the new Anatomy and Physiology bundles.
-- Full feature browser/APK/PWA CI for Anatomy Ch60–63 passed in run `34451249088`; preview deployment succeeded.
-- Regression incident found after device preview: automation-adapted Physiology Ch34–43 and Anatomy Ch60–63 emitted lowercase option labels, while the session renderer expected uppercase A–D. This could show the chosen wrong option red without highlighting the actual correct option green. The repair normalizes runtime labels to uppercase, hardens the renderer case handling, adds fail-closed A–D validation, and adds browser red+green checks including the Wrong Questions flow.
+- Full feature browser/APK/PWA CI for Anatomy Ch60–63 passed in run `34451249088`; preview deployment succeeded, but subsequent device review found the option-label regression described below.
+- Regression incident: automation-adapted Physiology Ch34–43 and Anatomy Ch60–63 emitted lowercase option labels, while the session renderer historically assumed uppercase A–D. A wrong choice could therefore turn red while the true correct option failed to turn green.
+- Repair commit `734f8928406ef7592fe8a62d7bd4040009ebaea8` normalizes affected runtime bundle labels to uppercase A–D, makes the renderer case-tolerant, makes future importers emit uppercase A–D, and adds static/runtime validation that rejects malformed option labels.
+- Repair workflow run `34457704618` passed its deterministic data, taxonomy and explanation-inventory checks after refreshing the inventory source hashes. Canonical automation JSONL was not rewritten.
+- Browser regression coverage now requires exactly one red wrong option and one green correct option for an existing Marrow question, a newly imported Physiology question, a newly imported Anatomy question, and the Wrong Questions learner flow; computed answer colors are asserted, not inferred from screenshots alone.
+- An exact-head full browser/APK/PWA build is required after the repair commit before source expansion resumes.
 - New Anatomy content is **not yet device-verified**. CI success alone does not change the accepted baseline or promote production.
 
 ## Known problems / cautions
