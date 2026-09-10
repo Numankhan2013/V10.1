@@ -42,6 +42,7 @@ console.log('HOME_COMMAND_CENTER_PRIORITY_OK');
         "window.QB.startLibrary('review')",
         "window.QB.continuePractice()",
         "window.QB.startAllSubjectPractice()",
+        "Practice 20 Random Questions",
         "window.QB.openTestBuilder()",
         'aria-label="Other study actions"',
         "@media(max-width:480px)",

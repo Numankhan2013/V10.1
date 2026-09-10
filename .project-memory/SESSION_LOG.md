@@ -809,3 +809,6 @@ Implemented approved recovery in existing transform owners: Topics separate path
   order, generated product markers and a 390×844 browser screenshot regression.
 - `verify_local.py` passes 38 local checks. PDF generation, the generated browser
   screenshot, packaged APK checks and visual QA remain CI-only and pending.
+- The first full run correctly failed the generated contract because the new
+  card shortened the protected “Practice 20 Random Questions” label. Restored
+  the exact learner-facing wording before rerunning the candidate.

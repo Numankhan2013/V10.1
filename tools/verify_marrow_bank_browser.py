@@ -33,7 +33,7 @@ def main():
                 raise SystemExit('Home Today’s Focus command center missing or duplicated')
             if 'Recommended now' not in home_focus.inner_text():
                 raise SystemExit('Home recommendation hierarchy is not visible')
-            if 'Practice 20 questions' not in home_focus.locator('.nk-focus-primary').inner_text():
+            if 'Practice 20 Random Questions' not in home_focus.locator('.nk-focus-primary').inner_text():
                 raise SystemExit('Clean-state Home recommendation is not Practice 20')
             secondary=home_focus.locator('.nk-focus-secondary').inner_text()
             for marker in ('Continue Practice','Timed CBT'):
