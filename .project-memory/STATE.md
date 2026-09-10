@@ -4,118 +4,109 @@
 
 ## Repo / branch
 
-- Repo: `Numankhan2013/V10.1`; `main` is the authoritative unified V11/Marrow line.
+- Repo: `Numankhan2013/V10.1`; `main` remains the authoritative merged V11/Marrow line.
 - Anatomy topic-index v2 merged through PR #29 at `424d7b2`.
 - Biochemistry topic-index v2 merged through PR #30 at `3b0d9dc`.
 - Physiology topic-index v2 merged through PR #31 at `fcf0476`.
-- Current source-ingest work branch: `feature/marrow-automation-ingest-physio-biochem`.
-- Resolve live HEAD from Git; never hardcode a self-staling HEAD.
-- Accepted baseline: **V11.6 Content Quality** at `125d68b`.
-- Accepted product commit: `125d68b`
+- Current source-ingest branch: `feature/marrow-automation-ingest-anatomy`; it is based on the verified Physiology Ch34–43 source expansion.
+- Resolve live branch tip from Git; never hardcode a self-staling HEAD.
+- Accepted device-tested rollback baseline remains **V11.6 Content Quality** at `125d68b`.
 - Production promotion remains explicit and guarded.
 
-## Current Marrow bank
+## Current feature Marrow bank
 
-Shared architecture: `MARROW_RECORDS` → `MARROW_BY_SUBJECT` → `BANKS_BY_SUBJECT`; Practice/CBT/Review/FSRS/sync/modules/analytics remain shared.
+Shared architecture remains `MARROW_RECORDS` → `MARROW_BY_SUBJECT` → `BANKS_BY_SUBJECT`; Practice/CBT/Review/FSRS/sync/modules/analytics remain shared.
 
-Merged `main` source scope before the current ingest:
-- Anatomy: **819 questions / 48 topics**.
-- Biochemistry: **543 / 26**.
-- Physiology: **753 / 33**.
-- Total: **2,115 globally unique questions / 107 source topics**.
+Current feature source scope:
+- Anatomy: **898 questions / 52 imported topics** — source Ch1–48 plus Ch60–63.
+- Biochemistry: **543 / 26** — Ch27/28 source artifact still not located.
+- Physiology: **1,014 / 43** — Ch34–43 expansion included.
+- Combined: **2,455 globally unique questions / 121 imported source topics**.
 
-Current feature-ingest target after adding confirmed Physiology Ch34–43:
-- Anatomy: **819 / 48** unchanged.
-- Biochemistry: **543 / 26** unchanged until Ch27/28 source is located.
-- Physiology: **1,014 / 43** (**+261 questions / +10 source topics**).
-- Feature total: **2,376 questions / 117 source topics**.
-
-Raw imported Marrow source is authoritative and immutable. Source-ingest adapters may normalize storage-field names only; stems/options/answers/explanation text/source provenance are not rewritten merely for integration.
+Raw imported Marrow source is authoritative and immutable. Source-ingest adapters normalize storage-field names only; stems/options/answers/explanation text/tables/figures/provenance are not rewritten merely for integration.
 
 ## Automation handoff discovery — 2026-09-10
 
-The canonical committed automation handoff is on `feature/marrow-bank-pilot` under `data/marrow/automation_ingest/`.
+Canonical committed automation handoff is on `feature/marrow-bank-pilot` under `data/marrow/automation_ingest/`.
 
-Confirmed Physiology JSONL source files Ch34–43:
-- Ch34 GFR / renal blood flow / renal clearance — 35 Q.
-- Ch35 renal tubular functions / concentration / dilution — 32 Q.
-- Ch36 acid-base balance / renal hormones / micturition reflex — 25 Q.
-- Ch37 pituitary and thyroid — 24 Q.
-- Ch38 pancreas — 25 Q.
-- Ch39 adrenals — 21 Q.
-- Ch40 calcium homeostasis — 25 Q.
-- Ch41 male reproductive physiology — 28 Q.
-- Ch42 female reproductive physiology — 30 Q.
-- Ch43 exercise physiology — 16 Q.
-- Total new Physiology questions: **261**.
+Physiology Ch34–43:
+- 261 questions total; now packaged as `data/marrow/physiology_ch001_043.zlib.b64.part*`.
+- Full feature build run `34450005298` passed browser, APK, PWA and raw-schema leakage checks.
+- Stable preview used for verification: `https://feature-marrow-automation-in.nk-qbank.pages.dev`.
+- Immutable preview: `https://6426c541.nk-qbank.pages.dev`.
 
-Biochemistry Ch27/28 were reported as automation-produced, but no matching committed payload is reachable as of this handoff: checked the intended automation-ingest folder, every current branch tip, and full reachable history across all branches. Do not fabricate or reconstruct these two chapters from taxonomy labels; locate their actual source artifact before integration.
+Anatomy automation payload actually reachable in Git:
+- Ch60 **Bones, Joints and Cartilage** — 30 Q.
+- Ch61 **Muscles and Tendons** — 16 Q.
+- Ch62 **Cardiovascular, Lymphatic and Nervous Systems** — 20 Q.
+- Ch63 **Skin, Connective Tissue and Ligaments** — 13 Q.
+- New Anatomy total: **79 questions / 4 source topics**.
+- Ch49–59 are not present in the committed handoff, current branch tips, or searched reachable history. Treat this as an explicit source-artifact gap; do not fabricate continuity.
 
-## Shared topic-index contract
+Biochemistry Ch27/28 were reported as automation-produced but no matching committed payload was located in the intended handoff, branch tips, or searched reachable history. Do not fabricate them from planned taxonomy labels; integrate only when the user supplies or identifies the real JSON/JSONL artifact.
 
-Revised subjects use `data/marrow/topic_index_taxonomy.json` with `catalogVersion: 2`, full `plannedIndex`, current imported `topics`, `plannedSlots`, and `displayNumbering: visible-contiguous`.
+## Anatomy Ch60–63 implementation
+
+- Deterministic adapter: `tools/integrate_anatomy_automation_ch060_063.py`.
+- Runtime bundle: `data/marrow/anatomy_ch001_048_plus_060_063.zlib.b64.part*` with manifest and SHA-verified compressed/raw payload.
+- Existing 819 Ch1–48 records remain unchanged and are a strict subset of the 898-question bundle.
+- Ch60 → `General anatomy` planned slot **Bones, joints, and cartilage**.
+- Ch61 → planned **Muscles and tendon**.
+- Ch62 → planned **Cardiovascular, lymphatic, and nervous systems**.
+- Ch63 → planned **Skin** + **Connective tissue and ligaments** without splitting or duplicating its source questions.
+- Learner-visible Anatomy topics are now source IDs `1–48, 60–63`, displayed contiguously as learner numbers **1–52**.
+- Lower limb and Back still have no imported source topics and therefore remain hidden planned sections; General anatomy now renders because Ch60–63 exist.
+
+## Topic-index contract
+
+All revised subjects use `data/marrow/topic_index_taxonomy.json` with `catalogVersion: 2`, full `plannedIndex`, current imported `topics`, `plannedSlots`, and `displayNumbering: visible-contiguous`.
 
 - Store the full intended syllabus even when source topics are not imported.
-- Render only imported source topics; never show blank/disabled placeholders or fake chapters.
-- Hide a planned major index when it has zero imported topics.
-- Combined/split source chapters remain source-faithful; `plannedSlots` maps them to finer learner slots without duplicating questions.
-- Learner numbers follow configured arranged order; backend source chapter IDs are never renumbered.
+- Render only imported source topics; no disabled/blank placeholders.
+- Hide a planned major index with zero imported source coverage.
+- Combined/split source chapters remain source-faithful; `plannedSlots` supplies learner metadata without duplicating questions.
+- Learner numbering follows arranged visible order; backend source chapter IDs never change.
 
-## Anatomy topic index v2
-
-Order: **Embryology → Histology → Neuroanatomy → Head, neck, and face → Upper limb → Thorax → Abdomen and pelvis → Lower limb → Back → General anatomy**.
-- Intended: **71 slots**; current: **48 source topics / 819 questions**.
-- Learner numbering is **1–48 contiguous**.
-- Full feature CI `34443190210` passed; merged PR #29. New arrangement awaits device verification.
-
-## Biochemistry topic index v2
-
-Order: **Carbohydrates → Amino acids and proteins → Lipids → Enzymes and phenylketonuria → Clinical biochemistry and nutrition → Genetics**.
-- Intended: **32 slots**; current: **26 source topics / 543 questions**.
-- Current placement: Ch1–6 Carbohydrates; 7–11 amino acids/proteins; 12–16 Lipids; 17–19 enzymes/phenylketonuria; 20–23 clinical/nutrition; 24–26 Genetics.
-- Learner numbering is **1–26 contiguous**.
-- Full feature CI `34444405972` passed; merged PR #30.
-- Planned Genetics slots for Regulation of gene expression and Molecular genetics/recombinant DNA/genomic technology remain available for Ch27/28 when their real source payload is found.
-
-## Physiology topic index v2 + Ch34–43 ingest
-
-Authoritative order: **General physiology → Nerve and muscle physiology → Gastrointestinal system → Cardiovascular system → Respiratory system → Renal physiology → Endocrine physiology → Reproductive physiology → Central nervous system → Integrated physiology**.
-
-- Intended syllabus remains **42 planned slots**.
-- After Ch34–43 ingest, all 10 major indexes have imported source coverage and the source bank is **43 topics / 1,014 questions**.
-- Learner-order source IDs become `1–9, 31–33, 26–30, 19–25, 34–36, 37–40, 41–42, 10–18, 43`; learner display is **1–43 contiguous**.
-- Ch34 → renal slot 1; Ch35 → renal slot 2; Ch36 → renal slots 2+3; Ch37–40 → endocrine slots 1–4; Ch41–42 → reproductive slots 1–2; Ch43 → integrated slot 1.
-- `tools/integrate_physio_automation_ch034_043.py` performs deterministic JSONL→Marrow runtime adaptation and emits the hash-verified `physiology_ch001_043` shard bundle without committing raw automation JSONL into the learner app branch.
-- New source explanations remain unenhanced/pending; no explanation-polish pass is part of this ingest.
+Current plans/imports:
+- Anatomy: **71 planned slots / 52 imported source topics / 898 Q**.
+- Biochemistry: **32 planned / 26 imported / 543 Q**.
+- Physiology: **42 planned / 43 imported source topics / 1,014 Q**; multiple source chapters may map to one planned slot.
 
 ## Explanation and image phases
 
-- Gold explanation grammar remains Key Takeaway → structured detail/native tables → three concise wrong-option rationales.
-- Current approved/enhanced inventory remains **184** questions.
-- With the Physiology source expansion, explanation inventory becomes **184 enhanced / 2,192 pending**; the 261 new questions enter as pending without content rewriting.
-- Image Batch 01 remains **28 approved assets / 34 bindings**; production not promoted.
+- Explanation quality work is explicitly separate from this source ingest.
+- Approved/enhanced inventory remains **184 questions**.
+- Current inventory is **184 enhanced / 2,271 pending** across 2,455 questions.
+- All 79 new Anatomy questions entered as pending; no explanation enhancement, reconstruction rewrite, or medical-content polish was performed in this ingest.
+- Existing image registry/release status remains separate. New source figure metadata is preserved with assets still governed by the image pipeline.
 
-## Verification / release status
+## Verification status
 
-- Anatomy, Biochemistry, and Physiology taxonomy v2 are build-verified and merged to `main`.
-- User already approved the Physiology v2 taxonomy preview; the new Ch34–43 source ingest is not yet device-verified.
-- `device-verified` status is intentionally withheld until the user checks the resulting build on-device.
-- Source-data, taxonomy, explanation-inventory and image-consumer prechecks are green at **1,014/43 Physiology, 2,376/117 total, 184 enhanced / 2,192 pending**.
-- Learner browser verification now explicitly checks a Ch43 Exercise Physiology question for raw JSON/schema leakage before merge.
-- Full feature browser/APK/PWA CI is the remaining merge gate; CI success alone does not promote production.
+- Anatomy primary source/data gates passed after integration:
+  - `MARROW_DATA_OK anatomy=898/52 biochemistry=543/26 physiology=1014/43 total=2455`
+  - taxonomy: **121 current source topics**, Anatomy 52 visible, contiguous numbering, no placeholders.
+  - explanation inventory: **2,455 total / 184 enhanced / 2,271 pending**.
+  - image-consumer and Biochemistry rollout count-dependent tests passed.
+- Browser wrapper includes a new Ch60 learner-view check that fails on raw keys such as `question_id`, `chapter_number`, `correct_option`, `schema_version`, `review_status`, or `source_fidelity`, plus serialized JSON fragments.
+- Current operational source consumers and docs have been aligned to the new Anatomy and Physiology bundles.
+- Full feature browser/APK/PWA CI for the finalized Anatomy candidate is the remaining build gate.
+- New Anatomy content is **not yet device-verified**. CI success alone does not change the accepted baseline or promote production.
 
-## Known problems / cautions
+## Known cautions
 
-- Remaining Marrow explanations still need later approved polish; do not improve them during source integration.
+- Ch49–59 Anatomy source files are missing from the reachable automation handoff; integrate them later only from real canonical artifacts.
+- Biochemistry Ch27/28 source files are still pending user location/supply.
+- Do not improve remaining explanations during source integration.
 - Do not expose raw JSONL/schema objects in learner-facing question/explanation views.
-- Do not rewrite raw source for UI taxonomy.
-- Do not alter approved Topics visuals, FSRS dock, PDF renderers, Practice/CBT/Review, sync, modules, persistence or navigation during source ingestion.
+- Do not rewrite source records for taxonomy placement.
+- Preserve approved Topics visuals, FSRS dock, PDF renderers, Practice/CBT/Review, sync, modules, persistence and navigation.
 
 ## Next step
 
-1. Run full feature CI/browser/APK/PWA verification, including the learner-view raw-JSON leakage check.
-2. Merge the verified Physiology Ch34–43 source ingest; keep production unpromoted unless explicitly requested.
-3. Locate the actual Biochemistry Ch27/28 source artifact before integrating those planned Genetics topics.
-4. Anatomy automation-ingest expansion is a separate later task.
+1. Run full feature browser/APK/PWA verification for Anatomy Ch60–63 and capture the stable + immutable preview URLs.
+2. Have the user device-check the resulting Anatomy/Physiology expansion preview.
+3. Integrate real Biochemistry Ch27/28 when supplied; integrate Anatomy Ch49–59 when their canonical artifacts are found.
+4. Keep explanation/image fine-tuning on their separate governed pipelines.
+5. Merge source expansion only after the relevant verification gate; keep production unpromoted unless explicitly requested.
 
 Canonical Marrow integration procedure: `docs/MARROW_BANK_INTEGRATION.md`.
