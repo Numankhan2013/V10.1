@@ -7,7 +7,7 @@
 - Repo: `Numankhan2013/V10.1`; `main` remains the authoritative merged V11/Marrow line.
 - Anatomy topic-index v2 merged through PR #29; Biochemistry topic-index v2 through PR #30; Physiology topic-index v2 through PR #31.
 - Current source-ingest branch: `feature/marrow-biochem-ch27-28-integration`.
-- Accepted device-tested rollback baseline remains **V11.6 Content Quality** at `125d68b`.
+- Accepted baseline: device-tested rollback baseline remains **V11.6 Content Quality** at `125d68b`.
 - Accepted product commit: `125d68b`.
 - Production promotion remains explicit and guarded.
 
