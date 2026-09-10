@@ -224,7 +224,8 @@ jobs:
           grep -q 'body:has(.nk-home-v4) .topbar' app/src/main/assets/index.html
           grep -q 'nk-home-actions-v1' app/src/main/assets/index.html
           grep -q 'Continue Practice' app/src/main/assets/index.html
-          grep -q 'Practice 20 Random Questions' app/src/main/assets/index.html
+          grep -q 'Full Question Bank' app/src/main/assets/index.html
+          grep -q 'Question Source' app/src/main/assets/index.html
           ! grep -q 'id="v102-streak-layer-script"' app/src/main/assets/index.html
           ! grep -q 'id="v102-streak-layer"' app/src/main/assets/index.html
           ! grep -q 'home_polish_v3.js' app/src/main/java/com/qbank/biochemistry/MainActivity.java
@@ -324,7 +325,8 @@ jobs:
           grep -q 'body:has(.nk-home-v4) .topbar' /tmp/packaged-index.html
           grep -q 'nk-home-actions-v1' /tmp/packaged-index.html
           grep -q 'Continue Practice' /tmp/packaged-index.html
-          grep -q 'Practice 20 Random Questions' /tmp/packaged-index.html
+          grep -q 'Full Question Bank' /tmp/packaged-index.html
+          grep -q 'Question Source' /tmp/packaged-index.html
           grep -q 'nk-topics-v2' /tmp/packaged-index.html
           grep -q 'openSubjectTopics' /tmp/packaged-index.html
           grep -q 'resetScrollPosition' /tmp/packaged-index.html
