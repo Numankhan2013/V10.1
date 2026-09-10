@@ -11,10 +11,13 @@ HTML = ROOT / "app/src/main/assets/index.html"
 
 
 def main() -> None:
+    # The real pre-transform dashboard contains nested template literals inside
+    # `${...}` expressions. Keep that shape here so the replacement cannot pass
+    # unit tests while leaving a legacy Home tail in the generated application.
     fixture = '''<html><head></head><body><style id="nk-custom-study-modules-v1"></style><script>
 function dashboard() {
-  const old='legacy Home';
-  return shell(`<div class="legacy-home">${old}</div>`, 'dashboard');
+  const recent=[{name:'one'}];
+  return shell(`<main>${recent.length?`<section>${recent.map(x=>`<b>${x.name}</b>`).join('')}</section>`:`<section>none</section>`}<div id="legacy-home-tail">legacy tail</div></main>`, 'dashboard');
 }
 function untouchedQuestionEngine(){ return 'protected'; }
 </script></body></html>'''
@@ -55,8 +58,8 @@ function untouchedQuestionEngine(){ return 'protected'; }
         raise SystemExit("Approved Home style owner duplicated")
     if updated.count("function dashboard()") != 1:
         raise SystemExit("Approved Home dashboard owner duplicated or missing")
-    if "legacy-home" in updated:
-        raise SystemExit("Legacy Home composition survived the full Home replacement")
+    if "legacy-home-tail" in updated:
+        raise SystemExit("Legacy Home tail survived nested-template replacement")
     if "function untouchedQuestionEngine(){ return 'protected'; }" not in updated:
         raise SystemExit("Home transform mutated a protected non-Home function")
     for prohibited in ("Membership", "Rank", "Premium Member"):
@@ -71,7 +74,7 @@ function untouchedQuestionEngine(){ return 'protected'; }
                     raise SystemExit(f"Generated approved Home missing: {item}")
             print("HOME_APPROVED_REFERENCE_INTEGRATION_OK")
 
-    print("HOME_APPROVED_REFERENCE_CONTRACT_OK: full Home hierarchy, actions, personal-app scope, responsiveness and engine isolation")
+    print("HOME_APPROVED_REFERENCE_CONTRACT_OK: full Home hierarchy, nested-template replacement, actions, personal-app scope, responsiveness and engine isolation")
 
 
 if __name__ == "__main__":
