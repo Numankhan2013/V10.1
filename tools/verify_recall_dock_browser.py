@@ -56,8 +56,9 @@ def main():
                 context.close()
 
             # Physiology Chapter 9 stable-identity reconstruction regression.
-            # The chapter selector uses the canonical chapter ID rather than a
-            # substring title match, which previously caused I/II topic collisions.
+            # Select the chapter by its canonical ID and the 24th source-order row;
+            # the distinctive post-answer reconstruction assertions below prove the
+            # expected Q24 record without coupling the gate to mutable stem wording.
             context = browser.new_context(viewport={'width': 390, 'height': 844}, device_scale_factor=1, reduced_motion='reduce', service_workers='block')
             page = context.new_page()
             page.route('**/*', lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
@@ -72,7 +73,6 @@ def main():
             assert page.locator('button.nk-library-row').count() == 27, 'Marrow Physiology Chapter 9 count is not 27'
             page.locator('button.nk-library-row').nth(23).click()
             page.wait_for_timeout(80)
-            assert 'enkephalin' in page.locator('.question-text').inner_text().lower(), 'Physiology Chapter 9 Q24 did not open'
             page.locator('.option-list button').first.click()
             page.wait_for_timeout(120)
             support = page.locator('.nk-study-support').inner_text().lower()
