@@ -11,6 +11,7 @@
 - Current source-ingest branch: `feature/marrow-automation-ingest-anatomy`; it is based on the verified Physiology Ch34–43 source expansion.
 - Resolve live branch tip from Git; never hardcode a self-staling HEAD.
 - Accepted device-tested rollback baseline remains **V11.6 Content Quality** at `125d68b`.
+- Accepted product commit: `125d68b`
 - Production promotion remains explicit and guarded.
 
 ## Current feature Marrow bank
@@ -93,7 +94,7 @@ Current plans/imports:
 - Full feature browser/APK/PWA CI for the finalized Anatomy candidate is the remaining build gate.
 - New Anatomy content is **not yet device-verified**. CI success alone does not change the accepted baseline or promote production.
 
-## Known cautions
+## Known problems / cautions
 
 - Ch49–59 Anatomy source files are missing from the reachable automation handoff; integrate them later only from real canonical artifacts.
 - Biochemistry Ch27/28 source files are still pending user location/supply.
