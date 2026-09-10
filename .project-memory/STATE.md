@@ -1,121 +1,174 @@
 # STATE.md — Current Project State and Handoff
 
-> Concise operational handoff. History belongs in `SESSION_LOG.md`; durable
-> reasoning in `DECISIONS.md`; future work in `ROADMAP.md`.
+> Concise operational handoff. Resolve the live branch HEAD from Git rather than
+> hardcoding a self-staling commit SHA. Historical detail belongs in
+> `SESSION_LOG.md`; durable architecture belongs in `DECISIONS.md`.
 
-## Repo / release state
+## Repo / active product candidate
 
 - Repo: `Numankhan2013/V10.1`.
-- Current working branch: `feature/home-command-center-current`, stacked directly on the verified image branch `feature/marrow-image-rollout-current`.
-- The bounded Home command center is build-verified at product commit `3ec666c`:
-  Engineering Gate `34438517764` and full Android/PWA run `34438517773` passed.
-  Generated 390 px visual QA passed; physical-device acceptance remains pending.
-- Immutable Home preview: `https://5a8a5212.nk-qbank.pages.dev`; artifact ID
-  `10137126889`. Production promotion was skipped.
-- Resolve live branch/HEAD from Git; do not hardcode self-staling HEAD values.
-- This Home/image base contains explanations through Physiology Chapter 5.
-  Separately, the latest verified explanation lineage reaches Physiology Chapter
-  8 at `0a1f31f`; its full Android/PWA run `34367467186` passed.
-- Latest verified Chapter 8 preview: `https://afdceb7d.nk-qbank.pages.dev`.
-- Production promotion remains explicit and guarded; run 539 skipped production.
-- Accepted baseline remains V11.6 Content Quality `125d68b` until the user explicitly promotes a later product baseline.
-- Accepted product commit: `125d68b`.
+- Current product branch: `feature/home-approved-redesign-current`.
+- This branch is **preview-only** until the user explicitly accepts and promotes it.
+  Do not merge/promote production on your own.
+- The current work is the **Home / Study / Test / FSRS V3 information architecture**.
+  The user explicitly rejected popup-driven subject/topic practice and the old
+  top-level Topics navigation model.
+- Build-verified, device-verified, and user-accepted are distinct states. Do not
+  claim visual acceptance from CI alone.
 
-## Current Marrow bank
+## Locked V3 Home composition
 
-Shared architecture:
-`MARROW_RECORDS` → `MARROW_BY_SUBJECT` → `BANKS_BY_SUBJECT`.
-There is one shared Practice/CBT/Review/FSRS/sync/module/analytics/navigation engine.
+The Home order is now authoritative:
 
-Supplied Marrow ED8 scope:
-- Anatomy: **819 questions / 48 topics**.
-- Biochemistry: **543 / 26**.
-- Physiology: **753 / 33**.
-- Total: **2,115 globally unique questions / 107 topics**.
+1. time-aware Good Morning/Afternoon/Evening greeting + sun;
+2. compact weekly streak card;
+3. Today's Focus with **Continue Practice**, resuming the last/current topic;
+4. exactly two review shortcuts: **FSRS** and **Bookmarks**;
+5. **My Subjects** — Anatomy, Biochemistry, Physiology, each with icon, topic
+   count, question count, completion bar, and percentage;
+6. **My Progress** — Questions Attempted, Accuracy, Study Time, filterable by
+   Today / This Week / This Month / This Year;
+7. quote: “Better questions. A brighter you.” / “Keep learning, keep growing.”;
+8. **Strongest Chapters**;
+9. **Recent Study Sessions**;
+10. graphical **Today's Review** with Due / Learning / Overdue and a seven-day
+    workload view. There is **no New cards metric**.
 
-Raw imported Marrow source is authoritative and immutable. Source bundles remain
-manifest/hash validated and ingestion fails closed on corruption/count/ID/option/
-topic-link drift.
+Do not restore Timed Test or Practice as Home quick-action tiles. Studying enters
+through My Subjects / Continue Practice; testing has its own primary Tests tab.
 
-## Explanation-quality phase
+## Primary navigation and subject/topic flow
 
-Canonical procedure: `docs/MARROW_EXPLANATION_FINE_TUNING.md` +
-`docs/MARROW_BANK_INTEGRATION.md`.
+Bottom navigation is:
 
-Approved learner-facing contract:
-- one meaningful Key Takeaway;
-- source-faithful structured detailed explanation;
-- 1–4 selective emphasis anchors that exist verbatim in display text;
-- exactly three concise wrong-option rationales mapped to the three incorrect
-  source options for four-option SBA;
-- ID-keyed augmentation separate from raw source;
-- source tables/figures/provenance remain source-owned and separate;
-- missing/ambiguous source content remains explicit; never invent it;
-- FSRS/session behavior is untouched.
+**Home · FSRS · Tests · Insights · More**
 
-Current deterministic inventory:
-- **429 enhanced / 1,686 pending**.
-- Anatomy approved reference: **62**.
-- Physiology approved pilot: **80** across Chapters 1–4.
-- Biochemistry enhanced: **259**; Chapters 1–11 are complete on the current
-  stacked explanation lineage, including fixed gold-sample overlaps.
-- Physiology Chapter 5 **Body Fluids: 28/28 complete**.
-- Physiology enhanced total is now **108**.
-- Physiology Chapter 5 inventory fingerprint:
-  `09989df1e8745f7338abf146fb4eb1337738ecaf4dafb1b69f9c76314e521ea8`.
+`Topics` is deliberately removed from bottom navigation. A topic is not a
+standalone top-level destination because it has to belong to a subject.
 
-Physiology rollout infrastructure was generalized on PR #24:
-- `data/marrow/explanation_physio_ch*_v1.json` discovery in inventory;
-- shared app loader merges Physiology chapter augmentations with the existing
-  80-question Physiology pilot;
-- `tools/test_marrow_physio_explanation_rollout.py` provides fail-closed
-  source-ID/chapter/emphasis/distractor validation;
-- both Engineering Gate and full Android/PWA workflow run the Physiology validator;
-- Biochemistry rollout validation was generalized so other subjects may add
-  enhanced records without invalidating its subject-local guarantees.
+Canonical study hierarchy:
 
-Representative Chapter 5 browser regression:
-Physiology → Marrow → Body Fluids → Q17 verifies the permeant-urea / tonicity
-explanation and exactly three distractor rationales through the real learner UI.
+**My Subjects → selected subject → full Topics journey UI → selected topic →
+Practice or Topic Test**
 
-## Image pipeline / ownership
+Rules:
+- Never use a subject-picker or topic-picker popup for normal Practice.
+- Subject selection must activate the correct subject **and the correct QBank
+  record** before rendering Topics. Prefer the current complete Marrow record
+  where available. This specifically prevents the previously observed failure
+  where a Physiology heading could display Biochemistry topics.
+- Preserve the approved Topics journey UI, taxonomy, search/filter controls,
+  topic states, and Continue Learning tray.
+- Topic/chapter page remains the decision point with **Practice** and **Timed
+  Test** actions.
 
-- Explanation refinement and image integration remain separate workstreams.
-- The primary agent is taking ownership of **image integration**.
-- Preserve source-native figure/image metadata and source fidelity.
-- Do not reconstruct medically meaningful figures from prose when source assets
-  exist or when the source is ambiguous.
-- Historical Batch 01 remains build-verified and user-approved as the minimum quality threshold.
-- Current rollout contains **147 approved assets / 166 released bindings / 152 released questions**. By subject: Anatomy 58, Biochemistry 55, Physiology 39 questions.
-- Batches 05–07 reviewed 90 candidate bindings and released 72: Batch 05 23/30, Batch 06 23/30 with one quality hold, Batch 07 26/30. Seventeen false ownership/reuse mappings were rejected.
-- Authentic ultrasound, radiology, clinical, specimen, histology and microscopy assets preserve native bytes. Educational diagrams use native PDF streams only where they meet the approved readability floor.
-- The Golgi-tendon-organ sequence remains REVIEW_REQUIRED because its native labels are below the approved baseline; it must be faithfully reconstructed before release.
-- Every staged binding carries independent page/xref/region provenance and QA status. Rejected or unreviewed bindings never enter runtime metadata.
-- Batches 05–07 passed full Android/PWA CI (`34367383565`, `34367985338`, `34368514110`). Latest immutable preview: `https://4d588745.nk-qbank.pages.dev`; production promotion was skipped.
+## Timer semantics — do not conflate the two test modes
 
-## Known problems / verification cautions
+There are two intentionally different timed-test behaviors:
 
-- Build-verified ≠ device-verified ≠ accepted production baseline.
-- User has independently checked the current preview; do not spend agent usage
-  repeating routine visual verification unless needed for a code-quality issue.
-- Do not rewrite raw Marrow JSON/JSONL/shards for learner-facing cleanup.
-- Do not fork Practice/CBT/Review/FSRS/sync/modules/navigation by subject.
-- Do not alter Topics taxonomy during explanation or image work.
-- Keep production promotion deliberate.
+### Topic-level Timed Test
 
-## Next step / ownership split
+Opened from a selected topic. Each question has its own **strict 60-second
+budget**. If the current question reaches 60 seconds it is automatically locked /
+submitted and the learner advances, even if unanswered. Returning to a timed-out
+question must not allow changing its answer. Time spent on a question is
+cumulative if the learner navigates away and returns.
 
-- **Home:** ask the user to inspect the immutable preview on a physical device.
-  The deterministic transform runs after Custom Study Modules and uses priority
-  **unfinished saved module → due FSRS review → Practice 20** while retaining
-  Continue Practice, Practice 20 Random Questions, Timed CBT, conditional Due
-  Review and Study Sets.
-- **Image integration:** the Anatomy automation staged six Chapter 9 candidates
-  but correctly released none. Resume those exact six from its checkpoint after
-  the Home milestone; do not merge its accidentally committed `__pycache__` files.
-- **Explanation automation audit:** Physiology Chapters 6–8 are build-verified
-  (512 enhanced total). Chapter 9 has 27 authored records but remains unverified
-  because its current exact-head full build fails the inventory equality gate.
-- **Explanation refinement agent:** validate and repair the existing unverified
-  Physiology Chapter 9 checkpoint before beginning Chapter 10; do not touch the
-  image-integration ownership.
+### Tests tab / QBD / custom timed module
+
+The Tests tab uses a **global exam budget**: `number of questions × 60 seconds`.
+Example: 10 questions = 10 total minutes. The learner may spend more than one
+minute on one question and less on another. The whole test auto-submits only when
+the total budget expires.
+
+### Practice
+
+Practice has **no limiting countdown**, but question/session time is still
+recorded for Practice Analysis / Insights. Do not confuse “no countdown” with
+“do not track time.”
+
+The Tests setup keeps Timed Test / Practice modes, Full Question Bank, Custom
+Module, Wrong Questions, Bookmarked Questions, and question-count selection. The
+separate Timer On/Off section is intentionally removed because mode already
+expresses whether the session is limiting.
+
+## FSRS — review-only product semantics
+
+NK QBank FSRS is not an Anki-style new-card feed.
+
+A question may enter the user-facing FSRS review pool only when it is:
+
+- answered **incorrectly**, or
+- encountered in a session and left **unanswered/skipped** when that session is
+  finished/submitted.
+
+A genuinely unseen QBank question must **never be introduced by FSRS**. New
+questions are introduced only through normal QBank Practice.
+
+FSRS is a full primary page, not a popup. It must offer **All Subjects / Anatomy /
+Biochemistry / Physiology** selection and start due review from that selected
+scope. User-facing FSRS/Home review summaries show Due / Learning / Overdue (or
+other review-only states), never New cards.
+
+The established offline FSRS v6 scheduling/rating engine remains the scheduler
+for eligible review questions. Preserve its deterministic attempt/review history
+and recall-rating behavior; change queue eligibility, not medical question
+content.
+
+## Tests / custom modules
+
+- Custom Module remains a core QBank feature and must stay available from Tests.
+- In Timed Test mode, custom/multi-subject modules use the global `N questions =
+  N minutes` exam budget.
+- In Practice mode, custom study modules remain normal Practice sessions and are
+  untimed in the limiting sense while still collecting timing analytics.
+- Wrong Questions and Bookmarked Questions remain valid test/practice sources.
+
+## Marrow bank and content protection
+
+Canonical shared architecture remains:
+`MARROW_RECORDS → MARROW_BY_SUBJECT → BANKS_BY_SUBJECT`.
+Do not fork question/session engines by subject or bank.
+
+Current supplied Marrow ED8 scope:
+- Anatomy: **819 questions / 48 topics**
+- Biochemistry: **543 / 26**
+- Physiology: **753 / 33**
+- Total: **2,115 globally unique questions / 107 topics**
+
+The raw imported Marrow source is authoritative and immutable. Explanation
+fine-tuning and image integration remain separate from this UI/navigation pass.
+The current reviewed image rollout contains **147 approved assets mapped to 152
+released questions**; do not disturb it while changing Home/Study/Test/FSRS.
+
+Preserve:
+- source-faithful explanations and provenance;
+- the established question screen and Review Solutions behavior;
+- the approved Topics journey and explicit Marrow taxonomy;
+- image registry/bindings and source-native assets;
+- Custom Study Module persistence;
+- Android/PWA shared product core and deterministic build pipeline.
+
+## Current implementation checkpoint
+
+`tools/apply_home_command_center_v1.py` is the V3 transform owner. It currently
+implements the hybrid Home, My Subjects → Topics routing, FSRS review-only page,
+bottom-nav replacement, timer-mode separation, skipped-question eligibility,
+and the revised Tests setup. `tools/test_home_command_center_v1.py` is the V3
+contract owner.
+
+The next agent must **run/inspect CI and fix actual integration regressions before
+calling this complete**. In particular verify:
+- Home contains only FSRS + Bookmarks shortcuts after Today's Focus;
+- My Subjects activates the matching subject/bank and renders that subject's
+  Topics, including switching subjects from within Topics;
+- no normal Practice subject/topic popup remains;
+- bottom nav has FSRS and no Topics;
+- Topic Test expires/locks each question at 60 s;
+- Tests-tab Timed Test uses one global N-minute budget;
+- Practice remains non-limiting but timed for analysis;
+- FSRS never surfaces unseen questions;
+- Marrow image/explanation/browser regressions remain green.
+
+After CI, inspect the generated preview visually before requesting user
+acceptance. Production remains untouched until explicit approval.
