@@ -3,6 +3,8 @@
 
 from pathlib import Path
 
+from apply_marrow_topic_numbering_v1 import main as apply_marrow_topic_numbering
+
 
 HTML = Path("app/src/main/assets/index.html")
 CORE = Path("tools/question_content_hygiene_core.js")
@@ -55,6 +57,10 @@ def main() -> None:
     source = HTML.read_text(encoding="utf-8")
     result = transform(source)
     HTML.write_text(result, encoding="utf-8")
+    # Whole-app Topics is installed earlier in the deterministic pipeline. Apply
+    # the Marrow-only learner serial patch here so reordered taxonomies keep
+    # immutable source chapter IDs while displaying contiguous arranged numbers.
+    apply_marrow_topic_numbering()
     print("Applied comparison-safe takeaways and cleaned question-source metadata.")
 
 

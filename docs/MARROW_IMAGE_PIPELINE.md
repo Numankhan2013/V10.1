@@ -28,7 +28,7 @@ PWA builds precache the released figures for offline use.
 
 ## Audit interpretation
 
-The audit checks the hashes of all 2,115 imported questions and inspects all
+The audit checks the hashes of all 2,455 imported questions and inspects all
 2,484 PDF pages. Current metadata contains 1,082 references across 821 questions:
 Anatomy 769/560, Biochemistry 95/89, Physiology 218/172.
 Stem and explanation cues add 58 review candidates. This differs from the old
@@ -86,24 +86,3 @@ complete; educational asset counts and quality/type totals outside reviewed
 registry entries must not be inferred from image-stream counts. Region rendering
 is available on Ubuntu; multi-candidate, masked and complex hybrid figures require
 an explicit asset-specific reviewed implementation.
-
-
-## Current native rollout — Batches 02–07
-
-The current image branch is based on the verified explanation lineage through
-Biochemistry Chapters 1–11 and Physiology Chapter 5. Batches 02–04 reached 79
-approved assets serving 87 questions. Batches 05–07 then reviewed 90 additional
-candidate bindings and released 72, bringing the registry to 147 approved assets
-and 166 released bindings serving 152 questions: Anatomy 58, Biochemistry 55 and
-Physiology 39.
-
-Every newly staged primary or reused binding receives an independent
-REVIEW_REQUIRED status and exact page/xref/region provenance. Across Batches
-05–07, 17 plausible but wrong page-neighbor/reuse associations were rejected.
-One semantically correct Golgi-tendon-organ sequence remains held because its
-native labels fall below the user-approved readability floor; it requires a
-source-faithful reconstruction before release. Authentic radiology, clinical,
-histology, microscopy and specimen pixels remain byte-identical to their native
-PDF streams.
-
-Full Android/PWA runs `34367383565`, `34367985338` and `34368514110` passed Batches 05–07. The latest immutable preview is `https://4d588745.nk-qbank.pages.dev`; artifact `V11.7-android-pwa` is ID `10111037219`, and production promotion was skipped.

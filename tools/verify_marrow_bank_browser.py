@@ -1,56 +1,83 @@
 #!/usr/bin/env python3
-"""Run the preserved Marrow browser suite with the approved Home V3 navigation.
-
-The full regression suite remains byte-for-byte in
-verify_marrow_bank_browser_legacy.py. This adapter updates only intentionally
-superseded Home assertions/navigation before executing that complete suite.
-"""
+"""Run the full Marrow browser regression core with current taxonomy assertions."""
+from __future__ import annotations
 
 from pathlib import Path
 
-HERE=Path(__file__).resolve().parent
-LEGACY=HERE/'verify_marrow_bank_browser_legacy.py'
+ROOT = Path(__file__).resolve().parents[1]
+CORE = ROOT / "tools" / "verify_marrow_bank_browser_core.py"
 
+source = CORE.read_text(encoding="utf-8")
 
-def main():
-    source=LEGACY.read_text(encoding='utf-8')
-    old_home="""            if 'recommended now' not in home_focus.inner_text().lower():
-                raise SystemExit('Home recommendation hierarchy is not visible')
-            if 'Practice 20 Random Questions' not in home_focus.locator('.nk-focus-primary').inner_text():
-                raise SystemExit('Clean-state Home recommendation is not Practice 20')
-            secondary=home_focus.locator('.nk-focus-secondary').inner_text()
-            for marker in ('Continue Practice','Timed CBT'):
-                if marker not in secondary:
-                    raise SystemExit(f'Home command center lost {marker}')
+replacements = {
+    "            for marker in ('PrepLadder','Marrow','753'):": "            for marker in ('PrepLadder','Marrow','1,014'):",
+    "            if page.locator('button.nk-topic-row').count()!=33: raise SystemExit('Marrow Physiology topic count is not 33')": "            if page.locator('button.nk-topic-row').count()!=43: raise SystemExit('Marrow Physiology topic count is not 43')",
+}
+for old, new in replacements.items():
+    if source.count(old) != 1:
+        raise SystemExit(f"Physiology browser source-count anchor count for {old!r}: {source.count(old)}")
+    source = source.replace(old, new, 1)
+
+old = "            assert_sections(['CNS Physiology','General Physiology','Cellular Physiology','Neuromuscular Physiology','Cardiovascular System','Respiratory System','Gastrointestinal System'])"
+new = """            assert_sections(['General physiology','Nerve and muscle physiology','Gastrointestinal system','Cardiovascular system','Respiratory system','Renal physiology','Endocrine physiology','Reproductive physiology','Central nervous system','Integrated physiology'])
+            pnums=[int(x) for x in page.locator('.nk-topic-index').all_inner_texts()]
+            if pnums!=list(range(1,44)): raise SystemExit(f'Marrow Physiology learner numbering is not contiguous 1-43: {pnums!r}')
+
+            # New automation-ingested content must render as normal learner content,
+            # never as serialized JSON/schema text.
+            page.locator('button.nk-topic-row').filter(has_text='Exercise Physiology').click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=16: raise SystemExit('Marrow Physiology Exercise Physiology count is not 16')
+            page.locator('button.nk-library-row').nth(0).click();page.wait_for_timeout(80)
+            learner_text=page.locator('body').inner_text()
+            for raw_marker in ('chapter_number','source_provenance','source_answer','schema_version','review_status','source_fidelity_notes'):
+                if raw_marker in learner_text: raise SystemExit(f'Raw automation JSON key leaked into learner view: {raw_marker}')
+            for raw_fragment in ('{\"chapter\"','\"source_answer\":','\"source_provenance\":'):
+                if raw_fragment in learner_text: raise SystemExit(f'Serialized automation JSON leaked into learner view: {raw_fragment}')
+            if not page.locator('.question-text').inner_text().strip(): raise SystemExit('Exercise Physiology source question did not render as a learner question')
+            page.evaluate(\"window.QB.nav('banks','Physiology')\");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)"""
+if source.count(old) != 1:
+    raise SystemExit(f"Physiology browser taxonomy assertion anchor count: {source.count(old)}")
+source = source.replace(old, new, 1)
+
+old_summary = "biochemistry=543/26 physiology=753/33 total=2115"
+new_summary = "biochemistry=543/26 physiology=1014/43 physiology_plan=42 physiology_numbering=contiguous raw_json=clean total=2376"
+if source.count(old_summary) != 1:
+    raise SystemExit(f"Marrow browser summary anchor count: {source.count(old_summary)}")
+source = source.replace(old_summary, new_summary, 1)
+
+# Anatomy Ch60-63 source expansion layered on top of the current core.
+anatomy_replacements = {
+    "            for marker in ('PrepLadder','Marrow','1,068','819'):": "            for marker in ('PrepLadder','Marrow','1,068','898'):",
+    "            if page.locator('button.nk-topic-row').count()!=48: raise SystemExit('Marrow Anatomy topic count is not 48')": "            if page.locator('button.nk-topic-row').count()!=52: raise SystemExit('Marrow Anatomy topic count is not 52')",
+    "            assert_sections(['Embryology','Histology','Neuroanatomy','Head, neck, and face','Upper limb','Thorax','Abdomen and pelvis'])": "            assert_sections(['Embryology','Histology','Neuroanatomy','Head, neck, and face','Upper limb','Thorax','Abdomen and pelvis','General anatomy'])",
+    "            if serials!=[str(i) for i in range(1,49)]: raise SystemExit(f'Marrow Anatomy learner numbering is not contiguous: {serials!r}')": "            if serials!=[str(i) for i in range(1,53)]: raise SystemExit(f'Marrow Anatomy learner numbering is not contiguous 1-52: {serials!r}')",
+}
+for old, new in anatomy_replacements.items():
+    if source.count(old) != 1:
+        raise SystemExit(f"Anatomy browser source-count/taxonomy anchor count for {old!r}: {source.count(old)}")
+    source = source.replace(old, new, 1)
+
+shot_anchor = "            page.screenshot(path=str(OUT/'02-marrow-topics.png'),full_page=True)"
+shot_new = shot_anchor + """
+            page.locator('button.nk-topic-row').filter(has_text='Bones, Joints and Cartilage').click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=30: raise SystemExit('Marrow Anatomy Bones, Joints and Cartilage count is not 30')
+            page.locator('button.nk-library-row').nth(0).click();page.wait_for_timeout(80)
+            anatomy_learner_text=page.locator('body').inner_text()
+            for raw_marker in ('question_id','chapter_number','correct_option','schema_version','review_status','source_fidelity'):
+                if raw_marker in anatomy_learner_text: raise SystemExit(f'Raw Anatomy automation JSON key leaked into learner view: {raw_marker}')
+            for raw_fragment in ('{\"question_id\"','\"correct_option\":','\"source_fidelity\":'):
+                if raw_fragment in anatomy_learner_text: raise SystemExit(f'Serialized Anatomy automation JSON leaked into learner view: {raw_fragment}')
+            if 'total number of bones' not in page.locator('.question-text').inner_text().lower(): raise SystemExit('New Anatomy Ch60 source question did not render normally')
+            page.evaluate("window.QB.nav('banks','Anatomy')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
 """
-    new_home="""            home_text=home_focus.inner_text()
-            for marker in (\"TODAY'S FOCUS\",'Continue Practice','FSRS','Bookmarks','My Subjects','My Progress','Strongest Chapters','Study Sessions',\"Today's Review\"):
-                if marker not in home_text:
-                    raise SystemExit(f'Approved Home V3 lost {marker}')
-            if 'Continue Practice' not in home_focus.locator('.nk-focus-primary').inner_text():
-                raise SystemExit('Approved Today’s Focus primary action is not Continue Practice')
-            quick=home_focus.locator('.nk-home-quick-grid').inner_text()
-            for marker in ('FSRS','Bookmarks'):
-                if marker not in quick:
-                    raise SystemExit(f'Home V3 review shortcuts lost {marker}')
-            if 'Timed Test' in quick or 'Practice' in quick:
-                raise SystemExit('Home V3 quick shortcuts must contain only FSRS and Bookmarks')
-"""
-    if source.count(old_home)!=1:raise SystemExit(f'Expected one stale Home assertion block, found {source.count(old_home)}')
-    source=source.replace(old_home,new_home,1)
+if source.count(shot_anchor) != 1:
+    raise SystemExit(f"Anatomy learner leakage insertion anchor count: {source.count(shot_anchor)}")
+source = source.replace(shot_anchor, shot_new, 1)
+source = source.replace('anatomy=819/48', 'anatomy=898/52')
 
-    replacements={
-        "page.locator('button.nk-subject-row').filter(has_text='Biochemistry').click();page.wait_for_timeout(80)":"page.evaluate(\"window.QB.nav('banks','Biochemistry')\");page.wait_for_timeout(80)",
-        "page.locator('button.nk-subject-row').filter(has_text='Physiology').click();page.wait_for_timeout(80)":"page.evaluate(\"window.QB.nav('banks','Physiology')\");page.wait_for_timeout(80)",
-        "page.locator('button.nk-subject-row').filter(has_text='Anatomy').click()":"page.evaluate(\"window.QB.nav('banks','Anatomy')\")",
-    }
-    for old,new in replacements.items():
-        count=source.count(old)
-        if count!=1:raise SystemExit(f'Expected one stale Home navigation call, found {count}: {old}')
-        source=source.replace(old,new,1)
-
-    namespace={'__name__':'__main__','__file__':str(LEGACY),'__package__':None}
-    exec(compile(source,str(LEGACY),'exec'),namespace,namespace)
-
-
-if __name__=='__main__':main()
+exec(
+    compile(source, str(CORE), "exec"),
+    {"__name__": "__main__", "__file__": str(CORE), "__builtins__": __builtins__},
+)

@@ -1,170 +1,255 @@
 # Marrow topic-index taxonomy — user-authored grouping contract
 
-> Status: **specification only; not yet implemented**.
-> Source of truth for the next Topics grouping correction on
-> `feature/marrow-bank-pilot`.
+> Status: **implemented for Anatomy, Biochemistry, and Physiology**.
 >
-> This is navigation taxonomy only. It must never rewrite, merge, split, or
-> medically alter question content.
+> This is navigation taxonomy only. It must never rewrite, merge, split, renumber, or medically alter source question records.
 
-## Why this exists
+## Two-layer model
 
-The recovered Topics journey UI is now visually good and physically confirmed by
-the user, but the **major index labels/grouping are not source-true**. The next
-implementation must preserve the approved journey UI and replace heuristic
-grouping with one explicit, centralized, reviewable
-`subject + topic/chapter -> major index` mapping.
+The Topics journey deliberately separates:
 
-Topic order inside each major index follows Marrow source/chapter order, not
-alphabetical order. PYQ / Previous Year Questions topics belong at the end of
-their corresponding major index whenever present. Ambiguous cross-system topics
-must be marked for review instead of silently guessed.
+1. **Source identity** — immutable Marrow topic/chapter IDs, exact source titles, question linkage, provenance, history, and FSRS identity.
+2. **Learner index metadata** — intended major-index order, planned syllabus slots, current source placement, and learner-facing order/numbering.
 
-## Anatomy — required major-index order
+`data/marrow/topic_index_taxonomy.json` is the editable source of truth. Each revised subject uses `catalogVersion: 2`, a complete `plannedIndex`, current imported `topics`, `plannedSlots`, and `displayNumbering: visible-contiguous`.
 
-1. **General Embryology**
+### Rendering rules
+
+- Render only source topics currently present in the selected Marrow bank.
+- Never render a blank row, disabled placeholder, spacer, or fake chapter for a planned topic that has not yet been imported.
+- If planned topic B is unavailable while A and C are available, A and C appear adjacent.
+- Hide a major index entirely when none of its planned topics currently has imported source material.
+- Number learner-facing topics contiguously in the configured arranged order. Source chapter IDs stay unchanged underneath.
+- A source chapter may therefore display a learner number unrelated to its source number when the major indexes are reordered.
+- Keep combined/split source chapters source-faithful. `plannedSlots` records how one or more current source chapters relate to the finer planned syllabus; it never fabricates or duplicates questions.
+- Future imports must be inserted using `plannedIndex` / `plannedSlots`, not guessed from source chapter numbers.
+
+## Anatomy — authoritative intended order
+
+1. **Embryology**
+   - Gametogenesis
+   - Pre-embryonic phase of development
+   - Embryonic phase of development
+   - Placenta
+   - Fetal membranes and twinning
+   - Pharyngeal arches
+   - Skeleton and muscular system
+   - Cardiovascular system
+   - Respiratory system
+   - Elementary hepatobiliary systems and pancreas and spleen
+   - Face, nose and palate
+   - Eye and ear
+   - Nervous system and endocrine glands
+   - Urogenital system
 2. **Histology**
-3. **Osteology & Arthrology**
-4. **Neuroanatomy**
-5. **Head & Neck**
-6. **Upper Limb**
-7. **Lower Limb**
-8. **Thorax**
-9. **Abdomen**
-10. **Pelvis & Perineum**
-11. **Back Region**
-12. **Systemic Embryology**
+   - Cell structure
+   - Epithelia, glands, and connective tissue
+   - Bone, cartilage, and muscular tissue
+   - Nervous and endocrine systems
+   - Cardiovascular, lymphatic, and respiratory systems
+   - Digestive, hepatobiliary, and genitourinary systems
+   - Skin and special senses: eye and ear
+3. **Neuroanatomy**
+   - Cranial nerves
+   - Meninges and dural venous sinuses
+   - Ventricular systems and supratentorial space
+   - Cerebrum
+   - White matter of the brain
+   - Basal ganglia and limbic system
+   - Diencephalon
+   - Brainstem
+   - Cerebellum
+   - Vascular supply of brain
+   - Spinal cord
+4. **Head, neck, and face**
+   - Osteology
+   - Scalp and face
+   - Deep fascia and triangle of the neck
+   - Muscle and neurovascular anatomy of head and neck
+   - Glands of the head and neck
+   - Tongue and palate
+   - Pharynx
+   - Larynx
+5. **Upper limb**
+   - Upper limb bones and joints
+   - Fossa and spaces of the upper limb
+   - Breast
+   - Brachial plexus and nerves
+   - Muscle of upper limb
+   - Vessels of upper limb
+6. **Thorax**
+   - General anatomy of thorax
+   - Thoracic wall
+   - Mediastinum
+   - Diaphragm
+   - Heart
+   - Lungs and pleura
+7. **Abdomen and pelvis**
+   - Anterior abdominal wall
+   - Abdominal cavity and peritoneum
+   - GI tract
+   - Hepatobiliary system
+   - Spleen and pancreas
+   - Kidneys and adrenal gland
+   - Internal and external genitalia
+   - Pelvis and perineum
+8. **Lower limb**
+   - Bones of lower limb
+   - Joints of lower limb
+   - Muscles of lower limb
+   - Nerves and vessels of lower limb
+   - Important structures of lower limb
+9. **Back**
+   - Vertebral column
+10. **General anatomy**
+   - Bones, joints, and cartilage
+   - Muscles and tendon
+   - Cardiovascular, lymphatic, and nervous systems
+   - Skin
+   - Connective tissue and ligaments
 
-### User-defined content expectations
+### Current Anatomy import
 
-- **General Embryology**: Gametogenesis/IVF; fertilization and early embryonic
-  life / first two weeks; developmental period / general embryology; then PYQs.
-- **Histology**: Histology I, II, III; integumentary and special-sensory
-  histology; then PYQs.
-- **Osteology & Arthrology**: Osteology/arthrology I and II; then PYQs.
-- **Neuroanatomy**: all neuroanatomy topics in source order; then PYQs.
-- **Head & Neck**: pharyngeal arches/pouches/clefts; head-and-neck anatomy;
-  skull foramina/scalp; skull bones/cranial cavity parts; cranial nerves and
-  cervical plexus; scalenes/anterior neck; head/neck vasculature and lymphatic
-  drainage; scalp/neck triangles/parotid; pharynx; esophagus/larynx parts;
-  ear/nose/eyeball; then PYQs.
-- **Upper Limb**, **Lower Limb**, **Thorax**, **Abdomen**,
-  **Pelvis & Perineum**, **Back Region**: all matching regional topics in source
-  order, with each section's PYQs last.
-- **Systemic Embryology**: systemic-embryology source topics/PYQs not assigned to
-  General Embryology or an explicitly regional section.
+Current source remains **48 topics / 819 questions**. Ch 1–10 map to Embryology; 11–16 Histology; 17–27 Neuroanatomy; 28–34 Head, neck, and face; 35–40 Upper limb; 41–46 Thorax; 47–48 Abdomen and pelvis. Lower limb, Back, and General anatomy are planned metadata only at the current import boundary and therefore do not render.
 
-### Current Marrow Anatomy Ch 1–48 guidance
+Combined source chapters remain combined; examples include Ch 4, 5, 6, 8, 11, and 28. Their `plannedSlots` preserve the finer intended placement without inventing learner topics.
 
-Locked current mappings:
-- Ch 1–4 → **General Embryology**.
-- Ch 11–16 → **Histology**.
-- Ch 17–27 → **Neuroanatomy**.
-- Ch 28–34 → **Head & Neck**.
-- Ch 35–40 → **Upper Limb**.
-- Ch 41–46 → **Thorax**.
-- Ch 47–48 → **Abdomen**.
+## Biochemistry — authoritative intended order
 
-Current cross-system embryology chapters need explicit reviewed placement:
-- Ch 5 `Pharyngeal arches / skeletal / muscular` — strongly Head & Neck.
-- Ch 6 `Cardiovascular / respiratory` — review Thorax vs Systemic Embryology.
-- Ch 7 `Alimentary / hepatobiliary / pancreas / spleen` — review Abdomen vs
-  Systemic Embryology.
-- Ch 8 `Face / nose / palate / eye / ear` — strongly Head & Neck.
-- Ch 9 `Nervous / endocrine` — review Neuroanatomy vs Systemic Embryology.
-- Ch 10 `Urogenital system` — review Pelvis & Perineum vs Systemic Embryology.
+1. **Carbohydrates**
+   - Chemistry of carbohydrates
+   - Amino sugars and mucopolysaccharides
+   - Glycolysis and gluconeogenesis
+   - Glycogen metabolism and glycogen storage disorders
+   - HMP shunt pathway
+   - Fructose and galactose metabolism
+   - ETC and bioenergetics
+   - Krebs cycle
+2. **Amino acids and proteins**
+   - Amino acid basics
+   - Amino acid metabolism
+   - Amino acid metabolic disorder
+   - Protein structure and function
+   - Urea cycle and its disorders
+3. **Lipids**
+   - Lipid basics
+   - Fatty acid oxidation and ketogenesis
+   - Biosynthesis of fatty acids and eicosanoids
+   - Metabolism of acylglycerols and sphingolipids
+   - Cholesterol synthesis, transport, and excretion
+4. **Enzymes and phenylketonuria**
+   - Phenylketonuria and bile pigments
+   - Enzyme mechanism of action and clinical importance
+   - Enzyme kinetics and regulation of activity
+5. **Clinical biochemistry and nutrition**
+   - Fats
+   - Soluble vitamins
+   - Energy-releasing vitamins
+   - Hematopoietic and other vitamins
+   - Antioxidants and minerals
+6. **Genetics**
+   - Basics of genetics
+   - Nucleotide metabolism and disorders
+   - DNA organization, replication, and repair
+   - RNA synthesis, processing, and modification
+   - Regulation of gene expression
+   - Molecular genetics and recombinant DNA and genomic technology
 
-Do not move the existing Upper Limb bones/joints chapter into the separate
-Osteology & Arthrology index merely because it contains bones/joints; keep
-region-specific content regional unless the source supplies dedicated general
-osteology topics.
+### Current Biochemistry import
 
-Lower Limb, later Pelvis/Perineum, Back Region, standalone Osteology/Arthrology,
-later PYQs and later systemic-embryology topics should slot into the fixed order
-above when those chapters arrive.
+Current source remains **26 topics / 543 questions** and displays 1–26. Ch 1–6 map to Carbohydrates; 7–11 Amino acids and proteins; 12–16 Lipids; 17–19 Enzymes and phenylketonuria; 20–23 Clinical biochemistry and nutrition; 24–26 Genetics. The intended learner catalog contains 32 planned slots. Missing future slots remain metadata-only.
 
-## Physiology — required major-index order
+Current combined source chapters stay intact: Ch 1 maps to the first two carbohydrate slots; Ch 4 maps to HMP + fructose/galactose; Ch 20 maps to Fats + Soluble vitamins; Ch 24 maps to Basics of genetics + Nucleotide metabolism and disorders.
 
-1. **CNS Physiology**
-2. **Exercise Physiology**
-3. **General Physiology**
-4. **Cellular Physiology**
-5. **Neuromuscular Physiology**
-6. **Nervous System**
-7. **Cardiovascular System**
-8. **Blood Physiology**
-9. **Renal Physiology**
-10. **Respiratory System**
-11. **Gastrointestinal System**
-12. **Endocrine System**
-13. **Miscellaneous**
-14. **Reproductive System**
-15. **Recent Updates**
+## Physiology — authoritative intended order
 
-The user allows **Miscellaneous** and **Recent Updates** to be absorbed into a
-better-fitting major index when the relationship is clear.
+1. **General physiology**
+   - Homeostasis and cellular physiology
+   - Cellular messengers and receptors
+   - Transport across the cell membrane
+   - Membrane potentials
+   - Body fluids
+2. **Nerve and muscle physiology**
+   - Physiology of nerve
+   - Muscle physiology
+   - Synapse and junctional transmission
+3. **Gastrointestinal system**
+   - Gastrointestinal secretion
+   - Gastrointestinal hormones
+   - Digestion and absorption
+   - GI peristalsis and motility
+4. **Cardiovascular system**
+   - Vascular system and regional circulation
+   - Cardiac cycle and cardiac output
+   - Electrophysiology of the heart
+   - Blood pressure and regulation
+5. **Respiratory system**
+   - Functional anatomy
+   - Lung mechanics
+   - Alveolar gas exchange
+   - Gas transport in the lung volumes and lung function tests
+   - Respiratory adaptations in hypoxia, anemia, and pressure changes
+   - Regulations of respiration
+6. **Renal physiology**
+   - Glomerular filtration rate, renal blood flow, and renal clearance
+   - Renal tubular functions, urine concentration and dilution, and acid-base physiology
+   - Renal hormones and maturation reflex
+7. **Endocrine physiology**
+   - Pituitary and thyroid
+   - The pancreas
+   - The adrenals
+   - Calcium homeostasis
+8. **Reproductive physiology**
+   - Male reproductive physiology
+   - Female reproductive physiology
+9. **Central nervous system**
+   - Neurotransmitters
+   - Sensory receptors
+   - Somatosensory pathways
+   - Special senses
+   - Motor physiology
+   - Basal ganglia
+   - Cerebellum
+   - Hypothalamus
+   - Limbic system
+   - Higher mental functions
+10. **Integrated physiology**
+   - Exercise physiology
 
-### Current Physiology Ch 1–33 mapping
+### Current Physiology import and arranged learner order
 
-- Ch 1 Homeostasis/cellular physiology → **General Physiology**.
-- Ch 2–5 messengers/receptors; transport; membrane potentials; body fluids →
-  **Cellular Physiology**.
-- Ch 6–10 nerve; Muscle I/II; synapse/junction; neurotransmitters →
-  **Neuromuscular Physiology**.
-- Ch 11–18 sensory receptors; somatosensory pathways; special senses; motor I/II;
-  basal ganglia/cerebellum; hypothalamus/limbic; higher mental functions →
-  **CNS Physiology**.
-- Ch 19–25 respiratory functional anatomy through regulation →
-  **Respiratory System**.
-- Ch 26–30 vascular/regional circulation through BP regulation →
-  **Cardiovascular System**.
-- Ch 31–33 GI secretion/hormones; digestion/absorption; motility →
-  **Gastrointestinal System**.
+Current source remains exactly **33 topics / 753 questions**. Source chapter IDs are deliberately not renumbered. The learner-facing order is instead derived from the new major-index sequence:
 
-Exercise, separate Nervous System, Blood, Renal, Endocrine, Reproductive,
-Miscellaneous and Recent Updates are mostly later-source territory outside the
-current Ch 1–33 import. Do not fabricate empty learner-facing groups unless
-explicitly desired.
+- General physiology: source Ch 1–5
+- Nerve and muscle physiology: source Ch 6–9
+- Gastrointestinal system: source Ch 31–33
+- Cardiovascular system: source Ch 26–30
+- Respiratory system: source Ch 19–25
+- Central nervous system: source Ch 10–18
 
-## Biochemistry — required major-index order
+Therefore the current arranged source-ID sequence is:
+`1–9, 31–33, 26–30, 19–25, 10–18`, while the learner sees contiguous display numbers **1–33**.
 
-1. **Introduction**
-2. **Carbohydrate Chemistry**
-3. **Lipid Chemistry**
-4. **Amino Acid & Protein Chemistry**
-5. **Heme Synthesis**
-6. **Enzymes**
-7. **Free Radicals, Antioxidants, Trace Elements & Miscellaneous**
-8. **Genetics**
-9. **Vitamins**
+**Renal physiology, Endocrine physiology, Reproductive physiology, and Integrated physiology currently have no imported source chapters in the Ch 1–33 bundle, so they remain in `plannedIndex` but do not render.**
 
-### Current Biochemistry Ch 1–26 mapping
-
-- Ch 1–6 → **Carbohydrate Chemistry**.
-- Ch 7–11 → **Amino Acid & Protein Chemistry**.
-- Ch 12–16 → **Lipid Chemistry**.
-- Ch 17 → **Heme Synthesis**.
-- Ch 18–19 → **Enzymes**.
-- Ch 20–22 → **Vitamins**.
-- Ch 23 → **Free Radicals, Antioxidants, Trace Elements & Miscellaneous**.
-- Ch 24–26 → **Genetics**.
-- **Introduction** is reserved for genuine introductory source topics; do not
-  relabel carbohydrate Chapter 1 as Introduction.
-
-Concrete correction from physical review: current heading
-`Carbohydrates & Bioenergetics` is not the requested source index label.
-Use **Carbohydrate Chemistry**.
+Source splits/combinations are represented only through `plannedSlots`:
+- Muscle Physiology I + II (Ch 7–8) both map to planned **Muscle physiology**.
+- Motor Physiology 1 + 2 (Ch 14–15) both map to planned **Motor physiology**.
+- Ch 16 maps to planned **Basal ganglia** + **Cerebellum**.
+- Ch 17 maps to planned **Hypothalamus** + **Limbic system**.
+- Vascular System I + II (Ch 26–27) both map to planned **Vascular system and regional circulation**.
+- Gas Transport in Blood (Ch 22) + Lung Volumes/Lung Function Tests (Ch 23) both map to the supplied combined respiratory slot.
+- Ch 31 maps to planned **Gastrointestinal secretion** + **Gastrointestinal hormones**.
 
 ## Implementation contract
 
-1. One editable source-of-truth mapping; no scattered renderer conditions.
-2. Prefer stable subject + Marrow chapter/topic IDs as keys; titles are assertions,
-   not the only lookup key.
-3. Preserve exact Marrow topic order within each index.
-4. Preserve All / In Progress / Completed / Not Started, search, Topic Index,
-   and the fixed Continue Learning tray.
-5. Preserve bank/subject context and Back/history behavior.
-6. Do not rewrite medical content during taxonomy work.
-7. Tests must assert representative placements and that no topic is dropped or duplicated.
-8. Ambiguous mappings are explicit review items, not heuristic guesses.
-9. Keep the user-approved journey/glow/fixed-tray visual implementation unchanged.
+1. Keep one editable taxonomy source of truth in `data/marrow/topic_index_taxonomy.json`.
+2. Preserve stable subject + source topic IDs, exact source titles, question linkage, source provenance, history, and FSRS identity.
+3. Treat planned slots as learner-navigation metadata, never fabricated source chapters.
+4. Omit unavailable planned topics and empty indexes from learner-facing navigation.
+5. Number visible learner topics contiguously in configured arranged order; never mutate backend/source IDs to achieve this.
+6. Preserve All / In Progress / Completed / Not Started, search, Topic Index, and the fixed Continue Learning tray.
+7. Preserve bank/subject context, question linkage, Practice/CBT/Review, sync, persistence, and Back behavior.
+8. Do not rewrite medical content during taxonomy work.
+9. Tests must assert source-topic preservation, exact intended catalog order, valid `plannedSlots`, no drops/duplicates, no empty rendered groups, and contiguous learner numbering.
+10. Keep the user-approved Topics journey/glow/fixed-tray visuals unchanged.

@@ -1,6 +1,8 @@
 # Marrow explanation fine-tuning runbook
 
-> Status: **active chapter-by-chapter content-quality phase**.
+> Status: **next content-quality phase; do not execute until explicitly asked**.
+> For unattended explanation automations, first read the complete shared
+> `docs/MARROW_EXPLANATION_AUTOMATION_RUNBOOK.md` from authoritative `main`.
 > Read with `docs/MARROW_BANK_INTEGRATION.md` and the approved 142-question
 > explanation augmentation already in the repository.
 
@@ -10,13 +12,13 @@ Fine-tune the learner-facing explanations for the full Marrow bank while keeping
 the imported ED8 source transcription auditable and unchanged.
 
 Current imported scope:
-- Anatomy: 819 questions / 48 topics.
+- Anatomy: 898 questions / 48 topics.
 - Biochemistry: 543 / 26.
-- Physiology: 753 / 33.
-- Total: 2,115 questions.
+- Physiology: 1,014 / 33.
+- Total: 2,455 questions.
 
-The original 142-question enhanced subset (62 Anatomy + 80 Physiology), plus
-its user-approved 20-question Biochemistry sample, is the reference grammar. It already establishes the desired hierarchy, selective
+The current 142-question enhanced subset (62 Anatomy + 80 Physiology) is the
+reference grammar. It already establishes the desired hierarchy, selective
 bolding, source-table handling and concise **Why the other options are wrong**
 section.
 
@@ -109,21 +111,15 @@ review flag and render the source-faithful remainder.
 ## Fine-tuning workflow
 
 Current deterministic inventory:
-- `data/marrow/explanation_inventory_v1.json` accounts for all 2,115 IDs without
+- `data/marrow/explanation_inventory_v1.json` accounts for all 2,455 IDs without
   copying source explanation text into the inventory;
 - `tools/inventory_marrow_explanations.py` regenerates it from hash-verified
-  source bundles and all approved augmentation subsets;
-- the current verified inventory records **429 enhanced / 1,686 pending**;
-- Biochemistry Chapters **1–11** are complete on the current stacked lineage;
-- Physiology retains the approved 80-question Chapters 1–4 pilot and Chapter
-  **5 — Body Fluids (28/28)** is complete and fully verified;
-- Physiology chapter rollouts use `explanation_physio_ch*_v1.json` and are
-  protected by `tools/test_marrow_physio_explanation_rollout.py`;
-- when explanation refinement resumes, the next source-order target is
-  **Physiology Chapter 6 — Physiology of Nerve**.
+  source bundles and the approved augmentation subsets;
+- the inventory records 142 enhanced references and 1,973 pending questions and
+  identifies the 20-question Biochemistry gold-sample review set.
 
 1. **Inventory first**
-   - enumerate all 2,115 IDs and review statuses;
+   - enumerate all 2,455 IDs and review statuses;
    - separate clean source, OCR-cleanup candidates, source omissions,
      image-dependent items, tables, and reconstruction cases.
 
