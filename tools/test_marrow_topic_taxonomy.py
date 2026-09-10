@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "marrow"
 BANKS = {
     "Anatomy": "anatomy_ch001_048_plus_060_063",
-    "Biochemistry": "biochemistry_phase_a",
+    "Biochemistry": "biochemistry_ch001_028",
     "Physiology": "physiology_ch001_043",
 }
 
@@ -254,7 +254,11 @@ def main() -> None:
     biochem = subjects["Biochemistry"]
     validate_planned("Biochemistry", biochem, BIOCHEM_SECTION_ORDER, BIOCHEM_PLANNED, 32)
     assert nonempty_sections(biochem) == BIOCHEM_SECTION_ORDER
-    assert flatten_current(biochem) == [str(i) for i in range(1, 27)]
+    assert flatten_current(biochem) == [str(i) for i in range(1, 29)]
+    assert {str(item["id"]): item["plannedSlots"] for item in biochem["topics"] if int(item["id"]) >= 27} == {
+        "27": ["genetics:05"],
+        "28": ["genetics:06"],
+    }
 
     phys = subjects["Physiology"]
     validate_planned("Physiology", phys, PHYSIOLOGY_SECTION_ORDER, PHYSIOLOGY_PLANNED, 42)
@@ -263,10 +267,10 @@ def main() -> None:
     assert {str(item["id"]): item["plannedSlots"] for item in phys["topics"]} == PHYSIOLOGY_SLOT_MAP
     assert set(PHYSIOLOGY_VISIBLE_IDS) == {str(i) for i in range(1, 44)}
 
-    assert total == 121
+    assert total == 123
     print(
-        "MARROW_TOPIC_TAXONOMY_OK subjects=3 current_topics=121 "
-        "anatomy_plan=71 anatomy_visible=52 biochemistry_plan=32 biochemistry_visible=26 "
+        "MARROW_TOPIC_TAXONOMY_OK subjects=3 current_topics=123 "
+        "anatomy_plan=71 anatomy_visible=52 biochemistry_plan=32 biochemistry_visible=28 "
         "physiology_plan=42 physiology_visible=43 numbering=contiguous placeholders=none"
     )
 

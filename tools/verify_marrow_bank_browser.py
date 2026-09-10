@@ -115,6 +115,20 @@ if source.count(shot_anchor) != 1:
 source = source.replace(shot_anchor, shot_new, 1)
 source = source.replace('anatomy=819/48', 'anatomy=898/52')
 
+
+# Biochemistry Ch27-28 source expansion: keep the core smoke suite and extend it.
+biochem_replacements = {
+    "            for marker in ('PrepLadder','Marrow','543'):": "            for marker in ('PrepLadder','Marrow','582'):",
+    "            if page.locator('button.nk-topic-row').count()!=26: raise SystemExit('Marrow Biochemistry topic count is not 26')": "            if page.locator('button.nk-topic-row').count()!=28: raise SystemExit('Marrow Biochemistry topic count is not 28')",
+    "            if bnums!=list(range(1,27)): raise SystemExit(f'Marrow Biochemistry learner numbering is not contiguous 1-26: {bnums!r}')": "            if bnums!=list(range(1,29)): raise SystemExit(f'Marrow Biochemistry learner numbering is not contiguous 1-28: {bnums!r}')",
+}
+for old, new in biochem_replacements.items():
+    if source.count(old) != 1:
+        raise SystemExit(f"Biochemistry browser source-count/numbering anchor count for {old!r}: {source.count(old)}")
+    source = source.replace(old, new, 1)
+
+biochem_anchor = "            page.locator('button.nk-topic-row').filter(has_text='Chemistry of Carbohydrates, Amino sugars and Mucopolysaccharides').click();page.wait_for_timeout(80)"
+biochem_guard = 
 exec(
     compile(source, str(CORE), "exec"),
     {"__name__": "__main__", "__file__": str(CORE), "__builtins__": __builtins__},

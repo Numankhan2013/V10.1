@@ -13,16 +13,16 @@ def main() -> None:
     generated = build_inventory()
     manifest = inventory_manifest(generated)
     assert stored == manifest
-    assert stored["summary"]["questions"] == 2455
-    assert stored["summary"]["subjects"] == {"Anatomy": 898, "Biochemistry": 543, "Physiology": 1014}
+    assert stored["summary"]["questions"] == 2494
+    assert stored["summary"]["subjects"] == {"Anatomy": 898, "Biochemistry": 582, "Physiology": 1014}
     enhanced = len(enhanced_ids())
-    assert stored["summary"]["enhancementStatus"] == {"enhanced-reference": enhanced, "pending": 2455 - enhanced}
+    assert stored["summary"]["enhancementStatus"] == {"enhanced-reference": enhanced, "pending": 2494 - enhanced}
     assert len(stored["biochemistryGoldSample"]) == 20
     assert all(item["status"] == "approved-reference" for item in stored["biochemistryGoldSample"])
-    assert stored["questionRecords"] == 2455
+    assert stored["questionRecords"] == 2494
     assert len(stored["questionRecordsSha256"]) == 64
     assert all("sourceText" not in item for item in generated["questions"])
-    print(f"MARROW_EXPLANATION_INVENTORY_TEST_OK questions=2455 enhanced={enhanced} pending={2455-enhanced} sample=20 raw_text=excluded")
+    print(f"MARROW_EXPLANATION_INVENTORY_TEST_OK questions=2494 enhanced={enhanced} pending={2494-enhanced} sample=20 raw_text=excluded")
 
 
 if __name__ == "__main__":
