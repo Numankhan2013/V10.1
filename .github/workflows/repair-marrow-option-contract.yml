@@ -6,6 +6,7 @@ on:
       - feature/marrow-automation-ingest-anatomy
     paths:
       - tools/repair_marrow_option_contract.py
+      - tools/repair_marrow_option_contract_v2.py
       - .github/workflows/repair-marrow-option-contract.yml
 
 permissions:
@@ -19,7 +20,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Repair option labels and regression guards
-        run: python3 tools/repair_marrow_option_contract.py
+        run: python3 tools/repair_marrow_option_contract_v2.py
       - name: Verify repaired source data
         run: |
           python3 tools/test_marrow_bank_pilot.py --data-only
@@ -40,6 +41,7 @@ jobs:
             tools/apply_marrow_bank_pilot.py \
             tools/test_marrow_bank_pilot.py \
             tools/apply_session_experience_v2.py \
+            tools/verify_marrow_bank_browser_core.py \
             tools/verify_marrow_bank_browser.py \
             .project-memory/STATE.md
           if git diff --cached --quiet; then
