@@ -62,7 +62,7 @@ new = """            assert_sections(['General physiology','Nerve and muscle phy
             wrong_red=page.locator('.option-list .option.wrong .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")
             if wrong_green!='rgb(16, 154, 99)' or wrong_red!='rgb(201, 75, 87)':
                 raise SystemExit(f'Wrong Questions answer colors regressed: correct={wrong_green} wrong={wrong_red}')
-            page.evaluate(\"window.QB.nav('banks','Physiology')\");page.wait_for_timeout(80)
+            page.evaluate("window.QB.nav('banks','Physiology')");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)"""
 if source.count(old) != 1:
     raise SystemExit(f"Physiology browser taxonomy assertion anchor count: {source.count(old)}")
@@ -115,7 +115,6 @@ if source.count(shot_anchor) != 1:
 source = source.replace(shot_anchor, shot_new, 1)
 source = source.replace('anatomy=819/48', 'anatomy=898/52')
 
-
 # Biochemistry Ch27-28 source expansion: keep the core smoke suite and extend it.
 biochem_replacements = {
     "            for marker in ('PrepLadder','Marrow','543'):": "            for marker in ('PrepLadder','Marrow','582'):",
@@ -128,7 +127,56 @@ for old, new in biochem_replacements.items():
     source = source.replace(old, new, 1)
 
 biochem_anchor = "            page.locator('button.nk-topic-row').filter(has_text='Chemistry of Carbohydrates, Amino sugars and Mucopolysaccharides').click();page.wait_for_timeout(80)"
-biochem_guard = 
+biochem_guard = """            # User-supplied Ch27-28 must render as ordinary learner content and preserve answer-state feedback.
+            page.locator('button.nk-topic-row').filter(has_text='Regulation of gene expression').click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=12: raise SystemExit('Marrow Biochemistry Ch27 count is not 12')
+            page.locator('button.nk-library-row').first.click();page.wait_for_timeout(80)
+            if 'housekeeping genes' not in page.locator('.question-text').inner_text().lower():
+                raise SystemExit('Biochemistry Ch27 Q1 did not render')
+            learner_text=page.locator('body').inner_text()
+            for raw_marker in ('question_id','chapter_number','correct_option','schema_version','review_status','source_fidelity'):
+                if raw_marker in learner_text: raise SystemExit(f'Raw Biochemistry JSON key leaked into learner view: {raw_marker}')
+            for raw_fragment in ('{\"question_id\"','\"correct_option\":','\"source_fidelity\":'):
+                if raw_fragment in learner_text: raise SystemExit(f'Serialized Biochemistry JSON leaked into learner view: {raw_fragment}')
+            page.locator('.option-list button').nth(0).click();page.wait_for_timeout(120)
+            if page.locator('.option-list .option.wrong').count()!=1 or page.locator('.option-list .option.correct').count()!=1:
+                raise SystemExit('New Biochemistry Ch27 wrong answer must show exactly one red wrong and one green correct option')
+            ch27_green=page.locator('.option-list .option.correct .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")
+            ch27_red=page.locator('.option-list .option.wrong .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")
+            if ch27_green!='rgb(16, 154, 99)' or ch27_red!='rgb(201, 75, 87)':
+                raise SystemExit(f'New Biochemistry Ch27 answer colors regressed: correct={ch27_green} wrong={ch27_red}')
+
+            page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Molecular genetics, recombinant DNA & genomic technologies').click();page.wait_for_timeout(80)
+            if page.locator('button.nk-library-row').count()!=27: raise SystemExit('Marrow Biochemistry Ch28 count is not 27')
+            page.locator('button.nk-library-row').first.click();page.wait_for_timeout(80)
+            if 'enzymes that cut dna' not in page.locator('.question-text').inner_text().lower():
+                raise SystemExit('Biochemistry Ch28 Q1 did not render')
+            learner_text=page.locator('body').inner_text()
+            for raw_marker in ('question_id','chapter_number','correct_option','schema_version','review_status','source_fidelity'):
+                if raw_marker in learner_text: raise SystemExit(f'Raw Biochemistry Ch28 JSON key leaked into learner view: {raw_marker}')
+            page.locator('.option-list button').nth(0).click();page.wait_for_timeout(120)
+            if page.locator('.option-list .option.wrong').count()!=1 or page.locator('.option-list .option.correct').count()!=1:
+                raise SystemExit('New Biochemistry Ch28 wrong answer must show exactly one red wrong and one green correct option')
+            ch28_green=page.locator('.option-list .option.correct .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")
+            ch28_red=page.locator('.option-list .option.wrong .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")
+            if ch28_green!='rgb(16, 154, 99)' or ch28_red!='rgb(201, 75, 87)':
+                raise SystemExit(f'New Biochemistry Ch28 answer colors regressed: correct={ch28_green} wrong={ch28_red}')
+
+            page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+"""
+if source.count(biochem_anchor) != 1:
+    raise SystemExit(f"Biochemistry browser insertion anchor count: {source.count(biochem_anchor)}")
+source = source.replace(biochem_anchor, biochem_guard + biochem_anchor, 1)
+
+old_summary = "biochemistry=543/26 physiology=1014/43 physiology_plan=42 physiology_numbering=contiguous raw_json=clean total=2455"
+new_summary = "biochemistry=582/28 physiology=1014/43 physiology_plan=42 physiology_numbering=contiguous raw_json=clean total=2494"
+if source.count(old_summary) != 1:
+    raise SystemExit(f"Expanded Marrow browser summary anchor count: {source.count(old_summary)}")
+source = source.replace(old_summary, new_summary, 1)
+
 exec(
     compile(source, str(CORE), "exec"),
     {"__name__": "__main__", "__file__": str(CORE), "__builtins__": __builtins__},
