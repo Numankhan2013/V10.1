@@ -676,7 +676,13 @@ If the same class fails again:
 - stop;
 - mark batch blocked;
 - record the exact failure/run/log clue in memory;
-- do not start another batch.
+- do not start another batch;
+- **do not disable the recurring automation merely because a prerequisite,
+  repository file, connector, CI service, or other infrastructure dependency is
+  temporarily missing/unreachable.** Leave the task enabled so a later run can
+  retry after the shared prerequisite is restored. Disable a recurring
+  explanation automation only when the user explicitly requests it or when the
+  governing project state says the subject is permanently complete.
 
 ### Never "fix forward" by stacking more chapters
 
