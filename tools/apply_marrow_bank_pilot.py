@@ -186,6 +186,9 @@ def load_expanded_bank(prefix: str, expected_subject: str):
         raise SystemExit(f"{expected_subject} expanded question/topic linkage mismatch")
     if any(len(q.get("options",[]))!=4 or q.get("correctOption") not in (1,2,3,4) or not str(q.get("question","")).strip() for q in questions):
         raise SystemExit(f"{expected_subject} expanded question shape invalid")
+    expected_letters=["A","B","C","D"]
+    if any([str(opt.get("letter","")).strip() for opt in q.get("options",[])]!=expected_letters for q in questions):
+        raise SystemExit(f"{expected_subject} expanded option-letter contract invalid; expected uppercase A-D")
     return record,manifest
 
 expanded_anatomy,expanded_anatomy_manifest=load_expanded_bank("anatomy_ch001_048_plus_060_063","Anatomy")

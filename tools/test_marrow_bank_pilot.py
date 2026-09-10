@@ -90,6 +90,7 @@ def main():
     assert len(all_expanded)==2455 and len({q['id'] for q in all_expanded})==2455
     assert all(q['id'].startswith('marrow__') for q in all_expanded)
     assert all(len(q['options'])==4 and q['correctOption'] in (1,2,3,4) and q['question'] for q in all_expanded)
+    assert all([str(o.get('letter','')).strip() for o in q['options']]==['A','B','C','D'] for q in all_expanded), 'Marrow runtime option labels must be uppercase A-D'
     full_repaired={q['sourceQuestionId']:q for q in fa_q if q.get('reviewStatus')=='resolved_reconstruction'}
     assert set(full_repaired)=={'ANAT_CH02_Q010','ANAT_CH03_Q004','ANAT_CH04_Q013'}
     assert '1. Cavitation' in full_repaired['ANAT_CH02_Q010']['question'] and '4. Cleavage' in full_repaired['ANAT_CH02_Q010']['question']

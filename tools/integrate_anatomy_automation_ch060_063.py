@@ -82,7 +82,7 @@ def adapt_question(row: dict) -> dict:
     answer = str(row["correct_option"]).lower()
     correct = "abcd".index(answer) + 1
     options = [
-        {"letter": str(opt.get("label", "")).lower(), "text": str(opt.get("text", ""))}
+        {"letter": str(opt.get("label", "")).strip().upper(), "text": str(opt.get("text", ""))}
         for opt in row["options"]
     ]
     explanation = row.get("explanation") or {}

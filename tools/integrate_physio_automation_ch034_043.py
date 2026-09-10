@@ -104,7 +104,7 @@ def read_rows(chapter: int, path: str) -> list[dict]:
 def adapt_question(row: dict, question_type: str) -> dict:
     answer = str(row["source_answer"]).lower()
     correct = "abcd".index(answer) + 1
-    options = [{"letter": str(opt.get("label", "")).lower(), "text": str(opt.get("text", ""))} for opt in row["options"]]
+    options = [{"letter": str(opt.get("label", "")).strip().upper(), "text": str(opt.get("text", ""))} for opt in row["options"]]
     structured = {
         "text": str((row.get("explanation") or {}).get("text", "")),
         "blocks": (row.get("explanation") or {}).get("blocks", []),

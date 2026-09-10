@@ -51,6 +51,12 @@ def main():
             if page.locator('button.nk-library-row').count()!=23: raise SystemExit('Marrow Biochemistry Chapter 1 count is not 23')
             page.locator('button.nk-library-row').first.click();page.wait_for_timeout(80)
             page.locator('.option-list button').first.click();page.wait_for_timeout(120)
+            if page.locator('.option-list .option.wrong').count()!=1 or page.locator('.option-list .option.correct').count()!=1:
+                raise SystemExit('Existing Marrow wrong-answer visual state must show one red wrong and one green correct option')
+            if page.locator('.option-list .option.correct .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")!='rgb(16, 154, 99)':
+                raise SystemExit('Existing Marrow correct option is not visually green after a wrong answer')
+            if page.locator('.option-list .option.wrong .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")!='rgb(201, 75, 87)':
+                raise SystemExit('Existing Marrow selected wrong option is not visually red')
             bsupport=page.locator('.nk-study-support').inner_text().lower()
             for marker in ('key takeaway','detailed explanation','structured text','why the other options are wrong','erythrose','ketose'):
                 if marker not in bsupport: raise SystemExit(f'Marrow Biochemistry Chapter 1 rollout explanation missing {marker}')

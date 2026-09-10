@@ -61,11 +61,11 @@
   "questions": 898,
   "parts": 7,
   "part_size": 60000,
-  "base64_chars": 406056,
+  "base64_chars": 406052,
   "raw_bytes": 2596867,
-  "compressed_bytes": 304541,
-  "raw_sha256": "dd324c273093e0447f13ca9b8309acdbe1a785c638e779a1f2ab8405363b2848",
-  "compressed_sha256": "3faac7718aa7df197b122bb06dcd472b139815e6a953a8fb951f29fa8c6cf159",
+  "compressed_bytes": 304538,
+  "raw_sha256": "3c3c77f570eb6f8572b5853231963cad9406988ae37ef473310c705e4f895250",
+  "compressed_sha256": "261a68c1b322a54944326a790c58ac57e5011b65dd3b8b0a89673e5b7bb2ccb9",
   "source_archive": "Marrow ED8 Anatomy canonical JSONL Ch01-Ch48 + Ch60-Ch63",
   "source_files": [
     "qbank_chunk_001_gametogenesis.jsonl",
@@ -134,5 +134,6 @@
     "ANAT_CH04_Q013"
   ],
   "automation_handoff_ref": "feature/marrow-bank-pilot",
-  "known_source_gap": "Ch49-Ch59 are not present in the committed automation handoff"
+  "known_source_gap": "Ch49-Ch59 are not present in the committed automation handoff",
+  "runtime_option_letter_contract": "A-D uppercase"
 }

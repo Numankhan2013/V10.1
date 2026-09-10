@@ -34,6 +34,28 @@ new = """            assert_sections(['General physiology','Nerve and muscle phy
             for raw_fragment in ('{\"chapter\"','\"source_answer\":','\"source_provenance\":'):
                 if raw_fragment in learner_text: raise SystemExit(f'Serialized automation JSON leaked into learner view: {raw_fragment}')
             if not page.locator('.question-text').inner_text().strip(): raise SystemExit('Exercise Physiology source question did not render as a learner question')
+            phys_qid=page.evaluate("state.activeSession.questionIds[state.activeSession.index]")
+            if phys_qid!='marrow__PHYSIO_CH43_Q001': raise SystemExit(f'Unexpected new Physiology regression target: {phys_qid}')
+            phys_correct=int(page.evaluate("(()=>{const s=state.activeSession,q=BY_ID[s.questionIds[s.index]];return Number(q.correctOption)})()"))-1
+            page.locator('.option-list button').nth((phys_correct+1)%4).click();page.wait_for_timeout(120)
+            if page.locator('.option-list .option.wrong').count()!=1 or page.locator('.option-list .option.correct').count()!=1:
+                raise SystemExit('New Physiology wrong answer must render exactly one red wrong and one green correct option')
+            phys_green=page.locator('.option-list .option.correct .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")
+            phys_red=page.locator('.option-list .option.wrong .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")
+            if phys_green!='rgb(16, 154, 99)' or phys_red!='rgb(201, 75, 87)':
+                raise SystemExit(f'New Physiology answer colors regressed: correct={phys_green} wrong={phys_red}')
+            page.evaluate("window.QB.startLibrary('wrong')");page.wait_for_timeout(100)
+            wrong_ids=page.evaluate("state.activeSession.questionIds")
+            if 'marrow__PHYSIO_CH43_Q001' not in wrong_ids:
+                raise SystemExit(f'Wrong Questions library did not include the newly missed Physiology question: {wrong_ids}')
+            wrong_index=wrong_ids.index('marrow__PHYSIO_CH43_Q001')
+            page.evaluate("i=>window.QB.goIndex(i)",wrong_index);page.wait_for_timeout(80)
+            phys_correct_again=int(page.evaluate("(()=>{const s=state.activeSession,q=BY_ID[s.questionIds[s.index]];return Number(q.correctOption)})()"))-1
+            page.locator('.option-list button').nth((phys_correct_again+1)%4).click();page.wait_for_timeout(120)
+            if page.locator('.option-list .option.wrong').count()!=1 or page.locator('.option-list .option.correct').count()!=1:
+                raise SystemExit('Wrong Questions flow failed to show both wrong/red and correct/green states')
+            if page.locator('.option-list .option.correct .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")!='rgb(16, 154, 99)':
+                raise SystemExit('Wrong Questions flow correct answer is not green')
             page.evaluate(\"window.QB.nav('banks','Physiology')\");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)"""
 if source.count(old) != 1:
@@ -41,7 +63,7 @@ if source.count(old) != 1:
 source = source.replace(old, new, 1)
 
 old_summary = "biochemistry=543/26 physiology=753/33 total=2115"
-new_summary = "biochemistry=543/26 physiology=1014/43 physiology_plan=42 physiology_numbering=contiguous raw_json=clean total=2376"
+new_summary = "biochemistry=543/26 physiology=1014/43 physiology_plan=42 physiology_numbering=contiguous raw_json=clean total=2455"
 if source.count(old_summary) != 1:
     raise SystemExit(f"Marrow browser summary anchor count: {source.count(old_summary)}")
 source = source.replace(old_summary, new_summary, 1)
@@ -69,6 +91,16 @@ shot_new = shot_anchor + """
             for raw_fragment in ('{\"question_id\"','\"correct_option\":','\"source_fidelity\":'):
                 if raw_fragment in anatomy_learner_text: raise SystemExit(f'Serialized Anatomy automation JSON leaked into learner view: {raw_fragment}')
             if 'total number of bones' not in page.locator('.question-text').inner_text().lower(): raise SystemExit('New Anatomy Ch60 source question did not render normally')
+            anatomy_qid=page.evaluate("state.activeSession.questionIds[state.activeSession.index]")
+            if anatomy_qid!='marrow__ANAT_CH60_Q001': raise SystemExit(f'Unexpected new Anatomy regression target: {anatomy_qid}')
+            anatomy_correct=int(page.evaluate("(()=>{const s=state.activeSession,q=BY_ID[s.questionIds[s.index]];return Number(q.correctOption)})()"))-1
+            page.locator('.option-list button').nth((anatomy_correct+1)%4).click();page.wait_for_timeout(120)
+            if page.locator('.option-list .option.wrong').count()!=1 or page.locator('.option-list .option.correct').count()!=1:
+                raise SystemExit('New Anatomy wrong answer must render exactly one red wrong and one green correct option')
+            anatomy_green=page.locator('.option-list .option.correct .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")
+            anatomy_red=page.locator('.option-list .option.wrong .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")
+            if anatomy_green!='rgb(16, 154, 99)' or anatomy_red!='rgb(201, 75, 87)':
+                raise SystemExit(f'New Anatomy answer colors regressed: correct={anatomy_green} wrong={anatomy_red}')
             page.evaluate("window.QB.nav('banks','Anatomy')");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
 """

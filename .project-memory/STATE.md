@@ -91,7 +91,8 @@ Current plans/imports:
 - The source/data transformation is **build-verified at its deterministic prechecks**; the full browser/APK/PWA build remains the final feature verification gate.
 - Browser wrapper includes a new Ch60 learner-view check that fails on raw keys such as `question_id`, `chapter_number`, `correct_option`, `schema_version`, `review_status`, or `source_fidelity`, plus serialized JSON fragments.
 - Current operational source consumers and docs have been aligned to the new Anatomy and Physiology bundles.
-- Full feature browser/APK/PWA CI for the finalized Anatomy candidate is the remaining build gate.
+- Full feature browser/APK/PWA CI for Anatomy Ch60–63 passed in run `34451249088`; preview deployment succeeded.
+- Regression incident found after device preview: automation-adapted Physiology Ch34–43 and Anatomy Ch60–63 emitted lowercase option labels, while the session renderer expected uppercase A–D. This could show the chosen wrong option red without highlighting the actual correct option green. The repair normalizes runtime labels to uppercase, hardens the renderer case handling, adds fail-closed A–D validation, and adds browser red+green checks including the Wrong Questions flow.
 - New Anatomy content is **not yet device-verified**. CI success alone does not change the accepted baseline or promote production.
 
 ## Known problems / cautions
@@ -105,9 +106,9 @@ Current plans/imports:
 
 ## Next step
 
-1. Run full feature browser/APK/PWA verification for Anatomy Ch60–63 and capture the stable + immutable preview URLs.
-2. Have the user device-check the resulting Anatomy/Physiology expansion preview.
-3. Integrate real Biochemistry Ch27/28 when supplied; integrate Anatomy Ch49–59 when their canonical artifacts are found.
+1. Treat option-state regression verification as the blocking gate; do not resume source expansion until red+green browser checks pass on the repaired bundles.
+2. Have the user device-check the repaired preview, especially a deliberately wrong new Physiology/Anatomy question and the Wrong Questions flow.
+3. Only after that, resume missing Anatomy source integration; then integrate real Biochemistry Ch27/28 when supplied.
 4. Keep explanation/image fine-tuning on their separate governed pipelines.
 5. Merge source expansion only after the relevant verification gate; keep production unpromoted unless explicitly requested.
 
