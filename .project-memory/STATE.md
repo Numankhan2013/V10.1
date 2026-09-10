@@ -6,13 +6,19 @@
 ## Repo / release state
 
 - Repo: `Numankhan2013/V10.1`.
-- Current product branch: `feature/home-approved-redesign-current`.
-- This branch is preview-only until the user explicitly accepts and promotes it.
+- Current product branch: `feature/home-topic-content-integration-current`.
+- This branch is **preview-only** until the user explicitly accepts and promotes it.
 - Accepted baseline remains **V11.6 Content Quality**.
 - Accepted product commit: `125d68b`.
-- Build-verified, device-verified, and accepted baseline are distinct states.
-  Never claim visual acceptance from CI alone.
-- Current work is the **Home / Study / Test / FSRS V3 information architecture**.
+- Latest product release-candidate commit: `7d88c4ae31be96f3b7b2d5a329e040637a20889d`.
+- Engineering Gate `34463318051`: **PASS**.
+- Full Android + PWA pipeline `34463318136`: **PASS**.
+- Build artifact `V11.7-android-pwa`: artifact ID `10146567237`.
+- Screenshot artifact: `recall-dock-and-marrow-pilot-screenshots`, artifact ID `10146529260`.
+- Cloudflare Pages immutable preview: `https://240f1d5b.nk-qbank.pages.dev`.
+- Cloudflare Pages branch alias: `https://feature-home-topic-content-i.nk-qbank.pages.dev`.
+- **Production promotion was skipped. Do not promote without explicit user approval.**
+- Build-verified, browser-verified, device-verified, and user-accepted are distinct states.
 
 ## Locked V3 Home composition
 
@@ -47,8 +53,7 @@ Rules:
 - Never use subject/topic popups for normal Practice.
 - Subject selection must activate the matching subject **and matching QBank
   record** before Topics renders. Prefer the complete Marrow record where
-  available. This prevents the observed Physiology-heading/Biochemistry-topics
-  mismatch.
+  available. This fixes the old Physiology-heading/Biochemistry-topics mismatch.
 - Preserve the approved Topics journey, taxonomy, filters/search, state colors,
   and Continue Learning tray.
 - Topic/chapter page is the Practice / Timed Test decision point.
@@ -72,7 +77,7 @@ for Practice Analysis and Insights.
 
 Tests setup keeps Timed Test / Practice, Full Question Bank, Custom Module,
 Wrong Questions, Bookmarked Questions, and question-count selection. The
-separate Timer On/Off control is deliberately removed.
+separate Timer On/Off control remains removed.
 
 ## FSRS — review-only product semantics
 
@@ -90,6 +95,10 @@ User-facing FSRS/Home review summaries show review-only states such as Due /
 Learning / Overdue, never New cards. Preserve the existing offline FSRS v6
 scheduler and recall ratings for eligible questions.
 
+Full-run contracts passed the review-only/cross-bank behavior, deterministic
+replay, same-day relearning, daily cap, long-term scheduling, filters, settings
+and undo behavior.
+
 ## Tests / custom modules
 
 - Custom Module is a core feature and stays available from Tests.
@@ -101,41 +110,70 @@ scheduler and recall ratings for eligible questions.
 
 Shared architecture remains `MARROW_RECORDS → MARROW_BY_SUBJECT →
 BANKS_BY_SUBJECT`; never fork question/session engines by bank or subject.
-Current Marrow ED8 scope: Anatomy **819/48**, Biochemistry **543/26**,
-Physiology **753/33** = **2,115 questions / 107 topics**.
 
-Raw Marrow data is immutable. Explanation fine-tuning and image integration are
-separate from this UI pass. Current reviewed image rollout remains **147 assets /
-152 released questions**. Preserve source explanations/provenance, question and
-Review Solutions screens, Topics taxonomy/UI, image registry, module persistence,
-Android/PWA shared core, and deterministic builds.
+Current source-integrated Marrow ED8 learner scope verified by the green release
+pipeline:
+- Anatomy: **898 questions / 52 visible topics**;
+- Biochemistry: **543 / 26**;
+- Physiology: **1,014 / 43**;
+- total: **2,455 questions / 121 visible topics**.
+
+Current reviewed image rollout remains **147 assets / 152 released questions**.
+The green pipeline revalidated those exact packaged web/APK image counts and
+hash-sensitive package checks.
+
+Explanation inventory in this build: **429 enhanced / 2,026 pending**. Raw
+Marrow source remains immutable; explanation augmentation and image integration
+remain separate controlled layers.
+
+Preserve source explanations/provenance, question and Review Solutions screens,
+Topics taxonomy/UI, image registry, module persistence, Android/PWA shared core,
+and deterministic builds.
+
+## Latest verification evidence
+
+The release-candidate full run verified, among other protected gates:
+- Home V3 contract and integration;
+- subject → Topics routing and authoritative subject/bank selection;
+- capped FSRS wrong/encountered-skip-only queue;
+- global Tests timer and strict per-topic timer semantics;
+- project-memory, product-contract and build-pipeline guards;
+- source-PDF explanation renderer and all three source routes;
+- source visual contract and 420 source visuals;
+- CBT invariants and Review Solutions navigator/footer;
+- cross-device PWA/sync behavior contracts;
+- Marrow browser registry at 2,455 questions;
+- Marrow taxonomy at 121 visible topics;
+- Marrow image release at 147 assets / 152 questions;
+- packaged Android APK integrity and JavaScript syntax;
+- Cloudflare feature-preview deployment.
 
 ## Known problems / verification cautions
 
-- V3 is an implementation candidate, not yet an accepted baseline.
-- The old top-level Topics route exposed a subject/bank synchronization bug; V3
-  must prove subject cards and in-Topics subject switching load the matching data.
-- The legacy FSRS core historically exposed unseen “new cards”; V3 user-facing
-  queues must be verified to exclude those completely.
-- CI/browser contracts may still encode superseded Home labels; update only stale
-  assertions, never reintroduce rejected UI merely to make CI green.
-- Do not disturb Marrow image/explanation work while fixing product navigation.
+- V3 is a **release candidate**, not yet a user-accepted product baseline.
+- Do not infer physical-device acceptance from green CI/browser checks.
+- Do not promote the branch/preview to production until the user explicitly says
+  to promote.
+- Keep the old subject/bank synchronization bug as a regression target: a
+  Physiology selection must never render Biochemistry topics and vice versa.
+- Keep FSRS unseen-question exclusion as a permanent regression target.
+- CI assertions may become stale as product labels evolve; update only obsolete
+  assertions and never restore rejected UI merely to satisfy a test.
+- Do not disturb Marrow image/explanation work while changing product navigation.
 
 ## Current implementation checkpoint
 
-`tools/apply_home_command_center_v1.py` owns V3: hybrid Home, My Subjects →
-Topics routing, FSRS review-only page, bottom nav, timer separation, skipped-item
-eligibility, and revised Tests setup. `tools/test_home_command_center_v1.py`
-owns the V3 contract.
+`tools/apply_home_command_center_v1.py` owns the current V3 Home/study/test/FSRS
+integration. `tools/test_home_command_center_v1.py` owns its primary contract.
+The old regression that assumed one singular bank in FSRS was corrected to
+validate the intended cross-bank review-only architecture; regression coverage
+was not removed or weakened.
 
 ## Next step
 
-Run and inspect Engineering Gate and the complete Android/PWA pipeline. Fix real
-integration failures until green. Explicitly verify: Home has only FSRS +
-Bookmarks after Today's Focus; My Subjects and in-Topics switching load the
-matching subject/bank; no normal-Practice picker popup remains; bottom nav has
-FSRS/no Topics; Topic Test locks each question at 60 s; Tests Timed Test uses one
-global N-minute budget; Practice remains non-limiting but timed for analytics;
-FSRS never surfaces unseen questions; and Marrow browser/image/explanation gates
-stay green. Then inspect the generated preview visually before asking the user
-for device acceptance. Production stays untouched without explicit approval.
+User should open the current Pages preview and physically inspect the release
+candidate on the target device(s), especially Home, My Subjects → each subject's
+Topics, FSRS, Tests, Insights and question-session transitions. Record any visual
+or functional defects against this exact candidate. If the user explicitly
+accepts it, decide separately whether to promote to production. Until then,
+**production stays untouched**.
