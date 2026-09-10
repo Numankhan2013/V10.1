@@ -87,6 +87,7 @@ Current plans/imports:
   - taxonomy: **121 current source topics**, Anatomy 52 visible, contiguous numbering, no placeholders.
   - explanation inventory: **2,455 total / 184 enhanced / 2,271 pending**.
   - image-consumer and Biochemistry rollout count-dependent tests passed.
+- The source/data transformation is **build-verified at its deterministic prechecks**; the full browser/APK/PWA build remains the final feature verification gate.
 - Browser wrapper includes a new Ch60 learner-view check that fails on raw keys such as `question_id`, `chapter_number`, `correct_option`, `schema_version`, `review_status`, or `source_fidelity`, plus serialized JSON fragments.
 - Current operational source consumers and docs have been aligned to the new Anatomy and Physiology bundles.
 - Full feature browser/APK/PWA CI for the finalized Anatomy candidate is the remaining build gate.
