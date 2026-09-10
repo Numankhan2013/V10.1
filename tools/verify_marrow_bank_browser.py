@@ -10,9 +10,9 @@ CORE = ROOT / "tools" / "verify_marrow_bank_browser_core.py"
 source = CORE.read_text(encoding="utf-8")
 
 # The approved Home redesign no longer exposes the legacy nk-subject-row controls.
-# Use the stable public navigation API throughout the smoke test; learner behavior
-# remains unchanged and all content/taxonomy assertions stay intact.
-for subject in ("Biochemistry", "Physiology", "Anatomy"):
+# Use the stable public navigation API where the older smoke core still expects
+# those controls; learner behavior and all content assertions stay unchanged.
+for subject in ("Biochemistry", "Physiology"):
     legacy_subject_open = f"            page.locator('button.nk-subject-row').filter(has_text='{subject}').click();page.wait_for_timeout(80)"
     current_subject_open = f"            page.evaluate(\"window.QB.nav('banks','{subject}')\");page.wait_for_timeout(80)"
     count = source.count(legacy_subject_open)
