@@ -1,0 +1,34 @@
+name: Apply Biochemistry Taxonomy V2
+
+on:
+  push:
+    branches:
+      - feature/marrow-biochemistry-topic-index-v2
+    paths:
+      - 'tools/apply_biochemistry_topic_index_v2.py'
+      - '.github/workflows/apply-biochem-taxonomy.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Apply Biochemistry taxonomy migration
+        run: python3 tools/apply_biochemistry_topic_index_v2.py
+      - name: Validate taxonomy and project memory
+        run: |
+          python3 tools/test_marrow_topic_taxonomy.py
+          python3 tools/verify_project_memory.py
+      - name: Commit generated taxonomy changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --stat
+          git commit -m "Reorganize Biochemistry Marrow topic index"
+          git push origin HEAD:feature/marrow-biochemistry-topic-index-v2
