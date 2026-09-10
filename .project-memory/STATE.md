@@ -7,7 +7,7 @@
 
 - Repo: `Numankhan2013/V10.1`.
 - `main` is the authoritative unified V11/Marrow product line.
-- Current candidate: `feature/marrow-anatomy-topic-index-v2`.
+- Anatomy topic-index v2 merged through PR #29 at `424d7b2`.
 - Resolve live branch/HEAD from Git; never hardcode a self-staling HEAD value.
 - Accepted baseline: **V11.6 Content Quality** at `125d68b`, run `34050921180`.
 - Accepted product commit: `125d68b`.
@@ -48,14 +48,18 @@ Implementation contract:
 - Missing planned topics never render as rows/placeholders/gaps. Entire empty
   planned indexes are hidden. Lower limb, Back and General anatomy are currently
   metadata-only because the current Anatomy import stops at Ch 48.
-- Learner numbering is `visible-contiguous`; the current arranged view must show
+- Learner numbering is `visible-contiguous`; the current arranged view shows
   1–48 while source IDs remain backend truth.
 - Updated: `docs/MARROW_TOPIC_INDEX_TAXONOMY.md`,
   `tools/test_marrow_topic_taxonomy.py`, and
   `tools/verify_marrow_bank_browser.py`.
 - Physiology and Biochemistry taxonomy are unchanged pending the user's exact
   revised arrangements.
-- Candidate is not yet device-verified or merged into `main`.
+- Feature CI run `34443190210` passed end-to-end, including the explicit taxonomy
+  contract, real-browser Anatomy grouping/1–48 numbering, APK packaging and
+  packaged-product checks. Feature preview deployment passed; production was skipped.
+- Merged to `main` through PR #29 at `424d7b2`; device verification of the new
+  Anatomy arrangement is still pending.
 
 ## User/device verification
 
@@ -88,9 +92,8 @@ Implementation contract:
 
 ## Verification / release status
 
-- Expanded Marrow integration is build-verified by prior full Android/PWA runs.
-- Anatomy topic-index v2 must pass current branch CI before being called
-  build-verified.
+- Expanded Marrow integration and Anatomy topic-index v2 are build-verified.
+- Anatomy v2 is merged to `main` but not yet device-verified as a new arrangement.
 - Main/production release requires explicit guarded promotion; CI success alone
   must never promote production.
 - Accepted rollback checkpoint remains V11.6 `125d68b` until explicit user
@@ -108,10 +111,8 @@ Implementation contract:
 
 ## Next step
 
-1. Verify `feature/marrow-anatomy-topic-index-v2` through full CI.
-2. Merge only after taxonomy/browser/product checks pass; then device-check the
-   Anatomy Marrow Topics view.
-3. Keep Physiology/Biochemistry taxonomy unchanged until the user supplies them.
-4. Continue image and explanation rollout separately from the taxonomy change.
+1. Device-check the merged Anatomy Marrow Topics arrangement when convenient.
+2. Keep Physiology/Biochemistry taxonomy unchanged until the user supplies them.
+3. Continue image and explanation rollout separately from the taxonomy change.
 
 Canonical Marrow procedure: `docs/MARROW_BANK_INTEGRATION.md`.
