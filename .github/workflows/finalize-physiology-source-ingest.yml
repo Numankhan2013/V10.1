@@ -1,0 +1,81 @@
+name: Finalize expanded Physiology source consumers
+
+on:
+  push:
+    branches:
+      - feature/marrow-automation-ingest-physio-biochem
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v5
+      - name: Update live source-bundle consumers
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          prefix_targets = [
+              Path('tools/marrow_images.py'),
+              Path('docs/MARROW_EXPLANATION_AUTOMATION_RUNBOOK.md'),
+              Path('docs/MARROW_EXPLANATION_FINE_TUNING.md'),
+              Path('docs/MARROW_IMAGE_PIPELINE.md'),
+          ]
+          for path in prefix_targets:
+              text=path.read_text(encoding='utf-8')
+              n=text.count('physiology_ch001_033')
+              if n < 1:
+                  raise SystemExit(f'{path}: expected old Physiology source prefix')
+              path.write_text(text.replace('physiology_ch001_033','physiology_ch001_043'),encoding='utf-8')
+              print('UPDATED_PREFIX', path, n)
+
+          current_scope_docs = [
+              Path('docs/MARROW_EXPLANATION_AUTOMATION_RUNBOOK.md'),
+              Path('docs/MARROW_EXPLANATION_FINE_TUNING.md'),
+              Path('docs/MARROW_IMAGE_PIPELINE.md'),
+          ]
+          for path in current_scope_docs:
+              text=path.read_text(encoding='utf-8')
+              text=text.replace('2,115','2,376').replace('2115','2376')
+              text=text.replace('1,931','2,192').replace('1931','2192')
+              path.write_text(text,encoding='utf-8')
+
+          # Current project-memory snapshots, not the historical session log.
+          for name in ('.project-memory/ARCHITECTURE.md','.project-memory/PRODUCT.md','.project-memory/ROADMAP.md'):
+              path=Path(name); text=path.read_text(encoding='utf-8')
+              text=text.replace('2,115','2,376').replace('2115','2376')
+              text=text.replace('107 source topics','117 source topics').replace('107 current topics','117 current topics')
+              text=text.replace('184 / 2,115','184 / 2,376').replace('1,931','2,192')
+              text=text.replace('Physiology: **753 / 33**','Physiology: **1,014 / 43**')
+              text=text.replace('Physiology: **753 questions / 33 topics**','Physiology: **1,014 questions / 43 topics**')
+              path.write_text(text,encoding='utf-8')
+          PY
+      - name: Validate expanded consumers
+        run: |
+          python3 tools/test_marrow_images.py
+          python3 tools/test_marrow_bank_pilot.py --data-only
+          python3 tools/test_marrow_topic_taxonomy.py
+          python3 tools/test_marrow_explanation_inventory.py
+          python3 tools/verify_project_memory.py
+      - name: Audit stale live references
+        shell: bash
+        run: |
+          rg -n 'physiology_ch001_033|physiology=753|Physiology: \*\*753|2,115 questions / 107|total=2115' \
+            tools docs/MARROW_EXPLANATION_AUTOMATION_RUNBOOK.md docs/MARROW_EXPLANATION_FINE_TUNING.md docs/MARROW_IMAGE_PIPELINE.md \
+            .project-memory/ARCHITECTURE.md .project-memory/PRODUCT.md .project-memory/ROADMAP.md || true
+      - name: Commit cleanup
+        shell: bash
+        run: |
+          rm -f .github/workflows/finalize-physiology-source-ingest.yml
+          git config user.name 'Numankhan2013'
+          git config user.email '124483154+Numankhan2013@users.noreply.github.com'
+          git add -A
+          git diff --cached --stat
+          git commit -m 'Align Marrow consumers with Physiology Ch01-43'
+          git push origin HEAD:feature/marrow-automation-ingest-physio-biochem
