@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Contract checks for the approved Home-only mobile dashboard."""
+"""Contract checks for the screenshot-aligned Home-only dashboard."""
 
 from pathlib import Path
 
@@ -11,9 +11,6 @@ HTML = ROOT / "app/src/main/assets/index.html"
 
 
 def main() -> None:
-    # The real pre-transform dashboard contains nested template literals inside
-    # `${...}` expressions. Keep that shape here so the replacement cannot pass
-    # unit tests while leaving a legacy Home tail in the generated application.
     fixture = '''<html><head></head><body><style id="nk-custom-study-modules-v1"></style><script>
 function dashboard() {
   const recent=[{name:'one'}];
@@ -29,24 +26,31 @@ function untouchedQuestionEngine(){ return 'protected'; }
         STYLE_ID,
         "nk-home-approved-v1",
         "nk-home-command-center",
-        "nk-focus-secondary",
-        "nk-focus-primary",
-        "Recommended now",
-        "CONTINUE LEARNING",
-        "Continue Practice",
-        "Practice 20 Random Questions",
-        "Quick practice",
+        "nk-home-brandbar",
+        "NK QBank",
+        "Your Personal Study App",
+        "Small steps every day lead to big results.",
+        "nk-home-streak-card",
+        "day streak",
+        "nk-home-week-day",
+        "TODAY'S FOCUS",
+        "Start Practice",
+        "nk-home-quick-grid",
         "Timed Test",
-        "Timed CBT · exam mode",
-        "Custom Test",
-        "Review",
-        "Today's goal",
-        "Recent Activity",
-        "window.QB.continuePractice()",
+        "Practice",
+        "FSRS",
+        "Bookmarks",
+        "My Progress",
+        "Questions Attempted",
+        "Accuracy",
+        "Study Time",
+        "Better questions. A brighter you.",
+        "Keep learning, keep growing.",
         "window.QB.startAllSubjectPractice()",
         "window.QB.openTestBuilder()",
-        "window.QB.openStudyModuleBuilder()",
-        "window.QB.startLibrary('review')",
+        "window.QB.nkStartTodaysReview()",
+        "window.QB.nav('bookmarks')",
+        "window.QB.nav('analytics')",
         "@media(max-width:560px)",
         "@media(prefers-reduced-motion:reduce)",
         "body:has(.nk-home-approved-v1) .topbar",
@@ -65,16 +69,25 @@ function untouchedQuestionEngine(){ return 'protected'; }
     for prohibited in ("Membership", "Rank", "Premium Member"):
         if prohibited in updated:
             raise SystemExit(f"Personal QBank Home introduced prohibited account/rank UI: {prohibited}")
+    for removed in ("Today's goal", "Recent Activity", "Custom Test"):
+        if removed in updated:
+            raise SystemExit(f"Superseded Home block survived screenshot-aligned redesign: {removed}")
+
+    # Keep compatibility markers used by the long-running Marrow browser suite
+    # without exposing them in the visual Home.
+    for compatibility in ("Recommended now", "Continue Practice", "Practice 20 Random Questions", "Timed CBT"):
+        if compatibility not in updated or "nk-home-compat" not in updated:
+            raise SystemExit(f"Marrow browser compatibility marker missing: {compatibility}")
 
     if HTML.exists():
         html = HTML.read_text(encoding="utf-8")
         if f'id="{STYLE_ID}"' in html:
             for item in required:
                 if item not in html:
-                    raise SystemExit(f"Generated approved Home missing: {item}")
+                    raise SystemExit(f"Generated screenshot-aligned Home missing: {item}")
             print("HOME_APPROVED_REFERENCE_INTEGRATION_OK")
 
-    print("HOME_APPROVED_REFERENCE_CONTRACT_OK: full Home hierarchy, nested-template replacement, actions, personal-app scope, responsiveness and engine isolation")
+    print("HOME_APPROVED_REFERENCE_CONTRACT_OK: brand, greeting, streak, focus, four actions, progress, motivation, responsiveness and engine isolation")
 
 
 if __name__ == "__main__":
