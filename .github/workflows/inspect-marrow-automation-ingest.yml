@@ -13,27 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
-      - name: Fetch all branch history
-        run: git fetch origin '+refs/heads/*:refs/remotes/origin/*'
-      - name: Search reachable history for Biochemistry handoffs
+      - name: Audit old Physiology source-count assumptions
         shell: bash
         run: |
-          python3 - <<'PY'
-          import subprocess
-          out=subprocess.check_output(['git','log','--all','--name-only','--pretty=format:%H %s'],text=True,errors='replace')
-          lines=out.splitlines()
-          hits=[]
-          current=''
-          for line in lines:
-              if len(line)>=40 and all(c in '0123456789abcdef' for c in line[:40].lower()) and line[40:41]==' ':
-                  current=line
-                  continue
-              low=line.lower()
-              if ('automation_ingest/biochemistry/' in low or
-                  ('biochem' in low and ('027' in low or '028' in low or 'chapter_27' in low or 'chapter_28' in low))):
-                  hits.append((current,line))
-          print('BIOCHEM_HISTORY_HITS',len(hits))
-          for commit,path in hits[:100]: print('BIOCHEM_HISTORY_HIT',commit,'PATH',path)
-          PY
+          echo '--- physiology_ch001_033 refs ---'
+          rg -n 'physiology_ch001_033' tools docs .project-memory .github data/marrow || true
+          echo '--- 753/33 refs ---'
+          rg -n '753/33|753 questions|753 / 33|753 /33|physiology=753|Physiology: \*\*753|Physiology.*753' tools docs .project-memory .github data/marrow || true
+          echo '--- 2115 refs ---'
+          rg -n '2115|2,115|current_topics=107|107 source topics|107 current topics' tools docs .project-memory .github data/marrow || true
