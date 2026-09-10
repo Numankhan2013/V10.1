@@ -84,7 +84,10 @@ explanation and exactly three distractor rationales through the real learner UI.
 - Historical Batch 01 remains build-verified and user-approved as the minimum quality threshold.
 - Current Batch 08 candidate contains **153 approved assets / 172 released
   bindings / 158 released questions**. By subject: Anatomy 64, Biochemistry 55,
-  Physiology 39 questions. Full candidate CI is pending.
+  Physiology 39 questions. Exact product commit `0c1af90` passed full Android/PWA
+  run `34438683420`; generated visual QA passed.
+- Batch 08 immutable preview: `https://af73057f.nk-qbank.pages.dev`; artifact ID
+  `10137184212`. Production promotion was skipped.
 - Batches 05–07 reviewed 90 candidate bindings and released 72: Batch 05 23/30, Batch 06 23/30 with one quality hold, Batch 07 26/30. Seventeen false ownership/reuse mappings were rejected.
 - Authentic ultrasound, radiology, clinical, specimen, histology and microscopy assets preserve native bytes. Educational diagrams use native PDF streams only where they meet the approved readability floor.
 - The Golgi-tendon-organ sequence remains REVIEW_REQUIRED because its native labels are below the approved baseline; it must be faithfully reconstructed before release.
@@ -103,10 +106,10 @@ explanation and exactly three distractor rationales through the real learner UI.
 
 ## Next step / ownership split
 
-- **Primary/image work:** push Batch 08, require exact-head full Android/PWA CI,
-  then inspect its flexure-viewer and Q9 question-specimen screenshots. The six
-  released Anatomy Chapter 9 IDs are Q5, Q8, Q9, Q10, Q12 and Q13; all preserve
-  native bytes, and Q9/Q12/Q13 retain neutral question-time alt text.
+- **Primary/image work:** Batch 08 is build-verified and visually inspected; ask
+  the user for physical review when convenient. The six released Anatomy Chapter
+  9 IDs are Q5, Q8, Q9, Q10, Q12 and Q13; all preserve native bytes, and
+  Q9/Q12/Q13 retain neutral question-time alt text.
 - For later batches follow `docs/MARROW_IMAGE_AUTOMATION_RUNBOOK.md` completely,
   serialize registry writers and never release uncertainty.
 - **Explanation refinement agent:** repair and validate the existing unverified

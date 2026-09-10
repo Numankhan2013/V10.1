@@ -67,8 +67,9 @@ Check off only when build-verified **and** device-verified where UI is involved.
       resolve multi-candidate, masked, vector and reconstruction cases separately.
       Subject-specific ChatGPT automations must follow
       `docs/MARROW_IMAGE_AUTOMATION_RUNBOOK.md`, use a default six-candidate
-      budget, and serialize all writes to the shared registry. Batch 08 locally
-      released the automation's six Anatomy candidates; full CI remains pending.
+      budget, and serialize all writes to the shared registry. Batch 08 released
+      the automation's six Anatomy candidates and passed exact-head full CI plus
+      generated visual QA; physical acceptance remains pending.
 - [ ] Continue later Marrow chapters beyond the supplied current scope only when
       verified source JSONL is available.
 - [ ] Keep production promotion deliberate; build/browser success is not acceptance.

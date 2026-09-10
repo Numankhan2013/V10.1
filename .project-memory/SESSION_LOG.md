@@ -809,3 +809,10 @@ Implemented approved recovery in existing transform owners: Topics separate path
   not give the zero-height `#nk-source-viewer` parent a Playwright-visible box.
   Aligned the assertion exactly with prior verified tests by waiting for the
   fullscreen image's natural width; no product code or asset changed.
+- Exact product commit `0c1af90` passed full Android/PWA run `34438683420`,
+  including source hashes, generated JS, role/timing browser checks, fullscreen
+  viewer, PWA offline cache, APK packaging and exact packaged image bytes.
+  Inspected the generated flexure-viewer and Q9 specimen screenshots; both meet
+  the accepted readability floor. Immutable preview:
+  `https://af73057f.nk-qbank.pages.dev`; artifact `10137184212`; production was
+  not promoted. Physical-device acceptance remains pending.
