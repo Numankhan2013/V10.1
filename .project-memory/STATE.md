@@ -88,15 +88,16 @@ Current plans/imports:
   - taxonomy: **121 current source topics**, Anatomy 52 visible, contiguous numbering, no placeholders.
   - explanation inventory: **2,455 total / 184 enhanced / 2,271 pending**.
   - image-consumer and Biochemistry rollout count-dependent tests passed.
-- The source/data transformation is **build-verified at its deterministic prechecks**; the full browser/APK/PWA build remains the final feature verification gate.
 - Browser wrapper includes a new Ch60 learner-view check that fails on raw keys such as `question_id`, `chapter_number`, `correct_option`, `schema_version`, `review_status`, or `source_fidelity`, plus serialized JSON fragments.
-- Current operational source consumers and docs have been aligned to the new Anatomy and Physiology bundles.
 - Full feature browser/APK/PWA CI for Anatomy Ch60–63 passed in run `34451249088`; preview deployment succeeded, but subsequent device review found the option-label regression described below.
 - Regression incident: automation-adapted Physiology Ch34–43 and Anatomy Ch60–63 emitted lowercase option labels, while the session renderer historically assumed uppercase A–D. A wrong choice could therefore turn red while the true correct option failed to turn green.
-- Repair commit `734f8928406ef7592fe8a62d7bd4040009ebaea8` normalizes affected runtime bundle labels to uppercase A–D, makes the renderer case-tolerant, makes future importers emit uppercase A–D, and adds static/runtime validation that rejects malformed option labels.
-- Repair workflow run `34457704618` passed its deterministic data, taxonomy and explanation-inventory checks after refreshing the inventory source hashes. Canonical automation JSONL was not rewritten.
-- Browser regression coverage now requires exactly one red wrong option and one green correct option for an existing Marrow question, a newly imported Physiology question, a newly imported Anatomy question, and the Wrong Questions learner flow; computed answer colors are asserted, not inferred from screenshots alone.
-- An exact-head full browser/APK/PWA build is required after the repair commit before source expansion resumes.
+- Runtime repair normalizes affected generated bundle labels to uppercase A–D, makes the shared renderer case-tolerant, makes future importers emit uppercase A–D, and adds static/runtime validation rejecting malformed option labels. Canonical automation JSONL is unchanged.
+- Final repair bot commit is `8244ae38228a60a5ccbb1e87ecac2082150104b5`; deterministic repair workflow run `34458321395` passed source data, taxonomy and explanation-inventory checks.
+- First exact-head browser attempt correctly stayed blocked because the newly added test itself tried to read module-scoped `state` from Playwright. That invalid test implementation was removed rather than weakening the app gate.
+- Browser regression now uses only learner-visible flows. Ch43 Q1 deliberately selects B while source answer A must turn green; Ch60 Q1 deliberately selects A while source answer D must turn green. The real dashboard → Wrong Questions → Practice path is also exercised.
+- Each answer-state guard requires exactly one red wrong option and one green correct option and asserts computed red/green CSS values, not screenshots alone.
+- Existing Marrow question behavior remains covered separately in the core regression.
+- An exact-head full browser/APK/PWA build from the final repair state is the blocking verification gate before source expansion resumes.
 - New Anatomy content is **not yet device-verified**. CI success alone does not change the accepted baseline or promote production.
 
 ## Known problems / cautions
@@ -106,7 +107,7 @@ Current plans/imports:
 - Do not improve remaining explanations during source integration.
 - Do not expose raw JSONL/schema objects in learner-facing question/explanation views.
 - Do not rewrite source records for taxonomy placement.
-- Preserve approved Topics visuals, FSRS dock, PDF renderers, Practice/CBT/Review, sync, modules, persistence and navigation.
+- Preserve approved Topics visuals, FSRS dock, PDF renderers, Practice/CBT/Review, Wrong Questions, sync, modules, persistence and navigation.
 
 ## Next step
 
