@@ -1,0 +1,43 @@
+name: Apply Anatomy automation ingest Ch60-63
+
+on:
+  push:
+    branches:
+      - feature/marrow-automation-ingest-anatomy
+
+permissions:
+  contents: write
+
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+      - name: Fetch canonical automation handoff
+        run: git fetch origin feature/marrow-bank-pilot:refs/remotes/origin/feature/marrow-bank-pilot --depth=1
+      - name: Integrate source-faithful Anatomy chapters
+        run: |
+          python3 tools/integrate_anatomy_automation_ch060_063.py
+          python3 tools/inventory_marrow_explanations.py --write
+      - name: Validate source bank and taxonomy
+        run: |
+          python3 tools/test_marrow_bank_pilot.py --data-only
+          python3 tools/test_marrow_topic_taxonomy.py
+          python3 tools/test_marrow_explanation_inventory.py
+          python3 tools/test_marrow_images.py
+          python3 tools/test_marrow_biochem_explanation_rollout.py
+          python3 tools/verify_project_memory.py
+      - name: Commit integrated bundle
+        shell: bash
+        run: |
+          rm -f .github/workflows/apply-anatomy-automation-ingest.yml
+          git config user.name 'Numankhan2013'
+          git config user.email '124483154+Numankhan2013@users.noreply.github.com'
+          git add -A
+          git diff --cached --stat
+          git commit -m 'Integrate Marrow Anatomy Ch60-63'
+          git push origin HEAD:feature/marrow-automation-ingest-anatomy
