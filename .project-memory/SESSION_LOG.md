@@ -815,3 +815,10 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - The next run reached the Home browser assertion; rendered `innerText` reflects
   CSS uppercase for the recommendation badge. Made that visual-text assertion
   case-insensitive without changing the UI or its source label.
+- Exact product commit `3ec666c` passed Engineering Gate `34438517764` and full
+  Android/PWA run `34438517773`, including generated JavaScript, real-browser,
+  offline PWA, APK and packaged-contract checks. Inspected the generated 390 px
+  Home screenshot: recommendation hierarchy, spacing, labels and mobile action
+  layout are clear, with Study Sets and downstream sections intact. Immutable
+  preview: `https://5a8a5212.nk-qbank.pages.dev`; artifact `10137126889`;
+  production promotion skipped. Physical-device acceptance remains pending.

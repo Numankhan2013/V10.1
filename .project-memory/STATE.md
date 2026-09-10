@@ -7,8 +7,11 @@
 
 - Repo: `Numankhan2013/V10.1`.
 - Current working branch: `feature/home-command-center-current`, stacked directly on the verified image branch `feature/marrow-image-rollout-current`.
-- The bounded Home command-center transform and tests are implemented locally;
-  local checks pass, but full generated-app/browser/APK CI is still required.
+- The bounded Home command center is build-verified at product commit `3ec666c`:
+  Engineering Gate `34438517764` and full Android/PWA run `34438517773` passed.
+  Generated 390 px visual QA passed; physical-device acceptance remains pending.
+- Immutable Home preview: `https://5a8a5212.nk-qbank.pages.dev`; artifact ID
+  `10137126889`. Production promotion was skipped.
 - Resolve live branch/HEAD from Git; do not hardcode self-staling HEAD values.
 - This Home/image base contains explanations through Physiology Chapter 5.
   Separately, the latest verified explanation lineage reaches Physiology Chapter
@@ -102,12 +105,11 @@ explanation and exactly three distractor rationales through the real learner UI.
 
 ## Next step / ownership split
 
-- **Immediate primary-agent task:** push the bounded Home candidate, require the
-  exact-head Engineering Gate and full Android/PWA run, then inspect the generated
-  390 px Home screenshot before asking for physical acceptance. The deterministic
-  transform runs after Custom Study Modules and uses priority **unfinished saved
-  module → due FSRS review → Practice 20** while retaining Continue Practice,
-  Practice 20, Timed CBT, conditional Due Review and Study Sets.
+- **Home:** ask the user to inspect the immutable preview on a physical device.
+  The deterministic transform runs after Custom Study Modules and uses priority
+  **unfinished saved module → due FSRS review → Practice 20** while retaining
+  Continue Practice, Practice 20 Random Questions, Timed CBT, conditional Due
+  Review and Study Sets.
 - **Image integration:** the Anatomy automation staged six Chapter 9 candidates
   but correctly released none. Resume those exact six from its checkpoint after
   the Home milestone; do not merge its accidentally committed `__pycache__` files.
