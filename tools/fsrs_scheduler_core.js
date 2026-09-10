@@ -3,7 +3,7 @@
   const NK_FSRS_VERSION='fsrs6';
   const NK_FSRS_DAY=86400000;
   const NK_FSRS_DEFAULTS={desiredRetention:.90,dailyCap:150,maximumInterval:365};
-  const nkFsrsAllQuestions=()=>SUBJECTS.flatMap(subject=>(subject.questions||[]).map(q=>({...q,subject:q.subject||subject.subject})));
+  const nkFsrsAllQuestions=()=>typeof nkAllBankQuestions==='function'?nkAllBankQuestions():SUBJECTS.flatMap(subject=>(subject.questions||[]).map(q=>({...q,subject:q.subject||subject.subject})));
   const nkFsrsAllById=()=>Object.fromEntries(nkFsrsAllQuestions().map(q=>[String(q.id),q]));
   function nkFsrsPreferences(){
     const raw=state.fsrsPreferences||{};
@@ -88,8 +88,10 @@
     due.sort((a,b)=>{const ar=state.reviews[a.id],br=state.reviews[b.id],al=[1,3].includes(Number(ar?.state))?0:1,bl=[1,3].includes(Number(br?.state))?0:1;return al-bl||nkFsrsRetrievability(ar,now)-nkFsrsRetrievability(br,now)||Number(ar?.due||0)-Number(br?.due||0)||String(a.id).localeCompare(String(b.id));});
     const today=new Date(now).toDateString(),seen=new Set();
     nkFsrsAllQuestions().forEach(q=>{const daily=nkFsrsActiveAttempts(q.id).filter(a=>a.schedulerVersion===NK_FSRS_VERSION&&['fsrs-review','spaced-review'].includes(a.source)&&new Date(a.at).toDateString()===today);if(daily.length)seen.add(String(q.id));});
-    const remaining=Math.max(0,prefs.dailyCap-seen.size),dueEligible=due.filter(q=>!seen.has(String(q.id))),cards=dueEligible.slice(0,remaining);
-    return {cards,due,totalDue:due.length,rolledOver:Math.max(0,dueEligible.length-cards.length)};
+    const repeatIds=new Set(due.filter(q=>seen.has(String(q.id))&&[1,3].includes(Number(state.reviews?.[q.id]?.state))).map(q=>String(q.id)));
+    const firstToday=due.filter(q=>!seen.has(String(q.id))),remaining=Math.max(0,prefs.dailyCap-seen.size),admittedIds=new Set(firstToday.slice(0,remaining).map(q=>String(q.id)));
+    const cards=due.filter(q=>repeatIds.has(String(q.id))||admittedIds.has(String(q.id)));
+    return {cards,due,totalDue:due.length,rolledOver:Math.max(0,firstToday.length-admittedIds.size)};
   }
   function nkFsrsCounts(now=Date.now()){
     const counts={eligible:0,due:0,learning:0,relearning:0,young:0,mature:0,overdue:0,attention:0};
