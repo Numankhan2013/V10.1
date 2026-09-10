@@ -7,8 +7,7 @@
 
 - Repo: `Numankhan2013/V10.1`.
 - Git `main` is the authoritative unified V11/Marrow product line; the user-approved image pilot merged through PR #12.
-- Current branch: `main`. Batch 01 merged through PR #13; begin the next
-  bounded image batch from current `main`.
+- Anatomy topic-index v2 work is prepared on `feature/anatomy-topic-index-v2`; use a `feature/marrow-*` integration branch for full push CI before merge.
 - Resolve live branch/HEAD from Git; never hardcode a self-staling HEAD value.
 - Accepted product baseline remains **V11.6 Content Quality** at `125d68b`,
   canonical APK run `34050921180`.
@@ -37,16 +36,44 @@ remain regression/augmentation references. Three resolved Anatomy
 reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 `ANAT_CH04_Q013`.
 
+## Anatomy topic index v2 — 2026-09-10
+
+- The user replaced the older Anatomy major-index taxonomy with this exact order:
+  **Embryology → Histology → Neuroanatomy → Head, neck, and face → Upper limb →
+  Thorax → Abdomen and pelvis → Lower limb → Back → General anatomy**.
+- `data/marrow/topic_index_taxonomy.json` now distinguishes the **71-topic intended
+  Anatomy catalog** (`plannedIndex`) from the **48 currently imported source
+  topics** (`topics`). Stable source IDs/titles/question linkage stay untouched.
+- Current source placement is: Ch 1–10 Embryology; 11–16 Histology; 17–27
+  Neuroanatomy; 28–34 Head, neck, and face; 35–40 Upper limb; 41–46 Thorax;
+  47–48 Abdomen and pelvis.
+- Current combined source chapters are not fabricated into multiple learner
+  chapters. `plannedSlots` records which finer future catalog entries each
+  combined source topic represents (for example Placenta + Fetal membranes and
+  twinning).
+- Planned topics not yet imported must remain invisible: no blank rows,
+  placeholders, artificial gaps or empty index sections. Lower limb, Back and
+  General anatomy therefore remain metadata-only at the current Ch 1–48 import.
+- Learner-facing numbering is defined as `visible-contiguous`; backend/source IDs
+  remain authoritative. The current rendered arrangement must show 1–48 without
+  exposing source-order jumps caused by grouping.
+- `docs/MARROW_TOPIC_INDEX_TAXONOMY.md`, the taxonomy contract test and browser
+  verification were updated for this behavior. Physiology and Biochemistry
+  taxonomy were deliberately left unchanged until the user supplies their exact
+  arrangements.
+- This Anatomy v2 candidate is not yet device-verified or merged into `main` at
+  this handoff point.
+
 ## User/device verification — 2026-09-08
 
 - The user physically verified the newly deployed Marrow PWA.
 - The user confirmed the questions/current integration are correct and declared
-  the integration/taxonomy verification phase complete.
+  the integration verification phase complete.
 - The recovered Topics journey, fixed Continue Learning tray and dedicated FSRS
   controls are also user-approved.
-- The explicit source-aligned 107-topic taxonomy is therefore **device-verified**
-  for the current deployed experience. Four cross-system Anatomy placements
-  remain internally reviewable but do not block explanation work.
+- The visual Topics journey remains approved; the older Marrow Anatomy grouping
+  taxonomy is superseded by the 2026-09-10 Anatomy topic-index v2 specification
+  above.
 - This does not mean every one of the 2,115 raw explanations was individually
   reviewed, and it is not an explicit production-baseline promotion.
 
@@ -87,6 +114,8 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
   run 409.
 - The approved 20-question sample and completed Biochemistry Chapter 1 rollout
   are merged into `main`; their dedicated content and browser contracts remain.
+- Anatomy topic-index v2 is a separate candidate and must pass full CI before it
+  is described as build-verified.
 - Build-verified ≠ device-verified ≠ accepted baseline.
 - V11.6 `125d68b` remains the **accepted baseline** / rollback checkpoint until
   the user explicitly promotes a later candidate.
@@ -102,7 +131,11 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 - Do not invent missing list items, lab values, graph labels or image-dependent facts.
 - Do not rewrite raw JSONL/sharded source to make the UI prettier.
 - Do not alter the approved Topics journey, FSRS dock, source-PDF renderers,
-  Practice/CBT/Review, sync, modules, persistence or navigation during explanation work.
+  Practice/CBT/Review, sync, modules, persistence or navigation during taxonomy
+  or explanation work.
+- Anatomy future topic integration must use `plannedIndex` / `plannedSlots`; do
+  not infer placement from source chapter number alone and do not expose missing
+  planned topics as placeholders.
 - Large connector/Git writes should remain bounded, deterministic and validated.
 
 ## Image phase — active
@@ -136,12 +169,13 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 
 ## Next step
 
-1. Create Batch 02 from current `main`, prioritizing unresolved question-critical
-   and multi-candidate figures; never substitute an explanation image for a missing stem image.
-2. Keep each batch behind registry/binding QA, browser timing checks, offline hashes
-   and packaged APK verification.
-3. Continue until the audit queue is resolved across all three subjects, preserving
-   explicit REVIEW_REQUIRED/SOURCE_LIMITED outcomes where the source prevents release.
+1. Finish/verify Anatomy topic-index v2 on a CI-triggering `feature/marrow-*`
+   branch, then merge only after green taxonomy/browser/product checks.
+2. Keep Physiology and Biochemistry taxonomy unchanged until the user supplies
+   their intended index arrangements.
+3. Continue image Batch 02 separately from current `main`, prioritizing unresolved
+   question-critical and multi-candidate figures; never substitute an explanation
+   image for a missing stem image.
 4. Resume explanation rollout separately after the image priority phase.
 
 Canonical Marrow procedure: `docs/MARROW_BANK_INTEGRATION.md`.
