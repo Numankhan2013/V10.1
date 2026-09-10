@@ -53,13 +53,23 @@ Implementation contract:
 - Updated: `docs/MARROW_TOPIC_INDEX_TAXONOMY.md`,
   `tools/test_marrow_topic_taxonomy.py`, and
   `tools/verify_marrow_bank_browser.py`.
-- Physiology and Biochemistry taxonomy are unchanged pending the user's exact
-  revised arrangements.
+- Physiology taxonomy remains unchanged; Biochemistry now has its own v2 contract below.
 - Feature CI run `34443190210` passed end-to-end, including the explicit taxonomy
   contract, real-browser Anatomy grouping/1–48 numbering, APK packaging and
   packaged-product checks. Feature preview deployment passed; production was skipped.
 - Merged to `main` through PR #29 at `424d7b2`; device verification of the new
   Anatomy arrangement is still pending.
+
+## Biochemistry topic index v2 — 2026-09-10
+
+User-authoritative major-index order: **Carbohydrates → Amino acids and proteins →
+Lipids → Enzymes and phenylketonuria → Clinical biochemistry and nutrition → Genetics**.
+
+- `plannedIndex` stores all **32 supplied learner slots** while current source remains **26 topics / 543 questions**.
+- Current placement: Ch 1–6 Carbohydrates; 7–11 Amino acids/proteins; 12–16 Lipids; 17–19 Enzymes/phenylketonuria; 20–23 Clinical biochemistry/nutrition; 24–26 Genetics.
+- Combined source chapters stay combined; `plannedSlots` maps Ch 1, 4, 20 and 24 to multiple finer learner slots.
+- Missing future topics never render as placeholders; learner numbering is visible-contiguous 1–26; source IDs/titles/question linkage/FSRS remain untouched.
+- Physiology taxonomy is still pending the user's revised arrangement.
 
 ## User/device verification
 

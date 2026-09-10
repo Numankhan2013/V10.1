@@ -44,7 +44,9 @@ def main():
             page.screenshot(path=str(OUT/'00-biochemistry-bank-selector.png'),full_page=True)
             bcards.filter(has_text='Marrow').click();page.wait_for_timeout(100)
             if page.locator('button.nk-topic-row').count()!=26: raise SystemExit('Marrow Biochemistry topic count is not 26')
-            assert_sections(['Carbohydrate Chemistry','Lipid Chemistry','Amino Acid & Protein Chemistry','Heme Synthesis','Enzymes','Free Radicals, Antioxidants, Trace Elements & Miscellaneous','Genetics','Vitamins'])
+            assert_sections(['Carbohydrates','Amino acids and proteins','Lipids','Enzymes and phenylketonuria','Clinical biochemistry and nutrition','Genetics'])
+            bnums=[int(x) for x in page.locator('.nk-topic-index').all_inner_texts()]
+            if bnums!=list(range(1,27)): raise SystemExit(f'Marrow Biochemistry learner numbering is not contiguous 1-26: {bnums!r}')
             page.locator('button.nk-topic-row').filter(has_text='Chemistry of Carbohydrates, Amino sugars and Mucopolysaccharides').click();page.wait_for_timeout(80)
             if page.locator('button.nk-library-row').count()!=23: raise SystemExit('Marrow Biochemistry Chapter 1 count is not 23')
             page.locator('button.nk-library-row').first.click();page.wait_for_timeout(80)

@@ -1,7 +1,7 @@
 # Marrow topic-index taxonomy — user-authored grouping contract
 
-> Status: **implemented for the current Anatomy import; Anatomy future-slot metadata is authoritative**.
-> Physiology and Biochemistry remain on their previously recorded taxonomy until the user supplies their revised arrangements.
+> Status: **implemented for Anatomy and Biochemistry; their future-slot metadata is authoritative**.
+> Physiology remains on its previously recorded taxonomy until the user supplies its revised arrangement.
 >
 > This is navigation taxonomy only. It must never rewrite, merge, split, renumber, or medically alter the source question records.
 
@@ -174,19 +174,79 @@ Some current source chapters represent more than one intended syllabus slot. Exa
 
 Current Ch 1–33 mappings in `topic_index_taxonomy.json` remain unchanged until the user supplies the revised Physiology arrangement.
 
-## Biochemistry — existing taxonomy retained pending user revision
+## Biochemistry — authoritative intended major-index order
 
-1. **Introduction**
-2. **Carbohydrate Chemistry**
-3. **Lipid Chemistry**
-4. **Amino Acid & Protein Chemistry**
-5. **Heme Synthesis**
-6. **Enzymes**
-7. **Free Radicals, Antioxidants, Trace Elements & Miscellaneous**
-8. **Genetics**
-9. **Vitamins**
+1. **Carbohydrates**
+2. **Amino acids and proteins**
+3. **Lipids**
+4. **Enzymes and phenylketonuria**
+5. **Clinical biochemistry and nutrition**
+6. **Genetics**
 
-Current Ch 1–26 mappings in `topic_index_taxonomy.json` remain unchanged until the user supplies the revised Biochemistry arrangement.
+### Carbohydrates
+
+1. Chemistry of carbohydrates
+2. Amino sugars and mucopolysaccharides
+3. Glycolysis and gluconeogenesis
+4. Glycogen metabolism and glycogen storage disorders
+5. HMP shunt pathway
+6. Fructose and galactose metabolism
+7. ETC and bioenergetics
+8. Krebs cycle
+
+### Amino acids and proteins
+
+1. Amino acid basics
+2. Amino acid metabolism
+3. Amino acid metabolic disorder
+4. Protein structure and function
+5. Urea cycle and its disorders
+
+### Lipids
+
+1. Lipid basics
+2. Fatty acid oxidation and ketogenesis
+3. Biosynthesis of fatty acids and eicosanoids
+4. Metabolism of acylglycerols and sphingolipids
+5. Cholesterol synthesis, transport, and excretion
+
+### Enzymes and phenylketonuria
+
+1. Phenylketonuria and bile pigments
+2. Enzyme mechanism of action and clinical importance
+3. Enzyme kinetics and regulation of activity
+
+### Clinical biochemistry and nutrition
+
+1. Fats
+2. Soluble vitamins
+3. Energy-releasing vitamins
+4. Hematopoietic and other vitamins
+5. Antioxidants and minerals
+
+### Genetics
+
+1. Basics of genetics
+2. Nucleotide metabolism and disorders
+3. DNA organization, replication, and repair
+4. RNA synthesis, processing, and modification
+5. Regulation of gene expression
+6. Molecular genetics and recombinant DNA and genomic technology
+
+## Current Marrow Biochemistry Ch 1–26 placement
+
+The current imported source records remain exactly 26 source topics and 543 questions. They are arranged as follows:
+
+- Ch 1–6 → **Carbohydrates**
+- Ch 7–11 → **Amino acids and proteins**
+- Ch 12–16 → **Lipids**
+- Ch 17–19 → **Enzymes and phenylketonuria**
+- Ch 20–23 → **Clinical biochemistry and nutrition**
+- Ch 24–26 → **Genetics**
+
+The enumerated learner catalog contains 32 planned slots. Missing future slots do not render. Current combined source chapters remain single source topics: Ch 1 maps to Chemistry of carbohydrates + Amino sugars and mucopolysaccharides; Ch 4 maps to HMP shunt pathway + Fructose and galactose metabolism; Ch 20 maps to Fats + Soluble vitamins; and Ch 24 maps to Basics of genetics + Nucleotide metabolism and disorders. Genetics slots for Regulation of gene expression and Molecular genetics/recombinant DNA/genomic technology are metadata-only until corresponding source topics are imported.
+
+Learner-facing numbering is contiguous across the currently visible arranged source topics (1–26); source chapter IDs remain unchanged underneath.
 
 ## Implementation contract
 
