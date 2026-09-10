@@ -100,8 +100,9 @@ Authoritative order: **General physiology → Nerve and muscle physiology → Ga
 - Anatomy, Biochemistry, and Physiology taxonomy v2 are build-verified and merged to `main`.
 - User already approved the Physiology v2 taxonomy preview; the new Ch34–43 source ingest is not yet device-verified.
 - `device-verified` status is intentionally withheld until the user checks the resulting build on-device.
-- Source-data/taxonomy/inventory prechecks for the Ch34–43 transformation reached **1,014/43 Physiology, 2,376/117 total, 184 enhanced / 2,192 pending** before the handoff-linter wording fix.
-- CI success alone does not change the accepted baseline or promote production.
+- Source-data, taxonomy, explanation-inventory and image-consumer prechecks are green at **1,014/43 Physiology, 2,376/117 total, 184 enhanced / 2,192 pending**.
+- Learner browser verification now explicitly checks a Ch43 Exercise Physiology question for raw JSON/schema leakage before merge.
+- Full feature browser/APK/PWA CI is the remaining merge gate; CI success alone does not promote production.
 
 ## Known problems / cautions
 
@@ -112,10 +113,9 @@ Authoritative order: **General physiology → Nerve and muscle physiology → Ga
 
 ## Next step
 
-1. Complete/commit the Physiology Ch34–43 source bundle, taxonomy mapping, inventory update and all count-dependent regression updates.
-2. Run full feature CI/browser/APK/PWA verification, including a learner-view raw-JSON leakage check, before merge.
-3. Merge the verified Physiology source ingest; keep production unpromoted unless explicitly requested.
-4. Locate the actual Biochemistry Ch27/28 source artifact before integrating those planned Genetics topics.
-5. Anatomy automation-ingest expansion is a separate later task.
+1. Run full feature CI/browser/APK/PWA verification, including the learner-view raw-JSON leakage check.
+2. Merge the verified Physiology Ch34–43 source ingest; keep production unpromoted unless explicitly requested.
+3. Locate the actual Biochemistry Ch27/28 source artifact before integrating those planned Genetics topics.
+4. Anatomy automation-ingest expansion is a separate later task.
 
 Canonical Marrow integration procedure: `docs/MARROW_BANK_INTEGRATION.md`.
