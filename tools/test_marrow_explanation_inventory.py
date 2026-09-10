@@ -12,7 +12,11 @@ def main() -> None:
     stored = json.loads((DATA / "explanation_inventory_v1.json").read_text(encoding="utf-8"))
     generated = build_inventory()
     manifest = inventory_manifest(generated)
-    assert stored == manifest
+    if stored != manifest:
+        raise AssertionError(
+            "Explanation inventory drift; regenerate data/marrow/explanation_inventory_v1.json. "
+            f"Generated manifest: {json.dumps(manifest, ensure_ascii=False, sort_keys=True)}"
+        )
     assert stored["summary"]["questions"] == 2115
     assert stored["summary"]["subjects"] == {"Anatomy": 819, "Biochemistry": 543, "Physiology": 753}
     enhanced = len(enhanced_ids())
