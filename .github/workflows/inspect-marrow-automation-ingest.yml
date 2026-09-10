@@ -14,43 +14,26 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          fetch-depth: 1
-      - name: Fetch all branch tips
-        run: git fetch --depth=1 origin '+refs/heads/*:refs/remotes/origin/*'
-      - name: Search safe handoff paths and count Physiology additions
+          fetch-depth: 0
+      - name: Fetch all branch history
+        run: git fetch origin '+refs/heads/*:refs/remotes/origin/*'
+      - name: Search reachable history for Biochemistry handoffs
         shell: bash
         run: |
           python3 - <<'PY'
-          import json, subprocess
-
-          refs=subprocess.check_output(['git','for-each-ref','--format=%(refname)','refs/remotes/origin/'],text=True).splitlines()
+          import subprocess
+          out=subprocess.check_output(['git','log','--all','--name-only','--pretty=format:%H %s'],text=True,errors='replace')
+          lines=out.splitlines()
           hits=[]
-          for ref in refs:
-              try:
-                  paths=subprocess.check_output(['git','ls-tree','-r','--name-only',ref],text=True,stderr=subprocess.DEVNULL).splitlines()
-              except subprocess.CalledProcessError:
+          current=''
+          for line in lines:
+              if len(line)>=40 and all(c in '0123456789abcdef' for c in line[:40].lower()) and line[40:41]==' ':
+                  current=line
                   continue
-              for p in paths:
-                  low=p.lower()
-                  if ('automation_ingest/biochemistry/' in low or
-                      ('biochem' in low and ('027' in low or '028' in low or 'chapter_27' in low or 'chapter_28' in low))):
-                      hits.append((ref.replace('refs/remotes/origin/',''),p))
-          print('BIOCHEM_HANDOFF_PATH_HITS', len(hits))
-          for item in hits[:50]: print('BIOCHEM_HIT', *item)
-
-          phys_prefix='data/marrow/automation_ingest/physiology/'
-          phys=[]
-          ref='refs/remotes/origin/feature/marrow-bank-pilot'
-          paths=subprocess.check_output(['git','ls-tree','-r','--name-only',ref],text=True).splitlines()
-          for p in paths:
-              if p.startswith(phys_prefix) and p.endswith('.jsonl'):
-                  name=p.rsplit('/',1)[-1]
-                  try: chapter=int(name.split('_chunk_')[1][:3])
-                  except Exception: continue
-                  if 34 <= chapter <= 43:
-                      raw=subprocess.check_output(['git','show',f'{ref}:{p}'],text=True)
-                      rows=[json.loads(line) for line in raw.splitlines() if line.strip()]
-                      phys.append((chapter,len(rows),rows[0].get('chapter','')))
-          print('PHYS_ADDITIONS', phys)
-          print('PHYS_NEW_QUESTIONS', sum(x[1] for x in phys))
+              low=line.lower()
+              if ('automation_ingest/biochemistry/' in low or
+                  ('biochem' in low and ('027' in low or '028' in low or 'chapter_27' in low or 'chapter_28' in low))):
+                  hits.append((current,line))
+          print('BIOCHEM_HISTORY_HITS',len(hits))
+          for commit,path in hits[:100]: print('BIOCHEM_HISTORY_HIT',commit,'PATH',path)
           PY
