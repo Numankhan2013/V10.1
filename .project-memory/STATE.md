@@ -97,7 +97,7 @@ Current plans/imports:
 - Browser regression now uses only learner-visible flows. Ch43 Q1 deliberately selects B while source answer A must turn green; Ch60 Q1 deliberately selects A while source answer D must turn green. The real dashboard → Wrong Questions → Practice path is also exercised.
 - Each answer-state guard requires exactly one red wrong option and one green correct option and asserts computed red/green CSS values, not screenshots alone.
 - Existing Marrow question behavior remains covered separately in the core regression.
-- An exact-head full browser/APK/PWA build from the final repair state is the blocking verification gate before source expansion resumes.
+- Current repair is **not yet build-verified**; an exact-head full browser/APK/PWA build from the final repair state is the blocking verification gate before source expansion resumes.
 - New Anatomy content is **not yet device-verified**. CI success alone does not change the accepted baseline or promote production.
 
 ## Known problems / cautions
