@@ -9,6 +9,15 @@ CORE = ROOT / "tools" / "verify_marrow_bank_browser_core.py"
 
 source = CORE.read_text(encoding="utf-8")
 
+# The approved Home redesign no longer exposes the legacy nk-subject-row control
+# on first load. Use the stable public navigation API that the rest of this
+# verifier already uses, without changing learner behavior.
+legacy_subject_open = "            page.locator('button.nk-subject-row').filter(has_text='Biochemistry').click();page.wait_for_timeout(80)"
+current_subject_open = "            page.evaluate(\"window.QB.nav('banks','Biochemistry')\");page.wait_for_timeout(80)"
+if source.count(legacy_subject_open) != 1:
+    raise SystemExit(f"Initial Biochemistry navigation anchor count: {source.count(legacy_subject_open)}")
+source = source.replace(legacy_subject_open, current_subject_open, 1)
+
 replacements = {
     "            for marker in ('PrepLadder','Marrow','753'):": "            for marker in ('PrepLadder','Marrow','1,014'):",
     "            if page.locator('button.nk-topic-row').count()!=33: raise SystemExit('Marrow Physiology topic count is not 33')": "            if page.locator('button.nk-topic-row').count()!=43: raise SystemExit('Marrow Physiology topic count is not 43')",
@@ -41,7 +50,7 @@ if source.count(old) != 1:
 source = source.replace(old, new, 1)
 
 old_summary = "biochemistry=543/26 physiology=753/33 total=2115"
-new_summary = "biochemistry=543/26 physiology=1014/43 physiology_plan=42 physiology_numbering=contiguous raw_json=clean total=2376"
+new_summary = "biochemistry=543/26 physiology=1014/43 physiology_plan=42 physiology_numbering=contiguous raw_json=clean total=2455"
 if source.count(old_summary) != 1:
     raise SystemExit(f"Marrow browser summary anchor count: {source.count(old_summary)}")
 source = source.replace(old_summary, new_summary, 1)
