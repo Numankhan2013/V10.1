@@ -113,7 +113,9 @@
       nkSyncMeta.known[kind]=[...current[kind]];
     }
     nkQueueEnvelope(nkEnvelope('sessions','active',state.activeSession||null,nkEntityTimestamp(state.activeSession,Date.now()),!state.activeSession));
-    nkQueueEnvelope(nkEnvelope('preferences','main',{activeSubject,studyStartedAt:state.studyStartedAt||null,fsrsPreferences:state.fsrsPreferences||null},Date.now()));
+    const fsrsReviewEligible=state.fsrsReviewEligible&&Object.keys(state.fsrsReviewEligible).length?state.fsrsReviewEligible:null;
+    const preferencesPayload={activeSubject,studyStartedAt:state.studyStartedAt||null,fsrsPreferences:state.fsrsPreferences||null,...(fsrsReviewEligible?{fsrsReviewEligible}:{})};
+    nkQueueEnvelope(nkEnvelope('preferences','main',preferencesPayload,Date.now()));
     nkSaveSyncMeta();if(nkCloudRevision!==revision&&!nkCloudBusy)nkScheduleCloudFlush();
   }
   function nkScheduleCloudSync(){if(!nkAuth)return;nkCaptureCloudChanges();}
@@ -173,6 +175,12 @@
       if(count)reviews[qid]={attempts:count,streak,intervalDays:interval,lastReviewedAt:last,nextReviewAt:last+interval*86400000};
     });state.reviews=reviews;
   }
+  function nkMergeFsrsReviewEligible(incoming,fallbackAt=Date.now()){
+    if(!incoming||typeof incoming!=='object'||Array.isArray(incoming))return;
+    const merged={...(state.fsrsReviewEligible||{})};
+    Object.entries(incoming).forEach(([qid,entry])=>{if(entry?.reason!=='skipped')return;const key=String(qid),nextAt=Math.max(1,Number(entry.at||fallbackAt)),current=merged[key];if(!current||Number(current.at||0)<=nextAt)merged[key]={reason:'skipped',at:nextAt};});
+    state.fsrsReviewEligible=merged;
+  }
   function nkApplyCloudEnvelope(remote){
     const winner=remote.kind==='attempts'?remote:nkChooseWinner(remote);if(winner!==remote&&nkHash(winner)!==nkHash(remote))return false;
     const payload=winner.deleted?null:nkJson(winner.payload,null),id=winner.entityId;
@@ -194,7 +202,7 @@
       }state.studyModules=list.slice(-100);
     }
     else if(winner.kind==='sessions'){state.activeSession=winner.deleted?null:payload;}
-    else if(winner.kind==='preferences'&&payload){if(payload.activeSubject&&payload.activeSubject!==activeSubject&&typeof SUBJECT_BY_NAME!=='undefined'&&SUBJECT_BY_NAME[payload.activeSubject])applySubject(payload.activeSubject);if(payload.studyStartedAt)state.studyStartedAt=state.studyStartedAt?Math.min(Number(state.studyStartedAt),Number(payload.studyStartedAt)):Number(payload.studyStartedAt);if(payload.fsrsPreferences)state.fsrsPreferences={...(state.fsrsPreferences||{}),...payload.fsrsPreferences};}
+    else if(winner.kind==='preferences'&&payload){if(payload.activeSubject&&payload.activeSubject!==activeSubject&&typeof SUBJECT_BY_NAME!=='undefined'&&SUBJECT_BY_NAME[payload.activeSubject])applySubject(payload.activeSubject);if(payload.studyStartedAt)state.studyStartedAt=state.studyStartedAt?Math.min(Number(state.studyStartedAt),Number(payload.studyStartedAt)):Number(payload.studyStartedAt);if(payload.fsrsPreferences)state.fsrsPreferences={...(state.fsrsPreferences||{}),...payload.fsrsPreferences};nkMergeFsrsReviewEligible(payload.fsrsReviewEligible,winner.updatedAt);}
     // Received revisions are already synchronized; do not echo them as new edits.
     nkSyncMeta.localHashes[nkWinnerKey(winner)]=nkHash({deleted:winner.deleted,payload:winner.payload});
     return true;
@@ -262,7 +270,7 @@
     const pwa=location.hostname==='qbank.local'?'Android app':'Install from Safari with Share → Add to Home Screen.';
     if(!nkCloudConfigured())return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="section-title"><span>QBank Sync</span><span class="sub">Not configured</span></div><p class="small-muted">This build keeps all progress locally. Add the Firebase public configuration to enable secure account sync.</p><div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
     if(!nkAuth)return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="section-title"><span>QBank Sync</span><span class="sub">Firebase</span></div><p class="small-muted">Use the same private account on Android and iPad. Existing progress is backed up before its first merge.</p><label>Email<input id="nk-cloud-email" type="email" autocomplete="username" inputmode="email"></label><label>Password<input id="nk-cloud-password" type="password" autocomplete="current-password" minlength="6"></label><div class="nk-cloud-actions"><button onclick="window.QB.nkCloudAuthenticate('signin')">Sign in</button><button class="primary-btn" onclick="window.QB.nkCloudAuthenticate('create')">Create account</button></div><div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
-    return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="nk-cloud-user"><span class="nk-cloud-dot ${nkSyncMeta.status==='error'?'is-error':navigator.onLine?'is-online':''}"></span><div><strong>${esc(nkAuth.email||'QBank account')}</strong><small data-nk-cloud-status>${esc(nkCloudStatusCopy())}</small></div></div><details class="nk-cloud-error" ${nkSyncMeta.lastError?'':'hidden'}><summary>Sync error details</summary><p>${esc(nkSyncMeta.lastError||'')}</p></details><p class="small-muted">Attempts, bookmarks, tests, modules, active sessions and study preferences merge without replacing newer device data.</p><div class="nk-cloud-actions"><button class="primary-btn" onclick="window.QB.nkCloudSyncNow()">Sync now</button><button onclick="window.QB.nkCloudSignOut()">Sign out</button></div><div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
+    return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="nk-cloud-user"><span class="nk-cloud-dot ${nkSyncMeta.status==='error'?'is-error':navigator.onLine?'is-online':''}"></span><div><strong>${esc(nkAuth.email||'QBank account')}</strong><small data-nk-cloud-status>${esc(nkCloudStatusCopy())}</small></div></div><details class="nk-cloud-error" ${nkSyncMeta.lastError?'':'hidden'}><summary>Sync error details</summary><p>${esc(nkSyncMeta.lastError||'')}</p></details><p class="small-muted">Attempts, bookmarks, tests, modules, active sessions, review eligibility and study preferences merge without replacing newer device data.</p><div class="nk-cloud-actions"><button class="primary-btn" onclick="window.QB.nkCloudSyncNow()">Sync now</button><button onclick="window.QB.nkCloudSignOut()">Sign out</button></div><div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
   }
   function nkCloudAutoSync(){
     if(!nkAuth||!nkCloudConfigured()||!navigator.onLine||nkCloudBusy)return;
