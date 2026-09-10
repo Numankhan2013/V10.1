@@ -1,6 +1,8 @@
 # Marrow explanation fine-tuning runbook
 
 > Status: **next content-quality phase; do not execute until explicitly asked**.
+> For unattended explanation automations, first read the complete shared
+> `docs/MARROW_EXPLANATION_AUTOMATION_RUNBOOK.md` from authoritative `main`.
 > Read with `docs/MARROW_BANK_INTEGRATION.md` and the approved 142-question
 > explanation augmentation already in the repository.
 
