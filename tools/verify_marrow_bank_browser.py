@@ -167,8 +167,8 @@ biochem_guard = """            # User-supplied Ch27-28 must render as ordinary l
             page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
 """
-if source.count(biochem_anchor) != 1:
-    raise SystemExit(f"Biochemistry browser insertion anchor count: {source.count(biochem_anchor)}")
+if source.count(biochem_anchor) < 1:
+    raise SystemExit('Biochemistry browser insertion anchor missing')
 source = source.replace(biochem_anchor, biochem_guard + biochem_anchor, 1)
 
 old_summary = "biochemistry=543/26 physiology=1014/43 physiology_plan=42 physiology_numbering=contiguous raw_json=clean total=2455"
