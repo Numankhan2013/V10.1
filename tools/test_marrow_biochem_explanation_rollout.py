@@ -12,6 +12,8 @@ def main() -> None:
     sample = json.loads((DATA / "explanation_biochem_gold_sample_v1.json").read_text(encoding="utf-8"))
     inventory = json.loads((DATA / "explanation_inventory_v1.json").read_text(encoding="utf-8"))
     bank, source_sha = load_sharded("biochemistry_phase_a")
+    expanded_bank, expanded_sha = load_sharded("biochemistry_ch001_028")
+    legacy_manifest = json.loads((DATA / "biochemistry_phase_a_manifest.json").read_text(encoding="utf-8"))
 
     assert batch["scope"] == {
         "subject": "Biochemistry",
@@ -27,10 +29,13 @@ def main() -> None:
     assert not (set(questions) & set(sample["questions"]))
 
     source_questions = {q["id"]: q for q in bank["questions"]}
+    expanded_questions = {q["id"]: q for q in expanded_bank["questions"]}
     chapter_source = {q["id"] for q in bank["questions"] if str(q["chapterId"]) == "1"}
-    assert source_sha == inventory["sourceRawSha256"]["Biochemistry"]
+    assert source_sha == legacy_manifest["raw_sha256"]
+    assert expanded_sha == inventory["sourceRawSha256"]["Biochemistry"]
     assert set(questions) <= chapter_source
     assert chapter_source == set(questions) | {"marrow__BIOCHEM_CH01_Q023"}
+    assert all(expanded_questions[qid] == source_questions[qid] for qid in chapter_source)
 
     for qid, cfg in questions.items():
         source = source_questions[qid]
@@ -58,7 +63,7 @@ def main() -> None:
 
     print(
         "MARROW_BIOCHEM_EXPLANATION_ROLLOUT_TEST_OK "
-        "chapter=1 batch=22 chapter_total=23 approved_total=184 pending=2310 raw_source=unchanged"
+        "chapter=1 batch=22 chapter_total=23 approved_total=184 pending=2310 legacy_source=pinned expanded_source=pinned raw_source=unchanged"
     )
 
 
