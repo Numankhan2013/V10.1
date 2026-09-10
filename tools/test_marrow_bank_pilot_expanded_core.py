@@ -138,7 +138,7 @@ def main():
     assert 'const MARROW_RECORD =' not in s
     assert s.count('const BANKS_BY_SUBJECT = Object.create(null)')==1
     assert s.count('const MARROW_BY_SUBJECT = Object.freeze')==1
-    assert 'const nkFsrsAllQuestions=()=>SUBJECTS.flatMap' in s
+    assert "const nkFsrsAllQuestions=()=>typeof nkAllBankQuestions==='function'?nkAllBankQuestions():SUBJECTS.flatMap" in s
     assert 'return SUBJECTS.flatMap(record=>' in s
     assert 'BY_ID[s.questionIds[s.index]]||nkFsrsAllById()[s.questionIds[s.index]]' in s
     assert 'BY_ID[String(qid)]||nkFsrsAllById()[String(qid)]' in s
