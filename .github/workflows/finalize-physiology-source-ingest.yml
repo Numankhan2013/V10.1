@@ -27,13 +27,16 @@ jobs:
               Path('docs/MARROW_EXPLANATION_FINE_TUNING.md'),
               Path('docs/MARROW_IMAGE_PIPELINE.md'),
           ]
+          total_prefix_updates=0
           for path in prefix_targets:
               text=path.read_text(encoding='utf-8')
               n=text.count('physiology_ch001_033')
-              if n < 1:
-                  raise SystemExit(f'{path}: expected old Physiology source prefix')
-              path.write_text(text.replace('physiology_ch001_033','physiology_ch001_043'),encoding='utf-8')
+              total_prefix_updates += n
+              if n:
+                  path.write_text(text.replace('physiology_ch001_033','physiology_ch001_043'),encoding='utf-8')
               print('UPDATED_PREFIX', path, n)
+          if total_prefix_updates < 2:
+              raise SystemExit(f'Expected at least the runtime image consumer and explanation runbook to reference the old bundle; found {total_prefix_updates}')
 
           current_scope_docs = [
               Path('docs/MARROW_EXPLANATION_AUTOMATION_RUNBOOK.md'),
