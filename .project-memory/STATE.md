@@ -93,25 +93,28 @@ Content/source status:
 Deterministic/static validation progress:
 - Added a fail-informative inventory-drift diagnostic at commit
   `4080279cb998250a43b29d84338a3df5417a8bd7`.
-- Its exact-head full run 696 / `34516727305` proved the only blocking defect was the
-  expected stale inventory and emitted the exact regenerated manifest.
 - Regenerated `data/marrow/explanation_inventory_v1.json` at commit
   `440c41b3c1b00e1cc260d6738e95a70429899166`.
 - Current Chapter 9 candidate inventory is **539 enhanced / 1,576 pending** with
   fingerprint `06882fcd885436ebd15e38c2ff950de267d164434dc4050ca60d0841ca5dd131`.
 - Raw source hashes and global triage-flag counts are unchanged.
-- Exact-head full run 697 / `34516891887` has already passed inventory,
-  Biochemistry gold/rollout, Physiology rollout, product, CBT/FSRS, generated-app,
-  PWA/offline and the existing browser regression suite; APK/package/deploy stages
-  were still running at this checkpoint.
-- PR #33 is open, stacked on the fully verified Chapter 8 branch. PR exact-head
-  Engineering Gate 323 / `34517126399` was running at this checkpoint.
+- Previous PR head `c45a0b793d07624f33606ae30ef36b930ee521ad` passed exact-head
+  Engineering Gate 324 / `34517248792` and full Android/PWA run 698 /
+  `34517243286`. Those runs establish the pre-browser-regression baseline only;
+  they do not certify the changed current head.
+- The missing Chapter 9-specific generated-app browser proof was added at commit
+  `19d5c567124689570ed8ed37e3c735f6e39c6bef` in
+  `tools/verify_recall_dock_browser.py`. It selects Physiology Chapter 9 using
+  canonical `window.QB.openChapter('9')` identity, opens Q24, verifies the
+  learner-facing δ/κ/μ opioid-receptor reconstruction plus exactly three wrong-option
+  rationales, and captures `physiology-ch09-q24-opioid-reconstruction.png`.
 
-**Do not call Chapter 9 FULLY_VERIFIED yet.** One required batch-specific proof is
-still missing: add a stable-ID live browser regression for Chapter 9, preferably
-Q24, verifying its δ/κ/μ reconstruction and exactly three distractor rationales.
-After that browser-regression commit, the PR head changes and BOTH Engineering Gate
-and full Android/PWA must be green for that new exact head before certification.
+**Do not call Chapter 9 FULLY_VERIFIED yet.** This memory checkpoint changes the PR
+head after the browser-regression commit. Freeze the resulting exact head and require
+BOTH Engineering Gate and the full Android/PWA workflow to pass that final head,
+including the new Q24 browser assertion, APK/package/reproducibility checks and preview
+deployment. Then append the final verification record to `SESSION_LOG.md` and refresh
+this state with exact final head/run IDs/preview before releasing the lane.
 
 ## Known problems / cautions
 
@@ -131,14 +134,13 @@ and full Android/PWA must be green for that new exact head before certification.
 ## Next step
 
 Resume **Chapter 9 verification**, not Chapter 10:
-1. re-check the live PR #33 head and current CI outcomes;
-2. add a stable-ID Chapter 9/Q24 browser regression to the existing browser gate;
-3. freeze the resulting PR exact head;
-4. require exact-head Engineering Gate + full Android/PWA browser/APK/package/
+1. freeze the current PR #33 exact head after this checkpoint;
+2. require exact-head Engineering Gate + full Android/PWA browser/APK/package/
    reproducibility/deploy success;
-5. update `SESSION_LOG.md` with the completed Chapter 9 verification session and
+3. confirm the full run executes the new Chapter 9 Q24 browser regression successfully;
+4. append `SESSION_LOG.md` with the completed Chapter 9 verification session and
    refresh this state with exact final head/run IDs/preview;
-6. only after all of the above may Chapter 9 be labeled **FULLY_VERIFIED** and the
+5. only after all of the above may Chapter 9 be labeled **FULLY_VERIFIED** and the
    serialized lane released for another subject/new batch.
 
 Efficiency rule: pre-audit the next chapter while CI runs, but **never commit the
