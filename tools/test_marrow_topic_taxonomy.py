@@ -12,7 +12,7 @@ DATA = ROOT / "data" / "marrow"
 BANKS = {
     "Anatomy": "anatomy_phase_a",
     "Biochemistry": "biochemistry_phase_a",
-    "Physiology": "physiology_ch001_033",
+    "Physiology": "physiology_ch001_043",
 }
 
 ANATOMY_SECTION_ORDER = [
@@ -130,13 +130,7 @@ PHYSIOLOGY_PLANNED = {
     "Integrated physiology": ["Exercise physiology"],
 }
 
-PHYSIOLOGY_VISIBLE_IDS = [
-    "1", "2", "3", "4", "5", "6", "7", "8", "9",
-    "31", "32", "33",
-    "26", "27", "28", "29", "30",
-    "19", "20", "21", "22", "23", "24", "25",
-    "10", "11", "12", "13", "14", "15", "16", "17", "18",
-]
+PHYSIOLOGY_VISIBLE_IDS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '31', '32', '33', '26', '27', '28', '29', '30', '19', '20', '21', '22', '23', '24', '25', '34', '35', '36', '37', '38', '39', '40', '41', '42', '10', '11', '12', '13', '14', '15', '16', '17', '18', '43']
 PHYSIOLOGY_SLOT_MAP = {
     "1": ["general-physiology:01"],
     "2": ["general-physiology:02"],
@@ -171,6 +165,16 @@ PHYSIOLOGY_SLOT_MAP = {
     "31": ["gastrointestinal-system:01", "gastrointestinal-system:02"],
     "32": ["gastrointestinal-system:03"],
     "33": ["gastrointestinal-system:04"],
+    "34": ["renal-physiology:01"],
+    "35": ["renal-physiology:02"],
+    "36": ["renal-physiology:02", "renal-physiology:03"],
+    "37": ["endocrine-physiology:01"],
+    "38": ["endocrine-physiology:02"],
+    "39": ["endocrine-physiology:03"],
+    "40": ["endocrine-physiology:04"],
+    "41": ["reproductive-physiology:01"],
+    "42": ["reproductive-physiology:02"],
+    "43": ["integrated-physiology:01"],
 }
 
 
@@ -248,19 +252,16 @@ def main() -> None:
 
     phys = subjects["Physiology"]
     validate_planned("Physiology", phys, PHYSIOLOGY_SECTION_ORDER, PHYSIOLOGY_PLANNED, 42)
-    assert nonempty_sections(phys) == [
-        "General physiology", "Nerve and muscle physiology", "Gastrointestinal system",
-        "Cardiovascular system", "Respiratory system", "Central nervous system",
-    ]
+    assert nonempty_sections(phys) == PHYSIOLOGY_SECTION_ORDER
     assert flatten_current(phys) == PHYSIOLOGY_VISIBLE_IDS
     assert {str(item["id"]): item["plannedSlots"] for item in phys["topics"]} == PHYSIOLOGY_SLOT_MAP
-    assert set(PHYSIOLOGY_VISIBLE_IDS) == {str(i) for i in range(1, 34)}
+    assert set(PHYSIOLOGY_VISIBLE_IDS) == {str(i) for i in range(1, 44)}
 
-    assert total == 107
+    assert total == 117
     print(
-        "MARROW_TOPIC_TAXONOMY_OK subjects=3 current_topics=107 "
+        "MARROW_TOPIC_TAXONOMY_OK subjects=3 current_topics=117 "
         "anatomy_plan=71 anatomy_visible=48 biochemistry_plan=32 biochemistry_visible=26 "
-        "physiology_plan=42 physiology_visible=33 numbering=contiguous placeholders=none"
+        "physiology_plan=42 physiology_visible=43 numbering=contiguous placeholders=none"
     )
 
 

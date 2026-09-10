@@ -17,7 +17,7 @@ DATA = ROOT / "data" / "marrow"
 BANKS = {
     "Anatomy": "anatomy_phase_a",
     "Biochemistry": "biochemistry_phase_a",
-    "Physiology": "physiology_ch001_033",
+    "Physiology": "physiology_ch001_043",
 }
 BIOCHEM_SAMPLE_CHAPTERS = (1, 2, 4, 5, 7, 8, 10, 11, 12, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 26)
 OCR_SIGNALS = (
@@ -150,15 +150,15 @@ def main() -> None:
     args = parser.parse_args()
     inventory = build_inventory()
     enhanced = len(enhanced_ids())
-    assert inventory["summary"]["questions"] == 2115
-    assert inventory["summary"]["enhancementStatus"] == {"enhanced-reference": enhanced, "pending": 2115 - enhanced}
+    assert inventory["summary"]["questions"] == 2376
+    assert inventory["summary"]["enhancementStatus"] == {"enhanced-reference": enhanced, "pending": 2376 - enhanced}
     assert len(inventory["biochemistryGoldSample"]) == 20
-    assert len({row["id"] for row in inventory["questions"]}) == 2115
+    assert len({row["id"] for row in inventory["questions"]}) == 2376
     if args.write:
         target = DATA / "explanation_inventory_v1.json"
         target.write_text(json.dumps(inventory_manifest(inventory), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     summary = inventory["summary"]
-    print(f"MARROW_EXPLANATION_INVENTORY_OK questions={summary['questions']} enhanced={enhanced} pending={2115-enhanced} biochem_sample=20 flags={summary['flags']}")
+    print(f"MARROW_EXPLANATION_INVENTORY_OK questions={summary['questions']} enhanced={enhanced} pending={2376-enhanced} biochem_sample=20 flags={summary['flags']}")
 
 
 if __name__ == "__main__":

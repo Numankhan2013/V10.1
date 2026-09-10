@@ -50,10 +50,10 @@ def main() -> None:
 
     HTML.write_text(source, encoding="utf-8")
     phys = arranged.get("Physiology", [])
-    expected = ["1","2","3","4","5","6","7","8","9","31","32","33","26","27","28","29","30","19","20","21","22","23","24","25","10","11","12","13","14","15","16","17","18"]
+    expected = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '31', '32', '33', '26', '27', '28', '29', '30', '19', '20', '21', '22', '23', '24', '25', '34', '35', '36', '37', '38', '39', '40', '41', '42', '10', '11', '12', '13', '14', '15', '16', '17', '18', '43']
     if phys != expected:
         raise SystemExit(f"Physiology arranged topic order mismatch: {phys}")
-    print("MARROW_TOPIC_NUMBERING_OK physiology_visible=33 learner_serials=1-33 source_ids=preserved")
+    print("MARROW_TOPIC_NUMBERING_OK physiology_visible=43 learner_serials=1-43 source_ids=preserved")
 
 
 if __name__ == "__main__":

@@ -190,10 +190,10 @@ def load_expanded_bank(prefix: str, expected_subject: str):
 
 expanded_anatomy,expanded_anatomy_manifest=load_expanded_bank("anatomy_phase_a","Anatomy")
 expanded_biochemistry,expanded_biochemistry_manifest=load_expanded_bank("biochemistry_phase_a","Biochemistry")
-expanded_physiology,expanded_physiology_manifest=load_expanded_bank("physiology_ch001_033","Physiology")
+expanded_physiology,expanded_physiology_manifest=load_expanded_bank("physiology_ch001_043","Physiology")
 expanded_records=[expanded_anatomy,expanded_biochemistry,expanded_physiology]
 expanded_ids=[q["id"] for record in expanded_records for q in record["questions"]]
-if len(expanded_ids)!=2115 or len(expanded_ids)!=len(set(expanded_ids)):
+if len(expanded_ids)!=2376 or len(expanded_ids)!=len(set(expanded_ids)):
     raise SystemExit(f"Expanded Marrow global ID mismatch: {len(expanded_ids)}")
 if not {q["id"] for q in anatomy_record.get("questions",[])}.issubset({q["id"] for q in expanded_anatomy["questions"]}):
     raise SystemExit("Accepted Anatomy pilot IDs are not a subset of expanded Anatomy")
