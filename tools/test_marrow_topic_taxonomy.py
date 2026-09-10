@@ -121,6 +121,62 @@ ANATOMY_PLANNED = {
 }
 
 
+BIOCHEM_SECTION_ORDER = [
+    "Carbohydrates",
+    "Amino acids and proteins",
+    "Lipids",
+    "Enzymes and phenylketonuria",
+    "Clinical biochemistry and nutrition",
+    "Genetics",
+]
+BIOCHEM_PLANNED = {
+    "Carbohydrates": [
+        "Chemistry of carbohydrates",
+        "Amino sugars and mucopolysaccharides",
+        "Glycolysis and gluconeogenesis",
+        "Glycogen metabolism and glycogen storage disorders",
+        "HMP shunt pathway",
+        "Fructose and galactose metabolism",
+        "ETC and bioenergetics",
+        "Krebs cycle",
+    ],
+    "Amino acids and proteins": [
+        "Amino acid basics",
+        "Amino acid metabolism",
+        "Amino acid metabolic disorder",
+        "Protein structure and function",
+        "Urea cycle and its disorders",
+    ],
+    "Lipids": [
+        "Lipid basics",
+        "Fatty acid oxidation and ketogenesis",
+        "Biosynthesis of fatty acids and eicosanoids",
+        "Metabolism of acylglycerols and sphingolipids",
+        "Cholesterol synthesis, transport, and excretion",
+    ],
+    "Enzymes and phenylketonuria": [
+        "Phenylketonuria and bile pigments",
+        "Enzyme mechanism of action and clinical importance",
+        "Enzyme kinetics and regulation of activity",
+    ],
+    "Clinical biochemistry and nutrition": [
+        "Fats",
+        "Soluble vitamins",
+        "Energy-releasing vitamins",
+        "Hematopoietic and other vitamins",
+        "Antioxidants and minerals",
+    ],
+    "Genetics": [
+        "Basics of genetics",
+        "Nucleotide metabolism and disorders",
+        "DNA organization, replication, and repair",
+        "RNA synthesis, processing, and modification",
+        "Regulation of gene expression",
+        "Molecular genetics and recombinant DNA and genomic technology",
+    ],
+}
+
+
 def load_bank(prefix: str) -> dict:
     encoded = "".join(
         part.read_text(encoding="utf-8").strip()
@@ -203,9 +259,27 @@ def main() -> None:
     ]
     assert flattened_ids == [str(i) for i in range(1, 49)]
 
-    assert subjects["Biochemistry"]["topics"][0]["section"] == "Carbohydrate Chemistry"
+    biochem = subjects["Biochemistry"]
+    assert biochem["catalogVersion"] == 2
+    assert biochem["sectionOrder"] == BIOCHEM_SECTION_ORDER
+    assert biochem["displayNumbering"] == "visible-contiguous"
+    bplanned = biochem["plannedIndex"]
+    assert [section["title"] for section in bplanned] == BIOCHEM_SECTION_ORDER
+    assert {section["title"]: [topic["title"] for topic in section["topics"]] for section in bplanned} == BIOCHEM_PLANNED
+    bslots = [topic["slot"] for section in bplanned for topic in section["topics"]]
+    assert len(bslots) == 32
+    assert len(set(bslots)) == len(bslots)
+    bslot_set = set(bslots)
+    bcurrent = biochem["topics"]
+    for item in bcurrent:
+        assert item.get("plannedSlots"), item["id"]
+        assert set(item["plannedSlots"]) <= bslot_set, (item["id"], item["plannedSlots"])
+    bnonempty = [section for section in biochem["sectionOrder"] if any(item["section"] == section for item in bcurrent)]
+    assert bnonempty == BIOCHEM_SECTION_ORDER
+    bflattened = [item["id"] for section in biochem["sectionOrder"] for item in bcurrent if item["section"] == section]
+    assert bflattened == [str(i) for i in range(1, 27)]
     assert total == 107
-    print("MARROW_TOPIC_TAXONOMY_OK subjects=3 current_topics=107 anatomy_plan=71 anatomy_visible=48 numbering=contiguous placeholders=none")
+    print("MARROW_TOPIC_TAXONOMY_OK subjects=3 current_topics=107 anatomy_plan=71 anatomy_visible=48 biochemistry_plan=32 biochemistry_visible=26 numbering=contiguous placeholders=none")
 
 
 if __name__ == "__main__":
