@@ -55,9 +55,6 @@ def main():
             if page.locator('.nk-gold-wrong-row').count()!=3:
                 raise SystemExit('Marrow Biochemistry Chapter 1 Q1 must render exactly three distractor rationales')
             if 'original pdf' in bsupport: raise SystemExit('Marrow Biochemistry incorrectly used Original PDF')
-            # FSRS footer placement is exercised below on the approved Q23 gold
-            # sample and on Physiology/Anatomy; keep this Q1 assertion focused on
-            # the new Chapter 1 explanation rollout itself.
             page.screenshot(path=str(OUT/'00a-biochemistry-ch01-rollout-q1.png'),full_page=True)
 
             # Explanation-quality candidate regression: Chapter 1 Q23 is one of
@@ -143,9 +140,6 @@ def main():
             assert_sections(['CNS Physiology','General Physiology','Cellular Physiology','Neuromuscular Physiology','Cardiovascular System','Respiratory System','Gastrointestinal System'])
             page.locator('button.nk-topic-row').filter(has_text='Homeostasis and cellular physiology').click();page.wait_for_timeout(80)
             if page.locator('button.nk-library-row').count()!=21: raise SystemExit('Marrow Physiology Chapter 1 count is not 21')
-            # User-reported regression target: Q2 previously dumped raw OCR debris
-            # and used "All of the above" as the takeaway. It must now use the
-            # same approved explanation grammar as Anatomy.
             page.locator('button.nk-library-row').nth(1).click();page.wait_for_timeout(80)
             if 'Which is a component of homeostatic control system' not in page.locator('.question-text').inner_text():
                 raise SystemExit('Marrow Physiology Q2 did not open')
@@ -202,7 +196,11 @@ def main():
             page.screenshot(path=str(OUT/'01-anatomy-bank-selector.png'),full_page=True)
             cards.filter(has_text='Marrow').click();page.wait_for_timeout(100)
             if page.locator('button.nk-topic-row').count()!=48: raise SystemExit('Marrow Anatomy topic count is not 48')
-            assert_sections(['General Embryology','Histology','Neuroanatomy','Head & Neck','Upper Limb','Thorax','Abdomen','Systemic Embryology'])
+            assert_sections(['Embryology','Histology','Neuroanatomy','Head, neck, and face','Upper limb','Thorax','Abdomen and pelvis'])
+            serials=page.locator('.nk-topic-index').all_inner_texts()
+            if serials!=[str(i) for i in range(1,49)]: raise SystemExit(f'Marrow Anatomy learner numbering is not contiguous: {serials!r}')
+            if any(x in page.locator('body').inner_text() for x in ('Lower limb\n0 topics','Back\n0 topics','General anatomy\n0 topics')):
+                raise SystemExit('Unimported Anatomy planned section leaked as an empty learner-facing group')
             if 'Marrow' not in page.locator('body').inner_text(): raise SystemExit('Marrow bank context is missing')
             page.screenshot(path=str(OUT/'02-marrow-topics.png'),full_page=True)
             page.locator('button.nk-topic-row').filter(has_text='Pre-Embryonic Phase of Development').click();page.wait_for_timeout(80)
@@ -353,5 +351,5 @@ def main():
             if errors: raise SystemExit('Browser errors: '+repr(errors))
             browser.close()
         server.shutdown()
-    print('MARROW_BROWSER_OK registry=subject-indexed anatomy=819/48 biochemistry=543/26 physiology=753/33 total=2115 anatomy_phys_reference=142 biochemistry=42 enhanced=184 rationales=552 phys_q2=clean biochem_q23=gold phys_table=preserved anatomy_table=preserved fsrs_dock=fixed')
+    print('MARROW_BROWSER_OK registry=subject-indexed anatomy=819/48 anatomy_plan=71 anatomy_numbering=contiguous biochemistry=543/26 physiology=753/33 total=2115 anatomy_phys_reference=142 biochemistry=42 enhanced=184 rationales=552 phys_q2=clean biochem_q23=gold phys_table=preserved anatomy_table=preserved fsrs_dock=fixed')
 if __name__=='__main__':main()
