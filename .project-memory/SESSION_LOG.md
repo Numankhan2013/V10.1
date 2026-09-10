@@ -801,3 +801,7 @@ Implemented approved recovery in existing transform owners: Topics separate path
   released questions (Anatomy 64, Biochemistry 55, Physiology 39). Added browser
   regressions for explanation timing/fullscreen zoom and authentic question-time
   timing/no duplication. All 37 local checks pass; full CI remains pending.
+- The first full run reached the new browser regression and failed because the
+  assertion named a nonexistent viewer class. Updated it to the established
+  `#nk-source-viewer` / `.nk-sv-close` contract used by prior image tests; product
+  behavior and image release data were unchanged.

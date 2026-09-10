@@ -504,10 +504,10 @@ def main():
                 raise SystemExit('Anatomy Chapter 9 Q5 flexure diagram missing after answer')
             page.wait_for_function("document.querySelector('.nk-marrow-figure-button img')?.naturalWidth===575")
             flexure.click();page.wait_for_timeout(80)
-            if not page.locator('.nk-marrow-viewer.is-open').is_visible():
+            if not page.locator('#nk-source-viewer').is_visible():
                 raise SystemExit('Batch 08 flexure diagram did not open fullscreen viewer')
             page.screenshot(path=str(OUT/'06a-anatomy-batch08-flexure-viewer.png'),full_page=True)
-            page.locator('.nk-marrow-viewer-close').click();page.wait_for_timeout(60)
+            page.locator('#nk-source-viewer .nk-sv-close').click();page.wait_for_timeout(60)
 
             # Batch 08: stem-critical authentic specimen is visible before answer
             # with neutral alt text and does not duplicate after submission.
