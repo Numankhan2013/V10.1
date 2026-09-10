@@ -7,7 +7,7 @@
 
 - Repo: `Numankhan2013/V10.1`.
 - Git `main` is the authoritative unified V11/Marrow product line; the user-approved image pilot merged through PR #12.
-- Anatomy topic-index v2 work is prepared on `feature/anatomy-topic-index-v2`; use a `feature/marrow-*` integration branch for full push CI before merge.
+- Anatomy topic-index v2 candidate branch: `feature/marrow-anatomy-topic-index-v2`.
 - Resolve live branch/HEAD from Git; never hardcode a self-staling HEAD value.
 - Accepted product baseline remains **V11.6 Content Quality** at `125d68b`,
   canonical APK run `34050921180`.
@@ -169,8 +169,8 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 
 ## Next step
 
-1. Finish/verify Anatomy topic-index v2 on a CI-triggering `feature/marrow-*`
-   branch, then merge only after green taxonomy/browser/product checks.
+1. Finish/verify Anatomy topic-index v2 on `feature/marrow-anatomy-topic-index-v2`,
+   then merge only after green taxonomy/browser/product checks.
 2. Keep Physiology and Biochemistry taxonomy unchanged until the user supplies
    their intended index arrangements.
 3. Continue image Batch 02 separately from current `main`, prioritizing unresolved
