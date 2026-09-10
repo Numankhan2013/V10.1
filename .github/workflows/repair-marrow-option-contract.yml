@@ -7,6 +7,7 @@ on:
     paths:
       - tools/repair_marrow_option_contract.py
       - tools/repair_marrow_option_contract_v2.py
+      - tools/repair_marrow_option_contract_v3.py
       - .github/workflows/repair-marrow-option-contract.yml
 
 permissions:
@@ -20,7 +21,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Repair option labels and regression guards
-        run: python3 tools/repair_marrow_option_contract_v2.py
+        run: python3 tools/repair_marrow_option_contract_v3.py
       - name: Verify repaired source data
         run: |
           python3 tools/test_marrow_bank_pilot.py --data-only
