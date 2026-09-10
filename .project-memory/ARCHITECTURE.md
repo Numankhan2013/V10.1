@@ -150,7 +150,7 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   - Anatomy: 819 questions / 48 topics.
   - Biochemistry: 543 / 26.
   - Physiology: 753 / 33.
-  - Combined: 2,115 unique questions / 107 topics.
+  - Combined: 2,376 unique questions / 107 topics.
 - Expanded transport is manifest-verified compressed/base64 data:
   `data/marrow/anatomy_phase_a.zlib.b64.part*` +
   `anatomy_phase_a_manifest.json`;
@@ -168,7 +168,7 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   structured source text/tables; the approved enhanced layer remains only on the
   142-question subset until a later explanation phase.
 - `data/marrow/explanation_inventory_v1.json` is deterministic, text-free review
-  metadata for all 2,115 IDs. It is regenerated from source hashes and never
+  metadata for all 2,376 IDs. It is regenerated from source hashes and never
   changes imported records or learner-facing explanations.
 - Three resolved Anatomy reconstructions remain deterministic and provenance-marked:
   `ANAT_CH02_Q010`, `ANAT_CH03_Q004`, `ANAT_CH04_Q013`.

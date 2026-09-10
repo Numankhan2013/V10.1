@@ -37,7 +37,7 @@ Check off only when build-verified **and** device-verified where UI is involved.
       **753 / 33**, through the same shared registry.
 - [x] Final expanded bank contracts/browser/package gates:
       Engineering `34245190588`, full Android+PWA `34245190771`,
-      browser total **2,115** Marrow questions.
+      browser total **2,376** Marrow questions.
 - [x] Physical user spot-check of the expanded feature PWA: user confirmed the
       Marrow question integration succeeds and the recovered Topics/FSRS
       customization surfaces are good. This is not blanket acceptance of all
@@ -50,12 +50,12 @@ Check off only when build-verified **and** device-verified where UI is involved.
 - [ ] Explanation fine-tuning for the newly added questions using
       `docs/MARROW_EXPLANATION_FINE_TUNING.md`. **Active phase.** Keep raw source
       immutable and scale the approved 142-question grammar through a separate
-      augmentation layer. The 2,115-ID inventory is complete and the selected
+      augmentation layer. The 2,376-ID inventory is complete and the selected
       20-question cross-chapter Biochemistry sample passed CI/browser verification
       and was physically approved by the user on 2026-09-09. The approved reference
       is now the canonical grammar. Biochemistry Chapter 1 rollout is complete
       (22 additional questions; 23/23 Chapter 1 enhanced), bringing the enhanced
-      total to **184** with **1,931** remaining. Continue at Biochemistry Chapter 2.
+      total to **184** with **2,192** remaining. Continue at Biochemistry Chapter 2.
 - [ ] Images/figures remain a later pass. Preserve figure metadata and do not
       block source-faithful text-bank work on missing binaries.
 - [ ] Continue later Marrow chapters beyond the supplied current scope only when

@@ -7,7 +7,7 @@ APK plus a V11.7 responsive PWA/cross-device evolution candidate.
 Currently covers **Anatomy, Physiology, Biochemistry**. PrepLadder remains
 Anatomy 1,068 Q, Physiology 899 Q, Biochemistry 719 Q. The active Marrow
 feature candidate additionally contains Anatomy 819/48, Biochemistry 543/26,
-and Physiology 753/33 (2,115 Marrow questions total).
+and Physiology 753/33 (2,376 Marrow questions total).
 
 ## Phase
 
