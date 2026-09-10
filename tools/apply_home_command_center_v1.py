@@ -121,38 +121,113 @@ body:has(.nk-home-approved-v1){background:#f6f7fb}
 
 
 def replace_function(source: str, name: str, replacement: str) -> str:
+    """Replace one JS function while respecting nested template literals.
+
+    The generated Home before this transform contains nested backtick templates
+    inside `${...}` expressions. A naive brace scanner can therefore stop at an
+    interpolation close and leave legacy HTML after the replacement. This scanner
+    tracks code, strings, comments, template text, and interpolation brace depth.
+    """
     start = source.find(f"function {name}(")
     if start < 0:
         raise SystemExit(f"{name} not found")
     brace = source.find("{", start)
     if brace < 0:
         raise SystemExit(f"{name} opening brace not found")
+
     depth = 0
+    mode = "code"
     quote = None
     escaped = False
-    template_depth = 0
-    for index in range(brace, len(source)):
-        char = source[index]
+    line_comment = False
+    block_comment = False
+    interpolation_depths: list[int] = []
+    i = brace
+
+    while i < len(source):
+        char = source[i]
+        nxt = source[i + 1] if i + 1 < len(source) else ""
+
+        if line_comment:
+            if char == "\n":
+                line_comment = False
+            i += 1
+            continue
+
+        if block_comment:
+            if char == "*" and nxt == "/":
+                block_comment = False
+                i += 2
+            else:
+                i += 1
+            continue
+
         if quote:
             if escaped:
                 escaped = False
             elif char == "\\":
                 escaped = True
-            elif char == quote and (quote != "`" or template_depth == 0):
+            elif char == quote:
                 quote = None
-            elif quote == "`" and source[index:index + 2] == "${":
-                template_depth += 1
-            elif quote == "`" and char == "}" and template_depth:
-                template_depth -= 1
+            i += 1
             continue
-        if char in "'\"`":
+
+        if mode == "template":
+            if escaped:
+                escaped = False
+                i += 1
+                continue
+            if char == "\\":
+                escaped = True
+                i += 1
+                continue
+            if char == "`":
+                mode = "code"
+                i += 1
+                continue
+            if char == "$" and nxt == "{":
+                depth += 1
+                interpolation_depths.append(depth)
+                mode = "code"
+                i += 2
+                continue
+            i += 1
+            continue
+
+        if char == "/" and nxt == "/":
+            line_comment = True
+            i += 2
+            continue
+        if char == "/" and nxt == "*":
+            block_comment = True
+            i += 2
+            continue
+        if char in "'\"":
             quote = char
-        elif char == "{":
+            i += 1
+            continue
+        if char == "`":
+            mode = "template"
+            i += 1
+            continue
+        if char == "{":
             depth += 1
-        elif char == "}":
+            i += 1
+            continue
+        if char == "}":
+            if interpolation_depths and depth == interpolation_depths[-1]:
+                depth -= 1
+                interpolation_depths.pop()
+                mode = "template"
+                i += 1
+                continue
             depth -= 1
             if depth == 0:
-                return source[:start] + replacement.rstrip() + source[index + 1:]
+                return source[:start] + replacement.rstrip() + source[i + 1:]
+            i += 1
+            continue
+        i += 1
+
     raise SystemExit(f"{name} end not found")
 
 
