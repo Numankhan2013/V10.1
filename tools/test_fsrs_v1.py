@@ -24,6 +24,8 @@ required = [
     "reason==='skipped'", "function nkFsrsQueueDialog(){navigate('fsrs');}",
     "function nkFsrsSessionAttemptSource(s)", "return'fsrs-review'",
     "['fsrs-review','spaced-review'].includes(a.source)",
+    "typeof nkAllBankQuestions==='function'?nkAllBankQuestions()",
+    "repeatIds=new Set", "[1,3].includes(Number(state.reviews?.[q.id]?.state))",
 ]
 missing = [marker for marker in required if marker not in core]
 if missing:
@@ -45,19 +47,22 @@ harness = f"""
 const assert=require('assert');global.window=globalThis;window.FSRS=require('{vendor_path}');
 const store=new Map();global.localStorage={{getItem:k=>store.has(k)?store.get(k):null,setItem:(k,v)=>store.set(k,String(v))}};
 const LS_KEY='qbank_state_v1',now=Date.now(),questions=Array.from({{length:190}},(_,i)=>({{id:'q'+i,subject:i<95?'Anatomy':'Physiology',chapterId:String(i%4),chapter:'Topic '+(i%4),correctOption:1}}));
+const bankExtra={{id:'marrow-extra',subject:'Physiology',chapterId:'9',chapter:'Expanded Marrow Topic',correctOption:1}};
 const SUBJECTS=[{{subject:'Anatomy',topics:[{{id:'0',title:'Topic 0'}}],questions:questions.slice(0,95)}},{{subject:'Physiology',topics:[{{id:'0',title:'Topic 0'}}],questions:questions.slice(95)}}];
+function nkAllBankQuestions(){{return [...questions,bankExtra];}}
 let state={{attempts:{{q0:[{{id:'legacy',selected:1,correct:true,at:now-86400000}}]}},reviews:{{q0:{{nextReviewAt:now+123456}}}},fsrsPreferences:null,fsrsReviewEligible:{{}},activeSession:null}};
 let lastRoute='',route={{page:'practice'}};let BY_ID=Object.fromEntries(questions.map(q=>[q.id,q])),dashboard=()=>'<main></main>',morePage=()=>'<main></main>',practicePage=()=>'<main></main>',practiceActionBar=()=>'<div class="fixed-actions nk-session-footer"><div class="fixed-actions-inner"><button>Previous</button><button>Next</button></div></div>',submitPractice=()=>{{}},nextQ=()=>{{}},prevQ=()=>{{}},goIndex=()=>{{}},retryCurrent=()=>{{}},endSession=()=>{{}},navigate=page=>{{lastRoute=page;}},recordAttempt=()=>{{}},qAttempts=()=>[],nkRebuildReviews=()=>{{}};
 const saveState=()=>localStorage.setItem(LS_KEY,JSON.stringify(state)),startSession=()=>{{}},render=()=>{{}},showToast=()=>{{}},savePracticeElapsed=()=>{{}},haptic=()=>{{}},esc=x=>String(x),shell=x=>x,navIcon=()=>'',windowQB={{}};window.QB=windowQB;global.document={{getElementById:()=>null,querySelector:()=>null,body:{{insertAdjacentHTML:()=>{{}}}}}};window.addEventListener=()=>{{}};
 {core}
-nkFsrsInit();assert.equal(state.reviews.q0.schemaVersion,2);assert.equal(state.reviews.q0.nextReviewAt,now+123456,'legacy due date preserved');
+nkFsrsInit();assert.equal(state.reviews.q0.schemaVersion,2);assert.equal(state.reviews.q0.nextReviewAt,now+123456,'legacy due date preserved');assert(nkFsrsAllQuestions().some(q=>q.id==='marrow-extra'),'FSRS question universe must include dynamically integrated bank questions');
 const before=JSON.stringify(state.reviews.q0);nkFsrsReplay('q0',true);assert.equal(JSON.stringify(state.reviews.q0),before,'replay deterministic');
 nkFsrsRecordAttempt('q0',1,1000,'practice',4);const latest=state.attempts.q0.at(-1);assert.equal(latest.rating,4);assert.equal(latest.schedulerVersion,'fsrs6');assert(latest.schedulerBefore&&latest.schedulerAfter);assert.equal(state.reviews.q0.legacyDueOverride,null);
 state.attempts.q1=[{{id:'binary-wrong',selected:2,correct:false,at:now-2000}},{{id:'binary-good',selected:1,correct:true,at:now-1000}}];nkFsrsReplay('q1');assert.equal(state.reviews.q1.repetitions,2,'legacy binary attempts replay');assert.equal(nkFsrsEligibility(questions[1]),'wrong');
 const empty=window.FSRS.createEmptyCard(new Date(now)),preview=nkFsrsEngine().repeat(empty,new Date(now));[1,2,3,4].forEach(r=>assert(preview[r].card.due instanceof Date));
 for(let i=2;i<162;i++){{state.attempts['q'+i]=[{{id:'a'+i,selected:2,correct:false,at:now-i}}];state.reviews['q'+i]={{schemaVersion:2,due:now-1,nextReviewAt:now-1,state:i===2?1:2,stability:2,difficulty:5,repetitions:1,lapses:1,elapsedDays:0,scheduledDays:1,lastReview:now-86400000}};}}
 const queue=nkFsrsQueue();assert.equal(queue.cards.length,150,'ordinary practice must not consume the FSRS daily review cap');assert.equal(queue.cards[0].id,'q2','learning reviews first');assert.equal(queue.rolledOver,10);assert(queue.cards.every(q=>nkFsrsEligibility(q)),'queue may contain only review-eligible questions');assert(!queue.cards.some(q=>q.id==='q188'),'unseen questions must never enter FSRS');
-state.attempts.q2.push({{id:'today-review',selected:1,correct:true,at:now,reviewedAt:now,source:'fsrs-review',rating:3,schedulerVersion:NK_FSRS_VERSION}});const afterReviewCap=nkFsrsQueue();assert.equal(afterReviewCap.cards.length,149,'an actual FSRS review must consume one daily review slot');assert(!afterReviewCap.cards.some(q=>q.id==='q2'),'a question reviewed in FSRS today must not be queued again merely because stale due metadata exists');state.attempts.q2.pop();
+state.attempts['marrow-extra']=[{{id:'marrow-wrong',selected:2,correct:false,at:now-3000}}];state.reviews['marrow-extra']={{schemaVersion:2,due:now-1,nextReviewAt:now-1,state:2,stability:1,difficulty:5,repetitions:1,lapses:1,elapsedDays:0,scheduledDays:1,lastReview:now-86400000}};assert(nkFsrsQueue({{subject:'Physiology'}}).due.some(q=>q.id==='marrow-extra'),'expanded Marrow question must participate in FSRS review queue');delete state.attempts['marrow-extra'];delete state.reviews['marrow-extra'];
+state.attempts.q2.push({{id:'today-learning-review',selected:1,correct:true,at:now,reviewedAt:now,source:'fsrs-review',rating:3,schedulerVersion:NK_FSRS_VERSION}});state.attempts.q3.push({{id:'today-normal-review',selected:1,correct:true,at:now,reviewedAt:now,source:'fsrs-review',rating:3,schedulerVersion:NK_FSRS_VERSION}});const afterReviewCap=nkFsrsQueue();assert.equal(afterReviewCap.cards.length,149,'two reviewed IDs consume distinct-card slots while a due learning repeat remains admissible');assert(afterReviewCap.cards.some(q=>q.id==='q2'),'due same-day learning/relearning step must remain reviewable');assert(!afterReviewCap.cards.some(q=>q.id==='q3'),'ordinary review completed today must not be immediately repeated');assert.equal(afterReviewCap.rolledOver,10);state.attempts.q2.pop();state.attempts.q3.pop();
 const beforeSkip=nkFsrsQueue({{subject:'Physiology',topic:'1'}});assert(!beforeSkip.cards.some(q=>q.id==='q189'),'unseen topic question must stay out');state.fsrsReviewEligible.q189={{reason:'skipped',at:now}};delete state.reviews.q189;const filtered=nkFsrsQueue({{subject:'Physiology',topic:'1'}});assert(filtered.cards.every(q=>q.subject==='Physiology'&&q.chapterId==='1'));assert(filtered.cards.some(q=>q.id==='q189'),'encountered skipped question must be eligible');assert.equal(nkFsrsEligibility(questions[189]),'skipped');
 nkFsrsSetPreference('desiredRetention',99);assert.equal(state.fsrsPreferences.desiredRetention,.97);nkFsrsSetPreference('newCardLimit',30);assert(!Object.prototype.hasOwnProperty.call(state.fsrsPreferences,'newCardLimit'),'new-card preference must not exist');
 const countBefore=nkFsrsActiveAttempts('q0').length;nkFsrsUndo();assert.equal(nkFsrsActiveAttempts('q0').length,countBefore-1,'undo removes latest active rating through an event');
@@ -86,4 +91,4 @@ try:
 finally:
     test_path.unlink(missing_ok=True)
 
-print("FSRS_V1_TEST_OK: migration, deterministic replay, review-only eligibility, long-term scheduling, true-review daily cap, subject filters, settings and undo")
+print("FSRS_V1_TEST_OK: migration, deterministic replay, cross-bank review-only eligibility, same-day relearning, daily cap, long-term scheduling, filters, settings and undo")
