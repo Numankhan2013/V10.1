@@ -39,12 +39,28 @@ medical or regression standard.
 
 ## 1. Authority order — what every automation must read
 
-Before any write, read the following from the **current repository state**.
+Before any write, first read **this automation runbook from authoritative
+`main`**. Then dynamically resolve the **current explanation lineage** before
+reading project memory or implementation files.
+
+Lineage resolution rule:
+1. inspect open/active explanation-rollout branches and PRs plus recent project
+   handoff state;
+2. if any explanation batch is unfinished/unverified, that batch's branch is the
+   current explanation lineage and has priority;
+3. otherwise use the latest fully verified explanation lineage;
+4. do **not** default project memory or implementation reads to `main` merely
+   because this shared runbook lives there;
+5. immediately before the first write, re-check that the resolved lineage/head
+   and unfinished-batch ownership have not changed.
 
 ### Mandatory repository documents
 
+Read items 1 and 3–10 from the dynamically resolved current explanation lineage.
+Item 2 is always read from authoritative `main`.
+
 1. `AGENTS.md`
-2. this file:
+2. this file from authoritative `main`:
    `docs/MARROW_EXPLANATION_AUTOMATION_RUNBOOK.md`
 3. `docs/MARROW_EXPLANATION_FINE_TUNING.md`
 4. `docs/MARROW_BANK_INTEGRATION.md`
@@ -177,11 +193,13 @@ can be done independently.
 
 ### Before every write
 
-1. Read `.project-memory/STATE.md`.
-2. Determine whether it declares an unfinished/unverified explanation batch.
-3. Resolve current Git branch/PR state.
-4. Re-read current inventory fingerprint.
-5. Immediately before the first mutation, check again that none of these changed.
+1. Resolve the current explanation lineage using the rule in §1.
+2. Read that lineage's `.project-memory/STATE.md`; do not assume `main` is current.
+3. Determine whether it declares an unfinished/unverified explanation batch.
+4. Resolve current Git branch/PR state and verify ownership against the handoff.
+5. Re-read the current lineage's inventory fingerprint.
+6. Immediately before the first mutation, check again that lineage/head,
+   ownership and inventory fingerprint have not changed.
 
 ### If another subject owns the current unfinished batch
 
