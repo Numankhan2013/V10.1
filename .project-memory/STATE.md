@@ -10,7 +10,8 @@
 - Physiology topic-index v2 merged through PR #31 at `fcf0476`.
 - Current source-ingest work branch: `feature/marrow-automation-ingest-physio-biochem`.
 - Resolve live HEAD from Git; never hardcode a self-staling HEAD.
-- Accepted baseline: **V11.6 Content Quality** at `125d68b`; accepted product commit `125d68b`.
+- Accepted baseline: **V11.6 Content Quality** at `125d68b`.
+- Accepted product commit: `125d68b`
 - Production promotion remains explicit and guarded.
 
 ## Current Marrow bank
