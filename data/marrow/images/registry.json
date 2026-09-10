@@ -9579,7 +9579,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Flexures of the brain",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "NKQ_ANATOMY_20260910",
           "source": {
             "page": 154,
@@ -9593,8 +9593,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Native brain-flexure diagram matches the owning Q5 explanation on source page 154: telencephalic, cephalic, pontine and cervical flexures plus telencephalon/diencephalon/mesencephalon/metencephalon/myelencephalon/spinal-cord labels are present and readable in the extracted candidate. Ownership is supported by the figure occurring inside the Q5 solution. Final phone/expanded app readability and timing remain unverified, so held REVIEW_REQUIRED.",
-            "evidence": "Automation run NKQ_ANATOMY_20260910 source-page/native-candidate comparison artifact; visual inspection 2026-09-10."
+            "notes": "Figure occurs in the Q5 solution and directly supports the metencephalon–myelencephalon pontine-flexure explanation; release after answer only.",
+            "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry."
           }
         }
       ],
@@ -9611,11 +9611,13 @@
         "height": 513
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Native brain-flexure diagram matches the owning Q5 explanation on source page 154: telencephalic, cephalic, pontine and cervical flexures plus telencephalon/diencephalon/mesencephalon/metencephalon/myelencephalon/spinal-cord labels are present and readable in the extracted candidate. Ownership is supported by the figure occurring inside the Q5 solution. Final phone/expanded app readability and timing remain unverified, so held REVIEW_REQUIRED.",
-        "evidence": "Automation run NKQ_ANATOMY_20260910 source-page/native-candidate comparison artifact; visual inspection 2026-09-10."
+        "notes": "All four brain flexures, six neural-tube region labels, leader endpoints and sequence are crisp and complete. Native JPEG retained without processing.",
+        "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry.",
+        "originalSha256": "d3f9220198201a07a0db1e83530233adbe04eddbef228ece88b627cdb0d3f397",
+        "productionSha256": "d3f9220198201a07a0db1e83530233adbe04eddbef228ece88b627cdb0d3f397"
       }
     },
     {
@@ -9641,7 +9643,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Commissural fibres",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "NKQ_ANATOMY_20260910",
           "source": {
             "page": 156,
@@ -9655,8 +9657,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Native labelled gross-brain specimen image matches the Q8 commissural-fibres explanation on source page 156 and identifies anterior/posterior commissures, corpus callosum and related landmarks. Authentic source pixels are preserved. Final phone/expanded app readability and timing remain unverified, so held REVIEW_REQUIRED.",
-            "evidence": "Automation run NKQ_ANATOMY_20260910 source-page/native-candidate comparison artifact; visual inspection 2026-09-10."
+            "notes": "Figure occurs in the Q8 solution and labels the anterior/posterior commissures and corpus callosum used by the commissural-development explanation; release after answer only.",
+            "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry."
           }
         }
       ],
@@ -9673,11 +9675,13 @@
         "height": 498
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Native labelled gross-brain specimen image matches the Q8 commissural-fibres explanation on source page 156 and identifies anterior/posterior commissures, corpus callosum and related landmarks. Authentic source pixels are preserved. Final phone/expanded app readability and timing remain unverified, so held REVIEW_REQUIRED.",
-        "evidence": "Automation run NKQ_ANATOMY_20260910 source-page/native-candidate comparison artifact; visual inspection 2026-09-10."
+        "notes": "Authentic sagittal gross-brain specimen and its source annotation layer are readable; native JPEG bytes retained exactly.",
+        "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry.",
+        "originalSha256": "3baaad0ddf8e32e338f52515db4d2ba87dfa9a74bf914f1692d66a1dc6b3d4c3",
+        "productionSha256": "3baaad0ddf8e32e338f52515db4d2ba87dfa9a74bf914f1692d66a1dc6b3d4c3"
       }
     },
     {
@@ -9703,7 +9707,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "NKQ_ANATOMY_20260910",
           "source": {
             "page": 148,
@@ -9717,8 +9721,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Native labelled axial brain specimen is embedded directly in Q9 on source page 148; the green A marker points to the midline corpus-callosum region and the same image carries left/right hemisphere, choroid plexus and lateral-ventricle labels. Authentic source pixels are preserved. Question-time neutral presentation plus phone/expanded readability remain unverified, so held REVIEW_REQUIRED.",
-            "evidence": "Automation run NKQ_ANATOMY_20260910 source-page/native-candidate comparison artifact; visual inspection 2026-09-10."
+            "notes": "Image is embedded in the Q9 stem and the A marker is required to identify the structure; release at question time with neutral alt text.",
+            "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry."
           }
         }
       ],
@@ -9735,11 +9739,13 @@
         "height": 540
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Native labelled axial brain specimen is embedded directly in Q9 on source page 148; the green A marker points to the midline corpus-callosum region and the same image carries left/right hemisphere, choroid plexus and lateral-ventricle labels. Authentic source pixels are preserved. Question-time neutral presentation plus phone/expanded readability remain unverified, so held REVIEW_REQUIRED.",
-        "evidence": "Automation run NKQ_ANATOMY_20260910 source-page/native-candidate comparison artifact; visual inspection 2026-09-10."
+        "notes": "Authentic axial brain specimen, green A pointer, hemispheres, choroid plexus and lateral-ventricle labels are clear; native JPEG bytes retained exactly.",
+        "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry.",
+        "originalSha256": "267154fe7beac514c740c21be0f8b1ccf44bd9a7a57a533d26c7ed01f59cb7f9",
+        "productionSha256": "267154fe7beac514c740c21be0f8b1ccf44bd9a7a57a533d26c7ed01f59cb7f9"
       }
     },
     {
@@ -9765,7 +9771,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Septum pellucidum",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "NKQ_ANATOMY_20260910",
           "source": {
             "page": 157,
@@ -9779,8 +9785,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Native labelled gross-brain specimen matches the Q10 septum-pellucidum solution on source page 157; corpus callosum, septum pellucidum, fornix and adjacent landmarks are preserved. Authentic source pixels are preserved. Final phone/expanded app readability and explanation timing remain unverified, so held REVIEW_REQUIRED.",
-            "evidence": "Automation run NKQ_ANATOMY_20260910 source-page/native-candidate comparison artifact; visual inspection 2026-09-10."
+            "notes": "Figure occurs in the Q10 solution and supports the septum-pellucidum relationship without being required to answer the text-only stem; release after answer only.",
+            "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry."
           }
         }
       ],
@@ -9797,11 +9803,13 @@
         "height": 498
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Native labelled gross-brain specimen matches the Q10 septum-pellucidum solution on source page 157; corpus callosum, septum pellucidum, fornix and adjacent landmarks are preserved. Authentic source pixels are preserved. Final phone/expanded app readability and explanation timing remain unverified, so held REVIEW_REQUIRED.",
-        "evidence": "Automation run NKQ_ANATOMY_20260910 source-page/native-candidate comparison artifact; visual inspection 2026-09-10."
+        "notes": "Authentic sagittal gross-brain specimen preserves corpus callosum, septum pellucidum, fornix and adjacent labels; native JPEG bytes retained exactly.",
+        "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry.",
+        "originalSha256": "1ea13802a456a2f961e12273f52ea937d5a8ed89877949f20474fbb60b559152",
+        "productionSha256": "1ea13802a456a2f961e12273f52ea937d5a8ed89877949f20474fbb60b559152"
       }
     },
     {
@@ -9827,7 +9835,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "NKQ_ANATOMY_20260910",
           "source": {
             "page": 149,
@@ -9841,8 +9849,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Native clinical photograph is embedded directly in Q12 on source page 149 and depicts the newborn occipital mass used for the encephalocele identification question. Authentic clinical pixels are preserved byte-for-byte by native extraction. Question-time neutral presentation and phone/expanded app QA remain unverified, so held REVIEW_REQUIRED.",
-            "evidence": "Automation run NKQ_ANATOMY_20260910 source-page/native-candidate comparison artifact; visual inspection 2026-09-10."
+            "notes": "Image is embedded in the Q12 identification stem and is necessary to answer it; release at question time with neutral alt text.",
+            "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry."
           }
         }
       ],
@@ -9859,11 +9867,13 @@
         "height": 509
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Native clinical photograph is embedded directly in Q12 on source page 149 and depicts the newborn occipital mass used for the encephalocele identification question. Authentic clinical pixels are preserved byte-for-byte by native extraction. Question-time neutral presentation and phone/expanded app QA remain unverified, so held REVIEW_REQUIRED.",
-        "evidence": "Automation run NKQ_ANATOMY_20260910 source-page/native-candidate comparison artifact; visual inspection 2026-09-10."
+        "notes": "Authentic newborn clinical photograph clearly preserves the occipital mass and surrounding anatomy; native JPEG bytes retained exactly with no enhancement or recreation.",
+        "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry.",
+        "originalSha256": "390f89119b18e515c5f762a06b97eff53d8cb903e2ddbbb38d0902abaeb6c28a",
+        "productionSha256": "390f89119b18e515c5f762a06b97eff53d8cb903e2ddbbb38d0902abaeb6c28a"
       }
     },
     {
@@ -9889,7 +9899,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "NKQ_ANATOMY_20260910",
           "source": {
             "page": 150,
@@ -9903,8 +9913,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Native clinical photograph is embedded directly in Q13 on source page 150 and depicts the cranial defect used for the anencephaly identification question. Authentic clinical pixels are preserved byte-for-byte by native extraction. Question-time neutral presentation and phone/expanded app QA remain unverified, so held REVIEW_REQUIRED.",
-            "evidence": "Automation run NKQ_ANATOMY_20260910 source-page/native-candidate comparison artifact; visual inspection 2026-09-10."
+            "notes": "Image is embedded in the Q13 identification stem and is necessary to answer it; release at question time with neutral alt text.",
+            "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry."
           }
         }
       ],
@@ -9921,11 +9931,13 @@
         "height": 1065
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Native clinical photograph is embedded directly in Q13 on source page 150 and depicts the cranial defect used for the anencephaly identification question. Authentic clinical pixels are preserved byte-for-byte by native extraction. Question-time neutral presentation and phone/expanded app QA remain unverified, so held REVIEW_REQUIRED.",
-        "evidence": "Automation run NKQ_ANATOMY_20260910 source-page/native-candidate comparison artifact; visual inspection 2026-09-10."
+        "notes": "Authentic clinical photograph clearly preserves the cranial defect and body context; native JPEG bytes retained exactly with no enhancement or recreation.",
+        "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry.",
+        "originalSha256": "e0c1ff1656105c71969fb6a5ec4b0393c6648994444456ae66349d3c6e6f7ff5",
+        "productionSha256": "e0c1ff1656105c71969fb6a5ec4b0393c6648994444456ae66349d3c6e6f7ff5"
       }
     }
   ]

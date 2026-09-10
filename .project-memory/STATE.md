@@ -6,13 +6,13 @@
 ## Repo / release state
 
 - Repo: `Numankhan2013/V10.1`.
-- Current image branch: `feature/marrow-image-rollout-current`, based on the verified Physiology Chapter 5 explanation lineage.
+- Current image candidate: `feature/marrow-image-rollout-batch-08-small`, based
+  on `feature/marrow-image-rollout-current` and the verified Physiology Chapter
+  5 explanation lineage.
 - Resolve live branch/HEAD from Git; do not hardcode self-staling HEAD values.
-- Current verified explanation lineage reaches
-  `feature/marrow-explanation-rollout-physio-ch05-current` / PR #24.
-- Exact verified Chapter 5 candidate: `f170eb8517998cdaf4229240d2c2a273c6d98cf8`.
-- Engineering Gate 259 and full Android/PWA run 539 both passed.
-- Latest immutable verified preview: `https://3cce6bfb.nk-qbank.pages.dev`.
+- This image base contains explanations through Physiology Chapter 5. Separately,
+  the verified explanation lineage reaches Chapter 8 at `0a1f31f`; full run
+  `34367467186` passed and previewed at `https://afdceb7d.nk-qbank.pages.dev`.
 - Production promotion remains explicit and guarded; run 539 skipped production.
 - Accepted baseline remains V11.6 Content Quality `125d68b` until the user explicitly promotes a later product baseline.
 - Accepted product commit: `125d68b`.
@@ -82,7 +82,9 @@ explanation and exactly three distractor rationales through the real learner UI.
 - Do not reconstruct medically meaningful figures from prose when source assets
   exist or when the source is ambiguous.
 - Historical Batch 01 remains build-verified and user-approved as the minimum quality threshold.
-- Current rollout contains **147 approved assets / 166 released bindings / 152 released questions**. By subject: Anatomy 58, Biochemistry 55, Physiology 39 questions.
+- Current Batch 08 candidate contains **153 approved assets / 172 released
+  bindings / 158 released questions**. By subject: Anatomy 64, Biochemistry 55,
+  Physiology 39 questions. Full candidate CI is pending.
 - Batches 05–07 reviewed 90 candidate bindings and released 72: Batch 05 23/30, Batch 06 23/30 with one quality hold, Batch 07 26/30. Seventeen false ownership/reuse mappings were rejected.
 - Authentic ultrasound, radiology, clinical, specimen, histology and microscopy assets preserve native bytes. Educational diagrams use native PDF streams only where they meet the approved readability floor.
 - The Golgi-tendon-organ sequence remains REVIEW_REQUIRED because its native labels are below the approved baseline; it must be faithfully reconstructed before release.
@@ -101,16 +103,12 @@ explanation and exactly three distractor rationales through the real learner UI.
 
 ## Next step / ownership split
 
-- **Primary/image automations:** follow
-  `docs/MARROW_IMAGE_AUTOMATION_RUNBOOK.md` completely. Use one subject and a
-  default six-candidate batch, with one shared-registry writer at a time. Subject
-  automations must run sequentially from the latest image base; concurrent work
-  is proposal-only. Stop processing by the conservative runbook budget, reserve
-  time for validation/memory/commit, and never release uncertainty.
-- The runbook is the canonical compact-prompt target for ChatGPT web
-  automations. It preserves the native-first, medical-authenticity,
-  reconstruction, independent-binding-QA, regression, and timeout-safe
-  checkpoint lessons through Batch 07.
-- **Explanation refinement agent:** when resumed, continue from
-  **Physiology Chapter 6 — Physiology of Nerve**, source order, without touching
-  the image-integration ownership.
+- **Primary/image work:** push Batch 08, require exact-head full Android/PWA CI,
+  then inspect its flexure-viewer and Q9 question-specimen screenshots. The six
+  released Anatomy Chapter 9 IDs are Q5, Q8, Q9, Q10, Q12 and Q13; all preserve
+  native bytes, and Q9/Q12/Q13 retain neutral question-time alt text.
+- For later batches follow `docs/MARROW_IMAGE_AUTOMATION_RUNBOOK.md` completely,
+  serialize registry writers and never release uncertainty.
+- **Explanation refinement agent:** repair and validate the existing unverified
+  Physiology Chapter 9 checkpoint before beginning Chapter 10; do not touch the
+  image-integration ownership.

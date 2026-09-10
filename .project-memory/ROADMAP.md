@@ -57,16 +57,18 @@ Check off only when build-verified **and** device-verified where UI is involved.
       Engineering Gate 259 and full Android/PWA run 539 verified the Physiology
       rollout loader, inventory, Q17 browser regression, APK/package contracts
       and preview deployment. When explanation work resumes, continue in source
-      order from **Physiology Chapter 6 — Physiology of Nerve**.
+      order by validating the existing Chapter 9 checkpoint; Chapters 6–8 are
+      already build-verified on the separate explanation lineage.
 - [ ] Image integration is a separate workstream owned by the **primary agent**.
-      The current branch has 147 approved assets and 166 released bindings serving
-      152 questions. Batches 05–07 reviewed 90 bindings and released 72; 17 false
+      The Batch 08 candidate has 153 approved assets and 172 released bindings
+      serving 158 questions. Batches 05–07 reviewed 90 bindings and released 72; 17 false
       page-neighbor/reuse mappings were rejected and one below-baseline Golgi-tendon
       figure is held for reconstruction. Continue bounded native-first review, then
       resolve multi-candidate, masked, vector and reconstruction cases separately.
       Subject-specific ChatGPT automations must follow
       `docs/MARROW_IMAGE_AUTOMATION_RUNBOOK.md`, use a default six-candidate
-      budget, and serialize all writes to the shared registry.
+      budget, and serialize all writes to the shared registry. Batch 08 locally
+      released the automation's six Anatomy candidates; full CI remains pending.
 - [ ] Continue later Marrow chapters beyond the supplied current scope only when
       verified source JSONL is available.
 - [ ] Keep production promotion deliberate; build/browser success is not acceptance.

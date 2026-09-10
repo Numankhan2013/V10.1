@@ -785,3 +785,19 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Serialized integration by design. Anatomy, Biochemistry and Physiology agents
   may audit concurrently, but only one may write the shared registry at a time;
   each writer must start from the latest incorporated image branch.
+
+## 2026-09-10 — Anatomy native image Batch 08 candidate
+
+- Recovered only the clean staging and source-QA commits from automation batch
+  `NKQ_ANATOMY_20260910`; intentionally excluded its temporary workflows,
+  checkpoint prose and accidentally committed `tools/__pycache__` files.
+- Inspected all six native assets at original resolution and audited their exact
+  question text, source figure metadata, ownership and role. Released Anatomy
+  Chapter 9 Q5/Q8/Q10 after-answer figures and Q9/Q12/Q13 question-time figures.
+- Preserved native bytes for all five authentic specimen/clinical images. Q9,
+  Q12 and Q13 use neutral question-time alt text. The Q5 brain-flexure diagram's
+  labels, arrows and complete sequence exceed the accepted readability floor.
+- Candidate totals are 153 approved assets, 172 released bindings and 158
+  released questions (Anatomy 64, Biochemistry 55, Physiology 39). Added browser
+  regressions for explanation timing/fullscreen zoom and authentic question-time
+  timing/no duplication. All 37 local checks pass; full CI remains pending.
