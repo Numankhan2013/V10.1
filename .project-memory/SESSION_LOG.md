@@ -812,3 +812,6 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - The first full run correctly failed the generated contract because the new
   card shortened the protected “Practice 20 Random Questions” label. Restored
   the exact learner-facing wording before rerunning the candidate.
+- The next run reached the Home browser assertion; rendered `innerText` reflects
+  CSS uppercase for the recommendation badge. Made that visual-text assertion
+  case-insensitive without changing the UI or its source label.

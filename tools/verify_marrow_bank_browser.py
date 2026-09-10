@@ -31,7 +31,7 @@ def main():
             home_focus=page.locator('.nk-home-command-center')
             if home_focus.count()!=1 or not home_focus.is_visible():
                 raise SystemExit('Home Today’s Focus command center missing or duplicated')
-            if 'Recommended now' not in home_focus.inner_text():
+            if 'recommended now' not in home_focus.inner_text().lower():
                 raise SystemExit('Home recommendation hierarchy is not visible')
             if 'Practice 20 Random Questions' not in home_focus.locator('.nk-focus-primary').inner_text():
                 raise SystemExit('Clean-state Home recommendation is not Practice 20')
