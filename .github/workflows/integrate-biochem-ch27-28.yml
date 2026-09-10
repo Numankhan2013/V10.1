@@ -1,0 +1,57 @@
+name: Integrate Marrow Biochemistry Ch27-28
+
+on:
+  push:
+    branches: [automation/biochem-ch27-28-stage]
+    paths: [.integration/biochem_ch27_28.trigger]
+
+permissions:
+  contents: write
+
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact staging head
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Restore auditable integration tool
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import base64,hashlib,zlib
+          src=Path('tools/integrate_biochem_automation_ch027_028.py.zlib.b64')
+          raw=zlib.decompress(base64.b64decode(src.read_text().strip(),validate=True))
+          assert hashlib.sha256(raw).hexdigest()=='a2aa2651a2faddf1c32ba7b8ac8f227c89e52cc1e817ed1b57151d89b755b7de'
+          Path('tools/integrate_biochem_automation_ch027_028.py').write_bytes(raw)
+          PY
+      - name: Integrate canonical Biochemistry Ch27-28
+        run: python3 tools/integrate_biochem_automation_ch027_028.py
+      - name: Regenerate explanation inventory without explanation edits
+        run: python3 tools/inventory_marrow_explanations.py --write
+      - name: Validate expanded Marrow data
+        run: python3 tools/test_marrow_bank_pilot.py --data-only
+      - name: Validate topic taxonomy
+        run: python3 tools/test_marrow_topic_taxonomy.py
+      - name: Validate explanation inventory
+        run: python3 tools/test_marrow_explanation_inventory.py
+      - name: Validate existing Biochemistry explanation rollout unchanged
+        run: python3 tools/test_marrow_biochem_explanation_rollout.py
+      - name: Validate image-bank source registry
+        run: python3 tools/test_marrow_images.py
+      - name: Ensure no explanation augmentation changed
+        run: git diff --exit-code -- data/marrow/explanation_gold_pilot.json data/marrow/explanation_biochem_ch01_v1.json data/marrow/explanation_biochem_gold_sample_v1.json
+      - name: Commit verified integration outputs
+        run: |
+          rm -f .integration/biochem_ch27_28.trigger .github/workflows/integrate-biochem-ch27-28.yml tools/integrate_biochem_automation_ch027_028.py.zlib.b64
+          git config user.name 'Numankhan2013'
+          git config user.email '124483154+Numankhan2013@users.noreply.github.com'
+          git add -A
+          git status --short
+          git commit -m 'Integrate Marrow Biochemistry chapters 27-28'
+          git push origin HEAD:automation/biochem-ch27-28-stage
