@@ -54,20 +54,20 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 
 - The user explicitly designated the existing **142 enhanced questions**
   (62 Anatomy + 80 Physiology) as the gold-standard explanation reference.
-- Those 142 contain 426 stored distractor rationales and define the approved
-  presentation grammar:
-  Key Takeaway → structured detailed explanation with selective emphasis and
-  native tables → exactly three concise wrong-option rationales.
-- FSRS remains protected in the fixed/floating session footer above Previous/Next.
-- The deterministic inventory originally accounted for all 2,115 IDs as
-  142 references + 1,973 pending. After approval of the 20-question sample and
-  completion of the remaining 22 questions in Biochemistry Chapter 1,
-  **184 are enhanced and 1,931 remain to roll out**.
+- Approved grammar: one meaningful Key Takeaway → structured detailed
+  explanation with selective emphasis/native tables → exactly three concise
+  wrong-option rationales. FSRS stays in the fixed session footer.
+- After the approved 20-question Biochemistry sample and completion of Chapters
+  1 and 4, **194 of 2,115 are enhanced; 1,921 remain**.
 - The approved cross-chapter **20-question Biochemistry gold reference** is stored
   at `data/marrow/explanation_biochem_gold_sample_v1.json`.
 - Biochemistry Chapter 1 rollout is complete: the remaining **22 questions** are
   stored in `data/marrow/explanation_biochem_ch01_v1.json`; together with gold
   sample Q23, all 23 Chapter 1 questions now use the approved grammar.
+- Biochemistry Chapter 4 rollout is implemented for its remaining **10 questions**
+  in `data/marrow/explanation_biochem_ch04_v1.json`; together with approved gold
+  sample Q5, all 11 questions use the approved grammar. Local checks pass; full
+  generated-app/browser/APK verification is pending.
 - On 2026-09-09 the user physically reviewed the 20-question Biochemistry sample
   and explicitly approved it: “They are good. We need that kind of explanation everywhere.”
   The approved explanation reference is therefore now **162 questions**
@@ -105,7 +105,7 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
   Practice/CBT/Review, sync, modules, persistence or navigation during explanation work.
 - Large connector/Git writes should remain bounded, deterministic and validated.
 
-## Image phase — active
+## Image phase — paused after Batch 01
 
 - The approved pilot merged into `main` through PR #12 at merge commit `4faf0e5`.
   Production was not promoted.
@@ -118,6 +118,9 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
   Anatomy 12, Biochemistry 11, Physiology 11. It adds ten inspected
   native assets, six approved repeated-asset bindings, and the two formerly held
   SVG reconstructions. Two false reuse matches were explicitly REJECTED.
+- The user spot-checked roughly 10–15 Batch 01 questions and gave a green light
+  to continue for now; this is sufficient rollout approval, not a claim that all
+  34 released question bindings were individually device-reviewed.
 - Authentic Pompe/McArdle muscle imagery retains exact native JPEG bytes. The
   Pompe stem image uses question-time placement and neutral alt text. Diagrams
   remain explanation-only unless their source explicitly makes them part of the stem.
@@ -136,12 +139,12 @@ reconstructions retain provenance: `ANAT_CH02_Q010`, `ANAT_CH03_Q004`,
 
 ## Next step
 
-1. Create Batch 02 from current `main`, prioritizing unresolved question-critical
-   and multi-candidate figures; never substitute an explanation image for a missing stem image.
-2. Keep each batch behind registry/binding QA, browser timing checks, offline hashes
-   and packaged APK verification.
-3. Continue until the audit queue is resolved across all three subjects, preserving
-   explicit REVIEW_REQUIRED/SOURCE_LIMITED outcomes where the source prevents release.
-4. Resume explanation rollout separately after the image priority phase.
+1. Finish full CI/browser/package verification for the bounded Biochemistry
+   Chapter 4 explanation rollout, then provide its 11 exact question IDs for review.
+2. Continue explanations in another small complete chapter only after this batch is
+   stable; keep raw source immutable and preserve source tables/figures and ambiguity.
+3. Image Batch 02 is paused on its separate branch with six REVIEW_REQUIRED native
+   candidates checkpointed; none is released or present in the app.
+4. Keep production promotion deliberate and protect Practice/CBT/Review/FSRS/navigation.
 
 Canonical Marrow procedure: `docs/MARROW_BANK_INTEGRATION.md`.
