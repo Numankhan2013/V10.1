@@ -22,6 +22,8 @@ jobs:
           fetch-depth: 0
       - name: Repair option labels and regression guards
         run: python3 tools/repair_marrow_option_contract_v3.py
+      - name: Refresh deterministic explanation inventory hashes
+        run: python3 tools/inventory_marrow_explanations.py --write
       - name: Verify repaired source data
         run: |
           python3 tools/test_marrow_bank_pilot.py --data-only
@@ -37,6 +39,7 @@ jobs:
             data/marrow/anatomy_ch001_048_plus_060_063_manifest.json \
             data/marrow/physiology_ch001_043.zlib.b64.part* \
             data/marrow/physiology_ch001_043_manifest.json \
+            data/marrow/explanation_inventory_v1.json \
             tools/integrate_anatomy_automation_ch060_063.py \
             tools/integrate_physio_automation_ch034_043.py \
             tools/apply_marrow_bank_pilot.py \
