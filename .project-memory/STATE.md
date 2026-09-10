@@ -8,6 +8,7 @@
 - Repo: `Numankhan2013/V10.1`.
 - `main` is the authoritative unified V11/Marrow product line.
 - Anatomy topic-index v2 merged through PR #29 at `424d7b2`.
+- Biochemistry topic-index v2 is on `feature/marrow-biochemistry-topic-index-v2` at `fe8067e`, pending full feature CI/PR.
 - Resolve live branch/HEAD from Git; never hardcode a self-staling HEAD value.
 - Accepted baseline: **V11.6 Content Quality** at `125d68b`, run `34050921180`.
 - Accepted product commit: `125d68b`.
@@ -69,6 +70,7 @@ Lipids → Enzymes and phenylketonuria → Clinical biochemistry and nutrition �
 - Current placement: Ch 1–6 Carbohydrates; 7–11 Amino acids/proteins; 12–16 Lipids; 17–19 Enzymes/phenylketonuria; 20–23 Clinical biochemistry/nutrition; 24–26 Genetics.
 - Combined source chapters stay combined; `plannedSlots` maps Ch 1, 4, 20 and 24 to multiple finer learner slots.
 - Missing future topics never render as placeholders; learner numbering is visible-contiguous 1–26; source IDs/titles/question linkage/FSRS remain untouched.
+- Static taxonomy + project-memory validation passed before commit; full Android/PWA/browser feature CI is the remaining gate before merge.
 - Physiology taxonomy is still pending the user's revised arrangement.
 
 ## User/device verification
@@ -104,6 +106,7 @@ Lipids → Enzymes and phenylketonuria → Clinical biochemistry and nutrition �
 
 - Expanded Marrow integration and Anatomy topic-index v2 are build-verified.
 - Anatomy v2 is merged to `main` but not yet device-verified as a new arrangement.
+- Biochemistry v2 has passed static taxonomy/memory validation; full feature build/browser verification is pending.
 - Main/production release requires explicit guarded promotion; CI success alone
   must never promote production.
 - Accepted rollback checkpoint remains V11.6 `125d68b` until explicit user
@@ -115,14 +118,13 @@ Lipids → Enzymes and phenylketonuria → Clinical biochemistry and nutrition �
 - Do not rewrite raw JSONL/sharded source for UI taxonomy.
 - Do not alter approved Topics visuals, FSRS dock, PDF renderers, Practice/CBT/
   Review, sync, modules, persistence or navigation during taxonomy work.
-- Future Anatomy imports must use `plannedIndex` / `plannedSlots`, not infer
-  learner placement from source chapter number alone.
+- Future Anatomy and Biochemistry imports must use `plannedIndex` / `plannedSlots`, not infer learner placement from source chapter number alone.
 - Never show unavailable planned topics or empty sections to the learner.
 
 ## Next step
 
-1. Device-check the merged Anatomy Marrow Topics arrangement when convenient.
-2. Keep Physiology/Biochemistry taxonomy unchanged until the user supplies them.
-3. Continue image and explanation rollout separately from the taxonomy change.
+1. Complete Biochemistry v2 full feature CI/browser verification and merge only after green.
+2. Apply the user's revised Physiology taxonomy when supplied.
+3. Continue image and explanation rollout separately from taxonomy changes.
 
 Canonical Marrow procedure: `docs/MARROW_BANK_INTEGRATION.md`.
