@@ -34,28 +34,34 @@ new = """            assert_sections(['General physiology','Nerve and muscle phy
             for raw_fragment in ('{\"chapter\"','\"source_answer\":','\"source_provenance\":'):
                 if raw_fragment in learner_text: raise SystemExit(f'Serialized automation JSON leaked into learner view: {raw_fragment}')
             if not page.locator('.question-text').inner_text().strip(): raise SystemExit('Exercise Physiology source question did not render as a learner question')
-            phys_qid=page.evaluate("state.activeSession.questionIds[state.activeSession.index]")
-            if phys_qid!='marrow__PHYSIO_CH43_Q001': raise SystemExit(f'Unexpected new Physiology regression target: {phys_qid}')
-            phys_correct=int(page.evaluate("(()=>{const s=state.activeSession,q=BY_ID[s.questionIds[s.index]];return Number(q.correctOption)})()"))-1
-            page.locator('.option-list button').nth((phys_correct+1)%4).click();page.wait_for_timeout(120)
+            phys_question=page.locator('.question-text').inner_text().lower()
+            if 'maximum contractile force' not in phys_question:
+                raise SystemExit(f'Unexpected new Physiology regression target: {phys_question!r}')
+            page.locator('.option-list button').nth(1).click();page.wait_for_timeout(120)
             if page.locator('.option-list .option.wrong').count()!=1 or page.locator('.option-list .option.correct').count()!=1:
                 raise SystemExit('New Physiology wrong answer must render exactly one red wrong and one green correct option')
             phys_green=page.locator('.option-list .option.correct .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")
             phys_red=page.locator('.option-list .option.wrong .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")
             if phys_green!='rgb(16, 154, 99)' or phys_red!='rgb(201, 75, 87)':
                 raise SystemExit(f'New Physiology answer colors regressed: correct={phys_green} wrong={phys_red}')
-            page.evaluate("window.QB.startLibrary('wrong')");page.wait_for_timeout(100)
-            wrong_ids=page.evaluate("state.activeSession.questionIds")
-            if 'marrow__PHYSIO_CH43_Q001' not in wrong_ids:
-                raise SystemExit(f'Wrong Questions library did not include the newly missed Physiology question: {wrong_ids}')
-            wrong_index=wrong_ids.index('marrow__PHYSIO_CH43_Q001')
-            page.evaluate("i=>window.QB.goIndex(i)",wrong_index);page.wait_for_timeout(80)
-            phys_correct_again=int(page.evaluate("(()=>{const s=state.activeSession,q=BY_ID[s.questionIds[s.index]];return Number(q.correctOption)})()"))-1
-            page.locator('.option-list button').nth((phys_correct_again+1)%4).click();page.wait_for_timeout(120)
+
+            # Reproduce the user-reported path without reaching into module-scoped state.
+            page.evaluate("window.QB.nav('dashboard')");page.wait_for_timeout(100)
+            wrong_button=page.locator('.nk-quick-grid button').filter(has_text='Wrong questions')
+            if wrong_button.count()!=1: raise SystemExit(f'Wrong Questions dashboard entry count={wrong_button.count()}')
+            wrong_button.click();page.wait_for_timeout(100)
+            wrong_row=page.locator('.library-row').filter(has_text='maximum contractile force')
+            if wrong_row.count()!=1: raise SystemExit(f'New Physiology miss not present once in Wrong Questions: {wrong_row.count()}')
+            wrong_row.locator('button').filter(has_text='Practice').click();page.wait_for_timeout(100)
+            if 'maximum contractile force' not in page.locator('.question-text').inner_text().lower():
+                raise SystemExit('Wrong Questions did not reopen the expected Physiology question')
+            page.locator('.option-list button').nth(1).click();page.wait_for_timeout(120)
             if page.locator('.option-list .option.wrong').count()!=1 or page.locator('.option-list .option.correct').count()!=1:
                 raise SystemExit('Wrong Questions flow failed to show both wrong/red and correct/green states')
-            if page.locator('.option-list .option.correct .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")!='rgb(16, 154, 99)':
-                raise SystemExit('Wrong Questions flow correct answer is not green')
+            wrong_green=page.locator('.option-list .option.correct .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")
+            wrong_red=page.locator('.option-list .option.wrong .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")
+            if wrong_green!='rgb(16, 154, 99)' or wrong_red!='rgb(201, 75, 87)':
+                raise SystemExit(f'Wrong Questions answer colors regressed: correct={wrong_green} wrong={wrong_red}')
             page.evaluate(\"window.QB.nav('banks','Physiology')\");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)"""
 if source.count(old) != 1:
@@ -91,10 +97,10 @@ shot_new = shot_anchor + """
             for raw_fragment in ('{\"question_id\"','\"correct_option\":','\"source_fidelity\":'):
                 if raw_fragment in anatomy_learner_text: raise SystemExit(f'Serialized Anatomy automation JSON leaked into learner view: {raw_fragment}')
             if 'total number of bones' not in page.locator('.question-text').inner_text().lower(): raise SystemExit('New Anatomy Ch60 source question did not render normally')
-            anatomy_qid=page.evaluate("state.activeSession.questionIds[state.activeSession.index]")
-            if anatomy_qid!='marrow__ANAT_CH60_Q001': raise SystemExit(f'Unexpected new Anatomy regression target: {anatomy_qid}')
-            anatomy_correct=int(page.evaluate("(()=>{const s=state.activeSession,q=BY_ID[s.questionIds[s.index]];return Number(q.correctOption)})()"))-1
-            page.locator('.option-list button').nth((anatomy_correct+1)%4).click();page.wait_for_timeout(120)
+            anatomy_question=page.locator('.question-text').inner_text().lower()
+            if 'total number of bones' not in anatomy_question:
+                raise SystemExit(f'Unexpected new Anatomy regression target: {anatomy_question!r}')
+            page.locator('.option-list button').nth(0).click();page.wait_for_timeout(120)
             if page.locator('.option-list .option.wrong').count()!=1 or page.locator('.option-list .option.correct').count()!=1:
                 raise SystemExit('New Anatomy wrong answer must render exactly one red wrong and one green correct option')
             anatomy_green=page.locator('.option-list .option.correct .option-letter').evaluate("el=>getComputedStyle(el).backgroundColor")
