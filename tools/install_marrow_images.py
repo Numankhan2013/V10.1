@@ -1,7 +1,19 @@
 #!/usr/bin/env python3
-"""Install explicit ID-based Marrow figures after the Marrow content transform."""
+"""Install explicit ID-based Marrow figures after the Marrow content transform.
+
+The generated question UI can arrive here in a mixed state: upstream transforms
+may already have attached the Marrow question binding to one or more question
+surfaces. Treat those pre-bound surfaces as valid and bind only the remaining
+raw surfaces. This keeps the installer idempotent and prevents unrelated UI
+work from breaking the image pipeline merely by running earlier in the build.
+"""
 from pathlib import Path
 from marrow_images import ROOT, release
+
+QUESTION_RAW = '<div class="question-text">'
+QUESTION_BOUND = '<div class="question-text" data-marrow-question="${q.bank===\'Marrow\'?esc(String(q.id)):\'\'}">'
+MIN_QUESTION_SURFACES = 3
+
 
 def install():
     release(ROOT/'data/marrow/images/registry.json')
@@ -10,9 +22,18 @@ def install():
     html=path.read_text()
     marker='<!-- NK_MARROW_IMAGES_V1 -->'
     if marker not in html:
-        anchor='<div class="question-text">'
-        assert html.count(anchor)>=3, 'Question surfaces missing'
-        html=html.replace(anchor,'<div class="question-text" data-marrow-question="${q.bank===\'Marrow\'?esc(String(q.id)):\'\'}">')
+        raw_count=html.count(QUESTION_RAW)
+        bound_count=html.count(QUESTION_BOUND)
+        assert raw_count+bound_count>=MIN_QUESTION_SURFACES, (
+            f'Question surfaces missing: raw={raw_count} prebound={bound_count}'
+        )
+        if raw_count:
+            html=html.replace(QUESTION_RAW,QUESTION_BOUND)
+        final_bound_count=html.count(QUESTION_BOUND)
+        assert final_bound_count>=MIN_QUESTION_SURFACES, (
+            f'Marrow question bindings incomplete: bound={final_bound_count}'
+        )
+
         anchor='  function nkRenderMarrowExplanation(q){'
         assert html.count(anchor)==1
         html=html.replace(anchor,'  function nkRenderMarrowExplanationContent(q){',1)
@@ -23,6 +44,7 @@ def install():
         html=html.replace('  function nkRenderMarrowExplanationContent(q){',wrapper+'  function nkRenderMarrowExplanationContent(q){',1)
         html=html.replace('</head>',marker+'\n<script defer src="marrow_visual_metadata.js"></script>\n<script defer src="marrow_visual_renderer.js"></script>\n</head>',1)
         path.write_text(html)
+        print(f'MARROW_QUESTION_BINDINGS_OK raw={raw_count} prebound={bound_count} final={final_bound_count}')
     viewer=assets/'source_visual_renderer.js'
     content=viewer.read_text()
     if 'window.NKSourceVisualViewer=viewer;' not in content:
