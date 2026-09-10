@@ -1,0 +1,50 @@
+name: Inspect Marrow automation ingest shapes
+
+on:
+  push:
+    branches:
+      - feature/marrow-automation-ingest-physio-biochem
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+      - name: Fetch automation handoff branch
+        run: git fetch --depth=50 origin feature/marrow-bank-pilot:refs/remotes/origin/feature/marrow-bank-pilot
+      - name: Inspect safe schemas only
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import base64, json, zlib, subprocess
+          from pathlib import Path
+
+          data=Path('data/marrow')
+          manifest=json.loads((data/'physiology_ch001_033_manifest.json').read_text())
+          encoded=''.join(p.read_text().strip() for p in sorted(data.glob('physiology_ch001_033.zlib.b64.part*')))
+          record=json.loads(zlib.decompress(base64.b64decode(encoded)).decode())
+          print('CURRENT_RECORD_KEYS', sorted(record.keys()))
+          print('CURRENT_TOPIC_KEYS', sorted(record['topics'][0].keys()))
+          print('CURRENT_Q_KEYS', sorted(record['questions'][0].keys()))
+          print('CURRENT_OPTION_KEYS', sorted(record['questions'][0]['options'][0].keys()))
+          print('CURRENT_LAST_TOPICS', [(t.get('id'),t.get('title')) for t in record['topics'][-3:]])
+          print('CURRENT_LAST_Q_ID', record['questions'][-1].get('id'))
+          for k in ('sourceRef','structuredExplanation'):
+              v=record['questions'][0].get(k)
+              print(k+'_TYPE', type(v).__name__)
+              if isinstance(v,dict): print(k+'_KEYS', sorted(v.keys()))
+
+          path='data/marrow/automation_ingest/physiology/qbank_physio_chunk_034_glomerular_filtration_rate_renal_blood_flow_and_renal_clearance.jsonl'
+          raw=subprocess.check_output(['git','show','origin/feature/marrow-bank-pilot:'+path], text=True)
+          first=json.loads(next(line for line in raw.splitlines() if line.strip()))
+          print('RAW_Q_KEYS', sorted(first.keys()))
+          print('RAW_OPTION_KEYS', sorted(first['options'][0].keys()))
+          print('RAW_EXPLANATION_KEYS', sorted(first.get('explanation',{}).keys()))
+          print('RAW_SOURCE_PROVENANCE_KEYS', sorted(first.get('source_provenance',{}).keys()))
+          print('RAW_SAMPLE_ID', first.get('id'), 'CHAPTER', first.get('chapter_number'), first.get('chapter'))
+          PY
