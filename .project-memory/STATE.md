@@ -7,7 +7,7 @@
 - Repo: `Numankhan2013/V10.1`; `main` is the authoritative unified V11/Marrow line.
 - Anatomy topic-index v2 merged through PR #29 at `424d7b2`.
 - Biochemistry topic-index v2 merged through PR #30 at `3b0d9dc`.
-- Physiology topic-index v2 is on `feature/marrow-physiology-topic-index-v2`; full feature CI/preview is the merge gate.
+- Physiology topic-index v2 merged through PR #31 at `fcf0476`.
 - Resolve live HEAD from Git; never hardcode a self-staling HEAD.
 - Accepted baseline: **V11.6 Content Quality** at `125d68b`.
 - Accepted product commit: `125d68b`.
@@ -63,13 +63,15 @@ Authoritative order: **General physiology → Nerve and muscle physiology → Ga
 
 - Intended: **42 slots**; current source stays **33 topics / 753 questions**.
 - Current learner-order placement: General Ch 1–5; Nerve/muscle Ch 6–9; GI Ch 31–33; Cardiovascular Ch 26–30; Respiratory Ch 19–25; CNS Ch 10–18.
-- Arranged source-ID sequence: `1–9, 31–33, 26–30, 19–25, 10–18`; learner display must be **1–33 contiguous**.
+- Arranged source-ID sequence: `1–9, 31–33, 26–30, 19–25, 10–18`; learner display is **1–33 contiguous**.
 - Renal, Endocrine, Reproductive and Integrated physiology have no topics in the current Ch 1–33 import, so they remain metadata-only and invisible.
 - Source split/combo mappings: Muscle I/II → Muscle physiology; Motor 1/2 → Motor physiology; Ch16 → Basal ganglia + Cerebellum; Ch17 → Hypothalamus + Limbic system; Vascular I/II → one vascular slot; Ch22/23 → supplied combined gas-transport/lung-volume slot; Ch31 → GI secretion + hormones.
 - `tools/apply_marrow_topic_numbering_v1.py` provides Marrow-only arranged learner serials after the whole-app Topics renderer; the existing content-hygiene transformation invokes it, avoiding a second workflow/UI owner.
 - `tools/test_marrow_topic_taxonomy.py` validates all 10 indexes, 42 planned slots, 33 source IDs/titles, slot mapping and arranged ID order.
 - The deep existing browser suite is preserved byte-for-byte as `tools/verify_marrow_bank_browser_core.py`; its wrapper updates only Physiology taxonomy/1–33 assertions.
-- Full feature CI/browser/APK/preview verification is pending before merge.
+- Full feature CI `34446318486` passed end-to-end: static taxonomy, real Chromium rendering/1–33 numbering, explanation/image/PDF/FSRS regressions, APK packaging, packaged-product checks, and Cloudflare preview deployment.
+- Feature preview alias: `https://feature-marrow-physiology-to.nk-qbank.pages.dev`; immutable build: `https://ea954f90.nk-qbank.pages.dev`.
+- Merged to `main` through PR #31 at `fcf0476742b4906780ee3585cdeb3c710e31ed53`; device verification of the new Physiology arrangement is pending.
 
 ## Explanation and image phases
 
@@ -81,8 +83,8 @@ Authoritative order: **General physiology → Nerve and muscle physiology → Ga
 
 ## Verification / release status
 
-- Anatomy and Biochemistry taxonomy v2 are build-verified and merged; both await device verification of the new arrangements.
-- Physiology v2 is not yet build-verified or device-verified; full feature CI is its gate.
+- Anatomy, Biochemistry, and Physiology topic-index v2 are all build-verified and merged to `main`.
+- The new taxonomy arrangements still await user/device verification.
 - CI success alone does not change the accepted baseline or promote production.
 
 ## Known problems / cautions
@@ -94,9 +96,8 @@ Authoritative order: **General physiology → Nerve and muscle physiology → Ga
 
 ## Next step
 
-1. Run/inspect full Physiology v2 feature CI and browser 10-index/1–33 contract; fix any regression before merge.
-2. After green CI, merge Physiology v2 and record its exact Cloudflare preview alias/immutable URL; keep production unpromoted.
-3. Later locate/verify reported Biochemistry Ch 27/28 outputs and integrate them against the planned taxonomy.
-4. Continue explanation/image rollouts separately.
+1. User/device-verify the new Anatomy, Biochemistry, and Physiology topic arrangements using their feature previews/current builds.
+2. Later locate/verify reported Biochemistry Ch 27/28 outputs and integrate them against the planned taxonomy.
+3. Continue explanation/image rollouts separately.
 
 Canonical Marrow integration procedure: `docs/MARROW_BANK_INTEGRATION.md`.
