@@ -1,0 +1,43 @@
+name: Apply Physiology automation ingest
+
+on:
+  push:
+    branches:
+      - feature/marrow-automation-ingest-physio-biochem
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+      - name: Fetch canonical automation handoff
+        run: git fetch --depth=50 origin feature/marrow-bank-pilot:refs/remotes/origin/feature/marrow-bank-pilot
+      - name: Build Ch01-43 source-faithful Physiology bank
+        run: |
+          python3 tools/integrate_physio_automation_ch034_043.py
+          python3 tools/inventory_marrow_explanations.py --write
+      - name: Validate source bank and taxonomy
+        run: |
+          python3 tools/test_marrow_bank_pilot.py --data-only
+          python3 tools/test_marrow_topic_taxonomy.py
+          python3 tools/test_marrow_explanation_inventory.py
+          python3 tools/verify_project_memory.py
+      - name: Report remaining old count assumptions
+        shell: bash
+        run: |
+          grep -RInE 'physiology_ch001_033|753/33|physiology=753|Physiology.*753|2115|2,115|current_topics=107' tools docs .project-memory .github --exclude='inspect-marrow-automation-ingest.yml' --exclude='apply-physiology-automation-ingest.yml' || true
+      - name: Remove one-time workflows and commit generated source package
+        shell: bash
+        run: |
+          rm -f .github/workflows/inspect-marrow-automation-ingest.yml .github/workflows/apply-physiology-automation-ingest.yml
+          git config user.name 'Numankhan2013'
+          git config user.email '124483154+Numankhan2013@users.noreply.github.com'
+          git add -A
+          git diff --cached --stat
+          git commit -m 'Integrate Physiology Marrow Ch34-43 automation handoff'
+          git push origin HEAD:feature/marrow-automation-ingest-physio-biochem
