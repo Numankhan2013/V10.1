@@ -101,7 +101,9 @@ def main() -> None:
     base.patch_session_renderer()
     v2.patch_core_existing_answer_regression()
     patch_wrapper()
-    base.patch_state()
+    # STATE is maintained explicitly in the source-integration handoff. Do not
+    # make the repair migration depend on a one-time prose anchor after it has
+    # already been recorded; that would make an otherwise safe repair non-idempotent.
     print("MARROW_OPTION_CONTRACT_REPAIR_V4_OK affected=340 source_jsonl=unchanged runtime=A-D browser=learner-ui-red+green")
 
 
