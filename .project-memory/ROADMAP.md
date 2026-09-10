@@ -22,7 +22,8 @@ Check off only when build-verified **and** device-verified where UI is involved.
       `feature/home-command-center-current`: preserve saved modules, Due Review,
       Continue Practice, Practice 20 and Timed CBT; visually recommend unfinished
       module first, then due review, then Practice 20. Run after the Custom Study
-      Modules transform and require mobile browser screenshot plus full APK/PWA CI.
+      Modules transform. Implementation and local contracts pass; exact-head full
+      mobile-browser/packaged verification and visual acceptance remain.
 
 ## Marrow expansion — current priority
 

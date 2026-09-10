@@ -13,7 +13,7 @@ on:
         required: false
         type: string
   push:
-    branches: [main, 'consolidation/**', v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision, v11.5-custom-study-modules, v11.6-content-quality, v11.7-cross-device-pwa-sync, 'feature/marrow-*']
+    branches: [main, 'consolidation/**', v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision, v11.5-custom-study-modules, v11.6-content-quality, v11.7-cross-device-pwa-sync, 'feature/home-*', 'feature/marrow-*']
 
 permissions:
   contents: read
@@ -137,6 +137,10 @@ jobs:
         run: python3 tools/apply_custom_study_modules_v1.py
       - name: Test Custom Study Modules
         run: python3 tools/test_custom_study_modules_v1.py
+      - name: Apply Home Today’s Focus command center
+        run: python3 tools/apply_home_command_center_v1.py
+      - name: Test Home Today’s Focus command center
+        run: python3 tools/test_home_command_center_v1.py
       - name: Apply question content hygiene
         run: python3 tools/apply_question_content_hygiene_v1.py
       - name: Test question content hygiene

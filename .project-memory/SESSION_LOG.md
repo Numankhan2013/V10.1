@@ -790,3 +790,22 @@ Implemented approved recovery in existing transform owners: Topics separate path
   No partial product edit exists. Resume with the deterministic transform and contract test, wire it
   after Custom Study Modules, add a Home browser screenshot/assertions, run local
   checks and full Android/PWA CI, then visually inspect the artifact.
+
+## 2026-09-10 — Automation audit and Home command-center implementation
+
+- Audited GitHub before resuming product work. The explanation lineage has green
+  full builds through Physiology Chapter 8 (512 enhanced questions); Chapter 9
+  has 27 authored records but its exact-head build fails because the deterministic
+  inventory does not match. The Anatomy image automation safely staged six
+  Chapter 9 candidates without releasing them, but also committed generated
+  `tools/__pycache__` files, so that branch must not be merged wholesale.
+- Implemented `apply_home_command_center_v1.py` after Custom Study Modules. The
+  Home focus panel now exposes one explicit recommended action with deterministic
+  priority saved module → due FSRS review → Practice 20, while preserving the
+  remaining non-duplicate Continue Practice, Review Due, Practice 20 and Timed
+  CBT actions plus the existing Study Sets section.
+- Added a pure priority behavior check, exact fail-closed transform contract,
+  idempotence/accessibility/responsive/reduced-motion assertions, protected build
+  order, generated product markers and a 390×844 browser screenshot regression.
+- `verify_local.py` passes 38 local checks. PDF generation, the generated browser
+  screenshot, packaged APK checks and visual QA remain CI-only and pending.

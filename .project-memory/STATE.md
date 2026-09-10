@@ -6,13 +6,14 @@
 ## Repo / release state
 
 - Repo: `Numankhan2013/V10.1`.
-- Current working branch: `feature/home-command-center-current`, stacked directly on the verified image branch `feature/marrow-image-rollout-current`. No Home product files have been changed yet.
+- Current working branch: `feature/home-command-center-current`, stacked directly on the verified image branch `feature/marrow-image-rollout-current`.
+- The bounded Home command-center transform and tests are implemented locally;
+  local checks pass, but full generated-app/browser/APK CI is still required.
 - Resolve live branch/HEAD from Git; do not hardcode self-staling HEAD values.
-- Current verified explanation lineage reaches
-  `feature/marrow-explanation-rollout-physio-ch05-current` / PR #24.
-- Exact verified Chapter 5 candidate: `f170eb8517998cdaf4229240d2c2a273c6d98cf8`.
-- Engineering Gate 259 and full Android/PWA run 539 both passed.
-- Latest immutable verified preview: `https://3cce6bfb.nk-qbank.pages.dev`.
+- This Home/image base contains explanations through Physiology Chapter 5.
+  Separately, the latest verified explanation lineage reaches Physiology Chapter
+  8 at `0a1f31f`; its full Android/PWA run `34367467186` passed.
+- Latest verified Chapter 8 preview: `https://afdceb7d.nk-qbank.pages.dev`.
 - Production promotion remains explicit and guarded; run 539 skipped production.
 - Accepted baseline remains V11.6 Content Quality `125d68b` until the user explicitly promotes a later product baseline.
 - Accepted product commit: `125d68b`.
@@ -101,20 +102,18 @@ explanation and exactly three distractor rationales through the real learner UI.
 
 ## Next step / ownership split
 
-- **Immediate primary-agent task:** implement the bounded Home “Today’s Focus”
-  command-center enhancement on `feature/home-command-center-current`. Preserve
-  all existing actions and flows; make the recommended action context-aware with
-  priority **unfinished saved module → due FSRS review → Practice 20**.
-- The new deterministic transform must run **after**
-  `apply_custom_study_modules_v1.py` / `test_custom_study_modules_v1.py`, because
-  Custom Study Modules owns a later Home mutation than the V11.4 visual transform.
-  Add a dedicated transform/test, workflow-order protection, mobile browser
-  screenshot/assertions, full Android/PWA CI, and visual QA before calling it done.
-- Investigation is complete but implementation intentionally paused at low usage.
-  The attempted patch failed before writing because of the known Termux
-  `apply_patch` sandbox limitation; no partial product change exists.
-- **Image integration:** resume later from the verified Batch 07 state; do not mix
-  it into this bounded Home branch.
-- **Explanation refinement agent:** when resumed, continue from
-  **Physiology Chapter 6 — Physiology of Nerve**, source order, without touching
-  the image-integration ownership.
+- **Immediate primary-agent task:** push the bounded Home candidate, require the
+  exact-head Engineering Gate and full Android/PWA run, then inspect the generated
+  390 px Home screenshot before asking for physical acceptance. The deterministic
+  transform runs after Custom Study Modules and uses priority **unfinished saved
+  module → due FSRS review → Practice 20** while retaining Continue Practice,
+  Practice 20, Timed CBT, conditional Due Review and Study Sets.
+- **Image integration:** the Anatomy automation staged six Chapter 9 candidates
+  but correctly released none. Resume those exact six from its checkpoint after
+  the Home milestone; do not merge its accidentally committed `__pycache__` files.
+- **Explanation automation audit:** Physiology Chapters 6–8 are build-verified
+  (512 enhanced total). Chapter 9 has 27 authored records but remains unverified
+  because its current exact-head full build fails the inventory equality gate.
+- **Explanation refinement agent:** validate and repair the existing unverified
+  Physiology Chapter 9 checkpoint before beginning Chapter 10; do not touch the
+  image-integration ownership.

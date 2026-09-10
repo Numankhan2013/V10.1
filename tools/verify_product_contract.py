@@ -88,6 +88,7 @@ def main() -> None:
             "qb-nav-submit",
             "window.QB.openQuestionNavigator()", "Continue Practice",
             "Practice 20 Random Questions", "nk-custom-study-modules-v1",
+            "nk-home-command-center-v1", "Recommended now",
             "openStudyModuleBuilder", "nkSelectModuleQuestionIds",
             "route.page==='module-builder'", "studyModules: []",
             "nkSyncModuleFromSession",

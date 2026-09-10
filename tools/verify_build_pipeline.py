@@ -32,6 +32,8 @@ required_order = [
     "tools/test_whole_app_vision_v1.py",
     "tools/apply_custom_study_modules_v1.py",
     "tools/test_custom_study_modules_v1.py",
+    "tools/apply_home_command_center_v1.py",
+    "tools/test_home_command_center_v1.py",
     "tools/apply_question_content_hygiene_v1.py",
     "tools/test_question_content_hygiene_v1.py",
     "tools/apply_android_secure_origin_v1.py",

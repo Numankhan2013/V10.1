@@ -28,6 +28,18 @@ def main():
             page.route('**/*.pdf*',lambda route: route.fulfill(path=str(ROOT/'app/src/main/assets/Anatomy_QBank_Source.pdf'),content_type='application/pdf',headers={'Access-Control-Allow-Origin':'*'}) if 'anatomy' in route.request.url.lower() else route.continue_())
             errors=[];page.on('pageerror',lambda e: errors.append(str(e)))
             page.goto(f'http://127.0.0.1:{port}/index.html',wait_until='networkidle')
+            home_focus=page.locator('.nk-home-command-center')
+            if home_focus.count()!=1 or not home_focus.is_visible():
+                raise SystemExit('Home Today’s Focus command center missing or duplicated')
+            if 'Recommended now' not in home_focus.inner_text():
+                raise SystemExit('Home recommendation hierarchy is not visible')
+            if 'Practice 20 questions' not in home_focus.locator('.nk-focus-primary').inner_text():
+                raise SystemExit('Clean-state Home recommendation is not Practice 20')
+            secondary=home_focus.locator('.nk-focus-secondary').inner_text()
+            for marker in ('Continue Practice','Timed CBT'):
+                if marker not in secondary:
+                    raise SystemExit(f'Home command center lost {marker}')
+            page.screenshot(path=str(OUT/'00-home-command-center.png'),full_page=True)
             def assert_sections(expected):
                 actual=page.locator('.nk-topic-group>h2').all_inner_texts()
                 if actual!=expected: raise SystemExit(f'Marrow topic sections/order mismatch: {actual!r}')
