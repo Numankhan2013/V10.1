@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Regressions for complete Marrow source-visual discovery."""
+import json
 from marrow_images import questions
 from marrow_visual_inventory import source_visual_expectations
 
@@ -16,6 +17,17 @@ def require(qid, role, minimum=1):
 
 
 def main():
+    qmap=questions()
+    diagnostic=qmap['marrow__BIOCHEM_CH19_Q002']
+    print('NORMALIZED_CH19_Q002',json.dumps({
+        'keys':sorted(diagnostic.keys()),
+        'provenance':diagnostic.get('provenance'),
+        'source':diagnostic.get('source'),
+        'structuredExplanationKeys':sorted((diagnostic.get('structuredExplanation') or {}).keys()),
+        'questionVisuals':diagnostic.get('questionVisuals'),
+        'question_visuals':diagnostic.get('question_visuals'),
+    },sort_keys=True))
+
     # User-reported omissions: these visual declarations are already source-owned
     # and must never disappear from image discovery again.
     require('marrow__BIOCHEM_CH18_Q003','explanation')
@@ -25,8 +37,6 @@ def main():
     require('marrow__BIOCHEM_CH19_Q011','question')
     require('marrow__BIOCHEM_CH19_Q011','explanation')
 
-    # Synthetic coverage protects both canonical snake_case question visuals and
-    # visual blocks even if future normalization changes field casing.
     sample={
         'id':'marrow__TEST_Q001','subject':'Biochemistry',
         'question_visuals':[{'visual_id':'QF1','source_page':10,'role':'question','visual_type':'graph'}],
