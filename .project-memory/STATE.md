@@ -8,7 +8,6 @@
 - Accepted product commit: `125d68b`.
 - Accepted baseline remains V11.6 Content Quality; later candidates are not accepted production unless the user explicitly promotes them.
 - Current Marrow image integration lineage is `feature/marrow-image-rollout-current`; resolve live HEAD from Git.
-- Repair work for the image-coverage defect is on `automation/marrow-image-coverage-repair-20260911`; this branch is not production and must not merge to `main` automatically.
 - Build-verified ≠ device-verified ≠ accepted baseline.
 
 ## Current Marrow bank
@@ -25,78 +24,76 @@ Raw imported source is authoritative and immutable. Source bundles remain manife
 
 ## Explanation-quality phase
 
-Canonical procedure: `docs/MARROW_EXPLANATION_FINE_TUNING.md` + `docs/MARROW_BANK_INTEGRATION.md`.
+Current deterministic inventory remains 429 enhanced / 1,686 pending: Anatomy 62 approved reference, Biochemistry 259 through Chapters 1–11, Physiology 108 through Chapter 5. Image integration remains a separate workstream.
 
-Current deterministic inventory remains:
-- 429 enhanced / 1,686 pending.
-- Anatomy approved reference: 62.
-- Biochemistry enhanced: 259; Chapters 1–11 complete on its explanation lineage.
-- Physiology enhanced: 108 through Chapter 5.
+## Marrow image coverage — authoritative status
 
-Image integration remains separate from explanation refinement.
+Physical learner review on 2026-09-11 proved the earlier Biochemistry image-completeness claim wrong. Registry asset counts describe only reviewed/staged work and are never a subject-completeness denominator.
 
-## Marrow image coverage incident — authoritative current status
+Coverage repair is incorporated into the image lineage. Authoritative CI measured:
+- **Biochemistry:** 95 source-recorded visual references across 89 questions; 65 released, 5 tracked but unreleased, 25 untracked; plus 31 text-cue review items.
+- **Physiology:** 218 source-recorded visual references across 172 questions; 42 released, 22 tracked but unreleased, 154 untracked; plus 27 text-cue review items.
 
-Physical learner review on 2026-09-11 proved the previous Biochemistry image-completeness claim was wrong.
+The source-derived audit plus `tools/marrow_image_coverage.py` is now the completion gate. A bounded batch may be COMPLETE while a subject remains INCOMPLETE.
 
-Root cause:
-- the image registry only counts assets/bindings already staged for review;
-- `stage_marrow_image_review.py` preferentially stages exactly-one-candidate native JPEG cases and skips complex/vector/multi-candidate/zero-native-candidate references;
-- therefore “60 approved Biochemistry assets / 60 released questions” described only the reviewed subset and was never evidence of full source coverage.
+## Current image recovery batch
 
-Authoritative CI audit on repair PR #38 / Engineering Gate run `34617043711` measured:
-- **Biochemistry:** 95 source-recorded visual references across 89 questions; **65 released**, **5 tracked but unreleased**, **25 untracked**; plus **31 additional text-cue review items**.
-- **Physiology:** 218 source-recorded visual references across 172 questions; **42 released**, **22 tracked but unreleased**, **154 untracked**; plus **27 additional text-cue review items**.
+Classification: **CURRENT_UNVERIFIED / specialist source-metadata adjudication**.
 
-Repeated figures may reuse one asset, so reference counts are not unique-asset counts. The key trust metric is learner-facing source-reference coverage, not number of approved registry assets.
+- Subject: Biochemistry.
+- Batch: `NKQ_BIOCHEM_SOURCE_ADJ_20260911`.
+- Branch: `automation/marrow-images-biochemistry-NKQ_BIOCHEM_SOURCE_ADJ_20260911`.
+- Exact base: `e8504ee1310df67eb88c5f65051ab8bddb67ebef` from `feature/marrow-image-rollout-current`.
+- PR: #39, targeting only the image integration branch; never `main` or production.
+- Specialist target: `marrow__BIOCHEM_CH02_Q010:figure:1`.
 
-Confirmed learner omissions include source-recorded visuals in Chapters 18–22. Examples independently confirmed from the digitized source records:
-- Ch18 Q3/Q5/Q6: explanation flowchart for enzyme non-protein components;
-- Ch19 Q2: question-critical reversible-reaction schematic;
-- Ch19 Q11: both a question-time enzyme-kinetics graph and an explanation-time inhibition graph.
+Authoritative finding:
+- Canonical metadata declares an explanation `glycolysis_pathway` on Marrow ED8 Biochemistry page 33.
+- Authoritative source `/Marrow digitization Biochem/biochemistryed8.pdf` verified at 7,958,177 bytes, SHA-256 `463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb`.
+- Full rendered page 33 was inspected and contains Q10 explanation text only, with **no figure**.
+- Neighboring pages 31, 32 and 35 do contain glycolysis pathway figures; attaching one to Q10 would be a false ownership substitution.
 
-These are not low-quality-source excuses; they expose a discovery/coverage gap.
+Implementation on the current candidate:
+- `data/marrow/images/source_reference_adjudications.json` records this exact reference as `SOURCE_METADATA_INVALID` with source hash and inspection evidence; raw Marrow data remains unchanged.
+- `tools/marrow_image_coverage.py` keeps invalid metadata visible in the raw source-reference denominator, reports it separately, never calls it released, and removes it only from the effective learner-image requirement.
+- Adjudication matching is fail-closed on stable reference ID, question, subject, role and exact source page set; orphaned/mismatched adjudications fail validation.
+- `tools/test_marrow_image_coverage.py` covers exact adjudication, one-to-one binding coverage, and wrong-page fail-closed behavior.
+- `docs/MARROW_IMAGE_COVERAGE_GATE.md` documents the immutable-source-safe adjudication policy.
 
-## Image coverage repair
+No image registry asset/binding, learner runtime, raw Marrow bundle, UI, `main`, or production deployment is changed by this specialist batch.
 
-New repair components on `automation/marrow-image-coverage-repair-20260911`:
-- `tools/marrow_image_coverage.py` — source-reference coverage auditor. It uses the source-derived audit as denominator and reports RELEASED, UNRELEASED_TRACKED, and UNTRACKED_SOURCE_VISUAL per reference plus text-cue review backlog.
-- `tools/test_marrow_image_coverage.py` — regression coverage including one-to-one matching so one registry binding cannot satisfy multiple source references.
-- `docs/MARROW_IMAGE_COVERAGE_GATE.md` — durable rule: bounded batch completion is not subject completion.
-- Engineering Gate runs the regression and computes authoritative Biochemistry/Physiology source coverage after `marrow_images.py audit`.
-- Repair PR #38 Engineering Gate `34617043711` passed all steps, including project-memory validation, existing image-registry tests, new coverage regression, authoritative PDF audit, explanation/taxonomy tests and build-pipeline verification.
+Exact-head CI and recomputed coverage are pending for the latest candidate; do not classify this batch VERIFIED_HISTORY until the final current head passes required gates.
 
-A subject must never be called learner-image complete unless:
-1. every source-recorded visual reference has a released PASS/SOURCE_LIMITED binding;
-2. question-time and explanation-time roles are separately covered;
-3. the text-cue backlog is cleared;
-4. `python3 tools/marrow_image_coverage.py --subject SUBJECT --require-complete --check` passes;
-5. normal image QA, browser/PWA/APK gates and memory handoff pass.
+## Coverage and trust rules
 
-Current old registry totals remain useful only as subset state: 162 assets / 204 bindings / 163 released questions globally; Biochemistry 60 approved assets / 62 total assets / 60 released questions. **Do not interpret those numbers as Biochemistry coverage completion.**
+A subject may be called learner-image complete only when:
+1. every legitimate source visual has a released PASS/SOURCE_LIMITED binding;
+2. every invalid source reference has exact evidence-backed adjudication rather than substitution;
+3. question/explanation roles and multi-figure order are separately covered;
+4. the text-cue backlog is cleared;
+5. `marrow_image_coverage.py --subject SUBJECT --require-complete --check` passes;
+6. normal image QA/browser/PWA/APK gates and memory handoff pass.
 
-The CRISPR Ch25 Q26 asset remains REVIEW_REQUIRED and unreleased because its small labels cannot yet be verified faithfully. Historical Biochemistry candidate branches do not own the shared writer lane.
+Rejected wrong candidates do not resolve legitimate visuals. Never use approved asset count as a completeness denominator.
 
 ## Automation state
 
-- Physiology image automation is intentionally paused so the same discovery/coverage defect is not propagated further.
-- Biochemistry becomes the recovery subject once the verified coverage guard is incorporated into `feature/marrow-image-rollout-current`.
-- Recovery must proceed from the source-coverage backlog in deterministic source order, not by skipping difficult vector/multi-candidate references in favor of easier JPEGs.
-- A bounded batch may be COMPLETE while the Biochemistry subject remains INCOMPLETE; always report both statuses.
+- Biochemistry is the active coverage-recovery subject.
+- Physiology image automation remains paused so the old discovery defect is not propagated.
+- Recovery proceeds in deterministic source-reference order; complex/vector/zero-native references cannot be skipped for easier JPEGs.
+- After one bounded batch completes, stop that run and leave Biochemistry recurring recovery enabled while subject coverage remains incomplete.
 
 ## Known problems / verification cautions
 
-- Biochemistry currently has **30 source-recorded references not learner-facing** (25 untracked + 5 tracked/unreleased), plus 31 text-cue review items requiring adjudication.
-- Physiology currently has **176 source-recorded references not learner-facing** (154 untracked + 22 tracked/unreleased), plus 27 text-cue review items.
-- Complex/vector/page-content figures need precise region rendering or source-faithful reconstruction under existing medical-image rules; they must not disappear from the queue.
+- Biochemistry remains substantially incomplete even after this single metadata adjudication; exact post-adjudication counts must come from final CI, not arithmetic assumptions.
+- User-confirmed missing visuals in Chapters 18–22 remain outstanding and are not exhausted by the listed examples.
+- Complex/vector/page-content figures may require native vector extraction, precise region rendering, or source-faithful reconstruction; medical pixels must remain authentic.
 - Question-time and explanation-time visuals can both exist for one question and both must be represented with correct timing.
-- Rejected wrong candidates do not prove the legitimate source visual is resolved.
-- Never use approved registry asset count as a completeness denominator again.
-- Do not alter raw Marrow bundles/source PDFs or unrelated UI while repairing coverage.
+- Ch25 Q26 CRISPR remains REVIEW_REQUIRED because tiny labels cannot yet be verified faithfully.
 
 ## Next step
 
-1. Incorporate the green coverage repair into `feature/marrow-image-rollout-current` without touching `main` or production.
-2. Resume Biochemistry in bounded coverage-first recovery batches from the earliest unreleased source reference, explicitly covering the user-reported Chapters 18–22 examples.
-3. Keep Physiology paused until Biochemistry recovery and the corrected selector/coverage workflow are proven trustworthy.
-4. After every recovery batch update both batch status and subject coverage status; never claim subject COMPLETE until the coverage gate passes.
+1. Finish exact-head verification of PR #39 and inspect recomputed Biochemistry coverage.
+2. If green, incorporate only this specialist adjudication batch into `feature/marrow-image-rollout-current`, mark it VERIFIED_HISTORY, and release the writer lane.
+3. Next run resumes from the next unresolved source reference in deterministic coverage order; do not jump to the user-reported later chapters merely because they are easier to identify.
+4. Keep Physiology paused and never claim Biochemistry COMPLETE until the full coverage gate passes.
