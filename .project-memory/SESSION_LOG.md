@@ -839,3 +839,31 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Reconstruction status reflects certainty: medically correct explanation does
   not automatically mean the damaged original item is fully resolved.
 
+## 2026-09-11 — Physiology Chapter 9 fully verified
+
+- Subject/batch: Physiology Chapter 9 — **Synapse and Junctional Transmission**,
+  27/27 learner-facing augmentation records.
+- PR #33 exact verified product candidate:
+  `7974b8eee842f668e9fb4fac95783ac64893e98d`.
+- Reconstruction statuses remain intentionally conservative:
+  Q1 `needs_manual_review`; Q5 `needs_manual_review`; Q24
+  `resolved_reconstruction` with standard δ/κ/μ opioid-receptor terminology.
+- Deterministic inventory: **539 enhanced / 1,576 pending**; fingerprint
+  `06882fcd885436ebd15e38c2ff950de267d164434dc4050ca60d0841ca5dd131`.
+- Dedicated stable-ID generated-app browser regression verified Chapter 9 Q24,
+  its learner-facing δ/κ/μ reconstruction, and exactly three wrong-option
+  rationales (`physiology_ch09_q24=verified`).
+- Engineering Gate **327** / `34534383189`: success on exact product SHA.
+- Full Android/PWA run **701** / `34534378465`: success on the same product SHA.
+  Physiology rollout validation, generated product, CBT/FSRS/offline assets,
+  browser verification, APK build, packaged APK/product checks, reproducibility
+  manifest, artifact upload, and Cloudflare preview deployment all passed.
+- Build artifact `V11.7-android-pwa`: ID `10174904567`; browser-screenshot
+  artifact ID `10174865129`.
+- Immutable verified preview: `https://5dc3071d.nk-qbank.pages.dev`.
+- Production promotion was skipped.
+- Chapter 9 is **FULLY_VERIFIED**. The serialized explanation lane is released.
+  No Chapter 10 content was started in this finalization run.
+- This final memory handoff is docs-only `[skip ci]`; exact product verification
+  remains anchored to `7974b8eee842f668e9fb4fac95783ac64893e98d` rather than
+  pretending the later documentation-only commit was package-certified.
