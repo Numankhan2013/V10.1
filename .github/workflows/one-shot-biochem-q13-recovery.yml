@@ -1,0 +1,87 @@
+name: One-shot Biochemistry Q13 image recovery
+
+on:
+  push:
+    branches:
+      - automation/marrow-images-biochemistry-NKQ_BIOCHEM_COVERAGE_Q13_20260911
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    if: ${{ !contains(github.event.head_commit.message, '[q13-recovery-done]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact candidate branch
+        uses: actions/checkout@v5
+        with:
+          ref: automation/marrow-images-biochemistry-NKQ_BIOCHEM_COVERAGE_Q13_20260911
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install audit dependency
+        run: python3 -m pip install pypdf==6.18.0
+      - name: Recompute authoritative source audit and pre-coverage
+        run: |
+          python3 tools/marrow_images.py audit
+          python3 tools/marrow_image_coverage.py --subject Biochemistry
+      - name: Add exact reviewed Q13 repeated-asset binding
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          path=Path('data/marrow/images/registry.json')
+          value=json.loads(path.read_text())
+          asset=next(a for a in value['assets'] if a['id']=='biochemistry-aa11f9fa6a08baea')
+          assert asset['status']=='PASS'
+          assert asset['production']['sha256']=='e6b4d76fa9ff07dbf62b5094b8fdcd46a744837bb802aa55945ac7021f6fa8e2'
+          qid='marrow__BIOCHEM_CH02_Q013'
+          assert not any(b['questionId']==qid for b in asset['bindings'])
+          asset['bindings'].append({
+            'questionId':qid,
+            'role':'explanation',
+            'order':1,
+            'alt':'Glycolysis pathway with enzymes and irreversible steps',
+            'status':'PASS',
+            'reviewBatch':'NKQ_BIOCHEM_COVERAGE_Q13_20260911',
+            'qa':{
+              'sourceCompared':True,
+              'notes':'Full authoritative page 35 inspection places the second glycolysis pathway (xref 1126) immediately after the Q13 solution text and before Solution to Question 14. The repeated pathway preserves glucose through pyruvate, all shown enzyme labels, ATP/ADP and NAD+/NADH+H+ relationships, aldolase/triose-phosphate branch/interconversion, reversible arrows, and red irreversible steps. Existing production SVG is the already source-compared PASS reconstruction of this same pathway. Explanation-only timing is correct and answer-safe.',
+              'evidence':'Marrow ED8 Biochemistry page 35 / xref 1126 / region [162,453,450,669], visually compared 2026-09-11 against the existing reviewed glycolysis production asset.'
+            },
+            'source':{
+              'page':35,
+              'xref':1126,
+              'region':[162.0,453.0,450.0,669.0]
+            }
+          })
+          path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n')
+          PY
+      - name: Validate release and deterministic coverage
+        run: |
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_images.py release
+          python3 tools/marrow_image_progress.py
+          python3 tools/marrow_image_progress.py --check
+          python3 tools/marrow_image_coverage.py --subject Biochemistry
+          python3 tools/marrow_image_coverage.py --subject Biochemistry --check
+          python3 tools/test_marrow_images.py
+          python3 tools/test_marrow_image_coverage.py
+          python3 tools/verify_build_pipeline.py
+          python3 tools/verify_project_memory.py
+          git diff --check
+      - name: Show bounded recovery diff
+        run: |
+          git status --short
+          git diff -- data/marrow/images/registry.json data/marrow/images/progress.json data/marrow/images/coverage.json app/src/main/assets/marrow_visual_metadata.js
+      - name: Remove one-shot workflow and commit bounded batch
+        run: |
+          rm .github/workflows/one-shot-biochem-q13-recovery.yml
+          git config user.name 'Numankhan2013'
+          git config user.email '124483154+Numankhan2013@users.noreply.github.com'
+          git add -A
+          git commit -m 'Release Biochemistry Ch2 Q13 glycolysis figure [q13-recovery-done]'
+          git push origin HEAD:automation/marrow-images-biochemistry-NKQ_BIOCHEM_COVERAGE_Q13_20260911
