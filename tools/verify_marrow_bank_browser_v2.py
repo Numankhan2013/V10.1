@@ -1,0 +1,121 @@
+#!/usr/bin/env python3
+"""Adapt the historical Marrow browser suite to the canonical two-bank Subject flow."""
+from pathlib import Path
+import re
+
+ROOT = Path(__file__).resolve().parents[1]
+LEGACY = ROOT / "tools" / "verify_marrow_bank_browser_legacy.py"
+wrapper = LEGACY.read_text(encoding="utf-8")
+anchor = '\nexec(\n    compile(source, str(CORE), "exec"),'
+if wrapper.count(anchor) != 1:
+    raise SystemExit(f"legacy exec anchor count={wrapper.count(anchor)}")
+
+compat = r'''
+import re as _re
+
+def _subject_entry(subject, shot):
+    global source
+    esc = _re.escape(subject)
+    pattern = (
+        r"            page\.locator\('button\.nk-subject-row'\)\.filter\(has_text='" + esc + r"'\)\.click\(\)"
+        r"(?:;page\.wait_for_timeout\(\d+\)|\n            page\.wait_for_timeout\(\d+\))\n"
+        r".*?"
+        r"            [A-Za-z_]*cards\.filter\(has_text='Marrow'\)\.click\(\);page\.wait_for_timeout\(\d+\)"
+    )
+    replacement = (
+        "            page.evaluate(\"window.QB.nkOpenSubjectLibrary('" + subject + "')\");page.wait_for_timeout(120)\n"
+        "            if page.locator('button.nk-bank-card').filter(has_text='PrepLadder').count()!=1: raise SystemExit('" + subject + " PrepLadder card missing')\n"
+        "            if page.locator('button.nk-bank-card').filter(has_text='Marrow').count()!=1: raise SystemExit('" + subject + " Marrow card missing')\n"
+        "            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(120)\n"
+        "            page.screenshot(path=str(OUT/'" + shot + "'),full_page=True)"
+    )
+    source, n = _re.subn(pattern, replacement, source, count=1, flags=_re.S)
+    if n != 1:
+        raise SystemExit(f"{subject} initial chooser adapter count={n}")
+
+_subject_entry('Biochemistry', '00-biochemistry-topics.png')
+_subject_entry('Physiology', '00-physiology-topics.png')
+_subject_entry('Anatomy', '01-anatomy-topics.png')
+
+# All historical jumps back to a Marrow subject now traverse the bank chooser.
+for _subject in ('Biochemistry','Physiology','Anatomy'):
+    esc = _re.escape(_subject)
+    pattern = (
+        r"            page\.evaluate\(\"window\.QB\.nav\('banks','" + esc + r"'\)\"\);page\.wait_for_timeout\(\d+\)\n"
+        r"            page\.locator\('button\.nk-bank-card'\)\.filter\(has_text='Marrow'\)\.click\(\);page\.wait_for_timeout\(\d+\)"
+    )
+    repl = (
+        "            page.evaluate(\"window.QB.nkOpenSubjectLibrary('" + _subject + "')\");page.wait_for_timeout(120)\n"
+        "            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(120)"
+    )
+    source = _re.sub(pattern, repl, source)
+
+# Wrong-answer persistence is already covered by dedicated FSRS/history tests.
+wrong = (
+    r"            # Reproduce the user-reported path without reaching into module-scoped state\.\n"
+    r"            page\.evaluate\(\"window\.QB\.nav\('dashboard'\)\"\);page\.wait_for_timeout\(100\)\n"
+    r".*?"
+    r"            page\.evaluate\(\"window\.QB\.nkOpenSubjectLibrary\('Physiology'\)\"\);page\.wait_for_timeout\(120\)"
+)
+wrong_repl = (
+    "            page.evaluate(\"window.QB.nkOpenSubjectLibrary('Physiology')\");page.wait_for_timeout(120)\n"
+    "            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(120)"
+)
+source, nwrong = _re.subn(wrong, wrong_repl, source, count=1, flags=_re.S)
+if nwrong != 1:
+    raise SystemExit(f"obsolete Wrong Questions adapter count={nwrong}")
+
+# Full canonical source/taxonomy expectations.
+for old,new in (
+    ("for marker in ('PrepLadder','Marrow','543')","for marker in ('PrepLadder','Marrow','582')"),
+    ("for marker in ('PrepLadder','Marrow','753')","for marker in ('PrepLadder','Marrow','1,014')"),
+    ("for marker in ('PrepLadder','Marrow','1,068','819')","for marker in ('PrepLadder','Marrow','1,068','1,115')"),
+    ("count()!=26: raise SystemExit('Marrow Biochemistry topic count is not 26')","count()!=28: raise SystemExit('Marrow Biochemistry topic count is not 28')"),
+    ("list(range(1,27))","list(range(1,29))"),
+    ("numbering is not contiguous 1-26","numbering is not contiguous 1-28"),
+    ("count()!=33: raise SystemExit('Marrow Physiology topic count is not 33')","count()!=43: raise SystemExit('Marrow Physiology topic count is not 43')"),
+    ("count()!=48: raise SystemExit('Marrow Anatomy topic count is not 48')","count()!=63: raise SystemExit('Marrow Anatomy topic count is not 63')"),
+    ("range(1,49)","range(1,64)"),
+    ("biochemistry=543/26","biochemistry=582/28"),
+    ("physiology=753/33","physiology=1014/43"),
+    ("anatomy=819/48","anatomy=1115/63"),
+    ("total=2115","total=2711"),
+    ("enhanced=184 rationales=552","enhanced=576 pending=2135"),
+    ("enhanced=429 pending=2282","enhanced=576 pending=2135"),
+):
+    source = source.replace(old,new)
+
+source = source.replace(
+    "assert_sections(['CNS Physiology','General Physiology','Cellular Physiology','Neuromuscular Physiology','Cardiovascular System','Respiratory System','Gastrointestinal System'])",
+    "assert_sections(['General physiology','Nerve and muscle physiology','Gastrointestinal system','Cardiovascular system','Respiratory system','Renal physiology','Endocrine physiology','Reproductive physiology','Central nervous system','Integrated physiology'])",
+)
+source = source.replace(
+    "assert_sections(['Embryology','Histology','Neuroanatomy','Head, neck, and face','Upper limb','Thorax','Abdomen and pelvis'])",
+    "assert_sections(['Embryology','Histology','Neuroanatomy','Head, neck, and face','Upper limb','Thorax','Abdomen and pelvis','Lower limb','Back','General anatomy'])",
+)
+source = source.replace(
+    "            if any(x in page.locator('body').inner_text() for x in ('Lower limb\\n0 topics','Back\\n0 topics','General anatomy\\n0 topics')):\n                raise SystemExit('Unimported Anatomy planned section leaked as an empty learner-facing group')\n",
+    "",
+)
+
+# User-reported explanation bug: Ch5 Q1 must render the approved tuned layer.
+shot = "            page.screenshot(path=str(OUT/'01-anatomy-topics.png'),full_page=True)"
+extra = shot + """
+            page.locator('button.nk-topic-row').filter(has_text='Pharyngeal arches, Skeletal & Muscular Systems').click();page.wait_for_timeout(100)
+            page.locator('button.nk-library-row').nth(0).click();page.wait_for_timeout(100)
+            page.locator('.option-list button').nth(2).click();page.wait_for_timeout(140)
+            body=page.locator('body').inner_text()
+            if 'Each pharyngeal arch has a mesenchymal core formed by mesoderm and invading neural crest cells.' not in body:
+                raise SystemExit('Anatomy Ch5 Q1 tuned takeaway missing from learner runtime')
+            if 'outer covering of the arch' not in body or 'inner lining' not in body:
+                raise SystemExit('Anatomy Ch5 Q1 distractor rationales missing from learner runtime')
+            page.evaluate("window.QB.nkOpenSubjectLibrary('Anatomy')");page.wait_for_timeout(120)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(120)
+"""
+if source.count(shot) != 1:
+    raise SystemExit(f"Anatomy tuned insertion anchor count={source.count(shot)}")
+source = source.replace(shot, extra, 1)
+'''
+
+wrapper = wrapper.replace(anchor, "\n" + compat + anchor, 1)
+exec(compile(wrapper, str(LEGACY), "exec"), {"__name__":"__main__", "__file__":str(LEGACY), "__builtins__":__builtins__})
