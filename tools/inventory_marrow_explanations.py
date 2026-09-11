@@ -39,10 +39,83 @@ def load_sharded(prefix: str) -> tuple[dict, str]:
     return json.loads(raw), hashlib.sha256(raw).hexdigest()
 
 
+def _validate_rollout_cfg(qid: str, cfg: dict, source: dict, label: str) -> None:
+    if not str(cfg.get("takeaway", "")).strip() or not str(cfg.get("displayText", "")).strip():
+        raise AssertionError(f"{label} missing takeaway/displayText: {qid}")
+    emphasis = cfg.get("emphasis", [])
+    if not (1 <= len(emphasis) <= 4) or any(str(p) not in str(cfg["displayText"]) for p in emphasis):
+        raise AssertionError(f"{label} emphasis invalid: {qid}")
+    if "sourceText" in cfg:
+        raise AssertionError(f"{label} must not duplicate immutable source text: {qid}")
+    correct = int(source.get("correctOption", 0))
+    wrong_letters = {
+        str(option.get("letter") or chr(64 + index)).lower()
+        for index, option in enumerate(source.get("options", []), 1)
+        if index != correct
+    }
+    rationales = cfg.get("rationales", {})
+    if len(rationales) != 3 or set(rationales) != wrong_letters or any(not str(v).strip() for v in rationales.values()):
+        raise AssertionError(f"{label} distractor rationales mismatch: {qid}")
+    reconstruction = cfg.get("reconstruction")
+    if reconstruction is not None:
+        if reconstruction.get("status") not in {"resolved_reconstruction", "needs_manual_review"}:
+            raise AssertionError(f"{label} reconstruction status invalid: {qid}")
+        for field in ("sourceProblem", "reconstructedContent", "reviewNote"):
+            if not str(reconstruction.get(field, "")).strip():
+                raise AssertionError(f"{label} reconstruction {field} missing: {qid}")
+        evidence = reconstruction.get("evidenceBasis")
+        if not isinstance(evidence, list) or not evidence or any(not str(item).strip() for item in evidence):
+            raise AssertionError(f"{label} reconstruction evidence invalid: {qid}")
+
+
 def enhanced_ids() -> set[str]:
-    anatomy = json.loads((DATA / "explanation_gold_pilot.json").read_text(encoding="utf-8"))["questions"]
+    anatomy_reference = json.loads((DATA / "explanation_gold_pilot.json").read_text(encoding="utf-8"))["questions"]
+    ids = set(anatomy_reference)
+
+    anatomy_bank, _ = load_sharded("anatomy_phase_a")
+    anatomy_source = {str(q.get("id", "")): q for q in anatomy_bank["questions"]}
+    anatomy_rollout_ids: set[str] = set()
+    for path in sorted(DATA.glob("explanation_anatomy_ch*_v1.json")):
+        record = json.loads(path.read_text(encoding="utf-8"))
+        scope = record.get("scope", {})
+        questions = record.get("questions", {})
+        if (
+            scope.get("subject") != "Anatomy"
+            or scope.get("bank") != "Marrow"
+            or scope.get("status") != "approved-rollout"
+            or not questions
+        ):
+            raise AssertionError(f"Anatomy explanation batch identity/status mismatch: {path.name}")
+        if int(scope.get("questions", 0)) != len(questions):
+            raise AssertionError(f"Anatomy explanation batch count mismatch: {path.name}")
+        overlap = (ids | anatomy_rollout_ids) & set(questions)
+        if overlap:
+            raise AssertionError(f"duplicate enhanced IDs in {path.name}: {sorted(overlap)[:3]}")
+        if not set(questions).issubset(anatomy_source):
+            raise AssertionError(f"Anatomy explanation batch has unknown source IDs: {path.name}")
+        chapter = str(scope.get("chapterId"))
+        source_order = []
+        for qid, cfg in questions.items():
+            source = anatomy_source[qid]
+            if str(source.get("chapterId")) != chapter:
+                raise AssertionError(f"Anatomy explanation chapter mismatch: {qid}")
+            _validate_rollout_cfg(qid, cfg, source, "Anatomy")
+            source_order.append(int(source.get("questionNumber") or 0))
+        expected = list(range(min(source_order), max(source_order) + 1))
+        if sorted(source_order) != expected:
+            raise AssertionError(f"Anatomy explanation batch is not contiguous source order: {path.name}")
+        if "questionStart" in scope and int(scope["questionStart"]) != min(source_order):
+            raise AssertionError(f"Anatomy explanation questionStart mismatch: {path.name}")
+        if "questionEnd" in scope and int(scope["questionEnd"]) != max(source_order):
+            raise AssertionError(f"Anatomy explanation questionEnd mismatch: {path.name}")
+        anatomy_rollout_ids.update(questions)
+    ids.update(anatomy_rollout_ids)
+
     physiology, _ = load_sharded("explanation_physio_pilot")
-    ids = set(anatomy) | set(physiology["questions"])
+    overlap = ids & set(physiology["questions"])
+    if overlap:
+        raise AssertionError(f"duplicate enhanced IDs in Physiology pilot: {sorted(overlap)[:3]}")
+    ids.update(physiology["questions"])
     for path in sorted(DATA.glob("explanation_physio_ch*_v1.json")):
         record = json.loads(path.read_text(encoding="utf-8"))
         scope = record.get("scope", {})
@@ -57,6 +130,7 @@ def enhanced_ids() -> set[str]:
         if overlap:
             raise AssertionError(f"duplicate enhanced IDs in {path.name}: {sorted(overlap)[:3]}")
         ids.update(questions)
+
     for path in sorted(DATA.glob("explanation_biochem_*_v1.json")):
         record = json.loads(path.read_text(encoding="utf-8"))
         scope = record.get("scope", {})
