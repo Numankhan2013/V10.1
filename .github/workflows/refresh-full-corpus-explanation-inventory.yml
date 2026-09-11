@@ -1,0 +1,45 @@
+name: Refresh full-corpus explanation inventory
+
+on:
+  push:
+    branches:
+      - feature/marrow-canonical-full-current
+    paths:
+      - tools/inventory_marrow_explanations.py
+      - .github/workflows/refresh-full-corpus-explanation-inventory.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: full-corpus-explanation-inventory-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: ${{ !contains(github.event.head_commit.message, '[inventory-generated]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exact branch head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Regenerate deterministic explanation inventory
+        run: python tools/inventory_marrow_explanations.py --write
+
+      - name: Validate regenerated inventory
+        run: python tools/test_marrow_explanation_inventory.py
+
+      - name: Commit regenerated inventory
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/marrow/explanation_inventory_v1.json
+          if git diff --cached --quiet; then
+            echo "Inventory already current"
+            exit 0
+          fi
+          git commit -m "[inventory-generated] Refresh full-corpus explanation inventory"
+          git push origin HEAD:feature/marrow-canonical-full-current
