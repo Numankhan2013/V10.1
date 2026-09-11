@@ -56,11 +56,12 @@ Every refined four-option SBA requires a meaningful Key Takeaway, medically corr
 - Reconstruction statuses: **none required** for Q10–Q19. Q14 learner-facing text avoids teaching thyroid hypoplasia as the defining DiGeorge pouch abnormality while preserving the source-keyed answer.
 - Source audit carried forward: Q10 and Q13 preserve source tables; Q14–Q19 preserve source-owned figures; Q16 and Q18 are image-dependent and were audited against source payload/labels.
 - Raw Marrow source remains unchanged.
-- Deterministic inventory is now regenerated and CI-validated: **576 enhanced / 1,539 pending**, fingerprint `09f7720c9fe9775f5e2ebc980035e5c78257664f5941a91b952b1b9263ad36ae`.
+- Deterministic inventory is regenerated and CI-validated: **576 enhanced / 1,539 pending**, fingerprint `09f7720c9fe9775f5e2ebc980035e5c78257664f5941a91b952b1b9263ad36ae`.
 - Inventory repair commit: `7217c574640d324b88ef61b0d50f7be165af1195`.
 - Engineering Gate **349** / `34607064801`: **success** on inventory-repair head `7217c574640d324b88ef61b0d50f7be165af1195`; inventory, Biochemistry/Physiology rollout validators, project memory, shared study/FSRS/sync/source/pipeline contracts passed.
-- Full Android/PWA **736** / `34607068608`: started on that same repair head and was still in progress at checkpoint time.
-- Current batch-specific browser requirement is **not yet satisfied**: `tools/verify_marrow_bank_browser.py` still contains the prior Anatomy Chapter 5 Q9 regression but no Q10–Q19 representative. Add one stable-ID case for image-dependent Q18 (preferred) or histology Q16 before accepting any full-run result as final certification.
+- Added the required current-batch stable-ID browser regression at commit `b8127887bcc839843ffeca7bc282f42e838f8059`: Anatomy → Marrow → Chapter 5 → source-order Q18, asserting Key Takeaway, Detailed explanation, Structured text, DiGeorge syndrome, 3rd/4th pouch relationship, `label 3`, thymic region, and exactly three distractor rows. Prior Q9 and Physiology regressions remain intact.
+- Engineering Gate **351** / `34607416145` started on browser-regression head `b8127887bcc839843ffeca7bc282f42e838f8059` and was in progress at checkpoint time.
+- Full Android/PWA certification must be matched to the final PR head after this handoff; neighboring run 736 / `34607068608` belongs to the earlier inventory-repair head and cannot certify the final candidate.
 - State: **PR_OPEN_CI_PENDING / CURRENT_UNVERIFIED**.
 - Other subject workers must not start a new integration batch while this section remains current.
 
@@ -69,16 +70,16 @@ Every refined four-option SBA requires a meaningful Key Takeaway, medically corr
 - Initial PR #37 Engineering run 340 / `34600802732` failed only because `explanation_inventory_v1.json` still described the previous 566/1,549 inventory. Its log printed the deterministic replacement manifest; commit `7217c574...` applied that exact manifest and Gate 349 then passed.
 - The old sibling branch `feature/marrow-explanation-rollout-anatomy-ch05-q10-q19-current` is stale and diverged from the verified Physiology lineage; do not use it.
 - Never accept a neighboring green workflow run; certify only a PR's exact current product head SHA.
-- Documentation-only `[skip ci]` handoff commits may follow a verified product SHA only after verification; do not use them to bypass exact-head certification for a current candidate.
+- Documentation-only handoff commits are not product certification. Resolve the final live PR head and require exact-head Engineering + full Android/PWA before declaring FULLY_VERIFIED.
 - Prefer stable chapter/question IDs over fuzzy display-text selectors.
 - Keep image integration separate. Do not rewrite raw Marrow shards, fork study engines, alter Topics taxonomy, redesign UI, merge, or promote production.
 
 ## Next step
 
 1. Resume this exact Anatomy Q10–Q19 batch; do **not** author Q20+.
-2. Add one stable-ID Chapter 5 browser regression for the current batch, preferably image-dependent Q18 (source-order row 18) and assert Key Takeaway, structured explanation, the `label 3` / thymic-region discriminator, and exactly three `.nk-gold-wrong-row` rows.
-3. Re-run/allow exact-head Engineering Gate and full Android/PWA on the resulting product head; only those runs can certify the candidate.
-4. Require generated product, CBT/FSRS/offline, browser, APK/package, reproducibility, artifact and preview gates to pass; keep production promotion skipped.
+2. Resolve the live PR #37 head after this checkpoint and inspect the exact-head Engineering and full Android/PWA runs.
+3. Require the Q18 stable-ID browser regression plus generated product, CBT/FSRS/offline, APK/package, reproducibility, artifact and preview gates to pass on that exact candidate; production promotion remains skipped.
+4. If a failure appears, make at most two bounded repairs for that exact failure class and re-certify the resulting exact head.
 5. After exact-head certification succeeds, move this section to `FULLY_VERIFIED_HISTORY`, append the substantive run to `SESSION_LOG.md`, record exact artifacts/preview, release the lane, and stop without starting Q20+ in the same run.
 
 Efficiency rule: pre-audit future content while CI runs, but never commit another batch on an unverified lineage.
