@@ -42,7 +42,7 @@ jobs:
 
       - name: Commit generated audit views when changed
         run: |
-          if git diff --quiet -- data/marrow/source_audit; then
+          if [ -z "$(git status --porcelain -- data/marrow/source_audit)" ]; then
             echo "Source audit views already current."
             exit 0
           fi
