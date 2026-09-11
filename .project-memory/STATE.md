@@ -9,7 +9,8 @@
 - Product/UI base: user-approved V3/correct-index lineage.
 - **Accepted baseline:** V11.6 Content Quality.
 - Accepted product commit: `125d68b`.
-- The user device-verified the structured-table repair at `c829599050173d24408b72e8dc564ba501a156b4`; Anatomy Ch5 Q10 tables render populated cells correctly.
+- **build-verified:** pending exact-head certification for the current canonical Q20–Q24-integrated handoff; the underlying table-fix build at `c829599050173d24408b72e8dc564ba501a156b4` passed full verification.
+- **device-verified:** the user verified the structured-table repair at `c829599050173d24408b72e8dc564ba501a156b4`; Anatomy Ch5 Q10 tables render populated cells correctly.
 - Canonical was fast-forwarded to that exact table-fixed tree, then Anatomy Ch5 Q20–Q24 was transplanted by stable question ID only. Historical divergent explanation branch history was not merged.
 - Current canonical content lineage includes transplant commit `66628b753513963232f3c5ee18e6602a41c400d8` plus deterministic inventory refresh commit `5ae636612e8e476dbd651bcda15b502aced9af45`.
 - `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md` is mandatory for image and explanation workers.
