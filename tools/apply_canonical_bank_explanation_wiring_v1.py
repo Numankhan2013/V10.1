@@ -209,8 +209,9 @@ def patch_home_bank_flow(html: str) -> str:
     const records=typeof nkBankRecords==='function'?nkBankRecords(subject):[];
     const fallback=(SUBJECTS||[]).find(r=>r.subject===subject)||null;
     if(!records.length&&!fallback){showToast('This subject is not available.','bad');return;}
-    if(typeof openSubjectTopics==='function'){openSubjectTopics(subject);return;}
-    activeSubject=subject;localStorage.setItem('qbank_active_subject_v1',subject);navigate('banks',subject);
+    activeSubject=subject;
+    localStorage.setItem('qbank_active_subject_v1',subject);
+    navigate('banks',subject);
   }
 '''
     html = html[:start] + replacement + html[end:]
@@ -247,7 +248,7 @@ def install() -> None:
     html = patch_explanation_map(html, merged)
     if html.count(MARKER) != 1:
         fail("canonical wiring marker count mismatch")
-    if "if(typeof openSubjectTopics==='function'){openSubjectTopics(subject);return;}" not in html:
+    if "navigate('banks',subject);" not in html:
         fail("subject cards are not routed through the bank chooser")
     HTML.write_text(html, encoding="utf-8")
     print("CANONICAL_SUBJECT_BANK_FLOW_OK aggregate=PrepLadder+Marrow route=bank-chooser")
