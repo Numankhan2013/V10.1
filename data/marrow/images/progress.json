@@ -1,37 +1,38 @@
 {
   "schemaVersion": 1,
   "assets": {
-    "total": 162,
+    "total": 163,
     "byStatus": {
-      "PASS": 156,
+      "PASS": 157,
       "REJECTED": 2,
       "REVIEW_REQUIRED": 2,
       "SOURCE_LIMITED": 2
     },
     "byKind": {
-      "diagram": 131,
+      "diagram": 132,
       "hybrid": 3,
       "medical": 27,
       "table": 1
     },
     "byMethod": {
       "native-jpeg-stream": 158,
+      "region-render": 1,
       "svg-reconstruction": 4
     }
   },
   "bindings": {
-    "total": 205,
+    "total": 206,
     "byStatus": {
-      "PASS": 177,
+      "PASS": 178,
       "REJECTED": 25,
       "REVIEW_REQUIRED": 2,
       "SOURCE_LIMITED": 1
     },
     "releasedByRole": {
-      "explanation": 140,
+      "explanation": 141,
       "question": 38
     },
-    "releasedQuestionCount": 164
+    "releasedQuestionCount": 165
   },
   "subjects": {
     "Anatomy": {
@@ -40,9 +41,9 @@
       "releasedQuestions": 64
     },
     "Biochemistry": {
-      "approvedAssets": 60,
-      "assets": 62,
-      "releasedQuestions": 61
+      "approvedAssets": 61,
+      "assets": 63,
+      "releasedQuestions": 62
     },
     "Physiology": {
       "approvedAssets": 35,
@@ -61,6 +62,10 @@
       "releasedBindings": 5
     },
     "NKQ_BIOCHEM_COVERAGE_Q13_20260911": {
+      "bindings": 1,
+      "releasedBindings": 1
+    },
+    "NKQ_BIOCHEM_COVERAGE_Q4_20260911": {
       "bindings": 1,
       "releasedBindings": 1
     },

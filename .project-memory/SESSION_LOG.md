@@ -869,3 +869,14 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - The full regenerated ledger corrected the next deterministic recovery start to `marrow__BIOCHEM_CH01_Q004:figure:1` (explanation, source page 12, UNTRACKED_SOURCE_VISUAL).
 - Temporary coverage output and Python bytecode were removed; `.gitignore` now excludes `__pycache__/` and `*.pyc`.
 - No `main` merge or production promotion.
+
+
+## 2026-09-11 — Biochemistry Q4 coverage recovery candidate
+
+- Started bounded batch `NKQ_BIOCHEM_COVERAGE_Q4_20260911` from exact image base `3bc5229c573e304f1216c054457697eff6a78121`.
+- Recovered `marrow__BIOCHEM_CH01_Q004:figure:1` from authoritative page 12 / xref 25 / region `[162,433,450,649]`. The source figure shows D-glucose and D-mannose Fischer projections in the Q4 explanation.
+- Used a 300-DPI exact-region render rather than reconstruction; production SHA-256 `400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f`, 1200×901.
+- Full-page/source-region inspection confirmed complete stereochemical labels and explanation ownership. Asset and binding are PASS.
+- Candidate coverage is 95 raw / 94 effective / 67 released / 1 invalid / 68 resolved / 4 tracked-unreleased / 23 untracked / 31 text-cue items. Subject remains INCOMPLETE.
+- Exact next unresolved reference: `marrow__BIOCHEM_CH02_Q006:figure:1` (explanation, source pages [31], status UNTRACKED_SOURCE_VISUAL).
+- Exact-head canonical CI remains pending; no main merge or production promotion.

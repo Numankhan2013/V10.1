@@ -10346,6 +10346,69 @@
         "originalSha256": "ddecee9d8f653b20013184ed4b12572501e964113875b49fb190b3776086516b",
         "productionSha256": "ddecee9d8f653b20013184ed4b12572501e964113875b49fb190b3776086516b"
       }
+    },
+    {
+      "id": "biochemistry-400546eaace6e3f0",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 12,
+        "xref": 25,
+        "region": [
+          162.0,
+          433.0,
+          450.0,
+          649.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH01_Q004",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source epimer comparison figure",
+          "status": "PASS",
+          "reviewBatch": "NKQ_BIOCHEM_COVERAGE_Q4_20260911",
+          "source": {
+            "page": 12,
+            "xref": 25,
+            "region": [
+              162.0,
+              433.0,
+              450.0,
+              649.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The figure is located inside Solution to Question 4 and directly illustrates the explanation that D-glucose and D-mannose are epimers. Explanation-only timing is correct and cannot reveal the answer before submission.",
+            "evidence": "Authoritative Marrow ED8 Biochemistry page 12: Solution to Question 4 immediately precedes xref 25; Solution to Question 5 begins below the figure."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f.png",
+        "sha256": "400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f",
+        "width": 1200,
+        "height": 901
+      },
+      "production": {
+        "path": "data/marrow/images/originals/400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f.png",
+        "sha256": "400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f",
+        "width": 1200,
+        "height": 901
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Compared authoritative Marrow ED8 Biochemistry page 12, native xref 25, and 300-DPI exact-region render. Both Fischer projections are complete and readable: D-glucose and D-mannose, CHO/CH2OH termini, every horizontal H/OH placement, and the vertical separator are preserved. No labels, bonds, stereochemistry, or educational content were added or altered.",
+        "evidence": "Automation source inspection 2026-09-11: page 12 full-page image plus exact xref-25 region [162,433,450,649]; source SHA-256 463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb; production SHA-256 400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f.",
+        "originalSha256": "400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f",
+        "productionSha256": "400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f"
+      }
     }
   ]
 }
