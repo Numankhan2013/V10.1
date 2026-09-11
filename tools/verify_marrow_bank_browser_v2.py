@@ -13,24 +13,37 @@ if wrapper.count(anchor) != 1:
 compat = r'''
 import re as _re
 
+_EXPECTED_MARROW_COUNTS={
+    'Biochemistry':'582',
+    'Physiology':'1,014',
+    'Anatomy':'1,115',
+}
 
-def _chooser_steps(subject, click_marrow=True, screenshot=None):
-    lines = [
-        "            page.evaluate(\"window.QB.nkOpenSubjectLibrary('" + subject + "')\")",
-        "            page.wait_for_url('**/#banks/" + subject + "',timeout=5000)",
+
+def _chooser_steps(subject, click_marrow=True, screenshot=None, invoke=True):
+    lines=[]
+    if invoke:
+        lines.append("            page.evaluate(\"window.QB.nkOpenSubjectLibrary('" + subject + "')\")")
+    lines.extend([
+        # This is an SPA. Verify the rendered chooser itself rather than relying
+        # on a particular hash serialization or a navigation-event race.
+        "            page.wait_for_function(\"() => document.querySelectorAll('button.nk-bank-card').length===2\",timeout=5000)",
         "            prep=page.locator('button.nk-bank-card').filter(has_text='PrepLadder')",
         "            marrow=page.locator('button.nk-bank-card').filter(has_text='Marrow')",
         "            if prep.count()!=1: raise SystemExit('" + subject + " PrepLadder card missing')",
         "            if marrow.count()!=1: raise SystemExit('" + subject + " Marrow card missing')",
         "            prep.wait_for(state='visible',timeout=5000)",
         "            marrow.wait_for(state='visible',timeout=5000)",
-    ]
+        "            chooser_text=page.locator('body').inner_text()",
+        "            if '" + subject + "' not in chooser_text: raise SystemExit('" + subject + " chooser subject label missing')",
+        "            if '" + _EXPECTED_MARROW_COUNTS[subject] + "' not in chooser_text: raise SystemExit('" + subject + " chooser missing canonical Marrow count " + _EXPECTED_MARROW_COUNTS[subject] + "')",
+    ])
     if screenshot:
         lines.append("            page.screenshot(path=str(OUT/'" + screenshot + "'),full_page=True)")
     if click_marrow:
         lines.extend([
             "            marrow.click(timeout=5000)",
-            "            page.wait_for_timeout(120)",
+            "            page.wait_for_function(\"() => document.querySelectorAll('button.nk-topic-row').length>0\",timeout=5000)",
         ])
     return "\n".join(lines)
 
@@ -45,7 +58,8 @@ def _subject_entry(subject, shot):
         r"            [A-Za-z_]*cards\.filter\(has_text='Marrow'\)\.click\(\);page\.wait_for_timeout\(\d+\)"
     )
     chooser_shot = "00-" + subject.lower() + "-bank-chooser.png"
-    replacement = _chooser_steps(subject, click_marrow=True, screenshot=chooser_shot) + "\n            page.screenshot(path=str(OUT/'" + shot + "'),full_page=True)"
+    actual_click = "            page.locator('button.nk-subject-row').filter(has_text='" + subject + "').click()"
+    replacement = actual_click + "\n" + _chooser_steps(subject, click_marrow=True, screenshot=chooser_shot, invoke=False) + "\n            page.screenshot(path=str(OUT/'" + shot + "'),full_page=True)"
     source, n = _re.subn(pattern, replacement, source, count=1, flags=_re.S)
     if n != 1:
         raise SystemExit(f"{subject} initial chooser adapter count={n}")
@@ -56,7 +70,7 @@ _subject_entry('Physiology', '00-physiology-topics.png')
 _subject_entry('Anatomy', '01-anatomy-topics.png')
 
 # All historical jumps back to a Marrow subject now traverse and visibly verify
-# the real bank chooser. URL/visibility waits replace fragile fixed-delay races.
+# the real bank chooser. Rendered-state waits replace fragile fixed-delay/hash races.
 for _subject in ('Biochemistry','Physiology','Anatomy'):
     esc = _re.escape(_subject)
     pattern = (
