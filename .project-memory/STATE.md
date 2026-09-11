@@ -8,8 +8,8 @@
 - **Sole current integration trunk:** `feature/marrow-canonical-full-current`.
 - Product/UI base: the user-approved V3/correct-index lineage from `feature/home-topic-content-integration-current`.
 - Accepted baseline remains **V11.6 Content Quality**.
-- Accepted product commit remains historical reference `125d68b`; the canonical consolidation candidate is newer and preview-only.
-- Production promotion remains explicit and guarded.
+- Accepted product commit: `125d68b`.
+- The canonical consolidation candidate is newer and preview-only; production promotion remains explicit and guarded.
 - **build-verified:** pending exact-head full Android/PWA/browser/package completion after inventory regeneration and canonical-policy sync.
 - **device-verified:** not yet for this consolidated corpus candidate.
 - CI/browser success, device verification, user acceptance, and production promotion are distinct states.
