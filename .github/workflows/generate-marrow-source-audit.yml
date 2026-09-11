@@ -1,0 +1,53 @@
+name: Generate Marrow source audit views
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - tools/export_marrow_source_audit.py
+      - .github/workflows/generate-marrow-source-audit.yml
+      - data/marrow/anatomy_phase_a.zlib.b64.part*
+      - data/marrow/biochemistry_phase_a.zlib.b64.part*
+      - data/marrow/physiology_ch001_033.zlib.b64.part*
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate deterministic audit views
+        run: python tools/export_marrow_source_audit.py
+
+      - name: Verify generated source counts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('data/marrow/source_audit/manifest.json')
+          manifest = json.loads(p.read_text(encoding='utf-8'))
+          assert manifest['totalQuestions'] == 2115
+          expected = {'Anatomy': 819, 'Biochemistry': 543, 'Physiology': 753}
+          got = {row['subject']: row['questionCount'] for row in manifest['subjects']}
+          assert got == expected, (got, expected)
+          print('SOURCE_AUDIT_COUNTS_OK', got)
+          PY
+
+      - name: Commit generated audit views when changed
+        run: |
+          if git diff --quiet -- data/marrow/source_audit; then
+            echo "Source audit views already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/marrow/source_audit
+          git commit -m "Generate Marrow source audit views [skip ci]"
+          git push origin HEAD:main
