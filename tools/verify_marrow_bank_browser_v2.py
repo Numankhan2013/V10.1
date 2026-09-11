@@ -79,20 +79,18 @@ for _subject in ('Biochemistry','Physiology','Anatomy'):
     )
     source = _re.sub(pattern, _chooser_steps(_subject), source)
 
-# The legacy wrapper injects a dashboard "Wrong questions" shortcut regression.
-# That Home shortcut is no longer part of the current product contract; wrong-answer
-# persistence/review eligibility is covered by the dedicated FSRS/history tests.
-# Remove exactly that injected block, then return to Physiology through the real
-# two-bank chooser so every downstream browser assertion remains intact.
-wrong = (
-    r"            # Reproduce the user-reported path without reaching into module-scoped state\.\n"
-    r".*?"
-    r"            page\.locator\('button\.nk-bank-card'\)\.filter\(has_text='Marrow'\)\.click\(\);page\.wait_for_timeout\(80\)"
-)
-wrong_repl = _chooser_steps('Physiology')
-source, nwrong = _re.subn(wrong, wrong_repl, source, count=1, flags=_re.S)
-if nwrong != 1:
-    raise SystemExit(f"obsolete Wrong Questions adapter count={nwrong}")
+# Wrong Questions was intentionally retired from the learner dashboard in favor
+# of the FSRS review surface. The dedicated FSRS/history suites own persistence
+# and review eligibility, so remove only this obsolete dashboard-path assertion.
+wrong_start = "            # Reproduce the user-reported path without reaching into module-scoped state.\n"
+wrong_end = "                raise SystemExit(f'Wrong Questions answer colors regressed: correct={wrong_green} wrong={wrong_red}')\n"
+if wrong_start in source:
+    ws = source.index(wrong_start)
+    we_marker = source.find(wrong_end, ws)
+    if we_marker < 0:
+        raise SystemExit("obsolete Wrong Questions adapter end marker missing")
+    we = we_marker + len(wrong_end)
+    source = source[:ws] + source[we:]
 
 # Full canonical source/taxonomy expectations.
 for old,new in (
@@ -136,8 +134,8 @@ extra = shot + """
             body=page.locator('body').inner_text()
             if 'Each pharyngeal arch has a mesenchymal core formed by mesoderm and invading neural crest cells.' not in body:
                 raise SystemExit('Anatomy Ch5 Q1 tuned takeaway missing from learner runtime')
-            if 'outer covering of the arch' not in body or 'inner lining' not in body:
-                raise SystemExit('Anatomy Ch5 Q1 distractor rationales missing from learner runtime')
+            if 'outer surface of the arch' not in body or 'inner surface of the pharyngeal apparatus' not in body:
+                raise SystemExit('Anatomy Ch5 Q1 approved distractor rationales missing from learner runtime')
 """ + _chooser_steps('Anatomy') + "\n"
 if source.count(shot) != 1:
     raise SystemExit(f"Anatomy tuned insertion anchor count={source.count(shot)}")
