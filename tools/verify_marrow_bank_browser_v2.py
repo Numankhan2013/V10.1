@@ -79,18 +79,19 @@ for _subject in ('Biochemistry','Physiology','Anatomy'):
     )
     source = _re.sub(pattern, _chooser_steps(_subject), source)
 
-# Wrong-answer persistence is already covered by dedicated FSRS/history tests.
-# Some current historical cores have already removed this old dashboard path;
-# zero matches is therefore a valid no-op, while multiple matches are ambiguous.
+# The legacy wrapper injects a dashboard "Wrong questions" shortcut regression.
+# That Home shortcut is no longer part of the current product contract; wrong-answer
+# persistence/review eligibility is covered by the dedicated FSRS/history tests.
+# Remove exactly that injected block, then return to Physiology through the real
+# two-bank chooser so every downstream browser assertion remains intact.
 wrong = (
     r"            # Reproduce the user-reported path without reaching into module-scoped state\.\n"
-    r"            page\.evaluate\(\"window\.QB\.nav\('dashboard'\)\"\);page\.wait_for_timeout\(100\)\n"
     r".*?"
-    r"            page\.evaluate\(\"window\.QB\.nkOpenSubjectLibrary\('Physiology'\)\"\);page\.wait_for_timeout\(120\)"
+    r"            page\.locator\('button\.nk-bank-card'\)\.filter\(has_text='Marrow'\)\.click\(\);page\.wait_for_timeout\(80\)"
 )
 wrong_repl = _chooser_steps('Physiology')
 source, nwrong = _re.subn(wrong, wrong_repl, source, count=1, flags=_re.S)
-if nwrong not in (0,1):
+if nwrong != 1:
     raise SystemExit(f"obsolete Wrong Questions adapter count={nwrong}")
 
 # Full canonical source/taxonomy expectations.
