@@ -128,9 +128,54 @@ with socketserver.TCPServer(("127.0.0.1", 0), handler) as server:
             raise SystemExit("Physiology Chapter 10 Q13 must render exactly three distractor rationales")
         page.screenshot(path=str(OUT / "physiology-ch10-q13-sweat-gland-reconstruction.png"), full_page=True)
         if errors:
-            raise SystemExit("Physiology Chapter 10 browser errors: " + " | ".join(errors))
+            raise SystemExit("Physiology Chapter 10 Q13 browser errors: " + " | ".join(errors))
+        page.close()
+
+        # Current Physiology Chapter 10 tail: Q15 reconstruction-sensitive serotonin physiology.
+        page = browser.new_page(viewport={"width": 390, "height": 844})
+        errors = []
+        page.on("pageerror", lambda e: errors.append(str(e)))
+        page.goto(f"http://127.0.0.1:{port}/index.html", wait_until="networkidle")
+        page.locator("button.nk-subject-row").filter(has_text="Physiology").click()
+        page.wait_for_timeout(80)
+        if "#banks/Physiology" not in page.url:
+            raise SystemExit(f"Physiology did not open bank selector for Q15: {page.url}")
+        page.locator("button.nk-bank-card").filter(has_text="Marrow").click()
+        page.wait_for_timeout(100)
+        chapter = page.locator("button.nk-topic-row[onclick=\"window.QB.openChapter('10')\"]")
+        if chapter.count() != 1:
+            raise SystemExit(f"Stable Physiology Chapter 10 selector count for Q15: {chapter.count()}")
+        chapter.click()
+        page.wait_for_timeout(80)
+        rows = page.locator("button.nk-library-row")
+        if rows.count() != 18:
+            raise SystemExit(f"Marrow Physiology Chapter 10 count is not 18 for Q15: {rows.count()}")
+        rows.nth(14).click()
+        page.wait_for_timeout(80)
+        option_text = page.locator(".option-list").inner_text().lower()
+        if "serotonin" not in option_text:
+            raise SystemExit("Physiology Chapter 10 Q15 did not open by stable source order")
+        page.locator(".option-list button").first.click()
+        page.wait_for_timeout(120)
+        support = page.locator(".nk-study-support").inner_text().lower()
+        for required in (
+            "key takeaway",
+            "detailed explanation",
+            "why the other options are wrong",
+            "effect depends on the receptor",
+            "5-ht1-family signaling is generally inhibitory",
+            "5-ht3 is an excitatory ligand-gated cation channel",
+            "do not learn the broader statement that serotonin is universally inhibitory",
+        ):
+            if required not in support:
+                raise SystemExit(f"Physiology Chapter 10 Q15 explanation missing {required}")
+        if page.locator(".nk-gold-wrong-row").count() != 3:
+            raise SystemExit("Physiology Chapter 10 Q15 must render exactly three distractor rationales")
+        page.screenshot(path=str(OUT / "physiology-ch10-q15-serotonin-reconstruction.png"), full_page=True)
+        if errors:
+            raise SystemExit("Physiology Chapter 10 Q15 browser errors: " + " | ".join(errors))
         page.close()
 
         browser.close()
     server.shutdown()
-print("MARROW_EXPLANATION_BROWSER_OK anatomy_ch05_q09=verified physiology_ch10_q13=verified rationales=3")
+print("MARROW_EXPLANATION_BROWSER_OK anatomy_ch05_q09=verified physiology_ch10_q13=verified physiology_ch10_q15=verified rationales=3")

@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Marrow ED8 Physiology Chapter 10 Neurotransmitters explanation rollout, source-order Q14–Q18. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "10",
+    "chapterTitle": "Neurotransmitters",
+    "questionStart": 14,
+    "questionEnd": 18,
+    "questions": 5,
+    "status": "approved-rollout"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 561,
+    "anatomy": 71,
+    "physiology": 231,
+    "biochemistry": 259
+  },
+  "workload": {
+    "target": 16,
+    "max": 20,
+    "score": 10.0,
+    "notes": "Five-question chapter tail: 5 clean-SBA base points; +1 for the Q14 basal-ganglia source figure; +2 for Q15 resolved reconstruction; +1 because external medical literature was materially required to resolve Q15's oversimplified transmitter classification; +1 for the Q17 serotonin-metabolism source figure. The chapter tail is intentionally completed below target rather than crossing into Chapter 11 solely to fill workload."
+  },
+  "questions": {
+    "marrow__PHYS_CH10_Q014": {
+      "takeaway": "The subthalamic nucleus provides an excitatory glutamatergic projection to the globus pallidus, especially the GPi.",
+      "displayText": "Within the basal-ganglia circuitry, the subthalamic nucleus is the key glutamatergic nucleus. Its projections to the globus pallidus and substantia nigra pars reticulata are excitatory.\n\nIn contrast, the striatum and both pallidal segments are predominantly GABAergic output structures. Therefore the source-keyed site from which glutamate is secreted is the subthalamic nucleus.",
+      "emphasis": [
+        "subthalamic nucleus",
+        "glutamatergic nucleus",
+        "projections to the globus pallidus",
+        "GABAergic output structures"
+      ],
+      "rationales": {
+        "a": "Globus pallidus interna is predominantly GABAergic, not the glutamatergic basal-ganglia nucleus asked for here.",
+        "b": "Globus pallidus externa is also predominantly GABAergic rather than glutamatergic.",
+        "d": "The putamen is part of the striatum; its principal projection neurons are GABAergic."
+      }
+    },
+    "marrow__PHYS_CH10_Q015": {
+      "takeaway": "Serotonin cannot be labeled globally excitatory or inhibitory; its effect depends on receptor subtype, although it is the source-keyed exception in this simplified option set.",
+      "displayText": "Serotonin is a modulatory transmitter whose postsynaptic effect depends on the receptor expressed by the target cell. 5-HT1-family signaling is generally inhibitory, whereas 5-HT2-family and several other 5-HT receptors can facilitate excitation; 5-HT3 is an excitatory ligand-gated cation channel.\n\nThe source keys serotonin as the exception to a simplified list of excitatory transmitters. For exam interpretation, retain that keyed answer, but do not learn the broader statement that serotonin is universally inhibitory.",
+      "emphasis": [
+        "effect depends on the receptor",
+        "5-HT1-family signaling is generally inhibitory",
+        "5-HT3 is an excitatory ligand-gated cation channel",
+        "do not learn the broader statement that serotonin is universally inhibitory"
+      ],
+      "rationales": {
+        "a": "Acetylcholine has important excitatory actions, including nicotinic depolarization, so it is not the source-keyed exception in this simplified classification.",
+        "b": "Glutamate is the principal fast excitatory neurotransmitter in the CNS and is clearly not the exception.",
+        "d": "Norepinephrine is primarily modulatory and can have receptor-dependent effects, but it is not the source-keyed exception in this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source keys serotonin and then states simply that serotonin is an inhibitory neurotransmitter. That wording is medically overbroad because serotonergic effects vary by receptor subtype and cellular context.",
+        "reconstructedContent": "The learner-facing explanation preserves the source-keyed answer for this exam item while explicitly teaching receptor-dependent serotonin physiology rather than the false universal claim that serotonin is inhibitory.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology Chapter 10 Q15 and its printed solution on source pages 201 and 208",
+          "Andrade R. Electrophysiology of the central serotonin system: receptor subtypes and transducer mechanisms. J Clin Psychiatry. 1990;51 Suppl:20-26. PMID: 2123618 — inhibitory 5-HT1, facilitatory 5-HT2, and fast excitatory 5-HT3 effects",
+          "Celada P, Puig MV, Artigas F. Serotonin modulation of cortical neurons and networks. Front Integr Neurosci. 2013;7:25 / related receptor physiology review — 5-HT1A inhibitory and 5-HT2A excitatory signaling"
+        ],
+        "reviewNote": "Resolved at the augmentation layer; raw source and source key remain unchanged. The keyed exam answer is retained without teaching serotonin as universally inhibitory."
+      }
+    },
+    "marrow__PHYS_CH10_Q016": {
+      "takeaway": "5-HT2C receptor activation promotes satiety and reduces food intake; it does not increase appetite.",
+      "displayText": "5-HT2C receptor activation is associated with appetite suppression and increased satiety. Therefore the statement that 5-HT2C receptor agonists increase appetite is the incorrect statement.\n\nOther high-yield serotonin-receptor associations include 5-HT2A-mediated platelet aggregation, 5-HT3 involvement in emesis, and 5-HT4 facilitation of gastrointestinal secretion and peristalsis.",
+      "emphasis": [
+        "5-HT2C receptor activation",
+        "appetite suppression and increased satiety",
+        "5-HT3 involvement in emesis",
+        "5-HT4"
+      ],
+      "rationales": {
+        "a": "5-HT2A receptors participate in platelet aggregation, so this statement is true.",
+        "c": "5-HT3 receptors are strongly associated with the emetic pathway, including vagal afferents and the area postrema, so this statement is true.",
+        "d": "5-HT4 receptors facilitate gastrointestinal secretion and motility, so this statement is true."
+      }
+    },
+    "marrow__PHYS_CH10_Q017": {
+      "takeaway": "Among the listed choices, platelets contain the highest concentration of serotonin because they actively take it up and store it in dense granules.",
+      "displayText": "Most serotonin in the body is produced by enterochromaffin cells of the gastrointestinal tract. Circulating serotonin is avidly taken up by platelets and stored in dense granules, producing a high platelet concentration.\n\nAmong the listed options, platelets are therefore the source-keyed answer. This should not be confused with the fact that the gastrointestinal tract is the major body reservoir/source of serotonin overall.",
+      "emphasis": [
+        "enterochromaffin cells",
+        "taken up by platelets",
+        "stored in dense granules",
+        "gastrointestinal tract is the major body reservoir"
+      ],
+      "rationales": {
+        "a": "Basophils can contain vasoactive mediators but are not the source-keyed site of highest serotonin concentration among these choices.",
+        "b": "Mast cells can contain serotonin in some species and tissues, but platelets are the source-keyed human answer here.",
+        "d": "The posterior hypothalamus is not a major serotonin storage site; central serotonergic cell bodies are concentrated mainly in the raphe nuclei."
+      }
+    },
+    "marrow__PHYS_CH10_Q018": {
+      "takeaway": "The NMDA receptor is a glutamate-gated cation channel permeable to Na+ and Ca2+; it is not a chloride channel.",
+      "displayText": "NMDA receptors are ionotropic glutamate receptors. Channel activation requires glutamate plus a co-agonist such as glycine (or D-serine), and the open channel conducts cations including Na+ and Ca2+ while allowing K+ efflux.\n\nNMDA receptors are prominent in hippocampal circuits and are central to synaptic plasticity. Therefore the incorrect statement is that the NMDA receptor is a chloride ion channel.",
+      "emphasis": [
+        "ionotropic glutamate receptors",
+        "glutamate plus a co-agonist such as glycine",
+        "Na+ and Ca2+",
+        "NMDA receptor is a chloride ion channel"
+      ],
+      "rationales": {
+        "a": "Glutamate is the endogenous agonist at the NMDA receptor, so this statement is correct.",
+        "b": "Binding of glycine or D-serine at the co-agonist site is required for normal NMDA-receptor activation, so this statement is correct.",
+        "d": "NMDA receptors are abundantly expressed in hippocampal neurons and contribute to synaptic plasticity, so this statement is correct."
+      }
+    }
+  }
+}
