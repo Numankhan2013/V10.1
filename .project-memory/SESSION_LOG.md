@@ -880,3 +880,14 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Candidate coverage is 95 raw / 94 effective / 67 released / 1 invalid / 68 resolved / 4 tracked-unreleased / 23 untracked / 31 text-cue items. Subject remains INCOMPLETE.
 - Exact next unresolved reference: `marrow__BIOCHEM_CH02_Q006:figure:1` (explanation, source pages [31], status UNTRACKED_SOURCE_VISUAL).
 - Exact-head canonical CI remains pending; no main merge or production promotion.
+
+
+## 2026-09-11 — Biochemistry Q4 coverage batch fully verified
+
+- Bounded image-recovery batch `NKQ_BIOCHEM_COVERAGE_Q4_20260911` completed from exact integration base `3bc5229c573e304f1216c054457697eff6a78121`.
+- Released `marrow__BIOCHEM_CH01_Q004:figure:1` as an explanation-only PASS binding from authoritative Marrow ED8 Biochemistry page 12 / xref 25 / region `[162,433,450,649]`.
+- Production is a source-faithful 300-DPI exact-region PNG, SHA-256 `400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f`, 1200×901. Full-page/native-object/production inspection preserved both D-glucose and D-mannose Fischer projections and every H/OH stereochemical placement; no reconstruction or inferred detail was used.
+- Source/release validation run `34629572092` succeeded. Exact certified product candidate `25393745b3e7d859bbae1029af93986c2a8daace` passed Engineering Gate `34629844685` and full Android/PWA/browser/APK/package run `34629847355`. Browser image comparison capture, PWA offline bytes, packaged APK bytes and reproducibility checks passed. Production promotion was skipped.
+- Post-batch Biochemistry coverage: 95 raw / 94 effective / 67 released / 1 invalid metadata / 68 resolved / 4 tracked-unreleased / 23 untracked / 31 text-cue items. Subject remains INCOMPLETE.
+- Next deterministic unresolved source reference: `marrow__BIOCHEM_CH02_Q006:figure:1` (explanation, page 31, UNTRACKED_SOURCE_VISUAL).
+- No `main` merge or production promotion.
