@@ -7,53 +7,40 @@
 - Repo: `Numankhan2013/V10.1`.
 - **Sole Marrow integration trunk:** `feature/marrow-canonical-full-current`.
 - Product/UI base: user-approved V3/correct-index lineage.
-- Current canonical checkpoint before the structured-table repair: `cc24d396783f4738fe33f432ae521f5da436fee1`.
-- That canonical checkpoint passed exact-head Engineering Gate and full Android/PWA/browser/APK/package/preview verification and was subsequently preview-verified by the user for the requested product/UI fixes.
+- **Accepted baseline:** V11.6 Content Quality.
+- Accepted product commit: `125d68b`.
+- Canonical checkpoint before the structured-table repair: `cc24d396783f4738fe33f432ae521f5da436fee1`.
+- **build-verified:** that canonical checkpoint passed exact-head Engineering Gate plus full Android/PWA/browser/APK/package/reproducibility/preview verification.
+- **device-verified:** user preview review accepted the requested product/UI fixes at that checkpoint, then exposed the structured-table defect below.
 - `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md` is mandatory for image and explanation workers.
-- Historical rollout branches/PRs are donor evidence/history only. New batch branches must start from the exact **current** canonical HEAD and verified results must return to canonical before a lane is released.
-- Production promotion remains explicit and guarded. `main`/production must not be changed without user approval.
+- New batch branches must start from the exact current canonical HEAD and verified results must return to canonical before a lane is released.
+- Production promotion remains explicit and guarded. `main`/production must not change without user approval.
 
 ## Current blocker — structured explanation table regression
 
-User preview review exposed a real learner-facing defect in Anatomy Ch5 Q10: the table titled **Pharyngeal arch muscle derivatives** rendered `[object Object]` as its column headings and blank cells.
+User preview review exposed a real learner-facing defect in Anatomy Ch5 Q10: **Pharyngeal arch muscle derivatives** rendered `[object Object]` headings and blank cells.
 
 Investigation established:
-- the canonical source table is populated and medically intact;
+- canonical source table data is populated and medically intact;
 - source columns use object schema such as `{key, label}`;
 - source rows are objects keyed by those column keys;
-- explanation fine-tuning correctly preserves `structuredExplanation.tables`;
-- the shared legacy `nkRenderMarrowTable` presentation contract expected scalar/string columns and positional row arrays;
-- direct object string coercion produced `[object Object]`, while numeric row access produced blank cells;
-- existing browser QA checked that a `.nk-marrow-table` container existed but did not assert meaningful header/cell contents, so the broken table passed verification.
+- explanation fine-tuning preserves `structuredExplanation.tables`;
+- shared legacy `nkRenderMarrowTable` expected scalar columns + positional row arrays;
+- direct object coercion produced `[object Object]`; numeric row access produced blank cells;
+- old browser QA checked only that `.nk-marrow-table` existed, so broken content passed.
 
-Ownership: this is an **explanation/runtime renderer integration defect**, not deferred Anatomy image work. Image automation owns source-native visual assets; it does not repair an already-structured text table.
+Ownership: **explanation/runtime renderer integration**, not deferred image work. Image automation owns source-native visual assets, not an already-structured text table.
 
-Repair branch:
-`feature/marrow-structured-table-renderer-fix-20260912`
-
-Exact repair base:
-`cc24d396783f4738fe33f432ae521f5da436fee1`
+Repair branch: `feature/marrow-structured-table-renderer-fix-20260912`.
+Exact repair base: `cc24d396783f4738fe33f432ae521f5da436fee1`.
 
 Repair components:
-- `tools/apply_marrow_structured_table_renderer_v1.py`
-  - audits canonical table source data;
-  - normalizes object-keyed columns/rows to the accepted shared table renderer;
-  - preserves source data and existing visual styling;
-  - fails closed on empty source rows/headers or object-string leakage;
-  - verifies the Anatomy Ch5 Q10 sentinel source content.
-- `tools/verify_marrow_structured_table_browser.py`
-  - opens Anatomy → Marrow → Ch5 → Q10 through the learner UI;
-  - answers the question and verifies the actual populated table;
-  - rejects `[object Object]` and blank/under-populated output;
-  - checks expected headers and representative cell text.
-- `.github/workflows/build-apk.yml`
-  - runs the compatibility repair after Marrow bank generation;
-  - runs the new learner-visible browser regression;
-  - requires the renderer marker in generated and packaged app output.
-- `tools/verify_build_pipeline.py`
-  - protects transform ordering and requires the new browser regression/renderer marker.
+- `tools/apply_marrow_structured_table_renderer_v1.py`: audits source table payloads, normalizes object-keyed columns/rows to the shared renderer, preserves styling/source, and fails closed on empty source rows/headers or object-string leakage.
+- `tools/verify_marrow_structured_table_browser.py`: opens Anatomy → Marrow → Ch5 → Q10, answers it, asserts actual expected table headers/cells, rejects `[object Object]`/blank output, and captures a screenshot.
+- `.github/workflows/build-apk.yml`: installs the compatibility layer after Marrow bank generation, runs the new browser regression, and requires its marker in generated + packaged output.
+- `tools/verify_build_pipeline.py`: protects transform ordering and requires the new regression.
 
-**Current status of the repair branch:** implementation/docs are being exact-head certified. Do not call this fix integrated or `FULLY_VERIFIED` until live CI passes and the verified tree is reconciled into canonical.
+Do not call this repair integrated or `FULLY_VERIFIED` until exact-head CI passes and the verified tree is reconciled into canonical.
 
 ## Complete canonical Marrow ED8 source
 
@@ -61,8 +48,8 @@ Repair components:
 - Biochemistry: **Ch1–28 / 582 questions / 28 source topics**.
 - Physiology: **Ch1–43 / 1,014 questions / 43 source topics**.
 - Global: **2,711 questions / 134 source topics**.
-
-Do not use old 2,115 or 2,455 denominators for completeness/inventory/coverage decisions. Raw imported source remains immutable.
+- Never use historical 2,115 or 2,455 denominators for completeness/inventory/coverage decisions.
+- Raw imported source remains immutable.
 
 ## Product architecture to preserve
 
@@ -70,84 +57,69 @@ Do not use old 2,115 or 2,455 denominators for completeness/inventory/coverage d
 - Do not fork Practice, CBT, Review Solutions, FSRS, sync, modules, persistence, analytics or navigation by subject/bank.
 - Primary navigation: **Home · FSRS · Tests · Insights · More**.
 - Study hierarchy: **My Subjects → subject → bank chooser → Topics journey → topic → Practice/Topic Test**.
-- Subject Home cards must expose the PrepLadder/Marrow chooser.
-- Marrow enhanced explanations must be learner-visible in runtime.
-- FSRS is review-only: incorrect or encountered-and-skipped questions may enter; genuinely unseen questions must not be introduced by FSRS.
-- Preserve V3 Home, Topics journey visuals, question experience, Review Solutions, FSRS dock, custom modules and accepted timing semantics.
-- Old Wrong Questions dashboard/tab path is intentionally retired/replaced by Spaced FSRS. Do not restore it to satisfy historical tests.
-- Do not restore rejected rank/membership UI or unrelated redesigns.
+- Subject Home cards expose PrepLadder + Marrow; enhanced Marrow explanations are learner-visible.
+- FSRS remains review-only; genuinely unseen questions are not introduced by FSRS.
+- Old Wrong Questions dashboard/tab is intentionally retired/replaced by Spaced FSRS; do not restore it for stale tests.
+- Preserve approved V3 Home/Topics/question/Review/FSRS/module/timing behavior; do not restore rank/membership UI.
 
 ## Structured explanation-table invariant
 
-- Structured text tables are explanation-owned unless source material is explicitly an image/raster table.
-- Source table object presence alone does not count as successful integration.
-- Non-empty source headers/rows must render as non-empty learner-visible headers/cells.
-- `[object Object]` in any learner-visible table is a hard failure.
-- Browser regressions for table-bearing batches must check actual content, not merely table-container count.
-- A table regression blocks `FULLY_VERIFIED` even when all surrounding prose/rationales are correct.
+- Structured text tables are explanation-owned unless the source is explicitly an image/raster table.
+- Source table object presence alone is insufficient.
+- Non-empty source headers/rows must render as non-empty learner-visible headers/cells in correct order.
+- `[object Object]` in learner-visible output is a hard failure.
+- Table-bearing browser regressions must check actual expected content, not merely container count.
+- Any such regression blocks `FULLY_VERIFIED` even if surrounding prose/rationales are correct.
 
-## Verified image layer carried into canonical
+## Current content state
 
-Current canonical image state at the last recorded checkpoint:
-- assets: **163** total;
-- bindings: **206** total;
-- released questions: **165**;
-- Anatomy released questions: **64**;
-- Biochemistry released questions: **62**;
-- Physiology released questions: **39**.
+Image checkpoint:
+- assets **163**; bindings **206**; released questions **165**;
+- Anatomy **64**, Biochemistry **62**, Physiology **39** released image questions.
+- Image coverage remains incomplete; new image work starts from the exact current canonical head.
 
-Image coverage is not complete merely because the reviewed registry is valid. Future workers must measure against authoritative source visual references. New image work starts from the exact current canonical head.
-
-## Verified explanation layer carried into canonical
-
-Verified donor/grafted work includes Anatomy Ch5 Q1–19, established Physiology batches, canonical Biochemistry rollout work, and subsequent verified batches represented by the deterministic inventory.
-
-Explicitly do not infer historical unfinished work as verified merely because an old branch exists.
-
-Deterministic canonical inventory checkpoint:
-- total **2,711**;
-- enhanced-reference **576**;
-- pending **2,135**.
-
-The inventory refresh workflow must continue to prevent new verified batches from leaving a stale global snapshot.
+Explanation checkpoint:
+- canonical deterministic inventory **2,711 total / 576 enhanced / 2,135 pending**;
+- historical unfinished branches are not verified merely because they exist;
+- verified/transplanted work remains keyed by stable question ID.
 
 ## Anti-fragmentation automation contract
 
-- Explanation and image work build on `feature/marrow-canonical-full-current` and the 2,711-question denominator.
-- Workers resolve the **current canonical HEAD at each run**, not a hard-coded SHA.
-- Before every mutation, re-read canonical `STATE.md`, exact commit, shared inventory/registry fingerprints and current unfinished ownership.
-- A stale open branch/PR is not a lock. A genuine blocker requires current authoritative memory plus matching live Git/commit evidence.
+- Explanation and image work build on `feature/marrow-canonical-full-current` and the 2,711-question corpus.
+- Resolve the **current canonical HEAD at each run**; never carry a hard-coded old SHA forward.
+- Before mutation, re-read canonical `STATE.md`, exact commit, shared inventory/registry fingerprints and current ownership.
+- A stale branch/PR is not a lock; blockers require current memory + matching live Git evidence.
 - Short-lived batch branches are allowed for CI safety, but work is not integrated until reconciled back to canonical.
-- Explanation and image automations have separate shared-state lanes; within each lane, shared writers remain serialized.
+- Explanation and image work have separate lanes; shared writers within a lane remain serialized.
 
 ## Verification state
 
 Canonical checkpoint `cc24d396783f4738fe33f432ae521f5da436fee1`:
 - Engineering Gate: success.
-- Full Android/PWA/browser/APK/package/reproducibility/preview build: success.
-- User preview check: accepted requested product features/fixes.
+- Full Android/PWA/browser/APK/package/reproducibility/preview: success.
+- User preview review: requested product/UI behavior accepted.
 - Production promotion: skipped.
 
-New structured-table repair branch:
-- exact base: canonical `cc24d396783f4738fe33f432ae521f5da436fee1`;
+Structured-table repair branch:
+- exact base: canonical checkpoint above;
 - exact-head CI: pending/live Git is authoritative;
 - canonical reconciliation: pending until green.
 
 ## Known problems / cautions
 
-- The structured-table regression is the active blocker until the repair branch passes exact-head validation and is reconciled into canonical.
-- Existing historical browser coverage was insufficient because it checked table existence rather than content; do not weaken the new populated-table gate.
-- Image source-reference coverage remains incomplete and must continue coverage-first.
-- Historical unfinished explanation branches must not be treated as completed work without stable-ID transplant + exact-head reverification.
-- Production must remain untouched until explicit user approval.
-- Preserve source-review flags; never invent missing source text, table cells or medical-image detail.
+- Structured-table regression is the active blocker until repair CI is green and reconciled into canonical.
+- Historical table QA was too weak; never weaken the new populated-table gate to obtain green CI.
+- Image source-reference coverage remains incomplete.
+- Historical unfinished explanation work needs stable-ID transplant + exact-head reverification before promotion.
+- Production remains untouched until explicit user approval.
+- Never invent missing source text, table cells, or medical-image detail.
 
 ## Next step
 
 1. Exact-head validate `feature/marrow-structured-table-renderer-fix-20260912`.
-2. Repair only concrete failures; never weaken the populated-table assertion merely to obtain green CI.
-3. Once green, reconcile the exact verified repair tree into `feature/marrow-canonical-full-current` if canonical HEAD has not diverged; otherwise rebase/reconcile and reverify.
-4. After canonical is green again, all future explanation/image batches resolve that new current canonical HEAD.
+2. Repair only concrete failures; keep the populated-table assertion strict.
+3. When green, reconcile the exact verified tree into `feature/marrow-canonical-full-current` if canonical has not diverged; otherwise rebase/reverify.
+4. Future image/explanation batches then resolve that new current canonical HEAD.
 5. Do not promote `main` or production without explicit user approval.
 
 Canonical source handoff: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
