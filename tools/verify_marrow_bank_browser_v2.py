@@ -66,6 +66,8 @@ for _subject in ('Biochemistry','Physiology','Anatomy'):
     source = _re.sub(pattern, _chooser_steps(_subject), source)
 
 # Wrong-answer persistence is already covered by dedicated FSRS/history tests.
+# Some current historical cores have already removed this old dashboard path;
+# zero matches is therefore a valid no-op, while multiple matches are ambiguous.
 wrong = (
     r"            # Reproduce the user-reported path without reaching into module-scoped state\.\n"
     r"            page\.evaluate\(\"window\.QB\.nav\('dashboard'\)\"\);page\.wait_for_timeout\(100\)\n"
@@ -74,7 +76,7 @@ wrong = (
 )
 wrong_repl = _chooser_steps('Physiology')
 source, nwrong = _re.subn(wrong, wrong_repl, source, count=1, flags=_re.S)
-if nwrong != 1:
+if nwrong not in (0,1):
     raise SystemExit(f"obsolete Wrong Questions adapter count={nwrong}")
 
 # Full canonical source/taxonomy expectations.
