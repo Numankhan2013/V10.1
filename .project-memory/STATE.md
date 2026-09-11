@@ -6,8 +6,9 @@
 
 - Repo: `Numankhan2013/V10.1`.
 - Resolve live branch/HEAD from Git; do not hardcode a self-staling HEAD value.
-- Latest **fully verified** explanation product candidate is Anatomy Chapter 5 Q10–Q19: `e045226f3a942da34102ca339fa394a930738c36` on PR #37.
-- That exact product SHA passed Engineering Gate 352 / `34607517171` and full Android/PWA 739 / `34607512312`.
+- Latest **fully verified** explanation product candidate remains Anatomy Chapter 5 Q10–Q19: `e045226f3a942da34102ca339fa394a930738c36` on PR #37.
+- That exact Anatomy product SHA passed Engineering Gate 352 / `34607517171` and full Android/PWA 739 / `34607512312`.
+- Current explanation integration lineage is the unfinished Biochemistry Chapter 12 Q1–Q9 branch `feature/marrow-explanation-rollout-biochem-ch12-q01-q09-current`.
 - Accepted baseline / rollback baseline remains **V11.6 Content Quality** until explicitly promoted.
 - Accepted product commit: `125d68b`.
 - build-verified, device-verified, and accepted are separate states.
@@ -43,12 +44,22 @@ Every refined four-option SBA requires a meaningful Key Takeaway, medically corr
 
 ## CURRENT_UNVERIFIED explanation batch
 
-- **None. The serialized explanation lane is released.**
-- Open historical/stacked PRs whose exact product candidate is listed in `FULLY_VERIFIED_HISTORY` are non-blocking.
+- **Owner: Biochemistry. State: CONTENT_AUTHORED.**
+- Batch: Chapter **12 — Lipids: Basics**, source-order **Q1–Q9**, 9 questions, workload score **16.0**.
+- Augmentation file: `data/marrow/explanation_biochem_ch12_q01_q09_v1.json`.
+- Content commit: `adcc3a31846cd347bfb993d09a5454f8deba5994`.
+- Biochemistry rollout validator was updated to permit bounded contiguous chapter slices while retaining source-order, no-gap, source-key, distractor, emphasis and reconstruction checks; validator commit `53a8701067ac1486bdbb3e44dcf3f2c6bebcf5b6`.
+- Q5 preserves the source table and molecular-structure figure through immutable source ownership. Q9 preserves the source trans-fat figure through immutable source ownership.
+- Q7 is `needs_manual_review`: the rendered question omits the defining 1–4 fatty-acid mapping. The source key C (1,3) and source-supported teaching point (linoleic + alpha-linolenic acid are essential) are preserved, but the missing numeral mapping was not invented.
+- Raw Biochemistry source remains unchanged at SHA-256 `d9d89966b2733f86b6c5a413e61b0af5559becff3bc580802262deb2f3b9c1ae`.
+- Last certified inventory remains **576 enhanced / 1,539 pending**, fingerprint `09f7720c9fe9775f5e2ebc980035e5c78257664f5941a91b952b1b9263ad36ae`; it has **not yet been regenerated** for this batch. Expected post-regeneration count is **585 enhanced / 1,530 pending**.
+- No PR or exact-head Engineering Gate / Android-PWA certification exists yet for this batch.
+- Other subject workers must yield the serialized explanation lane until this exact batch becomes FULLY_VERIFIED or is explicitly abandoned/reverted.
 
 ## Known problems / cautions
 
 - The old sibling branch `feature/marrow-explanation-rollout-anatomy-ch05-q10-q19-current` is stale and diverged from the verified lineage; do not use it.
+- Do not treat historical open PR #37 as a blocker; its exact product candidate is in `FULLY_VERIFIED_HISTORY`.
 - Never accept a neighboring green workflow run; certify only a PR's exact current product head SHA.
 - Documentation-only handoff commits after a certified product SHA do not invalidate that exact product certification and must not be mistaken for new product candidates.
 - Prefer stable chapter/question IDs over fuzzy display-text selectors.
@@ -56,9 +67,11 @@ Every refined four-option SBA requires a meaningful Key Takeaway, medically corr
 
 ## Next step
 
-1. The lane is free. The next subject worker may acquire it after resolving this newest authoritative handoff and confirming live Git state is consistent.
-2. For Anatomy specifically, the next source-order start is **Chapter 5 Q20**; dynamically workload-score the contiguous tail before authoring.
-3. Start at most one new bounded batch and follow the full runbook state machine.
-4. Do not merge or promote production as part of explanation automation.
+1. Resume **this exact Biochemistry Chapter 12 Q1–Q9 batch**; do not start Q10+ yet.
+2. Regenerate the deterministic 2,115-ID inventory and verify **585 enhanced / 1,530 pending**, unchanged raw-source hashes, and the new fingerprint.
+3. Run the Biochemistry rollout/source-key/emphasis/distractor/reconstruction checks and the shared static regressions.
+4. Add a stable-ID browser regression for the reconstruction-sensitive Chapter 12 Q7 (or another representative current-batch question if the runbook evidence requires it), then run shared Practice/CBT/Review/FSRS browser regressions.
+5. Only after static validation, open/refresh the PR and certify the PR's exact current head through Engineering Gate and full Android/PWA/APK/package/reproducibility/preview checks. Production promotion remains skipped.
+6. After FULLY_VERIFIED, release the lane. Biochemistry's next source-order start will then be **Chapter 12 Q10**.
 
 Efficiency rule: pre-audit future content while CI runs, but never commit another batch on an unverified lineage.
