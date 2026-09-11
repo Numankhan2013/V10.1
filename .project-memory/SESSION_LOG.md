@@ -816,3 +816,11 @@ Implemented approved recovery in existing transform owners: Topics separate path
   the accepted readability floor. Immutable preview:
   `https://af73057f.nk-qbank.pages.dev`; artifact `10137184212`; production was
   not promoted. Physical-device acceptance remains pending.
+
+
+## 2026-09-11 — Biochemistry image batch NKQ_BIOCHEMISTRY_20260911 staged checkpoint
+
+- STARTED new bounded Biochemistry image batch from verified Batch 08 base `1ae61e205804d3d3b2359fcbad218f56e396896b` on `automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911`. Historical Anatomy work is VERIFIED_HISTORY; no true concurrent registry writer was present.
+- Substantive checkpoint `ca74b2776b93f907d77c6f9a85625ffc5440a3eb` staged six deterministic Biochemistry candidates: `marrow__BIOCHEM_CH25_Q024`, `marrow__BIOCHEM_CH25_Q026`, `marrow__BIOCHEM_CH26_Q003`, `marrow__BIOCHEM_CH26_Q014`, `marrow__BIOCHEM_CH26_Q021`, `marrow__BIOCHEM_CH26_Q022`. Asset IDs: `biochemistry-a501ec0aa161745f`, `biochemistry-e10cc8a9721a17da`, `biochemistry-2ece5cd128a5140d`, `biochemistry-5865ddb63ce7a5b2`, `biochemistry-654cb3072454b05c`, `biochemistry-ddecee9d8f653b20`.
+- All remain REVIEW_REQUIRED; no learner-facing release or production promotion occurred. Registry/progress fingerprints: `df48b187ef9bf214890f5c58e56ffa65572b39d5b4f81e6f2e61239be979eb1a` / `d4faf2aa30d7083ef800bf3c11eb60fccd99470c10fa2a1aee8c38f12c40c3f0`.
+- Required source-level checks passed. Resume this exact branch/batch for visual/source QA.

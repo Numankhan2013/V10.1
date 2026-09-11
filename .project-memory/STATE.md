@@ -94,6 +94,15 @@ explanation and exactly three distractor rationales through the real learner UI.
 - Every staged binding carries independent page/xref/region provenance and QA status. Rejected or unreviewed bindings never enter runtime metadata.
 - Batches 05–07 passed full Android/PWA CI (`34367383565`, `34367985338`, `34368514110`). Latest immutable preview: `https://4d588745.nk-qbank.pages.dev`; production promotion was skipped.
 
+## Current image automation checkpoint
+
+- Classification: **CURRENT_UNFINISHED**; owner **Biochemistry**; batch `NKQ_BIOCHEMISTRY_20260911`.
+- Branch `automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911`; verified working base `1ae61e205804d3d3b2359fcbad218f56e396896b`; substantive candidate `ca74b2776b93f907d77c6f9a85625ffc5440a3eb`. Resolve live branch HEAD from Git.
+- Registry SHA-256 `df48b187ef9bf214890f5c58e56ffa65572b39d5b4f81e6f2e61239be979eb1a`; progress SHA-256 `d4faf2aa30d7083ef800bf3c11eb60fccd99470c10fa2a1aee8c38f12c40c3f0`.
+- Staged question IDs: `marrow__BIOCHEM_CH25_Q024`, `marrow__BIOCHEM_CH25_Q026`, `marrow__BIOCHEM_CH26_Q003`, `marrow__BIOCHEM_CH26_Q014`, `marrow__BIOCHEM_CH26_Q021`, `marrow__BIOCHEM_CH26_Q022`.
+- Staged asset IDs: `biochemistry-a501ec0aa161745f`, `biochemistry-e10cc8a9721a17da`, `biochemistry-2ece5cd128a5140d`, `biochemistry-5865ddb63ce7a5b2`, `biochemistry-654cb3072454b05c`, `biochemistry-ddecee9d8f653b20`. All six assets/bindings remain **REVIEW_REQUIRED** pending source/page, phone-width, expanded-view, role/timing and answer-safety inspection.
+- Exact next action: resume this exact branch/batch, inspect `marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review` evidence, record QA decisions, then run release/package checks only for items that pass. Do not start another Biochemistry batch.
+
 ## Known problems / verification cautions
 
 - Build-verified ≠ device-verified ≠ accepted production baseline.
