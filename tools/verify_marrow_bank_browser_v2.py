@@ -136,8 +136,8 @@ extra = shot + """
             body=page.locator('body').inner_text()
             if 'Each pharyngeal arch has a mesenchymal core formed by mesoderm and invading neural crest cells.' not in body:
                 raise SystemExit('Anatomy Ch5 Q1 tuned takeaway missing from learner runtime')
-            if 'outer covering of the arch' not in body or 'inner lining' not in body:
-                raise SystemExit('Anatomy Ch5 Q1 distractor rationales missing from learner runtime')
+            if 'outer surface of the arch' not in body or 'inner surface of the pharyngeal apparatus' not in body:
+                raise SystemExit('Anatomy Ch5 Q1 approved distractor rationales missing from learner runtime')
 """ + _chooser_steps('Anatomy') + "\n"
 if source.count(shot) != 1:
     raise SystemExit(f"Anatomy tuned insertion anchor count={source.count(shot)}")
