@@ -7,7 +7,11 @@ RUNBOOK = ROOT / "docs" / "MARROW_EXPLANATION_AUTOMATION_RUNBOOK.md"
 MARKER = "### Connector-readable source audit views"
 ANCHOR = "Never rewrite these bundles to improve learner-facing wording.\n"
 MANDATORY_ANCHOR = "- `tools/inventory_marrow_explanations.py`\n"
-MANDATORY_LINE = "- `tools/export_marrow_source_audit.py` when source audit views are used;\n"
+OLD_MANDATORY_LINE = "- `tools/export_marrow_source_audit.py` when source audit views are used;\n"
+MANDATORY_LINE = (
+    "- `tools/export_marrow_source_audit.py` from authoritative `main` when "
+    "source audit views are used;\n"
+)
 
 SECTION = r'''
 
@@ -23,9 +27,9 @@ projections on authoritative `main` for connector-only workers:
 - Physiology: `data/marrow/source_audit/physiology/chapter_<NNN>.json`
 
 These files are generated only from the immutable source bundles by
-`tools/export_marrow_source_audit.py`. They are **derived audit views**, not a
-replacement source of truth, and must never be hand-edited to change medical
-content.
+`tools/export_marrow_source_audit.py` on authoritative `main`. They are
+**derived audit views**, not a replacement source of truth, and must never be
+hand-edited to change medical content.
 
 For a source audit when the repository interface cannot locally decompress the
 shards:
@@ -55,7 +59,10 @@ def main() -> None:
     text = RUNBOOK.read_text(encoding="utf-8")
     changed = False
 
-    if MANDATORY_LINE not in text:
+    if OLD_MANDATORY_LINE in text:
+        text = text.replace(OLD_MANDATORY_LINE, MANDATORY_LINE, 1)
+        changed = True
+    elif MANDATORY_LINE not in text:
         if MANDATORY_ANCHOR not in text:
             raise SystemExit("mandatory implementation anchor not found")
         text = text.replace(MANDATORY_ANCHOR, MANDATORY_ANCHOR + MANDATORY_LINE, 1)
@@ -65,6 +72,13 @@ def main() -> None:
         if ANCHOR not in text:
             raise SystemExit("source bundle anchor not found")
         text = text.replace(ANCHOR, ANCHOR + SECTION, 1)
+        changed = True
+    elif "by\n`tools/export_marrow_source_audit.py`." in text:
+        text = text.replace(
+            "by\n`tools/export_marrow_source_audit.py`.",
+            "by\n`tools/export_marrow_source_audit.py` on authoritative `main`.",
+            1,
+        )
         changed = True
 
     if changed:
