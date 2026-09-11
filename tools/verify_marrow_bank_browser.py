@@ -152,7 +152,8 @@ with socketserver.TCPServer(("127.0.0.1", 0), handler) as server:
             raise SystemExit(f"Marrow Physiology Chapter 10 count is not 18 for Q15: {rows.count()}")
         rows.nth(14).click()
         page.wait_for_timeout(80)
-        if "serotonin" not in page.locator(".question-text").inner_text().lower():
+        option_text = page.locator(".option-list").inner_text().lower()
+        if "serotonin" not in option_text:
             raise SystemExit("Physiology Chapter 10 Q15 did not open by stable source order")
         page.locator(".option-list button").first.click()
         page.wait_for_timeout(120)
