@@ -1,0 +1,65 @@
+name: Consolidate full Marrow corpus
+
+on:
+  push:
+    branches:
+      - feature/marrow-canonical-full-current
+    paths:
+      - tools/consolidate_full_marrow_corpus.py
+      - .github/workflows/consolidate-full-marrow-corpus.yml
+      - data/marrow/automation_ingest/anatomy/qbank_chunk_049_gi_tract.jsonl
+      - data/marrow/automation_ingest/anatomy/qbank_chunk_050_hepatobiliary_spleen_pancreas.jsonl
+      - data/marrow/automation_ingest/anatomy/qbank_chunk_051_kub_adrenal_gland.jsonl
+      - data/marrow/automation_ingest/anatomy/qbank_chunk_052_internal_external_genitalia.jsonl
+      - data/marrow/automation_ingest/anatomy/qbank_chunk_053_pelvis_perineum.jsonl
+      - data/marrow/automation_ingest/anatomy/qbank_chunk_054_bones_lower_limb.jsonl
+      - data/marrow/automation_ingest/anatomy/qbank_chunk_055_joints_lower_limb.jsonl
+      - data/marrow/automation_ingest/anatomy/qbank_chunk_056_muscles_lower_limb.jsonl
+      - data/marrow/automation_ingest/anatomy/qbank_chunk_057_nerves_vessels_lower_limb.jsonl
+      - data/marrow/automation_ingest/anatomy/qbank_chunk_058_important_structures_lower_limb.jsonl
+      - data/marrow/automation_ingest/anatomy/qbank_chunk_059_vertebral_column.jsonl
+
+permissions:
+  contents: write
+
+concurrency:
+  group: full-marrow-corpus-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  consolidate:
+    if: ${{ !contains(github.event.head_commit.message, '[full-corpus-generated]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout exact branch head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build complete 63/28/43 source corpus
+        run: python tools/consolidate_full_marrow_corpus.py
+
+      - name: Validate source bundles
+        run: python tools/test_marrow_bank_pilot.py --data-only
+
+      - name: Validate learner taxonomy
+        run: python tools/test_marrow_topic_taxonomy.py
+
+      - name: Regenerate deterministic explanation inventory
+        run: python tools/inventory_marrow_explanations.py --write
+
+      - name: Validate explanation inventory
+        run: python tools/test_marrow_explanation_inventory.py
+
+      - name: Commit generated canonical corpus
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/marrow tools
+          if git diff --cached --quiet; then
+            echo "No generated changes"
+            exit 0
+          fi
+          git commit -m "[full-corpus-generated] Build canonical Marrow 63/28/43 corpus"
+          git push origin HEAD:feature/marrow-canonical-full-current
