@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Biochemistry Chapter 12 explanation rollout. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "12",
+    "chapterTitle": "Lipids: Basics",
+    "questionStart": 1,
+    "questionEnd": 10,
+    "questions": 10,
+    "status": "approved-rollout",
+    "workloadScore": 16.0
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 576,
+    "anatomyReference": 81,
+    "physiology": 236,
+    "biochemistry": 259
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH12_Q001": {
+      "takeaway": "Steroids are derived lipids; fats, oils and waxes are simple lipids.",
+      "displayText": "Steroids are classified as derived lipids. Derived lipids are products or components obtained from simple or complex lipids that retain lipid-like properties; examples include fatty acids, glycerol, sterols/steroids, fat-soluble vitamins and ketone bodies.\n\nBy contrast, fats, oils and waxes are simple lipids—esters of fatty acids with alcohols.",
+      "emphasis": [
+        "Steroids",
+        "derived lipids",
+        "fats, oils and waxes",
+        "simple lipids"
+      ],
+      "rationales": {
+        "a": "Fats are simple lipids, mainly triacylglycerol esters, rather than derived lipids.",
+        "b": "Oils are simple lipids; their physical state does not make them derived lipids.",
+        "d": "Waxes are simple lipids formed from fatty acids esterified to long-chain alcohols."
+      }
+    },
+    "marrow__BIOCHEM_CH12_Q002": {
+      "takeaway": "Triacylglycerols are the major storage form of lipid in the body.",
+      "displayText": "Triacylglycerols are the major storage form of lipids in the body. Each molecule consists of glycerol esterified to three fatty acids and is stored predominantly in adipose tissue as a concentrated energy reserve.\n\nFatty acids may be saturated, with no carbon–carbon double bonds, or unsaturated, with one or more double bonds.",
+      "emphasis": [
+        "Triacylglycerols",
+        "major storage form of lipids",
+        "glycerol esterified to three fatty acids",
+        "saturated"
+      ],
+      "rationales": {
+        "a": "Free fatty acids are important circulating fuels and components of stored triacylglycerol, but they are not the main bulk storage form.",
+        "c": "Phospholipids are major structural components of cell membranes rather than the principal energy-storage lipid.",
+        "d": "Lipoproteins transport lipids in plasma; they are not the body's main intracellular storage form."
+      }
+    },
+    "marrow__BIOCHEM_CH12_Q003": {
+      "takeaway": "Linoleic acid is polyunsaturated; caproic, myristic and palmitic acids are saturated.",
+      "displayText": "Linoleic acid is not a saturated fatty acid. It is a polyunsaturated fatty acid with two carbon–carbon double bonds.\n\nSaturated fatty acids contain no double bonds; examples include caproic, myristic and palmitic acids. Monounsaturated fatty acids contain one double bond, whereas polyunsaturated fatty acids contain two or more.",
+      "emphasis": [
+        "Linoleic acid",
+        "polyunsaturated fatty acid",
+        "two carbon–carbon double bonds",
+        "Saturated fatty acids"
+      ],
+      "rationales": {
+        "b": "Caproic acid is a saturated fatty acid and therefore does not satisfy the 'not saturated' stem.",
+        "c": "Myristic acid is saturated, with no carbon–carbon double bonds.",
+        "d": "Palmitic acid is a saturated 16-carbon fatty acid, not the unsaturated choice."
+      }
+    },
+    "marrow__BIOCHEM_CH12_Q004": {
+      "takeaway": "Linoleic acid is a PUFA with two double bonds, whereas palmitoleic, oleic and elaidic acids are monounsaturated.",
+      "displayText": "Linoleic acid is a polyunsaturated fatty acid (PUFA) because it contains two double bonds, so it is not a monounsaturated fatty acid.\n\nPalmitoleic acid, oleic acid and elaidic acid each contain a single double bond and are monounsaturated fatty acids. Elaidic acid is the trans isomer of oleic acid.",
+      "emphasis": [
+        "Linoleic acid",
+        "polyunsaturated fatty acid (PUFA)",
+        "two double bonds",
+        "single double bond"
+      ],
+      "rationales": {
+        "a": "Palmitoleic acid has one double bond and is a monounsaturated fatty acid.",
+        "b": "Oleic acid is a classic cis monounsaturated fatty acid with one double bond.",
+        "c": "Elaidic acid is a trans monounsaturated fatty acid; it still has only one double bond."
+      }
+    },
+    "marrow__BIOCHEM_CH12_Q005": {
+      "takeaway": "Arachidonic acid is a 20-carbon omega-6 PUFA with four double bonds.",
+      "displayText": "Arachidonic acid contains four double bonds and is written as 20:4 (ω-6). Its four double bonds make it a polyunsaturated fatty acid.\n\nIt is an important membrane-phospholipid fatty acid and serves as a precursor for eicosanoids, including prostaglandins, thromboxanes and leukotrienes. The source table places arachidonic acid between linolenic acid (three double bonds) and timnodonic acid (five).",
+      "emphasis": [
+        "Arachidonic acid",
+        "four double bonds",
+        "20:4 (ω-6)",
+        "precursor for eicosanoids"
+      ],
+      "rationales": {
+        "a": "One double bond would describe a monounsaturated fatty acid, not arachidonic acid.",
+        "b": "Arachidonic acid has four, not two, double bonds; linoleic acid is the common 18:2 example.",
+        "c": "Three double bonds is characteristic of linolenic acid in the source table, not arachidonic acid."
+      },
+      "sourceNotes": [
+        "The immutable source includes a comparison table of PUFA double-bond counts and a molecular-structure figure; both remain preserved in source/provenance and are not duplicated by this augmentation."
+      ]
+    },
+    "marrow__BIOCHEM_CH12_Q006": {
+      "takeaway": "Omega-3 fatty acids favor less inflammatory eicosanoid signaling and also lower triglycerides.",
+      "displayText": "Omega-3 (ω-3) fatty acids are associated with anti-inflammatory effects. EPA- and DHA-rich pathways favor eicosanoid profiles that are generally less inflammatory than those generated from arachidonic-acid–dominant ω-6 pathways.\n\nOmega-3 fatty acids also have antithrombotic effects and can reduce serum triglyceride concentrations.",
+      "emphasis": [
+        "Omega-3 (ω-3) fatty acids",
+        "anti-inflammatory effects",
+        "antithrombotic effects",
+        "reduce serum triglyceride concentrations"
+      ],
+      "rationales": {
+        "b": "Omega-6 fatty acids include arachidonic acid, a precursor of many potent inflammatory eicosanoids; this is not the source-keyed anti-inflammatory class.",
+        "c": "Omega-9 fatty acids are not the source-keyed family responsible for the characteristic anti-inflammatory eicosanoid shift described here.",
+        "d": "Omega-7 fatty acids are not the class identified by the source for these established anti-inflammatory and triglyceride-lowering effects."
+      }
+    },
+    "marrow__BIOCHEM_CH12_Q007": {
+      "takeaway": "The recoverable teaching point is that linoleic acid (ω-6) and α-linolenic acid (ω-3) are the two essential fatty acids in humans.",
+      "displayText": "The source explanation identifies linoleic acid (ω-6) and α-linolenic acid (ω-3) as the two essential fatty acids in humans because they cannot be synthesized in adequate amounts and must be obtained from the diet.\n\nSource limitation: the printed question shows only numeric combinations (1,2; 2,4; 1,3; 2,3,4), but the numbered statement list is absent from the source page. The answer key selects option C (1,3). The missing number-to-fatty-acid mapping is therefore not reconstructed or invented.",
+      "emphasis": [
+        "linoleic acid (ω-6)",
+        "α-linolenic acid (ω-3)",
+        "two essential fatty acids in humans",
+        "option C (1,3)"
+      ],
+      "rationales": {
+        "a": "The source does not preserve the numbered statement list, so combination 1,2 cannot be safely decoded. The source key instead selects C, while the explanation establishes linoleic acid plus α-linolenic acid as the semantic answer.",
+        "b": "Because the numbered statement mapping is missing, combination 2,4 cannot be assigned to named fatty acids without invention; it is not the source-keyed answer.",
+        "d": "The absent numbered list prevents a reliable semantic decoding of 2,3,4. The preserved answer key selects C, and the explanation identifies the essential pair as linoleic acid and α-linolenic acid."
+      },
+      "reconstruction": {
+        "status": "needs_manual_review",
+        "sourceProblem": "The printed question contains numeric-combination options, but the numbered item-to-fatty-acid statement list is absent from the rendered source question page.",
+        "reconstructedContent": "Learner-facing text teaches only the recoverable semantic answer—linoleic acid plus α-linolenic acid—and preserves the source-keyed option C (1,3) without assigning names to the missing numbered statements.",
+        "evidenceBasis": [
+          "The immutable source answer key marks option C (1,3).",
+          "The source explanation explicitly states that linoleic acid and α-linolenic acid are the essential fatty acids.",
+          "The source audit records that the numbered statement mapping is absent and was not inferred."
+        ],
+        "reviewNote": "Exact statement-number mapping remains unrecoverable from the available source; manual source recovery would be required to reconstruct the original list."
+      }
+    },
+    "marrow__BIOCHEM_CH12_Q008": {
+      "takeaway": "Fat malabsorption can cause essential-fatty-acid deficiency; scaly dermatitis, alopecia and poor wound healing point to linoleic-acid deficiency.",
+      "displayText": "Cystic fibrosis with pancreatic insufficiency can cause fat malabsorption and deficiency of essential fatty acids. The combination of dry or scaly dermatitis, hair loss and poor wound healing is characteristic of essential-fatty-acid deficiency.\n\nLinoleic acid is an essential ω-6 fatty acid and is the best answer among the choices. Essential fatty acids help maintain normal skin and cell-membrane integrity.",
+      "emphasis": [
+        "fat malabsorption",
+        "essential fatty acids",
+        "dry or scaly dermatitis",
+        "Linoleic acid"
+      ],
+      "rationales": {
+        "a": "Arachidonic acid can be synthesized from linoleic acid and is generally considered conditionally or semi-essential rather than one of the two primary essential fatty acids.",
+        "b": "Oleic acid is a monounsaturated ω-9 fatty acid that humans can synthesize; it is not an essential fatty acid.",
+        "d": "Elaidic acid is a trans monounsaturated fatty acid and is not an essential dietary fatty acid."
+      }
+    },
+    "marrow__BIOCHEM_CH12_Q009": {
+      "takeaway": "Partial hydrogenation of vegetable oils can generate trans fatty acids, which raise LDL and lower HDL.",
+      "displayText": "Trans fatty acids can be produced as a by-product of partial hydrogenation of vegetable oils. Around a trans double bond, the carbon chains lie on opposite sides, giving the molecule a more linear geometry than the corresponding cis fatty acid.\n\nTrans-fat intake adversely affects the lipid profile by increasing LDL cholesterol and lowering HDL cholesterol, contributing to cardiovascular risk.",
+      "emphasis": [
+        "Trans fatty acids",
+        "partial hydrogenation of vegetable oils",
+        "opposite sides",
+        "increasing LDL cholesterol and lowering HDL cholesterol"
+      ],
+      "rationales": {
+        "a": "Eicosanoids are signaling lipids derived mainly from polyunsaturated fatty acids; they are not the characteristic by-product of oil hydrogenation.",
+        "b": "Glycerol is the alcohol backbone of triacylglycerols and is not generated specifically as the trans-fat by-product of hydrogenation.",
+        "c": "Cis fatty acids are the usual natural configuration of many unsaturated fatty acids; partial hydrogenation can isomerize some double bonds to the trans configuration."
+      },
+      "sourceNotes": [
+        "The immutable source includes a trans-double-bond configuration figure; the augmentation preserves that provenance and does not replace or redraw the image."
+      ]
+    },
+    "marrow__BIOCHEM_CH12_Q010": {
+      "takeaway": "Prostaglandins are synthesized from arachidonic acid through the cyclooxygenase pathway.",
+      "displayText": "Prostaglandins are prostanoid eicosanoids synthesized from arachidonic acid. After arachidonic acid is released from membrane phospholipids, cyclooxygenase (COX) enzymes convert it through cyclic endoperoxide intermediates into prostaglandins and related prostanoids.\n\nThis makes arachidonic acid the direct fatty-acid precursor among the choices.",
+      "emphasis": [
+        "Prostaglandins",
+        "arachidonic acid",
+        "cyclooxygenase (COX)",
+        "direct fatty-acid precursor"
+      ],
+      "rationales": {
+        "a": "Palmitoleic acid is a monounsaturated fatty acid and is not the principal prostaglandin precursor.",
+        "b": "Oleic acid is an ω-9 monounsaturated fatty acid, not the arachidonic-acid substrate used for prostaglandin synthesis.",
+        "c": "Linoleic acid is an essential ω-6 fatty acid that can serve upstream as a precursor to arachidonic acid, but prostaglandins are synthesized directly from arachidonic acid."
+      }
+    }
+  }
+}
