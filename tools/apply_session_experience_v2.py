@@ -67,7 +67,7 @@ HELPERS_AND_PRACTICE = r'''function nkSessionSubject(q) {
   function nkSessionOptions(q,selected,mode,submitted) {
     const locked=mode==='review'||(mode==='practice'&&submitted);
     return q.options.map(o=>{
-      const n=o.letter.charCodeAt(0)-64,isChosen=Number(selected)===n,isCorrect=Number(q.correctOption)===n;
+      const n=String(o?.letter||'').trim().toUpperCase().charCodeAt(0)-64,isChosen=Number(selected)===n,isCorrect=Number(q.correctOption)===n;
       let cls='option';
       if(mode==='exam'){if(isChosen)cls+=' selected';}
       else if(mode==='practice'&&submitted){if(isCorrect)cls+=' correct';if(isChosen&&!isCorrect)cls+=' wrong';}

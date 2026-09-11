@@ -17,7 +17,7 @@ import zlib
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data/marrow'
 SOURCES = {'Anatomy': ('anatomy_ch001_048_plus_060_063', 'Anatomy_ed8.pdf'),
-           'Biochemistry': ('biochemistry_phase_a', 'biochemistryed8.pdf'),
+           'Biochemistry': ('biochemistry_ch001_028', 'biochemistryed8.pdf'),
            'Physiology': ('physiology_ch001_043', 'physiologyed8.pdf')}
 SIGNAL = re.compile(r'\b(image|figure|diagram|graph|flowchart|shown below)\b', re.I)
 RELEASE_STATUSES = {'PASS','SOURCE_LIMITED'}

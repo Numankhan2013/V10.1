@@ -1,18 +1,29 @@
 #!/usr/bin/env python3
-"""Regenerate and verify the explanation inventory for the integrated source scope."""
+"""Keep the explanation triage inventory complete and reproducible."""
+from __future__ import annotations
+
 import json
+from pathlib import Path
 
-from inventory_marrow_explanations import DATA, build_inventory, inventory_manifest
-
-
-def refresh_inventory() -> None:
-    target = DATA / "explanation_inventory_v1.json"
-    manifest = inventory_manifest(build_inventory())
-    target.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+from inventory_marrow_explanations import DATA, build_inventory, enhanced_ids, inventory_manifest
 
 
-refresh_inventory()
-from test_marrow_explanation_inventory_expanded_core import main
+def main() -> None:
+    stored = json.loads((DATA / "explanation_inventory_v1.json").read_text(encoding="utf-8"))
+    generated = build_inventory()
+    manifest = inventory_manifest(generated)
+    assert stored == manifest
+    assert stored["summary"]["questions"] == 2494
+    assert stored["summary"]["subjects"] == {"Anatomy": 898, "Biochemistry": 582, "Physiology": 1014}
+    enhanced = len(enhanced_ids())
+    assert stored["summary"]["enhancementStatus"] == {"enhanced-reference": enhanced, "pending": 2494 - enhanced}
+    assert len(stored["biochemistryGoldSample"]) == 20
+    assert all(item["status"] == "approved-reference" for item in stored["biochemistryGoldSample"])
+    assert stored["questionRecords"] == 2494
+    assert len(stored["questionRecordsSha256"]) == 64
+    assert all("sourceText" not in item for item in generated["questions"])
+    print(f"MARROW_EXPLANATION_INVENTORY_TEST_OK questions=2494 enhanced={enhanced} pending={2494-enhanced} sample=20 raw_text=excluded")
+
 
 if __name__ == "__main__":
     main()

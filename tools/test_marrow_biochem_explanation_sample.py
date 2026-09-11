@@ -11,6 +11,8 @@ def main() -> None:
     candidate = json.loads((DATA / "explanation_biochem_gold_sample_v1.json").read_text(encoding="utf-8"))
     inventory = json.loads((DATA / "explanation_inventory_v1.json").read_text(encoding="utf-8"))
     bank, source_sha = load_sharded("biochemistry_phase_a")
+    expanded_bank, expanded_sha = load_sharded("biochemistry_ch001_028")
+    legacy_manifest = json.loads((DATA / "biochemistry_phase_a_manifest.json").read_text(encoding="utf-8"))
 
     assert candidate["scope"] == {
         "subject": "Biochemistry",
@@ -30,8 +32,11 @@ def main() -> None:
     assert set(questions) == sample_ids
 
     source_questions = {q["id"]: q for q in bank["questions"]}
-    assert set(questions) <= set(source_questions)
-    assert source_sha == inventory["sourceRawSha256"]["Biochemistry"]
+    expanded_questions = {q["id"]: q for q in expanded_bank["questions"]}
+    assert set(questions) <= set(source_questions) <= set(expanded_questions)
+    assert source_sha == legacy_manifest["raw_sha256"]
+    assert expanded_sha == inventory["sourceRawSha256"]["Biochemistry"]
+    assert all(expanded_questions[qid] == source_questions[qid] for qid in questions)
 
     for qid, cfg in questions.items():
         source = source_questions[qid]
@@ -60,7 +65,7 @@ def main() -> None:
 
     print(
         "MARROW_BIOCHEM_EXPLANATION_SAMPLE_TEST_OK "
-        "approved_sample=20 prior_reference=142 approved_reference=162 rationales=60 raw_source=unchanged"
+        "approved_sample=20 prior_reference=142 approved_reference=162 legacy_source=pinned expanded_source=pinned raw_source=unchanged"
     )
 
 
