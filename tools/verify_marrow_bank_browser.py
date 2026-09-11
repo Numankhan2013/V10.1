@@ -31,7 +31,7 @@ with socketserver.TCPServer(("127.0.0.1", 0), handler) as server:
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
 
-        # Current Anatomy rollout regression retained unchanged.
+        # Previously verified Anatomy Chapter 5 Q9 regression retained unchanged.
         page = browser.new_page(viewport={"width": 390, "height": 844})
         page.route(
             "**/*.pdf*",
@@ -84,7 +84,58 @@ with socketserver.TCPServer(("127.0.0.1", 0), handler) as server:
             raise SystemExit("Anatomy Chapter 5 Q9 source table was not preserved")
         page.screenshot(path=str(OUT / "anatomy-ch05-q09-arch-muscle-table.png"), full_page=True)
         if errors:
-            raise SystemExit("Anatomy Chapter 5 browser errors: " + " | ".join(errors))
+            raise SystemExit("Anatomy Chapter 5 Q9 browser errors: " + " | ".join(errors))
+        page.close()
+
+        # Current Anatomy Chapter 5 Q18: image-dependent DiGeorge/thymus label regression.
+        page = browser.new_page(viewport={"width": 390, "height": 844})
+        page.route(
+            "**/*.pdf*",
+            lambda route: route.fulfill(
+                path=str(ROOT / "app/src/main/assets/Anatomy_QBank_Source.pdf"),
+                content_type="application/pdf",
+                headers={"Access-Control-Allow-Origin": "*"},
+            ) if "anatomy" in route.request.url.lower() else route.continue_(),
+        )
+        errors = []
+        page.on("pageerror", lambda e: errors.append(str(e)))
+        page.goto(f"http://127.0.0.1:{port}/index.html", wait_until="networkidle")
+        page.locator("button.nk-subject-row").filter(has_text="Anatomy").click()
+        page.wait_for_timeout(80)
+        if "#banks/Anatomy" not in page.url:
+            raise SystemExit(f"Anatomy did not open bank selector for Q18: {page.url}")
+        page.locator("button.nk-bank-card").filter(has_text="Marrow").click()
+        page.wait_for_timeout(100)
+        chapter = page.locator("button.nk-topic-row[onclick=\"window.QB.openChapter('5')\"]")
+        if chapter.count() != 1:
+            raise SystemExit(f"Stable Anatomy Chapter 5 selector count for Q18: {chapter.count()}")
+        chapter.click()
+        page.wait_for_timeout(80)
+        rows = page.locator("button.nk-library-row")
+        if rows.count() != 24:
+            raise SystemExit(f"Marrow Anatomy Chapter 5 count is not 24 for Q18: {rows.count()}")
+        rows.nth(17).click()
+        page.wait_for_timeout(80)
+        page.locator(".option-list button").first.click()
+        page.wait_for_timeout(120)
+        support = page.locator(".nk-study-support").inner_text().lower()
+        for required in (
+            "key takeaway",
+            "detailed explanation",
+            "structured text",
+            "why the other options are wrong",
+            "digeorge syndrome",
+            "label 3",
+            "thymic region",
+            "3rd and 4th pharyngeal pouches",
+        ):
+            if required not in support:
+                raise SystemExit(f"Anatomy Chapter 5 Q18 explanation missing {required}")
+        if page.locator(".nk-gold-wrong-row").count() != 3:
+            raise SystemExit("Anatomy Chapter 5 Q18 must render exactly three distractor rationales")
+        page.screenshot(path=str(OUT / "anatomy-ch05-q18-digeorge-thymus-label3.png"), full_page=True)
+        if errors:
+            raise SystemExit("Anatomy Chapter 5 Q18 browser errors: " + " | ".join(errors))
         page.close()
 
         # Physiology Chapter 10 Q13: reconstruction-sensitive autonomic exception.
@@ -178,4 +229,4 @@ with socketserver.TCPServer(("127.0.0.1", 0), handler) as server:
 
         browser.close()
     server.shutdown()
-print("MARROW_EXPLANATION_BROWSER_OK anatomy_ch05_q09=verified physiology_ch10_q13=verified physiology_ch10_q15=verified rationales=3")
+print("MARROW_EXPLANATION_BROWSER_OK anatomy_ch05_q09=verified anatomy_ch05_q18=verified physiology_ch10_q13=verified physiology_ch10_q15=verified rationales=3")
