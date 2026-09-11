@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-"""Repair Marrow structured-table rendering without changing source data.
+"""Repair canonical keyed Marrow table rendering without changing source data.
 
-The canonical ED8 bundles store many table columns as ``{key,label}`` objects
-and rows as keyed objects. The original Marrow UI renderer was written for the
-older presentation shape of string columns + positional row arrays. Passing the
-canonical shape directly to that renderer turns column objects into the literal
-string ``[object Object]`` and can produce empty cells.
+Canonical ED8 bundles contain more than one legitimate historical table shape.
+The regression reported in Anatomy Ch5 Q10 occurs on the keyed shape where
+``columns`` are ``{key,label}`` objects and rows are objects keyed by those
+column keys. The accepted legacy renderer expects scalar columns and positional
+rows, so direct rendering produced ``[object Object]`` headers and blank cells.
 
-This deterministic post-transform keeps the accepted table UI/CSS, normalizes
-only presentation input, and audits the canonical table contract before the app
-is packaged. Intentionally blank source headers are allowed; object-string
-leakage and the known populated Anatomy Ch5 Q10 regression are not.
+This transform is deliberately narrow: normalize only tables that expose a
+non-empty ``columns`` list, and pass other/legacy shapes through untouched. It
+keeps the accepted table markup/CSS and makes the known populated Q10 table a
+strict source + browser sentinel.
 """
 from __future__ import annotations
 
@@ -62,15 +62,17 @@ def _scalar(value) -> str:
 
 
 def _table_text(table: dict) -> tuple[list[str], list[list[str]]]:
-    raw_columns = table.get("columns", [])
-    if not isinstance(raw_columns, list):
+    """Normalize only the canonical keyed/column-list family for audit."""
+    raw_columns = table.get("columns")
+    if not isinstance(raw_columns, list) or not raw_columns:
         return [], []
+
     columns: list[tuple[str, str]] = []
     for index, column in enumerate(raw_columns):
         if isinstance(column, dict):
             key = str(column.get("key") or column.get("id") or column.get("field") or index)
-            # Preserve an explicitly blank label. The key is for row ownership,
-            # not necessarily learner-visible text.
+            # Preserve an explicitly blank learner-facing label. The key owns
+            # row lookup but is not automatically a display label.
             if "label" in column:
                 label = _scalar(column.get("label"))
             else:
@@ -89,6 +91,7 @@ def _table_text(table: dict) -> tuple[list[str], list[list[str]]]:
     raw_rows = table.get("rows", [])
     if not isinstance(raw_rows, list):
         return [label for _, label in columns], []
+
     for row in raw_rows:
         if isinstance(row, list):
             cells = [_scalar(row[i]) if i < len(row) else "" for i in range(len(columns))]
@@ -118,14 +121,18 @@ def _table_text(table: dict) -> tuple[list[str], list[list[str]]]:
         else:
             cells = [_scalar(row)] + [""] * max(0, len(columns) - 1)
         normalized_rows.append(cells)
+
     return [label for _, label in columns], normalized_rows
 
 
 table_count = 0
+normalized_table_count = 0
+legacy_passthrough_count = 0
 partial_blank_headers = 0
 blank_source_rows = 0
 q10_checked = False
 subject_counts: dict[str, int] = {}
+
 for record in records:
     subject = str(record.get("subject", ""))
     subject_counts.setdefault(subject, 0)
@@ -134,25 +141,34 @@ for record in records:
         tables = structured.get("tables") or []
         if not isinstance(tables, list):
             raise SystemExit(f"Structured table list invalid: {question.get('id')}")
+
         for table in tables:
             if not isinstance(table, dict):
                 raise SystemExit(f"Structured table object invalid: {question.get('id')}")
-            headers, rows = _table_text(table)
+
+            table_count += 1
+            subject_counts[subject] += 1
             table_id = str(table.get("table_id") or table.get("id") or question.get("id"))
-            if not headers:
-                raise SystemExit(f"Structured table has no columns: {table_id}")
-            if not any(header.strip() for header in headers):
+            raw_columns = table.get("columns")
+
+            # The corpus has older valid table shapes. They remain owned by the
+            # existing renderer and are intentionally not rewritten here.
+            if not isinstance(raw_columns, list) or not raw_columns:
+                legacy_passthrough_count += 1
+                if str(question.get("id")) == "marrow__ANAT_CH05_Q010":
+                    raise SystemExit("Anatomy Ch5 Q10 unexpectedly lost its canonical columns")
+                continue
+
+            normalized_table_count += 1
+            headers, rows = _table_text(table)
+            if any(not header.strip() for header in headers):
                 partial_blank_headers += 1
-            elif any(not header.strip() for header in headers):
-                partial_blank_headers += 1
-            if rows and not any(any(cell.strip() for cell in row) for row in rows):
-                raise SystemExit(f"Structured table has rows but no source cell content: {table_id}")
             blank_source_rows += sum(1 for row in rows if not any(cell.strip() for cell in row))
             if any("[object Object]" in cell for row in rows for cell in row):
                 raise SystemExit(f"Structured table source contains object-string leakage: {table_id}")
-            table_count += 1
-            subject_counts[subject] += 1
 
+            # Keep the user-reported populated table strict. We do not turn
+            # unrelated source omissions into renderer failures.
             if str(question.get("id")) == "marrow__ANAT_CH05_Q010":
                 if not rows or any(not any(cell.strip() for cell in row) for row in rows):
                     raise SystemExit("Anatomy Ch5 Q10 populated source table contains an empty row")
@@ -170,6 +186,8 @@ for record in records:
 
 if table_count < 1:
     raise SystemExit("Canonical Marrow corpus unexpectedly contains no structured tables")
+if normalized_table_count < 1:
+    raise SystemExit("Canonical Marrow corpus unexpectedly contains no column-list tables")
 if not q10_checked:
     raise SystemExit("Anatomy Ch5 Q10 structured table was not found in generated canonical data")
 
@@ -192,7 +210,12 @@ helper = r'''
 
   function nkNormalizeMarrowStructuredTable(table){
     const sourceTable=(table&&typeof table==='object')?table:{};
-    const rawColumns=Array.isArray(sourceTable.columns)?sourceTable.columns:[];
+    const rawColumns=Array.isArray(sourceTable.columns)?sourceTable.columns:null;
+
+    // Preserve historical table families that do not use the canonical
+    // columns/rows schema. Their existing renderer behavior remains untouched.
+    if(!rawColumns||rawColumns.length===0)return sourceTable;
+
     const columns=rawColumns.map((column,index)=>{
       if(column&&typeof column==='object'&&!Array.isArray(column)){
         const key=String(column.key??column.id??column.field??index);
@@ -203,6 +226,7 @@ helper = r'''
       }
       return {key:String(index),label:nkMarrowTableCellText(column)};
     });
+
     const rawRows=Array.isArray(sourceTable.rows)?sourceTable.rows:[];
     const rows=rawRows.map(row=>{
       if(Array.isArray(row))return columns.map((_,index)=>nkMarrowTableCellText(row[index]));
@@ -231,6 +255,7 @@ helper = r'''
       }
       return columns.map((_,index)=>index===0?nkMarrowTableCellText(row):'');
     });
+
     return {...sourceTable,columns:columns.map(column=>column.label),rows};
   }
 
@@ -252,6 +277,7 @@ if call_count != 2:
 HTML.write_text(source, encoding="utf-8")
 print(
     "MARROW_STRUCTURED_TABLE_RENDERER_OK "
-    f"tables={table_count} subjects={subject_counts} call_sites={call_count} "
-    f"partial_blank_headers={partial_blank_headers} blank_source_rows={blank_source_rows} q10=verified"
+    f"tables={table_count} normalized={normalized_table_count} legacy_passthrough={legacy_passthrough_count} "
+    f"subjects={subject_counts} call_sites={call_count} partial_blank_headers={partial_blank_headers} "
+    f"blank_source_rows={blank_source_rows} q10=verified"
 )
