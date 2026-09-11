@@ -48,7 +48,7 @@ def load_sharded(prefix: str) -> dict:
         raw = zlib.decompress(compressed)
     except Exception as exc:
         fail(f"{prefix} invalid zlib payload: {exc}")
-    if "raw_bytes" in manifest and len(raw) != int(manifest["raw_bytes"]):
+    if "raw_bytes" in manifest and len(raw) != int(manifest.get("raw_bytes", 0)):
         fail(f"{prefix} raw length mismatch")
     if hashlib.sha256(raw).hexdigest() != manifest.get("raw_sha256"):
         fail(f"{prefix} raw SHA-256 mismatch")
@@ -209,7 +209,8 @@ def patch_home_bank_flow(html: str) -> str:
     const records=typeof nkBankRecords==='function'?nkBankRecords(subject):[];
     const fallback=(SUBJECTS||[]).find(r=>r.subject===subject)||null;
     if(!records.length&&!fallback){showToast('This subject is not available.','bad');return;}
-    activeSubject=subject;
+    if(typeof applySubject==='function') applySubject(subject);
+    else activeSubject=subject;
     localStorage.setItem('qbank_active_subject_v1',subject);
     navigate('banks',subject);
   }
@@ -248,10 +249,10 @@ def install() -> None:
     html = patch_explanation_map(html, merged)
     if html.count(MARKER) != 1:
         fail("canonical wiring marker count mismatch")
-    if "navigate('banks',subject);" not in html:
-        fail("subject cards are not routed through the bank chooser")
+    if "applySubject(subject);" not in html or "navigate('banks',subject);" not in html:
+        fail("subject cards are not state-synchronized through the bank chooser")
     HTML.write_text(html, encoding="utf-8")
-    print("CANONICAL_SUBJECT_BANK_FLOW_OK aggregate=PrepLadder+Marrow route=bank-chooser")
+    print("CANONICAL_SUBJECT_BANK_FLOW_OK aggregate=PrepLadder+Marrow route=bank-chooser state=subject-synchronized")
     print(f"CANONICAL_RUNTIME_EXPLANATIONS_OK enhanced={len(merged)} denominator=2711")
 
 
