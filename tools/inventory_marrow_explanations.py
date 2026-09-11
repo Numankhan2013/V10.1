@@ -28,6 +28,12 @@ OCR_SIGNALS = (
     re.compile(r"\b(?:option|ans(?:wer)?)\s*[a-d1-4]\s*[:.)-]", re.I),
 )
 FIGURE_SIGNAL = re.compile(r"\b(?:image|figure|diagram|graph|flowchart)\b", re.I)
+APPROVED_AUGMENTATION_STATUSES = {"approved-reference", "approved-rollout"}
+APPROVED_AUGMENTATION_PATTERNS = (
+    "explanation_biochem_*_v1.json",
+    "explanation_physio_ch*_v1.json",
+    "explanation_anatomy_ch*_v1.json",
+)
 
 
 def load_sharded(prefix: str) -> tuple[dict, str]:
@@ -39,20 +45,29 @@ def load_sharded(prefix: str) -> tuple[dict, str]:
     return json.loads(raw), hashlib.sha256(raw).hexdigest()
 
 
+def _add_approved_augmentation_ids(ids: set[str], path: Path) -> None:
+    record = json.loads(path.read_text(encoding="utf-8"))
+    scope = record.get("scope", {})
+    if scope.get("status") not in APPROVED_AUGMENTATION_STATUSES:
+        return
+    questions = record.get("questions", {})
+    overlap = ids & set(questions)
+    if overlap:
+        raise AssertionError(f"duplicate enhanced IDs in {path.name}: {sorted(overlap)[:3]}")
+    ids.update(questions)
+
+
 def enhanced_ids() -> set[str]:
     anatomy = json.loads((DATA / "explanation_gold_pilot.json").read_text(encoding="utf-8"))["questions"]
     physiology, _ = load_sharded("explanation_physio_pilot")
     ids = set(anatomy) | set(physiology["questions"])
-    for path in sorted(DATA.glob("explanation_biochem_*_v1.json")):
-        record = json.loads(path.read_text(encoding="utf-8"))
-        scope = record.get("scope", {})
-        if scope.get("status") not in {"approved-reference", "approved-rollout"}:
-            continue
-        questions = record.get("questions", {})
-        overlap = ids & set(questions)
-        if overlap:
-            raise AssertionError(f"duplicate enhanced IDs in {path.name}: {sorted(overlap)[:3]}")
-        ids.update(questions)
+    seen_paths: set[Path] = set()
+    for pattern in APPROVED_AUGMENTATION_PATTERNS:
+        for path in sorted(DATA.glob(pattern)):
+            if path in seen_paths:
+                continue
+            seen_paths.add(path)
+            _add_approved_augmentation_ids(ids, path)
     return ids
 
 
