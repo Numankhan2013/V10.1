@@ -53,21 +53,24 @@ def main() -> None:
         assert set(cfg["rationales"]) == wrong_letters
         assert all(str(reason).strip() for reason in cfg["rationales"].values())
 
-    # Global inventory grows as independently verified explanation batches are
-    # layered on stable question IDs. Keep the Chapter 1 source/content contract
-    # strict while validating against the current canonical 2,711-question corpus.
+    # The global inventory is intentionally dynamic: independently approved
+    # Anatomy/Physiology/Biochemistry rollout files may be added between runs.
+    # Keep this validator strict about its own Chapter 1 source/content while
+    # requiring the persisted inventory to exactly match the deterministic set.
     enhanced = enhanced_ids()
-    assert len(enhanced) == 401
+    approved_total = len(enhanced)
+    pending = 2711 - approved_total
     assert chapter_source <= enhanced
     assert inventory["summary"]["questions"] == 2711
     assert inventory["summary"]["enhancementStatus"] == {
-        "enhanced-reference": 401,
-        "pending": 2310,
+        "enhanced-reference": approved_total,
+        "pending": pending,
     }
 
     print(
         "MARROW_BIOCHEM_EXPLANATION_ROLLOUT_TEST_OK "
-        "chapter=1 batch=22 chapter_total=23 approved_total=401 pending=2310 corpus=2711 legacy_source=pinned expanded_source=pinned raw_source=unchanged"
+        f"chapter=1 batch=22 chapter_total=23 approved_total={approved_total} pending={pending} "
+        "corpus=2711 legacy_source=pinned expanded_source=pinned raw_source=unchanged"
     )
 
 
