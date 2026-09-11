@@ -78,7 +78,10 @@ recovered under the runbook contract.
 - Exact-head full Android/PWA run **707** / `34557657242` on head
   `64b45f91bfd4596c2e3a7745e0c19c7861819eac` failed only at the project-memory
   vocabulary gate before product checks: `STATE.md` lacked the literal `build-verified`
-  concept. This commit is bounded repair attempt #1 for that failure class.
+  concept. The subsequent exact-head Gate 329 / `34557786879` and full run 708 /
+  `34557784243` on head `c180bf2bbd812308e6828359e609d470cf49db8a` also stopped at project-memory
+  verification because the required literal `Next step` handoff concept was absent.
+  This commit is bounded repair attempt #2 for the same project-memory vocabulary failure class.
 - Engineering Gate **328** / `34557680199` was started on the superseded pre-repair
   head and cannot certify the repaired candidate.
 - Production promotion remains prohibited/skipped.
@@ -103,7 +106,7 @@ recovered under the runbook contract.
 - Keep image integration separate. Do not rewrite raw Marrow shards, fork study engines,
   alter Topics taxonomy, redesign UI, merge, or promote production.
 
-## Exact next action
+## Exact next action / Next step
 
 1. Resume `feature/marrow-explanation-rollout-anatomy-ch05-q01-q09-current` and PR #34.
 2. Require fresh exact-head Engineering Gate and full Android/PWA runs after this repair.
