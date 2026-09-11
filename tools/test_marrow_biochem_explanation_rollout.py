@@ -1,10 +1,25 @@
 #!/usr/bin/env python3
-"""Validate deterministic Marrow Biochemistry chapter explanation rollout."""
+"""Validate deterministic Marrow Biochemistry explanation rollout."""
 from __future__ import annotations
 
 import json
 
 from inventory_marrow_explanations import DATA, enhanced_ids, load_sharded
+
+
+RECONSTRUCTION_STATUSES = {"resolved_reconstruction", "needs_manual_review"}
+
+
+def _validate_reconstruction(qid: str, cfg: dict) -> None:
+    reconstruction = cfg.get("reconstruction")
+    if reconstruction is None:
+        return
+    assert reconstruction.get("status") in RECONSTRUCTION_STATUSES, qid
+    for field in ("sourceProblem", "reconstructedContent", "reviewNote"):
+        assert str(reconstruction.get(field, "")).strip(), (qid, field)
+    evidence = reconstruction.get("evidenceBasis")
+    assert isinstance(evidence, list) and evidence, qid
+    assert all(str(item).strip() for item in evidence), qid
 
 
 def main() -> None:
@@ -18,7 +33,7 @@ def main() -> None:
     batch_paths = sorted(DATA.glob("explanation_biochem_ch*_v1.json"))
     assert batch_paths
     batch_ids = set()
-    covered_chapters = set()
+    covered_chapters: dict[str, set[str]] = {}
 
     for path in batch_paths:
         batch = json.loads(path.read_text(encoding="utf-8"))
@@ -35,8 +50,10 @@ def main() -> None:
         assert all(qid in source_questions for qid in questions)
         assert all(str(source_questions[qid]["chapterId"]) == chapter for qid in questions)
 
+        source_order = []
         for qid, cfg in questions.items():
             source = source_questions[qid]
+            source_order.append(int(source.get("questionNumber") or 0))
             assert str(cfg.get("takeaway", "")).strip()
             assert str(cfg.get("displayText", "")).strip()
             assert 1 <= len(cfg.get("emphasis", [])) <= 4
@@ -51,15 +68,31 @@ def main() -> None:
             assert len(cfg.get("rationales", {})) == 3
             assert set(cfg["rationales"]) == wrong_letters
             assert all(str(reason).strip() for reason in cfg["rationales"].values())
+            _validate_reconstruction(qid, cfg)
 
+        expected_file_order = list(range(min(source_order), max(source_order) + 1))
+        assert sorted(source_order) == expected_file_order, path.name
+        if "questionStart" in scope:
+            assert int(scope["questionStart"]) == min(source_order), path.name
+        if "questionEnd" in scope:
+            assert int(scope["questionEnd"]) == max(source_order), path.name
+
+        batch_ids.update(questions)
+        covered_chapters.setdefault(chapter, set()).update(questions)
+
+    # A chapter may be intentionally split into workload-bounded files. For every
+    # chapter that has rollout work, coverage must remain a gap-free source-order
+    # prefix once already-approved gold-sample questions are included. This lets
+    # a bounded batch stop safely before the end of a chapter without cherry-pick gaps.
+    for chapter, rollout_ids in covered_chapters.items():
         source_chapter = {
             qid for qid, question in source_questions.items()
             if str(question["chapterId"]) == chapter
         }
-        approved_sample_in_chapter = source_chapter & sample_ids
-        assert source_chapter == set(questions) | approved_sample_in_chapter
-        batch_ids.update(questions)
-        covered_chapters.add(chapter)
+        approved_in_chapter = (rollout_ids | sample_ids) & source_chapter
+        numbers = sorted(int(source_questions[qid].get("questionNumber") or 0) for qid in approved_in_chapter)
+        assert numbers
+        assert numbers == list(range(1, max(numbers) + 1)), (chapter, numbers)
 
     enhanced = enhanced_ids()
     biochemistry_enhanced = len(sample_ids) + len(batch_ids)
