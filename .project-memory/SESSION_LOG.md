@@ -844,3 +844,15 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Registry/progress fingerprints remain `1927cb19959c931503c396a2cf58d0fd37f26531df23f3c542a7f6770d38de38` / `77c32ec0be4ef75a9941b8a2e44040a00720e354b5463a0e245b79caebc790b8`; deterministic totals remain 162 assets / 204 bindings / 163 released questions, Biochemistry 60 approved assets / 62 total assets / 60 released questions.
 - Exact pre-retirement head `c70af7fcfea727cb3e8451cafe578686c246f0b6` passed image CI bridge `34606554239`, Engineering Gate `34606564335`, and full Android/PWA/package run `34606567130`; production promotion was skipped.
 - `.project-memory/STATE.md` was switched to VERIFIED_HISTORY in retirement commit `ffa4e8ea0ac44c2ce208654498345bd416e27dec`. Future image writers may acquire the lane normally. Q26 may be revisited only if a genuinely higher-fidelity authoritative/vector-equivalent source makes every small label/arrow verifiable; otherwise preserve REVIEW_REQUIRED indefinitely.
+
+
+## 2026-09-11 — Biochemistry coverage recovery: Ch2 Q13
+
+- Completed bounded batch `NKQ_BIOCHEM_COVERAGE_Q13_20260911` from image-lineage base `c9b5930b7ffdbc9af7a1edcc5acc829ad96e79c3`.
+- Authoritative Marrow ED8 Biochemistry page 35 inspection identified xref 1126 / region `[162,453,450,669]` as the Q13 explanation glycolysis pathway, positioned after the Q13 solution and before Q14.
+- Added an independently reviewed PASS binding for `marrow__BIOCHEM_CH02_Q013:figure:1` to the already source-compared PASS glycolysis asset `biochemistry-aa11f9fa6a08baea`; reused production SVG SHA-256 `e6b4d76fa9ff07dbf62b5094b8fdcd46a744837bb802aa55945ac7021f6fa8e2`.
+- Bounded recovery run `34623825459` passed registry validation, release regeneration, progress check, source-reference coverage check, image/coverage tests, pipeline verification, project-memory verification and diff check.
+- Coverage advanced from 65 to 66 released source references and from 25 to 24 untracked: 95 raw / 94 effective / 66 released / 1 invalid-source-metadata / 67 resolved / 4 tracked-unreleased / 24 untracked / 31 text-cue review items. Biochemistry remains INCOMPLETE.
+- Temporary generated `coverage.json` and Python bytecode are transport artifacts and are not retained in Git. `.gitignore` now excludes Python bytecode/cache.
+- Next deterministic unresolved source reference: `marrow__BIOCHEM_CH01_Q004:figure:1 (explanation, source pages [12], status UNTRACKED_SOURCE_VISUAL)`.
+- No main merge or production promotion.
