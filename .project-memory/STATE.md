@@ -8,15 +8,15 @@
 - Repo: `Numankhan2013/V10.1`.
 - Resolve live branch/HEAD from Git; do not hardcode a self-staling HEAD value.
 - Current explanation lineage is `feature/marrow-explanation-rollout-physio-ch10-q014-q018-current`.
-- Latest **fully verified** explanation product candidate remains Physiology Chapter 10 Q1–Q13:
-  `45cda2196c40d30eaf9283b031cba3942ed2e132`.
-- Exact-candidate verification for that accepted explanation checkpoint: Engineering Gate **336** / `34580097242` and
-  full Android/PWA run **719** / `34580093798` both passed on that same SHA.
-- Full-run artifact `V11.7-android-pwa`: ID `10191339526`, digest
-  `sha256:79355c9c23135053f457092d5256b923ccfa4eb787bbc0e79265ab411e46c42b`.
-- Browser/screenshot artifact: ID `10191308077`, digest
-  `sha256:999c4a92fb9dc80fa07d7f5702ccd1fecd0f24f1811669e24c9c5155a69f2d5f`.
-- Immutable verified preview: `https://ff02ca04.nk-qbank.pages.dev`.
+- Latest **fully verified** explanation product candidate is Physiology Chapter 10 Q14–Q18:
+  `e12a36f3eda07cea7b89920a75e7c9e259d3c2fd`.
+- Exact-candidate verification: Engineering Gate **338** / `34591048655` and
+  full Android/PWA run **724** / `34591045176` both passed on that exact SHA.
+- Full-run artifact `V11.7-android-pwa`: ID `10195721333`, digest
+  `sha256:4982c285174125aecb7434afe133d6772d1db6f7cc266dba499c622c2972f536`.
+- Browser/screenshot artifact: ID `10195700442`, digest
+  `sha256:099ab9602bd3cec93396b9604fd6a20b24b308fc0a61ed2e275f3904f2842911`.
+- Immutable verified preview: `https://ea6c7b4b.nk-qbank.pages.dev`.
 - Production promotion was skipped.
 - Accepted baseline / rollback baseline remains **V11.6 Content Quality** until the user explicitly promotes a later product baseline.
 - Accepted product commit: `125d68b`
@@ -24,8 +24,7 @@
 
 ## Current Marrow bank
 
-Shared architecture:
-`MARROW_RECORDS` → `MARROW_BY_SUBJECT` → `BANKS_BY_SUBJECT`.
+Shared architecture: `MARROW_RECORDS` → `MARROW_BY_SUBJECT` → `BANKS_BY_SUBJECT`.
 There is one shared Practice/CBT/Review/FSRS/sync/module/analytics/navigation engine;
 explanation work must not fork it by subject.
 
@@ -57,94 +56,60 @@ recovered under the runbook contract.
 - Physiology approved pilot: **80** across Chapters 1–4.
 - Physiology Chapters 5–9 are fully verified; Chapter 9 exact verified product SHA
   `7974b8eee842f668e9fb4fac95783ac64893e98d`, Gate 327, full run 701.
-- Anatomy Chapter 5 Q1–Q9 is **FULLY_VERIFIED**.
-  - PR: **#34**.
-  - Product SHA: `1921d758b19d0804438f434aaca950fa32d419ea`.
-  - Scope: Chapter 5 **Pharyngeal arches, Skeletal & Muscular Systems**, Q1–Q9 only.
-  - Count/workload: **9 questions**, workload score **16.5**.
-  - Augmentation: `data/marrow/explanation_anatomy_ch05_q001_q009_v1.json`.
-  - Reconstruction statuses: **none** in Q1–Q9.
-  - Raw Marrow source stayed unchanged.
-  - Deterministic inventory: **548 enhanced / 1,567 pending**.
-  - Inventory fingerprint:
-    `3ac131bdd442b649b7778260565f43156e3bf1c04ef4717c3a6c8b82bf30c4fc`.
-  - Engineering Gate **333** / `34567801778`: success on exact product SHA.
-  - Full Android/PWA **712** / `34567798753`: success on the same exact SHA.
-  - Required generated-product, browser, APK/package, reproducibility, artifact
-    and preview-deployment stages are certified by the successful full workflow.
-  - Production promotion skipped.
-- Physiology Chapter 10 Q1–Q13 is **FULLY_VERIFIED**.
-  - PR: **#35**.
-  - Product SHA: `45cda2196c40d30eaf9283b031cba3942ed2e132`.
-  - Scope: Chapter 10 **Neurotransmitters**, Q1–Q13 contiguous source order.
-  - Count/workload: **13 questions**, workload score **18.5**.
-  - Augmentation: `data/marrow/explanation_physio_ch10_q001_q013_v1.json`.
-  - Q13 reconstruction status: `resolved_reconstruction`; learner-facing content
-    preserves the standard eccrine sweat-gland sympathetic postganglionic
-    cholinergic exception without teaching outdated nonessential extensions.
-  - Raw Marrow source stayed unchanged.
-  - Deterministic inventory: **561 enhanced / 1,554 pending**.
-  - Inventory fingerprint:
-    `773c057042d6b6ab17dec12817f4a174c30e989036b4e5d43af5ef3e9061dfa0`.
-  - Stable-ID browser regression verified Physiology → Marrow → Chapter 10 → Q13,
-    learner-facing reconstruction, and exactly three wrong-option rationales.
-  - Engineering Gate **336** / `34580097242`: success on exact product SHA.
-  - Full Android/PWA **719** / `34580093798`: success on the same exact SHA.
-  - Generated product, Practice/CBT/Review/FSRS/shared regressions, browser,
-    APK/package, reproducibility, artifact upload and preview deployment passed.
-  - Full-run artifact `V11.7-android-pwa`: ID `10191339526`, digest
-    `sha256:79355c9c23135053f457092d5256b923ccfa4eb787bbc0e79265ab411e46c42b`.
-  - Browser/screenshot artifact: ID `10191308077`, digest
-    `sha256:999c4a92fb9dc80fa07d7f5702ccd1fecd0f24f1811669e24c9c5155a69f2d5f`.
-  - Immutable preview: `https://ff02ca04.nk-qbank.pages.dev`.
+- Anatomy Chapter 5 Q1–Q9 is **FULLY_VERIFIED** on PR #34, product SHA
+  `1921d758b19d0804438f434aaca950fa32d419ea`, Gate 333 / `34567801778`,
+  full run 712 / `34567798753`; inventory then **548 / 1,567**.
+- Physiology Chapter 10 Q1–Q13 is **FULLY_VERIFIED** on PR #35, product SHA
+  `45cda2196c40d30eaf9283b031cba3942ed2e132`, Gate 336 / `34580097242`,
+  full run 719 / `34580093798`; Q13 is `resolved_reconstruction`.
+- Physiology Chapter 10 Q14–Q18 is **FULLY_VERIFIED**.
+  - PR: **#36**.
+  - Product SHA: `e12a36f3eda07cea7b89920a75e7c9e259d3c2fd`.
+  - Scope: Chapter 10 **Neurotransmitters**, Q14–Q18 contiguous source-order chapter tail.
+  - Count/workload: **5 questions**, workload score **10.0**; Chapter 11 was not entered merely to fill target workload.
+  - Augmentation: `data/marrow/explanation_physio_ch10_q014_q018_v1.json`.
+  - Q15 reconstruction status: `resolved_reconstruction`; source-keyed answer is preserved while learner-facing text teaches receptor-dependent serotonin physiology rather than the false universal claim that serotonin is inhibitory.
+  - Q14/Q16/Q17/Q18 have no reconstruction metadata.
+  - Q18 QA repair changed only one non-verbatim emphasis anchor; medical prose/source data stayed unchanged.
+  - Raw Marrow source/key stayed unchanged.
+  - Deterministic inventory: **566 enhanced / 1,549 pending**.
+  - Inventory fingerprint: `991a2c84500ee94e52a3d09f0f47ed7b77b3057ff2ff7d9a1842594ec387cf78`.
+  - Physiology enhanced count: **236**.
+  - Stable-ID browser regression verified Physiology → Marrow → Chapter 10 → Q15, receptor-dependent serotonin reconstruction, and exactly three wrong-option rationales; existing Q13 coverage also passed.
+  - Engineering Gate **338** / `34591048655`: success on exact product SHA.
+  - Full Android/PWA **724** / `34591045176`: success on the same exact SHA.
+  - Generated product, deterministic inventory, Physiology/Biochemistry rollout validators, Practice/CBT/Review/FSRS/shared regressions, browser verification, APK build, packaged APK/product checks, reproducibility manifest, artifact upload and Cloudflare preview deployment all passed.
+  - Full-run artifact `V11.7-android-pwa`: ID `10195721333`, digest `sha256:4982c285174125aecb7434afe133d6772d1db6f7cc266dba499c622c2972f536`.
+  - Browser/screenshot artifact: ID `10195700442`, digest `sha256:099ab9602bd3cec93396b9604fd6a20b24b308fc0a61ed2e275f3904f2842911`.
+  - Immutable preview: `https://ea6c7b4b.nk-qbank.pages.dev`.
   - Production promotion skipped.
 
 ## CURRENT_UNVERIFIED explanation batch
 
-- **Owner: Physiology.**
-- Branch: `feature/marrow-explanation-rollout-physio-ch10-q014-q018-current`.
-- Batch ID: `physiology-20260911-ch10-q14-q18`.
-- Scope: Chapter 10 **Neurotransmitters**, Q14–Q18 contiguous source order; this is the chapter tail.
-- Count/workload: **5 questions**, workload score **10.0**. The batch intentionally finishes below target because the runbook forbids crossing into Chapter 11 solely to fill workload.
-- Augmentation: `data/marrow/explanation_physio_ch10_q014_q018_v1.json`.
-- Content checkpoint commit: `8c4e8172b65385d8f2aea6ac374db84cee8e401b`.
-- Source audit: rendered Marrow ED8 Physiology pages 201–209; printed key Q14=c, Q15=c, Q16=b, Q17=c, Q18=c checked visually. Chapter 11 begins page 210.
-- Reconstruction statuses: Q15 = `resolved_reconstruction`; Q14/Q16/Q17/Q18 = no reconstruction metadata.
-- Q15 source problem: the source says serotonin is simply an inhibitory neurotransmitter. Learner-facing augmentation preserves the source-keyed answer while teaching receptor-dependent physiology instead; 5-HT1 is generally inhibitory while 5-HT2 and 5-HT3 can be excitatory/facilitatory.
-- Q15 evidence includes the source pages plus published serotonin-receptor physiology (including PMID 2123618); raw source/key remain unchanged.
-- Source-owned visual context retained: Q14 basal-ganglia diagram and Q17 serotonin-metabolism diagram remain source provenance and are not redrawn/invented in augmentation.
-- Raw Marrow source remained unchanged.
-- Deterministic inventory has **not yet been regenerated**. Last certified inventory remains **561 enhanced / 1,554 pending** with fingerprint `773c057042d6b6ab17dec12817f4a174c30e989036b4e5d43af5ef3e9061dfa0`; expected count after deterministic regeneration is **566 enhanced / 1,549 pending**, but that expected count is not yet certified.
-- Static/shared validation, stable-ID browser regression, PR, exact-head Engineering Gate and full Android/PWA certification are all still pending.
-- State: **CONTENT_AUTHORED / CURRENT_UNVERIFIED**.
+- **None.** The serialized explanation lane is released.
+- Historical/stacked open PRs and branches whose exact candidates are already FULLY_VERIFIED are non-blocking.
 
 ## Current integration-lane status
 
-- The serialized explanation lane is **owned by the current Physiology Q14–Q18 batch** until it becomes `FULLY_VERIFIED` or is safely abandoned under the runbook.
-- Historical open PRs/branches, including PR #34, PR #35, and already-certified rollout branches, are non-blocking even if GitHub still reports them open.
-- The older sibling branch `feature/marrow-explanation-rollout-anatomy-ch05-q10-q19-current` predates the later Physiology Chapter 10 Q1–Q13 fully verified handoff and diverges from the same older merge base; it is **STALE_HISTORY / non-authoritative** for lane ownership and must not be resurrected as a blocker merely because it still says CURRENT_UNVERIFIED locally.
+- No authoritative CURRENT_UNVERIFIED explanation batch exists after Physiology Chapter 10 Q14–Q18 certification.
 - Every worker must re-resolve newest authoritative `STATE.md` plus live Git/PR/head state before claiming the lane.
-- An earlier empty branch named `feature/marrow-explanation-rollout-physio-ch10-q001-q014-current` also remains **STALE_HISTORY / non-authoritative**.
+- Stale sibling branches and historical open PRs must never be resurrected as blockers solely because they remain open.
 
 ## Known problems / cautions
 
 - Never accept a neighboring green workflow run; certify only a PR's exact product head SHA.
-- Documentation-only `[skip ci]` handoff commits may follow a verified product SHA;
-  do not pretend the later documentation head itself was APK/package certified.
+- Documentation-only `[skip ci]` handoff commits may follow a verified product SHA; do not pretend the later documentation head itself was APK/package certified.
 - Prefer stable chapter/question IDs over fuzzy display-text selectors.
-- Keep image integration separate. Do not rewrite raw Marrow shards, fork study engines,
-  alter Topics taxonomy, redesign UI, merge, or promote production.
-- ROADMAP/FINE_TUNING historical prose may lag the newest verified checkpoint;
-  `STATE.md` + live Git/CI are authoritative for immediate lane ownership.
+- Browser lesson from this batch: for Q15, serotonin appears in the option list rather than the stem; stable source-order navigation plus option-content assertion is the correct regression check.
+- Keep image integration separate. Do not rewrite raw Marrow shards, fork study engines, alter Topics taxonomy, redesign UI, merge, or promote production.
+- ROADMAP/FINE_TUNING historical prose may lag the newest verified checkpoint; `STATE.md` + live Git/CI are authoritative for immediate lane ownership.
 
 ## Next step
 
-1. Resume this exact Physiology Chapter 10 Q14–Q18 batch; do **not** author Chapter 11 while it is CURRENT_UNVERIFIED.
-2. Regenerate `data/marrow/explanation_inventory_v1.json` deterministically and confirm the resulting global count/fingerprint.
-3. Run source-ID/chapter/count, answer/distractor, emphasis, reconstruction-schema, raw-source immutability and duplicate-ID validation plus shared Practice/CBT/Review/FSRS/product regressions.
-4. Add one stable-ID browser regression for this batch (prefer Q15 because it is reconstruction-sensitive), preserving existing Chapter 10 Q13 coverage.
-5. Open/update the PR and certify only its exact current head through Engineering Gate and the full Android/PWA workflow, including APK/package/reproducibility and immutable preview deployment; keep production promotion skipped.
-6. Only after exact-head certification, move this batch to `FULLY_VERIFIED_HISTORY`, append the final `SESSION_LOG.md` handoff, release the lane, and end that run without starting Chapter 11.
+1. End the current run; do **not** start Chapter 11 in the same run that finalized Chapter 10 Q14–Q18.
+2. On a later worker run, re-resolve live lane ownership from authoritative `STATE.md` plus live Git/PR/head state.
+3. If Physiology reacquires a free lane, exact next Physiology source-order start is **Chapter 11 Q1**; dynamically workload-score the contiguous batch under the runbook before authoring.
+4. Preserve raw Marrow source, shared study engines, image-integration ownership, and production baseline constraints.
 
 Efficiency rule: pre-audit future content while CI runs, but never commit another
 batch on an unverified lineage.
