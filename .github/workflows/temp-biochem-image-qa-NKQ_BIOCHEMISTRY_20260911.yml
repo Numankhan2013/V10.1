@@ -1,0 +1,102 @@
+name: TEMP QA Biochemistry image batch NKQ_BIOCHEMISTRY_20260911
+
+on:
+  push:
+    branches: [automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911]
+
+permissions:
+  contents: write
+
+jobs:
+  qa-release-checkpoint:
+    if: ${{ github.event.head_commit.message == 'Apply Biochemistry image QA NKQ_BIOCHEMISTRY_20260911' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install pypdf==6.18.0 pymupdf pillow
+      - name: Guard exact checkpoint and source
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q 'CURRENT_UNFINISHED.*Biochemistry' .project-memory/STATE.md
+          grep -q 'NKQ_BIOCHEMISTRY_20260911' .project-memory/STATE.md
+          test "$(stat -c %s data/marrow/source_pdfs/biochemistryed8.pdf)" = "7958177"
+          echo '463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb  data/marrow/source_pdfs/biochemistryed8.pdf' | sha256sum -c -
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_image_progress.py --check
+      - name: Record five passes and one readability hold
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/marrow_images.py review --asset biochemistry-a501ec0aa161745f --status PASS --kind medical --notes 'Compared full Marrow ED8 source page 387, native xref 916, exact 720x540 JPEG and learner-width rendering. Clinical facial, ocular and skin pixels are preserved byte-identically with no crop, synthesis, inpainting or enhancement. The photograph is embedded in Question 24 and remains clear at phone width.' --evidence 'GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH25_Q024__comparison.jpg'
+          python3 tools/marrow_images.py review-binding --asset biochemistry-a501ec0aa161745f --question marrow__BIOCHEM_CH25_Q024 --status PASS --notes 'Question 24 explicitly presents this clinical photograph before the options. Question-time placement is required to answer the stem; neutral alt text is retained and the image contains no correct-option annotation or answer-revealing caption.' --evidence 'Marrow ED8 page 387 xref 916 plus run 34595643644 comparison artifact.'
+
+          python3 tools/marrow_images.py review --asset biochemistry-e10cc8a9721a17da --status REVIEW_REQUIRED --kind diagram --notes 'Ownership is correct to the CRISPR explanation on Marrow ED8 page 402/xref 961 and the native 600x451 JPEG is intact. At learner-width inspection, several small molecular/repair labels are borderline for the approved phone readability floor; do not release until expanded/device inspection or a fully source-faithful reconstruction resolves readability.' --evidence 'GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH25_Q026__comparison.jpg'
+          python3 tools/marrow_images.py review-binding --asset biochemistry-e10cc8a9721a17da --question marrow__BIOCHEM_CH25_Q026 --status REVIEW_REQUIRED --notes 'Correct explanation ownership and answer-safe timing confirmed, but the candidate remains held because small labels are borderline at phone width.' --evidence 'Marrow ED8 page 402 xref 961 plus run 34595643644 comparison artifact.'
+
+          python3 tools/marrow_images.py review --asset biochemistry-2ece5cd128a5140d --status PASS --kind diagram --notes 'Compared Marrow ED8 page 411/xref 981 against the exact 746x724 native JPEG and learner-width rendering. RNA/DNA labels, A/C/G/U/T bases, base-pair annotation, sugar-phosphate backbone and helix depiction are preserved and readable; no educational content was added or removed.' --evidence 'GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH26_Q003__comparison.jpg'
+          python3 tools/marrow_images.py review-binding --asset biochemistry-2ece5cd128a5140d --question marrow__BIOCHEM_CH26_Q003 --status PASS --notes 'The source page places this RNA-versus-DNA diagram under Solution to Question 3. Explanation-only timing is correct and answer-safe.' --evidence 'Marrow ED8 page 411 xref 981 plus run 34595643644 comparison artifact.'
+
+          python3 tools/marrow_images.py review --asset biochemistry-5865ddb63ce7a5b2 --status PASS --kind diagram --notes 'Compared Marrow ED8 page 415/xref 993 against the exact 600x451 native JPEG and learner-width rendering. Enhancer/silencer/promoter, 5-prime UTR, start/stop, exon/intron, cap, poly-A tail and processing arrows are present and readable with source semantics unchanged.' --evidence 'GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH26_Q014__comparison.jpg'
+          python3 tools/marrow_images.py review-binding --asset biochemistry-5865ddb63ce7a5b2 --question marrow__BIOCHEM_CH26_Q014 --status PASS --notes 'The figure follows Solution to Question 14 and precedes Question 15 material, confirming explanation ownership. Explanation-only role is answer-safe.' --evidence 'Marrow ED8 page 415 xref 993 plus run 34595643644 comparison artifact.'
+
+          python3 tools/marrow_images.py review --asset biochemistry-654cb3072454b05c --status PASS --kind diagram --notes 'Compared Marrow ED8 page 419/xref 1007 against the exact 605x534 native JPEG and learner-width rendering. Intestine/liver branches, CAA to UAA STOP edit, glutamine context and ApoB48/ApoB100 outcomes/arrows are preserved and readable.' --evidence 'GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH26_Q021__comparison.jpg'
+          python3 tools/marrow_images.py review-binding --asset biochemistry-654cb3072454b05c --question marrow__BIOCHEM_CH26_Q021 --status PASS --notes 'The source explanation for Question 21 discusses ApoB RNA editing and this figure immediately follows it. Explanation-only role is correct and answer-safe.' --evidence 'Marrow ED8 page 419 xref 1007 plus run 34595643644 comparison artifact.'
+
+          python3 tools/marrow_images.py review --asset biochemistry-ddecee9d8f653b20 --status PASS --kind diagram --notes 'Compared Marrow ED8 page 409/xref 976 against the exact 720x562 native JPEG and learner-width rendering. Segments 1-5, W/X/Y/Z directional promoter arrows and products A/B are all preserved and readable; the figure contains no marked correct option.' --evidence 'GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH26_Q022__comparison.jpg'
+          python3 tools/marrow_images.py review-binding --asset biochemistry-ddecee9d8f653b20 --question marrow__BIOCHEM_CH26_Q022 --status PASS --notes 'Question 22 explicitly asks the learner to interpret the illustration, so question-time placement is required. Neutral question alt text is retained and the image itself does not reveal the correct answer.' --evidence 'Marrow ED8 page 409 xref 976 plus run 34595643644 comparison artifact.'
+      - name: Release only approved items and refresh progress
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_images.py release
+          python3 tools/marrow_image_progress.py
+          python3 tools/marrow_image_progress.py --check
+      - name: Required regression checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_image_progress.py --check
+          python3 tools/test_marrow_images.py
+          python3 tools/verify_build_pipeline.py
+          python3 tools/verify_local.py
+      - name: Commit reviewed checkpoint and remove temporary QA workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name nk-qbank-automation
+          git config user.email actions@users.noreply.github.com
+          git rm .github/workflows/temp-biochem-image-qa-NKQ_BIOCHEMISTRY_20260911.yml
+          git add data/marrow/images/registry.json data/marrow/images/progress.json app/src/main/assets/marrow_visual_metadata.js app/src/main/assets/marrow_visuals/
+          git diff --cached --check
+          git commit -m 'Review Biochemistry image batch NKQ_BIOCHEMISTRY_20260911'
+          git push origin HEAD:automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911
+          echo "QA_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Update current handoff
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,os,pathlib,re,json
+          root=pathlib.Path('.'); qa=os.environ['QA_SHA']; batch='NKQ_BIOCHEMISTRY_20260911'; branch='automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911'; base='1ae61e205804d3d3b2359fcbad218f56e396896b'
+          reg=root/'data/marrow/images/registry.json'; prog=root/'data/marrow/images/progress.json'; rsha=hashlib.sha256(reg.read_bytes()).hexdigest(); psha=hashlib.sha256(prog.read_bytes()).hexdigest(); pv=json.loads(prog.read_text())
+          passed=['marrow__BIOCHEM_CH25_Q024','marrow__BIOCHEM_CH26_Q003','marrow__BIOCHEM_CH26_Q014','marrow__BIOCHEM_CH26_Q021','marrow__BIOCHEM_CH26_Q022']; held='marrow__BIOCHEM_CH25_Q026'
+          block=f'''\n## Current image automation checkpoint\n\n- Classification: **CURRENT_UNFINISHED**; owner **Biochemistry**; batch `{batch}`.\n- Branch `{branch}`; working base `{base}`; latest substantive QA/release commit `{qa}`. Resolve live branch HEAD from Git.\n- Registry SHA-256 `{rsha}`; progress SHA-256 `{psha}`.\n- PASS/released in this batch: `marrow__BIOCHEM_CH25_Q024`, `marrow__BIOCHEM_CH26_Q003`, `marrow__BIOCHEM_CH26_Q014`, `marrow__BIOCHEM_CH26_Q021`, `marrow__BIOCHEM_CH26_Q022`.\n- Still **REVIEW_REQUIRED**: `{held}` / asset `biochemistry-e10cc8a9721a17da`; correct CRISPR ownership but small labels are below a confident phone-width readability decision.\n- Exact next action: resume this same branch/batch and resolve only the held CRISPR figure via expanded/device inspection or a source-faithful educational reconstruction. Do not start another Biochemistry image batch until it is resolved or explicitly retired.\n- Current deterministic totals: {pv['assets']['total']} assets, {pv['bindings']['total']} bindings, {pv['bindings']['releasedQuestionCount']} released questions; Biochemistry {pv['subjects']['Biochemistry']['approvedAssets']} approved assets / {pv['subjects']['Biochemistry']['assets']} total assets / {pv['subjects']['Biochemistry']['releasedQuestions']} released questions.\n'''
+          state=root/'.project-memory/STATE.md'; text=state.read_text(); text=re.sub(r'\n## Current image automation checkpoint\n.*?(?=\n## |\Z)','',text,flags=re.S); anchor='\n## Known problems / verification cautions\n'; state.write_text(text.replace(anchor,block+anchor) if anchor in text else text+block)
+          log=root/'.project-memory/SESSION_LOG.md'; log.open('a').write(f'''\n\n## 2026-09-11 — Biochemistry image batch {batch} source/learner-width QA\n\n- RESUMED `{branch}`. QA/release commit `{qa}`. Five of six candidates passed source ownership, fidelity, role/timing, answer-safety and learner-width inspection and were released: `marrow__BIOCHEM_CH25_Q024`, `marrow__BIOCHEM_CH26_Q003`, `marrow__BIOCHEM_CH26_Q014`, `marrow__BIOCHEM_CH26_Q021`, `marrow__BIOCHEM_CH26_Q022`.\n- `marrow__BIOCHEM_CH25_Q026` (`biochemistry-e10cc8a9721a17da`) remains REVIEW_REQUIRED because several native CRISPR labels are borderline at phone width. No uncertainty was promoted.\n- Registry/progress fingerprints after QA: `{rsha}` / `{psha}`. Required source-level regressions passed; full generated Android/PWA/package verification remains required before classifying the batch as complete. Production was not promoted.\n''')
+          PY
+          python3 tools/verify_project_memory.py
+          git add .project-memory/STATE.md .project-memory/SESSION_LOG.md
+          git diff --cached --check
+          git commit -m 'Document Biochemistry image QA NKQ_BIOCHEMISTRY_20260911 [skip ci]'
+          git push origin HEAD:automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911
