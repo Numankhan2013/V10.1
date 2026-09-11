@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Marrow ED8 Physiology Chapter 10 Neurotransmitters explanation rollout, source-order Q1–Q13. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "10",
+    "chapterTitle": "Neurotransmitters",
+    "questionStart": 1,
+    "questionEnd": 13,
+    "questions": 13,
+    "status": "approved-rollout"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 548,
+    "anatomy": 71,
+    "physiology": 218,
+    "biochemistry": 259
+  },
+  "workload": {
+    "target": 16,
+    "max": 20,
+    "score": 18.5,
+    "notes": "13 clean SBA base points; +1 each for source figures supporting Q5, Q6 and Q11; +0.5 for Q12 source table; +2 for Q13 resolved reconstruction."
+  },
+  "questions": {
+    "marrow__PHYS_CH10_Q001": {
+      "takeaway": "Glycine is an amino-acid neurotransmitter, not a biogenic amine.",
+      "displayText": "Biogenic amine neurotransmitters are synthesized from amino-acid precursors and include catecholamines such as norepinephrine and dopamine, and the indoleamine serotonin.\n\nGlycine is itself an amino acid and functions as an inhibitory neurotransmitter, especially in the spinal cord and brainstem; it is therefore not classified as a biogenic amine.",
+      "emphasis": ["Glycine", "biogenic amine", "norepinephrine and dopamine", "inhibitory neurotransmitter"],
+      "rationales": {
+        "a": "Norepinephrine is a catecholamine and therefore a biogenic amine neurotransmitter.",
+        "b": "Dopamine is a catecholamine biogenic amine derived from tyrosine.",
+        "c": "Serotonin is an indoleamine biogenic amine derived from tryptophan."
+      }
+    },
+    "marrow__PHYS_CH10_Q002": {
+      "takeaway": "Glutamate is the major excitatory CNS transmitter; glycine is a major inhibitory transmitter, particularly in the spinal cord.",
+      "displayText": "Glutamate mediates most fast excitatory neurotransmission in the CNS. The major inhibitory transmitters are GABA in the brain and glycine particularly in the spinal cord and brainstem.\n\nAmong the listed pairs, glutamate as the principal excitatory transmitter and glycine as an inhibitory transmitter is the source-keyed combination.",
+      "emphasis": ["Glutamate", "fast excitatory neurotransmission", "GABA in the brain", "glycine"],
+      "rationales": {
+        "b": "Aspartate can be excitatory, but glutamate is the principal excitatory neurotransmitter in the CNS.",
+        "c": "Norepinephrine is primarily modulatory rather than the principal excitatory CNS transmitter.",
+        "d": "Dopamine is primarily modulatory rather than the principal excitatory CNS transmitter."
+      }
+    },
+    "marrow__PHYS_CH10_Q003": {
+      "takeaway": "Aδ nociceptive fibers primarily use glutamate for fast, sharp pain transmission; C fibers also use neuropeptides such as substance P.",
+      "displayText": "Aδ fibers conduct relatively fast, sharp or pricking pain and release glutamate at their central terminals. Unmyelinated C fibers conduct slower, diffuse, burning pain and commonly use glutamate together with neuropeptides such as substance P.\n\nThus the source-keyed transmitter for Aδ fibers is glutamate.",
+      "emphasis": ["Aδ fibers", "sharp or pricking pain", "glutamate", "substance P"],
+      "rationales": {
+        "a": "Substance P is classically associated with slower C-fiber nociceptive transmission rather than the source-keyed fast Aδ signal.",
+        "c": "Histamine is an inflammatory mediator and CNS transmitter but is not the principal transmitter released by Aδ pain fibers.",
+        "d": "Norepinephrine participates in descending pain modulation, not primary Aδ nociceptor transmission."
+      }
+    },
+    "marrow__PHYS_CH10_Q004": {
+      "takeaway": "Dopamine is the key neurotransmitter of the mesolimbic reward pathway.",
+      "displayText": "The mesolimbic dopaminergic pathway projects from the ventral tegmental area to the nucleus accumbens and other limbic structures. It is central to reward, reinforcement and addiction-related behavior.\n\nTherefore dopamine is the source-keyed neurotransmitter of the reward pathway.",
+      "emphasis": ["mesolimbic dopaminergic pathway", "ventral tegmental area", "nucleus accumbens", "reward"],
+      "rationales": {
+        "b": "Serotonin modulates mood, sleep and many other functions but is not the principal transmitter of the mesolimbic reward pathway.",
+        "c": "Noradrenaline is a major transmitter of locus-coeruleus projections and is not the defining transmitter of the mesolimbic reward circuit.",
+        "d": "Acetylcholine modulates reward circuits but is not the principal source-keyed transmitter of the mesolimbic pathway."
+      }
+    },
+    "marrow__PHYS_CH10_Q005": {
+      "takeaway": "Dopamine β-hydroxylase converts dopamine to norepinephrine and requires ascorbate as a cofactor.",
+      "displayText": "Catecholamine synthesis proceeds from tyrosine to L-DOPA, then dopamine, norepinephrine and finally epinephrine. Dopamine β-hydroxylase catalyzes the conversion of dopamine to norepinephrine within catecholamine-storage vesicles.\n\nAscorbate (vitamin C) is required as a cofactor for dopamine β-hydroxylase.",
+      "emphasis": ["Dopamine β-hydroxylase", "dopamine to norepinephrine", "Catecholamine synthesis", "vitamin C"],
+      "rationales": {
+        "b": "DOPA lies upstream of dopamine and is formed from tyrosine by tyrosine hydroxylase.",
+        "c": "Epinephrine is formed from norepinephrine by phenylethanolamine N-methyltransferase, not by dopamine β-hydroxylase.",
+        "d": "Tyrosine is the starting amino-acid precursor of catecholamine synthesis, not the product of dopamine β-hydroxylase."
+      }
+    },
+    "marrow__PHYS_CH10_Q006": {
+      "takeaway": "The corticostriatal pathway is glutamatergic, not dopaminergic.",
+      "displayText": "The principal dopaminergic pathways include the mesolimbic, mesocortical, nigrostriatal and tuberoinfundibular systems. Their dysfunction underlies characteristic clinical effects such as psychotic symptoms, extrapyramidal effects and altered prolactin regulation.\n\nBy contrast, the corticostriatal projection is a major excitatory glutamatergic input to the striatum and is not a dopaminergic pathway.",
+      "emphasis": ["mesolimbic, mesocortical, nigrostriatal and tuberoinfundibular", "corticostriatal projection", "glutamatergic", "not a dopaminergic pathway"],
+      "rationales": {
+        "a": "The mesocortical pathway is a recognized dopaminergic projection from the ventral tegmental area to cortex.",
+        "b": "The nigrostriatal pathway is dopaminergic and projects from substantia nigra pars compacta to the striatum.",
+        "c": "The tuberoinfundibular pathway is dopaminergic and suppresses prolactin release."
+      }
+    },
+    "marrow__PHYS_CH10_Q007": {
+      "takeaway": "The basal forebrain/nucleus basalis of Meynert is cholinergic, so pairing it with GABA is incorrect.",
+      "displayText": "Major diffuse transmitter systems have characteristic nuclei: raphe nuclei are serotonergic, locus coeruleus is noradrenergic, and histaminergic neurons arise mainly from the tuberomammillary region of the hypothalamus.\n\nThe basal forebrain complex, particularly the nucleus basalis of Meynert, is rich in cholinergic neurons. Degeneration of this cholinergic system is prominent in Alzheimer disease.",
+      "emphasis": ["raphe nuclei", "locus coeruleus", "nucleus basalis of Meynert", "cholinergic neurons"],
+      "rationales": {
+        "a": "Raphe nuclei are correctly matched with serotonin.",
+        "b": "Locus coeruleus is correctly matched with norepinephrine.",
+        "d": "Histaminergic neuronal cell bodies are located in the hypothalamus, especially the tuberomammillary nucleus."
+      }
+    },
+    "marrow__PHYS_CH10_Q008": {
+      "takeaway": "Huntington disease produces hyperkinesia through loss of inhibitory striatal GABAergic output; the source-keyed option also includes cholinergic loss.",
+      "displayText": "Huntington disease is characterized by degeneration of striatal neurons, especially inhibitory GABAergic medium spiny neurons. Early loss of the indirect pathway reduces inhibition of movement and produces chorea and other hyperkinetic manifestations.\n\nAmong the listed choices, loss of intrastriatal GABAergic and cholinergic systems is the source-keyed answer; the decisive mechanism for hyperkinesia is loss of inhibitory striatal GABAergic signaling.",
+      "emphasis": ["inhibitory GABAergic medium spiny neurons", "indirect pathway", "hyperkinetic manifestations", "loss of inhibitory striatal GABAergic signaling"],
+      "rationales": {
+        "a": "Loss of nigrostriatal dopamine is the classic mechanism of Parkinsonian hypokinesia, not Huntington chorea.",
+        "b": "Cholinergic dysfunction alone does not capture the principal loss of inhibitory GABAergic striatal neurons responsible for hyperkinesia.",
+        "c": "Glutamatergic and cholinergic loss is not the source-keyed striatal transmitter pattern underlying Huntington hyperkinesia."
+      }
+    },
+    "marrow__PHYS_CH10_Q009": {
+      "takeaway": "Botulinum toxin blocks presynaptic acetylcholine release by cleaving SNARE proteins.",
+      "displayText": "Botulinum neurotoxin enters cholinergic nerve terminals and cleaves SNARE proteins required for synaptic-vesicle fusion. Acetylcholine-containing vesicles therefore cannot fuse normally with the presynaptic membrane, so acetylcholine release is blocked.\n\nAt the neuromuscular junction this produces flaccid paralysis.",
+      "emphasis": ["cleaves SNARE proteins", "synaptic-vesicle fusion", "acetylcholine release is blocked", "flaccid paralysis"],
+      "rationales": {
+        "b": "Opening presynaptic Ca2+ channels promotes transmitter release; botulinum toxin acts downstream by disabling SNARE-mediated vesicle fusion.",
+        "c": "Blocking postsynaptic acetylcholine binding is the mechanism of receptor antagonists, not botulinum toxin.",
+        "d": "Botulinum toxin does not primarily block acetylcholine action at the postsynaptic membrane; it prevents presynaptic release."
+      }
+    },
+    "marrow__PHYS_CH10_Q010": {
+      "takeaway": "Tetanospasmin blocks release of inhibitory GABA and glycine from spinal interneurons, causing disinhibition and spasticity.",
+      "displayText": "Tetanus toxin is taken up at peripheral nerve terminals and transported retrogradely to inhibitory interneurons in the CNS. Its light chain cleaves synaptobrevin, impairing vesicular release of the inhibitory neurotransmitters glycine and GABA.\n\nLoss of inhibitory input disinhibits motor neurons and produces rigidity and painful spasms. Among the listed options, GABA is the source-keyed transmitter.",
+      "emphasis": ["inhibitory interneurons", "glycine and GABA", "disinhibits motor neurons", "GABA"],
+      "rationales": {
+        "a": "Dopamine release is not the principal synaptic target responsible for tetanus spasticity.",
+        "b": "Acetylcholine release at the neuromuscular junction is blocked by botulinum toxin, not tetanospasmin.",
+        "d": "Adrenaline release is not the mechanism producing tetanus-associated motor disinhibition."
+      }
+    },
+    "marrow__PHYS_CH10_Q011": {
+      "takeaway": "Renshaw cells are inhibitory spinal interneurons that release glycine.",
+      "displayText": "A recurrent collateral from an α-motor neuron excites a Renshaw interneuron in the spinal cord. The Renshaw cell then releases glycine onto the same and neighboring motor neurons, producing recurrent inhibition.\n\nThis negative-feedback circuit limits excessive motor-neuron discharge.",
+      "emphasis": ["Renshaw interneuron", "glycine", "recurrent inhibition", "negative-feedback circuit"],
+      "rationales": {
+        "a": "Glutamate is predominantly excitatory and is not the transmitter released by inhibitory Renshaw cells.",
+        "b": "Norepinephrine is a modulatory monoamine and is not the Renshaw-cell transmitter.",
+        "c": "Acetylcholine is released by the motor-neuron collateral that excites the Renshaw cell, not by the Renshaw cell itself."
+      }
+    },
+    "marrow__PHYS_CH10_Q012": {
+      "takeaway": "REM sleep is cholinergically active: acetylcholine rises while serotonin and norepinephrine fall.",
+      "displayText": "REM sleep is associated with high activity of pontine cholinergic systems and increased acetylcholine signaling. In contrast, serotonergic raphe neurons and noradrenergic locus-coeruleus neurons become minimally active during REM sleep.\n\nThus acetylcholine is the source-keyed neurotransmitter that increases during REM sleep.",
+      "emphasis": ["REM sleep", "increased acetylcholine signaling", "serotonergic raphe neurons", "noradrenergic locus-coeruleus neurons"],
+      "rationales": {
+        "b": "Dopamine is not the source-keyed transmitter showing the characteristic REM-on rise described here.",
+        "c": "Norepinephrine activity falls markedly during REM sleep rather than increasing.",
+        "d": "Serotonergic neuronal firing falls markedly during REM sleep rather than increasing."
+      }
+    },
+    "marrow__PHYS_CH10_Q013": {
+      "takeaway": "Eccrine sweat glands are a key exception: they receive sympathetic postganglionic cholinergic fibers.",
+      "displayText": "Both sympathetic and parasympathetic preganglionic neurons release acetylcholine. Most sympathetic postganglionic neurons release norepinephrine, whereas parasympathetic postganglionic neurons release acetylcholine.\n\nA high-yield exception is the eccrine sweat gland: its sympathetic postganglionic fibers are cholinergic and release acetylcholine. Therefore describing sweat-gland innervation as sympathetic adrenergic is the wrong match.",
+      "emphasis": ["preganglionic neurons release acetylcholine", "Most sympathetic postganglionic neurons release norepinephrine", "eccrine sweat gland", "sympathetic postganglionic fibers are cholinergic"],
+      "rationales": {
+        "a": "Sympathetic preganglionic fibers correctly release acetylcholine onto nicotinic receptors in autonomic ganglia.",
+        "b": "Parasympathetic preganglionic fibers correctly release acetylcholine.",
+        "c": "Most sympathetic postganglionic fibers correctly release norepinephrine; sweat glands are a notable cholinergic exception."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source correctly keys sweat-gland sympathetic adrenergic innervation as wrong, but its explanation additionally lists piloerector muscles and some skeletal-muscle blood vessels as cholinergic exceptions; those nonessential extensions are not reliable modern generalizations.",
+        "reconstructedContent": "Learner-facing text preserves the keyed teaching point and teaches the standard autonomic rule: eccrine sweat glands receive sympathetic postganglionic cholinergic fibers, while most sympathetic postganglionic fibers are noradrenergic.",
+        "evidenceBasis": ["Rendered Marrow ED8 source page and printed answer key", "Standard contemporary autonomic physiology"],
+        "reviewNote": "Raw Marrow source remains unchanged; only the learner-facing augmentation omits the source's nonessential outdated extensions."
+      }
+    }
+  }
+}

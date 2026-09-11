@@ -6,6 +6,7 @@ on:
       - feature/marrow-canonical-full-current
     paths:
       - tools/inventory_marrow_explanations.py
+      - data/marrow/explanation_*.json
       - .github/workflows/refresh-full-corpus-explanation-inventory.yml
 
 permissions:
@@ -22,7 +23,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout exact branch head
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 

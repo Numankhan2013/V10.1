@@ -1,0 +1,598 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Approved Marrow ED8 Physiology Chapter 7 explanation rollout. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "7",
+    "chapterTitle": "Muscle Physiology I",
+    "questions": 35,
+    "status": "approved-rollout"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 463,
+    "anatomy": 62,
+    "physiology": 142,
+    "biochemistry": 259
+  },
+  "questions": {
+    "marrow__PHYS_CH07_Q001": {
+      "takeaway": "Sarcolemma is the muscle-cell membrane, not a connective-tissue covering.",
+      "displayText": "Skeletal muscle connective tissue is organized as endomysium around individual fibers, perimysium around fascicles, and epimysium around the whole muscle.\n\nSarcolemma is instead the plasma membrane of the muscle fiber itself.",
+      "emphasis": [
+        "endomysium",
+        "perimysium",
+        "epimysium",
+        "Sarcolemma"
+      ],
+      "rationales": {
+        "a": "Endomysium is a connective-tissue layer around individual muscle fibers.",
+        "c": "Perimysium surrounds bundles of muscle fibers called fascicles.",
+        "d": "Epimysium is the outer connective-tissue sheath of the whole muscle."
+      }
+    },
+    "marrow__PHYS_CH07_Q002": {
+      "takeaway": "Tropomyosin is a regulatory thin-filament protein that controls access to myosin-binding sites on actin.",
+      "displayText": "Tropomyosin lies along the groove of the actin filament and, at rest, covers myosin-binding sites. Ca2+ binding to troponin C shifts the troponin–tropomyosin complex and permits cross-bridge formation.\n\nTroponin is the other major regulatory protein of the skeletal-muscle thin filament.",
+      "emphasis": [
+        "Tropomyosin",
+        "myosin-binding sites",
+        "troponin C",
+        "regulatory protein"
+      ],
+      "rationales": {
+        "a": "Actin is the principal contractile thin-filament protein rather than the source-keyed regulatory protein.",
+        "b": "Tropomodulin is a structural/capping protein at the pointed end of actin filaments.",
+        "d": "Dystrophin is a structural protein linking the cytoskeleton to the sarcolemmal glycoprotein complex."
+      }
+    },
+    "marrow__PHYS_CH07_Q003": {
+      "takeaway": "Perlecan is not a core member of the dystrophin–glycoprotein complex.",
+      "displayText": "The dystrophin–glycoprotein complex links the intracellular actin cytoskeleton to the extracellular matrix and stabilizes the sarcolemma during contraction.\n\nCore components include dystrophin, dystroglycans and sarcoglycans. Perlecan is an extracellular-matrix heparan-sulfate proteoglycan rather than a core DGC component.",
+      "emphasis": [
+        "dystrophin–glycoprotein complex",
+        "dystrophin",
+        "dystroglycans",
+        "Perlecan"
+      ],
+      "rationales": {
+        "b": "Dystrophin is the cytoskeletal protein that anchors the complex intracellularly.",
+        "c": "Dystroglycans are central transmembrane/extracellular components of the complex.",
+        "d": "Sarcoglycans are transmembrane proteins associated with the dystrophin complex."
+      }
+    },
+    "marrow__PHYS_CH07_Q004": {
+      "takeaway": "Myosin forms the thick filament; actin, tropomyosin and troponin form the thin filament.",
+      "displayText": "The skeletal-muscle thin filament contains F-actin plus the regulatory proteins tropomyosin and troponin.\n\nMyosin is the major protein of the thick filament and therefore does not belong to the thin-filament group.",
+      "emphasis": [
+        "thin filament",
+        "F-actin",
+        "tropomyosin and troponin",
+        "Myosin"
+      ],
+      "rationales": {
+        "a": "Actin polymerizes to form the backbone of the thin filament.",
+        "c": "Troponin is a regulatory complex attached periodically along tropomyosin.",
+        "d": "Tropomyosin is a regulatory protein running along the actin filament."
+      }
+    },
+    "marrow__PHYS_CH07_Q005": {
+      "takeaway": "Troponin is absent from smooth muscle; smooth muscle uses Ca2+–calmodulin instead.",
+      "displayText": "Actin, myosin and tropomyosin are present in both skeletal and smooth muscle. Smooth muscle lacks troponin.\n\nInstead, Ca2+ binds calmodulin, which activates myosin light-chain kinase and initiates contraction.",
+      "emphasis": [
+        "Smooth muscle lacks troponin",
+        "Ca2+ binds calmodulin",
+        "myosin light-chain kinase",
+        "Actin, myosin and tropomyosin"
+      ],
+      "rationales": {
+        "b": "Tropomyosin is present in smooth muscle.",
+        "c": "Actin is a major contractile protein in both smooth and skeletal muscle.",
+        "d": "Myosin is present in both muscle types, although its regulation differs."
+      }
+    },
+    "marrow__PHYS_CH07_Q006": {
+      "takeaway": "A skeletal-muscle thick myosin filament is about 1.6 μm long.",
+      "displayText": "The length of the thick filament is essentially constant during contraction and is about 1.6 micrometers.\n\nMuscle shortening occurs by sliding of thin filaments past thick filaments, not by shortening of the myosin molecules themselves.",
+      "emphasis": [
+        "1.6 micrometers",
+        "constant during contraction",
+        "sliding",
+        "thick filament"
+      ],
+      "rationales": {
+        "a": "16 nm is far shorter than a skeletal-muscle thick filament.",
+        "c": "1.6 nm is molecular-scale and not the source value for the entire thick filament.",
+        "d": "16 μm is about ten times the accepted thick-filament length."
+      }
+    },
+    "marrow__PHYS_CH07_Q007": {
+      "takeaway": "A myosin molecule contains two heavy chains and four light chains.",
+      "displayText": "The thick filament is built from myosin molecules. Each myosin molecule contains two heavy chains that form the long tail and two globular heads, with four light chains associated with the heads.\n\nThus both heavy and light myosin chains are components of the thick filament.",
+      "emphasis": [
+        "two heavy chains",
+        "four light chains",
+        "myosin molecules",
+        "thick filament"
+      ],
+      "rationales": {
+        "a": "This combination incorrectly adds dystrophin and titin as if they were myosin-chain components.",
+        "b": "Dystrophin and titin are structural proteins, not myosin light/heavy chains.",
+        "d": "Titin and dystrophin contribute to sarcomeric/cytoskeletal structure but do not constitute the myosin molecule."
+      }
+    },
+    "marrow__PHYS_CH07_Q008": {
+      "takeaway": "The pseudo-H or bare zone lies on both sides of the M line where thick filaments lack projecting myosin heads.",
+      "displayText": "At the center of the thick filament, around the M line, there is a bare region in which myosin heads do not project from the filament.\n\nThis light central region is referred to in the source as the pseudo-H zone and extends on the two sides of the M line.",
+      "emphasis": [
+        "bare region",
+        "M line",
+        "myosin heads do not project",
+        "pseudo-H zone"
+      ],
+      "rationales": {
+        "a": "The region between two Z lines is the whole sarcomere, not the pseudo-H zone.",
+        "b": "The I bands lie near the Z discs and contain thin filaments only.",
+        "d": "The A–I junction is where thick and thin filaments begin to overlap, not the central bare zone."
+      }
+    },
+    "marrow__PHYS_CH07_Q009": {
+      "takeaway": "The H zone contains thick myosin filaments without overlapping actin.",
+      "displayText": "The H zone is the lighter central portion of the A band in a relaxed sarcomere. It contains thick myosin filaments but no overlap from thin actin filaments.\n\nTherefore a cross-section through the H zone shows myosin only.",
+      "emphasis": [
+        "H zone",
+        "A band",
+        "myosin filaments",
+        "no overlap from thin actin filaments"
+      ],
+      "rationales": {
+        "a": "Actin does not extend into the central H zone in the relaxed sarcomere.",
+        "b": "Actin plus myosin are found in the overlap portions of the A band, outside the H zone.",
+        "d": "Actin alone is characteristic of the I band, not the H zone."
+      }
+    },
+    "marrow__PHYS_CH07_Q010": {
+      "takeaway": "Titin spans from the Z disc to the M line and associates closely with the thick myosin filament.",
+      "displayText": "Titin is a giant elastic protein that spans half a sarcomere from the Z disc to the M line. Its A-band region associates closely with the thick myosin filament and helps center and stabilize it.\n\nThe source keys the option describing titin as linking the thick-filament end toward the Z disc; the learner-facing wording uses the standard anatomic description rather than the imprecise 'head ends' wording.",
+      "emphasis": [
+        "Z disc to the M line",
+        "thick myosin filament",
+        "center and stabilize",
+        "standard anatomic description"
+      ],
+      "rationales": {
+        "a": "Nebulin, not titin, runs along the thin actin filament and helps regulate its length.",
+        "c": "Titin does reach the M line, but the option's 'tail ends of myosin to M disc' wording does not describe its full Z-disc-to-M-line span.",
+        "d": "Desmin links adjacent myofibrils at Z discs and helps connect them to the sarcolemma."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The keyed option describes titin as binding the 'head ends of myosin filaments to the Z disc,' which is anatomically imprecise.",
+        "reconstructedContent": "Restored standard description: a titin molecule spans the half-sarcomere from Z disc to M line and associates with the thick filament, helping center/stabilize it.",
+        "evidenceBasis": [
+          "Stored source key and explanation",
+          "Standard sarcomere literature: titin spans Z-disc to M-line and associates with thick myosin filament"
+        ],
+        "reviewNote": "Raw option/key unchanged; learner-facing text corrects the structural wording."
+      }
+    },
+    "marrow__PHYS_CH07_Q011": {
+      "takeaway": "At the Z disc, α-actinin is the best keyed constituent because it cross-links and anchors actin filaments.",
+      "displayText": "The source electron micrograph marks the Z-line/Z-disc. α-Actinin is a characteristic Z-disc protein that cross-links and anchors the plus ends of actin filaments.\n\nTitin also inserts into the Z disc, but with α-actinin available among the choices, α-actinin is the best source-keyed answer.",
+      "emphasis": [
+        "Z-line/Z-disc",
+        "α-Actinin",
+        "anchors the plus ends of actin",
+        "best source-keyed answer"
+      ],
+      "rationales": {
+        "b": "Actin filaments insert into the Z disc, but the marked structural Z-disc protein specifically asked for is α-actinin.",
+        "c": "Titin spans from Z disc to M line and is also present at the Z-disc region, but the source note correctly treats it as second-best when α-actinin is offered.",
+        "d": "Tropomyosin runs along actin thin filaments rather than forming the defining Z-disc cross-link."
+      },
+      "sourceNotes": [
+        "Figure-dependent item. The source electron micrograph remains authoritative for the marked area; the source note that titin also occupies the Z-disc region is preserved."
+      ]
+    },
+    "marrow__PHYS_CH07_Q012": {
+      "takeaway": "Titin acts as an elastic scaffold that helps keep thick and thin filaments aligned.",
+      "displayText": "Titin is a giant filamentous protein extending from the Z disc to the M line. Its elastic I-band portion behaves like a molecular spring, while its A-band portion associates with the thick filament.\n\nThis framework helps maintain thick-filament position and sarcomere alignment during contraction and stretch.",
+      "emphasis": [
+        "Titin",
+        "molecular spring",
+        "thick-filament position",
+        "sarcomere alignment"
+      ],
+      "rationales": {
+        "a": "Tropomyosin regulates actin–myosin interaction rather than acting as the main elastic scaffold.",
+        "b": "Troponin is the Ca2+-sensitive regulatory complex of the thin filament.",
+        "c": "α-Actinin anchors actin at the Z disc but does not span the half-sarcomere like titin."
+      }
+    },
+    "marrow__PHYS_CH07_Q013": {
+      "takeaway": "Titin spans the half-sarcomere from Z line to M line.",
+      "displayText": "Titin extends longitudinally from the Z disc to the M line and contributes to sarcomere elasticity and thick-filament alignment.\n\nNeither actin nor myosin filaments shorten during contraction; instead, their degree of overlap changes.",
+      "emphasis": [
+        "Z disc to the M line",
+        "sarcomere elasticity",
+        "thick-filament alignment",
+        "degree of overlap changes"
+      ],
+      "rationales": {
+        "a": "Desmin links Z discs to neighboring myofibrils and the sarcolemma, not to the sarcoplasmic reticulum as stated.",
+        "b": "α-Actinin anchors actin at the Z disc, not at the M line.",
+        "d": "Myosin filament length remains constant during contraction."
+      }
+    },
+    "marrow__PHYS_CH07_Q014": {
+      "takeaway": "During contraction, the I band and H zone shorten while the A band remains constant.",
+      "displayText": "Sliding of thin actin filaments toward the M line increases overlap with thick myosin filaments. The sarcomere shortens and Z discs move closer together.\n\nBecause thick-filament length is unchanged, A-band width stays constant, while the I band and H zone become shorter.",
+      "emphasis": [
+        "A-band width stays constant",
+        "I band",
+        "H zone",
+        "Z discs move closer together"
+      ],
+      "rationales": {
+        "a": "The A band corresponds to thick-filament length and does not shorten.",
+        "c": "The A band remains constant even though the I band shortens.",
+        "d": "The H zone shortens, but the A band does not."
+      }
+    },
+    "marrow__PHYS_CH07_Q015": {
+      "takeaway": "Cross-bridges are formed by projecting myosin heads that bind to actin.",
+      "displayText": "When Ca2+ binds troponin C, tropomyosin moves away from myosin-binding sites on actin. Energized myosin heads then attach to actin and form cross-bridges.\n\nThe myosin head subsequently pivots in the power stroke to generate force.",
+      "emphasis": [
+        "Ca2+ binds troponin C",
+        "myosin-binding sites on actin",
+        "myosin heads",
+        "power stroke"
+      ],
+      "rationales": {
+        "a": "Titin is an elastic structural protein and does not form the cycling cross-bridge.",
+        "c": "Troponin regulates thin-filament activation but does not form the cross-bridge.",
+        "d": "Tropomyosin regulates access to actin-binding sites but is not the cross-bridge itself."
+      }
+    },
+    "marrow__PHYS_CH07_Q016": {
+      "takeaway": "Myosin ATPase activity resides in the globular myosin head.",
+      "displayText": "The myosin head contains both the actin-binding site and ATPase activity. Hydrolysis of ATP energizes the head and prepares it for cross-bridge cycling.\n\nATP binding and hydrolysis at the myosin head are therefore central to contraction.",
+      "emphasis": [
+        "myosin head",
+        "actin-binding site",
+        "ATPase activity",
+        "cross-bridge cycling"
+      ],
+      "rationales": {
+        "b": "The myosin tail forms the coiled-coil backbone of the thick filament and is not the catalytic ATPase domain.",
+        "c": "Actin provides the binding track but does not contain the myosin ATPase site.",
+        "d": "Desmin is an intermediate filament protein, not the contractile ATPase."
+      }
+    },
+    "marrow__PHYS_CH07_Q017": {
+      "takeaway": "Binding of a new ATP molecule to myosin causes myosin to detach from actin.",
+      "displayText": "After the power stroke and release of ADP, a fresh ATP molecule binds to the myosin head. This sharply lowers myosin's affinity for actin and causes cross-bridge detachment.\n\nATP hydrolysis then re-cocks and re-energizes the myosin head for another cycle.",
+      "emphasis": [
+        "ATP molecule binds",
+        "lowers myosin's affinity for actin",
+        "cross-bridge detachment",
+        "ATP hydrolysis"
+      ],
+      "rationales": {
+        "b": "Ca2+ reuptake into the sarcoplasmic reticulum promotes relaxation but does not directly detach an individual myosin head.",
+        "c": "Troponin C configuration changes regulate exposure of actin sites; they do not provide the immediate detachment signal.",
+        "d": "ADP and Pi release is associated with the power-stroke sequence rather than the ATP-triggered detachment step."
+      }
+    },
+    "marrow__PHYS_CH07_Q018": {
+      "takeaway": "In skeletal muscle, releasable Ca2+ is stored mainly in the terminal cisternae of the sarcoplasmic reticulum.",
+      "displayText": "Terminal cisternae are enlarged portions of the sarcoplasmic reticulum positioned beside T tubules. They contain high concentrations of stored Ca2+ that is rapidly released during excitation–contraction coupling.\n\nThe sarcolemma and T tubules conduct depolarization but are not the principal intracellular Ca2+ storage compartment.",
+      "emphasis": [
+        "Terminal cisternae",
+        "sarcoplasmic reticulum",
+        "stored Ca2+",
+        "excitation–contraction coupling"
+      ],
+      "rationales": {
+        "b": "The sarcolemma is the muscle-cell membrane, not the major intracellular Ca2+ store.",
+        "c": "T tubules conduct the action potential into the fiber but do not store most releasable Ca2+.",
+        "d": "Because only the terminal cisternae are the principal store among these choices, 'all are correct' is false."
+      }
+    },
+    "marrow__PHYS_CH07_Q019": {
+      "takeaway": "Ca2+ initiates skeletal-muscle contraction by binding troponin C, not tropomyosin.",
+      "displayText": "At the neuromuscular junction, acetylcholine triggers a muscle action potential. Depolarization activates the T-tubule voltage-sensing machinery and Ca2+ is released from the sarcoplasmic reticulum.\n\nCa2+ binds troponin C, which shifts tropomyosin away from actin's myosin-binding sites and permits cross-bridge cycling.",
+      "emphasis": [
+        "Ca2+ binds troponin C",
+        "tropomyosin",
+        "myosin-binding sites",
+        "cross-bridge cycling"
+      ],
+      "rationales": {
+        "a": "Acetylcholine release from the motor nerve terminal is a normal initiating event.",
+        "b": "Ca2+ release from the sarcoplasmic reticulum is central to skeletal-muscle contraction.",
+        "c": "During relaxation, SERCA pumps cytosolic Ca2+ back into the sarcoplasmic reticulum."
+      }
+    },
+    "marrow__PHYS_CH07_Q020": {
+      "takeaway": "Skeletal muscle relaxes when cytosolic Ca2+ falls because SERCA pumps Ca2+ back into the sarcoplasmic reticulum.",
+      "displayText": "Contraction ends as SERCA lowers free cytosolic Ca2+ by pumping it back into the sarcoplasmic reticulum. Ca2+ dissociates from troponin C, tropomyosin again blocks actin's myosin-binding sites, and cross-bridge cycling stops.\n\nThus the source phrase 'decreased calcium outside the sarcoplasmic reticulum' means decreased cytosolic Ca2+.",
+      "emphasis": [
+        "SERCA",
+        "free cytosolic Ca2+",
+        "dissociates from troponin C",
+        "cross-bridge cycling stops"
+      ],
+      "rationales": {
+        "a": "Ca2+ does not need to leave the cell; it is mainly resequestered from cytosol into the sarcoplasmic reticulum.",
+        "b": "Acetylcholine breakdown terminates neuromuscular transmission but muscle relaxation specifically requires cytosolic Ca2+ removal.",
+        "d": "Myosin filaments are not degraded during normal relaxation."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The keyed option says 'decreased calcium outside the sarcoplasmic reticulum,' an imprecise way to describe the fall in cytosolic Ca2+.",
+        "reconstructedContent": "Learner-facing wording explicitly identifies SERCA-mediated reduction of cytosolic Ca2+ as the event that ends contraction.",
+        "evidenceBasis": [
+          "Stored source key/explanation",
+          "Standard skeletal-muscle relaxation physiology"
+        ],
+        "reviewNote": "Raw option/key unchanged; terminology clarified."
+      }
+    },
+    "marrow__PHYS_CH07_Q021": {
+      "takeaway": "Activation heat is part of the initial heat produced whenever a muscle contracts.",
+      "displayText": "Muscle heat production includes resting heat, initial heat during contraction, and recovery heat afterward. Initial heat contains activation heat plus shortening heat when shortening occurs.\n\nActivation heat is produced whenever the muscle is activated and contracting.",
+      "emphasis": [
+        "initial heat",
+        "activation heat",
+        "shortening heat",
+        "recovery heat"
+      ],
+      "rationales": {
+        "b": "Basal metabolic heat is resting heat, not the excess initial heat generated by contraction.",
+        "c": "Relaxation heat is associated particularly with restoring length after isotonic shortening, not with both isotonic and isometric contractions.",
+        "d": "Recovery heat is approximately comparable to initial heat in the source, not greater."
+      }
+    },
+    "marrow__PHYS_CH07_Q022": {
+      "takeaway": "In a 100-m sprint, phosphocreatine is the dominant immediate source used to regenerate ATP.",
+      "displayText": "Stored ATP supports only the first seconds of maximal work. Phosphocreatine then rapidly donates phosphate to ADP through creatine kinase, providing high-power ATP regeneration during a short sprint.\n\nLonger-duration exercise progressively depends more on glycolysis and oxidative metabolism.",
+      "emphasis": [
+        "Phosphocreatine",
+        "creatine kinase",
+        "high-power ATP regeneration",
+        "short sprint"
+      ],
+      "rationales": {
+        "b": "Oxidative/aerobic carbohydrate metabolism becomes more important with longer exercise and is too slow to dominate the first seconds of a 100-m dash.",
+        "c": "Fatty-acid oxidation is slower and predominates in lower-intensity, longer-duration activity.",
+        "d": "A defined immediate energy source is present, so 'none' is incorrect."
+      }
+    },
+    "marrow__PHYS_CH07_Q023": {
+      "takeaway": "Maximum active tension occurs near the optimal sarcomere length, about 2.0–2.2 μm.",
+      "displayText": "Active force depends on actin–myosin overlap. Near the optimal sarcomere length, thick and thin filaments overlap sufficiently to permit the greatest number of productive cross-bridges without excessive interference.\n\nThe source calls this the resting/optimum length and gives approximately 2 μm.",
+      "emphasis": [
+        "optimal sarcomere length",
+        "approximately 2 μm",
+        "actin–myosin overlap",
+        "productive cross-bridges"
+      ],
+      "rationales": {
+        "a": "Equilibrium length is not the source term for the length producing maximum active tension.",
+        "c": "'Initial length' is nonspecific and does not identify the optimal length–tension point.",
+        "d": "'Overlapping length' is not the standard term for the optimum sarcomere length."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source refers loosely to 'muscle fiber resting length' as about 2 μm; 2 μm is a sarcomere-scale length, not whole-fiber length.",
+        "reconstructedContent": "Restored standard terminology: optimal/resting sarcomere length is about 2.0–2.2 μm and maximizes active tension.",
+        "evidenceBasis": [
+          "Stored source explanation and keyed answer",
+          "Standard skeletal-muscle length–tension relationship"
+        ],
+        "reviewNote": "Raw stem/key unchanged; learner-facing scale/terminology corrected."
+      }
+    },
+    "marrow__PHYS_CH07_Q024": {
+      "takeaway": "At optimal resting length, active tension is maximal—not passive tension.",
+      "displayText": "At the optimal sarcomere length, actin–myosin overlap is ideal for cross-bridge formation, so active tension is maximal.\n\nPassive tension instead rises progressively as the muscle is stretched beyond resting length because elastic elements such as titin and connective tissue are increasingly stretched.",
+      "emphasis": [
+        "active tension is maximal",
+        "Passive tension",
+        "stretched beyond resting length",
+        "elastic elements"
+      ],
+      "rationales": {
+        "a": "Optimal overlap allows the maximum effective cross-bridge formation at resting/optimal length.",
+        "c": "The source uses roughly 2 μm for the optimal sarcomere length.",
+        "d": "For a given load, shortening performance is best near optimal length compared with excessively shortened or stretched states."
+      }
+    },
+    "marrow__PHYS_CH07_Q025": {
+      "takeaway": "Whole-muscle active tension rises primarily by recruiting additional motor units and increasing the number of active fibers.",
+      "displayText": "A motor unit consists of one motor neuron and all the muscle fibers it innervates. Recruiting more motor units activates more muscle fibers in parallel, increasing total force.\n\nForce can also be modulated by firing frequency within active units, but recruitment is the source-keyed determinant among these options.",
+      "emphasis": [
+        "motor unit",
+        "Recruiting more motor units",
+        "increasing total force",
+        "firing frequency"
+      ],
+      "rationales": {
+        "a": "The total number of fibers in a muscle sets capacity, but moment-to-moment active tension depends on how many are activated.",
+        "c": "Aerobic capacity affects fatigue resistance and sustained work more than instantaneous recruitment-based force.",
+        "d": "Skeletal-muscle action potentials are all-or-none; their amplitude is not graded to encode force."
+      }
+    },
+    "marrow__PHYS_CH07_Q026": {
+      "takeaway": "Extraocular muscles are specialized for very rapid, precise contractions and contain a high proportion of fast/white fibers in the source classification.",
+      "displayText": "Extraocular muscles must generate rapid, finely controlled eye movements. The source therefore keys them as having the greatest density of fast white fibers among the listed muscle groups.\n\nTheir motor units are also very small, supporting precise control.",
+      "emphasis": [
+        "Extraocular muscles",
+        "rapid",
+        "fast white fibers",
+        "small"
+      ],
+      "rationales": {
+        "a": "Calf muscles contain a substantial mixture of fiber types and are not the source-keyed maximum.",
+        "c": "Back/postural muscles are relatively enriched in fatigue-resistant oxidative fibers.",
+        "d": "Hip muscles are mixed and are not the source-keyed highest-density fast-white group."
+      }
+    },
+    "marrow__PHYS_CH07_Q027": {
+      "takeaway": "Red type I fibers are oxidative and fatigue-resistant, not highly glycolytic.",
+      "displayText": "Type I red fibers contain abundant mitochondria, myoglobin and capillaries and have high oxidative capacity. They contract relatively slowly and resist fatigue.\n\nTheir glycolytic capacity is lower than that of fast white glycolytic fibers.",
+      "emphasis": [
+        "Type I red fibers",
+        "abundant mitochondria",
+        "myoglobin",
+        "high oxidative capacity"
+      ],
+      "rationales": {
+        "a": "High mitochondrial density is characteristic of oxidative type I fibers.",
+        "c": "High myoglobin content gives red fibers their color and supports oxygen storage/diffusion.",
+        "d": "High oxidative capacity is a defining metabolic feature of red fibers."
+      }
+    },
+    "marrow__PHYS_CH07_Q028": {
+      "takeaway": "A motor unit is one motor neuron together with every skeletal-muscle fiber it innervates.",
+      "displayText": "All fibers supplied by a single α-motor neuron contract as one functional motor unit when that neuron fires.\n\nFine-control muscles have few fibers per motor unit, whereas large-force muscles can have hundreds.",
+      "emphasis": [
+        "single α-motor neuron",
+        "motor unit",
+        "Fine-control muscles",
+        "hundreds"
+      ],
+      "rationales": {
+        "a": "All fibers in an entire muscle are divided among many different motor units.",
+        "c": "All motor neurons entering a muscle collectively form its motor pool, not one motor unit.",
+        "d": "A fascicle is an anatomic bundle of muscle fibers and is not defined by one motor neuron."
+      }
+    },
+    "marrow__PHYS_CH07_Q029": {
+      "takeaway": "Fast-fatigable motor units are recruited last according to the size principle.",
+      "displayText": "Motor-unit recruitment generally progresses from small slow (S) units to fast fatigue-resistant (FR) units and finally to large fast-fatigable (FF) units as force demand rises.\n\nThus FF units are reserved for the most demanding high-force tasks.",
+      "emphasis": [
+        "Motor-unit recruitment",
+        "slow (S) units",
+        "fast fatigue-resistant (FR)",
+        "fast-fatigable (FF)"
+      ],
+      "rationales": {
+        "a": "Small slow motor units are recruited first, not fast-fatigable units.",
+        "c": "Recruitment refers to activation during contraction, not relaxation.",
+        "d": "Fast-fatigable units are used for high-demand tasks rather than the least demanding work."
+      }
+    },
+    "marrow__PHYS_CH07_Q030": {
+      "takeaway": "Fibrillation is spontaneous activity of individual denervated muscle fibers; fasciculation involves an entire motor unit.",
+      "displayText": "A fibrillation potential reflects spontaneous contraction/electrical activity of single muscle fibers after denervation and is usually not visible through the skin.\n\nA fasciculation is a visible twitch involving multiple fibers belonging to a motor unit.",
+      "emphasis": [
+        "fibrillation potential",
+        "single muscle fibers",
+        "denervation",
+        "fasciculation"
+      ],
+      "rationales": {
+        "b": "Fasciculation is a motor-unit phenomenon involving a group of muscle fibers.",
+        "c": "Myoclonus is a sudden involuntary jerk generated by nervous-system activity, not an isolated denervated fiber twitch.",
+        "d": "A jerk is a clinical movement/reflex term rather than the specific single-fiber denervation phenomenon."
+      }
+    },
+    "marrow__PHYS_CH07_Q031": {
+      "takeaway": "Tetanizing frequency is approximately the reciprocal of contraction time: 1/0.040 s = 25 Hz.",
+      "displayText": "The latent period does not determine the fusion frequency in this source calculation. The contraction period is 40 ms = 0.040 s.\n\nMinimum tetanizing frequency ≈ 1 ÷ 0.040 = 25 per second (25 Hz).",
+      "emphasis": [
+        "40 ms = 0.040 s",
+        "1 ÷ 0.040",
+        "25 Hz",
+        "contraction period"
+      ],
+      "rationales": {
+        "b": "50 Hz corresponds to a 20-ms contraction period, not the stated 40 ms.",
+        "c": "100 Hz corresponds to 10 ms and mistakenly uses the latent period.",
+        "d": "75 Hz does not follow from the reciprocal of the 40-ms contraction period."
+      }
+    },
+    "marrow__PHYS_CH07_Q032": {
+      "takeaway": "Rapid repeated stimulation causes tetanus by maintaining a high cytosolic Ca2+ concentration.",
+      "displayText": "A single muscle action potential releases Ca2+ from the sarcoplasmic reticulum, but SERCA begins removing it quickly. If another stimulus arrives before Ca2+ has returned to baseline, cytosolic Ca2+ accumulates.\n\nAt sufficiently high frequency, individual twitches fuse into tetanic contraction.",
+      "emphasis": [
+        "cytosolic Ca2+",
+        "SERCA",
+        "accumulates",
+        "tetanic contraction"
+      ],
+      "rationales": {
+        "a": "Na+ initiates the action potential but is not the ion whose persistent cytosolic elevation produces mechanical summation.",
+        "c": "K+ conductance repolarizes the membrane rather than sustaining cross-bridge activation.",
+        "d": "Cl− is not the activating ion for skeletal-muscle cross-bridge cycling."
+      }
+    },
+    "marrow__PHYS_CH07_Q033": {
+      "takeaway": "The Golgi tendon organ senses muscle tension.",
+      "displayText": "Golgi tendon organs lie in series with skeletal-muscle fibers near the musculotendinous junction and respond strongly to tension generated during contraction.\n\nTheir group Ib afferents participate in the inverse stretch reflex, helping protect muscle and tendon from excessive force.",
+      "emphasis": [
+        "Golgi tendon organs",
+        "tension",
+        "group Ib afferents",
+        "inverse stretch reflex"
+      ],
+      "rationales": {
+        "a": "Movement direction is not the primary variable detected by the Golgi tendon organ.",
+        "c": "Joint/muscle position depends on broader proprioceptive input, especially muscle-spindle length signals.",
+        "d": "Muscle length and rate of stretch are primarily sensed by muscle spindles."
+      }
+    },
+    "marrow__PHYS_CH07_Q034": {
+      "takeaway": "The keyed physiology is: Na+ influx depolarizes, K+ efflux repolarizes, and prolonged K+ conductance produces after-hyperpolarization.",
+      "displayText": "The numbered statement text is missing from the imported question block, but the source explanation and answer key preserve their physiologic meaning. Statements 1, 3 and 5 correspond to the correct sequence: voltage-gated Na+ channel activation causes depolarization, delayed voltage-gated K+ opening causes repolarization, and slow K+ channel closure sustains K+ efflux into after-hyperpolarization.\n\nTherefore the source-keyed combination is 1, 3 and 5.",
+      "emphasis": [
+        "Na+ channel activation causes depolarization",
+        "K+ opening causes repolarization",
+        "slow K+ channel closure",
+        "1, 3 and 5"
+      ],
+      "rationales": {
+        "a": "The source explanation identifies statements 2 and 4 as not belonging to the correct physiologic set.",
+        "c": "This combination incorrectly substitutes statement 4 for the source-supported statement 3.",
+        "d": "This combination includes statements 2 and 4, whereas the source explanation supports 1, 3 and 5."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported question/options preserve only numbered combinations; the defining text of statements 1–5 is absent from the JSON question block.",
+        "reconstructedContent": "Recovered the educational meaning from the source explanation: 1 = Na+-mediated depolarization, 3 = K+-mediated repolarization, 5 = persistent K+ conductance/after-hyperpolarization; source key B = 1,3,5.",
+        "evidenceBasis": [
+          "Stored answer key and explanation pages",
+          "Standard skeletal-muscle action-potential physiology"
+        ],
+        "reviewNote": "Exact original wording of all five numbered statements is not claimed; reconstruction preserves the recoverable physiologic content and combination ownership."
+      }
+    },
+    "marrow__PHYS_CH07_Q035": {
+      "takeaway": "The confidently recoverable correct statement is that skeletal-muscle contraction uses Ca2+ released from the sarcoplasmic reticulum.",
+      "displayText": "The imported question is missing the actual text of numbered statements 1–4, but the source explanation explicitly identifies statement 3 as correct and describes it as Ca2+ release from the sarcoplasmic reticulum during excitation–contraction coupling.\n\nStandard skeletal-muscle physiology supports this: T-tubule depolarization activates DHPR voltage sensors, mechanically opening RyR1 channels in the sarcoplasmic reticulum; extracellular Ca2+ influx is not required to initiate normal skeletal-muscle contraction. Because the exact original wording of statements 1, 2 and 4 is absent, their wording is not invented.",
+      "emphasis": [
+        "statement 3 as correct",
+        "Ca2+ release from the sarcoplasmic reticulum",
+        "DHPR voltage sensors",
+        "extracellular Ca2+ influx is not required"
+      ],
+      "rationales": {
+        "a": "This combination contains statements 2 and 4, while the source explanation says only statement 3 is correct.",
+        "c": "This combination includes statements 1, 2 and 4 instead of the sole source-supported statement 3.",
+        "d": "Although it includes statement 3, it also includes statements 1 and 4, which the source does not accept."
+      },
+      "reconstruction": {
+        "status": "needs_manual_review",
+        "sourceProblem": "The numbered statements 1–4 are absent from the imported question block. The source explanation identifies statement 3 and discusses why 1,2,4 are incorrect, but their exact original wording is not preserved.",
+        "reconstructedContent": "Learner-facing explanation restores the standard EC-coupling fact confidently supported by the source: skeletal-muscle depolarization triggers SR Ca2+ release via DHPR–RyR1 coupling; statement 3 alone is source-keyed. No verbatim wording is invented for missing statements 1,2,4.",
+        "evidenceBasis": [
+          "Stored source key and explanation",
+          "Standard skeletal-muscle excitation–contraction coupling literature"
+        ],
+        "reviewNote": "Keep source key B. Manual source-page/image review can later recover the exact missing statement text if needed."
+      }
+    }
+  }
+}

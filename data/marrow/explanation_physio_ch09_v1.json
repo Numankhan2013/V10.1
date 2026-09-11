@@ -1,0 +1,458 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Approved Marrow ED8 Physiology Chapter 9 explanation rollout. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "9",
+    "chapterTitle": "Synapse and Junctional Transmission",
+    "questions": 27,
+    "status": "approved-rollout"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 512,
+    "anatomy": 62,
+    "physiology": 191,
+    "biochemistry": 259
+  },
+  "questions": {
+    "marrow__PHYS_CH09_Q001": {
+      "takeaway": "A synapse is the specialized junction through which a presynaptic neuron communicates with another neuron or an effector cell.",
+      "displayText": "A synapse is a junction where a presynaptic neuron communicates with a postsynaptic target. The target may be another neuron—at a dendrite, soma or axon—or an effector such as muscle or gland.\n\nChemical and electrical synapses are the two major synaptic types. A neuron-to-muscle chemical synapse is the neuromuscular junction.",
+      "emphasis": [
+        "presynaptic neuron",
+        "postsynaptic target",
+        "Chemical and electrical synapses",
+        "neuromuscular junction"
+      ],
+      "rationales": {
+        "a": "The source keys all four numbered relationships; this option includes only a subset of them.",
+        "b": "This option omits one of the source-supported numbered relationships.",
+        "d": "This option also omits one of the source-supported numbered relationships, so it is incomplete."
+      },
+      "reconstruction": {
+        "status": "needs_manual_review",
+        "sourceProblem": "The imported question preserves only numbered answer combinations; the defining text of statements 1–4 is absent.",
+        "reconstructedContent": "Learner-facing explanation restores the recoverable definition from the source explanation: synapses connect a presynaptic neuron to neuronal targets or effectors such as muscle/gland, and may be chemical or electrical. Exact original statement numbering is not invented.",
+        "evidenceBasis": [
+          "Stored source key and explanation",
+          "Standard medical physiology definition of synapse"
+        ],
+        "reviewNote": "Raw key C is preserved. Source-page review may later recover the exact wording of statements 1–4."
+      }
+    },
+    "marrow__PHYS_CH09_Q002": {
+      "takeaway": "Chemical synapses have no cytoplasmic continuity; transmission occurs by neurotransmitter release and is physiologically unidirectional.",
+      "displayText": "At a chemical synapse, the presynaptic and postsynaptic cells are separated by a synaptic cleft. The presynaptic terminal releases neurotransmitter, which binds receptors on the postsynaptic membrane.\n\nBecause transmitter release machinery is presynaptic and receptors are postsynaptic, chemical synaptic transmission is normally orthodromic and unidirectional.",
+      "emphasis": [
+        "synaptic cleft",
+        "releases neurotransmitter",
+        "postsynaptic membrane",
+        "unidirectional"
+      ],
+      "rationales": {
+        "a": "Chemical synapses are the most common synaptic type in the human CNS.",
+        "b": "Neurotransmitter is synthesized/stored and released by the presynaptic neuron.",
+        "d": "Chemical synapses normally conduct orthodromically from presynaptic to postsynaptic cell."
+      }
+    },
+    "marrow__PHYS_CH09_Q003": {
+      "takeaway": "A typical chemical synaptic cleft is about 20–40 nm wide.",
+      "displayText": "Chemical synapses separate the presynaptic and postsynaptic plasma membranes by a narrow extracellular cleft of roughly 20–40 nm.\n\nThis physical separation distinguishes chemical synapses from electrical synapses, where connexon-containing gap junctions directly couple adjacent cells.",
+      "emphasis": [
+        "20–40 nm",
+        "chemical synapses",
+        "physical separation",
+        "gap junctions"
+      ],
+      "rationales": {
+        "a": "2–4 nm is too narrow for the typical chemical synaptic cleft and is closer to gap-junction-scale spacing.",
+        "c": "200–400 nm is roughly an order of magnitude too large.",
+        "d": "2–4 μm is far larger than a synaptic cleft."
+      }
+    },
+    "marrow__PHYS_CH09_Q004": {
+      "takeaway": "Nitric oxide can function as a neurotransmitter/neuromodulator in the CNS.",
+      "displayText": "Neurotransmitters are chemically diverse: they include acetylcholine, amino acids, monoamines, neuropeptides and unconventional transmitters such as nitric oxide.\n\nThey may act through ionotropic ligand-gated channels or metabotropic receptors. Release from conventional synaptic vesicles is triggered by presynaptic depolarization and Ca2+ entry.",
+      "emphasis": [
+        "nitric oxide",
+        "chemically diverse",
+        "ionotropic",
+        "presynaptic depolarization"
+      ],
+      "rationales": {
+        "a": "Neurotransmitters are not all amino-acid derivatives; acetylcholine, peptides and gaseous transmitters are examples.",
+        "c": "Many neurotransmitters act directly on ionotropic ligand-gated receptors.",
+        "d": "Conventional transmitter release is triggered by depolarization, not repolarization."
+      }
+    },
+    "marrow__PHYS_CH09_Q005": {
+      "takeaway": "GABA is an amino-acid neurotransmitter, not a monoamine; the stored 'DOPA' option makes this source item potentially ambiguous.",
+      "displayText": "GABA is synthesized from glutamate and is classified as an amino-acid neurotransmitter, not a monoamine. Canonical monoamine neurotransmitters include dopamine, norepinephrine, epinephrine, serotonin and histamine.\n\nThe imported option C reads 'DOPA'. L-DOPA is a catecholamine precursor rather than a canonical neurotransmitter, so as stored the item contains a second problematic option. The source key A is preserved, but the option text should be checked against the original page in case 'DOPA' is an OCR/truncation of 'dopamine'.",
+      "emphasis": [
+        "GABA",
+        "amino-acid neurotransmitter",
+        "Canonical monoamine neurotransmitters",
+        "L-DOPA"
+      ],
+      "rationales": {
+        "b": "Norepinephrine is a catecholamine monoamine neurotransmitter.",
+        "c": "As stored, L-DOPA is a precursor rather than a canonical monoamine neurotransmitter; this makes the item ambiguous and warrants source-page review.",
+        "d": "Serotonin (5-HT) is an indoleamine monoamine neurotransmitter."
+      },
+      "reconstruction": {
+        "status": "needs_manual_review",
+        "sourceProblem": "Option C is stored as 'DOPA'. Standard classification does not treat L-DOPA as a canonical monoamine neurotransmitter, creating a second non-monoamine option besides keyed GABA. The intended source may have been 'dopamine'.",
+        "reconstructedContent": "Learner-facing explanation teaches the standard classification and explicitly flags the stored DOPA option as a possible OCR/truncation defect.",
+        "evidenceBasis": [
+          "Stored source key/explanation",
+          "Standard neurotransmitter classification"
+        ],
+        "reviewNote": "Preserve source key A. Verify original source-page option C before resolving."
+      }
+    },
+    "marrow__PHYS_CH09_Q006": {
+      "takeaway": "Metabotropic receptors signal through G proteins and second-messenger pathways.",
+      "displayText": "Metabotropic neurotransmitter receptors do not themselves form an ion pore. Ligand binding activates a G protein and downstream effectors such as second messengers, enzymes or indirectly regulated ion channels.\n\nThese responses are generally slower in onset and longer-lasting than direct ionotropic receptor responses.",
+      "emphasis": [
+        "Metabotropic",
+        "G protein",
+        "second messengers",
+        "slower in onset and longer-lasting"
+      ],
+      "rationales": {
+        "b": "Direct opening of cation channels is a characteristic ionotropic mechanism.",
+        "c": "Direct opening of anion channels is also ionotropic, as with GABAA or glycine receptors.",
+        "d": "Metabotropic signaling does not characteristically work by blocking synaptic-vesicle fusion as its defining mechanism."
+      }
+    },
+    "marrow__PHYS_CH09_Q007": {
+      "takeaway": "Glutamate is the major excitatory neurotransmitter in the CNS, not a minor one.",
+      "displayText": "Glutamate mediates most fast excitatory neurotransmission in the CNS. It acts through ionotropic AMPA, kainate and NMDA receptors as well as metabotropic glutamate receptors.\n\nNMDA receptor activation requires glutamate plus the co-agonist glycine (or D-serine) and relief of the voltage-dependent Mg2+ block.",
+      "emphasis": [
+        "most fast excitatory neurotransmission",
+        "AMPA, kainate and NMDA",
+        "metabotropic glutamate receptors",
+        "co-agonist glycine"
+      ],
+      "rationales": {
+        "a": "Glutamate is a principal excitatory CNS transmitter.",
+        "c": "Glutamate acts through both ionotropic and metabotropic receptor families.",
+        "d": "Glycine/D-serine co-agonist binding is required for NMDA receptor activation along with glutamate."
+      }
+    },
+    "marrow__PHYS_CH09_Q008": {
+      "takeaway": "GABA is the best-known major inhibitory neurotransmitter in the brain.",
+      "displayText": "GABA is the principal inhibitory neurotransmitter in much of the brain. GABAA receptors are ionotropic Cl− channels, while GABAB receptors are metabotropic Gi/o-coupled receptors.\n\nGlycine is also inhibitory, especially in spinal cord and brainstem, while glutamate is the dominant excitatory CNS transmitter.",
+      "emphasis": [
+        "principal inhibitory neurotransmitter",
+        "GABAA",
+        "GABAB",
+        "Glycine"
+      ],
+      "rationales": {
+        "a": "Glutamate is predominantly excitatory in the CNS.",
+        "b": "Acetylcholine has excitatory or modulatory actions depending on receptor and circuit; it is not the principal inhibitory brain transmitter.",
+        "d": "Glycine is an important inhibitory transmitter, especially in spinal cord/brainstem, but GABA is the source-keyed major inhibitory brain transmitter."
+      }
+    },
+    "marrow__PHYS_CH09_Q009": {
+      "takeaway": "GABAA receptors are ionotropic ligand-gated Cl− channels.",
+      "displayText": "GABAA receptors are pentameric ionotropic receptors that increase Cl− conductance and usually produce fast inhibitory postsynaptic effects.\n\nGABAB receptors are metabotropic Gi/o-coupled receptors that can open K+ channels and inhibit Ca2+ entry.",
+      "emphasis": [
+        "GABAA",
+        "ionotropic receptors",
+        "Cl− conductance",
+        "GABAB"
+      ],
+      "rationales": {
+        "a": "Nicotinic acetylcholine receptors are ionotropic cation channels, not GPCRs.",
+        "c": "GABAB receptors are metabotropic rather than ionotropic.",
+        "d": "Glycine receptors are ionotropic Cl− channels, not G-protein-coupled receptors."
+      }
+    },
+    "marrow__PHYS_CH09_Q010": {
+      "takeaway": "Neuromodulators generally act more slowly and for longer than fast neurotransmitters.",
+      "displayText": "Neuromodulators alter how neurons respond to other transmitters. They may change postsynaptic receptor responsiveness, presynaptic transmitter synthesis/release, or be co-released with a conventional neurotransmitter.\n\nBecause they commonly act through metabotropic and intracellular signaling pathways, their effects are generally slower and more prolonged than fast synaptic transmission.",
+      "emphasis": [
+        "Neuromodulators",
+        "postsynaptic receptor responsiveness",
+        "presynaptic transmitter",
+        "slower and more prolonged"
+      ],
+      "rationales": {
+        "a": "Changing the postsynaptic response to another transmitter is a classic neuromodulatory action.",
+        "b": "Neuromodulators can alter how much transmitter a presynaptic neuron releases.",
+        "c": "Co-release of neuromodulator and neurotransmitter can occur from the same presynaptic neuron."
+      }
+    },
+    "marrow__PHYS_CH09_Q011": {
+      "takeaway": "At the NMJ: presynaptic Ca2+ entry → ACh release → postsynaptic Na+ entry/end-plate depolarization.",
+      "displayText": "A motor-neuron action potential depolarizes the nerve terminal and opens voltage-gated Ca2+ channels. Ca2+ entry triggers exocytosis of acetylcholine-containing vesicles.\n\nACh binds nicotinic Nm receptors at the motor end plate, increasing cation conductance; net Na+ influx generates the end-plate potential, which then triggers a muscle action potential.",
+      "emphasis": [
+        "voltage-gated Ca2+ channels",
+        "acetylcholine-containing vesicles",
+        "nicotinic Nm receptors",
+        "net Na+ influx"
+      ],
+      "rationales": {
+        "a": "Ca2+ enters the presynaptic nerve terminal, not the muscle end plate, before ACh release.",
+        "c": "The motor-neuron action potential must occur before presynaptic Ca2+ entry and postsynaptic Na+ entry.",
+        "d": "ACh release precedes postsynaptic Na+ entry; the sequence in this option is reversed."
+      }
+    },
+    "marrow__PHYS_CH09_Q012": {
+      "takeaway": "A fast EPSP is commonly produced by net inward Na+ current.",
+      "displayText": "An excitatory postsynaptic potential depolarizes the postsynaptic membrane toward threshold. Opening excitatory cation channels commonly produces net Na+ influx, making the cell interior less negative.\n\nEPSPs can also be enhanced by reduced K+ or Cl− conductance, but among the listed ions Na+ influx is the source-keyed mechanism.",
+      "emphasis": [
+        "EPSP",
+        "net Na+ influx",
+        "depolarizes",
+        "toward threshold"
+      ],
+      "rationales": {
+        "b": "K+ influx is not the usual current generating a fast EPSP.",
+        "c": "Mg2+ influx is not the standard principal current underlying a fast EPSP.",
+        "d": "Cl− influx usually hyperpolarizes or stabilizes the membrane and is associated with inhibition."
+      }
+    },
+    "marrow__PHYS_CH09_Q013": {
+      "takeaway": "A fast IPSP is commonly produced by Cl− influx.",
+      "displayText": "Opening postsynaptic Cl− channels increases inward movement of negative charge and drives membrane potential toward the Cl− equilibrium potential, making excitation less likely.\n\nIPSPs can also result from increased K+ efflux, which removes positive charge from the cell.",
+      "emphasis": [
+        "IPSP",
+        "Cl− channels",
+        "negative charge",
+        "K+ efflux"
+      ],
+      "rationales": {
+        "a": "Na+ influx depolarizes the postsynaptic cell and favors an EPSP.",
+        "b": "K+ efflux—not K+ influx—is a common inhibitory mechanism.",
+        "c": "Ca2+ influx generally participates in excitation/signaling rather than producing the source-keyed fast IPSP."
+      }
+    },
+    "marrow__PHYS_CH09_Q014": {
+      "takeaway": "The source figure represents an IPSP; increasing inhibitory receptor mechanisms can produce the observed hyperpolarization.",
+      "displayText": "The source tracing shows increased negativity in the motor neuron after interneuron activity, consistent with an inhibitory postsynaptic potential.\n\nPostsynaptic inhibition can result from increased Cl− influx, increased K+ efflux, or receptor/enzyme signaling that increases inhibitory receptor influence or decreases excitatory receptor influence. Among the options, activation of receptor enzymes increasing inhibitory synaptic receptors is correctly stated.",
+      "emphasis": [
+        "increased negativity",
+        "inhibitory postsynaptic potential",
+        "Cl− influx",
+        "increased K+ efflux"
+      ],
+      "rationales": {
+        "a": "The source mechanism requires postsynaptic—not presynaptic—Cl− channel opening.",
+        "b": "Inhibition is associated with K+ efflux/outward conductance, not increased K+ movement into the neuron.",
+        "d": "Increased Na+ conductance depolarizes the neuron and favors an EPSP."
+      },
+      "sourceNotes": [
+        "Figure-dependent item. The source motor-neuron/interneuron tracing remains authoritative for identifying the IPSP."
+      ]
+    },
+    "marrow__PHYS_CH09_Q015": {
+      "takeaway": "Slow postsynaptic potentials are not a feature of skeletal muscle NMJs.",
+      "displayText": "Slow EPSPs/IPSPs are characteristic of metabotropic signaling in autonomic ganglia and many CNS/autonomic effector contexts, with latencies and durations far longer than fast ionotropic synaptic potentials.\n\nThe skeletal neuromuscular junction instead generates a fast nicotinic end-plate potential and muscle action potential.",
+      "emphasis": [
+        "Slow EPSPs/IPSPs",
+        "metabotropic signaling",
+        "skeletal neuromuscular junction",
+        "fast nicotinic end-plate potential"
+      ],
+      "rationales": {
+        "a": "Slow autonomic/metabotropic influences occur in cardiac muscle control.",
+        "c": "Smooth muscle commonly exhibits slow autonomic/metabotropic electrical responses.",
+        "d": "Autonomic ganglia classically display slow EPSPs and IPSPs in addition to fast potentials."
+      }
+    },
+    "marrow__PHYS_CH09_Q016": {
+      "takeaway": "GABAB-mediated presynaptic inhibition increases K+ conductance and can inhibit Ca2+ entry; it does not decrease K+ conductance.",
+      "displayText": "Presynaptic inhibition commonly occurs at axo-axonal synapses. GABA can act on presynaptic GABAA receptors to increase Cl− conductance and on GABAB receptors through Gi/o proteins.\n\nGABAB signaling promotes K+ conductance and inhibits voltage-gated Ca2+ channels, reducing transmitter release. Therefore 'GABAB decreases K+ conductance' is incorrectly matched.",
+      "emphasis": [
+        "axo-axonal synapses",
+        "GABAA",
+        "GABAB",
+        "reducing transmitter release"
+      ],
+      "rationales": {
+        "a": "Axo-axonal synapses are a classic anatomical basis of presynaptic inhibition.",
+        "b": "Postsynaptic GABA can generate IPSPs and inhibit the target neuron.",
+        "d": "Presynaptic GABAA receptor activation can increase Cl− conductance and reduce transmitter release."
+      }
+    },
+    "marrow__PHYS_CH09_Q017": {
+      "takeaway": "Renshaw-cell recurrent inhibition is a negative-feedback circuit.",
+      "displayText": "A spinal α-motor neuron sends a recurrent collateral to a Renshaw inhibitory interneuron. The Renshaw cell, using glycine, then inhibits the same motor neuron and neighboring motor neurons.\n\nBecause motor-neuron output recruits an inhibitory pathway that feeds back onto the motor-neuron pool, this is feedback (recurrent) inhibition.",
+      "emphasis": [
+        "recurrent collateral",
+        "Renshaw inhibitory interneuron",
+        "glycine",
+        "feedback (recurrent) inhibition"
+      ],
+      "rationales": {
+        "a": "The circuit reduces rather than facilitates motor-neuron output.",
+        "c": "Feedforward inhibition is driven by an upstream pathway inhibiting a downstream target, not by recurrent motor-neuron feedback.",
+        "d": "'Indirect inhibition' is nonspecific; the defining circuit is recurrent feedback inhibition."
+      }
+    },
+    "marrow__PHYS_CH09_Q018": {
+      "takeaway": "Feedforward inhibition is classically demonstrated in cerebellar circuitry.",
+      "displayText": "In feedforward inhibition, an afferent pathway excites both a principal pathway and an inhibitory interneuron that suppresses the downstream target.\n\nIn the cerebellum, granule-cell parallel fibers excite basket and stellate inhibitory interneurons, which inhibit Purkinje cells and help limit the duration/spread of excitation.",
+      "emphasis": [
+        "feedforward inhibition",
+        "cerebellum",
+        "basket and stellate",
+        "Purkinje cells"
+      ],
+      "rationales": {
+        "a": "The medulla contains inhibitory circuits, but it is not the source-keyed classic example here.",
+        "b": "The pituitary gland is not the classic neural feedforward-inhibition circuit asked for.",
+        "d": "Renshaw cells mediate recurrent feedback inhibition, not feedforward inhibition."
+      }
+    },
+    "marrow__PHYS_CH09_Q019": {
+      "takeaway": "Presynaptic facilitation increases transmitter release by prolonging presynaptic depolarization and Ca2+ channel opening.",
+      "displayText": "In the classic facilitation mechanism, serotonin activates cAMP/PKA signaling, which reduces presynaptic K+ conductance. Repolarization slows, so the action potential is prolonged.\n\nThe longer depolarization keeps voltage-gated Ca2+ channels open longer, increases Ca2+ entry and enhances neurotransmitter release.",
+      "emphasis": [
+        "reduces presynaptic K+ conductance",
+        "Repolarization slows",
+        "Ca2+ channels open longer",
+        "enhances neurotransmitter release"
+      ],
+      "rationales": {
+        "a": "Na+ channels generate the upstroke but prolonged Na+ opening is not the source mechanism of presynaptic facilitation.",
+        "b": "The classic facilitation mechanism reduces/closes K+ conductance rather than prolonging K+ channel opening.",
+        "d": "Cl− channels are associated more with inhibitory mechanisms than the source-keyed facilitation pathway."
+      }
+    },
+    "marrow__PHYS_CH09_Q020": {
+      "takeaway": "AChE inhibitors improve myasthenia gravis by increasing and prolonging ACh at the motor end plate.",
+      "displayText": "Myasthenia gravis reduces the functional number of postsynaptic nicotinic ACh receptors, lowering the safety factor for neuromuscular transmission.\n\nAcetylcholinesterase inhibitors slow ACh breakdown in the synaptic cleft, increasing the concentration and duration of ACh at remaining receptors and improving end-plate depolarization.",
+      "emphasis": [
+        "nicotinic ACh receptors",
+        "Acetylcholinesterase inhibitors",
+        "slow ACh breakdown",
+        "improving end-plate depolarization"
+      ],
+      "rationales": {
+        "a": "AChE inhibitors do not primarily increase the amount of ACh released by the motor nerve.",
+        "c": "They do not restore the number of postsynaptic ACh receptors.",
+        "d": "Motor-neuron norepinephrine synthesis is unrelated to the therapeutic mechanism."
+      }
+    },
+    "marrow__PHYS_CH09_Q021": {
+      "takeaway": "Denervation supersensitivity makes a denervated effector respond excessively to an agonist.",
+      "displayText": "Loss of sympathetic innervation to the pupillary dilator can increase postsynaptic sensitivity to circulating or administered sympathomimetics. Mechanisms include receptor up-regulation and loss of normal transmitter-handling influences.\n\nThus the denervated right pupil can dilate more strongly than the normally innervated eye after the same sympathomimetic exposure.",
+      "emphasis": [
+        "postsynaptic sensitivity",
+        "receptor up-regulation",
+        "denervated right pupil",
+        "dilate more strongly"
+      ],
+      "rationales": {
+        "a": "Regeneration is not required to explain the exaggerated response; denervation itself can increase sensitivity.",
+        "b": "Parasympathetic compensation would oppose rather than explain marked sympathomimetic dilation.",
+        "d": "The asymmetric response is explained by denervation of the right eye, not by assuming occult left-eye nerve damage."
+      }
+    },
+    "marrow__PHYS_CH09_Q022": {
+      "takeaway": "A conventional neurotransmitter is released when the presynaptic terminal depolarizes, not during repolarization.",
+      "displayText": "A substance qualifies as a classical neurotransmitter when it is present in the presynaptic terminal, can be synthesized by the neuron, is released in response to presynaptic activation/depolarization, and acts on specific postsynaptic receptors.\n\nDepolarization opens voltage-gated Ca2+ channels and the resulting Ca2+ entry triggers vesicle fusion.",
+      "emphasis": [
+        "presynaptic terminal",
+        "presynaptic activation/depolarization",
+        "specific postsynaptic receptors",
+        "voltage-gated Ca2+ channels"
+      ],
+      "rationales": {
+        "a": "Presence in the presynaptic terminal is a standard criterion for a neurotransmitter.",
+        "b": "The neuron should possess the machinery to synthesize the transmitter.",
+        "d": "Specific receptors on the target cell are required for the transmitter's characteristic action."
+      }
+    },
+    "marrow__PHYS_CH09_Q023": {
+      "takeaway": "Autoreceptors regulate transmitter release but are not a mechanism that physically clears/degrades transmitter from the cleft.",
+      "displayText": "Synaptic transmitter action is terminated by reuptake into the nerve terminal or glial cells, enzymatic degradation, and diffusion away from the cleft.\n\nPresynaptic autoreceptors sense released transmitter and provide feedback control of further release or synthesis; they do not themselves remove or chemically degrade transmitter.",
+      "emphasis": [
+        "reuptake",
+        "enzymatic degradation",
+        "diffusion away",
+        "autoreceptors"
+      ],
+      "rationales": {
+        "a": "Diffusion away from the cleft terminates transmitter action.",
+        "b": "Enzymatic inactivation is an important termination mechanism for several transmitters.",
+        "c": "Transport into presynaptic terminals or glia is a major clearance mechanism."
+      }
+    },
+    "marrow__PHYS_CH09_Q024": {
+      "takeaway": "Enkephalins preferentially act at δ-opioid receptors; the source receptor symbols are OCR-corrupted.",
+      "displayText": "Endogenous opioid peptides have overlapping receptor actions but characteristic preferences: enkephalins have high affinity for δ receptors, dynorphins preferentially activate κ receptors, and β-endorphin has strong μ (and also δ) activity.\n\nThe imported Greek receptor symbols are corrupted. The source key for enkephalin–δ is consistent with standard pharmacology, so the learner-facing explanation restores the receptor names rather than preserving unreadable symbols.",
+      "emphasis": [
+        "enkephalins",
+        "δ receptors",
+        "dynorphins",
+        "κ receptors"
+      ],
+      "rationales": {
+        "b": "Dynorphins preferentially activate κ rather than the receptor shown in the corrupted source option.",
+        "c": "β-Endorphin is strongly active at μ receptors; the source option's corrupted symbol does not represent the keyed enkephalin–δ pairing.",
+        "d": "Because the individual B/C pairings are not both correct, the combined option is incorrect."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Greek opioid receptor symbols in the imported options/explanation are OCR-corrupted.",
+        "reconstructedContent": "Restored standard receptor preferences: enkephalins → δ, dynorphins → κ, β-endorphin → μ (with overlap). Source key A corresponds to enkephalin–δ.",
+        "evidenceBasis": [
+          "Stored source key/explanation",
+          "Standard opioid receptor pharmacology"
+        ],
+        "reviewNote": "Raw option text/key unchanged; learner-facing receptor symbols restored."
+      }
+    },
+    "marrow__PHYS_CH09_Q025": {
+      "takeaway": "The neuromuscular end-plate potential is mediated by nicotinic Nm—not muscarinic—acetylcholine receptors.",
+      "displayText": "ACh released from the motor nerve binds nicotinic muscle-type (Nm) receptors at the motor end plate. These ligand-gated cation channels increase Na+ and K+ conductance; net inward Na+ current produces the depolarizing end-plate potential.\n\nMuscarinic receptors are G-protein-coupled receptors used mainly at autonomic effector sites, not the skeletal NMJ.",
+      "emphasis": [
+        "nicotinic muscle-type (Nm) receptors",
+        "ligand-gated cation channels",
+        "end-plate potential",
+        "Muscarinic receptors"
+      ],
+      "rationales": {
+        "a": "Electrical synapses use connexon-containing gap junctions for direct current flow.",
+        "b": "Renshaw cells are a classic negative-feedback inhibitory circuit.",
+        "c": "Synaptic vesicle docking and fusion occur at the presynaptic nerve terminal."
+      }
+    },
+    "marrow__PHYS_CH09_Q026": {
+      "takeaway": "The end-plate potential is produced by increased nicotinic cation conductance with net inward Na+ current.",
+      "displayText": "Nicotinic Nm receptor activation increases both Na+ and K+ conductance at the motor end plate. At resting membrane potential, the electrochemical driving force produces a dominant inward Na+ current, causing depolarization and the end-plate potential.\n\nFast IPSPs instead commonly involve opening Cl− channels or increasing K+ conductance.",
+      "emphasis": [
+        "Nicotinic Nm receptor",
+        "Na+ and K+ conductance",
+        "inward Na+ current",
+        "end-plate potential"
+      ],
+      "rationales": {
+        "a": "Fast IPSPs are associated with opening—not closing—Cl− channels.",
+        "b": "A fast EPSP is not caused by a decrease in Ca2+ conductance; it commonly reflects increased cation conductance.",
+        "d": "Presynaptic inhibition generally reduces transmitter release through mechanisms such as Ca2+ channel inhibition or increased K+/Cl− conductance, not closure of K+ channels as stated."
+      }
+    },
+    "marrow__PHYS_CH09_Q027": {
+      "takeaway": "Electrical synapses use connexon gap junctions that directly connect adjacent cells.",
+      "displayText": "Electrical synapses contain gap-junction channels formed by paired connexons. These channels provide direct low-resistance ionic continuity between cells.\n\nTransmission is extremely rapid with essentially no synaptic delay and is often bidirectional, unlike the normally unidirectional transmission of chemical synapses.",
+      "emphasis": [
+        "gap-junction channels",
+        "connexons",
+        "no synaptic delay",
+        "bidirectional"
+      ],
+      "rationales": {
+        "a": "Electrical synapses do have direct cytoplasmic/ionic continuity through gap junctions.",
+        "b": "They are often bidirectional rather than obligatorily unidirectional.",
+        "d": "Electrical synapses have less—not more—synaptic delay than chemical synapses."
+      }
+    }
+  }
+}
