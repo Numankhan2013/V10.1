@@ -1,0 +1,33 @@
+name: Marrow Image Source Coverage
+
+on:
+  push:
+    branches:
+      - 'fix/marrow-image-source-coverage'
+      - 'automation/marrow-images-*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install audit dependency
+        run: python -m pip install pypdf==6.18.0
+      - name: Verify source visual discovery regressions
+        run: python tools/test_marrow_image_source_coverage.py
+      - name: Build PDF candidate audit
+        run: python tools/marrow_images.py audit
+      - name: Measure source-recorded visual coverage
+        run: python tools/marrow_image_coverage.py
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: marrow-image-source-coverage
+          path: build/marrow-images/coverage.json
