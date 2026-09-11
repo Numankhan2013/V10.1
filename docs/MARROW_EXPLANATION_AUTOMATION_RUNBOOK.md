@@ -79,7 +79,7 @@ Read enough of these to understand the current executable contract before
 changing it:
 
 - `tools/inventory_marrow_explanations.py`
-- `tools/export_marrow_source_audit.py` when source audit views are used;
+- `tools/export_marrow_source_audit.py` from authoritative `main` when source audit views are used;
 - `tools/test_marrow_physio_explanation_rollout.py` when Physiology exists on
   the current lineage;
 - the current Biochemistry rollout validator;
@@ -144,7 +144,7 @@ projections on authoritative `main` for connector-only workers:
 - Physiology: `data/marrow/source_audit/physiology/chapter_<NNN>.json`
 
 These files are generated only from the immutable source bundles by
-`tools/export_marrow_source_audit.py`. They are **derived audit views**, not a
+`tools/export_marrow_source_audit.py` on authoritative `main`. They are **derived audit views**, not a
 replacement source of truth, and must never be hand-edited to change medical
 content.
 
