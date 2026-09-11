@@ -37,6 +37,15 @@ jobs:
         run: python3 tools/test_marrow_bank_pilot.py --data-only
       - name: Validate Marrow image registry, bindings, and progress
         run: python3 tools/test_marrow_images.py
+      - name: Validate Marrow image source-coverage accounting
+        run: python3 tools/test_marrow_image_coverage.py
+      - name: Install Marrow PDF audit dependency
+        run: python3 -m pip install pypdf==6.18.0
+      - name: Compute authoritative Marrow visual coverage
+        run: |
+          python3 tools/marrow_images.py audit
+          python3 tools/marrow_image_coverage.py --subject Biochemistry
+          python3 tools/marrow_image_coverage.py --subject Physiology
       - name: Validate explicit Marrow topic taxonomy
         run: python3 tools/test_marrow_topic_taxonomy.py
       - name: Validate Marrow explanation inventory

@@ -26,7 +26,8 @@ CI runs, what changed, verification, device status, next step.
 - V11.4 added whole-app visual system (`nk-whole-app-vision-v114`, subject
   identity, streak milestones, all-subject practice, multi-subject CBT).
 - Docs added: `docs/ENGINEERING_BASELINE.md`, `docs/STUDY_CLARITY.md`,
-  `docs/V11_SOURCE_VISUALS.md`, `design-qa.md` (device checks blocked in CI).
+  `docs/V11_SOURCE_VISUALS.md`, `docs/CUSTOM_STUDY_MODULES.md`,
+  `design-qa.md` (device checks blocked in CI).
 
 ## 2026-09-06 — V11.4 vision test failure and fix (agent session)
 
@@ -134,19 +135,16 @@ CI runs, what changed, verification, device status, next step.
 - Added runtime Firebase project-ID discovery through the public Identity Toolkit project-config endpoint and made Firestore use the discovered ID. This protects against a configured display name/stale project ID while keeping the explicit GitHub variable as fallback.
 - Added stage-aware sync errors and HTTP status reporting so the next physical failure identifies whether the problem is project resolution, auth refresh, Firestore download, or upload.
 
-
 ## 2026-09-07 — Fix Firestore download HTTP 404
 - Reproduced the deployed configuration and found `QBANK_FIREBASE_PROJECT_ID=nk_qbank`. The prior runtime discovery returned Firebase project number `174056010089`; Firestore returned 404 for that database path. The real Firebase/Firestore project ID is `nk-qbank`.
 - Corrected the GitHub Actions variable to `nk-qbank` and changed sync project resolution to use the authenticated ID token's `aud`/`iss` project claim after token refresh.
 - Added a regression test for JWT project resolution and updated the PWA sync documentation. Targeted local checks and Engineering Gate `34095662853` passed. Manual run `34095870813` built the APK/PWA artifact and promoted it to Cloudflare production; live Pages serves the corrected config and resolver. Physical Android↔PWA verification remains.
-
 
 ## 2026-09-07 — Fix Firestore upload permissions and add automatic retries
 - The post-404 physical test reached Firestore downloads but upload was rejected with `Missing or insufficient permissions`. An authenticated disposable probe reproduced the failure: the REST `:batchWrite` endpoint returned HTTP 403 even with a minimal valid owner-scoped document, while an individual document `PATCH` of the identical fields returned HTTP 200 under the strict checked-in rules.
 - Replaced batchWrite uploads with bounded groups of individual PATCH requests. Re-deployed and compilation-verified the strict owner-only/field-validating rules; a second authenticated probe passed, and both disposable Authentication users plus their one generated Firestore document were removed.
 - Added silent signed-in synchronization every five minutes, on app foreground, and on reconnection. Existing save-triggered debounced synchronization and manual detailed errors remain.
 - Engineering Gate `34100092384`, packaged push build `34100092358`, and manual production-promotion build `34100302605` passed. Live `nk-qbank.pages.dev` was verified to contain document PATCH, the five-minute timer, no batchWrite marker, and project ID `nk-qbank`.
-
 
 ## 2026-09-07 — Implement FSRS smart-review milestone
 
@@ -168,7 +166,6 @@ CI runs, what changed, verification, device status, next step.
   device/user-verified in project memory and documentation.
 - Cross-device Firebase synchronization remains a separate verification item.
 
-
 ## 2026-09-07 — Resume sync after Termux access restored
 
 - Confirmed repository writes work and preserved pre-existing documentation edits.
@@ -183,7 +180,6 @@ CI runs, what changed, verification, device status, next step.
 - Local behavior and source/pipeline contract checks passed. An isolated generated
   build stopped at final_hardening.py because PyMuPDF (fitz) is unavailable in
   Termux; no physical acceptance or new APK build is claimed.
-
 
 ## 2026-09-07 — Make verification Termux-aware
 
@@ -200,7 +196,6 @@ CI runs, what changed, verification, device status, next step.
 - Preserved existing local work. Full CI verification of the candidate is pending;
   existing green runs cover the committed parent, not these working-tree changes.
 
-
 ## 2026-09-07 — Android sync confirmed; finish and push pending improvements
 
 - User confirmed Android synchronization succeeds and explicitly stopped the 403
@@ -212,7 +207,6 @@ CI runs, what changed, verification, device status, next step.
 - Preserve accepted FSRS behavior and all local documentation. Push candidate and
   wait for full Linux CI, including PDF generation and packaged verification.
 
-
 ## 2026-09-07 — Verify pushed update/reliability candidate
 
 - Pushed product commit `9d77dcb` on `v11.7-cross-device-pwa-sync`.
@@ -222,7 +216,6 @@ CI runs, what changed, verification, device status, next step.
   artifact upload. Cloudflare preview deployment passed; production was skipped.
 - The candidate is build-verified. Its new update UI still needs physical testing;
   the user's successful Android sync confirmation is preserved separately.
-
 
 ## 2026-09-07 — Correct missed FSRS dock and sync feedback loop
 
@@ -240,7 +233,6 @@ CI runs, what changed, verification, device status, next step.
   uploading, pre-answer absence, footer placement, and rating behavior. Added Linux
   browser checks and screenshot artifacts for generated app widths 320/390/768.
 - Candidate will be pushed, fully CI-verified, and promoted to production PWA.
-
 
 ## 2026-09-08 — Marrow Anatomy multi-bank pilot accepted on PWA preview
 
@@ -280,7 +272,6 @@ CI runs, what changed, verification, device status, next step.
   subject-indexed/general bank registry before importing additional Anatomy,
   Physiology, and Biochemistry Marrow data.
 
-
 ## 2026-09-08 — 20-question Marrow explanation gold-standard pilot
 
 - User approved testing the richer explanation architecture on 20–30 questions
@@ -306,7 +297,6 @@ CI runs, what changed, verification, device status, next step.
   intentionally skipped.
 - Next: user visually reviews the 20-question pilot; refine the explanation
   grammar before any full-bank rollout.
-
 
 ## 2026-09-08 — Full 62-question Marrow Anatomy explanation rollout
 
@@ -338,7 +328,6 @@ CI runs, what changed, verification, device status, next step.
 - Next: user spot-checks the full rollout. Then generalize the temporary
   Anatomy-only `MARROW_RECORD` to a multi-subject bank registry before adding
   remaining Anatomy, Physiology and Biochemistry Marrow data.
-
 
 ## 2026-09-08 — Generalize Marrow registry and add bounded Physiology pilot
 
@@ -385,7 +374,6 @@ CI runs, what changed, verification, device status, next step.
 - Reframed FSRS controls as a dedicated More subsection and removed change-on-input persistence in favor of explicit save.
 - Renamed the hidden Topics reference image to docs/ui-reference/topics-page-reference.jpg.
 - Python/JavaScript syntax, FSRS behavior, product contracts, build-order checks, and project-memory checks pass locally. Ordered generated-app/browser checks remain Linux CI work.\n
-
 ## 2026-09-08 — Publish candidate and repair pre-existing build failure
 
 - User authorized push, Cloudflare feature PWA deployment, and APK build.
@@ -403,7 +391,6 @@ User rejected deployed candidate: unchanged-looking/unfaithful Topics, missing g
 ## 2026-09-08 — recovery implementation
 Implemented approved recovery in existing transform owners: Topics separate path/glow/fixed tray/index/search; FSRS dedicated route with draft validation, save/cancel and unsaved departure; PDF crop-only density-aware lossless raster and fresh fullscreen raster; correct high-density fit; session-origin completion. Local checks pass; Linux build/browser/visual verification pending. Feature push deploy held until manual dispatch after screenshot review. No acceptance claim.
 
-
 ## 2026-09-08 — Marrow recovery CI fix and next integration scope
 
 - Diagnosed the latest full-run failure at Marrow browser verification: the generated PWA correctly referenced the same-origin `/anatomy-source.pdf` route, but the plain CI static server did not execute the Cloudflare Pages worker and returned 404.
@@ -411,7 +398,6 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Substantive fix commit: `1c9826ae`.
 - Verification: Engineering Gate `34241919403` success; full Android+PWA run `34241919548` success. The previously failing Marrow browser/PDF step passed, followed by side-by-side APK build, packaged APK verification, packaged product contract, reproducibility manifest, and artifact upload. Push deployment remained intentionally skipped.
 - User's next integration instruction: when chunked Marrow JSON/JSONL is supplied, integrate the content into the existing shared bank registry and existing study engines first, source-faithfully and without explanation redesign. Explanation polish will be a later phase.
-
 
 ## 2026-09-08 — Expand Marrow to 2,115 questions across all three subjects
 
@@ -469,7 +455,6 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Status: expanded candidate is build/browser verified, not device-verified and
   not accepted. V11.6 `125d68b` remains the accepted rollback checkpoint.
 
-
 ## 2026-09-08 — Publish exact 2,115-question Marrow feature preview
 
 - The final integration push run 403 was green but intentionally skipped
@@ -500,7 +485,6 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Status remains build/browser verified only. The user now owns the physical
   PWA review and will decide the next phase from observed behavior.
 
-
 ## 2026-09-08 — User physically validates Marrow integration and recovered Topics/FSRS
 
 - User opened the run-405 Marrow feature PWA and confirmed the question
@@ -529,6 +513,7 @@ Implemented approved recovery in existing transform owners: Topics separate path
   exact good feature lineage and understand why production/main PWA can lag.
 - No product implementation was requested in this session; documentation/memory
   only.
+
 ## 2026-09-08 — Unified-main consolidation begins
 
 - Created `consolidation/main-unified` from the user-tested Marrow feature head.
@@ -541,6 +526,7 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Local checks passed. Engineering run 196 and full Android/PWA run 406 passed
   at `87faccd`, including generated browser, PDF, APK and packaged contracts.
   The consolidation preview deployed; production promotion was skipped.
+
 ## 2026-09-08 — Main consolidation and explanation inventory
 
 - PR #6 merged the verified feature lineage and explicit taxonomy into `main`.
@@ -551,7 +537,6 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Added deterministic, text-free explanation triage for all 2,115 Marrow IDs and
   selected a 20-question cross-chapter Biochemistry gold sample. No source or
   learner-facing explanation was changed.
-
 
 ## 2026-09-08 — Marrow explanation-quality phase started
 
@@ -574,7 +559,6 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - The 142-question set remains the approved reference; the 20 Biochemistry
   questions remain candidate-human-review until visual approval.
 
-
 ## 2026-09-09 — Biochemistry explanation sample approved
 
 - User physically reviewed the 20-question cross-chapter Biochemistry explanation
@@ -586,7 +570,6 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - The remaining rollout target is **1,953 Marrow questions**, to be handled in
   deterministic chapter batches with raw source immutable and source ambiguity
   preserved rather than invented.
-
 
 ## 2026-09-09 — Full explanation rollout started: Biochemistry Chapter 1
 
@@ -630,6 +613,7 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - The 18-asset audit set remains 15 PASS, one SOURCE_LIMITED and two
   REVIEW_REQUIRED. Sixteen reviewed assets are learner-facing; user/device
   approval and broader classification remain outstanding.
+
 ## 2026-09-09 — Marrow image pilot user-approved
 
 - The user reviewed all sixteen released pilot figures in the deployed PWA and
@@ -693,7 +677,6 @@ Implemented approved recovery in existing transform owners: Topics separate path
   Inventory is now 194 enhanced / 1,921 pending. Local verification passes 36
   checks; full generated-app/browser/APK CI is pending.
 
-
 ## 2026-09-09 — Reconcile Biochemistry Chapter 2 onto current explanation lineage
 
 - Re-read the canonical Marrow explanation fine-tuning, bank integration,
@@ -747,3 +730,164 @@ Implemented approved recovery in existing transform owners: Topics separate path
   work resumes, exact next target is Physiology Chapter 6 — **Physiology of
   Nerve**.
 
+## 2026-09-09 — Marrow image rollout resumed through Batch 04
+
+- Rebased image work on the verified explanation lineage through Biochemistry Chapters 1–11 and Physiology Chapter 5; explanation files were not altered.
+- Released Batch 02's six source-compared candidates, then inspected two 30-binding native batches at native resolution against owning question metadata.
+- Working totals: 79 approved assets, 94 released bindings and 87 released questions. Batch 03 and Batch 04 each released 27/30 bindings.
+- Preserved native bytes for all medical/photo material. Rejected six false page-neighbor or reuse associations, including fructose-for-galactose, conductance-for-muscle-twitch, glial-chart-for-neuron, transamination-for-BH4 and two muscle-protein neighbor mismatches.
+- Strengthened staging so new primary bindings carry independent QA status and exact page/xref/region, allowing valid assets to survive while wrong question ownership is rejected.
+- Added browser coverage for two-stage MELAS imagery: one neutral question image before answering, then the authentic explanation panel after answering.
+- Initial Batch 03 CI failed at inherited project-memory validation before product tests; restored the required accepted-baseline/product-commit/known-problems/next-step handoff fields. Full current candidate verification remains pending.
+
+## 2026-09-09 — Marrow image rollout through Batch 07
+
+- Continued the image-only workstream on top of the verified explanation lineage; explanation augmentations and immutable raw Marrow bundles were not changed.
+- Visually source-compared 90 candidate bindings across Batches 05–07. Released 72 bindings and expanded learner coverage from 87 to 152 questions using 147 approved assets.
+- Preserved authentic clinical photography, radiology, histology, microscopy and specimen assets byte-for-byte. Native educational diagrams were released only when labels, arrows, panels and question meaning met the approved baseline.
+- Rejected 17 false page-neighbor/reuse mappings, including a tRNA-synthetase Rossmann image offered for LDH, prior-question muscle figures, Starling graphs offered for unrelated smooth-muscle questions, and action-potential figures offered for unrelated contraction questions.
+- Held the native Golgi-tendon-organ sequence as REVIEW_REQUIRED because its dense labels are below the approved readability floor; it must be faithfully reconstructed rather than shipped blurry.
+- Current deterministic totals: 150 registry assets (145 PASS, 2 SOURCE_LIMITED, 2 REJECTED, 1 REVIEW_REQUIRED), 192 bindings (166 released), and 152 released questions: Anatomy 58, Biochemistry 55, Physiology 39.
+- Full Android/PWA CI passed Batches 05–07 (`34367383565`, `34367985338`, `34368514110`), including browser, offline hashes, APK packaging and exact packaged-image bytes. Latest immutable preview: `https://4d588745.nk-qbank.pages.dev`; artifact `V11.7-android-pwa` ID `10111037219`; production promotion skipped.
+
+## 2026-09-09 — ChatGPT image-automation runbook
+
+- Added `docs/MARROW_IMAGE_AUTOMATION_RUNBOOK.md` as the mandatory repository-
+  owned operating contract for short ChatGPT web automations. A small bootstrap
+  prompt can now point each subject automation to one canonical, versioned file.
+- Consolidated the lessons and failure history through Batch 07: native-first
+  extraction, immutable originals, authentic medical pixels, faithful diagram
+  reconstruction, independent asset/binding QA, question-versus-explanation
+  timing, fail-closed statuses, visual/package regressions, and mandatory memory.
+- Set a conservative operational budget because official OpenAI documentation
+  does not publish a fixed wall-clock maximum for these web automations: six
+  candidates by default, no new candidate after about 20 minutes, stop processing
+  by 25 minutes, and reserve at least five minutes for a safe checkpoint.
+- Serialized integration by design. Anatomy, Biochemistry and Physiology agents
+  may audit concurrently, but only one may write the shared registry at a time;
+  each writer must start from the latest incorporated image branch.
+
+## 2026-09-10 — Anatomy native image Batch 08 candidate
+
+- Recovered only the clean staging and source-QA commits from automation batch
+  `NKQ_ANATOMY_20260910`; intentionally excluded its temporary workflows,
+  checkpoint prose and accidentally committed `tools/__pycache__` files.
+- Inspected all six native assets at original resolution and audited their exact
+  question text, source figure metadata, ownership and role. Released Anatomy
+  Chapter 9 Q5/Q8/Q10 after-answer figures and Q9/Q12/Q13 question-time figures.
+- Preserved native bytes for all five authentic specimen/clinical images. Q9,
+  Q12 and Q13 use neutral question-time alt text. The Q5 brain-flexure diagram's
+  labels, arrows and complete sequence exceed the accepted readability floor.
+- Candidate totals are 153 approved assets, 172 released bindings and 158
+  released questions (Anatomy 64, Biochemistry 55, Physiology 39). Added browser
+  regressions for explanation timing/fullscreen zoom and authentic question-time
+  timing/no duplication. All 37 local checks pass; full CI remains pending.
+- The first full run reached the new browser regression and failed because the
+  assertion named a nonexistent viewer class. Updated it to the established
+  `#nk-source-viewer` / `.nk-sv-close` contract used by prior image tests; product
+  behavior and image release data were unchanged.
+- The second run confirmed the viewer click but exposed that its fixed child does
+  not give the zero-height `#nk-source-viewer` parent a Playwright-visible box.
+  Aligned the assertion exactly with prior verified tests by waiting for the
+  fullscreen image's natural width; no product code or asset changed.
+- Exact product commit `0c1af90` passed full Android/PWA run `34438683420`,
+  including source hashes, generated JS, role/timing browser checks, fullscreen
+  viewer, PWA offline cache, APK packaging and exact packaged image bytes.
+  Inspected the generated flexure-viewer and Q9 specimen screenshots; both meet
+  the accepted readability floor. Immutable preview:
+  `https://af73057f.nk-qbank.pages.dev`; artifact `10137184212`; production was
+  not promoted. Physical-device acceptance remains pending.
+
+## 2026-09-11 — Biochemistry image batch NKQ_BIOCHEMISTRY_20260911 staged checkpoint
+
+- STARTED new bounded Biochemistry image batch from verified Batch 08 base `1ae61e205804d3d3b2359fcbad218f56e396896b` on `automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911`. Historical Anatomy work is VERIFIED_HISTORY; no true concurrent registry writer was present.
+- Substantive checkpoint `ca74b2776b93f907d77c6f9a85625ffc5440a3eb` staged six deterministic Biochemistry candidates: `marrow__BIOCHEM_CH25_Q024`, `marrow__BIOCHEM_CH25_Q026`, `marrow__BIOCHEM_CH26_Q003`, `marrow__BIOCHEM_CH26_Q014`, `marrow__BIOCHEM_CH26_Q021`, `marrow__BIOCHEM_CH26_Q022`. Asset IDs: `biochemistry-a501ec0aa161745f`, `biochemistry-e10cc8a9721a17da`, `biochemistry-2ece5cd128a5140d`, `biochemistry-5865ddb63ce7a5b2`, `biochemistry-654cb3072454b05c`, `biochemistry-ddecee9d8f653b20`.
+- All remain REVIEW_REQUIRED; no learner-facing release or production promotion occurred. Registry/progress fingerprints: `df48b187ef9bf214890f5c58e56ffa65572b39d5b4f81e6f2e61239be979eb1a` / `d4faf2aa30d7083ef800bf3c11eb60fccd99470c10fa2a1aee8c38f12c40c3f0`.
+- Required source-level checks passed. Resume this exact branch/batch for visual/source QA.
+
+## 2026-09-11 — Biochemistry image batch NKQ_BIOCHEMISTRY_20260911 source/learner-width QA
+
+- RESUMED `automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911`. QA/release commit `6170c412a98f2147889e9b62845442a44b9dedd0`. Five of six candidates passed source ownership, fidelity, role/timing, answer-safety and learner-width inspection and were released: `marrow__BIOCHEM_CH25_Q024`, `marrow__BIOCHEM_CH26_Q003`, `marrow__BIOCHEM_CH26_Q014`, `marrow__BIOCHEM_CH26_Q021`, `marrow__BIOCHEM_CH26_Q022`.
+- `marrow__BIOCHEM_CH25_Q026` (`biochemistry-e10cc8a9721a17da`) remains REVIEW_REQUIRED because several native CRISPR labels are borderline at phone width. No uncertainty was promoted.
+- Registry/progress fingerprints after QA: `1927cb19959c931503c396a2cf58d0fd37f26531df23f3c542a7f6770d38de38` / `77c32ec0be4ef75a9941b8a2e44040a00720e354b5463a0e245b79caebc790b8`. Required source-level regressions passed; full generated Android/PWA/package verification remains required before classifying the batch as complete. Production was not promoted.
+
+## 2026-09-11 — Biochemistry image batch NKQ_BIOCHEMISTRY_20260911 completed
+
+- Classification: **VERIFIED_HISTORY**; the batch no longer owns the shared image-registry writer lane. Branch `automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911`, base `1ae61e205804d3d3b2359fcbad218f56e396896b`, substantive release commit `6170c412a98f2147889e9b62845442a44b9dedd0`, exact build-verified candidate `04027242473b46ab5941ea3a41c11046458f2c90`.
+- Registry fingerprint `1927cb19959c931503c396a2cf58d0fd37f26531df23f3c542a7f6770d38de38`; progress fingerprint `77c32ec0be4ef75a9941b8a2e44040a00720e354b5463a0e245b79caebc790b8`. Deterministic totals: 162 assets / 204 bindings / 163 released questions; Biochemistry 60 approved assets / 62 total assets / 60 released questions.
+- PASS/released: `marrow__BIOCHEM_CH25_Q024`, `marrow__BIOCHEM_CH26_Q003`, `marrow__BIOCHEM_CH26_Q014`, `marrow__BIOCHEM_CH26_Q021`, `marrow__BIOCHEM_CH26_Q022`.
+- `marrow__BIOCHEM_CH25_Q026` / `biochemistry-e10cc8a9721a17da` remains **REVIEW_REQUIRED** and unreleased. Its CRISPR ownership is correct, but native labels remain below the confident phone-width readability threshold. It is explicitly deferred to a future dedicated specialist readability/reconstruction batch and does not lock the shared writer lane.
+- Exact-head canonical verification succeeded: CI bridge run `34600790522`; Engineering Gate `34600799528`; full Android/PWA/package run `34600801834`. The full run verified browser/image bytes, APK/package, reproducibility and immutable preview behavior; production promotion was skipped.
+- Infrastructure repair: added `.github/workflows/marrow-image-automation-ci.yml` so future `automation/marrow-images-*` candidates dispatch the existing canonical Engineering Gate and Android/PWA workflow for the exact candidate branch with `promote_production=false`. This changes CI reachability only, not product/runtime behavior.
+- Source remained authoritative Marrow ED8 Biochemistry `biochemistryed8.pdf`, 7,958,177 bytes, SHA-256 `463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb`; no PrepLadder substitution.
+- Next image writer should resolve the live integration pointer and acquire the lane normally. Do not treat this completed branch or its deferred CRISPR backlog as CURRENT_UNFINISHED.
+
+## 2026-09-11 — Biochemistry CRISPR specialist image batch started
+
+- Classification: **CURRENT_UNFINISHED**. STARTED specialist batch `NKQ_BIOCHEMISTRY_CRISPR_20260911` on branch `automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_CRISPR_20260911` from exact image base `532c6c8b9dcaf651ef203660cdc4581a985d1424`.
+- Prior mixed Biochemistry batch `NKQ_BIOCHEMISTRY_20260911` is VERIFIED_HISTORY and does not own the writer lane. No competing Anatomy/Physiology image writer was found.
+- Specialist target only: `marrow__BIOCHEM_CH25_Q026` / `biochemistry-e10cc8a9721a17da`, as required by the runbook rule that a reconstruction specialist batch contain one candidate.
+- Authoritative source verified from `/Marrow digitization Biochem/biochemistryed8.pdf`: 7,958,177 bytes, SHA-256 `463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb`. Page 402 / xref 961 yields the exact 600×451 native JPEG SHA-256 `e10cc8a9721a17daea04f60fb422e85611a233b31c0075ca5095e9df09aa4844`.
+- Re-inspected full page, native JPEG and enlarged crop. Ownership is correct and the CRISPR/Cas9 pathway meaning is intact, but multiple small repair-pathway/molecular labels remain below the approved phone-width readability floor.
+- No reconstruction was authored because some small source labels cannot be read with enough certainty to guarantee a label-for-label, arrow-for-arrow faithful SVG. Per source-fidelity rules, no wording or relationship was guessed.
+- Asset and binding remain `REVIEW_REQUIRED` and unreleased. No registry, progress, runtime metadata, raw Marrow source, explanation, UI, main branch or production deployment was changed.
+- Registry/progress fingerprints remain `1927cb19959c931503c396a2cf58d0fd37f26531df23f3c542a7f6770d38de38` / `77c32ec0be4ef75a9941b8a2e44040a00720e354b5463a0e245b79caebc790b8`; deterministic totals remain 162 assets / 204 bindings / 163 released questions, Biochemistry 60 approved assets / 62 total assets / 60 released questions.
+- Exact next action: resume this branch/BATCH_ID. Obtain a fully legible source rendering/vector-equivalent reference for every small label/arrow. Reconstruct only if every element is verifiable; otherwise safely retire the specialist batch with the native asset still REVIEW_REQUIRED.
+
+## 2026-09-11 — Biochemistry CRISPR specialist batch safely retired
+
+- RESUMED specialist batch `NKQ_BIOCHEMISTRY_CRISPR_20260911` on `automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_CRISPR_20260911` from exact image base `532c6c8b9dcaf651ef203660cdc4581a985d1424`.
+- Classification changed from **CURRENT_UNFINISHED** to **VERIFIED_HISTORY / COMPLETE (retired without learner-facing release)**; the shared image-writer lane is released.
+- Specialist target remains `marrow__BIOCHEM_CH25_Q026` / `biochemistry-e10cc8a9721a17da`, with asset/binding **REVIEW_REQUIRED** and unreleased.
+- Reverified authoritative `/Marrow digitization Biochem/biochemistryed8.pdf`: 7,958,177 bytes, SHA-256 `463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb`. Fresh full-page and 300-DPI inspection of page 402 / xref 961 reconfirmed that several tiny CRISPR/Cas9 repair-pathway labels and arrow annotations remain too soft to transcribe with sufficient certainty for a faithful label-for-label, arrow-for-arrow reconstruction.
+- Per native-first/source-fidelity policy, no labels, arrows, branches or relationships were inferred and no SVG reconstruction was authored. No registry, progress, runtime metadata, raw source, explanation, UI, main branch or production deployment was changed.
+- Registry/progress fingerprints remain `1927cb19959c931503c396a2cf58d0fd37f26531df23f3c542a7f6770d38de38` / `77c32ec0be4ef75a9941b8a2e44040a00720e354b5463a0e245b79caebc790b8`; deterministic totals remain 162 assets / 204 bindings / 163 released questions, Biochemistry 60 approved assets / 62 total assets / 60 released questions.
+- Exact pre-retirement head `c70af7fcfea727cb3e8451cafe578686c246f0b6` passed image CI bridge `34606554239`, Engineering Gate `34606564335`, and full Android/PWA/package run `34606567130`; production promotion was skipped.
+- `.project-memory/STATE.md` was switched to VERIFIED_HISTORY in retirement commit `ffa4e8ea0ac44c2ce208654498345bd416e27dec`. Future image writers may acquire the lane normally. Q26 may be revisited only if a genuinely higher-fidelity authoritative/vector-equivalent source makes every small label/arrow verifiable; otherwise preserve REVIEW_REQUIRED indefinitely.
+
+
+## 2026-09-11 — Biochemistry coverage recovery: Ch2 Q13
+
+- Completed bounded batch `NKQ_BIOCHEM_COVERAGE_Q13_20260911` from image-lineage base `c9b5930b7ffdbc9af7a1edcc5acc829ad96e79c3`.
+- Authoritative Marrow ED8 Biochemistry page 35 inspection identified xref 1126 / region `[162,453,450,669]` as the Q13 explanation glycolysis pathway, positioned after the Q13 solution and before Q14.
+- Added an independently reviewed PASS binding for `marrow__BIOCHEM_CH02_Q013:figure:1` to the already source-compared PASS glycolysis asset `biochemistry-aa11f9fa6a08baea`; reused production SVG SHA-256 `e6b4d76fa9ff07dbf62b5094b8fdcd46a744837bb802aa55945ac7021f6fa8e2`.
+- Bounded recovery run `34623825459` passed registry validation, release regeneration, progress check, source-reference coverage check, image/coverage tests, pipeline verification, project-memory verification and diff check.
+- Coverage advanced from 65 to 66 released source references and from 25 to 24 untracked: 95 raw / 94 effective / 66 released / 1 invalid-source-metadata / 67 resolved / 4 tracked-unreleased / 24 untracked / 31 text-cue review items. Biochemistry remains INCOMPLETE.
+- Temporary generated `coverage.json` and Python bytecode are transport artifacts and are not retained in Git. `.gitignore` now excludes Python bytecode/cache.
+- Next deterministic unresolved source reference: `marrow__BIOCHEM_CH01_Q004:figure:1 (explanation, source pages [12], status UNTRACKED_SOURCE_VISUAL)`.
+- No main merge or production promotion.
+
+
+## 2026-09-11 — Biochemistry Q13 coverage batch fully verified
+
+- Bounded image-recovery batch `NKQ_BIOCHEM_COVERAGE_Q13_20260911` completed on `automation/marrow-images-biochemistry-NKQ_BIOCHEM_COVERAGE_Q13_20260911` from exact integration base `c9b5930b7ffdbc9af7a1edcc5acc829ad96e79c3`.
+- Added one independently reviewed PASS explanation binding for `marrow__BIOCHEM_CH02_Q013:figure:1`, authoritative Marrow ED8 Biochemistry page 35 / xref 1126 / region `[162,453,450,669]`. The figure is positioned after the Q13 solution and before Solution to Question 14.
+- Reused existing source-compared PASS glycolysis reconstruction `biochemistry-aa11f9fa6a08baea`, production SHA-256 `e6b4d76fa9ff07dbf62b5094b8fdcd46a744837bb802aa55945ac7021f6fa8e2`; no new diagram or medical content was invented.
+- Bounded source/reference run `34623825459` passed audit, registry validation, release regeneration, progress/coverage checks, image/coverage tests, build-pipeline verification, project-memory verification and diff check.
+- Clean exact product candidate `363084ba5c7f302774617863f383652706a22b89` passed Engineering Gate `34624402159` and full Android/PWA/browser/APK/package run `34624404224`. Production promotion was skipped.
+- Post-batch Biochemistry coverage is 95 raw / 94 effective / 66 released / 1 invalid source-metadata / 67 resolved / 4 tracked-unreleased / 24 untracked / 31 text-cue items. Subject remains INCOMPLETE.
+- The full regenerated ledger corrected the next deterministic recovery start to `marrow__BIOCHEM_CH01_Q004:figure:1` (explanation, source page 12, UNTRACKED_SOURCE_VISUAL).
+- Temporary coverage output and Python bytecode were removed; `.gitignore` now excludes `__pycache__/` and `*.pyc`.
+- No `main` merge or production promotion.
+
+
+## 2026-09-11 — Biochemistry Q4 coverage recovery candidate
+
+- Started bounded batch `NKQ_BIOCHEM_COVERAGE_Q4_20260911` from exact image base `3bc5229c573e304f1216c054457697eff6a78121`.
+- Recovered `marrow__BIOCHEM_CH01_Q004:figure:1` from authoritative page 12 / xref 25 / region `[162,433,450,649]`. The source figure shows D-glucose and D-mannose Fischer projections in the Q4 explanation.
+- Used a 300-DPI exact-region render rather than reconstruction; production SHA-256 `400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f`, 1200×901.
+- Full-page/source-region inspection confirmed complete stereochemical labels and explanation ownership. Asset and binding are PASS.
+- Candidate coverage is 95 raw / 94 effective / 67 released / 1 invalid / 68 resolved / 4 tracked-unreleased / 23 untracked / 31 text-cue items. Subject remains INCOMPLETE.
+- Exact next unresolved reference: `marrow__BIOCHEM_CH02_Q006:figure:1` (explanation, source pages [31], status UNTRACKED_SOURCE_VISUAL).
+- Exact-head canonical CI remains pending; no main merge or production promotion.
+
+
+## 2026-09-11 — Biochemistry Q4 coverage batch fully verified
+
+- Bounded image-recovery batch `NKQ_BIOCHEM_COVERAGE_Q4_20260911` completed from exact integration base `3bc5229c573e304f1216c054457697eff6a78121`.
+- Released `marrow__BIOCHEM_CH01_Q004:figure:1` as an explanation-only PASS binding from authoritative Marrow ED8 Biochemistry page 12 / xref 25 / region `[162,433,450,649]`.
+- Production is a source-faithful 300-DPI exact-region PNG, SHA-256 `400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f`, 1200×901. Full-page/native-object/production inspection preserved both D-glucose and D-mannose Fischer projections and every H/OH stereochemical placement; no reconstruction or inferred detail was used.
+- Source/release validation run `34629572092` succeeded. Exact certified product candidate `25393745b3e7d859bbae1029af93986c2a8daace` passed Engineering Gate `34629844685` and full Android/PWA/browser/APK/package run `34629847355`. Browser image comparison capture, PWA offline bytes, packaged APK bytes and reproducibility checks passed. Production promotion was skipped.
+- Post-batch Biochemistry coverage: 95 raw / 94 effective / 67 released / 1 invalid metadata / 68 resolved / 4 tracked-unreleased / 23 untracked / 31 text-cue items. Subject remains INCOMPLETE.
+- Next deterministic unresolved source reference: `marrow__BIOCHEM_CH02_Q006:figure:1` (explanation, page 31, UNTRACKED_SOURCE_VISUAL).
+- No `main` merge or production promotion.

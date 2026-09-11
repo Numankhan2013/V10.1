@@ -1,103 +1,99 @@
 # STATE.md — Current Project State and Handoff
 
-> Concise operational handoff. History belongs in `SESSION_LOG.md`; durable
-> reasoning in `DECISIONS.md`; future work in `ROADMAP.md`.
+> Concise operational handoff. History belongs in `SESSION_LOG.md`; durable reasoning in `DECISIONS.md`; future work in `ROADMAP.md`.
 
 ## Repo / release state
 
 - Repo: `Numankhan2013/V10.1`.
-- Resolve live branch/HEAD from Git; do not hardcode self-staling HEAD values.
-- Current verified explanation lineage reaches
-  `feature/marrow-explanation-rollout-physio-ch05-current` / PR #24.
-- Exact verified Chapter 5 candidate: `f170eb8517998cdaf4229240d2c2a273c6d98cf8`.
-- Engineering Gate 259 and full Android/PWA run 539 both passed.
-- Latest immutable verified preview: `https://3cce6bfb.nk-qbank.pages.dev`.
-- Production promotion remains explicit and guarded; run 539 skipped production.
-- Historical accepted rollback baseline remains V11.6 Content Quality `125d68b`
-  until the user explicitly promotes a later product baseline.
+- Accepted product commit: `125d68b`.
+- Accepted baseline remains V11.6 Content Quality; later candidates are not accepted production unless the user explicitly promotes them.
+- Current Marrow image integration lineage is `feature/marrow-image-rollout-current`; resolve live HEAD from Git.
+- Build-verified ≠ device-verified ≠ accepted baseline.
 
 ## Current Marrow bank
 
-Shared architecture:
-`MARROW_RECORDS` → `MARROW_BY_SUBJECT` → `BANKS_BY_SUBJECT`.
-There is one shared Practice/CBT/Review/FSRS/sync/module/analytics/navigation engine.
+Shared architecture remains `MARROW_RECORDS` → `MARROW_BY_SUBJECT` → `BANKS_BY_SUBJECT`, using one Practice/CBT/Review/FSRS/sync/module/analytics/navigation engine.
 
-Supplied Marrow ED8 scope:
-- Anatomy: **819 questions / 48 topics**.
-- Biochemistry: **543 / 26**.
-- Physiology: **753 / 33**.
-- Total: **2,115 globally unique questions / 107 topics**.
+Supplied ED8 scope:
+- Anatomy: 819 questions / 48 topics.
+- Biochemistry: 543 / 26.
+- Physiology: 753 / 33.
+- Total: 2,115 questions / 107 topics.
 
-Raw imported Marrow source is authoritative and immutable. Source bundles remain
-manifest/hash validated and ingestion fails closed on corruption/count/ID/option/
-topic-link drift.
+Raw imported source is authoritative and immutable. Source bundles remain manifest/hash validated.
 
 ## Explanation-quality phase
 
-Canonical procedure: `docs/MARROW_EXPLANATION_FINE_TUNING.md` +
-`docs/MARROW_BANK_INTEGRATION.md`.
+Current deterministic inventory remains 429 enhanced / 1,686 pending: Anatomy 62 approved reference, Biochemistry 259 through Chapters 1–11, Physiology 108 through Chapter 5. Image integration remains a separate workstream.
 
-Approved learner-facing contract:
-- one meaningful Key Takeaway;
-- source-faithful structured detailed explanation;
-- 1–4 selective emphasis anchors that exist verbatim in display text;
-- exactly three concise wrong-option rationales mapped to the three incorrect
-  source options for four-option SBA;
-- ID-keyed augmentation separate from raw source;
-- source tables/figures/provenance remain source-owned and separate;
-- missing/ambiguous source content remains explicit; never invent it;
-- FSRS/session behavior is untouched.
+## Marrow image coverage — authoritative status
 
-Current deterministic inventory:
-- **429 enhanced / 1,686 pending**.
-- Anatomy approved reference: **62**.
-- Physiology approved pilot: **80** across Chapters 1–4.
-- Biochemistry enhanced: **259**; Chapters 1–11 are complete on the current
-  stacked explanation lineage, including fixed gold-sample overlaps.
-- Physiology Chapter 5 **Body Fluids: 28/28 complete**.
-- Physiology enhanced total is now **108**.
-- Physiology Chapter 5 inventory fingerprint:
-  `09989df1e8745f7338abf146fb4eb1337738ecaf4dafb1b69f9c76314e521ea8`.
+Physical learner review on 2026-09-11 proved the earlier Biochemistry image-completeness claim wrong. Registry asset counts describe only reviewed/staged work and are never a subject-completeness denominator.
 
-Physiology rollout infrastructure was generalized on PR #24:
-- `data/marrow/explanation_physio_ch*_v1.json` discovery in inventory;
-- shared app loader merges Physiology chapter augmentations with the existing
-  80-question Physiology pilot;
-- `tools/test_marrow_physio_explanation_rollout.py` provides fail-closed
-  source-ID/chapter/emphasis/distractor validation;
-- both Engineering Gate and full Android/PWA workflow run the Physiology validator;
-- Biochemistry rollout validation was generalized so other subjects may add
-  enhanced records without invalidating its subject-local guarantees.
+Coverage repair is incorporated into the image lineage. The current candidate Biochemistry coverage is:
+- raw source visual references: **95**;
+- effective learner visual references: **94**;
+- released source visual references: **66**;
+- exact invalid-source-metadata references: **1**;
+- resolved source visual references: **67**;
+- tracked but unreleased: **4**;
+- untracked: **24**;
+- text-cue review items: **31**.
 
-Representative Chapter 5 browser regression:
-Physiology → Marrow → Body Fluids → Q17 verifies the permeant-urea / tonicity
-explanation and exactly three distractor rationales through the real learner UI.
+Physiology remains paused at 218 raw references / 42 released / 22 tracked-unreleased / 154 untracked / 27 text-cue items.
 
-## Image pipeline / ownership
+The source-derived audit plus `tools/marrow_image_coverage.py` is the completion gate. A bounded batch may be COMPLETE while a subject remains INCOMPLETE.
 
-- Explanation refinement and image integration remain separate workstreams.
-- The primary agent is taking ownership of **image integration**.
-- Preserve source-native figure/image metadata and source fidelity.
-- Do not reconstruct medically meaningful figures from prose when source assets
-  exist or when the source is ambiguous.
-- Historical image Batch 01 was build-verified; Batch 02 had six
-  REVIEW_REQUIRED candidates checkpointed separately. Reconcile live Git state
-  before resuming that pipeline.
+## Latest image recovery batch — VERIFIED_HISTORY
 
-## Verification / cautions
+Classification: **VERIFIED_HISTORY / COMPLETE bounded coverage-recovery batch**. This batch no longer owns the shared writer lane.
 
-- Build-verified ≠ device-verified ≠ accepted production baseline.
-- User has independently checked the current preview; do not spend agent usage
-  repeating routine visual verification unless needed for a code-quality issue.
-- Do not rewrite raw Marrow JSON/JSONL/shards for learner-facing cleanup.
-- Do not fork Practice/CBT/Review/FSRS/sync/modules/navigation by subject.
-- Do not alter Topics taxonomy during explanation or image work.
-- Keep production promotion deliberate.
+- Subject: Biochemistry.
+- Batch: `NKQ_BIOCHEM_COVERAGE_Q4_20260911`.
+- Candidate branch: `automation/marrow-images-biochemistry-NKQ_BIOCHEM_COVERAGE_Q4_20260911`.
+- Exact integration base: `3bc5229c573e304f1216c054457697eff6a78121`.
+- Released reference: `marrow__BIOCHEM_CH01_Q004:figure:1`, explanation role, Marrow ED8 Biochemistry page 12 / xref 25 / region `[162,433,450,649]`.
+- Production is the source-faithful 300-DPI exact-region render, SHA-256 `400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f`, 1200×901.
+- Source inspection verified both Fischer projections and all stereochemical H/OH placements against the authoritative full page; no reconstruction or medical-image processing was used.
+- Post-batch candidate coverage: **95 raw / 94 effective / 67 released / 1 invalid metadata / 68 resolved / 4 tracked-unreleased / 23 untracked / 31 text-cue items**. Subject remains **INCOMPLETE**.
+- Exact certified product candidate: `25393745b3e7d859bbae1029af93986c2a8daace`.
+- Exact-head Engineering Gate `34629844685` **SUCCESS**.
+- Exact-head full Android/PWA/browser/APK/package run `34629847355` **SUCCESS**.
+- Browser source-image comparison capture, offline image bytes, packaged APK image bytes, reproducibility manifest, and PWA preview deployment passed.
+- Production promotion was skipped; `main` was not changed.
 
-## Next ownership split
+Exact next deterministic unresolved source reference after this candidate: `marrow__BIOCHEM_CH02_Q006:figure:1` (explanation, source pages [31], status UNTRACKED_SOURCE_VISUAL).
 
-- **Primary agent:** inspect current GitHub state/code quality and continue the
-  Marrow source-image integration pipeline.
-- **Explanation refinement agent:** when resumed, continue from
-  **Physiology Chapter 6 — Physiology of Nerve**, source order, without touching
-  the image-integration ownership.
+## Coverage and trust rules
+
+A subject may be called learner-image complete only when:
+1. every legitimate source visual has a released PASS/SOURCE_LIMITED binding;
+2. every invalid source reference has exact evidence-backed adjudication rather than substitution;
+3. question/explanation roles and multi-figure order are separately covered;
+4. the text-cue backlog is cleared;
+5. `marrow_image_coverage.py --subject SUBJECT --require-complete --check` passes;
+6. normal image QA/browser/PWA/APK gates and memory handoff pass.
+
+Rejected wrong candidates do not resolve legitimate visuals. Never use approved asset count as a completeness denominator.
+
+## Automation state
+
+- Biochemistry remains the active coverage-recovery subject and is **INCOMPLETE**.
+- Physiology image automation remains paused so the old discovery defect is not propagated.
+- Recovery proceeds in deterministic source-reference order; complex/vector/zero-native references cannot be skipped for easier JPEGs.
+- No image batch currently owns the writer lane after the verified Q4 handoff is incorporated.
+- The next deterministic unresolved source reference after this candidate is `marrow__BIOCHEM_CH02_Q006:figure:1` (explanation, source pages [31], status UNTRACKED_SOURCE_VISUAL).
+
+## Known problems / verification cautions
+
+- Biochemistry still has 27 legitimate source references not learner-facing (4 tracked-unreleased + 23 untracked), plus 31 text-cue items requiring adjudication.
+- User-confirmed missing visuals in Chapters 18–22 remain outstanding and are not exhausted by the listed examples.
+- Complex/vector/page-content figures may require native vector extraction, precise region rendering, or source-faithful reconstruction; medical pixels must remain authentic.
+- Question-time and explanation-time visuals can both exist for one question and both must be represented with correct timing.
+- Ch25 Q26 CRISPR remains REVIEW_REQUIRED because tiny labels cannot yet be verified faithfully.
+
+## Next step
+
+1. Fast-forward only `feature/marrow-image-rollout-current` to this verified handoff if its live head still equals exact base `3bc5229c573e304f1216c054457697eff6a78121`; never force, merge `main`, or promote production.
+2. Start the next bounded Biochemistry recovery batch at `marrow__BIOCHEM_CH02_Q006:figure:1` (explanation, source pages [31], status UNTRACKED_SOURCE_VISUAL).
+3. Keep Biochemistry subject status INCOMPLETE until the full coverage gate passes.

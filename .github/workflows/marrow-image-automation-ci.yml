@@ -1,0 +1,35 @@
+name: Marrow Image Automation CI Bridge
+
+on:
+  push:
+    branches:
+      - 'automation/marrow-images-*'
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: marrow-image-automation-ci-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  dispatch-canonical-verification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch Engineering Gate for exact branch head
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh workflow run engineering-gate.yml
+          --repo "$GITHUB_REPOSITORY"
+          --ref "$GITHUB_REF_NAME"
+
+      - name: Dispatch full Android/PWA verification for exact branch head
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh workflow run build-apk.yml
+          --repo "$GITHUB_REPOSITORY"
+          --ref "$GITHUB_REF_NAME"
+          -f promote_production=false

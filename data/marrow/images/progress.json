@@ -1,52 +1,74 @@
 {
   "schemaVersion": 1,
   "assets": {
-    "total": 28,
+    "total": 163,
     "byStatus": {
-      "PASS": 27,
-      "SOURCE_LIMITED": 1
+      "PASS": 157,
+      "REJECTED": 2,
+      "REVIEW_REQUIRED": 2,
+      "SOURCE_LIMITED": 2
     },
     "byKind": {
-      "diagram": 24,
-      "hybrid": 1,
-      "medical": 3
+      "diagram": 132,
+      "hybrid": 3,
+      "medical": 27,
+      "table": 1
     },
     "byMethod": {
-      "native-jpeg-stream": 24,
+      "native-jpeg-stream": 158,
+      "region-render": 1,
       "svg-reconstruction": 4
     }
   },
   "bindings": {
-    "total": 36,
+    "total": 206,
     "byStatus": {
-      "PASS": 33,
-      "REJECTED": 2,
+      "PASS": 178,
+      "REJECTED": 25,
+      "REVIEW_REQUIRED": 2,
       "SOURCE_LIMITED": 1
     },
     "releasedByRole": {
-      "explanation": 32,
-      "question": 2
+      "explanation": 141,
+      "question": 38
     },
-    "releasedQuestionCount": 34
+    "releasedQuestionCount": 165
   },
   "subjects": {
     "Anatomy": {
-      "approvedAssets": 7,
-      "assets": 7,
-      "releasedQuestions": 12
+      "approvedAssets": 63,
+      "assets": 63,
+      "releasedQuestions": 64
     },
     "Biochemistry": {
-      "approvedAssets": 10,
-      "assets": 10,
-      "releasedQuestions": 11
+      "approvedAssets": 61,
+      "assets": 63,
+      "releasedQuestions": 62
     },
     "Physiology": {
-      "approvedAssets": 11,
-      "assets": 11,
-      "releasedQuestions": 11
+      "approvedAssets": 35,
+      "assets": 37,
+      "releasedQuestions": 39
     }
   },
   "batches": {
+    "NKQ_ANATOMY_20260910": {
+      "bindings": 6,
+      "releasedBindings": 6
+    },
+    "NKQ_BIOCHEMISTRY_20260911": {
+      "bindings": 6,
+      "pendingBindings": 1,
+      "releasedBindings": 5
+    },
+    "NKQ_BIOCHEM_COVERAGE_Q13_20260911": {
+      "bindings": 1,
+      "releasedBindings": 1
+    },
+    "NKQ_BIOCHEM_COVERAGE_Q4_20260911": {
+      "bindings": 1,
+      "releasedBindings": 1
+    },
     "pilot": {
       "bindings": 18,
       "releasedBindings": 18
@@ -55,6 +77,36 @@
       "bindings": 18,
       "rejectedBindings": 2,
       "releasedBindings": 16
+    },
+    "rollout-02-small": {
+      "bindings": 6,
+      "releasedBindings": 6
+    },
+    "rollout-03-native": {
+      "bindings": 30,
+      "rejectedBindings": 3,
+      "releasedBindings": 27
+    },
+    "rollout-04-native": {
+      "bindings": 30,
+      "rejectedBindings": 3,
+      "releasedBindings": 27
+    },
+    "rollout-05-native": {
+      "bindings": 30,
+      "rejectedBindings": 7,
+      "releasedBindings": 23
+    },
+    "rollout-06-native": {
+      "bindings": 30,
+      "pendingBindings": 1,
+      "rejectedBindings": 6,
+      "releasedBindings": 23
+    },
+    "rollout-07-native": {
+      "bindings": 30,
+      "rejectedBindings": 4,
+      "releasedBindings": 26
     }
   }
 }

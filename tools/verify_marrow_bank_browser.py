@@ -341,6 +341,19 @@ def main():
             if 'pompe' in biopsy_alt: raise SystemExit('Question-critical image alt text reveals the diagnosis')
             page.screenshot(path=str(OUT/'00ac-marrow-question-biopsy.png'),full_page=True)
 
+            # A two-figure medical question must show only the authentic stem
+            # image before answering and add the source explanation panel after.
+            page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='ETC and bioenergetics').click();page.wait_for_timeout(80)
+            page.locator('button.nk-library-row').nth(12).click();page.wait_for_timeout(80)
+            melas=page.locator('.nk-marrow-figure-button')
+            if melas.count()!=1: raise SystemExit('MELAS stem must show exactly one question-time source image')
+            if melas.locator('img').first.get_attribute('alt')!='Source question figure': raise SystemExit('MELAS stem image alt text is not neutral')
+            page.locator('.option-list button').first.click();page.wait_for_timeout(120)
+            if page.locator('.nk-marrow-figure-button').count()!=2: raise SystemExit('MELAS explanation image missing or leaked before answer')
+            page.screenshot(path=str(OUT/'00ad-marrow-melas-two-stage-images.png'),full_page=True)
+
             page.evaluate("window.QB.nav('banks','Biochemistry')");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click();page.wait_for_timeout(100)
             if page.locator('button.nk-topic-row').count()<1: raise SystemExit('PrepLadder Biochemistry topics regressed')
@@ -477,6 +490,38 @@ def main():
             table_text=page.locator('.nk-gold-explanation .nk-marrow-table').inner_text()
             if 'Stages of prenatal development' not in table_text or 'Embryonic period (3-8 weeks)' not in table_text or 'Fetal period (9 weeks to birth)' not in table_text: raise SystemExit('Prenatal-development table content regressed')
             page.screenshot(path=str(OUT/'06-marrow-full-table.png'),full_page=True)
+
+            # Batch 08: explanation-only native diagram stays hidden until answer.
+            page.evaluate("window.QB.nav('banks','Anatomy')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Nervous System and Endocrine Glands').click();page.wait_for_timeout(80)
+            page.locator('button.nk-library-row').nth(4).click();page.wait_for_timeout(80)
+            if page.locator('.nk-marrow-figure-button').count()!=0:
+                raise SystemExit('Anatomy Chapter 9 Q5 explanation image leaked before answer')
+            page.locator('.option-list button').nth(2).click();page.wait_for_timeout(120)
+            flexure=page.locator('.nk-marrow-figure-button')
+            if flexure.count()!=1 or flexure.locator('img').get_attribute('alt')!='Flexures of the brain':
+                raise SystemExit('Anatomy Chapter 9 Q5 flexure diagram missing after answer')
+            page.wait_for_function("document.querySelector('.nk-marrow-figure-button img')?.naturalWidth===575")
+            flexure.click();page.wait_for_timeout(80)
+            page.wait_for_function("document.querySelector('#nk-source-viewer img')?.naturalWidth===575")
+            page.screenshot(path=str(OUT/'06a-anatomy-batch08-flexure-viewer.png'),full_page=True)
+            page.locator('#nk-source-viewer .nk-sv-close').click();page.wait_for_timeout(60)
+
+            # Batch 08: stem-critical authentic specimen is visible before answer
+            # with neutral alt text and does not duplicate after submission.
+            page.evaluate("window.QB.nav('banks','Anatomy')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Nervous System and Endocrine Glands').click();page.wait_for_timeout(80)
+            page.locator('button.nk-library-row').nth(8).click();page.wait_for_timeout(80)
+            specimen=page.locator('.nk-marrow-figure-button')
+            if specimen.count()!=1 or specimen.locator('img').get_attribute('alt')!='Source question figure':
+                raise SystemExit('Anatomy Chapter 9 Q9 neutral question image missing or duplicated')
+            page.wait_for_function("document.querySelector('.nk-marrow-figure-button img')?.naturalWidth===720")
+            page.locator('.option-list button').nth(2).click();page.wait_for_timeout(120)
+            if page.locator('.nk-marrow-figure-button').count()!=1:
+                raise SystemExit('Anatomy Chapter 9 Q9 question image duplicated after answer')
+            page.screenshot(path=str(OUT/'06b-anatomy-batch08-question-specimen.png'),full_page=True)
 
             page.evaluate("window.QB.nav('banks','Anatomy')");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click();page.wait_for_timeout(100)
