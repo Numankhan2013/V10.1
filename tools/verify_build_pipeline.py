@@ -43,6 +43,7 @@ required_order = [
     "tools/test_fsrs_v1.py",
     "tools/fix_boot_syntax.py",
     "tools/apply_marrow_bank_pilot.py",
+    "tools/apply_marrow_structured_table_renderer_v1.py",
     "tools/install_marrow_images.py",
     "tools/test_marrow_bank_pilot.py",
     "tools/verify_product_contract.py --stage generated",
@@ -55,7 +56,9 @@ for marker in ("runs-on: ubuntu-latest", "actions/setup-python@", "PyMuPDF Pillo
                "tools/verification_preflight.py --require-pdf",
                "tools/build_biochem_solution_map.py", "tools/final_hardening.py",
                "tools/verify_source_visual_contract.py",
-               "tools/verify_product_contract.py --stage packaged"):
+               "tools/verify_product_contract.py --stage packaged",
+               "tools/verify_marrow_structured_table_browser.py",
+               "NK_MARROW_STRUCTURED_TABLE_RENDERER_V1"):
     if marker not in text:
         raise SystemExit(f"Full Linux/PDF verification requirement missing: {marker}")
 if not (text.index("PyMuPDF Pillow") < text.index("tools/verification_preflight.py --require-pdf")
@@ -88,6 +91,10 @@ if text.find("tools/fix_boot_syntax.py") > text.find("Verify final JavaScript sy
     raise SystemExit("Boot syntax repair must run before final JavaScript validation")
 if text.find("Verify packaged APK") < text.find("Build debug APK"):
     raise SystemExit("Packaged verification must run after the APK build")
+if text.find("tools/apply_marrow_bank_pilot.py") > text.find("tools/apply_marrow_structured_table_renderer_v1.py"):
+    raise SystemExit("Structured-table compatibility must run after Marrow bank generation")
+if text.find("tools/apply_marrow_structured_table_renderer_v1.py") > text.find("tools/install_marrow_images.py"):
+    raise SystemExit("Structured-table compatibility must precede image installation")
 if "v11.1-engineering-foundation" not in text:
     raise SystemExit("Engineering branch is not protected by the build workflow")
 for marker in (
