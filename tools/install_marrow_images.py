@@ -9,6 +9,7 @@ work from breaking the image pipeline merely by running earlier in the build.
 """
 from pathlib import Path
 from marrow_images import ROOT, release
+from apply_canonical_bank_explanation_wiring_v1 import install as install_canonical_wiring
 
 QUESTION_RAW = '<div class="question-text">'
 QUESTION_BOUND = '<div class="question-text" data-marrow-question="${q.bank===\'Marrow\'?esc(String(q.id)):\'\'}">'
@@ -16,6 +17,11 @@ MIN_QUESTION_SURFACES = 3
 
 
 def install():
+    # The Marrow transform has now created the shared bank registry and learner
+    # explanation renderer. Repair the canonical two-bank Home routing and graft
+    # every approved explanation into that runtime before images wrap the same
+    # question/explanation surfaces.
+    install_canonical_wiring()
     release(ROOT/'data/marrow/images/registry.json')
     assets=ROOT/'app/src/main/assets'
     path=assets/'index.html'
