@@ -9943,7 +9943,7 @@
     {
       "id": "biochemistry-a501ec0aa161745f",
       "subject": "Biochemistry",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
       "source": {
         "file": "biochemistryed8.pdf",
@@ -9963,7 +9963,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
           "source": {
             "page": 387,
@@ -9976,8 +9976,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Verify this asset ownership, role and answer-safety against the cited source page."
+            "sourceCompared": true,
+            "notes": "Question 24 explicitly presents this clinical photograph before the options. Question-time placement is required to answer the stem; neutral alt text is retained and the image contains no correct-option annotation or answer-revealing caption.",
+            "evidence": "Marrow ED8 page 387 xref 916 plus run 34595643644 comparison artifact."
           }
         }
       ],
@@ -9994,16 +9995,19 @@
         "height": 540
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Candidate: Clinical photograph showing facial freckling/photosensitivity. Verify role, ownership, overlays, classification and readability."
+        "sourceCompared": true,
+        "notes": "Compared full Marrow ED8 source page 387, native xref 916, exact 720x540 JPEG and learner-width rendering. Clinical facial, ocular and skin pixels are preserved byte-identically with no crop, synthesis, inpainting or enhancement. The photograph is embedded in Question 24 and remains clear at phone width.",
+        "evidence": "GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH25_Q024__comparison.jpg",
+        "originalSha256": "a501ec0aa161745f616a29af1b51952da9dabeea99bc6368be489fdd08a33045",
+        "productionSha256": "a501ec0aa161745f616a29af1b51952da9dabeea99bc6368be489fdd08a33045"
       }
     },
     {
       "id": "biochemistry-e10cc8a9721a17da",
       "subject": "Biochemistry",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
       "source": {
         "file": "biochemistryed8.pdf",
@@ -10037,7 +10041,8 @@
           },
           "qa": {
             "sourceCompared": false,
-            "notes": "Verify this asset ownership, role and answer-safety against the cited source page."
+            "notes": "Correct explanation ownership and answer-safe timing confirmed, but the candidate remains held because small labels are borderline at phone width.",
+            "evidence": "Marrow ED8 page 402 xref 961 plus run 34595643644 comparison artifact."
           }
         }
       ],
@@ -10056,14 +10061,17 @@
       "method": "native-jpeg-stream",
       "status": "REVIEW_REQUIRED",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Candidate: CRISPR-Cas9 gene editing schematic. Verify role, ownership, overlays, classification and readability."
+        "sourceCompared": true,
+        "notes": "Ownership is correct to the CRISPR explanation on Marrow ED8 page 402/xref 961 and the native 600x451 JPEG is intact. At learner-width inspection, several small molecular/repair labels are borderline for the approved phone readability floor; do not release until expanded/device inspection or a fully source-faithful reconstruction resolves readability.",
+        "evidence": "GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH25_Q026__comparison.jpg",
+        "originalSha256": "e10cc8a9721a17daea04f60fb422e85611a233b31c0075ca5095e9df09aa4844",
+        "productionSha256": "e10cc8a9721a17daea04f60fb422e85611a233b31c0075ca5095e9df09aa4844"
       }
     },
     {
       "id": "biochemistry-2ece5cd128a5140d",
       "subject": "Biochemistry",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
       "source": {
         "file": "biochemistryed8.pdf",
@@ -10083,7 +10091,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Difference between RNA and DNA",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
           "source": {
             "page": 411,
@@ -10096,8 +10104,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Verify this asset ownership, role and answer-safety against the cited source page."
+            "sourceCompared": true,
+            "notes": "The source page places this RNA-versus-DNA diagram under Solution to Question 3. Explanation-only timing is correct and answer-safe.",
+            "evidence": "Marrow ED8 page 411 xref 981 plus run 34595643644 comparison artifact."
           }
         }
       ],
@@ -10114,16 +10123,19 @@
         "height": 724
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Candidate: Difference between RNA and DNA. Verify role, ownership, overlays, classification and readability."
+        "sourceCompared": true,
+        "notes": "Compared Marrow ED8 page 411/xref 981 against the exact 746x724 native JPEG and learner-width rendering. RNA/DNA labels, A/C/G/U/T bases, base-pair annotation, sugar-phosphate backbone and helix depiction are preserved and readable; no educational content was added or removed.",
+        "evidence": "GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH26_Q003__comparison.jpg",
+        "originalSha256": "2ece5cd128a5140d7f0a523985f380a0eb8e32b6d34ad9f7243ebab2dbee93d6",
+        "productionSha256": "2ece5cd128a5140d7f0a523985f380a0eb8e32b6d34ad9f7243ebab2dbee93d6"
       }
     },
     {
       "id": "biochemistry-5865ddb63ce7a5b2",
       "subject": "Biochemistry",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
       "source": {
         "file": "biochemistryed8.pdf",
@@ -10143,7 +10155,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Eukaryotic gene and mRNA post-transcriptional modification diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
           "source": {
             "page": 415,
@@ -10156,8 +10168,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Verify this asset ownership, role and answer-safety against the cited source page."
+            "sourceCompared": true,
+            "notes": "The figure follows Solution to Question 14 and precedes Question 15 material, confirming explanation ownership. Explanation-only role is answer-safe.",
+            "evidence": "Marrow ED8 page 415 xref 993 plus run 34595643644 comparison artifact."
           }
         }
       ],
@@ -10174,16 +10187,19 @@
         "height": 451
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Candidate: Eukaryotic gene and mRNA post-transcriptional modification diagram. Verify role, ownership, overlays, classification and readability."
+        "sourceCompared": true,
+        "notes": "Compared Marrow ED8 page 415/xref 993 against the exact 600x451 native JPEG and learner-width rendering. Enhancer/silencer/promoter, 5-prime UTR, start/stop, exon/intron, cap, poly-A tail and processing arrows are present and readable with source semantics unchanged.",
+        "evidence": "GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH26_Q014__comparison.jpg",
+        "originalSha256": "5865ddb63ce7a5b2de8877c41c7c56abe00c66aa98aaf8d4231c8aca45d89364",
+        "productionSha256": "5865ddb63ce7a5b2de8877c41c7c56abe00c66aa98aaf8d4231c8aca45d89364"
       }
     },
     {
       "id": "biochemistry-654cb3072454b05c",
       "subject": "Biochemistry",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
       "source": {
         "file": "biochemistryed8.pdf",
@@ -10203,7 +10219,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "ApoB48 versus ApoB100 RNA editing",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
           "source": {
             "page": 419,
@@ -10216,8 +10232,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Verify this asset ownership, role and answer-safety against the cited source page."
+            "sourceCompared": true,
+            "notes": "The source explanation for Question 21 discusses ApoB RNA editing and this figure immediately follows it. Explanation-only role is correct and answer-safe.",
+            "evidence": "Marrow ED8 page 419 xref 1007 plus run 34595643644 comparison artifact."
           }
         }
       ],
@@ -10234,16 +10251,19 @@
         "height": 534
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Candidate: ApoB48 versus ApoB100 RNA editing. Verify role, ownership, overlays, classification and readability."
+        "sourceCompared": true,
+        "notes": "Compared Marrow ED8 page 419/xref 1007 against the exact 605x534 native JPEG and learner-width rendering. Intestine/liver branches, CAA to UAA STOP edit, glutamine context and ApoB48/ApoB100 outcomes/arrows are preserved and readable.",
+        "evidence": "GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH26_Q021__comparison.jpg",
+        "originalSha256": "654cb3072454b05cc758e4bb75df3c08c5ade617354475acb60233138d1332d1",
+        "productionSha256": "654cb3072454b05cc758e4bb75df3c08c5ade617354475acb60233138d1332d1"
       }
     },
     {
       "id": "biochemistry-ddecee9d8f653b20",
       "subject": "Biochemistry",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
       "source": {
         "file": "biochemistryed8.pdf",
@@ -10263,7 +10283,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
           "source": {
             "page": 409,
@@ -10276,8 +10296,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Verify this asset ownership, role and answer-safety against the cited source page."
+            "sourceCompared": true,
+            "notes": "Question 22 explicitly asks the learner to interpret the illustration, so question-time placement is required. Neutral question alt text is retained and the image itself does not reveal the correct answer.",
+            "evidence": "Marrow ED8 page 409 xref 976 plus run 34595643644 comparison artifact."
           }
         }
       ],
@@ -10294,10 +10315,13 @@
         "height": 562
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Candidate: Segments 1–5 with promoters W, X, Y, Z and products A/B. Verify role, ownership, overlays, classification and readability."
+        "sourceCompared": true,
+        "notes": "Compared Marrow ED8 page 409/xref 976 against the exact 720x562 native JPEG and learner-width rendering. Segments 1-5, W/X/Y/Z directional promoter arrows and products A/B are all preserved and readable; the figure contains no marked correct option.",
+        "evidence": "GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH26_Q022__comparison.jpg",
+        "originalSha256": "ddecee9d8f653b20013184ed4b12572501e964113875b49fb190b3776086516b",
+        "productionSha256": "ddecee9d8f653b20013184ed4b12572501e964113875b49fb190b3776086516b"
       }
     }
   ]
