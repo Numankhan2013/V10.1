@@ -30,7 +30,7 @@ Current deterministic inventory remains 429 enhanced / 1,686 pending: Anatomy 62
 
 Physical learner review on 2026-09-11 proved the earlier Biochemistry image-completeness claim wrong. Registry asset counts describe only reviewed/staged work and are never a subject-completeness denominator.
 
-Coverage repair is incorporated into the image lineage. The current verified post-adjudication Biochemistry coverage is:
+Coverage repair is incorporated into the image lineage. The current candidate Biochemistry coverage is:
 - raw source visual references: **95**;
 - effective learner visual references: **94**;
 - released source visual references: **66**;
@@ -44,22 +44,23 @@ Physiology remains paused at 218 raw references / 42 released / 22 tracked-unrel
 
 The source-derived audit plus `tools/marrow_image_coverage.py` is the completion gate. A bounded batch may be COMPLETE while a subject remains INCOMPLETE.
 
-## Latest image recovery batch — VERIFIED_HISTORY
+## Latest image recovery batch — CURRENT_UNVERIFIED
 
-Classification: **VERIFIED_HISTORY / COMPLETE bounded coverage-recovery batch**. It no longer owns the shared writer lane.
+Classification: **CURRENT_UNVERIFIED / source-validated bounded coverage-recovery batch**. This branch owns the writer lane until exact-head canonical CI finishes or the batch is safely retired.
 
 - Subject: Biochemistry.
 - Batch: `NKQ_BIOCHEM_COVERAGE_Q13_20260911`.
-- Historical branch: `automation/marrow-images-biochemistry-NKQ_BIOCHEM_COVERAGE_Q13_20260911`.
+- Candidate branch: `automation/marrow-images-biochemistry-NKQ_BIOCHEM_COVERAGE_Q13_20260911`.
 - Exact integration base: `c9b5930b7ffdbc9af7a1edcc5acc829ad96e79c3`.
-- Released reference: `marrow__BIOCHEM_CH02_Q013:figure:1`, explanation role, Marrow ED8 Biochemistry page 35 / xref 1126 / region `[162,453,450,669]`.
+- Released reference candidate: `marrow__BIOCHEM_CH02_Q013:figure:1`, explanation role, Marrow ED8 Biochemistry page 35 / xref 1126 / region `[162,453,450,669]`.
 - The authoritative page places this glycolysis pathway immediately after the Q13 solution and before Solution to Question 14.
 - Reused the already source-compared PASS glycolysis reconstruction `biochemistry-aa11f9fa6a08baea` / production SHA-256 `e6b4d76fa9ff07dbf62b5094b8fdcd46a744837bb802aa55945ac7021f6fa8e2`; no new medical or diagram content was invented.
 - Source/reference validation, release regeneration, progress check, coverage check, image tests, coverage tests, pipeline verification, project-memory verification and `git diff --check` passed in bounded recovery run `34623825459`.
-- Post-batch Biochemistry coverage: **95 raw / 94 effective / 66 released / 1 invalid metadata / 67 resolved / 4 tracked-unreleased / 24 untracked / 31 text-cue items**. Subject remains **INCOMPLETE**.
-- No `main` merge or production promotion occurred.
+- Temporary generated coverage output and Python bytecode were removed; `.gitignore` now excludes `__pycache__/` and `*.pyc`.
+- Post-batch candidate coverage: **95 raw / 94 effective / 66 released / 1 invalid metadata / 67 resolved / 4 tracked-unreleased / 24 untracked / 31 text-cue items**. Subject remains **INCOMPLETE**.
+- Exact-head Engineering Gate and full Android/PWA/package verification are pending on the clean candidate. Production promotion remains forbidden.
 
-Exact next deterministic unresolved source reference: `marrow__BIOCHEM_CH01_Q004:figure:1 (explanation, source pages [12], status UNTRACKED_SOURCE_VISUAL)`.
+Exact next deterministic unresolved source reference after this candidate: `marrow__BIOCHEM_CH01_Q004:figure:1 (explanation, source pages [12], status UNTRACKED_SOURCE_VISUAL)`.
 
 ## Coverage and trust rules
 
@@ -78,8 +79,8 @@ Rejected wrong candidates do not resolve legitimate visuals. Never use approved 
 - Biochemistry remains the active coverage-recovery subject and is **INCOMPLETE**.
 - Physiology image automation remains paused so the old discovery defect is not propagated.
 - Recovery proceeds in deterministic source-reference order; complex/vector/zero-native references cannot be skipped for easier JPEGs.
-- The next deterministic unresolved source reference is `marrow__BIOCHEM_CH01_Q004:figure:1 (explanation, source pages [12], status UNTRACKED_SOURCE_VISUAL)`.
-- After one bounded batch completes, stop that run and leave Biochemistry recurring recovery enabled while subject coverage remains incomplete.
+- Do not start another image batch while `NKQ_BIOCHEM_COVERAGE_Q13_20260911` remains CURRENT_UNVERIFIED.
+- After this batch becomes FULLY_VERIFIED_HISTORY, the next deterministic unresolved source reference is `marrow__BIOCHEM_CH01_Q004:figure:1 (explanation, source pages [12], status UNTRACKED_SOURCE_VISUAL)`.
 
 ## Known problems / verification cautions
 
@@ -91,6 +92,6 @@ Rejected wrong candidates do not resolve legitimate visuals. Never use approved 
 
 ## Next step
 
-1. Acquire the free shared writer lane from live `feature/marrow-image-rollout-current` only if no newer current writer exists.
-2. Start the next bounded Biochemistry recovery batch at `marrow__BIOCHEM_CH01_Q004:figure:1 (explanation, source pages [12], status UNTRACKED_SOURCE_VISUAL)` and continue only within the runbook workload budget.
-3. Keep Physiology paused and never claim Biochemistry COMPLETE until the full coverage gate passes.
+1. Finish exact-head Engineering Gate and full Android/PWA/package verification for `NKQ_BIOCHEM_COVERAGE_Q13_20260911`.
+2. If both pass, record the exact verified candidate/run IDs, retire this batch to VERIFIED_HISTORY, and fast-forward only `feature/marrow-image-rollout-current`; never `main` or production.
+3. The following bounded recovery batch must start at `marrow__BIOCHEM_CH01_Q004:figure:1 (explanation, source pages [12], status UNTRACKED_SOURCE_VISUAL)`.
