@@ -159,6 +159,8 @@ jobs:
         run: python3 tools/fix_boot_syntax.py
       - name: Install isolated Marrow bank pilot
         run: python3 tools/apply_marrow_bank_pilot.py
+      - name: Repair canonical Marrow structured-table renderer
+        run: python3 tools/apply_marrow_structured_table_renderer_v1.py
       - name: Validate Marrow image registry, bindings, and progress
         run: python3 tools/test_marrow_images.py
       - name: Install reviewed Marrow images
@@ -253,6 +255,7 @@ jobs:
           grep -q 'window.QB.openQuestionNavigator()' app/src/main/assets/index.html
           grep -q 'showToast(msg,type' app/src/main/assets/index.html
           grep -q 'root.innerHTML=' app/src/main/assets/index.html
+          grep -q 'NK_MARROW_STRUCTURED_TABLE_RENDERER_V1' app/src/main/assets/index.html
           test -s app/src/main/assets/biochemistry_source_solution_map.js
           test -s app/src/main/assets/subject_source_solution_maps.js
           test -s app/src/main/assets/source_visual_metadata.js
@@ -282,6 +285,8 @@ jobs:
         run: python3 tools/verify_recall_dock_browser.py
       - name: Verify Marrow bank selector and native explanation in browser
         run: python3 tools/verify_marrow_bank_browser.py
+      - name: Verify populated Marrow structured table in browser
+        run: python3 tools/verify_marrow_structured_table_browser.py
       - name: Capture Marrow image comparisons
         run: python3 tools/capture_marrow_image_review.py
       - name: Upload recall dock and Marrow pilot screenshots
@@ -353,6 +358,7 @@ jobs:
           grep -q 'root.innerHTML=' /tmp/packaged-index.html
           grep -q 'NK_FSRS_V6_START' /tmp/packaged-index.html
           grep -q 'NK_MARROW_BANK_PILOT_V1_START' /tmp/packaged-index.html
+          grep -q 'NK_MARROW_STRUCTURED_TABLE_RENDERER_V1' /tmp/packaged-index.html
           grep -q 'marrow__ANAT_CH01_Q001' /tmp/packaged-index.html
           grep -q 'Detailed explanation' /tmp/packaged-index.html
           grep -q 'qbank_active_bank_v1' /tmp/packaged-index.html
