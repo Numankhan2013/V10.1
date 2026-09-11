@@ -70,20 +70,31 @@ def main() -> None:
             assert all(str(reason).strip() for reason in cfg["rationales"].values())
             _validate_reconstruction(qid, cfg)
 
-        expected_file_order = list(range(min(source_order), max(source_order) + 1))
-        assert sorted(source_order) == expected_file_order, path.name
-        if "questionStart" in scope:
-            assert int(scope["questionStart"]) == min(source_order), path.name
-        if "questionEnd" in scope:
-            assert int(scope["questionEnd"]) == max(source_order), path.name
+        # Legacy whole-chapter rollout files intentionally omit their already-
+        # approved gold-sample question, so their own question numbers can contain
+        # one hole. New workload-bounded files declare explicit source bounds;
+        # validate those bounds against every non-sample source item in the range.
+        if "questionStart" in scope or "questionEnd" in scope:
+            assert "questionStart" in scope and "questionEnd" in scope, path.name
+            start = int(scope["questionStart"])
+            end = int(scope["questionEnd"])
+            assert start <= end, path.name
+            expected_ids = {
+                qid for qid, question in source_questions.items()
+                if str(question["chapterId"]) == chapter
+                and start <= int(question.get("questionNumber") or 0) <= end
+                and qid not in sample_ids
+            }
+            assert set(questions) == expected_ids, path.name
+            assert min(source_order) >= start and max(source_order) <= end, path.name
 
         batch_ids.update(questions)
         covered_chapters.setdefault(chapter, set()).update(questions)
 
     # A chapter may be intentionally split into workload-bounded files. For every
-    # chapter that has rollout work, coverage must remain a gap-free source-order
-    # prefix once already-approved gold-sample questions are included. This lets
-    # a bounded batch stop safely before the end of a chapter without cherry-pick gaps.
+    # chapter with rollout work, the union of rollout + approved sample questions
+    # must be a gap-free source-order prefix. Historical completed chapters remain
+    # full prefixes; the current partial chapter may stop only at a clean boundary.
     for chapter, rollout_ids in covered_chapters.items():
         source_chapter = {
             qid for qid, question in source_questions.items()
