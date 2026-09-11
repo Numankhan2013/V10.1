@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Anatomy Chapter 5 explanation rollout. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "5",
+    "chapterTitle": "Pharyngeal arches, Skeletal & Muscular Systems",
+    "questionStart": 20,
+    "questionEnd": 24,
+    "questions": 5,
+    "status": "approved-rollout",
+    "workloadScore": 8.0
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 576,
+    "anatomyReference": 81,
+    "physiology": 236,
+    "biochemistry": 259
+  },
+  "questions": {
+    "marrow__ANAT_CH05_Q020": {
+      "takeaway": "Tongue skeletal muscle comes from occipital somites and is therefore mainly supplied by the hypoglossal nerve; palatoglossus is the vagal exception.",
+      "displayText": "The intrinsic and extrinsic skeletal muscles of the tongue develop from occipital myotomes that migrate into the developing tongue. Their motor nerve, the hypoglossal nerve (CN XII), follows this migrating muscle mass, which explains the close developmental link between origin and innervation. Palatoglossus is the important exception: although it is a tongue muscle, its motor supply is via the vagus nerve through the pharyngeal plexus. Do not confuse the muscular origin with the mucosal origin of the tongue, which is derived from multiple pharyngeal arches.",
+      "emphasis": [
+        "occipital myotomes",
+        "hypoglossal nerve (CN XII)",
+        "Palatoglossus is the important exception"
+      ],
+      "rationales": {
+        "a": "Preoccipital myotomes are not the standard embryologic source of tongue musculature; the migrating muscle precursors arise from occipital somites.",
+        "c": "Ectoderm contributes to epithelial and neural structures, not the skeletal muscle mass of the tongue.",
+        "d": "Splanchnic mesoderm mainly gives rise to cardiac muscle and much visceral smooth muscle, not tongue skeletal muscle."
+      }
+    },
+    "marrow__ANAT_CH05_Q021": {
+      "takeaway": "A painless lateral neck cyst near the anterior border of sternocleidomastoid, especially near the mandibular angle, classically reflects persistence of the cervical sinus.",
+      "displayText": "This presentation is classic for a branchial cyst caused by persistence of the cervical sinus. During development, the second pharyngeal arch overgrows the third and fourth arches, creating an ectoderm-lined depression called the cervical sinus; it normally disappears. Persistence leaves a cystic remnant along the lateral neck, typically near the anterior border of the sternocleidomastoid and often just below the angle of the mandible. If a persistent tract communicates with the skin or pharynx, a branchial sinus or fistula may result.",
+      "emphasis": [
+        "persistence of the cervical sinus",
+        "second pharyngeal arch overgrows the third and fourth arches",
+        "anterior border of the sternocleidomastoid"
+      ],
+      "rationales": {
+        "a": "Persistence of the first branchial cleft produces first-cleft anomalies near the external auditory canal or parotid region rather than the classic second-arch lateral neck cyst described here.",
+        "b": "The ultimobranchial body contributes parafollicular C cells of the thyroid and does not form a branchial cyst at the mandibular angle.",
+        "d": "The fourth pharyngeal pouch contributes superior parathyroid tissue and the ultimobranchial complex; persistence of the cervical sinus, not the pouch itself, explains this lesion."
+      }
+    },
+    "marrow__ANAT_CH05_Q022": {
+      "takeaway": "Cardiac muscle and most visceral smooth muscle are mesodermal, classically arising from splanchnic mesoderm; a few specialized muscle-like cells have ectodermal or neuroectodermal origins.",
+      "displayText": "The best answer is splanchnic mesoderm. Cardiac muscle develops from splanchnic lateral plate mesoderm, and the smooth muscle of much of the gastrointestinal and respiratory tract is also derived from surrounding splanchnic mesoderm. By contrast, somatic mesoderm contributes body-wall and limb musculature, while pharyngeal-arch mesoderm contributes characteristic head-and-neck muscles. Important exceptions should be learned precisely: the sphincter and dilator pupillae arise from optic-cup neuroectoderm, and sweat-gland myoepithelial cells are ectodermal. Arrector pili should not be memorized as an ectoderm-derived exception.",
+      "emphasis": [
+        "splanchnic mesoderm",
+        "sphincter and dilator pupillae arise from optic-cup neuroectoderm",
+        "Arrector pili should not be memorized as an ectoderm-derived exception"
+      ],
+      "rationales": {
+        "a": "Ectoderm is not the general source of cardiac or visceral smooth muscle; only specific specialized exceptions have ectodermal or neuroectodermal origins.",
+        "b": "Somatic mesoderm is associated chiefly with body-wall and limb skeletal musculature rather than cardiac and visceral smooth muscle.",
+        "c": "Pharyngeal-arch mesoderm forms characteristic skeletal muscles of the head and neck, not the general cardiac and smooth-muscle compartments."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source correctly keys splanchnic mesoderm and correctly identifies iris muscle and sweat-gland myoepithelial exceptions, but it also lists arrector/erector pili as ectoderm-derived, which is medically misleading.",
+        "reconstructedContent": "Preserve the keyed splanchnic-mesoderm answer and general mesoderm rule while correcting the exception list: iris sphincter/dilator are optic-cup neuroectoderm derivatives and sweat-gland myoepithelial cells are ectodermal; do not teach arrector pili as ectoderm-derived.",
+        "evidenceBasis": [
+          "The immutable source stem and answer key identify splanchnic mesoderm as the best answer for cardiac and smooth muscle.",
+          "NCBI StatPearls describes the iris sphincter and dilator muscles as derivatives of optic-cup neuroectoderm.",
+          "Published histologic evidence supports ectodermal sweat-gland myoepithelial cells while distinguishing arrector pili from that ectodermal phenotype."
+        ],
+        "reviewNote": "Learner-facing medical correction only; immutable Marrow source and keyed answer remain unchanged."
+      }
+    },
+    "marrow__ANAT_CH05_Q023": {
+      "takeaway": "In the intervertebral disc, annulus fibrosus is derived from sclerotome, whereas nucleus pulposus is the persistent remnant of the notochord.",
+      "displayText": "Label 1 represents the annulus fibrosus and label 2 the nucleus pulposus. The annulus fibrosus develops from sclerotomal mesenchyme surrounding the notochord and developing vertebral bodies. The nucleus pulposus is derived from persistent notochord: the notochord largely disappears where vertebral bodies form but remains within the center of each intervertebral disc. Therefore the correct developmental pairing is sclerotome for the annulus fibrosus and notochord for the nucleus pulposus.",
+      "emphasis": [
+        "annulus fibrosus develops from sclerotomal mesenchyme",
+        "nucleus pulposus is derived from persistent notochord",
+        "sclerotome for the annulus fibrosus and notochord for the nucleus pulposus"
+      ],
+      "rationales": {
+        "a": "This reverses the relevant origins: the annulus fibrosus is not notochordal, while the nucleus pulposus is the notochordal remnant.",
+        "b": "Dermatome gives rise principally to dermis in segmental body regions and does not form the nucleus pulposus.",
+        "c": "Neither labelled structure has this pairing: annulus fibrosus is sclerotomal and nucleus pulposus is notochordal."
+      }
+    },
+    "marrow__ANAT_CH05_Q024": {
+      "takeaway": "The left recurrent laryngeal nerve has its long thoracic course because the left sixth arch artery persists as the ductus arteriosus and later ligamentum arteriosum.",
+      "displayText": "The left recurrent laryngeal nerve remains hooked beneath a derivative of the left sixth aortic arch. The distal left sixth arch persists as the ductus arteriosus, which becomes the ligamentum arteriosum after birth; descent of the heart and great vessels therefore draws the nerve into the thorax and produces its long recurrent course. On the right, the distal sixth arch disappears, so the right recurrent laryngeal nerve ultimately loops around the right subclavian artery, a fourth-arch derivative.",
+      "emphasis": [
+        "left sixth aortic arch",
+        "ductus arteriosus",
+        "ligamentum arteriosum",
+        "right subclavian artery, a fourth-arch derivative"
+      ],
+      "rationales": {
+        "a": "The third arch mainly contributes to the common carotid and proximal internal carotid arteries and does not explain the left recurrent laryngeal loop.",
+        "b": "The fourth arch is important on the right because its derivative contributes to the right subclavian artery, but the long left recurrent course is tied to persistence of the left sixth arch.",
+        "c": "The fifth arch is rudimentary or absent and does not provide the persistent arterial structure responsible for recurrent laryngeal nerve looping."
+      }
+    }
+  }
+}
