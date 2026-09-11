@@ -1,14 +1,18 @@
 # STATE.md — Current Project State and Handoff
 
-> Operational state only. Resolve live branch/HEAD and CI from Git before writing. Historical detail belongs in `SESSION_LOG.md` and dedicated handoffs.
+> Operational state only. Resolve live branch/commit and CI from Git before writing. Historical detail belongs in `SESSION_LOG.md` and dedicated handoffs.
 
 ## Canonical lineage
 
 - Repo: `Numankhan2013/V10.1`.
 - **Sole Marrow integration trunk:** `feature/marrow-canonical-full-current`.
 - Product/UI base: user-approved V3/correct-index lineage.
+- **Accepted baseline:** V11.6 Content Quality.
+- Accepted product commit: `125d68b`.
+- **build-verified:** pending final exact-head certification for the fully reconciled canonical handoff commit; constituent source/product/image heads are already green as recorded below.
+- **device-verified:** not yet for the fully reconciled canonical candidate.
 - `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md` is mandatory for image and explanation workers.
-- Historical rollout branches/PRs are donor evidence/history only. New candidate branches must start from the exact canonical head and verified results must return to canonical before a lane is released.
+- Historical rollout branches/PRs are donor evidence/history only. Candidate branches must start from the exact canonical commit and verified results must return to canonical before a lane is released.
 - Production promotion remains explicit and guarded. This lineage is preview-only until user approval.
 
 ## Complete canonical Marrow ED8 source
@@ -18,7 +22,7 @@
 - Physiology: **Ch1–43 / 1,014 questions / 43 source topics**.
 - Global: **2,711 questions / 134 source topics**.
 
-Anatomy Ch49–59 were restored from validated canonical JSONL and now fill the existing Abdomen/Pelvis, Lower Limb and Back taxonomy slots. Learner numbering is contiguous while backend source chapter/question IDs remain source-faithful. Raw imported source remains immutable.
+Anatomy Ch49–59 were restored from validated canonical JSONL and fill the existing Abdomen/Pelvis, Lower Limb and Back taxonomy slots. Learner numbering is contiguous while backend source chapter/question IDs remain source-faithful. Raw imported source remains immutable.
 
 ## Product architecture to preserve
 
@@ -42,7 +46,7 @@ Current canonical image state:
 - Biochemistry released questions: **62**;
 - Physiology released questions: **39**.
 
-Current image graft head `0313f34d85470502a6bf725a7e7bf5efa7cc87f3` passed:
+Image graft commit `0313f34d85470502a6bf725a7e7bf5efa7cc87f3` passed:
 - Engineering Gate run **34637182951**;
 - full Android/PWA/browser/APK/package/reproducibility/preview run **34637182841**;
 - production promotion skipped.
@@ -52,14 +56,9 @@ Image coverage is **not complete merely because the reviewed registry is valid**
 ## Verified explanation layer carried into canonical
 
 Only previously `FULLY_VERIFIED` batches were grafted by stable question ID:
-- Anatomy Ch5 Q1–9;
-- Anatomy Ch5 Q10–19;
-- Physiology Ch6;
-- Physiology Ch7;
-- Physiology Ch8;
-- Physiology Ch9;
-- Physiology Ch10 Q1–13;
-- Physiology Ch10 Q14–18.
+- Anatomy Ch5 Q1–9 and Q10–19;
+- Physiology Ch6, Ch7, Ch8, Ch9;
+- Physiology Ch10 Q1–13 and Q14–18.
 
 Existing canonical verified Biochemistry Ch1–11/gold work and Physiology Ch5 were preserved.
 
@@ -72,28 +71,37 @@ Deterministic inventory on complete corpus after graft:
 - enhanced-reference **576**;
 - pending **2,135**.
 
-The inventory refresh workflow now triggers automatically when `data/marrow/explanation_*.json` changes, preventing future verified batches from leaving a stale global snapshot.
+The inventory refresh workflow triggers automatically when `data/marrow/explanation_*.json` changes, preventing future verified batches from leaving a stale global snapshot.
 
 ## Anti-fragmentation automation contract
 
 - Explanation and image scheduled-task prompts are repointed to `feature/marrow-canonical-full-current` and the complete 2,711-question denominator.
 - Scheduler enable/disable state is external; repository policy, not historical task text, defines lineage authority.
-- Before every mutation, workers must re-read canonical `STATE.md`, exact head, shared inventory/registry fingerprints and current unfinished ownership.
-- A stale open branch/PR is not a lock. A genuine blocker requires current authoritative memory plus matching live Git/head evidence.
-- Short-lived batch branches are allowed for CI safety, but a batch is not considered integrated until reconciled back to canonical.
+- Before every mutation, workers must re-read canonical `STATE.md`, exact commit, shared inventory/registry fingerprints and current unfinished ownership.
+- A stale open branch/PR is not a lock. A genuine blocker requires current authoritative memory plus matching live Git/commit evidence.
+- Short-lived batch branches are allowed for CI safety, but a batch is not integrated until reconciled back to canonical.
 
 ## Current verification state
 
 - Complete source consolidation: verified.
 - V3 product/browser baseline: full run **34636787305** passed.
 - Verified image graft: Engineering + full build passed as recorded above.
-- Verified explanation donor batches: historically exact-head verified before graft; canonical inventory regeneration succeeded on bot head `b41e4743ddfa5d45a1987dc049adb5660ab3fa35`.
-- **Final requirement:** certify the current documentation/handoff head (which includes source + V3 + verified images + verified explanations) through exact-head Engineering Gate and full Android/PWA/browser/APK/package/reproducibility/preview. Live GitHub CI is authoritative over this static note.
-- Device verification by user is still required before production promotion.
+- Verified explanation donor batches: historically exact-head verified before graft.
+- Canonical explanation inventory regeneration succeeded at `b41e4743ddfa5d45a1987dc049adb5660ab3fa35` with **576 enhanced / 2,135 pending**.
+- Final requirement is exact-head Engineering Gate plus full Android/PWA/browser/APK/package/reproducibility/preview for the current handoff commit. Live GitHub CI is authoritative over this static note.
 
-## Next action
+## Known problems / cautions
 
-1. Run/observe exact-head Engineering Gate and full Android/PWA pipeline for the current canonical head.
+- Final exact-head certification is still required after this handoff-format repair.
+- The user has not yet device-verified the fully reconciled canonical candidate.
+- Image source-reference coverage remains incomplete and must continue coverage-first.
+- Unfinished Anatomy Q20–24 and Biochemistry Ch12 explanation branches remain historical/unverified and must not be treated as completed work.
+- Production must remain untouched until explicit user approval.
+- Preserve source-review flags; never invent missing source text or medical-image detail.
+
+## Next step
+
+1. Run/observe exact-head Engineering Gate and full Android/PWA pipeline for the current canonical commit.
 2. Repair only concrete failures; never weaken medical/source/coverage/product regressions merely to obtain green CI.
 3. When exact-head green, re-enable the three explanation workers and the previously-active Biochemistry image worker; keep Anatomy/Physiology image workers in their prior disabled state unless user explicitly changes them.
 4. All future verified batches must start from and reconcile into canonical.
