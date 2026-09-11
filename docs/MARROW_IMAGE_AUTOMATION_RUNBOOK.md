@@ -21,16 +21,64 @@ Required inputs supplied by the automation prompt:
 - `INTEGRATION_BASE_BRANCH`: normally
   `feature/marrow-image-rollout-current` until memory says otherwise.
 
-Recalculate current totals; never trust copied counts as live state. At this
-runbook's creation, the verified Batch 07 state is 147 approved assets, 166
-released bindings, and 152 released questions: Anatomy 58, Biochemistry 55,
-Physiology 39. The user-approved pilot is the minimum readability threshold.
-Later work may exceed it but must never fall below it.
+Recalculate current totals; never trust copied counts as live state. Registry
+asset totals and released-question totals are progress measures, **not source
+coverage denominators**. A subject is not image-complete merely because every
+currently tracked registry asset has been adjudicated.
+
+## Source-PDF completeness contract — mandatory
+
+The authoritative completeness denominator is the source PDF itself. Visual
+metadata can be incomplete or can be lost during normalization. Therefore every
+non-background PDF image placement occurring on a canonical question page or
+explanation page must be explicitly accounted for.
+
+Before candidate selection, always run:
+
+```sh
+python3 tools/marrow_images.py audit
+python3 tools/marrow_image_coverage.py --subject SUBJECT
+```
+
+The coverage report classifies each source placement as:
+
+- `RELEASED`: the exact page/xref/region is bound to a valid owning question and
+  role, and both asset and binding are releasable;
+- `REVIEW_REQUIRED`: the exact placement is in the registry but intentionally
+  held;
+- `REJECTED`: the exact placement/binding was inspected and rejected with
+  evidence;
+- `UNACCOUNTED`: the source placement has not yet been adjudicated. This is
+  unfinished work, not permission to ignore the image.
+
+`sourceImagePlacements` is the source-coverage denominator. `approvedAssets`,
+`assets`, `releasedQuestions`, figure-metadata counts, native-stream counts, and
+candidate counts must never be substituted for it.
+
+A subject may be called **IMAGE_COMPLETE** only when
+`unaccountedPlacements == 0`. Held/rejected placements may remain, but each must
+have explicit source evidence and status. Until then report the subject as
+`IMAGE_COVERAGE_INCOMPLETE`, even if a bounded batch itself is complete.
+
+This distinction is mandatory:
+
+- **BATCH COMPLETE** = the bounded batch has reached a safe verified stopping
+  point and released/held/rejected items are fully recorded.
+- **SUBJECT IMAGE_COMPLETE** = the source-PDF coverage report has zero
+  unaccounted placements.
+
+Never conflate these states in memory or user-facing reports.
+
+PDF placements with one unambiguous page-provenance owner may be staged
+normally. If a placement has multiple candidate owners, zero surviving visual
+metadata, masks, forms, or other ambiguity, keep it visible in the coverage
+queue and inspect the full source page, stem, solution, adjacent questions, and
+candidate region. Ambiguity is review work; it must never make a candidate
+silently disappear.
 
 ## Safe workload and stopping rule
 
-Official OpenAI documentation does not establish a fixed wall-clock maximum for
-these ChatGPT web automations. Use a conservative operational budget instead:
+Use a conservative operational budget:
 
 - spend 3–5 minutes on preflight and state recovery;
 - spend about 12–15 minutes selecting and source-comparing candidates;
@@ -60,14 +108,16 @@ At the start:
    commits, registry, progress, memory, and open work.
 2. Preserve unrelated and untracked user files.
 3. Confirm the configured integration base has not been superseded.
-4. If another batch changed the registry or image assets, stop and request a
-   rebase; never resolve a shared-registry conflict by choosing one side.
-5. Create `automation/marrow-images-<subject>-<batch-id>` from the exact base and
-   record its SHA.
+4. Resolve current source-placement coverage for the configured subject.
+5. If another genuinely unfinished batch owns a shared-registry mutation, stop;
+   historical/completed branches are not locks.
+6. If resuming the same subject's unfinished batch, resume that exact branch.
+   Otherwise create `automation/marrow-images-<subject>-<batch-id>` from the
+   exact authoritative base and record its SHA.
 
 Never force-push, destructively reset, overwrite other work, merge to `main`, or
 promote production. Push only the candidate branch. Build-verified, device-
-verified, and user-accepted are different statuses.
+verified, user-accepted, batch-complete, and subject-image-complete are distinct.
 
 ## Audit and deterministic selection
 
@@ -77,12 +127,12 @@ Use the existing pipeline. Inspect the implementation before invoking it:
 python3 tools/marrow_images.py audit
 python3 tools/marrow_images.py validate
 python3 tools/marrow_image_progress.py --check
+python3 tools/marrow_image_coverage.py --subject SUBJECT
 ```
 
-Filter candidates to the configured subject. Do not blindly run
-`stage_marrow_image_review.py --per-subject`, because the current command stages
-all three subjects. Extend it with a tested subject filter or select a
-deterministic subject-only set from the audit.
+Select the next work from the ordered `UNACCOUNTED` source placements in the
+coverage report. Surviving visual metadata may prioritize or clarify ownership,
+but it must not define the universe of images.
 
 Prefer, in order:
 
@@ -213,6 +263,9 @@ Run at minimum:
 
 ```sh
 git diff --check
+python3 tools/marrow_images.py audit
+python3 tools/test_marrow_image_source_coverage.py
+python3 tools/marrow_image_coverage.py --subject SUBJECT
 python3 tools/marrow_images.py validate
 python3 tools/marrow_image_progress.py
 python3 tools/marrow_image_progress.py --check
@@ -221,12 +274,19 @@ python3 tools/verify_build_pipeline.py
 python3 tools/verify_local.py
 ```
 
-Inspect the entire registry diff, progress delta, new paths, bindings, subject
-scope, and unexpected files. Fail closed on stale hashes/QA/progress/runtime
-metadata, overwritten originals, wrong-subject bindings, unsafe SVG, medical
-reconstruction, missing comparison evidence, source hash drift, raw-question
-hash drift, rejected/pending runtime release, syntax failure, or package-byte
-mismatch.
+If claiming **SUBJECT IMAGE_COMPLETE**, additionally run:
+
+```sh
+python3 tools/marrow_image_coverage.py --subject SUBJECT --check-complete
+```
+
+Inspect the entire registry diff, progress delta, coverage delta, new paths,
+bindings, subject scope, and unexpected files. Fail closed on stale hashes/QA/
+progress/runtime metadata, overwritten originals, wrong-subject bindings, unsafe
+SVG, medical reconstruction, missing comparison evidence, source hash drift,
+raw-question hash drift, rejected/pending runtime release, syntax failure,
+package-byte mismatch, or any unaccounted source placement when completeness is
+claimed.
 
 When available, require full generated-app/browser/PWA/APK CI. Verify inline
 role/timing, neutral unanswered state, aspect ratio, multiple-figure order,
@@ -246,6 +306,13 @@ muscle questions, and action-potential figures for unrelated contraction
 questions. These demonstrate that plausible resemblance, same-page location,
 and topical similarity are not proof.
 
+Coverage failure discovered 2026-09-11: bounded registry batches were incorrectly
+reported as if they implied subject completeness. Biochemistry had 60 approved
+assets but a source-PDF audit later found 201 relevant image placements with 135
+still unaccounted. Several learner-reported figures in Chapters 18–22 had been
+silently omitted because metadata was incomplete or normalization dropped visual
+fields. This is the reason source-PDF placement coverage is now mandatory.
+
 The Golgi-tendon-organ sequence is correctly associated but held because its
 native labels are below the accepted threshold. Correct ownership does not make
 an unreadable asset releasable. Other lessons: valid assets can have invalid
@@ -257,23 +324,27 @@ fields and single workflow ownership must remain intact.
 
 When less than five minutes remain, stop processing. Leave uncertainty as
 `REVIEW_REQUIRED`, validate the registry, refresh progress only if valid, update
-memory, commit, and push. Never wait for timeout with uncommitted work.
+coverage, memory, commit, and push. Never wait for timeout with uncommitted work.
 
 Always update `.project-memory/STATE.md` and append
 `.project-memory/SESSION_LOG.md`. Update `.project-memory/ROADMAP.md` and this
 pipeline document when durable totals or next steps change. Run the memory
 validator. Record subject, batch ID, base/candidate commits, exact question and
 asset IDs, page/xref/region, inspected/PASS/SOURCE_LIMITED/REVIEW_REQUIRED/
-REJECTED counts, released totals, methods, tests, CI URLs/status, screenshots,
-unresolved cases, next deterministic candidate, and whether the result is
-build-verified, device-verified, accepted, or none of those.
+REJECTED counts, released totals, **sourceImagePlacements and
+unaccountedPlacements**, methods, tests, CI URLs/status, screenshots, unresolved
+cases, next deterministic source placement, and whether the result is
+build-verified, device-verified, accepted, batch-complete, or subject-image-
+complete.
 
 Final response format:
 
 ```text
-STATUS: COMPLETE | SAFE_CHECKPOINT | BLOCKED
+STATUS: BATCH_COMPLETE | SAFE_CHECKPOINT | BLOCKED
+SUBJECT_COVERAGE: IMAGE_COMPLETE | IMAGE_COVERAGE_INCOMPLETE
 Subject / batch:
 Base / candidate commit:
+Source placements / released / held / rejected / unaccounted:
 Candidates inspected:
 PASS / SOURCE_LIMITED / REVIEW_REQUIRED / REJECTED:
 Released and held question IDs:
@@ -282,10 +353,10 @@ Validation and CI:
 Preview and screenshots:
 Production promoted: NO
 Memory updated: YES | NO
-Next deterministic candidate:
+Next deterministic source placement:
 Human review needed:
 ```
 
-Say COMPLETE only when released items have complete visual QA, all required
-checks pass, memory is updated, and work is committed. Otherwise leave a safe
-checkpoint with no unverified release.
+Say `BATCH_COMPLETE` only when the bounded batch is safely verified. Say
+`IMAGE_COMPLETE` only when `--check-complete` passes. Otherwise preserve the
+incomplete source-coverage state explicitly.
