@@ -76,13 +76,18 @@ def main() -> None:
             tables = page.locator(".nk-gold-explanation .nk-marrow-table")
             if tables.count() < 1:
                 raise SystemExit("Anatomy Ch5 Q10 structured explanation table did not render")
-            table_text = tables.first.inner_text()
+
+            table = tables.first
+            table_text = table.inner_text()
             if "[object Object]" in table_text:
                 raise SystemExit("Structured table leaked JavaScript object strings into learner UI")
+
             for expected in (
                 "Pharyngeal Arch",
                 "Muscle derivatives",
                 "Muscles of mastication",
+                "Muscles of facial expression",
+                "Stylopharyngeus",
                 "Larynx - cricothyroid",
                 "All intrinsic muscles (except cricothyroid)",
             ):
@@ -90,11 +95,19 @@ def main() -> None:
                     raise SystemExit(
                         f"Anatomy Ch5 Q10 rendered table missing {expected!r}: {table_text!r}"
                     )
-            nonempty_lines = [line.strip() for line in table_text.splitlines() if line.strip()]
-            if len(nonempty_lines) < 8:
-                raise SystemExit(
-                    f"Anatomy Ch5 Q10 table is visually under-populated: {nonempty_lines!r}"
-                )
+
+            # Verify the actual HTML cells, not an arbitrary number of text lines.
+            # The sentinel has two headers and five source rows (I, II, III, IV, VI).
+            headers = [text.strip() for text in table.locator("th").all_inner_texts()]
+            cells = [text.strip() for text in table.locator("td").all_inner_texts()]
+            if headers != ["Pharyngeal Arch", "Muscle derivatives"]:
+                raise SystemExit(f"Anatomy Ch5 Q10 table headers wrong: {headers!r}")
+            if len(cells) != 10:
+                raise SystemExit(f"Anatomy Ch5 Q10 expected 10 populated body cells, found {len(cells)}: {cells!r}")
+            if any(not cell for cell in cells):
+                raise SystemExit(f"Anatomy Ch5 Q10 table contains blank rendered body cells: {cells!r}")
+            if cells[::2] != ["I", "II", "III", "IV", "VI"]:
+                raise SystemExit(f"Anatomy Ch5 Q10 arch rows wrong or reordered: {cells[::2]!r}")
 
             page.screenshot(
                 path=str(OUT / "02-anatomy-ch05-q10-structured-table.png"),
@@ -105,7 +118,10 @@ def main() -> None:
             browser.close()
         server.shutdown()
 
-    print("MARROW_STRUCTURED_TABLE_BROWSER_OK anatomy_ch05_q010 populated=true object_leak=false")
+    print(
+        "MARROW_STRUCTURED_TABLE_BROWSER_OK "
+        "anatomy_ch05_q010 headers=2 rows=5 cells=10 populated=true object_leak=false"
+    )
 
 
 if __name__ == "__main__":
