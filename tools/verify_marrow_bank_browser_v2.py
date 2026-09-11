@@ -13,6 +13,28 @@ if wrapper.count(anchor) != 1:
 compat = r'''
 import re as _re
 
+
+def _chooser_steps(subject, click_marrow=True, screenshot=None):
+    lines = [
+        "            page.evaluate(\"window.QB.nkOpenSubjectLibrary('" + subject + "')\")",
+        "            page.wait_for_url('**/#banks/" + subject + "',timeout=5000)",
+        "            prep=page.locator('button.nk-bank-card').filter(has_text='PrepLadder')",
+        "            marrow=page.locator('button.nk-bank-card').filter(has_text='Marrow')",
+        "            if prep.count()!=1: raise SystemExit('" + subject + " PrepLadder card missing')",
+        "            if marrow.count()!=1: raise SystemExit('" + subject + " Marrow card missing')",
+        "            prep.wait_for(state='visible',timeout=5000)",
+        "            marrow.wait_for(state='visible',timeout=5000)",
+    ]
+    if screenshot:
+        lines.append("            page.screenshot(path=str(OUT/'" + screenshot + "'),full_page=True)")
+    if click_marrow:
+        lines.extend([
+            "            marrow.click(timeout=5000)",
+            "            page.wait_for_timeout(120)",
+        ])
+    return "\n".join(lines)
+
+
 def _subject_entry(subject, shot):
     global source
     esc = _re.escape(subject)
@@ -22,33 +44,26 @@ def _subject_entry(subject, shot):
         r".*?"
         r"            [A-Za-z_]*cards\.filter\(has_text='Marrow'\)\.click\(\);page\.wait_for_timeout\(\d+\)"
     )
-    replacement = (
-        "            page.evaluate(\"window.QB.nkOpenSubjectLibrary('" + subject + "')\");page.wait_for_timeout(120)\n"
-        "            if page.locator('button.nk-bank-card').filter(has_text='PrepLadder').count()!=1: raise SystemExit('" + subject + " PrepLadder card missing')\n"
-        "            if page.locator('button.nk-bank-card').filter(has_text='Marrow').count()!=1: raise SystemExit('" + subject + " Marrow card missing')\n"
-        "            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(120)\n"
-        "            page.screenshot(path=str(OUT/'" + shot + "'),full_page=True)"
-    )
+    chooser_shot = "00-" + subject.lower() + "-bank-chooser.png"
+    replacement = _chooser_steps(subject, click_marrow=True, screenshot=chooser_shot) + "\n            page.screenshot(path=str(OUT/'" + shot + "'),full_page=True)"
     source, n = _re.subn(pattern, replacement, source, count=1, flags=_re.S)
     if n != 1:
         raise SystemExit(f"{subject} initial chooser adapter count={n}")
+
 
 _subject_entry('Biochemistry', '00-biochemistry-topics.png')
 _subject_entry('Physiology', '00-physiology-topics.png')
 _subject_entry('Anatomy', '01-anatomy-topics.png')
 
-# All historical jumps back to a Marrow subject now traverse the bank chooser.
+# All historical jumps back to a Marrow subject now traverse and visibly verify
+# the real bank chooser. URL/visibility waits replace fragile fixed-delay races.
 for _subject in ('Biochemistry','Physiology','Anatomy'):
     esc = _re.escape(_subject)
     pattern = (
         r"            page\.evaluate\(\"window\.QB\.nav\('banks','" + esc + r"'\)\"\);page\.wait_for_timeout\(\d+\)\n"
         r"            page\.locator\('button\.nk-bank-card'\)\.filter\(has_text='Marrow'\)\.click\(\);page\.wait_for_timeout\(\d+\)"
     )
-    repl = (
-        "            page.evaluate(\"window.QB.nkOpenSubjectLibrary('" + _subject + "')\");page.wait_for_timeout(120)\n"
-        "            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(120)"
-    )
-    source = _re.sub(pattern, repl, source)
+    source = _re.sub(pattern, _chooser_steps(_subject), source)
 
 # Wrong-answer persistence is already covered by dedicated FSRS/history tests.
 wrong = (
@@ -57,10 +72,7 @@ wrong = (
     r".*?"
     r"            page\.evaluate\(\"window\.QB\.nkOpenSubjectLibrary\('Physiology'\)\"\);page\.wait_for_timeout\(120\)"
 )
-wrong_repl = (
-    "            page.evaluate(\"window.QB.nkOpenSubjectLibrary('Physiology')\");page.wait_for_timeout(120)\n"
-    "            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(120)"
-)
+wrong_repl = _chooser_steps('Physiology')
 source, nwrong = _re.subn(wrong, wrong_repl, source, count=1, flags=_re.S)
 if nwrong != 1:
     raise SystemExit(f"obsolete Wrong Questions adapter count={nwrong}")
@@ -109,9 +121,7 @@ extra = shot + """
                 raise SystemExit('Anatomy Ch5 Q1 tuned takeaway missing from learner runtime')
             if 'outer covering of the arch' not in body or 'inner lining' not in body:
                 raise SystemExit('Anatomy Ch5 Q1 distractor rationales missing from learner runtime')
-            page.evaluate("window.QB.nkOpenSubjectLibrary('Anatomy')");page.wait_for_timeout(120)
-            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(120)
-"""
+""" + _chooser_steps('Anatomy') + "\n"
 if source.count(shot) != 1:
     raise SystemExit(f"Anatomy tuned insertion anchor count={source.count(shot)}")
 source = source.replace(shot, extra, 1)
