@@ -7,10 +7,10 @@
 
 - Repo: `Numankhan2013/V10.1`.
 - Resolve live branch/HEAD from Git; do not hardcode a self-staling HEAD value.
-- Current explanation lineage is `feature/marrow-explanation-rollout-physio-ch10-q001-q013-current`.
-- Latest **fully verified** explanation product candidate is Physiology Chapter 10 Q1–Q13:
+- Current explanation lineage is `feature/marrow-explanation-rollout-physio-ch10-q014-q018-current`.
+- Latest **fully verified** explanation product candidate remains Physiology Chapter 10 Q1–Q13:
   `45cda2196c40d30eaf9283b031cba3942ed2e132`.
-- Exact-candidate verification: Engineering Gate **336** / `34580097242` and
+- Exact-candidate verification for that accepted explanation checkpoint: Engineering Gate **336** / `34580097242` and
   full Android/PWA run **719** / `34580093798` both passed on that same SHA.
 - Full-run artifact `V11.7-android-pwa`: ID `10191339526`, digest
   `sha256:79355c9c23135053f457092d5256b923ccfa4eb787bbc0e79265ab411e46c42b`.
@@ -101,19 +101,30 @@ recovered under the runbook contract.
 
 ## CURRENT_UNVERIFIED explanation batch
 
-- **None.**
-- Physiology Chapter 10 Q1–Q13 has moved to `FULLY_VERIFIED_HISTORY`.
-- No Q14–Q18 content was authored or committed in the finalization run.
+- **Owner: Physiology.**
+- Branch: `feature/marrow-explanation-rollout-physio-ch10-q014-q018-current`.
+- Batch ID: `physiology-20260911-ch10-q14-q18`.
+- Scope: Chapter 10 **Neurotransmitters**, Q14–Q18 contiguous source order; this is the chapter tail.
+- Count/workload: **5 questions**, workload score **10.0**. The batch intentionally finishes below target because the runbook forbids crossing into Chapter 11 solely to fill workload.
+- Augmentation: `data/marrow/explanation_physio_ch10_q014_q018_v1.json`.
+- Content checkpoint commit: `8c4e8172b65385d8f2aea6ac374db84cee8e401b`.
+- Source audit: rendered Marrow ED8 Physiology pages 201–209; printed key Q14=c, Q15=c, Q16=b, Q17=c, Q18=c checked visually. Chapter 11 begins page 210.
+- Reconstruction statuses: Q15 = `resolved_reconstruction`; Q14/Q16/Q17/Q18 = no reconstruction metadata.
+- Q15 source problem: the source says serotonin is simply an inhibitory neurotransmitter. Learner-facing augmentation preserves the source-keyed answer while teaching receptor-dependent physiology instead; 5-HT1 is generally inhibitory while 5-HT2 and 5-HT3 can be excitatory/facilitatory.
+- Q15 evidence includes the source pages plus published serotonin-receptor physiology (including PMID 2123618); raw source/key remain unchanged.
+- Source-owned visual context retained: Q14 basal-ganglia diagram and Q17 serotonin-metabolism diagram remain source provenance and are not redrawn/invented in augmentation.
+- Raw Marrow source remained unchanged.
+- Deterministic inventory has **not yet been regenerated**. Last certified inventory remains **561 enhanced / 1,554 pending** with fingerprint `773c057042d6b6ab17dec12817f4a174c30e989036b4e5d43af5ef3e9061dfa0`; expected count after deterministic regeneration is **566 enhanced / 1,549 pending**, but that expected count is not yet certified.
+- Static/shared validation, stable-ID browser regression, PR, exact-head Engineering Gate and full Android/PWA certification are all still pending.
+- State: **CONTENT_AUTHORED / CURRENT_UNVERIFIED**.
 
 ## Current integration-lane status
 
-- The serialized explanation lane is **released**.
-- Historical open PRs/branches, including PR #34 and any already-certified PR,
-  are non-blocking even if GitHub still reports them open.
-- Every worker must re-resolve newest authoritative `STATE.md` plus live Git/PR/head
-  state before claiming the lane.
-- An earlier empty branch named `feature/marrow-explanation-rollout-physio-ch10-q001-q014-current`
-  remains **STALE_HISTORY / non-authoritative** and must not be treated as lane ownership.
+- The serialized explanation lane is **owned by the current Physiology Q14–Q18 batch** until it becomes `FULLY_VERIFIED` or is safely abandoned under the runbook.
+- Historical open PRs/branches, including PR #34, PR #35, and already-certified rollout branches, are non-blocking even if GitHub still reports them open.
+- The older sibling branch `feature/marrow-explanation-rollout-anatomy-ch05-q10-q19-current` predates the later Physiology Chapter 10 Q1–Q13 fully verified handoff and diverges from the same older merge base; it is **STALE_HISTORY / non-authoritative** for lane ownership and must not be resurrected as a blocker merely because it still says CURRENT_UNVERIFIED locally.
+- Every worker must re-resolve newest authoritative `STATE.md` plus live Git/PR/head state before claiming the lane.
+- An earlier empty branch named `feature/marrow-explanation-rollout-physio-ch10-q001-q014-current` also remains **STALE_HISTORY / non-authoritative**.
 
 ## Known problems / cautions
 
@@ -128,15 +139,12 @@ recovered under the runbook contract.
 
 ## Next step
 
-1. Re-resolve live explanation-lane ownership before doing any new content work.
-2. If Physiology next acquires the free lane, dynamically workload-score the exact
-   next source-order incomplete range beginning at **Physiology Chapter 10 Q14**;
-   do not assume a hardcoded batch boundary beyond the runbook limits.
-3. Start at most one bounded new batch, preserve raw source immutability, and follow
-   the full source-audit → augmentation → deterministic inventory → static/shared
-   validation → stable-ID browser → exact-head Engineering + Android/PWA sequence.
-4. Keep production promotion skipped and preserve the accepted V11.6 baseline unless
-   the user explicitly changes it.
+1. Resume this exact Physiology Chapter 10 Q14–Q18 batch; do **not** author Chapter 11 while it is CURRENT_UNVERIFIED.
+2. Regenerate `data/marrow/explanation_inventory_v1.json` deterministically and confirm the resulting global count/fingerprint.
+3. Run source-ID/chapter/count, answer/distractor, emphasis, reconstruction-schema, raw-source immutability and duplicate-ID validation plus shared Practice/CBT/Review/FSRS/product regressions.
+4. Add one stable-ID browser regression for this batch (prefer Q15 because it is reconstruction-sensitive), preserving existing Chapter 10 Q13 coverage.
+5. Open/update the PR and certify only its exact current head through Engineering Gate and the full Android/PWA workflow, including APK/package/reproducibility and immutable preview deployment; keep production promotion skipped.
+6. Only after exact-head certification, move this batch to `FULLY_VERIFIED_HISTORY`, append the final `SESSION_LOG.md` handoff, release the lane, and end that run without starting Chapter 11.
 
 Efficiency rule: pre-audit future content while CI runs, but never commit another
 batch on an unverified lineage.
