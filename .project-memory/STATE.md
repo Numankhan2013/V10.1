@@ -96,14 +96,15 @@ explanation and exactly three distractor rationales through the real learner UI.
 
 ## Current image automation checkpoint
 
-- Classification: **VERIFIED_HISTORY**; completed owner **Biochemistry**; batch `NKQ_BIOCHEMISTRY_20260911` is complete and no longer owns the shared writer lane.
-- Branch `automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911`; working base `1ae61e205804d3d3b2359fcbad218f56e396896b`; exact build-verified candidate `04027242473b46ab5941ea3a41c11046458f2c90`; substantive image QA/release commit `6170c412a98f2147889e9b62845442a44b9dedd0`. Resolve live branch HEAD from Git for the memory-only handoff commit.
-- Registry SHA-256 `1927cb19959c931503c396a2cf58d0fd37f26531df23f3c542a7f6770d38de38`; progress SHA-256 `77c32ec0be4ef75a9941b8a2e44040a00720e354b5463a0e245b79caebc790b8`.
-- PASS/released in this batch: `marrow__BIOCHEM_CH25_Q024`, `marrow__BIOCHEM_CH26_Q003`, `marrow__BIOCHEM_CH26_Q014`, `marrow__BIOCHEM_CH26_Q021`, `marrow__BIOCHEM_CH26_Q022`.
-- Deferred specialist backlog, **REVIEW_REQUIRED** and unreleased: `marrow__BIOCHEM_CH25_Q026` / asset `biochemistry-e10cc8a9721a17da`; ownership is correct but native CRISPR labels remain below the confident phone-width readability threshold. This deferred item is not a current writer lock and must remain unreleased until a dedicated readability/reconstruction batch verifies it.
-- Exact-head verification for `04027242473b46ab5941ea3a41c11046458f2c90`: CI bridge `34600790522` PASS; Engineering Gate `34600799528` PASS; full Android/PWA/package run `34600801834` PASS, with production promotion skipped. Browser/image-byte/APK/package/reproducibility gates passed.
-- Current deterministic totals: 162 assets, 204 bindings, 163 released questions; Biochemistry 60 approved assets / 62 total assets / 60 released questions.
-- Exact next action: the next image writer must resolve the live image pointer and may acquire the lane normally. Treat this batch as VERIFIED_HISTORY. Handle the deferred CRISPR figure only in a future dedicated specialist batch; do not revive this completed mixed batch as CURRENT_UNFINISHED.
+- Classification: **CURRENT_UNFINISHED**; owner **Biochemistry**; specialist batch `NKQ_BIOCHEMISTRY_CRISPR_20260911` owns the shared image-writer lane until safely completed or retired.
+- Branch `automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_CRISPR_20260911`; exact base SHA `532c6c8b9dcaf651ef203660cdc4581a985d1424` from `feature/marrow-image-rollout-current`. Resolve live candidate HEAD from Git after each checkpoint commit.
+- This batch contains exactly one specialist target, as required for reconstruction work: `marrow__BIOCHEM_CH25_Q026` / asset `biochemistry-e10cc8a9721a17da`.
+- Current asset/binding status remains **REVIEW_REQUIRED** and unreleased. Source ownership is confirmed to Marrow ED8 Biochemistry page 402 / xref 961. The authoritative native object is a 600×451 JPEG with SHA-256 `e10cc8a9721a17daea04f60fb422e85611a233b31c0075ca5095e9df09aa4844`.
+- Re-inspection confirmed the prior readability hold is valid: multiple CRISPR/Cas9 repair-pathway labels are below the approved confident phone-width readability floor. Expanded inspection improves visibility but does not make the native learner-width presentation acceptable.
+- Do **not** promote the native image merely because ownership is correct. A reconstruction may be used only if every source label, arrow, branch, repair-pathway relationship and question-relevant detail can be verified without guessing. The current raster leaves some small labels insufficiently certain for safe reconstruction in this run, so no SVG was authored and no registry/release mutation was made.
+- Source recovery verified the exact authoritative PDF: `biochemistryed8.pdf`, 7,958,177 bytes, SHA-256 `463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb`; no PrepLadder or alternate source was used.
+- Registry/progress remain unchanged from the completed prior batch: registry SHA-256 `1927cb19959c931503c396a2cf58d0fd37f26531df23f3c542a7f6770d38de38`; progress SHA-256 `77c32ec0be4ef75a9941b8a2e44040a00720e354b5463a0e245b79caebc790b8`; totals 162 assets / 204 bindings / 163 released questions, Biochemistry 60 approved assets / 62 total assets / 60 released questions.
+- Exact next action: resume this same branch/BATCH_ID. Obtain a fully legible source rendering/vector-equivalent reference for every small label and arrow, then either (a) author one source-faithful SVG reconstruction and run all image, browser, Android/PWA/package gates, or (b) if any label/relationship remains uncertain, keep the asset REVIEW_REQUIRED and retire the specialist batch without release. Do not start a second Biochemistry image batch while this checkpoint is CURRENT_UNFINISHED.
 
 ## Known problems / verification cautions
 
@@ -117,12 +118,7 @@ explanation and exactly three distractor rationales through the real learner UI.
 
 ## Next step / ownership split
 
-- **Primary/image work:** Batch 08 is build-verified and visually inspected; ask
-  the user for physical review when convenient. The six released Anatomy Chapter
-  9 IDs are Q5, Q8, Q9, Q10, Q12 and Q13; all preserve native bytes, and
-  Q9/Q12/Q13 retain neutral question-time alt text.
+- **Primary/image work:** resume `NKQ_BIOCHEMISTRY_CRISPR_20260911` exactly as described above; no other image writer should mutate the shared registry until this specialist checkpoint is completed or safely retired.
 - For later batches follow `docs/MARROW_IMAGE_AUTOMATION_RUNBOOK.md` completely,
   serialize registry writers and never release uncertainty.
-- **Explanation refinement agent:** repair and validate the existing unverified
-  Physiology Chapter 9 checkpoint before beginning Chapter 10; do not touch the
-  image-integration ownership.
+- **Explanation refinement agent:** keep explanation work separate and do not touch image-integration ownership.
