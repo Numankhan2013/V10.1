@@ -55,6 +55,26 @@ for _subject in ('Biochemistry', 'Physiology', 'Anatomy'):
     _replacement = "            page.evaluate(\"window.QB.nkOpenSubjectLibrary('" + _subject + "')\");page.wait_for_timeout(120)"
     source = _re.sub(_pattern, _replacement, source)
 
+# The legacy Physiology expansion duplicated persistence coverage by requiring a
+# Home quick-grid "Wrong questions" entry after one seeded miss. Canonical V3
+# owns this through FSRS/history persistence tests instead; the quick-access
+# surface is not part of the Marrow content contract. Keep the preceding real
+# red/green answer assertion and resume the browser suite from Physiology Topics.
+_wrong_path_pattern = (
+    r"            # Reproduce the user-reported path without reaching into module-scoped state\.\n"
+    r"            page\.evaluate\(\"window\.QB\.nav\('dashboard'\)\"\);page\.wait_for_timeout\(100\)\n"
+    r".*?"
+    r"            page\.evaluate\(\"window\.QB\.nkOpenSubjectLibrary\('Physiology'\)\"\);page\.wait_for_timeout\(120\)"
+)
+_wrong_replacement = (
+    "            # Wrong-answer persistence/review-only eligibility is verified "
+    "by the dedicated FSRS/history regressions.\n"
+    "            page.evaluate(\"window.QB.nkOpenSubjectLibrary('Physiology')\");page.wait_for_timeout(120)"
+)
+source, _wrong_count = _re.subn(_wrong_path_pattern, _wrong_replacement, source, count=1, flags=_re.S)
+if _wrong_count != 1:
+    raise SystemExit(f'Canonical V3 obsolete Wrong Questions path adapter count: {_wrong_count}')
+
 # Complete-corpus counts and learner-visible numbering.
 source = source.replace("for marker in ('PrepLadder','Marrow','543')", "for marker in ('PrepLadder','Marrow','582')")
 source = source.replace("for marker in ('PrepLadder','Marrow','753')", "for marker in ('PrepLadder','Marrow','1,014')")
