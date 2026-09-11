@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - tools/export_marrow_source_audit.py
+      - tools/patch_marrow_explanation_runbook_source_access.py
       - .github/workflows/generate-marrow-source-audit.yml
       - data/marrow/anatomy_phase_a.zlib.b64.part*
       - data/marrow/biochemistry_phase_a.zlib.b64.part*
@@ -40,14 +41,17 @@ jobs:
           print('SOURCE_AUDIT_COUNTS_OK', got)
           PY
 
-      - name: Commit generated audit views when changed
+      - name: Ensure runbook documents source audit access
+        run: python tools/patch_marrow_explanation_runbook_source_access.py
+
+      - name: Commit generated audit views and runbook when changed
         run: |
-          if [ -z "$(git status --porcelain -- data/marrow/source_audit)" ]; then
-            echo "Source audit views already current."
+          if [ -z "$(git status --porcelain -- data/marrow/source_audit docs/MARROW_EXPLANATION_AUTOMATION_RUNBOOK.md)" ]; then
+            echo "Source audit views and runbook already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/marrow/source_audit
-          git commit -m "Generate Marrow source audit views [skip ci]"
+          git add data/marrow/source_audit docs/MARROW_EXPLANATION_AUTOMATION_RUNBOOK.md
+          git commit -m "Refresh Marrow source audit access [skip ci]"
           git push origin HEAD:main
