@@ -79,18 +79,18 @@ for _subject in ('Biochemistry','Physiology','Anatomy'):
     )
     source = _re.sub(pattern, _chooser_steps(_subject), source)
 
-# The legacy wrapper used to inject a dashboard "Wrong questions" shortcut
-# regression. That block is already absent from the current canonical legacy
-# verifier, but keep this compatibility removal idempotent for older snapshots.
-wrong = (
-    r"            # Reproduce the user-reported path without reaching into module-scoped state\.\n"
-    r".*?"
-    r"            page\.locator\('button\.nk-bank-card'\)\.filter\(has_text='Marrow'\)\.click\(\);page\.wait_for_timeout\(80\)"
-)
-wrong_repl = _chooser_steps('Physiology')
-source, nwrong = _re.subn(wrong, wrong_repl, source, count=1, flags=_re.S)
-if nwrong not in (0, 1):
-    raise SystemExit(f"obsolete Wrong Questions adapter count={nwrong}")
+# Wrong Questions was intentionally retired from the learner dashboard in favor
+# of the FSRS review surface. The dedicated FSRS/history suites own persistence
+# and review eligibility, so remove only this obsolete dashboard-path assertion.
+wrong_start = "            # Reproduce the user-reported path without reaching into module-scoped state.\n"
+wrong_end = "                raise SystemExit(f'Wrong Questions answer colors regressed: correct={wrong_green} wrong={wrong_red}')\n"
+if wrong_start in source:
+    ws = source.index(wrong_start)
+    we_marker = source.find(wrong_end, ws)
+    if we_marker < 0:
+        raise SystemExit("obsolete Wrong Questions adapter end marker missing")
+    we = we_marker + len(wrong_end)
+    source = source[:ws] + source[we:]
 
 # Full canonical source/taxonomy expectations.
 for old,new in (
