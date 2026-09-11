@@ -1,0 +1,66 @@
+name: Finalize Biochemistry Image Handoff
+
+on:
+  push:
+    branches:
+      - automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.event.head_commit.message == 'Finalize Biochemistry image batch handoff'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911
+          fetch-depth: 0
+      - name: Finalize authoritative image handoff
+        shell: python
+        run: |
+          from pathlib import Path
+
+          state = Path('.project-memory/STATE.md')
+          text = state.read_text()
+          old = '''## Current image automation checkpoint
+
+- Classification: **CURRENT_UNFINISHED**; owner **Biochemistry**; batch `NKQ_BIOCHEMISTRY_20260911`.
+- Branch `automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911`; working base `1ae61e205804d3d3b2359fcbad218f56e396896b`; latest substantive QA/release commit `6170c412a98f2147889e9b62845442a44b9dedd0`. Resolve live branch HEAD from Git.
+- Registry SHA-256 `1927cb19959c931503c396a2cf58d0fd37f26531df23f3c542a7f6770d38de38`; progress SHA-256 `77c32ec0be4ef75a9941b8a2e44040a00720e354b5463a0e245b79caebc790b8`.
+- PASS/released in this batch: `marrow__BIOCHEM_CH25_Q024`, `marrow__BIOCHEM_CH26_Q003`, `marrow__BIOCHEM_CH26_Q014`, `marrow__BIOCHEM_CH26_Q021`, `marrow__BIOCHEM_CH26_Q022`.
+- Still **REVIEW_REQUIRED**: `marrow__BIOCHEM_CH25_Q026` / asset `biochemistry-e10cc8a9721a17da`; correct CRISPR ownership but small labels are below a confident phone-width readability decision.
+- Exact next action: resume this same branch/batch and resolve only the held CRISPR figure via expanded/device inspection or a source-faithful educational reconstruction. Do not start another Biochemistry image batch until it is resolved or explicitly retired.
+- Current deterministic totals: 162 assets, 204 bindings, 163 released questions; Biochemistry 60 approved assets / 62 total assets / 60 released questions.
+'''
+          new = '''## Current image automation checkpoint
+
+- Classification: **VERIFIED_HISTORY**; completed owner **Biochemistry**; batch `NKQ_BIOCHEMISTRY_20260911` is complete and no longer owns the shared writer lane.
+- Branch `automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911`; working base `1ae61e205804d3d3b2359fcbad218f56e396896b`; exact build-verified candidate `04027242473b46ab5941ea3a41c11046458f2c90`; substantive image QA/release commit `6170c412a98f2147889e9b62845442a44b9dedd0`. Resolve live branch HEAD from Git for the memory-only handoff commit.
+- Registry SHA-256 `1927cb19959c931503c396a2cf58d0fd37f26531df23f3c542a7f6770d38de38`; progress SHA-256 `77c32ec0be4ef75a9941b8a2e44040a00720e354b5463a0e245b79caebc790b8`.
+- PASS/released in this batch: `marrow__BIOCHEM_CH25_Q024`, `marrow__BIOCHEM_CH26_Q003`, `marrow__BIOCHEM_CH26_Q014`, `marrow__BIOCHEM_CH26_Q021`, `marrow__BIOCHEM_CH26_Q022`.
+- Deferred specialist backlog, **REVIEW_REQUIRED** and unreleased: `marrow__BIOCHEM_CH25_Q026` / asset `biochemistry-e10cc8a9721a17da`; ownership is correct but native CRISPR labels remain below the confident phone-width readability threshold. This deferred item is not a current writer lock and must remain unreleased until a dedicated readability/reconstruction batch verifies it.
+- Exact-head verification for `04027242473b46ab5941ea3a41c11046458f2c90`: CI bridge `34600790522` PASS; Engineering Gate `34600799528` PASS; full Android/PWA/package run `34600801834` PASS, with production promotion skipped. Browser/image-byte/APK/package/reproducibility gates passed.
+- Current deterministic totals: 162 assets, 204 bindings, 163 released questions; Biochemistry 60 approved assets / 62 total assets / 60 released questions.
+- Exact next action: the next image writer must resolve the live image pointer and may acquire the lane normally. Treat this batch as VERIFIED_HISTORY. Handle the deferred CRISPR figure only in a future dedicated specialist batch; do not revive this completed mixed batch as CURRENT_UNFINISHED.
+'''
+          if old not in text:
+              raise SystemExit('Expected CURRENT_UNFINISHED checkpoint block not found; refusing ambiguous memory edit')
+          state.write_text(text.replace(old, new))
+
+          log = Path('.project-memory/SESSION_LOG.md')
+          marker = '## 2026-09-11 — Biochemistry image batch NKQ_BIOCHEMISTRY_20260911 completed'
+          if marker not in log.read_text():
+              with log.open('a') as f:
+                  f.write('''\n\n## 2026-09-11 — Biochemistry image batch NKQ_BIOCHEMISTRY_20260911 completed\n\n- Classification: **VERIFIED_HISTORY**; the batch no longer owns the shared image-registry writer lane. Branch `automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911`, base `1ae61e205804d3d3b2359fcbad218f56e396896b`, substantive release commit `6170c412a98f2147889e9b62845442a44b9dedd0`, exact build-verified candidate `04027242473b46ab5941ea3a41c11046458f2c90`.\n- Registry fingerprint `1927cb19959c931503c396a2cf58d0fd37f26531df23f3c542a7f6770d38de38`; progress fingerprint `77c32ec0be4ef75a9941b8a2e44040a00720e354b5463a0e245b79caebc790b8`. Deterministic totals: 162 assets / 204 bindings / 163 released questions; Biochemistry 60 approved assets / 62 total assets / 60 released questions.\n- PASS/released: `marrow__BIOCHEM_CH25_Q024`, `marrow__BIOCHEM_CH26_Q003`, `marrow__BIOCHEM_CH26_Q014`, `marrow__BIOCHEM_CH26_Q021`, `marrow__BIOCHEM_CH26_Q022`.\n- `marrow__BIOCHEM_CH25_Q026` / `biochemistry-e10cc8a9721a17da` remains **REVIEW_REQUIRED** and unreleased. Its CRISPR ownership is correct, but native labels remain below the confident phone-width readability threshold. It is explicitly deferred to a future dedicated specialist readability/reconstruction batch and does not lock the shared writer lane.\n- Exact-head canonical verification succeeded: CI bridge run `34600790522`; Engineering Gate `34600799528`; full Android/PWA/package run `34600801834`. The full run verified browser/image bytes, APK/package, reproducibility and immutable preview behavior; production promotion was skipped.\n- Infrastructure repair: added `.github/workflows/marrow-image-automation-ci.yml` so future `automation/marrow-images-*` candidates dispatch the existing canonical Engineering Gate and Android/PWA workflow for the exact candidate branch with `promote_production=false`. This changes CI reachability only, not product/runtime behavior.\n- Source remained authoritative Marrow ED8 Biochemistry `biochemistryed8.pdf`, 7,958,177 bytes, SHA-256 `463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb`; no PrepLadder substitution.\n- Next image writer should resolve the live integration pointer and acquire the lane normally. Do not treat this completed branch or its deferred CRISPR backlog as CURRENT_UNFINISHED.\n''')
+
+          Path('.github/workflows/finalize-biochem-image-handoff.yml').unlink()
+      - name: Commit handoff
+        run: |
+          git config user.name "nk-qbank-automation"
+          git config user.email "actions@users.noreply.github.com"
+          git add .project-memory/STATE.md .project-memory/SESSION_LOG.md .github/workflows/finalize-biochem-image-handoff.yml
+          git diff --cached --check
+          git commit -m "Finalize Biochemistry image batch handoff [skip ci]"
+          git push origin HEAD:automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911
