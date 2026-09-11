@@ -7,20 +7,20 @@
 
 - Repo: `Numankhan2013/V10.1`.
 - Resolve live branch/HEAD from Git; do not hardcode a self-staling HEAD value.
-- Current explanation lineage is `feature/marrow-explanation-rollout-anatomy-ch05-q01-q09-current`.
-- Latest **fully verified** explanation product candidate is Anatomy Chapter 5 Q1–Q9:
-  `1921d758b19d0804438f434aaca950fa32d419ea`.
-- Exact-candidate verification: Engineering Gate **333** / `34567801778` and
-  full Android/PWA run **712** / `34567798753` both passed on that same SHA.
-- Full-run artifact `V11.7-android-pwa`: ID `10186705331`, digest
-  `sha256:cc332a829500e1cc4fa72ae48a846f5d6f9af518999d27905ce3710df4114bcb`.
-- Browser/screenshot artifact: ID `10186689132`, digest
-  `sha256:653be4144f19d4911d9f87948ee693d08e8f4f91cd56a2e7f6898ecc8298365b`.
+- Current explanation lineage is `feature/marrow-explanation-rollout-physio-ch10-q001-q013-current`.
+- Latest **fully verified** explanation product candidate is Physiology Chapter 10 Q1–Q13:
+  `45cda2196c40d30eaf9283b031cba3942ed2e132`.
+- Exact-candidate verification: Engineering Gate **336** / `34580097242` and
+  full Android/PWA run **719** / `34580093798` both passed on that same SHA.
+- Full-run artifact `V11.7-android-pwa`: ID `10191339526`, digest
+  `sha256:79355c9c23135053f457092d5256b923ccfa4eb787bbc0e79265ab411e46c42b`.
+- Browser/screenshot artifact: ID `10191308077`, digest
+  `sha256:999c4a92fb9dc80fa07d7f5702ccd1fecd0f24f1811669e24c9c5155a69f2d5f`.
+- Immutable verified preview: `https://ff02ca04.nk-qbank.pages.dev`.
 - Production promotion was skipped.
 - Accepted baseline / rollback baseline remains **V11.6 Content Quality** until the user explicitly promotes a later product baseline.
 - Accepted product commit: `125d68b`
-- build-verified, device-verified, and accepted are separate states. This Anatomy
-  batch is build-verified; it is not thereby device-verified or an accepted baseline.
+- build-verified, device-verified, and accepted are separate states.
 
 ## Current Marrow bank
 
@@ -52,12 +52,12 @@ recovered under the runbook contract.
 
 ## FULLY_VERIFIED_HISTORY
 
-- Anatomy approved reference before this batch: **62**.
+- Anatomy approved reference before Chapter 5 rollout: **62**.
 - Biochemistry enhanced: **259**; Chapters **1–11** verified on the stacked lineage.
 - Physiology approved pilot: **80** across Chapters 1–4.
 - Physiology Chapters 5–9 are fully verified; Chapter 9 exact verified product SHA
   `7974b8eee842f668e9fb4fac95783ac64893e98d`, Gate 327, full run 701.
-- Anatomy Chapter 5 Q1–Q9 is now **FULLY_VERIFIED**.
+- Anatomy Chapter 5 Q1–Q9 is **FULLY_VERIFIED**.
   - PR: **#34**.
   - Product SHA: `1921d758b19d0804438f434aaca950fa32d419ea`.
   - Scope: Chapter 5 **Pharyngeal arches, Skeletal & Muscular Systems**, Q1–Q9 only.
@@ -73,14 +73,47 @@ recovered under the runbook contract.
   - Required generated-product, browser, APK/package, reproducibility, artifact
     and preview-deployment stages are certified by the successful full workflow.
   - Production promotion skipped.
+- Physiology Chapter 10 Q1–Q13 is **FULLY_VERIFIED**.
+  - PR: **#35**.
+  - Product SHA: `45cda2196c40d30eaf9283b031cba3942ed2e132`.
+  - Scope: Chapter 10 **Neurotransmitters**, Q1–Q13 contiguous source order.
+  - Count/workload: **13 questions**, workload score **18.5**.
+  - Augmentation: `data/marrow/explanation_physio_ch10_q001_q013_v1.json`.
+  - Q13 reconstruction status: `resolved_reconstruction`; learner-facing content
+    preserves the standard eccrine sweat-gland sympathetic postganglionic
+    cholinergic exception without teaching outdated nonessential extensions.
+  - Raw Marrow source stayed unchanged.
+  - Deterministic inventory: **561 enhanced / 1,554 pending**.
+  - Inventory fingerprint:
+    `773c057042d6b6ab17dec12817f4a174c30e989036b4e5d43af5ef3e9061dfa0`.
+  - Stable-ID browser regression verified Physiology → Marrow → Chapter 10 → Q13,
+    learner-facing reconstruction, and exactly three wrong-option rationales.
+  - Engineering Gate **336** / `34580097242`: success on exact product SHA.
+  - Full Android/PWA **719** / `34580093798`: success on the same exact SHA.
+  - Generated product, Practice/CBT/Review/FSRS/shared regressions, browser,
+    APK/package, reproducibility, artifact upload and preview deployment passed.
+  - Full-run artifact `V11.7-android-pwa`: ID `10191339526`, digest
+    `sha256:79355c9c23135053f457092d5256b923ccfa4eb787bbc0e79265ab411e46c42b`.
+  - Browser/screenshot artifact: ID `10191308077`, digest
+    `sha256:999c4a92fb9dc80fa07d7f5702ccd1fecd0f24f1811669e24c9c5155a69f2d5f`.
+  - Immutable preview: `https://ff02ca04.nk-qbank.pages.dev`.
+  - Production promotion skipped.
+
+## CURRENT_UNVERIFIED explanation batch
+
+- **None.**
+- Physiology Chapter 10 Q1–Q13 has moved to `FULLY_VERIFIED_HISTORY`.
+- No Q14–Q18 content was authored or committed in the finalization run.
 
 ## Current integration-lane status
 
-- There is **no CURRENT_UNVERIFIED explanation batch** after the Anatomy Q1–Q9 verification.
-- PR #34 may remain open historically; its mere open state does **not** block the lane.
-- The serialized explanation lane is released for the next subject worker.
-- The next Anatomy source-order start is Chapter 5 **Q10**, subject to dynamic
-  source/workload re-audit before any new batch is created.
+- The serialized explanation lane is **released**.
+- Historical open PRs/branches, including PR #34 and any already-certified PR,
+  are non-blocking even if GitHub still reports them open.
+- Every worker must re-resolve newest authoritative `STATE.md` plus live Git/PR/head
+  state before claiming the lane.
+- An earlier empty branch named `feature/marrow-explanation-rollout-physio-ch10-q001-q014-current`
+  remains **STALE_HISTORY / non-authoritative** and must not be treated as lane ownership.
 
 ## Known problems / cautions
 
@@ -95,12 +128,13 @@ recovered under the runbook contract.
 
 ## Next step
 
-1. Re-resolve live explanation lineage, open PRs and `STATE.md` before any write.
-2. If no other subject has acquired a new CURRENT_UNVERIFIED batch, the configured
-   subject may select its exact next incomplete source-order questions using the
-   runbook workload algorithm.
-3. For Anatomy specifically, begin from Chapter 5 Q10 only after dynamic source audit;
-   do not hardcode a later range or skip difficult questions.
+1. Re-resolve live explanation-lane ownership before doing any new content work.
+2. If Physiology next acquires the free lane, dynamically workload-score the exact
+   next source-order incomplete range beginning at **Physiology Chapter 10 Q14**;
+   do not assume a hardcoded batch boundary beyond the runbook limits.
+3. Start at most one bounded new batch, preserve raw source immutability, and follow
+   the full source-audit → augmentation → deterministic inventory → static/shared
+   validation → stable-ID browser → exact-head Engineering + Android/PWA sequence.
 4. Keep production promotion skipped and preserve the accepted V11.6 baseline unless
    the user explicitly changes it.
 

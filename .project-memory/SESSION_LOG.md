@@ -867,3 +867,35 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - This final memory handoff is docs-only `[skip ci]`; exact product verification
   remains anchored to `7974b8eee842f668e9fb4fac95783ac64893e98d` rather than
   pretending the later documentation-only commit was package-certified.
+
+## 2026-09-11 — Physiology Chapter 10 Q1–Q13 fully verified
+
+- Subject/batch: Physiology Chapter 10 — **Neurotransmitters**, contiguous source-order Q1–Q13.
+- Workload score **18.5**; Q14–Q18 were intentionally not started in this run.
+- PR #35 exact verified product candidate:
+  `45cda2196c40d30eaf9283b031cba3942ed2e132`.
+- Q13 remains `resolved_reconstruction`: learner-facing content preserves the
+  standard eccrine sweat-gland sympathetic postganglionic cholinergic exception
+  without teaching the source explanation's outdated nonessential extensions.
+- Raw Marrow source remained immutable.
+- Deterministic inventory: **561 enhanced / 1,554 pending**; fingerprint
+  `773c057042d6b6ab17dec12817f4a174c30e989036b4e5d43af5ef3e9061dfa0`.
+- Stable-ID browser regression verified Physiology → Marrow → Chapter 10 → Q13,
+  the eccrine-sweat-gland reconstruction, and exactly three wrong-option rationales.
+- Engineering Gate **336** / `34580097242`: success on exact product SHA.
+- Full Android/PWA run **719** / `34580093798`: success on the same product SHA.
+  Generated product, deterministic inventory, Physiology/Biochemistry rollout
+  validators, Practice/CBT/Review/FSRS/shared regressions, browser verification,
+  APK build, packaged APK/product checks, reproducibility manifest, artifact upload,
+  and Cloudflare preview deployment all passed.
+- Build artifact `V11.7-android-pwa`: ID `10191339526`, digest
+  `sha256:79355c9c23135053f457092d5256b923ccfa4eb787bbc0e79265ab411e46c42b`.
+- Browser/screenshot artifact: ID `10191308077`, digest
+  `sha256:999c4a92fb9dc80fa07d7f5702ccd1fecd0f24f1811669e24c9c5155a69f2d5f`.
+- Immutable verified preview: `https://ff02ca04.nk-qbank.pages.dev`.
+- Production promotion was skipped.
+- Chapter 10 Q1–Q13 is **FULLY_VERIFIED** and the serialized explanation lane is released.
+- Final memory handoff is documentation-only `[skip ci]`; product certification remains
+  anchored to `45cda2196c40d30eaf9283b031cba3942ed2e132` rather than the later docs-only head.
+- Exact next Physiology source-order start, if Physiology reacquires the free lane on
+  a later run, is Chapter 10 Q14; it must be dynamically workload-scored before authoring.
