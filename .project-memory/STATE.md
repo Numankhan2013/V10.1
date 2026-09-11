@@ -9,10 +9,10 @@
 - Product/UI base: user-approved V3/correct-index lineage.
 - **Accepted baseline:** V11.6 Content Quality.
 - Accepted product commit: `125d68b`.
-- **build-verified:** pending exact-head certification for the current canonical Q20–Q24-integrated handoff; the underlying table-fix build at `c829599050173d24408b72e8dc564ba501a156b4` passed full verification.
+- **build-verified:** current canonical product/content state is green through Engineering Gate run **34650259296** and full Android/PWA/browser/APK/package/reproducibility/preview run **34650259281**; production promotion was skipped.
 - **device-verified:** the user verified the structured-table repair at `c829599050173d24408b72e8dc564ba501a156b4`; Anatomy Ch5 Q10 tables render populated cells correctly.
 - Canonical was fast-forwarded to that exact table-fixed tree, then Anatomy Ch5 Q20–Q24 was transplanted by stable question ID only. Historical divergent explanation branch history was not merged.
-- Current canonical content lineage includes transplant commit `66628b753513963232f3c5ee18e6602a41c400d8` plus deterministic inventory refresh commit `5ae636612e8e476dbd651bcda15b502aced9af45`.
+- Canonical content lineage includes transplant commit `66628b753513963232f3c5ee18e6602a41c400d8`, deterministic inventory refresh commit `5ae636612e8e476dbd651bcda15b502aced9af45`, and subsequent handoff-only memory commits.
 - `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md` is mandatory for image and explanation workers.
 - New batch branches must start from the exact current canonical HEAD and verified results must return to canonical before a lane is released.
 - Production promotion remains explicit and guarded. `main`/production must not change without user approval.
@@ -57,19 +57,20 @@ Deterministic inventory after the Anatomy Q20–Q24 transplant:
 - pending **2,130**;
 - inventory fingerprint `eab956894794373d0d29a5ac1ee1087ec85ae5697eef7ff82d9d70cd04629cbe`.
 
-Verified historical/canonical explanation work already carried forward includes:
-- Anatomy Ch5 Q1–9 and Q10–19;
+### FULLY_VERIFIED_HISTORY
+
+Verified canonical explanation work includes:
+- Anatomy Ch5 Q1–9;
+- Anatomy Ch5 Q10–19;
+- **Anatomy Ch5 Q20–Q24** — stable-ID transplant onto the canonical table-fixed lineage, deterministic inventory refreshed, Engineering Gate **34650259296** passed, full Android/PWA/browser/APK/package/reproducibility/preview run **34650259281** passed; production promotion skipped;
 - Biochemistry canonical verified Ch1–11/gold work;
 - Physiology Ch5, Ch6, Ch7, Ch8, Ch9, Ch10 Q1–13 and Q14–18.
 
 ### CURRENT_UNVERIFIED explanation batch
 
-- **Anatomy Ch5 Q20–Q24** is now physically present on the sole canonical trunk and included in the deterministic inventory, but remains **CURRENT_UNVERIFIED** until exact-current-head Engineering Gate and full Android/PWA/browser/APK/package/reproducibility/preview verification pass.
-- Augmentation: `data/marrow/explanation_anatomy_ch05_q020_q024_v1.json`.
-- Scope: 5 questions, Chapter 5 tail.
-- Q22 uses `resolved_reconstruction`; immutable Marrow source/key remains unchanged.
-- The stale historical Anatomy Q20–Q24 branch is donor evidence only and must never be merged wholesale.
-- No new explanation batch may start until this exact canonical candidate is certified and the serialized lane is released.
+- **None. The serialized explanation lane is released.**
+- The stale historical Anatomy Q20–Q24 branch is donor evidence/history only and must never be merged wholesale.
+- Old open rollout branches/PRs do not constitute locks unless current canonical memory plus live Git prove an unfinished canonical-based batch.
 
 ## Anti-fragmentation automation contract
 
@@ -83,15 +84,17 @@ Verified historical/canonical explanation work already carried forward includes:
 
 ## Verification state
 
-- Table renderer repair `c829599`: exact-head full build passed and user device verification confirmed the learner-facing table defect is fixed.
-- Anatomy Q20–Q24 transplant `66628b7`: first Engineering Gate correctly failed only because the deterministic inventory had not yet been regenerated.
-- Inventory refresh workflow then regenerated and validated the canonical inventory successfully at `5ae6366`, yielding **581 enhanced / 2,130 pending**.
-- **Current requirement:** exact-head Engineering Gate plus full Android/PWA/browser/APK/package/reproducibility/preview verification on the present canonical state after this handoff update. Live GitHub CI is authoritative.
-- Production promotion remains skipped.
+- Table renderer repair `c829599`: full build passed and user device verification confirmed the learner-facing table defect is fixed.
+- Anatomy Q20–Q24 transplant `66628b7`: initial candidate correctly failed only because the deterministic inventory was stale.
+- Inventory workflow regenerated and validated the canonical inventory at `5ae6366`, yielding **581 enhanced / 2,130 pending**.
+- Canonical handoff candidate then passed Engineering Gate **34650259296** and full Android/PWA/browser/APK/package/reproducibility/preview run **34650259281**.
+- Populated Marrow structured-table browser verification passed in the full run.
+- APK/package/reproducibility checks passed.
+- Cloudflare preview deployment passed.
+- Production promotion was skipped.
 
 ## Known problems / cautions
 
-- Do not label Anatomy Q20–Q24 `FULLY_VERIFIED` until exact-current-head CI passes.
 - Image source-reference coverage remains incomplete.
 - Historical unfinished explanation branches remain historical unless explicitly transplanted by stable ID onto canonical and reverified.
 - Production remains untouched until explicit user approval.
@@ -99,10 +102,11 @@ Verified historical/canonical explanation work already carried forward includes:
 
 ## Next step
 
-1. Certify the current canonical head with Engineering Gate and full Android/PWA/browser/APK/package/reproducibility/preview verification.
-2. If green, move Anatomy Ch5 Q20–Q24 to `FULLY_VERIFIED_HISTORY`, release the serialized explanation lane, and re-enable the intended explanation workers.
-3. Future explanation work starts at the exact next incomplete source-order question from the new canonical head and returns verified work to that same trunk.
-4. Do not promote `main` or production without explicit user approval.
+1. Explanation workers may resume from this single canonical lineage.
+2. Anatomy next work must start at the exact next incomplete source-order question after Ch5 Q24; do not resume from the stale historical Q20–Q24 branch.
+3. Physiology/Biochemistry workers likewise resolve the live canonical head and current inventory before authoring.
+4. Each verified future batch returns to canonical before the explanation lane is released.
+5. Do not promote `main` or production without explicit user approval.
 
 Canonical source handoff: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
 Canonical automation policy: `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
