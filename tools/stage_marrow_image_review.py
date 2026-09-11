@@ -2,15 +2,19 @@
 """Stage a bounded, deterministic native-image review batch.
 
 Candidates are never marked PASS by this script. Existing reviewed entries are
-preserved, and repeated streams are staged only once.
+preserved, and repeated streams are staged only once. Source-recorded visuals
+from question-time metadata and structured explanation blocks are merged into
+the legacy audit so they cannot be silently omitted.
 """
 import argparse
 import json
 import re
 from marrow_images import DATA,ROOT,extract,questions,write_json
+from marrow_visual_inventory import enrich_audit_bindings
 
 QUESTION_IMAGE_CUE=re.compile(r'(?:shown|seen|depicted).{0,48}(?:image|figure|diagram|graph)|(?:image|figure|diagram|graph).{0,48}(?:shown|given|below|above)',re.I|re.S)
 SUBJECTS=('Anatomy','Biochemistry','Physiology')
+
 
 def normalize_role(value,stem=''):
     role=str(value or '').strip().lower()
@@ -18,13 +22,17 @@ def normalize_role(value,stem=''):
     if role=='explanation':return 'explanation'
     return 'question' if QUESTION_IMAGE_CUE.search(stem or '') else 'explanation'
 
+
 def binding_order(binding):
+    if isinstance(binding.get('order'),int) and binding['order']>0:return binding['order']
     match=re.search(r':figure:(\d+)$',binding.get('id',''))
     return int(match.group(1)) if match else 1
+
 
 def alt_text(metadata,role):
     if role=='question':return 'Source question figure'
     return str(metadata.get('title') or metadata.get('description') or 'Source explanation figure')
+
 
 def main():
     parser=argparse.ArgumentParser()
@@ -34,23 +42,31 @@ def main():
     args=parser.parse_args();assert 1<=args.per_subject<=10
     audit=json.loads((ROOT/'build/marrow-images/audit.json').read_text())
     question_map=questions()
+    bindings=enrich_audit_bindings(audit,question_map)
     registry=DATA/'images/registry.json';value=json.loads(registry.read_text())
-    known={a['original']['sha256']:a for a in value['assets']}
-    staged=[]
+    known={a['original']['sha256']:a for a in value['assets'] if a.get('original')}
+    staged=[];deferred=[]
     subjects=(args.subject,) if args.subject else SUBJECTS
     for subject in subjects:
         seen=set();count=0
-        for binding in audit['bindings']:
+        for binding in bindings:
             if binding['subject']!=subject:continue
             candidates=binding.get('candidateImages',[])
-            if len(candidates)!=1:continue
+            if len(candidates)!=1:
+                deferred.append((subject,binding['questionId'],binding.get('id',''),len(candidates),'ambiguous-or-nonnative-source-visual'))
+                continue
             c=candidates[0];digest=c['streamSha256']
-            key=(digest,binding['questionId'])
-            if c['mask'] or c['filter'] not in ('/DCTDecode',"['/DCTDecode']") or key in seen:continue
-            seen.add(key);f=binding['metadata'];role=normalize_role(f.get('role'),question_map[binding['questionId']]['question']);order=binding_order(binding)
+            key=(digest,binding['questionId'],binding.get('role') or '')
+            if c['mask'] or c['filter'] not in ('/DCTDecode',"['/DCTDecode']"):
+                deferred.append((subject,binding['questionId'],binding.get('id',''),1,'masked-or-non-jpeg-candidate'))
+                continue
+            if key in seen:continue
+            seen.add(key);f=binding.get('metadata') or {}
+            role=normalize_role(binding.get('role') or f.get('role'),question_map[binding['questionId']]['question'])
+            order=binding_order(binding)
             existing=known.get(digest)
             if existing:
-                if any(b['questionId']==binding['questionId'] for b in existing['bindings']):continue
+                if any(b['questionId']==binding['questionId'] and b.get('role')==role for b in existing['bindings']):continue
                 existing['bindings'].append({'questionId':binding['questionId'],'role':role,
                     'order':order,'alt':alt_text(f,role),'status':'REVIEW_REQUIRED','reviewBatch':args.batch_id,
                     'source':{'page':c['page'],'xref':c['xref'],'region':c['region']},
@@ -73,7 +89,9 @@ def main():
                 staged.append((subject,binding['questionId'],existing['id'],'new-asset'));count+=1
             if count>=args.per_subject:break
     write_json(registry,value)
-    print('STAGED_REVIEW_ITEMS',len(staged),'TOTAL_ASSETS',len(value['assets']))
+    print('SOURCE_RECORDED_BINDINGS',sum(bool(b.get('sourceRecorded')) for b in bindings),'AUDIT_BINDINGS',len(bindings))
+    print('STAGED_REVIEW_ITEMS',len(staged),'TOTAL_ASSETS',len(value['assets']),'DEFERRED_REVIEW_ITEMS',len(deferred))
     for row in staged:print(*row)
+    for row in deferred[:50]:print('DEFERRED',*row)
 
 if __name__=='__main__':main()
