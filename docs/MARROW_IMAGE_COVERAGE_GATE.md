@@ -8,7 +8,7 @@ The reviewed image registry is **not** the denominator for subject completeness.
 
 Therefore statements such as “60 Biochemistry assets are approved” describe reviewed registry state only. They do **not** establish that every question-time or explanation-time figure in the Marrow ED8 source has been integrated.
 
-The source-derived audit is the coverage denominator. `docs/MARROW_IMAGE_PIPELINE.md` currently records 95 Biochemistry visual references across 89 questions. Repeated figures can share one underlying asset, so source-reference count is not the same as unique-asset count; every reference still needs a learner-facing binding or an explicit unresolved state.
+The source-derived audit is the coverage denominator. `docs/MARROW_IMAGE_PIPELINE.md` currently records 95 Biochemistry visual references across 89 questions. Repeated figures can share one underlying asset, so source-reference count is not the same as unique-asset count; every reference still needs a learner-facing binding or an explicit evidence-backed source-metadata adjudication.
 
 ## Required commands
 
@@ -32,7 +32,15 @@ Only when a subject is genuinely finished may an agent run:
 python3 tools/marrow_image_coverage.py --subject SUBJECT --require-complete --check
 ```
 
-That command must fail while any source-recorded visual reference is untracked or tracked-but-unreleased, or while a text-cue review backlog remains.
+That command must fail while any legitimate source-recorded visual reference is untracked or tracked-but-unreleased, or while a text-cue review backlog remains.
+
+## Source-metadata adjudication
+
+Raw imported Marrow records remain immutable. If direct inspection proves that a recorded figure reference is itself false—for example, the metadata says a figure exists on a page where the authoritative rendered page contains no figure—do **not** attach a neighboring figure and do not edit the raw source bundle.
+
+Use `data/marrow/images/source_reference_adjudications.json` for an exact, evidence-backed `SOURCE_METADATA_INVALID` adjudication. Every adjudication must match the audit reference by stable reference ID, question ID, subject, role, and exact source page set; it must record the authoritative source file/hash, reason, and concrete inspection evidence. Orphaned or mismatched adjudications fail the coverage audit.
+
+An invalid metadata reference remains visible in the raw `sourceVisualReferences` denominator and is reported separately as `invalidSourceMetadataReferences`; it is **never** counted as a released learner image. The effective learner-image denominator excludes only those explicitly adjudicated invalid references. This preserves audit history while preventing known-false metadata from forcing an invented or neighboring image into the QBank.
 
 ## Completion language
 
@@ -46,7 +54,7 @@ Never call a subject's image integration COMPLETE merely because:
 
 A bounded batch can be COMPLETE while the **subject remains incomplete**. Always report both statuses separately.
 
-A subject may be called learner-image complete only after the source-coverage gate proves every source-recorded visual reference is released and the text-cue backlog is cleared. REVIEW_REQUIRED and REJECTED candidate bindings do not silently satisfy a legitimate source visual reference; the correct visual remains outstanding until actually released or the source metadata itself is corrected through the separate immutable-source/reconstruction policy.
+A subject may be called learner-image complete only after the source-coverage gate proves every legitimate source-recorded visual reference is released, every explicitly invalid source reference is evidence-backed and exact, and the text-cue backlog is cleared. REVIEW_REQUIRED and REJECTED candidate bindings do not silently satisfy a legitimate source visual reference; the correct visual remains outstanding until actually released.
 
 ## Selection policy
 
@@ -57,7 +65,8 @@ Use coverage order, not “easy JPEG” order, as the durable backlog. Native si
 3. prefer native vector/page content, otherwise render the precise region at the approved DPI;
 4. reconstruct educational diagrams only under the existing source-fidelity rules;
 5. preserve medical pixels;
-6. leave uncertainty REVIEW_REQUIRED rather than skipping it and advancing the subject to a false-complete state.
+6. leave uncertainty REVIEW_REQUIRED rather than skipping it and advancing the subject to a false-complete state;
+7. if the metadata itself is demonstrably false, adjudicate that exact reference rather than substituting a neighboring image.
 
 Question-time and explanation-time visuals are independently required. A question may legitimately need both.
 
@@ -69,7 +78,9 @@ Physical learner review exposed omissions including Chapter 18 Q3/Q5/Q6 and mult
 - Ch19 Q2: question-critical reversible-reaction schematic;
 - Ch19 Q11: question-time enzyme-kinetics graph **and** explanation-time inhibition graph.
 
-These omissions demonstrate that registry counts alone cannot be used as completeness evidence.
+Coverage recovery also found a different defect at Ch2 Q10: the canonical metadata records an explanation `glycolysis_pathway` on page 33, but the hash-verified authoritative page 33 contains explanation text only and no figure. Neighboring pages do contain glycolysis pathway figures. This exact reference is therefore adjudicated `SOURCE_METADATA_INVALID`; no neighboring pathway is attached to Q10.
+
+These cases demonstrate why registry counts and metadata alone cannot be used as completeness evidence.
 
 ## Automation rule
 
