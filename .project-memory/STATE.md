@@ -6,9 +6,8 @@
 
 - Repo: `Numankhan2013/V10.1`.
 - Resolve live branch/HEAD from Git; do not hardcode a self-staling HEAD value.
-- Current explanation lineage is `feature/marrow-explanation-rollout-anatomy-ch05-q10-q19-rebased-current` / PR #37.
-- Latest **fully verified** explanation product candidate remains Physiology Chapter 10 Q14–Q18: `e12a36f3eda07cea7b89920a75e7c9e259d3c2fd`.
-- That candidate passed Engineering Gate 338 / `34591048655` and full Android/PWA 724 / `34591045176` on the exact product SHA.
+- Latest **fully verified** explanation product candidate is Anatomy Chapter 5 Q10–Q19: `e045226f3a942da34102ca339fa394a930738c36` on PR #37.
+- That exact product SHA passed Engineering Gate 352 / `34607517171` and full Android/PWA 739 / `34607512312`.
 - Accepted baseline / rollback baseline remains **V11.6 Content Quality** until explicitly promoted.
 - Accepted product commit: `125d68b`.
 - build-verified, device-verified, and accepted are separate states.
@@ -40,46 +39,26 @@ Every refined four-option SBA requires a meaningful Key Takeaway, medically corr
 - Anatomy Chapter 5 Q1–Q9 is **FULLY_VERIFIED** on PR #34, product SHA `1921d758b19d0804438f434aaca950fa32d419ea`, Gate 333 / `34567801778`, full run 712 / `34567798753`; inventory then **548 / 1,567**.
 - Physiology Chapter 10 Q1–Q13 is **FULLY_VERIFIED** on PR #35, product SHA `45cda2196c40d30eaf9283b031cba3942ed2e132`, Gate 336 / `34580097242`, full run 719 / `34580093798`; Q13 is `resolved_reconstruction`.
 - Physiology Chapter 10 Q14–Q18 is **FULLY_VERIFIED** on PR #36, product SHA `e12a36f3eda07cea7b89920a75e7c9e259d3c2fd`; Q15 is `resolved_reconstruction`; deterministic inventory **566 / 1,549**, fingerprint `991a2c84500ee94e52a3d09f0f47ed7b77b3057ff2ff7d9a1842594ec387cf78`; Gate 338 and full run 724 passed; production promotion skipped.
+- Anatomy Chapter 5 Q10–Q19 is **FULLY_VERIFIED** on PR #37, product SHA `e045226f3a942da34102ca339fa394a930738c36`; 10 questions, workload **17.0**, no reconstruction statuses required. Q10/Q13 preserve source tables; Q14–Q19 preserve source-owned figures; Q16/Q18 are image-dependent and were audited against source payload/labels. Deterministic inventory **576 enhanced / 1,539 pending**, fingerprint `09f7720c9fe9775f5e2ebc980035e5c78257664f5941a91b952b1b9263ad36ae`. Stable-ID browser regression covers Anatomy Chapter 5 Q18. Exact-head Engineering Gate **352 / 34607517171** and full Android/PWA **739 / 34607512312** both succeeded. Raw source remained unchanged and production promotion was skipped.
 
 ## CURRENT_UNVERIFIED explanation batch
 
-- Owner: **Anatomy**.
-- Batch ID: `anatomy-20260911-ch05-q10-q19`.
-- Branch: `feature/marrow-explanation-rollout-anatomy-ch05-q10-q19-rebased-current`.
-- PR: **#37** (`Refine Marrow Anatomy Chapter 5 Q10–Q19 explanations`).
-- Base lineage: latest verified Physiology Chapter 10 Q14–Q18 handoff (`1ff957f5f244f1ab649d6e38fbb21db61b21c308`; product certification anchored to `e12a36f3eda07cea7b89920a75e7c9e259d3c2fd`).
-- Chapter 5: **Pharyngeal arches, Skeletal & Muscular Systems**.
-- Exact source-order range: **Q10–Q19** / IDs `ANAT_CH05_Q010` through `ANAT_CH05_Q019`.
-- Count/workload: **10 questions**, workload score **17.0**.
-- Augmentation: `data/marrow/explanation_anatomy_ch05_q010_q019_v1.json`.
-- Authored content checkpoint: `16f8852e5ea8757d6cbf9494237c7eb74808bb8e`.
-- Reconstruction statuses: **none required** for Q10–Q19. Q14 learner-facing text avoids teaching thyroid hypoplasia as the defining DiGeorge pouch abnormality while preserving the source-keyed answer.
-- Source audit carried forward: Q10 and Q13 preserve source tables; Q14–Q19 preserve source-owned figures; Q16 and Q18 are image-dependent and were audited against source payload/labels.
-- Raw Marrow source remains unchanged.
-- Deterministic inventory is regenerated and CI-validated: **576 enhanced / 1,539 pending**, fingerprint `09f7720c9fe9775f5e2ebc980035e5c78257664f5941a91b952b1b9263ad36ae`.
-- Inventory repair commit: `7217c574640d324b88ef61b0d50f7be165af1195`.
-- Engineering Gate **349** / `34607064801`: **success** on inventory-repair head `7217c574640d324b88ef61b0d50f7be165af1195`; inventory, Biochemistry/Physiology rollout validators, project memory, shared study/FSRS/sync/source/pipeline contracts passed.
-- Added the required current-batch stable-ID browser regression at commit `b8127887bcc839843ffeca7bc282f42e838f8059`: Anatomy → Marrow → Chapter 5 → source-order Q18, asserting Key Takeaway, Detailed explanation, Structured text, DiGeorge syndrome, 3rd/4th pouch relationship, `label 3`, thymic region, and exactly three distractor rows. Prior Q9 and Physiology regressions remain intact.
-- Engineering Gate **351** / `34607416145` started on browser-regression head `b8127887bcc839843ffeca7bc282f42e838f8059` and was in progress at checkpoint time.
-- Full Android/PWA certification must be matched to the final PR head after this handoff; neighboring run 736 / `34607068608` belongs to the earlier inventory-repair head and cannot certify the final candidate.
-- State: **PR_OPEN_CI_PENDING / CURRENT_UNVERIFIED**.
-- Other subject workers must not start a new integration batch while this section remains current.
+- **None. The serialized explanation lane is released.**
+- Open historical/stacked PRs whose exact product candidate is listed in `FULLY_VERIFIED_HISTORY` are non-blocking.
 
 ## Known problems / cautions
 
-- Initial PR #37 Engineering run 340 / `34600802732` failed only because `explanation_inventory_v1.json` still described the previous 566/1,549 inventory. Its log printed the deterministic replacement manifest; commit `7217c574...` applied that exact manifest and Gate 349 then passed.
-- The old sibling branch `feature/marrow-explanation-rollout-anatomy-ch05-q10-q19-current` is stale and diverged from the verified Physiology lineage; do not use it.
+- The old sibling branch `feature/marrow-explanation-rollout-anatomy-ch05-q10-q19-current` is stale and diverged from the verified lineage; do not use it.
 - Never accept a neighboring green workflow run; certify only a PR's exact current product head SHA.
-- Documentation-only handoff commits are not product certification. Resolve the final live PR head and require exact-head Engineering + full Android/PWA before declaring FULLY_VERIFIED.
+- Documentation-only handoff commits after a certified product SHA do not invalidate that exact product certification and must not be mistaken for new product candidates.
 - Prefer stable chapter/question IDs over fuzzy display-text selectors.
 - Keep image integration separate. Do not rewrite raw Marrow shards, fork study engines, alter Topics taxonomy, redesign UI, merge, or promote production.
 
 ## Next step
 
-1. Resume this exact Anatomy Q10–Q19 batch; do **not** author Q20+.
-2. Resolve the live PR #37 head after this checkpoint and inspect the exact-head Engineering and full Android/PWA runs.
-3. Require the Q18 stable-ID browser regression plus generated product, CBT/FSRS/offline, APK/package, reproducibility, artifact and preview gates to pass on that exact candidate; production promotion remains skipped.
-4. If a failure appears, make at most two bounded repairs for that exact failure class and re-certify the resulting exact head.
-5. After exact-head certification succeeds, move this section to `FULLY_VERIFIED_HISTORY`, append the substantive run to `SESSION_LOG.md`, record exact artifacts/preview, release the lane, and stop without starting Q20+ in the same run.
+1. The lane is free. The next subject worker may acquire it after resolving this newest authoritative handoff and confirming live Git state is consistent.
+2. For Anatomy specifically, the next source-order start is **Chapter 5 Q20**; dynamically workload-score the contiguous tail before authoring.
+3. Start at most one new bounded batch and follow the full runbook state machine.
+4. Do not merge or promote production as part of explanation automation.
 
 Efficiency rule: pre-audit future content while CI runs, but never commit another batch on an unverified lineage.
