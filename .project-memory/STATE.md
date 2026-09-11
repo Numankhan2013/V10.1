@@ -44,9 +44,9 @@ Physiology remains paused at 218 raw references / 42 released / 22 tracked-unrel
 
 The source-derived audit plus `tools/marrow_image_coverage.py` is the completion gate. A bounded batch may be COMPLETE while a subject remains INCOMPLETE.
 
-## Latest image recovery batch — CURRENT_UNVERIFIED
+## Latest image recovery batch — VERIFIED_HISTORY
 
-Classification: **CURRENT_UNVERIFIED / source-validated bounded coverage-recovery batch**. This branch owns the writer lane until exact-head canonical CI finishes or the batch is safely retired.
+Classification: **VERIFIED_HISTORY / COMPLETE bounded coverage-recovery batch**. This batch no longer owns the shared writer lane.
 
 - Subject: Biochemistry.
 - Batch: `NKQ_BIOCHEM_COVERAGE_Q13_20260911`.
@@ -58,7 +58,10 @@ Classification: **CURRENT_UNVERIFIED / source-validated bounded coverage-recover
 - Source/reference validation, release regeneration, progress check, coverage check, image tests, coverage tests, pipeline verification, project-memory verification and `git diff --check` passed in bounded recovery run `34623825459`.
 - Temporary generated coverage output and Python bytecode were removed; `.gitignore` now excludes `__pycache__/` and `*.pyc`.
 - Post-batch candidate coverage: **95 raw / 94 effective / 66 released / 1 invalid metadata / 67 resolved / 4 tracked-unreleased / 24 untracked / 31 text-cue items**. Subject remains **INCOMPLETE**.
-- Exact-head Engineering Gate and full Android/PWA/package verification are pending on the clean candidate. Production promotion remains forbidden.
+- Exact certified product candidate: `363084ba5c7f302774617863f383652706a22b89`.
+- Exact-head Engineering Gate `34624402159` **SUCCESS**.
+- Exact-head full Android/PWA/package run `34624404224` **SUCCESS**.
+- Production promotion was skipped; `main` was not changed.
 
 Exact next deterministic unresolved source reference after this candidate: `marrow__BIOCHEM_CH01_Q004:figure:1 (explanation, source pages [12], status UNTRACKED_SOURCE_VISUAL)`.
 
@@ -79,8 +82,8 @@ Rejected wrong candidates do not resolve legitimate visuals. Never use approved 
 - Biochemistry remains the active coverage-recovery subject and is **INCOMPLETE**.
 - Physiology image automation remains paused so the old discovery defect is not propagated.
 - Recovery proceeds in deterministic source-reference order; complex/vector/zero-native references cannot be skipped for easier JPEGs.
-- Do not start another image batch while `NKQ_BIOCHEM_COVERAGE_Q13_20260911` remains CURRENT_UNVERIFIED.
-- After this batch becomes FULLY_VERIFIED_HISTORY, the next deterministic unresolved source reference is `marrow__BIOCHEM_CH01_Q004:figure:1 (explanation, source pages [12], status UNTRACKED_SOURCE_VISUAL)`.
+- No image batch currently owns the writer lane after the verified Q13 handoff is incorporated.
+- The next deterministic unresolved source reference is `marrow__BIOCHEM_CH01_Q004:figure:1 (explanation, source pages [12], status UNTRACKED_SOURCE_VISUAL)`.
 
 ## Known problems / verification cautions
 
@@ -92,6 +95,6 @@ Rejected wrong candidates do not resolve legitimate visuals. Never use approved 
 
 ## Next step
 
-1. Finish exact-head Engineering Gate and full Android/PWA/package verification for `NKQ_BIOCHEM_COVERAGE_Q13_20260911`.
-2. If both pass, record the exact verified candidate/run IDs, retire this batch to VERIFIED_HISTORY, and fast-forward only `feature/marrow-image-rollout-current`; never `main` or production.
-3. The following bounded recovery batch must start at `marrow__BIOCHEM_CH01_Q004:figure:1 (explanation, source pages [12], status UNTRACKED_SOURCE_VISUAL)`.
+1. Fast-forward only `feature/marrow-image-rollout-current` to this verified handoff if its live head still equals exact base `c9b5930b7ffdbc9af7a1edcc5acc829ad96e79c3`; never force, merge `main`, or promote production.
+2. Start the next bounded Biochemistry recovery batch at `marrow__BIOCHEM_CH01_Q004:figure:1 (explanation, source pages [12], status UNTRACKED_SOURCE_VISUAL)`.
+3. Keep Biochemistry subject status INCOMPLETE until the full coverage gate passes.

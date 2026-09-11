@@ -856,3 +856,16 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Temporary generated `coverage.json` and Python bytecode are transport artifacts and are not retained in Git. `.gitignore` now excludes Python bytecode/cache.
 - Next deterministic unresolved source reference: `marrow__BIOCHEM_CH01_Q004:figure:1 (explanation, source pages [12], status UNTRACKED_SOURCE_VISUAL)`.
 - No main merge or production promotion.
+
+
+## 2026-09-11 — Biochemistry Q13 coverage batch fully verified
+
+- Bounded image-recovery batch `NKQ_BIOCHEM_COVERAGE_Q13_20260911` completed on `automation/marrow-images-biochemistry-NKQ_BIOCHEM_COVERAGE_Q13_20260911` from exact integration base `c9b5930b7ffdbc9af7a1edcc5acc829ad96e79c3`.
+- Added one independently reviewed PASS explanation binding for `marrow__BIOCHEM_CH02_Q013:figure:1`, authoritative Marrow ED8 Biochemistry page 35 / xref 1126 / region `[162,453,450,669]`. The figure is positioned after the Q13 solution and before Solution to Question 14.
+- Reused existing source-compared PASS glycolysis reconstruction `biochemistry-aa11f9fa6a08baea`, production SHA-256 `e6b4d76fa9ff07dbf62b5094b8fdcd46a744837bb802aa55945ac7021f6fa8e2`; no new diagram or medical content was invented.
+- Bounded source/reference run `34623825459` passed audit, registry validation, release regeneration, progress/coverage checks, image/coverage tests, build-pipeline verification, project-memory verification and diff check.
+- Clean exact product candidate `363084ba5c7f302774617863f383652706a22b89` passed Engineering Gate `34624402159` and full Android/PWA/browser/APK/package run `34624404224`. Production promotion was skipped.
+- Post-batch Biochemistry coverage is 95 raw / 94 effective / 66 released / 1 invalid source-metadata / 67 resolved / 4 tracked-unreleased / 24 untracked / 31 text-cue items. Subject remains INCOMPLETE.
+- The full regenerated ledger corrected the next deterministic recovery start to `marrow__BIOCHEM_CH01_Q004:figure:1` (explanation, source page 12, UNTRACKED_SOURCE_VISUAL).
+- Temporary coverage output and Python bytecode were removed; `.gitignore` now excludes `__pycache__/` and `*.pyc`.
+- No `main` merge or production promotion.
