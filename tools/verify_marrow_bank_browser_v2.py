@@ -58,7 +58,7 @@ def _subject_entry(subject, shot):
         r"            [A-Za-z_]*cards\.filter\(has_text='Marrow'\)\.click\(\);page\.wait_for_timeout\(\d+\)"
     )
     chooser_shot = "00-" + subject.lower() + "-bank-chooser.png"
-    actual_click = "            page.locator('button.nk-subject-row').filter(has_text='" + subject + "').click()"
+    actual_click = "            page.locator('button.nk-v3-subject-card').filter(has_text='" + subject + "').click()"
     replacement = actual_click + "\n" + _chooser_steps(subject, click_marrow=True, screenshot=chooser_shot, invoke=False) + "\n            page.screenshot(path=str(OUT/'" + shot + "'),full_page=True)"
     source, n = _re.subn(pattern, replacement, source, count=1, flags=_re.S)
     if n != 1:
