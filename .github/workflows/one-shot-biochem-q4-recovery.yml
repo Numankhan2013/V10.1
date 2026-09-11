@@ -1,0 +1,155 @@
+name: One-shot Biochemistry Q4 coverage recovery
+
+on:
+  push:
+    branches:
+      - automation/marrow-images-biochemistry-NKQ_BIOCHEM_COVERAGE_Q4_20260911
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    if: ${{ !contains(github.event.head_commit.message, '[q4-recovery-done]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: automation/marrow-images-biochemistry-NKQ_BIOCHEM_COVERAGE_Q4_20260911
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install PDF dependencies
+        run: python -m pip install pypdf==6.18.0 pymupdf pillow
+      - name: Preflight source and coverage
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          p=Path('data/marrow/source_pdfs/biochemistryed8.pdf')
+          assert p.stat().st_size == 7958177
+          assert hashlib.sha256(p.read_bytes()).hexdigest() == '463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb'
+          PY
+          python3 tools/marrow_images.py audit
+          python3 tools/marrow_image_coverage.py --subject Biochemistry
+          python3 - <<'PY'
+          import json
+          c=json.load(open('data/marrow/images/coverage.json'))
+          rows=[r for r in c['sourceVisuals'] if r['subject']=='Biochemistry' and r['coverageStatus'] in {'UNTRACKED_SOURCE_VISUAL','UNRELEASED_TRACKED'}]
+          assert rows, 'No unresolved Biochemistry source visuals'
+          first=rows[0]
+          assert first['id']=='marrow__BIOCHEM_CH01_Q004:figure:1', first
+          assert first['role']=='explanation' and first['sourcePages']==[12], first
+          print('Q4_RECOVERY_PREFLIGHT_OK', first)
+          PY
+      - name: Render exact source region and stage registry entry
+        run: |
+          python3 tools/marrow_images.py render-region --subject Biochemistry --page 12 --region 162 433 450 649 --dpi 300
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib, json
+          digest='400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f'
+          png=Path('data/marrow/images/originals')/(digest+'.png')
+          assert png.exists(), png
+          assert hashlib.sha256(png.read_bytes()).hexdigest()==digest
+          from PIL import Image
+          with Image.open(png) as im:
+              assert im.size==(1200,901), im.size
+          registry=Path('data/marrow/images/registry.json')
+          value=json.loads(registry.read_text())
+          asset_id='biochemistry-'+digest[:16]
+          assert not any(a['id']==asset_id for a in value['assets'])
+          value['assets'].append({
+            'id':asset_id,
+            'subject':'Biochemistry',
+            'kind':'diagram',
+            'source':{
+              'file':'biochemistryed8.pdf',
+              'sha256':'463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb',
+              'page':12,
+              'xref':25,
+              'region':[162.0,433.0,450.0,649.0]
+            },
+            'bindings':[{
+              'questionId':'marrow__BIOCHEM_CH01_Q004',
+              'role':'explanation',
+              'order':1,
+              'alt':'Source epimer comparison figure',
+              'status':'REVIEW_REQUIRED',
+              'reviewBatch':'NKQ_BIOCHEM_COVERAGE_Q4_20260911',
+              'source':{'page':12,'xref':25,'region':[162.0,433.0,450.0,649.0]}
+            }],
+            'original':{'path':str(png),'sha256':digest,'width':1200,'height':901},
+            'production':{'path':str(png),'sha256':digest,'width':1200,'height':901},
+            'method':'region-render',
+            'status':'REVIEW_REQUIRED'
+          })
+          registry.write_text(json.dumps(value,indent=2)+'\n')
+          print('Q4_REGISTRY_STAGED',asset_id)
+          PY
+          python3 tools/marrow_images.py validate
+      - name: Record source comparison and release
+        run: |
+          python3 tools/marrow_images.py review \
+            --asset biochemistry-400546eaace6e3f0 \
+            --status PASS --kind diagram \
+            --notes "Compared authoritative Marrow ED8 Biochemistry page 12, native xref 25, and 300-DPI exact-region render. Both Fischer projections are complete and readable: D-glucose and D-mannose, CHO/CH2OH termini, every horizontal H/OH placement, and the vertical separator are preserved. No labels, bonds, stereochemistry, or educational content were added or altered." \
+            --evidence "Automation source inspection 2026-09-11: page 12 full-page image plus exact xref-25 region [162,433,450,649]; source SHA-256 463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb; production SHA-256 400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f."
+          python3 tools/marrow_images.py review-binding \
+            --asset biochemistry-400546eaace6e3f0 \
+            --question marrow__BIOCHEM_CH01_Q004 \
+            --status PASS \
+            --notes "The figure is located inside Solution to Question 4 and directly illustrates the explanation that D-glucose and D-mannose are epimers. Explanation-only timing is correct and cannot reveal the answer before submission." \
+            --evidence "Authoritative Marrow ED8 Biochemistry page 12: Solution to Question 4 immediately precedes xref 25; Solution to Question 5 begins below the figure."
+          python3 tools/marrow_images.py release
+          python3 tools/marrow_image_progress.py
+          python3 tools/marrow_images.py audit
+          python3 tools/marrow_image_coverage.py --subject Biochemistry
+          python3 tools/marrow_image_progress.py --check
+          python3 tools/marrow_image_coverage.py --subject Biochemistry --check
+      - name: Update project memory and validate
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          cov=json.load(open('data/marrow/images/coverage.json'))
+          s=cov['summary']['Biochemistry']
+          unresolved=[r for r in cov['sourceVisuals'] if r['subject']=='Biochemistry' and r['coverageStatus'] in {'UNTRACKED_SOURCE_VISUAL','UNRELEASED_TRACKED'}]
+          next_ref=unresolved[0] if unresolved else None
+          next_text=(f"`{next_ref['id']}` ({next_ref['role']}, source pages {next_ref['sourcePages']}, status {next_ref['coverageStatus']})" if next_ref else 'none')
+          state=Path('.project-memory/STATE.md')
+          text=state.read_text()
+          start=text.index('## Latest image recovery batch')
+          end=text.index('## Coverage and trust rules')
+          section=f'''## Latest image recovery batch — CURRENT_UNVERIFIED\n\nClassification: **CURRENT_UNVERIFIED / source-validated bounded coverage-recovery batch**. This branch owns the writer lane until exact-head canonical CI finishes or the batch is safely retired.\n\n- Subject: Biochemistry.\n- Batch: `NKQ_BIOCHEM_COVERAGE_Q4_20260911`.\n- Candidate branch: `automation/marrow-images-biochemistry-NKQ_BIOCHEM_COVERAGE_Q4_20260911`.\n- Exact integration base: `3bc5229c573e304f1216c054457697eff6a78121`.\n- Released reference: `marrow__BIOCHEM_CH01_Q004:figure:1`, explanation role, Marrow ED8 Biochemistry page 12 / xref 25 / region `[162,433,450,649]`.\n- Production is the source-faithful 300-DPI exact-region render, SHA-256 `400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f`, 1200×901.\n- Source inspection verified both Fischer projections and all stereochemical H/OH placements against the authoritative full page; no reconstruction or medical-image processing was used.\n- Post-batch candidate coverage: **{s['sourceVisualReferences']} raw / {s['effectiveLearnerVisualReferences']} effective / {s['releasedSourceVisualReferences']} released / {s['invalidSourceMetadataReferences']} invalid metadata / {s['resolvedSourceVisualReferences']} resolved / {s['trackedButUnreleasedReferences']} tracked-unreleased / {s['untrackedSourceVisualReferences']} untracked / {s['textCueReviewItems']} text-cue items**. Subject remains **INCOMPLETE**.\n- Exact-head Engineering Gate and full Android/PWA/package verification are pending on this clean candidate. Production promotion remains forbidden.\n\nExact next deterministic unresolved source reference after this candidate: {next_text}.\n\n'''
+          text=text[:start]+section+text[end:]
+          auto_start=text.index('## Automation state')
+          known_start=text.index('## Known problems / verification cautions')
+          auto=f'''## Automation state\n\n- Biochemistry remains the active coverage-recovery subject and is **INCOMPLETE**.\n- Physiology image automation remains paused so the old discovery defect is not propagated.\n- Recovery proceeds in deterministic source-reference order; complex/vector/zero-native references cannot be skipped for easier JPEGs.\n- `NKQ_BIOCHEM_COVERAGE_Q4_20260911` is CURRENT_UNVERIFIED and owns the writer lane until exact-head CI completes or it is safely retired.\n- The next deterministic unresolved source reference after this candidate is {next_text}.\n\n'''
+          text=text[:auto_start]+auto+text[known_start:]
+          next_start=text.index('## Next step')
+          text=text[:next_start]+f'''## Next step\n\n1. Finish exact-head Engineering Gate and full Android/PWA/package verification for `NKQ_BIOCHEM_COVERAGE_Q4_20260911`.\n2. If both pass, record the exact verified candidate/run IDs, retire this batch to VERIFIED_HISTORY, and fast-forward only `feature/marrow-image-rollout-current`; never `main` or production.\n3. The following bounded recovery batch must start at {next_text}.\n'''
+          state.write_text(text)
+
+          log=Path('.project-memory/SESSION_LOG.md')
+          with log.open('a',encoding='utf-8') as f:
+              f.write(f'''\n\n## 2026-09-11 — Biochemistry Q4 coverage recovery candidate\n\n- Started bounded batch `NKQ_BIOCHEM_COVERAGE_Q4_20260911` from exact image base `3bc5229c573e304f1216c054457697eff6a78121`.\n- Recovered `marrow__BIOCHEM_CH01_Q004:figure:1` from authoritative page 12 / xref 25 / region `[162,433,450,649]`. The source figure shows D-glucose and D-mannose Fischer projections in the Q4 explanation.\n- Used a 300-DPI exact-region render rather than reconstruction; production SHA-256 `400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f`, 1200×901.\n- Full-page/source-region inspection confirmed complete stereochemical labels and explanation ownership. Asset and binding are PASS.\n- Candidate coverage is {s['sourceVisualReferences']} raw / {s['effectiveLearnerVisualReferences']} effective / {s['releasedSourceVisualReferences']} released / {s['invalidSourceMetadataReferences']} invalid / {s['resolvedSourceVisualReferences']} resolved / {s['trackedButUnreleasedReferences']} tracked-unreleased / {s['untrackedSourceVisualReferences']} untracked / {s['textCueReviewItems']} text-cue items. Subject remains INCOMPLETE.\n- Exact next unresolved reference: {next_text}.\n- Exact-head canonical CI remains pending; no main merge or production promotion.\n''')
+          print('MEMORY_Q4_UPDATED next=',next_text)
+          PY
+          rm -f data/marrow/images/coverage.json
+          rm -f .github/workflows/one-shot-biochem-q4-recovery.yml
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_image_progress.py --check
+          python3 tools/test_marrow_images.py
+          python3 tools/test_marrow_image_coverage.py
+          python3 tools/verify_build_pipeline.py
+          python3 tools/verify_project_memory.py
+          git diff --check
+      - name: Commit recovery candidate
+        run: |
+          git config user.name 'Numankhan2013'
+          git config user.email '124483154+Numankhan2013@users.noreply.github.com'
+          git add -A
+          git commit -m 'Recover Biochemistry Ch1 Q4 source figure [q4-recovery-done]'
+          git push origin HEAD:automation/marrow-images-biochemistry-NKQ_BIOCHEM_COVERAGE_Q4_20260911
