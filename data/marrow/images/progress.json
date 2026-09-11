@@ -1,30 +1,31 @@
 {
   "schemaVersion": 1,
   "assets": {
-    "total": 156,
+    "total": 162,
     "byStatus": {
       "PASS": 151,
       "REJECTED": 2,
-      "REVIEW_REQUIRED": 1,
+      "REVIEW_REQUIRED": 7,
       "SOURCE_LIMITED": 2
     },
     "byKind": {
       "diagram": 126,
       "hybrid": 3,
       "medical": 26,
-      "table": 1
+      "table": 1,
+      "unknown": 6
     },
     "byMethod": {
-      "native-jpeg-stream": 152,
+      "native-jpeg-stream": 158,
       "svg-reconstruction": 4
     }
   },
   "bindings": {
-    "total": 198,
+    "total": 204,
     "byStatus": {
       "PASS": 171,
       "REJECTED": 25,
-      "REVIEW_REQUIRED": 1,
+      "REVIEW_REQUIRED": 7,
       "SOURCE_LIMITED": 1
     },
     "releasedByRole": {
@@ -41,7 +42,7 @@
     },
     "Biochemistry": {
       "approvedAssets": 55,
-      "assets": 56,
+      "assets": 62,
       "releasedQuestions": 55
     },
     "Physiology": {
@@ -54,6 +55,10 @@
     "NKQ_ANATOMY_20260910": {
       "bindings": 6,
       "releasedBindings": 6
+    },
+    "NKQ_BIOCHEMISTRY_20260911": {
+      "bindings": 6,
+      "pendingBindings": 6
     },
     "pilot": {
       "bindings": 18,
