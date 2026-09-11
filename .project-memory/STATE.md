@@ -96,13 +96,14 @@ explanation and exactly three distractor rationales through the real learner UI.
 
 ## Current image automation checkpoint
 
-- Classification: **CURRENT_UNFINISHED**; owner **Biochemistry**; batch `NKQ_BIOCHEMISTRY_20260911`.
-- Branch `automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911`; working base `1ae61e205804d3d3b2359fcbad218f56e396896b`; latest substantive QA/release commit `6170c412a98f2147889e9b62845442a44b9dedd0`. Resolve live branch HEAD from Git.
+- Classification: **VERIFIED_HISTORY**; completed owner **Biochemistry**; batch `NKQ_BIOCHEMISTRY_20260911` is complete and no longer owns the shared writer lane.
+- Branch `automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911`; working base `1ae61e205804d3d3b2359fcbad218f56e396896b`; exact build-verified candidate `04027242473b46ab5941ea3a41c11046458f2c90`; substantive image QA/release commit `6170c412a98f2147889e9b62845442a44b9dedd0`. Resolve live branch HEAD from Git for the memory-only handoff commit.
 - Registry SHA-256 `1927cb19959c931503c396a2cf58d0fd37f26531df23f3c542a7f6770d38de38`; progress SHA-256 `77c32ec0be4ef75a9941b8a2e44040a00720e354b5463a0e245b79caebc790b8`.
 - PASS/released in this batch: `marrow__BIOCHEM_CH25_Q024`, `marrow__BIOCHEM_CH26_Q003`, `marrow__BIOCHEM_CH26_Q014`, `marrow__BIOCHEM_CH26_Q021`, `marrow__BIOCHEM_CH26_Q022`.
-- Still **REVIEW_REQUIRED**: `marrow__BIOCHEM_CH25_Q026` / asset `biochemistry-e10cc8a9721a17da`; correct CRISPR ownership but small labels are below a confident phone-width readability decision.
-- Exact next action: resume this same branch/batch and resolve only the held CRISPR figure via expanded/device inspection or a source-faithful educational reconstruction. Do not start another Biochemistry image batch until it is resolved or explicitly retired.
+- Deferred specialist backlog, **REVIEW_REQUIRED** and unreleased: `marrow__BIOCHEM_CH25_Q026` / asset `biochemistry-e10cc8a9721a17da`; ownership is correct but native CRISPR labels remain below the confident phone-width readability threshold. This deferred item is not a current writer lock and must remain unreleased until a dedicated readability/reconstruction batch verifies it.
+- Exact-head verification for `04027242473b46ab5941ea3a41c11046458f2c90`: CI bridge `34600790522` PASS; Engineering Gate `34600799528` PASS; full Android/PWA/package run `34600801834` PASS, with production promotion skipped. Browser/image-byte/APK/package/reproducibility gates passed.
 - Current deterministic totals: 162 assets, 204 bindings, 163 released questions; Biochemistry 60 approved assets / 62 total assets / 60 released questions.
+- Exact next action: the next image writer must resolve the live image pointer and may acquire the lane normally. Treat this batch as VERIFIED_HISTORY. Handle the deferred CRISPR figure only in a future dedicated specialist batch; do not revive this completed mixed batch as CURRENT_UNFINISHED.
 
 ## Known problems / verification cautions
 
