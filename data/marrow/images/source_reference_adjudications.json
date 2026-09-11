@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "marrow__BIOCHEM_CH02_Q010:figure:1",
+      "questionId": "marrow__BIOCHEM_CH02_Q010",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "sourcePages": [33],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "reason": "Canonical figure metadata declares a glycolysis pathway on explanation page 33, but direct inspection of the authoritative rendered Marrow ED8 page 33 shows explanation text only and no figure. A neighboring-page pathway must not be substituted.",
+      "evidence": "2026-09-11 coverage-recovery inspection: authoritative PDF hash verified; full page 33 rendered and visually checked against BIOCHEM_CH02_Q010 explanation ownership. Pages 31, 32 and 35 contain glycolysis pathway figures, while page 33 does not."
+    }
+  ]
+}

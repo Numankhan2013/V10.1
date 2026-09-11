@@ -616,6 +616,29 @@
           "role": "explanation",
           "order": 1,
           "alt": "Glycolysis pathway with enzymes and irreversible steps"
+        },
+        {
+          "questionId": "marrow__BIOCHEM_CH02_Q013",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Glycolysis pathway with enzymes and irreversible steps",
+          "status": "PASS",
+          "reviewBatch": "NKQ_BIOCHEM_COVERAGE_Q13_20260911",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Full authoritative page 35 inspection places the second glycolysis pathway (xref 1126) immediately after the Q13 solution text and before Solution to Question 14. The repeated pathway preserves glucose through pyruvate, all shown enzyme labels, ATP/ADP and NAD+/NADH+H+ relationships, aldolase/triose-phosphate branch/interconversion, reversible arrows, and red irreversible steps. Existing production SVG is the already source-compared PASS reconstruction of this same pathway. Explanation-only timing is correct and answer-safe.",
+            "evidence": "Marrow ED8 Biochemistry page 35 / xref 1126 / region [162,453,450,669], visually compared 2026-09-11 against the existing reviewed glycolysis production asset."
+          },
+          "source": {
+            "page": 35,
+            "xref": 1126,
+            "region": [
+              162.0,
+              453.0,
+              450.0,
+              669.0
+            ]
+          }
         }
       ],
       "original": {
@@ -9554,6 +9577,837 @@
         "evidence": "Compared native source page 188/xref 503 with exact question metadata and source role.",
         "originalSha256": "7a0d4592f50fea1a2cb38981edd409531be795065964e70851561a70dca84620",
         "productionSha256": "7a0d4592f50fea1a2cb38981edd409531be795065964e70851561a70dca84620"
+      }
+    },
+    {
+      "id": "anatomy-d3f9220198201a07",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "NKQ_ANATOMY_20260910",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 154,
+        "xref": 405,
+        "region": [
+          162.0,
+          110.0,
+          450.0,
+          326.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH09_Q005",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Flexures of the brain",
+          "status": "PASS",
+          "reviewBatch": "NKQ_ANATOMY_20260910",
+          "source": {
+            "page": 154,
+            "xref": 405,
+            "region": [
+              162.0,
+              110.0,
+              450.0,
+              326.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Figure occurs in the Q5 solution and directly supports the metencephalon–myelencephalon pontine-flexure explanation; release after answer only.",
+            "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/d3f9220198201a07a0db1e83530233adbe04eddbef228ece88b627cdb0d3f397.jpg",
+        "sha256": "d3f9220198201a07a0db1e83530233adbe04eddbef228ece88b627cdb0d3f397",
+        "width": 575,
+        "height": 513
+      },
+      "production": {
+        "path": "data/marrow/images/originals/d3f9220198201a07a0db1e83530233adbe04eddbef228ece88b627cdb0d3f397.jpg",
+        "sha256": "d3f9220198201a07a0db1e83530233adbe04eddbef228ece88b627cdb0d3f397",
+        "width": 575,
+        "height": 513
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "All four brain flexures, six neural-tube region labels, leader endpoints and sequence are crisp and complete. Native JPEG retained without processing.",
+        "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry.",
+        "originalSha256": "d3f9220198201a07a0db1e83530233adbe04eddbef228ece88b627cdb0d3f397",
+        "productionSha256": "d3f9220198201a07a0db1e83530233adbe04eddbef228ece88b627cdb0d3f397"
+      }
+    },
+    {
+      "id": "anatomy-3baaad0ddf8e32e3",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "NKQ_ANATOMY_20260910",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 156,
+        "xref": 3533,
+        "region": [
+          162.0,
+          326.0,
+          450.0,
+          542.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH09_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Commissural fibres",
+          "status": "PASS",
+          "reviewBatch": "NKQ_ANATOMY_20260910",
+          "source": {
+            "page": 156,
+            "xref": 3533,
+            "region": [
+              162.0,
+              326.0,
+              450.0,
+              542.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Figure occurs in the Q8 solution and labels the anterior/posterior commissures and corpus callosum used by the commissural-development explanation; release after answer only.",
+            "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/3baaad0ddf8e32e338f52515db4d2ba87dfa9a74bf914f1692d66a1dc6b3d4c3.jpg",
+        "sha256": "3baaad0ddf8e32e338f52515db4d2ba87dfa9a74bf914f1692d66a1dc6b3d4c3",
+        "width": 576,
+        "height": 498
+      },
+      "production": {
+        "path": "data/marrow/images/originals/3baaad0ddf8e32e338f52515db4d2ba87dfa9a74bf914f1692d66a1dc6b3d4c3.jpg",
+        "sha256": "3baaad0ddf8e32e338f52515db4d2ba87dfa9a74bf914f1692d66a1dc6b3d4c3",
+        "width": 576,
+        "height": 498
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic sagittal gross-brain specimen and its source annotation layer are readable; native JPEG bytes retained exactly.",
+        "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry.",
+        "originalSha256": "3baaad0ddf8e32e338f52515db4d2ba87dfa9a74bf914f1692d66a1dc6b3d4c3",
+        "productionSha256": "3baaad0ddf8e32e338f52515db4d2ba87dfa9a74bf914f1692d66a1dc6b3d4c3"
+      }
+    },
+    {
+      "id": "anatomy-267154fe7beac514",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "NKQ_ANATOMY_20260910",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 148,
+        "xref": 389,
+        "region": [
+          162.0,
+          160.0,
+          450.0,
+          376.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH09_Q009",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "NKQ_ANATOMY_20260910",
+          "source": {
+            "page": 148,
+            "xref": 389,
+            "region": [
+              162.0,
+              160.0,
+              450.0,
+              376.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Image is embedded in the Q9 stem and the A marker is required to identify the structure; release at question time with neutral alt text.",
+            "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/267154fe7beac514c740c21be0f8b1ccf44bd9a7a57a533d26c7ed01f59cb7f9.jpg",
+        "sha256": "267154fe7beac514c740c21be0f8b1ccf44bd9a7a57a533d26c7ed01f59cb7f9",
+        "width": 720,
+        "height": 540
+      },
+      "production": {
+        "path": "data/marrow/images/originals/267154fe7beac514c740c21be0f8b1ccf44bd9a7a57a533d26c7ed01f59cb7f9.jpg",
+        "sha256": "267154fe7beac514c740c21be0f8b1ccf44bd9a7a57a533d26c7ed01f59cb7f9",
+        "width": 720,
+        "height": 540
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic axial brain specimen, green A pointer, hemispheres, choroid plexus and lateral-ventricle labels are clear; native JPEG bytes retained exactly.",
+        "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry.",
+        "originalSha256": "267154fe7beac514c740c21be0f8b1ccf44bd9a7a57a533d26c7ed01f59cb7f9",
+        "productionSha256": "267154fe7beac514c740c21be0f8b1ccf44bd9a7a57a533d26c7ed01f59cb7f9"
+      }
+    },
+    {
+      "id": "anatomy-1ea13802a456a2f9",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "NKQ_ANATOMY_20260910",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 157,
+        "xref": 413,
+        "region": [
+          162.0,
+          327.0,
+          450.0,
+          543.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH09_Q010",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Septum pellucidum",
+          "status": "PASS",
+          "reviewBatch": "NKQ_ANATOMY_20260910",
+          "source": {
+            "page": 157,
+            "xref": 413,
+            "region": [
+              162.0,
+              327.0,
+              450.0,
+              543.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Figure occurs in the Q10 solution and supports the septum-pellucidum relationship without being required to answer the text-only stem; release after answer only.",
+            "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/1ea13802a456a2f961e12273f52ea937d5a8ed89877949f20474fbb60b559152.jpg",
+        "sha256": "1ea13802a456a2f961e12273f52ea937d5a8ed89877949f20474fbb60b559152",
+        "width": 576,
+        "height": 498
+      },
+      "production": {
+        "path": "data/marrow/images/originals/1ea13802a456a2f961e12273f52ea937d5a8ed89877949f20474fbb60b559152.jpg",
+        "sha256": "1ea13802a456a2f961e12273f52ea937d5a8ed89877949f20474fbb60b559152",
+        "width": 576,
+        "height": 498
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic sagittal gross-brain specimen preserves corpus callosum, septum pellucidum, fornix and adjacent labels; native JPEG bytes retained exactly.",
+        "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry.",
+        "originalSha256": "1ea13802a456a2f961e12273f52ea937d5a8ed89877949f20474fbb60b559152",
+        "productionSha256": "1ea13802a456a2f961e12273f52ea937d5a8ed89877949f20474fbb60b559152"
+      }
+    },
+    {
+      "id": "anatomy-390f89119b18e515",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "NKQ_ANATOMY_20260910",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 149,
+        "xref": 392,
+        "region": [
+          162.0,
+          200.0,
+          450.0,
+          416.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH09_Q012",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "NKQ_ANATOMY_20260910",
+          "source": {
+            "page": 149,
+            "xref": 392,
+            "region": [
+              162.0,
+              200.0,
+              450.0,
+              416.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Image is embedded in the Q12 identification stem and is necessary to answer it; release at question time with neutral alt text.",
+            "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/390f89119b18e515c5f762a06b97eff53d8cb903e2ddbbb38d0902abaeb6c28a.jpg",
+        "sha256": "390f89119b18e515c5f762a06b97eff53d8cb903e2ddbbb38d0902abaeb6c28a",
+        "width": 720,
+        "height": 509
+      },
+      "production": {
+        "path": "data/marrow/images/originals/390f89119b18e515c5f762a06b97eff53d8cb903e2ddbbb38d0902abaeb6c28a.jpg",
+        "sha256": "390f89119b18e515c5f762a06b97eff53d8cb903e2ddbbb38d0902abaeb6c28a",
+        "width": 720,
+        "height": 509
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic newborn clinical photograph clearly preserves the occipital mass and surrounding anatomy; native JPEG bytes retained exactly with no enhancement or recreation.",
+        "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry.",
+        "originalSha256": "390f89119b18e515c5f762a06b97eff53d8cb903e2ddbbb38d0902abaeb6c28a",
+        "productionSha256": "390f89119b18e515c5f762a06b97eff53d8cb903e2ddbbb38d0902abaeb6c28a"
+      }
+    },
+    {
+      "id": "anatomy-e0c1ff1656105c71",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "NKQ_ANATOMY_20260910",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 150,
+        "xref": 395,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH09_Q013",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "NKQ_ANATOMY_20260910",
+          "source": {
+            "page": 150,
+            "xref": 395,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Image is embedded in the Q13 identification stem and is necessary to answer it; release at question time with neutral alt text.",
+            "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/e0c1ff1656105c71969fb6a5ec4b0393c6648994444456ae66349d3c6e6f7ff5.jpg",
+        "sha256": "e0c1ff1656105c71969fb6a5ec4b0393c6648994444456ae66349d3c6e6f7ff5",
+        "width": 720,
+        "height": 1065
+      },
+      "production": {
+        "path": "data/marrow/images/originals/e0c1ff1656105c71969fb6a5ec4b0393c6648994444456ae66349d3c6e6f7ff5.jpg",
+        "sha256": "e0c1ff1656105c71969fb6a5ec4b0393c6648994444456ae66349d3c6e6f7ff5",
+        "width": 720,
+        "height": 1065
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authentic clinical photograph clearly preserves the cranial defect and body context; native JPEG bytes retained exactly with no enhancement or recreation.",
+        "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry.",
+        "originalSha256": "e0c1ff1656105c71969fb6a5ec4b0393c6648994444456ae66349d3c6e6f7ff5",
+        "productionSha256": "e0c1ff1656105c71969fb6a5ec4b0393c6648994444456ae66349d3c6e6f7ff5"
+      }
+    },
+    {
+      "id": "biochemistry-a501ec0aa161745f",
+      "subject": "Biochemistry",
+      "kind": "medical",
+      "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 387,
+        "xref": 916,
+        "region": [
+          162.0,
+          248.0,
+          450.0,
+          464.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH25_Q024",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
+          "source": {
+            "page": 387,
+            "xref": 916,
+            "region": [
+              162.0,
+              248.0,
+              450.0,
+              464.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Question 24 explicitly presents this clinical photograph before the options. Question-time placement is required to answer the stem; neutral alt text is retained and the image contains no correct-option annotation or answer-revealing caption.",
+            "evidence": "Marrow ED8 page 387 xref 916 plus run 34595643644 comparison artifact."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/a501ec0aa161745f616a29af1b51952da9dabeea99bc6368be489fdd08a33045.jpg",
+        "sha256": "a501ec0aa161745f616a29af1b51952da9dabeea99bc6368be489fdd08a33045",
+        "width": 720,
+        "height": 540
+      },
+      "production": {
+        "path": "data/marrow/images/originals/a501ec0aa161745f616a29af1b51952da9dabeea99bc6368be489fdd08a33045.jpg",
+        "sha256": "a501ec0aa161745f616a29af1b51952da9dabeea99bc6368be489fdd08a33045",
+        "width": 720,
+        "height": 540
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Compared full Marrow ED8 source page 387, native xref 916, exact 720x540 JPEG and learner-width rendering. Clinical facial, ocular and skin pixels are preserved byte-identically with no crop, synthesis, inpainting or enhancement. The photograph is embedded in Question 24 and remains clear at phone width.",
+        "evidence": "GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH25_Q024__comparison.jpg",
+        "originalSha256": "a501ec0aa161745f616a29af1b51952da9dabeea99bc6368be489fdd08a33045",
+        "productionSha256": "a501ec0aa161745f616a29af1b51952da9dabeea99bc6368be489fdd08a33045"
+      }
+    },
+    {
+      "id": "biochemistry-e10cc8a9721a17da",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 402,
+        "xref": 961,
+        "region": [
+          162.0,
+          405.0,
+          450.0,
+          621.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH25_Q026",
+          "role": "explanation",
+          "order": 1,
+          "alt": "CRISPR-Cas9 gene editing schematic",
+          "status": "REVIEW_REQUIRED",
+          "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
+          "source": {
+            "page": 402,
+            "xref": 961,
+            "region": [
+              162.0,
+              405.0,
+              450.0,
+              621.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": false,
+            "notes": "Correct explanation ownership and answer-safe timing confirmed, but the candidate remains held because small labels are borderline at phone width.",
+            "evidence": "Marrow ED8 page 402 xref 961 plus run 34595643644 comparison artifact."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/e10cc8a9721a17daea04f60fb422e85611a233b31c0075ca5095e9df09aa4844.jpg",
+        "sha256": "e10cc8a9721a17daea04f60fb422e85611a233b31c0075ca5095e9df09aa4844",
+        "width": 600,
+        "height": 451
+      },
+      "production": {
+        "path": "data/marrow/images/originals/e10cc8a9721a17daea04f60fb422e85611a233b31c0075ca5095e9df09aa4844.jpg",
+        "sha256": "e10cc8a9721a17daea04f60fb422e85611a233b31c0075ca5095e9df09aa4844",
+        "width": 600,
+        "height": 451
+      },
+      "method": "native-jpeg-stream",
+      "status": "REVIEW_REQUIRED",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Ownership is correct to the CRISPR explanation on Marrow ED8 page 402/xref 961 and the native 600x451 JPEG is intact. At learner-width inspection, several small molecular/repair labels are borderline for the approved phone readability floor; do not release until expanded/device inspection or a fully source-faithful reconstruction resolves readability.",
+        "evidence": "GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH25_Q026__comparison.jpg",
+        "originalSha256": "e10cc8a9721a17daea04f60fb422e85611a233b31c0075ca5095e9df09aa4844",
+        "productionSha256": "e10cc8a9721a17daea04f60fb422e85611a233b31c0075ca5095e9df09aa4844"
+      }
+    },
+    {
+      "id": "biochemistry-2ece5cd128a5140d",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 411,
+        "xref": 981,
+        "region": [
+          162.0,
+          245.0,
+          450.0,
+          461.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH26_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Difference between RNA and DNA",
+          "status": "PASS",
+          "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
+          "source": {
+            "page": 411,
+            "xref": 981,
+            "region": [
+              162.0,
+              245.0,
+              450.0,
+              461.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The source page places this RNA-versus-DNA diagram under Solution to Question 3. Explanation-only timing is correct and answer-safe.",
+            "evidence": "Marrow ED8 page 411 xref 981 plus run 34595643644 comparison artifact."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/2ece5cd128a5140d7f0a523985f380a0eb8e32b6d34ad9f7243ebab2dbee93d6.jpg",
+        "sha256": "2ece5cd128a5140d7f0a523985f380a0eb8e32b6d34ad9f7243ebab2dbee93d6",
+        "width": 746,
+        "height": 724
+      },
+      "production": {
+        "path": "data/marrow/images/originals/2ece5cd128a5140d7f0a523985f380a0eb8e32b6d34ad9f7243ebab2dbee93d6.jpg",
+        "sha256": "2ece5cd128a5140d7f0a523985f380a0eb8e32b6d34ad9f7243ebab2dbee93d6",
+        "width": 746,
+        "height": 724
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Compared Marrow ED8 page 411/xref 981 against the exact 746x724 native JPEG and learner-width rendering. RNA/DNA labels, A/C/G/U/T bases, base-pair annotation, sugar-phosphate backbone and helix depiction are preserved and readable; no educational content was added or removed.",
+        "evidence": "GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH26_Q003__comparison.jpg",
+        "originalSha256": "2ece5cd128a5140d7f0a523985f380a0eb8e32b6d34ad9f7243ebab2dbee93d6",
+        "productionSha256": "2ece5cd128a5140d7f0a523985f380a0eb8e32b6d34ad9f7243ebab2dbee93d6"
+      }
+    },
+    {
+      "id": "biochemistry-5865ddb63ce7a5b2",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 415,
+        "xref": 993,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH26_Q014",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Eukaryotic gene and mRNA post-transcriptional modification diagram",
+          "status": "PASS",
+          "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
+          "source": {
+            "page": 415,
+            "xref": 993,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The figure follows Solution to Question 14 and precedes Question 15 material, confirming explanation ownership. Explanation-only role is answer-safe.",
+            "evidence": "Marrow ED8 page 415 xref 993 plus run 34595643644 comparison artifact."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/5865ddb63ce7a5b2de8877c41c7c56abe00c66aa98aaf8d4231c8aca45d89364.jpg",
+        "sha256": "5865ddb63ce7a5b2de8877c41c7c56abe00c66aa98aaf8d4231c8aca45d89364",
+        "width": 600,
+        "height": 451
+      },
+      "production": {
+        "path": "data/marrow/images/originals/5865ddb63ce7a5b2de8877c41c7c56abe00c66aa98aaf8d4231c8aca45d89364.jpg",
+        "sha256": "5865ddb63ce7a5b2de8877c41c7c56abe00c66aa98aaf8d4231c8aca45d89364",
+        "width": 600,
+        "height": 451
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Compared Marrow ED8 page 415/xref 993 against the exact 600x451 native JPEG and learner-width rendering. Enhancer/silencer/promoter, 5-prime UTR, start/stop, exon/intron, cap, poly-A tail and processing arrows are present and readable with source semantics unchanged.",
+        "evidence": "GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH26_Q014__comparison.jpg",
+        "originalSha256": "5865ddb63ce7a5b2de8877c41c7c56abe00c66aa98aaf8d4231c8aca45d89364",
+        "productionSha256": "5865ddb63ce7a5b2de8877c41c7c56abe00c66aa98aaf8d4231c8aca45d89364"
+      }
+    },
+    {
+      "id": "biochemistry-654cb3072454b05c",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 419,
+        "xref": 1007,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH26_Q021",
+          "role": "explanation",
+          "order": 1,
+          "alt": "ApoB48 versus ApoB100 RNA editing",
+          "status": "PASS",
+          "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
+          "source": {
+            "page": 419,
+            "xref": 1007,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The source explanation for Question 21 discusses ApoB RNA editing and this figure immediately follows it. Explanation-only role is correct and answer-safe.",
+            "evidence": "Marrow ED8 page 419 xref 1007 plus run 34595643644 comparison artifact."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/654cb3072454b05cc758e4bb75df3c08c5ade617354475acb60233138d1332d1.jpg",
+        "sha256": "654cb3072454b05cc758e4bb75df3c08c5ade617354475acb60233138d1332d1",
+        "width": 605,
+        "height": 534
+      },
+      "production": {
+        "path": "data/marrow/images/originals/654cb3072454b05cc758e4bb75df3c08c5ade617354475acb60233138d1332d1.jpg",
+        "sha256": "654cb3072454b05cc758e4bb75df3c08c5ade617354475acb60233138d1332d1",
+        "width": 605,
+        "height": 534
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Compared Marrow ED8 page 419/xref 1007 against the exact 605x534 native JPEG and learner-width rendering. Intestine/liver branches, CAA to UAA STOP edit, glutamine context and ApoB48/ApoB100 outcomes/arrows are preserved and readable.",
+        "evidence": "GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH26_Q021__comparison.jpg",
+        "originalSha256": "654cb3072454b05cc758e4bb75df3c08c5ade617354475acb60233138d1332d1",
+        "productionSha256": "654cb3072454b05cc758e4bb75df3c08c5ade617354475acb60233138d1332d1"
+      }
+    },
+    {
+      "id": "biochemistry-ddecee9d8f653b20",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 409,
+        "xref": 976,
+        "region": [
+          162.0,
+          408.0,
+          450.0,
+          624.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH26_Q022",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
+          "source": {
+            "page": 409,
+            "xref": 976,
+            "region": [
+              162.0,
+              408.0,
+              450.0,
+              624.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Question 22 explicitly asks the learner to interpret the illustration, so question-time placement is required. Neutral question alt text is retained and the image itself does not reveal the correct answer.",
+            "evidence": "Marrow ED8 page 409 xref 976 plus run 34595643644 comparison artifact."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/ddecee9d8f653b20013184ed4b12572501e964113875b49fb190b3776086516b.jpg",
+        "sha256": "ddecee9d8f653b20013184ed4b12572501e964113875b49fb190b3776086516b",
+        "width": 720,
+        "height": 562
+      },
+      "production": {
+        "path": "data/marrow/images/originals/ddecee9d8f653b20013184ed4b12572501e964113875b49fb190b3776086516b.jpg",
+        "sha256": "ddecee9d8f653b20013184ed4b12572501e964113875b49fb190b3776086516b",
+        "width": 720,
+        "height": 562
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Compared Marrow ED8 page 409/xref 976 against the exact 720x562 native JPEG and learner-width rendering. Segments 1-5, W/X/Y/Z directional promoter arrows and products A/B are all preserved and readable; the figure contains no marked correct option.",
+        "evidence": "GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH26_Q022__comparison.jpg",
+        "originalSha256": "ddecee9d8f653b20013184ed4b12572501e964113875b49fb190b3776086516b",
+        "productionSha256": "ddecee9d8f653b20013184ed4b12572501e964113875b49fb190b3776086516b"
+      }
+    },
+    {
+      "id": "biochemistry-400546eaace6e3f0",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 12,
+        "xref": 25,
+        "region": [
+          162.0,
+          433.0,
+          450.0,
+          649.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH01_Q004",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source epimer comparison figure",
+          "status": "PASS",
+          "reviewBatch": "NKQ_BIOCHEM_COVERAGE_Q4_20260911",
+          "source": {
+            "page": 12,
+            "xref": 25,
+            "region": [
+              162.0,
+              433.0,
+              450.0,
+              649.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The figure is located inside Solution to Question 4 and directly illustrates the explanation that D-glucose and D-mannose are epimers. Explanation-only timing is correct and cannot reveal the answer before submission.",
+            "evidence": "Authoritative Marrow ED8 Biochemistry page 12: Solution to Question 4 immediately precedes xref 25; Solution to Question 5 begins below the figure."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f.png",
+        "sha256": "400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f",
+        "width": 1200,
+        "height": 901
+      },
+      "production": {
+        "path": "data/marrow/images/originals/400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f.png",
+        "sha256": "400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f",
+        "width": 1200,
+        "height": 901
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Compared authoritative Marrow ED8 Biochemistry page 12, native xref 25, and 300-DPI exact-region render. Both Fischer projections are complete and readable: D-glucose and D-mannose, CHO/CH2OH termini, every horizontal H/OH placement, and the vertical separator are preserved. No labels, bonds, stereochemistry, or educational content were added or altered.",
+        "evidence": "Automation source inspection 2026-09-11: page 12 full-page image plus exact xref-25 region [162,433,450,649]; source SHA-256 463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb; production SHA-256 400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f.",
+        "originalSha256": "400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f",
+        "productionSha256": "400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f"
       }
     }
   ]

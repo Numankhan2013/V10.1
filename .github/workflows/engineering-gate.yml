@@ -3,7 +3,7 @@ name: NK QBank Engineering Gate
 on:
   workflow_dispatch:
   push:
-    branches: [main, 'consolidation/**', v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision, v11.5-custom-study-modules, v11.6-content-quality, v11.7-cross-device-pwa-sync, 'feature/home-*', feature/marrow-bank-pilot]
+    branches: [main, 'consolidation/**', v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision, v11.5-custom-study-modules, v11.6-content-quality, v11.7-cross-device-pwa-sync, 'feature/home-*', feature/marrow-bank-pilot, feature/marrow-canonical-full-current]
   pull_request:
 
 permissions:
@@ -39,6 +39,16 @@ jobs:
         run: python3 tools/test_marrow_bank_pilot.py --data-only
       - name: Validate Marrow image registry, bindings, and progress
         run: python3 tools/test_marrow_images.py
+      - name: Validate Marrow image source-coverage accounting
+        run: python3 tools/test_marrow_image_coverage.py
+      - name: Install Marrow PDF audit dependency
+        run: python3 -m pip install pypdf==6.18.0
+      - name: Compute authoritative Marrow visual coverage
+        run: |
+          python3 tools/marrow_images.py audit
+          python3 tools/marrow_image_coverage.py --subject Anatomy
+          python3 tools/marrow_image_coverage.py --subject Biochemistry
+          python3 tools/marrow_image_coverage.py --subject Physiology
       - name: Validate explicit Marrow topic taxonomy
         run: python3 tools/test_marrow_topic_taxonomy.py
       - name: Validate Marrow explanation inventory
