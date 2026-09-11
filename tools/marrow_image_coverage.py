@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
 """Fail-closed coverage audit for learner-facing Marrow source visuals.
 
-The reviewed image registry is not the source-of-truth denominator for coverage.
-The source-derived audit is. A subject is learner-image complete only when every
-source-recorded visual reference has a released PASS/SOURCE_LIMITED binding.
-Text-cue-only items are reported separately because they may be false positives,
-but they must be reviewed before a human-facing completeness claim.
+Coverage uses two independent denominators:
+1) source-recorded visual references retained in the normalized bank; and
+2) every non-background PDF image placement on canonical question/solution pages.
+A subject is learner-image complete only when both gates are fully accounted for.
 """
 from __future__ import annotations
 
 import argparse
-from collections import defaultdict
+from collections import defaultdict, Counter
 import json
 from pathlib import Path
 import re
 
-from marrow_images import DATA, ROOT, binding_is_released, validate
+from marrow_images import DATA, ROOT, binding_is_released, validate, questions, RELEASE_STATUSES
+from marrow_visual_inventory import source_image_occurrences
 
 AUDIT_PATH = ROOT / 'build/marrow-images/audit.json'
 DEFAULT_OUTPUT = DATA / 'images/coverage.json'
@@ -76,6 +76,7 @@ def match_score(expected, asset, binding):
 
 
 def build_coverage(audit, registry):
+    """Preserve the existing source-reference coverage gate."""
     actual_by_question = defaultdict(list)
     for asset in registry['assets']:
         for binding in asset.get('bindings', []):
@@ -151,11 +152,96 @@ def build_coverage(audit, registry):
 
     return {
         'schemaVersion': 1,
-        'definition': 'Coverage denominator is source-recorded visual references from the Marrow audit, not reviewed registry assets.',
+        'definition': 'Coverage denominator includes source-recorded references; PDF placement coverage is layered on by augment_with_pdf_placements().',
         'summary': subject_summary,
         'sourceVisuals': rows,
         'textCueReview': cue_rows,
     }
+
+
+def _region(value):
+    return tuple(round(float(x), 3) for x in (value or []))
+
+
+def _registry_rows(registry):
+    rows=[]
+    for asset in registry.get('assets', []):
+        asset_status=asset.get('status','REVIEW_REQUIRED')
+        asset_source=asset.get('source') or {}
+        for binding in asset.get('bindings', []):
+            source=binding.get('source') or asset_source
+            rows.append({
+                'subject':asset.get('subject'),
+                'questionId':binding.get('questionId'),
+                'role':binding.get('role','explanation'),
+                'page':source.get('page'),
+                'xref':source.get('xref'),
+                'region':_region(source.get('region')),
+                'assetId':asset.get('id'),
+                'assetStatus':asset_status,
+                'bindingStatus':binding.get('status',asset_status),
+            })
+    return rows
+
+
+def _classify_occurrence(occurrence, rows):
+    owner_keys={(o['questionId'],o['role']) for o in occurrence.get('candidateOwners',[])}
+    region=_region(occurrence.get('region'))
+    matches=[r for r in rows if
+             r['subject']==occurrence['subject'] and
+             r.get('page')==occurrence.get('page') and
+             r.get('xref')==occurrence.get('xref') and
+             r.get('region')==region and
+             (not owner_keys or (r['questionId'],r['role']) in owner_keys)]
+    if not matches:
+        return 'UNACCOUNTED', []
+    released=[r for r in matches if r['assetStatus'] in RELEASE_STATUSES and r['bindingStatus'] in RELEASE_STATUSES]
+    if released:
+        return 'RELEASED', released
+    rejected=[r for r in matches if r['bindingStatus']=='REJECTED' or r['assetStatus']=='REJECTED']
+    if rejected:
+        return 'REJECTED', rejected
+    return 'REVIEW_REQUIRED', matches
+
+
+def build_pdf_placement_coverage(audit, registry, subject=None):
+    qmap=questions()
+    rows=_registry_rows(registry)
+    occurrences=source_image_occurrences(audit,qmap,subject)
+    results=[]
+    for occurrence in occurrences:
+        status,matches=_classify_occurrence(occurrence,rows)
+        results.append({**occurrence,'coverageStatus':status,
+            'registryMatches':[{'assetId':m['assetId'],'questionId':m['questionId'],'role':m['role'],
+                                'assetStatus':m['assetStatus'],'bindingStatus':m['bindingStatus']} for m in matches]})
+    summary={}
+    for name in SUBJECTS:
+        subset=[r for r in results if r['subject']==name]
+        counts=Counter(r['coverageStatus'] for r in subset)
+        summary[name]={
+            'sourceImagePlacements':len(subset),
+            'uniqueSourceImageStreams':len({r['streamSha256'] for r in subset}),
+            'releasedPlacements':counts.get('RELEASED',0),
+            'reviewRequiredPlacements':counts.get('REVIEW_REQUIRED',0),
+            'rejectedPlacements':counts.get('REJECTED',0),
+            'unaccountedPlacements':counts.get('UNACCOUNTED',0),
+            'sourcePlacementCoverageComplete':bool(subset) and counts.get('UNACCOUNTED',0)==0,
+        }
+    return {'summary':summary,'placements':results}
+
+
+def augment_with_pdf_placements(coverage, audit, registry, subject=None):
+    placement=build_pdf_placement_coverage(audit,registry,subject)
+    coverage['schemaVersion']=2
+    coverage['definition']='Completion requires both source-recorded reference coverage and source-PDF image-placement coverage.'
+    coverage['sourceImagePlacements']=placement['placements']
+    for name in SUBJECTS:
+        coverage['summary'][name].update(placement['summary'][name])
+        coverage['summary'][name]['humanCompletenessClaimAllowed'] = bool(
+            coverage['summary'][name]['humanCompletenessClaimAllowed'] and
+            placement['summary'][name]['sourcePlacementCoverageComplete']
+        )
+    return coverage
 
 
 def main():
@@ -165,14 +251,14 @@ def main():
     parser.add_argument('--output', type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument('--check', action='store_true')
     parser.add_argument('--subject', choices=SUBJECTS)
-    parser.add_argument('--require-complete', action='store_true', help='Fail unless the selected subject has every source visual released and no cue backlog.')
+    parser.add_argument('--require-complete', action='store_true', help='Fail unless both source-reference and PDF-placement coverage are complete.')
     args = parser.parse_args()
 
     if not args.audit.exists():
         raise SystemExit('Marrow image audit missing; run: python3 tools/marrow_images.py audit')
     audit = json.loads(args.audit.read_text())
     registry = validate(args.registry)
-    coverage = build_coverage(audit, registry)
+    coverage = augment_with_pdf_placements(build_coverage(audit, registry), audit, registry, args.subject)
     rendered = json.dumps(coverage, indent=2, sort_keys=False) + '\n'
 
     if args.check:
@@ -188,11 +274,12 @@ def main():
         if args.require_complete and not summary['humanCompletenessClaimAllowed']:
             raise SystemExit(
                 f"{args.subject} learner-image coverage is incomplete: "
-                f"released={summary['releasedSourceVisualReferences']}/"
-                f"{summary['sourceVisualReferences']} "
-                f"tracked_unreleased={summary['trackedButUnreleasedReferences']} "
-                f"untracked={summary['untrackedSourceVisualReferences']} "
-                f"text_cues={summary['textCueReviewItems']}"
+                f"refs_released={summary['releasedSourceVisualReferences']}/{summary['sourceVisualReferences']} "
+                f"refs_untracked={summary['untrackedSourceVisualReferences']} cues={summary['textCueReviewItems']} "
+                f"placements_released={summary['releasedPlacements']}/{summary['sourceImagePlacements']} "
+                f"placements_review={summary['reviewRequiredPlacements']} "
+                f"placements_rejected={summary['rejectedPlacements']} "
+                f"placements_unaccounted={summary['unaccountedPlacements']}"
             )
     else:
         print(json.dumps(coverage['summary'], indent=2))
