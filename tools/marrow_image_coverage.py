@@ -2,10 +2,11 @@
 """Fail-closed coverage audit for learner-facing Marrow source visuals.
 
 The reviewed image registry is not the source-of-truth denominator for coverage.
-The source-derived audit is. A subject is learner-image complete only when every
-source-recorded visual reference has a released PASS/SOURCE_LIMITED binding.
-Text-cue-only items are reported separately because they may be false positives,
-but they must be reviewed before a human-facing completeness claim.
+The source-derived audit is. A source reference is resolved only by a released
+PASS/SOURCE_LIMITED binding or by an exact, evidence-backed source-metadata
+adjudication kept outside the immutable imported Marrow records. Text-cue-only
+items are reported separately and must be cleared before a human completeness
+claim.
 """
 from __future__ import annotations
 
@@ -19,7 +20,9 @@ from marrow_images import DATA, ROOT, binding_is_released, validate
 
 AUDIT_PATH = ROOT / 'build/marrow-images/audit.json'
 DEFAULT_OUTPUT = DATA / 'images/coverage.json'
+DEFAULT_ADJUDICATIONS = DATA / 'images/source_reference_adjudications.json'
 SUBJECTS = ('Anatomy', 'Biochemistry', 'Physiology')
+ADJUDICATION_STATUS = 'SOURCE_METADATA_INVALID'
 
 
 def expected_order(binding):
@@ -75,7 +78,47 @@ def match_score(expected, asset, binding):
     return score
 
 
-def build_coverage(audit, registry):
+def load_adjudications(path):
+    if not path.exists():
+        return {'schemaVersion': 1, 'entries': []}
+    value = json.loads(path.read_text())
+    assert value.get('schemaVersion') == 1, 'Unsupported source-reference adjudication schema'
+    seen = set()
+    for entry in value.get('entries', []):
+        assert entry.get('status') == ADJUDICATION_STATUS
+        assert entry.get('id') and entry.get('questionId') and entry.get('subject') in SUBJECTS
+        assert entry.get('role') in {'question', 'explanation'}
+        pages = entry.get('sourcePages')
+        assert isinstance(pages, list) and pages and all(isinstance(page, int) and page > 0 for page in pages)
+        assert entry.get('reason') and entry.get('evidence')
+        source = entry.get('source') or {}
+        assert source.get('file') and re.fullmatch(r'[0-9a-f]{64}', str(source.get('sha256', '')))
+        key = entry['id']
+        assert key not in seen, f'Duplicate source-reference adjudication: {key}'
+        seen.add(key)
+    return value
+
+
+def adjudication_for(expected, adjudications):
+    matches = []
+    for entry in adjudications.get('entries', []):
+        if entry.get('id') != expected.get('id'):
+            continue
+        if entry.get('questionId') != expected.get('questionId'):
+            continue
+        if entry.get('subject') != expected.get('subject'):
+            continue
+        if entry.get('role') != expected_role(expected):
+            continue
+        if tuple(sorted(entry.get('sourcePages', []))) != expected_pages(expected):
+            continue
+        matches.append(entry)
+    assert len(matches) <= 1, f'Ambiguous source-reference adjudication: {expected.get("id")}'
+    return matches[0] if matches else None
+
+
+def build_coverage(audit, registry, adjudications=None):
+    adjudications = adjudications or {'schemaVersion': 1, 'entries': []}
     actual_by_question = defaultdict(list)
     for asset in registry['assets']:
         for binding in asset.get('bindings', []):
@@ -84,6 +127,7 @@ def build_coverage(audit, registry):
     used = set()
     rows = []
     cue_rows = []
+    matched_adjudications = set()
     for expected in audit.get('bindings', []):
         if not expected.get('metadata'):
             cue_rows.append({
@@ -95,17 +139,6 @@ def build_coverage(audit, registry):
             })
             continue
 
-        candidates = []
-        for asset, binding in actual_by_question.get(expected.get('questionId'), []):
-            key = (asset.get('id'), binding.get('questionId'), binding.get('role'), binding.get('order'), actual_page(asset, binding))
-            if key in used:
-                continue
-            score = match_score(expected, asset, binding)
-            if score is not None:
-                candidates.append((score, key, asset, binding))
-        candidates.sort(key=lambda row: (-row[0], str(row[2].get('id'))))
-
-        matched = candidates[0] if candidates else None
         row = {
             'id': expected.get('id'),
             'questionId': expected.get('questionId'),
@@ -115,6 +148,30 @@ def build_coverage(audit, registry):
             'sourcePages': list(expected_pages(expected)),
             'nativeCandidateCount': len(expected.get('candidateImages', [])),
         }
+
+        adjudication = adjudication_for(expected, adjudications)
+        if adjudication:
+            matched_adjudications.add(adjudication['id'])
+            row.update({
+                'coverageStatus': ADJUDICATION_STATUS,
+                'released': False,
+                'adjudicationReason': adjudication['reason'],
+                'adjudicationEvidence': adjudication['evidence'],
+            })
+            rows.append(row)
+            continue
+
+        candidates = []
+        for asset, binding in actual_by_question.get(expected.get('questionId'), []):
+            key = (asset.get('id'), binding.get('questionId'), binding.get('role'), binding.get('order'), actual_page(asset, binding))
+            if key in used:
+                continue
+            score = match_score(expected, asset, binding)
+            if score is not None:
+                candidates.append((score, key, asset, binding))
+        candidates.sort(key=lambda candidate: (-candidate[0], str(candidate[2].get('id'))))
+
+        matched = candidates[0] if candidates else None
         if matched:
             _, key, asset, binding = matched
             used.add(key)
@@ -132,26 +189,36 @@ def build_coverage(audit, registry):
             row['released'] = False
         rows.append(row)
 
+    declared_adjudications = {entry['id'] for entry in adjudications.get('entries', [])}
+    unmatched_adjudications = sorted(declared_adjudications - matched_adjudications)
+    if unmatched_adjudications:
+        raise AssertionError('Source-reference adjudication no longer matches audit: ' + ', '.join(unmatched_adjudications))
+
     subject_summary = {}
     for subject in SUBJECTS:
         subject_rows = [row for row in rows if row.get('subject') == subject]
         subject_cues = [row for row in cue_rows if row.get('subject') == subject]
         released = sum(row['coverageStatus'] == 'RELEASED' for row in subject_rows)
+        invalid = sum(row['coverageStatus'] == ADJUDICATION_STATUS for row in subject_rows)
         tracked_unreleased = sum(row['coverageStatus'] == 'UNRELEASED_TRACKED' for row in subject_rows)
         untracked = sum(row['coverageStatus'] == 'UNTRACKED_SOURCE_VISUAL' for row in subject_rows)
+        resolved = released + invalid
         subject_summary[subject] = {
             'sourceVisualReferences': len(subject_rows),
+            'effectiveLearnerVisualReferences': len(subject_rows) - invalid,
             'releasedSourceVisualReferences': released,
+            'invalidSourceMetadataReferences': invalid,
+            'resolvedSourceVisualReferences': resolved,
             'trackedButUnreleasedReferences': tracked_unreleased,
             'untrackedSourceVisualReferences': untracked,
             'textCueReviewItems': len(subject_cues),
-            'sourceVisualCoverageComplete': bool(subject_rows) and released == len(subject_rows),
-            'humanCompletenessClaimAllowed': bool(subject_rows) and released == len(subject_rows) and not subject_cues,
+            'sourceVisualCoverageComplete': bool(subject_rows) and resolved == len(subject_rows),
+            'humanCompletenessClaimAllowed': bool(subject_rows) and resolved == len(subject_rows) and not subject_cues,
         }
 
     return {
-        'schemaVersion': 1,
-        'definition': 'Coverage denominator is source-recorded visual references from the Marrow audit, not reviewed registry assets.',
+        'schemaVersion': 2,
+        'definition': 'Coverage denominator is source-recorded visual references from the Marrow audit. A reference is resolved only by a released binding or an exact evidence-backed SOURCE_METADATA_INVALID adjudication.',
         'summary': subject_summary,
         'sourceVisuals': rows,
         'textCueReview': cue_rows,
@@ -162,17 +229,19 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--audit', type=Path, default=AUDIT_PATH)
     parser.add_argument('--registry', type=Path, default=DATA / 'images/registry.json')
+    parser.add_argument('--adjudications', type=Path, default=DEFAULT_ADJUDICATIONS)
     parser.add_argument('--output', type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument('--check', action='store_true')
     parser.add_argument('--subject', choices=SUBJECTS)
-    parser.add_argument('--require-complete', action='store_true', help='Fail unless the selected subject has every source visual released and no cue backlog.')
+    parser.add_argument('--require-complete', action='store_true', help='Fail unless every source visual is released or explicitly invalid and no cue backlog remains.')
     args = parser.parse_args()
 
     if not args.audit.exists():
         raise SystemExit('Marrow image audit missing; run: python3 tools/marrow_images.py audit')
     audit = json.loads(args.audit.read_text())
     registry = validate(args.registry)
-    coverage = build_coverage(audit, registry)
+    adjudications = load_adjudications(args.adjudications)
+    coverage = build_coverage(audit, registry, adjudications)
     rendered = json.dumps(coverage, indent=2, sort_keys=False) + '\n'
 
     if args.check:
@@ -188,8 +257,10 @@ def main():
         if args.require_complete and not summary['humanCompletenessClaimAllowed']:
             raise SystemExit(
                 f"{args.subject} learner-image coverage is incomplete: "
-                f"released={summary['releasedSourceVisualReferences']}/"
+                f"resolved={summary['resolvedSourceVisualReferences']}/"
                 f"{summary['sourceVisualReferences']} "
+                f"released={summary['releasedSourceVisualReferences']} "
+                f"invalid_metadata={summary['invalidSourceMetadataReferences']} "
                 f"tracked_unreleased={summary['trackedButUnreleasedReferences']} "
                 f"untracked={summary['untrackedSourceVisualReferences']} "
                 f"text_cues={summary['textCueReviewItems']}"
