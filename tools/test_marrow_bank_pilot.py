@@ -139,10 +139,13 @@ def main():
     assert 'const MARROW_RECORD =' not in s
     assert s.count('const BANKS_BY_SUBJECT = Object.create(null)')==1
     assert s.count('const MARROW_BY_SUBJECT = Object.freeze')==1
-    assert 'const nkFsrsAllQuestions=()=>SUBJECTS.flatMap' in s
-    assert 'return SUBJECTS.flatMap(record=>' in s
-    assert 'BY_ID[s.questionIds[s.index]]||nkFsrsAllById()[s.questionIds[s.index]]' in s
-    assert 'BY_ID[String(qid)]||nkFsrsAllById()[String(qid)]' in s
+    # FSRS must resolve against the shared cross-bank registry rather than a stale
+    # SUBJECTS-only snapshot, and must rebuild BY_ID from those stable IDs when a
+    # due-review session launches.
+    assert "const nkFsrsAllQuestions=()=>typeof nkAllBankQuestions==='function'?nkAllBankQuestions():SUBJECTS.flatMap" in s
+    assert 'function nkAllBankQuestions()' in s
+    assert 'const nkFsrsAllById=()=>Object.fromEntries(nkFsrsAllQuestions().map' in s
+    assert 'BY_ID=nkFsrsAllById();startSession(queue.cards.map(q=>q.id)' in s
     assert s.count('id="nk-marrow-bank-pilot-v1"')==1
     assert s.count('id="nk-marrow-explanation-gold-v1"')==1
     assert s.count('NK_MARROW_EXPLANATION_GOLD_V1')>=1
