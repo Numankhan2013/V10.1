@@ -14,8 +14,8 @@
   full Android/PWA run **701** / `34534378465` both passed on that same SHA.
 - Latest immutable verified preview: `https://5dc3071d.nk-qbank.pages.dev`.
 - Production promotion was skipped.
-- Accepted baseline / rollback baseline remains **V11.6 Content Quality** at `125d68b`
-  until the user explicitly promotes a later product baseline.
+- Accepted baseline / rollback baseline remains **V11.6 Content Quality** until the user explicitly promotes a later product baseline.
+- Accepted product commit: `125d68b`
 - build-verified, device-verified, and accepted are separate states; the current Anatomy batch
   is not yet build-verified or device-verified.
 
@@ -81,9 +81,11 @@ recovered under the runbook contract.
   concept. The subsequent exact-head Gate 329 / `34557786879` and full run 708 /
   `34557784243` on head `c180bf2bbd812308e6828359e609d470cf49db8a` also stopped at project-memory
   verification because the required literal `Next step` handoff concept was absent.
-  This commit is bounded repair attempt #2 for the same project-memory vocabulary failure class.
-- Engineering Gate **328** / `34557680199` was started on the superseded pre-repair
-  head and cannot certify the repaired candidate.
+- Exact-head Gate **330** / `34559883702` on head
+  `567ebf868a0ff98f069a9bc37b78c65226ffc7fc` again stopped at project-memory
+  verification. Inspection of `tools/verify_project_memory.py` showed the handoff must
+  also contain an `Accepted product commit:` value aligned with README, legacy memory,
+  and engineering baseline; this repair restores the accepted baseline value `125d68b`.
 - Production promotion remains prohibited/skipped.
 
 ## Current integration-lane status
