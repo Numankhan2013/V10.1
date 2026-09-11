@@ -97,11 +97,12 @@ explanation and exactly three distractor rationales through the real learner UI.
 ## Current image automation checkpoint
 
 - Classification: **CURRENT_UNFINISHED**; owner **Biochemistry**; batch `NKQ_BIOCHEMISTRY_20260911`.
-- Branch `automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911`; verified working base `1ae61e205804d3d3b2359fcbad218f56e396896b`; substantive candidate `ca74b2776b93f907d77c6f9a85625ffc5440a3eb`. Resolve live branch HEAD from Git.
-- Registry SHA-256 `df48b187ef9bf214890f5c58e56ffa65572b39d5b4f81e6f2e61239be979eb1a`; progress SHA-256 `d4faf2aa30d7083ef800bf3c11eb60fccd99470c10fa2a1aee8c38f12c40c3f0`.
-- Staged question IDs: `marrow__BIOCHEM_CH25_Q024`, `marrow__BIOCHEM_CH25_Q026`, `marrow__BIOCHEM_CH26_Q003`, `marrow__BIOCHEM_CH26_Q014`, `marrow__BIOCHEM_CH26_Q021`, `marrow__BIOCHEM_CH26_Q022`.
-- Staged asset IDs: `biochemistry-a501ec0aa161745f`, `biochemistry-e10cc8a9721a17da`, `biochemistry-2ece5cd128a5140d`, `biochemistry-5865ddb63ce7a5b2`, `biochemistry-654cb3072454b05c`, `biochemistry-ddecee9d8f653b20`. All six assets/bindings remain **REVIEW_REQUIRED** pending source/page, phone-width, expanded-view, role/timing and answer-safety inspection.
-- Exact next action: resume this exact branch/batch, inspect `marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review` evidence, record QA decisions, then run release/package checks only for items that pass. Do not start another Biochemistry batch.
+- Branch `automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911`; working base `1ae61e205804d3d3b2359fcbad218f56e396896b`; latest substantive QA/release commit `6170c412a98f2147889e9b62845442a44b9dedd0`. Resolve live branch HEAD from Git.
+- Registry SHA-256 `1927cb19959c931503c396a2cf58d0fd37f26531df23f3c542a7f6770d38de38`; progress SHA-256 `77c32ec0be4ef75a9941b8a2e44040a00720e354b5463a0e245b79caebc790b8`.
+- PASS/released in this batch: `marrow__BIOCHEM_CH25_Q024`, `marrow__BIOCHEM_CH26_Q003`, `marrow__BIOCHEM_CH26_Q014`, `marrow__BIOCHEM_CH26_Q021`, `marrow__BIOCHEM_CH26_Q022`.
+- Still **REVIEW_REQUIRED**: `marrow__BIOCHEM_CH25_Q026` / asset `biochemistry-e10cc8a9721a17da`; correct CRISPR ownership but small labels are below a confident phone-width readability decision.
+- Exact next action: resume this same branch/batch and resolve only the held CRISPR figure via expanded/device inspection or a source-faithful educational reconstruction. Do not start another Biochemistry image batch until it is resolved or explicitly retired.
+- Current deterministic totals: 162 assets, 204 bindings, 163 released questions; Biochemistry 60 approved assets / 62 total assets / 60 released questions.
 
 ## Known problems / verification cautions
 

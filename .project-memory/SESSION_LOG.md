@@ -824,3 +824,10 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Substantive checkpoint `ca74b2776b93f907d77c6f9a85625ffc5440a3eb` staged six deterministic Biochemistry candidates: `marrow__BIOCHEM_CH25_Q024`, `marrow__BIOCHEM_CH25_Q026`, `marrow__BIOCHEM_CH26_Q003`, `marrow__BIOCHEM_CH26_Q014`, `marrow__BIOCHEM_CH26_Q021`, `marrow__BIOCHEM_CH26_Q022`. Asset IDs: `biochemistry-a501ec0aa161745f`, `biochemistry-e10cc8a9721a17da`, `biochemistry-2ece5cd128a5140d`, `biochemistry-5865ddb63ce7a5b2`, `biochemistry-654cb3072454b05c`, `biochemistry-ddecee9d8f653b20`.
 - All remain REVIEW_REQUIRED; no learner-facing release or production promotion occurred. Registry/progress fingerprints: `df48b187ef9bf214890f5c58e56ffa65572b39d5b4f81e6f2e61239be979eb1a` / `d4faf2aa30d7083ef800bf3c11eb60fccd99470c10fa2a1aee8c38f12c40c3f0`.
 - Required source-level checks passed. Resume this exact branch/batch for visual/source QA.
+
+
+## 2026-09-11 — Biochemistry image batch NKQ_BIOCHEMISTRY_20260911 source/learner-width QA
+
+- RESUMED `automation/marrow-images-biochemistry-NKQ_BIOCHEMISTRY_20260911`. QA/release commit `6170c412a98f2147889e9b62845442a44b9dedd0`. Five of six candidates passed source ownership, fidelity, role/timing, answer-safety and learner-width inspection and were released: `marrow__BIOCHEM_CH25_Q024`, `marrow__BIOCHEM_CH26_Q003`, `marrow__BIOCHEM_CH26_Q014`, `marrow__BIOCHEM_CH26_Q021`, `marrow__BIOCHEM_CH26_Q022`.
+- `marrow__BIOCHEM_CH25_Q026` (`biochemistry-e10cc8a9721a17da`) remains REVIEW_REQUIRED because several native CRISPR labels are borderline at phone width. No uncertainty was promoted.
+- Registry/progress fingerprints after QA: `1927cb19959c931503c396a2cf58d0fd37f26531df23f3c542a7f6770d38de38` / `77c32ec0be4ef75a9941b8a2e44040a00720e354b5463a0e245b79caebc790b8`. Required source-level regressions passed; full generated Android/PWA/package verification remains required before classifying the batch as complete. Production was not promoted.
