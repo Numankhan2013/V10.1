@@ -5,18 +5,26 @@
 ## Repo / release state
 
 - Repo: `Numankhan2013/V10.1`.
-- Current consolidation branch: `feature/marrow-canonical-full-current`.
+- **Sole current integration trunk:** `feature/marrow-canonical-full-current`.
 - Product/UI base: the user-approved V3/correct-index lineage from `feature/home-topic-content-integration-current`.
 - Accepted baseline remains **V11.6 Content Quality**.
-- Accepted product commit: `125d68b`.
-- The consolidation branch is preview-only. Production promotion remains explicit and guarded.
-- **build-verified:** pending exact-head full Android/PWA completion for the consolidated corpus.
+- Accepted product commit remains historical reference `125d68b`; the canonical consolidation candidate is newer and preview-only.
+- Production promotion remains explicit and guarded.
+- **build-verified:** pending exact-head full Android/PWA/browser/package completion after inventory regeneration and canonical-policy sync.
 - **device-verified:** not yet for this consolidated corpus candidate.
 - CI/browser success, device verification, user acceptance, and production promotion are distinct states.
 
+## Canonical anti-fragmentation rule
+
+`docs/MARROW_CANONICAL_AUTOMATION_POLICY.md` is mandatory for Marrow explanation and image workers.
+
+Historical rollout branches are evidence/history only. New batches may use short-lived candidate branches for safe CI, but they must start from the exact current canonical head and verified results must be reconciled back into `feature/marrow-canonical-full-current` before the lane is released.
+
+Do not let a stale open PR/branch become authoritative merely because it is open, recent, or subject-specific. A real blocker requires current authoritative memory plus matching live Git/head evidence.
+
 ## Canonical Marrow ED8 source scope
 
-The complete digitized source is now consolidated on one product lineage:
+The complete digitized source is consolidated on one product lineage:
 
 - Anatomy: **Ch1–63 / 1,115 questions / 63 source topics**.
 - Biochemistry: **Ch1–28 / 582 questions / 28 source topics**.
@@ -35,7 +43,7 @@ Raw imported Marrow source remains immutable. Runtime adaptation may normalize s
 - Preserve V3 Topics journey visuals and navigation behavior.
 - Learner display numbering is visible-contiguous.
 - Backend source chapter/question IDs remain source-faithful.
-- Anatomy now fills all 10 planned major sections through Ch63.
+- Anatomy fills all planned source chapters through Ch63.
 - Biochemistry includes Ch27 Regulation of gene expression and Ch28 Molecular genetics/recombinant DNA/genomic technologies.
 - Physiology includes Ch34–43 through Exercise Physiology.
 - Never show blank planned placeholders or fabricate unavailable source topics.
@@ -52,17 +60,24 @@ Study hierarchy remains **My Subjects → subject → Topics journey → topic �
 
 FSRS remains review-only: only incorrect or encountered-and-skipped questions may enter the learner-facing FSRS pool; genuinely unseen questions must not be introduced by FSRS.
 
-## Explanation and image layers
+## Explanation layer
 
-- Deterministic explanation inventory after source consolidation: **2,711 total**.
-- Current detected enhanced layer on this lineage: **401 enhanced-reference / 2,310 pending**.
-- Explanation fine-tuning remains a separate controlled layer keyed by stable question IDs.
-- The V3 image registry/layer was preserved while source bundles were consolidated; image integration remains separately controlled.
-- Do not take source consolidation as proof that every latest image/explanation rollout branch has already been transplanted. Reconcile those verified layers by stable question ID only after the source candidate is green.
+- Deterministic explanation inventory denominator: **2,711 total**.
+- Current regenerated canonical inventory: **429 enhanced / 2,282 pending**.
+- Explanation fine-tuning remains keyed by stable question ID.
+- Existing `FULLY_VERIFIED` explanation history from old branches may be transplanted only after source-ID ownership checks and exact-head canonical regressions.
+- Unfinished historical batches are not silently treated as verified; explicitly transplant/resume them on the canonical head or leave them historical.
 
-## Consolidation verification
+## Image layer
 
-The one-shot canonical corpus job completed successfully and verified:
+- The canonical source candidate currently validates the preserved image layer and installer.
+- A later verified image-line registry exists and must be reconciled onto canonical by content hash + stable question ID + provenance, not by wholesale-merging the stale source lineage.
+- Image integration workers must use `feature/marrow-canonical-full-current` as their integration base.
+- Coverage completeness must be measured against complete canonical source references, not the old reviewed-registry denominator.
+
+## Consolidation verification already proven
+
+The canonical corpus job completed successfully and verified:
 
 - Anatomy 1,115 / 63.
 - Biochemistry 582 / 28.
@@ -72,9 +87,11 @@ The one-shot canonical corpus job completed successfully and verified:
 - source ID/question-count ownership;
 - uppercase runtime option contract;
 - explicit topic taxonomy;
+- image registry/install on the preserved canonical image layer;
+- FSRS/shared bank architecture;
 - deterministic explanation inventory regeneration.
 
-The first Android/PWA attempt on the generated candidate stopped at project-memory length validation before product transformation. That was a handoff-format failure, not a medical/source-data failure. This STATE file is the bounded repair.
+The previous full Android/PWA attempt on pre-regeneration SHA `92a727d542e13ec7f223177fc24ede3e7d7d8c74` reached the Marrow explanation-inventory gate and failed only because the committed snapshot had not yet been regenerated after Physiology rollout coverage was added. The regeneration workflow then succeeded and produced canonical inventory commit `9ad3bc26ce650fc21e37387f81979fefd710923c` with 429 enhanced / 2,282 pending. A fresh exact-head full pipeline is required after this handoff/policy commit.
 
 ## Protected UI/product decisions
 
@@ -88,19 +105,22 @@ The first Android/PWA attempt on the generated candidate stopped at project-memo
 
 ## Known problems / cautions
 
-- This complete-corpus candidate is not yet build-verified until the exact-head Android/PWA/browser/package pipeline passes.
+- This complete-corpus candidate is not yet build-verified until the new exact-head Android/PWA/browser/package pipeline passes.
 - It is not yet device-verified by the user.
 - Production must remain untouched until explicit user approval.
-- Latest verified image and explanation rollout branches may be ahead of the layers currently present on this consolidation lineage; reconcile them only after source/product verification.
-- Do not infer an unfinished automation lock from stale open PRs/branches whose exact candidates are already FULLY_VERIFIED.
+- Latest verified image and explanation rollout work may still be ahead of canonical; reconcile only verified work by stable IDs/content hashes/provenance.
+- Do not infer an unfinished automation lock from stale open PRs/branches whose exact candidates are already FULLY_VERIFIED or superseded.
 - Preserve source-review flags; never invent missing numbered labels/statements from source omissions.
 
 ## Next step
 
-1. Run exact-head Android/PWA/browser/package/preview verification on the consolidated 2,711-question candidate.
+1. Run exact-head Android/PWA/browser/package/preview verification on the current canonical 2,711-question head.
 2. Repair only concrete verification failures; do not weaken regression coverage or alter accepted UI to satisfy stale assertions.
-3. Once source/product verification is green, reconcile latest FULLY_VERIFIED image and explanation layers by stable question IDs.
-4. Present the resulting feature preview for user/device verification.
-5. Promote production only after explicit user approval.
+3. Reconcile latest FULLY_VERIFIED image work onto canonical by content hash + stable question ID + provenance and re-run gates.
+4. Reconcile latest FULLY_VERIFIED explanation work onto canonical by stable question ID and re-run inventory/browser/Engineering/full gates.
+5. Keep all explanation/image scheduled workers pointed at canonical so future batches cannot fork the source/product lineage again.
+6. Present the resulting canonical feature preview for user/device verification.
+7. Promote production only after explicit user approval.
 
 Canonical source-consolidation handoff: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
+Canonical automation policy: `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
