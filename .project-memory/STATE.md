@@ -43,8 +43,21 @@ Every refined four-option SBA requires a meaningful Key Takeaway, medically corr
 
 ## CURRENT_UNVERIFIED explanation batch
 
-- **None. The serialized explanation lane is released.**
-- Open historical/stacked PRs whose exact product candidate is listed in `FULLY_VERIFIED_HISTORY` are non-blocking.
+- **Anatomy owns the serialized explanation lane.**
+- State: **CONTENT_AUTHORED** — not yet static-validated, inventoried, PR-opened, or CI-certified.
+- Branch: `feature/marrow-explanation-rollout-anatomy-ch05-q020-q024-current`.
+- Exact content-authoring commit: `d5ec74c2a354dc57341569571cee11f4ed5358ea` (later memory-only commits may advance branch HEAD without changing authored product content).
+- Scope: Chapter 5 **Pharyngeal arches, Skeletal & Muscular Systems**, contiguous Q20–Q24 chapter tail; **5 questions**, workload score **8.0**. Chapter 6 was not entered merely to fill target workload.
+- Augmentation: `data/marrow/explanation_anatomy_ch05_q020_q024_v1.json`.
+- Reconstruction status: Q22 = `resolved_reconstruction`; Q20/Q21/Q23/Q24 have no reconstruction metadata.
+- Q22 preserves source key **D / Splanchnic mesoderm** while correcting a medically misleading source exception: iris sphincter/dilator are optic-cup neuroectoderm derivatives and sweat-gland myoepithelial cells are ectodermal; arrector pili must not be taught as ectoderm-derived.
+- Source-owned figures/provenance remain in the immutable source layer; Q20/Q21 retain source explanation figures and Q23 is image-dependent.
+- Raw Marrow source/key: unchanged.
+- Deterministic inventory/fingerprint: **not regenerated yet**. Last verified baseline remains **576 enhanced / 1,539 pending**, fingerprint `09f7720c9fe9775f5e2ebc980035e5c78257664f5941a91b952b1b9263ad36ae`; do not treat that baseline fingerprint as the current batch fingerprint.
+- PR: **not opened yet**.
+- Exact-head Engineering Gate: **not run yet**.
+- Exact-head Android/PWA workflow: **not run yet**.
+- Blocker: the current automation execution environment cannot run the repository tooling locally, so deterministic inventory regeneration and static/browser validation were not claimable. This is an execution-capability checkpoint, not a medical/source blocker.
 
 ## Known problems / cautions
 
@@ -56,9 +69,10 @@ Every refined four-option SBA requires a meaningful Key Takeaway, medically corr
 
 ## Next step
 
-1. The lane is free. The next subject worker may acquire it after resolving this newest authoritative handoff and confirming live Git state is consistent.
-2. For Anatomy specifically, the next source-order start is **Chapter 5 Q20**; dynamically workload-score the contiguous tail before authoring.
-3. Start at most one new bounded batch and follow the full runbook state machine.
-4. Do not merge or promote production as part of explanation automation.
+1. **Resume this exact CURRENT_UNVERIFIED Anatomy Q20–Q24 batch first; no other subject may acquire the explanation lane.**
+2. In a repository-capable environment, regenerate `data/marrow/explanation_inventory_v1.json` deterministically and run the runbook static/source-ownership checks, including `tools/test_marrow_explanation_inventory.py`, Anatomy rollout validation through the shared installer/inventory contract, immutable raw-source comparison, and emphasis/reconstruction schema checks.
+3. Add/update stable-ID browser regression for this batch, with Q22 reconstruction-sensitive coverage and Q23 image-dependent coverage, then run shared Practice/CBT/Review/FSRS regressions.
+4. Only after STATIC_VALIDATED, open/refresh the PR, certify the PR's exact current head with Engineering Gate and the full Android/PWA workflow, verify APK/package/reproducibility/preview, skip production promotion, and then move this batch to FULLY_VERIFIED_HISTORY.
+5. Do not start Chapter 6 in the same run that finalizes this Chapter 5 tail.
 
 Efficiency rule: pre-audit future content while CI runs, but never commit another batch on an unverified lineage.
