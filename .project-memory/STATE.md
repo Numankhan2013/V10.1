@@ -43,22 +43,29 @@ Every refined four-option SBA requires a meaningful Key Takeaway, medically corr
 
 ## CURRENT_UNVERIFIED explanation batch
 
-- **None. The serialized explanation lane is released.**
-- Open historical/stacked PRs whose exact product candidate is listed in `FULLY_VERIFIED_HISTORY` are non-blocking.
+- **Biochemistry Chapter 12 Q1–Q10** currently owns the serialized explanation lane on branch `feature/marrow-explanation-rollout-biochem-ch12-q001-q010-current`.
+- Source-order range: `marrow__BIOCHEM_CH12_Q001` through `marrow__BIOCHEM_CH12_Q010`; 10 newly enhanced questions; workload score **16.0**. Chapter 12 Q11 is already an approved gold-sample question and is not duplicated.
+- Raw Biochemistry source SHA remains expected at `d9d89966b2733f86b6c5a413e61b0af5559becff3bc580802262deb2f3b9c1ae`.
+- Q7 is `needs_manual_review`: the printed item retains numeric-combination options but the numbered statement list is absent. Learner-facing augmentation teaches only the source-supported semantic answer (linoleic acid + α-linolenic acid), preserves source key C (1,3), and does not invent the missing mapping.
+- Q5 preserves the source PUFA comparison table and arachidonic-acid figure; Q9 preserves the source trans-fat configuration figure. Explanation automation does not mutate image bindings/assets.
+- Content file: `data/marrow/explanation_biochem_ch12_q001_q010_v1.json`.
+- Biochemistry validator was updated to permit workload-bounded contiguous chapter slices while enforcing a gap-free source-order prefix when approved gold-sample IDs are included.
+- Inventory before this batch is **576 enhanced / 1,539 pending**, fingerprint `09f7720c9fe9775f5e2ebc980035e5c78257664f5941a91b952b1b9263ad36ae`; expected count after this batch is **586 / 1,529**. Deterministic regenerated fingerprint is still pending validation.
+- PR/exact-head Engineering Gate/full Android-PWA verification: **pending**. This batch is not FULLY_VERIFIED yet and blocks later explanation integration until resolved.
 
 ## Known problems / cautions
 
 - The old sibling branch `feature/marrow-explanation-rollout-anatomy-ch05-q10-q19-current` is stale and diverged from the verified lineage; do not use it.
-- Never accept a neighboring green workflow run; certify only a PR's exact current product head SHA.
+- Never accept a neighboring green workflow run; certify only the current PR product head SHA.
 - Documentation-only handoff commits after a certified product SHA do not invalidate that exact product certification and must not be mistaken for new product candidates.
 - Prefer stable chapter/question IDs over fuzzy display-text selectors.
 - Keep image integration separate. Do not rewrite raw Marrow shards, fork study engines, alter Topics taxonomy, redesign UI, merge, or promote production.
 
 ## Next step
 
-1. The lane is free. The next subject worker may acquire it after resolving this newest authoritative handoff and confirming live Git state is consistent.
-2. For Anatomy specifically, the next source-order start is **Chapter 5 Q20**; dynamically workload-score the contiguous tail before authoring.
-3. Start at most one new bounded batch and follow the full runbook state machine.
-4. Do not merge or promote production as part of explanation automation.
+1. Complete static/inventory validation for the current Biochemistry Chapter 12 Q1–Q10 batch; regenerate the deterministic inventory without touching raw source.
+2. Add/execute a stable-ID browser regression for one current-batch question, with Q7 preferred because it exercises the source-omission reconstruction contract.
+3. Open/refresh the PR and require exact-head Engineering Gate plus exact-head Android/PWA success, APK/package/reproducibility checks, preview deployment, and production promotion skipped.
+4. On FULLY_VERIFIED, move this batch into `FULLY_VERIFIED_HISTORY`, release the lane, and set the next Biochemistry source-order start to Chapter 12 Q12 (Q11 is already approved in the gold sample).
 
 Efficiency rule: pre-audit future content while CI runs, but never commit another batch on an unverified lineage.
