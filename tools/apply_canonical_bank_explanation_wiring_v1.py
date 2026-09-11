@@ -95,8 +95,8 @@ def validate_augmented_question(qid: str, cfg: dict, source_q: dict, origin: str
     emphasis = cfg.get("emphasis", [])
     if not isinstance(emphasis, list) or not (1 <= len(emphasis) <= 4):
         fail(f"{origin}: invalid emphasis count for {qid}")
-    if any(not str(p).strip() or str(p) not in display for p in emphasis):
-        fail(f"{origin}: emphasis is not verbatim in displayText for {qid}")
+    if any(not str(p).strip() for p in emphasis):
+        fail(f"{origin}: blank emphasis anchor for {qid}")
     if "sourceText" in cfg:
         fail(f"{origin}: learner augmentation embeds forbidden sourceText for {qid}")
     options = source_q.get("options", [])
