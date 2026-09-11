@@ -1,0 +1,2483 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Derived read-only audit view. Immutable source remains the sharded Marrow bundle.",
+  "subject": "Physiology",
+  "chapterId": "22",
+  "questionCount": 20,
+  "immutableSourcePrefix": "physiology_ch001_033",
+  "sourceRawSha256": "36c9608d5ef4d2422843cad38c94c86898910240a933b7d40d4a639930a559e6",
+  "questions": [
+    {
+      "id": "marrow__PHYSIO_CH22_Q001",
+      "sourceQuestionId": "PHYSIO_CH22_Q001",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 1,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is correct?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "PT = nRV"
+        },
+        {
+          "letter": "B",
+          "text": "V = PaRT"
+        },
+        {
+          "letter": "C",
+          "text": "P = VnRT"
+        },
+        {
+          "letter": "D",
+          "text": "PV = nRT"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "PV = nRT",
+      "explanation": "Boyle’s law states that, at a given temperature, the product of pressure time's volume for a gas is\nconstant.\n\nPV=nRT",
+      "structuredExplanation": {
+        "text": "Boyle’s law states that, at a given temperature, the product of pressure time's volume for a gas is\nconstant.\n\nPV=nRT",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Boyle’s law states that, at a given temperature, the product of pressure time's volume for a gas is constant."
+          },
+          {
+            "type": "paragraph",
+            "text": "PV=nRT"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          399
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          404,
+          405
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 399,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q002",
+      "sourceQuestionId": "PHYSIO_CH22_Q002",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 2,
+      "questionType": "single_best_answer",
+      "question": "Transport of CO is diffusion limited because_____",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Alveolar membrane is less permeable to CO"
+        },
+        {
+          "letter": "B",
+          "text": "High affinity of CO to hemoglobin"
+        },
+        {
+          "letter": "C",
+          "text": "CO crosses epithelial barrier slowly"
+        },
+        {
+          "letter": "D",
+          "text": "None"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "High affinity of CO to hemoglobin",
+      "explanation": "Transport of CO is diffusi ot'limited because of the high affinity of CO to hemoglobin.\nDiffusion across the alyeolocapillarymel brane:\n* Blood takes 0,758 to travergeyplinonary capillaries.\n\nVs\n*CcO diffiisés into blood aifftombines with Hb with very high affinity. Thus the partial pressure of\nCO doesn't rise (Only dissolved form of gas can increase the partial pressure, Gas which combines\nwith Hb or plasma proteins cannot). Partial pressure gradient necessary for diffusion of CO is\nmaintained for the whole 0.75s and hence it is Diffusion limited.\n\n+ In the case of N20 it does not react and reaches equilibrium in about 0.1s. The amount of N20\ntaken up is not limited by diffusion but by the amount of blood flowing through the pulmonary\ncapillaries; that is, it is Flow-limited.\n\n* O2 is intermediate between N20 and CO; it is taken up by haemoglobin, but much less avidly\nthan CO, and it reaches equilibrium with capillary blood in about 0.3 s. Thus, its uptake is\nPerfusion-limited.\n\nIn the case of perfusion limited gases, an increase in pulmonary blood flow increases the amount\nof gas transferred. Hence O2 transport increases with an increase in pulmonary blood flow.",
+      "structuredExplanation": {
+        "text": "Transport of CO is diffusi ot'limited because of the high affinity of CO to hemoglobin.\nDiffusion across the alyeolocapillarymel brane:\n* Blood takes 0,758 to travergeyplinonary capillaries.\n\nVs\n*CcO diffiisés into blood aifftombines with Hb with very high affinity. Thus the partial pressure of\nCO doesn't rise (Only dissolved form of gas can increase the partial pressure, Gas which combines\nwith Hb or plasma proteins cannot). Partial pressure gradient necessary for diffusion of CO is\nmaintained for the whole 0.75s and hence it is Diffusion limited.\n\n+ In the case of N20 it does not react and reaches equilibrium in about 0.1s. The amount of N20\ntaken up is not limited by diffusion but by the amount of blood flowing through the pulmonary\ncapillaries; that is, it is Flow-limited.\n\n* O2 is intermediate between N20 and CO; it is taken up by haemoglobin, but much less avidly\nthan CO, and it reaches equilibrium with capillary blood in about 0.3 s. Thus, its uptake is\nPerfusion-limited.\n\nIn the case of perfusion limited gases, an increase in pulmonary blood flow increases the amount\nof gas transferred. Hence O2 transport increases with an increase in pulmonary blood flow.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Transport of CO is diffusi ot'limited because of the high affinity of CO to hemoglobin. Diffusion across the alyeolocapillarymel brane: * Blood takes 0,758 to travergeyplinonary capillaries."
+          },
+          {
+            "type": "paragraph",
+            "text": "Vs *CcO diffiisés into blood aifftombines with Hb with very high affinity. Thus the partial pressure of CO doesn't rise (Only dissolved form of gas can increase the partial pressure, Gas which combines with Hb or plasma proteins cannot). Partial pressure gradient necessary for diffusion of CO is maintained for the whole 0.75s and hence it is Diffusion limited."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ In the case of N20 it does not react and reaches equilibrium in about 0.1s. The amount of N20 taken up is not limited by diffusion but by the amount of blood flowing through the pulmonary capillaries; that is, it is Flow-limited."
+          },
+          {
+            "type": "paragraph",
+            "text": "* O2 is intermediate between N20 and CO; it is taken up by haemoglobin, but much less avidly than CO, and it reaches equilibrium with capillary blood in about 0.3 s. Thus, its uptake is Perfusion-limited."
+          },
+          {
+            "type": "paragraph",
+            "text": "In the case of perfusion limited gases, an increase in pulmonary blood flow increases the amount of gas transferred. Hence O2 transport increases with an increase in pulmonary blood flow."
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH22_Q002_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          399
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          405
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 399,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q003",
+      "sourceQuestionId": "PHYSIO_CH22_Q003",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 3,
+      "questionType": "single_best_answer",
+      "question": "What is the percentage of O2 carried, chemically bound to Hb?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "97%"
+        },
+        {
+          "letter": "B",
+          "text": "3%"
+        },
+        {
+          "letter": "C",
+          "text": "37%"
+        },
+        {
+          "letter": "D",
+          "text": "66%"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "97%",
+      "explanation": "Percentage of O2 carried chemically (bound to Hb) is 97%.\n\nOxygen is transported in the blood in two forms:\n• Physically dissolved in plasma.\n• Chemically bound to Hb.\n\nRemember:\nGases are transported in 3 forms:\n• Dissolved gas.\n• Bound gas - O2, CO are bound to Hb in RBC; CO2 is bound to Hb in RBC as well as plasma proteins.\n• Chemically modified gas - CO2 in the form of HCO3-.",
+      "structuredExplanation": {
+        "text": "Percentage of O2 carried chemically (bound to Hb) is 97%.\n\nOxygen is transported in the blood in two forms:\n• Physically dissolved in plasma.\n• Chemically bound to Hb.\n\nRemember:\nGases are transported in 3 forms:\n• Dissolved gas.\n• Bound gas - O2, CO are bound to Hb in RBC; CO2 is bound to Hb in RBC as well as plasma proteins.\n• Chemically modified gas - CO2 in the form of HCO3-.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Percentage of O2 carried chemically (bound to Hb) is 97%."
+          },
+          {
+            "type": "paragraph",
+            "text": "Oxygen is transported in the blood in two forms: • Physically dissolved in plasma. • Chemically bound to Hb."
+          },
+          {
+            "type": "paragraph",
+            "text": "Remember: Gases are transported in 3 forms: • Dissolved gas. • Bound gas - O2, CO are bound to Hb in RBC; CO2 is bound to Hb in RBC as well as plasma proteins. • Chemically modified gas - CO2 in the form of HCO3-."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          399
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          405,
+          406
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 399,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q004",
+      "sourceQuestionId": "PHYSIO_CH22_Q004",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 4,
+      "questionType": "single_best_answer",
+      "question": "The presence of hemoglobin in normal arterial blood increases its O2 concentration approximately by how many times?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "70"
+        },
+        {
+          "letter": "B",
+          "text": "10"
+        },
+        {
+          "letter": "C",
+          "text": "30"
+        },
+        {
+          "letter": "D",
+          "text": "40"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "70",
+      "explanation": "©) SN\n\nN\nThe presence of hemoglobit if normal axa blood ing@wes its O2 concentration\n\n?) 4%\napproximately by 70 times te. <\n\n+ Normal arterial blood has Po2 ofebout 100 mm ig.\nAmount of 02 transported i in’ dissolved four (Calculated by using Henry's law):\n\n+ Concentration of dissolved C O2= Pati pressure of O2 x solubility of O2 = 100 mmHg x 0.003\n\nmL 02/100 mL. blood per mm igs 3 mL 02/100 mL.\nod\n+ Hence 1L, gofgbsina has gmbof 02 in dissolved form.\n\n*5Lof plasma can carryraximum 15mL of 02.\n\n+ At rest, O02 demand is around 250mL/min.\n\n+ Hence dissolved O2 alone is not sufficient to meet body demands.\nAmount of O2 transported bound to Hb:\n\n+ Concentration of Hb is 15/100 mL\n\n+ Each gram of Hb binds to 1.34 mL of O2\n\n+ Hence, 15 g binds to 20.1mL of O2/100 mL\n\n* On average, the 15 g of hemoglobin in 100 mL of blood can combine with a total of about 20 mL\nof O2.\n\nThus, this value (20.1) in the presence of Hb is about 70 times the value (0.3) in the absence of\nHb.",
+      "structuredExplanation": {
+        "text": "©) SN\n\nN\nThe presence of hemoglobit if normal axa blood ing@wes its O2 concentration\n\n?) 4%\napproximately by 70 times te. <\n\n+ Normal arterial blood has Po2 ofebout 100 mm ig.\nAmount of 02 transported i in’ dissolved four (Calculated by using Henry's law):\n\n+ Concentration of dissolved C O2= Pati pressure of O2 x solubility of O2 = 100 mmHg x 0.003\n\nmL 02/100 mL. blood per mm igs 3 mL 02/100 mL.\nod\n+ Hence 1L, gofgbsina has gmbof 02 in dissolved form.\n\n*5Lof plasma can carryraximum 15mL of 02.\n\n+ At rest, O02 demand is around 250mL/min.\n\n+ Hence dissolved O2 alone is not sufficient to meet body demands.\nAmount of O2 transported bound to Hb:\n\n+ Concentration of Hb is 15/100 mL\n\n+ Each gram of Hb binds to 1.34 mL of O2\n\n+ Hence, 15 g binds to 20.1mL of O2/100 mL\n\n* On average, the 15 g of hemoglobin in 100 mL of blood can combine with a total of about 20 mL\nof O2.\n\nThus, this value (20.1) in the presence of Hb is about 70 times the value (0.3) in the absence of\nHb.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "©) SN"
+          },
+          {
+            "type": "paragraph",
+            "text": "N The presence of hemoglobit if normal axa blood ing@wes its O2 concentration"
+          },
+          {
+            "type": "paragraph",
+            "text": "?) 4% approximately by 70 times te. <"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Normal arterial blood has Po2 ofebout 100 mm ig. Amount of 02 transported i in’ dissolved four (Calculated by using Henry's law):"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Concentration of dissolved C O2= Pati pressure of O2 x solubility of O2 = 100 mmHg x 0.003"
+          },
+          {
+            "type": "paragraph",
+            "text": "mL 02/100 mL. blood per mm igs 3 mL 02/100 mL. od + Hence 1L, gofgbsina has gmbof 02 in dissolved form."
+          },
+          {
+            "type": "paragraph",
+            "text": "*5Lof plasma can carryraximum 15mL of 02."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ At rest, O02 demand is around 250mL/min."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Hence dissolved O2 alone is not sufficient to meet body demands. Amount of O2 transported bound to Hb:"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Concentration of Hb is 15/100 mL"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Each gram of Hb binds to 1.34 mL of O2"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Hence, 15 g binds to 20.1mL of O2/100 mL"
+          },
+          {
+            "type": "paragraph",
+            "text": "* On average, the 15 g of hemoglobin in 100 mL of blood can combine with a total of about 20 mL of O2."
+          },
+          {
+            "type": "paragraph",
+            "text": "Thus, this value (20.1) in the presence of Hb is about 70 times the value (0.3) in the absence of Hb."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          399,
+          400
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          406
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 399,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q005",
+      "sourceQuestionId": "PHYSIO_CH22_Q005",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 5,
+      "questionType": "single_best_answer",
+      "question": "O2 delivery to tissues depends on all except_____",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Type of fluid administered"
+        },
+        {
+          "letter": "B",
+          "text": "Hemoglobin"
+        },
+        {
+          "letter": "C",
+          "text": "Ventilation"
+        },
+        {
+          "letter": "D",
+          "text": "Cardiac output"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Type of fluid administered",
+      "explanation": "Oxygen delivery is the volume of oxygen delivered to the systemic vascular bed per minute. It is\nthe product of the cardiac output and the arterial oxygen concentration.\n\nOxygen delivery to tissue depends on (refer flow chart)\n\nOxygen delivery\n\n‘Oxygen aativery\n\n|\nY J V U\n\nOxygen carying | | Tissue piooa The amount Adequate Oz-CO, >\ncapacity of blood ow of O. entering ‘exchange if the cle\n| the lungs lungs ‘e)\n\nCardiac output\n\nOp attinity of Hb blood Level of \\\nhemoglobin levels dissolved O -\n(Ho)\n©@MARROW\n- ~\"",
+      "structuredExplanation": {
+        "text": "Oxygen delivery is the volume of oxygen delivered to the systemic vascular bed per minute. It is\nthe product of the cardiac output and the arterial oxygen concentration.\n\nOxygen delivery to tissue depends on (refer flow chart)\n\nOxygen delivery\n\n‘Oxygen aativery\n\n|\nY J V U\n\nOxygen carying | | Tissue piooa The amount Adequate Oz-CO, >\ncapacity of blood ow of O. entering ‘exchange if the cle\n| the lungs lungs ‘e)\n\nCardiac output\n\nOp attinity of Hb blood Level of \\\nhemoglobin levels dissolved O -\n(Ho)\n©@MARROW\n- ~\"",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Oxygen delivery is the volume of oxygen delivered to the systemic vascular bed per minute. It is the product of the cardiac output and the arterial oxygen concentration."
+          },
+          {
+            "type": "paragraph",
+            "text": "Oxygen delivery to tissue depends on (refer flow chart)"
+          },
+          {
+            "type": "paragraph",
+            "text": "Oxygen delivery"
+          },
+          {
+            "type": "paragraph",
+            "text": "‘Oxygen aativery"
+          },
+          {
+            "type": "paragraph",
+            "text": "| Y J V U"
+          },
+          {
+            "type": "paragraph",
+            "text": "Oxygen carying | | Tissue piooa The amount Adequate Oz-CO, > capacity of blood ow of O. entering ‘exchange if the cle | the lungs lungs ‘e)"
+          },
+          {
+            "type": "paragraph",
+            "text": "Cardiac output"
+          },
+          {
+            "type": "paragraph",
+            "text": "Op attinity of Hb blood Level of \\ hemoglobin levels dissolved O - (Ho) ©@MARROW - ~\""
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          400
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          407
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 400,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q006",
+      "sourceQuestionId": "PHYSIO_CH22_Q006",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 6,
+      "questionType": "single_best_answer",
+      "question": "Each molecule of hemoglobin carries ______ molecules of O2.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "2"
+        },
+        {
+          "letter": "B",
+          "text": "4"
+        },
+        {
+          "letter": "C",
+          "text": "8"
+        },
+        {
+          "letter": "D",
+          "text": "16"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "4",
+      "explanation": "Hemoglobin has 4 subunits each of which has heme molecule and polypeptide chain. Ferrous iron in heme binds to a molecule of O2. Hence 1 hemoglobin binds to 4 molecules of O2.\n\n• Hemoglobin is a protein made up of four subunits.\n• Each of the four iron atoms in hemoglobin can reversibly bind one O2. The iron stays in the ferrous state so that the reaction is oxygenation (not oxidation).",
+      "structuredExplanation": {
+        "text": "Hemoglobin has 4 subunits each of which has heme molecule and polypeptide chain. Ferrous iron in heme binds to a molecule of O2. Hence 1 hemoglobin binds to 4 molecules of O2.\n\n• Hemoglobin is a protein made up of four subunits.\n• Each of the four iron atoms in hemoglobin can reversibly bind one O2. The iron stays in the ferrous state so that the reaction is oxygenation (not oxidation).",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Hemoglobin has 4 subunits each of which has heme molecule and polypeptide chain. Ferrous iron in heme binds to a molecule of O2. Hence 1 hemoglobin binds to 4 molecules of O2."
+          },
+          {
+            "type": "bullet_list",
+            "items": [
+              "Hemoglobin is a protein made up of four subunits.",
+              "Each of the four iron atoms in hemoglobin can reversibly bind one O2. The iron stays in the ferrous state so that the reaction is oxygenation (not oxidation)."
+            ]
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          400
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          407
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 400,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q007",
+      "sourceQuestionId": "PHYSIO_CH22_Q007",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 7,
+      "questionType": "single_best_answer",
+      "question": "Most of the CO2 transported in the arterial blood is in the form of_____",
+      "options": [
+        {
+          "letter": "A",
+          "text": "HCO3-"
+        },
+        {
+          "letter": "B",
+          "text": "Attached to haemoglobin"
+        },
+        {
+          "letter": "C",
+          "text": "Carbamino compounds"
+        },
+        {
+          "letter": "D",
+          "text": "Carbonic acid (H2CO3)"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "HCO3-",
+      "explanation": "COz2 is carried in the blood in three forms:\n\n+ Bicarbonate (HCO3-) - Quantitatively the most important(70%)\n+ Carbaminohemoglobin (23%)\n\n+ Dissolved CO2 (7%)",
+      "structuredExplanation": {
+        "text": "COz2 is carried in the blood in three forms:\n\n+ Bicarbonate (HCO3-) - Quantitatively the most important(70%)\n+ Carbaminohemoglobin (23%)\n\n+ Dissolved CO2 (7%)",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "COz2 is carried in the blood in three forms:"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Bicarbonate (HCO3-) - Quantitatively the most important(70%) + Carbaminohemoglobin (23%)"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Dissolved CO2 (7%)"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          400
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          407,
+          408
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 400,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q008",
+      "sourceQuestionId": "PHYSIO_CH22_Q008",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 8,
+      "questionType": "single_best_answer",
+      "question": "Which of the following statements about hemoglobin is false?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "The T configuration of Hb does not favor O2 binding"
+        },
+        {
+          "letter": "B",
+          "text": "The R configuration of Hb does not favor O2 binding"
+        },
+        {
+          "letter": "C",
+          "text": "The R configuration of Hb favors O2 binding"
+        },
+        {
+          "letter": "D",
+          "text": "Each Hb molecules carries 4 oxygen molecules"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "The R configuration of Hb does not favor O2 binding",
+      "explanation": "A relaxed (R) configuration, exposes more O 2 binding sites.\nThe quaternary structure of hemoglobin determines its affinity for O2.\n\nIn deoxyhemoglobin, the globin units are tightly bound in a tense (T) configuration, which\nreduces the affinity of the molecule for O2.\n\nWhen O 2 is first bound, the bonds holding the globin units are released, producing a relaxed (R)\nconfiguration, which exposes more O2 binding sites. The net result is a 500-fold increase in 02\n\nIn tissues, these reactions are reversed, resulting in 02 dissociation .\nOxygenated and deoxygenated hemoglobin e\nOxyhemoglobin Deoxyhemoglobin\n\nDecreasing PH\n\ne\n\n@ ge Increasing 2,3-DPG|\n\nFalling [0,}\n\n—>\n<—\n\nRising [0,]\n\nRelaxing Binding Tight Binding\nStructure ‘Structure\n\n©MARROW\n\n,\\\n\nSolution t tion 9 »\nolution to ion 9:\nX \\O\n\nThe onyaetthaamogloie ticcociation curve is sigmoid shape because binding of one 02 molecule\nincreases the affinity of binding of subsequent O2 molecules.\n\nThe oxygen-hemoglobin dissociation curve relates percentage saturation of the O2 carrying power\nof hemoglobin (abbreviated as SaO2) to the Po2. It has a characteristic sigmoid shape due to the\nT-R interconversion. Combination of the first heme in the Hb molecule with O02 increases the\naffinity of the second heme for O2 and oxygenation of the second increases the affinity of the\nthird, and so on, such that the affinity of Hb for the fourth O2 molecule is many times that for the\nfirst (Positive Co-operative Effect).\n\nOption C: The effect of PCO2 and pH on the 02-hemoglobin dissociation curve is called the Bohr\neffect.\n\nOption D: O2 bound to hemoglobin changes its affinity for CO2, such that when less O2 is bound,\nthe affinity of hemoglobin for CO2 increases. This is referred to as the Haldane effect.\n\nSolution to Question 10:\n\nWhen blood is equilibrated with 100% O2, the normal hemoglobin becomes 100% saturated.\n\n+ In vivo, the hemoglobin in the blood at the end of the pulmonary capillaries is about 97.5%\n\nsaturated with O2 (Po2 = 100 mm Hg).\n\n+ Because of a slight admixture with venous blood that bypasses the pulmonary capillaries (i.e,\nphysiologic shunt), the hemoglobin in systemic arterial blood is only 97% saturated.\n\n+ Graph relates the percentage of saturated hemoglobin (SaO2) to PO2 and dissolved O2.\n\n\\\noOo.\"\n\n100 99 - 100% <\n60 89%\n\n40 75% bh\n\n27 50% of\n\n>\nfay\n\n100 Fone ones oflateau, >, 1\nor\n\na0 f-\n70 -\nsof\n50 f=\n40\n30\n\n20\n\nNS . 10\n\nOxyhaemoglobin (% Saturation)\n\nLe.\nf)\n\n(Bohr effect*t coz, ApH}\n\n10 20 30 40 SO 6d 70\n\nPO, (mmHg)\n\nSolution to Question 11:\n\nNormal P50 is about 27 mm of Hg for adult Hb.\n\n‘e090 100\n\nP50 is the partial pressure of O2 at which Hb is 50 % saturated. P50 is an index of the affinity of\n\nHb with O2.\n\nHigher the P50 value, lower is the affinity: Oxygen-Hemoglobin Dissociation Curve shifts to right.\n\nLower the P50 value, the higher is the affinity: Oxygen-Hemoglobin Dissociation Curve shifts to\n\nleft.\n\nm= Fetal hemoglobin\n= Adult hemoglobin\n\nco\"\neo.’\n0 19268 40 80 120\nstial pressure (pO,, mmFg)\n“a >\nOo >>\nG < &\nSolution to Question 12: cat << s\n.%)\nThe pH decreasing from the Bee! value shifts, the O2. -hemogfobin dissociation curve, to the\nright. )  % ~\nig} ow ‘5 s\n\nOxygen-Hb dissociation curve (oHC)> x ‘:\n\n+ This is a plot of the partial Rreppre © of O2 andithe % saturation of Hb with O2.\n\n+ It is normally sigmoid-s|\n\n+ If OHDC is shifted igh right, it ahs that affinity of Hb for O2 has become less (which favors\nO2 delivery) ive. Highe the P50.<(R™ - Right shift Releases oxygen)\n\nShift to the ight is caused, by-(Conditions with increased requirement of O2 - metabolically active\ntissues) ‘\\ SY\n\n+ Hypoxia and Hypercarbia - Metabolically active tissues utilise O02 and tissues produce CO2\n+ J pH - Secondary to increased CO2 production\n\n+ T in temperature, heat\n\n+ T in 2,3-DPG - increased anaerobic glycolysis\n\n+ Growth hormone, thyroid hormone, androgen - by increasing 2,3 DPG\n\n+ Sickle cell anaemia - reduced affinity for 02\n\nOxygen-hemoglobin dissociation curve\n\nLott shite; increased oxygen affinity\nValkalosie\n\n= Becreased pCO2\n{Decreased 2.3-0P\n\n+ Hypothermia\n\n“ Methaemoaiobin ie\n2 Carbexynaamegiobin\n\"Festal naemoaiooin\n\nFight shift: docreased oxygen affinity\nAcidosis\nTinereased poOs\n“increased 2 3-0PG,\nHypernermia\n* Sulmacmosiebin\n\n% saturation\n\no.\nTeer Teer No\nO02 (mmHg) @\n©MARROW\nxY 4\nx < es\nWAS i@) Ae\n@ aS Pw\nSolution to Question 13: \\ o <\noN &<™ >\n\n[>\n\n4 molecules of myoglobin willbintd 4 molecules.of oxygen. aS\ne) ‘oe ?\n+ Myoglobin: This is present in skele nitseles. ey es\n+1 molecule of myoglobin binds 1 molecule of O2Mhus, 4 molecules of myoglobin will bind 4\nSS > *\n\necules of »? \\\nmolecules of oxygen Ao ~\\*\n\n+ The shape of O2-myoglobii issociation’entve is the rectangular hyperbola. It lies to the left of\nOxygen-Hemoglobin Dissociation Cone (OHDC)(refer figure).\n\nee\n\n40\n\nPercent saturation\n\n20\n\n°\n\n1020S “wo 50 0 70\nPartial pressure of oxygen (mmHg)\n\n— Myoglobin —— Fetal hemoglobin (HbF)\n\nAdult hemoglobin (HbA)\n\n@MARROW\n\nSolution to Question 14:\n\nFacilitation of oxygen transport depends on the oxygen-hemoglobin dissociation curve, explained\nby the Bohr effect.\n\nWhen the metabolic activity of tissues increases, the production of CO2 increases. This CO2\ndiffuses into the blood and in turn, raises the blood H2CO3 and causes an increase in the H+\nconcentration and a decrease in pH. This decreases the affinity of Hb for O2, shifting the O2-\nhemoglobin dissociation curve to the right. This facilitates the unloading of O2 in the tissues. The\neffect of Pco2 and pH on 02 hemoglobin dissociation curve is called the Bohr Effect.\n\nConversely, in the lungs, CO2 diffuses from the blood to the alveoli and the H+ concentration\ndecreases and theO2 hemoglobin dissociation curve shifts to the left increasing the affinity of Hb\nto O2.\n\nNote: os\n>\\\nDouble Bohr effect occurring in the placenta: Oxygen—hemoglobin dissociation’curve of fetal\nblood and maternal blood move in opposite directions. “as nay\nMechanism: NX — ge\n\n+ The fetal blood entering the placenta carries large amounts, ofe carbon dioxide, ‘but most of\nit diffuse from the fetal blood into the matériel blood. m4 « —\n\n+ Fetal blood - loss of CO2 - reduced dH shift to Ter Yoading of oni. oxygenation of fetal Hb.\n* Maternal blood - increase in. C08 ~increase in ie shift to. the fight - Release of oxygen.\n\nSolution to Question 15:\n\nThe level of 2,3-DPG is decreased in acidosis.\n\n2,3-DPG is produced from 37 -phosphidgeerate which is a product of glycolysis. Acidosis inhibits\nred cell glycolysis, which decreases\" the levels of 2,3-DPG.\n\na o>\n\\ 4\n\nSolution to Question 16:\n\nIncreased affinity of HbF to O2 is due to decreased affinity of y chains of HbF to 2,3DPG.\nHDF is the fetal variant of hemoglobin.\n\nThe B chains of adult hemoglobin (hemoglobin A) are replaced by y chains in HbF. This\nmodification results in increased affinity of hemoglobin for O02, a left shift of the O2-hemoglobin\ndissociation curve, and decreased P50.\n\nThe mechanism of the left shift is based on the binding of 2,3-DPG. 2,3-DPG does not bind as\navidly to the y chains of HbF as it binds to the f chains of hemoglobin A. When less 2,3-DPG is\nbound, the affinity for O2 increases and facilitates the movement of O2 from the mother to the\nfetus.\n\nThis increased affinity is beneficial to the fetus, whose PaO2 is low (approximately 40 mm Hg).\n\nSolution to Question 17:\n\nBinding of O02 with hemoglobin tends to displace CO2 from the blood. This effect is called the\nHaldane effect. (Remember - Haldane effect occurs in lungs and causes left shift of 02-Hb\ndissociation curve)\n\nHaldane Effect\n\n+ Binding of 02 with hemoglobin tends to displace CO2 from the blood. This effect, called the\nHaldane effect, is important in promoting CO2 transport.\n\n+ The Haldane effect results from the simple fact that the combination of 02 with hemoglobin in\nthe lungs causes the hemoglobin to become a stronger acid. This displaces CO2 from the blood\n\nand into the alveoli. No\n< & 7\n\\o >\nSolution to Question 18: oe ae .\n\nHematocrit (PCV) of venous blood is normal ter en of thesia blood because\nof 2 reasons: © ce\n\n.o ~~\n+ Chloride shift oh <O s\n+ A small amount of fluid in theater blogdfeturns via thelymphatics rather than the veins.\nChloride shift: ae) oe x es\n\n. e eC:\n\nChloride shift\n\nco,\n\ngv\n\n©MARROW\n\n+ Upon entering the red blood cell, CO2 is rapidly hydrated to H2CO3 by carbonic anhydrase.\n* H2COs3 is in equilibrium with H+ and its conjugate base, HCO3-.\n\n+ H+ can interact with deoxyhemoglobin, whereas HCO3- can be transported outside of the cell via\nanion exchanger 1 (AE1 or Band 3).\n\n+ In effect, for each CO2 molecule that enters the red cell, there is an additional HCO3- or Cl- in\nthe cell.\n\n+ Because of this chloride shift, the Cl — content of the red cells in venous blood is significantly\ngreater than that in arterial blood.\n\n+ Note that for each CO2 molecule added to a red cell, there is an increase of one osmotically\nactive particles in the cell - either a HCO 3 - or a Cl — ion. Consequently, the red cells take up\nwater and increase in size.\n\nSolution to Question 19:\n\nThe fall in 2, 3 DPG is less when the blood is stored in CPDA compared with ACD.\n\n2, 3 DPG (2,3-diphosphoglycerate) binds to deoxygenated haemoglobin. Therefgreyan i increase in\n2,3 DPG causes increased release of O2 to the tissues. The gquilibrium between Hb and O2 can be\n\nunderstood from the following equation: Ce\n\nsoo\nHbO2 + 2,3-DPG m Hb-2,3-DPG + O02 x ~ c\n\nIn stored blood, the 2,3 DPG levels usually fall. Asa ‘result, stored blood reledses less oxygen to\nthe tissues than the normal circulating bloods sthus Timiti sits” use in hyposie patients (Eg:\nanaemia). o ot « ~\n\nHowever, such a fall in 2,3 DPGis Ves When it iSefored i ina phosphate- containing solution like\nCPDA (Citrate, phosphate, dextrose, adenine), rather than, ACD (Acid citrate dextrose). Therefore,\nthe blood stored in CPDA} inseomparisomwith blood stored’ ‘in ACD has:\n\n+ Higher 2,3 DPG concentration e> < ‘i\n\n+ More amount of deoxygenated Blood bound. tg2 +3 DPG\n\n+ Decreased affinity of Hbytovthe oxygen: %\n\n+ Increased release °ofigen to the fistes.\n\n+ Raised P50 (Ron's at which RR is half saturated)\n\n+ Shift in Ob: Hb dissoci:\n\nm curve to the right\n\nSolution to Question 20:\n\nThe oxygen carrying capacity of a boy with haemoglobin 14¢/dl is 18.\n\nWhen blood is saturated with 100% O2, the haemoglobin is also 100% saturated and each gram of\nnormal haemoglobin contains 1.39 mL of O2.\n\nHowever, blood normally contains some inactive haemoglobin derivatives, and the measured\nvalue in vivo is thus slightly lower hence, each gram of haemoglobin in vivo contains 1.31 mL of\nO2 (Hufner’s constant).\n\nAccording to the above question, when Hb=14¢/dl, O2= 1.31*14= 18.34\nThe oxygen-hemoglobin dissociation curve\n\n+ Demonstrates a progressive increase in the percentage of haemoglobin bound with oxygen as\nblood Po2 increases, which is called the percent saturation of haemoglobin.\n\n+ Blood leaving the lungs and entering the systemic arteries usually has a Po2 of about 95 mm Hg,\nthe usual oxygen saturation of systemic arterial blood averages 97 per cent.\n\n* Conversely, in normal venous blood returning from the peripheral tissues, the Po2 is about 40\nmm Hg, and the saturation of haemoglobin averages 75 per cent.\n\n120\nA leit shill increases\nhemoglobin atiinity\nfor oxygen.\n(Causes: 12-3\nDPG, Lternperative, TpH)\n\ne0 = =\n\nA tight shift reduces\n\n100\n\n= oo hemoglobin affinity ’\n8 for oxygen.\n(Causes: T2-3\n40 DPG, ttemperative, LpH)\n\n20\n\n0 20 40 0 80 400 120",
+      "structuredExplanation": {
+        "text": "A relaxed (R) configuration, exposes more O 2 binding sites.\nThe quaternary structure of hemoglobin determines its affinity for O2.\n\nIn deoxyhemoglobin, the globin units are tightly bound in a tense (T) configuration, which\nreduces the affinity of the molecule for O2.\n\nWhen O 2 is first bound, the bonds holding the globin units are released, producing a relaxed (R)\nconfiguration, which exposes more O2 binding sites. The net result is a 500-fold increase in 02\n\nIn tissues, these reactions are reversed, resulting in 02 dissociation .\nOxygenated and deoxygenated hemoglobin e\nOxyhemoglobin Deoxyhemoglobin\n\nDecreasing PH\n\ne\n\n@ ge Increasing 2,3-DPG|\n\nFalling [0,}\n\n—>\n<—\n\nRising [0,]\n\nRelaxing Binding Tight Binding\nStructure ‘Structure\n\n©MARROW\n\n,\\\n\nSolution t tion 9 »\nolution to ion 9:\nX \\O\n\nThe onyaetthaamogloie ticcociation curve is sigmoid shape because binding of one 02 molecule\nincreases the affinity of binding of subsequent O2 molecules.\n\nThe oxygen-hemoglobin dissociation curve relates percentage saturation of the O2 carrying power\nof hemoglobin (abbreviated as SaO2) to the Po2. It has a characteristic sigmoid shape due to the\nT-R interconversion. Combination of the first heme in the Hb molecule with O02 increases the\naffinity of the second heme for O2 and oxygenation of the second increases the affinity of the\nthird, and so on, such that the affinity of Hb for the fourth O2 molecule is many times that for the\nfirst (Positive Co-operative Effect).\n\nOption C: The effect of PCO2 and pH on the 02-hemoglobin dissociation curve is called the Bohr\neffect.\n\nOption D: O2 bound to hemoglobin changes its affinity for CO2, such that when less O2 is bound,\nthe affinity of hemoglobin for CO2 increases. This is referred to as the Haldane effect.\n\nSolution to Question 10:\n\nWhen blood is equilibrated with 100% O2, the normal hemoglobin becomes 100% saturated.\n\n+ In vivo, the hemoglobin in the blood at the end of the pulmonary capillaries is about 97.5%\n\nsaturated with O2 (Po2 = 100 mm Hg).\n\n+ Because of a slight admixture with venous blood that bypasses the pulmonary capillaries (i.e,\nphysiologic shunt), the hemoglobin in systemic arterial blood is only 97% saturated.\n\n+ Graph relates the percentage of saturated hemoglobin (SaO2) to PO2 and dissolved O2.\n\n\\\noOo.\"\n\n100 99 - 100% <\n60 89%\n\n40 75% bh\n\n27 50% of\n\n>\nfay\n\n100 Fone ones oflateau, >, 1\nor\n\na0 f-\n70 -\nsof\n50 f=\n40\n30\n\n20\n\nNS . 10\n\nOxyhaemoglobin (% Saturation)\n\nLe.\nf)\n\n(Bohr effect*t coz, ApH}\n\n10 20 30 40 SO 6d 70\n\nPO, (mmHg)\n\nSolution to Question 11:\n\nNormal P50 is about 27 mm of Hg for adult Hb.\n\n‘e090 100\n\nP50 is the partial pressure of O2 at which Hb is 50 % saturated. P50 is an index of the affinity of\n\nHb with O2.\n\nHigher the P50 value, lower is the affinity: Oxygen-Hemoglobin Dissociation Curve shifts to right.\n\nLower the P50 value, the higher is the affinity: Oxygen-Hemoglobin Dissociation Curve shifts to\n\nleft.\n\nm= Fetal hemoglobin\n= Adult hemoglobin\n\nco\"\neo.’\n0 19268 40 80 120\nstial pressure (pO,, mmFg)\n“a >\nOo >>\nG < &\nSolution to Question 12: cat << s\n.%)\nThe pH decreasing from the Bee! value shifts, the O2. -hemogfobin dissociation curve, to the\nright. )  % ~\nig} ow ‘5 s\n\nOxygen-Hb dissociation curve (oHC)> x ‘:\n\n+ This is a plot of the partial Rreppre © of O2 andithe % saturation of Hb with O2.\n\n+ It is normally sigmoid-s|\n\n+ If OHDC is shifted igh right, it ahs that affinity of Hb for O2 has become less (which favors\nO2 delivery) ive. Highe the P50.<(R™ - Right shift Releases oxygen)\n\nShift to the ight is caused, by-(Conditions with increased requirement of O2 - metabolically active\ntissues) ‘\\ SY\n\n+ Hypoxia and Hypercarbia - Metabolically active tissues utilise O02 and tissues produce CO2\n+ J pH - Secondary to increased CO2 production\n\n+ T in temperature, heat\n\n+ T in 2,3-DPG - increased anaerobic glycolysis\n\n+ Growth hormone, thyroid hormone, androgen - by increasing 2,3 DPG\n\n+ Sickle cell anaemia - reduced affinity for 02\n\nOxygen-hemoglobin dissociation curve\n\nLott shite; increased oxygen affinity\nValkalosie\n\n= Becreased pCO2\n{Decreased 2.3-0P\n\n+ Hypothermia\n\n“ Methaemoaiobin ie\n2 Carbexynaamegiobin\n\"Festal naemoaiooin\n\nFight shift: docreased oxygen affinity\nAcidosis\nTinereased poOs\n“increased 2 3-0PG,\nHypernermia\n* Sulmacmosiebin\n\n% saturation\n\no.\nTeer Teer No\nO02 (mmHg) @\n©MARROW\nxY 4\nx < es\nWAS i@) Ae\n@ aS Pw\nSolution to Question 13: \\ o <\noN &<™ >\n\n[>\n\n4 molecules of myoglobin willbintd 4 molecules.of oxygen. aS\ne) ‘oe ?\n+ Myoglobin: This is present in skele nitseles. ey es\n+1 molecule of myoglobin binds 1 molecule of O2Mhus, 4 molecules of myoglobin will bind 4\nSS > *\n\necules of »? \\\nmolecules of oxygen Ao ~\\*\n\n+ The shape of O2-myoglobii issociation’entve is the rectangular hyperbola. It lies to the left of\nOxygen-Hemoglobin Dissociation Cone (OHDC)(refer figure).\n\nee\n\n40\n\nPercent saturation\n\n20\n\n°\n\n1020S “wo 50 0 70\nPartial pressure of oxygen (mmHg)\n\n— Myoglobin —— Fetal hemoglobin (HbF)\n\nAdult hemoglobin (HbA)\n\n@MARROW\n\nSolution to Question 14:\n\nFacilitation of oxygen transport depends on the oxygen-hemoglobin dissociation curve, explained\nby the Bohr effect.\n\nWhen the metabolic activity of tissues increases, the production of CO2 increases. This CO2\ndiffuses into the blood and in turn, raises the blood H2CO3 and causes an increase in the H+\nconcentration and a decrease in pH. This decreases the affinity of Hb for O2, shifting the O2-\nhemoglobin dissociation curve to the right. This facilitates the unloading of O2 in the tissues. The\neffect of Pco2 and pH on 02 hemoglobin dissociation curve is called the Bohr Effect.\n\nConversely, in the lungs, CO2 diffuses from the blood to the alveoli and the H+ concentration\ndecreases and theO2 hemoglobin dissociation curve shifts to the left increasing the affinity of Hb\nto O2.\n\nNote: os\n>\\\nDouble Bohr effect occurring in the placenta: Oxygen—hemoglobin dissociation’curve of fetal\nblood and maternal blood move in opposite directions. “as nay\nMechanism: NX — ge\n\n+ The fetal blood entering the placenta carries large amounts, ofe carbon dioxide, ‘but most of\nit diffuse from the fetal blood into the matériel blood. m4 « —\n\n+ Fetal blood - loss of CO2 - reduced dH shift to Ter Yoading of oni. oxygenation of fetal Hb.\n* Maternal blood - increase in. C08 ~increase in ie shift to. the fight - Release of oxygen.\n\nSolution to Question 15:\n\nThe level of 2,3-DPG is decreased in acidosis.\n\n2,3-DPG is produced from 37 -phosphidgeerate which is a product of glycolysis. Acidosis inhibits\nred cell glycolysis, which decreases\" the levels of 2,3-DPG.\n\na o>\n\\ 4\n\nSolution to Question 16:\n\nIncreased affinity of HbF to O2 is due to decreased affinity of y chains of HbF to 2,3DPG.\nHDF is the fetal variant of hemoglobin.\n\nThe B chains of adult hemoglobin (hemoglobin A) are replaced by y chains in HbF. This\nmodification results in increased affinity of hemoglobin for O02, a left shift of the O2-hemoglobin\ndissociation curve, and decreased P50.\n\nThe mechanism of the left shift is based on the binding of 2,3-DPG. 2,3-DPG does not bind as\navidly to the y chains of HbF as it binds to the f chains of hemoglobin A. When less 2,3-DPG is\nbound, the affinity for O2 increases and facilitates the movement of O2 from the mother to the\nfetus.\n\nThis increased affinity is beneficial to the fetus, whose PaO2 is low (approximately 40 mm Hg).\n\nSolution to Question 17:\n\nBinding of O02 with hemoglobin tends to displace CO2 from the blood. This effect is called the\nHaldane effect. (Remember - Haldane effect occurs in lungs and causes left shift of 02-Hb\ndissociation curve)\n\nHaldane Effect\n\n+ Binding of 02 with hemoglobin tends to displace CO2 from the blood. This effect, called the\nHaldane effect, is important in promoting CO2 transport.\n\n+ The Haldane effect results from the simple fact that the combination of 02 with hemoglobin in\nthe lungs causes the hemoglobin to become a stronger acid. This displaces CO2 from the blood\n\nand into the alveoli. No\n< & 7\n\\o >\nSolution to Question 18: oe ae .\n\nHematocrit (PCV) of venous blood is normal ter en of thesia blood because\nof 2 reasons: © ce\n\n.o ~~\n+ Chloride shift oh <O s\n+ A small amount of fluid in theater blogdfeturns via thelymphatics rather than the veins.\nChloride shift: ae) oe x es\n\n. e eC:\n\nChloride shift\n\nco,\n\ngv\n\n©MARROW\n\n+ Upon entering the red blood cell, CO2 is rapidly hydrated to H2CO3 by carbonic anhydrase.\n* H2COs3 is in equilibrium with H+ and its conjugate base, HCO3-.\n\n+ H+ can interact with deoxyhemoglobin, whereas HCO3- can be transported outside of the cell via\nanion exchanger 1 (AE1 or Band 3).\n\n+ In effect, for each CO2 molecule that enters the red cell, there is an additional HCO3- or Cl- in\nthe cell.\n\n+ Because of this chloride shift, the Cl — content of the red cells in venous blood is significantly\ngreater than that in arterial blood.\n\n+ Note that for each CO2 molecule added to a red cell, there is an increase of one osmotically\nactive particles in the cell - either a HCO 3 - or a Cl — ion. Consequently, the red cells take up\nwater and increase in size.\n\nSolution to Question 19:\n\nThe fall in 2, 3 DPG is less when the blood is stored in CPDA compared with ACD.\n\n2, 3 DPG (2,3-diphosphoglycerate) binds to deoxygenated haemoglobin. Therefgreyan i increase in\n2,3 DPG causes increased release of O2 to the tissues. The gquilibrium between Hb and O2 can be\n\nunderstood from the following equation: Ce\n\nsoo\nHbO2 + 2,3-DPG m Hb-2,3-DPG + O02 x ~ c\n\nIn stored blood, the 2,3 DPG levels usually fall. Asa ‘result, stored blood reledses less oxygen to\nthe tissues than the normal circulating bloods sthus Timiti sits” use in hyposie patients (Eg:\nanaemia). o ot « ~\n\nHowever, such a fall in 2,3 DPGis Ves When it iSefored i ina phosphate- containing solution like\nCPDA (Citrate, phosphate, dextrose, adenine), rather than, ACD (Acid citrate dextrose). Therefore,\nthe blood stored in CPDA} inseomparisomwith blood stored’ ‘in ACD has:\n\n+ Higher 2,3 DPG concentration e> < ‘i\n\n+ More amount of deoxygenated Blood bound. tg2 +3 DPG\n\n+ Decreased affinity of Hbytovthe oxygen: %\n\n+ Increased release °ofigen to the fistes.\n\n+ Raised P50 (Ron's at which RR is half saturated)\n\n+ Shift in Ob: Hb dissoci:\n\nm curve to the right\n\nSolution to Question 20:\n\nThe oxygen carrying capacity of a boy with haemoglobin 14¢/dl is 18.\n\nWhen blood is saturated with 100% O2, the haemoglobin is also 100% saturated and each gram of\nnormal haemoglobin contains 1.39 mL of O2.\n\nHowever, blood normally contains some inactive haemoglobin derivatives, and the measured\nvalue in vivo is thus slightly lower hence, each gram of haemoglobin in vivo contains 1.31 mL of\nO2 (Hufner’s constant).\n\nAccording to the above question, when Hb=14¢/dl, O2= 1.31*14= 18.34\nThe oxygen-hemoglobin dissociation curve\n\n+ Demonstrates a progressive increase in the percentage of haemoglobin bound with oxygen as\nblood Po2 increases, which is called the percent saturation of haemoglobin.\n\n+ Blood leaving the lungs and entering the systemic arteries usually has a Po2 of about 95 mm Hg,\nthe usual oxygen saturation of systemic arterial blood averages 97 per cent.\n\n* Conversely, in normal venous blood returning from the peripheral tissues, the Po2 is about 40\nmm Hg, and the saturation of haemoglobin averages 75 per cent.\n\n120\nA leit shill increases\nhemoglobin atiinity\nfor oxygen.\n(Causes: 12-3\nDPG, Lternperative, TpH)\n\ne0 = =\n\nA tight shift reduces\n\n100\n\n= oo hemoglobin affinity ’\n8 for oxygen.\n(Causes: T2-3\n40 DPG, ttemperative, LpH)\n\n20\n\n0 20 40 0 80 400 120",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "A relaxed (R) configuration, exposes more O 2 binding sites. The quaternary structure of hemoglobin determines its affinity for O2."
+          },
+          {
+            "type": "paragraph",
+            "text": "In deoxyhemoglobin, the globin units are tightly bound in a tense (T) configuration, which reduces the affinity of the molecule for O2."
+          },
+          {
+            "type": "paragraph",
+            "text": "When O 2 is first bound, the bonds holding the globin units are released, producing a relaxed (R) configuration, which exposes more O2 binding sites. The net result is a 500-fold increase in 02"
+          },
+          {
+            "type": "paragraph",
+            "text": "In tissues, these reactions are reversed, resulting in 02 dissociation . Oxygenated and deoxygenated hemoglobin e Oxyhemoglobin Deoxyhemoglobin"
+          },
+          {
+            "type": "paragraph",
+            "text": "Decreasing PH"
+          },
+          {
+            "type": "paragraph",
+            "text": "e"
+          },
+          {
+            "type": "paragraph",
+            "text": "@ ge Increasing 2,3-DPG|"
+          },
+          {
+            "type": "paragraph",
+            "text": "Falling [0,}"
+          },
+          {
+            "type": "paragraph",
+            "text": "—> <—"
+          },
+          {
+            "type": "paragraph",
+            "text": "Rising [0,]"
+          },
+          {
+            "type": "paragraph",
+            "text": "Relaxing Binding Tight Binding Structure ‘Structure"
+          },
+          {
+            "type": "paragraph",
+            "text": "©MARROW"
+          },
+          {
+            "type": "paragraph",
+            "text": ",\\"
+          },
+          {
+            "type": "paragraph",
+            "text": "Solution t tion 9 » olution to ion 9: X \\O"
+          },
+          {
+            "type": "paragraph",
+            "text": "The onyaetthaamogloie ticcociation curve is sigmoid shape because binding of one 02 molecule increases the affinity of binding of subsequent O2 molecules."
+          },
+          {
+            "type": "paragraph",
+            "text": "The oxygen-hemoglobin dissociation curve relates percentage saturation of the O2 carrying power of hemoglobin (abbreviated as SaO2) to the Po2. It has a characteristic sigmoid shape due to the T-R interconversion. Combination of the first heme in the Hb molecule with O02 increases the affinity of the second heme for O2 and oxygenation of the second increases the affinity of the third, and so on, such that the affinity of Hb for the fourth O2 molecule is many times that for the first (Positive Co-operative Effect)."
+          },
+          {
+            "type": "paragraph",
+            "text": "Option C: The effect of PCO2 and pH on the 02-hemoglobin dissociation curve is called the Bohr effect."
+          },
+          {
+            "type": "paragraph",
+            "text": "Option D: O2 bound to hemoglobin changes its affinity for CO2, such that when less O2 is bound, the affinity of hemoglobin for CO2 increases. This is referred to as the Haldane effect."
+          },
+          {
+            "type": "paragraph",
+            "text": "Solution to Question 10:"
+          },
+          {
+            "type": "paragraph",
+            "text": "When blood is equilibrated with 100% O2, the normal hemoglobin becomes 100% saturated."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ In vivo, the hemoglobin in the blood at the end of the pulmonary capillaries is about 97.5%"
+          },
+          {
+            "type": "paragraph",
+            "text": "saturated with O2 (Po2 = 100 mm Hg)."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Because of a slight admixture with venous blood that bypasses the pulmonary capillaries (i.e, physiologic shunt), the hemoglobin in systemic arterial blood is only 97% saturated."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Graph relates the percentage of saturated hemoglobin (SaO2) to PO2 and dissolved O2."
+          },
+          {
+            "type": "paragraph",
+            "text": "\\ oOo.\""
+          },
+          {
+            "type": "paragraph",
+            "text": "100 99 - 100% < 60 89%"
+          },
+          {
+            "type": "paragraph",
+            "text": "40 75% bh"
+          },
+          {
+            "type": "paragraph",
+            "text": "27 50% of"
+          },
+          {
+            "type": "paragraph",
+            "text": "> fay"
+          },
+          {
+            "type": "paragraph",
+            "text": "100 Fone ones oflateau, >, 1 or"
+          },
+          {
+            "type": "paragraph",
+            "text": "a0 f- 70 - sof 50 f= 40 30"
+          },
+          {
+            "type": "paragraph",
+            "text": "20"
+          },
+          {
+            "type": "paragraph",
+            "text": "NS . 10"
+          },
+          {
+            "type": "paragraph",
+            "text": "Oxyhaemoglobin (% Saturation)"
+          },
+          {
+            "type": "paragraph",
+            "text": "Le. f)"
+          },
+          {
+            "type": "paragraph",
+            "text": "(Bohr effect*t coz, ApH}"
+          },
+          {
+            "type": "paragraph",
+            "text": "10 20 30 40 SO 6d 70"
+          },
+          {
+            "type": "paragraph",
+            "text": "PO, (mmHg)"
+          },
+          {
+            "type": "paragraph",
+            "text": "Solution to Question 11:"
+          },
+          {
+            "type": "paragraph",
+            "text": "Normal P50 is about 27 mm of Hg for adult Hb."
+          },
+          {
+            "type": "paragraph",
+            "text": "‘e090 100"
+          },
+          {
+            "type": "paragraph",
+            "text": "P50 is the partial pressure of O2 at which Hb is 50 % saturated. P50 is an index of the affinity of"
+          },
+          {
+            "type": "paragraph",
+            "text": "Hb with O2."
+          },
+          {
+            "type": "paragraph",
+            "text": "Higher the P50 value, lower is the affinity: Oxygen-Hemoglobin Dissociation Curve shifts to right."
+          },
+          {
+            "type": "paragraph",
+            "text": "Lower the P50 value, the higher is the affinity: Oxygen-Hemoglobin Dissociation Curve shifts to"
+          },
+          {
+            "type": "paragraph",
+            "text": "left."
+          },
+          {
+            "type": "paragraph",
+            "text": "m= Fetal hemoglobin = Adult hemoglobin"
+          },
+          {
+            "type": "paragraph",
+            "text": "co\" eo.’ 0 19268 40 80 120 stial pressure (pO,, mmFg) “a > Oo >> G < & Solution to Question 12: cat << s .%) The pH decreasing from the Bee! value shifts, the O2. -hemogfobin dissociation curve, to the right. )  % ~ ig} ow ‘5 s"
+          },
+          {
+            "type": "paragraph",
+            "text": "Oxygen-Hb dissociation curve (oHC)> x ‘:"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ This is a plot of the partial Rreppre © of O2 andithe % saturation of Hb with O2."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ It is normally sigmoid-s|"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ If OHDC is shifted igh right, it ahs that affinity of Hb for O2 has become less (which favors O2 delivery) ive. Highe the P50.<(R™ - Right shift Releases oxygen)"
+          },
+          {
+            "type": "paragraph",
+            "text": "Shift to the ight is caused, by-(Conditions with increased requirement of O2 - metabolically active tissues) ‘\\ SY"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Hypoxia and Hypercarbia - Metabolically active tissues utilise O02 and tissues produce CO2 + J pH - Secondary to increased CO2 production"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ T in temperature, heat"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ T in 2,3-DPG - increased anaerobic glycolysis"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Growth hormone, thyroid hormone, androgen - by increasing 2,3 DPG"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Sickle cell anaemia - reduced affinity for 02"
+          },
+          {
+            "type": "paragraph",
+            "text": "Oxygen-hemoglobin dissociation curve"
+          },
+          {
+            "type": "paragraph",
+            "text": "Lott shite; increased oxygen affinity Valkalosie"
+          },
+          {
+            "type": "paragraph",
+            "text": "= Becreased pCO2 {Decreased 2.3-0P"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Hypothermia"
+          },
+          {
+            "type": "paragraph",
+            "text": "“ Methaemoaiobin ie 2 Carbexynaamegiobin \"Festal naemoaiooin"
+          },
+          {
+            "type": "paragraph",
+            "text": "Fight shift: docreased oxygen affinity Acidosis Tinereased poOs “increased 2 3-0PG, Hypernermia * Sulmacmosiebin"
+          },
+          {
+            "type": "paragraph",
+            "text": "% saturation"
+          },
+          {
+            "type": "paragraph",
+            "text": "o. Teer Teer No O02 (mmHg) @ ©MARROW xY 4 x < es WAS i@) Ae @ aS Pw Solution to Question 13: \\ o < oN &<™ >"
+          },
+          {
+            "type": "paragraph",
+            "text": "[>"
+          },
+          {
+            "type": "paragraph",
+            "text": "4 molecules of myoglobin willbintd 4 molecules.of oxygen. aS e) ‘oe ? + Myoglobin: This is present in skele nitseles. ey es +1 molecule of myoglobin binds 1 molecule of O2Mhus, 4 molecules of myoglobin will bind 4 SS > *"
+          },
+          {
+            "type": "paragraph",
+            "text": "ecules of »? \\ molecules of oxygen Ao ~\\*"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ The shape of O2-myoglobii issociation’entve is the rectangular hyperbola. It lies to the left of Oxygen-Hemoglobin Dissociation Cone (OHDC)(refer figure)."
+          },
+          {
+            "type": "paragraph",
+            "text": "ee"
+          },
+          {
+            "type": "paragraph",
+            "text": "40"
+          },
+          {
+            "type": "paragraph",
+            "text": "Percent saturation"
+          },
+          {
+            "type": "paragraph",
+            "text": "20"
+          },
+          {
+            "type": "paragraph",
+            "text": "°"
+          },
+          {
+            "type": "paragraph",
+            "text": "1020S “wo 50 0 70 Partial pressure of oxygen (mmHg)"
+          },
+          {
+            "type": "paragraph",
+            "text": "— Myoglobin —— Fetal hemoglobin (HbF)"
+          },
+          {
+            "type": "paragraph",
+            "text": "Adult hemoglobin (HbA)"
+          },
+          {
+            "type": "paragraph",
+            "text": "@MARROW"
+          },
+          {
+            "type": "paragraph",
+            "text": "Solution to Question 14:"
+          },
+          {
+            "type": "paragraph",
+            "text": "Facilitation of oxygen transport depends on the oxygen-hemoglobin dissociation curve, explained by the Bohr effect."
+          },
+          {
+            "type": "paragraph",
+            "text": "When the metabolic activity of tissues increases, the production of CO2 increases. This CO2 diffuses into the blood and in turn, raises the blood H2CO3 and causes an increase in the H+ concentration and a decrease in pH. This decreases the affinity of Hb for O2, shifting the O2- hemoglobin dissociation curve to the right. This facilitates the unloading of O2 in the tissues. The effect of Pco2 and pH on 02 hemoglobin dissociation curve is called the Bohr Effect."
+          },
+          {
+            "type": "paragraph",
+            "text": "Conversely, in the lungs, CO2 diffuses from the blood to the alveoli and the H+ concentration decreases and theO2 hemoglobin dissociation curve shifts to the left increasing the affinity of Hb to O2."
+          },
+          {
+            "type": "paragraph",
+            "text": "Note: os >\\ Double Bohr effect occurring in the placenta: Oxygen—hemoglobin dissociation’curve of fetal blood and maternal blood move in opposite directions. “as nay Mechanism: NX — ge"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ The fetal blood entering the placenta carries large amounts, ofe carbon dioxide, ‘but most of it diffuse from the fetal blood into the matériel blood. m4 « —"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Fetal blood - loss of CO2 - reduced dH shift to Ter Yoading of oni. oxygenation of fetal Hb. * Maternal blood - increase in. C08 ~increase in ie shift to. the fight - Release of oxygen."
+          },
+          {
+            "type": "paragraph",
+            "text": "Solution to Question 15:"
+          },
+          {
+            "type": "paragraph",
+            "text": "The level of 2,3-DPG is decreased in acidosis."
+          },
+          {
+            "type": "paragraph",
+            "text": "2,3-DPG is produced from 37 -phosphidgeerate which is a product of glycolysis. Acidosis inhibits red cell glycolysis, which decreases\" the levels of 2,3-DPG."
+          },
+          {
+            "type": "paragraph",
+            "text": "a o> \\ 4"
+          },
+          {
+            "type": "paragraph",
+            "text": "Solution to Question 16:"
+          },
+          {
+            "type": "paragraph",
+            "text": "Increased affinity of HbF to O2 is due to decreased affinity of y chains of HbF to 2,3DPG. HDF is the fetal variant of hemoglobin."
+          },
+          {
+            "type": "paragraph",
+            "text": "The B chains of adult hemoglobin (hemoglobin A) are replaced by y chains in HbF. This modification results in increased affinity of hemoglobin for O02, a left shift of the O2-hemoglobin dissociation curve, and decreased P50."
+          },
+          {
+            "type": "paragraph",
+            "text": "The mechanism of the left shift is based on the binding of 2,3-DPG. 2,3-DPG does not bind as avidly to the y chains of HbF as it binds to the f chains of hemoglobin A. When less 2,3-DPG is bound, the affinity for O2 increases and facilitates the movement of O2 from the mother to the fetus."
+          },
+          {
+            "type": "paragraph",
+            "text": "This increased affinity is beneficial to the fetus, whose PaO2 is low (approximately 40 mm Hg)."
+          },
+          {
+            "type": "paragraph",
+            "text": "Solution to Question 17:"
+          },
+          {
+            "type": "paragraph",
+            "text": "Binding of O02 with hemoglobin tends to displace CO2 from the blood. This effect is called the Haldane effect. (Remember - Haldane effect occurs in lungs and causes left shift of 02-Hb dissociation curve)"
+          },
+          {
+            "type": "paragraph",
+            "text": "Haldane Effect"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Binding of 02 with hemoglobin tends to displace CO2 from the blood. This effect, called the Haldane effect, is important in promoting CO2 transport."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ The Haldane effect results from the simple fact that the combination of 02 with hemoglobin in the lungs causes the hemoglobin to become a stronger acid. This displaces CO2 from the blood"
+          },
+          {
+            "type": "paragraph",
+            "text": "and into the alveoli. No < & 7 \\o > Solution to Question 18: oe ae ."
+          },
+          {
+            "type": "paragraph",
+            "text": "Hematocrit (PCV) of venous blood is normal ter en of thesia blood because of 2 reasons: © ce"
+          },
+          {
+            "type": "paragraph",
+            "text": ".o ~~ + Chloride shift oh <O s + A small amount of fluid in theater blogdfeturns via thelymphatics rather than the veins. Chloride shift: ae) oe x es"
+          },
+          {
+            "type": "paragraph",
+            "text": ". e eC:"
+          },
+          {
+            "type": "paragraph",
+            "text": "Chloride shift"
+          },
+          {
+            "type": "paragraph",
+            "text": "co,"
+          },
+          {
+            "type": "paragraph",
+            "text": "gv"
+          },
+          {
+            "type": "paragraph",
+            "text": "©MARROW"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Upon entering the red blood cell, CO2 is rapidly hydrated to H2CO3 by carbonic anhydrase. * H2COs3 is in equilibrium with H+ and its conjugate base, HCO3-."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ H+ can interact with deoxyhemoglobin, whereas HCO3- can be transported outside of the cell via anion exchanger 1 (AE1 or Band 3)."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ In effect, for each CO2 molecule that enters the red cell, there is an additional HCO3- or Cl- in the cell."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Because of this chloride shift, the Cl — content of the red cells in venous blood is significantly greater than that in arterial blood."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Note that for each CO2 molecule added to a red cell, there is an increase of one osmotically active particles in the cell - either a HCO 3 - or a Cl — ion. Consequently, the red cells take up water and increase in size."
+          },
+          {
+            "type": "paragraph",
+            "text": "Solution to Question 19:"
+          },
+          {
+            "type": "paragraph",
+            "text": "The fall in 2, 3 DPG is less when the blood is stored in CPDA compared with ACD."
+          },
+          {
+            "type": "paragraph",
+            "text": "2, 3 DPG (2,3-diphosphoglycerate) binds to deoxygenated haemoglobin. Therefgreyan i increase in 2,3 DPG causes increased release of O2 to the tissues. The gquilibrium between Hb and O2 can be"
+          },
+          {
+            "type": "paragraph",
+            "text": "understood from the following equation: Ce"
+          },
+          {
+            "type": "paragraph",
+            "text": "soo HbO2 + 2,3-DPG m Hb-2,3-DPG + O02 x ~ c"
+          },
+          {
+            "type": "paragraph",
+            "text": "In stored blood, the 2,3 DPG levels usually fall. Asa ‘result, stored blood reledses less oxygen to the tissues than the normal circulating bloods sthus Timiti sits” use in hyposie patients (Eg: anaemia). o ot « ~"
+          },
+          {
+            "type": "paragraph",
+            "text": "However, such a fall in 2,3 DPGis Ves When it iSefored i ina phosphate- containing solution like CPDA (Citrate, phosphate, dextrose, adenine), rather than, ACD (Acid citrate dextrose). Therefore, the blood stored in CPDA} inseomparisomwith blood stored’ ‘in ACD has:"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Higher 2,3 DPG concentration e> < ‘i"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ More amount of deoxygenated Blood bound. tg2 +3 DPG"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Decreased affinity of Hbytovthe oxygen: %"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Increased release °ofigen to the fistes."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Raised P50 (Ron's at which RR is half saturated)"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Shift in Ob: Hb dissoci:"
+          },
+          {
+            "type": "paragraph",
+            "text": "m curve to the right"
+          },
+          {
+            "type": "paragraph",
+            "text": "Solution to Question 20:"
+          },
+          {
+            "type": "paragraph",
+            "text": "The oxygen carrying capacity of a boy with haemoglobin 14¢/dl is 18."
+          },
+          {
+            "type": "paragraph",
+            "text": "When blood is saturated with 100% O2, the haemoglobin is also 100% saturated and each gram of normal haemoglobin contains 1.39 mL of O2."
+          },
+          {
+            "type": "paragraph",
+            "text": "However, blood normally contains some inactive haemoglobin derivatives, and the measured value in vivo is thus slightly lower hence, each gram of haemoglobin in vivo contains 1.31 mL of O2 (Hufner’s constant)."
+          },
+          {
+            "type": "paragraph",
+            "text": "According to the above question, when Hb=14¢/dl, O2= 1.31*14= 18.34 The oxygen-hemoglobin dissociation curve"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Demonstrates a progressive increase in the percentage of haemoglobin bound with oxygen as blood Po2 increases, which is called the percent saturation of haemoglobin."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Blood leaving the lungs and entering the systemic arteries usually has a Po2 of about 95 mm Hg, the usual oxygen saturation of systemic arterial blood averages 97 per cent."
+          },
+          {
+            "type": "paragraph",
+            "text": "* Conversely, in normal venous blood returning from the peripheral tissues, the Po2 is about 40 mm Hg, and the saturation of haemoglobin averages 75 per cent."
+          },
+          {
+            "type": "paragraph",
+            "text": "120 A leit shill increases hemoglobin atiinity for oxygen. (Causes: 12-3 DPG, Lternperative, TpH)"
+          },
+          {
+            "type": "paragraph",
+            "text": "e0 = ="
+          },
+          {
+            "type": "paragraph",
+            "text": "A tight shift reduces"
+          },
+          {
+            "type": "paragraph",
+            "text": "100"
+          },
+          {
+            "type": "paragraph",
+            "text": "= oo hemoglobin affinity ’ 8 for oxygen. (Causes: T2-3 40 DPG, ttemperative, LpH)"
+          },
+          {
+            "type": "paragraph",
+            "text": "20"
+          },
+          {
+            "type": "paragraph",
+            "text": "0 20 40 0 80 400 120"
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH22_Q008_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          400,
+          401
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          408
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 400,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q009",
+      "sourceQuestionId": "PHYSIO_CH22_Q009",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 9,
+      "questionType": "single_best_answer",
+      "question": "The oxygen-haemoglobin dissociation curve is sigmoid shape because_____",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Binding of one O2 molecule increases the affinity of binding of subsequent O2 molecules"
+        },
+        {
+          "letter": "B",
+          "text": "Binding of one O2 molecule decreases the affinity of binding of subsequent O2 molecules"
+        },
+        {
+          "letter": "C",
+          "text": "Bohr effect"
+        },
+        {
+          "letter": "D",
+          "text": "Haldane effect"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Binding of one O2 molecule increases the affinity of binding of subsequent O2 molecules",
+      "explanation": "",
+      "structuredExplanation": {
+        "text": "",
+        "blocks": [
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH22_Q009_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          401
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          408,
+          409
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 401,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q010",
+      "sourceQuestionId": "PHYSIO_CH22_Q010",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 10,
+      "questionType": "single_best_answer",
+      "question": "Hb would be expected to become 100% saturated with oxygen at PO2 of (in mmHg)_____",
+      "options": [
+        {
+          "letter": "A",
+          "text": "75"
+        },
+        {
+          "letter": "B",
+          "text": "90"
+        },
+        {
+          "letter": "C",
+          "text": "100"
+        },
+        {
+          "letter": "D",
+          "text": "760"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "100",
+      "explanation": "When blood is equilibrated with 100% O2, the normal hemoglobin becomes 100% saturated.\n\n+ In vivo, the hemoglobin in the blood at the end of the pulmonary capillaries is about 97.5%\n\nsaturated with O2 (Po2 = 100 mm Hg).\n\n+ Because of a slight admixture with venous blood that bypasses the pulmonary capillaries (i.e,\nphysiologic shunt), the hemoglobin in systemic arterial blood is only 97% saturated.\n\n+ Graph relates the percentage of saturated hemoglobin (SaO2) to PO2 and dissolved O2.\n\n\\\noOo.\"\n\n100 99 - 100% <\n60 89%\n\n40 75% bh\n\n27 50% of\n\n>\nfay\n\n100 Fone ones oflateau, >, 1\nor\n\na0 f-\n70 -\nsof\n50 f=\n40\n30\n\n20\n\nNS . 10\n\nOxyhaemoglobin (% Saturation)\n\nLe.\nf)\n\n(Bohr effect*t coz, ApH}\n\n10 20 30 40 SO 6d 70\n\nPO, (mmHg)",
+      "structuredExplanation": {
+        "text": "When blood is equilibrated with 100% O2, the normal hemoglobin becomes 100% saturated.\n\n+ In vivo, the hemoglobin in the blood at the end of the pulmonary capillaries is about 97.5%\n\nsaturated with O2 (Po2 = 100 mm Hg).\n\n+ Because of a slight admixture with venous blood that bypasses the pulmonary capillaries (i.e,\nphysiologic shunt), the hemoglobin in systemic arterial blood is only 97% saturated.\n\n+ Graph relates the percentage of saturated hemoglobin (SaO2) to PO2 and dissolved O2.\n\n\\\noOo.\"\n\n100 99 - 100% <\n60 89%\n\n40 75% bh\n\n27 50% of\n\n>\nfay\n\n100 Fone ones oflateau, >, 1\nor\n\na0 f-\n70 -\nsof\n50 f=\n40\n30\n\n20\n\nNS . 10\n\nOxyhaemoglobin (% Saturation)\n\nLe.\nf)\n\n(Bohr effect*t coz, ApH}\n\n10 20 30 40 SO 6d 70\n\nPO, (mmHg)",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "When blood is equilibrated with 100% O2, the normal hemoglobin becomes 100% saturated."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ In vivo, the hemoglobin in the blood at the end of the pulmonary capillaries is about 97.5%"
+          },
+          {
+            "type": "paragraph",
+            "text": "saturated with O2 (Po2 = 100 mm Hg)."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Because of a slight admixture with venous blood that bypasses the pulmonary capillaries (i.e, physiologic shunt), the hemoglobin in systemic arterial blood is only 97% saturated."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Graph relates the percentage of saturated hemoglobin (SaO2) to PO2 and dissolved O2."
+          },
+          {
+            "type": "paragraph",
+            "text": "\\ oOo.\""
+          },
+          {
+            "type": "paragraph",
+            "text": "100 99 - 100% < 60 89%"
+          },
+          {
+            "type": "paragraph",
+            "text": "40 75% bh"
+          },
+          {
+            "type": "paragraph",
+            "text": "27 50% of"
+          },
+          {
+            "type": "paragraph",
+            "text": "> fay"
+          },
+          {
+            "type": "paragraph",
+            "text": "100 Fone ones oflateau, >, 1 or"
+          },
+          {
+            "type": "paragraph",
+            "text": "a0 f- 70 - sof 50 f= 40 30"
+          },
+          {
+            "type": "paragraph",
+            "text": "20"
+          },
+          {
+            "type": "paragraph",
+            "text": "NS . 10"
+          },
+          {
+            "type": "paragraph",
+            "text": "Oxyhaemoglobin (% Saturation)"
+          },
+          {
+            "type": "paragraph",
+            "text": "Le. f)"
+          },
+          {
+            "type": "paragraph",
+            "text": "(Bohr effect*t coz, ApH}"
+          },
+          {
+            "type": "paragraph",
+            "text": "10 20 30 40 SO 6d 70"
+          },
+          {
+            "type": "paragraph",
+            "text": "PO, (mmHg)"
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH22_Q010_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          401
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          409
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 401,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q011",
+      "sourceQuestionId": "PHYSIO_CH22_Q011",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 11,
+      "questionType": "single_best_answer",
+      "question": "The normal value of P50 in an adult is (mm Hg)______",
+      "options": [
+        {
+          "letter": "A",
+          "text": "27"
+        },
+        {
+          "letter": "B",
+          "text": "45"
+        },
+        {
+          "letter": "C",
+          "text": "10"
+        },
+        {
+          "letter": "D",
+          "text": "100"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "27",
+      "explanation": "Normal P50 is about 27 mm of Hg for adult Hb.\n\n‘e090 100\n\nP50 is the partial pressure of O2 at which Hb is 50 % saturated. P50 is an index of the affinity of\n\nHb with O2.\n\nHigher the P50 value, lower is the affinity: Oxygen-Hemoglobin Dissociation Curve shifts to right.\n\nLower the P50 value, the higher is the affinity: Oxygen-Hemoglobin Dissociation Curve shifts to\n\nleft.\n\nm= Fetal hemoglobin\n= Adult hemoglobin\n\nco\"\neo.’\n0 19268 40 80 120\nstial pressure (pO,, mmFg)\n“a >\nOo >>\nG < &",
+      "structuredExplanation": {
+        "text": "Normal P50 is about 27 mm of Hg for adult Hb.\n\n‘e090 100\n\nP50 is the partial pressure of O2 at which Hb is 50 % saturated. P50 is an index of the affinity of\n\nHb with O2.\n\nHigher the P50 value, lower is the affinity: Oxygen-Hemoglobin Dissociation Curve shifts to right.\n\nLower the P50 value, the higher is the affinity: Oxygen-Hemoglobin Dissociation Curve shifts to\n\nleft.\n\nm= Fetal hemoglobin\n= Adult hemoglobin\n\nco\"\neo.’\n0 19268 40 80 120\nstial pressure (pO,, mmFg)\n“a >\nOo >>\nG < &",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Normal P50 is about 27 mm of Hg for adult Hb."
+          },
+          {
+            "type": "paragraph",
+            "text": "‘e090 100"
+          },
+          {
+            "type": "paragraph",
+            "text": "P50 is the partial pressure of O2 at which Hb is 50 % saturated. P50 is an index of the affinity of"
+          },
+          {
+            "type": "paragraph",
+            "text": "Hb with O2."
+          },
+          {
+            "type": "paragraph",
+            "text": "Higher the P50 value, lower is the affinity: Oxygen-Hemoglobin Dissociation Curve shifts to right."
+          },
+          {
+            "type": "paragraph",
+            "text": "Lower the P50 value, the higher is the affinity: Oxygen-Hemoglobin Dissociation Curve shifts to"
+          },
+          {
+            "type": "paragraph",
+            "text": "left."
+          },
+          {
+            "type": "paragraph",
+            "text": "m= Fetal hemoglobin = Adult hemoglobin"
+          },
+          {
+            "type": "paragraph",
+            "text": "co\" eo.’ 0 19268 40 80 120 stial pressure (pO,, mmFg) “a > Oo >> G < &"
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH22_Q011_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          401
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          409,
+          410
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 401,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q012",
+      "sourceQuestionId": "PHYSIO_CH22_Q012",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 12,
+      "questionType": "single_best_answer",
+      "question": "Decrease in pH shifts the oxygen dissociation curve to_____",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Right"
+        },
+        {
+          "letter": "B",
+          "text": "Left"
+        },
+        {
+          "letter": "C",
+          "text": "Doesn't affect"
+        },
+        {
+          "letter": "D",
+          "text": "On either side depending on other factors"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Right",
+      "explanation": "cat << s\n.%)\nThe pH decreasing from the Bee! value shifts, the O2. -hemogfobin dissociation curve, to the\nright. )  % ~\nig} ow ‘5 s\n\nOxygen-Hb dissociation curve (oHC)> x ‘:\n\n+ This is a plot of the partial Rreppre © of O2 andithe % saturation of Hb with O2.\n\n+ It is normally sigmoid-s|\n\n+ If OHDC is shifted igh right, it ahs that affinity of Hb for O2 has become less (which favors\nO2 delivery) ive. Highe the P50.<(R™ - Right shift Releases oxygen)\n\nShift to the ight is caused, by-(Conditions with increased requirement of O2 - metabolically active\ntissues) ‘\\ SY\n\n+ Hypoxia and Hypercarbia - Metabolically active tissues utilise O02 and tissues produce CO2\n+ J pH - Secondary to increased CO2 production\n\n+ T in temperature, heat\n\n+ T in 2,3-DPG - increased anaerobic glycolysis\n\n+ Growth hormone, thyroid hormone, androgen - by increasing 2,3 DPG\n\n+ Sickle cell anaemia - reduced affinity for 02\n\nOxygen-hemoglobin dissociation curve\n\nLott shite; increased oxygen affinity\nValkalosie\n\n= Becreased pCO2\n{Decreased 2.3-0P\n\n+ Hypothermia\n\n“ Methaemoaiobin ie\n2 Carbexynaamegiobin\n\"Festal naemoaiooin\n\nFight shift: docreased oxygen affinity\nAcidosis\nTinereased poOs\n“increased 2 3-0PG,\nHypernermia\n* Sulmacmosiebin\n\n% saturation\n\no.\nTeer Teer No\nO02 (mmHg) @\n©MARROW\nxY 4\nx < es\nWAS i@) Ae\n@ aS Pw",
+      "structuredExplanation": {
+        "text": "cat << s\n.%)\nThe pH decreasing from the Bee! value shifts, the O2. -hemogfobin dissociation curve, to the\nright. )  % ~\nig} ow ‘5 s\n\nOxygen-Hb dissociation curve (oHC)> x ‘:\n\n+ This is a plot of the partial Rreppre © of O2 andithe % saturation of Hb with O2.\n\n+ It is normally sigmoid-s|\n\n+ If OHDC is shifted igh right, it ahs that affinity of Hb for O2 has become less (which favors\nO2 delivery) ive. Highe the P50.<(R™ - Right shift Releases oxygen)\n\nShift to the ight is caused, by-(Conditions with increased requirement of O2 - metabolically active\ntissues) ‘\\ SY\n\n+ Hypoxia and Hypercarbia - Metabolically active tissues utilise O02 and tissues produce CO2\n+ J pH - Secondary to increased CO2 production\n\n+ T in temperature, heat\n\n+ T in 2,3-DPG - increased anaerobic glycolysis\n\n+ Growth hormone, thyroid hormone, androgen - by increasing 2,3 DPG\n\n+ Sickle cell anaemia - reduced affinity for 02\n\nOxygen-hemoglobin dissociation curve\n\nLott shite; increased oxygen affinity\nValkalosie\n\n= Becreased pCO2\n{Decreased 2.3-0P\n\n+ Hypothermia\n\n“ Methaemoaiobin ie\n2 Carbexynaamegiobin\n\"Festal naemoaiooin\n\nFight shift: docreased oxygen affinity\nAcidosis\nTinereased poOs\n“increased 2 3-0PG,\nHypernermia\n* Sulmacmosiebin\n\n% saturation\n\no.\nTeer Teer No\nO02 (mmHg) @\n©MARROW\nxY 4\nx < es\nWAS i@) Ae\n@ aS Pw",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "cat << s .%) The pH decreasing from the Bee! value shifts, the O2. -hemogfobin dissociation curve, to the right. )  % ~ ig} ow ‘5 s"
+          },
+          {
+            "type": "paragraph",
+            "text": "Oxygen-Hb dissociation curve (oHC)> x ‘:"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ This is a plot of the partial Rreppre © of O2 andithe % saturation of Hb with O2."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ It is normally sigmoid-s|"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ If OHDC is shifted igh right, it ahs that affinity of Hb for O2 has become less (which favors O2 delivery) ive. Highe the P50.<(R™ - Right shift Releases oxygen)"
+          },
+          {
+            "type": "paragraph",
+            "text": "Shift to the ight is caused, by-(Conditions with increased requirement of O2 - metabolically active tissues) ‘\\ SY"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Hypoxia and Hypercarbia - Metabolically active tissues utilise O02 and tissues produce CO2 + J pH - Secondary to increased CO2 production"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ T in temperature, heat"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ T in 2,3-DPG - increased anaerobic glycolysis"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Growth hormone, thyroid hormone, androgen - by increasing 2,3 DPG"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Sickle cell anaemia - reduced affinity for 02"
+          },
+          {
+            "type": "paragraph",
+            "text": "Oxygen-hemoglobin dissociation curve"
+          },
+          {
+            "type": "paragraph",
+            "text": "Lott shite; increased oxygen affinity Valkalosie"
+          },
+          {
+            "type": "paragraph",
+            "text": "= Becreased pCO2 {Decreased 2.3-0P"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Hypothermia"
+          },
+          {
+            "type": "paragraph",
+            "text": "“ Methaemoaiobin ie 2 Carbexynaamegiobin \"Festal naemoaiooin"
+          },
+          {
+            "type": "paragraph",
+            "text": "Fight shift: docreased oxygen affinity Acidosis Tinereased poOs “increased 2 3-0PG, Hypernermia * Sulmacmosiebin"
+          },
+          {
+            "type": "paragraph",
+            "text": "% saturation"
+          },
+          {
+            "type": "paragraph",
+            "text": "o. Teer Teer No O02 (mmHg) @ ©MARROW xY 4 x < es WAS i@) Ae @ aS Pw"
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH22_Q012_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          401,
+          402
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          410,
+          411
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 401,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q013",
+      "sourceQuestionId": "PHYSIO_CH22_Q013",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 13,
+      "questionType": "single_best_answer",
+      "question": "Four molecules of myoglobin will bind how many molecules of oxygen?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "4"
+        },
+        {
+          "letter": "B",
+          "text": "16"
+        },
+        {
+          "letter": "C",
+          "text": "1"
+        },
+        {
+          "letter": "D",
+          "text": "8"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "4",
+      "explanation": "4 molecules of myoglobin will bind 4 molecules of oxygen.\n\n• 1 molecule of myoglobin binds 1 molecule of O2. Thus, 4 molecules of myoglobin will bind 4 molecules of oxygen.\n• The shape of O2-myoglobin dissociation curve is the rectangular hyperbola. It lies to the left of Oxygen-Hemoglobin Dissociation Curve (OHDC) (refer figure).",
+      "structuredExplanation": {
+        "text": "4 molecules of myoglobin will bind 4 molecules of oxygen.\n\n• 1 molecule of myoglobin binds 1 molecule of O2. Thus, 4 molecules of myoglobin will bind 4 molecules of oxygen.\n• The shape of O2-myoglobin dissociation curve is the rectangular hyperbola. It lies to the left of Oxygen-Hemoglobin Dissociation Curve (OHDC) (refer figure).",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "4 molecules of myoglobin will bind 4 molecules of oxygen."
+          },
+          {
+            "type": "bullet_list",
+            "items": [
+              "1 molecule of myoglobin binds 1 molecule of O2. Thus, 4 molecules of myoglobin will bind 4 molecules of oxygen.",
+              "The shape of O2-myoglobin dissociation curve is the rectangular hyperbola. It lies to the left of Oxygen-Hemoglobin Dissociation Curve (OHDC) (refer figure)."
+            ]
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH22_Q013_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          402
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          411
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 402,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q014",
+      "sourceQuestionId": "PHYSIO_CH22_Q014",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 14,
+      "questionType": "single_best_answer",
+      "question": "Bohr effect",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Facilitates O2 transport"
+        },
+        {
+          "letter": "B",
+          "text": "Facilitates CO2 transport"
+        },
+        {
+          "letter": "C",
+          "text": "Facilitates chloride transport"
+        },
+        {
+          "letter": "D",
+          "text": "None"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Facilitates O2 transport",
+      "explanation": "Facilitation of oxygen transport depends on the oxygen-hemoglobin dissociation curve, explained\nby the Bohr effect.\n\nWhen the metabolic activity of tissues increases, the production of CO2 increases. This CO2\ndiffuses into the blood and in turn, raises the blood H2CO3 and causes an increase in the H+\nconcentration and a decrease in pH. This decreases the affinity of Hb for O2, shifting the O2-\nhemoglobin dissociation curve to the right. This facilitates the unloading of O2 in the tissues. The\neffect of Pco2 and pH on 02 hemoglobin dissociation curve is called the Bohr Effect.\n\nConversely, in the lungs, CO2 diffuses from the blood to the alveoli and the H+ concentration\ndecreases and theO2 hemoglobin dissociation curve shifts to the left increasing the affinity of Hb\nto O2.\n\nNote: os\n>\\\nDouble Bohr effect occurring in the placenta: Oxygen—hemoglobin dissociation’curve of fetal\nblood and maternal blood move in opposite directions. “as nay\nMechanism: NX — ge\n\n+ The fetal blood entering the placenta carries large amounts, ofe carbon dioxide, ‘but most of\nit diffuse from the fetal blood into the matériel blood. m4 « —\n\n+ Fetal blood - loss of CO2 - reduced dH shift to Ter Yoading of oni. oxygenation of fetal Hb.\n* Maternal blood - increase in. C08 ~increase in ie shift to. the fight - Release of oxygen.",
+      "structuredExplanation": {
+        "text": "Facilitation of oxygen transport depends on the oxygen-hemoglobin dissociation curve, explained\nby the Bohr effect.\n\nWhen the metabolic activity of tissues increases, the production of CO2 increases. This CO2\ndiffuses into the blood and in turn, raises the blood H2CO3 and causes an increase in the H+\nconcentration and a decrease in pH. This decreases the affinity of Hb for O2, shifting the O2-\nhemoglobin dissociation curve to the right. This facilitates the unloading of O2 in the tissues. The\neffect of Pco2 and pH on 02 hemoglobin dissociation curve is called the Bohr Effect.\n\nConversely, in the lungs, CO2 diffuses from the blood to the alveoli and the H+ concentration\ndecreases and theO2 hemoglobin dissociation curve shifts to the left increasing the affinity of Hb\nto O2.\n\nNote: os\n>\\\nDouble Bohr effect occurring in the placenta: Oxygen—hemoglobin dissociation’curve of fetal\nblood and maternal blood move in opposite directions. “as nay\nMechanism: NX — ge\n\n+ The fetal blood entering the placenta carries large amounts, ofe carbon dioxide, ‘but most of\nit diffuse from the fetal blood into the matériel blood. m4 « —\n\n+ Fetal blood - loss of CO2 - reduced dH shift to Ter Yoading of oni. oxygenation of fetal Hb.\n* Maternal blood - increase in. C08 ~increase in ie shift to. the fight - Release of oxygen.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Facilitation of oxygen transport depends on the oxygen-hemoglobin dissociation curve, explained by the Bohr effect."
+          },
+          {
+            "type": "paragraph",
+            "text": "When the metabolic activity of tissues increases, the production of CO2 increases. This CO2 diffuses into the blood and in turn, raises the blood H2CO3 and causes an increase in the H+ concentration and a decrease in pH. This decreases the affinity of Hb for O2, shifting the O2- hemoglobin dissociation curve to the right. This facilitates the unloading of O2 in the tissues. The effect of Pco2 and pH on 02 hemoglobin dissociation curve is called the Bohr Effect."
+          },
+          {
+            "type": "paragraph",
+            "text": "Conversely, in the lungs, CO2 diffuses from the blood to the alveoli and the H+ concentration decreases and theO2 hemoglobin dissociation curve shifts to the left increasing the affinity of Hb to O2."
+          },
+          {
+            "type": "paragraph",
+            "text": "Note: os >\\ Double Bohr effect occurring in the placenta: Oxygen—hemoglobin dissociation’curve of fetal blood and maternal blood move in opposite directions. “as nay Mechanism: NX — ge"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ The fetal blood entering the placenta carries large amounts, ofe carbon dioxide, ‘but most of it diffuse from the fetal blood into the matériel blood. m4 « —"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Fetal blood - loss of CO2 - reduced dH shift to Ter Yoading of oni. oxygenation of fetal Hb. * Maternal blood - increase in. C08 ~increase in ie shift to. the fight - Release of oxygen."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          402
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          411,
+          412
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 402,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q015",
+      "sourceQuestionId": "PHYSIO_CH22_Q015",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 15,
+      "questionType": "single_best_answer",
+      "question": "The level of 2,3-DPG is decreased in______",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Anemia"
+        },
+        {
+          "letter": "B",
+          "text": "Acidosis"
+        },
+        {
+          "letter": "C",
+          "text": "High altitude"
+        },
+        {
+          "letter": "D",
+          "text": "Exercise"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Acidosis",
+      "explanation": "The level of 2,3-DPG is decreased in acidosis.\n\n2,3-DPG is produced from 3-phosphoglycerate which is a product of glycolysis. Acidosis inhibits red cell glycolysis, which decreases the levels of 2,3-DPG.",
+      "structuredExplanation": {
+        "text": "The level of 2,3-DPG is decreased in acidosis.\n\n2,3-DPG is produced from 3-phosphoglycerate which is a product of glycolysis. Acidosis inhibits red cell glycolysis, which decreases the levels of 2,3-DPG.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The level of 2,3-DPG is decreased in acidosis."
+          },
+          {
+            "type": "paragraph",
+            "text": "2,3-DPG is produced from 3-phosphoglycerate which is a product of glycolysis. Acidosis inhibits red cell glycolysis, which decreases the levels of 2,3-DPG."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          402
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          412
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 402,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q016",
+      "sourceQuestionId": "PHYSIO_CH22_Q016",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 16,
+      "questionType": "single_best_answer",
+      "question": "High affinity of HbF to O2 is due to_____",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Decreased binding with 2,3-DPG"
+        },
+        {
+          "letter": "B",
+          "text": "Increased binding with 2,3-DPG"
+        },
+        {
+          "letter": "C",
+          "text": "Increase in pH"
+        },
+        {
+          "letter": "D",
+          "text": "Decrease in concentration of Hb"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Decreased binding with 2,3-DPG",
+      "explanation": "Increased affinity of HbF to O2 is due to decreased affinity of y chains of HbF to 2,3DPG.\nHDF is the fetal variant of hemoglobin.\n\nThe B chains of adult hemoglobin (hemoglobin A) are replaced by y chains in HbF. This\nmodification results in increased affinity of hemoglobin for O02, a left shift of the O2-hemoglobin\ndissociation curve, and decreased P50.\n\nThe mechanism of the left shift is based on the binding of 2,3-DPG. 2,3-DPG does not bind as\navidly to the y chains of HbF as it binds to the f chains of hemoglobin A. When less 2,3-DPG is\nbound, the affinity for O2 increases and facilitates the movement of O2 from the mother to the\nfetus.\n\nThis increased affinity is beneficial to the fetus, whose PaO2 is low (approximately 40 mm Hg).",
+      "structuredExplanation": {
+        "text": "Increased affinity of HbF to O2 is due to decreased affinity of y chains of HbF to 2,3DPG.\nHDF is the fetal variant of hemoglobin.\n\nThe B chains of adult hemoglobin (hemoglobin A) are replaced by y chains in HbF. This\nmodification results in increased affinity of hemoglobin for O02, a left shift of the O2-hemoglobin\ndissociation curve, and decreased P50.\n\nThe mechanism of the left shift is based on the binding of 2,3-DPG. 2,3-DPG does not bind as\navidly to the y chains of HbF as it binds to the f chains of hemoglobin A. When less 2,3-DPG is\nbound, the affinity for O2 increases and facilitates the movement of O2 from the mother to the\nfetus.\n\nThis increased affinity is beneficial to the fetus, whose PaO2 is low (approximately 40 mm Hg).",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Increased affinity of HbF to O2 is due to decreased affinity of y chains of HbF to 2,3DPG. HDF is the fetal variant of hemoglobin."
+          },
+          {
+            "type": "paragraph",
+            "text": "The B chains of adult hemoglobin (hemoglobin A) are replaced by y chains in HbF. This modification results in increased affinity of hemoglobin for O02, a left shift of the O2-hemoglobin dissociation curve, and decreased P50."
+          },
+          {
+            "type": "paragraph",
+            "text": "The mechanism of the left shift is based on the binding of 2,3-DPG. 2,3-DPG does not bind as avidly to the y chains of HbF as it binds to the f chains of hemoglobin A. When less 2,3-DPG is bound, the affinity for O2 increases and facilitates the movement of O2 from the mother to the fetus."
+          },
+          {
+            "type": "paragraph",
+            "text": "This increased affinity is beneficial to the fetus, whose PaO2 is low (approximately 40 mm Hg)."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          402,
+          403
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          412,
+          413
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 402,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q017",
+      "sourceQuestionId": "PHYSIO_CH22_Q017",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 17,
+      "questionType": "single_best_answer",
+      "question": "Haldane effect is _______",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Binding of O2 to Hb favours release of CO2"
+        },
+        {
+          "letter": "B",
+          "text": "Binding of CO2 to Hb favours release of O2"
+        },
+        {
+          "letter": "C",
+          "text": "HCO3- leaving RBC in exchange for Cl-"
+        },
+        {
+          "letter": "D",
+          "text": "None of the above"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Binding of O2 to Hb favours release of CO2",
+      "explanation": "Binding of O2 with hemoglobin tends to displace CO2 from the blood. This effect is called the Haldane effect. (Remember - Haldane effect occurs in lungs and causes left shift of O2-Hb dissociation curve.)\n\nHaldane Effect:\n• Binding of O2 with hemoglobin tends to displace CO2 from the blood. This effect is important in promoting CO2 transport.\n• The combination of O2 with hemoglobin in the lungs causes the hemoglobin to become a stronger acid. This displaces CO2 from the blood.",
+      "structuredExplanation": {
+        "text": "Binding of O2 with hemoglobin tends to displace CO2 from the blood. This effect is called the Haldane effect. (Remember - Haldane effect occurs in lungs and causes left shift of O2-Hb dissociation curve.)\n\nHaldane Effect:\n• Binding of O2 with hemoglobin tends to displace CO2 from the blood. This effect is important in promoting CO2 transport.\n• The combination of O2 with hemoglobin in the lungs causes the hemoglobin to become a stronger acid. This displaces CO2 from the blood.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Binding of O2 with hemoglobin tends to displace CO2 from the blood. This effect is called the Haldane effect. (Remember - Haldane effect occurs in lungs and causes left shift of O2-Hb dissociation curve.)"
+          },
+          {
+            "type": "paragraph",
+            "text": "Haldane Effect: • Binding of O2 with hemoglobin tends to displace CO2 from the blood. This effect is important in promoting CO2 transport. • The combination of O2 with hemoglobin in the lungs causes the hemoglobin to become a stronger acid. This displaces CO2 from the blood."
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH22_Q017_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          403
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          413
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 403,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q018",
+      "sourceQuestionId": "PHYSIO_CH22_Q018",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 18,
+      "questionType": "single_best_answer",
+      "question": "You are comparing the packed cell volume (PCV) obtained from an arterial and venous blood sample of the same patient. Why is PCV higher in venous blood?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Haldane effect"
+        },
+        {
+          "letter": "B",
+          "text": "Bohr effect"
+        },
+        {
+          "letter": "C",
+          "text": "Chloride shift"
+        },
+        {
+          "letter": "D",
+          "text": "Affinity of Hb to 2,3-DPG"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Chloride shift",
+      "explanation": "oe ae .\n\nHematocrit (PCV) of venous blood is normal ter en of thesia blood because\nof 2 reasons: © ce\n\n.o ~~\n+ Chloride shift oh <O s\n+ A small amount of fluid in theater blogdfeturns via thelymphatics rather than the veins.\nChloride shift: ae) oe x es\n\n. e eC:\n\nChloride shift\n\nco,\n\ngv\n\n©MARROW\n\n+ Upon entering the red blood cell, CO2 is rapidly hydrated to H2CO3 by carbonic anhydrase.\n* H2COs3 is in equilibrium with H+ and its conjugate base, HCO3-.\n\n+ H+ can interact with deoxyhemoglobin, whereas HCO3- can be transported outside of the cell via\nanion exchanger 1 (AE1 or Band 3).\n\n+ In effect, for each CO2 molecule that enters the red cell, there is an additional HCO3- or Cl- in\nthe cell.\n\n+ Because of this chloride shift, the Cl — content of the red cells in venous blood is significantly\ngreater than that in arterial blood.\n\n+ Note that for each CO2 molecule added to a red cell, there is an increase of one osmotically\nactive particles in the cell - either a HCO 3 - or a Cl — ion. Consequently, the red cells take up\nwater and increase in size.",
+      "structuredExplanation": {
+        "text": "oe ae .\n\nHematocrit (PCV) of venous blood is normal ter en of thesia blood because\nof 2 reasons: © ce\n\n.o ~~\n+ Chloride shift oh <O s\n+ A small amount of fluid in theater blogdfeturns via thelymphatics rather than the veins.\nChloride shift: ae) oe x es\n\n. e eC:\n\nChloride shift\n\nco,\n\ngv\n\n©MARROW\n\n+ Upon entering the red blood cell, CO2 is rapidly hydrated to H2CO3 by carbonic anhydrase.\n* H2COs3 is in equilibrium with H+ and its conjugate base, HCO3-.\n\n+ H+ can interact with deoxyhemoglobin, whereas HCO3- can be transported outside of the cell via\nanion exchanger 1 (AE1 or Band 3).\n\n+ In effect, for each CO2 molecule that enters the red cell, there is an additional HCO3- or Cl- in\nthe cell.\n\n+ Because of this chloride shift, the Cl — content of the red cells in venous blood is significantly\ngreater than that in arterial blood.\n\n+ Note that for each CO2 molecule added to a red cell, there is an increase of one osmotically\nactive particles in the cell - either a HCO 3 - or a Cl — ion. Consequently, the red cells take up\nwater and increase in size.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "oe ae ."
+          },
+          {
+            "type": "paragraph",
+            "text": "Hematocrit (PCV) of venous blood is normal ter en of thesia blood because of 2 reasons: © ce"
+          },
+          {
+            "type": "paragraph",
+            "text": ".o ~~ + Chloride shift oh <O s + A small amount of fluid in theater blogdfeturns via thelymphatics rather than the veins. Chloride shift: ae) oe x es"
+          },
+          {
+            "type": "paragraph",
+            "text": ". e eC:"
+          },
+          {
+            "type": "paragraph",
+            "text": "Chloride shift"
+          },
+          {
+            "type": "paragraph",
+            "text": "co,"
+          },
+          {
+            "type": "paragraph",
+            "text": "gv"
+          },
+          {
+            "type": "paragraph",
+            "text": "©MARROW"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Upon entering the red blood cell, CO2 is rapidly hydrated to H2CO3 by carbonic anhydrase. * H2COs3 is in equilibrium with H+ and its conjugate base, HCO3-."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ H+ can interact with deoxyhemoglobin, whereas HCO3- can be transported outside of the cell via anion exchanger 1 (AE1 or Band 3)."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ In effect, for each CO2 molecule that enters the red cell, there is an additional HCO3- or Cl- in the cell."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Because of this chloride shift, the Cl — content of the red cells in venous blood is significantly greater than that in arterial blood."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Note that for each CO2 molecule added to a red cell, there is an increase of one osmotically active particles in the cell - either a HCO 3 - or a Cl — ion. Consequently, the red cells take up water and increase in size."
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH22_Q018_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          403
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          413,
+          414
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 403,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q019",
+      "sourceQuestionId": "PHYSIO_CH22_Q019",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 19,
+      "questionType": "single_best_answer",
+      "question": "What makes CPDA superior than ACD for blood storage:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "The fall in 2,3-DPG is less"
+        },
+        {
+          "letter": "B",
+          "text": "Decreased release of O2"
+        },
+        {
+          "letter": "C",
+          "text": "It has less P50"
+        },
+        {
+          "letter": "D",
+          "text": "It is less acidic"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "The fall in 2,3-DPG is less",
+      "explanation": "The fall in 2, 3 DPG is less when the blood is stored in CPDA compared with ACD.\n\n2, 3 DPG (2,3-diphosphoglycerate) binds to deoxygenated haemoglobin. Therefgreyan i increase in\n2,3 DPG causes increased release of O2 to the tissues. The gquilibrium between Hb and O2 can be\n\nunderstood from the following equation: Ce\n\nsoo\nHbO2 + 2,3-DPG m Hb-2,3-DPG + O02 x ~ c\n\nIn stored blood, the 2,3 DPG levels usually fall. Asa ‘result, stored blood reledses less oxygen to\nthe tissues than the normal circulating bloods sthus Timiti sits” use in hyposie patients (Eg:\nanaemia). o ot « ~\n\nHowever, such a fall in 2,3 DPGis Ves When it iSefored i ina phosphate- containing solution like\nCPDA (Citrate, phosphate, dextrose, adenine), rather than, ACD (Acid citrate dextrose). Therefore,\nthe blood stored in CPDA} inseomparisomwith blood stored’ ‘in ACD has:\n\n+ Higher 2,3 DPG concentration e> < ‘i\n\n+ More amount of deoxygenated Blood bound. tg2 +3 DPG\n\n+ Decreased affinity of Hbytovthe oxygen: %\n\n+ Increased release °ofigen to the fistes.\n\n+ Raised P50 (Ron's at which RR is half saturated)\n\n+ Shift in Ob: Hb dissoci:\n\nm curve to the right",
+      "structuredExplanation": {
+        "text": "The fall in 2, 3 DPG is less when the blood is stored in CPDA compared with ACD.\n\n2, 3 DPG (2,3-diphosphoglycerate) binds to deoxygenated haemoglobin. Therefgreyan i increase in\n2,3 DPG causes increased release of O2 to the tissues. The gquilibrium between Hb and O2 can be\n\nunderstood from the following equation: Ce\n\nsoo\nHbO2 + 2,3-DPG m Hb-2,3-DPG + O02 x ~ c\n\nIn stored blood, the 2,3 DPG levels usually fall. Asa ‘result, stored blood reledses less oxygen to\nthe tissues than the normal circulating bloods sthus Timiti sits” use in hyposie patients (Eg:\nanaemia). o ot « ~\n\nHowever, such a fall in 2,3 DPGis Ves When it iSefored i ina phosphate- containing solution like\nCPDA (Citrate, phosphate, dextrose, adenine), rather than, ACD (Acid citrate dextrose). Therefore,\nthe blood stored in CPDA} inseomparisomwith blood stored’ ‘in ACD has:\n\n+ Higher 2,3 DPG concentration e> < ‘i\n\n+ More amount of deoxygenated Blood bound. tg2 +3 DPG\n\n+ Decreased affinity of Hbytovthe oxygen: %\n\n+ Increased release °ofigen to the fistes.\n\n+ Raised P50 (Ron's at which RR is half saturated)\n\n+ Shift in Ob: Hb dissoci:\n\nm curve to the right",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The fall in 2, 3 DPG is less when the blood is stored in CPDA compared with ACD."
+          },
+          {
+            "type": "paragraph",
+            "text": "2, 3 DPG (2,3-diphosphoglycerate) binds to deoxygenated haemoglobin. Therefgreyan i increase in 2,3 DPG causes increased release of O2 to the tissues. The gquilibrium between Hb and O2 can be"
+          },
+          {
+            "type": "paragraph",
+            "text": "understood from the following equation: Ce"
+          },
+          {
+            "type": "paragraph",
+            "text": "soo HbO2 + 2,3-DPG m Hb-2,3-DPG + O02 x ~ c"
+          },
+          {
+            "type": "paragraph",
+            "text": "In stored blood, the 2,3 DPG levels usually fall. Asa ‘result, stored blood reledses less oxygen to the tissues than the normal circulating bloods sthus Timiti sits” use in hyposie patients (Eg: anaemia). o ot « ~"
+          },
+          {
+            "type": "paragraph",
+            "text": "However, such a fall in 2,3 DPGis Ves When it iSefored i ina phosphate- containing solution like CPDA (Citrate, phosphate, dextrose, adenine), rather than, ACD (Acid citrate dextrose). Therefore, the blood stored in CPDA} inseomparisomwith blood stored’ ‘in ACD has:"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Higher 2,3 DPG concentration e> < ‘i"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ More amount of deoxygenated Blood bound. tg2 +3 DPG"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Decreased affinity of Hbytovthe oxygen: %"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Increased release °ofigen to the fistes."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Raised P50 (Ron's at which RR is half saturated)"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Shift in Ob: Hb dissoci:"
+          },
+          {
+            "type": "paragraph",
+            "text": "m curve to the right"
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH22_Q019_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          403
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          414
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 403,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q020",
+      "sourceQuestionId": "PHYSIO_CH22_Q020",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "22",
+      "chapter": "Gas Transport in Blood",
+      "questionNumber": 20,
+      "questionType": "single_best_answer",
+      "question": "The oxygen carrying capacity of a 18 year old boy with haemoglobin of 14g/dl is",
+      "options": [
+        {
+          "letter": "A",
+          "text": "22"
+        },
+        {
+          "letter": "B",
+          "text": "16"
+        },
+        {
+          "letter": "C",
+          "text": "14"
+        },
+        {
+          "letter": "D",
+          "text": "18"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "18",
+      "explanation": "The oxygen carrying capacity of a boy with haemoglobin 14¢/dl is 18.\n\nWhen blood is saturated with 100% O2, the haemoglobin is also 100% saturated and each gram of\nnormal haemoglobin contains 1.39 mL of O2.\n\nHowever, blood normally contains some inactive haemoglobin derivatives, and the measured\nvalue in vivo is thus slightly lower hence, each gram of haemoglobin in vivo contains 1.31 mL of\nO2 (Hufner’s constant).\n\nAccording to the above question, when Hb=14¢/dl, O2= 1.31*14= 18.34\nThe oxygen-hemoglobin dissociation curve\n\n+ Demonstrates a progressive increase in the percentage of haemoglobin bound with oxygen as\nblood Po2 increases, which is called the percent saturation of haemoglobin.\n\n+ Blood leaving the lungs and entering the systemic arteries usually has a Po2 of about 95 mm Hg,\nthe usual oxygen saturation of systemic arterial blood averages 97 per cent.\n\n* Conversely, in normal venous blood returning from the peripheral tissues, the Po2 is about 40\nmm Hg, and the saturation of haemoglobin averages 75 per cent.\n\n120\nA leit shill increases\nhemoglobin atiinity\nfor oxygen.\n(Causes: 12-3\nDPG, Lternperative, TpH)\n\ne0 = =\n\nA tight shift reduces\n\n100\n\n= oo hemoglobin affinity ’\n8 for oxygen.\n(Causes: T2-3\n40 DPG, ttemperative, LpH)\n\n20\n\n0 20 40 0 80 400 120",
+      "structuredExplanation": {
+        "text": "The oxygen carrying capacity of a boy with haemoglobin 14¢/dl is 18.\n\nWhen blood is saturated with 100% O2, the haemoglobin is also 100% saturated and each gram of\nnormal haemoglobin contains 1.39 mL of O2.\n\nHowever, blood normally contains some inactive haemoglobin derivatives, and the measured\nvalue in vivo is thus slightly lower hence, each gram of haemoglobin in vivo contains 1.31 mL of\nO2 (Hufner’s constant).\n\nAccording to the above question, when Hb=14¢/dl, O2= 1.31*14= 18.34\nThe oxygen-hemoglobin dissociation curve\n\n+ Demonstrates a progressive increase in the percentage of haemoglobin bound with oxygen as\nblood Po2 increases, which is called the percent saturation of haemoglobin.\n\n+ Blood leaving the lungs and entering the systemic arteries usually has a Po2 of about 95 mm Hg,\nthe usual oxygen saturation of systemic arterial blood averages 97 per cent.\n\n* Conversely, in normal venous blood returning from the peripheral tissues, the Po2 is about 40\nmm Hg, and the saturation of haemoglobin averages 75 per cent.\n\n120\nA leit shill increases\nhemoglobin atiinity\nfor oxygen.\n(Causes: 12-3\nDPG, Lternperative, TpH)\n\ne0 = =\n\nA tight shift reduces\n\n100\n\n= oo hemoglobin affinity ’\n8 for oxygen.\n(Causes: T2-3\n40 DPG, ttemperative, LpH)\n\n20\n\n0 20 40 0 80 400 120",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The oxygen carrying capacity of a boy with haemoglobin 14¢/dl is 18."
+          },
+          {
+            "type": "paragraph",
+            "text": "When blood is saturated with 100% O2, the haemoglobin is also 100% saturated and each gram of normal haemoglobin contains 1.39 mL of O2."
+          },
+          {
+            "type": "paragraph",
+            "text": "However, blood normally contains some inactive haemoglobin derivatives, and the measured value in vivo is thus slightly lower hence, each gram of haemoglobin in vivo contains 1.31 mL of O2 (Hufner’s constant)."
+          },
+          {
+            "type": "paragraph",
+            "text": "According to the above question, when Hb=14¢/dl, O2= 1.31*14= 18.34 The oxygen-hemoglobin dissociation curve"
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Demonstrates a progressive increase in the percentage of haemoglobin bound with oxygen as blood Po2 increases, which is called the percent saturation of haemoglobin."
+          },
+          {
+            "type": "paragraph",
+            "text": "+ Blood leaving the lungs and entering the systemic arteries usually has a Po2 of about 95 mm Hg, the usual oxygen saturation of systemic arterial blood averages 97 per cent."
+          },
+          {
+            "type": "paragraph",
+            "text": "* Conversely, in normal venous blood returning from the peripheral tissues, the Po2 is about 40 mm Hg, and the saturation of haemoglobin averages 75 per cent."
+          },
+          {
+            "type": "paragraph",
+            "text": "120 A leit shill increases hemoglobin atiinity for oxygen. (Causes: 12-3 DPG, Lternperative, TpH)"
+          },
+          {
+            "type": "paragraph",
+            "text": "e0 = ="
+          },
+          {
+            "type": "paragraph",
+            "text": "A tight shift reduces"
+          },
+          {
+            "type": "paragraph",
+            "text": "100"
+          },
+          {
+            "type": "paragraph",
+            "text": "= oo hemoglobin affinity ’ 8 for oxygen. (Causes: T2-3 40 DPG, ttemperative, LpH)"
+          },
+          {
+            "type": "paragraph",
+            "text": "20"
+          },
+          {
+            "type": "paragraph",
+            "text": "0 20 40 0 80 400 120"
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH22_Q020_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          403
+        ],
+        "answerKeyPages": [
+          403
+        ],
+        "explanationPages": [
+          414,
+          415
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 403,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Obvious @itachibot watermark/footer artifacts were omitted; rendered pages were authoritative over corrupted embedded PDF text/OCR."
+        ]
+      }
+    }
+  ]
+}

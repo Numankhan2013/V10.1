@@ -1,0 +1,962 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Derived read-only audit view. Immutable source remains the sharded Marrow bundle.",
+  "subject": "Anatomy",
+  "chapterId": "18",
+  "questionCount": 11,
+  "immutableSourcePrefix": "anatomy_phase_a",
+  "sourceRawSha256": "91668e021be2ea744d8c219da8b7445108dc4cd75e1fafe89b5e48019e04ee67",
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH18_Q001",
+      "sourceQuestionId": "ANAT_CH18_Q001",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "18",
+      "chapter": "Meninges and dural venous sinuses",
+      "questionNumber": 1,
+      "questionType": "single_best_answer",
+      "question": "A 52-year-old woman on treatment for breast cancer presented with headaches and vomiting. CSF cytology showed malignant cells. MRI revealed leptomeningeal enhancement suggestive of metastases. Which of the following meningeal layers are affected?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Dura mater, arachnoid mater, and pia mater"
+        },
+        {
+          "letter": "B",
+          "text": "Arachnoid mater and pia mater"
+        },
+        {
+          "letter": "C",
+          "text": "Dura mater and arachnoid mater"
+        },
+        {
+          "letter": "D",
+          "text": "Dura mater and pia mater"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Arachnoid mater and pia mater",
+      "explanation": "Leptomeninges are the arachnoid mater and pia mater. The dura mater is the pachymeninx. The source also notes that meningeal enhancement may occur in meningitis, encephalitis, tumors/metastases, inflammatory vasculitis and after seizures, trauma or surgery.",
+      "structuredExplanation": {
+        "text": "Leptomeninges are the arachnoid mater and pia mater. The dura mater is the pachymeninx. The source also notes that meningeal enhancement may occur in meningitis, encephalitis, tumors/metastases, inflammatory vasculitis and after seizures, trauma or surgery.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Leptomeninges are the arachnoid mater and pia mater. The dura mater is the pachymeninx. The source also notes that meningeal enhancement may occur in meningitis, encephalitis, tumors/metastases, inflammatory vasculitis and after seizures, trauma or surgery."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          },
+          {
+            "type": "figure",
+            "figure_index": 1
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Layers of meninges diagram",
+            "source_page": 332,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          },
+          {
+            "title": "MRI showing leptomeningeal enhancement",
+            "source_page": 332,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "Leptomeninges refer to the arachnoid mater and pia mater.\n\nTerminologies for meninges:\n\n+ Outer Pachymeninx - Dura mater\n\n+ Inner Leptomeninges - Arachnoid + Pia mater (L-AP)\n\n331\n\n\nLayers of meninges\n\nDura mater- Pashi\n-achymeninges\n\n‘Arachnoid ” ae\n\nFi mcier: FLeptomeninges\n\n‘Subarachnoid\n\nspace\n\ne\n<4\n>\n©@MARROW\nRadiological importance: Pachymeningeal and {éptomeningeal enhancement inay be diffuse or\nfocal and can aid in the diagnosis of somé€onditions. “\neat :\nConditions that may show menin; Sphancement:()* ‘<\ny Kohl RKO ~~\n+ Meningitis Ne &\n+ Encephalitis co\n+» Tumors 2’\nes\n+ Metastasis oe\no\n\n+ Inflammatory vasculitides\nide RY\n+ Post-ictal eS) >\n. Post-traumatisannd post-operative scarring\nf x\nThe MRI df medulloblastdina below shows leptomeningeal enhancement (arrows).\n\nMedulloblastoma",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          327
+        ],
+        "answerKeyPages": [
+          331
+        ],
+        "explanationPages": [
+          331,
+          332
+        ]
+      },
+      "sourcePage": 327,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH18_Q002",
+      "sourceQuestionId": "ANAT_CH18_Q002",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "18",
+      "chapter": "Meninges and dural venous sinuses",
+      "questionNumber": 2,
+      "questionType": "single_best_answer",
+      "question": "Which of the following statements about meninges is false?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Endosteal layer of the dura mater is the periosteum of skull bones"
+        },
+        {
+          "letter": "B",
+          "text": "Meningeal layer divides the cranial cavity into freely communicating spaces"
+        },
+        {
+          "letter": "C",
+          "text": "Dural venous sinuses are present between the endosteal and the meningeal layer"
+        },
+        {
+          "letter": "D",
+          "text": "Both endosteal and meningeal layer contain fibroblasts and osteoblasts"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Both endosteal and meningeal layer contain fibroblasts and osteoblasts",
+      "explanation": "Both endosteal and meningeal dural layers contain fibroblasts, but only the endosteal layer contains osteoblasts. Dural venous sinuses lie between the two layers. The meningeal layer forms the dural partitions: falx cerebri, tentorium cerebelli, falx cerebelli and diaphragma sellae.",
+      "structuredExplanation": {
+        "text": "Both endosteal and meningeal dural layers contain fibroblasts, but only the endosteal layer contains osteoblasts. Dural venous sinuses lie between the two layers. The meningeal layer forms the dural partitions: falx cerebri, tentorium cerebelli, falx cerebelli and diaphragma sellae.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Both endosteal and meningeal dural layers contain fibroblasts, but only the endosteal layer contains osteoblasts. Dural venous sinuses lie between the two layers. The meningeal layer forms the dural partitions: falx cerebri, tentorium cerebelli, falx cerebelli and diaphragma sellae."
+          },
+          {
+            "type": "table",
+            "table_index": 0
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [
+          {
+            "title": "Layers of cranial dura mater",
+            "columns": [
+              "Endosteal layer",
+              "Meningeal layer"
+            ],
+            "rows": [
+              [
+                "Periosteum of skull bones; fibroblasts and osteoblasts; not continuous with spinal dura",
+                "Dura mater proper; fibroblasts without osteoblasts; continuous with spinal dura; forms dural septa"
+              ]
+            ],
+            "source_pages": [
+              333
+            ]
+          }
+        ],
+        "figures": [
+          {
+            "title": "Dural partitions diagram",
+            "source_page": 333,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "Both the endosteal and meningeal layers contain fibroblasts, but only the endosteal layer contains\n\nosteoblasts.\n\nThe dura mater is made of the following 2 layers:\n\nThe dural venous sinuses are present between the meningeal and the endosteal layer of the dura\n\nmater.\n\nPeriosteum of the skull bones\n\nDura mater proper\n\nContains fibroblasts and oste\noblasts\n\nContains only fibroblasts (no\nosteoblasts)\n\nNot continuous with the spin\nal dura mater\n\nContinuous with the spinal d\nura mater:\n\nIt forms 4 septa that divide t\nhe cranial cavity into spaces r\nestricting the displacement of\nthe brain\n\nSS S.°\n\n_?.\n\nDural partitions\n\nSkull bone\n\n@MARROW\n\nThe four septa that divide the cranial cavity into freely communicating spaces are:\n\n+ Falx cerebri\n+ Tentorium cerebelli\n+ Falx cerebelli\n\n* Diaphragma sellae\n\n333\n\n\nDural folds\n\n2)\n@\n%6",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          327
+        ],
+        "answerKeyPages": [
+          331
+        ],
+        "explanationPages": [
+          333
+        ]
+      },
+      "sourcePage": 327,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH18_Q003",
+      "sourceQuestionId": "ANAT_CH18_Q003",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "18",
+      "chapter": "Meninges and dural venous sinuses",
+      "questionNumber": 3,
+      "questionType": "single_best_answer",
+      "question": "A 42-year-old lady presented with sudden onset severe headache, aphasia, and diplopia. Imaging shows an empty delta sign of superior sagittal sinus thrombosis. Choose the correct statement about the dural fold containing the affected sinus.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "It separates the cerebellum from the occipital lobes of the cerebrum."
+        },
+        {
+          "letter": "B",
+          "text": "It contains the occipital sinus."
+        },
+        {
+          "letter": "C",
+          "text": "It contains the straight sinus."
+        },
+        {
+          "letter": "D",
+          "text": "It separates the two cerebellar hemispheres."
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "It contains the straight sinus.",
+      "explanation": "The superior sagittal sinus lies in the falx cerebri. Falx cerebri separates the two cerebral hemispheres; its upper fixed margin contains the superior sagittal sinus, its lower free margin the inferior sagittal sinus, and its attachment to tentorium cerebelli contains the straight sinus. Tentorium separates cerebellum from occipital lobes; falx cerebelli separates cerebellar hemispheres and contains the occipital sinus.",
+      "structuredExplanation": {
+        "text": "The superior sagittal sinus lies in the falx cerebri. Falx cerebri separates the two cerebral hemispheres; its upper fixed margin contains the superior sagittal sinus, its lower free margin the inferior sagittal sinus, and its attachment to tentorium cerebelli contains the straight sinus. Tentorium separates cerebellum from occipital lobes; falx cerebelli separates cerebellar hemispheres and contains the occipital sinus.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The superior sagittal sinus lies in the falx cerebri. Falx cerebri separates the two cerebral hemispheres; its upper fixed margin contains the superior sagittal sinus, its lower free margin the inferior sagittal sinus, and its attachment to tentorium cerebelli contains the straight sinus. Tentorium separates cerebellum from occipital lobes; falx cerebelli separates cerebellar hemispheres and contains the occipital sinus."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Falx cerebri and tentorium cerebelli diagrams",
+            "source_page": 334,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "~\\ - aS aS\nein the fester Fababed\nThe superior sagittal sinus is weet in the falx.cerebri. Falxcbrebri is a sickle-shaped dura mater\nfold that seperates the two-cérebral hemi ‘es. The supétior sagittal sinus runs along its upper\nfixed margin, the inferior sagittal sim s along itsJower free margin, and the straight sinus\nruns along its attachment to the tentorium cerebelli,\n\nOption A: Tentorium cerebellicseparates the getobellum from the occipital lobes of the cerebrum.\n\n(<\nOptions B and D: Falx cera separate’ the cerebellar hemispheres and contains the occipital\nsinus. 9 >\n\nat\nThe image Dele bws the falx'beFebri and tentorium eerebelli.\n\ns\n\nFalx cerebri and tentorium cerebelli\n\nThe image below shows the dural folds.\n\n\nDural folds\n\n~\na 0 “*",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          327
+        ],
+        "answerKeyPages": [
+          331
+        ],
+        "explanationPages": [
+          334
+        ]
+      },
+      "sourcePage": 327,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH18_Q004",
+      "sourceQuestionId": "ANAT_CH18_Q004",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "18",
+      "chapter": "Meninges and dural venous sinuses",
+      "questionNumber": 4,
+      "questionType": "single_best_answer",
+      "question": "Which of the following nerves do not innervate the marked structure?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Trigeminal nerve branches"
+        },
+        {
+          "letter": "B",
+          "text": "C2, C3 spinal nerves"
+        },
+        {
+          "letter": "C",
+          "text": "Cervical sympathetic trunk"
+        },
+        {
+          "letter": "D",
+          "text": "Facial nerve branches"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Facial nerve branches",
+      "explanation": "The marked structure is cranial dura mater. It is innervated mainly by the three divisions of the trigeminal nerve, C2-C3 spinal nerves and cervical sympathetic fibers. Facial nerve branches do not innervate it.",
+      "structuredExplanation": {
+        "text": "The marked structure is cranial dura mater. It is innervated mainly by the three divisions of the trigeminal nerve, C2-C3 spinal nerves and cervical sympathetic fibers. Facial nerve branches do not innervate it.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The marked structure is cranial dura mater. It is innervated mainly by the three divisions of the trigeminal nerve, C2-C3 spinal nerves and cervical sympathetic fibers. Facial nerve branches do not innervate it."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          },
+          {
+            "type": "figure",
+            "figure_index": 1
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Marked cranial dura mater image",
+            "source_page": 328,
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          },
+          {
+            "title": "Innervation of meninges diagram",
+            "source_page": 335,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "- oq *\n° oN <O ss\nThe marked structure is the cx Sra mater-and this struetire is not innervated by facial nerve\na\nbranches. cs i.e) xX es\n\nThe innervation of the cranial dura matt is is derive iin from:\n+ The three divisions of the =o nerve <4\n\n\nInnervation of meninges\n\nee eS\n\nSnyeecea\n\nSewage nerve",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          327,
+          328
+        ],
+        "answerKeyPages": [
+          331
+        ],
+        "explanationPages": [
+          335
+        ]
+      },
+      "sourcePage": 327,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH18_Q005",
+      "sourceQuestionId": "ANAT_CH18_Q005",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "18",
+      "chapter": "Meninges and dural venous sinuses",
+      "questionNumber": 5,
+      "questionType": "single_best_answer",
+      "question": "Which part of the dura mater is supplied by all the three branches of the trigeminal nerve?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Dura of the anterior cranial fossa"
+        },
+        {
+          "letter": "B",
+          "text": "Dura of the middle cranial fossa"
+        },
+        {
+          "letter": "C",
+          "text": "Dura of the posterior cranial fossa"
+        },
+        {
+          "letter": "D",
+          "text": "Dura around the foramen magnum"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Dura of the anterior cranial fossa",
+      "explanation": "The dura of the anterior cranial fossa receives supply from all three divisions of the trigeminal nerve. The source lists anterior/posterior ethmoidal nerves from V1, nervus meningeus medius from V2, and nervus spinosus from V3.",
+      "structuredExplanation": {
+        "text": "The dura of the anterior cranial fossa receives supply from all three divisions of the trigeminal nerve. The source lists anterior/posterior ethmoidal nerves from V1, nervus meningeus medius from V2, and nervus spinosus from V3.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The dura of the anterior cranial fossa receives supply from all three divisions of the trigeminal nerve. The source lists anterior/posterior ethmoidal nerves from V1, nervus meningeus medius from V2, and nervus spinosus from V3."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Trigeminal nerve distribution in meninges",
+            "source_page": 336,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "S & oe >\n\ne\neo\n\nThe dura of the anterior cranial fossa is supplied By all threesbhanches of the trigeminal nerve.\n\nThe nerves involved are: CSO Xe es\n\n+ Ophthalmic division - anterior and-posterior ethingidal nerves\n+ Maxillary division - nervus gous meds\n\n+ Mandibular division - spinosus\n\nTrigeminal nerve distribution in the meninges\n\nCc\nea)\n\n-Tontorial branch (V1)\n\n‘Norvus meningous\nrmodive (V2)\nNorwus spinosus (V3)\n\n‘craniar—graniai== rane\n\nossa fossa fovea!",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          328
+        ],
+        "answerKeyPages": [
+          331
+        ],
+        "explanationPages": [
+          336
+        ]
+      },
+      "sourcePage": 328,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH18_Q006",
+      "sourceQuestionId": "ANAT_CH18_Q006",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "18",
+      "chapter": "Meninges and dural venous sinuses",
+      "questionNumber": 6,
+      "questionType": "single_best_answer",
+      "question": "What is the nerve supply of the dura covering the marked region?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "C2-C3 via cranial nerves X and XII"
+        },
+        {
+          "letter": "B",
+          "text": "Anterior and posterior ethmoidal nerves"
+        },
+        {
+          "letter": "C",
+          "text": "Nervi meningeus medius and spinosus"
+        },
+        {
+          "letter": "D",
+          "text": "Cranial nerves VII and IX"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "C2-C3 via cranial nerves X and XII",
+      "explanation": "The dura of the posterior cranial fossa is mainly supplied by C2 and C3 fibers distributed via cranial nerves X and XII. Therefore C2-C3 via vagus and hypoglossal nerves is correct for the marked region.",
+      "structuredExplanation": {
+        "text": "The dura of the posterior cranial fossa is mainly supplied by C2 and C3 fibers distributed via cranial nerves X and XII. Therefore C2-C3 via vagus and hypoglossal nerves is correct for the marked region.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The dura of the posterior cranial fossa is mainly supplied by C2 and C3 fibers distributed via cranial nerves X and XII. Therefore C2-C3 via vagus and hypoglossal nerves is correct for the marked region."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          },
+          {
+            "type": "figure",
+            "figure_index": 1
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Posterior cranial fossa marked region",
+            "source_page": 328,
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          },
+          {
+            "title": "Innervation of meninges diagram",
+            "source_page": 337,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "336\n\n\nThe dura mater of the posterior cranial fossa is mainly innervated by C2 and C3 nerves via cranial\nnerves X and XII.\n\nThese fibers may be distributed by the vagus and hypoglossal nerves.\n\nInnervation of meninges\n\nBeets vane ob,\n\nSK\nso \\S\n2 ss",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          328,
+          329
+        ],
+        "answerKeyPages": [
+          331
+        ],
+        "explanationPages": [
+          336,
+          337
+        ]
+      },
+      "sourcePage": 328,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH18_Q007",
+      "sourceQuestionId": "ANAT_CH18_Q007",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "18",
+      "chapter": "Meninges and dural venous sinuses",
+      "questionNumber": 7,
+      "questionType": "single_best_answer",
+      "question": "Which of the following arteries does not supply the corresponding region of the dura mater?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Middle meningeal artery — Anterior cranial fossa"
+        },
+        {
+          "letter": "B",
+          "text": "Accessory meningeal branch of maxillary artery — Middle cranial fossa"
+        },
+        {
+          "letter": "C",
+          "text": "Meningeal branch of internal carotid artery — Posterior cranial fossa"
+        },
+        {
+          "letter": "D",
+          "text": "Meningeal branch of anterior and posterior ethmoid artery — Anterior cranial fossa"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Meningeal branch of internal carotid artery — Posterior cranial fossa",
+      "explanation": "The meningeal branch of the internal carotid artery does not supply the posterior cranial fossa; it contributes to anterior cranial fossa dura. The source lists ethmoidal/ICA branches for anterior fossa, middle/accessory meningeal and related branches for middle fossa, and occipital, vertebral and meningohypophyseal-derived branches for posterior fossa.",
+      "structuredExplanation": {
+        "text": "The meningeal branch of the internal carotid artery does not supply the posterior cranial fossa; it contributes to anterior cranial fossa dura. The source lists ethmoidal/ICA branches for anterior fossa, middle/accessory meningeal and related branches for middle fossa, and occipital, vertebral and meningohypophyseal-derived branches for posterior fossa.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The meningeal branch of the internal carotid artery does not supply the posterior cranial fossa; it contributes to anterior cranial fossa dura. The source lists ethmoidal/ICA branches for anterior fossa, middle/accessory meningeal and related branches for middle fossa, and occipital, vertebral and meningohypophyseal-derived branches for posterior fossa."
+          },
+          {
+            "type": "table",
+            "table_index": 0
+          }
+        ],
+        "tables": [
+          {
+            "title": "Arterial supply of cranial dura",
+            "columns": [
+              "Region",
+              "Source vessels listed"
+            ],
+            "rows": [
+              [
+                "Anterior cranial fossa",
+                "Anterior/posterior ethmoidal meningeal branches; internal carotid meningeal branches; branch of middle meningeal artery"
+              ],
+              [
+                "Middle cranial fossa",
+                "Middle meningeal and accessory meningeal branches; ascending pharyngeal branch; internal carotid branches; recurrent lacrimal branch"
+              ],
+              [
+                "Posterior cranial fossa",
+                "Occipital meningeal branches; posterior meningeal branches of vertebral artery; dorsal meningeal/tentorial arteries from meningohypophyseal trunk"
+              ]
+            ],
+            "source_pages": [
+              337,
+              338
+            ]
+          }
+        ],
+        "figures": [],
+        "source_transcription_ocr": "s\n\n‘ BS\n\nov\n2°)\n‘The meningeal branch of the intemal carotid arféry (ICA) does not supply the posterior cranial\nfossa. It supplies the anterigr'e?anial fossa.2\n\nThe dura mater is supp yy meningeal arteries that pass along the inner periosteum\n(endosteum) of the skill over thgen eal layer of the dura and supply the following regions.\n\n— |\n\n‘Anterior cranial fossa_| Meningeal branches of anteri\nor and posterior ethmoid arte\nriesMeningeal branchesofinte\nral carotid arteriesA branch\nof themiddle meningealartery\n\nMiddle cranial fossa | Middle meningeal artery and\n\naccessory meningeal branche\ns of the maxillary arteryA bra\nneh of the ascending pharyng\neal arteryBranches of the inte\nrnal carotid arteryA recurren\nt branch of the lacrimal arter\ny\n\n\nPosterior cranial fossa _| Meningeal branches of the oc\ncipital arteryPosterior menin\ngeal branches of the vertebral\narteryDorsal meningeal and\ntentorial arteries arising from\nthe meningohypophyseal tru\nnk",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          329
+        ],
+        "answerKeyPages": [
+          331
+        ],
+        "explanationPages": [
+          337,
+          338
+        ]
+      },
+      "sourcePage": 329,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH18_Q008",
+      "sourceQuestionId": "ANAT_CH18_Q008",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "18",
+      "chapter": "Meninges and dural venous sinuses",
+      "questionNumber": 8,
+      "questionType": "single_best_answer",
+      "question": "What is Meckel's cave formed by?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Evagination of the falx cerebelli"
+        },
+        {
+          "letter": "B",
+          "text": "Evagination of the lower layer of the falx cerebri"
+        },
+        {
+          "letter": "C",
+          "text": "Evagination of the diaphragma sellae"
+        },
+        {
+          "letter": "D",
+          "text": "Evagination of lower layer of the tentorium cerebelli"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Evagination of lower layer of the tentorium cerebelli",
+      "explanation": "Meckel's cave is an evagination of the lower layer of the tentorium cerebelli at the petrous apex. It is a dural recess in the middle cranial fossa that houses the trigeminal (Gasserian) ganglion and proximal trigeminal rootlets.",
+      "structuredExplanation": {
+        "text": "Meckel's cave is an evagination of the lower layer of the tentorium cerebelli at the petrous apex. It is a dural recess in the middle cranial fossa that houses the trigeminal (Gasserian) ganglion and proximal trigeminal rootlets.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Meckel's cave is an evagination of the lower layer of the tentorium cerebelli at the petrous apex. It is a dural recess in the middle cranial fossa that houses the trigeminal (Gasserian) ganglion and proximal trigeminal rootlets."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Meckel's cave diagram",
+            "source_page": 338,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "2\nQ se\nEvagination of the lower layer of the tentorium cerebelli atthe petrous apex iSéalled Meckel's\n\ncave. fe) .\n\nIt is a dural recess in the middle cranial fossa thaphpusés the Gasséfian ganglion and proximal\nrootlets of the trigeminal nerve. Ue oOo ES",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          329
+        ],
+        "answerKeyPages": [
+          331
+        ],
+        "explanationPages": [
+          338
+        ]
+      },
+      "sourcePage": 329,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH18_Q009",
+      "sourceQuestionId": "ANAT_CH18_Q009",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "18",
+      "chapter": "Meninges and dural venous sinuses",
+      "questionNumber": 9,
+      "questionType": "single_best_answer",
+      "question": "A patient with chronic otitis media and mastoiditis develops thrombosis of the sinus marked below. Which of the following sinuses does it drain from?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Sigmoid sinus"
+        },
+        {
+          "letter": "B",
+          "text": "Transverse sinus"
+        },
+        {
+          "letter": "C",
+          "text": "Inferior petrosal sinus"
+        },
+        {
+          "letter": "D",
+          "text": "Straight sinus"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Transverse sinus",
+      "explanation": "The marked sinus is the sigmoid sinus, which continues from the transverse sinus. It follows an S-shaped groove near the mastoid, receives mastoid and condylar emissary veins, the venous plexus of the hypoglossal canal, inferior cerebellar veins and other tributaries, and joins the inferior petrosal sinus to form the internal jugular vein. Sigmoid/lateral sinus thrombosis can complicate ear or mastoid infection.",
+      "structuredExplanation": {
+        "text": "The marked sinus is the sigmoid sinus, which continues from the transverse sinus. It follows an S-shaped groove near the mastoid, receives mastoid and condylar emissary veins, the venous plexus of the hypoglossal canal, inferior cerebellar veins and other tributaries, and joins the inferior petrosal sinus to form the internal jugular vein. Sigmoid/lateral sinus thrombosis can complicate ear or mastoid infection.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The marked sinus is the sigmoid sinus, which continues from the transverse sinus. It follows an S-shaped groove near the mastoid, receives mastoid and condylar emissary veins, the venous plexus of the hypoglossal canal, inferior cerebellar veins and other tributaries, and joins the inferior petrosal sinus to form the internal jugular vein. Sigmoid/lateral sinus thrombosis can complicate ear or mastoid infection."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Dural venous sinus diagram with marked sigmoid sinus",
+            "source_page": 330,
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "The sinus marked in the image is the sigmoid sinus. It drains from the transverse sinus.\n\nIt passes through an S-shaped groove in the mastoid process of the temporal bone, courses over\nthe jugular process of the occipital bone, and emerges posterior to the jugular foramen.\n\nThe sigmoid sinus receives tributaries:\n* Mastoid emissary veins\n* Condylar emissary veins\n\n* Venous plexus of the hypoglossal canal\n\n\n+ Inferior cerebellar veins\n+ Unnamed tributaries from the pons and medulla\nIt joins the inferior petrosal sinus to form the internal jugular vein.\n\nSigmoid/lateral sinus thrombosis occurs as a complication of ear or mastoid infection.",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          330
+        ],
+        "answerKeyPages": [
+          331
+        ],
+        "explanationPages": [
+          338,
+          339
+        ]
+      },
+      "sourcePage": 330,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH18_Q010",
+      "sourceQuestionId": "ANAT_CH18_Q010",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "18",
+      "chapter": "Meninges and dural venous sinuses",
+      "questionNumber": 10,
+      "questionType": "single_best_answer",
+      "question": "A 54-year-old male came to the hospital with a severe headache. CT scan revealed an aneurysm of the internal carotid artery within the cavernous sinus. Which of the following nerves is likely to be affected first?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Trochlear nerve"
+        },
+        {
+          "letter": "B",
+          "text": "Abducens nerve"
+        },
+        {
+          "letter": "C",
+          "text": "Ophthalmic division of the trigeminal nerve"
+        },
+        {
+          "letter": "D",
+          "text": "Maxillary division of the trigeminal nerve"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Abducens nerve",
+      "explanation": "The abducens nerve is affected first because it runs within the cavernous sinus adjacent to the internal carotid artery. Oculomotor, trochlear and ophthalmic trigeminal fibers lie in the lateral wall and tend to be affected later. The maxillary division runs below the cavernous sinus rather than within it.",
+      "structuredExplanation": {
+        "text": "The abducens nerve is affected first because it runs within the cavernous sinus adjacent to the internal carotid artery. Oculomotor, trochlear and ophthalmic trigeminal fibers lie in the lateral wall and tend to be affected later. The maxillary division runs below the cavernous sinus rather than within it.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The abducens nerve is affected first because it runs within the cavernous sinus adjacent to the internal carotid artery. Oculomotor, trochlear and ophthalmic trigeminal fibers lie in the lateral wall and tend to be affected later. The maxillary division runs below the cavernous sinus rather than within it."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Cavernous sinus diagram",
+            "source_page": 339,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "The abducens nerve is likely to be affected first.\n\n‘The abducent nerve runs within the cavernous sinus in close proximity to the internal carotid\n\nartery. Therefore, an aneurysm of the ICA may invine on the nerve and mafilead to sixth nerve\n\npalsy. &\n\nThe oculomotor nerve, trochlear nerve, and the rs ic Piet »5f the trigeminal nerve lie in\niv\n\nthe lateral wall of the cavernous sinus. ap are. ed in eerie of the sinus much\n\nlater. oO\n) w\n\nThe maxillary division of the trigeminal netve does notun through, the cavernous sinus or its\nlateral wall. It passes beneath the duépigf the miggdarsnial fossa,iiderneath the cavernous\n\nsinus. ay\n\nS\n\nCavernous sinus\n\nPituitary gland\n\n‘eulomotor nerve (th\nTrochtear nerve (V)\n\nAbducent nerve ¢v)\n\ntageminal narve (3)",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          330
+        ],
+        "answerKeyPages": [
+          331
+        ],
+        "explanationPages": [
+          339
+        ]
+      },
+      "sourcePage": 330,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH18_Q011",
+      "sourceQuestionId": "ANAT_CH18_Q011",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "18",
+      "chapter": "Meninges and dural venous sinuses",
+      "questionNumber": 11,
+      "questionType": "single_best_answer",
+      "question": "A diabetic lady with a history of chronic sinusitis presents with seizures and altered mental status. On examination, she is febrile and you note a left-sided lateral rectus palsy. On fundoscopy, papilledema is present bilaterally. Which of the following is not a tributary of the sinus involved here?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Sphenoparietal sinus"
+        },
+        {
+          "letter": "B",
+          "text": "Deep middle cerebral vein"
+        },
+        {
+          "letter": "C",
+          "text": "Middle meningeal sinus"
+        },
+        {
+          "letter": "D",
+          "text": "Inferior ophthalmic vein"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Deep middle cerebral vein",
+      "explanation": "The presentation suggests cavernous sinus thrombosis. The deep middle cerebral vein is not a tributary; it joins other deep cerebral veins to form the basal vein. Tributaries of the cavernous sinus include superior/inferior ophthalmic veins, sphenoparietal sinus, superficial middle cerebral vein and inferior cerebral vein. The source also lists drainage routes and contents including the cavernous ICA, sympathetic plexus, abducens nerve and lateral-wall cranial nerves.",
+      "structuredExplanation": {
+        "text": "The presentation suggests cavernous sinus thrombosis. The deep middle cerebral vein is not a tributary; it joins other deep cerebral veins to form the basal vein. Tributaries of the cavernous sinus include superior/inferior ophthalmic veins, sphenoparietal sinus, superficial middle cerebral vein and inferior cerebral vein. The source also lists drainage routes and contents including the cavernous ICA, sympathetic plexus, abducens nerve and lateral-wall cranial nerves.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The presentation suggests cavernous sinus thrombosis. The deep middle cerebral vein is not a tributary; it joins other deep cerebral veins to form the basal vein. Tributaries of the cavernous sinus include superior/inferior ophthalmic veins, sphenoparietal sinus, superficial middle cerebral vein and inferior cerebral vein. The source also lists drainage routes and contents including the cavernous ICA, sympathetic plexus, abducens nerve and lateral-wall cranial nerves."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Cavernous sinus contents diagram",
+            "source_page": 340,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "The history and examination findings suggest cavernous sinus thrombosi\n\nThe deep middle cerebral vein is not a tributary of the cavernous sinus. It joins the anterior\ncerebral and striate veins to form the basal vein.\n\nThe tributaries of cavernous sinus are:\n\n\n+ From orbit - superior and inferior ophthalmic veins\n\n+ From cranium - sphenoparietal sinus, superficial middle cerebral vein, inferior cerebral vein.\n\n‘The cavernous sinus drains into:\n+ Transverse sinus via superior petrosal sinus\n\n+ Internal jugular vein via inferior petrosal sinus\n\n+ Pterygoid plexus of veins via emissary veins\n\n+ Superior ophthalmic vein\n\n‘The contents of the cavernous venous sinus include:\n+ Cavernous segment of the internal carotid artery\n\n+ Perivascular sympathetic plexus 2.\n+ Abducens nerve (running through the Dorello’s canalJWO\n\n+ Oculomotor nerve, trochlear nerve, and the ophiiitnie divis\n\nof the lateral wall. «> fe)\nNY a\n\nCavernous\n\nPituitary gland\n\n\n340\n\n@\nS\n\nPs\n\n>\n\n\\s\na\nxe)\nrof the trigeminal nerve as part\n50\n2.\n\n‘eulomotor nerve (th\nTrochtear nerve (V)\n\nAbducent nerve ¢v)\n\ntrigeminal nerve (Vy)",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          330,
+          331
+        ],
+        "answerKeyPages": [
+          331
+        ],
+        "explanationPages": [
+          339,
+          340
+        ]
+      },
+      "sourcePage": 330,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    }
+  ]
+}

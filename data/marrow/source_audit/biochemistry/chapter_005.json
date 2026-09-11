@@ -1,0 +1,1207 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Derived read-only audit view. Immutable source remains the sharded Marrow bundle.",
+  "subject": "Biochemistry",
+  "chapterId": "5",
+  "questionCount": 18,
+  "immutableSourcePrefix": "biochemistry_phase_a",
+  "sourceRawSha256": "d9d89966b2733f86b6c5a413e61b0af5559becff3bc580802262deb2f3b9c1ae",
+  "questions": [
+    {
+      "id": "marrow__BIOCHEM_CH05_Q001",
+      "sourceQuestionId": "BIOCHEM_CH05_Q001",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 1,
+      "questionType": "single_best_answer",
+      "question": "Where are the components of the electron transport chain located?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Inner mitochondrial membrane"
+        },
+        {
+          "letter": "B",
+          "text": "Outer mitochondrial membrane"
+        },
+        {
+          "letter": "C",
+          "text": "Mitochondrial matrix"
+        },
+        {
+          "letter": "D",
+          "text": "Intermembranous space"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Inner mitochondrial membrane",
+      "explanation": "ETC (electron transport chain) carriers are located on the inner mitochondrial membrane. ETC is the final pathway by which all the electrons derived from oxidation of carbohydrates, fatty acids, and amino acids are directed towards the final reaction with oxygen to form water and ATP.",
+      "structuredExplanation": {
+        "text": "ETC (electron transport chain) carriers are located on the inner mitochondrial membrane. ETC is the final pathway by which all the electrons derived from oxidation of carbohydrates, fatty acids, and amino acids are directed towards the final reaction with oxygen to form water and ATP.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ETC (electron transport chain) carriers are located on the inner mitochondrial membrane. ETC is the final pathway by which all the electrons derived from oxidation of carbohydrates, fatty acids, and amino acids are directed towards the final reaction with oxygen to form water and ATP."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          71
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          76
+        ]
+      },
+      "sourcePage": 71,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH05_Q002",
+      "sourceQuestionId": "BIOCHEM_CH05_Q002",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 2,
+      "questionType": "single_best_answer",
+      "question": "Which of the following enzymes is not present in the mitochondrial matrix?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Citric acid cycle enzymes"
+        },
+        {
+          "letter": "B",
+          "text": "β-oxidation enzymes"
+        },
+        {
+          "letter": "C",
+          "text": "Pyruvate dehydrogenase"
+        },
+        {
+          "letter": "D",
+          "text": "ATP synthase"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "ATP synthase",
+      "explanation": "ATP synthase is located on the inner mitochondrial membrane, not in the mitochondrial matrix. In contrast to the other enzymes of the citric acid cycle, succinate dehydrogenase is bound to the inner surface of the inner mitochondrial membrane and functions as complex II of the electron transport chain.",
+      "structuredExplanation": {
+        "text": "ATP synthase is located on the inner mitochondrial membrane, not in the mitochondrial matrix. In contrast to the other enzymes of the citric acid cycle, succinate dehydrogenase is bound to the inner surface of the inner mitochondrial membrane and functions as complex II of the electron transport chain.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ATP synthase is located on the inner mitochondrial membrane, not in the mitochondrial matrix. In contrast to the other enzymes of the citric acid cycle, succinate dehydrogenase is bound to the inner surface of the inner mitochondrial membrane and functions as complex II of the electron transport chain."
+          },
+          {
+            "type": "figure",
+            "title": "Mitochondrial compartments and associated enzymes",
+            "source_page": 77
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Mitochondrial compartments and associated enzymes",
+            "source_page": 77,
+            "role": "explanation",
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          71
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          76,
+          77
+        ]
+      },
+      "sourcePage": 71,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH05_Q003",
+      "sourceQuestionId": "BIOCHEM_CH05_Q003",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 3,
+      "questionType": "single_best_answer",
+      "question": "Which of the following forms complex I of the electron transport chain?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Q-cytochrome c oxidoreductase"
+        },
+        {
+          "letter": "B",
+          "text": "Succinate-Q reductase"
+        },
+        {
+          "letter": "C",
+          "text": "NADH-Q oxidoreductase"
+        },
+        {
+          "letter": "D",
+          "text": "Cytochrome c oxidase"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "NADH-Q oxidoreductase",
+      "explanation": "Complex I of the ETC is NADH-Q oxidoreductase. The four major complexes are: Complex I—NADH-Q oxidoreductase; Complex II—succinate-Q reductase; Complex III—Q-cytochrome c oxidoreductase; Complex IV—cytochrome c oxidase. Components of complex I are FMN and Fe-S complex. NADH-Q oxidoreductase transfers electrons from NADH to coenzyme Q, first from NADH to FMN and then through Fe-S centers.",
+      "structuredExplanation": {
+        "text": "Complex I of the ETC is NADH-Q oxidoreductase. The four major complexes are: Complex I—NADH-Q oxidoreductase; Complex II—succinate-Q reductase; Complex III—Q-cytochrome c oxidoreductase; Complex IV—cytochrome c oxidase. Components of complex I are FMN and Fe-S complex. NADH-Q oxidoreductase transfers electrons from NADH to coenzyme Q, first from NADH to FMN and then through Fe-S centers.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Complex I of the ETC is NADH-Q oxidoreductase. The four major complexes are: Complex I—NADH-Q oxidoreductase; Complex II—succinate-Q reductase; Complex III—Q-cytochrome c oxidoreductase; Complex IV—cytochrome c oxidase. Components of complex I are FMN and Fe-S complex. NADH-Q oxidoreductase transfers electrons from NADH to coenzyme Q, first from NADH to FMN and then through Fe-S centers."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          71
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          77
+        ]
+      },
+      "sourcePage": 71,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH05_Q004",
+      "sourceQuestionId": "BIOCHEM_CH05_Q004",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 4,
+      "questionType": "single_best_answer",
+      "question": "Succinate-Q reductase belongs to which complex of the ETC?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Complex I"
+        },
+        {
+          "letter": "B",
+          "text": "Complex II"
+        },
+        {
+          "letter": "C",
+          "text": "Complex III"
+        },
+        {
+          "letter": "D",
+          "text": "Complex IV"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Complex II",
+      "explanation": "Succinate-Q reductase belongs to complex II of the ETC. Components include FAD and Fe-S. It receives electrons from succinate and donates them to the mobile carrier coenzyme Q, reducing it and passing electrons onward to complex III. It catalyzes oxidation of succinate to fumarate.",
+      "structuredExplanation": {
+        "text": "Succinate-Q reductase belongs to complex II of the ETC. Components include FAD and Fe-S. It receives electrons from succinate and donates them to the mobile carrier coenzyme Q, reducing it and passing electrons onward to complex III. It catalyzes oxidation of succinate to fumarate.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Succinate-Q reductase belongs to complex II of the ETC. Components include FAD and Fe-S. It receives electrons from succinate and donates them to the mobile carrier coenzyme Q, reducing it and passing electrons onward to complex III. It catalyzes oxidation of succinate to fumarate."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          71,
+          72
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          77
+        ]
+      },
+      "sourcePage": 71,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH05_Q005",
+      "sourceQuestionId": "BIOCHEM_CH05_Q005",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 5,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is a component of cytochrome oxidase?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ca2+"
+        },
+        {
+          "letter": "B",
+          "text": "Cu2+"
+        },
+        {
+          "letter": "C",
+          "text": "Mn2+"
+        },
+        {
+          "letter": "D",
+          "text": "Zn2+"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Cu2+",
+      "explanation": "Cu2+ is a component of cytochrome oxidase. Cytochrome c oxidase is complex IV of the ETC. Components include two heme groups a and a3 and copper. It receives electrons from complex III; the final electron acceptor is oxygen, which is reduced to water.",
+      "structuredExplanation": {
+        "text": "Cu2+ is a component of cytochrome oxidase. Cytochrome c oxidase is complex IV of the ETC. Components include two heme groups a and a3 and copper. It receives electrons from complex III; the final electron acceptor is oxygen, which is reduced to water.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Cu2+ is a component of cytochrome oxidase. Cytochrome c oxidase is complex IV of the ETC. Components include two heme groups a and a3 and copper. It receives electrons from complex III; the final electron acceptor is oxygen, which is reduced to water."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          72
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          78
+        ]
+      },
+      "sourcePage": 72,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH05_Q006",
+      "sourceQuestionId": "BIOCHEM_CH05_Q006",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 6,
+      "questionType": "single_best_answer",
+      "question": "Which of the following ETC complexes does not pump hydrogen ions?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Complex I"
+        },
+        {
+          "letter": "B",
+          "text": "Complex II"
+        },
+        {
+          "letter": "C",
+          "text": "Complex III"
+        },
+        {
+          "letter": "D",
+          "text": "Complex IV"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Complex II",
+      "explanation": "Complex II does not pump any proton. The source lists: Complex I pumps 4 protons; Complex II does not pump any protons; Complex III pumps 4 protons; Complex IV pumps 2 protons.",
+      "structuredExplanation": {
+        "text": "Complex II does not pump any proton. The source lists: Complex I pumps 4 protons; Complex II does not pump any protons; Complex III pumps 4 protons; Complex IV pumps 2 protons.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Complex II does not pump any proton. The source lists: Complex I pumps 4 protons; Complex II does not pump any protons; Complex III pumps 4 protons; Complex IV pumps 2 protons."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          72
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          78
+        ]
+      },
+      "sourcePage": 72,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH05_Q007",
+      "sourceQuestionId": "BIOCHEM_CH05_Q007",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 7,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is known as complex V of the ETC?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Q-cytochrome c oxidoreductase"
+        },
+        {
+          "letter": "B",
+          "text": "ATP synthase complex"
+        },
+        {
+          "letter": "C",
+          "text": "NADH-Q oxidoreductase"
+        },
+        {
+          "letter": "D",
+          "text": "Cytochrome c oxidase"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "ATP synthase complex",
+      "explanation": "ATP synthase is a multi-subunit enzyme complex, also referred to as complex V of the ETC. It synthesizes ATP using energy from the proton gradient generated by the ETC. It contains two domains: F0 spans the inner mitochondrial membrane and F1 protrudes into the mitochondrial matrix. The chemiosmotic theory states that the respiratory chain and ATP synthesis are coupled by a proton gradient across the inner mitochondrial membrane.",
+      "structuredExplanation": {
+        "text": "ATP synthase is a multi-subunit enzyme complex, also referred to as complex V of the ETC. It synthesizes ATP using energy from the proton gradient generated by the ETC. It contains two domains: F0 spans the inner mitochondrial membrane and F1 protrudes into the mitochondrial matrix. The chemiosmotic theory states that the respiratory chain and ATP synthesis are coupled by a proton gradient across the inner mitochondrial membrane.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ATP synthase is a multi-subunit enzyme complex, also referred to as complex V of the ETC. It synthesizes ATP using energy from the proton gradient generated by the ETC. It contains two domains: F0 spans the inner mitochondrial membrane and F1 protrudes into the mitochondrial matrix. The chemiosmotic theory states that the respiratory chain and ATP synthesis are coupled by a proton gradient across the inner mitochondrial membrane."
+          },
+          {
+            "type": "figure",
+            "title": "F0-F1 ATP synthase complex",
+            "source_page": 79
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "F0-F1 ATP synthase complex",
+            "source_page": 79,
+            "role": "explanation",
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          72
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          78,
+          79
+        ]
+      },
+      "sourcePage": 72,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH05_Q008",
+      "sourceQuestionId": "BIOCHEM_CH05_Q008",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 8,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is an inhibitor of the F0-F1 domain of ATP synthase?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Atractyloside"
+        },
+        {
+          "letter": "B",
+          "text": "Oligomycin"
+        },
+        {
+          "letter": "C",
+          "text": "BAL"
+        },
+        {
+          "letter": "D",
+          "text": "Cyanide"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Oligomycin",
+      "explanation": "Oligomycin is a competitive inhibitor of the F0 complex and blocks oxidation and phosphorylation by stopping the flow of protons through the ATP synthase complex. It binds to the F0 domain, closes the proton channel, prevents re-entry of protons into the matrix, and stops phosphorylation of ADP to ATP.",
+      "structuredExplanation": {
+        "text": "Oligomycin is a competitive inhibitor of the F0 complex and blocks oxidation and phosphorylation by stopping the flow of protons through the ATP synthase complex. It binds to the F0 domain, closes the proton channel, prevents re-entry of protons into the matrix, and stops phosphorylation of ADP to ATP.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Oligomycin is a competitive inhibitor of the F0 complex and blocks oxidation and phosphorylation by stopping the flow of protons through the ATP synthase complex. It binds to the F0 domain, closes the proton channel, prevents re-entry of protons into the matrix, and stops phosphorylation of ADP to ATP."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          72
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          79
+        ]
+      },
+      "sourcePage": 72,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH05_Q009",
+      "sourceQuestionId": "BIOCHEM_CH05_Q009",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 9,
+      "questionType": "single_best_answer",
+      "question": "Which of the following substances is an inhibitor of the ETC complex I?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Carboxin"
+        },
+        {
+          "letter": "B",
+          "text": "Hydrogen sulphide"
+        },
+        {
+          "letter": "C",
+          "text": "Amobarbital"
+        },
+        {
+          "letter": "D",
+          "text": "Malonate"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Amobarbital",
+      "explanation": "Amobarbital acts as an inhibitor of ETC complex I by blocking transfer from Fe-S to Q. Inhibitors of complex I listed in the source include barbiturates such as amobarbital, piericidin A, and rotenone.",
+      "structuredExplanation": {
+        "text": "Amobarbital acts as an inhibitor of ETC complex I by blocking transfer from Fe-S to Q. Inhibitors of complex I listed in the source include barbiturates such as amobarbital, piericidin A, and rotenone.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Amobarbital acts as an inhibitor of ETC complex I by blocking transfer from Fe-S to Q. Inhibitors of complex I listed in the source include barbiturates such as amobarbital, piericidin A, and rotenone."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          73
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          79
+        ]
+      },
+      "sourcePage": 73,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH05_Q010",
+      "sourceQuestionId": "BIOCHEM_CH05_Q010",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 10,
+      "questionType": "single_best_answer",
+      "question": "Which of the following substances inhibits oxidative phosphorylation by blocking the transportation of ADP and ATP?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Oligomycin"
+        },
+        {
+          "letter": "B",
+          "text": "Atractyloside"
+        },
+        {
+          "letter": "C",
+          "text": "Amobarbital"
+        },
+        {
+          "letter": "D",
+          "text": "Rotenone"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Atractyloside",
+      "explanation": "Atractyloside inhibits oxidative phosphorylation by preventing transport of ADP into, and ATP out of, the mitochondria.",
+      "structuredExplanation": {
+        "text": "Atractyloside inhibits oxidative phosphorylation by preventing transport of ADP into, and ATP out of, the mitochondria.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Atractyloside inhibits oxidative phosphorylation by preventing transport of ADP into, and ATP out of, the mitochondria."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          73
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          80
+        ]
+      },
+      "sourcePage": 73,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH05_Q011",
+      "sourceQuestionId": "BIOCHEM_CH05_Q011",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 11,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is an example of a physiological uncoupler?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "2,4 Dinitrophenol"
+        },
+        {
+          "letter": "B",
+          "text": "Oligomycin"
+        },
+        {
+          "letter": "C",
+          "text": "Atractyloside"
+        },
+        {
+          "letter": "D",
+          "text": "Thermogenin"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Thermogenin",
+      "explanation": "Thermogenin is a physiological uncoupler. Uncouplers increase permeability of the mitochondrial membrane to ions, collapsing the proton gradient and allowing H+ to pass across the membrane without going through ATP synthase. Examples given are synthetic—2,4 dinitrophenol; natural—thermogenin in brown adipose tissue for heat generation, especially in newborns, and thyroxine.",
+      "structuredExplanation": {
+        "text": "Thermogenin is a physiological uncoupler. Uncouplers increase permeability of the mitochondrial membrane to ions, collapsing the proton gradient and allowing H+ to pass across the membrane without going through ATP synthase. Examples given are synthetic—2,4 dinitrophenol; natural—thermogenin in brown adipose tissue for heat generation, especially in newborns, and thyroxine.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Thermogenin is a physiological uncoupler. Uncouplers increase permeability of the mitochondrial membrane to ions, collapsing the proton gradient and allowing H+ to pass across the membrane without going through ATP synthase. Examples given are synthetic—2,4 dinitrophenol; natural—thermogenin in brown adipose tissue for heat generation, especially in newborns, and thyroxine."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          73
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          80
+        ]
+      },
+      "sourcePage": 73,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH05_Q012",
+      "sourceQuestionId": "BIOCHEM_CH05_Q012",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 12,
+      "questionType": "single_best_answer",
+      "question": "All of the following are high energy compounds except?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Phosphoenolpyruvate"
+        },
+        {
+          "letter": "B",
+          "text": "Carbamoyl phosphate"
+        },
+        {
+          "letter": "C",
+          "text": "Creatine phosphate"
+        },
+        {
+          "letter": "D",
+          "text": "Fumarate"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Fumarate",
+      "explanation": "Except for fumarate, all others are high-energy compounds. The source lists high-energy compounds in decreasing order of energy, including phosphoenolpyruvate, carbamoyl phosphate, 1,3-bisphosphoglycerate, creatine phosphate, ATP to AMP, ATP to ADP, PPi, fructose-6-phosphate, glucose-6-phosphate, and glycerol-3-phosphate.",
+      "structuredExplanation": {
+        "text": "Except for fumarate, all others are high-energy compounds. The source lists high-energy compounds in decreasing order of energy, including phosphoenolpyruvate, carbamoyl phosphate, 1,3-bisphosphoglycerate, creatine phosphate, ATP to AMP, ATP to ADP, PPi, fructose-6-phosphate, glucose-6-phosphate, and glycerol-3-phosphate.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Except for fumarate, all others are high-energy compounds. The source lists high-energy compounds in decreasing order of energy, including phosphoenolpyruvate, carbamoyl phosphate, 1,3-bisphosphoglycerate, creatine phosphate, ATP to AMP, ATP to ADP, PPi, fructose-6-phosphate, glucose-6-phosphate, and glycerol-3-phosphate."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          73
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          80
+        ]
+      },
+      "sourcePage": 73,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH05_Q013",
+      "sourceQuestionId": "BIOCHEM_CH05_Q013",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 13,
+      "questionType": "single_best_answer",
+      "question": "A 3-year-old child presents with muscle weakness, vomiting, and seizures accompanied by focal neurological deficits. Her developmental milestones were normal during the previous visits. Laboratory tests show lactic acidosis and microscopic findings of muscle biopsy are shown below. What is the likely diagnosis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "MELAS"
+        },
+        {
+          "letter": "B",
+          "text": "Duchenne muscular dystrophy"
+        },
+        {
+          "letter": "C",
+          "text": "Becker muscular dystrophy"
+        },
+        {
+          "letter": "D",
+          "text": "Myotonic dystrophy"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "MELAS",
+      "explanation": "The clinical scenario with microscopy showing ragged red fibres is suggestive of MELAS (mitochondrial encephalopathy, lactic acidosis, and stroke). It is a mitochondrial inherited condition due to complex I or complex IV deficiency. Patients have normal previous development and then present with lactic acidosis and stroke with focal neurological deficits. Modified Gomori trichrome staining of muscle biopsy shows ragged red fibres. Other mitochondrial inherited diseases listed are Leigh's disease, Leber hereditary optic neuropathy, Kearns-Sayre syndrome, chronic progressive external ophthalmoplegia, and Pearson syndrome.",
+      "structuredExplanation": {
+        "text": "The clinical scenario with microscopy showing ragged red fibres is suggestive of MELAS (mitochondrial encephalopathy, lactic acidosis, and stroke). It is a mitochondrial inherited condition due to complex I or complex IV deficiency. Patients have normal previous development and then present with lactic acidosis and stroke with focal neurological deficits. Modified Gomori trichrome staining of muscle biopsy shows ragged red fibres. Other mitochondrial inherited diseases listed are Leigh's disease, Leber hereditary optic neuropathy, Kearns-Sayre syndrome, chronic progressive external ophthalmoplegia, and Pearson syndrome.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The clinical scenario with microscopy showing ragged red fibres is suggestive of MELAS (mitochondrial encephalopathy, lactic acidosis, and stroke). It is a mitochondrial inherited condition due to complex I or complex IV deficiency. Patients have normal previous development and then present with lactic acidosis and stroke with focal neurological deficits. Modified Gomori trichrome staining of muscle biopsy shows ragged red fibres. Other mitochondrial inherited diseases listed are Leigh's disease, Leber hereditary optic neuropathy, Kearns-Sayre syndrome, chronic progressive external ophthalmoplegia, and Pearson syndrome."
+          },
+          {
+            "type": "figure",
+            "title": "Muscle biopsy image used in question",
+            "source_page": 74
+          },
+          {
+            "type": "figure",
+            "title": "Modified Gomori trichrome ragged red fibers",
+            "source_page": 81
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Muscle biopsy image used in question",
+            "source_page": 74,
+            "role": "question-critical image",
+            "visual_reviewed": true
+          },
+          {
+            "title": "Modified Gomori trichrome ragged red fibers",
+            "source_page": 81,
+            "role": "explanation",
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          74
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          80,
+          81
+        ]
+      },
+      "sourcePage": 74,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH05_Q014",
+      "sourceQuestionId": "BIOCHEM_CH05_Q014",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 14,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is not the source of phosphate?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Oxidative phosphorylation"
+        },
+        {
+          "letter": "B",
+          "text": "Glycolysis"
+        },
+        {
+          "letter": "C",
+          "text": "Citric acid cycle"
+        },
+        {
+          "letter": "D",
+          "text": "Gluconeogenesis"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Gluconeogenesis",
+      "explanation": "Gluconeogenesis is not a source of phosphate that takes part in energy conservation or energy capture. The source lists three major sources of phosphate: oxidative phosphorylation, glycolysis, and citric acid cycle.",
+      "structuredExplanation": {
+        "text": "Gluconeogenesis is not a source of phosphate that takes part in energy conservation or energy capture. The source lists three major sources of phosphate: oxidative phosphorylation, glycolysis, and citric acid cycle.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Gluconeogenesis is not a source of phosphate that takes part in energy conservation or energy capture. The source lists three major sources of phosphate: oxidative phosphorylation, glycolysis, and citric acid cycle."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          74
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          81
+        ]
+      },
+      "sourcePage": 74,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH05_Q015",
+      "sourceQuestionId": "BIOCHEM_CH05_Q015",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 15,
+      "questionType": "single_best_answer",
+      "question": "In which of the following sites is creatine phosphate not present in?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Skeletal muscle"
+        },
+        {
+          "letter": "B",
+          "text": "Heart"
+        },
+        {
+          "letter": "C",
+          "text": "Spermatozoa"
+        },
+        {
+          "letter": "D",
+          "text": "Nephron"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Nephron",
+      "explanation": "Creatine phosphate is not present in nephrons. Creatine phosphate occurs in vertebrate skeletal muscle, heart, spermatozoa, and brain. Phosphagens act as storage forms of high-energy phosphate.",
+      "structuredExplanation": {
+        "text": "Creatine phosphate is not present in nephrons. Creatine phosphate occurs in vertebrate skeletal muscle, heart, spermatozoa, and brain. Phosphagens act as storage forms of high-energy phosphate.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Creatine phosphate is not present in nephrons. Creatine phosphate occurs in vertebrate skeletal muscle, heart, spermatozoa, and brain. Phosphagens act as storage forms of high-energy phosphate."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          75
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          82
+        ]
+      },
+      "sourcePage": 75,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH05_Q016",
+      "sourceQuestionId": "BIOCHEM_CH05_Q016",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 16,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is a hemoprotein?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cytochrome oxidase"
+        },
+        {
+          "letter": "B",
+          "text": "Xanthine oxidase"
+        },
+        {
+          "letter": "C",
+          "text": "L-amino acid oxidase"
+        },
+        {
+          "letter": "D",
+          "text": "Succinate dehydrogenase"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Cytochrome oxidase",
+      "explanation": "Cytochrome oxidase is a hemoprotein widely distributed in many tissues. Hemoproteins are metalloproteins with a typical heme prosthetic group. They are present in myoglobin, hemoglobin, and other cytochromes. Cytochrome oxidase is the terminal component of the respiratory chain and transfers electrons resulting from oxidation of substrate molecules to their final acceptor, oxygen. It contains two heme molecules and two atoms of copper. Its action is blocked by carbon monoxide, cyanide, and hydrogen sulfide, preventing cellular respiration.",
+      "structuredExplanation": {
+        "text": "Cytochrome oxidase is a hemoprotein widely distributed in many tissues. Hemoproteins are metalloproteins with a typical heme prosthetic group. They are present in myoglobin, hemoglobin, and other cytochromes. Cytochrome oxidase is the terminal component of the respiratory chain and transfers electrons resulting from oxidation of substrate molecules to their final acceptor, oxygen. It contains two heme molecules and two atoms of copper. Its action is blocked by carbon monoxide, cyanide, and hydrogen sulfide, preventing cellular respiration.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Cytochrome oxidase is a hemoprotein widely distributed in many tissues. Hemoproteins are metalloproteins with a typical heme prosthetic group. They are present in myoglobin, hemoglobin, and other cytochromes. Cytochrome oxidase is the terminal component of the respiratory chain and transfers electrons resulting from oxidation of substrate molecules to their final acceptor, oxygen. It contains two heme molecules and two atoms of copper. Its action is blocked by carbon monoxide, cyanide, and hydrogen sulfide, preventing cellular respiration."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          75
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          82
+        ]
+      },
+      "sourcePage": 75,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH05_Q017",
+      "sourceQuestionId": "BIOCHEM_CH05_Q017",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 17,
+      "questionType": "single_best_answer",
+      "question": "Cytochrome oxidase is inhibited in all of the following poisonings except:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Hydrogen sulphide"
+        },
+        {
+          "letter": "B",
+          "text": "Carbon monoxide"
+        },
+        {
+          "letter": "C",
+          "text": "Methane"
+        },
+        {
+          "letter": "D",
+          "text": "Cyanide"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Methane",
+      "explanation": "Cytochrome oxidase is the terminal respiratory-chain component and is inhibited in carbon monoxide, cyanide, and hydrogen sulfide poisoning; methane is the exception. The source summarizes ETC complexes and inhibitors: Complex I NADH-CoQ oxidoreductase—rotenone; Complex II succinate-CoQ reductase—carboxin; Complex III CoQH2-cytochrome c oxidoreductase—antimycin A; Complex IV cytochrome oxidase—cyanide, azide, carbon monoxide; Complex V ATP synthase—oligomycin. MELAS is noted as an inherited condition due to complex I or complex IV deficiency.",
+      "structuredExplanation": {
+        "text": "Cytochrome oxidase is the terminal respiratory-chain component and is inhibited in carbon monoxide, cyanide, and hydrogen sulfide poisoning; methane is the exception. The source summarizes ETC complexes and inhibitors: Complex I NADH-CoQ oxidoreductase—rotenone; Complex II succinate-CoQ reductase—carboxin; Complex III CoQH2-cytochrome c oxidoreductase—antimycin A; Complex IV cytochrome oxidase—cyanide, azide, carbon monoxide; Complex V ATP synthase—oligomycin. MELAS is noted as an inherited condition due to complex I or complex IV deficiency.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Cytochrome oxidase is the terminal respiratory-chain component and is inhibited in carbon monoxide, cyanide, and hydrogen sulfide poisoning; methane is the exception. The source summarizes ETC complexes and inhibitors: Complex I NADH-CoQ oxidoreductase—rotenone; Complex II succinate-CoQ reductase—carboxin; Complex III CoQH2-cytochrome c oxidoreductase—antimycin A; Complex IV cytochrome oxidase—cyanide, azide, carbon monoxide; Complex V ATP synthase—oligomycin. MELAS is noted as an inherited condition due to complex I or complex IV deficiency."
+          },
+          {
+            "type": "table",
+            "title": "ETC complexes, components and inhibitors",
+            "source_page": 82
+          }
+        ],
+        "tables": [
+          {
+            "title": "ETC complexes, components and inhibitors",
+            "source_page": 82
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          75
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          82,
+          83
+        ]
+      },
+      "sourcePage": 75,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH05_Q018",
+      "sourceQuestionId": "BIOCHEM_CH05_Q018",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "5",
+      "chapter": "ETC and bioenergetics",
+      "questionNumber": 18,
+      "questionType": "single_best_answer",
+      "question": "A TPN bag consists of 100g glucose, 30g amino acids, and 40g lipids. What is the amount of calories delivered?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "840 KCal"
+        },
+        {
+          "letter": "B",
+          "text": "880 KCal"
+        },
+        {
+          "letter": "C",
+          "text": "640 KCal"
+        },
+        {
+          "letter": "D",
+          "text": "680 KCal"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "880 KCal",
+      "explanation": "The amount of calories delivered by the TPN bag is 880 Kcal. Caloric values: carbohydrate (glucose) 4 Kcal/g; proteins (amino acids) 4 Kcal/g; fat (lipids) 9 Kcal/g. Calculation: 100 g glucose = 400 Kcal; 30 g amino acids = 120 Kcal; 40 g lipids = 360 Kcal; total = 880 Kcal. The source also notes alcohol = 7 Kcal/g.",
+      "structuredExplanation": {
+        "text": "The amount of calories delivered by the TPN bag is 880 Kcal. Caloric values: carbohydrate (glucose) 4 Kcal/g; proteins (amino acids) 4 Kcal/g; fat (lipids) 9 Kcal/g. Calculation: 100 g glucose = 400 Kcal; 30 g amino acids = 120 Kcal; 40 g lipids = 360 Kcal; total = 880 Kcal. The source also notes alcohol = 7 Kcal/g.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The amount of calories delivered by the TPN bag is 880 Kcal. Caloric values: carbohydrate (glucose) 4 Kcal/g; proteins (amino acids) 4 Kcal/g; fat (lipids) 9 Kcal/g. Calculation: 100 g glucose = 400 Kcal; 30 g amino acids = 120 Kcal; 40 g lipids = 360 Kcal; total = 880 Kcal. The source also notes alcohol = 7 Kcal/g."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          75
+        ],
+        "answerKeyPages": [
+          76
+        ],
+        "explanationPages": [
+          83
+        ]
+      },
+      "sourcePage": 75,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,1921 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Derived read-only audit view. Immutable source remains the sharded Marrow bundle.",
+  "subject": "Biochemistry",
+  "chapterId": "16",
+  "questionCount": 21,
+  "immutableSourcePrefix": "biochemistry_phase_a",
+  "sourceRawSha256": "d9d89966b2733f86b6c5a413e61b0af5559becff3bc580802262deb2f3b9c1ae",
+  "questions": [
+    {
+      "id": "marrow__BIOCHEM_CH16_Q001",
+      "sourceQuestionId": "BIOCHEM_CH16_Q001",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 1,
+      "questionType": "single_best_answer",
+      "question": "Where does cholesterol synthesis take place?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cytosol and endoplasmic reticulum"
+        },
+        {
+          "letter": "B",
+          "text": "Peroxisomes and mitochondria"
+        },
+        {
+          "letter": "C",
+          "text": "Mitochondria and cytosol"
+        },
+        {
+          "letter": "D",
+          "text": "Mitochondria and golgi body"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Cytosol and endoplasmic reticulum",
+      "explanation": "Cholesterol synthesis takes place in the cytosol and endoplasmic reticulum.\n\nCytosolic acetyl-CoA forms acetoacetyl-CoA, which condenses with another acetyl-CoA to form HMG-CoA.\n\nCytosolic HMG-CoA, a key intermediate in cholesterol biosynthesis, is reduced in the endoplasmic reticulum to mevalonic acid by the regulatory enzyme HMG-CoA reductase. Mevalonic acid subsequently undergoes phosphorylation, decarboxylation, condensation and cyclization reactions to produce cholesterol.\n\nSummary of cholesterol synthesis pathway:\n• Synthesis of mevalonate from acetyl-CoA\n• Formation of isoprenoid units from mevalonate\n• Condensation of six isoprenoid units form squalene\n• Cyclization of squalene to give rise to the parent steroid, lanosterol\n• Formation of cholesterol from lanosterol.\n\nAll tissues containing nucleated cells are capable of cholesterol synthesis, with the majority produced in the liver and intestine.",
+      "structuredExplanation": {
+        "text": "Cholesterol synthesis takes place in the cytosol and endoplasmic reticulum.\n\nCytosolic acetyl-CoA forms acetoacetyl-CoA, which condenses with another acetyl-CoA to form HMG-CoA.\n\nCytosolic HMG-CoA, a key intermediate in cholesterol biosynthesis, is reduced in the endoplasmic reticulum to mevalonic acid by the regulatory enzyme HMG-CoA reductase. Mevalonic acid subsequently undergoes phosphorylation, decarboxylation, condensation and cyclization reactions to produce cholesterol.\n\nSummary of cholesterol synthesis pathway:\n• Synthesis of mevalonate from acetyl-CoA\n• Formation of isoprenoid units from mevalonate\n• Condensation of six isoprenoid units form squalene\n• Cyclization of squalene to give rise to the parent steroid, lanosterol\n• Formation of cholesterol from lanosterol.\n\nAll tissues containing nucleated cells are capable of cholesterol synthesis, with the majority produced in the liver and intestine.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Cholesterol synthesis takes place in the cytosol and endoplasmic reticulum."
+          },
+          {
+            "type": "paragraph",
+            "text": "Cytosolic acetyl-CoA forms acetoacetyl-CoA, which condenses with another acetyl-CoA to form HMG-CoA."
+          },
+          {
+            "type": "paragraph",
+            "text": "Cytosolic HMG-CoA, a key intermediate in cholesterol biosynthesis, is reduced in the endoplasmic reticulum to mevalonic acid by the regulatory enzyme HMG-CoA reductase. Mevalonic acid subsequently undergoes phosphorylation, decarboxylation, condensation and cyclization reactions to produce cholesterol."
+          },
+          {
+            "type": "paragraph",
+            "text": "Summary of cholesterol synthesis pathway:"
+          },
+          {
+            "type": "bullet_list",
+            "items": [
+              "Synthesis of mevalonate from acetyl-CoA",
+              "Formation of isoprenoid units from mevalonate",
+              "Condensation of six isoprenoid units form squalene",
+              "Cyclization of squalene to give rise to the parent steroid, lanosterol",
+              "Formation of cholesterol from lanosterol."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "All tissues containing nucleated cells are capable of cholesterol synthesis, with the majority produced in the liver and intestine."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          247
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          253
+        ]
+      },
+      "sourcePage": 247,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q002",
+      "sourceQuestionId": "BIOCHEM_CH16_Q002",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 2,
+      "questionType": "single_best_answer",
+      "question": "What is the substrate for cholesterol synthesis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "3-hydroxybutyrate"
+        },
+        {
+          "letter": "B",
+          "text": "Acetoacetate"
+        },
+        {
+          "letter": "C",
+          "text": "Acetyl CoA"
+        },
+        {
+          "letter": "D",
+          "text": "Acyl CoA"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Acetyl CoA",
+      "explanation": "Cholesterol is synthesized from acetyl-CoA by a long pathway that may be divided into five steps:\n• Synthesis of mevalonate from acetyl-CoA\n• Formation of isoprenoid units from mevalonate\n• Condensation of six isoprenoid units form squalene\n• Cyclization of squalene to give rise to the parent steroid, lanosterol\n• Formation of cholesterol from lanosterol.\n\nAll tissues containing nucleated cells are capable of cholesterol synthesis, with the majority produced in the liver and intestine.",
+      "structuredExplanation": {
+        "text": "Cholesterol is synthesized from acetyl-CoA by a long pathway that may be divided into five steps:\n• Synthesis of mevalonate from acetyl-CoA\n• Formation of isoprenoid units from mevalonate\n• Condensation of six isoprenoid units form squalene\n• Cyclization of squalene to give rise to the parent steroid, lanosterol\n• Formation of cholesterol from lanosterol.\n\nAll tissues containing nucleated cells are capable of cholesterol synthesis, with the majority produced in the liver and intestine.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Cholesterol is synthesized from acetyl-CoA by a long pathway that may be divided into five steps:"
+          },
+          {
+            "type": "bullet_list",
+            "items": [
+              "Synthesis of mevalonate from acetyl-CoA",
+              "Formation of isoprenoid units from mevalonate",
+              "Condensation of six isoprenoid units form squalene",
+              "Cyclization of squalene to give rise to the parent steroid, lanosterol",
+              "Formation of cholesterol from lanosterol."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "All tissues containing nucleated cells are capable of cholesterol synthesis, with the majority produced in the liver and intestine."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          247
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          254
+        ]
+      },
+      "sourcePage": 247,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q003",
+      "sourceQuestionId": "BIOCHEM_CH16_Q003",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 3,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is not a primary bile acid?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cholic acid"
+        },
+        {
+          "letter": "B",
+          "text": "Chenodeoxycholic acid"
+        },
+        {
+          "letter": "C",
+          "text": "Glycocholic acid"
+        },
+        {
+          "letter": "D",
+          "text": "Deoxycholic acid"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Deoxycholic acid",
+      "explanation": "Deoxycholic acid is not a primary bile acid. It is a secondary bile acid.\n\nThe primary bile acids are cholic acid and chenodeoxycholic acid synthesized from cholesterol in the liver. They are next conjugated with glycine and taurine in the liver peroxisomes to form glycocholic, glycochenodeoxycholic, taurocholic, and taurochenodeoxycholic acids.\n\nThe secondary bile acids are formed in the intestine as the primary bile acids are deconjugated and dehydroxylated by the intestinal bacteria to form deoxycholic and lithocholic acid. These are absorbed in the ileum and returned to the liver by enterohepatic circulation.",
+      "structuredExplanation": {
+        "text": "Deoxycholic acid is not a primary bile acid. It is a secondary bile acid.\n\nThe primary bile acids are cholic acid and chenodeoxycholic acid synthesized from cholesterol in the liver. They are next conjugated with glycine and taurine in the liver peroxisomes to form glycocholic, glycochenodeoxycholic, taurocholic, and taurochenodeoxycholic acids.\n\nThe secondary bile acids are formed in the intestine as the primary bile acids are deconjugated and dehydroxylated by the intestinal bacteria to form deoxycholic and lithocholic acid. These are absorbed in the ileum and returned to the liver by enterohepatic circulation.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Deoxycholic acid is not a primary bile acid. It is a secondary bile acid."
+          },
+          {
+            "type": "paragraph",
+            "text": "The primary bile acids are cholic acid and chenodeoxycholic acid synthesized from cholesterol in the liver. They are next conjugated with glycine and taurine in the liver peroxisomes to form glycocholic, glycochenodeoxycholic, taurocholic, and taurochenodeoxycholic acids."
+          },
+          {
+            "type": "paragraph",
+            "text": "The secondary bile acids are formed in the intestine as the primary bile acids are deconjugated and dehydroxylated by the intestinal bacteria to form deoxycholic and lithocholic acid. These are absorbed in the ileum and returned to the liver by enterohepatic circulation."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          247
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          254
+        ]
+      },
+      "sourcePage": 247,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q004",
+      "sourceQuestionId": "BIOCHEM_CH16_Q004",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 4,
+      "questionType": "single_best_answer",
+      "question": "Which is the first intermediate in the conversion of cholesterol to bile acids?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "7-dehydrocholesterol"
+        },
+        {
+          "letter": "B",
+          "text": "7-hydroxycholesterol"
+        },
+        {
+          "letter": "C",
+          "text": "Lanosterol"
+        },
+        {
+          "letter": "D",
+          "text": "Ergosterol"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "7-hydroxycholesterol",
+      "explanation": "The first intermediate in the synthesis of bile acids is 7α-hydroxycholesterol.\n\nThis reaction is catalyzed by the enzyme 7α-hydroxylase, a microsomal CYP450 enzyme, which requires NADPH, oxygen, and vitamin C as co-factors. It is the rate-limiting step in the synthesis of bile acids.\n\nRegulation of bile acid synthesis occurs by feedback inhibition of 7α-hydroxylase via the Farnesoid X receptor. When the level of bile acids in the enterohepatic circulation increases, FXR is activated and transcription of the enzyme is suppressed.\n\nOther options:\nOption A: 7-dehydrocholesterol is an intermediate in the conversion of cholesterol to vitamin D.\nOption C: Lanosterol is an intermediate in the synthesis of cholesterol.\nOption D: Ergosterol is a sterol found in plants.",
+      "structuredExplanation": {
+        "text": "The first intermediate in the synthesis of bile acids is 7α-hydroxycholesterol.\n\nThis reaction is catalyzed by the enzyme 7α-hydroxylase, a microsomal CYP450 enzyme, which requires NADPH, oxygen, and vitamin C as co-factors. It is the rate-limiting step in the synthesis of bile acids.\n\nRegulation of bile acid synthesis occurs by feedback inhibition of 7α-hydroxylase via the Farnesoid X receptor. When the level of bile acids in the enterohepatic circulation increases, FXR is activated and transcription of the enzyme is suppressed.\n\nOther options:\nOption A: 7-dehydrocholesterol is an intermediate in the conversion of cholesterol to vitamin D.\nOption C: Lanosterol is an intermediate in the synthesis of cholesterol.\nOption D: Ergosterol is a sterol found in plants.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The first intermediate in the synthesis of bile acids is 7α-hydroxycholesterol."
+          },
+          {
+            "type": "paragraph",
+            "text": "This reaction is catalyzed by the enzyme 7α-hydroxylase, a microsomal CYP450 enzyme, which requires NADPH, oxygen, and vitamin C as co-factors. It is the rate-limiting step in the synthesis of bile acids."
+          },
+          {
+            "type": "paragraph",
+            "text": "Regulation of bile acid synthesis occurs by feedback inhibition of 7α-hydroxylase via the Farnesoid X receptor. When the level of bile acids in the enterohepatic circulation increases, FXR is activated and transcription of the enzyme is suppressed."
+          },
+          {
+            "type": "paragraph",
+            "text": "Other options:\nOption A: 7-dehydrocholesterol is an intermediate in the conversion of cholesterol to vitamin D.\nOption C: Lanosterol is an intermediate in the synthesis of cholesterol.\nOption D: Ergosterol is a sterol found in plants."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          247,
+          248
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          254
+        ]
+      },
+      "sourcePage": 247,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q005",
+      "sourceQuestionId": "BIOCHEM_CH16_Q005",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 5,
+      "questionType": "single_best_answer",
+      "question": "A 47-year-old diabetic man comes to the OPD for a follow-up visit. In the most recent lab report, serum LDL level is high. He is therefore started on a lipid-lowering drug that acts on the rate-limiting step of cholesterol synthesis. Which of the following is the site of action of this drug?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "HMG CoA synthase"
+        },
+        {
+          "letter": "B",
+          "text": "HMG CoA reductase"
+        },
+        {
+          "letter": "C",
+          "text": "Squalene epoxidase"
+        },
+        {
+          "letter": "D",
+          "text": "HMG CoA lyase"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "HMG CoA reductase",
+      "explanation": "HMG-CoA reductase is the rate-limiting enzyme of cholesterol synthesis.\n\nHMG-CoA reductase is inhibited by the statin group of drugs (e.g. Atorvastatin, Rosuvastatin, Pravastatin, etc.), which are widely used as lipid-lowering agents.\n\nRegulation of HMG CoA reductase:\nGlucagon and glucocorticoids repress the transcription of HMG CoA reductase via sterol regulatory element-binding protein (SREBP).",
+      "structuredExplanation": {
+        "text": "HMG-CoA reductase is the rate-limiting enzyme of cholesterol synthesis.\n\nHMG-CoA reductase is inhibited by the statin group of drugs (e.g. Atorvastatin, Rosuvastatin, Pravastatin, etc.), which are widely used as lipid-lowering agents.\n\nRegulation of HMG CoA reductase:\nGlucagon and glucocorticoids repress the transcription of HMG CoA reductase via sterol regulatory element-binding protein (SREBP).",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "HMG-CoA reductase is the rate-limiting enzyme of cholesterol synthesis."
+          },
+          {
+            "type": "paragraph",
+            "text": "HMG-CoA reductase is inhibited by the statin group of drugs (e.g. Atorvastatin, Rosuvastatin, Pravastatin, etc.), which are widely used as lipid-lowering agents."
+          },
+          {
+            "type": "paragraph",
+            "text": "Regulation of HMG CoA reductase:\nGlucagon and glucocorticoids repress the transcription of HMG CoA reductase via sterol regulatory element-binding protein (SREBP)."
+          },
+          {
+            "type": "table",
+            "table_id": "BIOCHEM_CH16_Q005_T1",
+            "title": "Regulation of HMG-CoA reductase",
+            "source_page": 255
+          },
+          {
+            "type": "figure",
+            "figure_id": "BIOCHEM_CH16_Q005_F1",
+            "title": "Regulation of HMG-CoA reductase / cholesterol synthesis",
+            "source_page": 255,
+            "role": "explanation",
+            "crop_norm": {
+              "x0": 0.25,
+              "y0": 0.35,
+              "x1": 0.74,
+              "y1": 0.82
+            }
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "BIOCHEM_CH16_Q005_T1",
+            "title": "Regulation of HMG-CoA reductase",
+            "source_page": 255,
+            "columns": [
+              "Activity increased by",
+              "Activity decreased by"
+            ],
+            "rows": [
+              [
+                "Insulin",
+                "Glucagon, glucocorticoid"
+              ],
+              [
+                "Thyroid hormone",
+                "Cholesterol, mevalonate"
+              ],
+              [
+                "",
+                "Dietary cholesterol status"
+              ]
+            ]
+          }
+        ],
+        "figures": [
+          {
+            "figure_id": "BIOCHEM_CH16_Q005_F1",
+            "type": "regulatory_pathway",
+            "title": "Regulation of HMG-CoA reductase / cholesterol synthesis",
+            "source_page": 255,
+            "role": "explanation",
+            "crop_norm": {
+              "x0": 0.25,
+              "y0": 0.35,
+              "x1": 0.74,
+              "y1": 0.82
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          248
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          255
+        ]
+      },
+      "sourcePage": 248,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q006",
+      "sourceQuestionId": "BIOCHEM_CH16_Q006",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 6,
+      "questionType": "single_best_answer",
+      "question": "Which is the first hormone to be produced in cholesterol synthesis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cholecystokinin"
+        },
+        {
+          "letter": "B",
+          "text": "Epinephrin"
+        },
+        {
+          "letter": "C",
+          "text": "Lanosterol"
+        },
+        {
+          "letter": "D",
+          "text": "Secretin"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Lanosterol",
+      "explanation": "Lanosterol is the first steroid to be synthesized in cholesterol synthesis.\n• Cyclization of squalene gives rise to the parent steroid, lanosterol.\n• The formation of cholesterol from lanosterol involves changes in the steroid nucleus and the side chain.\n\nNote: Though lanosterol is technically not a hormone, it is the best choice among the listed options. This is a recent NEET question.",
+      "structuredExplanation": {
+        "text": "Lanosterol is the first steroid to be synthesized in cholesterol synthesis.\n• Cyclization of squalene gives rise to the parent steroid, lanosterol.\n• The formation of cholesterol from lanosterol involves changes in the steroid nucleus and the side chain.\n\nNote: Though lanosterol is technically not a hormone, it is the best choice among the listed options. This is a recent NEET question.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Lanosterol is the first steroid to be synthesized in cholesterol synthesis."
+          },
+          {
+            "type": "bullet_list",
+            "items": [
+              "Cyclization of squalene gives rise to the parent steroid, lanosterol.",
+              "The formation of cholesterol from lanosterol involves changes in the steroid nucleus and the side chain."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Note: Though lanosterol is technically not a hormone, it is the best choice among the listed options. This is a recent NEET question."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          248
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          255
+        ]
+      },
+      "sourcePage": 248,
+      "reviewStatus": "pass_with_normalization_note",
+      "reviewNotes": [
+        "Source question literally asks for the first “hormone” produced in cholesterol synthesis; source explanation acknowledges lanosterol is technically not a hormone and retains it as the best listed choice. Canonical question wording and keyed answer were preserved."
+      ],
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": [
+          "Source question literally asks for the first “hormone” produced in cholesterol synthesis; source explanation acknowledges lanosterol is technically not a hormone and retains it as the best listed choice. Canonical question wording and keyed answer were preserved."
+        ]
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q007",
+      "sourceQuestionId": "BIOCHEM_CH16_Q007",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 7,
+      "questionType": "single_best_answer",
+      "question": "What is the function of lipoprotein?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Transport majority of nonpolar lipids"
+        },
+        {
+          "letter": "B",
+          "text": "Transport majority of polar lipids"
+        },
+        {
+          "letter": "C",
+          "text": "Transport only cholesterol"
+        },
+        {
+          "letter": "D",
+          "text": "Transport only fatty acids"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Transport majority of nonpolar lipids",
+      "explanation": "Lipoproteins transport the majority of non-polar lipids to most tissues for oxidation and to adipose tissue for storage as follows:\n• From the intestines as chylomicrons, it carries exogenous triglycerides.\n• From the liver as very-low-density lipoproteins (VLDL), it carries endogenous triglycerides.",
+      "structuredExplanation": {
+        "text": "Lipoproteins transport the majority of non-polar lipids to most tissues for oxidation and to adipose tissue for storage as follows:\n• From the intestines as chylomicrons, it carries exogenous triglycerides.\n• From the liver as very-low-density lipoproteins (VLDL), it carries endogenous triglycerides.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Lipoproteins transport the majority of non-polar lipids to most tissues for oxidation and to adipose tissue for storage as follows:"
+          },
+          {
+            "type": "bullet_list",
+            "items": [
+              "From the intestines as chylomicrons, it carries exogenous triglycerides.",
+              "From the liver as very-low-density lipoproteins (VLDL), it carries endogenous triglycerides."
+            ]
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          248
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          256
+        ]
+      },
+      "sourcePage": 248,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q008",
+      "sourceQuestionId": "BIOCHEM_CH16_Q008",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 8,
+      "questionType": "single_best_answer",
+      "question": "Which of the following lipoproteins have the highest cholesterol:triglyceride ratio?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Chylomicron and VLDL"
+        },
+        {
+          "letter": "B",
+          "text": "LDL and HDL"
+        },
+        {
+          "letter": "C",
+          "text": "HDL and VLDL"
+        },
+        {
+          "letter": "D",
+          "text": "IDL and HDL"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "LDL and HDL",
+      "explanation": "As cholesterol is the predominant lipid in LDL and HDL, they have a higher cholesterol:triglyceride ratio.\n\nVLDL also has a significant amount of cholesterol but it predominantly comprises triglycerides (lower cholesterol:triglyceride ratio). Therefore, LDL and HDL are considered the major carriers of cholesterol.\n\nIDLs are formed by the removal of triglycerides from VLDL by muscle and adipose tissue and are hence enriched in cholesterol. LDLs are derived from VLDL and IDL particles and contain more cholesterol than IDLs.",
+      "structuredExplanation": {
+        "text": "As cholesterol is the predominant lipid in LDL and HDL, they have a higher cholesterol:triglyceride ratio.\n\nVLDL also has a significant amount of cholesterol but it predominantly comprises triglycerides (lower cholesterol:triglyceride ratio). Therefore, LDL and HDL are considered the major carriers of cholesterol.\n\nIDLs are formed by the removal of triglycerides from VLDL by muscle and adipose tissue and are hence enriched in cholesterol. LDLs are derived from VLDL and IDL particles and contain more cholesterol than IDLs.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "As cholesterol is the predominant lipid in LDL and HDL, they have a higher cholesterol:triglyceride ratio."
+          },
+          {
+            "type": "paragraph",
+            "text": "VLDL also has a significant amount of cholesterol but it predominantly comprises triglycerides (lower cholesterol:triglyceride ratio). Therefore, LDL and HDL are considered the major carriers of cholesterol."
+          },
+          {
+            "type": "paragraph",
+            "text": "IDLs are formed by the removal of triglycerides from VLDL by muscle and adipose tissue and are hence enriched in cholesterol. LDLs are derived from VLDL and IDL particles and contain more cholesterol than IDLs."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          248,
+          249
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          256
+        ]
+      },
+      "sourcePage": 248,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q009",
+      "sourceQuestionId": "BIOCHEM_CH16_Q009",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 9,
+      "questionType": "single_best_answer",
+      "question": "In a patient with lipoprotein lipase deficiency, which of the following is increased following a fatty meal?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Chylomicron"
+        },
+        {
+          "letter": "B",
+          "text": "LDL"
+        },
+        {
+          "letter": "C",
+          "text": "HDL"
+        },
+        {
+          "letter": "D",
+          "text": "Apo A"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Chylomicron",
+      "explanation": "After a fatty meal, chylomicrons are elevated in lipoprotein lipase deficiency.\n\nChylomicrons transport dietary lipids from the intestine to the peripheral tissues. They are synthesized in the intestine by assembling apo B-48 with lipids (mainly triacylglycerols). This is called a nascent chylomicron, which upon receiving apo C-II and apo E from HDL is remodelled into mature chylomicron.\n\nApo C-II activates lipoprotein lipase present on the endothelium. Lipoprotein lipase hydrolyzes the triacylglycerols into fatty acids and glycerol which are either used for storage or energy. Therefore, patients who are deficient in lipoprotein lipase or apo C-II (type I hyperlipoproteinemia) show increased levels of chylomicrons in the plasma after a fatty meal.",
+      "structuredExplanation": {
+        "text": "After a fatty meal, chylomicrons are elevated in lipoprotein lipase deficiency.\n\nChylomicrons transport dietary lipids from the intestine to the peripheral tissues. They are synthesized in the intestine by assembling apo B-48 with lipids (mainly triacylglycerols). This is called a nascent chylomicron, which upon receiving apo C-II and apo E from HDL is remodelled into mature chylomicron.\n\nApo C-II activates lipoprotein lipase present on the endothelium. Lipoprotein lipase hydrolyzes the triacylglycerols into fatty acids and glycerol which are either used for storage or energy. Therefore, patients who are deficient in lipoprotein lipase or apo C-II (type I hyperlipoproteinemia) show increased levels of chylomicrons in the plasma after a fatty meal.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "After a fatty meal, chylomicrons are elevated in lipoprotein lipase deficiency."
+          },
+          {
+            "type": "paragraph",
+            "text": "Chylomicrons transport dietary lipids from the intestine to the peripheral tissues. They are synthesized in the intestine by assembling apo B-48 with lipids (mainly triacylglycerols). This is called a nascent chylomicron, which upon receiving apo C-II and apo E from HDL is remodelled into mature chylomicron."
+          },
+          {
+            "type": "paragraph",
+            "text": "Apo C-II activates lipoprotein lipase present on the endothelium. Lipoprotein lipase hydrolyzes the triacylglycerols into fatty acids and glycerol which are either used for storage or energy. Therefore, patients who are deficient in lipoprotein lipase or apo C-II (type I hyperlipoproteinemia) show increased levels of chylomicrons in the plasma after a fatty meal."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          249
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          256
+        ]
+      },
+      "sourcePage": 249,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q010",
+      "sourceQuestionId": "BIOCHEM_CH16_Q010",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 10,
+      "questionType": "single_best_answer",
+      "question": "Which of the following lipoproteins are the major carriers of triacylglycerol?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Chylomicron and VLDL"
+        },
+        {
+          "letter": "B",
+          "text": "LDL and HDL"
+        },
+        {
+          "letter": "C",
+          "text": "HDL and VLDL"
+        },
+        {
+          "letter": "D",
+          "text": "Chylomicron and HDL"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Chylomicron and VLDL",
+      "explanation": "Triacylglycerol is predominantly carried by chylomicrons and VLDL.",
+      "structuredExplanation": {
+        "text": "Triacylglycerol is predominantly carried by chylomicrons and VLDL.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Triacylglycerol is predominantly carried by chylomicrons and VLDL."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          249
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          256
+        ]
+      },
+      "sourcePage": 249,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q011",
+      "sourceQuestionId": "BIOCHEM_CH16_Q011",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 11,
+      "questionType": "single_best_answer",
+      "question": "Which is the largest human plasma lipoprotein?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "VLDL"
+        },
+        {
+          "letter": "B",
+          "text": "LDL"
+        },
+        {
+          "letter": "C",
+          "text": "HDL"
+        },
+        {
+          "letter": "D",
+          "text": "Chylomicron"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Chylomicron",
+      "explanation": "Chylomicrons are the largest among plasma lipoproteins, which are especially rich in triacylglycerol.",
+      "structuredExplanation": {
+        "text": "Chylomicrons are the largest among plasma lipoproteins, which are especially rich in triacylglycerol.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Chylomicrons are the largest among plasma lipoproteins, which are especially rich in triacylglycerol."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          249
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          256
+        ]
+      },
+      "sourcePage": 249,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q012",
+      "sourceQuestionId": "BIOCHEM_CH16_Q012",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 12,
+      "questionType": "single_best_answer",
+      "question": "Which of the following statements about HDL is false?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "HDL act as repository for the apo C and apo E."
+        },
+        {
+          "letter": "B",
+          "text": "Class B scavenger receptor B1 (SRB-1) is HDL receptor."
+        },
+        {
+          "letter": "C",
+          "text": "HDL removes cholesterol from tissues."
+        },
+        {
+          "letter": "D",
+          "text": "HDL increases LDL oxidation."
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "HDL increases LDL oxidation.",
+      "explanation": "HDL plays no role in LDL oxidation.\n\nA major function of HDL is to act as a repository for the apo C and apo E required in the metabolism of chylomicrons and VLDL.\n\nThe class B scavenger receptor B1 (SRB-1) has been identified as an HDL receptor with a dual role in HDL metabolism. SRB-1 mediates the acceptance of cholesterol effluxed from the cells by HDL, which then transports it to the liver for excretion via the bile.",
+      "structuredExplanation": {
+        "text": "HDL plays no role in LDL oxidation.\n\nA major function of HDL is to act as a repository for the apo C and apo E required in the metabolism of chylomicrons and VLDL.\n\nThe class B scavenger receptor B1 (SRB-1) has been identified as an HDL receptor with a dual role in HDL metabolism. SRB-1 mediates the acceptance of cholesterol effluxed from the cells by HDL, which then transports it to the liver for excretion via the bile.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "HDL plays no role in LDL oxidation."
+          },
+          {
+            "type": "paragraph",
+            "text": "A major function of HDL is to act as a repository for the apo C and apo E required in the metabolism of chylomicrons and VLDL."
+          },
+          {
+            "type": "paragraph",
+            "text": "The class B scavenger receptor B1 (SRB-1) has been identified as an HDL receptor with a dual role in HDL metabolism. SRB-1 mediates the acceptance of cholesterol effluxed from the cells by HDL, which then transports it to the liver for excretion via the bile."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          249,
+          250
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          257
+        ]
+      },
+      "sourcePage": 249,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q013",
+      "sourceQuestionId": "BIOCHEM_CH16_Q013",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 13,
+      "questionType": "single_best_answer",
+      "question": "An adolescent male with a history of recurrent abdominal pain and eruptive xanthoma is suspected to have a rare genetic condition affecting lipid metabolism. On serum lipid electrophoresis (diagram below) band 1 (origin) is found to be wider than normal. Activity of which of the following enzymes is reduced in this patient?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Lipoprotein lipase"
+        },
+        {
+          "letter": "B",
+          "text": "Hormone Sensitive Lipase"
+        },
+        {
+          "letter": "C",
+          "text": "LCAT"
+        },
+        {
+          "letter": "D",
+          "text": "HMG Co-A reductase"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Lipoprotein lipase",
+      "explanation": "The given clinical vignette with a wide band at the origin on serum lipid electrophoresis is suggestive of familial hyperchylomicronemia (elevated chylomicron level in blood), which is associated with a deficiency of lipoprotein lipase. Familial hyperchylomicronemia is also associated with hepatosplenomegaly, pancreatitis and eruptive/pruritic xanthoma. Serum biochemistry commonly reveals increased chylomicron, triglyceride and cholesterol levels in the blood.\n\nChylomicron has the lowest mobility on serum lipid electrophoresis and the chylomicron band appears at the origin location (initial location). On the other hand, HDL has the highest electrophoretic mobility and the least lipid content.\n\nAs a general rule, lipoproteins with higher protein content will move faster towards the anode and those with fewer proteins have minimal mobility.\n\nNote: Even though VLDL has a lesser percentage of proteins with respect to LDL, it moves ahead of LDL closer to the anode due to the presence of more net negative charge in VLDL.",
+      "structuredExplanation": {
+        "text": "The given clinical vignette with a wide band at the origin on serum lipid electrophoresis is suggestive of familial hyperchylomicronemia (elevated chylomicron level in blood), which is associated with a deficiency of lipoprotein lipase. Familial hyperchylomicronemia is also associated with hepatosplenomegaly, pancreatitis and eruptive/pruritic xanthoma. Serum biochemistry commonly reveals increased chylomicron, triglyceride and cholesterol levels in the blood.\n\nChylomicron has the lowest mobility on serum lipid electrophoresis and the chylomicron band appears at the origin location (initial location). On the other hand, HDL has the highest electrophoretic mobility and the least lipid content.\n\nAs a general rule, lipoproteins with higher protein content will move faster towards the anode and those with fewer proteins have minimal mobility.\n\nNote: Even though VLDL has a lesser percentage of proteins with respect to LDL, it moves ahead of LDL closer to the anode due to the presence of more net negative charge in VLDL.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The given clinical vignette with a wide band at the origin on serum lipid electrophoresis is suggestive of familial hyperchylomicronemia (elevated chylomicron level in blood), which is associated with a deficiency of lipoprotein lipase. Familial hyperchylomicronemia is also associated with hepatosplenomegaly, pancreatitis and eruptive/pruritic xanthoma. Serum biochemistry commonly reveals increased chylomicron, triglyceride and cholesterol levels in the blood."
+          },
+          {
+            "type": "paragraph",
+            "text": "Chylomicron has the lowest mobility on serum lipid electrophoresis and the chylomicron band appears at the origin location (initial location). On the other hand, HDL has the highest electrophoretic mobility and the least lipid content."
+          },
+          {
+            "type": "paragraph",
+            "text": "As a general rule, lipoproteins with higher protein content will move faster towards the anode and those with fewer proteins have minimal mobility."
+          },
+          {
+            "type": "paragraph",
+            "text": "Note: Even though VLDL has a lesser percentage of proteins with respect to LDL, it moves ahead of LDL closer to the anode due to the presence of more net negative charge in VLDL."
+          },
+          {
+            "type": "table",
+            "table_id": "BIOCHEM_CH16_Q013_T1",
+            "title": "Lipoprotein electrophoretic mobility and protein composition",
+            "source_page": 257
+          },
+          {
+            "type": "figure",
+            "figure_id": "BIOCHEM_CH16_Q013_F1",
+            "title": "Serum lipoprotein electrophoresis with bands numbered 1–4",
+            "source_page": 250,
+            "role": "question",
+            "crop_norm": {
+              "x0": 0.31,
+              "y0": 0.27,
+              "x1": 0.69,
+              "y1": 0.55
+            }
+          },
+          {
+            "type": "figure",
+            "figure_id": "BIOCHEM_CH16_Q013_F2",
+            "title": "Electrophoresis of lipoproteins",
+            "source_page": 258,
+            "role": "explanation",
+            "crop_norm": {
+              "x0": 0.31,
+              "y0": 0.03,
+              "x1": 0.72,
+              "y1": 0.36
+            }
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "BIOCHEM_CH16_Q013_T1",
+            "title": "Lipoprotein electrophoretic mobility and protein composition",
+            "source_page": 257,
+            "columns": [
+              "",
+              "Chylomicron",
+              "VLDL",
+              "IDL",
+              "LDL",
+              "HDL"
+            ],
+            "rows": [
+              [
+                "Electrophoretic mobility",
+                "origin",
+                "pre-beta",
+                "broad-beta",
+                "beta",
+                "alpha"
+              ],
+              [
+                "Protein composition (%)",
+                "2",
+                "10",
+                "20",
+                "20",
+                "30-60"
+              ]
+            ]
+          }
+        ],
+        "figures": [
+          {
+            "figure_id": "BIOCHEM_CH16_Q013_F1",
+            "type": "electrophoresis_diagram",
+            "title": "Serum lipoprotein electrophoresis with bands numbered 1–4",
+            "source_page": 250,
+            "role": "question",
+            "question_critical": true,
+            "crop_norm": {
+              "x0": 0.31,
+              "y0": 0.27,
+              "x1": 0.69,
+              "y1": 0.55
+            }
+          },
+          {
+            "figure_id": "BIOCHEM_CH16_Q013_F2",
+            "type": "electrophoresis_diagram",
+            "title": "Electrophoresis of lipoproteins",
+            "source_page": 258,
+            "role": "explanation",
+            "crop_norm": {
+              "x0": 0.31,
+              "y0": 0.03,
+              "x1": 0.72,
+              "y1": 0.36
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          250
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          257,
+          258
+        ]
+      },
+      "sourcePage": 250,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q014",
+      "sourceQuestionId": "BIOCHEM_CH16_Q014",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 14,
+      "questionType": "single_best_answer",
+      "question": "Which of the following contains apolipoprotein A?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1,2,3"
+        },
+        {
+          "letter": "B",
+          "text": "1,2"
+        },
+        {
+          "letter": "C",
+          "text": "3,5"
+        },
+        {
+          "letter": "D",
+          "text": "2,4,5"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "1,2",
+      "explanation": "Apolipoprotein A is found in chylomicron and HDL.",
+      "structuredExplanation": {
+        "text": "Apolipoprotein A is found in chylomicron and HDL.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Apolipoprotein A is found in chylomicron and HDL."
+          },
+          {
+            "type": "table",
+            "table_id": "BIOCHEM_CH16_Q014_T1",
+            "title": "Corresponding apolipoproteins of plasma lipoproteins",
+            "source_page": 258
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "BIOCHEM_CH16_Q014_T1",
+            "title": "Corresponding apolipoproteins of plasma lipoproteins",
+            "source_page": 258,
+            "columns": [
+              "Lipoproteins",
+              "Apo-A",
+              "Apo-C",
+              "Apo-E",
+              "Apo-B"
+            ],
+            "rows": [
+              [
+                "HDL",
+                "A",
+                "C",
+                "E",
+                "D"
+              ],
+              [
+                "Chylomicron",
+                "A",
+                "C",
+                "E",
+                "B-48"
+              ],
+              [
+                "VLDL",
+                "",
+                "C",
+                "E",
+                "B-100"
+              ],
+              [
+                "IDL",
+                "",
+                "",
+                "E",
+                "B-100"
+              ],
+              [
+                "LDL",
+                "",
+                "",
+                "",
+                "B-100"
+              ]
+            ]
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          250
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          258
+        ]
+      },
+      "sourcePage": 250,
+      "reviewStatus": "needs_manual_review",
+      "reviewNotes": [
+        "Source question uses numbered combinations (1–5) but the rendered question page does not provide a corresponding numbered list/legend. The nearby Q13 electrophoresis image has only bands 1–4 and therefore cannot safely supply the missing mapping. Source options and keyed answer b were preserved without reconstruction."
+      ],
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": [
+          "Source question uses numbered combinations (1–5) but the rendered question page does not provide a corresponding numbered list/legend. The nearby Q13 electrophoresis image has only bands 1–4 and therefore cannot safely supply the missing mapping. Source options and keyed answer b were preserved without reconstruction."
+        ]
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q015",
+      "sourceQuestionId": "BIOCHEM_CH16_Q015",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 15,
+      "questionType": "single_best_answer",
+      "question": "Which of the following has the highest electrophoretic mobility and least lipid content?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Chylomicrons"
+        },
+        {
+          "letter": "B",
+          "text": "HDL"
+        },
+        {
+          "letter": "C",
+          "text": "LDL"
+        },
+        {
+          "letter": "D",
+          "text": "VLDL"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "HDL",
+      "explanation": "HDL has the highest electrophoretic mobility and the least lipid content. HDL particles are the densest.\n\nOn electrophoresis, HDL moves farthest on the electrophoretic plate towards the anode. On the other hand, the chylomicron does not move towards the charged end in electrophoresis, thus having the lowest mobility. As a general rule, lipoproteins with higher protein content will move faster towards the anode and those with fewer proteins have minimal mobility.\n\nThe density of various lipoproteins and their electrophoretic mobility are shown in the images below.",
+      "structuredExplanation": {
+        "text": "HDL has the highest electrophoretic mobility and the least lipid content. HDL particles are the densest.\n\nOn electrophoresis, HDL moves farthest on the electrophoretic plate towards the anode. On the other hand, the chylomicron does not move towards the charged end in electrophoresis, thus having the lowest mobility. As a general rule, lipoproteins with higher protein content will move faster towards the anode and those with fewer proteins have minimal mobility.\n\nThe density of various lipoproteins and their electrophoretic mobility are shown in the images below.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "HDL has the highest electrophoretic mobility and the least lipid content. HDL particles are the densest."
+          },
+          {
+            "type": "paragraph",
+            "text": "On electrophoresis, HDL moves farthest on the electrophoretic plate towards the anode. On the other hand, the chylomicron does not move towards the charged end in electrophoresis, thus having the lowest mobility. As a general rule, lipoproteins with higher protein content will move faster towards the anode and those with fewer proteins have minimal mobility."
+          },
+          {
+            "type": "paragraph",
+            "text": "The density of various lipoproteins and their electrophoretic mobility are shown in the images below."
+          },
+          {
+            "type": "figure",
+            "figure_id": "BIOCHEM_CH16_Q015_F1",
+            "title": "Electrophoresis of lipoproteins",
+            "source_page": 259,
+            "role": "explanation",
+            "crop_norm": {
+              "x0": 0.28,
+              "y0": 0.03,
+              "x1": 0.74,
+              "y1": 0.32
+            }
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "figure_id": "BIOCHEM_CH16_Q015_F1",
+            "type": "electrophoresis_diagram",
+            "title": "Electrophoresis of lipoproteins",
+            "source_page": 259,
+            "role": "explanation",
+            "crop_norm": {
+              "x0": 0.28,
+              "y0": 0.03,
+              "x1": 0.74,
+              "y1": 0.32
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          251
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          258,
+          259
+        ]
+      },
+      "sourcePage": 251,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q016",
+      "sourceQuestionId": "BIOCHEM_CH16_Q016",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 16,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is the main apolipoprotein present in LDL?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Apo B-100"
+        },
+        {
+          "letter": "B",
+          "text": "Apo E"
+        },
+        {
+          "letter": "C",
+          "text": "Apo-48"
+        },
+        {
+          "letter": "D",
+          "text": "Apo A-11"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Apo B-100",
+      "explanation": "The main apolipoprotein of LDL (β-lipoprotein) is apo B (B-100), which is found also in VLDL.",
+      "structuredExplanation": {
+        "text": "The main apolipoprotein of LDL (β-lipoprotein) is apo B (B-100), which is found also in VLDL.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The main apolipoprotein of LDL (β-lipoprotein) is apo B (B-100), which is found also in VLDL."
+          },
+          {
+            "type": "table",
+            "table_id": "BIOCHEM_CH16_Q016_T1",
+            "title": "Corresponding apolipoproteins of plasma lipoproteins",
+            "source_page": 259
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "BIOCHEM_CH16_Q016_T1",
+            "title": "Corresponding apolipoproteins of plasma lipoproteins",
+            "source_page": 259,
+            "columns": [
+              "Lipoproteins",
+              "Apo-A",
+              "Apo-C",
+              "Apo-E",
+              "Apo-B"
+            ],
+            "rows": [
+              [
+                "HDL",
+                "A",
+                "C",
+                "E",
+                "D"
+              ],
+              [
+                "Chylomicron",
+                "A",
+                "C",
+                "E",
+                "B-48"
+              ],
+              [
+                "VLDL",
+                "",
+                "C",
+                "E",
+                "B-100"
+              ],
+              [
+                "IDL",
+                "",
+                "",
+                "E",
+                "B-100"
+              ],
+              [
+                "LDL",
+                "",
+                "",
+                "",
+                "B-100"
+              ]
+            ]
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          251
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          259
+        ]
+      },
+      "sourcePage": 251,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q017",
+      "sourceQuestionId": "BIOCHEM_CH16_Q017",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 17,
+      "questionType": "single_best_answer",
+      "question": "Which of the following statements about LDL is false?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "It delivers cholesterol to cells."
+        },
+        {
+          "letter": "B",
+          "text": "It contains only one apoprotein."
+        },
+        {
+          "letter": "C",
+          "text": "It is the marker of cardiovascular disease."
+        },
+        {
+          "letter": "D",
+          "text": "It contains Apo B-48."
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "It contains Apo B-48.",
+      "explanation": "Apo B-48 is not the ligand of LDL.\n\nApo B-48 is the apolipoprotein present on nascent chylomicrons. The main apolipoprotein of LDL (β-lipoprotein) is apo B (B-100), which is found also in VLDL.\n\nLow-density lipoproteins (LDL) deliver cholesterol to the tissues, hence it is a marker of cardiovascular disease.",
+      "structuredExplanation": {
+        "text": "Apo B-48 is not the ligand of LDL.\n\nApo B-48 is the apolipoprotein present on nascent chylomicrons. The main apolipoprotein of LDL (β-lipoprotein) is apo B (B-100), which is found also in VLDL.\n\nLow-density lipoproteins (LDL) deliver cholesterol to the tissues, hence it is a marker of cardiovascular disease.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Apo B-48 is not the ligand of LDL."
+          },
+          {
+            "type": "paragraph",
+            "text": "Apo B-48 is the apolipoprotein present on nascent chylomicrons. The main apolipoprotein of LDL (β-lipoprotein) is apo B (B-100), which is found also in VLDL."
+          },
+          {
+            "type": "paragraph",
+            "text": "Low-density lipoproteins (LDL) deliver cholesterol to the tissues, hence it is a marker of cardiovascular disease."
+          },
+          {
+            "type": "table",
+            "table_id": "BIOCHEM_CH16_Q017_T1",
+            "title": "Corresponding apolipoproteins of plasma lipoproteins",
+            "source_page": 260
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "BIOCHEM_CH16_Q017_T1",
+            "title": "Corresponding apolipoproteins of plasma lipoproteins",
+            "source_page": 260,
+            "columns": [
+              "Lipoproteins",
+              "Apo-A",
+              "Apo-C",
+              "Apo-E",
+              "Apo-B"
+            ],
+            "rows": [
+              [
+                "HDL",
+                "A",
+                "C",
+                "E",
+                "D"
+              ],
+              [
+                "Chylomicron",
+                "A",
+                "C",
+                "E",
+                "B-48"
+              ],
+              [
+                "VLDL",
+                "",
+                "C",
+                "E",
+                "B-100"
+              ],
+              [
+                "IDL",
+                "",
+                "",
+                "E",
+                "B-100"
+              ],
+              [
+                "LDL",
+                "",
+                "",
+                "",
+                "B-100"
+              ]
+            ]
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          251
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          259,
+          260
+        ]
+      },
+      "sourcePage": 251,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q018",
+      "sourceQuestionId": "BIOCHEM_CH16_Q018",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 18,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is an activator of the key enzyme required in reverse cholesterol transport?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Apo B-100"
+        },
+        {
+          "letter": "B",
+          "text": "Apo B-48"
+        },
+        {
+          "letter": "C",
+          "text": "Apo A-IV"
+        },
+        {
+          "letter": "D",
+          "text": "Apo A-I"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Apo A-I",
+      "explanation": "Apo A-I is the activator of Lecithin: cholesterol acyltransferase (LCAT), the enzyme present in HDL facilitating reverse cholesterol transport.\n\nLecithin-cholesterol acyltransferase (LCAT) is activated by apo A-I which then converts free cholesterol (amphipathic) in HDL to cholesterol ester (hydrophobic). As a result the initial discoidal shape now becomes spherical.\n\nThis facilitates reverse cholesterol transport.\n\nClinical correlation: Familial LCAT deficiency will lead to failure of reverse cholesterol transport resulting in cholesterol deposition in specific peripheral tissues - the cornea, kidneys, and erythrocytes. Major complications include premature atherosclerosis, renal failure, anemia and corneal opacities. HDL cholesterol level is decreased.",
+      "structuredExplanation": {
+        "text": "Apo A-I is the activator of Lecithin: cholesterol acyltransferase (LCAT), the enzyme present in HDL facilitating reverse cholesterol transport.\n\nLecithin-cholesterol acyltransferase (LCAT) is activated by apo A-I which then converts free cholesterol (amphipathic) in HDL to cholesterol ester (hydrophobic). As a result the initial discoidal shape now becomes spherical.\n\nThis facilitates reverse cholesterol transport.\n\nClinical correlation: Familial LCAT deficiency will lead to failure of reverse cholesterol transport resulting in cholesterol deposition in specific peripheral tissues - the cornea, kidneys, and erythrocytes. Major complications include premature atherosclerosis, renal failure, anemia and corneal opacities. HDL cholesterol level is decreased.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Apo A-I is the activator of Lecithin: cholesterol acyltransferase (LCAT), the enzyme present in HDL facilitating reverse cholesterol transport."
+          },
+          {
+            "type": "paragraph",
+            "text": "Lecithin-cholesterol acyltransferase (LCAT) is activated by apo A-I which then converts free cholesterol (amphipathic) in HDL to cholesterol ester (hydrophobic). As a result the initial discoidal shape now becomes spherical."
+          },
+          {
+            "type": "paragraph",
+            "text": "This facilitates reverse cholesterol transport."
+          },
+          {
+            "type": "paragraph",
+            "text": "Clinical correlation: Familial LCAT deficiency will lead to failure of reverse cholesterol transport resulting in cholesterol deposition in specific peripheral tissues - the cornea, kidneys, and erythrocytes. Major complications include premature atherosclerosis, renal failure, anemia and corneal opacities. HDL cholesterol level is decreased."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          251
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          260
+        ]
+      },
+      "sourcePage": 251,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q019",
+      "sourceQuestionId": "BIOCHEM_CH16_Q019",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 19,
+      "questionType": "single_best_answer",
+      "question": "Which apoprotein do chylomicrons require in order to enter the lymph?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Apo B-48"
+        },
+        {
+          "letter": "B",
+          "text": "Apo B-100"
+        },
+        {
+          "letter": "C",
+          "text": "Apo C"
+        },
+        {
+          "letter": "D",
+          "text": "Apo E"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Apo B-48",
+      "explanation": "Each nascent chylomicron particle has one molecule of apolipoprotein (apo) B-48 with which chylomicrons are released from the cells into the lymphatic system and travel to the blood, where they receive apo C-II and apo E from HDLs.",
+      "structuredExplanation": {
+        "text": "Each nascent chylomicron particle has one molecule of apolipoprotein (apo) B-48 with which chylomicrons are released from the cells into the lymphatic system and travel to the blood, where they receive apo C-II and apo E from HDLs.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Each nascent chylomicron particle has one molecule of apolipoprotein (apo) B-48 with which chylomicrons are released from the cells into the lymphatic system and travel to the blood, where they receive apo C-II and apo E from HDLs."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          252
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          260
+        ]
+      },
+      "sourcePage": 252,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q020",
+      "sourceQuestionId": "BIOCHEM_CH16_Q020",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 20,
+      "questionType": "single_best_answer",
+      "question": "Where does IDL become LDL?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Blood capillaries of the liver"
+        },
+        {
+          "letter": "B",
+          "text": "Cytosol of liver"
+        },
+        {
+          "letter": "C",
+          "text": "Heart"
+        },
+        {
+          "letter": "D",
+          "text": "Mitochondria of liver"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Blood capillaries of the liver",
+      "explanation": "IDL (Intermediate-density lipoprotein) particles are rapidly taken up by the liver in circulation, where they undergo further triglyceride hydrolysis and are converted to LDL (Low density lipoprotein).",
+      "structuredExplanation": {
+        "text": "IDL (Intermediate-density lipoprotein) particles are rapidly taken up by the liver in circulation, where they undergo further triglyceride hydrolysis and are converted to LDL (Low density lipoprotein).",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "IDL (Intermediate-density lipoprotein) particles are rapidly taken up by the liver in circulation, where they undergo further triglyceride hydrolysis and are converted to LDL (Low density lipoprotein)."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          252
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          260
+        ]
+      },
+      "sourcePage": 252,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q021",
+      "sourceQuestionId": "BIOCHEM_CH16_Q021",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "16",
+      "chapter": "Cholesterol Synthesis, Transport and Excretion",
+      "questionNumber": 21,
+      "questionType": "single_best_answer",
+      "question": "A 56-year-old man suffering from uncontrolled diabetes mellitus came for a routine checkup. His lipid profile revealed increased TG (triacylglycerol) and VLDL (very low-density lipoprotein). What is the cause of this abnormal lipid profile?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Increased activity of lipoprotein lipase and decreased activity of hormone sensitive lipase"
+        },
+        {
+          "letter": "B",
+          "text": "Increased activity of hormone sensitive lipase and decreased lipoprotein lipase activity"
+        },
+        {
+          "letter": "C",
+          "text": "Increase in peripheral function of LDL receptors"
+        },
+        {
+          "letter": "D",
+          "text": "Increased in activity of hepatic lipase"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Increased activity of hormone sensitive lipase and decreased lipoprotein lipase activity",
+      "explanation": "In chronic diabetes, the values of TG and VLDL are increased due to an increase in hormone-sensitive lipase and a decrease in lipoprotein lipase.\n\nInsulin has an inhibitory effect on hormone-sensitive lipase (HSL). In diabetes, low insulin corresponds to an increase in HSL activity. This promotes the breakdown of lipids and the release of TG and free fatty acids from the adipose tissue.\n\nInsulin induces the activity of lipoprotein lipase (LPL) which is present on the capillary walls. LPL promotes hydrolysis of TG and the degradation of the transport proteins, VLDL, and chylomicrons. In diabetes, low insulin leads to decreased LPL activity which corresponds to an increase in VLDL and TG.",
+      "structuredExplanation": {
+        "text": "In chronic diabetes, the values of TG and VLDL are increased due to an increase in hormone-sensitive lipase and a decrease in lipoprotein lipase.\n\nInsulin has an inhibitory effect on hormone-sensitive lipase (HSL). In diabetes, low insulin corresponds to an increase in HSL activity. This promotes the breakdown of lipids and the release of TG and free fatty acids from the adipose tissue.\n\nInsulin induces the activity of lipoprotein lipase (LPL) which is present on the capillary walls. LPL promotes hydrolysis of TG and the degradation of the transport proteins, VLDL, and chylomicrons. In diabetes, low insulin leads to decreased LPL activity which corresponds to an increase in VLDL and TG.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "In chronic diabetes, the values of TG and VLDL are increased due to an increase in hormone-sensitive lipase and a decrease in lipoprotein lipase."
+          },
+          {
+            "type": "paragraph",
+            "text": "Insulin has an inhibitory effect on hormone-sensitive lipase (HSL). In diabetes, low insulin corresponds to an increase in HSL activity. This promotes the breakdown of lipids and the release of TG and free fatty acids from the adipose tissue."
+          },
+          {
+            "type": "paragraph",
+            "text": "Insulin induces the activity of lipoprotein lipase (LPL) which is present on the capillary walls. LPL promotes hydrolysis of TG and the degradation of the transport proteins, VLDL, and chylomicrons. In diabetes, low insulin leads to decreased LPL activity which corresponds to an increase in VLDL and TG."
+          },
+          {
+            "type": "figure",
+            "figure_id": "BIOCHEM_CH16_Q021_F1",
+            "title": "Lipolysis regulation in the adipocyte",
+            "source_page": 261,
+            "role": "explanation",
+            "crop_norm": {
+              "x0": 0.2,
+              "y0": 0.48,
+              "x1": 0.82,
+              "y1": 0.88
+            }
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "figure_id": "BIOCHEM_CH16_Q021_F1",
+            "type": "metabolic_regulation_diagram",
+            "title": "Lipolysis regulation in the adipocyte",
+            "source_page": 261,
+            "role": "explanation",
+            "crop_norm": {
+              "x0": 0.2,
+              "y0": 0.48,
+              "x1": 0.82,
+              "y1": 0.88
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          252
+        ],
+        "answerKeyPages": [
+          252,
+          253
+        ],
+        "explanationPages": [
+          261
+        ]
+      },
+      "sourcePage": 252,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "transcription_aid": "Single English OCR pass over rendered 2.2× page images, visually reconciled against rendered Marrow ED8 pages.",
+        "notes": []
+      }
+    }
+  ]
+}

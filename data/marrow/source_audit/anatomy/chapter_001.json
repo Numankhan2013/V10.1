@@ -1,0 +1,1183 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Derived read-only audit view. Immutable source remains the sharded Marrow bundle.",
+  "subject": "Anatomy",
+  "chapterId": "1",
+  "questionCount": 19,
+  "immutableSourcePrefix": "anatomy_phase_a",
+  "sourceRawSha256": "91668e021be2ea744d8c219da8b7445108dc4cd75e1fafe89b5e48019e04ee67",
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH01_Q001",
+      "sourceQuestionId": "ANAT_CH01_Q001",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 1,
+      "questionType": "single_best_answer",
+      "question": "What are the site and the timing of the origin of the primordial germ cells?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Gonads, 4th week of embryonic development"
+        },
+        {
+          "letter": "B",
+          "text": "Epiblast, 2nd week of embryonic development"
+        },
+        {
+          "letter": "C",
+          "text": "Gonads, 2nd month of embryonic development"
+        },
+        {
+          "letter": "D",
+          "text": "Yolk sac, 4th week of embryonic development"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Epiblast, 2nd week of embryonic development",
+      "explanation": "Primordial germ cells originate in the epiblast, during the 2nd week of development.\n\nPrimordial germ cells (PGCs) are also known as primitive sex cells. During the 2nd week of development, they originate in the epiblast at the caudal end of the primitive streak.\n\nThey are the precursors of gametes in both genders. They pass through the primitive streak during gastrulation and reach the wall of the yolk sac. They migrate from the yolk sac in the 4th week and reach the developing gonads by the end of the 5th week.",
+      "structuredExplanation": {
+        "text": "Primordial germ cells originate in the epiblast, during the 2nd week of development.\n\nPrimordial germ cells (PGCs) are also known as primitive sex cells. During the 2nd week of development, they originate in the epiblast at the caudal end of the primitive streak.\n\nThey are the precursors of gametes in both genders. They pass through the primitive streak during gastrulation and reach the wall of the yolk sac. They migrate from the yolk sac in the 4th week and reach the developing gonads by the end of the 5th week.",
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          5
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          10
+        ]
+      },
+      "sourcePage": 5,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q002",
+      "sourceQuestionId": "ANAT_CH01_Q002",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 2,
+      "questionType": "single_best_answer",
+      "question": "What is the correct sequence of stem cell potency based on their ability to differentiate?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pluripotent > Totipotent > Multipotent > Oligopotent > Unipotent"
+        },
+        {
+          "letter": "B",
+          "text": "Totipotent > Pluripotent > Multipotent > Oligopotent > Unipotent"
+        },
+        {
+          "letter": "C",
+          "text": "Totipotent > Pluripotent > Oligopotent > Multipotent > Unipotent"
+        },
+        {
+          "letter": "D",
+          "text": "Pluripotent > Totipotent > Oligopotent > Multipotent > Unipotent"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Totipotent > Pluripotent > Multipotent > Oligopotent > Unipotent",
+      "explanation": "The correct order of arrangement of stem cells, based on their potency to differentiate into different cells (highest to lowest) is totipotent > pluripotent > multipotent > oligopotent > unipotent.",
+      "structuredExplanation": {
+        "text": "The correct order of arrangement of stem cells, based on their potency to differentiate into different cells (highest to lowest) is totipotent > pluripotent > multipotent > oligopotent > unipotent.",
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          5
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          10
+        ]
+      },
+      "sourcePage": 5,
+      "reviewStatus": "pass_with_normalization_note",
+      "reviewNotes": [
+        "The rendered source visibly contains the literal string '&gt;' between potency levels; normalized here to '>' while preserving this note."
+      ],
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": [
+          "The rendered source visibly contains the literal string '&gt;' between potency levels; normalized here to '>' while preserving this note."
+        ]
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q003",
+      "sourceQuestionId": "ANAT_CH01_Q003",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 3,
+      "questionType": "single_best_answer",
+      "question": "What is a part of the embryo that exerts morphogenetic stimulus on its adjacent part called?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Differentiator"
+        },
+        {
+          "letter": "B",
+          "text": "Organizer"
+        },
+        {
+          "letter": "C",
+          "text": "Stem cell"
+        },
+        {
+          "letter": "D",
+          "text": "Inducer"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Organizer",
+      "explanation": "Any part of the embryo that exerts a morphogenetic stimulus on adjacent parts is known as the organizer.\n\nFirst level is the primary organizer that induces the development of new tissues. This newly developed tissue can then induce another tissue in turn to become the secondary organizer. Therefore, there is a sequence or chain of organizers called primary, secondary, and tertiary organizers.\n\nExamples of the three levels of organizers:\n• Primary organizer: e.g., Blastopore induces differentiation of notochord\n• Secondary organizer: e.g., Notochord induces the development of the neural tube (that forms the brain and spinal cord)\n• Tertiary organizer: e.g., Neural tube induces segmentation of paraxial mesoderm into somites",
+      "structuredExplanation": {
+        "text": "Any part of the embryo that exerts a morphogenetic stimulus on adjacent parts is known as the organizer.\n\nFirst level is the primary organizer that induces the development of new tissues. This newly developed tissue can then induce another tissue in turn to become the secondary organizer. Therefore, there is a sequence or chain of organizers called primary, secondary, and tertiary organizers.\n\nExamples of the three levels of organizers:\n• Primary organizer: e.g., Blastopore induces differentiation of notochord\n• Secondary organizer: e.g., Notochord induces the development of the neural tube (that forms the brain and spinal cord)\n• Tertiary organizer: e.g., Neural tube induces segmentation of paraxial mesoderm into somites",
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          5
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          11
+        ]
+      },
+      "sourcePage": 5,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q004",
+      "sourceQuestionId": "ANAT_CH01_Q004",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 4,
+      "questionType": "single_best_answer",
+      "question": "During which phase of meiotic division are leptotene and zygotene stages seen?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Metaphase 1"
+        },
+        {
+          "letter": "B",
+          "text": "Prophase 1"
+        },
+        {
+          "letter": "C",
+          "text": "Metaphase 2"
+        },
+        {
+          "letter": "D",
+          "text": "Prophase 2"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Prophase 1",
+      "explanation": "Leptotene and zygotene are stages of prophase 1 of meiosis I.\n\nMeiosis is a special type of cell division that reduces the chromosome number by half. It creates 4 daughter cells, each with haploid chromosomes distinct from the parent cell. Meiosis consists of two successive divisions called the first and second meiotic divisions. The various stages of meiosis are as follows:\n\nFirst meiotic division (meiosis I)\n• Prophase 1 (Leptotene, Zygotene, Pachytene, Diplotene, Diakinesis)\n• Metaphase 1\n• Anaphase 1\n• Telophase 1\n\nSecond meiotic division (meiosis II)\n• Prophase 2\n• Metaphase 2\n• Anaphase 2\n• Telophase 2",
+      "structuredExplanation": {
+        "text": "Leptotene and zygotene are stages of prophase 1 of meiosis I.\n\nMeiosis is a special type of cell division that reduces the chromosome number by half. It creates 4 daughter cells, each with haploid chromosomes distinct from the parent cell. Meiosis consists of two successive divisions called the first and second meiotic divisions. The various stages of meiosis are as follows:\n\nFirst meiotic division (meiosis I)\n• Prophase 1 (Leptotene, Zygotene, Pachytene, Diplotene, Diakinesis)\n• Metaphase 1\n• Anaphase 1\n• Telophase 1\n\nSecond meiotic division (meiosis II)\n• Prophase 2\n• Metaphase 2\n• Anaphase 2\n• Telophase 2",
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          5,
+          6
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          11
+        ]
+      },
+      "sourcePage": 5,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q005",
+      "sourceQuestionId": "ANAT_CH01_Q005",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 5,
+      "questionType": "single_best_answer",
+      "question": "Which of the following represents the embryonic period of development?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "0-2 weeks"
+        },
+        {
+          "letter": "B",
+          "text": "3-8 weeks"
+        },
+        {
+          "letter": "C",
+          "text": "8-10 weeks"
+        },
+        {
+          "letter": "D",
+          "text": "10-12 weeks"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "3-8 weeks",
+      "explanation": "The embryonic period extends from the 3rd week of intrauterine life to the 8th week of intrauterine life.\n\nThe prenatal period is divided into 3 different stages:",
+      "structuredExplanation": {
+        "text": "The embryonic period extends from the 3rd week of intrauterine life to the 8th week of intrauterine life.\n\nThe prenatal period is divided into 3 different stages:",
+        "tables": [
+          {
+            "title": "Stages of prenatal development",
+            "columns": [
+              "Stages of prenatal development",
+              "Important events of each stage"
+            ],
+            "rows": [
+              [
+                "Pre-embryonic period (First 2 weeks)",
+                "Fertilization; Cleavage and blastocyst formation; Implantation; Formation of embryoblast and trophoblast; Differentiation of embryoblast to two-layered (bilaminar) germ disc; Differentiation of trophoblast into cytotrophoblast and syncytiotrophoblast"
+              ],
+              [
+                "Embryonic period (3-8 weeks)",
+                "Trilaminar germ disc formation with the formation of 3 germ layers; Early organogenesis; Formation of extraembryonic supportive organs and membranes such as placenta, umbilical cord, amnion, and allantois"
+              ],
+              [
+                "Fetal period (9 weeks to birth)",
+                "Growth and specialization of body structures"
+              ]
+            ],
+            "asset": "assets/prenatal_stages_table_p12.png",
+            "source_page": 12
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          6
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          11,
+          12
+        ]
+      },
+      "sourcePage": 6,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q006",
+      "sourceQuestionId": "ANAT_CH01_Q006",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 6,
+      "questionType": "single_best_answer",
+      "question": "During which stage of prenatal development does gastrulation occur?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Embryonic period"
+        },
+        {
+          "letter": "B",
+          "text": "Pre-embryonic period"
+        },
+        {
+          "letter": "C",
+          "text": "Gametogenesis"
+        },
+        {
+          "letter": "D",
+          "text": "Fetal period"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Embryonic period",
+      "explanation": "Gastrulation occurs during the embryonic period at the 3rd week of gestation.\n\nDuring the 3rd week of intra-uterine life, three definitive germ layers are formed, namely ectoderm, mesoderm, and endoderm. The three germ layers develop from the epiblast by a process of cell proliferation and migration known as gastrulation. This transforms the bilaminar germ disc into a trilaminar structure.",
+      "structuredExplanation": {
+        "text": "Gastrulation occurs during the embryonic period at the 3rd week of gestation.\n\nDuring the 3rd week of intra-uterine life, three definitive germ layers are formed, namely ectoderm, mesoderm, and endoderm. The three germ layers develop from the epiblast by a process of cell proliferation and migration known as gastrulation. This transforms the bilaminar germ disc into a trilaminar structure.",
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          6
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          12
+        ]
+      },
+      "sourcePage": 6,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q007",
+      "sourceQuestionId": "ANAT_CH01_Q007",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 7,
+      "questionType": "single_best_answer",
+      "question": "When does spermatogenesis begin?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Fetal life"
+        },
+        {
+          "letter": "B",
+          "text": "Birth"
+        },
+        {
+          "letter": "C",
+          "text": "Puberty"
+        },
+        {
+          "letter": "D",
+          "text": "After 18 years"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Puberty",
+      "explanation": "Spermatogenesis starts at puberty.\n\nThe spermatozoa are produced in seminiferous tubules by a process known as spermatogenesis. In this process, spermatogonia are transformed into spermatozoa.\n\nShortly before puberty, the sex cords acquire a lumen and become seminiferous tubules, and primordial germ cells differentiate into spermatogonial stem cells. These spermatogonial stem cells then give rise to type A spermatogonia. This marks the beginning of spermatogenesis.",
+      "structuredExplanation": {
+        "text": "Spermatogenesis starts at puberty.\n\nThe spermatozoa are produced in seminiferous tubules by a process known as spermatogenesis. In this process, spermatogonia are transformed into spermatozoa.\n\nShortly before puberty, the sex cords acquire a lumen and become seminiferous tubules, and primordial germ cells differentiate into spermatogonial stem cells. These spermatogonial stem cells then give rise to type A spermatogonia. This marks the beginning of spermatogenesis.",
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          6
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          12
+        ]
+      },
+      "sourcePage": 6,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q008",
+      "sourceQuestionId": "ANAT_CH01_Q008",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 8,
+      "questionType": "single_best_answer",
+      "question": "Which of the following cells remain dormant in the testis until puberty?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Primordial germ cells"
+        },
+        {
+          "letter": "B",
+          "text": "Primary spermatocytes"
+        },
+        {
+          "letter": "C",
+          "text": "Secondary spermatocytes"
+        },
+        {
+          "letter": "D",
+          "text": "Spermatids"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Primordial germ cells",
+      "explanation": "Primordial germ cells (PGCs) remain dormant in the testis until puberty.\n\nAt puberty, PGCs differentiate into spermatogonial stem cells. These spermatogonial stem cells then give rise to type A spermatogonia. This marks the beginning of spermatogenesis.",
+      "structuredExplanation": {
+        "text": "Primordial germ cells (PGCs) remain dormant in the testis until puberty.\n\nAt puberty, PGCs differentiate into spermatogonial stem cells. These spermatogonial stem cells then give rise to type A spermatogonia. This marks the beginning of spermatogenesis.",
+        "tables": [],
+        "figures": [
+          {
+            "type": "diagram",
+            "title": "Spermatogenesis flowchart",
+            "asset": "assets/spermatogenesis_flowchart_p13.png",
+            "source_pages": [
+              13,
+              14
+            ],
+            "note": "The same flowchart is repeated on pages 13 and 14."
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          6
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          13
+        ]
+      },
+      "sourcePage": 6,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q009",
+      "sourceQuestionId": "ANAT_CH01_Q009",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 9,
+      "questionType": "single_best_answer",
+      "question": "Which of the following cells have haploid number of chromosomes?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Type A spermatogonia"
+        },
+        {
+          "letter": "B",
+          "text": "Type B spermatogonia"
+        },
+        {
+          "letter": "C",
+          "text": "Primary spermatocyte"
+        },
+        {
+          "letter": "D",
+          "text": "Secondary spermatocyte"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Secondary spermatocyte",
+      "explanation": "Secondary spermatocytes have haploid number of chromosomes.\n\nDuring the process of spermatogenesis, each primary spermatocyte gives rise to 4 sperm cells (in contrast, each primary oocyte gives rise to only 1 ovum). The haploid cells formed during this process are secondary spermatocytes, spermatids, and spermatozoa.\n\nThe flowchart below shows the steps of spermatogenesis:",
+      "structuredExplanation": {
+        "text": "Secondary spermatocytes have haploid number of chromosomes.\n\nDuring the process of spermatogenesis, each primary spermatocyte gives rise to 4 sperm cells (in contrast, each primary oocyte gives rise to only 1 ovum). The haploid cells formed during this process are secondary spermatocytes, spermatids, and spermatozoa.\n\nThe flowchart below shows the steps of spermatogenesis:",
+        "tables": [],
+        "figures": [
+          {
+            "type": "diagram",
+            "title": "Spermatogenesis flowchart",
+            "asset": "assets/spermatogenesis_flowchart_p13.png",
+            "source_pages": [
+              13,
+              14
+            ]
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          7
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          13
+        ]
+      },
+      "sourcePage": 7,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q010",
+      "sourceQuestionId": "ANAT_CH01_Q010",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 10,
+      "questionType": "single_best_answer",
+      "question": "Which stage of spermatogenesis is characterized by an independent assortment of maternal and paternal chromosomes?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Spermatogonia to primary spermatocyte"
+        },
+        {
+          "letter": "B",
+          "text": "Primary spermatocyte to secondary spermatocyte"
+        },
+        {
+          "letter": "C",
+          "text": "Secondary spermatocyte to spermatid"
+        },
+        {
+          "letter": "D",
+          "text": "Spermatid to spermatozoa"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Primary spermatocyte to secondary spermatocyte",
+      "explanation": "Independent assortment is the random distribution of chromosomes. It takes place during meiosis I where there is division from primary spermatocyte to secondary spermatocyte.\n\nThe law of independent assortment states that alleles for separate traits are passed independently of one another into the gametes.\n\nDuring the first meiotic division, paternal and maternal chromosomes are distributed between the daughter cells entirely at random. This prevents all chromosomes from the same source (mother or father) from ending up in the same gamete. After meiosis, each haploid daughter cell contains a mixture of genes from the mother and father.",
+      "structuredExplanation": {
+        "text": "Independent assortment is the random distribution of chromosomes. It takes place during meiosis I where there is division from primary spermatocyte to secondary spermatocyte.\n\nThe law of independent assortment states that alleles for separate traits are passed independently of one another into the gametes.\n\nDuring the first meiotic division, paternal and maternal chromosomes are distributed between the daughter cells entirely at random. This prevents all chromosomes from the same source (mother or father) from ending up in the same gamete. After meiosis, each haploid daughter cell contains a mixture of genes from the mother and father.",
+        "tables": [],
+        "figures": [
+          {
+            "type": "diagram",
+            "title": "Spermatogenesis flowchart",
+            "asset": "assets/spermatogenesis_flowchart_p13.png",
+            "source_pages": [
+              13,
+              14
+            ],
+            "note": "Visible above Solution to Question 10 on page 14."
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          7
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          14
+        ]
+      },
+      "sourcePage": 7,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q011",
+      "sourceQuestionId": "ANAT_CH01_Q011",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 11,
+      "questionType": "single_best_answer",
+      "question": "Which of the following transformations is seen in spermiogenesis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Primordial germ cells to spermatogonia"
+        },
+        {
+          "letter": "B",
+          "text": "Spermatogonia to primary spermatocytes"
+        },
+        {
+          "letter": "C",
+          "text": "Primary spermatocytes to secondary spermatocytes"
+        },
+        {
+          "letter": "D",
+          "text": "Spermatids to spermatozoa"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Spermatids to spermatozoa",
+      "explanation": "Spermiogenesis or spermateleosis is the process of maturation of spermatids to spermatozoa. It is the final stage of spermatogenesis.\n\nThe major events occurring during spermiogenesis include:\n• Nuclear morphogenesis and condensation\n• Formation of tail\n• Formation of acrosome\n• Rearrangement of organelles (mitochondria, centrioles, etc.)\n• Shedding off excess cytoplasm",
+      "structuredExplanation": {
+        "text": "Spermiogenesis or spermateleosis is the process of maturation of spermatids to spermatozoa. It is the final stage of spermatogenesis.\n\nThe major events occurring during spermiogenesis include:\n• Nuclear morphogenesis and condensation\n• Formation of tail\n• Formation of acrosome\n• Rearrangement of organelles (mitochondria, centrioles, etc.)\n• Shedding off excess cytoplasm",
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          7
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          14
+        ]
+      },
+      "sourcePage": 7,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q012",
+      "sourceQuestionId": "ANAT_CH01_Q012",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 12,
+      "questionType": "single_best_answer",
+      "question": "Spermatogenesis is completed in approximately how many days?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "54"
+        },
+        {
+          "letter": "B",
+          "text": "94"
+        },
+        {
+          "letter": "C",
+          "text": "24"
+        },
+        {
+          "letter": "D",
+          "text": "74"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "74",
+      "explanation": "Spermatogenesis is completed in approximately 74 days. Spermatogenesis covers the entire process of sperm formation from spermatogonia into spermatozoa.\n\nSpermiogenesis covers the process of transformation from spermatid into spermatozoa.",
+      "structuredExplanation": {
+        "text": "Spermatogenesis is completed in approximately 74 days. Spermatogenesis covers the entire process of sperm formation from spermatogonia into spermatozoa.\n\nSpermiogenesis covers the process of transformation from spermatid into spermatozoa.",
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          7
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          15
+        ]
+      },
+      "sourcePage": 7,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q013",
+      "sourceQuestionId": "ANAT_CH01_Q013",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 13,
+      "questionType": "single_best_answer",
+      "question": "Which organelle gives rise to the acrosomal cap of the sperm?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Nucleus"
+        },
+        {
+          "letter": "B",
+          "text": "Golgi apparatus"
+        },
+        {
+          "letter": "C",
+          "text": "Centrosome"
+        },
+        {
+          "letter": "D",
+          "text": "Mitochondria"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Golgi apparatus",
+      "explanation": "The acrosomal cap of the sperm is derived from the Golgi apparatus.\n\nParts of the sperm and their derivatives:\n\nThe image given below shows the acrosome reaction.",
+      "structuredExplanation": {
+        "text": "The acrosomal cap of the sperm is derived from the Golgi apparatus.\n\nParts of the sperm and their derivatives:\n\nThe image given below shows the acrosome reaction.",
+        "tables": [
+          {
+            "title": "Parts of the sperm and their derivatives",
+            "columns": [
+              "Cell organelle",
+              "Part of the sperm"
+            ],
+            "rows": [
+              [
+                "Nucleus",
+                "Head of sperm"
+              ],
+              [
+                "Golgi apparatus",
+                "Acrosomal cap"
+              ],
+              [
+                "Mitochondria",
+                "Spiral sheath around the middle piece"
+              ],
+              [
+                "Centrosome",
+                "Proximal centriole: spherical structure in sperm neck; Distal centriole: the distal end of the middle piece (annulus)"
+              ],
+              [
+                "Cytoplasm",
+                "Shed as residual bodies of Regaud"
+              ],
+              [
+                "Cell membrane",
+                "Covering of spermatozoa"
+              ]
+            ],
+            "asset": "assets/sperm_derivatives_table_p15.png",
+            "source_page": 15
+          }
+        ],
+        "figures": [
+          {
+            "type": "diagram",
+            "title": "Acrosome reaction",
+            "asset": "assets/acrosome_reaction_p15.png",
+            "source_pages": [
+              15
+            ],
+            "labels_transcribed": [
+              "Zona pellucida",
+              "Protein layer",
+              "Acrosomal granule",
+              "Sperm head",
+              "Sperm plasma membrane",
+              "Ovum plasma membrane",
+              "Acrosomal reaction",
+              "Fused plasma membrane"
+            ]
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          8
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          15
+        ]
+      },
+      "sourcePage": 8,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q014",
+      "sourceQuestionId": "ANAT_CH01_Q014",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 14,
+      "questionType": "single_best_answer",
+      "question": "Spermatozoa attain motility in _________",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Seminiferous tubules"
+        },
+        {
+          "letter": "B",
+          "text": "Vas deferens"
+        },
+        {
+          "letter": "C",
+          "text": "Epididymis"
+        },
+        {
+          "letter": "D",
+          "text": "Ejaculatory duct"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Epididymis",
+      "explanation": "Spermatozoa attain full motility during their passage through the epididymis.\n\nInitially, spermatozoa are only slightly motile, but they obtain full progressive motility in the epididymis. This involves the activation of a unique set of cation channel proteins from the CatSper family located in the principal piece of the sperm tail.",
+      "structuredExplanation": {
+        "text": "Spermatozoa attain full motility during their passage through the epididymis.\n\nInitially, spermatozoa are only slightly motile, but they obtain full progressive motility in the epididymis. This involves the activation of a unique set of cation channel proteins from the CatSper family located in the principal piece of the sperm tail.",
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          8
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          16
+        ]
+      },
+      "sourcePage": 8,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q015",
+      "sourceQuestionId": "ANAT_CH01_Q015",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 15,
+      "questionType": "single_best_answer",
+      "question": "You reassured the parents after you noted cryptorchidism in a premature baby. Which of the following cells are responsible for secreting the hormone responsible for its normal descent?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Primordial germ cells"
+        },
+        {
+          "letter": "B",
+          "text": "Spermatogenic cells"
+        },
+        {
+          "letter": "C",
+          "text": "Sertoli cells"
+        },
+        {
+          "letter": "D",
+          "text": "Leydig cells"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Leydig cells",
+      "explanation": "Testosterone is involved in testicular descent. They are secreted by the Leydig cells.\n\nLeydig cells are large polyhedral cells present in the connective tissue between the seminiferous tubules. Testosterone is synthesized from cholesterol in Leydig cells. The secretion of testosterone from Leydig cells is under the control of the luteinizing hormone (LH).",
+      "structuredExplanation": {
+        "text": "Testosterone is involved in testicular descent. They are secreted by the Leydig cells.\n\nLeydig cells are large polyhedral cells present in the connective tissue between the seminiferous tubules. Testosterone is synthesized from cholesterol in Leydig cells. The secretion of testosterone from Leydig cells is under the control of the luteinizing hormone (LH).",
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          8
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          16
+        ]
+      },
+      "sourcePage": 8,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q016",
+      "sourceQuestionId": "ANAT_CH01_Q016",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 16,
+      "questionType": "single_best_answer",
+      "question": "Which of the following cells remain dormant in the ovary until puberty?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Primordial germ cell"
+        },
+        {
+          "letter": "B",
+          "text": "Primary oocyte"
+        },
+        {
+          "letter": "C",
+          "text": "Secondary oocyte"
+        },
+        {
+          "letter": "D",
+          "text": "First polar body"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Primary oocyte",
+      "explanation": "Primary oocytes remain dormant in the ovary until puberty. They are arrested in prophase (dictyotene/diplotene) of meiosis I and surrounded by flat epithelial cells (primordial follicles) in the ovary before puberty.\n\nSteps of oogenesis before puberty are shown in the image below:",
+      "structuredExplanation": {
+        "text": "Primary oocytes remain dormant in the ovary until puberty. They are arrested in prophase (dictyotene/diplotene) of meiosis I and surrounded by flat epithelial cells (primordial follicles) in the ovary before puberty.\n\nSteps of oogenesis before puberty are shown in the image below:",
+        "tables": [],
+        "figures": [
+          {
+            "type": "diagram",
+            "title": "Oogenesis flowchart",
+            "asset": "assets/oogenesis_flowchart_p16.png",
+            "source_pages": [
+              16,
+              17
+            ],
+            "note": "The same oogenesis flowchart is continued/repeated across pages 16-17."
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          8
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          16
+        ]
+      },
+      "sourcePage": 8,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q017",
+      "sourceQuestionId": "ANAT_CH01_Q017",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 17,
+      "questionType": "single_best_answer",
+      "question": "A 30-year-old woman came to the obstetrician for in-vitro fertilization. FSH analogs were injected to induce follicular growth and hCG was injected to induce final oocyte maturation. The oocyte was then retrieved transvaginally. The oocyte thus retrieved is arrested at which of the following stages?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Prophase of meiosis I"
+        },
+        {
+          "letter": "B",
+          "text": "Prophase of meiosis II"
+        },
+        {
+          "letter": "C",
+          "text": "Metaphase of meiosis I"
+        },
+        {
+          "letter": "D",
+          "text": "Metaphase of meiosis II"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Metaphase of meiosis II",
+      "explanation": "The oocyte retrieved after final maturation is the secondary oocyte that is arrested in metaphase of meiosis II.\n\nSteps of oogenesis after puberty are shown in the image below:\n\nIf there is no fertilization, the secondary oocyte fails to complete the second meiotic division and degenerates about 24 hours after ovulation.\n\nIn in-vitro fertilization, initially, FSH analogs are administered to induce follicular growth. At this stage, the oocyte is arrested in the prophase stage of meiosis I. The final maturation of the oocyte is induced by the administration of hCG. This causes the oocyte to resume the meiotic division, complete meiosis I, and enter meiosis II. However, the oocyte is arrested in the metaphase of meiosis II until fertilization.",
+      "structuredExplanation": {
+        "text": "The oocyte retrieved after final maturation is the secondary oocyte that is arrested in metaphase of meiosis II.\n\nSteps of oogenesis after puberty are shown in the image below:\n\nIf there is no fertilization, the secondary oocyte fails to complete the second meiotic division and degenerates about 24 hours after ovulation.\n\nIn in-vitro fertilization, initially, FSH analogs are administered to induce follicular growth. At this stage, the oocyte is arrested in the prophase stage of meiosis I. The final maturation of the oocyte is induced by the administration of hCG. This causes the oocyte to resume the meiotic division, complete meiosis I, and enter meiosis II. However, the oocyte is arrested in the metaphase of meiosis II until fertilization.",
+        "tables": [],
+        "figures": [
+          {
+            "type": "diagram",
+            "title": "Oogenesis flowchart",
+            "asset": "assets/oogenesis_flowchart_p16.png",
+            "source_pages": [
+              16,
+              17
+            ]
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          9
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          16,
+          17
+        ]
+      },
+      "sourcePage": 9,
+      "reviewStatus": "pass_with_normalization_note",
+      "reviewNotes": [
+        "A stray black square appears in the rendered source immediately after the word 'retrieved'; treated as a rendering/source artifact and omitted from normalized question text."
+      ],
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": [
+          "A stray black square appears in the rendered source immediately after the word 'retrieved'; treated as a rendering/source artifact and omitted from normalized question text."
+        ]
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q018",
+      "sourceQuestionId": "ANAT_CH01_Q018",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 18,
+      "questionType": "single_best_answer",
+      "question": "If the ovum is not fertilized, the corpus luteum may persist for about ______",
+      "options": [
+        {
+          "letter": "A",
+          "text": "48 hours"
+        },
+        {
+          "letter": "B",
+          "text": "1 week"
+        },
+        {
+          "letter": "C",
+          "text": "2 weeks"
+        },
+        {
+          "letter": "D",
+          "text": "3 weeks"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "2 weeks",
+      "explanation": "If the ovum is not fertilized, the corpus luteum persists for about 14 days i.e., 2 weeks.\n\nThe fate of the corpus luteum depends on the fertilization of the ovum:\n• No fertilization:\n• Corpus luteum of menstruation remains small and secretes progesterone.\n• This progesterone prepares the uterine endometrium to enter the progestational or secretory phase.\n• It persists for about 14 days.\n• It reaches maximum size by about 9 days after ovulation and starts to shrink 3–4 days before the next menses.\n• It undergoes fibrosis to become a white scar tissue called corpus albicans.\n• Ovum fertilized:\n• Corpus luteum of pregnancy is formed.\n• Regression of the corpus luteum is prevented by hCG secreted by the syncytiotrophoblast of the developing embryo.\n• It continues to grow and secrete progesterone that helps maintain the pregnancy.\n• It persists for 3-4 months until the placenta takes over.",
+      "structuredExplanation": {
+        "text": "If the ovum is not fertilized, the corpus luteum persists for about 14 days i.e., 2 weeks.\n\nThe fate of the corpus luteum depends on the fertilization of the ovum:\n• No fertilization:\n• Corpus luteum of menstruation remains small and secretes progesterone.\n• This progesterone prepares the uterine endometrium to enter the progestational or secretory phase.\n• It persists for about 14 days.\n• It reaches maximum size by about 9 days after ovulation and starts to shrink 3–4 days before the next menses.\n• It undergoes fibrosis to become a white scar tissue called corpus albicans.\n• Ovum fertilized:\n• Corpus luteum of pregnancy is formed.\n• Regression of the corpus luteum is prevented by hCG secreted by the syncytiotrophoblast of the developing embryo.\n• It continues to grow and secrete progesterone that helps maintain the pregnancy.\n• It persists for 3-4 months until the placenta takes over.",
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          9
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          17,
+          18
+        ]
+      },
+      "sourcePage": 9,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH01_Q019",
+      "sourceQuestionId": "ANAT_CH01_Q019",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "1",
+      "chapter": "Gametogenesis",
+      "questionNumber": 19,
+      "questionType": "single_best_answer",
+      "question": "Meiosis occurs in:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Adrenal"
+        },
+        {
+          "letter": "B",
+          "text": "Adult ovary"
+        },
+        {
+          "letter": "C",
+          "text": "Prepubertal testis"
+        },
+        {
+          "letter": "D",
+          "text": "Hypothalamus"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Adult ovary",
+      "explanation": "Meiosis occurs in the adult ovary.\n\nMeiosis takes place only in germ cells and results in the formation of haploid gametes. Meiosis requires two cell divisions, meiosis I and meiosis II, to reduce the number of chromosomes to the haploid number of 23.\n\nOption C: Spermatogenesis begins at puberty. Primordial germ cells (PGCs) remain dormant in the testis until puberty. At puberty, PGCs differentiate into spermatogonial stem cells. These spermatogonial stem cells then give rise to spermatogonia which marks the beginning of spermatogenesis.\n\nOptions A and D: These are somatic cells that only undergo mitosis and not meiosis.",
+      "structuredExplanation": {
+        "text": "Meiosis occurs in the adult ovary.\n\nMeiosis takes place only in germ cells and results in the formation of haploid gametes. Meiosis requires two cell divisions, meiosis I and meiosis II, to reduce the number of chromosomes to the haploid number of 23.\n\nOption C: Spermatogenesis begins at puberty. Primordial germ cells (PGCs) remain dormant in the testis until puberty. At puberty, PGCs differentiate into spermatogonial stem cells. These spermatogonial stem cells then give rise to spermatogonia which marks the beginning of spermatogenesis.\n\nOptions A and D: These are somatic cells that only undergo mitosis and not meiosis.",
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          9
+        ],
+        "answerKeyPages": [],
+        "explanationPages": [
+          18
+        ]
+      },
+      "sourcePage": 9,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    }
+  ]
+}

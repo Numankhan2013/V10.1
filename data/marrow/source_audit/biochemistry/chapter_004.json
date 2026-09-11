@@ -1,0 +1,802 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Derived read-only audit view. Immutable source remains the sharded Marrow bundle.",
+  "subject": "Biochemistry",
+  "chapterId": "4",
+  "questionCount": 11,
+  "immutableSourcePrefix": "biochemistry_phase_a",
+  "sourceRawSha256": "d9d89966b2733f86b6c5a413e61b0af5559becff3bc580802262deb2f3b9c1ae",
+  "questions": [
+    {
+      "id": "marrow__BIOCHEM_CH04_Q001",
+      "sourceQuestionId": "BIOCHEM_CH04_Q001",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "HMP shunt pathway, Fructose , Galactose metabolism",
+      "questionNumber": 1,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is false about HMP shunt pathway?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "No ATP formation"
+        },
+        {
+          "letter": "B",
+          "text": "Formation of NADPH occurs"
+        },
+        {
+          "letter": "C",
+          "text": "Synthesis of ribose-5-phosphate occurs"
+        },
+        {
+          "letter": "D",
+          "text": "Non-oxidative phase is irreversible"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Non-oxidative phase is irreversible",
+      "explanation": "The non-oxidative phase of the HMP pathway is reversible. In the HMP shunt, no ATP is formed, but formation of NADPH and ribose takes place. The pentose phosphate pathway is an alternative route for the metabolism of glucose. It does not lead to formation of ATP, but its two major functions are: main source of NADPH, important for reductive biosynthesis of fatty acids and steroids and maintenance of reduced glutathione for antioxidant activity; and synthesis of ribose-5-phosphate. There are two phases in the HMP pathway: oxidative—irreversible, and non-oxidative—reversible.",
+      "structuredExplanation": {
+        "text": "The non-oxidative phase of the HMP pathway is reversible. In the HMP shunt, no ATP is formed, but formation of NADPH and ribose takes place. The pentose phosphate pathway is an alternative route for the metabolism of glucose. It does not lead to formation of ATP, but its two major functions are: main source of NADPH, important for reductive biosynthesis of fatty acids and steroids and maintenance of reduced glutathione for antioxidant activity; and synthesis of ribose-5-phosphate. There are two phases in the HMP pathway: oxidative—irreversible, and non-oxidative—reversible.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The non-oxidative phase of the HMP pathway is reversible. In the HMP shunt, no ATP is formed, but formation of NADPH and ribose takes place. The pentose phosphate pathway is an alternative route for the metabolism of glucose. It does not lead to formation of ATP, but its two major functions are: main source of NADPH, important for reductive biosynthesis of fatty acids and steroids and maintenance of reduced glutathione for antioxidant activity; and synthesis of ribose-5-phosphate. There are two phases in the HMP pathway: oxidative—irreversible, and non-oxidative—reversible."
+          },
+          {
+            "type": "figure",
+            "title": "HMP/PPP pathway diagram",
+            "source_page": 64
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "HMP/PPP pathway diagram",
+            "source_page": 64,
+            "role": "explanation",
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          60
+        ],
+        "answerKeyPages": [
+          63
+        ],
+        "explanationPages": [
+          63,
+          64
+        ]
+      },
+      "sourcePage": 60,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH04_Q002",
+      "sourceQuestionId": "BIOCHEM_CH04_Q002",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "HMP shunt pathway, Fructose , Galactose metabolism",
+      "questionNumber": 2,
+      "questionType": "single_best_answer",
+      "question": "In which of the following sites does HMP shunt occur?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Golgi apparatus"
+        },
+        {
+          "letter": "B",
+          "text": "Mitochondria"
+        },
+        {
+          "letter": "C",
+          "text": "Endoplasmic reticulum"
+        },
+        {
+          "letter": "D",
+          "text": "Cytosol"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Cytosol",
+      "explanation": "HMP shunt takes place in the cytosol, as enzymes needed for the HMP shunt (pentose phosphate) pathway are located in the cytoplasm.",
+      "structuredExplanation": {
+        "text": "HMP shunt takes place in the cytosol, as enzymes needed for the HMP shunt (pentose phosphate) pathway are located in the cytoplasm.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "HMP shunt takes place in the cytosol, as enzymes needed for the HMP shunt (pentose phosphate) pathway are located in the cytoplasm."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          60
+        ],
+        "answerKeyPages": [
+          63
+        ],
+        "explanationPages": [
+          64
+        ]
+      },
+      "sourcePage": 60,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH04_Q003",
+      "sourceQuestionId": "BIOCHEM_CH04_Q003",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "HMP shunt pathway, Fructose , Galactose metabolism",
+      "questionNumber": 3,
+      "questionType": "single_best_answer",
+      "question": "HMP shunt can occur at all of the following sites except:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Liver"
+        },
+        {
+          "letter": "B",
+          "text": "Adipose tissue"
+        },
+        {
+          "letter": "C",
+          "text": "Adrenal cortex"
+        },
+        {
+          "letter": "D",
+          "text": "Muscles"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Muscles",
+      "explanation": "HMP shunt pathway cannot occur in muscles because muscle tissue is deficient in glucose-6-phosphate dehydrogenase, the rate-limiting enzyme in the oxidative phase of the pathway. HMP shunt pathway takes place in liver, adipose tissue, adrenal cortex, thyroid, erythrocytes, testis, and lactating mammary glands.",
+      "structuredExplanation": {
+        "text": "HMP shunt pathway cannot occur in muscles because muscle tissue is deficient in glucose-6-phosphate dehydrogenase, the rate-limiting enzyme in the oxidative phase of the pathway. HMP shunt pathway takes place in liver, adipose tissue, adrenal cortex, thyroid, erythrocytes, testis, and lactating mammary glands.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "HMP shunt pathway cannot occur in muscles because muscle tissue is deficient in glucose-6-phosphate dehydrogenase, the rate-limiting enzyme in the oxidative phase of the pathway. HMP shunt pathway takes place in liver, adipose tissue, adrenal cortex, thyroid, erythrocytes, testis, and lactating mammary glands."
+          },
+          {
+            "type": "figure",
+            "title": "HMP/PPP pathway diagram",
+            "source_page": 64
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "HMP/PPP pathway diagram",
+            "source_page": 64,
+            "role": "explanation",
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          60
+        ],
+        "answerKeyPages": [
+          63
+        ],
+        "explanationPages": [
+          64
+        ]
+      },
+      "sourcePage": 60,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH04_Q004",
+      "sourceQuestionId": "BIOCHEM_CH04_Q004",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "HMP shunt pathway, Fructose , Galactose metabolism",
+      "questionNumber": 4,
+      "questionType": "single_best_answer",
+      "question": "NADPH is used in ______.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Fatty acid synthesis"
+        },
+        {
+          "letter": "B",
+          "text": "Ketone synthesis"
+        },
+        {
+          "letter": "C",
+          "text": "Gluconeogenesis"
+        },
+        {
+          "letter": "D",
+          "text": "Glycolysis"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Fatty acid synthesis",
+      "explanation": "NADPH is the source of reducing equivalent for fatty acid synthesis. This NADPH is derived from 3 sources: HMP shunt pathway (main source); extramitochondrial isocitrate dehydrogenase (minor source); and malic enzyme.",
+      "structuredExplanation": {
+        "text": "NADPH is the source of reducing equivalent for fatty acid synthesis. This NADPH is derived from 3 sources: HMP shunt pathway (main source); extramitochondrial isocitrate dehydrogenase (minor source); and malic enzyme.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "NADPH is the source of reducing equivalent for fatty acid synthesis. This NADPH is derived from 3 sources: HMP shunt pathway (main source); extramitochondrial isocitrate dehydrogenase (minor source); and malic enzyme."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          60,
+          61
+        ],
+        "answerKeyPages": [
+          63
+        ],
+        "explanationPages": [
+          65
+        ]
+      },
+      "sourcePage": 60,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH04_Q005",
+      "sourceQuestionId": "BIOCHEM_CH04_Q005",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "HMP shunt pathway, Fructose , Galactose metabolism",
+      "questionNumber": 5,
+      "questionType": "single_best_answer",
+      "question": "A young man with chronic bacterial prostatitis was treated with cotrimoxazole. During treatment, he developed malaise, jaundice, abdominal pain, and dark urine. His blood picture is given below. What is the most likely diagnosis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Hemolytic uremic syndrome"
+        },
+        {
+          "letter": "B",
+          "text": "Autoimmune hemolytic anemia"
+        },
+        {
+          "letter": "C",
+          "text": "Paroxysmal nocturnal hemoglobinuria"
+        },
+        {
+          "letter": "D",
+          "text": "Glucose 6 phosphate dehydrogenase deficiency"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Glucose 6 phosphate dehydrogenase deficiency",
+      "explanation": "The most likely diagnosis is glucose-6-phosphate dehydrogenase (G6PD) deficiency. The clinical features are suggestive of an acute hemolytic reaction following administration of cotrimoxazole. A hemolytic attack starts with abrupt onset of malaise, weakness, and abdominal or lumbar pain. After an interval of several hours to 2–3 days, the patient develops jaundice and often dark urine due to hemoglobinuria. The peripheral smear shows characteristic bite cells or degmacytes/blister cells. In G6PD deficiency, uncontrolled oxidative stress causes hemoglobin denaturation and formation of Heinz bodies; bite cells result from removal of Heinz bodies by macrophages in the spleen. Cotrimoxazole contains sulfamethoxazole, which triggers a hemolytic reaction in persons with G6PD deficiency.",
+      "structuredExplanation": {
+        "text": "The most likely diagnosis is glucose-6-phosphate dehydrogenase (G6PD) deficiency. The clinical features are suggestive of an acute hemolytic reaction following administration of cotrimoxazole. A hemolytic attack starts with abrupt onset of malaise, weakness, and abdominal or lumbar pain. After an interval of several hours to 2–3 days, the patient develops jaundice and often dark urine due to hemoglobinuria. The peripheral smear shows characteristic bite cells or degmacytes/blister cells. In G6PD deficiency, uncontrolled oxidative stress causes hemoglobin denaturation and formation of Heinz bodies; bite cells result from removal of Heinz bodies by macrophages in the spleen. Cotrimoxazole contains sulfamethoxazole, which triggers a hemolytic reaction in persons with G6PD deficiency.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The most likely diagnosis is glucose-6-phosphate dehydrogenase (G6PD) deficiency. The clinical features are suggestive of an acute hemolytic reaction following administration of cotrimoxazole. A hemolytic attack starts with abrupt onset of malaise, weakness, and abdominal or lumbar pain. After an interval of several hours to 2–3 days, the patient develops jaundice and often dark urine due to hemoglobinuria. The peripheral smear shows characteristic bite cells or degmacytes/blister cells. In G6PD deficiency, uncontrolled oxidative stress causes hemoglobin denaturation and formation of Heinz bodies; bite cells result from removal of Heinz bodies by macrophages in the spleen. Cotrimoxazole contains sulfamethoxazole, which triggers a hemolytic reaction in persons with G6PD deficiency."
+          },
+          {
+            "type": "table",
+            "title": "Drugs associated with hemolysis in G6PD deficiency",
+            "source_page": 66
+          },
+          {
+            "type": "figure",
+            "title": "Peripheral smear showing bite/blister cell morphology",
+            "source_page": 61
+          }
+        ],
+        "tables": [
+          {
+            "title": "Drugs associated with hemolysis in G6PD deficiency",
+            "source_page": 66
+          }
+        ],
+        "figures": [
+          {
+            "title": "Peripheral smear showing bite/blister cell morphology",
+            "source_page": 61,
+            "role": "question-critical image",
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          61
+        ],
+        "answerKeyPages": [
+          63
+        ],
+        "explanationPages": [
+          65,
+          66
+        ]
+      },
+      "sourcePage": 61,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH04_Q006",
+      "sourceQuestionId": "BIOCHEM_CH04_Q006",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "HMP shunt pathway, Fructose , Galactose metabolism",
+      "questionNumber": 6,
+      "questionType": "single_best_answer",
+      "question": "All of the following are the products obtained in the uronic acid pathway in humans, except:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Vitamin C"
+        },
+        {
+          "letter": "B",
+          "text": "Glucuronic acid"
+        },
+        {
+          "letter": "C",
+          "text": "Pentose sugars"
+        },
+        {
+          "letter": "D",
+          "text": "Proteoglycans"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Vitamin C",
+      "explanation": "Vitamin C is not a product of the uronic acid pathway in humans. Glucuronic acid, pentose sugars, and proteoglycans are products obtained in the uronic acid pathway in humans. In the liver, the uronic acid pathway is a source of glucuronic acid for conjugation of many endogenous and exogenous substances before excretion as glucuronides in urine and bile. Lack of L-gulonolactone oxidase in primates including humans prevents formation of vitamin C; hence vitamin C is a dietary requirement.",
+      "structuredExplanation": {
+        "text": "Vitamin C is not a product of the uronic acid pathway in humans. Glucuronic acid, pentose sugars, and proteoglycans are products obtained in the uronic acid pathway in humans. In the liver, the uronic acid pathway is a source of glucuronic acid for conjugation of many endogenous and exogenous substances before excretion as glucuronides in urine and bile. Lack of L-gulonolactone oxidase in primates including humans prevents formation of vitamin C; hence vitamin C is a dietary requirement.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Vitamin C is not a product of the uronic acid pathway in humans. Glucuronic acid, pentose sugars, and proteoglycans are products obtained in the uronic acid pathway in humans. In the liver, the uronic acid pathway is a source of glucuronic acid for conjugation of many endogenous and exogenous substances before excretion as glucuronides in urine and bile. Lack of L-gulonolactone oxidase in primates including humans prevents formation of vitamin C; hence vitamin C is a dietary requirement."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          61
+        ],
+        "answerKeyPages": [
+          63
+        ],
+        "explanationPages": [
+          66
+        ]
+      },
+      "sourcePage": 61,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH04_Q007",
+      "sourceQuestionId": "BIOCHEM_CH04_Q007",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "HMP shunt pathway, Fructose , Galactose metabolism",
+      "questionNumber": 7,
+      "questionType": "single_best_answer",
+      "question": "A 28-year-old woman was found to have excessive urinary glucose levels. However, her blood glucose levels were normal. Further investigations revealed high levels of only L-xylulose in the urine. A genetic defect in which of the following pathways is most likely?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Krebs cycle"
+        },
+        {
+          "letter": "B",
+          "text": "Uronic acid pathway"
+        },
+        {
+          "letter": "C",
+          "text": "Ketone synthesis"
+        },
+        {
+          "letter": "D",
+          "text": "HMP shunt"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Uronic acid pathway",
+      "explanation": "High levels of L-xylulose in urine point to essential pentosuria. It is a benign condition caused due to a defect in the uronic acid pathway. It can give false-positive results when urinary glucose is measured using alkaline copper reagents such as Benedict's test. Lack of xylulose reductase of the uronic acid pathway leads to essential pentosuria. Affected individuals excrete large amounts of L-xylulose in urine. Xylulose is a reducing sugar and gives Benedict's test positive. Essential pentosuria is part of Garrod's tetrad: pentosuria, albinism, cystinuria, and alkaptonuria.",
+      "structuredExplanation": {
+        "text": "High levels of L-xylulose in urine point to essential pentosuria. It is a benign condition caused due to a defect in the uronic acid pathway. It can give false-positive results when urinary glucose is measured using alkaline copper reagents such as Benedict's test. Lack of xylulose reductase of the uronic acid pathway leads to essential pentosuria. Affected individuals excrete large amounts of L-xylulose in urine. Xylulose is a reducing sugar and gives Benedict's test positive. Essential pentosuria is part of Garrod's tetrad: pentosuria, albinism, cystinuria, and alkaptonuria.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "High levels of L-xylulose in urine point to essential pentosuria. It is a benign condition caused due to a defect in the uronic acid pathway. It can give false-positive results when urinary glucose is measured using alkaline copper reagents such as Benedict's test. Lack of xylulose reductase of the uronic acid pathway leads to essential pentosuria. Affected individuals excrete large amounts of L-xylulose in urine. Xylulose is a reducing sugar and gives Benedict's test positive. Essential pentosuria is part of Garrod's tetrad: pentosuria, albinism, cystinuria, and alkaptonuria."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          62
+        ],
+        "answerKeyPages": [
+          63
+        ],
+        "explanationPages": [
+          66
+        ]
+      },
+      "sourcePage": 62,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH04_Q008",
+      "sourceQuestionId": "BIOCHEM_CH04_Q008",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "HMP shunt pathway, Fructose , Galactose metabolism",
+      "questionNumber": 8,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is the first enzyme to act on fructose metabolism?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Aldolase B"
+        },
+        {
+          "letter": "B",
+          "text": "Fructokinase"
+        },
+        {
+          "letter": "C",
+          "text": "Glucokinase"
+        },
+        {
+          "letter": "D",
+          "text": "Hexokinase"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Fructokinase",
+      "explanation": "Fructokinase is the first enzyme to act on fructose metabolism. Fructokinase in the liver, kidneys, and intestine catalyzes phosphorylation of fructose to fructose-1-phosphate. This enzyme does not act on glucose and, unlike glucokinase, its activity is not affected by fasting or insulin. Deficiency of fructokinase results in essential fructosuria.",
+      "structuredExplanation": {
+        "text": "Fructokinase is the first enzyme to act on fructose metabolism. Fructokinase in the liver, kidneys, and intestine catalyzes phosphorylation of fructose to fructose-1-phosphate. This enzyme does not act on glucose and, unlike glucokinase, its activity is not affected by fasting or insulin. Deficiency of fructokinase results in essential fructosuria.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Fructokinase is the first enzyme to act on fructose metabolism. Fructokinase in the liver, kidneys, and intestine catalyzes phosphorylation of fructose to fructose-1-phosphate. This enzyme does not act on glucose and, unlike glucokinase, its activity is not affected by fasting or insulin. Deficiency of fructokinase results in essential fructosuria."
+          },
+          {
+            "type": "figure",
+            "title": "Fructose metabolism pathway",
+            "source_page": 67
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Fructose metabolism pathway",
+            "source_page": 67,
+            "role": "explanation",
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          62
+        ],
+        "answerKeyPages": [
+          63
+        ],
+        "explanationPages": [
+          67
+        ]
+      },
+      "sourcePage": 62,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH04_Q009",
+      "sourceQuestionId": "BIOCHEM_CH04_Q009",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "HMP shunt pathway, Fructose , Galactose metabolism",
+      "questionNumber": 9,
+      "questionType": "single_best_answer",
+      "question": "A 10-month-old male baby is brought with vomiting, lethargy, and severe jaundice when weaning was started with fruit juice. Which of the following enzymes is most likely defective?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Aldolase A"
+        },
+        {
+          "letter": "B",
+          "text": "Aldolase B"
+        },
+        {
+          "letter": "C",
+          "text": "Fructokinase"
+        },
+        {
+          "letter": "D",
+          "text": "Hexokinase"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Aldolase B",
+      "explanation": "The clinical scenario is suggestive of hereditary fructose intolerance (HFI), due to deficiency of aldolase B. Individuals are asymptomatic until they ingest fructose or sucrose, usually in fruit or fruit juice or sweetened cereal. Symptoms include hepatomegaly, jaundice, vomiting, lethargy, convulsions, and hypoglycemia. Urine-reducing sugar (Benedict's test) and tests for ketoses are positive. Treatment is removal of fructose and sucrose from the diet.",
+      "structuredExplanation": {
+        "text": "The clinical scenario is suggestive of hereditary fructose intolerance (HFI), due to deficiency of aldolase B. Individuals are asymptomatic until they ingest fructose or sucrose, usually in fruit or fruit juice or sweetened cereal. Symptoms include hepatomegaly, jaundice, vomiting, lethargy, convulsions, and hypoglycemia. Urine-reducing sugar (Benedict's test) and tests for ketoses are positive. Treatment is removal of fructose and sucrose from the diet.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The clinical scenario is suggestive of hereditary fructose intolerance (HFI), due to deficiency of aldolase B. Individuals are asymptomatic until they ingest fructose or sucrose, usually in fruit or fruit juice or sweetened cereal. Symptoms include hepatomegaly, jaundice, vomiting, lethargy, convulsions, and hypoglycemia. Urine-reducing sugar (Benedict's test) and tests for ketoses are positive. Treatment is removal of fructose and sucrose from the diet."
+          },
+          {
+            "type": "figure",
+            "title": "Fructose metabolism pathway",
+            "source_page": 67
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Fructose metabolism pathway",
+            "source_page": 67,
+            "role": "explanation",
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          62
+        ],
+        "answerKeyPages": [
+          63
+        ],
+        "explanationPages": [
+          67,
+          68
+        ]
+      },
+      "sourcePage": 62,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH04_Q010",
+      "sourceQuestionId": "BIOCHEM_CH04_Q010",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "HMP shunt pathway, Fructose , Galactose metabolism",
+      "questionNumber": 10,
+      "questionType": "single_best_answer",
+      "question": "A patient was incidentally found to have essential fructosuria. Which of the following enzymes is deficient in this condition?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Aldolase A"
+        },
+        {
+          "letter": "B",
+          "text": "Aldolase B"
+        },
+        {
+          "letter": "C",
+          "text": "Fructokinase"
+        },
+        {
+          "letter": "D",
+          "text": "Hexokinase"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Fructokinase",
+      "explanation": "Essential fructosuria is due to deficiency of hepatic fructokinase. It is inherited in an autosomal recessive pattern. The defect does not cause clinical symptoms. Fructose is either excreted unchanged in urine or metabolized to fructose-6-phosphate by alternate pathways, most commonly by hexokinase in adipose tissue and muscle. No treatment is indicated.",
+      "structuredExplanation": {
+        "text": "Essential fructosuria is due to deficiency of hepatic fructokinase. It is inherited in an autosomal recessive pattern. The defect does not cause clinical symptoms. Fructose is either excreted unchanged in urine or metabolized to fructose-6-phosphate by alternate pathways, most commonly by hexokinase in adipose tissue and muscle. No treatment is indicated.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Essential fructosuria is due to deficiency of hepatic fructokinase. It is inherited in an autosomal recessive pattern. The defect does not cause clinical symptoms. Fructose is either excreted unchanged in urine or metabolized to fructose-6-phosphate by alternate pathways, most commonly by hexokinase in adipose tissue and muscle. No treatment is indicated."
+          },
+          {
+            "type": "figure",
+            "title": "Fructose metabolism pathway",
+            "source_page": 68
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Fructose metabolism pathway",
+            "source_page": 68,
+            "role": "explanation",
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          62
+        ],
+        "answerKeyPages": [
+          63
+        ],
+        "explanationPages": [
+          68
+        ]
+      },
+      "sourcePage": 62,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH04_Q011",
+      "sourceQuestionId": "BIOCHEM_CH04_Q011",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "HMP shunt pathway, Fructose , Galactose metabolism",
+      "questionNumber": 11,
+      "questionType": "single_best_answer",
+      "question": "A newborn baby refuses breast milk since the end day of birth but accepts glucose water. He develops vomiting and severe jaundice by the 5th day. Benedict's test was positive for urine and blood glucose was low. The most likely cause is due to the deficiency of:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Aldose reductase"
+        },
+        {
+          "letter": "B",
+          "text": "Galactokinase"
+        },
+        {
+          "letter": "C",
+          "text": "Galactose-1-phosphate uridyl transferase"
+        },
+        {
+          "letter": "D",
+          "text": "UDP galactose-4-epimerase"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Galactose-1-phosphate uridyl transferase",
+      "explanation": "The clinical features on ingestion of breast milk at birth suggest classical galactosemia, a disorder of galactose metabolism. Galactose-1-phosphate uridyl transferase deficiency leads to classical galactosemia. It is autosomal recessive. Clinical features include accumulation of galactose-1-phosphate in liver causing liver damage and hepatomegaly, vomiting, and convulsions; depletion of inorganic phosphate causing diminished ATP synthesis and hypoglycemia; accumulation in nerves causing intellectual disability; and accumulation of galactitol in the lens causing an oil-drop cataract. Urinary reducing sugar (Benedict's test) and the Mucic acid test are positive. Treatment is a galactose-free diet.",
+      "structuredExplanation": {
+        "text": "The clinical features on ingestion of breast milk at birth suggest classical galactosemia, a disorder of galactose metabolism. Galactose-1-phosphate uridyl transferase deficiency leads to classical galactosemia. It is autosomal recessive. Clinical features include accumulation of galactose-1-phosphate in liver causing liver damage and hepatomegaly, vomiting, and convulsions; depletion of inorganic phosphate causing diminished ATP synthesis and hypoglycemia; accumulation in nerves causing intellectual disability; and accumulation of galactitol in the lens causing an oil-drop cataract. Urinary reducing sugar (Benedict's test) and the Mucic acid test are positive. Treatment is a galactose-free diet.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The clinical features on ingestion of breast milk at birth suggest classical galactosemia, a disorder of galactose metabolism. Galactose-1-phosphate uridyl transferase deficiency leads to classical galactosemia. It is autosomal recessive. Clinical features include accumulation of galactose-1-phosphate in liver causing liver damage and hepatomegaly, vomiting, and convulsions; depletion of inorganic phosphate causing diminished ATP synthesis and hypoglycemia; accumulation in nerves causing intellectual disability; and accumulation of galactitol in the lens causing an oil-drop cataract. Urinary reducing sugar (Benedict's test) and the Mucic acid test are positive. Treatment is a galactose-free diet."
+          },
+          {
+            "type": "figure",
+            "title": "Galactose metabolism pathway",
+            "source_page": 69
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Galactose metabolism pathway",
+            "source_page": 69,
+            "role": "explanation",
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          63
+        ],
+        "answerKeyPages": [
+          63
+        ],
+        "explanationPages": [
+          69
+        ]
+      },
+      "sourcePage": 63,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription with light punctuation/spacing normalization; source meaning and order preserved; embedded text layer not trusted.",
+        "notes": []
+      }
+    }
+  ]
+}
