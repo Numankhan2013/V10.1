@@ -66,60 +66,39 @@ recovered under the runbook contract.
 - Scope: Chapter 5 **Pharyngeal arches, Skeletal & Muscular Systems**, Q1–Q9 only.
 - Augmentation file: `data/marrow/explanation_anatomy_ch05_q001_q009_v1.json`.
 - Scope metadata records workload score **16.5** and 9 contiguous source-order questions.
-- Learner-facing content is **CONTENT_AUTHORED** and a dedicated stable-ID browser
-  regression is committed.
-- Raw Marrow source remains unchanged.
-- Current augmentation contains no reconstruction-marked item in Q1–Q9.
-- The committed deterministic inventory file is still the pre-batch verified manifest
-  (**539 / 1,576**, fingerprint `06882f...`) and therefore has **not yet been regenerated
-  for this batch**. Do not treat the current batch as STATIC_VALIDATED until inventory
-  regeneration/fingerprint and the remaining static checks pass.
+- Learner-facing content is **CONTENT_AUTHORED** and a dedicated stable-ID browser regression is committed.
+- Raw Marrow source remains unchanged; Q1–Q9 contain no reconstruction-marked item.
+- Deterministic inventory has now been regenerated for this batch: **548 enhanced / 1,567 pending**.
+- Current inventory fingerprint: `3ac131bdd442b649b7778260565f43156e3bf1c04ef4717c3a6c8b82bf30c4fc`.
+- Source hashes and review-flag counts are unchanged from the pre-batch inventory.
 - PR **#34** is open for this exact bounded batch.
-- Exact-head full Android/PWA run **707** / `34557657242` on head
-  `64b45f91bfd4596c2e3a7745e0c19c7861819eac` failed only at the project-memory
-  vocabulary gate before product checks: `STATE.md` lacked the literal `build-verified`
-  concept. The subsequent exact-head Gate 329 / `34557786879` and full run 708 /
-  `34557784243` on head `c180bf2bbd812308e6828359e609d470cf49db8a` also stopped at project-memory
-  verification because the required literal `Next step` handoff concept was absent.
-- Exact-head Gate **330** / `34559883702` on head
-  `567ebf868a0ff98f069a9bc37b78c65226ffc7fc` again stopped at project-memory
-  verification. Inspection of `tools/verify_project_memory.py` showed the handoff must
-  also contain an `Accepted product commit:` value aligned with README, legacy memory,
-  and engineering baseline; this repair restores the accepted baseline value `125d68b`.
+- Earlier exact-head runs 707/708 and Gates 329/330 failed only on project-memory vocabulary requirements; those requirements are now repaired.
+- Engineering Gate **331** / `34563798787` on head `304ef3bf88f9ba37d09395bc206abf534b6d2d4d` passed project-memory, verification preflight, Python compile, study metrics, Custom Study Modules, cross-device/PWA, FSRS, Marrow source, image registry and Topics taxonomy, then failed exactly at `Validate Marrow explanation inventory` because the committed manifest was still the pre-batch 539/1,576 version.
+- Gate 331 itself printed the deterministic expected manifest: **548 / 1,567**, fingerprint `3ac131bd...`; that exact generated manifest is now committed.
 - Production promotion remains prohibited/skipped.
 
 ## Current integration-lane status
 
 - **Anatomy Chapter 5 Q1–Q9 is the sole CURRENT_UNVERIFIED explanation batch.**
 - Other subject workers must not start a new integration batch while this state is current.
-- Historical/open fully verified PRs do not block the lane; this Anatomy batch does because
-  live Git state and this authoritative handoff agree on the exact unfinished scope.
-- If an Anatomy worker resumes, continue this exact Q1–Q9 batch; do not append Q10+ or start
-  another chapter until this batch reaches FULLY_VERIFIED.
+- Historical/open fully verified PRs do not block the lane; this Anatomy batch does because live Git state and this authoritative handoff agree on the unfinished scope.
+- If an Anatomy worker resumes, continue this exact Q1–Q9 batch; do not append Q10+ or start another chapter until this batch reaches FULLY_VERIFIED.
 
 ## Known problems / cautions
 
-- Never accept a neighboring green workflow run; certify only the PR's exact product SHA.
-- The current batch was partially committed before project memory was updated. The handoff
-  now records explicit CURRENT_UNVERIFIED ownership so later workers cannot mistake the lane as free.
-- The inventory manifest must be regenerated deterministically from the unchanged raw source
-  plus the Anatomy Q1–Q9 augmentation before certification.
+- Never accept a neighboring green workflow run; certify only the PR's exact current head SHA.
+- Inventory drift from the newly added nine augmentation IDs has been repaired; fresh exact-head CI is still required.
 - Prefer stable chapter/question IDs over fuzzy display-text selectors.
 - Keep image integration separate. Do not rewrite raw Marrow shards, fork study engines,
   alter Topics taxonomy, redesign UI, merge, or promote production.
 
 ## Exact next action / Next step
 
-1. Resume `feature/marrow-explanation-rollout-anatomy-ch05-q01-q09-current` and PR #34.
-2. Require fresh exact-head Engineering Gate and full Android/PWA runs after this repair.
-3. Complete source-answer/distractor, emphasis, duplicate-ID, raw-source immutability and
-   augmentation-schema checks for Q1–Q9.
-4. Regenerate `data/marrow/explanation_inventory_v1.json` deterministically and record the
-   new enhanced/pending totals plus fingerprint.
-5. Run/confirm stable-ID browser regression and shared Practice/CBT/Review/FSRS regressions.
-6. Certify only the PR's exact current head, including APK/package/reproducibility and preview.
-7. If all gates pass, record the exact verified product SHA/run IDs/preview, move this batch to
-   FULLY_VERIFIED_HISTORY, release the lane, and end the run without starting Q10+.
+1. Re-resolve PR #34 head after this memory/inventory checkpoint.
+2. Confirm deterministic inventory validation now passes and complete the remaining source-answer/distractor, emphasis, duplicate-ID, raw-source immutability and augmentation-schema checks for Q1–Q9.
+3. Run/confirm stable-ID browser regression and shared Practice/CBT/Review/FSRS regressions.
+4. Require fresh exact-head Engineering Gate and full Android/PWA workflow on the PR's exact current head.
+5. Certify APK/package/reproducibility and preview only from that exact head; production promotion stays skipped.
+6. If all gates pass, record the exact verified product SHA/run IDs/preview, move this batch to FULLY_VERIFIED_HISTORY, release the lane, and end without starting Q10+.
 
-Efficiency rule: pre-audit future content while CI runs, but never commit another batch on an
-unverified lineage.
+Efficiency rule: pre-audit future content while CI runs, but never commit another batch on an unverified lineage.
