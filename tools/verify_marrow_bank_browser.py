@@ -76,10 +76,10 @@ source = source.replace(old_summary, new_summary, 1)
 
 # Anatomy Ch60-63 source expansion layered on top of the current core.
 anatomy_replacements = {
-    "            for marker in ('PrepLadder','Marrow','1,068','819'):": "            for marker in ('PrepLadder','Marrow','1,068','898'):",
-    "            if page.locator('button.nk-topic-row').count()!=48: raise SystemExit('Marrow Anatomy topic count is not 48')": "            if page.locator('button.nk-topic-row').count()!=52: raise SystemExit('Marrow Anatomy topic count is not 52')",
-    "            assert_sections(['Embryology','Histology','Neuroanatomy','Head, neck, and face','Upper limb','Thorax','Abdomen and pelvis'])": "            assert_sections(['Embryology','Histology','Neuroanatomy','Head, neck, and face','Upper limb','Thorax','Abdomen and pelvis','General anatomy'])",
-    "            if serials!=[str(i) for i in range(1,49)]: raise SystemExit(f'Marrow Anatomy learner numbering is not contiguous: {serials!r}')": "            if serials!=[str(i) for i in range(1,53)]: raise SystemExit(f'Marrow Anatomy learner numbering is not contiguous 1-52: {serials!r}')",
+    "            for marker in ('PrepLadder','Marrow','1,068','819'):": "            for marker in ('PrepLadder','Marrow','1,068','1,115'):",
+    "            if page.locator('button.nk-topic-row').count()!=48: raise SystemExit('Marrow Anatomy topic count is not 48')": "            if page.locator('button.nk-topic-row').count()!=63: raise SystemExit('Marrow Anatomy topic count is not 63')",
+    "            assert_sections(['Embryology','Histology','Neuroanatomy','Head, neck, and face','Upper limb','Thorax','Abdomen and pelvis'])": "            assert_sections(['Embryology','Histology','Neuroanatomy','Head, neck, and face','Upper limb','Thorax','Abdomen and pelvis','Lower limb','Back','General anatomy'])",
+    "            if serials!=[str(i) for i in range(1,49)]: raise SystemExit(f'Marrow Anatomy learner numbering is not contiguous: {serials!r}')": "            if serials!=[str(i) for i in range(1,64)]: raise SystemExit(f'Marrow Anatomy learner numbering is not contiguous 1-63: {serials!r}')",
 }
 for old, new in anatomy_replacements.items():
     if source.count(old) != 1:
@@ -113,7 +113,7 @@ shot_new = shot_anchor + """
 if source.count(shot_anchor) != 1:
     raise SystemExit(f"Anatomy learner leakage insertion anchor count: {source.count(shot_anchor)}")
 source = source.replace(shot_anchor, shot_new, 1)
-source = source.replace('anatomy=819/48', 'anatomy=898/52')
+source = source.replace('anatomy=819/48', 'anatomy=1115/63')
 
 # Biochemistry Ch27-28 source expansion: keep the core smoke suite and extend it.
 biochem_replacements = {
@@ -172,7 +172,7 @@ if source.count(biochem_anchor) < 1:
 source = source.replace(biochem_anchor, biochem_guard + biochem_anchor, 1)
 
 old_summary = "biochemistry=543/26 physiology=1014/43 physiology_plan=42 physiology_numbering=contiguous raw_json=clean total=2455"
-new_summary = "biochemistry=582/28 physiology=1014/43 physiology_plan=42 physiology_numbering=contiguous raw_json=clean total=2494"
+new_summary = "biochemistry=582/28 physiology=1014/43 physiology_plan=42 physiology_numbering=contiguous raw_json=clean total=2711"
 if source.count(old_summary) != 1:
     raise SystemExit(f"Expanded Marrow browser summary anchor count: {source.count(old_summary)}")
 source = source.replace(old_summary, new_summary, 1)

@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "marrow"
 BANKS = {
-    "Anatomy": "anatomy_ch001_048_plus_060_063",
+    "Anatomy": "anatomy_ch001_063",
     "Biochemistry": "biochemistry_ch001_028",
     "Physiology": "physiology_ch001_043",
 }
@@ -242,9 +242,20 @@ def main() -> None:
 
     anatomy = subjects["Anatomy"]
     validate_planned("Anatomy", anatomy, ANATOMY_SECTION_ORDER, ANATOMY_PLANNED, 71)
-    assert nonempty_sections(anatomy) == ANATOMY_SECTION_ORDER[:7] + ["General anatomy"]
-    assert flatten_current(anatomy) == [str(i) for i in range(1, 49)] + ["60", "61", "62", "63"]
-    assert {str(item["id"]): item["plannedSlots"] for item in anatomy["topics"] if int(item["id"]) >= 60} == {
+    assert nonempty_sections(anatomy) == ANATOMY_SECTION_ORDER
+    assert flatten_current(anatomy) == [str(i) for i in range(1, 64)]
+    assert {str(item["id"]): item["plannedSlots"] for item in anatomy["topics"] if int(item["id"]) >= 49} == {
+        "49": ["abdomen-and-pelvis:03"],
+        "50": ["abdomen-and-pelvis:04", "abdomen-and-pelvis:05"],
+        "51": ["abdomen-and-pelvis:06"],
+        "52": ["abdomen-and-pelvis:07"],
+        "53": ["abdomen-and-pelvis:08"],
+        "54": ["lower-limb:01"],
+        "55": ["lower-limb:02"],
+        "56": ["lower-limb:03"],
+        "57": ["lower-limb:04"],
+        "58": ["lower-limb:05"],
+        "59": ["back:01"],
         "60": ["general-anatomy:01"],
         "61": ["general-anatomy:02"],
         "62": ["general-anatomy:03"],
@@ -267,10 +278,10 @@ def main() -> None:
     assert {str(item["id"]): item["plannedSlots"] for item in phys["topics"]} == PHYSIOLOGY_SLOT_MAP
     assert set(PHYSIOLOGY_VISIBLE_IDS) == {str(i) for i in range(1, 44)}
 
-    assert total == 123
+    assert total == 134
     print(
-        "MARROW_TOPIC_TAXONOMY_OK subjects=3 current_topics=123 "
-        "anatomy_plan=71 anatomy_visible=52 biochemistry_plan=32 biochemistry_visible=28 "
+        "MARROW_TOPIC_TAXONOMY_OK subjects=3 current_topics=134 "
+        "anatomy_plan=71 anatomy_visible=63 biochemistry_plan=32 biochemistry_visible=28 "
         "physiology_plan=42 physiology_visible=43 numbering=contiguous placeholders=none"
     )
 

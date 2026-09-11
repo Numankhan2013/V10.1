@@ -58,12 +58,12 @@ def main() -> None:
     assert chapter_source <= enhanced
     assert inventory["summary"]["enhancementStatus"] == {
         "enhanced-reference": 184,
-        "pending": 2310,
+        "pending": 2527,
     }
 
     print(
         "MARROW_BIOCHEM_EXPLANATION_ROLLOUT_TEST_OK "
-        "chapter=1 batch=22 chapter_total=23 approved_total=184 pending=2310 legacy_source=pinned expanded_source=pinned raw_source=unchanged"
+        "chapter=1 batch=22 chapter_total=23 approved_total=184 pending=2527 legacy_source=pinned expanded_source=pinned raw_source=unchanged"
     )
 
 

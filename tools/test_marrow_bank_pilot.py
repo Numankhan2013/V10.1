@@ -53,7 +53,7 @@ def main():
     ap=argparse.ArgumentParser();ap.add_argument('--data-only',action='store_true');args=ap.parse_args()
     d,anatomy_manifest=load_data('anatomy');qs=d['questions'];topics=d['topics']
     phys,phys_manifest=load_data('physiology');pqs=phys['questions'];ptopics=phys['topics']
-    full_anatomy,full_anatomy_manifest=load_expanded('anatomy_ch001_048_plus_060_063')
+    full_anatomy,full_anatomy_manifest=load_expanded('anatomy_ch001_063')
     full_biochem,full_biochem_manifest=load_expanded('biochemistry_ch001_028')
     full_phys,full_phys_manifest=load_expanded('physiology_ch001_043')
     gold=json.loads((DATA/'explanation_gold_pilot.json').read_text(encoding='utf-8'))
@@ -79,7 +79,7 @@ def main():
     assert full_anatomy['subject']=='Anatomy' and full_anatomy['bank']=='Marrow'
     assert full_biochem['subject']=='Biochemistry' and full_biochem['bank']=='Marrow'
     assert full_phys['subject']=='Physiology' and full_phys['bank']=='Marrow'
-    assert full_anatomy_manifest['scope']=='ch001_048_plus_ch060_063' and len(fa_q)==898 and len(fa_t)==52
+    assert full_anatomy_manifest['scope']=='complete_ch001_063' and len(fa_q)==1115 and len(fa_t)==63
     assert full_biochem_manifest['scope']=='complete_ch001_028' and len(fb_q)==582 and len(fb_t)==28
     assert full_phys_manifest['scope']=='complete_ch001_043' and len(fp_q)==1014 and len(fp_t)==43
     assert [t['questionCount'] for t in fa_t[:4]]==[19,13,16,14]
@@ -87,7 +87,7 @@ def main():
     assert set(q['id'] for q in qs).issubset({q['id'] for q in fa_q})
     assert set(q['id'] for q in pqs).issubset({q['id'] for q in fp_q})
     all_expanded=fa_q+fb_q+fp_q
-    assert len(all_expanded)==2494 and len({q['id'] for q in all_expanded})==2494
+    assert len(all_expanded)==2711 and len({q['id'] for q in all_expanded})==2711
     assert all(q['id'].startswith('marrow__') for q in all_expanded)
     assert all(len(q['options'])==4 and q['correctOption'] in (1,2,3,4) and q['question'] for q in all_expanded)
     assert all([str(o.get('letter','')).strip() for o in q['options']]==['A','B','C','D'] for q in all_expanded), 'Marrow runtime option labels must be uppercase A-D'
@@ -131,7 +131,7 @@ def main():
     assert set(gold_q).isdisjoint(phys_gold_q)
     assert len(gold_q)+len(phys_gold_q)==142
     if args.data_only:
-        print('MARROW_DATA_OK anatomy=898/52 biochemistry=582/28 physiology=1014/43 total=2494 pilot_enhanced=142 rationales=426 repaired=3');return
+        print('MARROW_DATA_OK anatomy=1115/63 biochemistry=582/28 physiology=1014/43 total=2711 pilot_enhanced=142 rationales=426 repaired=3');return
     s=HTML.read_text(encoding='utf-8')
     required=['NK_MARROW_BANK_PILOT_V1_START','nk-marrow-bank-pilot-v1','const MARROW_RECORDS = Array.isArray(MARROW_DATA.records) ? MARROW_DATA.records : [MARROW_DATA]','const MARROW_BY_SUBJECT = Object.freeze','const BANKS_BY_SUBJECT = Object.create(null)','Object.values(BANKS_BY_SUBJECT).flatMap','function nkBankRecords(name)','function openBank(name,bank)','function bankPage(name)',"route.page==='banks'",'Detailed explanation','Structured text','function nkRenderMarrowExplanation(q)',"q.bank==='Marrow'",'qbank_active_bank_v1','marrow__ANAT_CH01_Q001','marrow__ANAT_CH48_Q011','marrow__ANAT_CH60_Q001','marrow__ANAT_CH63_Q013','marrow__BIOCHEM_CH01_Q001','marrow__BIOCHEM_CH26_Q022','marrow__BIOCHEM_CH27_Q012','marrow__BIOCHEM_CH28_Q027','marrow__PHYS_CH01_Q001','marrow__PHYSIO_CH33_Q025','marrow__PHYSIO_CH43_Q016','NK_MARROW_EXPLANATION_GOLD_V1','nk-marrow-explanation-gold-v1','Why the other options are wrong','function nkRenderMarrowExplanationBase(q)','function nkRenderGoldWrongOptions(q,cfg)','function nkGoldConciseText(text,q)','function nkGoldOverlap(a,b)','displayText','homeostatic control system']
     missing=[x for x in required if x not in s]
@@ -156,5 +156,5 @@ def main():
             p=Path(td)/f'i{i}.js';p.write_text(src)
             subprocess.run(['node','--check',str(p)],check=True,stdout=subprocess.DEVNULL)
             checked+=1
-    print(f'MARROW_BANK_PILOT_TEST_OK anatomy=898/52 biochemistry=582/28 physiology=1014/43 total=2494 enhanced_subset=142 rationales=426 phys_clean_subset=80 micro_concision=on fsrs_dock=preserved scripts={checked}')
+    print(f'MARROW_BANK_PILOT_TEST_OK anatomy=1115/63 biochemistry=582/28 physiology=1014/43 total=2711 enhanced_subset=142 rationales=426 phys_clean_subset=80 micro_concision=on fsrs_dock=preserved scripts={checked}')
 if __name__=='__main__':main()

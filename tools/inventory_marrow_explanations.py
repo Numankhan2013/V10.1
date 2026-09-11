@@ -15,7 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "marrow"
 BANKS = {
-    "Anatomy": "anatomy_ch001_048_plus_060_063",
+    "Anatomy": "anatomy_ch001_063",
     "Biochemistry": "biochemistry_ch001_028",
     "Physiology": "physiology_ch001_043",
 }
@@ -150,15 +150,15 @@ def main() -> None:
     args = parser.parse_args()
     inventory = build_inventory()
     enhanced = len(enhanced_ids())
-    assert inventory["summary"]["questions"] == 2494
-    assert inventory["summary"]["enhancementStatus"] == {"enhanced-reference": enhanced, "pending": 2494 - enhanced}
+    assert inventory["summary"]["questions"] == 2711
+    assert inventory["summary"]["enhancementStatus"] == {"enhanced-reference": enhanced, "pending": 2711 - enhanced}
     assert len(inventory["biochemistryGoldSample"]) == 20
-    assert len({row["id"] for row in inventory["questions"]}) == 2494
+    assert len({row["id"] for row in inventory["questions"]}) == 2711
     if args.write:
         target = DATA / "explanation_inventory_v1.json"
         target.write_text(json.dumps(inventory_manifest(inventory), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     summary = inventory["summary"]
-    print(f"MARROW_EXPLANATION_INVENTORY_OK questions={summary['questions']} enhanced={enhanced} pending={2494-enhanced} biochem_sample=20 flags={summary['flags']}")
+    print(f"MARROW_EXPLANATION_INVENTORY_OK questions={summary['questions']} enhanced={enhanced} pending={2711-enhanced} biochem_sample=20 flags={summary['flags']}")
 
 
 if __name__ == "__main__":
