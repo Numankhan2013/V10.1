@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "status": "CURRENT_UNFINISHED",
+  "subject": "Biochemistry",
+  "batchId": "NKQ_BIOCHEM_COVERAGE_Q21_20260912",
+  "canonicalBase": "e5b63af79ad8042920e1272c5830d494e5ed3369",
+  "questionId": "marrow__BIOCHEM_CH02_Q021",
+  "referenceId": "marrow__BIOCHEM_CH02_Q021:figure:1",
+  "role": "explanation",
+  "order": 1,
+  "source": {
+    "file": "biochemistryed8.pdf",
+    "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+    "page": 39,
+    "compositeXrefs": [83, 84, 85],
+    "excludedNeighborXref": 86,
+    "region": [161.491, 55.671, 450.509, 272.328]
+  },
+  "candidate": {
+    "method": "region-render",
+    "dpi": 300,
+    "kind": "diagram",
+    "width": 1206,
+    "height": 904,
+    "sha256": "07082b9d273f10881d05557827fff479dd18ed450f2ae874aa51bc460a7b03a4",
+    "localFilename": "q21_composite_region_300dpi_opt.png",
+    "learnerFacing": false
+  },
+  "sourceComparison": {
+    "fullPageInspected": true,
+    "exactRegionInspected": true,
+    "phonePreviewInspected": true,
+    "expandedPreviewInspected": true,
+    "finding": "The exact Q21 region is a three-object composite: red glycolysis pathway on the left, blue gluconeogenesis pathway on the right, central intermediates with lactate/TCA connections and ATP/NADH/regulatory annotations. Xref 86 belongs to Q22 and is explicitly excluded. The 300-DPI region render is source-faithful and readable at expanded/tablet scale. No reconstruction, generation, inpainting, or medical-pixel alteration was used."
+  },
+  "coverageAtStart": {
+    "rawReferences": 110,
+    "effectiveReferences": 109,
+    "released": 69,
+    "invalidSourceMetadata": 1,
+    "resolved": 70,
+    "trackedUnreleased": 4,
+    "untracked": 36,
+    "textCueReviewItems": 31,
+    "subjectComplete": false
+  },
+  "blocker": "The available repository connector can replace registry.json only as a complete file and does not expose an atomic JSON patch operation. The monolithic registry response is truncated in this runtime, so mutating it without reconstructing all existing entries would risk destructive data loss. No registry/release mutation was attempted.",
+  "nextAction": "Resume this exact batch/branch. Recreate or reuse the verified 300-DPI region from the authoritative PDF, then add it to the canonical registry only through a complete non-destructive registry edit; regenerate progress/coverage, release, run all image/source/browser/PWA/APK/package gates, and reconcile the verified batch into canonical. Do not skip Q21."
+}
