@@ -1,5 +1,6 @@
 name: One-shot Physiology Fast-Lane Batch 02 Handoff
 
+# Trigger the one-shot durable handoff writer.
 on:
   push:
     branches: ['manual/marrow-physiology-fastlane-20260912-b02']
