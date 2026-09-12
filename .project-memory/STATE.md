@@ -100,7 +100,7 @@ Verified canonical explanation work includes:
 ## Current product handoff — Continue Practice
 
 - A durable handoff is recorded in `.project-memory/CONTINUE_PRACTICE_HANDOFF.md`.
-- **CURRENT_BUILD_VERIFIED product candidate:** branch `fix/continue-practice-session-resume-20260912`, rebased onto canonical checkpoint a75f59c. Product commit a717563 passed exact-head Engineering Gate **34684693663** and full Android/PWA/browser/APK/package/reproducibility/preview run **34684715131**.
+- **FULLY_VERIFIED canonical product state:** PR **#45** merged the Continue Practice repair into `feature/marrow-canonical-full-current` at exact merge commit `d84a8093468c278a19e81e917bcc66da91f33574`; canonical Engineering Gate **34685236474** and full Android/PWA/browser/APK/package/reproducibility/preview run **34685236486** passed.
 - The bounded implementation replaces the global-first-unattempted/one-question fallback with shared persisted session/topic continuation. It adds no Marrow-only or subject-specific engine.
 - **Session-level control contract:** expose two clear, reachable actions — **Submit** and **Pause** — with no viewport clipping, hidden buttons, overlap or footer collision.
 - **Pause is the resumable exit.** Resume the same topic/session with skipped + unseen questions still attemptable. Questions already answered correctly or incorrectly are finished for that session and must not be served again on resume.
@@ -109,15 +109,15 @@ Verified canonical explanation work includes:
 - State model: `activeSession.lifecycle`, durable `sessionQuestionIds` and `practiceContext` inside the existing synced learner state; completed Practice history receives the same context. No new top-level store was added.
 - Wrong/Bookmarks, FSRS, Review, CBT and Custom Study Modules remain outside this continuation layer.
 - Deterministic behavior/transform/product/build-order tests pass locally and in Engineering CI. `verify_local.py` passes **41** owner entrypoints after excluding non-owner donor/core and browser helpers from glob execution.
-- Generated-app Playwright passed at 320/390/768 px with exactly 16 remaining questions; screenshots were visually inspected and show reachable Pause/Submit controls separated from Previous/Next. Preview: https://26c21c13.nk-qbank.pages.dev; APK/PWA artifact **10294634822**; screenshot artifact **10294714739**. Production promotion was skipped.
-- **Not yet canonical/device verified:** reconcile against the live canonical tip, merge only into canonical, and physically verify the candidate before acceptance.
+- Canonical generated-app Playwright passed at 320/390/768 px with exactly 16 remaining questions; screenshots were visually inspected and show reachable Pause/Submit controls separated from Previous/Next. Preview: https://fe6ec51b.nk-qbank.pages.dev; APK/PWA artifact **10295367582**; screenshot artifact **10295078220**. Production promotion was skipped.
+- **Device acceptance remains pending:** the canonical feature is build/browser verified but is not an accepted production release.
 
 ## Known problems / cautions
 
 - Current Anatomy batch has passed canonical-source/static exact-head Engineering validation but still needs deterministic +7 inventory regeneration, representative stable-ID browser regression, and exact-head full Android/PWA/APK/package/reproducibility/preview verification.
 - Biochemistry image coverage remains incomplete: 40 effective source references are not resolved yet (4 tracked-unreleased + 36 untracked), plus 31 text-cue review items still require adjudication.
 - Q21 image source/content review is complete; release is blocked only on durable production-byte provenance after two current-toolchain encoding mismatches. Do not skip to a later easier reference and do not relax the hash/source-comparison gate.
-- Continue Practice is build/browser verified at a717563, but it is not canonical or physically device-verified yet; do not describe it as shipped/accepted.
+- Continue Practice is canonical/build/browser verified at `d84a809`, but physical-device acceptance remains pending; do not describe it as production-shipped/accepted.
 - Historical unfinished explanation branches remain historical unless explicitly transplanted by stable ID onto canonical and reverified.
 - Production remains untouched until explicit user approval.
 - Never invent missing source text, table cells, or medical-image detail.
@@ -129,7 +129,7 @@ Verified canonical explanation work includes:
 3. Add one representative stable-ID browser regression (prefer Q2 for reconstruction sensitivity or Q3 for structured-table protection).
 4. Run exact-head Engineering Gate + full Android/PWA/browser/APK/package/reproducibility/preview workflow.
 5. Reconcile verified explanation result back into canonical before releasing the explanation lane. Production promotion is prohibited.
-6. Recheck the live canonical tip and reconcile build-verified Continue Practice commit a717563 into canonical. Physical-device acceptance remains pending. Do not promote production.
+6. Physically verify the canonical Continue Practice Pause → Continue and completed-topic → next-topic flows on the target device/PWA. Production promotion remains a separate explicit decision.
 7. **Image lane:** resume `automation/marrow-images-biochemistry-coverage-20260912-q21` at safe checkpoint `e81157ca96a593975b00879fa425bd4690d3e637`. Recover the exact reviewed `07082b9d…` PNG bytes if possible; otherwise perform a fresh complete visual QA on one pinned deterministic encoding before changing the production hash. Then integrate Q21 non-destructively, regenerate progress/coverage/release, run full image/browser/PWA/APK/package gates, and reconcile into canonical before releasing the lane. Do not skip Q21.
 
 Canonical source handoff: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
