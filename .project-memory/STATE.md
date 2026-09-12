@@ -65,12 +65,14 @@ Verified canonical explanation work includes:
 - **Canonical base SHA at branch creation:** `daa48f78ca208846f8be8781c64b8a297b5ab98d`.
 - **Batch branch:** `feature/marrow-explanation-rollout-anatomy-ch06-q001-q007-current`.
 - **Content commit:** `cf358f951930295ba03aae9b9ec5b7a658d69086`.
-- **State:** `CONTENT_AUTHORED`; deterministic inventory/browser/CI not yet run, therefore not verified.
+- **Current batch head:** `f004133f5e245be7a51b8ebc712c3f2b2c0bab74`.
+- **PR:** #43 targeting `feature/marrow-canonical-full-current`.
+- **State:** `PR_OPEN_CI_PENDING`; canonical-source/static validator added and Engineering Gate queued, but deterministic inventory/browser/full CI remain incomplete.
 - **Reconstruction:** `marrow__ANAT_CH06_Q002` = `needs_manual_review` because the source-rendered question omits the numbered 1–4 structure legend; named cranial→caudal order is recoverable, but the missing original mapping was not invented.
-- **Source audit note:** canonical full Anatomy bundle hash is current; the connector-readable `main` chapter-6 audit projection is from the older Phase-A bundle and therefore has a different whole-bundle SHA. Ch6 stable IDs/source content were used only as a derived read view; next stabilization must validate Q1–Q7 against the canonical full bundle before certification.
+- **Source validation contract:** `tools/test_marrow_anatomy_explanation_rollout.py` pins canonical Anatomy SHA `f38dc861…`, requires Ch6 Q1–Q7 stable-ID source records to equal their audited Phase-A records, and validates chapter/question ownership, emphasis anchors, answer/distractor mapping and Q2 reconstruction schema.
 - **Inventory:** still 581/2130; no inventory regeneration has occurred yet.
-- **CI:** none launched yet.
-- **Lane:** locked to Anatomy until this batch is either reconciled FULLY_VERIFIED into canonical or explicitly abandoned.
+- **CI:** Engineering Gate **34665992491** queued for exact batch head `f004133f…`; full Android/PWA run not yet launched/observed for this head.
+- **Lane:** locked to Anatomy until this batch is reconciled FULLY_VERIFIED into canonical or explicitly abandoned.
 
 ## Anti-fragmentation automation contract
 
@@ -88,7 +90,7 @@ Verified canonical explanation work includes:
 
 ## Known problems / cautions
 
-- Current Anatomy batch still needs canonical-bundle source validation, deterministic inventory, representative stable-ID browser regression, exact-head Engineering Gate and full Android/PWA/APK/package/reproducibility/preview verification.
+- Current Anatomy batch still needs successful static CI, deterministic inventory regeneration, representative stable-ID browser regression, exact-head Engineering Gate and full Android/PWA/APK/package/reproducibility/preview verification.
 - Historical unfinished explanation branches remain historical unless explicitly transplanted by stable ID onto canonical and reverified.
 - Production remains untouched until explicit user approval.
 - Never invent missing source text, table cells, or medical-image detail.
@@ -96,8 +98,8 @@ Verified canonical explanation work includes:
 ## Next step
 
 1. Resume Anatomy Ch6 Q1–Q7 only; do not start another batch.
-2. Validate all seven IDs/options/keys against canonical full Anatomy bundle SHA `f38dc861…` and run the Anatomy rollout/static contract.
-3. Regenerate deterministic 2,711-ID inventory; expected unique enhancement change is +7 only if validation succeeds.
+2. Check Engineering Gate 34665992491 on exact head `f004133f…`; repair at most twice if the canonical-source/static validator fails.
+3. After static validation succeeds, mark the batch approved-rollout and regenerate the deterministic 2,711-ID inventory; expected unique enhancement change is +7.
 4. Add one representative stable-ID browser regression (prefer Q2 for reconstruction sensitivity or Q3 for structured-table protection).
 5. Run exact-head Engineering Gate + full Android/PWA/browser/APK/package/reproducibility/preview workflow.
 6. Reconcile verified result back into canonical before releasing the explanation lane. Production promotion is prohibited.
