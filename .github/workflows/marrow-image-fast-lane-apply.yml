@@ -77,6 +77,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          # Python execution rewrites tracked legacy bytecode caches. Restore those
+          # tracked bytes to HEAD without deleting any pre-existing untracked cache files.
+          git restore --worktree -- tools/__pycache__ || true
           git status --short
           CHANGED="$(git status --porcelain=v1 | sed -E 's/^.. //')"
           if printf '%s\n' "$CHANGED" | grep -E '^(data/marrow/source_pdfs/|data/marrow/.*\.zlib\.b64\.part|data/marrow/.*_manifest\.json$)'; then
