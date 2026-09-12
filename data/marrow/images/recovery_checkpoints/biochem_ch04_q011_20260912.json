@@ -1,0 +1,55 @@
+{
+  "status": "SAFE_CHECKPOINT_REVIEW_REQUIRED",
+  "batchId": "NKQ_BIOCHEM_COVERAGE_Q11_20260912",
+  "canonicalBase": "36c9e1a92a3925c17f6914c2a6ffebf73948ba14",
+  "branch": "automation/marrow-images-biochemistry-coverage-20260912-q11",
+  "questionId": "marrow__BIOCHEM_CH04_Q011",
+  "referenceId": "marrow__BIOCHEM_CH04_Q011:figure:1",
+  "role": "explanation",
+  "order": 1,
+  "source": {
+    "file": "biochemistryed8.pdf",
+    "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+    "sizeBytes": 7958177,
+    "recordedPage": 69,
+    "recordedPageXref": 1146,
+    "recordedPageRegion": [162.0, 56.0, 450.0, 272.0],
+    "recordedPageNativeSha256": "bb781d8346ed1c3677ac8faf3a5a54501d09f583509a91d1aa0d7ecf9d1198d4",
+    "correctContinuationPage": 70,
+    "correctXref": 162,
+    "correctRegion": [162.0, 56.0, 450.0, 272.0],
+    "correctNativeSha256": "e302242457457cdcabcca8ced492809b2f1947c049b719ff49a0be6bd6a222f6",
+    "correctNativeWidth": 600,
+    "correctNativeHeight": 451
+  },
+  "finding": "Rendered authoritative pages prove page 69's educational image is fructose metabolism while Q11's explanation points to a galactose flowchart below; page 70 contains the correct native Metabolism of galactose diagram. Preserve the old rejected Q11/fructose binding. Do not skip Q11.",
+  "attempts": [
+    {
+      "runId": 34694510806,
+      "result": "FAIL_CLOSED_BEFORE_MUTATION",
+      "reason": "Embedded PDF text extraction garbled the word galactose on page 69; rendered page, xref, region and hash evidence remained valid."
+    },
+    {
+      "runId": 34694608472,
+      "result": "FAIL_CLOSED_BEFORE_MUTATION",
+      "reason": "Embedded PDF text extraction also garbled the title on page 70; rendered page, xref, region and hash evidence remained valid."
+    }
+  ],
+  "mutation": {
+    "registryChanged": false,
+    "progressChanged": false,
+    "coverageChanged": false,
+    "learnerFacingChanged": false
+  },
+  "liveCoverageAtCheckpoint": {
+    "sourceVisualReferences": 110,
+    "effectiveLearnerVisualReferences": 109,
+    "releasedSourceVisualReferences": 71,
+    "invalidSourceMetadataReferences": 1,
+    "resolvedSourceVisualReferences": 72,
+    "trackedButUnreleasedReferences": 4,
+    "untrackedSourceVisualReferences": 34,
+    "textCueReviewItems": 31
+  },
+  "nextAction": "Resume this exact Q11 reference. Use rendered-page plus native xref/region/hash ownership evidence instead of corrupted embedded text. Before any mutation re-read canonical head/STATE/registry/progress and recompute audit/coverage. If live canonical still agrees, preserve the historical rejected page-69 fructose binding, adjudicate the recorded page-69 mapping precisely if policy permits, and bind the page-70 native galactose image only after complete source/runtime QA."
+}
