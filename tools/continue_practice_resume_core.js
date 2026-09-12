@@ -55,7 +55,7 @@
   }
   function nkPracticeContinuation(){
     const live=state.activeSession;
-    if(nkPracticeResumeEligible(live)&&live?.questionIds?.length){
+    if(nkPracticeResumeEligible(live)&&nkPracticeSessionIds(live).length){
       const identity=nkPracticePrepareSession(live);
       return {kind:live.lifecycle==='paused'?'paused':'active',session:live,context:identity};
     }
@@ -93,19 +93,21 @@
     return typeof openChapter==='function'?openChapter(context.topicId):navigate('study-library');
   }
   function nkResumePracticeSession(s){
-    const identity=nkPracticePrepareSession(s),base=nkPracticeSessionIds(s),remaining=nkPracticeRemainingIds(s);
-    if(!remaining.length){navigate('practice');setTimeout(()=>window.QB.openSessionReview?.(),0);return false;}
-    const current=String(s.questionIds?.[Number(s.index)||0]||''),currentBase=Math.max(0,base.indexOf(current));
-    let target=remaining.find(id=>base.indexOf(id)>=currentBase)||remaining[0];
-    s.questionIds=remaining;s.index=Math.max(0,remaining.indexOf(target));s.lifecycle='active';s.resumedAt=Date.now();s.questionEnteredAt=Date.now();
+    const identity=nkPracticePrepareSession(s),base=nkPracticeSessionIds(s);
+    if(!base.length){navigate('study-library');return false;}
+    const oldIndex=Math.max(0,Number(s.index)||0),current=String(s.questionIds?.[oldIndex]||'');
+    const mappedIndex=base.indexOf(current),savedIndex=Math.max(0,Math.min(base.length-1,Number(s.pausedIndex)||0));
+    const targetIndex=mappedIndex>=0?mappedIndex:savedIndex;
+    s.questionIds=[...base];s.index=targetIndex;s.lifecycle='active';s.resumedAt=Date.now();s.questionEnteredAt=Date.now();
     if(identity)s.practiceContext={subject:identity.subject,bank:identity.bank,topicId:identity.topicId,title:identity.title,questionIds:[...base]};
-    saveState();navigate('practice');return true;
+    saveState();navigate('practice');
+    if(!nkPracticeRemainingIds(s).length)setTimeout(()=>window.QB.openSessionReview?.(),0);
+    return true;
   }
   function nkPausePractice(){
     const s=state.activeSession;if(!nkPracticeResumeEligible(s))return false;
     if(typeof savePracticeElapsed==='function')savePracticeElapsed();nkPracticePrepareSession(s);
     s.lifecycle='paused';s.pausedAt=Date.now();s.pausedIndex=Number(s.index)||0;
-    if(typeof nkMarkSkippedFromSession==='function')nkMarkSkippedFromSession(s);
     saveState();document.getElementById('nk-session-review')?.remove();document.getElementById('qb-question-navigator')?.remove();navigate('dashboard');return true;
   }
   function nkSubmitPracticeSession(){
@@ -116,7 +118,7 @@
   const nkPracticeResumeOriginalLatest=nkLatestPracticeContext;
   nkLatestPracticeContext=function(){
     const next=nkPracticeContinuation(),context=next.context;
-    if((next.kind==='paused'||next.kind==='active')&&next.session){const q=nkPracticeResumeQuestion(next.session.questionIds?.[next.session.index]||context?.questionIds?.[0]);return q?{q,topic:context?.title||nkTopicTitleForQuestion(q),subject:context?.subject||q.subject||activeSubject,live:true,paused:next.kind==='paused'}:null;}
+    if((next.kind==='paused'||next.kind==='active')&&next.session){const ids=nkPracticeSessionIds(next.session),liveId=String(next.session.questionIds?.[Number(next.session.index)||0]||''),mapped=ids.indexOf(liveId),idx=mapped>=0?mapped:Math.max(0,Math.min(ids.length-1,Number(next.session.pausedIndex)||0)),q=nkPracticeResumeQuestion(ids[idx]||context?.questionIds?.[0]);return q?{q,topic:context?.title||nkTopicTitleForQuestion(q),subject:context?.subject||q.subject||activeSubject,live:true,paused:next.kind==='paused'}:null;}
     if((next.kind==='topic-remaining'||next.kind==='next-topic')&&context){const q=nkPracticeResumeQuestion(context.questionIds?.[0]);return q?{q,topic:context.title,subject:context.subject,live:false,nextTopic:next.kind==='next-topic'}:null;}
     return null;
   };
