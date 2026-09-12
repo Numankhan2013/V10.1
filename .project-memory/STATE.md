@@ -86,10 +86,11 @@ Do not certify this behavior by calling only an internal helper or by using a su
 ## Image lane
 
 - Automated Biochemistry image integration is paused. Ch4 Q11 remains the exact unresolved Biochemistry reference and is preserved as `REVIEW_REQUIRED`; two recovery attempts failed before shared registry/progress mutation because embedded PDF text was corrupted. No verified Q11 learner-facing result exists on a side branch, and no Biochemistry work was skipped or newly started.
-- Manual Physiology Batch 01 is active on `automation/marrow-images-physiology-manual-20260912-b01`, based exactly on canonical SHA `4f716c3a8eb2c6bc8030bb638a766580f5ddeca3`.
+- Manual Physiology Batch 01 was completed on `automation/marrow-images-physiology-manual-20260912-b01`, based exactly on canonical SHA `4f716c3a8eb2c6bc8030bb638a766580f5ddeca3`, and its verified product commit `719e2aa0cfbacb829781e9a7953af4717a6a6f5a` was fast-forwarded into the sole canonical trunk.
 - The bounded source-order scope is six references: `marrow__PHYS_CH01_Q009:figure:1`, `marrow__PHYS_CH01_Q018:figure:1`, `marrow__PHYS_CH01_Q021:figure:1`, `marrow__PHYS_CH01_Q021:figure:2`, `marrow__PHYS_CH02_Q020:figure:1`, and `marrow__PHYS_CH03_Q005:figure:2`.
-- Source review workflow `34698354509` confirmed the first four are table-only metadata already represented by structured tables, Q20 is a question-critical four-tile clinical photograph requiring a precise authentic region render, and Q5 figure 2 is the repeated page-44 diffusion plot. Candidate coverage is 294 raw / 290 effective / 44 released / 4 invalid metadata / 48 resolved / 21 tracked-unreleased / 225 untracked / 28 text-cue; subject incomplete.
-- Candidate integration and exact-head CI are pending. Do not start another image batch or mutate the shared registry until this branch is verified and reconciled into canonical.
+- Source review workflow `34698354509` confirmed the first four are table-only metadata already represented by structured tables, Q20 is a question-critical four-tile clinical photograph requiring a precise authentic region render, and Q5 figure 2 is the repeated page-44 diffusion plot. The first four references were adjudicated `SOURCE_METADATA_INVALID`; Q20 gained PASS question binding `physiology-f675135b3bc1c381`; Q5 gained a second PASS explanation binding to existing asset `physiology-95389f30f8277be3`.
+- Product commit `719e2aa0cfbacb829781e9a7953af4717a6a6f5a` passed Engineering Gate `34699015727` and full Android/PWA/browser/image-comparison/APK/package run `34699016754`; source/production and emitted Q20/Q5 screenshots were inspected and passed. Preview `https://72286d5a.nk-qbank.pages.dev`; production promotion skipped.
+- Current Physiology coverage is 294 raw / 290 effective / 44 released / 4 invalid metadata / 48 resolved / 21 tracked-unreleased / 225 untracked / 28 text-cue; subject incomplete. The image writer is released and no second batch has begun.
 
 ## Anti-fragmentation rules
 
@@ -102,14 +103,14 @@ Do not certify this behavior by calling only an internal helper or by using a su
 
 ## Known problems / cautions
 
-- Physiology image coverage remains incomplete after this bounded candidate, and Biochemistry Q11 remains unresolved/paused.
-- Canonical tip `4f716c3` had a memory-validator wording failure only; this branch restores the required status vocabulary without changing accepted product behavior.
+- Physiology image coverage remains incomplete after the verified bounded batch, and Biochemistry Q11 remains unresolved/paused.
+- Former canonical tip `4f716c3` had a memory-validator wording failure only; the reconciled batch restores the required status vocabulary without changing accepted product behavior.
 
 ## Current priorities / Next step
 
 1. **Main product work may proceed from live canonical.** Preserve the accepted Practice contract above.
 2. **Explanation lane:** reconcile Anatomy Ch6 Q1–Q7 from the newest valid stable-ID scope onto the then-live canonical head, re-run exact-head deterministic/browser/full gates, then release the lane only after canonical integration.
-3. **Image lane:** finish exact-head validation and canonical reconciliation of manual Physiology Batch 01. After release, the next deterministic Physiology reference is `marrow__PHYS_CH03_Q007:figure:1` on source page 44. Keep automated Biochemistry paused with Q11 preserved unresolved.
+3. **Image lane:** Batch 01 is verified, reconciled, and the writer is clean. The next deterministic Physiology reference is `marrow__PHYS_CH03_Q007:figure:1` (explanation, source page 44, two native candidates, `UNTRACKED_SOURCE_VISUAL`). Keep automated Biochemistry paused with Q11 preserved unresolved; begin no new batch without fresh ownership and live-canonical checks.
 4. Production promotion remains prohibited unless the user explicitly asks for it.
 
 ## Memory pointers
