@@ -85,11 +85,11 @@ Verified canonical explanation work includes:
 
 ## Current image state / cautions
 
-- Image source-reference coverage remains incomplete; image automation has a separate writer lane.
-- **Biochemistry image recovery was re-enabled on 2026-09-12.** Its integration base is `feature/marrow-canonical-full-current`, and it must recompute live Biochemistry source-reference coverage each run rather than trusting historical registry completeness.
-- The Biochemistry image worker must remain enabled until the authoritative subject coverage `--require-complete --check` genuinely passes. Historical `feature/marrow-image-rollout-current` remains evidence/history only.
-- Previously reviewed verified Biochemistry image work checked during the 2026-09-12 audit is already represented in canonical, including Ch1 Q4 D-glucose/D-mannose and Ch2 Q13 glycolysis bindings/assets. No other already-verified stranded batch was identified in that audit.
-- Explanation work must not redesign UI or modify image ownership.
+- **Image lane owner:** Biochemistry `NKQ_BIOCHEM_COVERAGE_Q06_Q07_20260912_V3`, branch `automation/marrow-images-biochemistry-coverage-20260912-q06-q07-v3`, exact canonical base `e17b622b238280c127cd7c91a420dee82bdafdd9`; **CURRENT_UNVERIFIED** pending exact-head full CI.
+- Candidate released bindings: `marrow__BIOCHEM_CH02_Q006:figure:1` (page 31 / xref 1126) and `marrow__BIOCHEM_CH02_Q007:figure:1` (page 31 / xref 1125), both explanation-only and independently source-compared to existing PASS asset `biochemistry-aa11f9fa6a08baea` / production SHA `e6b4d76f…`. No new production asset or medical pixels were generated.
+- Candidate coverage: **110 raw / 109 effective / 69 released / 1 invalid / 70 resolved / 4 tracked-unreleased / 36 untracked / 31 text-cue**; Biochemistry remains **INCOMPLETE**.
+- Next deterministic unresolved reference: `marrow__BIOCHEM_CH02_Q021:figure:1` (explanation, source pages [39], UNTRACKED_SOURCE_VISUAL). It is composite/multi-object and must not be skipped for an easier later JPEG.
+- Historical image branches are evidence only; Physiology remains paused; production promotion is prohibited.
 
 ## Current product handoff — Continue Practice
 

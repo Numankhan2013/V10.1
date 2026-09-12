@@ -822,3 +822,12 @@ Implemented approved recovery in existing transform owners: Topics separate path
   layout are clear, with Study Sets and downstream sections intact. Immutable
   preview: `https://5a8a5212.nk-qbank.pages.dev`; artifact `10137126889`;
   production promotion skipped. Physical-device acceptance remains pending.
+
+
+## 2026-09-12 — Biochemistry Ch2 Q6/Q7 canonical image coverage candidate
+
+- Started `NKQ_BIOCHEM_COVERAGE_Q06_Q07_20260912_V3` from exact canonical SHA `e17b622b238280c127cd7c91a420dee82bdafdd9`.
+- Recovered Q6 page 31/xref 1126/region `[162,110,450,326.16]` and Q7 page 31/xref 1125/region `[162,512.976,450,729.136]`. Both 600x450 native figures were source-compared; Q7 is the exact source represented by the existing PASS reconstruction and Q6 differs only by minor JPEG compression while preserving identical pathway semantics.
+- Reused existing PASS asset `biochemistry-aa11f9fa6a08baea` by independent per-binding provenance; no duplicate asset was created.
+- Candidate coverage: 110 raw / 109 effective / 69 released / 1 invalid / 70 resolved / 4 tracked-unreleased / 36 untracked / 31 text-cue. Subject remains INCOMPLETE.
+- Next deterministic unresolved reference: `marrow__BIOCHEM_CH02_Q021:figure:1` (explanation, source pages [39], UNTRACKED_SOURCE_VISUAL). Exact-head full CI still required; no main or production promotion.

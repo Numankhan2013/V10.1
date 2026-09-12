@@ -639,6 +639,52 @@
               669.0
             ]
           }
+        },
+        {
+          "questionId": "marrow__BIOCHEM_CH02_Q006",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Glycolysis pathway diagram",
+          "status": "PASS",
+          "reviewBatch": "NKQ_BIOCHEM_COVERAGE_Q06_Q07_20260912_V3",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Authoritative page 31 places native xref 1126 directly inside Solution to Q6. Fresh native-pixel comparison against page-31 xref 1125 shows the same complete glycolysis pathway with only minor JPEG compression differences; the already PASS source-faithful reconstruction preserves all metabolites, enzyme labels, ATP/ADP and NAD+/NADH+H+ relationships, reversible arrows and irreversible-step markings. Explanation-only timing is answer-safe.",
+            "evidence": "Marrow ED8 Biochemistry page 31 / xref 1126 / native 600x450 source comparison performed in canonical recovery CI on 2026-09-12."
+          },
+          "source": {
+            "page": 31,
+            "xref": 1126,
+            "region": [
+              162.0,
+              110.0,
+              450.0,
+              326.16
+            ]
+          }
+        },
+        {
+          "questionId": "marrow__BIOCHEM_CH02_Q007",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Glycolysis pathway diagram",
+          "status": "PASS",
+          "reviewBatch": "NKQ_BIOCHEM_COVERAGE_Q06_Q07_20260912_V3",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Authoritative page 31 places native xref 1125 directly inside Solution to Q7. This exact source object is semantically and visually matched to the already PASS source-faithful glycolysis reconstruction. Explanation-only placement preserves answer timing and pathway semantics.",
+            "evidence": "Marrow ED8 Biochemistry page 31 / xref 1125 / region [162,512.976,450,729.136] plus existing independently approved glycolysis asset QA, rechecked 2026-09-12."
+          },
+          "source": {
+            "page": 31,
+            "xref": 1125,
+            "region": [
+              162.0,
+              512.976,
+              450.0,
+              729.136
+            ]
+          }
         }
       ],
       "original": {
@@ -1589,7 +1635,7 @@
       "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Source page 33 ownership is exact and question-critical: numeric labels 1–4 are intact, arrow endpoints are unambiguous, all germ-layer structures are visible, and the unanswered figure reveals no answer text.",
+        "notes": "Source page 33 ownership is exact and question-critical: numeric labels 1\u20134 are intact, arrow endpoints are unambiguous, all germ-layer structures are visible, and the unanswered figure reveals no answer text.",
         "evidence": "Native stream xref 71 visually compared with Anatomy page 33 metadata and owning question marrow__ANAT_CH03_Q011.",
         "originalSha256": "f22e257854e1923ab395bb276a1c7d99d3f52ab85a69b564f56446651d5a145f",
         "productionSha256": "f22e257854e1923ab395bb276a1c7d99d3f52ab85a69b564f56446651d5a145f"
@@ -1964,7 +2010,7 @@
       "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Unanswered decidua diagram retains numeric labels 1–4 with unambiguous endpoints and no answer-revealing text.",
+        "notes": "Unanswered decidua diagram retains numeric labels 1\u20134 with unambiguous endpoints and no answer-revealing text.",
         "evidence": "Native xref 105 compared with Anatomy page 46 and question-critical ANAT_CH04_Q001 metadata.",
         "originalSha256": "4f2131360c1baa76372ade2e37d95ed687ce1e6f49bd2231f91ff755a0d0ce67",
         "productionSha256": "4f2131360c1baa76372ade2e37d95ed687ce1e6f49bd2231f91ff755a0d0ce67"
@@ -2199,7 +2245,7 @@
       "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Unanswered chorionic-plate diagram preserves numeric labels 1–4, maternal/fetal orientation and exact layer endpoints without answer text.",
+        "notes": "Unanswered chorionic-plate diagram preserves numeric labels 1\u20134, maternal/fetal orientation and exact layer endpoints without answer text.",
         "evidence": "Native xref 114 compared with Anatomy page 49 and question-critical ANAT_CH04_Q006 metadata.",
         "originalSha256": "301df78f965e054cadf9a9e590620575db2c1fff925466ccfc328b7f40b02092",
         "productionSha256": "301df78f965e054cadf9a9e590620575db2c1fff925466ccfc328b7f40b02092"
@@ -3688,7 +3734,7 @@
       "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Question-safe pharyngeal-pouch map preserves numeric labels 1–4 and endpoints without revealing their names.",
+        "notes": "Question-safe pharyngeal-pouch map preserves numeric labels 1\u20134 and endpoints without revealing their names.",
         "evidence": "Native xref 174 compared with Anatomy page 68.",
         "originalSha256": "c8ab42586b4acc0325a4fafd3bd9ea4d15b20b5fdaeb1b37efa7e9ec1c07ae0a",
         "productionSha256": "c8ab42586b4acc0325a4fafd3bd9ea4d15b20b5fdaeb1b37efa7e9ec1c07ae0a"
@@ -7448,7 +7494,7 @@
       "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Clean answer-safe numbered lipoprotein electrophoresis question diagram; origin, mobility, anode, and bands 1–4 are readable.",
+        "notes": "Clean answer-safe numbered lipoprotein electrophoresis question diagram; origin, mobility, anode, and bands 1\u20134 are readable.",
         "evidence": "Compared native source page 250/xref 592 against exact question figure metadata and explanation.",
         "originalSha256": "6cfe820794d08936225ed674d7984e2ed3002dccf4357ba44365d3157569ced7",
         "productionSha256": "6cfe820794d08936225ed674d7984e2ed3002dccf4357ba44365d3157569ced7"
@@ -9616,7 +9662,7 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Figure occurs in the Q5 solution and directly supports the metencephalon–myelencephalon pontine-flexure explanation; release after answer only.",
+            "notes": "Figure occurs in the Q5 solution and directly supports the metencephalon\u2013myelencephalon pontine-flexure explanation; release after answer only.",
             "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry."
           }
         }
