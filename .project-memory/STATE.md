@@ -85,17 +85,12 @@ Verified canonical explanation work includes:
 
 ## Current image state / cautions
 
-- **CURRENT_UNFINISHED image batch:** Biochemistry `NKQ_BIOCHEM_COVERAGE_Q21_20260912`, branch `automation/marrow-images-biochemistry-coverage-20260912-q21`, exact canonical base `e5b63af79ad8042920e1272c5830d494e5ed3369`.
-- Exact target: `marrow__BIOCHEM_CH02_Q021:figure:1`, explanation-only, authoritative Biochemistry ED8 page 39.
-- Full-page inspection proves Q21 is a three-object composite occupying xrefs **83, 84, 85** and exact region `[161.491,55.671,450.509,272.328]`; neighboring xref **86 belongs to Q22 and is excluded**.
-- The previously inspected 300-DPI exact-region candidate is **1206×904**, optimized PNG SHA-256 `07082b9d273f10881d05557827fff479dd18ed450f2ae874aa51bc460a7b03a4`; its content/source ownership is verified, but its exact byte encoding has not yet been recovered durably.
-- Durable source-review checkpoint file: `data/marrow/images/recovery_checkpoints/biochem_ch02_q021_20260912.json`; latest safe specialist checkpoint commit is `e81157ca96a593975b00879fa425bd4690d3e637`.
-- Two bounded, fail-closed integration attempts were made in this run and both stopped **before registry mutation** because the current rendering/optimization toolchain did not reproduce the reviewed `07082b9d…` PNG bytes: workflow **34684150752** produced raw SHA `f2a6b069…`; workflow **34684256506** produced losslessly optimized SHA `8aed0451…`. Per the runbook, no third same-class repair attempt was made.
-- **No learner-facing registry/release/progress mutation occurred.** Temporary one-shot helper/workflow machinery was removed from the safe checkpoint branch.
-- Fresh authoritative coverage remains **110 raw / 109 effective / 69 released / 1 invalid-source-metadata / 70 resolved / 4 tracked-unreleased / 36 untracked / 31 text-cue**. Subject remains **INCOMPLETE**.
-- Next Q21 action is evidence recovery, not blind regeneration: recover the exact reviewed `07082b9d…` bytes from durable historical evidence if available; otherwise create one pinned deterministic encoding and perform a fresh full-page/exact-region/native/phone/expanded visual QA before adopting its hash and integrating it.
-- Previous fully verified history: Biochemistry Q6/Q7 batch, source/release workflow **34678805378**, Engineering Gate **34678998929**, full Android/PWA/browser/image-comparison/APK/package/reproducibility/preview run **34679001808**, production skipped.
-- **Image writer lane remains owned by this Q21 batch until it is safely released/reconciled or explicitly retired.** Historical image branches/PRs are evidence only; Physiology remains paused; production promotion is prohibited.
+- **Latest bounded image batch:** Biochemistry `NKQ_BIOCHEM_COVERAGE_Q21_20260912_R2`, exact canonical base `d84a8093468c278a19e81e917bcc66da91f33574`, branch `automation/marrow-images-biochemistry-coverage-20260912-q21-r2`.
+- Released `marrow__BIOCHEM_CH02_Q021:figure:1` as an explanation-only exact-region 300-DPI source render from authoritative Biochemistry ED8 page 39, composite xrefs 83/84/85, region `[161.491,55.671,450.509,272.328]`; neighboring xref 86 is Q22-owned and excluded.
+- Fresh visual QA workflow **34686576057**, artifact **10295084510**, verified full-page ownership, exact region, native 1206×904 render, 390px phone preview and 768px expanded preview. Production/original SHA-256 is `f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789`. No reconstruction, generation or inpainting was used.
+- Post-release coverage: **110 raw / 109 effective / 70 released / 1 invalid-source-metadata / 71 resolved / 4 tracked-unreleased / 35 untracked / 31 text-cue**. Subject remains **INCOMPLETE**.
+- **Next deterministic image reference:** `marrow__BIOCHEM_CH02_Q026:figure:1 (explanation, source pages [41], UNTRACKED_SOURCE_VISUAL)`. Do not skip it for an easier later JPEG.
+- This batch is static/source validated but must not release the writer lane until exact-head Engineering + full Android/PWA/browser/APK/package verification succeeds and the verified commit is reconciled into `feature/marrow-canonical-full-current`. Production promotion is prohibited.
 
 ## Current product handoff — Continue Practice
 

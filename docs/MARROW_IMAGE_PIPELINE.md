@@ -86,3 +86,8 @@ complete; educational asset counts and quality/type totals outside reviewed
 registry entries must not be inferred from image-stream counts. Region rendering
 is available on Ubuntu; multi-candidate, masked and complex hybrid figures require
 an explicit asset-specific reviewed implementation.
+
+
+## Canonical coverage recovery update — 2026-09-12 Q21
+
+Biochemistry canonical coverage uses the complete 582-question corpus and source-reference denominator. After the Q21 page-39 composite release, live coverage is 110 raw / 109 effective / 70 released / 1 invalid metadata / 4 tracked-unreleased / 35 untracked, plus 31 text-cue review items. Subject completeness remains false; next source-order work is `marrow__BIOCHEM_CH02_Q026:figure:1 (explanation, source pages [41], UNTRACKED_SOURCE_VISUAL)`.

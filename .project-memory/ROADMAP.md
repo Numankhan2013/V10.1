@@ -176,3 +176,8 @@ is stable.
 ## 2026-09-08 — User rejection and corrective handoff
 
 Priority 0: reproduce and restore user-reported unreadable PDF explanations. Then implement faithful curved journey/glow/card proportions, an actually fixed Continue Learning tray, and a dedicated FSRS page. Preserve search, bank/subject origin and source fidelity. Detailed handoff: docs/REJECTED_TOPICS_FSRS_HANDOFF.md.
+
+
+### Biochemistry image coverage recovery — Q21 R2
+- Q21 source composite released on the current bounded batch; Biochemistry remains incomplete at 71/110 raw references resolved, with 31 text-cue review items.
+- Continue strictly from `marrow__BIOCHEM_CH02_Q026:figure:1 (explanation, source pages [41], UNTRACKED_SOURCE_VISUAL)` after this batch is exact-head verified and reconciled into canonical.

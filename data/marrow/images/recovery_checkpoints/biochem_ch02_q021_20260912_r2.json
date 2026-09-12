@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "VISUAL_QA_PASS_PENDING_INTEGRATION",
+  "status": "RELEASE_VALIDATED_PENDING_FULL_CI",
   "subject": "Biochemistry",
   "batchId": "NKQ_BIOCHEM_COVERAGE_Q21_20260912_R2",
   "canonicalBase": "d84a8093468c278a19e81e917bcc66da91f33574",
@@ -12,9 +12,18 @@
     "file": "biochemistryed8.pdf",
     "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
     "page": 39,
-    "compositeXrefs": [83, 84, 85],
+    "compositeXrefs": [
+      83,
+      84,
+      85
+    ],
     "excludedNeighborXref": 86,
-    "region": [161.491, 55.671, 450.509, 272.328]
+    "region": [
+      161.491,
+      55.671,
+      450.509,
+      272.328
+    ]
   },
   "candidate": {
     "method": "region-render",
@@ -23,7 +32,7 @@
     "width": 1206,
     "height": 904,
     "sha256": "f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789",
-    "learnerFacing": false
+    "learnerFacing": true
   },
   "sourceComparison": {
     "workflowRun": 34686576057,
@@ -46,5 +55,31 @@
     "subjectComplete": false
   },
   "supersedesCheckpoint": "data/marrow/images/recovery_checkpoints/biochem_ch02_q021_20260912.json",
-  "nextAction": "Integrate this freshly reviewed deterministic render non-destructively, regenerate release/progress/coverage, run full image/product gates, update canonical memory with the next deterministic source reference, and reconcile only after exact-head verification."
+  "nextAction": "Regenerate release/progress/coverage, update memory with the next deterministic reference, run exact-head product gates, then reconcile into canonical.",
+  "registryAssetId": "biochemistry-f2a6b0691fffcbe3",
+  "postReleaseCoverage": {
+    "sourceVisualReferences": 110,
+    "effectiveLearnerVisualReferences": 109,
+    "releasedSourceVisualReferences": 70,
+    "invalidSourceMetadataReferences": 1,
+    "resolvedSourceVisualReferences": 71,
+    "trackedButUnreleasedReferences": 4,
+    "untrackedSourceVisualReferences": 35,
+    "textCueReviewItems": 31,
+    "sourceVisualCoverageComplete": false,
+    "humanCompletenessClaimAllowed": false
+  },
+  "nextDeterministicReference": {
+    "id": "marrow__BIOCHEM_CH02_Q026:figure:1",
+    "questionId": "marrow__BIOCHEM_CH02_Q026",
+    "subject": "Biochemistry",
+    "role": "explanation",
+    "order": 1,
+    "sourcePages": [
+      41
+    ],
+    "nativeCandidateCount": 2,
+    "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
+    "released": false
+  }
 }

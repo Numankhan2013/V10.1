@@ -850,3 +850,11 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Removed the legacy Practice mutation observer that hid a visible Submit control. Added deterministic 20→16 behavior coverage plus generated-PWA 320/390/768 px control/overlap checks and protected build/product contracts.
 - Corrected local verification discovery so donor `*_core.py` and browser helper implementations are not executed as owner entrypoints. `verify_local.py` passes 41 local checks.
 - Product commit `a717563` passed exact-head Engineering Gate `34684693663` and full Android/PWA/browser/APK/package/reproducibility run `34684715131`. Continue Practice browser verification passed at 320/390/768 px with exactly 16 remaining; generated screenshots were inspected and show clear, separated Pause/Submit and Previous/Next rows. Preview: `https://26c21c13.nk-qbank.pages.dev`; APK/PWA artifact `10294634822`; screenshot artifact `10294714739`; production promotion skipped. Canonical reconciliation and physical-device acceptance remain pending.
+
+## 2026-09-12 — Biochemistry Q21 coverage recovery R2
+- Canonical base: `d84a8093468c278a19e81e917bcc66da91f33574`; branch `automation/marrow-images-biochemistry-coverage-20260912-q21-r2`.
+- Fresh visual QA run 34686576057 / artifact 10295084510 adopted deterministic raw 300-DPI region render SHA `f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789` after the earlier non-reproducible optimized encoding was retired.
+- Integrated `marrow__BIOCHEM_CH02_Q021:figure:1` explanation-only from page 39, xrefs 83/84/85; xref 86 excluded as Q22-owned. No medical/diagram detail was generated or altered.
+- Coverage after release: 70 released, 4 tracked-unreleased, 35 untracked, 1 invalid metadata, 31 text-cue review items; subject incomplete.
+- Next deterministic reference: `marrow__BIOCHEM_CH02_Q026:figure:1 (explanation, source pages [41], UNTRACKED_SOURCE_VISUAL)`.
+- Production promotion prohibited; exact-head product CI still required before canonical reconciliation.

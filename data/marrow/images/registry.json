@@ -1635,7 +1635,7 @@
       "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Source page 33 ownership is exact and question-critical: numeric labels 1\u20134 are intact, arrow endpoints are unambiguous, all germ-layer structures are visible, and the unanswered figure reveals no answer text.",
+        "notes": "Source page 33 ownership is exact and question-critical: numeric labels 1–4 are intact, arrow endpoints are unambiguous, all germ-layer structures are visible, and the unanswered figure reveals no answer text.",
         "evidence": "Native stream xref 71 visually compared with Anatomy page 33 metadata and owning question marrow__ANAT_CH03_Q011.",
         "originalSha256": "f22e257854e1923ab395bb276a1c7d99d3f52ab85a69b564f56446651d5a145f",
         "productionSha256": "f22e257854e1923ab395bb276a1c7d99d3f52ab85a69b564f56446651d5a145f"
@@ -2010,7 +2010,7 @@
       "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Unanswered decidua diagram retains numeric labels 1\u20134 with unambiguous endpoints and no answer-revealing text.",
+        "notes": "Unanswered decidua diagram retains numeric labels 1–4 with unambiguous endpoints and no answer-revealing text.",
         "evidence": "Native xref 105 compared with Anatomy page 46 and question-critical ANAT_CH04_Q001 metadata.",
         "originalSha256": "4f2131360c1baa76372ade2e37d95ed687ce1e6f49bd2231f91ff755a0d0ce67",
         "productionSha256": "4f2131360c1baa76372ade2e37d95ed687ce1e6f49bd2231f91ff755a0d0ce67"
@@ -2245,7 +2245,7 @@
       "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Unanswered chorionic-plate diagram preserves numeric labels 1\u20134, maternal/fetal orientation and exact layer endpoints without answer text.",
+        "notes": "Unanswered chorionic-plate diagram preserves numeric labels 1–4, maternal/fetal orientation and exact layer endpoints without answer text.",
         "evidence": "Native xref 114 compared with Anatomy page 49 and question-critical ANAT_CH04_Q006 metadata.",
         "originalSha256": "301df78f965e054cadf9a9e590620575db2c1fff925466ccfc328b7f40b02092",
         "productionSha256": "301df78f965e054cadf9a9e590620575db2c1fff925466ccfc328b7f40b02092"
@@ -3734,7 +3734,7 @@
       "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Question-safe pharyngeal-pouch map preserves numeric labels 1\u20134 and endpoints without revealing their names.",
+        "notes": "Question-safe pharyngeal-pouch map preserves numeric labels 1–4 and endpoints without revealing their names.",
         "evidence": "Native xref 174 compared with Anatomy page 68.",
         "originalSha256": "c8ab42586b4acc0325a4fafd3bd9ea4d15b20b5fdaeb1b37efa7e9ec1c07ae0a",
         "productionSha256": "c8ab42586b4acc0325a4fafd3bd9ea4d15b20b5fdaeb1b37efa7e9ec1c07ae0a"
@@ -7494,7 +7494,7 @@
       "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Clean answer-safe numbered lipoprotein electrophoresis question diagram; origin, mobility, anode, and bands 1\u20134 are readable.",
+        "notes": "Clean answer-safe numbered lipoprotein electrophoresis question diagram; origin, mobility, anode, and bands 1–4 are readable.",
         "evidence": "Compared native source page 250/xref 592 against exact question figure metadata and explanation.",
         "originalSha256": "6cfe820794d08936225ed674d7984e2ed3002dccf4357ba44365d3157569ced7",
         "productionSha256": "6cfe820794d08936225ed674d7984e2ed3002dccf4357ba44365d3157569ced7"
@@ -9662,7 +9662,7 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Figure occurs in the Q5 solution and directly supports the metencephalon\u2013myelencephalon pontine-flexure explanation; release after answer only.",
+            "notes": "Figure occurs in the Q5 solution and directly supports the metencephalon–myelencephalon pontine-flexure explanation; release after answer only.",
             "evidence": "Automation source-page/native-candidate comparison plus primary-agent inspection at original resolution and owning-question metadata audit on 2026-09-10; exact source page, xref, region and hashes remain in registry."
           }
         }
@@ -10454,6 +10454,82 @@
         "evidence": "Automation source inspection 2026-09-11: page 12 full-page image plus exact xref-25 region [162,433,450,649]; source SHA-256 463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb; production SHA-256 400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f.",
         "originalSha256": "400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f",
         "productionSha256": "400546eaace6e3f0a2ec793f528c94722a8d2c2896f304e08cbd652277fdb03f"
+      }
+    },
+    {
+      "id": "biochemistry-f2a6b0691fffcbe3",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "NKQ_BIOCHEM_COVERAGE_Q21_20260912_R2",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 39,
+        "xref": 83,
+        "compositeXrefs": [
+          83,
+          84,
+          85
+        ],
+        "excludedNeighborXref": 86,
+        "region": [
+          161.491,
+          55.671,
+          450.509,
+          272.328
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH02_Q021",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Glycolysis and gluconeogenesis pathway",
+          "status": "PASS",
+          "reviewBatch": "NKQ_BIOCHEM_COVERAGE_Q21_20260912_R2",
+          "source": {
+            "page": 39,
+            "xref": 83,
+            "compositeXrefs": [
+              83,
+              84,
+              85
+            ],
+            "excludedNeighborXref": 86,
+            "region": [
+              161.491,
+              55.671,
+              450.509,
+              272.328
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Fresh source comparison of Biochemistry ED8 page 39 Q21 composite. The exact region is owned by Solution to Question 21 and preserves the red glycolysis pathway, blue gluconeogenesis pathway, central metabolites, enzyme labels, directional/reversible arrows and regulatory annotations. Composite xrefs 83/84/85 are included; neighboring xref 86 belongs to Q22 and is excluded. The native 1206x904 render and expanded view are readable; the compact phone view remains usable with the existing fullscreen zoom/pan viewer. No reconstruction, generation, inpainting or medical-pixel alteration.",
+            "evidence": "fresh QA workflow 34686576057 artifact 10295084510; data/marrow/images/recovery_checkpoints/biochem_ch02_q021_20260912_r2.json; biochemistryed8.pdf sha256=463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb page=39 region=[161.491, 55.671, 450.509, 272.328] dpi=300 composite_xrefs=[83, 84, 85] excluded_neighbor_xref=86"
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789.png",
+        "sha256": "f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789",
+        "width": 1206,
+        "height": 904
+      },
+      "production": {
+        "path": "data/marrow/images/production/f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789.png",
+        "sha256": "f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789",
+        "width": 1206,
+        "height": 904
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Fresh source comparison of Biochemistry ED8 page 39 Q21 composite. The exact region is owned by Solution to Question 21 and preserves the red glycolysis pathway, blue gluconeogenesis pathway, central metabolites, enzyme labels, directional/reversible arrows and regulatory annotations. Composite xrefs 83/84/85 are included; neighboring xref 86 belongs to Q22 and is excluded. The native 1206x904 render and expanded view are readable; the compact phone view remains usable with the existing fullscreen zoom/pan viewer. No reconstruction, generation, inpainting or medical-pixel alteration.",
+        "evidence": "fresh QA workflow 34686576057 artifact 10295084510; data/marrow/images/recovery_checkpoints/biochem_ch02_q021_20260912_r2.json; biochemistryed8.pdf sha256=463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb page=39 region=[161.491, 55.671, 450.509, 272.328] dpi=300 composite_xrefs=[83, 84, 85] excluded_neighbor_xref=86",
+        "originalSha256": "f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789",
+        "productionSha256": "f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789"
       }
     }
   ]
