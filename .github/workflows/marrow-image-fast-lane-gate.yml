@@ -1,6 +1,10 @@
 name: Manual Marrow Image Fast-Lane Targeted Gate
 
 on:
+  push:
+    branches: ['manual/marrow-*-fastlane-*']
+    paths:
+      - '.project-memory/STATE.md'
   workflow_dispatch:
     inputs:
       reviewed_plan:
@@ -21,22 +25,40 @@ jobs:
     steps:
       - name: Checkout exact batch head
         uses: actions/checkout@v5
+
+      - name: Resolve reviewed plan
+        id: plan
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            PLAN="${{ inputs.reviewed_plan }}"
+          else
+            PLAN="$(find data/marrow/images/review_batches -maxdepth 1 -type f -name '*.json' | sort | tail -1)"
+          fi
+          test -n "$PLAN" && test -f "$PLAN"
+          echo "path=$PLAN" >> "$GITHUB_OUTPUT"
+          echo "MARROW_FAST_LANE_REVIEWED_PLAN $PLAN"
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
       - name: Set up Node
         uses: actions/setup-node@v5
         with:
           node-version: '20'
+
       - name: Install audit and browser dependencies
         run: |
           python3 -m pip install --disable-pip-version-check pypdf==6.18.0 playwright
           python3 -m playwright install --with-deps chromium
+
       - name: Run deterministic fast-batch gates
         run: |
           python3 tools/marrow_images.py audit
-          python3 tools/marrow_image_fast_lane.py validate-reviewed --plan "${{ inputs.reviewed_plan }}"
+          python3 tools/marrow_image_fast_lane.py validate-reviewed --plan "${{ steps.plan.outputs.path }}"
           python3 tools/marrow_images.py validate
           python3 tools/marrow_image_progress.py --check
           python3 tools/marrow_image_coverage.py --subject Physiology --check
@@ -46,17 +68,21 @@ jobs:
           python3 tools/verify_build_pipeline.py
           python3 tools/verify_product_contract.py --stage source
           python3 tools/verify_project_memory.py
+
       - name: Generate only the shared Marrow/image runtime surfaces
         run: |
           python3 tools/apply_marrow_bank_pilot.py
           python3 tools/apply_marrow_structured_table_renderer_v1.py
           python3 tools/install_marrow_images.py
+
       - name: Build lightweight PWA image package
         run: python3 tools/build_web_dist.py --version "$GITHUB_SHA"
+
       - name: Verify runtime metadata, offline bytes, and changed learner states
         run: |
           python3 tools/check_marrow_image_package.py
-          python3 tools/verify_marrow_image_fast_lane_browser.py --plan "${{ inputs.reviewed_plan }}"
+          python3 tools/verify_marrow_image_fast_lane_browser.py --plan "${{ steps.plan.outputs.path }}"
+
       - name: Upload only changed-question evidence
         if: always()
         uses: actions/upload-artifact@v4
