@@ -31,7 +31,7 @@
     "exactRegionInspected": true,
     "phonePreviewInspected": true,
     "expandedPreviewInspected": true,
-    "finding": "The exact Q21 region is a three-object composite: red glycolysis pathway on the left, blue gluconeogenesis pathway on the right, central intermediates with lactate/TCA connections and ATP/NADH/regulatory annotations. Xref 86 belongs to Q22 and is explicitly excluded. The 300-DPI region render is source-faithful and readable at expanded/tablet scale. No reconstruction, generation, inpainting, or medical-pixel alteration was used."
+    "finding": "The exact Q21 region is a three-object composite: red glycolysis pathway on the left, blue gluconeogenesis pathway on the right, central intermediates with lactate/TCA connections and ATP/NADH/regulatory annotations. Xref 86 belongs to Q22 and is explicitly excluded. The previously reviewed 300-DPI optimized region render is source-faithful and readable at expanded/tablet scale. No reconstruction, generation, inpainting, or medical-pixel alteration was used."
   },
   "coverageAtStart": {
     "rawReferences": 110,
@@ -44,6 +44,22 @@
     "textCueReviewItems": 31,
     "subjectComplete": false
   },
-  "blocker": "The available repository connector can replace registry.json only as a complete file and does not expose an atomic JSON patch operation. The monolithic registry response is truncated in this runtime, so mutating it without reconstructing all existing entries would risk destructive data loss. No registry/release mutation was attempted.",
-  "nextAction": "Resume this exact batch/branch. Recreate or reuse the verified 300-DPI region from the authoritative PDF, then add it to the canonical registry only through a complete non-destructive registry edit; regenerate progress/coverage, release, run all image/source/browser/PWA/APK/package gates, and reconcile the verified batch into canonical. Do not skip Q21."
+  "failedIntegrationAttempts": [
+    {
+      "workflowRun": 34684150752,
+      "head": "2e7efca1799f32d5965ef780c36ab02e0c87aa73",
+      "failureClass": "reviewed PNG byte reproduction drift",
+      "observedSha256": "f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789",
+      "registryMutated": false
+    },
+    {
+      "workflowRun": 34684256506,
+      "head": "42b161e1efdff7497d4714fb033e690a9d560bd1",
+      "failureClass": "reviewed PNG byte reproduction drift",
+      "observedSha256": "8aed0451d7048ab99149fec8d3e93e9c3222a9a21f00a204ee9bbab2cbb7635a",
+      "registryMutated": false
+    }
+  ],
+  "blocker": "Two bounded fail-closed integration attempts reproduced the same inspected page/region but not the previously reviewed PNG byte hash 07082b9d... under the current PyMuPDF/Pillow toolchain. Per the automation runbook, no third same-class repair attempt is allowed in this run. Registry, release, progress and learner runtime remain unchanged.",
+  "nextAction": "Resume this exact batch/branch. Do not skip Q21 and do not blindly retry the same encoder path. First recover the exact previously reviewed 07082b9d... PNG bytes from durable historical evidence/workspace/artifact if available; otherwise generate one pinned deterministic encoding and perform a fresh full-page/exact-region/native/phone/expanded visual source comparison, record that new production hash in this checkpoint, then integrate through a complete non-destructive registry edit. Regenerate progress/coverage/release, run all required image/browser/PWA/APK/package gates, and reconcile the verified result into feature/marrow-canonical-full-current before releasing the image lane."
 }
