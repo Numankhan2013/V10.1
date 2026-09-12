@@ -1,0 +1,175 @@
+name: Biochemistry Q11 Recover Once
+
+on:
+  push:
+    branches:
+      - automation/marrow-images-biochemistry-coverage-20260912-q11
+
+permissions:
+  contents: write
+
+concurrency:
+  group: marrow-image-writer
+  cancel-in-progress: false
+
+jobs:
+  integrate:
+    if: ${{ !startsWith(github.event.head_commit.message, 'Integrate Biochemistry Q11 corrected source figure') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact specialist branch
+        uses: actions/checkout@v5
+        with:
+          ref: automation/marrow-images-biochemistry-coverage-20260912-q11
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install image and PDF dependencies
+        run: python3 -m pip install --disable-pip-version-check PyMuPDF Pillow pypdf==6.18.0
+
+      - name: Re-read canonical ownership and shared fingerprints
+        run: |
+          git fetch origin feature/marrow-canonical-full-current
+          CANON=$(git rev-parse origin/feature/marrow-canonical-full-current)
+          BASE=$(git merge-base HEAD origin/feature/marrow-canonical-full-current)
+          echo "canonical=$CANON merge_base=$BASE"
+          test "$CANON" = "36c9e1a92a3925c17f6914c2a6ffebf73948ba14"
+          test "$BASE" = "$CANON"
+          test "$(git rev-parse HEAD:data/marrow/images/registry.json)" = "$(git rev-parse origin/feature/marrow-canonical-full-current:data/marrow/images/registry.json)"
+          test "$(git rev-parse HEAD:data/marrow/images/progress.json)" = "$(git rev-parse origin/feature/marrow-canonical-full-current:data/marrow/images/progress.json)"
+          test "$(git rev-parse HEAD:.project-memory/STATE.md)" = "$(git rev-parse origin/feature/marrow-canonical-full-current:.project-memory/STATE.md)"
+          grep -q 'Next deterministic image reference.*marrow__BIOCHEM_CH04_Q011' .project-memory/STATE.md
+          grep -q 'image writer lane is released' .project-memory/STATE.md
+          python3 tools/verify_project_memory.py
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_image_progress.py --check
+
+      - name: Recompute authoritative pre-mutation source coverage
+        run: |
+          python3 tools/marrow_images.py audit
+          python3 tools/marrow_image_coverage.py --subject Biochemistry
+          python3 tools/marrow_image_coverage.py --subject Biochemistry --check
+          python3 - <<'PY'
+          import json
+          c=json.load(open('data/marrow/images/coverage.json'))
+          s=c['summary']['Biochemistry']
+          assert s == {
+            'sourceVisualReferences': 110,
+            'effectiveLearnerVisualReferences': 109,
+            'releasedSourceVisualReferences': 71,
+            'invalidSourceMetadataReferences': 1,
+            'resolvedSourceVisualReferences': 72,
+            'trackedButUnreleasedReferences': 4,
+            'untrackedSourceVisualReferences': 34,
+            'textCueReviewItems': 31,
+            'sourceVisualCoverageComplete': False,
+            'humanCompletenessClaimAllowed': False,
+          }, s
+          pending=[r for r in c['sourceVisuals'] if r.get('subject')=='Biochemistry' and r.get('coverageStatus') in {'UNTRACKED_SOURCE_VISUAL','UNRELEASED_TRACKED'}]
+          assert pending and pending[0]['id']=='marrow__BIOCHEM_CH04_Q011:figure:1', pending[:3]
+          q11=pending[0]
+          assert q11['coverageStatus']=='UNRELEASED_TRACKED', q11
+          assert q11.get('assetId')=='biochemistry-bb781d8346ed1c36', q11
+          assert q11.get('bindingStatus')=='REJECTED', q11
+          assert q11.get('sourcePages')==[69], q11
+          PY
+
+      - name: Integrate source-reviewed corrected Q11 figure
+        run: python3 tools/integrate_biochem_q11_recovery.py
+
+      - name: Regenerate release progress and source coverage
+        run: |
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_images.py release
+          python3 tools/marrow_image_progress.py
+          python3 tools/marrow_image_progress.py --check
+          python3 tools/marrow_images.py audit
+          python3 tools/marrow_image_coverage.py --subject Biochemistry
+          python3 tools/marrow_image_coverage.py --subject Biochemistry --check
+          python3 - <<'PY'
+          import json
+          c=json.load(open('data/marrow/images/coverage.json'))
+          s=c['summary']['Biochemistry']
+          assert s['sourceVisualReferences']==110, s
+          assert s['effectiveLearnerVisualReferences']==108, s
+          assert s['releasedSourceVisualReferences']==71, s
+          assert s['invalidSourceMetadataReferences']==2, s
+          assert s['resolvedSourceVisualReferences']==73, s
+          assert s['trackedButUnreleasedReferences']==3, s
+          assert s['untrackedSourceVisualReferences']==34, s
+          assert s['textCueReviewItems']==31, s
+          q11=[r for r in c['sourceVisuals'] if r.get('id')=='marrow__BIOCHEM_CH04_Q011:figure:1']
+          assert len(q11)==1 and q11[0]['coverageStatus']=='SOURCE_METADATA_INVALID', q11
+          reg=json.load(open('data/marrow/images/registry.json'))
+          matches=[(a,b) for a in reg['assets'] for b in a.get('bindings',[]) if b.get('questionId')=='marrow__BIOCHEM_CH04_Q011' and b.get('role')=='explanation' and b.get('order')==1]
+          assert any(a.get('id')=='biochemistry-e302242457457cdc' and b.get('status')=='PASS' and (b.get('source') or {}).get('page')==70 for a,b in matches), matches
+          assert any(a.get('id')=='biochemistry-bb781d8346ed1c36' and b.get('status')=='REJECTED' for a,b in matches), matches
+          PY
+
+      - name: Run image and protected product regression gates
+        run: |
+          git diff --check
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_image_progress.py --check
+          python3 tools/test_marrow_images.py
+          python3 tools/verify_build_pipeline.py
+          python3 tools/verify_local.py
+
+      - name: Update canonical handoff memory
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, re
+
+          coverage=json.loads(Path('data/marrow/images/coverage.json').read_text())
+          s=coverage['summary']['Biochemistry']
+          pending=[r for r in coverage['sourceVisuals'] if r.get('subject')=='Biochemistry' and r.get('coverageStatus') in {'UNTRACKED_SOURCE_VISUAL','UNRELEASED_TRACKED'}]
+          assert pending, 'Expected remaining Biochemistry image backlog'
+          nxt=pending[0]
+          next_desc=f"{nxt['id']} ({nxt.get('role')}, source pages {nxt.get('sourcePages')}, {nxt.get('coverageStatus')})"
+
+          state_path=Path('.project-memory/STATE.md')
+          state=state_path.read_text()
+          replacement=f'''## Current image state / cautions\n\n- **Latest bounded image batch:** Biochemistry `NKQ_BIOCHEM_COVERAGE_Q11_20260912`, exact canonical base `36c9e1a92a3925c17f6914c2a6ffebf73948ba14`, branch `automation/marrow-images-biochemistry-coverage-20260912-q11`.\n- Recovered the correct explanation visual for `marrow__BIOCHEM_CH04_Q011`: authoritative page 69 starts Solution to Question 11 and explicitly points to the galactose flowchart below; page 69's xref 1146 is the fructose pathway and the prior rejected binding is preserved. The correct continuation is page 70 xref 162, region `[162.0,56.0,450.0,272.0]`.\n- Released native 600x451 JPEG `biochemistry-e302242457457cdc`, SHA-256 `e302242457457cdcabcca8ced492809b2f1947c049b719ff49a0be6bd6a222f6`, explanation-only. No crop, reconstruction, generation, inpainting or sharpening was used.\n- Because the immutable source metadata incorrectly records this reference as page 69, `marrow__BIOCHEM_CH04_Q011:figure:1` is now exactly adjudicated `SOURCE_METADATA_INVALID` for recorded page 69 while the source-proven page-70 learner binding is released separately. The old Q11/fructose rejection remains in registry history.\n- Post-batch coverage: **{s['sourceVisualReferences']} raw / {s['effectiveLearnerVisualReferences']} effective / {s['releasedSourceVisualReferences']} source-reference released / {s['invalidSourceMetadataReferences']} invalid-source-metadata / {s['resolvedSourceVisualReferences']} resolved / {s['trackedButUnreleasedReferences']} tracked-unreleased / {s['untrackedSourceVisualReferences']} untracked / {s['textCueReviewItems']} text-cue**. Subject remains **INCOMPLETE**.\n- **Next deterministic image reference:** `{next_desc}`. Do not skip it for an easier later reference.\n- This batch is source/static validated but the image writer lane remains locked to Biochemistry until exact-head Engineering + full Android/PWA/browser/APK/package verification succeeds and the verified handoff is reconciled into `feature/marrow-canonical-full-current`. Production promotion is prohibited.\n\n'''
+          state2,n=re.subn(r'## Current image state / cautions\n.*?(?=## Current product handoff)', replacement, state, count=1, flags=re.S)
+          assert n==1
+          state2,n2=re.subn(r'7\. \*\*Image lane:\*\*.*?(?=\n\nCanonical source handoff:)', f'7. **Image lane:** Q11 corrected-source recovery is static-validated. After exact-head product verification and canonical reconciliation, continue strictly from `{next_desc}`. Production promotion remains prohibited.', state2, count=1, flags=re.S)
+          assert n2==1
+          state_path.write_text(state2)
+
+          log=Path('.project-memory/SESSION_LOG.md')
+          with log.open('a') as f:
+              f.write(f'''\n## 2026-09-12 — Biochemistry Ch4 Q11 coverage recovery\n- Canonical base: `36c9e1a92a3925c17f6914c2a6ffebf73948ba14`; branch `automation/marrow-images-biochemistry-coverage-20260912-q11`.\n- Re-audit confirmed Q11 was the first deterministic Biochemistry backlog item and was tracked only through a rejected fructose-pathway binding on recorded source page 69.\n- Hash-verified source inspection proved page 69 xref 1146 is fructose metabolism, while Q11's text points to the galactose flowchart below and page 70 xref 162 is the correct native 600x451 galactose-metabolism diagram.\n- Preserved the historical rejection, added exact page-69 `SOURCE_METADATA_INVALID` adjudication, and released the correct page-70 native JPEG SHA `e302242457457cdcabcca8ced492809b2f1947c049b719ff49a0be6bd6a222f6` as explanation-only. No pixels were generated or altered.\n- Coverage after bounded batch: raw={s['sourceVisualReferences']}, effective={s['effectiveLearnerVisualReferences']}, released source refs={s['releasedSourceVisualReferences']}, invalid metadata={s['invalidSourceMetadataReferences']}, resolved={s['resolvedSourceVisualReferences']}, tracked-unreleased={s['trackedButUnreleasedReferences']}, untracked={s['untrackedSourceVisualReferences']}, text-cue={s['textCueReviewItems']}; subject incomplete.\n- Next deterministic reference: `{next_desc}`. Exact-head product CI and canonical reconciliation remain required; production prohibited.\n''')
+
+          roadmap=Path('.project-memory/ROADMAP.md')
+          marker='### Biochemistry image coverage recovery — Ch4 Q11'
+          rtxt=roadmap.read_text()
+          if marker not in rtxt:
+              roadmap.write_text(rtxt+f'''\n\n{marker}\n- Q11's recorded page-69 mapping was proven wrong: page 69 carries fructose metabolism; the correct galactose diagram continues on page 70. Preserve the page-69 invalid-metadata adjudication and the old rejected binding as audit history.\n- Correct native page-70 xref-162 learner visual is released on the bounded specialist batch; continue from `{next_desc}` only after exact-head verification and canonical reconciliation.\n''')
+
+          pipeline=Path('docs/MARROW_IMAGE_PIPELINE.md')
+          marker2='## Canonical coverage recovery update — 2026-09-12 Ch4 Q11'
+          ptxt=pipeline.read_text()
+          if marker2 not in ptxt:
+              pipeline.write_text(ptxt+f'''\n\n{marker2}\n\nBiochemistry Q11 source recovery proved the recorded page-69 reference is metadata-invalid: page 69's sole educational image is fructose metabolism, while Solution to Question 11 points to the galactose flowchart below and page 70 contains the correct native xref 162. The historical rejected Q11/fructose binding is preserved; page 69 is adjudicated `SOURCE_METADATA_INVALID`; the exact native page-70 galactose JPEG is separately released explanation-only. Coverage is {s['sourceVisualReferences']} raw / {s['effectiveLearnerVisualReferences']} effective / {s['releasedSourceVisualReferences']} source-reference released / {s['invalidSourceMetadataReferences']} invalid metadata / {s['resolvedSourceVisualReferences']} resolved / {s['trackedButUnreleasedReferences']} tracked-unreleased / {s['untrackedSourceVisualReferences']} untracked, plus {s['textCueReviewItems']} text-cue items. Subject remains incomplete; next source-order work is `{next_desc}`.\n''')
+          PY
+          python3 tools/verify_project_memory.py
+
+      - name: Remove one-shot automation helpers before product verification
+        run: |
+          rm tools/integrate_biochem_q11_recovery.py
+          rm .github/workflows/biochem-q11-integrate-once.yml
+
+      - name: Commit and push static-validated recovery
+        run: |
+          git diff --check
+          git status --short
+          git config user.name "NK QBank Image Recovery"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Integrate Biochemistry Q11 corrected source figure"
+          git push origin HEAD:automation/marrow-images-biochemistry-coverage-20260912-q11
