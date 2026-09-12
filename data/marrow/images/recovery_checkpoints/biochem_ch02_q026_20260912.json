@@ -48,7 +48,7 @@
     "textCueReviewItems": 31,
     "subjectComplete": false
   },
-  "nextAction": "Regenerate release/progress/coverage, update memory with the next deterministic reference, run exact-head product gates, then reconcile into canonical.",
+  "nextAction": "Await exact-head Engineering Gate and full Android/PWA/browser/APK/package verification, then reconcile this verified handoff into canonical before releasing the image lane.",
   "registryAssetId": "biochemistry-22651a6eb0d53c78",
   "postReleaseCoverage": {
     "sourceVisualReferences": 110,
@@ -78,5 +78,6 @@
     "released": false,
     "registryPage": 69,
     "coverageStatus": "UNRELEASED_TRACKED"
-  }
+  },
+  "ciTriggerRequestedAt": "2026-09-12T11:49:30Z"
 }
