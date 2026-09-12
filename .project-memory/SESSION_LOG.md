@@ -858,3 +858,14 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Coverage after release: 70 released, 4 tracked-unreleased, 35 untracked, 1 invalid metadata, 31 text-cue review items; subject incomplete.
 - Next deterministic reference: `marrow__BIOCHEM_CH02_Q026:figure:1 (explanation, source pages [41], UNTRACKED_SOURCE_VISUAL)`.
 - Production promotion prohibited; exact-head product CI still required before canonical reconciliation.
+
+
+## 2026-09-12 — Biochemistry Q21 image recovery fully verified and reconciled
+
+- Resumed the unfinished Ch2 Q21 explanation figure from the live canonical base `d84a8093468c278a19e81e917bcc66da91f33574` on `automation/marrow-images-biochemistry-coverage-20260912-q21-r2`.
+- Fresh source comparison used authoritative Biochemistry ED8 page 39, composite xrefs 83/84/85, exact region `[161.491,55.671,450.509,272.328]`; neighboring xref 86 is Q22-owned and excluded. Full-page, exact-region, 1206x904 native, 390px phone and 768px expanded views were inspected in workflow **34686576057**, artifact **10295084510**.
+- Adopted the deterministic raw 300-DPI source render SHA-256 `f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789`; no reconstruction, generation, inpainting, or medical/diagram-detail alteration was used.
+- Registry/release integration commit: `d7a1fc6fead85beb9354965b6621d6756cc30580`; exact-head CI handoff: `88a068182b76a0ab4730c90b93b35f30cb31ca2a`. Engineering Gate **34686820682** passed. Full Android/PWA/browser/image-comparison/APK/package/reproducibility/preview run **34686821723** passed. Production promotion was skipped.
+- Post-release Biochemistry coverage: **110 raw / 109 effective / 70 released / 1 invalid source metadata / 71 resolved / 4 tracked-unreleased / 35 untracked / 31 text-cue review items**. Subject remains **INCOMPLETE**.
+- The verified handoff was fast-forwarded into `feature/marrow-canonical-full-current` without a registry/progress conflict. Image writer lane released.
+- Next deterministic source reference: `marrow__BIOCHEM_CH02_Q026:figure:1`, explanation, source page 41, two native candidates. Do not skip it for an easier later reference.

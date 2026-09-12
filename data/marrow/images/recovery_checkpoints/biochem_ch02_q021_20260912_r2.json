@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "PRODUCT_CI_PENDING",
+  "status": "FULLY_VERIFIED_RECONCILED",
   "subject": "Biochemistry",
   "batchId": "NKQ_BIOCHEM_COVERAGE_Q21_20260912_R2",
   "canonicalBase": "d84a8093468c278a19e81e917bcc66da91f33574",
@@ -12,9 +12,18 @@
     "file": "biochemistryed8.pdf",
     "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
     "page": 39,
-    "compositeXrefs": [83, 84, 85],
+    "compositeXrefs": [
+      83,
+      84,
+      85
+    ],
     "excludedNeighborXref": 86,
-    "region": [161.491, 55.671, 450.509, 272.328]
+    "region": [
+      161.491,
+      55.671,
+      450.509,
+      272.328
+    ]
   },
   "candidate": {
     "method": "region-render",
@@ -66,10 +75,24 @@
     "subject": "Biochemistry",
     "role": "explanation",
     "order": 1,
-    "sourcePages": [41],
+    "sourcePages": [
+      41
+    ],
     "nativeCandidateCount": 2,
     "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
     "released": false
   },
-  "nextAction": "Run exact-head Engineering Gate and full Android/PWA/browser/APK/package verification on this handoff commit. If both pass and canonical registry/progress ownership has not conflicted, reconcile this verified batch into feature/marrow-canonical-full-current, record CI IDs, and release the image lane for the next deterministic reference. Production promotion remains prohibited."
+  "nextAction": "Start the next bounded Biochemistry image-recovery batch from live canonical at marrow__BIOCHEM_CH02_Q026:figure:1. Recompute audit/coverage first; do not skip source order.",
+  "exactHeadHandoffCommit": "88a068182b76a0ab4730c90b93b35f30cb31ca2a",
+  "verification": {
+    "engineeringGateRun": 34686820682,
+    "fullAndroidPwaBrowserApkPackageRun": 34686821723,
+    "productionPromotion": "SKIPPED"
+  },
+  "canonicalReconciliation": {
+    "branch": "feature/marrow-canonical-full-current",
+    "method": "fast-forward",
+    "verifiedHandoff": "88a068182b76a0ab4730c90b93b35f30cb31ca2a",
+    "registryConflict": false
+  }
 }

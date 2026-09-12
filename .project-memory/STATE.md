@@ -9,7 +9,7 @@
 - Product/UI base: user-approved V3/correct-index lineage.
 - **Accepted baseline:** V11.6 Content Quality.
 - Accepted product commit: `125d68b`.
-- **build-verified:** last explanation-certified canonical content state is green through Engineering Gate **34650259296** and full Android/PWA/browser/APK/package/reproducibility/preview run **34650259281**; latest image-certified canonical product bytes are from Biochemistry Q6/Q7 recovery commit `1e8486edef6c0ba76904f098833fb3fe0bcfecc8`, with exact-head Engineering Gate **34678998929** and full Android/PWA/browser/APK/package/reproducibility/preview run **34679001808** passing on memory-only checkpoint `352418ef4e17e62fd9127849bb9476d12b70259b`; production promotion was skipped.
+- **build-verified:** last explanation-certified canonical content state is green through Engineering Gate **34650259296** and full Android/PWA/browser/APK/package/reproducibility/preview run **34650259281**; latest image-certified canonical product bytes include Biochemistry Q21 recovery integration `d7a1fc6fead85beb9354965b6621d6756cc30580`, exact-head handoff `88a068182b76a0ab4730c90b93b35f30cb31ca2a`, Engineering Gate **34686820682**, and full Android/PWA/browser/image-comparison/APK/package/reproducibility/preview run **34686821723**; production promotion was skipped.
 - **device-verified:** the user verified the structured-table repair at `c829599050173d24408b72e8dc564ba501a156b4`; Anatomy Ch5 Q10 tables render populated cells correctly.
 - `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md` is mandatory for image and explanation workers.
 - Production promotion remains explicit and guarded. `main`/production must not change without user approval.
@@ -90,7 +90,7 @@ Verified canonical explanation work includes:
 - Fresh visual QA workflow **34686576057**, artifact **10295084510**, verified full-page ownership, exact region, native 1206×904 render, 390px phone preview and 768px expanded preview. Production/original SHA-256 is `f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789`. No reconstruction, generation or inpainting was used.
 - Post-release coverage: **110 raw / 109 effective / 70 released / 1 invalid-source-metadata / 71 resolved / 4 tracked-unreleased / 35 untracked / 31 text-cue**. Subject remains **INCOMPLETE**.
 - **Next deterministic image reference:** `marrow__BIOCHEM_CH02_Q026:figure:1 (explanation, source pages [41], UNTRACKED_SOURCE_VISUAL)`. Do not skip it for an easier later JPEG.
-- This batch is static/source validated but must not release the writer lane until exact-head Engineering + full Android/PWA/browser/APK/package verification succeeds and the verified commit is reconciled into `feature/marrow-canonical-full-current`. Production promotion is prohibited.
+- **Verification/reconciliation:** exact-head handoff `88a068182b76a0ab4730c90b93b35f30cb31ca2a` passed Engineering Gate **34686820682** and full Android/PWA/browser/image-comparison/APK/package/reproducibility/preview run **34686821723**. Production promotion was skipped. The verified handoff was fast-forwarded into `feature/marrow-canonical-full-current` with no registry/progress conflict; the image writer lane is released for the next deterministic Biochemistry reference.
 
 ## Current product handoff — Continue Practice
 
@@ -110,8 +110,8 @@ Verified canonical explanation work includes:
 ## Known problems / cautions
 
 - Current Anatomy batch has passed canonical-source/static exact-head Engineering validation but still needs deterministic +7 inventory regeneration, representative stable-ID browser regression, and exact-head full Android/PWA/APK/package/reproducibility/preview verification.
-- Biochemistry image coverage remains incomplete: 40 effective source references are not resolved yet (4 tracked-unreleased + 36 untracked), plus 31 text-cue review items still require adjudication.
-- Q21 image source/content review is complete; release is blocked only on durable production-byte provenance after two current-toolchain encoding mismatches. Do not skip to a later easier reference and do not relax the hash/source-comparison gate.
+- Biochemistry image coverage remains incomplete: 39 effective source references are not learner-facing yet (4 tracked-unreleased + 35 untracked), plus 31 text-cue review items still require adjudication.
+- Q21 is now source-compared, released, exact-head product-verified, and reconciled into canonical using deterministic raw 300-DPI bytes SHA `f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789`. Continue strictly from Q26; do not skip to an easier later reference.
 - Continue Practice is build/browser verified at a717563, but it is not canonical or physically device-verified yet; do not describe it as shipped/accepted.
 - Historical unfinished explanation branches remain historical unless explicitly transplanted by stable ID onto canonical and reverified.
 - Production remains untouched until explicit user approval.
@@ -125,7 +125,7 @@ Verified canonical explanation work includes:
 4. Run exact-head Engineering Gate + full Android/PWA/browser/APK/package/reproducibility/preview workflow.
 5. Reconcile verified explanation result back into canonical before releasing the explanation lane. Production promotion is prohibited.
 6. Recheck the live canonical tip and reconcile build-verified Continue Practice commit a717563 into canonical. Physical-device acceptance remains pending. Do not promote production.
-7. **Image lane:** resume `automation/marrow-images-biochemistry-coverage-20260912-q21` at safe checkpoint `e81157ca96a593975b00879fa425bd4690d3e637`. Recover the exact reviewed `07082b9d…` PNG bytes if possible; otherwise perform a fresh complete visual QA on one pinned deterministic encoding before changing the production hash. Then integrate Q21 non-destructively, regenerate progress/coverage/release, run full image/browser/PWA/APK/package gates, and reconcile into canonical before releasing the lane. Do not skip Q21.
+7. **Image lane:** Q21 recovery is complete and reconciled. Next deterministic Biochemistry reference is `marrow__BIOCHEM_CH02_Q026:figure:1` (explanation, source page 41, two native candidates). Start the next bounded batch from the live canonical head and do not skip Q26 for an easier later reference. Production promotion remains prohibited.
 
 Canonical source handoff: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
 Canonical automation policy: `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
