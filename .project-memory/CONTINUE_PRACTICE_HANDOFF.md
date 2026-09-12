@@ -1,107 +1,121 @@
-# Continue Practice + Image Recovery Handoff — 2026-09-12
+# Continue Practice Handoff — Accepted 2026-09-12
 
-This handoff records the user's current product model and the repository findings from the 2026-09-12 review. It is intentionally implementation-facing so the next coding pass does not reinterpret the behavior.
+This file is the authoritative product handoff for the accepted Practice pause/resume flow. It supersedes the older 16-of-20 / remaining-only resume model and any earlier one-question fallback description.
 
 ## Canonical lineage
 
 - Repo: `Numankhan2013/V10.1`.
-- Sole Marrow integration trunk: `feature/marrow-canonical-full-current`.
+- Sole Marrow/product integration trunk: `feature/marrow-canonical-full-current`.
+- Accepted Practice implementation is on canonical after PRs #47, #48, #51 and #53.
+- Canonical checkpoint that received the real generated-Home verification: `74abb670c3ae088e06653681e85c347212222455`.
+- Full Android/PWA/browser/APK/package/preview workflow `34695680534` completed successfully on that checkpoint.
+- The user then physically tested the resulting build and confirmed that Continue Practice works.
 - Production / `main` remains guarded and must not be promoted without explicit user approval.
-- All new image/explanation/product work must resolve the current canonical HEAD before mutation and must not build new work from historical rollout branches.
 
-## Biochemistry image recovery status
+## Accepted UI contract
 
-- The **NK QBank Biochemistry** image-recovery automation was re-enabled on 2026-09-12.
-- Its configured integration base is `feature/marrow-canonical-full-current`.
-- It must completely read `docs/MARROW_IMAGE_AUTOMATION_RUNBOOK.md` and `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`; the canonical policy overrides old wording that refers to the historical `feature/marrow-image-rollout-current` branch.
-- It must recompute live Biochemistry source-reference/image coverage against the complete canonical corpus each run and remain enabled until the authoritative Biochemistry `--require-complete --check` coverage gate genuinely passes.
-- Historical image branches/PRs are evidence only. Verified assets may be transplanted only by stable question ID + content hash + provenance after duplicate/ownership checks; never wholesale-merge stale history.
-- Previously reviewed verified Biochemistry work checked during this review is already represented in canonical, including the Ch1 Q4 D-glucose/D-mannose figure asset and the Ch2 Q13 glycolysis explanation binding. No additional already-verified stranded batch was identified during this review.
-- The automation is responsible for finding and repairing remaining missing/incorrect Biochemistry figure integrations instead of assuming that the old registry was complete.
+Normal Practice question screen:
 
-## Continue Practice — root cause found
+- Footer contains only **Previous** and **Next**.
+- Do not add Pause or Submit to the question footer.
+- The explanation/FSRS area must remain unobstructed.
 
-The current canonical behavior is not a real resume flow. The existing Continue Practice implementation effectively finds a globally unattempted question and creates a new one-question Practice session. That explains the observed failure where Continue Practice may show only one question or otherwise fail to return to the learner's actual interrupted topic/session.
+Question-grid / end-of-session flow:
 
-The fix must be made in the shared Practice/session architecture. Do **not** create a Marrow-only, subject-only, or topic-only duplicate engine. CBT, Review, FSRS, modules, persistence, sync, analytics and navigation must remain coherent with the shared architecture.
+- The header grid icon opens the single final review grid directly.
+- Reaching the end of the session converges on the same final review grid.
+- Do not restore the redundant intermediate Question Navigator.
+- The final review grid retains its close control and tappable question cells.
+- Its action area contains exactly **Pause** and **Submit**.
+- Do not restore **Back to question** or **Review unanswered** buttons there.
 
-## User-approved mental model for Practice session controls
+## Accepted Pause semantics
 
-### UI contract
+Pause means suspend the current Practice session without changing what has been completed.
 
-For the session-level finish/leave controls, expose **two clear options only**:
+When Pause is pressed:
 
-1. **Submit**
-2. **Pause**
+- preserve the same `activeSession` identity;
+- preserve the complete original ordered question set in `sessionQuestionIds`;
+- preserve the current/saved index;
+- preserve answers, submitted state, timing and progress;
+- set the session lifecycle to paused;
+- return to Home/dashboard;
+- do **not** mark the current unanswered question as skipped merely because the learner paused;
+- do **not** shrink `questionIds` to only unanswered/skipped questions;
+- do **not** create a new session.
 
-Both controls must remain visible, reachable and correctly laid out on the supported Android/PWA/iPad viewports. No clipping below the viewport, invisible control, overlap, off-screen placement, or footer collision is acceptable.
+Pause is not Submit, Skip, completion, or a new-test boundary.
 
-### Pause semantics
+## Accepted Continue Practice semantics
 
-`Pause` is the resumable exit.
+The Home **Continue Practice** control must resume the same paused Practice session.
 
-When the learner pauses:
+On resume:
 
-- persist the exact topic/session identity;
-- persist the ordered question set and current position;
-- persist which questions were answered correctly;
-- persist which questions were answered incorrectly;
-- persist which questions were intentionally or unintentionally skipped;
-- preserve unseen questions as pending;
-- do **not** mark the topic/session completed merely because it was paused.
+- keep the same session ID;
+- restore the complete original test/question list from canonical `sessionQuestionIds`;
+- restore the saved question position;
+- preserve questions already answered and their submitted/progress state;
+- unanswered questions remain unanswered and available in normal navigation;
+- if a buggy older persisted client reduced `questionIds` to one current question while `sessionQuestionIds` survived, rebuild the full visible session from `sessionQuestionIds`;
+- never collapse the resumed session to `1 / 1`;
+- never call a legacy one-question `startSession([q.id], ...)` fallback when a paused session exists.
 
-When the learner later chooses **Continue Practice**:
+The visible resumed session is therefore the original complete test, not a filtered remaining-only test.
 
-- reopen the same paused topic/session rather than creating a fresh Practice set;
-- return to the learner's paused progress context;
-- questions already answered **correctly or incorrectly are finished for that session and must not be served again**;
-- questions that were **skipped remain attemptable**;
-- questions that were **never reached remain attemptable**;
-- Continue Practice must therefore continue the remaining work, not recycle wrong answers and not reduce the resume to a one-question session.
+## Critical regression history
 
-Example: for a 20-question topic session where 3 were correct, 1 was wrong, 1 was skipped and 15 were never reached, Pause → Continue Practice leaves **16 attemptable questions** (the skipped question + 15 unseen). The 4 already answered questions are not served again in that resumed session.
+The sequence matters because future agents must not repeat it.
 
-### Completed-topic semantics
+1. PR #45 added visible Pause/Submit controls to the question footer and used a remaining-only resume model. This conflicted with the desired UI and session architecture.
+2. PR #47 restored the accepted UI: Previous/Next-only question footer, one final review grid, Pause/Submit-only actions.
+3. PR #48 fixed the core state model so resume restores the full original session, saved index and progress, and Pause no longer marks the current item skipped.
+4. The first verification still missed the real Home lifecycle and the user observed a `1 / 1` resumed session on-device.
+5. PR #51 traced that failure to the Home continuation path and added a real multi-question Pause → Home → Continue regression.
+6. PR #53 corrected the browser verifier again so it exercises the actual generated Home Continue Practice control rather than a superseded selector/path.
+7. Full CI passed and the user physically confirmed the feature now works.
 
-A topic/session that is genuinely completed receives the normal completed/green state. Once it is completed, there is no paused session to resume for that topic.
+Detailed failure analysis, wrong assumptions, lessons and permanent do/don't rules are in `.project-memory/PRACTICE_FLOW_POSTMORTEM_2026-09-12.md`.
 
-After that completed/green state, **Continue Practice points to the direct next topic in canonical topic order**. Selecting it takes the learner to that next topic rather than reopening the completed topic or constructing a synthetic one-question session.
+## What was done wrong
 
-`Pause` and genuine completion are therefore mutually distinct states:
+- Treating Pause as equivalent to Skip.
+- Filtering the active visible session down to only remaining questions on resume.
+- Adding Pause/Submit controls to the normal question footer and stealing explanation/FSRS space.
+- Leaving a redundant intermediate navigator in front of the final review grid.
+- Verifying an internal helper instead of the exact visible Home control.
+- Simulating session data in tests without first exercising a genuine multi-question Practice session.
+- Assuming a selector/handler was the current generated learner path without inspecting the generated app.
+- Declaring the bug fixed before physical verification even though the visible `1 / 1` symptom remained.
 
-- **Paused:** Continue Practice resumes the same session and its remaining skipped/unseen questions.
-- **Completed/green:** Continue Practice advances to the next topic.
+## Permanent lessons / do-not-regress rules
 
-For a subject with no study history, the presence of Continue Practice is not currently a priority bug; however it must never manufacture the broken one-question resume behavior.
+- Test the complete learner path: start genuine multi-question Practice → answer some questions → open final review grid → Pause → Home → click the actual rendered Continue Practice control → verify same session ID, full original IDs, same saved index/current question and preserved submitted progress.
+- Browser tests must interact with the actual generated UI element the learner sees, not only exported helpers.
+- `sessionQuestionIds` is the durable canonical identity/order of the paused Practice test.
+- `questionIds` must be repaired from `sessionQuestionIds` if an older bad state collapsed it.
+- Pause must never mutate answer correctness or FSRS eligibility merely because the learner exits temporarily.
+- UI and state behavior must be verified independently: a correct-looking final grid does not prove correct resume behavior.
+- CI/browser success is not the same as user/device acceptance. Use explicit status labels.
+- No Marrow-only or subject-specific Practice engine may be introduced; this remains shared Practice/session architecture.
+- Do not restore legacy one-question continuation behavior.
+- Do not promote production without explicit user approval.
 
-## Implementation constraints
+## Required regression contract
 
-- Preserve the approved Topics journey UI and completion state semantics.
-- Store resume state through the existing learner-state/session persistence path so Android/PWA and sync behavior do not diverge.
-- Wrong answers may still feed Wrong/FSRS/analytics according to their existing contracts, but they are **not** pending questions inside the resumed Practice session.
-- Skipped questions must not be treated as answered merely because the learner viewed them.
-- Do not infer completion from the current index alone; completion and pause must be explicit session lifecycle states.
-- Continue Practice must resolve a durable session/topic state, not `firstUnattemptedQuestion()` globally.
+A future change touching Home, Practice, session persistence, sync, question navigation, final review, FSRS injection or build transforms must preserve all of the following:
 
-## Implementation status — build-verified candidate
+- normal question footer = Previous + Next only;
+- final review action area = Pause + Submit only;
+- grid icon/end boundary = same final review grid;
+- Pause preserves same full session and saved position;
+- Home Continue restores same session ID and complete original question set;
+- submitted answers remain submitted;
+- current unanswered question is not auto-skipped by Pause;
+- previously collapsed one-question persisted state is repaired from `sessionQuestionIds`;
+- special modes (CBT, Review, Wrong/Bookmarks, FSRS, Custom Study Modules) remain outside this override unless explicitly redesigned.
 
-A bounded implementation now exists on `fix/continue-practice-session-resume-20260912`. It is installed after the Home command-center transform and before sync/FSRS, so it extends shared session functions instead of forking them. It persists `lifecycle`, `sessionQuestionIds` and `practiceContext` inside existing `activeSession`/completed-test state, removes the legacy mutation observer that hid Practice Submit controls, and explicitly excludes Wrong/Bookmarks, FSRS, Review, CBT and Custom Study Modules.
+## Current status
 
-Deterministic behavior covers the 16-of-20 resume invariant, same-session ordering, answered-question exclusion, partial-topic continuation and completed-topic advancement. A generated-PWA Playwright regression checks Pause/Submit reachability and footer separation at 320, 390 and 768 px. Local owner checks, exact-head Engineering Gate 34684693663 and full run 34684715131 pass at product commit a717563. The 320/390/768 px screenshots were visually inspected and have no clipping or footer collision. Canonical reconciliation and physical-device acceptance remain pending, so this is not shipped or device-verified.
-
-## Verification required before reconciliation
-
-The candidate includes deterministic tests for:
-
-- Pause after a mixed correct/wrong/skipped/unseen set, then resume with exactly skipped + unseen remaining.
-- Correct and wrong questions do not reappear after resume.
-- A skipped question remains answerable after resume.
-- Resume returns to the same topic/session and preserves ordering/progress.
-- A completed/green topic causes Continue Practice to target the immediately next topic.
-- No global-first-unattempted / one-question fallback is used when a paused session exists.
-- Submit/Pause controls are both visible and reachable in representative Android and PWA/iPad viewport regressions.
-- Existing CBT, Review, FSRS and Custom Study Module behavior does not regress.
-
-## Next coding step
-
-Resolve live canonical again and merge the build-verified candidate only into `feature/marrow-canonical-full-current` after verification. Do not promote production without explicit user approval.
+**Accepted / user-device verified.** Do not describe this flow as pending. Future work may build on it, but must preserve the contract above and the postmortem lessons.
