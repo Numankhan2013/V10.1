@@ -18,6 +18,8 @@ import json
 import re
 from pathlib import Path
 
+from apply_question_content_hygiene_v1 import main as apply_question_content_hygiene
+
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "app/src/main/assets/index.html"
 MARKER = "NK_MARROW_STRUCTURED_TABLE_RENDERER_V1"
@@ -71,8 +73,6 @@ def _table_text(table: dict) -> tuple[list[str], list[list[str]]]:
     for index, column in enumerate(raw_columns):
         if isinstance(column, dict):
             key = str(column.get("key") or column.get("id") or column.get("field") or index)
-            # Preserve an explicitly blank learner-facing label. The key owns
-            # row lookup but is not automatically a display label.
             if "label" in column:
                 label = _scalar(column.get("label"))
             else:
@@ -151,8 +151,6 @@ for record in records:
             table_id = str(table.get("table_id") or table.get("id") or question.get("id"))
             raw_columns = table.get("columns")
 
-            # The corpus has older valid table shapes. They remain owned by the
-            # existing renderer and are intentionally not rewritten here.
             if not isinstance(raw_columns, list) or not raw_columns:
                 legacy_passthrough_count += 1
                 if str(question.get("id")) == "marrow__ANAT_CH05_Q010":
@@ -167,8 +165,6 @@ for record in records:
             if any("[object Object]" in cell for row in rows for cell in row):
                 raise SystemExit(f"Structured table source contains object-string leakage: {table_id}")
 
-            # Keep the user-reported populated table strict. We do not turn
-            # unrelated source omissions into renderer failures.
             if str(question.get("id")) == "marrow__ANAT_CH05_Q010":
                 if not rows or any(not any(cell.strip() for cell in row) for row in rows):
                     raise SystemExit("Anatomy Ch5 Q10 populated source table contains an empty row")
@@ -212,8 +208,6 @@ helper = r'''
     const sourceTable=(table&&typeof table==='object')?table:{};
     const rawColumns=Array.isArray(sourceTable.columns)?sourceTable.columns:null;
 
-    // Preserve historical table families that do not use the canonical
-    // columns/rows schema. Their existing renderer behavior remains untouched.
     if(!rawColumns||rawColumns.length===0)return sourceTable;
 
     const columns=rawColumns.map((column,index)=>{
@@ -281,3 +275,10 @@ print(
     f"subjects={subject_counts} call_sites={call_count} partial_blank_headers={partial_blank_headers} "
     f"blank_source_rows={blank_source_rows} q10=verified"
 )
+
+# The normal content-hygiene step runs before Marrow is injected. Re-run the
+# idempotent hygiene transform here, after canonical Marrow data and its renderer
+# exist, so all 2,711 Marrow learner-facing stems/options/explanations pass through
+# the same conservative serialized-text sanitation boundary.
+apply_question_content_hygiene()
+print("MARROW_POST_INJECTION_CONTENT_HYGIENE_OK")
