@@ -286,3 +286,18 @@ The first unified production candidate includes the explicit Topics taxonomy.
 Production promotion is a separate release action requiring `main`, an explicit
 boolean request, and an exact full commit SHA. V11.6 `125d68b` remains the
 accepted rollback baseline until a later candidate is physically accepted.
+
+## 22. Continue Practice resumes explicit shared session state (2026-09-12)
+
+Regular topic Practice uses the existing synced activeSession and completed-test
+history, augmented with explicit lifecycle, original ordered question IDs and stable
+subject/bank/topic context. Pause retains the session and Submit completes it;
+answered correct/wrong IDs are removed only from the resumed serving queue, while
+skipped and unseen IDs remain. A genuinely complete topic routes Continue Practice
+to the immediately next canonical topic. Wrong/Bookmarks, FSRS, Review, CBT and
+Custom Study Modules are not reclassified as ordinary continuation sessions.
+
+The legacy v102-practice-layer mutation observer is removed because hiding every
+Practice button labelled Submit contradicts the approved two-control contract.
+Generated viewport regressions, not static marker checks alone, own reachability and
+footer-collision protection. Production promotion remains a separate explicit act.

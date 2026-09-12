@@ -74,13 +74,21 @@ checked deterministic rollout ledger.
   `nkStudyModuleList`, `nkFindStudyModule`, `nkNormalizeStudyModule(s)`,
   `nkModuleValidQuestionIds`, `nkModuleProgress`, `nkSyncModuleFromSession`,
   draft/builder/persistence/resume/finish/restart + Home prioritization.
+- Continue Practice candidate (tools/continue_practice_resume_core.js,
+  NK_CONTINUE_PRACTICE_RESUME_V1): regular topic Practice owns explicit
+  activeSession.lifecycle, immutable original-order sessionQuestionIds, and
+  practiceContext {subject,bank,topicId,title,questionIds}. Pause retains the active
+  synced session; resume filters only submitted IDs; Practice completion copies the
+  context into test history for deterministic same-topic remainder/next-topic routing.
+  No new top-level learner state exists. Wrong/Bookmarks, FSRS, Review, CBT and
+  Custom Study Modules are excluded.
 - Source visuals contract: per-question `visual {type:"source-pdf",
   source, page, crop{left,top,right,bottom} (PDF points, optional),
   fit: contain|width|native}`; renderer consumes metadata only.
 
 ## Deterministic build pipeline (order enforced)
 
-`tools/verify_build_pipeline.py` requires this order (33 protected steps):
+`tools/verify_build_pipeline.py` requires this order (41 protected steps):
 
 `fix_review_build` → `harden_review_renderer` →
 `build_source_visual_metadata` → `improve_source_visual_assets_v1` →
@@ -93,7 +101,9 @@ checked deterministic rollout ledger.
 `test_question_experience_v1` → `apply_session_experience_v2` →
 `test_session_experience_v2` → `apply_whole_app_vision_v1` →
 `test_whole_app_vision_v1` → `apply_custom_study_modules_v1` →
-`test_custom_study_modules_v1` → `fix_boot_syntax` →
+`test_custom_study_modules_v1` → `apply_home_command_center_v1` →
+`test_home_command_center_v1` → `apply_continue_practice_resume_v1` →
+`test_continue_practice_resume_v1` → `fix_boot_syntax` →
 `verify_product_contract --stage generated` → `verify_cbt_invariants`.
 
 Full `build-apk.yml` additionally runs: study-metrics test, source contract,

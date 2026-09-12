@@ -83,9 +83,15 @@ For a subject with no study history, the presence of Continue Practice is not cu
 - Do not infer completion from the current index alone; completion and pause must be explicit session lifecycle states.
 - Continue Practice must resolve a durable session/topic state, not `firstUnattemptedQuestion()` globally.
 
-## Verification required for the future fix
+## Implementation status — build-verified candidate
 
-At minimum add deterministic tests for:
+A bounded implementation now exists on `fix/continue-practice-session-resume-20260912`. It is installed after the Home command-center transform and before sync/FSRS, so it extends shared session functions instead of forking them. It persists `lifecycle`, `sessionQuestionIds` and `practiceContext` inside existing `activeSession`/completed-test state, removes the legacy mutation observer that hid Practice Submit controls, and explicitly excludes Wrong/Bookmarks, FSRS, Review, CBT and Custom Study Modules.
+
+Deterministic behavior covers the 16-of-20 resume invariant, same-session ordering, answered-question exclusion, partial-topic continuation and completed-topic advancement. A generated-PWA Playwright regression checks Pause/Submit reachability and footer separation at 320, 390 and 768 px. Local owner checks, exact-head Engineering Gate 34684693663 and full run 34684715131 pass at product commit a717563. The 320/390/768 px screenshots were visually inspected and have no clipping or footer collision. Canonical reconciliation and physical-device acceptance remain pending, so this is not shipped or device-verified.
+
+## Verification required before reconciliation
+
+The candidate includes deterministic tests for:
 
 - Pause after a mixed correct/wrong/skipped/unseen set, then resume with exactly skipped + unseen remaining.
 - Correct and wrong questions do not reappear after resume.
@@ -98,4 +104,4 @@ At minimum add deterministic tests for:
 
 ## Next coding step
 
-Implement this as a bounded product/session-state patch from the exact current `feature/marrow-canonical-full-current` HEAD, with dedicated behavior + browser layout regressions. Do not promote production during this patch without explicit user approval.
+Resolve live canonical again and merge the build-verified candidate only into `feature/marrow-canonical-full-current` after verification. Do not promote production without explicit user approval.

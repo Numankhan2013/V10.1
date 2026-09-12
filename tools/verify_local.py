@@ -15,7 +15,7 @@ CI_TESTS = {
     "test_whole_app_vision_v1.py",
     "test_marrow_bank_pilot.py",
 }
-CI_VERIFIERS = {"verify_cbt_invariants.py", "verify_source_visual_contract.py", "verify_recall_dock_browser.py", "verify_marrow_bank_browser.py"}
+CI_VERIFIERS = {"verify_cbt_invariants.py", "verify_source_visual_contract.py", "verify_recall_dock_browser.py", "verify_marrow_bank_browser.py", "verify_continue_practice_browser.py", "verify_marrow_structured_table_browser.py"}
 
 
 def main():
@@ -23,14 +23,14 @@ def main():
         pdf_preflight()
     commands = [[sys.executable, "-m", "compileall", "-q", "tools"]]
     for path in sorted((ROOT / "tools").glob("test_*.py")):
-        if path.name in CI_TESTS:
+        if path.name in CI_TESTS or path.name.endswith("_core.py"):
             print(f"CI_ONLY: {path.name} requires the ordered generated-app/PDF pipeline", flush=True)
         else:
             commands.append([sys.executable, str(path)])
     for path in sorted((ROOT / "tools").glob("verify_*.py")):
         if path.name == "verify_local.py":
             continue
-        if path.name in CI_VERIFIERS:
+        if path.name in CI_VERIFIERS or path.name.startswith("verify_marrow_bank_browser_"):
             print(f"CI_ONLY: {path.name} requires generated PDF/app artifacts", flush=True)
         else:
             commands.append([sys.executable, str(path)] + (["--stage", "source"] if path.name == "verify_product_contract.py" else []))
