@@ -78,16 +78,24 @@ console.log('QUESTION_CONTENT_HYGIENE_BEHAVIOR_OK');
         "function nkSanitizeMarrowQuestion(question)",
         "function nkCleanQuestionStem(value)",
         "function nkTableTakeaway(lines,tokens,answer)",
+        "SUBJECTS.forEach(record=>(record.questions||[]).forEach(question=>nkSanitizeMarrowQuestion(question)))",
     ]
     for marker in required:
         if marker not in source:
             raise SystemExit(f"Generated content hygiene marker missing: {marker}")
-    registry_calls = source.count("nkSanitizeMarrowQuestion(question);")
-    if registry_calls < 2:
-        raise SystemExit(f"Expected sanitizer in PrepLadder and Marrow registry paths, found {registry_calls}")
     if source.count("NK_QUESTION_CONTENT_HYGIENE_V1_START") != 1 or source.count("NK_QUESTION_CONTENT_HYGIENE_V1_END") != 1:
         raise SystemExit("Generated app must contain exactly one hygiene marker pair")
-    print(f"QUESTION_CONTENT_HYGIENE_INTEGRATION_OK: registry_calls={registry_calls} Marrow stem/options/explanation sanitizer installed")
+
+    has_marrow = "const MARROW_DATA = " in source
+    generated_bank_hooks = source.count("(record.questions||[]).forEach(question=>{\n      nkSanitizeMarrowQuestion(question);")
+    if has_marrow and generated_bank_hooks != 2:
+        raise SystemExit(f"Post-Marrow app must sanitize both generated bank registry paths; found {generated_bank_hooks}")
+    if not has_marrow and generated_bank_hooks != 0:
+        raise SystemExit(f"Pre-Marrow app unexpectedly has generated-bank hooks: {generated_bank_hooks}")
+    print(
+        "QUESTION_CONTENT_HYGIENE_INTEGRATION_OK: "
+        f"phase={'post-marrow' if has_marrow else 'pre-marrow'} generated_bank_hooks={generated_bank_hooks}"
+    )
 
 
 if __name__ == "__main__":
