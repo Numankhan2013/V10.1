@@ -26,7 +26,7 @@ global.window={QB:{}};
 global.document={getElementById:()=>null};
 global.setTimeout=fn=>fn();
 
-let route={page:'practice'},saved=0,oldContinueCalls=0,opened=null,started=null;
+let route={page:'practice'},saved=0,oldContinueCalls=0,legacyHomeContinueCalls=0,opened=null,started=null;
 let navigatorCalls=0,reviewCalls=0;
 const make=(topic,count,start=1)=>Array.from({length:count},(_,i)=>({id:`q${start+i}`,subject:'Anatomy',bank:'Marrow',chapterId:topic,chapter:topic==='t1'?'Topic One':'Topic Two'}));
 const questions=[...make('t1',20),...make('t2',3,21)],BY_ID=Object.fromEntries(questions.map(q=>[q.id,q]));
@@ -45,8 +45,10 @@ let openQuestionNavigator=()=>{navigatorCalls++};
 let openSessionReview=()=>{reviewCalls++};
 let nkLatestPracticeContext=()=>null;
 let nkContinueRecentPractice=()=>{oldContinueCalls++};
+// This is the real legacy Home path that caused the 1/1 regression.
+let continuePractice=()=>{legacyHomeContinueCalls++;const q=questions[0];if(q)startSession([q.id],'practice',`Continue · ${q.chapter}`,'normal');};
 ''' + CORE + '\n' + FLOW_CORE + r'''
-window.QB={nkPausePractice,nkSubmitPracticeSession,openQuestionNavigator,openSessionReview};
+window.QB={nkPausePractice,nkSubmitPracticeSession,openQuestionNavigator,openSessionReview,nkContinueRecentPractice,continuePractice};
 
 const full=Array.from({length:20},(_,i)=>`q${i+1}`);
 state.activeSession={id:'same-session',mode:'practice',title:'Topic One',questionIds:[...full],index:4,
@@ -95,7 +97,9 @@ assert.equal(state.activeSession.id,'same-session');
 assert.deepEqual(state.activeSession.sessionQuestionIds,full);
 assert.equal(state.activeSession.pausedIndex,4);
 
-nkContinueRecentPractice();
+// Critical regression: the actual Home button calls continuePractice(), not
+// nkContinueRecentPractice(). It must restore the same 20-question session.
+window.QB.continuePractice();
 assert.equal(route.page,'practice');
 assert.equal(state.activeSession.id,'same-session');
 assert.equal(state.activeSession.lifecycle,'active');
@@ -105,17 +109,19 @@ assert.equal(state.activeSession.questionIds[state.activeSession.index],'q5');
 assert.equal(state.activeSession.submitted.q1,true);
 assert.equal(Boolean(state.activeSession.submitted.q5),false);
 assert.equal(oldContinueCalls,0);
+assert.equal(legacyHomeContinueCalls,0);
 
-// Regression guard for the reported failure: even if a buggy older build persisted
-// only the current question, sessionQuestionIds remains the canonical whole test.
+// Regression guard for older persisted state: even if questionIds was reduced to
+// the current question, sessionQuestionIds remains the canonical whole test.
 state.activeSession.lifecycle='paused';
 state.activeSession.questionIds=['q5'];
 state.activeSession.index=0;
 state.activeSession.pausedIndex=4;
-nkContinueRecentPractice();
+window.QB.continuePractice();
 assert.deepEqual(state.activeSession.questionIds,full);
 assert.equal(state.activeSession.index,4);
 assert.equal(state.activeSession.questionIds[4],'q5');
+assert.equal(legacyHomeContinueCalls,0);
 
 for(const id of state.activeSession.questionIds)state.activeSession.submitted[id]=true;
 nkSubmitPracticeSession();
@@ -144,7 +150,7 @@ state.activeSession={mode:'practice',title:'Wrong Questions',questionIds:['q1'],
 assert.equal(nkPausePractice(),false);
 assert.equal(practiceActionBar().includes('nk-practice-session-controls'),false);
 
-console.log('CONTINUE_PRACTICE_BEHAVIOR_OK single_grid=true footer=previous_next durable_pause=true full_session=20 saved_index=4');
+console.log('CONTINUE_PRACTICE_BEHAVIOR_OK single_grid=true footer=previous_next durable_pause=true home_continue=true full_session=20 saved_index=4');
 '''
     with tempfile.TemporaryDirectory() as directory:
         path = Path(directory) / "continue-practice-test.js"
@@ -157,10 +163,11 @@ def test_transform() -> None:
 <style id="v102-practice-layer">button.v102-practice-submit-hidden{display:none}</style>
 <script id="v102-practice-layer-script">legacy submit hider</script>
 function nkLatestPracticeContext(){return null;} function nkContinueRecentPractice(){return null;}
+function continuePractice(){return 'legacy-one-question';}
 function finishPracticeSession(){} function practiceActionBar(){return '<div class="fixed-actions-inner"></div>';}
 function openQuestionNavigator(){} function openSessionReview(){} function endSession(){} function saveState(){} function navigate(){}
 /* NK_HOME_FLOW_V3_END */
-window.QB={};
+window.QB={continuePractice};
 </script></body></html>'''
     updated = transform(fixture)
     assert transform(updated) == updated
@@ -174,6 +181,8 @@ window.QB={};
         "sessionQuestionIds",
         "practiceContext",
         "nk-practice-final-review",
+        "nkPracticeResumeOriginalHomeContinue",
+        "continuePractice=function()",
     ):
         assert marker in updated, marker
     assert "v102-practice-submit-hidden" not in updated
@@ -188,7 +197,7 @@ def main() -> None:
     assert workflow.index("tools/apply_home_command_center_v1.py") < workflow.index("tools/apply_continue_practice_resume_v1.py") < workflow.index("tools/apply_cross_device_pwa_v1.py")
     assert "tools/test_continue_practice_resume_v1.py" in workflow
     assert "tools/test_continue_practice_resume_v1.py" in gate
-    print("CONTINUE_PRACTICE_CONTRACT_OK single_final_grid=true durable_pause=true full_session_resume=true footer=previous_next")
+    print("CONTINUE_PRACTICE_CONTRACT_OK single_final_grid=true durable_pause=true home_continue=true full_session_resume=true footer=previous_next")
 
 
 if __name__ == "__main__":

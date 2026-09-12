@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exercise the single-grid Practice end flow and durable Pause/Continue in the built PWA."""
+"""Exercise the single-grid Practice end flow and durable Home Pause/Continue in the built PWA."""
 
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -79,40 +79,59 @@ def main() -> None:
                 review.screenshot(path=str(output / f"practice-final-review-{width}.png"))
                 context.close()
 
-            # Durable Pause/Continue: pause only from the final grid, then restore the
-            # complete original test and its saved question position/progress.
+            # Real Home lifecycle regression test. Start a genuine Practice 20, pause
+            # it from the final grid, then click the actual visible Continue Practice
+            # button. The same session, all IDs, progress and position must survive.
             context = browser.new_context(viewport={"width": 390, "height": 844}, service_workers="block")
             page = context.new_page()
             page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
             page.goto(origin + "/#dashboard", wait_until="domcontentloaded")
             page.wait_for_function("window.QB && window.QB.getState")
-            page.evaluate("window.QB.practiceOne('1-1')")
-            page.evaluate("""() => {
+            page.evaluate("window.QB.startAllPractice()")
+            page.wait_for_function("window.QB.getState().activeSession?.questionIds?.length > 1")
+
+            original = page.evaluate("""() => {
               const s=window.QB.getState().activeSession;
-              s.questionIds=Array.from({length:20},(_,i)=>`1-${i+1}`);
-              s.index=4;
-              s.answers={'1-1':1,'1-2':1,'1-3':1,'1-4':1};
-              s.submitted={'1-1':true,'1-2':true,'1-3':true,'1-4':true};
-              s.questionTimes={'1-5':10};
+              return {id:s.id, ids:[...s.questionIds]};
             }""")
+            if len(original["ids"]) < 5:
+                raise SystemExit(f"Practice 20 did not create a multi-question session: {original}")
+            current_id = original["ids"][4]
+            answered_ids = original["ids"][:4]
+
+            page.evaluate("""({answered,current}) => {
+              const s=window.QB.getState().activeSession;
+              s.index=4;
+              s.answers={};
+              s.submitted={};
+              answered.forEach((id,i)=>{s.answers[id]=i%4;s.submitted[id]=true;});
+              s.questionTimes={[current]:10};
+            }""", {"answered": answered_ids, "current": current_id})
+
             page.evaluate("window.QB.openSessionReview()")
             review = page.locator("#nk-session-review")
             review.wait_for(state="visible")
             review.get_by_role("button", name="Pause", exact=True).click()
             page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='paused'")
 
-            # Reproduce the reported regression: an older resume path could persist
-            # only the current question even though sessionQuestionIds still held all 20.
-            page.evaluate("""() => {
+            paused = page.evaluate("""() => {
               const s=window.QB.getState().activeSession;
-              s.questionIds=['1-5'];
-              s.index=0;
+              return {id:s.id, ids:s.questionIds, sessionIds:s.sessionQuestionIds, index:s.pausedIndex};
             }""")
-            page.evaluate("window.QB.nkContinueRecentPractice()")
+            if paused["id"] != original["id"] or paused["ids"] != original["ids"] or paused["sessionIds"] != original["ids"] or paused["index"] != 4:
+                raise SystemExit(f"Pause did not preserve the original Practice session: {paused}")
+
+            # This exact Home button used to call legacy continuePractice(), which
+            # created startSession([q.id]) and produced the user-visible 1/1 bug.
+            continue_button = page.locator("button.nk-home-v4-action-continue")
+            continue_button.wait_for(state="visible")
+            continue_button.click()
             page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='active'")
+
             result = page.evaluate("""() => {
               const s=window.QB.getState().activeSession;
               return {
+                id:s.id,
                 ids:s.questionIds,
                 current:s.questionIds[s.index],
                 index:s.index,
@@ -120,20 +139,43 @@ def main() -> None:
                 sessionIds:s.sessionQuestionIds
               };
             }""")
-            if len(result["ids"]) != 20 or result["ids"][:2] != ["1-1", "1-2"] or result["ids"][-1] != "1-20":
-                raise SystemExit(f"Pause/Continue did not restore the complete 20-question session: {result}")
-            if result["current"] != "1-5" or result["index"] != 4:
-                raise SystemExit(f"Pause/Continue did not restore the saved question position: {result}")
-            if result["sessionIds"] != result["ids"]:
+            if result["id"] != original["id"]:
+                raise SystemExit(f"Home Continue created a new session instead of resuming the paused one: {result}")
+            if result["ids"] != original["ids"] or len(result["ids"]) <= 1:
+                raise SystemExit(f"Home Continue collapsed the paused test to a one-question session: {result}")
+            if result["current"] != current_id or result["index"] != 4:
+                raise SystemExit(f"Home Continue did not restore the saved question position: {result}")
+            if result["sessionIds"] != original["ids"]:
                 raise SystemExit(f"Visible session diverged from the canonical paused test: {result}")
-            if not all(result["submitted"].get(qid) for qid in ("1-1", "1-2", "1-3", "1-4")):
-                raise SystemExit(f"Answered progress was lost while resuming: {result}")
+            if not all(result["submitted"].get(qid) for qid in answered_ids):
+                raise SystemExit(f"Answered progress was lost while resuming from Home: {result}")
+
+            # Persisted-state repair: a previous buggy client may have reduced only
+            # questionIds. The preserved sessionQuestionIds must still rebuild all IDs
+            # when the same Home Continue button is used again.
+            page.evaluate("window.QB.openSessionReview()")
+            page.locator("#nk-session-review").get_by_role("button", name="Pause", exact=True).click()
+            page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='paused'")
+            page.evaluate("""({current}) => {
+              const s=window.QB.getState().activeSession;
+              s.questionIds=[current];
+              s.index=0;
+            }""", {"current": current_id})
+            page.locator("button.nk-home-v4-action-continue").click()
+            page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='active'")
+            repaired = page.evaluate("""() => {
+              const s=window.QB.getState().activeSession;
+              return {id:s.id,ids:s.questionIds,index:s.index,current:s.questionIds[s.index]};
+            }""")
+            if repaired["id"] != original["id"] or repaired["ids"] != original["ids"] or repaired["index"] != 4 or repaired["current"] != current_id:
+                raise SystemExit(f"Home Continue did not repair persisted one-question state: {repaired}")
+
             context.close()
             browser.close()
     finally:
         server.shutdown()
 
-    print("CONTINUE_PRACTICE_BROWSER_OK widths=320,390,768 single_review_grid=true footer=previous_next full_session=20 saved_index=4")
+    print("CONTINUE_PRACTICE_BROWSER_OK widths=320,390,768 single_review_grid=true footer=previous_next home_continue=true real_practice_session=true saved_index=4")
 
 
 if __name__ == "__main__":
