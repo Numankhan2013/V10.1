@@ -61,17 +61,24 @@ def main() -> None:
             }""")
             page.get_by_role("button", name="Pause", exact=True).click()
             page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='paused'")
+            # Reproduce the shipped regression: an older resume path could leave only
+            # the current question visible even though the canonical session stayed intact.
+            page.evaluate("""() => {const s=window.QB.getState().activeSession;s.questionIds=['1-5'];s.index=0;}""")
             page.evaluate("window.QB.nkContinueRecentPractice()")
             page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='active'")
-            result = page.evaluate("""() => {const s=window.QB.getState().activeSession;return {ids:s.questionIds,current:s.questionIds[s.index]};}""")
-            if len(result["ids"]) != 16 or result["ids"][:2] != ["1-5", "1-6"] or result["current"] != "1-5":
-                raise SystemExit(f"Pause/Continue did not preserve exactly skipped + unseen: {result}")
-            if any(qid in result["ids"] for qid in ("1-1", "1-2", "1-3", "1-4")):
-                raise SystemExit("Answered questions reappeared after Continue Practice")
+            result = page.evaluate("""() => {const s=window.QB.getState().activeSession;return {ids:s.questionIds,current:s.questionIds[s.index],index:s.index,submitted:s.submitted,sessionIds:s.sessionQuestionIds};}""")
+            if len(result["ids"]) != 20 or result["ids"][:2] != ["1-1", "1-2"] or result["ids"][-1] != "1-20":
+                raise SystemExit(f"Pause/Continue did not restore the complete 20-question session: {result}")
+            if result["current"] != "1-5" or result["index"] != 4:
+                raise SystemExit(f"Pause/Continue did not restore the saved question position: {result}")
+            if result["sessionIds"] != result["ids"]:
+                raise SystemExit(f"Visible session diverged from canonical paused test: {result}")
+            if not all(result["submitted"].get(qid) for qid in ("1-1", "1-2", "1-3", "1-4")):
+                raise SystemExit(f"Answered progress was lost while resuming: {result}")
             browser.close()
     finally:
         server.shutdown()
-    print("CONTINUE_PRACTICE_BROWSER_OK widths=320,390,768 remaining=16 controls=visible")
+    print("CONTINUE_PRACTICE_BROWSER_OK widths=320,390,768 full_session=20 saved_index=4 regression=covered")
 
 
 if __name__ == "__main__":
