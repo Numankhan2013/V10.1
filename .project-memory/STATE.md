@@ -90,7 +90,7 @@ Verified canonical explanation work includes:
 - Direct source QA verified the hash-matched 7,958,177-byte PDF, full page ownership, native 960x540 JPEG, 390px phone preview and 768px expanded preview. Native/original/production SHA-256 is `22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c`. No crop, reconstruction, generation, inpainting or sharpening was used.
 - Post-release coverage: **110 raw / 109 effective / 71 released / 1 invalid-source-metadata / 72 resolved / 4 tracked-unreleased / 34 untracked / 31 text-cue**. Subject remains **INCOMPLETE**.
 - **Next deterministic image reference:** `marrow__BIOCHEM_CH04_Q011:figure:1 (explanation, source pages [69], UNRELEASED_TRACKED)`. Do not skip it for an easier later reference.
-- This batch is source/static validated but the image writer lane remains locked to Biochemistry until exact-head Engineering + full Android/PWA/browser/APK/package verification succeeds and the verified handoff is reconciled into `feature/marrow-canonical-full-current`. Production promotion is prohibited.
+- Exact-head Engineering Gate **34692045844** and full Android/PWA/browser/image-comparison/APK/package/reproducibility/preview run **34692046932** both passed on certified handoff `fa79b6cf4b0d8f3a81147886b8785229533aee67`; production promotion was skipped. The Q26 image writer lane is released after canonical reconciliation.
 
 ## Current product handoff — Continue Practice
 
@@ -110,8 +110,8 @@ Verified canonical explanation work includes:
 ## Known problems / cautions
 
 - Current Anatomy batch has passed canonical-source/static exact-head Engineering validation but still needs deterministic +7 inventory regeneration, representative stable-ID browser regression, and exact-head full Android/PWA/APK/package/reproducibility/preview verification.
-- Biochemistry image coverage remains incomplete: 39 effective source references are not learner-facing yet (4 tracked-unreleased + 35 untracked), plus 31 text-cue review items still require adjudication.
-- Q21 is now source-compared, released, exact-head product-verified, and reconciled into canonical using deterministic raw 300-DPI bytes SHA `f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789`. Continue strictly from Q26; do not skip to an easier later reference.
+- Biochemistry image coverage remains incomplete: 38 effective source references are not learner-facing yet (4 tracked-unreleased + 34 untracked), plus 31 text-cue review items still require adjudication.
+- Q26 is now source-compared, released and exact-head product-verified using native JPEG SHA `22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c`. Continue strictly from Ch4 Q11; do not skip its rejected tracked binding for an easier later reference.
 - Continue Practice is build/browser verified at a717563, but it is not canonical or physically device-verified yet; do not describe it as shipped/accepted.
 - Historical unfinished explanation branches remain historical unless explicitly transplanted by stable ID onto canonical and reverified.
 - Production remains untouched until explicit user approval.
@@ -125,7 +125,7 @@ Verified canonical explanation work includes:
 4. Run exact-head Engineering Gate + full Android/PWA/browser/APK/package/reproducibility/preview workflow.
 5. Reconcile verified explanation result back into canonical before releasing the explanation lane. Production promotion is prohibited.
 6. Recheck the live canonical tip and reconcile build-verified Continue Practice commit a717563 into canonical. Physical-device acceptance remains pending. Do not promote production.
-7. **Image lane:** Q21 recovery is complete and reconciled. Next deterministic Biochemistry reference is `marrow__BIOCHEM_CH02_Q026:figure:1` (explanation, source page 41, two native candidates). Start the next bounded batch from the live canonical head and do not skip Q26 for an easier later reference. Production promotion remains prohibited.
+7. **Image lane:** Q26 recovery is complete and product-verified. Next deterministic Biochemistry reference is `marrow__BIOCHEM_CH04_Q011:figure:1` (explanation, source page 69, tracked binding currently REJECTED). Start the next bounded batch from the live canonical head, re-audit source ownership, and do not skip this reference. Production promotion remains prohibited.
 
 Canonical source handoff: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
 Canonical automation policy: `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.

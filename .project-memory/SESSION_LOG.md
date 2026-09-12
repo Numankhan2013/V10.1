@@ -877,3 +877,10 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Coverage after release: 71 released, 4 tracked-unreleased, 34 untracked, 1 invalid metadata, 31 text-cue review items; subject incomplete.
 - Next deterministic reference: `marrow__BIOCHEM_CH04_Q011:figure:1 (explanation, source pages [69], UNRELEASED_TRACKED)`.
 - Production promotion prohibited; exact-head product CI still required before canonical reconciliation.
+
+
+## 2026-09-12 — Biochemistry Q26 exact-head verification
+- Q26 integration commit `36a0d000ee5268dd8fd1ca28f022cb960f503401`; exact certified product handoff `fa79b6cf4b0d8f3a81147886b8785229533aee67`.
+- Engineering Gate **34692045844** passed; full Android/PWA/browser/image-comparison/APK/package/reproducibility/preview run **34692046932** passed; production promotion skipped.
+- Post-release coverage remains 110 raw / 109 effective / 71 released / 1 invalid metadata / 72 resolved / 4 tracked-unreleased / 34 untracked / 31 text-cue; Biochemistry remains incomplete.
+- Next deterministic reference is `marrow__BIOCHEM_CH04_Q011:figure:1` on source page 69; tracked asset PASS but binding REJECTED, so the next run must resolve that source-order item rather than skip it.
