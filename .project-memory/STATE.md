@@ -88,12 +88,14 @@ Verified canonical explanation work includes:
 - **CURRENT_UNFINISHED image batch:** Biochemistry `NKQ_BIOCHEM_COVERAGE_Q21_20260912`, branch `automation/marrow-images-biochemistry-coverage-20260912-q21`, exact canonical base `e5b63af79ad8042920e1272c5830d494e5ed3369`.
 - Exact target: `marrow__BIOCHEM_CH02_Q021:figure:1`, explanation-only, authoritative Biochemistry ED8 page 39.
 - Full-page inspection proves Q21 is a three-object composite occupying xrefs **83, 84, 85** and exact region `[161.491,55.671,450.509,272.328]`; neighboring xref **86 belongs to Q22 and is excluded**.
-- Source-faithful 300-DPI exact-region candidate was visually inspected at native/phone/expanded sizes: **1206×904**, optimized PNG SHA-256 `07082b9d273f10881d05557827fff479dd18ed450f2ae874aa51bc460a7b03a4`. It preserves the red glycolysis pathway, blue gluconeogenesis pathway, central intermediates, lactate/TCA connections and ATP/NADH/regulatory annotations. No reconstruction, generation, inpainting or medical-pixel alteration was used.
-- Durable source-review checkpoint commit: `4dcab245691133d21643bb040cbe38ae13c7ef28`; checkpoint file `data/marrow/images/recovery_checkpoints/biochem_ch02_q021_20260912.json`.
-- **No learner-facing registry/release mutation has occurred.** The runtime's repository connector can only replace the monolithic registry as a complete file; its returned registry content is truncated here, so forcing a partial replacement would risk destructive loss. Resume this exact branch rather than skipping Q21.
-- Fresh authoritative coverage recomputation remained **110 raw / 109 effective / 69 released / 1 invalid-source-metadata / 70 resolved / 4 tracked-unreleased / 36 untracked / 31 text-cue**. Subject remains **INCOMPLETE**.
+- The previously inspected 300-DPI exact-region candidate is **1206×904**, optimized PNG SHA-256 `07082b9d273f10881d05557827fff479dd18ed450f2ae874aa51bc460a7b03a4`; its content/source ownership is verified, but its exact byte encoding has not yet been recovered durably.
+- Durable source-review checkpoint file: `data/marrow/images/recovery_checkpoints/biochem_ch02_q021_20260912.json`; latest safe specialist checkpoint commit is `e81157ca96a593975b00879fa425bd4690d3e637`.
+- Two bounded, fail-closed integration attempts were made in this run and both stopped **before registry mutation** because the current rendering/optimization toolchain did not reproduce the reviewed `07082b9d…` PNG bytes: workflow **34684150752** produced raw SHA `f2a6b069…`; workflow **34684256506** produced losslessly optimized SHA `8aed0451…`. Per the runbook, no third same-class repair attempt was made.
+- **No learner-facing registry/release/progress mutation occurred.** Temporary one-shot helper/workflow machinery was removed from the safe checkpoint branch.
+- Fresh authoritative coverage remains **110 raw / 109 effective / 69 released / 1 invalid-source-metadata / 70 resolved / 4 tracked-unreleased / 36 untracked / 31 text-cue**. Subject remains **INCOMPLETE**.
+- Next Q21 action is evidence recovery, not blind regeneration: recover the exact reviewed `07082b9d…` bytes from durable historical evidence if available; otherwise create one pinned deterministic encoding and perform a fresh full-page/exact-region/native/phone/expanded visual QA before adopting its hash and integrating it.
 - Previous fully verified history: Biochemistry Q6/Q7 batch, source/release workflow **34678805378**, Engineering Gate **34678998929**, full Android/PWA/browser/image-comparison/APK/package/reproducibility/preview run **34679001808**, production skipped.
-- **Image writer lane is owned by this Q21 batch until it is safely released/reconciled or explicitly retired.** Historical image branches/PRs are evidence only; Physiology remains paused; production promotion is prohibited.
+- **Image writer lane remains owned by this Q21 batch until it is safely released/reconciled or explicitly retired.** Historical image branches/PRs are evidence only; Physiology remains paused; production promotion is prohibited.
 
 ## Current product handoff — Continue Practice
 
@@ -110,7 +112,7 @@ Verified canonical explanation work includes:
 
 - Current Anatomy batch has passed canonical-source/static exact-head Engineering validation but still needs deterministic +7 inventory regeneration, representative stable-ID browser regression, and exact-head full Android/PWA/APK/package/reproducibility/preview verification.
 - Biochemistry image coverage remains incomplete: 40 effective source references are not resolved yet (4 tracked-unreleased + 36 untracked), plus 31 text-cue review items still require adjudication.
-- Q21 image source review is complete, but registry/release integration is safely checkpointed pending a complete non-destructive monolithic registry edit; do not skip to a later easier reference.
+- Q21 image source/content review is complete; release is blocked only on durable production-byte provenance after two current-toolchain encoding mismatches. Do not skip to a later easier reference and do not relax the hash/source-comparison gate.
 - Continue Practice currently needs the bounded shared-session-state repair described above; the present global-first-unattempted/one-question behavior is not the intended contract.
 - Historical unfinished explanation branches remain historical unless explicitly transplanted by stable ID onto canonical and reverified.
 - Production remains untouched until explicit user approval.
@@ -124,7 +126,7 @@ Verified canonical explanation work includes:
 4. Run exact-head Engineering Gate + full Android/PWA/browser/APK/package/reproducibility/preview workflow.
 5. Reconcile verified explanation result back into canonical before releasing the explanation lane. Production promotion is prohibited.
 6. In a bounded product patch from the exact current canonical HEAD, replace the broken Continue Practice behavior with the Pause/resume/completed-next-topic contract in `.project-memory/CONTINUE_PRACTICE_HANDOFF.md`, including behavioral and viewport regressions.
-7. **Image lane:** resume `automation/marrow-images-biochemistry-coverage-20260912-q21` at checkpoint `4dcab245691133d21643bb040cbe38ae13c7ef28`; integrate the already source-verified Q21 composite into the registry/release without destructive registry replacement, regenerate progress/coverage, run full image/browser/PWA/APK/package gates, and reconcile into canonical before releasing the lane. Do not skip Q21.
+7. **Image lane:** resume `automation/marrow-images-biochemistry-coverage-20260912-q21` at safe checkpoint `e81157ca96a593975b00879fa425bd4690d3e637`. Recover the exact reviewed `07082b9d…` PNG bytes if possible; otherwise perform a fresh complete visual QA on one pinned deterministic encoding before changing the production hash. Then integrate Q21 non-destructively, regenerate progress/coverage/release, run full image/browser/PWA/APK/package gates, and reconcile into canonical before releasing the lane. Do not skip Q21.
 
 Canonical source handoff: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
 Canonical automation policy: `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
