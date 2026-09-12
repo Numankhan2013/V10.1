@@ -186,3 +186,9 @@ Priority 0: reproduce and restore user-reported unreadable PDF explanations. The
 ### Biochemistry image coverage recovery — Q26
 - Q26 native page-41 explanation figure released on the bounded specialist batch; Biochemistry remains incomplete at 72/110 raw references resolved, with 31 text-cue review items.
 - Continue strictly from `marrow__BIOCHEM_CH04_Q011:figure:1 (explanation, source pages [69], UNRELEASED_TRACKED)` after this batch is exact-head verified and reconciled into canonical.
+
+
+<!-- PHYSIO_FASTLANE_BATCH02_HANDOFF_20260912 -->
+### Physiology image Fast-Lane Batch 02
+- Finish targeted learner QA and visual evidence inspection for the 12 changed bindings, reconcile the verified branch into `feature/marrow-canonical-full-current`, then resume specialist review at `marrow__PHYS_CH03_Q013:figure:2`.
+- Keep the 14 D decisions unresolved until specialist evidence closes them; do not count them as coverage.

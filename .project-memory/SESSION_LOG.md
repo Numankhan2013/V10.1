@@ -902,3 +902,14 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Local registry/progress/coverage regeneration checks, source comparison, stable-ID ownership, source-visual/product/build contracts, all 42 applicable local checks, and Continue Practice unit regression passed. Product commit `719e2aa0cfbacb829781e9a7953af4717a6a6f5a` passed bridge `34699011297`, Engineering Gate `34699015727`, and full Android/PWA/browser/image-comparison/APK/package/reproducibility/preview run `34699016754`. Emitted Q20 fullscreen, Q5 post-answer, and source/production comparison images were inspected and passed. Screenshot artifact `10300255269`; APK/PWA artifact `10300085581`; preview `https://72286d5a.nk-qbank.pages.dev`; production promotion skipped.
 - Immediately before reconciliation, canonical still resolved to `4f716c3a8eb2c6bc8030bb638a766580f5ddeca3` and its shared registry/progress fingerprints were unchanged. Verified commit `719e2aa0cfbacb829781e9a7953af4717a6a6f5a` was then fast-forwarded into `feature/marrow-canonical-full-current`; no registry conflict was chosen or overwritten. Working branch/base provenance is retained and the image writer is released.
 - Post-batch Physiology coverage: **294 raw / 290 effective / 44 released / 4 invalid metadata / 48 resolved / 21 tracked-unreleased / 225 untracked / 28 text-cue review items**. Subject remains **INCOMPLETE**. Exact next source reference is `marrow__PHYS_CH03_Q007:figure:1`, explanation, source page 44, two native candidates, `UNTRACKED_SOURCE_VISUAL`; no second batch has begun.
+
+
+<!-- PHYSIO_FASTLANE_BATCH02_HANDOFF_20260912 -->
+## 2026-09-12 — Physiology image Fast-Lane Batch 02 materialized
+
+- Branch `manual/marrow-physiology-fastlane-20260912-b02`, canonical base `700cde07869068a7d3aadf77dc89d7bd85726530`.
+- Source review run `34700776495`: 40 references / 28 unique source pages → 14 metadata-invalid, 0 reuse, 12 clean assets, 14 specialist deferrals.
+- Corrected apply run `34703103259` succeeded end-to-end and pushed image-data commit `aedfe3164da35e875db347483d8db3283169f8c0`. Earlier apply attempts failed closed only on CI-generated `tools/__pycache__` paths; no failed attempt mutated canonical or production.
+- Post-batch Physiology coverage: 294 raw / 276 effective / 56 released / 18 invalid / 74 resolved / 14 tracked-unreleased / 206 untracked / 28 text-cue.
+- Targeted changed-question learner/browser QA remains required before reconciliation. Full Android/PWA/APK checkpoint is amortized for this image-data-only batch. Production promoted: NO.
+- Next deterministic specialist reference: `marrow__PHYS_CH03_Q013:figure:2`.

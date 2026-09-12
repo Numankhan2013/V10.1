@@ -96,3 +96,9 @@ Biochemistry canonical coverage uses the complete 582-question corpus and source
 ## Canonical coverage recovery update — 2026-09-12 Q26
 
 Biochemistry canonical coverage uses the complete 582-question corpus and source-reference denominator. After the Q26 page-41 native-xref-92 release, live coverage is 110 raw / 109 effective / 71 released / 1 invalid metadata / 4 tracked-unreleased / 34 untracked, plus 31 text-cue review items. Subject completeness remains false; next source-order work is `marrow__BIOCHEM_CH04_Q011:figure:1 (explanation, source pages [69], UNRELEASED_TRACKED)`.
+
+
+<!-- PHYSIO_FASTLANE_BATCH02_HANDOFF_20260912 -->
+## Physiology Fast-Lane Batch 02 — 2026-09-12
+
+Supervised fast-lane review covered 40 source references across 28 unique PDF pages: 14 exact source-metadata adjudications, 0 reuse bindings, 12 clean new assets/bindings, and 14 specialist deferrals. Apply run `34703103259` produced commit `aedfe3164da35e875db347483d8db3283169f8c0` with all deterministic image/coverage/product gates green. Physiology coverage is now 294 raw, 276 effective, 56 released, 18 invalid metadata, 74 resolved, 14 tracked-unreleased, 206 untracked, and 28 text-cue review items. The next unresolved source-order item is `marrow__PHYS_CH03_Q013:figure:2`; its page-47 candidates require specialist ownership/crop review. Targeted learner QA is required before canonical reconciliation; full Android/PWA/APK checkpoint may be amortized because this batch changes image data only.
