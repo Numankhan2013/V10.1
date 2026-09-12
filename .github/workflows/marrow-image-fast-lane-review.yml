@@ -1,6 +1,12 @@
 name: Manual Marrow Image Fast-Lane Source Review
 
 on:
+  push:
+    branches: ['manual/marrow-*-fastlane-*']
+    paths:
+      - '.github/workflows/marrow-image-fast-lane-review.yml'
+      - 'tools/marrow_image_fast_lane.py'
+      - 'data/marrow/images/review_requests/*.json'
   workflow_dispatch:
     inputs:
       subject:
@@ -43,14 +49,14 @@ jobs:
           python3 tools/marrow_images.py audit
           python3 tools/marrow_images.py validate
           python3 tools/marrow_image_progress.py --check
-          python3 tools/marrow_image_coverage.py --subject "${{ inputs.subject }}" --check
-          python3 tools/marrow_image_fast_lane.py plan --subject "${{ inputs.subject }}" --count "${{ inputs.reference_count }}" --batch-id "${{ inputs.batch_id }}" --base-sha "$GITHUB_SHA" --output build/marrow-fast-lane/plan.json
+          python3 tools/marrow_image_coverage.py --subject "${{ inputs.subject || 'Physiology' }}" --check
+          python3 tools/marrow_image_fast_lane.py plan --subject "${{ inputs.subject || 'Physiology' }}" --count "${{ inputs.reference_count || 40 }}" --batch-id "${{ inputs.batch_id || format('MANUAL_FASTLANE_{0}', github.run_id) }}" --base-sha "$GITHUB_SHA" --output build/marrow-fast-lane/plan.json
       - name: Batch-render source pages and candidate regions
         run: python3 tools/marrow_image_fast_lane.py render --plan build/marrow-fast-lane/plan.json --output build/marrow-fast-lane/evidence
       - name: Upload one conclusive source-review artifact
         uses: actions/upload-artifact@v4
         with:
-          name: marrow-fast-lane-${{ inputs.batch_id }}
+          name: marrow-fast-lane-${{ inputs.batch_id || format('MANUAL_FASTLANE_{0}', github.run_id) }}
           path: build/marrow-fast-lane/evidence
           if-no-files-found: error
           retention-days: 14
