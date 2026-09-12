@@ -1,0 +1,129 @@
+name: Biochemistry Q21 Integrate Once
+
+on:
+  push:
+    branches:
+      - automation/marrow-images-biochemistry-coverage-20260912-q21-r2
+
+permissions:
+  contents: write
+
+concurrency:
+  group: marrow-image-writer
+  cancel-in-progress: false
+
+jobs:
+  integrate:
+    if: ${{ !startsWith(github.event.head_commit.message, 'Integrate Biochemistry Q21 source figure') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact specialist branch
+        uses: actions/checkout@v5
+        with:
+          ref: automation/marrow-images-biochemistry-coverage-20260912-q21-r2
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image/PDF dependencies
+        run: python3 -m pip install --disable-pip-version-check PyMuPDF Pillow pypdf==6.18.0
+      - name: Re-read canonical ownership and fingerprints
+        run: |
+          git fetch origin feature/marrow-canonical-full-current
+          CANON=$(git rev-parse origin/feature/marrow-canonical-full-current)
+          BASE=$(git merge-base HEAD origin/feature/marrow-canonical-full-current)
+          echo "canonical=$CANON merge_base=$BASE"
+          test "$CANON" = "d84a8093468c278a19e81e917bcc66da91f33574"
+          test "$BASE" = "$CANON"
+          test "$(git rev-parse HEAD:data/marrow/images/registry.json)" = "$(git rev-parse origin/feature/marrow-canonical-full-current:data/marrow/images/registry.json)"
+          test "$(git rev-parse HEAD:data/marrow/images/progress.json)" = "$(git rev-parse origin/feature/marrow-canonical-full-current:data/marrow/images/progress.json)"
+          grep -q 'CURRENT_UNFINISHED image batch.*Biochemistry' .project-memory/STATE.md
+          grep -q 'marrow__BIOCHEM_CH02_Q021' .project-memory/STATE.md
+          python3 tools/verify_project_memory.py
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_image_progress.py --check
+      - name: Recompute authoritative pre-mutation coverage
+        run: |
+          python3 tools/marrow_images.py audit
+          python3 tools/marrow_image_coverage.py --subject Biochemistry
+          python3 tools/marrow_image_coverage.py --subject Biochemistry --check
+      - name: Integrate freshly reviewed Q21 composite
+        run: python3 tools/integrate_biochem_q21_recovery_r2.py
+      - name: Regenerate release progress and coverage
+        run: |
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_images.py release
+          python3 tools/marrow_image_progress.py
+          python3 tools/marrow_image_progress.py --check
+          python3 tools/marrow_images.py audit
+          python3 tools/marrow_image_coverage.py --subject Biochemistry
+          python3 tools/marrow_image_coverage.py --subject Biochemistry --check
+      - name: Update canonical handoff memory deterministically
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, re
+
+          coverage = json.loads(Path('data/marrow/images/coverage.json').read_text())
+          s = coverage['summary']['Biochemistry']
+          pending = [r for r in coverage['sourceVisuals'] if r.get('subject') == 'Biochemistry' and r.get('coverageStatus') in {'UNTRACKED_SOURCE_VISUAL','UNRELEASED_TRACKED'}]
+          assert pending, 'Expected remaining Biochemistry image backlog'
+          nxt = pending[0]
+          next_desc = f"{nxt['id']} ({nxt.get('role')}, source pages {nxt.get('sourcePages')}, {nxt.get('coverageStatus')})"
+
+          state_path = Path('.project-memory/STATE.md')
+          state = state_path.read_text()
+          replacement = f'''## Current image state / cautions\n\n- **Latest bounded image batch:** Biochemistry `NKQ_BIOCHEM_COVERAGE_Q21_20260912_R2`, exact canonical base `d84a8093468c278a19e81e917bcc66da91f33574`, branch `automation/marrow-images-biochemistry-coverage-20260912-q21-r2`.\n- Released `marrow__BIOCHEM_CH02_Q021:figure:1` as an explanation-only exact-region 300-DPI source render from authoritative Biochemistry ED8 page 39, composite xrefs 83/84/85, region `[161.491,55.671,450.509,272.328]`; neighboring xref 86 is Q22-owned and excluded.\n- Fresh visual QA workflow **34686576057**, artifact **10295084510**, verified full-page ownership, exact region, native 1206×904 render, 390px phone preview and 768px expanded preview. Production/original SHA-256 is `f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789`. No reconstruction, generation or inpainting was used.\n- Post-release coverage: **{s['sourceVisualReferences']} raw / {s['effectiveLearnerVisualReferences']} effective / {s['releasedSourceVisualReferences']} released / {s['invalidSourceMetadataReferences']} invalid-source-metadata / {s['resolvedSourceVisualReferences']} resolved / {s['trackedButUnreleasedReferences']} tracked-unreleased / {s['untrackedSourceVisualReferences']} untracked / {s['textCueReviewItems']} text-cue**. Subject remains **INCOMPLETE**.\n- **Next deterministic image reference:** `{next_desc}`. Do not skip it for an easier later JPEG.\n- This batch is static/source validated but must not release the writer lane until exact-head Engineering + full Android/PWA/browser/APK/package verification succeeds and the verified commit is reconciled into `feature/marrow-canonical-full-current`. Production promotion is prohibited.\n\n'''
+          state2, n = re.subn(r'## Current image state / cautions\n.*?(?=## Current product handoff)', replacement, state, count=1, flags=re.S)
+          assert n == 1
+          state_path.write_text(state2)
+
+          log = Path('.project-memory/SESSION_LOG.md')
+          with log.open('a') as f:
+              f.write(f'''\n## 2026-09-12 — Biochemistry Q21 coverage recovery R2\n- Canonical base: `d84a8093468c278a19e81e917bcc66da91f33574`; branch `automation/marrow-images-biochemistry-coverage-20260912-q21-r2`.\n- Fresh visual QA run 34686576057 / artifact 10295084510 adopted deterministic raw 300-DPI region render SHA `f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789` after the earlier non-reproducible optimized encoding was retired.\n- Integrated `marrow__BIOCHEM_CH02_Q021:figure:1` explanation-only from page 39, xrefs 83/84/85; xref 86 excluded as Q22-owned. No medical/diagram detail was generated or altered.\n- Coverage after release: {s['releasedSourceVisualReferences']} released, {s['trackedButUnreleasedReferences']} tracked-unreleased, {s['untrackedSourceVisualReferences']} untracked, {s['invalidSourceMetadataReferences']} invalid metadata, {s['textCueReviewItems']} text-cue review items; subject incomplete.\n- Next deterministic reference: `{next_desc}`.\n- Production promotion prohibited; exact-head product CI still required before canonical reconciliation.\n''')
+
+          roadmap = Path('.project-memory/ROADMAP.md')
+          marker = '### Biochemistry image coverage recovery — Q21 R2'
+          rtxt = roadmap.read_text()
+          if marker not in rtxt:
+              roadmap.write_text(rtxt + f'''\n\n{marker}\n- Q21 source composite released on the current bounded batch; Biochemistry remains incomplete at {s['resolvedSourceVisualReferences']}/{s['sourceVisualReferences']} raw references resolved, with {s['textCueReviewItems']} text-cue review items.\n- Continue strictly from `{next_desc}` after this batch is exact-head verified and reconciled into canonical.\n''')
+
+          pipeline = Path('docs/MARROW_IMAGE_PIPELINE.md')
+          marker2 = '## Canonical coverage recovery update — 2026-09-12 Q21'
+          ptxt = pipeline.read_text()
+          if marker2 not in ptxt:
+              pipeline.write_text(ptxt + f'''\n\n{marker2}\n\nBiochemistry canonical coverage uses the complete 582-question corpus and source-reference denominator. After the Q21 page-39 composite release, live coverage is {s['sourceVisualReferences']} raw / {s['effectiveLearnerVisualReferences']} effective / {s['releasedSourceVisualReferences']} released / {s['invalidSourceMetadataReferences']} invalid metadata / {s['trackedButUnreleasedReferences']} tracked-unreleased / {s['untrackedSourceVisualReferences']} untracked, plus {s['textCueReviewItems']} text-cue review items. Subject completeness remains false; next source-order work is `{next_desc}`.\n''')
+
+          cp = Path('data/marrow/images/recovery_checkpoints/biochem_ch02_q021_20260912_r2.json')
+          obj = json.loads(cp.read_text())
+          obj['status'] = 'RELEASE_VALIDATED_PENDING_FULL_CI'
+          obj['postReleaseCoverage'] = s
+          obj['nextDeterministicReference'] = nxt
+          cp.write_text(json.dumps(obj, indent=2) + '\n')
+          print('NEXT_DETERMINISTIC_REFERENCE', next_desc)
+          print('POST_RELEASE_COVERAGE', json.dumps(s, sort_keys=True))
+          PY
+      - name: Run required source-level gates
+        run: |
+          git diff --check
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_image_progress.py --check
+          python3 tools/marrow_image_coverage.py --subject Biochemistry --check
+          python3 tools/test_marrow_images.py
+          python3 tools/test_marrow_image_coverage.py
+          python3 tools/verify_build_pipeline.py
+          python3 tools/verify_local.py
+          python3 tools/verify_project_memory.py
+      - name: Commit bounded release and remove one-shot machinery
+        run: |
+          rm -f tools/integrate_biochem_q21_recovery_r2.py
+          rm -f .github/workflows/biochem-q21-integrate-once.yml
+          rm -f .github/workflows/biochem-q21-visual-review-once.yml
+          git config user.name "NK QBank Image Recovery"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          test -n "$(git status --porcelain)"
+          git commit -m "Integrate Biochemistry Q21 source figure"
+          git push origin HEAD:automation/marrow-images-biochemistry-coverage-20260912-q21-r2
