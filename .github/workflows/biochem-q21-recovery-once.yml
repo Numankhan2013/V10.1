@@ -1,0 +1,67 @@
+name: Biochemistry Q21 Recovery Once
+
+on:
+  push:
+    branches:
+      - automation/marrow-images-biochemistry-coverage-20260912-q21
+
+permissions:
+  contents: write
+
+concurrency:
+  group: biochem-q21-recovery-once
+  cancel-in-progress: false
+
+jobs:
+  integrate:
+    if: ${{ !startsWith(github.event.head_commit.message, 'Integrate Biochemistry Q21 source figure') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact specialist branch
+        uses: actions/checkout@v5
+        with:
+          ref: automation/marrow-images-biochemistry-coverage-20260912-q21
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PDF dependencies
+        run: python3 -m pip install --disable-pip-version-check PyMuPDF pypdf==6.18.0
+      - name: Verify exact recovery ownership
+        run: |
+          test "$(git branch --show-current)" = "automation/marrow-images-biochemistry-coverage-20260912-q21"
+          python3 tools/verify_project_memory.py
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_image_progress.py --check
+      - name: Recompute authoritative pre-mutation coverage
+        run: |
+          python3 tools/marrow_images.py audit
+          python3 tools/marrow_image_coverage.py --subject Biochemistry
+      - name: Integrate exact Q21 composite
+        run: python3 tools/integrate_biochem_q21_recovery.py
+      - name: Regenerate release, progress and coverage
+        run: |
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_images.py release
+          python3 tools/marrow_image_progress.py
+          python3 tools/marrow_image_progress.py --check
+          python3 tools/marrow_images.py audit
+          python3 tools/marrow_image_coverage.py --subject Biochemistry
+          python3 tools/marrow_image_coverage.py --subject Biochemistry --check
+      - name: Run source-level image regressions
+        run: |
+          git diff --check
+          python3 tools/test_marrow_images.py
+          python3 tools/test_marrow_image_coverage.py
+          python3 tools/verify_project_memory.py
+      - name: Commit non-destructive registry mutation and remove one-shot machinery
+        run: |
+          rm -f tools/integrate_biochem_q21_recovery.py .github/workflows/biochem-q21-recovery-once.yml
+          git config user.name "NK QBank Image Recovery"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          test -n "$(git status --porcelain)"
+          git commit -m "Integrate Biochemistry Q21 source figure"
+          git push origin HEAD:automation/marrow-images-biochemistry-coverage-20260912-q21
