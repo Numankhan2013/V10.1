@@ -80,8 +80,9 @@ def main() -> None:
                 context.close()
 
             # Real Home lifecycle regression test. Start a genuine Practice 20, pause
-            # it from the final grid, then click the actual visible Continue Practice
-            # button. The same session, all IDs, progress and position must survive.
+            # it from the final grid, then click the actual visible Today’s Focus
+            # Continue Practice control. The same session, all IDs, progress and
+            # position must survive.
             context = browser.new_context(viewport={"width": 390, "height": 844}, service_workers="block")
             page = context.new_page()
             page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
@@ -121,10 +122,14 @@ def main() -> None:
             if paused["id"] != original["id"] or paused["ids"] != original["ids"] or paused["sessionIds"] != original["ids"] or paused["index"] != 4:
                 raise SystemExit(f"Pause did not preserve the original Practice session: {paused}")
 
-            # This exact Home button used to call legacy continuePractice(), which
-            # created startSession([q.id]) and produced the user-visible 1/1 bug.
-            continue_button = page.locator("button.nk-home-v4-action-continue")
+            # The approved Home command-center owns the visible control and wires it
+            # to window.QB.nkContinueRecentPractice(). Click that exact rendered path;
+            # do not substitute the older Home V4 control or a direct function call.
+            continue_button = page.locator("button.nk-home-focus-action")
             continue_button.wait_for(state="visible")
+            onclick = continue_button.get_attribute("onclick") or ""
+            if "window.QB.nkContinueRecentPractice()" not in onclick:
+                raise SystemExit(f"Home Continue is wired to an unexpected handler: {onclick}")
             continue_button.click()
             page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='active'")
 
@@ -152,7 +157,7 @@ def main() -> None:
 
             # Persisted-state repair: a previous buggy client may have reduced only
             # questionIds. The preserved sessionQuestionIds must still rebuild all IDs
-            # when the same Home Continue button is used again.
+            # when the same visible Home Continue control is used again.
             page.evaluate("window.QB.openSessionReview()")
             page.locator("#nk-session-review").get_by_role("button", name="Pause", exact=True).click()
             page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='paused'")
@@ -161,7 +166,7 @@ def main() -> None:
               s.questionIds=[current];
               s.index=0;
             }""", {"current": current_id})
-            page.locator("button.nk-home-v4-action-continue").click()
+            page.locator("button.nk-home-focus-action").click()
             page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='active'")
             repaired = page.evaluate("""() => {
               const s=window.QB.getState().activeSession;
