@@ -80,6 +80,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          # Restore tracked legacy bytecode bytes. Leave untracked cache files alone;
+          # they are ephemeral CI outputs and are never staged by this workflow.
           git restore --worktree -- tools/__pycache__ || true
           git status --short
           CHANGED="$(git status --porcelain=v1 | sed -E 's/^.. //')"
@@ -87,7 +89,7 @@ jobs:
             echo "Raw source mutation detected"
             exit 1
           fi
-          if printf '%s\n' "$CHANGED" | grep -Ev '^(data/marrow/images/|app/src/main/assets/marrow_visuals/|app/src/main/assets/marrow_visual_metadata\.js$)' | grep -q .; then
+          if printf '%s\n' "$CHANGED" | grep -Ev '^(data/marrow/images/|app/src/main/assets/marrow_visuals/|app/src/main/assets/marrow_visual_metadata\.js$|tools/__pycache__/)' | grep -q .; then
             echo "Unexpected changed path detected"
             printf '%s\n' "$CHANGED"
             exit 1
