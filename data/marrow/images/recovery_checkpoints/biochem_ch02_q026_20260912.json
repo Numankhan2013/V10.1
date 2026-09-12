@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "status": "VISUAL_QA_PASS_PENDING_INTEGRATION",
+  "subject": "Biochemistry",
+  "batchId": "NKQ_BIOCHEM_COVERAGE_Q26_20260912",
+  "canonicalBase": "72fa0b6a921015c2e35addaccf06c1949d938f35",
+  "questionId": "marrow__BIOCHEM_CH02_Q026",
+  "referenceId": "marrow__BIOCHEM_CH02_Q026:figure:1",
+  "role": "explanation",
+  "order": 1,
+  "source": {
+    "file": "biochemistryed8.pdf",
+    "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+    "page": 41,
+    "xref": 92,
+    "excludedNeighborXref": 91,
+    "region": [162.0, 515.0, 450.0, 731.0]
+  },
+  "candidate": {
+    "method": "native-jpeg-stream",
+    "kind": "diagram",
+    "width": 960,
+    "height": 540,
+    "sha256": "22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c",
+    "learnerFacing": false
+  },
+  "sourceComparison": {
+    "fullPageInspected": true,
+    "nativeOriginalInspected": true,
+    "phonePreviewInspected": true,
+    "expandedPreviewInspected": true,
+    "finding": "Hash-verified Biochemistry ED8 page 41 was inspected directly. Xref 92 is the 960x540 glycolysis/gluconeogenesis pathway placed inside Solution to Question 26 and is the correct explanation-owned figure. Xref 91 is the separate pyruvate-to-oxaloacetate figure above the Solution to Question 26 heading and is excluded. The native JPEG preserves pathway boxes, glycolysis/gluconeogenesis labels, enzymes, shared/reversible steps and directional arrows without reconstruction, generation, inpainting or medical-detail alteration. Phone preview is compact but legible with the existing fullscreen zoom/pan viewer; expanded view is clearly readable.",
+    "authoritativePdfSizeBytes": 7958177
+  },
+  "coverageAtStart": {
+    "rawReferences": 110,
+    "effectiveReferences": 109,
+    "released": 70,
+    "invalidSourceMetadata": 1,
+    "resolved": 71,
+    "trackedUnreleased": 4,
+    "untracked": 35,
+    "textCueReviewItems": 31,
+    "subjectComplete": false
+  },
+  "nextAction": "Integrate only xref 92 as the explanation visual, regenerate release/progress/coverage, run exact-head product gates, then reconcile into canonical before releasing the image lane."
+}
