@@ -26,32 +26,39 @@ def install_core(source: str, core: str) -> str:
     return source.replace(SUBJECT_MARKER, core + "\n" + SUBJECT_MARKER, 1)
 
 
+def context(source: str, needle: str, radius: int = 700) -> str:
+    index = source.find(needle)
+    if index < 0:
+        return "<not found>"
+    return source[max(0, index-radius):min(len(source), index+len(needle)+radius)].replace("\n", "\\n")
+
+
 def transform(source: str) -> str:
     core = CORE.read_text(encoding="utf-8").strip()
     source = install_core(source, core)
 
-    # The current bank architecture registers PrepLadder and MARROW_BY_SUBJECT
-    # separately. Replace the already-established per-question footer-cleaning
-    # call at those registry boundaries, rather than guessing at data layout.
     old_count = source.count(OLD_REGISTRY_CLEAN)
-    if old_count:
-        source = source.replace(OLD_REGISTRY_CLEAN, NEW_REGISTRY_CLEAN)
-    new_count = source.count(NEW_REGISTRY_CLEAN)
-    if new_count < 2:
-        raise SystemExit(f"Expected sanitation at both bank registry paths, found {new_count}")
-    if old_count and old_count != new_count:
-        raise SystemExit(f"Registry sanitation replacement mismatch: old={old_count} new={new_count}")
+    marrow_marker_count = source.count("MARROW_BY_SUBJECT")
+    bank_marker_count = source.count("BANKS_BY_SUBJECT")
+    if old_count != 1:
+        raise SystemExit(
+            f"Unexpected legacy stem-clean count={old_count}; MARROW_BY_SUBJECT={marrow_marker_count}; "
+            f"BANKS_BY_SUBJECT={bank_marker_count}; context={context(source, OLD_REGISTRY_CLEAN)}"
+        )
 
-    if source.count(START) != 1 or source.count(END) != 1:
-        raise SystemExit("Expected exactly one installed hygiene core marker pair")
-    return source
+    # Do not guess whether this lone legacy call belongs to the Marrow path. The
+    # current generated shell has diverged from the source transformer; emit its
+    # exact context so the next patch can target the live Marrow registry safely.
+    raise SystemExit(
+        f"LIVE_REGISTRY_CONTEXT MARROW_BY_SUBJECT={marrow_marker_count} BANKS_BY_SUBJECT={bank_marker_count} "
+        f"legacy={context(source, OLD_REGISTRY_CLEAN)}"
+    )
 
 
 def main() -> None:
     source = HTML.read_text(encoding="utf-8")
     result = transform(source)
     HTML.write_text(result, encoding="utf-8")
-    print("Applied conservative Marrow learner-text sanitation at bank registry boundaries.")
 
 
 if __name__ == "__main__":
