@@ -85,12 +85,12 @@ Verified canonical explanation work includes:
 
 ## Current image state / cautions
 
-- **Latest bounded image batch:** Biochemistry `NKQ_BIOCHEM_COVERAGE_Q26_20260912`, exact canonical base `72fa0b6a921015c2e35addaccf06c1949d938f35`, branch `automation/marrow-images-biochemistry-coverage-20260912-q26`.
-- Released `marrow__BIOCHEM_CH02_Q026:figure:1` as an explanation-only native JPEG from authoritative Biochemistry ED8 page 41, xref 92, region `[162.0,515.0,450.0,731.0]`; neighboring xref 91 is above the Q26 solution heading and excluded.
-- Direct source QA verified the hash-matched 7,958,177-byte PDF, full page ownership, native 960x540 JPEG, 390px phone preview and 768px expanded preview. Native/original/production SHA-256 is `22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c`. No crop, reconstruction, generation, inpainting or sharpening was used.
-- Post-release coverage: **110 raw / 109 effective / 71 released / 1 invalid-source-metadata / 72 resolved / 4 tracked-unreleased / 34 untracked / 31 text-cue**. Subject remains **INCOMPLETE**.
-- **Next deterministic image reference:** `marrow__BIOCHEM_CH04_Q011:figure:1 (explanation, source pages [69], UNRELEASED_TRACKED)`. Do not skip it for an easier later reference.
-- Exact-head Engineering Gate **34692045844** and full Android/PWA/browser/image-comparison/APK/package/reproducibility/preview run **34692046932** both passed on certified handoff `fa79b6cf4b0d8f3a81147886b8785229533aee67`; production promotion was skipped. The Q26 image writer lane is released after canonical reconciliation.
+- **Latest Biochemistry recovery checkpoint:** `NKQ_BIOCHEM_COVERAGE_Q11_20260912`, exact canonical base `36c9e1a92a3925c17f6914c2a6ffebf73948ba14`, specialist branch `automation/marrow-images-biochemistry-coverage-20260912-q11`, durable checkpoint commit `a3fa300a054393fd7f217580e634f481c0a7b649`.
+- Deterministic next reference remains `marrow__BIOCHEM_CH04_Q011:figure:1` (explanation, recorded source page 69, tracked binding REJECTED). Full rendered-source review established that page 69's educational figure is fructose metabolism (xref 1146, SHA `bb781d8346ed1c3677ac8faf3a5a54501d09f583509a91d1aa0d7ecf9d1198d4`), while the Q11 explanation points to a galactose flowchart below and authoritative page 70 contains the correct native galactose diagram (xref 162, 600x451 JPEG, SHA `e302242457457cdcabcca8ced492809b2f1947c049b719ff49a0be6bd6a222f6`). Preserve the historical rejected Q11/fructose binding.
+- Two bounded installer attempts failed closed **before any registry/progress/coverage or learner-facing mutation** because embedded PDF text extraction is corrupted on these pages: run `34694510806` failed on the parsed word `galactose` on page 69; retry run `34694608472` failed on the parsed page-70 title. Rendered-page ownership, native xrefs/regions, source PDF size/hash and native image hashes remain verified. Per two-attempt containment, no third same-class mutation attempt was made.
+- Live canonical Biochemistry coverage is unchanged at **110 raw / 109 effective / 71 released / 1 invalid-source-metadata / 72 resolved / 4 tracked-unreleased / 34 untracked / 31 text-cue**. Subject remains **INCOMPLETE**.
+- **Next image action:** resume this exact Q11 reference from the then-live canonical head. Use rendered-page plus native xref/region/hash evidence instead of corrupted embedded text; re-run audit/coverage and single-writer checks before mutation. Do not skip Q11. The checkpoint branch contains no shared-registry mutation and is not itself a lock on unrelated image work.
+- Q26 remains the latest fully product-verified image release: exact-head Engineering Gate **34692045844** and full Android/PWA/browser/image-comparison/APK/package/reproducibility/preview run **34692046932** passed; production promotion was skipped.
 
 ## Current product handoff — Continue Practice
 
@@ -125,7 +125,7 @@ Verified canonical explanation work includes:
 4. Run exact-head Engineering Gate + full Android/PWA/browser/APK/package/reproducibility/preview workflow.
 5. Reconcile verified explanation result back into canonical before releasing the explanation lane. Production promotion is prohibited.
 6. Recheck the live canonical tip and reconcile build-verified Continue Practice commit a717563 into canonical. Physical-device acceptance remains pending. Do not promote production.
-7. **Image lane:** Q26 recovery is complete and product-verified. Next deterministic Biochemistry reference is `marrow__BIOCHEM_CH04_Q011:figure:1` (explanation, source page 69, tracked binding currently REJECTED). Start the next bounded batch from the live canonical head, re-audit source ownership, and do not skip this reference. Production promotion remains prohibited.
+7. **Image lane:** Q11 is the next deterministic Biochemistry reference and has a durable fail-closed source-review checkpoint at `a3fa300a054393fd7f217580e634f481c0a7b649`. Resume Q11 from the live canonical head using rendered-page/xref/hash evidence; do not repeat the corrupted embedded-text gate and do not skip ahead. No shared-registry mutation is pending from this checkpoint; production promotion remains prohibited.
 
 Canonical source handoff: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
 Canonical automation policy: `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
