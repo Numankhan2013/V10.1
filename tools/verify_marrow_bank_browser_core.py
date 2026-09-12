@@ -188,6 +188,52 @@ def main():
             if page.locator('.nk-gold-wrong-row').count()!=3:
                 raise SystemExit('Physiology Q8 distractor grammar missing')
             page.screenshot(path=str(OUT/'00c-physiology-enhanced-table-q8.png'),full_page=True)
+
+            # Table-only source metadata must not substitute Q8's neighboring
+            # membrane diagram into Q9; its canonical structured table remains.
+            page.evaluate("window.QB.nav('banks','Physiology')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Homeostasis and cellular physiology').click();page.wait_for_timeout(80)
+            page.locator('button.nk-library-row').nth(8).click();page.wait_for_timeout(80)
+            if page.locator('.nk-marrow-figure-button').count()!=0:
+                raise SystemExit('Rejected neighboring membrane image leaked into Physiology Q9')
+            page.locator('.option-list button').first.click();page.wait_for_timeout(120)
+            if page.locator('.nk-gold-explanation .nk-marrow-table').count()!=1:
+                raise SystemExit('Physiology Q9 structured protein-to-lipid table missing')
+
+            # Q20 is question-critical medical imagery: visible before answer,
+            # neutral, complete, zoomable, and never reconstructed.
+            page.evaluate("window.QB.nav('banks','Physiology')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Cellular messengers & Receptors').click();page.wait_for_timeout(80)
+            page.locator('button.nk-library-row').nth(19).click();page.wait_for_timeout(80)
+            if '7-year-old girl' not in page.locator('.question-text').inner_text():
+                raise SystemExit('Physiology Ch2 Q20 did not open')
+            clinical=page.locator('.nk-marrow-figure-button')
+            if clinical.count()!=1: raise SystemExit('Physiology Q20 question clinical image missing or duplicated')
+            page.wait_for_function('document.querySelector(".nk-marrow-figure-button img")?.naturalWidth===1204')
+            clinical_alt=(clinical.locator('img').get_attribute('alt') or '').lower()
+            if 'mccune' in clinical_alt or 'albright' in clinical_alt or 'diagnosis' in clinical_alt:
+                raise SystemExit('Physiology Q20 question-image alt text reveals the answer')
+            clinical.click();page.wait_for_timeout(60)
+            page.wait_for_function('document.querySelector("#nk-source-viewer img")?.naturalWidth===1204')
+            page.screenshot(path=str(OUT/'00d-physiology-q20-clinical-phone.png'))
+            page.locator('#nk-source-viewer .nk-sv-close').click()
+
+            # Q5's page-44 continuation is the same diffusion plot, not the
+            # neighboring osmotic-pressure diagram owned by Q7.
+            page.evaluate("window.QB.nav('banks','Physiology')");page.wait_for_timeout(80)
+            page.locator('button.nk-bank-card').filter(has_text='Marrow').click();page.wait_for_timeout(80)
+            page.locator('button.nk-topic-row').filter(has_text='Transport Across Cell Membrane').click();page.wait_for_timeout(80)
+            page.locator('button.nk-library-row').nth(4).click();page.wait_for_timeout(80)
+            if page.locator('.nk-marrow-figure-button').count()!=0:
+                raise SystemExit('Physiology Q5 explanation graph leaked before answering')
+            page.locator('.option-list button').first.click();page.wait_for_timeout(120)
+            diffusion=page.locator('.nk-marrow-figure-button')
+            if diffusion.count()!=2: raise SystemExit('Physiology Q5 repeated diffusion references not both released')
+            if any('osmotic' in (alt or '').lower() for alt in diffusion.locator('img').evaluate_all('(nodes)=>nodes.map(n=>n.alt)')):
+                raise SystemExit('Q7 osmotic-pressure visual leaked into Physiology Q5')
+            page.screenshot(path=str(OUT/'00e-physiology-q5-diffusion-repeat.png'),full_page=True)
             page.evaluate("window.QB.nav('banks','Physiology')");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click();page.wait_for_timeout(100)
             if page.locator('button.nk-topic-row').count()!=38: raise SystemExit('PrepLadder Physiology topics regressed')

@@ -28,12 +28,12 @@
     },
     "Physiology": {
       "sourceVisualReferences": 294,
-      "effectiveLearnerVisualReferences": 294,
-      "releasedSourceVisualReferences": 42,
-      "invalidSourceMetadataReferences": 0,
-      "resolvedSourceVisualReferences": 42,
-      "trackedButUnreleasedReferences": 22,
-      "untrackedSourceVisualReferences": 230,
+      "effectiveLearnerVisualReferences": 290,
+      "releasedSourceVisualReferences": 44,
+      "invalidSourceMetadataReferences": 4,
+      "resolvedSourceVisualReferences": 48,
+      "trackedButUnreleasedReferences": 21,
+      "untrackedSourceVisualReferences": 225,
       "textCueReviewItems": 28,
       "sourceVisualCoverageComplete": false,
       "humanCompletenessClaimAllowed": false
@@ -15513,12 +15513,10 @@
         14
       ],
       "nativeCandidateCount": 1,
-      "assetId": "physiology-307c3998964b5d44",
-      "bindingStatus": "REJECTED",
-      "assetStatus": "PASS",
+      "coverageStatus": "SOURCE_METADATA_INVALID",
       "released": false,
-      "registryPage": 14,
-      "coverageStatus": "UNRELEASED_TRACKED"
+      "adjudicationReason": "The canonical figure metadata duplicates a source table. The authoritative page contains a text/vector protein-to-lipid ratio table for Q9 and no Q9-owned raster figure; the only native image is the cell-membrane diagram owned by Q8.",
+      "adjudicationEvidence": "Manual source review workflow 34698354509, artifact manual-physiology-image-batch01-source-review: full rendered Physiology ED8 page 14 inspected against PHYS_CH01_Q009 and its structured explanation. The exact table is already represented as structured table data; page-14 xref 28 belongs to Q8 and remains rejected for Q9."
     },
     {
       "id": "marrow__PHYS_CH01_Q010:figure:1",
@@ -15581,8 +15579,10 @@
         18
       ],
       "nativeCandidateCount": 0,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "coverageStatus": "SOURCE_METADATA_INVALID",
+      "released": false,
+      "adjudicationReason": "The canonical figure metadata describes tabular content, not an image asset. Authoritative page 18 contains text/vector table rows and prose but no native or raster Q18 figure.",
+      "adjudicationEvidence": "Manual source review workflow 34698354509, artifact manual-physiology-image-batch01-source-review: full rendered Physiology ED8 page 18 inspected against PHYS_CH01_Q018 and its structured explanation. The relevant content is already stored as a structured table; the image audit reports zero native candidates."
     },
     {
       "id": "marrow__PHYS_CH01_Q021:figure:1",
@@ -15594,8 +15594,10 @@
         18
       ],
       "nativeCandidateCount": 0,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "coverageStatus": "SOURCE_METADATA_INVALID",
+      "released": false,
+      "adjudicationReason": "The canonical figure metadata duplicates the first segment of a two-page text/vector cytoskeletal table and does not identify a raster image.",
+      "adjudicationEvidence": "Manual source review workflow 34698354509, artifact manual-physiology-image-batch01-source-review: full rendered Physiology ED8 page 18 inspected against PHYS_CH01_Q021. The Q21 explanation ends with the first table row, already preserved in the structured table; the image audit reports zero native candidates."
     },
     {
       "id": "marrow__PHYS_CH01_Q021:figure:2",
@@ -15607,8 +15609,10 @@
         19
       ],
       "nativeCandidateCount": 0,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "coverageStatus": "SOURCE_METADATA_INVALID",
+      "released": false,
+      "adjudicationReason": "The canonical figure metadata duplicates the continuation of the Q21 text/vector cytoskeletal table and does not identify a raster image.",
+      "adjudicationEvidence": "Manual source review workflow 34698354509, artifact manual-physiology-image-batch01-source-review: full rendered Physiology ED8 page 19 inspected against PHYS_CH01_Q021. The continuation rows are already preserved in the same structured table; the image audit reports zero native candidates."
     },
     {
       "id": "marrow__PHYS_CH02_Q007:figure:1",
@@ -15654,8 +15658,12 @@
         25
       ],
       "nativeCandidateCount": 4,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-f675135b3bc1c381",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 25,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH03_Q005:figure:1",
@@ -15684,8 +15692,12 @@
         44
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-95389f30f8277be3",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 44,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH03_Q007:figure:1",

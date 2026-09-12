@@ -6,7 +6,9 @@
       "questionId": "marrow__BIOCHEM_CH02_Q010",
       "subject": "Biochemistry",
       "role": "explanation",
-      "sourcePages": [33],
+      "sourcePages": [
+        33
+      ],
       "status": "SOURCE_METADATA_INVALID",
       "source": {
         "file": "biochemistryed8.pdf",
@@ -14,6 +16,70 @@
       },
       "reason": "Canonical figure metadata declares a glycolysis pathway on explanation page 33, but direct inspection of the authoritative rendered Marrow ED8 page 33 shows explanation text only and no figure. A neighboring-page pathway must not be substituted.",
       "evidence": "2026-09-11 coverage-recovery inspection: authoritative PDF hash verified; full page 33 rendered and visually checked against BIOCHEM_CH02_Q010 explanation ownership. Pages 31, 32 and 35 contain glycolysis pathway figures, while page 33 does not."
+    },
+    {
+      "id": "marrow__PHYS_CH01_Q009:figure:1",
+      "questionId": "marrow__PHYS_CH01_Q009",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        14
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The canonical figure metadata duplicates a source table. The authoritative page contains a text/vector protein-to-lipid ratio table for Q9 and no Q9-owned raster figure; the only native image is the cell-membrane diagram owned by Q8.",
+      "evidence": "Manual source review workflow 34698354509, artifact manual-physiology-image-batch01-source-review: full rendered Physiology ED8 page 14 inspected against PHYS_CH01_Q009 and its structured explanation. The exact table is already represented as structured table data; page-14 xref 28 belongs to Q8 and remains rejected for Q9."
+    },
+    {
+      "id": "marrow__PHYS_CH01_Q018:figure:1",
+      "questionId": "marrow__PHYS_CH01_Q018",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        18
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The canonical figure metadata describes tabular content, not an image asset. Authoritative page 18 contains text/vector table rows and prose but no native or raster Q18 figure.",
+      "evidence": "Manual source review workflow 34698354509, artifact manual-physiology-image-batch01-source-review: full rendered Physiology ED8 page 18 inspected against PHYS_CH01_Q018 and its structured explanation. The relevant content is already stored as a structured table; the image audit reports zero native candidates."
+    },
+    {
+      "id": "marrow__PHYS_CH01_Q021:figure:1",
+      "questionId": "marrow__PHYS_CH01_Q021",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        18
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The canonical figure metadata duplicates the first segment of a two-page text/vector cytoskeletal table and does not identify a raster image.",
+      "evidence": "Manual source review workflow 34698354509, artifact manual-physiology-image-batch01-source-review: full rendered Physiology ED8 page 18 inspected against PHYS_CH01_Q021. The Q21 explanation ends with the first table row, already preserved in the structured table; the image audit reports zero native candidates."
+    },
+    {
+      "id": "marrow__PHYS_CH01_Q021:figure:2",
+      "questionId": "marrow__PHYS_CH01_Q021",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        19
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The canonical figure metadata duplicates the continuation of the Q21 text/vector cytoskeletal table and does not identify a raster image.",
+      "evidence": "Manual source review workflow 34698354509, artifact manual-physiology-image-batch01-source-review: full rendered Physiology ED8 page 19 inspected against PHYS_CH01_Q021. The continuation rows are already preserved in the same structured table; the image audit reports zero native candidates."
     }
   ]
 }

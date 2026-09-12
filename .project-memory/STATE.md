@@ -5,11 +5,13 @@
 ## Canonical lineage
 
 - Repo: `Numankhan2013/V10.1`.
+- Accepted product commit: `125d68b`.
+- Accepted baseline: V11.6 remains the rollback product baseline; the canonical Continue Practice contract below is separately user/device accepted.
 - **Sole Marrow/product integration trunk:** `feature/marrow-canonical-full-current`.
 - Product/UI base remains the user-approved V3/correct-index lineage.
 - Production / `main` remains explicit and guarded; do not promote without user approval.
 - Resolve the live canonical HEAD at run start. Do not hardcode a supposed current HEAD into automation logic.
-- Latest accepted Practice behavior was verified from canonical checkpoint `74abb670c3ae088e06653681e85c347212222455`; full Android/PWA/browser/APK/package/preview run `34695680534` succeeded and the user physically confirmed the resulting Continue Practice flow works.
+- Latest accepted Practice behavior was verified from canonical checkpoint `74abb670c3ae088e06653681e85c347212222455`; full Android/PWA/browser/APK/package/preview run `34695680534` succeeded and the user physically confirmed the resulting Continue Practice flow works. This is build-verified, device-verified, and user-accepted.
 
 ## Complete canonical Marrow ED8 source
 
@@ -83,11 +85,11 @@ Do not certify this behavior by calling only an internal helper or by using a su
 
 ## Image lane
 
-- Biochemistry image coverage remains incomplete.
-- The current deterministic next unresolved reference remains the tracked Ch4 Q11 galactose-flowchart item described in prior image handoff/state history.
-- Historical failed installer attempts were fail-closed before shared registry/progress mutation because embedded PDF text was corrupted; use rendered-page + native xref/region/hash evidence instead of repeating the same embedded-text gate.
-- Do not skip the unresolved reference for an easier later one.
-- Image workers must serialize shared registry writes and resolve live canonical ownership/fingerprints before mutation.
+- Automated Biochemistry image integration is paused. Ch4 Q11 remains the exact unresolved Biochemistry reference and is preserved as `REVIEW_REQUIRED`; two recovery attempts failed before shared registry/progress mutation because embedded PDF text was corrupted. No verified Q11 learner-facing result exists on a side branch, and no Biochemistry work was skipped or newly started.
+- Manual Physiology Batch 01 is active on `automation/marrow-images-physiology-manual-20260912-b01`, based exactly on canonical SHA `4f716c3a8eb2c6bc8030bb638a766580f5ddeca3`.
+- The bounded source-order scope is six references: `marrow__PHYS_CH01_Q009:figure:1`, `marrow__PHYS_CH01_Q018:figure:1`, `marrow__PHYS_CH01_Q021:figure:1`, `marrow__PHYS_CH01_Q021:figure:2`, `marrow__PHYS_CH02_Q020:figure:1`, and `marrow__PHYS_CH03_Q005:figure:2`.
+- Source review workflow `34698354509` confirmed the first four are table-only metadata already represented by structured tables, Q20 is a question-critical four-tile clinical photograph requiring a precise authentic region render, and Q5 figure 2 is the repeated page-44 diffusion plot. Candidate coverage is 294 raw / 290 effective / 44 released / 4 invalid metadata / 48 resolved / 21 tracked-unreleased / 225 untracked / 28 text-cue; subject incomplete.
+- Candidate integration and exact-head CI are pending. Do not start another image batch or mutate the shared registry until this branch is verified and reconciled into canonical.
 
 ## Anti-fragmentation rules
 
@@ -98,11 +100,16 @@ Do not certify this behavior by calling only an internal helper or by using a su
 - Reconcile verified work into canonical before starting another conflicting batch in the same lane.
 - Product/UI fixes that become accepted must be treated as protected canonical behavior by subsequent content/image/explanation work.
 
-## Current priorities / next actions
+## Known problems / cautions
+
+- Physiology image coverage remains incomplete after this bounded candidate, and Biochemistry Q11 remains unresolved/paused.
+- Canonical tip `4f716c3` had a memory-validator wording failure only; this branch restores the required status vocabulary without changing accepted product behavior.
+
+## Current priorities / Next step
 
 1. **Main product work may proceed from live canonical.** Preserve the accepted Practice contract above.
 2. **Explanation lane:** reconcile Anatomy Ch6 Q1–Q7 from the newest valid stable-ID scope onto the then-live canonical head, re-run exact-head deterministic/browser/full gates, then release the lane only after canonical integration.
-3. **Image lane:** continue the deterministic Biochemistry Q11 source-figure recovery from live canonical using rendered-page/xref/hash evidence; do not repeat the known corrupted-text failure mode and do not skip ahead.
+3. **Image lane:** finish exact-head validation and canonical reconciliation of manual Physiology Batch 01. After release, the next deterministic Physiology reference is `marrow__PHYS_CH03_Q007:figure:1` on source page 44. Keep automated Biochemistry paused with Q11 preserved unresolved.
 4. Production promotion remains prohibited unless the user explicitly asks for it.
 
 ## Memory pointers

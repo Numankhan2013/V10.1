@@ -1382,6 +1382,29 @@
           "role": "explanation",
           "order": 1,
           "alt": "Simple vs facilitated diffusion saturation plot"
+        },
+        {
+          "questionId": "marrow__PHYS_CH03_Q005",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Simple vs facilitated diffusion saturation plot",
+          "status": "PASS",
+          "reviewBatch": "MANUAL_PHYSIOLOGY_BATCH01_20260912",
+          "source": {
+            "page": 44,
+            "xref": 100,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The authoritative page-44 render places xref 100 at the top as the continuation/repeat of Q5's simple-versus-facilitated diffusion plot, before Solution to Question 7 begins. Axes, curve identities, Vmax marker and labels match the already-PASS page-43 asset exactly. Xref 101 is the distinct osmotic-pressure figure owned by Q7 and is excluded.",
+            "evidence": "Manual source review workflow 34698354509 and artifact manual-physiology-image-batch01-source-review; physiologyed8.pdf sha256=03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe page=44 xref=100 region=[162.0,56.0,450.0,272.0] stream_sha256=8bf3860db5eca9c2158a68f151eb281b084492ea3d17bf42e66ec566d512bb12; excluded xref 101."
+          }
         }
       ],
       "original": {
@@ -10596,6 +10619,83 @@
         "evidence": "automation runtime direct page/native/phone/expanded visual inspection on 2026-09-12; data/marrow/images/recovery_checkpoints/biochem_ch02_q026_20260912.json; biochemistryed8.pdf sha256=463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb size=7958177 page=41 xref=92 excluded_neighbor_xref=91 region=[162.0, 515.0, 450.0, 731.0]; native_sha256=22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c",
         "originalSha256": "22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c",
         "productionSha256": "22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c"
+      }
+    },
+    {
+      "id": "physiology-f675135b3bc1c381",
+      "subject": "Physiology",
+      "kind": "medical",
+      "reviewBatch": "MANUAL_PHYSIOLOGY_BATCH01_20260912",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 25,
+        "xref": 54,
+        "compositeXrefs": [
+          54,
+          55,
+          56,
+          57
+        ],
+        "region": [
+          161.52,
+          55.775,
+          450.48,
+          272.225
+        ],
+        "dpi": 300
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH02_Q020",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question clinical photograph",
+          "status": "PASS",
+          "reviewBatch": "MANUAL_PHYSIOLOGY_BATCH01_20260912",
+          "source": {
+            "page": 25,
+            "xref": 54,
+            "compositeXrefs": [
+              54,
+              55,
+              56,
+              57
+            ],
+            "region": [
+              161.52,
+              55.775,
+              450.48,
+              272.225
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The exact page-25 question region contains the complete clinical photograph needed before answering, including both neutral arrows indicating the skin lesions. It excludes all answer options, the Q21 stem and the answer key. The four native JPEG tiles were composited only by a precise 300-DPI source-region render; no generation, inpainting, retouching, sharpening or medical-detail alteration was used.",
+            "evidence": "Manual source review workflow 34698354509, artifact manual-physiology-image-batch01-source-review; physiologyed8.pdf sha256=03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe page=25 composite_xrefs=[54,55,56,57] region=[161.52,55.775,450.48,272.225] dpi=300 output_sha256=f675135b3bc1c3817fe0523dbef4f4d64d1c6e5463ab4358e19515d7eda1e8f9."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/f675135b3bc1c3817fe0523dbef4f4d64d1c6e5463ab4358e19515d7eda1e8f9.png",
+        "sha256": "f675135b3bc1c3817fe0523dbef4f4d64d1c6e5463ab4358e19515d7eda1e8f9",
+        "width": 1204,
+        "height": 903
+      },
+      "production": {
+        "path": "data/marrow/images/production/f675135b3bc1c3817fe0523dbef4f4d64d1c6e5463ab4358e19515d7eda1e8f9.png",
+        "sha256": "f675135b3bc1c3817fe0523dbef4f4d64d1c6e5463ab4358e19515d7eda1e8f9",
+        "width": 1204,
+        "height": 903
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authoritative Physiology ED8 page 25 and the owning Q20 stem confirm this complete café-au-lait clinical photograph is question-critical. Both arrow endpoints and the full lesion-bearing skin region are preserved. The precise 300-DPI region render composites the source's four authentic JPEG tiles without generated or inpainted detail; production bytes equal the preserved original render.",
+        "evidence": "Manual source review workflow 34698354509, artifact manual-physiology-image-batch01-source-review; physiologyed8.pdf sha256=03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe page=25 composite_xrefs=[54,55,56,57] region=[161.52,55.775,450.48,272.225] dpi=300 output_sha256=f675135b3bc1c3817fe0523dbef4f4d64d1c6e5463ab4358e19515d7eda1e8f9.",
+        "originalSha256": "f675135b3bc1c3817fe0523dbef4f4d64d1c6e5463ab4358e19515d7eda1e8f9",
+        "productionSha256": "f675135b3bc1c3817fe0523dbef4f4d64d1c6e5463ab4358e19515d7eda1e8f9"
       }
     }
   ]

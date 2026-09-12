@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "assets": {
-    "total": 165,
+    "total": 166,
     "byStatus": {
-      "PASS": 159,
+      "PASS": 160,
       "REJECTED": 2,
       "REVIEW_REQUIRED": 2,
       "SOURCE_LIMITED": 2
@@ -11,28 +11,28 @@
     "byKind": {
       "diagram": 134,
       "hybrid": 3,
-      "medical": 27,
+      "medical": 28,
       "table": 1
     },
     "byMethod": {
       "native-jpeg-stream": 159,
-      "region-render": 2,
+      "region-render": 3,
       "svg-reconstruction": 4
     }
   },
   "bindings": {
-    "total": 210,
+    "total": 212,
     "byStatus": {
-      "PASS": 182,
+      "PASS": 184,
       "REJECTED": 25,
       "REVIEW_REQUIRED": 2,
       "SOURCE_LIMITED": 1
     },
     "releasedByRole": {
-      "explanation": 145,
-      "question": 38
+      "explanation": 146,
+      "question": 39
     },
-    "releasedQuestionCount": 169
+    "releasedQuestionCount": 170
   },
   "subjects": {
     "Anatomy": {
@@ -46,12 +46,16 @@
       "releasedQuestions": 66
     },
     "Physiology": {
-      "approvedAssets": 35,
-      "assets": 37,
-      "releasedQuestions": 39
+      "approvedAssets": 36,
+      "assets": 38,
+      "releasedQuestions": 40
     }
   },
   "batches": {
+    "MANUAL_PHYSIOLOGY_BATCH01_20260912": {
+      "bindings": 2,
+      "releasedBindings": 2
+    },
     "NKQ_ANATOMY_20260910": {
       "bindings": 6,
       "releasedBindings": 6
