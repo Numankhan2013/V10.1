@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "RELEASE_VALIDATED_PENDING_FULL_CI",
+  "status": "FULLY_VERIFIED_PENDING_CANONICAL_RECONCILIATION",
   "subject": "Biochemistry",
   "batchId": "NKQ_BIOCHEM_COVERAGE_Q26_20260912",
   "canonicalBase": "72fa0b6a921015c2e35addaccf06c1949d938f35",
@@ -8,76 +8,15 @@
   "referenceId": "marrow__BIOCHEM_CH02_Q026:figure:1",
   "role": "explanation",
   "order": 1,
-  "source": {
-    "file": "biochemistryed8.pdf",
-    "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
-    "page": 41,
-    "xref": 92,
-    "excludedNeighborXref": 91,
-    "region": [
-      162.0,
-      515.0,
-      450.0,
-      731.0
-    ]
-  },
-  "candidate": {
-    "method": "native-jpeg-stream",
-    "kind": "diagram",
-    "width": 960,
-    "height": 540,
-    "sha256": "22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c",
-    "learnerFacing": true
-  },
-  "sourceComparison": {
-    "fullPageInspected": true,
-    "nativeOriginalInspected": true,
-    "phonePreviewInspected": true,
-    "expandedPreviewInspected": true,
-    "finding": "Hash-verified Biochemistry ED8 page 41 was inspected directly. Xref 92 is the 960x540 glycolysis/gluconeogenesis pathway placed inside Solution to Question 26 and is the correct explanation-owned figure. Xref 91 is the separate pyruvate-to-oxaloacetate figure above the Solution to Question 26 heading and is excluded. The native JPEG preserves pathway boxes, glycolysis/gluconeogenesis labels, enzymes, shared/reversible steps and directional arrows without reconstruction, generation, inpainting or medical-detail alteration. Phone preview is compact but legible with the existing fullscreen zoom/pan viewer; expanded view is clearly readable.",
-    "authoritativePdfSizeBytes": 7958177
-  },
-  "coverageAtStart": {
-    "rawReferences": 110,
-    "effectiveReferences": 109,
-    "released": 70,
-    "invalidSourceMetadata": 1,
-    "resolved": 71,
-    "trackedUnreleased": 4,
-    "untracked": 35,
-    "textCueReviewItems": 31,
-    "subjectComplete": false
-  },
-  "nextAction": "Await exact-head Engineering Gate and full Android/PWA/browser/APK/package verification, then reconcile this verified handoff into canonical before releasing the image lane.",
-  "registryAssetId": "biochemistry-22651a6eb0d53c78",
-  "postReleaseCoverage": {
-    "sourceVisualReferences": 110,
-    "effectiveLearnerVisualReferences": 109,
-    "releasedSourceVisualReferences": 71,
-    "invalidSourceMetadataReferences": 1,
-    "resolvedSourceVisualReferences": 72,
-    "trackedButUnreleasedReferences": 4,
-    "untrackedSourceVisualReferences": 34,
-    "textCueReviewItems": 31,
-    "sourceVisualCoverageComplete": false,
-    "humanCompletenessClaimAllowed": false
-  },
-  "nextDeterministicReference": {
-    "id": "marrow__BIOCHEM_CH04_Q011:figure:1",
-    "questionId": "marrow__BIOCHEM_CH04_Q011",
-    "subject": "Biochemistry",
-    "role": "explanation",
-    "order": 1,
-    "sourcePages": [
-      69
-    ],
-    "nativeCandidateCount": 1,
-    "assetId": "biochemistry-bb781d8346ed1c36",
-    "bindingStatus": "REJECTED",
-    "assetStatus": "PASS",
-    "released": false,
-    "registryPage": 69,
-    "coverageStatus": "UNRELEASED_TRACKED"
-  },
-  "ciTriggerRequestedAt": "2026-09-12T11:49:30Z"
+  "source": {"file":"biochemistryed8.pdf","sha256":"463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb","page":41,"xref":92,"excludedNeighborXref":91,"region":[162.0,515.0,450.0,731.0]},
+  "candidate": {"method":"native-jpeg-stream","kind":"diagram","width":960,"height":540,"sha256":"22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c","learnerFacing":true},
+  "sourceComparison": {"fullPageInspected":true,"nativeOriginalInspected":true,"phonePreviewInspected":true,"expandedPreviewInspected":true,"finding":"Hash-verified Biochemistry ED8 page 41 was inspected directly. Xref 92 is the 960x540 glycolysis/gluconeogenesis pathway placed inside Solution to Question 26 and is the correct explanation-owned figure. Xref 91 is the separate pyruvate-to-oxaloacetate figure above the Solution to Question 26 heading and is excluded. The native JPEG preserves pathway boxes, glycolysis/gluconeogenesis labels, enzymes, shared/reversible steps and directional arrows without reconstruction, generation, inpainting or medical-detail alteration.","authoritativePdfSizeBytes":7958177},
+  "coverageAtStart": {"rawReferences":110,"effectiveReferences":109,"released":70,"invalidSourceMetadata":1,"resolved":71,"trackedUnreleased":4,"untracked":35,"textCueReviewItems":31,"subjectComplete":false},
+  "registryAssetId":"biochemistry-22651a6eb0d53c78",
+  "integrationCommit":"36a0d000ee5268dd8fd1ca28f022cb960f503401",
+  "exactHeadHandoffCommit":"fa79b6cf4b0d8f3a81147886b8785229533aee67",
+  "verification":{"engineeringGateRun":34692045844,"fullAndroidPwaBrowserApkPackageRun":34692046932,"productionPromotion":"SKIPPED"},
+  "postReleaseCoverage":{"sourceVisualReferences":110,"effectiveLearnerVisualReferences":109,"releasedSourceVisualReferences":71,"invalidSourceMetadataReferences":1,"resolvedSourceVisualReferences":72,"trackedButUnreleasedReferences":4,"untrackedSourceVisualReferences":34,"textCueReviewItems":31,"sourceVisualCoverageComplete":false,"humanCompletenessClaimAllowed":false},
+  "nextDeterministicReference":{"id":"marrow__BIOCHEM_CH04_Q011:figure:1","questionId":"marrow__BIOCHEM_CH04_Q011","subject":"Biochemistry","role":"explanation","order":1,"sourcePages":[69],"nativeCandidateCount":1,"assetId":"biochemistry-bb781d8346ed1c36","bindingStatus":"REJECTED","assetStatus":"PASS","released":false,"registryPage":69,"coverageStatus":"UNRELEASED_TRACKED"},
+  "nextAction":"Reconcile this verified handoff into feature/marrow-canonical-full-current, then start the next bounded run at marrow__BIOCHEM_CH04_Q011:figure:1 after a fresh audit/coverage check."
 }
