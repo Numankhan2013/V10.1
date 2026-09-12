@@ -10,24 +10,28 @@
 
 - Subject: Anatomy.
 - Batch ID: `anatomy-20260913-ch6-q8-q18`.
-- Exact canonical base SHA: `58bb99d5c1fc96a98b4f922a963dba16105487d1`.
+- State: `PR_OPEN_CI_PENDING` after bounded deterministic-inventory repair.
+- Exact canonical base SHA: `58bb99d5c1fc96a98b4f922a963dba16105487d1`; live canonical was rechecked unchanged immediately before the repair checkpoint.
 - Branch: `automation/marrow-explanations-anatomy-20260913-ch06-q008-q018`.
 - PR: #56.
-- Current content/verification head before this handoff commit: `2c68863e8fe94a83797547886de8ebb98406a336`.
 - Stable-ID scope: `marrow__ANAT_CH06_Q008..Q018`, 11 contiguous questions, workload score 16.5.
-- Source chapter: Anatomy Ch6 — Cardiovascular and Respiratory Systems. Legacy derived audit view was used only after confirming the canonical Ch6 source remains byte/object-equivalent for the validated chapter lineage; canonical Anatomy source SHA is `f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387`.
-- Raw imported source was not changed. Source tables/figures/provenance remain owned by canonical source. Q12, Q16, Q17 and Q18 are figure-dependent; Q18 also has a structured table and received a dedicated stable-ID browser/table regression.
+- Source chapter: Anatomy Ch6 — Cardiovascular and Respiratory Systems. Canonical Anatomy source SHA remains `f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387`; raw imported source was not changed.
+- Q12, Q16, Q17 and Q18 remain figure-dependent. Q18 also has a structured table and a dedicated stable-ID browser/table regression that checks meaningful cells, rejects `[object Object]`, requires three distractor rows, and protects the shared FSRS dock.
 - Content file: `data/marrow/explanation_anatomy_ch06_q008_q018_v1.json`.
-- Validator: `tools/test_marrow_anatomy_explanation_rollout.py` now validates both Ch6 Q1–Q7 and Q8–Q18 against canonical/legacy source equivalence, emphasis anchors, answer/distractor mapping and stable IDs.
-- Browser regression: `tools/verify_marrow_anatomy_ch06_q018_browser.py`, wired through `tools/verify_marrow_bank_browser.py`; it checks stable ID, three distractor rationales, Q18 structured-table cells, no `[object Object]`, and the shared FSRS dock.
-- Inventory is intentionally not hand-forged on the side branch. Expected deterministic count after regeneration is 599 enhanced / 2,112 pending / 2,711 total; the new fingerprint must be produced by `tools/inventory_marrow_explanations.py --write` from the canonical corpus.
-- PR Engineering Gate run `34721119447` started on head `2c68863e...`; because the side branch does not contain a regenerated inventory, inventory validation is expected to remain the gating reconciliation step. Do not treat this batch as STATIC_VALIDATED or FULLY_VERIFIED until the deterministic inventory and exact-current-head gates pass.
+- Validator: `tools/test_marrow_anatomy_explanation_rollout.py` validates Ch6 Q1–Q7 and Q8–Q18 against the pinned canonical source, stable IDs, emphasis anchors, source answer keys and exact distractor mapping.
+- Browser regression: `tools/verify_marrow_anatomy_ch06_q018_browser.py`, wired through `tools/verify_marrow_bank_browser.py`.
+- Initial exact-head Engineering Gate `34721151621` failed only at deterministic explanation-inventory equality; preceding shared Practice/Continue Practice/sync/FSRS/source/image/taxonomy checks passed.
+- A bounded diagnostic commit `621b6237833bab8cb1d4b063f8a61c205ada68be` exposed the exact generated manifest. Diagnostic Engineering run `34726572358` confirmed deterministic inventory **599 enhanced / 2,112 pending / 2,711 total**, fingerprint `549af134d84553c1227a9994de67c35bcdae216ad30d7c8be2bcfb844754c902`, with unchanged source hashes/flag counts.
+- The exact generated inventory was then written at commit `1dca0ec4c2c04f413886575e0e6b28c4cdb7138d`, and the temporary diagnostic was removed. Content/inventory/validator head before this handoff commit: `43b2e4963fcd15aa0a4caae0a68fb7a827b305bd`.
+- Engineering Gate `34726649829` was launched for `43b2e496...`; this handoff update supersedes that SHA, so only CI attached to the final post-handoff PR head may certify the batch.
+- No Q19+ content has been started. Anatomy continues to own the explanation lane until this batch is reconciled into canonical and exact-current-head certification completes.
+- Production promotion remains prohibited.
 
 ## Exact next action
 
-1. Resolve live canonical head and authoritative explanation ownership again.
-2. If canonical is unchanged and no competing explanation writer exists, reconcile PR #56 / the stable-ID-scoped batch into canonical without overwriting newer product/image work.
-3. Allow the canonical `Refresh full-corpus explanation inventory` workflow to regenerate the inventory; verify 599 / 2,112 / 2,711 and record its new fingerprint.
-4. Require exact-current-head Engineering Gate plus full Android/PWA/browser/APK/package/reproducibility/preview verification. The Q18 stable-ID browser/table regression must pass in the generated learner path.
-5. Only after those exact-head gates pass mark Q8–Q18 FULLY_VERIFIED and release the explanation lane. Do not start Q19+ in the same run that reaches FULLY_VERIFIED.
+1. Resolve the final PR #56 head after this memory checkpoint and require a fresh Engineering Gate for that exact SHA.
+2. If Engineering is green, run/obtain the full Android/PWA/browser/APK/package/reproducibility/preview workflow on the same exact candidate head; Q18 stable-ID table/browser regression must pass in the generated learner path.
+3. If the exact candidate is fully green and canonical still equals the recorded base, reconcile PR #56 into `feature/marrow-canonical-full-current` without overwriting newer product/image work.
+4. Re-read the resulting exact canonical head and require exact-current-head Engineering plus full Android/PWA certification. Only then move Q8–Q18 from `CURRENT_UNVERIFIED` to `FULLY_VERIFIED_HISTORY` and release the explanation lane.
+5. Stop after `FULLY_VERIFIED`; do not start Q19+ in the same run.
 6. Production promotion remains prohibited.
