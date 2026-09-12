@@ -131,6 +131,14 @@
     return navigate('study-library');
   };
 
+  // The visible Home "Continue Practice" button is wired to continuePractice(),
+  // not nkContinueRecentPractice(). Route both entry points through the same durable
+  // continuation logic so Home can never fall back to the legacy one-question session.
+  const nkPracticeResumeOriginalHomeContinue=continuePractice;
+  continuePractice=function(){
+    return nkContinueRecentPractice();
+  };
+
   const nkPracticeResumeOriginalFinish=finishPracticeSession;
   finishPracticeSession=function(){
     const s=state.activeSession;if(!nkPracticeResumeEligible(s))return nkPracticeResumeOriginalFinish.apply(this,arguments);
