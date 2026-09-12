@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "status": "VISUAL_QA_PASS_PENDING_INTEGRATION",
+  "subject": "Biochemistry",
+  "batchId": "NKQ_BIOCHEM_COVERAGE_Q21_20260912_R2",
+  "canonicalBase": "d84a8093468c278a19e81e917bcc66da91f33574",
+  "questionId": "marrow__BIOCHEM_CH02_Q021",
+  "referenceId": "marrow__BIOCHEM_CH02_Q021:figure:1",
+  "role": "explanation",
+  "order": 1,
+  "source": {
+    "file": "biochemistryed8.pdf",
+    "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+    "page": 39,
+    "compositeXrefs": [83, 84, 85],
+    "excludedNeighborXref": 86,
+    "region": [161.491, 55.671, 450.509, 272.328]
+  },
+  "candidate": {
+    "method": "region-render",
+    "dpi": 300,
+    "kind": "diagram",
+    "width": 1206,
+    "height": 904,
+    "sha256": "f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789",
+    "learnerFacing": false
+  },
+  "sourceComparison": {
+    "workflowRun": 34686576057,
+    "artifactId": 10295084510,
+    "fullPageInspected": true,
+    "exactRegionInspected": true,
+    "phonePreviewInspected": true,
+    "expandedPreviewInspected": true,
+    "finding": "Fresh QA of the deterministic 300-DPI render confirms the page-39 Q21 figure is owned by Solution to Question 21 and excludes the later Q22 content. The exact region preserves the red glycolysis pathway, blue gluconeogenesis pathway, metabolites, enzyme labels and directional/reversible arrows without reconstruction, generation or inpainting. Native 1206x904 and expanded rendering are readable; the 390-pixel phone preview is compact but remains appropriate with the existing fullscreen zoom/pan viewer."
+  },
+  "coverageAtStart": {
+    "rawReferences": 110,
+    "effectiveReferences": 109,
+    "released": 69,
+    "invalidSourceMetadata": 1,
+    "resolved": 70,
+    "trackedUnreleased": 4,
+    "untracked": 36,
+    "textCueReviewItems": 31,
+    "subjectComplete": false
+  },
+  "supersedesCheckpoint": "data/marrow/images/recovery_checkpoints/biochem_ch02_q021_20260912.json",
+  "nextAction": "Integrate this freshly reviewed deterministic render non-destructively, regenerate release/progress/coverage, run full image/product gates, update canonical memory with the next deterministic source reference, and reconcile only after exact-head verification."
+}
