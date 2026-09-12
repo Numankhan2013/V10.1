@@ -1,0 +1,85 @@
+name: Biochemistry Q21 Visual Review Once
+
+on:
+  push:
+    branches:
+      - automation/marrow-images-biochemistry-coverage-20260912-q21-r2
+
+permissions:
+  contents: read
+
+jobs:
+  render-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: automation/marrow-images-biochemistry-coverage-20260912-q21-r2
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python3 -m pip install --disable-pip-version-check PyMuPDF Pillow pypdf==6.18.0
+      - name: Verify canonical-derived branch and source state
+        run: |
+          test "$(git merge-base HEAD origin/feature/marrow-canonical-full-current)" = "$(git rev-parse origin/feature/marrow-canonical-full-current)"
+          python3 tools/verify_project_memory.py
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_image_progress.py --check
+          python3 tools/marrow_images.py audit
+          python3 tools/marrow_image_coverage.py --subject Biochemistry
+      - name: Render Q21 review evidence deterministically
+        run: |
+          mkdir -p build/q21-review
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib, json
+          import fitz
+          from PIL import Image
+
+          pdf_path = Path('data/marrow/source_pdfs/biochemistryed8.pdf')
+          expected_pdf = '463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb'
+          data = pdf_path.read_bytes()
+          assert hashlib.sha256(data).hexdigest() == expected_pdf
+          doc = fitz.open(pdf_path)
+          page = doc[38]
+          region = fitz.Rect(161.491, 55.671, 450.509, 272.328)
+          mat = fitz.Matrix(300/72, 300/72)
+          pix = page.get_pixmap(matrix=mat, clip=region, alpha=False)
+          out = Path('build/q21-review/q21_region_300dpi.png')
+          pix.save(out)
+          raw = out.read_bytes()
+          digest = hashlib.sha256(raw).hexdigest()
+          img = Image.open(out)
+          assert img.size == (1206, 904), img.size
+
+          full = page.get_pixmap(matrix=fitz.Matrix(1.5,1.5), alpha=False)
+          full.save('build/q21-review/page39_full.png')
+
+          for width, name in [(390,'phone'), (768,'expanded')]:
+              im = Image.open(out).convert('RGB')
+              h = round(im.height * width / im.width)
+              im.resize((width,h), Image.Resampling.LANCZOS).save(f'build/q21-review/q21_{name}.png')
+
+          meta = {
+              'pdfSha256': expected_pdf,
+              'page': 39,
+              'region': [161.491,55.671,450.509,272.328],
+              'compositeXrefs': [83,84,85],
+              'excludedNeighborXref': 86,
+              'renderSha256': digest,
+              'width': 1206,
+              'height': 904,
+              'method': 'PyMuPDF get_pixmap clip at 300 DPI; no reconstruction/inpainting'
+          }
+          Path('build/q21-review/metadata.json').write_text(json.dumps(meta, indent=2)+'\n')
+          print(json.dumps(meta))
+          PY
+      - name: Upload visual QA evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: biochem-q21-visual-review
+          path: build/q21-review/
+          if-no-files-found: error
+          retention-days: 7
