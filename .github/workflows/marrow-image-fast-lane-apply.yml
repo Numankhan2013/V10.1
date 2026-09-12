@@ -1,0 +1,121 @@
+name: Manual Marrow Image Fast-Lane Apply
+
+on:
+  push:
+    branches: ['manual/marrow-*-fastlane-*']
+    paths:
+      - 'data/marrow/images/review_batches/*.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: marrow-image-fast-lane-apply-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  apply-reviewed-batch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact reviewed branch
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deterministic image dependencies
+        run: python3 -m pip install --disable-pip-version-check pypdf==6.18.0 PyMuPDF Pillow
+
+      - name: Resolve reviewed plan and verify canonical ownership
+        id: plan
+        shell: bash
+        run: |
+          set -euo pipefail
+          PLAN="$(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" | grep '^data/marrow/images/review_batches/.*\.json$' | head -1)"
+          test -n "$PLAN" && test -f "$PLAN"
+          git fetch origin feature/marrow-canonical-full-current
+          CANONICAL_SHA="$(git rev-parse origin/feature/marrow-canonical-full-current)"
+          PLAN_BASE="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["canonicalBaseSha"])' "$PLAN")"
+          test "$CANONICAL_SHA" = "$PLAN_BASE"
+          git merge-base --is-ancestor "$CANONICAL_SHA" HEAD
+          echo "plan=$PLAN" >> "$GITHUB_OUTPUT"
+          echo "canonical_sha=$CANONICAL_SHA" >> "$GITHUB_OUTPUT"
+          echo "FAST_LANE_CANONICAL_OK $CANONICAL_SHA $PLAN"
+
+      - name: Verify unchanged shared state and reviewed decisions
+        run: |
+          python3 tools/marrow_images.py audit
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_image_progress.py --check
+          python3 tools/marrow_image_coverage.py --subject Physiology --check
+          python3 tools/marrow_image_fast_lane.py validate-reviewed --plan "${{ steps.plan.outputs.plan }}"
+
+      - name: Materialize reviewed A and C decisions
+        run: python3 tools/apply_marrow_image_fast_lane_reviewed.py --plan "${{ steps.plan.outputs.plan }}"
+
+      - name: Run deterministic post-mutation gates
+        run: |
+          git diff --check
+          python3 tools/marrow_images.py audit
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_image_progress.py --check
+          python3 tools/marrow_image_coverage.py --subject Physiology --check
+          python3 tools/marrow_image_fast_lane.py validate-reviewed --plan "${{ steps.plan.outputs.plan }}"
+          python3 tools/test_marrow_images.py
+          python3 tools/test_marrow_image_coverage.py
+          python3 tools/test_marrow_image_fast_lane.py
+          python3 tools/verify_build_pipeline.py
+          python3 tools/verify_product_contract.py --stage source
+
+      - name: Reject unrelated or raw-source mutations
+        shell: bash
+        run: |
+          set -euo pipefail
+          git status --short
+          CHANGED="$(git status --porcelain=v1 | sed -E 's/^.. //')"
+          if printf '%s\n' "$CHANGED" | grep -E '^(data/marrow/source_pdfs/|data/marrow/.*\.zlib\.b64\.part|data/marrow/.*_manifest\.json$)'; then
+            echo "Raw source mutation detected"
+            exit 1
+          fi
+          if printf '%s\n' "$CHANGED" | grep -Ev '^(data/marrow/images/|app/src/main/assets/marrow_visuals/|app/src/main/assets/marrow_visual_metadata\.js$)' | grep -q .; then
+            echo "Unexpected changed path detected"
+            printf '%s\n' "$CHANGED"
+            exit 1
+          fi
+
+      - name: Commit verified image-data mutation
+        id: commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/marrow/images app/src/main/assets/marrow_visuals app/src/main/assets/marrow_visual_metadata.js
+          git diff --cached --check
+          git diff --cached --quiet && { echo "No reviewed batch mutation to commit"; exit 1; }
+          git commit -m "Integrate Physiology fast-lane batch 02"
+          NEW_SHA="$(git rev-parse HEAD)"
+          echo "sha=$NEW_SHA" >> "$GITHUB_OUTPUT"
+          echo "MARROW_FAST_LANE_COMMIT $NEW_SHA"
+
+      - name: Verify exact local candidate commit before push
+        run: |
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_image_progress.py --check
+          python3 tools/marrow_image_coverage.py --subject Physiology --check
+          python3 tools/marrow_image_fast_lane.py validate-reviewed --plan "${{ steps.plan.outputs.plan }}"
+
+      - name: Push verified candidate commit
+        run: git push origin HEAD:"${GITHUB_REF_NAME}"
+
+      - name: Record handoff
+        run: |
+          echo "### Fast-lane materialization" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Canonical base: ${{ steps.plan.outputs.canonical_sha }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Reviewed plan: ${{ steps.plan.outputs.plan }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Candidate commit: ${{ steps.commit.outputs.sha }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Full Android/PWA/APK checkpoint intentionally deferred; targeted exact-head learner QA runs after the memory handoff commit." >> "$GITHUB_STEP_SUMMARY"
