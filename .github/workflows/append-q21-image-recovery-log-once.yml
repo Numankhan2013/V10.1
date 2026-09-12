@@ -1,0 +1,41 @@
+name: Append Q21 Image Recovery Session Log
+
+on:
+  push:
+    branches:
+      - feature/marrow-canonical-full-current
+
+permissions:
+  contents: write
+
+jobs:
+  append:
+    if: ${{ github.event.head_commit.message == 'Append Q21 image recovery session log' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout canonical
+        uses: actions/checkout@v5
+        with:
+          ref: feature/marrow-canonical-full-current
+          fetch-depth: 0
+      - name: Append exact Q21 recovery checkpoint
+        run: |
+          cat >> .project-memory/SESSION_LOG.md <<'EOF'
+
+## 2026-09-12 — Biochemistry Q21 image recovery remains safely checkpointed
+
+- Resumed CURRENT_UNFINISHED image batch `NKQ_BIOCHEM_COVERAGE_Q21_20260912` on `automation/marrow-images-biochemistry-coverage-20260912-q21`; target remains `marrow__BIOCHEM_CH02_Q021:figure:1`, explanation-only, authoritative Biochemistry ED8 page 39, composite xrefs 83/84/85, exact region `[161.491,55.671,450.509,272.328]`, with neighboring xref 86 excluded as Q22-owned.
+- Recomputed the complete canonical 2,711-question source audit before mutation. Biochemistry remained 110 raw references / 109 effective / 69 released / 1 invalid-source-metadata / 70 resolved / 4 tracked-unreleased / 36 untracked / 31 text-cue review items. No completeness claim is allowed.
+- The prior visual/source review remains valid for the inspected 1206×904 candidate identified by SHA-256 `07082b9d273f10881d05557827fff479dd18ed450f2ae874aa51bc460a7b03a4`; the unresolved issue is durable byte provenance, not question ownership or diagram semantics.
+- Two bounded fail-closed integration attempts stopped before registry mutation: workflow `34684150752` reproduced the page/region as PNG SHA `f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789`; workflow `34684256506` losslessly optimized the same current-toolchain render to SHA `8aed0451d7048ab99149fec8d3e93e9c3222a9a21f00a204ee9bbab2cbb7635a`. Neither matched the previously reviewed `07082b9d…` bytes, so neither was released.
+- Per the runbook's two-attempt failure containment rule, no third same-class repair was attempted. Registry, release metadata, progress and learner-facing assets remain unchanged. Temporary one-shot integration tooling was removed.
+- Safe specialist checkpoint is `e81157ca96a593975b00879fa425bd4690d3e637`; checkpoint file `data/marrow/images/recovery_checkpoints/biochem_ch02_q021_20260912.json` records both failed attempts and exact next action.
+- Next image action: do not skip Q21 and do not blindly retry current encoders. Recover the exact reviewed `07082b9d…` bytes from durable historical evidence if possible; otherwise choose one pinned deterministic encoding and perform fresh full-page/exact-region/native/phone/expanded visual QA before adopting a replacement production hash. Then integrate non-destructively, regenerate progress/coverage/release, run full image/browser/PWA/APK/package verification, and reconcile into canonical before releasing the image lane. Production remains untouched.
+EOF
+          rm -f .github/workflows/append-q21-image-recovery-log-once.yml
+          git config user.name "NK QBank Memory Handoff"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git commit -m "Log Q21 image recovery checkpoint [skip ci]"
+          git push origin HEAD:feature/marrow-canonical-full-current
