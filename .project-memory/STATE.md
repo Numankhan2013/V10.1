@@ -18,7 +18,7 @@
 - Anatomy: **Ch1–63 / 1,115 questions / 63 source topics**.
 - Biochemistry: **Ch1–28 / 582 questions / 28 source topics**.
 - Physiology: **Ch1–43 / 1,014 questions / 43 source topics**.
-- Global: **2,711 questions / 134 source topics**.
+- Global: **2,711 questions / 134 visible source topics**.
 - Raw imported source remains immutable.
 - Canonical source handoff: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
 - Mandatory automation policy: `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
@@ -91,7 +91,7 @@ Do not certify this behavior by calling only an internal helper or by using a su
 - Apply workflow run `34703103259` passed canonical/shared-state locks, materialization, registry/progress/coverage checks, image tests, build-pipeline/product-contract checks, strict mutation scope, post-commit exact-head validation, and push. Image-data commit is `aedfe3164da35e875db347483d8db3283169f8c0`.
 - Physiology coverage after Batch 02 is **294 raw / 276 effective / 56 released / 18 invalid metadata / 74 resolved / 14 tracked-unreleased / 206 untracked / 28 text-cue**. Global released-question count is 179; Physiology has 48 approved assets / 50 tracked assets / 49 released questions.
 - The 14 D decisions are not skipped or resolved; they remain specialist-lane work. The next deterministic unresolved Physiology reference is `marrow__PHYS_CH03_Q013:figure:2` (multiple plausible page-47 candidates; exact Na+/K+-ATPase ownership/crop requires specialist review).
-- Targeted learner/browser QA is **pending from this handoff commit** and must pass before canonical reconciliation. Full Android/PWA/APK checkpoint is intentionally amortized because Batch 02 changes image data only; production promotion remains prohibited.
+- Targeted learner/browser QA is **triggered for this clean exact-head checkpoint and pending**; it must pass before canonical reconciliation. Full Android/PWA/APK checkpoint is intentionally amortized because Batch 02 changes image data only; production promotion remains prohibited.
 
 ## Anti-fragmentation rules
 
