@@ -35,15 +35,23 @@ let nkContinueRecentPractice=()=>{oldContinueCalls++};
 ''' + CORE + r'''
 window.QB={nkPausePractice,nkSubmitPracticeSession,openSessionReview};
 
-state.activeSession={id:'same-session',mode:'practice',title:'Topic One',questionIds:Array.from({length:20},(_,i)=>`q${i+1}`),index:4,
+const full=Array.from({length:20},(_,i)=>`q${i+1}`);
+state.activeSession={id:'same-session',mode:'practice',title:'Topic One',questionIds:[...full],index:4,
   answers:{q1:1,q2:1,q3:1,q4:2},submitted:{q1:true,q2:true,q3:true,q4:true},questionTimes:{q5:25}};
 assert.equal(nkPausePractice(),true);assert.equal(route.page,'dashboard');assert.equal(state.activeSession.lifecycle,'paused');
-assert.equal(state.fsrsReviewEligible.q5.reason,'skipped');assert.equal(state.activeSession.id,'same-session');
+assert.equal(state.fsrsReviewEligible.q5,undefined);assert.equal(state.activeSession.id,'same-session');
+assert.deepEqual(state.activeSession.sessionQuestionIds,full);assert.equal(state.activeSession.pausedIndex,4);
 nkContinueRecentPractice();
 assert.equal(route.page,'practice');assert.equal(state.activeSession.id,'same-session');assert.equal(state.activeSession.lifecycle,'active');
-assert.deepEqual(state.activeSession.questionIds,Array.from({length:16},(_,i)=>`q${i+5}`));
-assert.equal(state.activeSession.questionIds.includes('q1'),false);assert.equal(Boolean(state.activeSession.submitted.q5),false);
-assert.equal(state.activeSession.questionIds[state.activeSession.index],'q5');assert.equal(oldContinueCalls,0);
+assert.deepEqual(state.activeSession.questionIds,full);
+assert.equal(state.activeSession.index,4);assert.equal(state.activeSession.questionIds[state.activeSession.index],'q5');
+assert.equal(state.activeSession.submitted.q1,true);assert.equal(Boolean(state.activeSession.submitted.q5),false);assert.equal(oldContinueCalls,0);
+
+// Regression: even if an older buggy build persisted only one visible question,
+// sessionQuestionIds remains the canonical test and Continue Practice must restore it.
+state.activeSession.lifecycle='paused';state.activeSession.questionIds=['q5'];state.activeSession.index=0;state.activeSession.pausedIndex=4;
+nkContinueRecentPractice();
+assert.deepEqual(state.activeSession.questionIds,full);assert.equal(state.activeSession.index,4);assert.equal(state.activeSession.questionIds[4],'q5');
 
 for(const id of state.activeSession.questionIds)state.activeSession.submitted[id]=true;
 nkSubmitPracticeSession();
@@ -66,7 +74,7 @@ assert.equal(nkPausePractice(),false);assert.equal(practiceActionBar().includes(
 
 state.activeSession={mode:'practice',questionIds:['q1'],index:0,answers:{},submitted:{}};
 const bar=practiceActionBar();assert(bar.includes('>Pause<')&&bar.includes('>Submit<'));assert(bar.indexOf('>Pause<')<bar.indexOf('>Submit<'));
-console.log('CONTINUE_PRACTICE_BEHAVIOR_OK remaining=16 answered_excluded=4 completed_next=t2');
+console.log('CONTINUE_PRACTICE_BEHAVIOR_OK full_session=20 saved_index=4 single_question_regression=covered');
 '''
     with tempfile.TemporaryDirectory() as directory:
         path = Path(directory) / "continue-practice-test.js"
@@ -99,7 +107,7 @@ def main() -> None:
     gate = (ROOT / ".github/workflows/engineering-gate.yml").read_text(encoding="utf-8")
     assert workflow.index("tools/apply_home_command_center_v1.py") < workflow.index("tools/apply_continue_practice_resume_v1.py") < workflow.index("tools/apply_cross_device_pwa_v1.py")
     assert "tools/test_continue_practice_resume_v1.py" in workflow and "tools/test_continue_practice_resume_v1.py" in gate
-    print("CONTINUE_PRACTICE_CONTRACT_OK durable_pause=true session_submit=true canonical_next_topic=true")
+    print("CONTINUE_PRACTICE_CONTRACT_OK durable_pause=true full_session_resume=true canonical_next_topic=true")
 
 
 if __name__ == "__main__":
