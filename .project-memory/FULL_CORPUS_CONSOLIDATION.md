@@ -16,3 +16,9 @@ Generated Anatomy bundle: `data/marrow/anatomy_ch001_063*`.
 The first build started on the setup commit before the generated bundle existed and is not a candidate certification. Only workflows on this commit or a descendant containing the generated full corpus may certify the candidate.
 
 Next: exact-head Engineering Gate + Android/PWA/browser/package/preview verification. Do not promote production until those gates pass and the user verifies the resulting preview.
+
+## 2026-09-12 memory sync — Practice flow protection
+
+The corpus itself was not changed by the Practice-flow repair, but future corpus/image/explanation integrations must preserve the accepted normal-Practice session contract now documented in `.project-memory/PRACTICE_FLOW_POSTMORTEM_2026-09-12.md`.
+
+In particular, automation branches must start from the current canonical integration lineage rather than a stale donor branch, must not reintroduce the old Pause/Submit question-footer controls or remaining-only resume behavior, and must keep the exact-head Practice browser regression green. The corrected flow is device/user-verified; production promotion remains a separate explicit decision.
