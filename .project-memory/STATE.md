@@ -8,9 +8,8 @@
 - Accepted product commit: `125d68b`.
 - Accepted baseline: V11.6 remains the rollback product baseline; the canonical Continue Practice contract below is separately user/device accepted.
 - **Sole Marrow/product integration trunk:** `feature/marrow-canonical-full-current`.
-- Product/UI base remains the user-approved V3/correct-index lineage.
 - Production / `main` remains explicit and guarded; do not promote without user approval.
-- Resolve the live canonical HEAD at run start. Do not hardcode a supposed current HEAD into automation logic.
+- Resolve live canonical HEAD at run start; do not hardcode it into automation logic.
 - Latest accepted Practice behavior was verified from canonical checkpoint `74abb670c3ae088e06653681e85c347212222455`; full Android/PWA/browser/APK/package/preview run `34695680534` succeeded and the user physically confirmed the resulting Continue Practice flow works. This is build-verified, device-verified, and user-accepted.
 
 ## Complete canonical Marrow ED8 source
@@ -35,35 +34,18 @@
 
 ## Accepted Practice / Continue Practice contract — user/device verified
 
-This section supersedes all earlier remaining-only or 16-of-20 resume descriptions.
-
 - Normal Practice question footer = **Previous + Next only**.
 - Header grid icon and end-of-session boundary open the **same final review grid**.
 - Final review action area = **Pause + Submit only**.
 - Do not restore the redundant intermediate Question Navigator, `Back to question`, or `Review unanswered` actions.
-- Pause preserves the **same active session**, full original ordered `sessionQuestionIds`, saved/current index, answers, submitted state, timing and progress.
+- Pause preserves the **same active session**, complete original ordered `sessionQuestionIds`, saved/current index, answers, submitted state, timing and progress.
 - Pause does **not** mark the current unanswered question skipped merely because the learner exits.
 - Home Continue Practice resumes the **same session ID**, restores the **complete original test/question list**, and returns to the saved position with answered progress intact.
 - If an older buggy client reduced `questionIds` to one current question, rebuild the visible session from `sessionQuestionIds`.
 - A resumed multi-question session must never collapse to `1 / 1`.
 - Special modes (CBT, Review, Wrong/Bookmarks, FSRS, Custom Study Modules) remain outside this override unless explicitly redesigned.
-- The exact failure history, mistakes, lessons, do/don't rules and regression sequence are in `.project-memory/PRACTICE_FLOW_POSTMORTEM_2026-09-12.md`.
-- Implementation handoff: `.project-memory/CONTINUE_PRACTICE_HANDOFF.md`.
+- Postmortem: `.project-memory/PRACTICE_FLOW_POSTMORTEM_2026-09-12.md`; implementation handoff: `.project-memory/CONTINUE_PRACTICE_HANDOFF.md`.
 - Status: **accepted / user-device verified**. Do not describe this flow as pending.
-
-## Practice regression sequence required for future changes
-
-Any change touching Home, Practice, session persistence, sync, question navigation, final review, FSRS injection or build transforms must exercise the actual generated learner path:
-
-1. Start a genuine multi-question Practice session.
-2. Answer several questions and leave at least one unanswered.
-3. Open the final review grid and press Pause.
-4. Confirm Home/dashboard and paused lifecycle.
-5. Click the actual rendered Home Continue Practice control.
-6. Verify same session ID, complete original ordered IDs, saved/current index and preserved submitted progress.
-7. Verify no `1 / 1` collapse and no Pause-as-Skip mutation.
-
-Do not certify this behavior by calling only an internal helper or by using a superseded selector.
 
 ## Structured explanation-table invariant
 
@@ -71,26 +53,35 @@ Do not certify this behavior by calling only an internal helper or by using a su
 - Non-empty source headers/rows must render as non-empty learner-visible headers/cells in correct order.
 - `[object Object]` in learner-visible output is a hard failure.
 - Table-bearing browser regressions must verify actual expected cell content, not container existence.
-- The user physically verified the structured-table repair at canonical commit `c829599050173d24408b72e8dc564ba501a156b4`.
+- User physically verified the structured-table repair at canonical commit `c829599050173d24408b72e8dc564ba501a156b4`.
 
 ## Explanation lane
 
-- Canonical explanation inventory before Anatomy Ch6 Q1–Q7: **581 enhanced / 2,130 pending / 2,711 total**.
-- Anatomy Ch6 Q1–Q7 has been repeatedly rebased/reconciled as canonical advanced. Historical PRs #43/#49/#50 are not merge targets.
-- Current newest open reconciliation is **PR #52**, branch `feature/marrow-explanation-rollout-anatomy-ch06-q001-q007-canonical-r4`, based on canonical checkpoint `a3a4dbe80504c9214f8ffb8c7ac9479cb2798be1`, head `7bee1f4118e084fa7e5e8934fedf26e8f131f73b`.
-- Scope is stable-ID limited to `marrow__ANAT_CH06_Q001..Q007`; raw source unchanged.
-- Deterministic inventory on that reconciliation is **588 enhanced / 2,123 pending / 2,711 total** with fingerprint `87cc4e50f145cf59215dcfeb8d30fd32730747b3d964c39339b0aded8907f41d`.
-- Q2 remains `needs_manual_review` because the rendered source omits the defining numbered 1–4 legend; do not invent the missing mapping.
-- Because canonical has advanced again with accepted Practice memory updates, the explanation worker must resolve live canonical before merging or mutating and must rebase/reconcile if required. Do not wholesale-merge stale branch history.
+### FULLY_VERIFIED_HISTORY
+
+- Anatomy Ch6 Q1–Q7 (`marrow__ANAT_CH06_Q001..Q007`) is reconciled into canonical and exact-head verified at canonical checkpoint `58bb99d5c1fc96a98b4f922a963dba16105487d1`.
+- Inventory at that verified checkpoint: **588 enhanced / 2,123 pending / 2,711 total**, fingerprint `87cc4e50f145cf59215dcfeb8d30fd32730747b3d964c39339b0aded8907f41d`.
+- Q2 remains `needs_manual_review` because the defining numbered 1–4 legend is absent; do not invent it.
+
+### CURRENT_UNVERIFIED — Anatomy owns the lane
+
+- Batch ID: `anatomy-20260913-ch6-q8-q18`.
+- Scope: `marrow__ANAT_CH06_Q008..Q018`, **11 contiguous questions**, workload score **16.5**.
+- Branch: `automation/marrow-explanations-anatomy-20260913-ch06-q008-q018`; PR **#56**; exact canonical base `58bb99d5c1fc96a98b4f922a963dba16105487d1`.
+- Live canonical was rechecked unchanged immediately before the latest bounded repair. Raw source remains unchanged; Anatomy source SHA remains `f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387`.
+- Q12/Q16/Q17/Q18 are figure-dependent. Q18 also owns a structured table and has a stable-ID browser regression that verifies meaningful table cells, rejects `[object Object]`, requires exactly three distractor rows and preserves the shared FSRS dock.
+- Initial Engineering Gate `34721151621` failed only because the persisted deterministic explanation inventory still represented the preceding 588-enhanced checkpoint; all earlier shared checks passed.
+- A bounded diagnostic run `34726572358` produced the exact deterministic manifest: **599 enhanced / 2,112 pending / 2,711 total**, fingerprint `549af134d84553c1227a9994de67c35bcdae216ad30d7c8be2bcfb844754c902`; raw source hashes and inventory flag counts did not drift.
+- The exact manifest is now stored in `data/marrow/explanation_inventory_v1.json`. The temporary diagnostic was removed again. Content/inventory/validator head before the memory checkpoints was `43b2e4963fcd15aa0a4caae0a68fb7a827b305bd`.
+- Dedicated handoff: `.project-memory/ANATOMY_EXPLANATION_HANDOFF_2026-09-13.md`.
+- This batch is **PR_OPEN_CI_PENDING**, not FULLY_VERIFIED. Only CI attached to the final current PR head may certify it. No Q19+ content has been started.
 
 ## Image lane
 
-- Automated Biochemistry image integration is paused. Ch4 Q11 remains the exact unresolved Biochemistry reference and is preserved as `REVIEW_REQUIRED`; two recovery attempts failed before shared registry/progress mutation because embedded PDF text was corrupted. No verified Q11 learner-facing result exists on a side branch, and no Biochemistry work was skipped or newly started.
-- Manual Physiology Batch 01 was completed on `automation/marrow-images-physiology-manual-20260912-b01`, based exactly on canonical SHA `4f716c3a8eb2c6bc8030bb638a766580f5ddeca3`, and its verified product commit `719e2aa0cfbacb829781e9a7953af4717a6a6f5a` was fast-forwarded into the sole canonical trunk.
-- The bounded source-order scope is six references: `marrow__PHYS_CH01_Q009:figure:1`, `marrow__PHYS_CH01_Q018:figure:1`, `marrow__PHYS_CH01_Q021:figure:1`, `marrow__PHYS_CH01_Q021:figure:2`, `marrow__PHYS_CH02_Q020:figure:1`, and `marrow__PHYS_CH03_Q005:figure:2`.
-- Source review workflow `34698354509` confirmed the first four are table-only metadata already represented by structured tables, Q20 is a question-critical four-tile clinical photograph requiring a precise authentic region render, and Q5 figure 2 is the repeated page-44 diffusion plot. The first four references were adjudicated `SOURCE_METADATA_INVALID`; Q20 gained PASS question binding `physiology-f675135b3bc1c381`; Q5 gained a second PASS explanation binding to existing asset `physiology-95389f30f8277be3`.
-- Product commit `719e2aa0cfbacb829781e9a7953af4717a6a6f5a` passed Engineering Gate `34699015727` and full Android/PWA/browser/image-comparison/APK/package run `34699016754`; source/production and emitted Q20/Q5 screenshots were inspected and passed. Preview `https://72286d5a.nk-qbank.pages.dev`; production promotion skipped.
-- Current Physiology coverage is 294 raw / 290 effective / 44 released / 4 invalid metadata / 48 resolved / 21 tracked-unreleased / 225 untracked / 28 text-cue; subject incomplete. The image writer is released and no second batch has begun.
+- Automated Biochemistry image integration is paused. Ch4 Q11 remains the exact unresolved Biochemistry reference and is preserved as `REVIEW_REQUIRED`; two recovery attempts failed before shared registry/progress mutation because embedded PDF text was corrupted.
+- Manual Physiology Batch 01 was completed on `automation/marrow-images-physiology-manual-20260912-b01`, based on canonical SHA `4f716c3a8eb2c6bc8030bb638a766580f5ddeca3`, and verified product commit `719e2aa0cfbacb829781e9a7953af4717a6a6f5a` was reconciled into canonical.
+- Product commit `719e2aa0cfbacb829781e9a7953af4717a6a6f5a` passed Engineering Gate `34699015727` and full Android/PWA/browser/image-comparison/APK/package run `34699016754`; production promotion skipped.
+- Current Physiology image coverage remains incomplete; next deterministic reference is `marrow__PHYS_CH03_Q007:figure:1` only after fresh ownership checks.
 
 ## Anti-fragmentation rules
 
@@ -99,18 +90,19 @@ Do not certify this behavior by calling only an internal helper or by using a su
 - A stale PR/branch is historical evidence, not a lock and not a merge target.
 - Donate old work only by stable-ID/content-scoped transplant after ownership and duplicate checks.
 - Reconcile verified work into canonical before starting another conflicting batch in the same lane.
-- Product/UI fixes that become accepted must be treated as protected canonical behavior by subsequent content/image/explanation work.
+- Product/UI fixes that become accepted are protected canonical behavior for subsequent content/image/explanation work.
 
 ## Known problems / cautions
 
-- Physiology image coverage remains incomplete after the verified bounded batch, and Biochemistry Q11 remains unresolved/paused.
-- Former canonical tip `4f716c3` had a memory-validator wording failure only; the reconciled batch restores the required status vocabulary without changing accepted product behavior.
+- Anatomy Ch6 Q8–Q18 is still CURRENT_UNVERIFIED and blocks other explanation writers until exact-head candidate and canonical certification finish.
+- Physiology image coverage remains incomplete, and Biochemistry Q11 remains unresolved/paused.
+- Production promotion remains prohibited unless explicitly requested by the user.
 
 ## Current priorities / Next step
 
-1. **Main product work may proceed from live canonical.** Preserve the accepted Practice contract above.
-2. **Explanation lane:** reconcile Anatomy Ch6 Q1–Q7 from the newest valid stable-ID scope onto the then-live canonical head, re-run exact-head deterministic/browser/full gates, then release the lane only after canonical integration.
-3. **Image lane:** Batch 01 is verified, reconciled, and the writer is clean. The next deterministic Physiology reference is `marrow__PHYS_CH03_Q007:figure:1` (explanation, source page 44, two native candidates, `UNTRACKED_SOURCE_VISUAL`). Keep automated Biochemistry paused with Q11 preserved unresolved; begin no new batch without fresh ownership and live-canonical checks.
+1. **Explanation lane:** resolve the final PR #56 head after the memory checkpoints and require fresh Engineering Gate on that exact SHA. If green, require the full Android/PWA/browser/APK/package/reproducibility/preview workflow on the same candidate SHA. Then reconcile to canonical only if canonical is still the recorded base, and require exact-current-canonical-head Engineering + full certification before moving Q8–Q18 to FULLY_VERIFIED_HISTORY and releasing the lane. Stop after FULLY_VERIFIED; do not start Q19+ in that same run.
+2. **Main product work:** preserve the accepted Practice/Continue Practice contract above.
+3. **Image lane:** begin no new conflicting batch without fresh ownership/live-canonical checks; keep Biochemistry Q11 unresolved rather than inventing source recovery.
 4. Production promotion remains prohibited unless the user explicitly asks for it.
 
 ## Memory pointers
