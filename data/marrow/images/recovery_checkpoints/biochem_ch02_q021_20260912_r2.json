@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "RELEASE_VALIDATED_PENDING_FULL_CI",
+  "status": "PRODUCT_CI_PENDING",
   "subject": "Biochemistry",
   "batchId": "NKQ_BIOCHEM_COVERAGE_Q21_20260912_R2",
   "canonicalBase": "d84a8093468c278a19e81e917bcc66da91f33574",
@@ -12,18 +12,9 @@
     "file": "biochemistryed8.pdf",
     "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
     "page": 39,
-    "compositeXrefs": [
-      83,
-      84,
-      85
-    ],
+    "compositeXrefs": [83, 84, 85],
     "excludedNeighborXref": 86,
-    "region": [
-      161.491,
-      55.671,
-      450.509,
-      272.328
-    ]
+    "region": [161.491, 55.671, 450.509, 272.328]
   },
   "candidate": {
     "method": "region-render",
@@ -55,8 +46,8 @@
     "subjectComplete": false
   },
   "supersedesCheckpoint": "data/marrow/images/recovery_checkpoints/biochem_ch02_q021_20260912.json",
-  "nextAction": "Regenerate release/progress/coverage, update memory with the next deterministic reference, run exact-head product gates, then reconcile into canonical.",
   "registryAssetId": "biochemistry-f2a6b0691fffcbe3",
+  "integrationCommit": "d7a1fc6fead85beb9354965b6621d6756cc30580",
   "postReleaseCoverage": {
     "sourceVisualReferences": 110,
     "effectiveLearnerVisualReferences": 109,
@@ -75,11 +66,10 @@
     "subject": "Biochemistry",
     "role": "explanation",
     "order": 1,
-    "sourcePages": [
-      41
-    ],
+    "sourcePages": [41],
     "nativeCandidateCount": 2,
     "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
     "released": false
-  }
+  },
+  "nextAction": "Run exact-head Engineering Gate and full Android/PWA/browser/APK/package verification on this handoff commit. If both pass and canonical registry/progress ownership has not conflicted, reconcile this verified batch into feature/marrow-canonical-full-current, record CI IDs, and release the image lane for the next deterministic reference. Production promotion remains prohibited."
 }
