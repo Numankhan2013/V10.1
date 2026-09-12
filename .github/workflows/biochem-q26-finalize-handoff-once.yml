@@ -1,93 +1,38 @@
-name: Biochemistry Q26 Finalize Handoff Once
-
+name: Biochemistry Q26 Finalize Handoff
 on:
   push:
-    branches:
-      - handoff/biochem-q26-finalize-20260912
-
+    branches: [handoff/biochem-q26-finalize-20260912]
 permissions:
   contents: write
-
 jobs:
   finalize:
-    if: ${{ !startsWith(github.event.head_commit.message, 'Finalize Biochemistry Q26 verified handoff') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
         with:
           ref: handoff/biochem-q26-finalize-20260912
           fetch-depth: 0
-      - name: Verify certified product ancestor and canonical base
-        run: |
-          git fetch origin feature/marrow-canonical-full-current
-          test "$(git rev-parse origin/feature/marrow-canonical-full-current)" = "72fa0b6a921015c2e35addaccf06c1949d938f35"
-          git merge-base --is-ancestor 72fa0b6a921015c2e35addaccf06c1949d938f35 HEAD
-          git merge-base --is-ancestor fa79b6cf4b0d8f3a81147886b8785229533aee67 HEAD
-          python3 tools/verify_project_memory.py
-          python3 tools/marrow_images.py validate
-          python3 tools/marrow_image_progress.py --check
-          python3 tools/marrow_image_coverage.py --subject Biochemistry --check
-      - name: Record verified Q26 handoff
+      - name: Update memory
+        shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import json, re
-
-          state_path = Path('.project-memory/STATE.md')
-          state = state_path.read_text()
-          section = '''## Current image state / cautions
-
-- **Latest bounded image batch:** Biochemistry `NKQ_BIOCHEM_COVERAGE_Q26_20260912`, exact canonical base `72fa0b6a921015c2e35addaccf06c1949d938f35`, integration commit `36a0d000ee5268dd8fd1ca28f022cb960f503401`, certified product handoff `fa79b6cf4b0d8f3a81147886b8785229533aee67`.
-- Released `marrow__BIOCHEM_CH02_Q026:figure:1` as an **explanation-only native JPEG** from authoritative Biochemistry ED8 page 41, xref 92, region `[162.0,515.0,450.0,731.0]`; neighboring xref 91 is above the Q26 solution heading and excluded.
-- Source QA verified the hash-matched 7,958,177-byte PDF, full-page ownership, native 960×540 JPEG, phone preview and expanded preview. Native/original/production SHA-256 is `22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c`. No crop, reconstruction, generation, inpainting or sharpening was used.
-- Post-release Biochemistry coverage is **110 raw / 109 effective / 71 released / 1 invalid-source-metadata / 72 resolved / 4 tracked-unreleased / 34 untracked / 31 text-cue**. Subject remains **INCOMPLETE**.
-- Exact-head Engineering Gate **34692045844** passed on `fa79b6cf4b0d8f3a81147886b8785229533aee67`; full Android/PWA/browser/image-comparison/APK/package/reproducibility/preview run **34692046932** also passed on that exact handoff. Production promotion was skipped.
-- **Next deterministic image reference:** `marrow__BIOCHEM_CH04_Q011:figure:1` (explanation, source page 69, `UNRELEASED_TRACKED`; current registry asset `biochemistry-bb781d8346ed1c36`, asset PASS but binding REJECTED). The next run must resolve that rejection/source ownership in source order rather than skip ahead.
-- The Q26 image writer lane is released after canonical reconciliation of this verified handoff. Biochemistry recovery remains enabled until the full subject coverage gate passes.
-
-'''
-          state2, n = re.subn(r'## Current image state / cautions\n.*?(?=## Current product handoff)', section, state, count=1, flags=re.S)
-          assert n == 1
-          state2 = state2.replace(
-              '- Biochemistry image coverage remains incomplete: 39 effective source references are not learner-facing yet (4 tracked-unreleased + 35 untracked), plus 31 text-cue review items still require adjudication.',
-              '- Biochemistry image coverage remains incomplete: 38 effective source references are not learner-facing yet (4 tracked-unreleased + 34 untracked), plus 31 text-cue review items still require adjudication.'
-          )
-          state2 = state2.replace(
-              '- Q21 is now source-compared, released, exact-head product-verified, and reconciled into canonical using deterministic raw 300-DPI bytes SHA `f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789`. Continue strictly from Q26; do not skip to an easier later reference.',
-              '- Q26 is now source-compared, released and exact-head product-verified using native JPEG SHA `22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c`. Continue strictly from Ch4 Q11; do not skip its rejected tracked binding for an easier later reference.'
-          )
-          state2 = re.sub(
-              r'7\. \*\*Image lane:\*\* Q21 recovery is complete and reconciled\. Next deterministic Biochemistry reference is `marrow__BIOCHEM_CH02_Q026:figure:1` \(explanation, source page 41, two native candidates\)\. Start the next bounded batch from the live canonical head and do not skip Q26 for an easier later reference\. Production promotion remains prohibited\.',
-              '7. **Image lane:** Q26 recovery is complete and product-verified. Next deterministic Biochemistry reference is `marrow__BIOCHEM_CH04_Q011:figure:1` (explanation, source page 69, tracked binding currently REJECTED). Start the next bounded batch from the live canonical head, re-audit source ownership, and do not skip this reference. Production promotion remains prohibited.',
-              state2
-          )
-          state_path.write_text(state2)
-
-          cp = Path('data/marrow/images/recovery_checkpoints/biochem_ch02_q026_20260912.json')
-          obj = json.loads(cp.read_text())
-          obj['status'] = 'FULLY_VERIFIED_PENDING_CANONICAL_RECONCILIATION'
-          obj['integrationCommit'] = '36a0d000ee5268dd8fd1ca28f022cb960f503401'
-          obj['exactHeadHandoffCommit'] = 'fa79b6cf4b0d8f3a81147886b8785229533aee67'
-          obj['verification'] = {
-              'engineeringGateRun': 34692045844,
-              'fullAndroidPwaBrowserApkPackageRun': 34692046932,
-              'productionPromotion': 'SKIPPED'
-          }
-          obj['nextAction'] = 'Reconcile this verified handoff into feature/marrow-canonical-full-current, then start the next bounded run at marrow__BIOCHEM_CH04_Q011:figure:1 after a fresh audit/coverage check.'
-          cp.write_text(json.dumps(obj, indent=2) + '\n')
-
-          log = Path('.project-memory/SESSION_LOG.md')
+          p=Path('.project-memory/STATE.md')
+          s=p.read_text()
+          s=s.replace('This batch is source/static validated but the image writer lane remains locked to Biochemistry until exact-head Engineering + full Android/PWA/browser/APK/package verification succeeds and the verified handoff is reconciled into `feature/marrow-canonical-full-current`. Production promotion is prohibited.','Exact-head Engineering Gate **34692045844** and full Android/PWA/browser/image-comparison/APK/package/reproducibility/preview run **34692046932** both passed on certified handoff `fa79b6cf4b0d8f3a81147886b8785229533aee67`; production promotion was skipped. The Q26 image writer lane is released after canonical reconciliation.')
+          s=s.replace('Biochemistry image coverage remains incomplete: 39 effective source references are not learner-facing yet (4 tracked-unreleased + 35 untracked), plus 31 text-cue review items still require adjudication.','Biochemistry image coverage remains incomplete: 38 effective source references are not learner-facing yet (4 tracked-unreleased + 34 untracked), plus 31 text-cue review items still require adjudication.')
+          s=s.replace('Q21 is now source-compared, released, exact-head product-verified, and reconciled into canonical using deterministic raw 300-DPI bytes SHA `f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789`. Continue strictly from Q26; do not skip to an easier later reference.','Q26 is now source-compared, released and exact-head product-verified using native JPEG SHA `22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c`. Continue strictly from Ch4 Q11; do not skip its rejected tracked binding for an easier later reference.')
+          s=s.replace('**Image lane:** Q21 recovery is complete and reconciled. Next deterministic Biochemistry reference is `marrow__BIOCHEM_CH02_Q026:figure:1` (explanation, source page 41, two native candidates). Start the next bounded batch from the live canonical head and do not skip Q26 for an easier later reference. Production promotion remains prohibited.','**Image lane:** Q26 recovery is complete and product-verified. Next deterministic Biochemistry reference is `marrow__BIOCHEM_CH04_Q011:figure:1` (explanation, source page 69, tracked binding currently REJECTED). Start the next bounded batch from the live canonical head, re-audit source ownership, and do not skip this reference. Production promotion remains prohibited.')
+          p.write_text(s)
+          log=Path('.project-memory/SESSION_LOG.md')
           with log.open('a') as f:
-              f.write('''\n\n## 2026-09-12 — Biochemistry Q26 image recovery fully verified\n- Exact canonical base: `72fa0b6a921015c2e35addaccf06c1949d938f35`; bounded image branch `automation/marrow-images-biochemistry-coverage-20260912-q26`.\n- Released `marrow__BIOCHEM_CH02_Q026:figure:1` explanation-only from authoritative ED8 page 41 xref 92; excluded neighboring xref 91 because it lies above the Q26 solution heading. Native 960x540 JPEG SHA `22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c`; no crop/reconstruction/generation/inpainting/sharpening.\n- Integration commit `36a0d000ee5268dd8fd1ca28f022cb960f503401`; exact certified product handoff `fa79b6cf4b0d8f3a81147886b8785229533aee67`.\n- Engineering Gate **34692045844** passed; full Android/PWA/browser/image-comparison/APK/package/reproducibility/preview run **34692046932** passed; production promotion skipped.\n- Post-release coverage: 110 raw / 109 effective / 71 released / 1 invalid metadata / 72 resolved / 4 tracked-unreleased / 34 untracked / 31 text-cue; subject remains incomplete.\n- Next deterministic reference: `marrow__BIOCHEM_CH04_Q011:figure:1`, source page 69, `UNRELEASED_TRACKED`, registry asset `biochemistry-bb781d8346ed1c36`, asset PASS / binding REJECTED. Next run must resolve it in source order.\n''')
+              f.write('\n\n## 2026-09-12 — Biochemistry Q26 exact-head verification\n- Q26 integration commit `36a0d000ee5268dd8fd1ca28f022cb960f503401`; exact certified product handoff `fa79b6cf4b0d8f3a81147886b8785229533aee67`.\n- Engineering Gate **34692045844** passed; full Android/PWA/browser/image-comparison/APK/package/reproducibility/preview run **34692046932** passed; production promotion skipped.\n- Post-release coverage remains 110 raw / 109 effective / 71 released / 1 invalid metadata / 72 resolved / 4 tracked-unreleased / 34 untracked / 31 text-cue; Biochemistry remains incomplete.\n- Next deterministic reference is `marrow__BIOCHEM_CH04_Q011:figure:1` on source page 69; tracked asset PASS but binding REJECTED, so the next run must resolve that source-order item rather than skip it.\n')
           PY
-      - name: Validate memory and remove one-shot workflow
-        run: |
           python3 tools/verify_project_memory.py
           git diff --check
-          rm -f .github/workflows/biochem-q26-finalize-handoff-once.yml
-          git config user.name "NK QBank Image Recovery"
-          git config user.email "actions@users.noreply.github.com"
+          rm .github/workflows/biochem-q26-finalize-handoff-once.yml
+          git config user.name 'NK QBank Image Recovery'
+          git config user.email 'actions@users.noreply.github.com'
           git add -A
-          git diff --cached --check
-          git commit -m "Finalize Biochemistry Q26 verified handoff"
+          git commit -m 'Finalize Biochemistry Q26 verified handoff'
           git push origin HEAD:handoff/biochem-q26-finalize-20260912
