@@ -74,6 +74,7 @@ def main() -> None:
         forbidden = [
             'id="v102-streak-layer-script"', 'id="v102-streak-layer"',
             "home_polish_v3.js",
+            'id="v102-practice-layer-script"', "v102-practice-submit-hidden",
         ]
         present = [marker for marker in forbidden if marker in html]
         if present:
@@ -89,6 +90,8 @@ def main() -> None:
             "window.QB.openQuestionNavigator()", "Continue Practice",
             "Full Question Bank", "nk-custom-study-modules-v1",
             "nk-home-command-center-v1", "Question Source",
+            "NK_CONTINUE_PRACTICE_RESUME_V1_START", "nk-practice-session-controls",
+            "nkPausePractice", "nkSubmitPracticeSession", "sessionQuestionIds", "practiceContext",
             "openStudyModuleBuilder", "nkSelectModuleQuestionIds",
             "route.page==='module-builder'", "studyModules: []",
             "nkSyncModuleFromSession",

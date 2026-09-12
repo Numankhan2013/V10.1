@@ -24,6 +24,11 @@ Check off only when build-verified **and** device-verified where UI is involved.
       module first, then due review, then Practice 20. Run after the Custom Study
       Modules transform. Exact-head full browser/APK/PWA CI and generated 390 px
       visual QA pass at `3ec666c`; physical-device acceptance remains.
+- [ ] Verify and reconcile the bounded Continue Practice resume candidate:
+      Pause/Submit share the existing persisted session state; Pause resumes skipped
+      + unseen questions without replaying answered questions; completed topics point
+      to the next canonical topic. Local behavior/build contracts pass; exact-head
+      Engineering/full browser/PWA/APK/package CI and device acceptance remain.
 
 ## Marrow expansion — current priority
 
