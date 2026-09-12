@@ -83,11 +83,11 @@ For a subject with no study history, the presence of Continue Practice is not cu
 - Do not infer completion from the current index alone; completion and pause must be explicit session lifecycle states.
 - Continue Practice must resolve a durable session/topic state, not `firstUnattemptedQuestion()` globally.
 
-## Implementation status — build-verified candidate
+## Implementation status — canonical and build-verified
 
 A bounded implementation now exists on `fix/continue-practice-session-resume-20260912`. It is installed after the Home command-center transform and before sync/FSRS, so it extends shared session functions instead of forking them. It persists `lifecycle`, `sessionQuestionIds` and `practiceContext` inside existing `activeSession`/completed-test state, removes the legacy mutation observer that hid Practice Submit controls, and explicitly excludes Wrong/Bookmarks, FSRS, Review, CBT and Custom Study Modules.
 
-Deterministic behavior covers the 16-of-20 resume invariant, same-session ordering, answered-question exclusion, partial-topic continuation and completed-topic advancement. A generated-PWA Playwright regression checks Pause/Submit reachability and footer separation at 320, 390 and 768 px. Local owner checks, exact-head Engineering Gate 34684693663 and full run 34684715131 pass at product commit a717563. The 320/390/768 px screenshots were visually inspected and have no clipping or footer collision. Canonical reconciliation and physical-device acceptance remain pending, so this is not shipped or device-verified.
+Deterministic behavior covers the 16-of-20 resume invariant, same-session ordering, answered-question exclusion, partial-topic continuation and completed-topic advancement. A generated-PWA Playwright regression checks Pause/Submit reachability and footer separation at 320, 390 and 768 px. Local owner checks passed, and PR #45 reconciled the implementation into canonical commit d84a809. Exact-head canonical Engineering Gate 34685236474 and full run 34685236486 passed; the 320/390/768 px screenshots were visually inspected and have no clipping or footer collision. Physical-device acceptance remains pending, so this is not a production-shipped release.
 
 ## Verification required before reconciliation
 
@@ -104,4 +104,4 @@ The candidate includes deterministic tests for:
 
 ## Next coding step
 
-Resolve live canonical again and merge the build-verified candidate only into `feature/marrow-canonical-full-current` after verification. Do not promote production without explicit user approval.
+Physically verify Pause → Continue and completed-topic → next-topic on the target Android/PWA device. Do not promote production without explicit user approval.
