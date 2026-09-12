@@ -88,6 +88,7 @@ Verified canonical explanation work includes:
 - **Image lane owner:** Biochemistry `NKQ_BIOCHEM_COVERAGE_Q06_Q07_20260912_V3`, branch `automation/marrow-images-biochemistry-coverage-20260912-q06-q07-v3`, exact canonical base `e17b622b238280c127cd7c91a420dee82bdafdd9`; **CURRENT_UNVERIFIED** pending exact-head full CI.
 - Candidate released bindings: `marrow__BIOCHEM_CH02_Q006:figure:1` (page 31 / xref 1126) and `marrow__BIOCHEM_CH02_Q007:figure:1` (page 31 / xref 1125), both explanation-only and independently source-compared to existing PASS asset `biochemistry-aa11f9fa6a08baea` / production SHA `e6b4d76f…`. No new production asset or medical pixels were generated.
 - Candidate coverage: **110 raw / 109 effective / 69 released / 1 invalid / 70 resolved / 4 tracked-unreleased / 36 untracked / 31 text-cue**; Biochemistry remains **INCOMPLETE**.
+- Source/release workflow **34678805378** passed. PR #44 exact product commit `1e8486edef6c0ba76904f098833fb3fe0bcfecc8` passed Engineering Gate **34678880037**. A memory-only checkpoint follows solely to obtain exact-head full Android/PWA/package verification on the same final branch head; no image/runtime content changes in that checkpoint.
 - Next deterministic unresolved reference: `marrow__BIOCHEM_CH02_Q021:figure:1` (explanation, source pages [39], UNTRACKED_SOURCE_VISUAL). It is composite/multi-object and must not be skipped for an easier later JPEG.
 - Historical image branches are evidence only; Physiology remains paused; production promotion is prohibited.
 
