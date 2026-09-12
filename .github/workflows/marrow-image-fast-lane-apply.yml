@@ -4,7 +4,7 @@ on:
   push:
     branches: ['manual/marrow-*-fastlane-*']
     paths:
-      - 'data/marrow/images/review_batches/*.json'
+      - 'data/marrow/images/review_requests/*.json'
 
 permissions:
   contents: write
@@ -30,32 +30,34 @@ jobs:
       - name: Install deterministic image dependencies
         run: python3 -m pip install --disable-pip-version-check pypdf==6.18.0 PyMuPDF Pillow
 
-      - name: Resolve reviewed plan and verify canonical ownership
+      - name: Resolve review request and verify canonical ownership
         id: plan
         shell: bash
         run: |
           set -euo pipefail
-          PLAN="$(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" | grep '^data/marrow/images/review_batches/.*\.json$' | head -1)"
-          test -n "$PLAN" && test -f "$PLAN"
+          REQUEST="$(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" | grep '^data/marrow/images/review_requests/.*\.json$' | head -1)"
+          test -n "$REQUEST" && test -f "$REQUEST"
           git fetch origin feature/marrow-canonical-full-current
           CANONICAL_SHA="$(git rev-parse origin/feature/marrow-canonical-full-current)"
-          PLAN_BASE="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["canonicalBaseSha"])' "$PLAN")"
+          PLAN_BASE="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["canonicalBaseSha"])' "$REQUEST")"
+          BATCH_ID="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["batchId"])' "$REQUEST")"
+          PLAN="data/marrow/images/review_batches/${BATCH_ID}.json"
           test "$CANONICAL_SHA" = "$PLAN_BASE"
           git merge-base --is-ancestor "$CANONICAL_SHA" HEAD
+          echo "request=$REQUEST" >> "$GITHUB_OUTPUT"
           echo "plan=$PLAN" >> "$GITHUB_OUTPUT"
           echo "canonical_sha=$CANONICAL_SHA" >> "$GITHUB_OUTPUT"
-          echo "FAST_LANE_CANONICAL_OK $CANONICAL_SHA $PLAN"
+          echo "FAST_LANE_CANONICAL_OK $CANONICAL_SHA $REQUEST"
 
-      - name: Verify unchanged shared state and reviewed decisions
+      - name: Verify unchanged shared state before mutation
         run: |
           python3 tools/marrow_images.py audit
           python3 tools/marrow_images.py validate
           python3 tools/marrow_image_progress.py --check
           python3 tools/marrow_image_coverage.py --subject Physiology --check
-          python3 tools/marrow_image_fast_lane.py validate-reviewed --plan "${{ steps.plan.outputs.plan }}"
 
-      - name: Materialize reviewed A and C decisions
-        run: python3 tools/apply_marrow_image_fast_lane_reviewed.py --plan "${{ steps.plan.outputs.plan }}"
+      - name: Expand review and materialize A/C decisions
+        run: python3 tools/apply_marrow_image_fast_lane_reviewed.py --decisions "${{ steps.plan.outputs.request }}"
 
       - name: Run deterministic post-mutation gates
         run: |
@@ -116,6 +118,7 @@ jobs:
         run: |
           echo "### Fast-lane materialization" >> "$GITHUB_STEP_SUMMARY"
           echo "- Canonical base: ${{ steps.plan.outputs.canonical_sha }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Review request: ${{ steps.plan.outputs.request }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Reviewed plan: ${{ steps.plan.outputs.plan }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Candidate commit: ${{ steps.commit.outputs.sha }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Full Android/PWA/APK checkpoint intentionally deferred; targeted exact-head learner QA runs after the memory handoff commit." >> "$GITHUB_STEP_SUMMARY"
