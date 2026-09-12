@@ -67,11 +67,11 @@ Verified canonical explanation work includes:
 - **Content commit:** `cf358f951930295ba03aae9b9ec5b7a658d69086`.
 - **Current batch head:** `f004133f5e245be7a51b8ebc712c3f2b2c0bab74`.
 - **PR:** #43 targeting `feature/marrow-canonical-full-current`.
-- **State:** `PR_OPEN_CI_PENDING`; canonical-source/static validator added and Engineering Gate queued, but deterministic inventory/browser/full CI remain incomplete.
+- **State:** `STATIC_VALIDATED`; exact-head Engineering Gate **34665992491** completed **success** on `f004133f5e245be7a51b8ebc712c3f2b2c0bab74`. Deterministic inventory promotion/browser/full CI remain incomplete.
 - **Reconstruction:** `marrow__ANAT_CH06_Q002` = `needs_manual_review` because the source-rendered question omits the numbered 1–4 structure legend; named cranial→caudal order is recoverable, but the missing original mapping was not invented.
 - **Source validation contract:** `tools/test_marrow_anatomy_explanation_rollout.py` pins canonical Anatomy SHA `f38dc861…`, requires Ch6 Q1–Q7 stable-ID source records to equal their audited Phase-A records, and validates chapter/question ownership, emphasis anchors, answer/distractor mapping and Q2 reconstruction schema.
 - **Inventory:** still 581/2130; no inventory regeneration has occurred yet.
-- **CI:** Engineering Gate **34665992491** queued for exact batch head `f004133f…`; full Android/PWA run not yet launched/observed for this head.
+- **CI:** Engineering Gate **34665992491** succeeded for exact batch head `f004133f…`; full Android/PWA run has not yet certified this batch.
 - **Lane:** locked to Anatomy until this batch is reconciled FULLY_VERIFIED into canonical or explicitly abandoned.
 
 ## Anti-fragmentation automation contract
@@ -90,7 +90,7 @@ Verified canonical explanation work includes:
 
 ## Known problems / cautions
 
-- Current Anatomy batch still needs successful static CI, deterministic inventory regeneration, representative stable-ID browser regression, exact-head Engineering Gate and full Android/PWA/APK/package/reproducibility/preview verification.
+- Current Anatomy batch has passed canonical-source/static exact-head Engineering validation but still needs deterministic +7 inventory regeneration, representative stable-ID browser regression, and exact-head full Android/PWA/APK/package/reproducibility/preview verification.
 - Historical unfinished explanation branches remain historical unless explicitly transplanted by stable ID onto canonical and reverified.
 - Production remains untouched until explicit user approval.
 - Never invent missing source text, table cells, or medical-image detail.
@@ -98,11 +98,10 @@ Verified canonical explanation work includes:
 ## Next step
 
 1. Resume Anatomy Ch6 Q1–Q7 only; do not start another batch.
-2. Check Engineering Gate 34665992491 on exact head `f004133f…`; repair at most twice if the canonical-source/static validator fails.
-3. After static validation succeeds, mark the batch approved-rollout and regenerate the deterministic 2,711-ID inventory; expected unique enhancement change is +7.
-4. Add one representative stable-ID browser regression (prefer Q2 for reconstruction sensitivity or Q3 for structured-table protection).
-5. Run exact-head Engineering Gate + full Android/PWA/browser/APK/package/reproducibility/preview workflow.
-6. Reconcile verified result back into canonical before releasing the explanation lane. Production promotion is prohibited.
+2. Promote the source-validated batch to `approved-rollout` and regenerate the deterministic 2,711-ID inventory; expected unique enhancement change is +7 (581→588, pending 2130→2123).
+3. Add one representative stable-ID browser regression (prefer Q2 for reconstruction sensitivity or Q3 for structured-table protection).
+4. Run exact-head Engineering Gate + full Android/PWA/browser/APK/package/reproducibility/preview workflow.
+5. Reconcile verified result back into canonical before releasing the explanation lane. Production promotion is prohibited.
 
 Canonical source handoff: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
 Canonical automation policy: `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
