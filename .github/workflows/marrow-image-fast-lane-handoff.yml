@@ -1,0 +1,93 @@
+name: One-shot Physiology Fast-Lane Batch 02 Handoff
+
+on:
+  push:
+    branches: ['manual/marrow-physiology-fastlane-20260912-b02']
+    paths:
+      - '.github/workflows/marrow-image-fast-lane-handoff.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: marrow-image-fast-lane-handoff-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  write-handoff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Verify exact ownership and image state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin feature/marrow-canonical-full-current
+          test "$(git rev-parse origin/feature/marrow-canonical-full-current)" = "700cde07869068a7d3aadf77dc89d7bd85726530"
+          git merge-base --is-ancestor aedfe3164da35e875db347483d8db3283169f8c0 HEAD
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_image_progress.py --check
+          python3 tools/marrow_image_coverage.py --subject Physiology --check
+      - name: Write durable project memory
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          state_path=Path('.project-memory/STATE.md')
+          state=state_path.read_text()
+          start=state.index('## Image lane\n')
+          end=state.index('\n## Anti-fragmentation rules', start)
+          image_lane='''## Image lane
+
+- Automated Biochemistry image integration remains paused. Ch4 Q11 is still the exact unresolved Biochemistry reference and remains `REVIEW_REQUIRED`; do not silently bypass it.
+- **Physiology Fast-Lane Batch 02** reviewed the next 40 source references from canonical base `700cde07869068a7d3aadf77dc89d7bd85726530` on `manual/marrow-physiology-fastlane-20260912-b02`. Source-review run `34700776495` produced 14 exact `SOURCE_METADATA_INVALID` adjudications, 0 safe reuse bindings, 12 clean new assets/bindings, and 14 specialist `REVIEW_REQUIRED` deferrals.
+- The 12 clean assets are bound to `PHYS_CH03_Q007`, `PHYS_CH03_Q018`, `PHYS_CH03_Q022`, `PHYS_CH04_Q003`, `PHYS_CH04_Q012`, `PHYS_CH05_Q024`, `PHYS_CH06_Q008`, `PHYS_CH07_Q011` figures 3/4, `PHYS_CH07_Q012` figure 2, `PHYS_CH07_Q015`, and `PHYS_CH07_Q020`. Native source pixels/regions were preserved; no generative medical processing was used.
+- Apply workflow run `34703103259` passed canonical/shared-state locks, materialization, registry/progress/coverage checks, image tests, build-pipeline/product-contract checks, strict mutation scope, post-commit exact-head validation, and push. Image-data commit is `aedfe3164da35e875db347483d8db3283169f8c0`.
+- Physiology coverage after Batch 02 is **294 raw / 276 effective / 56 released / 18 invalid metadata / 74 resolved / 14 tracked-unreleased / 206 untracked / 28 text-cue**. Global released-question count is 179; Physiology has 48 approved assets / 50 tracked assets / 49 released questions.
+- The 14 D decisions are not skipped or resolved; they remain specialist-lane work. The next deterministic unresolved Physiology reference is `marrow__PHYS_CH03_Q013:figure:2` (multiple plausible page-47 candidates; exact Na+/K+-ATPase ownership/crop requires specialist review).
+- Targeted learner/browser QA is **pending from this handoff commit** and must pass before canonical reconciliation. Full Android/PWA/APK checkpoint is intentionally amortized because Batch 02 changes image data only; production promotion remains prohibited.
+'''
+          state=state[:start]+image_lane+state[end:]
+          old='3. **Image lane:** Batch 01 is verified, reconciled, and the writer is clean. The next deterministic Physiology reference is `marrow__PHYS_CH03_Q007:figure:1` (explanation, source page 44, two native candidates, `UNTRACKED_SOURCE_VISUAL`). Keep automated Biochemistry paused with Q11 preserved unresolved; begin no new batch without fresh ownership and live-canonical checks.'
+          new='3. **Image lane:** Batch 02 image data is committed on the fast-lane branch and deterministic source gates are green. Run/inspect the targeted changed-question learner QA, then reconcile the verified branch into canonical. After reconciliation, continue the specialist lane from `marrow__PHYS_CH03_Q013:figure:2`. Keep automated Biochemistry paused with Q11 preserved unresolved.'
+          if old not in state:
+              raise SystemExit('STATE image priority anchor changed')
+          state=state.replace(old,new)
+          state=state.replace('- Physiology image coverage remains incomplete after the verified bounded batch, and Biochemistry Q11 remains unresolved/paused.', '- Physiology image coverage remains incomplete after Fast-Lane Batch 02; 14 reviewed specialist deferrals remain unresolved, beginning with `marrow__PHYS_CH03_Q013:figure:2`. Biochemistry Q11 remains unresolved/paused.')
+          state_path.write_text(state)
+
+          marker='PHYSIO_FASTLANE_BATCH02_HANDOFF_20260912'
+          session_path=Path('.project-memory/SESSION_LOG.md')
+          session=session_path.read_text()
+          if marker not in session:
+              session += f'''\n\n<!-- {marker} -->\n## 2026-09-12 — Physiology image Fast-Lane Batch 02 materialized\n\n- Branch `manual/marrow-physiology-fastlane-20260912-b02`, canonical base `700cde07869068a7d3aadf77dc89d7bd85726530`.\n- Source review run `34700776495`: 40 references / 28 unique source pages → 14 metadata-invalid, 0 reuse, 12 clean assets, 14 specialist deferrals.\n- Corrected apply run `34703103259` succeeded end-to-end and pushed image-data commit `aedfe3164da35e875db347483d8db3283169f8c0`. Earlier apply attempts failed closed only on CI-generated `tools/__pycache__` paths; no failed attempt mutated canonical or production.\n- Post-batch Physiology coverage: 294 raw / 276 effective / 56 released / 18 invalid / 74 resolved / 14 tracked-unreleased / 206 untracked / 28 text-cue.\n- Targeted changed-question learner/browser QA remains required before reconciliation. Full Android/PWA/APK checkpoint is amortized for this image-data-only batch. Production promoted: NO.\n- Next deterministic specialist reference: `marrow__PHYS_CH03_Q013:figure:2`.\n'''
+              session_path.write_text(session)
+
+          roadmap_path=Path('.project-memory/ROADMAP.md')
+          roadmap=roadmap_path.read_text()
+          if marker not in roadmap:
+              roadmap += f'''\n\n<!-- {marker} -->\n### Physiology image Fast-Lane Batch 02\n- Finish targeted learner QA and visual evidence inspection for the 12 changed bindings, reconcile the verified branch into `feature/marrow-canonical-full-current`, then resume specialist review at `marrow__PHYS_CH03_Q013:figure:2`.\n- Keep the 14 D decisions unresolved until specialist evidence closes them; do not count them as coverage.\n'''
+              roadmap_path.write_text(roadmap)
+
+          pipeline_path=Path('docs/MARROW_IMAGE_PIPELINE.md')
+          pipeline=pipeline_path.read_text()
+          if marker not in pipeline:
+              pipeline += f'''\n\n<!-- {marker} -->\n## Physiology Fast-Lane Batch 02 — 2026-09-12\n\nSupervised fast-lane review covered 40 source references across 28 unique PDF pages: 14 exact source-metadata adjudications, 0 reuse bindings, 12 clean new assets/bindings, and 14 specialist deferrals. Apply run `34703103259` produced commit `aedfe3164da35e875db347483d8db3283169f8c0` with all deterministic image/coverage/product gates green. Physiology coverage is now 294 raw, 276 effective, 56 released, 18 invalid metadata, 74 resolved, 14 tracked-unreleased, 206 untracked, and 28 text-cue review items. The next unresolved source-order item is `marrow__PHYS_CH03_Q013:figure:2`; its page-47 candidates require specialist ownership/crop review. Targeted learner QA is required before canonical reconciliation; full Android/PWA/APK checkpoint may be amortized because this batch changes image data only.\n'''
+              pipeline_path.write_text(pipeline)
+          PY
+          python3 tools/verify_project_memory.py
+          git diff --check
+      - name: Commit handoff and remove one-shot workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/marrow-image-fast-lane-handoff.yml
+          git add .project-memory/STATE.md .project-memory/SESSION_LOG.md .project-memory/ROADMAP.md docs/MARROW_IMAGE_PIPELINE.md
+          git diff --cached --check
+          git commit -m "Record Physiology fast-lane batch 02 handoff"
+          git push origin HEAD:"${GITHUB_REF_NAME}"
