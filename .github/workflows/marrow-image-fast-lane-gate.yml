@@ -6,6 +6,7 @@ on:
     paths:
       - '.project-memory/STATE.md'
       - '.github/workflows/marrow-image-fast-lane-gate.yml'
+      - 'tools/install_marrow_images.py'
   workflow_dispatch:
     inputs:
       reviewed_plan:
