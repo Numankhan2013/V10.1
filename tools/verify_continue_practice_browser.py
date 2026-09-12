@@ -79,7 +79,8 @@ def main() -> None:
                 review.screenshot(path=str(output / f"practice-final-review-{width}.png"))
                 context.close()
 
-            # Durable Pause/Continue: pause only from the final grid, then resume at skipped+unseen.
+            # Durable Pause/Continue: pause only from the final grid, then restore the
+            # complete original test and its saved question position/progress.
             context = browser.new_context(viewport={"width": 390, "height": 844}, service_workers="block")
             page = context.new_page()
             page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
@@ -99,22 +100,40 @@ def main() -> None:
             review.wait_for(state="visible")
             review.get_by_role("button", name="Pause", exact=True).click()
             page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='paused'")
+
+            # Reproduce the reported regression: an older resume path could persist
+            # only the current question even though sessionQuestionIds still held all 20.
+            page.evaluate("""() => {
+              const s=window.QB.getState().activeSession;
+              s.questionIds=['1-5'];
+              s.index=0;
+            }""")
             page.evaluate("window.QB.nkContinueRecentPractice()")
             page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='active'")
             result = page.evaluate("""() => {
               const s=window.QB.getState().activeSession;
-              return {ids:s.questionIds,current:s.questionIds[s.index]};
+              return {
+                ids:s.questionIds,
+                current:s.questionIds[s.index],
+                index:s.index,
+                submitted:s.submitted,
+                sessionIds:s.sessionQuestionIds
+              };
             }""")
-            if len(result["ids"]) != 16 or result["ids"][:2] != ["1-5", "1-6"] or result["current"] != "1-5":
-                raise SystemExit(f"Pause/Continue did not preserve exactly skipped + unseen: {result}")
-            if any(qid in result["ids"] for qid in ("1-1", "1-2", "1-3", "1-4")):
-                raise SystemExit("Answered questions reappeared after Continue Practice")
+            if len(result["ids"]) != 20 or result["ids"][:2] != ["1-1", "1-2"] or result["ids"][-1] != "1-20":
+                raise SystemExit(f"Pause/Continue did not restore the complete 20-question session: {result}")
+            if result["current"] != "1-5" or result["index"] != 4:
+                raise SystemExit(f"Pause/Continue did not restore the saved question position: {result}")
+            if result["sessionIds"] != result["ids"]:
+                raise SystemExit(f"Visible session diverged from the canonical paused test: {result}")
+            if not all(result["submitted"].get(qid) for qid in ("1-1", "1-2", "1-3", "1-4")):
+                raise SystemExit(f"Answered progress was lost while resuming: {result}")
             context.close()
             browser.close()
     finally:
         server.shutdown()
 
-    print("CONTINUE_PRACTICE_BROWSER_OK widths=320,390,768 single_review_grid=true footer=previous_next durable_pause=true")
+    print("CONTINUE_PRACTICE_BROWSER_OK widths=320,390,768 single_review_grid=true footer=previous_next full_session=20 saved_index=4")
 
 
 if __name__ == "__main__":
