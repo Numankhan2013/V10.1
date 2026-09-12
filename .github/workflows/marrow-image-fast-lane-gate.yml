@@ -70,22 +70,8 @@ jobs:
           python3 tools/verify_product_contract.py --stage source
           python3 tools/verify_project_memory.py
 
-      - name: Generate only the shared Marrow/image runtime surfaces
-        shell: bash
-        run: |
-          set -euo pipefail
-          INDEX=app/src/main/assets/index.html
-          if grep -q 'const MARROW_RECORDS = Array.isArray(MARROW_DATA.records)' "$INDEX"; then
-            echo 'MARROW_BANK_SURFACE_ALREADY_INSTALLED'
-          else
-            python3 tools/apply_marrow_bank_pilot.py
-          fi
-          if grep -q 'NK_MARROW_STRUCTURED_TABLE_RENDERER_V1' "$INDEX"; then
-            echo 'MARROW_STRUCTURED_TABLE_RENDERER_ALREADY_INSTALLED'
-          else
-            python3 tools/apply_marrow_structured_table_renderer_v1.py
-          fi
-          python3 tools/install_marrow_images.py
+      - name: Install only the reviewed image layer on the accepted app surface
+        run: python3 tools/install_marrow_images.py
 
       - name: Build lightweight PWA image package
         run: python3 tools/build_web_dist.py --version "$GITHUB_SHA"
