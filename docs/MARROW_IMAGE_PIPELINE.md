@@ -91,3 +91,8 @@ an explicit asset-specific reviewed implementation.
 ## Canonical coverage recovery update — 2026-09-12 Q21
 
 Biochemistry canonical coverage uses the complete 582-question corpus and source-reference denominator. After the Q21 page-39 composite release, live coverage is 110 raw / 109 effective / 70 released / 1 invalid metadata / 4 tracked-unreleased / 35 untracked, plus 31 text-cue review items. Subject completeness remains false; next source-order work is `marrow__BIOCHEM_CH02_Q026:figure:1 (explanation, source pages [41], UNTRACKED_SOURCE_VISUAL)`.
+
+
+## Canonical coverage recovery update — 2026-09-12 Q26
+
+Biochemistry canonical coverage uses the complete 582-question corpus and source-reference denominator. After the Q26 page-41 native-xref-92 release, live coverage is 110 raw / 109 effective / 71 released / 1 invalid metadata / 4 tracked-unreleased / 34 untracked, plus 31 text-cue review items. Subject completeness remains false; next source-order work is `marrow__BIOCHEM_CH04_Q011:figure:1 (explanation, source pages [69], UNRELEASED_TRACKED)`.

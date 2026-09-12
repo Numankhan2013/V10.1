@@ -10531,6 +10531,72 @@
         "originalSha256": "f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789",
         "productionSha256": "f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789"
       }
+    },
+    {
+      "id": "biochemistry-22651a6eb0d53c78",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "NKQ_BIOCHEM_COVERAGE_Q26_20260912",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 41,
+        "xref": 92,
+        "excludedNeighborXref": 91,
+        "region": [
+          162.0,
+          515.0,
+          450.0,
+          731.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH02_Q026",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Glycolysis and gluconeogenesis pathway",
+          "status": "PASS",
+          "reviewBatch": "NKQ_BIOCHEM_COVERAGE_Q26_20260912",
+          "source": {
+            "page": 41,
+            "xref": 92,
+            "excludedNeighborXref": 91,
+            "region": [
+              162.0,
+              515.0,
+              450.0,
+              731.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Direct source comparison of hash-verified Biochemistry ED8 page 41. Xref 92 is the 960x540 glycolysis/gluconeogenesis pathway located inside Solution to Question 26 and is the correct explanation-owned visual. Xref 91 is the separate pyruvate-carboxylase figure above the Q26 solution heading and is excluded. Native JPEG bytes preserve pathway boxes, enzyme labels, glycolysis/gluconeogenesis directionality and shared/reversible steps. No crop, reconstruction, generation, inpainting or sharpening was applied. Phone view is compact but usable with existing fullscreen zoom/pan; expanded view is readable.",
+            "evidence": "automation runtime direct page/native/phone/expanded visual inspection on 2026-09-12; data/marrow/images/recovery_checkpoints/biochem_ch02_q026_20260912.json; biochemistryed8.pdf sha256=463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb size=7958177 page=41 xref=92 excluded_neighbor_xref=91 region=[162.0, 515.0, 450.0, 731.0]; native_sha256=22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c"
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c.jpg",
+        "sha256": "22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c",
+        "width": 960,
+        "height": 540
+      },
+      "production": {
+        "path": "data/marrow/images/originals/22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c.jpg",
+        "sha256": "22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c",
+        "width": 960,
+        "height": 540
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Direct source comparison of hash-verified Biochemistry ED8 page 41. Xref 92 is the 960x540 glycolysis/gluconeogenesis pathway located inside Solution to Question 26 and is the correct explanation-owned visual. Xref 91 is the separate pyruvate-carboxylase figure above the Q26 solution heading and is excluded. Native JPEG bytes preserve pathway boxes, enzyme labels, glycolysis/gluconeogenesis directionality and shared/reversible steps. No crop, reconstruction, generation, inpainting or sharpening was applied. Phone view is compact but usable with existing fullscreen zoom/pan; expanded view is readable.",
+        "evidence": "automation runtime direct page/native/phone/expanded visual inspection on 2026-09-12; data/marrow/images/recovery_checkpoints/biochem_ch02_q026_20260912.json; biochemistryed8.pdf sha256=463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb size=7958177 page=41 xref=92 excluded_neighbor_xref=91 region=[162.0, 515.0, 450.0, 731.0]; native_sha256=22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c",
+        "originalSha256": "22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c",
+        "productionSha256": "22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c"
+      }
     }
   ]
 }

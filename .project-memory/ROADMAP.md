@@ -181,3 +181,8 @@ Priority 0: reproduce and restore user-reported unreadable PDF explanations. The
 ### Biochemistry image coverage recovery — Q21 R2
 - Q21 source composite released on the current bounded batch; Biochemistry remains incomplete at 71/110 raw references resolved, with 31 text-cue review items.
 - Continue strictly from `marrow__BIOCHEM_CH02_Q026:figure:1 (explanation, source pages [41], UNTRACKED_SOURCE_VISUAL)` after this batch is exact-head verified and reconciled into canonical.
+
+
+### Biochemistry image coverage recovery — Q26
+- Q26 native page-41 explanation figure released on the bounded specialist batch; Biochemistry remains incomplete at 72/110 raw references resolved, with 31 text-cue review items.
+- Continue strictly from `marrow__BIOCHEM_CH04_Q011:figure:1 (explanation, source pages [69], UNRELEASED_TRACKED)` after this batch is exact-head verified and reconciled into canonical.

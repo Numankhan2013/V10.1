@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "VISUAL_QA_PASS_PENDING_INTEGRATION",
+  "status": "RELEASE_VALIDATED_PENDING_FULL_CI",
   "subject": "Biochemistry",
   "batchId": "NKQ_BIOCHEM_COVERAGE_Q26_20260912",
   "canonicalBase": "72fa0b6a921015c2e35addaccf06c1949d938f35",
@@ -14,7 +14,12 @@
     "page": 41,
     "xref": 92,
     "excludedNeighborXref": 91,
-    "region": [162.0, 515.0, 450.0, 731.0]
+    "region": [
+      162.0,
+      515.0,
+      450.0,
+      731.0
+    ]
   },
   "candidate": {
     "method": "native-jpeg-stream",
@@ -22,7 +27,7 @@
     "width": 960,
     "height": 540,
     "sha256": "22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c",
-    "learnerFacing": false
+    "learnerFacing": true
   },
   "sourceComparison": {
     "fullPageInspected": true,
@@ -43,5 +48,35 @@
     "textCueReviewItems": 31,
     "subjectComplete": false
   },
-  "nextAction": "Integrate only xref 92 as the explanation visual, regenerate release/progress/coverage, run exact-head product gates, then reconcile into canonical before releasing the image lane."
+  "nextAction": "Regenerate release/progress/coverage, update memory with the next deterministic reference, run exact-head product gates, then reconcile into canonical.",
+  "registryAssetId": "biochemistry-22651a6eb0d53c78",
+  "postReleaseCoverage": {
+    "sourceVisualReferences": 110,
+    "effectiveLearnerVisualReferences": 109,
+    "releasedSourceVisualReferences": 71,
+    "invalidSourceMetadataReferences": 1,
+    "resolvedSourceVisualReferences": 72,
+    "trackedButUnreleasedReferences": 4,
+    "untrackedSourceVisualReferences": 34,
+    "textCueReviewItems": 31,
+    "sourceVisualCoverageComplete": false,
+    "humanCompletenessClaimAllowed": false
+  },
+  "nextDeterministicReference": {
+    "id": "marrow__BIOCHEM_CH04_Q011:figure:1",
+    "questionId": "marrow__BIOCHEM_CH04_Q011",
+    "subject": "Biochemistry",
+    "role": "explanation",
+    "order": 1,
+    "sourcePages": [
+      69
+    ],
+    "nativeCandidateCount": 1,
+    "assetId": "biochemistry-bb781d8346ed1c36",
+    "bindingStatus": "REJECTED",
+    "assetStatus": "PASS",
+    "released": false,
+    "registryPage": 69,
+    "coverageStatus": "UNRELEASED_TRACKED"
+  }
 }

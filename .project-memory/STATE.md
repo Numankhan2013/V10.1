@@ -85,12 +85,12 @@ Verified canonical explanation work includes:
 
 ## Current image state / cautions
 
-- **Latest bounded image batch:** Biochemistry `NKQ_BIOCHEM_COVERAGE_Q21_20260912_R2`, exact canonical base `d84a8093468c278a19e81e917bcc66da91f33574`, branch `automation/marrow-images-biochemistry-coverage-20260912-q21-r2`.
-- Released `marrow__BIOCHEM_CH02_Q021:figure:1` as an explanation-only exact-region 300-DPI source render from authoritative Biochemistry ED8 page 39, composite xrefs 83/84/85, region `[161.491,55.671,450.509,272.328]`; neighboring xref 86 is Q22-owned and excluded.
-- Fresh visual QA workflow **34686576057**, artifact **10295084510**, verified full-page ownership, exact region, native 1206×904 render, 390px phone preview and 768px expanded preview. Production/original SHA-256 is `f2a6b0691fffcbe3756d9db58d2baf28c3254f54ede9de577071b7b244bdc789`. No reconstruction, generation or inpainting was used.
-- Post-release coverage: **110 raw / 109 effective / 70 released / 1 invalid-source-metadata / 71 resolved / 4 tracked-unreleased / 35 untracked / 31 text-cue**. Subject remains **INCOMPLETE**.
-- **Next deterministic image reference:** `marrow__BIOCHEM_CH02_Q026:figure:1 (explanation, source pages [41], UNTRACKED_SOURCE_VISUAL)`. Do not skip it for an easier later JPEG.
-- **Verification/reconciliation:** exact-head handoff `88a068182b76a0ab4730c90b93b35f30cb31ca2a` passed Engineering Gate **34686820682** and full Android/PWA/browser/image-comparison/APK/package/reproducibility/preview run **34686821723**. Production promotion was skipped. The verified handoff was fast-forwarded into `feature/marrow-canonical-full-current` with no registry/progress conflict; the image writer lane is released for the next deterministic Biochemistry reference.
+- **Latest bounded image batch:** Biochemistry `NKQ_BIOCHEM_COVERAGE_Q26_20260912`, exact canonical base `72fa0b6a921015c2e35addaccf06c1949d938f35`, branch `automation/marrow-images-biochemistry-coverage-20260912-q26`.
+- Released `marrow__BIOCHEM_CH02_Q026:figure:1` as an explanation-only native JPEG from authoritative Biochemistry ED8 page 41, xref 92, region `[162.0,515.0,450.0,731.0]`; neighboring xref 91 is above the Q26 solution heading and excluded.
+- Direct source QA verified the hash-matched 7,958,177-byte PDF, full page ownership, native 960x540 JPEG, 390px phone preview and 768px expanded preview. Native/original/production SHA-256 is `22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c`. No crop, reconstruction, generation, inpainting or sharpening was used.
+- Post-release coverage: **110 raw / 109 effective / 71 released / 1 invalid-source-metadata / 72 resolved / 4 tracked-unreleased / 34 untracked / 31 text-cue**. Subject remains **INCOMPLETE**.
+- **Next deterministic image reference:** `marrow__BIOCHEM_CH04_Q011:figure:1 (explanation, source pages [69], UNRELEASED_TRACKED)`. Do not skip it for an easier later reference.
+- This batch is source/static validated but the image writer lane remains locked to Biochemistry until exact-head Engineering + full Android/PWA/browser/APK/package verification succeeds and the verified handoff is reconciled into `feature/marrow-canonical-full-current`. Production promotion is prohibited.
 
 ## Current product handoff — Continue Practice
 

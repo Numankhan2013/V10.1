@@ -869,3 +869,11 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Post-release Biochemistry coverage: **110 raw / 109 effective / 70 released / 1 invalid source metadata / 71 resolved / 4 tracked-unreleased / 35 untracked / 31 text-cue review items**. Subject remains **INCOMPLETE**.
 - The verified handoff was fast-forwarded into `feature/marrow-canonical-full-current` without a registry/progress conflict. Image writer lane released.
 - Next deterministic source reference: `marrow__BIOCHEM_CH02_Q026:figure:1`, explanation, source page 41, two native candidates. Do not skip it for an easier later reference.
+
+## 2026-09-12 — Biochemistry Q26 coverage recovery
+- Canonical base: `72fa0b6a921015c2e35addaccf06c1949d938f35`; branch `automation/marrow-images-biochemistry-coverage-20260912-q26`.
+- Direct QA of hash-verified ED8 page 41 established xref 92 as the Q26 explanation-owned glycolysis/gluconeogenesis figure; xref 91 is the separate neighboring pyruvate-carboxylase figure above the Q26 solution and was excluded.
+- Released exact native 960x540 JPEG bytes SHA `22651a6eb0d53c783ebdaa8d967948ed3a88a2ef96669ed84c6788e18bf8645c`; no crop/reconstruction/generation/inpainting/sharpening.
+- Coverage after release: 71 released, 4 tracked-unreleased, 34 untracked, 1 invalid metadata, 31 text-cue review items; subject incomplete.
+- Next deterministic reference: `marrow__BIOCHEM_CH04_Q011:figure:1 (explanation, source pages [69], UNRELEASED_TRACKED)`.
+- Production promotion prohibited; exact-head product CI still required before canonical reconciliation.
