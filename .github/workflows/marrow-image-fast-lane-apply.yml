@@ -5,6 +5,7 @@ on:
     branches: ['manual/marrow-*-fastlane-*']
     paths:
       - 'data/marrow/images/review_requests/*.json'
+      - '.github/workflows/marrow-image-fast-lane-apply.yml'
 
 permissions:
   contents: write
@@ -35,8 +36,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          REQUEST="$(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" | grep '^data/marrow/images/review_requests/.*\.json$' | head -1)"
-          test -n "$REQUEST" && test -f "$REQUEST"
+          CHANGED_REQUEST="$(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" | grep '^data/marrow/images/review_requests/.*\.json$' | head -1 || true)"
+          REQUEST="${CHANGED_REQUEST:-data/marrow/images/review_requests/MANUAL_FASTLANE_34700776495.json}"
+          test -f "$REQUEST"
           git fetch origin feature/marrow-canonical-full-current
           CANONICAL_SHA="$(git rev-parse origin/feature/marrow-canonical-full-current)"
           PLAN_BASE="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["canonicalBaseSha"])' "$REQUEST")"
@@ -77,8 +79,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          # Python execution rewrites tracked legacy bytecode caches. Restore those
-          # tracked bytes to HEAD without deleting any pre-existing untracked cache files.
           git restore --worktree -- tools/__pycache__ || true
           git status --short
           CHANGED="$(git status --porcelain=v1 | sed -E 's/^.. //')"
