@@ -43,6 +43,8 @@ jobs:
         run: python3 tools/test_marrow_images.py
       - name: Validate Marrow image source-coverage accounting
         run: python3 tools/test_marrow_image_coverage.py
+      - name: Validate supervised Marrow image fast-lane planning
+        run: python3 tools/test_marrow_image_fast_lane.py
       - name: Install Marrow PDF audit dependency
         run: python3 -m pip install pypdf==6.18.0
       - name: Compute authoritative Marrow visual coverage
