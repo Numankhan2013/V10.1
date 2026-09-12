@@ -1,0 +1,32 @@
+name: Manual Physiology Image Batch 01 Source Review Once
+
+on:
+  push:
+    branches:
+      - automation/marrow-images-physiology-manual-20260912-b01
+    paths:
+      - tools/render_manual_physio_batch01_review.py
+      - .github/workflows/manual-physiology-image-batch01-review-once.yml
+
+permissions:
+  contents: read
+
+jobs:
+  render-source-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install pinned renderer
+        run: python3 -m pip install --disable-pip-version-check PyMuPDF==1.26.4
+      - name: Render authoritative pages and bounded source region
+        run: python3 tools/render_manual_physio_batch01_review.py
+      - name: Upload source-review evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: manual-physiology-image-batch01-source-review
+          path: build/manual-physiology-batch01-source-review/*.png
+          retention-days: 7
+          if-no-files-found: error
