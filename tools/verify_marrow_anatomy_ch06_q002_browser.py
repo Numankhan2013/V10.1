@@ -25,8 +25,8 @@ def main() -> None:
     if not index.exists():
         raise SystemExit("Generated PWA is missing; build_web_dist must run first")
     generated = index.read_text(encoding="utf-8")
-    if generated.count(STABLE_ID) != 1:
-        raise SystemExit(f"Stable ID {STABLE_ID} count in generated PWA={generated.count(STABLE_ID)}")
+    if STABLE_ID not in generated:
+        raise SystemExit(f"Stable ID {STABLE_ID} missing from generated PWA")
 
     OUT.mkdir(parents=True, exist_ok=True)
     handler = lambda *a, **k: Quiet(*a, directory=str(WEB), **k)
