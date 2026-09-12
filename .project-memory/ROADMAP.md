@@ -27,8 +27,9 @@ Check off only when build-verified **and** device-verified where UI is involved.
 - [ ] Verify and reconcile the bounded Continue Practice resume candidate:
       Pause/Submit share the existing persisted session state; Pause resumes skipped
       + unseen questions without replaying answered questions; completed topics point
-      to the next canonical topic. Local behavior/build contracts pass; exact-head
-      Engineering/full browser/PWA/APK/package CI and device acceptance remain.
+      to the next canonical topic. Exact-head Engineering/full browser/PWA/APK/package
+      CI and generated 320/390/768 px visual QA pass at a717563; canonical
+      reconciliation and physical-device acceptance remain.
 
 ## Marrow expansion — current priority
 
