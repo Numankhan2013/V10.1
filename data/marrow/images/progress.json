@@ -1,38 +1,38 @@
 {
   "schemaVersion": 1,
   "assets": {
-    "total": 166,
+    "total": 178,
     "byStatus": {
-      "PASS": 160,
+      "PASS": 172,
       "REJECTED": 2,
       "REVIEW_REQUIRED": 2,
       "SOURCE_LIMITED": 2
     },
     "byKind": {
-      "diagram": 134,
-      "hybrid": 3,
+      "diagram": 145,
+      "hybrid": 4,
       "medical": 28,
       "table": 1
     },
     "byMethod": {
-      "native-jpeg-stream": 159,
-      "region-render": 3,
+      "native-jpeg-stream": 164,
+      "region-render": 10,
       "svg-reconstruction": 4
     }
   },
   "bindings": {
-    "total": 212,
+    "total": 224,
     "byStatus": {
-      "PASS": 184,
+      "PASS": 196,
       "REJECTED": 25,
       "REVIEW_REQUIRED": 2,
       "SOURCE_LIMITED": 1
     },
     "releasedByRole": {
-      "explanation": 146,
-      "question": 39
+      "explanation": 156,
+      "question": 41
     },
-    "releasedQuestionCount": 170
+    "releasedQuestionCount": 179
   },
   "subjects": {
     "Anatomy": {
@@ -46,12 +46,16 @@
       "releasedQuestions": 66
     },
     "Physiology": {
-      "approvedAssets": 36,
-      "assets": 38,
-      "releasedQuestions": 40
+      "approvedAssets": 48,
+      "assets": 50,
+      "releasedQuestions": 49
     }
   },
   "batches": {
+    "MANUAL_FASTLANE_34700776495": {
+      "bindings": 12,
+      "releasedBindings": 12
+    },
     "MANUAL_PHYSIOLOGY_BATCH01_20260912": {
       "bindings": 2,
       "releasedBindings": 2

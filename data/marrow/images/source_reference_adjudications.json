@@ -80,6 +80,230 @@
       },
       "reason": "The canonical figure metadata duplicates the continuation of the Q21 text/vector cytoskeletal table and does not identify a raster image.",
       "evidence": "Manual source review workflow 34698354509, artifact manual-physiology-image-batch01-source-review: full rendered Physiology ED8 page 19 inspected against PHYS_CH01_Q021. The continuation rows are already preserved in the same structured table; the image audit reports zero native candidates."
+    },
+    {
+      "id": "marrow__PHYS_CH03_Q021:figure:1",
+      "questionId": "marrow__PHYS_CH03_Q021",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        52
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "Structured-only vesicular-transport comparison table; no learner image is required.",
+      "evidence": "Fast-lane source-review workflow 34700776495; authoritative Physiology ED8 page(s) 52 inspected against marrow__PHYS_CH03_Q021 and neighboring question boundaries."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q002:figure:2",
+      "questionId": "marrow__PHYS_CH07_Q002",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        138
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "Page 138 is Solution to Q3; its dystrophin-glycoprotein figure belongs to Q3, not Q2.",
+      "evidence": "Fast-lane source-review workflow 34700776495; authoritative Physiology ED8 page(s) 138 inspected against marrow__PHYS_CH07_Q002 and neighboring question boundaries."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q003:figure:2",
+      "questionId": "marrow__PHYS_CH07_Q003",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        139
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "Page 139 is Solution to Q4; its sarcomere/thin-filament figure belongs to Q4, not Q3.",
+      "evidence": "Fast-lane source-review workflow 34700776495; authoritative Physiology ED8 page(s) 139 inspected against marrow__PHYS_CH07_Q003 and neighboring question boundaries."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q010:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q010",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        142
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-142 figure occurs before Solution to Q10 and belongs to preceding Q9.",
+      "evidence": "Fast-lane source-review workflow 34700776495; authoritative Physiology ED8 page(s) 142 inspected against marrow__PHYS_CH07_Q010 and neighboring question boundaries."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q010:figure:2",
+      "questionId": "marrow__PHYS_CH07_Q010",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        143
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-143 figure is inside Solution to Q11 and belongs to Q11, not Q10.",
+      "evidence": "Fast-lane source-review workflow 34700776495; authoritative Physiology ED8 page(s) 143 inspected against marrow__PHYS_CH07_Q010 and neighboring question boundaries."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q012:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q012",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        129
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-129 native image precedes Question 12 and belongs to Q11.",
+      "evidence": "Fast-lane source-review workflow 34700776495; authoritative Physiology ED8 page(s) 129 inspected against marrow__PHYS_CH07_Q012 and neighboring question boundaries."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q013:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q013",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        129
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The only page-129 native image belongs to Q11; Q13 has no owned question image there.",
+      "evidence": "Fast-lane source-review workflow 34700776495; authoritative Physiology ED8 page(s) 129 inspected against marrow__PHYS_CH07_Q013 and neighboring question boundaries."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q013:figure:2",
+      "questionId": "marrow__PHYS_CH07_Q013",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        144
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "Page-144 figures are Q11 continuation/Q12 solution content; no Q13-owned figure is present.",
+      "evidence": "Fast-lane source-review workflow 34700776495; authoritative Physiology ED8 page(s) 144 inspected against marrow__PHYS_CH07_Q013 and neighboring question boundaries."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q014:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q014",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        129
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The only page-129 native image belongs to Q11; Q14 has no owned question image there.",
+      "evidence": "Fast-lane source-review workflow 34700776495; authoritative Physiology ED8 page(s) 129 inspected against marrow__PHYS_CH07_Q014 and neighboring question boundaries."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q016:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q016",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        146
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-146 top cross-bridge image occurs before Solution to Q16 and continues Q15.",
+      "evidence": "Fast-lane source-review workflow 34700776495; authoritative Physiology ED8 page(s) 146 inspected against marrow__PHYS_CH07_Q016 and neighboring question boundaries."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q017:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q017",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        147
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-147 figures occur before Solution to Q17 and continue Q16.",
+      "evidence": "Fast-lane source-review workflow 34700776495; authoritative Physiology ED8 page(s) 147 inspected against marrow__PHYS_CH07_Q017 and neighboring question boundaries."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q018:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q018",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        148
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-148 top cross-bridge-cycle figure occurs before Solution to Q18 and continues Q17.",
+      "evidence": "Fast-lane source-review workflow 34700776495; authoritative Physiology ED8 page(s) 148 inspected against marrow__PHYS_CH07_Q018 and neighboring question boundaries."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q019:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q019",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        148
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-148 source figure continues Q17 and is not Q19-owned.",
+      "evidence": "Fast-lane source-review workflow 34700776495; authoritative Physiology ED8 page(s) 148 inspected against marrow__PHYS_CH07_Q019 and neighboring question boundaries."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q021:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q021",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        149
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-149 contraction/relaxation diagrams precede Solution to Q20 and are not a Q21 heat-production figure.",
+      "evidence": "Fast-lane source-review workflow 34700776495; authoritative Physiology ED8 page(s) 149 inspected against marrow__PHYS_CH07_Q021 and neighboring question boundaries."
     }
   ]
 }
