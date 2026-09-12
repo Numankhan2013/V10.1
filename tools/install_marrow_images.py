@@ -14,17 +14,26 @@ from apply_canonical_bank_explanation_wiring_v1 import install as install_canoni
 QUESTION_RAW = '<div class="question-text">'
 QUESTION_BOUND = '<div class="question-text" data-marrow-question="${q.bank===\'Marrow\'?esc(String(q.id)):\'\'}">'
 MIN_QUESTION_SURFACES = 3
+CANONICAL_WIRING_MARKER = 'NK_CANONICAL_BANK_EXPLANATION_WIRING_V1'
 
 
 def install():
-    # The Marrow transform has now created the shared bank registry and learner
-    # explanation renderer. Repair the canonical two-bank Home routing and graft
-    # every approved explanation into that runtime before images wrap the same
-    # question/explanation surfaces.
-    install_canonical_wiring()
-    release(ROOT/'data/marrow/images/registry.json')
+    # The image installer may be called on either a pristine generated Marrow
+    # surface or the already-accepted canonical app. Do not re-run the canonical
+    # Home/explanation transform after it has already been installed; later UI
+    # refinements legitimately replace those old patch anchors while preserving
+    # the durable canonical-wiring marker and behavior.
     assets=ROOT/'app/src/main/assets'
     path=assets/'index.html'
+    existing_html=path.read_text()
+    if CANONICAL_WIRING_MARKER in existing_html:
+        print('CANONICAL_WIRING_ALREADY_INSTALLED')
+    else:
+        install_canonical_wiring()
+
+    # Release only reviewed image bytes/metadata. This is deterministic and
+    # content-addressed; repeated calls preserve identical files.
+    release(ROOT/'data/marrow/images/registry.json')
     html=path.read_text()
     marker='<!-- NK_MARROW_IMAGES_V1 -->'
     if marker not in html:
