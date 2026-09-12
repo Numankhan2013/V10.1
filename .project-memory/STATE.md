@@ -86,22 +86,40 @@ Verified canonical explanation work includes:
 ## Current image state / cautions
 
 - Image source-reference coverage remains incomplete; image automation has a separate writer lane.
+- **Biochemistry image recovery was re-enabled on 2026-09-12.** Its integration base is `feature/marrow-canonical-full-current`, and it must recompute live Biochemistry source-reference coverage each run rather than trusting historical registry completeness.
+- The Biochemistry image worker must remain enabled until the authoritative subject coverage `--require-complete --check` genuinely passes. Historical `feature/marrow-image-rollout-current` remains evidence/history only.
+- Previously reviewed verified Biochemistry image work checked during the 2026-09-12 audit is already represented in canonical, including Ch1 Q4 D-glucose/D-mannose and Ch2 Q13 glycolysis bindings/assets. No other already-verified stranded batch was identified in that audit.
 - Explanation work must not redesign UI or modify image ownership.
+
+## Current product handoff — Continue Practice
+
+- A durable handoff is recorded in `.project-memory/CONTINUE_PRACTICE_HANDOFF.md`.
+- Root cause found: the current Continue Practice behavior is not a true resume flow; it effectively resolves a globally unattempted question and can start a synthetic one-question Practice session instead of restoring the learner's interrupted topic/session.
+- The future fix must use the shared Practice/session persistence architecture; do not create a Marrow-only or subject-specific duplicate engine.
+- **Session-level control contract:** expose two clear, reachable actions — **Submit** and **Pause** — with no viewport clipping, hidden buttons, overlap or footer collision.
+- **Pause is the resumable exit.** Resume the same topic/session with skipped + unseen questions still attemptable. Questions already answered correctly or incorrectly are finished for that session and must not be served again on resume.
+- **Completed/green topic:** there is no paused session to restore. Continue Practice must target the immediately next topic in canonical topic order and take the learner there.
+- Example invariant: 20-question topic, 3 correct + 1 wrong + 1 skipped + 15 unseen → Pause → Continue Practice = **16 remaining attemptable questions**; the four answered questions do not return.
+- Do not infer completion merely from current index. Pause and completed/green are explicit, distinct lifecycle states.
 
 ## Known problems / cautions
 
 - Current Anatomy batch has passed canonical-source/static exact-head Engineering validation but still needs deterministic +7 inventory regeneration, representative stable-ID browser regression, and exact-head full Android/PWA/APK/package/reproducibility/preview verification.
+- Continue Practice currently needs the bounded shared-session-state repair described above; the present global-first-unattempted/one-question behavior is not the intended contract.
 - Historical unfinished explanation branches remain historical unless explicitly transplanted by stable ID onto canonical and reverified.
 - Production remains untouched until explicit user approval.
 - Never invent missing source text, table cells, or medical-image detail.
 
 ## Next step
 
-1. Resume Anatomy Ch6 Q1–Q7 only; do not start another batch.
+1. Resume Anatomy Ch6 Q1–Q7 only; do not start another explanation batch.
 2. Promote the source-validated batch to `approved-rollout` and regenerate the deterministic 2,711-ID inventory; expected unique enhancement change is +7 (581→588, pending 2130→2123).
 3. Add one representative stable-ID browser regression (prefer Q2 for reconstruction sensitivity or Q3 for structured-table protection).
 4. Run exact-head Engineering Gate + full Android/PWA/browser/APK/package/reproducibility/preview workflow.
-5. Reconcile verified result back into canonical before releasing the explanation lane. Production promotion is prohibited.
+5. Reconcile verified explanation result back into canonical before releasing the explanation lane. Production promotion is prohibited.
+6. In a bounded product patch from the exact current canonical HEAD, replace the broken Continue Practice behavior with the Pause/resume/completed-next-topic contract in `.project-memory/CONTINUE_PRACTICE_HANDOFF.md`, including behavioral and viewport regressions.
+7. Let the re-enabled Biochemistry image worker continue canonical coverage recovery independently under the single-writer/image policy until the full Biochemistry coverage gate passes.
 
 Canonical source handoff: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
 Canonical automation policy: `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
+Continue Practice handoff: `.project-memory/CONTINUE_PRACTICE_HANDOFF.md`.
