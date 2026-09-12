@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install PDF dependencies
-        run: python3 -m pip install --disable-pip-version-check PyMuPDF pypdf==6.18.0
+        run: python3 -m pip install --disable-pip-version-check PyMuPDF Pillow pypdf==6.18.0
       - name: Verify exact recovery ownership
         run: |
           test "$(git branch --show-current)" = "automation/marrow-images-biochemistry-coverage-20260912-q21"
