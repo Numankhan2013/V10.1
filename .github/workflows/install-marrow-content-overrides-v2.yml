@@ -1,0 +1,35 @@
+name: Install Marrow content overrides v2
+
+on:
+  push:
+    branches:
+      - fix/marrow-full-content-cleanup-20260913
+    paths:
+      - tools/patch_marrow_content_overrides_v2.py
+      - .github/workflows/install-marrow-content-overrides-v2.yml
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install v2 loader into canonical build owner
+        run: python tools/patch_marrow_content_overrides_v2.py
+      - name: Syntax check patched build owner
+        run: python -m py_compile tools/apply_marrow_bank_pilot.py tools/patch_marrow_content_overrides_v2.py
+      - name: Commit installed loader
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/apply_marrow_bank_pilot.py
+          if git diff --cached --quiet; then
+            echo "Loader already installed."
+            exit 0
+          fi
+          git commit -m "Install chapter-scoped Marrow content overrides v2 [skip ci]"
+          git push origin HEAD:fix/marrow-full-content-cleanup-20260913
