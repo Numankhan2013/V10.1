@@ -27,10 +27,13 @@ def main() -> None:
     for subject, slug in SLUGS.items():
         source_dir = AUDIT / slug
         target_dir = OUT / slug
+        qopt_dir = OUT / "qopt" / slug
         target_dir.mkdir(parents=True)
+        qopt_dir.mkdir(parents=True)
         for chapter_path in sorted(source_dir.glob("chapter_*.json")):
             chapter = json.loads(chapter_path.read_text(encoding="utf-8"))
             rows = []
+            qopt_rows = []
             for q in chapter["questions"]:
                 key = (subject, str(q["chapterId"]), str(q["id"]))
                 flagged = by_key.get(key)
@@ -38,7 +41,7 @@ def main() -> None:
                     continue
                 qopt = [r for r in flagged if r["fieldKind"] in {"question", "option"}]
                 expl = [r for r in flagged if r["fieldKind"] in {"explanation", "structuredExplanation"}]
-                rows.append({
+                base = {
                     "id": q["id"],
                     "questionNumber": q.get("questionNumber"),
                     "sourcePage": q.get("sourcePage"),
@@ -46,6 +49,9 @@ def main() -> None:
                     "question": q.get("question"),
                     "options": q.get("options"),
                     "correctOption": q.get("correctOption"),
+                }
+                rows.append({
+                    **base,
                     "questionOptionFlags": [
                         {"field": r["field"], "severity": r["severity"], "reasons": r["reasons"], "suspectLines": r["suspectLines"]}
                         for r in qopt
@@ -56,9 +62,17 @@ def main() -> None:
                     ],
                     "explanation": q.get("explanation") if expl else None,
                 })
+                if qopt:
+                    qopt_rows.append({
+                        **base,
+                        "flags": [
+                            {"field": r["field"], "severity": r["severity"], "reasons": r["reasons"], "suspectLines": r["suspectLines"]}
+                            for r in qopt
+                        ],
+                    })
             if not rows:
                 continue
-            qopt_count = sum(bool(r["questionOptionFlags"]) for r in rows)
+            qopt_count = len(qopt_rows)
             expl_count = sum(bool(r["explanationFlags"]) for r in rows)
             out_path = target_dir / chapter_path.name
             out_path.write_text(json.dumps({
@@ -72,11 +86,21 @@ def main() -> None:
                 "explanationCandidateCount": expl_count,
                 "questions": rows,
             }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            if qopt_rows:
+                (qopt_dir / chapter_path.name).write_text(json.dumps({
+                    "schemaVersion": 1,
+                    "subject": subject,
+                    "chapterId": chapter["chapterId"],
+                    "chapter": chapter.get("chapter"),
+                    "candidateQuestionCount": len(qopt_rows),
+                    "questions": qopt_rows,
+                }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             index.append({
                 "subject": subject,
                 "chapterId": chapter["chapterId"],
                 "chapter": chapter.get("chapter"),
                 "file": str(out_path.relative_to(AUDIT)),
+                "qoptFile": str((qopt_dir / chapter_path.name).relative_to(AUDIT)) if qopt_rows else None,
                 "candidateQuestionCount": len(rows),
                 "questionOptionCandidateCount": qopt_count,
                 "explanationCandidateCount": expl_count,
