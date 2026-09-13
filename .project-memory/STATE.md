@@ -73,6 +73,14 @@ Do not certify this behavior by calling only an internal helper or by using a su
 - Table-bearing browser regressions must verify actual expected cell content, not container existence.
 - The user physically verified the structured-table repair at canonical commit `c829599050173d24408b72e8dc564ba501a156b4`.
 
+## Learner-content hygiene
+
+- User-reported serialized JSON/code leakage in Marrow question, option and explanation surfaces is fixed on verified candidate `45f6539fff535fadc6aaa6970894f9ff123422fa`, based on canonical `58bb99d5c1fc96a98b4f922a963dba16105487d1`. The prior memory-only handoff was `0efdd434`; its substantive but unverified implementation checkpoint was `a3f0e3da`.
+- The durable fix sanitizes learner-facing Marrow strings/structured values at registration and again after all 2,711 canonical records are injected; raw ED8 source is unchanged. It covers stems, options, option rationales, answers, explanations, takeaways and structured-explanation text while preserving tables/figures and ordinary medical notation.
+- Full-corpus regression passed **2,711 questions / 27,898 learner-facing fields**. Physiology Ch5 and Ch7 have a 390x844 real-browser regression covering question, options, answer-time study support, tuned explanation and three distractor rationales.
+- Root cause of the old sanitizer branch browser failure was a hidden unrelated topic-numbering side effect in the former hygiene installer. Topic numbering is now an explicit protected build stage; sanitation remains logically independent.
+- Exact candidate Engineering Gate `34738522874` and full Android/PWA/browser/APK/package/preview run `34738530102` passed. Preview `https://8d6d9366.nk-qbank.pages.dev`; production promotion skipped.
+
 ## Explanation lane
 
 - Canonical explanation inventory before Anatomy Ch6 Q1–Q7: **581 enhanced / 2,130 pending / 2,711 total**.
@@ -90,7 +98,7 @@ Do not certify this behavior by calling only an internal helper or by using a su
 - The bounded source-order scope is six references: `marrow__PHYS_CH01_Q009:figure:1`, `marrow__PHYS_CH01_Q018:figure:1`, `marrow__PHYS_CH01_Q021:figure:1`, `marrow__PHYS_CH01_Q021:figure:2`, `marrow__PHYS_CH02_Q020:figure:1`, and `marrow__PHYS_CH03_Q005:figure:2`.
 - Source review workflow `34698354509` confirmed the first four are table-only metadata already represented by structured tables, Q20 is a question-critical four-tile clinical photograph requiring a precise authentic region render, and Q5 figure 2 is the repeated page-44 diffusion plot. The first four references were adjudicated `SOURCE_METADATA_INVALID`; Q20 gained PASS question binding `physiology-f675135b3bc1c381`; Q5 gained a second PASS explanation binding to existing asset `physiology-95389f30f8277be3`.
 - Product commit `719e2aa0cfbacb829781e9a7953af4717a6a6f5a` passed Engineering Gate `34699015727` and full Android/PWA/browser/image-comparison/APK/package run `34699016754`; source/production and emitted Q20/Q5 screenshots were inspected and passed. Preview `https://72286d5a.nk-qbank.pages.dev`; production promotion skipped.
-- Current Physiology coverage is 294 raw / 290 effective / 44 released / 4 invalid metadata / 48 resolved / 21 tracked-unreleased / 225 untracked / 28 text-cue; subject incomplete. The image writer is released and no second batch has begun.
+- Physiology Batch 02 exists only on historical side branch `manual/marrow-physiology-fastlane-20260912-b02`: 40 references audited, 14 metadata-invalid, 12 new assets, 14 specialist deferrals, image-data commit `aedfe3164`. Its latest targeted run `34704088880` failed canonical wiring at head `7505a7c`; it was never reconciled. Canonical coverage therefore remains 294 raw / 290 effective / 44 released / 4 invalid metadata / 48 resolved / 21 tracked-unreleased / 225 untracked / 28 text-cue. The image writer is released; next canonical reference remains `marrow__PHYS_CH03_Q007:figure:1`.
 
 ## Anti-fragmentation rules
 
@@ -110,7 +118,7 @@ Do not certify this behavior by calling only an internal helper or by using a su
 
 1. **Main product work may proceed from live canonical.** Preserve the accepted Practice contract above.
 2. **Explanation lane:** reconcile Anatomy Ch6 Q1–Q7 from the newest valid stable-ID scope onto the then-live canonical head, re-run exact-head deterministic/browser/full gates, then release the lane only after canonical integration.
-3. **Image lane:** Batch 01 is verified, reconciled, and the writer is clean. The next deterministic Physiology reference is `marrow__PHYS_CH03_Q007:figure:1` (explanation, source page 44, two native candidates, `UNTRACKED_SOURCE_VISUAL`). Keep automated Biochemistry paused with Q11 preserved unresolved; begin no new batch without fresh ownership and live-canonical checks.
+3. **Image lane:** Batch 02 is unverified and unreconciled historical evidence only; do not treat its 12 assets as canonical. Resume from live canonical at `marrow__PHYS_CH03_Q007:figure:1` after fresh ownership/fingerprint checks. Keep automated Biochemistry paused with Q11 preserved unresolved.
 4. Production promotion remains prohibited unless the user explicitly asks for it.
 
 ## Memory pointers
