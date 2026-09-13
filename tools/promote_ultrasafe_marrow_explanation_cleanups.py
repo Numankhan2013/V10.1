@@ -6,9 +6,11 @@ when the safe-cleanup preview leaves that question with zero explanation flags a
 every deleted fragment is either an explicit PDF/page/brand marker or contains no
 letters or digits at all. Literal backslash-to-space normalization is permitted.
 
-The tool merges eligible explanation fields into existing v2 chapter overrides,
-recomputes exact raw-source fingerprints, never touches v1 IDs, and never mutates
-immutable source bundles or answer indices.
+Before activation, each candidate is also checked against the same learner-visible
+serialized/brand constraints enforced by the v2 validator. The tool merges eligible
+explanation fields into existing v2 chapter overrides, recomputes exact raw-source
+fingerprints, never touches v1 IDs, and never mutates immutable source bundles or
+answer indices.
 """
 from __future__ import annotations
 
@@ -33,6 +35,8 @@ BANKS = {
 SLUGS = {"Anatomy": "anatomy", "Biochemistry": "biochemistry", "Physiology": "physiology"}
 PAGE_RE = re.compile(r"^\s*=+\s*PDF\s+PAGE\s+\d+\s*=+\s*$", re.I)
 BRAND_ONLY_RE = re.compile(r"^\s*(?:©\s*)?(?:MARROW|PREPLADDER|QBANK)(?:\s+ED\s*\d+)?\s*$", re.I)
+BRAND_LINE = re.compile(r"(?im)^\s*(?:©?\s*MARROW|Sold by\s+@\w+)\s*$")
+SERIALIZED = ("[object Object]", '{\"text\"', '{\"type\"', '\"content\":', "```")
 ALNUM_RE = re.compile(r"[A-Za-z0-9]")
 
 
@@ -63,6 +67,27 @@ def fragment_is_ultrasafe(fragment: str) -> bool:
     if PAGE_RE.fullmatch(s) or BRAND_ONLY_RE.fullmatch(s):
         return True
     return ALNUM_RE.search(s) is None
+
+
+def final_visible_values(source: dict, existing_override: dict, cleaned_explanation: str) -> list[str]:
+    question = str(existing_override.get("question", source.get("question", ""))).strip()
+    if "options" in existing_override:
+        options = [str(value).strip() for value in existing_override["options"]]
+        correct_idx = int(source["correctOption"]) - 1
+        correct_answer = options[correct_idx]
+    else:
+        options = [str(o.get("text", "")) for o in source.get("options", [])]
+        correct_answer = str(source.get("correctAnswerText", ""))
+    return [question, cleaned_explanation.strip(), correct_answer, *options]
+
+
+def final_visible_is_valid(source: dict, existing_override: dict, cleaned_explanation: str) -> bool:
+    for value in final_visible_values(source, existing_override, cleaned_explanation):
+        if any(marker in value for marker in SERIALIZED):
+            return False
+        if BRAND_LINE.search(value):
+            return False
+    return True
 
 
 def main() -> None:
@@ -119,6 +144,8 @@ def main() -> None:
 
     added = 0
     touched_files = 0
+    rejected_visible = 0
+    accepted_ids: list[str] = []
     for (subject, chapter), cleanups in sorted(eligible.items(), key=lambda item: (item[0][0], int(item[0][1]))):
         out_path = OUT / SLUGS[subject] / f"chapter_{int(chapter):03d}.json"
         if out_path.exists():
@@ -145,7 +172,14 @@ def main() -> None:
                 # A manually reviewed explanation always wins over automation.
                 continue
             if existing is None:
+                if not final_visible_is_valid(source_by_id[qid], row, cleaned):
+                    rejected_visible += 1
+                    # Avoid leaving an empty row created solely for a rejected candidate.
+                    if not row:
+                        questions.pop(qid, None)
+                    continue
                 row["explanation"] = cleaned
+                accepted_ids.append(qid)
                 added += 1
 
         if json.dumps(questions, ensure_ascii=False, sort_keys=True) == before:
@@ -163,10 +197,12 @@ def main() -> None:
     print("ULTRASAFE_MARROW_EXPLANATION_PROMOTION_OK", json.dumps({
         "eligibleQuestions": sum(len(v) for v in eligible.values()),
         "addedExplanations": added,
+        "acceptedIds": accepted_ids,
         "touchedFiles": touched_files,
         "rejectedResidual": rejected_residual,
         "rejectedSemanticFragments": rejected_semantic,
         "rejectedV1Overlap": rejected_v1,
+        "rejectedVisibleValidator": rejected_visible,
     }, sort_keys=True))
 
 
