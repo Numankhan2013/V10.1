@@ -1,0 +1,22 @@
+# Anatomy learner-content cleanup — Batch 06 — 2026-09-13
+
+- Status: `CLEANED` / fully verified.
+- Cleanup integration lane: `fix/marrow-full-content-cleanup-20260913`.
+- Cleanup branch head before reviewed proposal mutation: `80022b460a6038a6dc261301bff6af8c169494aa`.
+- Canonical head checked before mutation and after validation: `feature/marrow-canonical-full-current` at `fcb7c51af1f24d3090a5f7b483bf4c6f2cc003a0`; canonical did not advance during this batch. Its recent Anatomy explanation scope is Chapter 6, so it does not intersect this Chapter 24 cleanup.
+- Exact source: verified Marrow ED8 Anatomy `marrow ed 8 qbank_compressed.pdf`.
+- Rendered source reviewed: Chapter 24 `Brainstem`, explanation pages 415–417, plus existing question/answer-key provenance in the effective review packet.
+- CLEANED IDs: `marrow__ANAT_CH24_Q008`, `marrow__ANAT_CH24_Q010`, `marrow__ANAT_CH24_Q011`.
+- Q8: restored readable source prose for lateral pontine and medial pontine syndromes and removed OCR/symbol spillover only.
+- Q10: retained readable external-features-of-medulla prose and omitted flattened diagram-label OCR.
+- Q11: retained the two source sentences identifying the pyramid/pyramidal tracts and contralateral hemiplegia; omitted diagram-label debris.
+- `marrow__ANAT_CH24_Q012` was explicitly deferred as `REVIEW_REQUIRED` because its explanation contains a multi-column medullary cross-section table spanning pages 418–419; it requires a separate exact source-backed reconstruction rather than a guessed cleanup. This is the next Anatomy source-order item.
+- Q14 was not processed in this bounded batch because Q12 remains the earlier source-order unresolved item.
+- Reviewed proposal commit: `150adb82ae06b15ef27e953103c9f0ba88d3c250`.
+- Promotion/validation workflow: `34758429630` — `SUCCESS`.
+- Verified source-fingerprinted promotion commit: `979887b4201137300d6d2e79bf435c07c41049fc`.
+- Mandatory gates passed: every active v2 override validated; complete 2,711-question effective learner bank rebuilt; raw/effective correctOption indexes identical; learner-visible debris rescan completed; `questionOptionCandidateQuestions` remains exactly `0`.
+- No question text, option text, answer index, answer mapping, stable ID, chapter ownership, or source provenance was changed by this batch.
+- Effective residual after verified promotion: `438` explanation candidates globally — Anatomy `33`, Biochemistry `72`, Physiology `333`; stem/option candidates `0`.
+- Chapter 24 residual is now exactly two candidates: Q12 and Q14. Q8, Q10 and Q11 are absent from the rebuilt explanation debris queue.
+- Exact next unresolved Anatomy source-order item: `marrow__ANAT_CH24_Q012`, question page 408, answer-key page 409, explanation pages 418–419. Reconstruct its table only from authoritative rendered source; if exact structure cannot be established, retain `REVIEW_REQUIRED` and do not guess.
