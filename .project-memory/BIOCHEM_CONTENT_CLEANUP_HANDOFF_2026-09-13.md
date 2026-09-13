@@ -9,38 +9,45 @@
 - Verified promotion commit: `1fbc0d94ba4be8b5695574007ac5c2d4e5043865`.
 - Promotion/validation workflow: `34749172112` — SUCCESS.
 - Stable IDs cleaned: `marrow__BIOCHEM_CH03_Q003`, `Q007`, `Q010`, `Q011`, `Q012`, `Q014`, `Q017`, `Q020`.
-- Source pages represented by the reviewed candidate provenance: question pages 45–50; explanation pages 52–59.
-- Cleanup only: removed OCR/code-like debris, flattened diagram spillover, and adjacent-solution leakage. No explanation enhancement campaign was performed.
-- `correctOption`, answer mapping, question/options, subject/chapter ownership, and immutable raw source were not changed.
-- Global effective-bank validation passed through the promotion workflow: full corpus 2,711; exact answer-index invariant; learner-visible question/option candidate count remains 0.
-- Effective Biochemistry explanation residual count after promotion: **104**, down from **112** at run start.
-- Chapter 3 now has no remaining explanation candidates in the effective debris summary.
+- Effective Biochemistry explanation residual count after promotion: **104**, down from **112**.
 
 ### Batch 03 — Chapter 17: Porphyrins and bile pigments, Q1–Q12
 
-- Cleanup integration lane: `fix/marrow-full-content-cleanup-20260913`.
-- Live cleanup head before mutation: `643291a8b65b2bee803670f5c9623774b9192613`.
-- Live canonical head checked before mutation: `fcb7c51af1f24d3090a5f7b483bf4c6f2cc003a0`; no overlapping Biochemistry cleanup mutation was present.
 - Reviewed proposal commit: `c0322b9e7f0157cad452df1ab55e30b2c4e3ba5d`.
 - Verified promotion commit: `22fef0823f0e0c87702403c2261772924151b244`.
 - Promotion/validation workflow: `34751308008` — SUCCESS.
 - Stable IDs cleaned: `marrow__BIOCHEM_CH17_Q001` through `marrow__BIOCHEM_CH17_Q012`.
-- Rendered source pages inspected directly from verified `biochemistryed8.pdf`: explanation pages 270–276; embedded text was treated as unreliable where corrupted.
-- Cleanup only: removed OCR symbol noise, footer/brand spillover, diagram OCR flattening, malformed separators, and corrupted source-transcription fragments. Diagram relationships were retained as prose only where they were medically meaningful and visually verifiable from the rendered source.
-- No gold-standard tuning, new Key Takeaways, added teaching content, or answer changes were introduced.
-- `correctOption`, answer mapping, question/options, subject/chapter ownership, figure ownership, and immutable raw source were not changed.
-- Global promotion validation passed: full corpus 2,711; exact answer-index invariant; learner-visible question/option candidate count remains **0**.
-- Effective Biochemistry explanation residual count after promotion: **94**, down from **104** at run start.
-- Global explanation residuals after this promotion: Anatomy 43, Biochemistry 94, Physiology 350; total 487.
-- Chapter 17 residual explanation candidates: **10**.
+- Rendered source pages: 270–276 from verified `biochemistryed8.pdf`.
+- Effective Biochemistry explanation residual count: **94**, down from **104**.
+
+### Batch 04 — Chapter 17 remainder
+
+- Verified promotion commit: `dae5f6b5ea85728da58a3081f129a4635b12365c`.
+- CLEANED IDs: `marrow__BIOCHEM_CH17_Q013`, `Q014`, `Q016`, `Q017`, `Q018`, `Q019`, `Q020`, `Q022`, `Q023`, `Q024`.
+- Effective Biochemistry explanation residual count: **84**, down from **94**.
+- Chapter 17 cleared from the effective debris queue.
+
+### Batch 05 — Chapter 18: Enzymes - Mechanism of Action & Clinical Importance
+
+- Cleanup head before reviewed proposal: `7a83ba29441c33afa709b03646338b0e668c0809`.
+- Canonical head checked before mutation: `fcb7c51af1f24d3090a5f7b483bf4c6f2cc003a0`; no intersecting Biochemistry cleanup mutation.
+- Reviewed proposal commit: `11d1962efa7e795ebdfff6419807b2f3a701bda5`.
+- Verified promotion commit: `8ce27142e72b8461b1a213858ce223ae61b9c26b`.
+- Promotion/validation workflow: `34756630261` — SUCCESS.
+- Rendered source pages inspected: 289–296 of verified `biochemistryed8.pdf`.
+- CLEANED IDs: `marrow__BIOCHEM_CH18_Q001`, `Q003`, `Q005`, `Q006`, `Q007`, `Q008`, `Q010`, `Q012`, `Q013`, `Q014`, `Q015`, `Q016`.
+- Cleanup-only: OCR/symbol debris and malformed flattened diagram/table transcription removed; source-verifiable LDH table relationships were retained as clean prose. No explanation tuning or medical expansion.
+- Full 2,711-question effective-bank validation passed; raw/effective answer indices identical; `questionOptionCandidateQuestions` remains **0**.
+- Effective Biochemistry explanation residual count: **72**, down from **84**. Global explanation residuals: Anatomy 36, Biochemistry 72, Physiology 344; total 452.
+- Chapter 18 now has one explanation candidate remaining and zero question/option candidates.
 
 ## Exact next Biochemistry cleanup point
 
-- Chapter 17 — `Porphyrins and bile pigments`.
-- Next deterministic source-order candidate: `marrow__BIOCHEM_CH17_Q013`.
-- Question source page 265; explanation source page 277.
-- Chapter 17 currently contains 10 remaining explanation candidates and 0 question/option candidates.
+- Chapter 18 — `Enzymes - Mechanism of Action & Clinical Importance`.
+- Next deterministic source-order candidate: `marrow__BIOCHEM_CH18_Q017`.
+- Question source pages 287–288; explanation source page 296.
+- Do not skip Q17. After it is resolved, rebuild the effective queue and continue to the next source-order chapter.
 
 ## Coordination rule
 
-Before the next mutation, resolve the live heads of both the cleanup lane and `feature/marrow-canonical-full-current`, rebuild/re-read the effective debris audit, and avoid overlapping writes with another cleanup worker. Do not merge this cleanup lane to canonical/main automatically.
+Before every mutation, resolve the live heads of both the cleanup lane and `feature/marrow-canonical-full-current`, rebuild/re-read the effective debris audit, and avoid overlapping writes with another cleanup worker. Do not merge this cleanup lane to canonical/main automatically.
