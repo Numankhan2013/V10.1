@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Anatomy",
+  "chapterId": "57",
+  "chapter": "Nerves & Vessels of Lower Limb",
+  "candidateQuestionCount": 2,
+  "questionOptionCandidateCount": 2,
+  "explanationCandidateCount": 0,
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH57_Q002",
+      "questionNumber": 2,
+      "sourcePage": 1088,
+      "reviewStatus": "pass",
+      "question": "A patient presents with tingling, numbness, and burning pain in the outer part of the right thigh. There is no motor dysfunction. What is the root value of this patient's affected nerve?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "L1, L2"
+        },
+        {
+          "letter": "B",
+          "text": "L2, L3"
+        },
+        {
+          "letter": "C",
+          "text": "L1, L2, L3"
+        },
+        {
+          "letter": "D",
+          "text": "L2, L3, L4"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [
+        {
+          "field": "option_A",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "L1, L2",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "L2, L3",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_C",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "L1, L2, L3",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "L2, L3, L4",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
+      "id": "marrow__ANAT_CH57_Q017",
+      "questionNumber": 17,
+      "sourcePage": 1092,
+      "reviewStatus": "pass",
+      "question": "What is the root value of cremasteric reflex?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "L1, L2"
+        },
+        {
+          "letter": "B",
+          "text": "L3, L4"
+        },
+        {
+          "letter": "C",
+          "text": "S1, S2"
+        },
+        {
+          "letter": "D",
+          "text": "T8, T9"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [
+        {
+          "field": "option_A",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "L1, L2",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "L3, L4",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_C",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "S1, S2",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "T8, T9",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    }
+  ]
+}

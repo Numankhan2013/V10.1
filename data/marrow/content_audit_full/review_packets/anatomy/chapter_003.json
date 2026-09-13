@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Anatomy",
+  "chapterId": "3",
+  "chapter": "Embryonic Phase of Development",
+  "candidateQuestionCount": 2,
+  "questionOptionCandidateCount": 1,
+  "explanationCandidateCount": 1,
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH03_Q004",
+      "questionNumber": 4,
+      "sourcePage": 30,
+      "reviewStatus": "resolved_reconstruction",
+      "question": "Arrange the following structures formed during the development of the definitive notochord, from the earlier stage to the later stage.\n\n1. Notochordal plate\n2. Notochordal process\n3. Primitive pit (blastopore)\n4. Notochordal canal",
+      "options": [
+        {
+          "letter": "A",
+          "text": "3 – 4 – 2 – 1"
+        },
+        {
+          "letter": "B",
+          "text": "1 – 4 – 2 – 3"
+        },
+        {
+          "letter": "C",
+          "text": "3 – 2 – 4 – 1"
+        },
+        {
+          "letter": "D",
+          "text": "1 – 2 – 4 – 3"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "edge_noise",
+            "many_linebreaks"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "1. Notochordal plate",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "2. Notochordal process",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 5,
+              "text": "3. Primitive pit (blastopore)",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 6,
+              "text": "4. Notochordal canal",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
+      "id": "marrow__ANAT_CH03_Q011",
+      "questionNumber": 11,
+      "sourcePage": 33,
+      "reviewStatus": "pass",
+      "question": "Nucleus pulposus is derived from ____________.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1"
+        },
+        {
+          "letter": "B",
+          "text": "2"
+        },
+        {
+          "letter": "C",
+          "text": "3"
+        },
+        {
+          "letter": "D",
+          "text": "4"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 4,
+              "text": "2 - Ectoderm",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 5,
+              "text": "3 - Endoderm",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 6,
+              "text": "4 - Intraembryonic mesoderm",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Nucleus pulposus is derived from the notochord (marked as 1).\n\nThe other labelled structures are:\n2 - Ectoderm\n3 - Endoderm\n4 - Intraembryonic mesoderm"
+    }
+  ]
+}

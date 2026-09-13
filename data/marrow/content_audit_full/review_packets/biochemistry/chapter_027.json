@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Biochemistry",
+  "chapterId": "27",
+  "chapter": "Regulation of gene expression",
+  "candidateQuestionCount": 1,
+  "questionOptionCandidateCount": 0,
+  "explanationCandidateCount": 1,
+  "questions": [
+    {
+      "id": "marrow__BIOCHEM_CH27_Q010",
+      "questionNumber": 10,
+      "sourcePage": 422,
+      "reviewStatus": "pass",
+      "question": "Which of the following describes the function of an enzyme known as dicer?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "It degrades single-stranded DNA"
+        },
+        {
+          "letter": "B",
+          "text": "It degrades single-stranded mRNA"
+        },
+        {
+          "letter": "C",
+          "text": "It degrades mRNA with no poly(A) tail"
+        },
+        {
+          "letter": "D",
+          "text": "It trims small double-stranded RNAs into molecules that can block translation"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 6,
+              "text": "1. Promoting mRNA degradation directly",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "2. Stimulating CCR4/NOT complex-mediated poly(A) tail degradation",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "3. Inhibition of translation by targeting the 5′-methyl cap-binding translation factor",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Dicer is an endonuclease that trims small double-stranded RNA into molecules that can block translation.\n\nDicer is an enzyme that cleaves the cytosolic dsRNA encoded by the genome and generates short, double-stranded (ds) miRNA. One of the two strands (the guide or antisense strand) is selected for loading into the RNA-induced silencing complex (RISC) which is composed of one of four argonaute proteins (Ago 1–4). The RNA then forms a mature, functional 21–22 nt single-stranded miRNA.\n\nIn the RISC complex, miRNAs can modulate mRNA function by one of three mechanisms:\n1. Promoting mRNA degradation directly\n2. Stimulating CCR4/NOT complex-mediated poly(A) tail degradation\n3. Inhibition of translation by targeting the 5′-methyl cap-binding translation factor"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Physiology",
+  "chapterId": "36",
+  "chapter": "Acid-Base Balance, Renal Hormones and Micturition Reflex",
+  "candidateQuestionCount": 1,
+  "questionOptionCandidateCount": 0,
+  "explanationCandidateCount": 1,
+  "questions": [
+    {
+      "id": "marrow__PHYSIO_CH36_Q024",
+      "questionNumber": 24,
+      "sourcePage": 683,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "In a patient with metabolic acidosis, which of the following changes are seen?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Increased K+ excretion"
+        },
+        {
+          "letter": "B",
+          "text": "Decreased K+ excretion"
+        },
+        {
+          "letter": "C",
+          "text": "Increased Na+ excretion"
+        },
+        {
+          "letter": "D",
+          "text": "Increased Na+ reabsorption"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "K+ secretion into the renal tubules is decreased when H+ secretion is increased (intracellular buffering of H+). Thus in metabolic acidosis, there is decreased K+ excretion.",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "K+ secretion into the renal tubules is decreased when H+ secretion is increased (intracellular buffering of H+). Thus in metabolic acidosis, there is decreased K+ excretion."
+    }
+  ]
+}

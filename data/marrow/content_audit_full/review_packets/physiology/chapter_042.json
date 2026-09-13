@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Physiology",
+  "chapterId": "42",
+  "chapter": "Female Reproductive Physiology",
+  "candidateQuestionCount": 5,
+  "questionOptionCandidateCount": 4,
+  "explanationCandidateCount": 1,
+  "questions": [
+    {
+      "id": "marrow__PHYSIO_CH42_Q003",
+      "questionNumber": 3,
+      "sourcePage": 783,
+      "reviewStatus": "pass_with_source_note",
+      "question": "The corpus luteum starts regressing after how many days post ovulation?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "5"
+        },
+        {
+          "letter": "B",
+          "text": "10"
+        },
+        {
+          "letter": "C",
+          "text": "24"
+        },
+        {
+          "letter": "D",
+          "text": "17"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The human corpus luteum starts regressing ~10 days after ovulation.",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The human corpus luteum starts regressing ~10 days after ovulation.\n\nOvulation occurs on day 14, and the day corpus luteum begins to regress on day 25 of the menstrual cycle.\n\nTherefore,\nDays after ovulation when corpus luteum starts regressing = 25 - 14 = 11 days.\n\nThe human corpus luteum is programmed to live for 14 days, plus or minus 2 days (corpus luteum of menstruation)."
+    },
+    {
+      "id": "marrow__PHYSIO_CH42_Q010",
+      "questionNumber": 10,
+      "sourcePage": 785,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "Corpus luteum of pregnancy is maintained by ______",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Estrogen"
+        },
+        {
+          "letter": "B",
+          "text": "Progesterone"
+        },
+        {
+          "letter": "C",
+          "text": "Oxytocin"
+        },
+        {
+          "letter": "D",
+          "text": "HCG"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Corpus luteum of pregnancy is maintained by ______",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
+      "id": "marrow__PHYSIO_CH42_Q011",
+      "questionNumber": 11,
+      "sourcePage": 785,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "FSH receptor is present in ______",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Theca cells"
+        },
+        {
+          "letter": "B",
+          "text": "Granulosa cells"
+        },
+        {
+          "letter": "C",
+          "text": "Leydig cells"
+        },
+        {
+          "letter": "D",
+          "text": "Basement membrane of follicle"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "FSH receptor is present in ______",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
+      "id": "marrow__PHYSIO_CH42_Q014",
+      "questionNumber": 14,
+      "sourcePage": 786,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "Secretion of estrogen is maximum ______",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Just before menopause"
+        },
+        {
+          "letter": "B",
+          "text": "At puberty"
+        },
+        {
+          "letter": "C",
+          "text": "At menstruation"
+        },
+        {
+          "letter": "D",
+          "text": "Before ovulation"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Secretion of estrogen is maximum ______",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
+      "id": "marrow__PHYSIO_CH42_Q017",
+      "questionNumber": 17,
+      "sourcePage": 787,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "Inhibin B is secreted by ______",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ovarian follicle"
+        },
+        {
+          "letter": "B",
+          "text": "Stroma"
+        },
+        {
+          "letter": "C",
+          "text": "Surface epithelium of ovary"
+        },
+        {
+          "letter": "D",
+          "text": "Corpus luteum"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Inhibin B is secreted by ______",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Physiology",
+  "chapterId": "37",
+  "chapter": "Pituitary and Thyroid",
+  "candidateQuestionCount": 3,
+  "questionOptionCandidateCount": 2,
+  "explanationCandidateCount": 1,
+  "questions": [
+    {
+      "id": "marrow__PHYSIO_CH37_Q008",
+      "questionNumber": 8,
+      "sourcePage": 696,
+      "reviewStatus": "pass",
+      "question": "GH has its effect on bone growth through ______",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Directly"
+        },
+        {
+          "letter": "B",
+          "text": "IGF-1"
+        },
+        {
+          "letter": "C",
+          "text": "Thyroxine"
+        },
+        {
+          "letter": "D",
+          "text": "Both directly and via IGF-1"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "GH has its effect on bone growth through ______",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
+      "id": "marrow__PHYSIO_CH37_Q015",
+      "questionNumber": 15,
+      "sourcePage": 698,
+      "reviewStatus": "pass",
+      "question": "Sodium-iodide symport is absent in which of the following sites?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pituitary"
+        },
+        {
+          "letter": "B",
+          "text": "Placenta"
+        },
+        {
+          "letter": "C",
+          "text": "Parotid"
+        },
+        {
+          "letter": "D",
+          "text": "Thyroid"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "Na+/I− symporter is present in:",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Sodium-iodide symport is absent in the pituitary.\nNa+/I− symporter is present in:\n• Basolateral membranes of thyrocytes facing the capillaries\n• Salivary glands\n• Gastric mucosa\n• Placenta\n• Ciliary body of the eye\n• Choroid plexus\n• Mammary glands"
+    },
+    {
+      "id": "marrow__PHYSIO_CH37_Q021",
+      "questionNumber": 21,
+      "sourcePage": 700,
+      "reviewStatus": "pass",
+      "question": "Half-life of T4 ______",
+      "options": [
+        {
+          "letter": "A",
+          "text": "10 hours"
+        },
+        {
+          "letter": "B",
+          "text": "6-7 days"
+        },
+        {
+          "letter": "C",
+          "text": "6 weeks"
+        },
+        {
+          "letter": "D",
+          "text": "2-3 months"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Half-life of T4 ______",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    }
+  ]
+}

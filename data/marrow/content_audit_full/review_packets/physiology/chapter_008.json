@@ -1,0 +1,1374 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Physiology",
+  "chapterId": "8",
+  "chapter": "Muscle Physiology II",
+  "candidateQuestionCount": 13,
+  "questionOptionCandidateCount": 8,
+  "explanationCandidateCount": 11,
+  "questions": [
+    {
+      "id": "marrow__PHYS_CH08_Q001",
+      "questionNumber": 1,
+      "sourcePage": 160,
+      "reviewStatus": "pass",
+      "question": "Human cardiac muscle contains .",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Alpha heavy chain of Myosin"
+        },
+        {
+          "letter": "B",
+          "text": "Beta heavy chain of Myosin"
+        },
+        {
+          "letter": "C",
+          "text": "Both a and b co\""
+        },
+        {
+          "letter": "D",
+          "text": "None ” x"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 6,
+          "reasons": [
+            "edge_noise",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 4,
+              "text": "+ B isoform predominates in the adult ventricles. . ce ’",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "aN” >s",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 10,
+              "text": "i i . 2 << »",
+              "reasons": [
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Human heart contains both alpha and beta isoforms of the myosin heavy chain. 8 isoform has a\nlower myosin ATPase activity than the ° isoform.\n*° isoform predominates in the adult atria.\n+ B isoform predominates in the adult ventricles. . ce ’\n¢ The spatial distribution contributes to the well coordinated « contraction of thé heart.\n@\n160 <\naN” >s\nx &\ni i . 2 << »"
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q002",
+      "questionNumber": 2,
+      "sourcePage": 160,
+      "reviewStatus": "pass",
+      "question": "~— ~ ‘ ~\nIntercalated discs are seen in nO ve ; . €\n\nao w<' ~",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Skeletal muscle ., Sa ‘C .{"
+        },
+        {
+          "letter": "B",
+          "text": "Smooth muscle Oo 9 y"
+        },
+        {
+          "letter": "C",
+          "text": "Cardiac muscle , C v.\\,"
+        },
+        {
+          "letter": "D",
+          "text": "All of the above > ; C"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [
+        {
+          "field": "option_C",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Cardiac muscle , C v.\\,",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "~— ~ ‘ ~",
+              "reasons": [
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "ao w<' ~",
+              "reasons": [
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_A",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Skeletal muscle ., Sa ‘C .{",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 13,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "> . \\",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "* Cardiac muscle fibres are made up of many individualcélls connected int series and parallel with",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 5,
+              "text": "- Wo\\ “w",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 6,
+              "text": "one another. ss ot KO } >",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "\\~ ~ Z",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 10,
+              "text": "+ It provides a strong union between-fibers, maintaining cell-to-cell cohesion, so that the pull of",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 12,
+              "text": "‘ _* \\",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 13,
+              "text": "* It contains Desmosomes fe prevent pulling’apart of the cells when strain",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 14,
+              "text": "+ At each intercalated ap the Plasipplpembrane fuses with one another forming gap junction",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 18,
+              "text": "“\" \"",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 19,
+              "text": "=~ —|",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "> . \\\nvS Oo ef\nay Ss ms\n* Cardiac muscle fibres are made up of many individualcélls connected int series and parallel with\n- Wo\\ “w\none another. ss ot KO } >\n¢ The areas where the end of one. muscle fiber abul son another; which always occur at Z lines, are\ncalled intercalated discs. co e % ef\n\\~ ~ Z\n+ It provides a strong union between-fibers, maintaining cell-to-cell cohesion, so that the pull of\none contractile cell can be transmitted along itsraxis to the next.\n‘ _* \\\n* It contains Desmosomes fe prevent pulling’apart of the cells when strain\n+ At each intercalated ap the Plasipplpembrane fuses with one another forming gap junction\nwhich provide lo resis ance bree or the spread of excitation from one fiber to another\npermitting the tie muscleto metion as a syncytium.\n¢ ..\n“\" \"\n=~ —|\nm SS\nCardiac Muscle .\nMitochondria — Si nl Cardiac muscle\ncells\nMyofibrils a init ace TT\n4 ce intercalated\ndisc"
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q003",
+      "questionNumber": 3,
+      "sourcePage": 160,
+      "reviewStatus": "pass",
+      "question": ". se rand\nActivation of, the sympathetic system increases the myocardial contractility of a patient.\n\n+ . . oye . .\n\nWhich of the following is responsible for this positive inotropic effect?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Phosphorylation of Phospholamban"
+        },
+        {
+          "letter": "B",
+          "text": "Dephosphorylation of Phospholamban"
+        },
+        {
+          "letter": "C",
+          "text": "Decreased levels of cAMP"
+        },
+        {
+          "letter": "D",
+          "text": "Increased permeability of cell membrane"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 9,
+          "reasons": [
+            "edge_noise",
+            "many_linebreaks",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": ". se rand",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "+ . . oye . .",
+              "reasons": [
+                "edge_noise",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 12,
+              "text": "This effect is mediated via activation of B1 receptors} which are,eoupled via a,Gs protein to",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 13,
+              "text": "adenylyl cyclase. oo { >",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Phosphorylation of phospholamban is responsible for the positive inotropic effect on the\nmyocardium observed after the stimulation of the sympathetic nervous system.\nPhospholamban is a protein that regulates Ca2+ATPase in the sarcoplasmic reticulum. When\nphosphorylated, phospholamban stimulates the Ca2+ ATPase, resulting in greater uptake and\nstorage of Ca2+ by the sarcoplasmic reticulum.\nIncreased Ca2+ uptake by the sarcoplasmic reticulum has two effects:\nIt causes faster relaxation (i.e., briefer contraction).\nit increases the amount of stored Ca2+ for release on subsequent beats. o\nThis positive inotropic effect has three important features: increased peak tension’ increased rate\nof tension development, and faster rate of relaxation. x “S\nFaster relaxation means that the contraction (twitch) is'shorter, allowing more time for refilling.\nThis effect is mediated via activation of B1 receptors} which are,eoupled via a,Gs protein to\nadenylyl cyclase. oo { >\nActivation of adenylyl cyclase leads to the production of CAMP, activation of protein kinases, and\nphosphorylation of proteins that produce the physiologic effect of,inereased contractility.\n‘"
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q004",
+      "questionNumber": 4,
+      "sourcePage": 160,
+      "reviewStatus": "pass",
+      "question": "Which among the following is the function of phospholamban?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Regulation of Na+-K+ pump"
+        },
+        {
+          "letter": "B",
+          "text": "Transport calcium out of mitochondria"
+        },
+        {
+          "letter": "C",
+          "text": "Regulates calcium entry into sarcoplasmic reticulum"
+        },
+        {
+          "letter": "D",
+          "text": "Binds actin with myosin"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 10,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "; wy",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "* Phospholamban is a proteingthat regulates. SR Ca2+ ATPase (SERCA) in the sarcoplasmic",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "diminished uptake and.storage of Ca2+\\by the sarcoplasmic reticulum, while in its phosphorylated",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "+ Increased €a2+ uptake.by the sarcoplasmic reticulum has two effects:",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "+ It causes faster relaxation (i.e., briefer contraction).",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "* it increases the amount of stored Ca2+ for release on subsequent beats.",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 10,
+              "text": "* Phosphorylation of phospholamban is responsible for the positive inotropic effect effect on the",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 12,
+              "text": "* This effect is mediated via activation of B1 receptors, which are coupled via a Gs protein to",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "; wy\n* Phospholamban is a proteingthat regulates. SR Ca2+ ATPase (SERCA) in the sarcoplasmic\nreticulum. In its dephosphorylated statephospholamban inhibits the Ca2+ ATPase, resulting in\ndiminished uptake and.storage of Ca2+\\by the sarcoplasmic reticulum, while in its phosphorylated\nstate, there is disinhibition of theCa2+ ATPase leading to increased uptake and storage of Ca2+\nby the sarcoplasmic reticulum»,\n+ Increased €a2+ uptake.by the sarcoplasmic reticulum has two effects:\n+ It causes faster relaxation (i.e., briefer contraction).\n* it increases the amount of stored Ca2+ for release on subsequent beats.\n* Phosphorylation of phospholamban is responsible for the positive inotropic effect effect on the\nmyocardium observed after the stimulation of sympathetic nervous system.\n* This effect is mediated via activation of B1 receptors, which are coupled via a Gs protein to\nadenylyl cyclase.\n¢ This positive inotropic effect has three important features: increased peak tension, increased rate\nof tension development, and faster rate of relaxation.\n¢ Faster relaxation means that the contraction (twitch) is shorter, allowing more time for refilling."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q005",
+      "questionNumber": 5,
+      "sourcePage": 161,
+      "reviewStatus": "pass",
+      "question": "Which of the following is not a feature of cardiac muscle?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "All or none phenomenon"
+        },
+        {
+          "letter": "B",
+          "text": "Length-tension relationship\ne."
+        },
+        {
+          "letter": "C",
+          "text": "Tetanization NO"
+        },
+        {
+          "letter": "D",
+          "text": "Plateau potential .— e ;\nfe) o\na x"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 10,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 7,
+              "text": "* o> Depolarisation and overshoot",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 11,
+              "text": "* 2 Plateau phase < e",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 12,
+              "text": ": ~O os",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 13,
+              "text": "+ Due to slow but prolonged opening of Ca2+ channelS) eh",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 14,
+              "text": ". es “s",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 16,
+              "text": "> >",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 17,
+              "text": "* 4— Baseline (RMP) - ~ > @",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 19,
+              "text": "—~ rat =",
+              "reasons": [
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 21,
+              "text": "{",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 22,
+              "text": "+ During phases 0 to 2 and about half of phase. 3 of cardiac.action potential, cardiac muscle cannot",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 27,
+              "text": "* ~ Beeb bed o 00 imo te) 200 300",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 29,
+              "text": "- action potential | | a5 Action potential",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 30,
+              "text": "t Contraction } Coniraction",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Cardiac muscle cannot be tetanized due to long refractory period.\nIn cardiac myocytes, depolarization proceeds rapidly and an overshoot of the zero potential is\npresent. This is followed by a plateau before the membrane potential reaches the RMP (-9omV).\nThis plateau phase lasts for 200 msec or more. Repolarization is therefore not complete until\ncontraction is 50% completed.\nPhases of cardiac action potential\n* o> Depolarisation and overshoot\n¢ Due to opening of voltage-gated Na+ channels\n¢ 1 Initial rapid repolarization\n¢ Due to closure of Na+ channels and opening up of K+ channels “ a\n* 2 Plateau phase < e\n: ~O os\n+ Due to slow but prolonged opening of Ca2+ channelS) eh\n. es “s\n¢ 3 late rapid repolarization Ks at %\n> >\n* 4— Baseline (RMP) - ~ > @\nPhases 3 and 4 are due closure of Ca2+'channels anda slow, delayed increase of K+ efflux\n—~ rat =\nthrough K+ channels. .o iS a\n{\n+ During phases 0 to 2 and about half of phase. 3 of cardiac.action potential, cardiac muscle cannot\nbe excited again, that is, itis in its absolute refractory period. It remains relatively refractory until\nphase 4. Thus, cardiac muscle cannot be'tetanized.»*\nNat channets: = -\n24 a Seniesa” eu ela\n* ~ Beeb bed o 00 imo te) 200 300\n@\n- action potential | | a5 Action potential\nt Contraction } Coniraction\nTime (ms) Time ts)\n©)"
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q006",
+      "questionNumber": 6,
+      "sourcePage": 161,
+      "reviewStatus": "pass",
+      "question": "ne oOo fe:\nThe following graph displays which physiological lawior the heart? ..\n“.\" te ‘\n270 Systolic\nintravascular\n240 pressure\n210\nBS\n= 180\nE 150 Developed\noe tension\n£ 120\na\nye 6 90\nKS * 60 Diastolic\n‘ intravascular\n30 pressure\nie}\n10 20 30 40 50 60 70\nDiastolic volume (mL)",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Starling Law"
+        },
+        {
+          "letter": "B",
+          "text": "Laplace Law"
+        },
+        {
+          "letter": "C",
+          "text": "Bainbridge Law"
+        },
+        {
+          "letter": "D",
+          "text": "Bell-Magendie law"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 13,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "many_linebreaks",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "“.\" te ‘",
+              "reasons": [
+                "edge_noise",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "= 180",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 15,
+              "text": "KS * 60 Diastolic",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 16,
+              "text": "‘ intravascular",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 18,
+              "text": "ie}",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 10,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 9,
+              "text": "+ The decrease is due to beginning disruption of the myocardial fibers and not due to a decrease in",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 15,
+              "text": "= 180",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 17,
+              "text": "> tension",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 20,
+              "text": "& 90 }",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 28,
+              "text": "| ~~ |",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 32,
+              "text": "~,' ‘ 3",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 33,
+              "text": "¥ ~~",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The diagram displays the Length-Tension relationship for a cardiac muscle explaining the Starling\nlaw of the heart.\n\nIn the body, the initial length of the fibers is determined by the degree of diastolic filling of the\nheart, and the pressure developed in the ventricle is proportional to the volume of the ventricle at\nthe end of the filling phase (Starling law of the heart).\nThe developed tension increases as the diastolic volume increases until it reaches a maximum,\nthen tends to decrease.\n+ The decrease is due to beginning disruption of the myocardial fibers and not due to a decrease in\nthe number of cross-bridges between actin and myosin as seen in skeletal muscle.\n270 Systolic\nintravascular\n240 pressure e\n210 NS\n= 180\nE 150 Developed\n> tension\n§ 120\n3 &\n& 90 }\n60 Diastolic\nintravascular\n30 pressure\n10)\n10 20 30 40 50 60 70\nDiastolic volume (mL)\nta toil . “\n| ~~ |\nSolution to Question EY ‘ 4\n“\nHollow viscera, a¥e primarily composed of single-unit smooth muscles.\n~,' ‘ 3\n¥ ~~"
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q008",
+      "questionNumber": 8,
+      "sourcePage": 162,
+      "reviewStatus": "pass",
+      "question": "Which of the following is true regarding excitation-contraction coupling in smooth muscle?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Presence of troponin is essential ~S >"
+        },
+        {
+          "letter": "B",
+          "text": "Sustained contraction occurs with high calcium concentration Oo ’\n\nme os"
+        },
+        {
+          "letter": "C",
+          "text": "Phosphorylation of actin is required for contraction’ 2 e"
+        },
+        {
+          "letter": "D",
+          "text": "Cellular calcium concentration is essential to.cause contraction = _\nx t >"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [
+        {
+          "field": "option_A",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Presence of troponin is essential ~S >",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 7,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 17,
+              "text": "} “ ¢",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 22,
+              "text": "muscle. ee ~)",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 25,
+              "text": "aS ‘",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Increased cytosolic Ca2+ is essential for contraction of smooth muscles.\nEvents in Excitation Contraction Coupling in Smooth Muscles.\n\n+\n\n+\n\n+\n\nJt\nA unitary smooth muscle is unique in that it can eontract when Stretched eyerpin the absence of\nany extrinsic innervation. Stretch is followed by a decrease in membrane’potential and an increase\nin the tone of the muscle. = ro a\nOther options: . * ‘ .\nOption a: Troponin is absent in smooth muscle. “\n\n} “ ¢\nOption b: Sustained contraction of the. smooth muscle occurs even when the calcium\nconcentration falls. This is mainly-because of the,latch-bridge mechanism where the myosin\ncross-bridges remain attached-to-the actin. This mechanism allows for maintaining the\ncontraction with less expenditure of energy,and is particularly important in the vascular smooth\nmuscle. ee ~)\nOption c: Unlike sk@letal muscletwhere troponin binding is essential for contraction, the smooth\nmuscle contraction requires phosphorylation of myosin (not actin).\naS ‘\nn 4"
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q009",
+      "questionNumber": 9,
+      "sourcePage": 162,
+      "reviewStatus": "pass",
+      "question": "ae e< © Y\"\nCalmodulin is mostly both structurally and‘functionally rélated to\n) A ¢",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Actin o* <y"
+        },
+        {
+          "letter": "B",
+          "text": "Myosin light chain kinase, ~ © ~\\*"
+        },
+        {
+          "letter": "C",
+          "text": "Troponin C —— ‘"
+        },
+        {
+          "letter": "D",
+          "text": "Tropomyosin . Qo ao \"\n\n~\\ ~ >\n~,' ."
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [
+        {
+          "field": "option_D",
+          "severity": 15,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "~\\ ~ >",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "~,' .",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 12,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Myosin light chain kinase, ~ © ~\\*",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q010",
+      "questionNumber": 10,
+      "sourcePage": 162,
+      "reviewStatus": "pass",
+      "question": "‘\nA sustained contraction with little expenditure of energy is made possible by a latching\nmechanism in .",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Skeletal muscle"
+        },
+        {
+          "letter": "B",
+          "text": "Smooth muscle"
+        },
+        {
+          "letter": "C",
+          "text": "Cardiac muscle"
+        },
+        {
+          "letter": "D",
+          "text": "All of the above"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "* Smooth muscles can maintain prolonged full tonic contraction with little use of energy (as little",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "* Smooth muscles can maintain prolonged full tonic contraction with little use of energy (as little\nas 1/300 the energy required for comparable sustained skeletal muscle contraction) and with little\n\ncontinued excitatory signal due to this mechanism.\n¢ This is due to the fact that even after dephosphorylation of myosin, the cross-bridges continue to\ncling on for some time.\n¢ The excitation coupling mechanism occurring in smooth muscle is similar to the skeletal muscles\nbut for a few features:\n¢ The process is slow and a low energy mechanism.\n¢ There is no fixed length tension relationship as it shows the property of plasticity (smooth\nmuscles behaving like a viscous mass rather than a rigidly structured tissue).\n¢ This mechanism is specially useful in vascular smooth muscles."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q011",
+      "questionNumber": 11,
+      "sourcePage": 162,
+      "reviewStatus": "pass",
+      "question": "The most distinguishing feature between skeletal muscle and smooth muscle is",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Troponin"
+        },
+        {
+          "letter": "B",
+          "text": "Tropomyosin"
+        },
+        {
+          "letter": "C",
+          "text": "Myosin"
+        },
+        {
+          "letter": "D",
+          "text": "Actin"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 10,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 4,
+              "text": "a ~ ( + Cc",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "WO hy\nActin, myosin, and tropomyosin are present in both skeletal muscle and smooth muscle. But,\ntroponin is absent and calmodulin is present,fn smooth musélé. 4\na ~ ( + Cc\noh xs »"
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q012",
+      "questionNumber": 12,
+      "sourcePage": 163,
+      "reviewStatus": "pass",
+      "question": "Which of the following acts to increase the release of calcium ions from the endoplasmic\nreticulum of a smooth muscle? ce\"",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Calsequestrin ” x :\n\noh ak"
+        },
+        {
+          "letter": "B",
+          "text": "Diacylglycerol sc “ e)"
+        },
+        {
+          "letter": "C",
+          "text": "Inositol Triphosphate (IP3) ~ a ‘ ."
+        },
+        {
+          "letter": "D",
+          "text": "1, 25 di hydroxy cholecalciferol ww i o~ i 4"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [
+        {
+          "field": "option_D",
+          "severity": 9,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "1, 25 di hydroxy cholecalciferol ww i o~ i 4",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_C",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Inositol Triphosphate (IP3) ~ a ‘ .",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 7,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "k. “ ae",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "~~ x",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 6,
+              "text": "stimulus. {~ .",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "+ The influx from the ‘extracellular site through voltage or ligand-gated Ca+2 channels in the",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "+ Efflux from intracellular stores (eg, sarcoplasmic reticulum) through the RyR and the inositol",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "k. “ ae\n~~ x\nIn response to a stimulus, tHe efflux of taldium from intracellular stores occurs through an\nInositol triphosphate receptor (IP3R)>Ca+2 channel.\nThe source of Ca+2 in smooth*muscle contraction can be different depending on the activating\nstimulus. {~ .\n+ The influx from the ‘extracellular site through voltage or ligand-gated Ca+2 channels in the\nplasma membrané. '\n+ Efflux from intracellular stores (eg, sarcoplasmic reticulum) through the RyR and the inositol\ntriosephosphate receptor (IP3R)."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q013",
+      "questionNumber": 13,
+      "sourcePage": 163,
+      "reviewStatus": "pass",
+      "question": "Cy c A\nWhich of the following statements regarding smooth-muscle is false?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Unitary smooth muscle has afuristable menibrane potential"
+        },
+        {
+          "letter": "B",
+          "text": "Dense Bodies are present.instead of Dlines"
+        },
+        {
+          "letter": "C",
+          "text": "It can exert a variable ‘tension at any'given length"
+        },
+        {
+          "letter": "D",
+          "text": "Sympathetic stimulation produces excitatory membrane potentials\n\nK- ‘ z ia\n. .\""
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [
+        {
+          "field": "option_D",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "K- ‘ z ia",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 4,
+              "text": ". .\"",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q014",
+      "questionNumber": 14,
+      "sourcePage": 163,
+      "reviewStatus": "pass_with_source_note",
+      "question": "Given below is the demonstration of tetanization in the gastrocnemius muscle of a frog.\nIdentify the tetanising frequency.\n\n10mm\nSpeed=1000mm/sec - a ’\n>\\\niw \"s\noy ~ »",
+      "options": [
+        {
+          "letter": "A",
+          "text": "25-20 Hz * > a) ©"
+        },
+        {
+          "letter": "B",
+          "text": "30-35 Hz Ww rat CO"
+        },
+        {
+          "letter": "C",
+          "text": "15-20 Hz son &< O >\n> as {"
+        },
+        {
+          "letter": "D",
+          "text": "10-15 Hz oO “ 2 a Hs\noy oS >\n«> ?\n~O ¢ \\<\nwv"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [
+        {
+          "field": "option_D",
+          "severity": 16,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash",
+            "many_linebreaks",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 4,
+              "text": "~O ¢ \\<",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 13,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash",
+            "many_linebreaks"
+          ],
+          "suspectLines": [
+            {
+              "line": 6,
+              "text": ">\\",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "iw \"s",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "oy ~ »",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_C",
+          "severity": 9,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "> as {",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 13,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "- *",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "x > { >",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 5,
+              "text": "+ The y-axis represents millivolts, the x-axiSfepresents time a",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 6,
+              "text": "+ The scale on the x-axis is 1omm. \\ - Co C",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "@ ~S ~",
+              "reasons": [
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "+ The area under the graph represents the muscle’contraction. |",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 17,
+              "text": "* by increasing the number of motor units contracting simultaneously, which is multiple liber",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 19,
+              "text": "* by increasing the frequency of contraction, which is called frequency summation and can lead to",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 25,
+              "text": "* Complete tetanus occurs when no relaxation occurs between stimuli.",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 26,
+              "text": "* Incomplete tetanus when periods of incomplete relaxation take place between the summated",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 29,
+              "text": "| Sse 7 a",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 31,
+              "text": "aa _",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 34,
+              "text": "©) S z&",
+              "reasons": [
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 36,
+              "text": "RS < <P",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 42,
+              "text": "Rs +",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 45,
+              "text": "~ y",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "- *\nTetanizing frequency demonstrated by the muscle is 33Hz. In the above graph, we know,\nThe speed of the paper is 1000mm/sec. xs < »\nx > { >\n+ The y-axis represents millivolts, the x-axiSfepresents time a\n+ The scale on the x-axis is 1omm. \\ - Co C\n@ ~S ~\n+ The area under the graph represents the muscle’contraction. |\nContraction period (latent périod to maximum force of contraction) includes 3 scales = 30 mm.\nAs paper speed is 1000mm/sec, > oy\nContraction period = 30mm = (30/1000) = 30 msec.\nTetanizing frequency = 1/eontraction period’ = 1000/30 = 33Hz.\nTetanization Y _\nThe features of muScle contraction can be demonstrated by eliciting single muscle twitches. The\nadding together of individual twitch contractions to increase the intensity of overall muscle\ncontraction is Summation Summation occurs in two ways:\n* by increasing the number of motor units contracting simultaneously, which is multiple liber\nsummations.\n* by increasing the frequency of contraction, which is called frequency summation and can lead to\ntetanization.\nWhen the frequency of a contraction reaches a critical level, the successive contractions eventually\nfuse together, and the whole muscle contraction appears to be completely smooth and continuous,\nthis is called tetanization.\nTetanization occurs in two ways:\n* Complete tetanus occurs when no relaxation occurs between stimuli.\n* Incomplete tetanus when periods of incomplete relaxation take place between the summated\nstimuli.\n\n| Sse 7 a\n1\naa _\n©\nCad eo\n©) S z&\na a\nRS < <P\nS s es\nd 2\n& ©\n2 ye\nom S\nRs +\n»8 &\nPe\n~ y"
+    }
+  ]
+}

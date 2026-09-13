@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Anatomy",
+  "chapterId": "44",
+  "chapter": "Diaphragm",
+  "candidateQuestionCount": 1,
+  "questionOptionCandidateCount": 1,
+  "explanationCandidateCount": 0,
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH44_Q009",
+      "questionNumber": 9,
+      "sourcePage": 809,
+      "reviewStatus": "pass",
+      "question": "All of the structures pass posterior to the crus of diaphragm except ____",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Aorta"
+        },
+        {
+          "letter": "B",
+          "text": "Azygous vein"
+        },
+        {
+          "letter": "C",
+          "text": "Thoracic duct"
+        },
+        {
+          "letter": "D",
+          "text": "Greater splanchnic nerve"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "All of the structures pass posterior to the crus of diaphragm except ____",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    }
+  ]
+}

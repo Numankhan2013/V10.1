@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Physiology",
+  "chapterId": "30",
+  "chapter": "Blood Pressure and Regulation",
+  "candidateQuestionCount": 3,
+  "questionOptionCandidateCount": 0,
+  "explanationCandidateCount": 3,
+  "questions": [
+    {
+      "id": "marrow__PHYSIO_CH30_Q003",
+      "questionNumber": 3,
+      "sourcePage": 537,
+      "reviewStatus": "pass",
+      "question": "What is mean arterial pressure?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Systolic + (Diastolic BP)/2"
+        },
+        {
+          "letter": "B",
+          "text": "Diastolic + 1/3rd Pulse pressure"
+        },
+        {
+          "letter": "C",
+          "text": "Systolic + 1/3rd Pulse pressure"
+        },
+        {
+          "letter": "D",
+          "text": "Diastolic + (Systolic BP)/2"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 6,
+              "text": "= DBP + 1/3(SBP - DBP)",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "= (3DBP + SBP - DBP)/3",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "= 2/3 DBP + 1/3 SBP",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Mean arterial pressure is diastolic + 1/3rd pulse pressure.\n\nThe mean pressure is the average pressure throughout the cardiac cycle. It is not equal to the average of systolic and diastolic pressure because, at normal heart rates, a greater fraction of the cardiac cycle is spent in diastole than in systole. The mean arterial pressure is therefore determined by about 60 percent by the diastolic pressure and 40 percent by the systolic pressure.\n\nMean BP = DBP + 1/3 Pulse pressure\n= DBP + 1/3(SBP - DBP)\n= (3DBP + SBP - DBP)/3\n= 2/3 DBP + 1/3 SBP"
+    },
+    {
+      "id": "marrow__PHYSIO_CH30_Q013",
+      "questionNumber": 13,
+      "sourcePage": 540,
+      "reviewStatus": "pass",
+      "question": "Baroreceptor provides ______.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Negative feedback"
+        },
+        {
+          "letter": "B",
+          "text": "Positive feedback"
+        },
+        {
+          "letter": "C",
+          "text": "Both negative and positive feedback"
+        },
+        {
+          "letter": "D",
+          "text": "Feedforward control"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 14,
+              "text": "HR - Heart rate",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 15,
+              "text": "BP - Blood pressure",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Baroreceptors provide negative feedback in response to an increase in blood pressure.\n\nIncreased baroreceptor discharge inhibits the tonic discharge of sympathetic nerves and excites the vagal innervation of the heart.\n\nBaroreceptor reflex\n\n• Increased BP → stimulation of baroreceptors → stimulation of NTS → inhibition of RVLM → inhibition of sympathetic system\n• Stimulation of NTS also stimulates CVC → parasympathetic stimulation\n• Net effect = sympathetic inhibition and parasympathetic stimulation → decreased HR and BP\n\nNTS - Nucleus tractus solitarius\nCVC - Cardiovagal center\nRVLM - Rostral ventrolateral medulla\nHR - Heart rate\nBP - Blood pressure"
+    },
+    {
+      "id": "marrow__PHYSIO_CH30_Q014",
+      "questionNumber": 14,
+      "sourcePage": 540,
+      "reviewStatus": "pass",
+      "question": "Afferent fibers from baroreceptors for blood pressure control goes to?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Nucleus ambiguous"
+        },
+        {
+          "letter": "B",
+          "text": "Rostral-ventro lateral medulla"
+        },
+        {
+          "letter": "C",
+          "text": "Nucleus Tractus Solitarius"
+        },
+        {
+          "letter": "D",
+          "text": "Caudal ventrolateral medulla"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 15,
+              "text": "HR - Heart rate",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 16,
+              "text": "BP - Blood pressure",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Afferent fiber for blood pressure control goes to the Nucleus Tractus Solitarius (NTS).\n\nIncreased BP stimulates the baroreceptors which provide negative feedback in response to the increase in blood pressure.\n\nBaroreceptor reflex:\n\n• Increased BP → stimulation of baroreceptors → stimulation of NTS → excitation of CVLM → inhibition of RVLM → inhibition sympathetic system\n• Stimulation of NTS also stimulates CVC → parasympathetic stimulation\n• Net effect = sympathetic inhibition and parasympathetic stimulation → decreased HR and BP\n\nNTS - Nucleus tractus solitarius\nCVC - Cardiovagal centre\nCVLM - Caudal ventrolateral medulla\nRVLM - Rostral ventrolateral medulla\nHR - Heart rate\nBP - Blood pressure"
+    }
+  ]
+}

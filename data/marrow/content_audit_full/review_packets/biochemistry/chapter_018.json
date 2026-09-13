@@ -1,0 +1,680 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Biochemistry",
+  "chapterId": "18",
+  "chapter": "Enzymes - Mechanism of Action & Clinical Importance",
+  "candidateQuestionCount": 10,
+  "questionOptionCandidateCount": 0,
+  "explanationCandidateCount": 10,
+  "questions": [
+    {
+      "id": "marrow__BIOCHEM_CH18_Q001",
+      "questionNumber": 1,
+      "sourcePage": 283,
+      "reviewStatus": "pass",
+      "question": "Which of the following is false regarding the properties of enzymes?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Enzymes are stereospecific catalysts"
+        },
+        {
+          "letter": "B",
+          "text": "Enzymes are neither consumed nor permanently altered in a reaction"
+        },
+        {
+          "letter": "C",
+          "text": "Most of them are proteins"
+        },
+        {
+          "letter": "D",
+          "text": "They are heat-stable"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 7,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Enzymes are not heat-stable. ~~ ‘ x",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 14,
+              "text": "• Peptidyl transferase(™ ~~",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Enzymes are not heat-stable. ~~ ‘ x\nMost enzymes are proteins and are thus susceptible to heat--Many enzymés-also have temperature\nranges at which they are most active, and*they get deactivated at temperatures higher than the\n\n3 i F\n\naforementioned range. ‘ x* s\n\nCoenzymes are heat-stable. Enzymes are stereospecific catalysts. They are neither consumed nor\npermanently altered in a reaction. Most of,them are proteins except ribozymes. A ribozyme is\nRNA with catalytic activity. Some examples of ribozymes are:\n• Sn Rna in the spliceosome. > *\n• Ribonuclease P cs x\n• Peptidyl transferase(™ ~~\n\n« RNAse P"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH18_Q003",
+      "questionNumber": 3,
+      "sourcePage": 283,
+      "reviewStatus": "pass",
+      "question": "Which of the following is the prosthetic group present in the enzyme dinitrogenase?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Molybdenum"
+        },
+        {
+          "letter": "B",
+          "text": "Zinc"
+        },
+        {
+          "letter": "C",
+          "text": "Manganese"
+        },
+        {
+          "letter": "D",
+          "text": "Copper"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 7,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 10,
+              "text": "have metal ions as an integral part of their structure. ~eX",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 12,
+              "text": "Holoenzyme | Apoenzyme x",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 20,
+              "text": "| (Metal)",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 25,
+              "text": ". ,",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 28,
+              "text": "4, _",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The prosthetic group present in dinitrogenase is Molybdenum.\n\nProsthetic groups are non-protein part of a holoenzyme which are tightly and irreversibly bound\nto the protein part by covalent or noncovalent forces. The prosthetic group may be organic (such\nas a vitamin, sugar, or lipid) or inorganic (such as a metal ion). Metal ions constitute the most\ncommon type of prosthetic group.\n\nIf an enzyme uses metal ion as a prosthetic group it is called a metalloenzyme. Metalloenzymes\n\nhave metal ions as an integral part of their structure. ~eX\nActive enzyme = Non-protein part + Protein part\nHoloenzyme | Apoenzyme x\nf t\nInseparable from protein If separable from protein\npart part, it is called as Cofactor\n\nProsthetic group\n\nOrganic Inorganic\n| (Metal)\n\n(Metal) omen’ Cofactor\nMetalloenzymes Metal-activated\nenzymes\n. ,\n— rd\n.\n4, _"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH18_Q005",
+      "questionNumber": 5,
+      "sourcePage": 284,
+      "reviewStatus": "pass",
+      "question": "Which of the following is not a coenzyme?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Lipoic acid"
+        },
+        {
+          "letter": "B",
+          "text": "ATP"
+        },
+        {
+          "letter": "C",
+          "text": "Vitamin K"
+        },
+        {
+          "letter": "D",
+          "text": "S-adenosyl methionine"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 10,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 22,
+              "text": "Holoenzyme | Apoenzyme ¢",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 33,
+              "text": ". s",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 35,
+              "text": "» \\",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "S-adenosyl methionine is not a coenzyme. Its a methyl group donor.\n\nCoenzymes are cofactors in which organic compound is present. Coenzymes transiently and\n\nreversibly bind to the enzyme to catalyze the reaction. They play an important role as a two-way\nshuttle.\n\nSome coenzymes:\n• Coenzyme A\n« ATP/GTP\n\n• NAD/NADP\n• FAD/FMN\n• Lipoic acid\n• B-complex vitamins\n• Vitamin C\n• Vitamin K\n\nActive enzyme = —Non-protein part + Protein part &\nVG\n\nHoloenzyme | Apoenzyme ¢\nInseparable from protein If separable from protein\npart part, it is called as Cofactor\nProsthetic group &\nOrganic Inorganic »\nT (Metal)\ninoroante Coenzyme $\n(Metal) organic Cofactor\nMetalloenzymes Metal-activated\nenzymes\n\n. s\n\n» \\\n‘a 7"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH18_Q007",
+      "questionNumber": 7,
+      "sourcePage": 284,
+      "reviewStatus": "pass",
+      "question": "Which of the following enzyme is not involved in oxidation-reduction reactions?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Dehydrogenase"
+        },
+        {
+          "letter": "B",
+          "text": "Hydrolase"
+        },
+        {
+          "letter": "C",
+          "text": "Peroxidase"
+        },
+        {
+          "letter": "D",
+          "text": "Oxygenase"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 10,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 9,
+              "text": "| (Metal)",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 16,
+              "text": ". % 4",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 17,
+              "text": "C <N",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 18,
+              "text": "< > f",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 19,
+              "text": ".~ - 2 *",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 20,
+              "text": "~ 2 <<‘",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 22,
+              "text": "\" 7",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 23,
+              "text": "‘OC ~<*",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "re)\n\na)\n\nIf separable from protein\npart, it is called as Cofactor\n\nOrganic Inorganic\n| (Metal)\nCoenzyme t\nCofactor\n\nMetal-activated\n\nenzymes\n. % 4\nC <N\n< > f\n.~ - 2 *\n~ 2 <<‘\nro% <\n\" 7\n‘OC ~<*\ni »,\n\nHydrolases are not involved in oxidation-reduction reactions: Hydrolases are involved in the\n\nhydrolysis of the substrate: using water."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH18_Q010",
+      "questionNumber": 10,
+      "sourcePage": 285,
+      "reviewStatus": "pass",
+      "question": "Which of the following is a lyase?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Aldolase B"
+        },
+        {
+          "letter": "B",
+          "text": "Acetyl-CoA Carboxylase"
+        },
+        {
+          "letter": "C",
+          "text": "Fatty Acyl- CoA Dehydrogenase"
+        },
+        {
+          "letter": "D",
+          "text": "Acetyl-CoA Synthetase"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 13,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 8,
+              "text": "• Argininosuccinate lyase _.\\>",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 10,
+              "text": "“‘s\"",
+              "reasons": [
+                "edge_noise",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 11,
+              "text": "• ATP citrate lyase \\",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Aldolase B is a lyase.\n\nLyases are enzymes that catalyze.the cleavage of C-C, C-O, C-N and other covalent bonds by atom\nelimination generating double bonds.\n\nSome examples of lyase s include:\n• HMG-CoA lyase, ‘\n• Argininosuccinate lyase _.\\>\n\n“‘s\"\n• ATP citrate lyase \\\n• Aldolase\n\n« Fumarase"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH18_Q012",
+      "questionNumber": 12,
+      "sourcePage": 285,
+      "reviewStatus": "pass",
+      "question": "Which of the following is not a non functional enzyme?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Lipoprotein lipase"
+        },
+        {
+          "letter": "B",
+          "text": "Alkaline phosphatase"
+        },
+        {
+          "letter": "C",
+          "text": "Lactate Dehydrogenase"
+        },
+        {
+          "letter": "D",
+          "text": "Gamma glutamyltranspeptidase"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 14,
+              "text": ". Oo",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Lipoprotein lipase is not a non-functional enzyme. It is a functional enzyme.\n\nFunctional enzymes have a specific function in the plasma such as coagulation factors,\npseudocholinesterases, and lipoprotein lipases.\n\nNonfunctional enzymes have no specific function in the plasma.\n• They are released from the cells as a result of normal wear and tear. Their level is very low in\nserum.\n• They serve as biomarkers whose levels in the plasma can assist in the diagnosis and prognosis of\ndiseases affecting specific tissues.\n• Eg: Lactate dehydrogenase, Creatine kinase, alkaline phosphatase, gamma glutamyl\ntranspeptidase.\n\n. Oo"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH18_Q013",
+      "questionNumber": 13,
+      "sourcePage": 286,
+      "reviewStatus": "pass",
+      "question": "All of the following is true about isoenzymes except",
+      "options": [
+        {
+          "letter": "A",
+          "text": "They catalyze the same reaction."
+        },
+        {
+          "letter": "B",
+          "text": "They have the same number of charged amino acids."
+        },
+        {
+          "letter": "C",
+          "text": "They can be separated by electrophoresis."
+        },
+        {
+          "letter": "D",
+          "text": "They differ in tissue localization."
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 10,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 14,
+              "text": "q\\ cae",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "50° et\n.\n\nIsoenzymes do not have the same number of chain amino acide, z\n\nIsoenzymes are physically distinct forms of fhe same enzymeThey catalyze tiie same reaction but\ndiffer in the following: a? < .\n• Amino acid sequence and the romapler changed.aino acids a\n• Subunit composition: CK-1 Bains BB whilé €K- -2 contains MB subunits\n• Electrophoretic mobility=OK= 1 moves sor than CK; 3\n• Tissue localization: CK-1 is presenti the bral OR: +2 in the heart\n• Substrate affinity: Glucokinase fas low affinity but hexokinase has high affinity.\n\nq\\ cae"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH18_Q014",
+      "questionNumber": 14,
+      "sourcePage": 286,
+      "reviewStatus": "pass",
+      "question": "A 20-year old woman presented with generalised weakness and lightheadedness for 2 weeks. Her peripheral smear showed RBC fragments and blood investigations were notable for decreased haemoglobin, increased indirect bilirubin and LDH. Which of the following isoenzymes of LDH is likely to be raised?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "LDH 3"
+        },
+        {
+          "letter": "B",
+          "text": "LDH 4"
+        },
+        {
+          "letter": "C",
+          "text": "LDH-5"
+        },
+        {
+          "letter": "D",
+          "text": "LDH-2"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 10,
+              "text": "LDH- | HHHH Heart and RBC",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 13,
+              "text": "LDH- | HHHM RBC and kidney",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 15,
+              "text": "LDH- | HHMM Lungs, Spleen, Brain, Lymph",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 18,
+              "text": "LDH- | HMMM fs Liver and skeletal muscle",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 21,
+              "text": "LDH- | MMMM | Liver and skeletal muscle",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Oo —\n\nThe getie scenafthor a woman with fragmented RBCs and decreased RBCs is suggestive\nof hemolytic anemia. LDH1 and LDH-2 isoenzymes are expressed in the RBC and particularly\nraised during hemolysis.\n\nLDH is a tetrameric enzyme with 4 subunits. It has four subunits with two isoforms: H-isoform\n(Heart) and M-isoform (Muscle)\n\nLDH- | HHHH Heart and RBC\n1\n\nLDH- | HHHM RBC and kidney\n\nLDH- | HHMM Lungs, Spleen, Brain, Lymph\n\n3 atic tissues, Platelets\nLDH- | HMMM fs Liver and skeletal muscle\n4\n\nLDH- | MMMM | Liver and skeletal muscle"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH18_Q015",
+      "questionNumber": 15,
+      "sourcePage": 286,
+      "reviewStatus": "pass",
+      "question": "A 54-year-old man who is a known case of diabetes mellitus and hypertension experiences severe, sudden-onset chest pain radiating to the left arm and profuse sweating. He was admitted to the emergency ward. An ECG is taken which is as shown below. Which of the following is true regarding blood lactate dehydrogenase levels in this scenario?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "LDH 1 > LDH 2"
+        },
+        {
+          "letter": "B",
+          "text": "LDH2 > LDH1"
+        },
+        {
+          "letter": "C",
+          "text": "LDH 2 > LDH 3"
+        },
+        {
+          "letter": "D",
+          "text": "LDH 3 > LDH 2"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 7,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 6,
+              "text": "predominantly present in the heart. So, normally LDH | &gt LDH 1 in blood. When cardiac tissue",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 13,
+              "text": "‘ a oO AY",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 15,
+              "text": "LDH- | HHHH Heart and RBC",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 18,
+              "text": "LDH- | HHHM RBC and kidneys",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 20,
+              "text": "< LDH- | HHMM Lungs, brain, lymphatic tissu",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 23,
+              "text": "‘ ~~ LDH- | HMMM [fs Liver and skeletal muscle",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 25,
+              "text": "LDH- | MMMM | Liver and skeletal muscle",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The given clinical scenario of sudden onset chest pain with profuse sweating and 12 Lead\nElectrocardiogram (ECG) with ST-segment elevation in Leads II, III, and aVF is suggestive of\nmyocardial Infarction. Serum LDH 1 > LDH 2 levels are seen in this condition.\n\nUnder normal conditions, LDH 2 is predominantly presentin n the blood EDH 1is\npredominantly present in the heart. So, normally LDH | &gt LDH 1 in blood. When cardiac tissue\nis damaged LDH 1 is released into the Pret Lbae results i ing flipped lactate\n\ndehydrogenase (LDH) ratio where LDH 1 > nS\nLDH is a tetrameric enzyme with 4 subunits’ Cm four 1 subg with storms H isoform\n(heart) and M isoform (muscle) . WY as ws\n\n‘ a oO AY\n\nLDH- | HHHH Heart and RBC\n1\n\nLDH- | HHHM RBC and kidneys\n\n< LDH- | HHMM Lungs, brain, lymphatic tissu\n\n5 13 es, and platelets\n‘ ~~ LDH- | HMMM [fs Liver and skeletal muscle\nNK 4\nLDH- | MMMM | Liver and skeletal muscle\n5"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH18_Q016",
+      "questionNumber": 16,
+      "sourcePage": 287,
+      "reviewStatus": "pass",
+      "question": "A 40-year-old man was admitted with complaints of fever, anorexia, vomiting, abdominal pain and dark urine since 6 days. On investigation, he had elevated liver enzymes and serology was positive for IgM hepatitis A antibodies. Which of the following liver enzymes is most specific for his condition?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Alkaline phosphatase (ALP)"
+        },
+        {
+          "letter": "B",
+          "text": "Aspartate aminotransferase (AST)"
+        },
+        {
+          "letter": "C",
+          "text": "Alanine aminotransferase (ALT)"
+        },
+        {
+          "letter": "D",
+          "text": "Gamma glutamyl transferase (GGT)"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "(ALT).",
+              "reasons": [
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The enzyme most specific for his condition, acute viral hepatitis, is alanine aminotransferase\n(ALT).\n\nAlanine aminotransferase (ALT) is predominantly found in the liver and therefore is a more\nspecific marker for hepatocellular damage than AST.\n\nAspartate aminotransferase (AST) is found in various tissues. The AST/ALT ratio is very\nimportant.\n• AST/ALT &lt;1 is seen in hepatocellular damage like in NAFLD, toxic hepatitis, paracetamol\ntoxicity. In cirrhosis, the ratio becomes more than 1.\n\n• AST/ALT> 2 is suggestive while AST/ALT> 3 is highly suggestive of alcoholic liver disease.\nOther options:\n\nOption A: Alkaline phosphatase rise is seen in many liver diseases but more than fourfold rise\nindicates cholestasis.\n\nOption D: GGT is used to identify occult alcohol use."
+    }
+  ]
+}

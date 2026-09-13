@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Anatomy",
+  "chapterId": "50",
+  "chapter": "Hepatobiliary system, Spleen & Pancreas",
+  "candidateQuestionCount": 1,
+  "questionOptionCandidateCount": 1,
+  "explanationCandidateCount": 0,
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH50_Q004",
+      "questionNumber": 4,
+      "sourcePage": 914,
+      "reviewStatus": "pass",
+      "question": "The CT abdomen of a patient shows a large abscess in the right part of the liver. Which of the following Couinaud's segments are involved here?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "V, VI, VII, VIII"
+        },
+        {
+          "letter": "B",
+          "text": "V, VI, VII"
+        },
+        {
+          "letter": "C",
+          "text": "IV, V, VI, VII, VIII"
+        },
+        {
+          "letter": "D",
+          "text": "VI, VII, VIII"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [
+        {
+          "field": "option_A",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "V, VI, VII, VIII",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "V, VI, VII",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_C",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "IV, V, VI, VII, VIII",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "VI, VII, VIII",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    }
+  ]
+}

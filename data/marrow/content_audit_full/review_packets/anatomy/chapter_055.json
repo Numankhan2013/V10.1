@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Anatomy",
+  "chapterId": "55",
+  "chapter": "Joints of the Lower Limb",
+  "candidateQuestionCount": 1,
+  "questionOptionCandidateCount": 1,
+  "explanationCandidateCount": 0,
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH55_Q018",
+      "questionNumber": 18,
+      "sourcePage": 1046,
+      "reviewStatus": "needs_manual_review",
+      "question": "Chopart's ligament is related to which of the following joints?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "2, 4, 5"
+        },
+        {
+          "letter": "B",
+          "text": "1 and 2"
+        },
+        {
+          "letter": "C",
+          "text": "1, 2, 3"
+        },
+        {
+          "letter": "D",
+          "text": "1 and 3"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [
+        {
+          "field": "option_A",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "2, 4, 5",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_C",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "1, 2, 3",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    }
+  ]
+}
