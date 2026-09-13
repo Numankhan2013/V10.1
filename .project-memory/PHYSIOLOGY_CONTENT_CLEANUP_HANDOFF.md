@@ -31,3 +31,24 @@
 - Do not call Chapter 5 clean. It remains deferred solely because of the current v1/v2 ownership contract, not because source text is unavailable.
 - Do not bypass the reviewed proposal promoter or weaken v1/v2 overlap protection. A later architecture migration must preserve the already accepted Ch5/Ch7 question/options byte-for-byte while adding source-fingerprinted explanations.
 - Continue Chapter 6 in deterministic source order from Q22 for ordinary cleanup work.
+
+## 2026-09-13 — Batch 07 (Chapter 6 completion)
+
+- Re-checked cleanup head and canonical head before mutation. Canonical remained at `fcb7c51af1f24d3090a5f7b483bf4c6f2cc003a0`; no intersecting canonical Physiology cleanup change was found.
+- Re-read the reviewed proposal promoter/workflow and preserved the v1/v2 overlap guard. Chapter 5 remains `REVIEW_REQUIRED`; Chapter 7 is subject to the same accepted-v1 ownership guard and must not be bypassed.
+- Rendered source reviewed directly from verified `physiologyed8.pdf`, pages 115–125, covering the remaining Chapter 6 explanation candidates.
+- Cleaned the final 10 Chapter 6 explanation candidates: `marrow__PHYS_CH06_Q022`, `Q023`, `Q025`, `Q026`, `Q027`, `Q029`, `Q030`, `Q032`, `Q033`, `Q034`.
+- Removed only OCR/diagram/footer spillover and preserved source-readable teaching content. Diagram/table material was converted only where its textual relationship was clearly readable; unreadable non-prose debris was omitted rather than guessed.
+- To respect promoter duplicate-ID protection, the old inert Chapter 6 proposal was removed and replaced by `data/marrow/content_hygiene_proposals/physiology/chapter_006_cleanup_batch_20260913_07.json`; active v2 override history was not deleted or rewritten outside the promoter.
+- Proposal commits: removal `134b6ac0a7e6c9f062913450f115695152f45727`; reviewed batch `062b65c034679c951a3a0ca1dc525b92e91b84cf`.
+- Promotion workflow run `34760526105` completed successfully and produced promotion commit `ea60da9426f94a64b3efb03e04cdb66cf8dc20ee`.
+- The workflow passed the v2 validator, rebuilt the full 2,711-question effective bank, verified raw/effective answer-index identity, and re-ran learner-visible debris scanning.
+- Post-promotion effective audit: `questionOptionCandidateQuestions=0`; explanation candidates global `427`, Anatomy `33`, Biochemistry `71`, Physiology `323`.
+- `data/marrow/content_audit_effective/review_packets/physiology/chapter_006.json` no longer exists after the audit, confirming Chapter 6 has no remaining detector candidates.
+- Next ordinary v2-compatible source-order candidate after the v1-owned Chapter 5/7 deferrals is `marrow__PHYS_CH08_Q001`, question page 160, explanation page 165. Chapter 8 currently has 10 explanation candidates and zero question/option candidates.
+
+### Current handoff rule
+
+- Do not call Chapter 5 or Chapter 7 clean; both require safe v1→v2 ownership migration before explanation overrides can be promoted.
+- Do not weaken overlap protection or write directly around the reviewed proposal promoter.
+- Continue ordinary cleanup from `marrow__PHYS_CH08_Q001` unless the v1→v2 migration is implemented first.
