@@ -60,3 +60,16 @@
 - The promotion workflow validated every active v2 override, rebuilt and rescanned the complete 2,711-question effective bank, proved raw/effective correct-option indexes identical, and kept `questionOptionCandidateQuestions` exactly 0.
 - Effective residual after promotion: 525 explanation candidates globally; Anatomy 54, Biochemistry 112, Physiology 359. Chapter 3 now has 10 detector-flagged explanation candidates; Q4 remains the previously documented legitimate-equation false-positive.
 - Exact next unresolved Physiology source-order item requiring cleanup after skipping documented Q4 false-positive: `marrow__PHYS_CH03_Q014`, explanation page 48. Continue in Chapter 3 source order.
+
+## 2026-09-13 — Anatomy cleanup batch 02 — VALIDATION PENDING
+
+- Cleanup integration lane: `fix/marrow-full-content-cleanup-20260913`.
+- Cleanup branch head before proposal mutation: `7460a681d1c2a55f4a6ec53fc24a77d18ea73401`; canonical head checked before mutation: `feature/marrow-canonical-full-current` at `fcb7c51af1f24d3090a5f7b483bf4c6f2cc003a0`. Canonical's recent Anatomy explanation scope remains Chapter 6 Q8-Q18; this batch is Chapter 12 and does not intersect it.
+- Reviewed proposal commit: `9cbf528f0bec1337e0e1c7e7c136bf7ed28355e1`.
+- Promotion/validation workflow: `34748665052`, currently QUEUED; there is no failed job and no other queued repository workflow. Do not count this batch as CLEANED until the workflow succeeds and the source-fingerprinted v2 promotion is committed.
+- Source reviewed: exact verified Marrow ED8 Anatomy `marrow ed 8 qbank_compressed.pdf`; rendered explanation pages 225-229 for Chapter 12 `Bone, Cartilage & Muscular Tissue`.
+- Source-reviewed proposal IDs: `marrow__ANAT_CH12_Q008`, `marrow__ANAT_CH12_Q010`, `marrow__ANAT_CH12_Q012`, `marrow__ANAT_CH12_Q015`.
+- Cleanup reconstructed only readable source prose from the rendered pages and removed OCR/footer/flattened visual debris. No question text, option text, correctOption, answer mapping, stable ID, chapter ownership, or figure provenance was intentionally changed.
+- Last fully verified effective residual before this pending batch: 525 explanation candidates globally; Anatomy 54, Biochemistry 112, Physiology 359; `questionOptionCandidateQuestions` = 0.
+- Expected Anatomy residual after a successful promotion is 50 if all four reviewed IDs become detector-clean, but this is not yet a verified count and must not be used as the authoritative residual until the workflow completes.
+- Exact next unresolved Anatomy item cannot be advanced past Chapter 12 until this promotion/validator finishes; if successful and all four IDs are detector-clean, determine the next item from the newly rebuilt effective audit rather than guessing.
