@@ -1,0 +1,1047 @@
+{
+  "schemaVersion": 1,
+  "subject": "Physiology",
+  "chapterId": "9",
+  "chapter": "Synapse and Junctional Transmission",
+  "candidateQuestionCount": 17,
+  "questions": [
+    {
+      "id": "marrow__PHYS_CH09_Q001",
+      "questionNumber": 1,
+      "sourcePage": 173,
+      "reviewStatus": "pass",
+      "question": "A synapse is a junction between :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1and2"
+        },
+        {
+          "letter": "B",
+          "text": "1,2,3"
+        },
+        {
+          "letter": "C",
+          "text": "Alli, 2, 3,4 ce"
+        },
+        {
+          "letter": "D",
+          "text": "1,2, 4 x\n}"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "}",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q002",
+      "questionNumber": 2,
+      "sourcePage": 173,
+      "reviewStatus": "pass",
+      "question": "~~ oO \"4\nAll of the following are true regarding chemical synapses except_ E",
+      "options": [
+        {
+          "letter": "A",
+          "text": "These are the most common type’of synapses 4"
+        },
+        {
+          "letter": "B",
+          "text": "Neurotransmitter is produced by the présynaptic neuron"
+        },
+        {
+          "letter": "C",
+          "text": "Protoplasmic continuity between pre? and post-synaptic membrane ensures faster conduction"
+        },
+        {
+          "letter": "D",
+          "text": "Conduction is always orthodromic x"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 12,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "~~ oO \"4",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q005",
+      "questionNumber": 5,
+      "sourcePage": 174,
+      "reviewStatus": "pass",
+      "question": "Which of the following is not a monoamine neurotransmitter?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "GABA"
+        },
+        {
+          "letter": "B",
+          "text": "Norepinephrine"
+        },
+        {
+          "letter": "C",
+          "text": "DOPA \\S"
+        },
+        {
+          "letter": "D",
+          "text": "Serotonin aS >\n\n~~? ~~"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "option_D",
+          "severity": 12,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "~~? ~~",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_C",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "DOPA \\S",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q006",
+      "questionNumber": 6,
+      "sourcePage": 174,
+      "reviewStatus": "pass",
+      "question": "ne CO s,\nWhich of the following is true regarding metabotropic qleurotransmitters?\nX .",
+      "options": [
+        {
+          "letter": "A",
+          "text": "They act through second messenger systems. A"
+        },
+        {
+          "letter": "B",
+          "text": "They bind to cationic channels and inétease influx of Na"
+        },
+        {
+          "letter": "C",
+          "text": "They bind to anionic channels andincrease influxjof Cl"
+        },
+        {
+          "letter": "D",
+          "text": "They inhibit the fusion of synaptic vesicle with the synaptic cleft\n\n<q x"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "X .",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q007",
+      "questionNumber": 7,
+      "sourcePage": 174,
+      "reviewStatus": "pass",
+      "question": "Ss ‘ ca\n‘ \\ ~ >\n\nWhich of théfollowing is false regarding the neurotransmitter glutamate in the brain?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "It is involved in excitatory neurotansmission"
+        },
+        {
+          "letter": "B",
+          "text": "It is a minor neurotransmitter in the brain"
+        },
+        {
+          "letter": "C",
+          "text": "It acts via both ionotropic and metabotropic receptors"
+        },
+        {
+          "letter": "D",
+          "text": "Glycine binding to the NMDA receptor is essential for the receptor to respond to glutamate"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 15,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Ss ‘ ca",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "‘ \\ ~ >",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q009",
+      "questionNumber": 9,
+      "sourcePage": 175,
+      "reviewStatus": "pass",
+      "question": "Correctly matched with its receptor is",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Nicotinic — G-Protein Coupled Receptor"
+        },
+        {
+          "letter": "B",
+          "text": "GABA-A — ionotropic"
+        },
+        {
+          "letter": "C",
+          "text": "GABA-B - Ionotropic"
+        },
+        {
+          "letter": "D",
+          "text": "Glycine — G-Protein Coupled Receptor ~S >\nOo"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Glycine — G-Protein Coupled Receptor ~S >",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q010",
+      "questionNumber": 10,
+      "sourcePage": 175,
+      "reviewStatus": "pass",
+      "question": "oe (\nWhich is not true about neuromodulators?» * oie ~ .",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Modify the postsynaptic neuron's response toa specific neurotransmitter\n‘ x ~"
+        },
+        {
+          "letter": "B",
+          "text": "May change the presynaptic néuron’s release.of'a transmitter"
+        },
+        {
+          "letter": "C",
+          "text": "May be released by the presynaptic netron along with the neurotransmitter"
+        },
+        {
+          "letter": "D",
+          "text": "Actions are faster than neurotransmitters <y\n~~ | ."
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "option_D",
+          "severity": 12,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "~~ | .",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_A",
+          "severity": 9,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "‘ x ~",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "Which is not true about neuromodulators?» * oie ~ .",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q011",
+      "questionNumber": 11,
+      "sourcePage": 175,
+      "reviewStatus": "pass",
+      "question": "a> ~)\nA medical student was doing research in a laboratory that studies the neuromuscular\njunction. Whieh of the following events at the junction are listed in correct sequential order?\n4",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Motor neuron action potential, acetylcholine release, Ca2+ entry at the endplate"
+        },
+        {
+          "letter": "B",
+          "text": "Ca2+ entry into the motor nerve terminal, acetylcholine release, Na+ entry at the endplate"
+        },
+        {
+          "letter": "C",
+          "text": "Ca2+ entry into the motor nerve terminal, Na+ entry at the endplate, motor neuron action\npotential"
+        },
+        {
+          "letter": "D",
+          "text": "Na+ entry at the endplate, acetylcholine release, muscle fiber action potential"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 12,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "a> ~)",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Na+ entry at the endplate, acetylcholine release, muscle fiber action potential",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q013",
+      "questionNumber": 13,
+      "sourcePage": 176,
+      "reviewStatus": "pass",
+      "question": "Inhibitory Postsynaptic Potential (IPSP) is due to influx of",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Na+"
+        },
+        {
+          "letter": "B",
+          "text": "K+"
+        },
+        {
+          "letter": "C",
+          "text": "Ca2+\n\ne."
+        },
+        {
+          "letter": "D",
+          "text": "Cl- NS\noS co\n“2 ~"
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "option_D",
+          "severity": 9,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Cl- NS",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "“2 ~",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q014",
+      "questionNumber": 14,
+      "sourcePage": 176,
+      "reviewStatus": "pass",
+      "question": "ww\" e\nThe following effect in the motor neuron is: due to: aie ~ <\nMotor neuron\nInterneuron\n~,'",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Opening of chloride ion channels through the pre-synaptic neuronal membrane"
+        },
+        {
+          "letter": "B",
+          "text": "Increase in conductance of potassium ions to the inside of the neuron"
+        },
+        {
+          "letter": "C",
+          "text": "Activation of receptor enzymes that increase the number of inhibitory synaptic receptors"
+        },
+        {
+          "letter": "D",
+          "text": "Increase in conductance of sodium ions inside the neuron"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 10,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "many_linebreaks"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "ww\" e",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "The following effect in the motor neuron is: due to: aie ~ <",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 5,
+              "text": "~,'",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q016",
+      "questionNumber": 16,
+      "sourcePage": 177,
+      "reviewStatus": "pass",
+      "question": "Which of the following physiologic processes is not correctly matched?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Presynaptic inhibition : Axo-axonal synapse\n\nC."
+        },
+        {
+          "letter": "B",
+          "text": "Postsynaptic inhibition: GABA produces IPSP NS"
+        },
+        {
+          "letter": "C",
+          "text": "Presynaptic inhibition: GABA-B receptors decrease K+ conductance. eC ’\na ~ os"
+        },
+        {
+          "letter": "D",
+          "text": "Presynaptic inhibition: GABA-A receptors increase Cl conductance?\n7% c& ¢ >"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "option_C",
+          "severity": 9,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "a ~ os",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 5,
+          "reasons": [
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "7% c& ¢ >",
+              "reasons": [
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q017",
+      "questionNumber": 17,
+      "sourcePage": 177,
+      "reviewStatus": "pass",
+      "question": "Y\" < rat\nae <O >\"\n\nRenshaw cell inhibition is » * »",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Feedback facilitation “ 5 . * ‘ ¢ o"
+        },
+        {
+          "letter": "B",
+          "text": "Feedback inhibition *4 ‘ “*)"
+        },
+        {
+          "letter": "C",
+          "text": "Feed forward inhibition ‘ ~\\*"
+        },
+        {
+          "letter": "D",
+          "text": "Indirect inhibition .\\™ ‘"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "option_C",
+          "severity": 12,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Feed forward inhibition ‘ ~\\*",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Indirect inhibition .\\™ ‘",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 8,
+          "reasons": [
+            "edge_noise",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Y\" < rat",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "ae <O >\"",
+              "reasons": [
+                "edge_noise",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q019",
+      "questionNumber": 19,
+      "sourcePage": 177,
+      "reviewStatus": "pass",
+      "question": "Presynaptic facilitation is due to prolonged opening of.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Na+ channels"
+        },
+        {
+          "letter": "B",
+          "text": "K+ channels"
+        },
+        {
+          "letter": "C",
+          "text": "Ca2+ channels"
+        },
+        {
+          "letter": "D",
+          "text": "Cl- channels"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "option_A",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Na+ channels",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "K+ channels",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Cl- channels",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q020",
+      "questionNumber": 20,
+      "sourcePage": 178,
+      "reviewStatus": "pass",
+      "question": "A person with myasthenia gravis notes increased muscle strength when he is treated with an\nacetylcholinesterase (AChE) inhibitor. The basis for his improvement is due to the increase in",
+      "options": [
+        {
+          "letter": "A",
+          "text": "The amount of acetylcholine (ACh) released from motor nerves ce\""
+        },
+        {
+          "letter": "B",
+          "text": "The level of ACh at the muscle end plates . ‘ 2’"
+        },
+        {
+          "letter": "C",
+          "text": "The number of ACh receptors on the motor end plates - os"
+        },
+        {
+          "letter": "D",
+          "text": "Synthesis of norepinephrine in motor nerves ‘ r\n“oO i \\ ."
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "option_D",
+          "severity": 12,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "“oO i \\ .",
+              "reasons": [
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q021",
+      "questionNumber": 21,
+      "sourcePage": 178,
+      "reviewStatus": "pass",
+      "question": "- PAS “a\non x .\n0 X .\nA 55-year-old woman had an autonomic neuropathy that disrupted the sympathetic nerve\nsupply to the pupillary dilator muscle of Her'right eye.(While having her eyes examined, the\nophthalmologist placed a sympathomimetic drug imboth her eyes. The right eye became\nmuch more dilated than the left eye” This suggests that:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "The sympathetic nerve to the right eyeshad regenerated"
+        },
+        {
+          "letter": "B",
+          "text": "The parasympathetic nerve supply to'the right eye remained intact and compensated for the\nloss of the sympathetic nerve . *"
+        },
+        {
+          "letter": "C",
+          "text": "Denervation supersensitivity had developed\n4"
+        },
+        {
+          "letter": "D",
+          "text": "The left eye also had nerve damage and so was not responding as expected"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "edge_noise",
+            "many_linebreaks"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "- PAS “a",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q024",
+      "questionNumber": 24,
+      "sourcePage": 179,
+      "reviewStatus": "pass",
+      "question": "Which of the following endogenous opioids is correctly matched with the récéptor at which it\nhas maximum potency? i .",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Enkephalins - 6 receptors PN oy ;"
+        },
+        {
+          "letter": "B",
+          "text": "Dynorphins - 1 receptors ~— < »\n\nx { >"
+        },
+        {
+          "letter": "C",
+          "text": "Endorphins - « receptors 7% ear, ra’"
+        },
+        {
+          "letter": "D",
+          "text": "Both B and C =~ - fo re ‘\n‘ SS »"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "option_B",
+          "severity": 9,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Dynorphins - 1 receptors ~— < »",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "x { >",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 9,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Both B and C =~ - fo re ‘",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "‘ SS »",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q025",
+      "questionNumber": 25,
+      "sourcePage": 179,
+      "reviewStatus": "pass",
+      "question": ">~ ‘er, .\nWhich of the following physiologi@processes isnot correctly paired with a structure?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Electrical transmission.\\gap junction"
+        },
+        {
+          "letter": "B",
+          "text": "Negative feedback inhibition | Renshaw cell"
+        },
+        {
+          "letter": "C",
+          "text": "Synaptic vesicle docking and fusion : presynaptic nerve terminal"
+        },
+        {
+          "letter": "D",
+          "text": "Endplate’ potential : muscarinic cholinergic receptor"
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 12,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": ">~ ‘er, .",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_A",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Electrical transmission.\\gap junction",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Negative feedback inhibition | Renshaw cell",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

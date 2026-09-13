@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "subject": "Anatomy",
+  "chapterId": "27",
+  "chapter": "Spinal Cord",
+  "candidateQuestionCount": 1,
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH27_Q007",
+      "questionNumber": 7,
+      "sourcePage": 461,
+      "reviewStatus": "pass",
+      "question": "You are given the following section of the spinal cord. The lowest projection of the marked structure lies at which level of the spinal nerves?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "T9, T10"
+        },
+        {
+          "letter": "B",
+          "text": "T12, L1"
+        },
+        {
+          "letter": "C",
+          "text": "S2, S3"
+        },
+        {
+          "letter": "D",
+          "text": "S4, S5"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "option_A",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "T9, T10",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_C",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "S2, S3",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "S4, S5",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,505 @@
+{
+  "schemaVersion": 1,
+  "subject": "Physiology",
+  "chapterId": "13",
+  "chapter": "Special Senses",
+  "candidateQuestionCount": 6,
+  "questions": [
+    {
+      "id": "marrow__PHYS_CH13_Q001",
+      "questionNumber": 1,
+      "sourcePage": 241,
+      "reviewStatus": "pass",
+      "question": "Light entering the eye first passes through retinal layer.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Inner nuclear layer"
+        },
+        {
+          "letter": "B",
+          "text": "Outer nuclear layer\n) Outer plexiform layer ~ce*\nof"
+        },
+        {
+          "letter": "C",
+          "text": "Outer plexiform layer"
+        },
+        {
+          "letter": "D",
+          "text": "Retinal ganglion layer = > ©\no~ o\nNe) xe\nx ve"
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "option_D",
+          "severity": 9,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "o~ o",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": ") Outer plexiform layer ~ce*",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH13_Q002",
+      "questionNumber": 2,
+      "sourcePage": 241,
+      "reviewStatus": "pass",
+      "question": "eo < S\n«2 fe F\naN S eS\nInitiation of visual impulse is associated with. se\n. im with Wee KC >",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Condensation of opsin with Vitantin A . ¢\n\\S J bas"
+        },
+        {
+          "letter": "B",
+          "text": "Photoisomerisation and: hydrolysis of yi8dal purple OS\nse >"
+        },
+        {
+          "letter": "C",
+          "text": "NADP me, van"
+        },
+        {
+          "letter": "D",
+          "text": "NAD >? \\e\nae =~\nRe wo"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "option_D",
+          "severity": 12,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "NAD >? \\e",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "ae =~",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_A",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "\\S J bas",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "edge_noise",
+            "many_linebreaks"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "eo < S",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 5,
+              "text": ". im with Wee KC >",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "se >",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH13_Q006",
+      "questionNumber": 6,
+      "sourcePage": 242,
+      "reviewStatus": "pass",
+      "question": "© < we\nws A F Cea fe) >t\nWhich is the first-order neuron in the optig way? <",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Rods and cones re « ae Ss"
+        },
+        {
+          "letter": "B",
+          "text": "Ganglion cells Ney m4 LL\nCells in lateral geniculate bod xr co"
+        },
+        {
+          "letter": "C",
+          "text": "Cells in lateral geniculate-body ee _e"
+        },
+        {
+          "letter": "D",
+          "text": "Bipolar cells Con oO\na? a\na eo\nRS <°"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "option_D",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "a? a",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "RS <°",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH13_Q010",
+      "questionNumber": 10,
+      "sourcePage": 243,
+      "reviewStatus": "pass",
+      "question": "Ne) sO\nThe fibers from contralateral nasal retina projegttovthe followai layers of jateral geniculate\nnucleus RG fe) es\n=) a? Ow",
+      "options": [
+        {
+          "letter": "A",
+          "text": "2.3.5 ,~ ‘SS ~\noh KO PS"
+        },
+        {
+          "letter": "B",
+          "text": "14,6 Ney ve rae\n6) 1.2.3 Le) xe . ae\na aE"
+        },
+        {
+          "letter": "C",
+          "text": "1,2,3"
+        },
+        {
+          "letter": "D",
+          "text": "4.5.6 Re <<"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "option_A",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "2.3.5 ,~ ‘SS ~",
+              "reasons": [
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "4.5.6 Re <<",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 5,
+          "reasons": [
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 4,
+              "text": "=) a? Ow",
+              "reasons": [
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH13_Q014",
+      "questionNumber": 14,
+      "sourcePage": 244,
+      "reviewStatus": "pass",
+      "question": "we es\ner UR\nAuditory information is relayed through _\\\"thalamiemndleus. o>\nCe -« Pa",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Dorsomedial nucleus ,~ Sy \\*\n) oa KO x"
+        },
+        {
+          "letter": "B",
+          "text": "Lateral geniculate nucleus x » © é * ee"
+        },
+        {
+          "letter": "C",
+          "text": "Medial geniculate nucleus 3s Ley ~"
+        },
+        {
+          "letter": "D",
+          "text": "Ventral Posterolateral nucleus 40> <<\nSs es\noe? ="
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "option_A",
+          "severity": 12,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Dorsomedial nucleus ,~ Sy \\*",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 12,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "Auditory information is relayed through _\\\"thalamiemndleus. o>",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "Ce -« Pa",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_C",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Medial geniculate nucleus 3s Ley ~",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Ventral Posterolateral nucleus 40> <<",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "oe? =",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH13_Q018",
+      "questionNumber": 18,
+      "sourcePage": 245,
+      "reviewStatus": "pass",
+      "question": "ww <\n‘ : «2 fe) Rey\nMitral cells are seen in a. i} n&",
+      "options": [
+        {
+          "letter": "A",
+          "text": "left atrium = Ko Ss"
+        },
+        {
+          "letter": "B",
+          "text": "Olfactory bulb Ney & &"
+        },
+        {
+          "letter": "C",
+          "text": "Primary visual cortex. C~ es e"
+        },
+        {
+          "letter": "D",
+          "text": "Geniculate body _@ OY\noo 2\nxe nS\nre o\nQuestion 19 S ta"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 9,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "ww <",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "‘ : «2 fe) Rey",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "Mitral cells are seen in a. i} n&",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_C",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Primary visual cortex. C~ es e",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 3,
+          "reasons": [
+            "many_linebreaks"
+          ],
+          "suspectLines": []
+        }
+      ]
+    }
+  ]
+}

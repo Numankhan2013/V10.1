@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "subject": "Anatomy",
+  "chapterId": "4",
+  "chapter": "Placenta, Fetal Membranes and Twinning",
+  "candidateQuestionCount": 1,
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH04_Q013",
+      "questionNumber": 13,
+      "sourcePage": 52,
+      "reviewStatus": "resolved_reconstruction",
+      "question": "A 37-year-old man is diagnosed with renal failure and is advised to undergo renal transplantation. The patient has a twin brother who is willing to donate his kidney. Which of the following types of twins are HLA identical, hence the recipient twin does not require immunosuppression?\n\n1. Dichorionic diamniotic monozygotic twins\n2. Monochorionic diamniotic monozygotic twins\n3. Monochorionic monoamniotic monozygotic twins",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1 only"
+        },
+        {
+          "letter": "B",
+          "text": "2 and 3"
+        },
+        {
+          "letter": "C",
+          "text": "3 only"
+        },
+        {
+          "letter": "D",
+          "text": "1, 2, and 3"
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "edge_noise",
+            "many_linebreaks"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "1. Dichorionic diamniotic monozygotic twins",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "2. Monochorionic diamniotic monozygotic twins",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 5,
+              "text": "3. Monochorionic monoamniotic monozygotic twins",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "1, 2, and 3",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

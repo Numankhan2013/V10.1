@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "subject": "Physiology",
+  "chapterId": "43",
+  "chapter": "Exercise Physiology",
+  "candidateQuestionCount": 1,
+  "questions": [
+    {
+      "id": "marrow__PHYSIO_CH43_Q001",
+      "questionNumber": 1,
+      "sourcePage": 805,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "The maximum contractile force of any muscle per square cm cross-sectional area is _____",
+      "options": [
+        {
+          "letter": "A",
+          "text": "3-4 kg/cm2"
+        },
+        {
+          "letter": "B",
+          "text": "5-6 kg/cm2"
+        },
+        {
+          "letter": "C",
+          "text": "10-12 kg/cm2"
+        },
+        {
+          "letter": "D",
+          "text": "15-17 kg/cm2"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The maximum contractile force of any muscle per square cm cross-sectional area is _____",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

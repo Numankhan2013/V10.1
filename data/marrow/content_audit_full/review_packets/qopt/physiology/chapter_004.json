@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "subject": "Physiology",
+  "chapterId": "4",
+  "chapter": "Membrane Potentials",
+  "candidateQuestionCount": 2,
+  "questions": [
+    {
+      "id": "marrow__PHYS_CH04_Q008",
+      "questionNumber": 8,
+      "sourcePage": 56,
+      "reviewStatus": "pass",
+      "question": "The resting membrane potential of a nerve fibre depends on",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Diffusion of Na+ ions"
+        },
+        {
+          "letter": "B",
+          "text": "Na+-K+ ATPase pump"
+        },
+        {
+          "letter": "C",
+          "text": "Diffusion of K+ ions"
+        },
+        {
+          "letter": "D",
+          "text": "All of the above"
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "option_B",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Na+-K+ ATPase pump",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH04_Q014",
+      "questionNumber": 14,
+      "sourcePage": 59,
+      "reviewStatus": "pass_with_note",
+      "question": "X, Y, Z are three permeable ions. X = -50 and Y = -30. At RMP, if there is no net electrogenic transfer, what is the value of Z?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "+20"
+        },
+        {
+          "letter": "B",
+          "text": "-20"
+        },
+        {
+          "letter": "C",
+          "text": "+80"
+        },
+        {
+          "letter": "D",
+          "text": "-80"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "X, Y, Z are three permeable ions. X = -50 and Y = -30. At RMP, if there is no net electrogenic transfer, what is the value of Z?",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

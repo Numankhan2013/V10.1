@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "subject": "Physiology",
+  "chapterId": "3",
+  "chapter": "Transport Across Cell Membrane",
+  "candidateQuestionCount": 3,
+  "questions": [
+    {
+      "id": "marrow__PHYS_CH03_Q005",
+      "questionNumber": 5,
+      "sourcePage": 35,
+      "reviewStatus": "pass",
+      "question": "Which of the following does not follow transport saturation kinetics?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Facilitated diffusion"
+        },
+        {
+          "letter": "B",
+          "text": "Na+-Ca2+ exchanger"
+        },
+        {
+          "letter": "C",
+          "text": "Simple diffusion"
+        },
+        {
+          "letter": "D",
+          "text": "Coupled transport"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "option_B",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Na+-Ca2+ exchanger",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH03_Q013",
+      "questionNumber": 13,
+      "sourcePage": 37,
+      "reviewStatus": "pass",
+      "question": "Na+-K+ ATP pump uses _____.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "ATPase"
+        },
+        {
+          "letter": "B",
+          "text": "GTPase"
+        },
+        {
+          "letter": "C",
+          "text": "Acetyl CoA"
+        },
+        {
+          "letter": "D",
+          "text": "NADPH"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Na+-K+ ATP pump uses _____.",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH03_Q014",
+      "questionNumber": 14,
+      "sourcePage": 37,
+      "reviewStatus": "pass",
+      "question": "Primary active transport is mediated by which one of the following enzymes?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "G-Protein"
+        },
+        {
+          "letter": "B",
+          "text": "Na+-K+ ATPase"
+        },
+        {
+          "letter": "C",
+          "text": "Carrier protein"
+        },
+        {
+          "letter": "D",
+          "text": "Channel protein"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "option_B",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Na+-K+ ATPase",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

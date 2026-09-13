@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "subject": "Anatomy",
+  "chapterId": "18",
+  "chapter": "Meninges and dural venous sinuses",
+  "candidateQuestionCount": 1,
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH18_Q004",
+      "questionNumber": 4,
+      "sourcePage": 327,
+      "reviewStatus": "pass",
+      "question": "Which of the following nerves do not innervate the marked structure?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Trigeminal nerve branches"
+        },
+        {
+          "letter": "B",
+          "text": "C2, C3 spinal nerves"
+        },
+        {
+          "letter": "C",
+          "text": "Cervical sympathetic trunk"
+        },
+        {
+          "letter": "D",
+          "text": "Facial nerve branches"
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "option_B",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "C2, C3 spinal nerves",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

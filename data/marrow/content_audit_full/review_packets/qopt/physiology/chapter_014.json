@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "subject": "Physiology",
+  "chapterId": "14",
+  "chapter": "Motor Physiology - 1",
+  "candidateQuestionCount": 1,
+  "questions": [
+    {
+      "id": "marrow__PHYS_CH14_Q032",
+      "questionNumber": 32,
+      "sourcePage": 265,
+      "reviewStatus": "pass",
+      "question": "A 50-year-old man with medically controlled atrial fibrillation develops sudden right-sided weakness. Which Brodmann area is most likely affected?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "4"
+        },
+        {
+          "letter": "B",
+          "text": "1, 2, 3"
+        },
+        {
+          "letter": "C",
+          "text": "5, 7"
+        },
+        {
+          "letter": "D",
+          "text": "16, 18"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "option_B",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "1, 2, 3",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_C",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "5, 7",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "16, 18",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

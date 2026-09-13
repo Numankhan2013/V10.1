@@ -1,0 +1,827 @@
+{
+  "schemaVersion": 1,
+  "subject": "Physiology",
+  "chapterId": "10",
+  "chapter": "Neurotransmitters",
+  "candidateQuestionCount": 11,
+  "questions": [
+    {
+      "id": "marrow__PHYS_CH10_Q001",
+      "questionNumber": 1,
+      "sourcePage": 198,
+      "reviewStatus": "pass",
+      "question": "Which of the following neurotransmitter is not a biogenic amine?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Norepinephrine"
+        },
+        {
+          "letter": "B",
+          "text": "Dopamine"
+        },
+        {
+          "letter": "C",
+          "text": "Serotonin ce\"\n\nof"
+        },
+        {
+          "letter": "D",
+          "text": "Glycine x o-\n~O ne"
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "~O ne",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q002",
+      "questionNumber": 2,
+      "sourcePage": 198,
+      "reviewStatus": "pass",
+      "question": "Ow ‘ Ray 4\ni fe a\n=~ =) es\n‘The main excitatory and inhibitory neurotransmitters ithe CNS arb\nwk <6 <",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Glutamate and glycine respectively es (2\n\\\\ Ne S"
+        },
+        {
+          "letter": "B",
+          "text": "Aspartate and glycine respeetively <O Oo\nRg >X"
+        },
+        {
+          "letter": "C",
+          "text": "Norepinephrine and GABA respectively oO"
+        },
+        {
+          "letter": "D",
+          "text": "Dopamine and GABA respectively \\ 4\nas 7a\nRo os"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 13,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "many_linebreaks",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Ow ‘ Ray 4",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "=~ =) es",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 5,
+              "text": "wk <6 <",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_A",
+          "severity": 12,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "\\\\ Ne S",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Dopamine and GABA respectively \\ 4",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "Rg >X",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q003",
+      "questionNumber": 3,
+      "sourcePage": 198,
+      "reviewStatus": "pass",
+      "question": "~~) ae\n\n‘A’ delta fibersiand 'C fibers earry pain sensation. The neurotransmitter released by ‘A’ delta\nfibers is",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Substance P"
+        },
+        {
+          "letter": "B",
+          "text": "Glutamate"
+        },
+        {
+          "letter": "C",
+          "text": "Histamine"
+        },
+        {
+          "letter": "D",
+          "text": "Norepinephrine"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 12,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "~~) ae",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "‘A’ delta fibersiand 'C fibers earry pain sensation. The neurotransmitter released by ‘A’ delta",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q005",
+      "questionNumber": 5,
+      "sourcePage": 199,
+      "reviewStatus": "pass",
+      "question": "Dopamine beta hydroxylase converts dopamine to",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Norepinephrine"
+        },
+        {
+          "letter": "B",
+          "text": "DOPA ."
+        },
+        {
+          "letter": "C",
+          "text": "Epinephrine —"
+        },
+        {
+          "letter": "D",
+          "text": "Tyrosine a: e~\n6° ae\n© Ke)\noO of"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Tyrosine a: e~",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q006",
+      "questionNumber": 6,
+      "sourcePage": 199,
+      "reviewStatus": "pass",
+      "question": "x ~~ oe Res\nCr «@«? o\nWhich of these is not a dopaminergic pathway? > ~\n4 on xO aX",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Mesocortical pathway ‘ * ie\n‘ ‘ {e) rey oO”"
+        },
+        {
+          "letter": "B",
+          "text": "Nigrostriatal pathway ©) aw _@&"
+        },
+        {
+          "letter": "C",
+          "text": "Tuberoinfundibular pathway _ @ oO"
+        },
+        {
+          "letter": "D",
+          "text": "Corticostriatal pathway 2” ~\\<\n\nRa Oo\n; ge Ua"
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 15,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "punctuation_run",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "x ~~ oe Res",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "Cr «@«? o",
+              "reasons": [
+                "punctuation_run",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "Which of these is not a dopaminergic pathway? > ~",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_A",
+          "severity": 12,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "‘ ‘ {e) rey oO”",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 12,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Corticostriatal pathway 2” ~\\<",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "; ge Ua",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q007",
+      "questionNumber": 7,
+      "sourcePage": 199,
+      "reviewStatus": "pass",
+      "question": "> we\n\nFind the incorrect match. \\",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Raphe nucleus Serotonin"
+        },
+        {
+          "letter": "B",
+          "text": "Locus coeruleus - Norepinephrine"
+        },
+        {
+          "letter": "C",
+          "text": "Basal forebrain complex - GABA."
+        },
+        {
+          "letter": "D",
+          "text": "Histamine - hypothalamus"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 12,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "> we",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "Find the incorrect match. \\",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q009",
+      "questionNumber": 9,
+      "sourcePage": 200,
+      "reviewStatus": "pass",
+      "question": "‘An infant develops features of botulism following honey intake. This toxin blocks\nneuromuscular transmission by which of the following mechanisms?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Prevents release of Ach at presynaptic membrane ~ce*\n\nof"
+        },
+        {
+          "letter": "B",
+          "text": "Opening of calcium channels at the presynaptic membrane ><\n— A ws o"
+        },
+        {
+          "letter": "C",
+          "text": "Prevents the binding of Ach at the postsynatic men \" 3"
+        },
+        {
+          "letter": "D",
+          "text": "Prevents the action of Ach at the postsynaptic ménibrane oo\nse < 4\n© a o"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "option_A",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Prevents release of Ach at presynaptic membrane ~ce*",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Opening of calcium channels at the presynaptic membrane ><",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "se < 4",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q010",
+      "questionNumber": 10,
+      "sourcePage": 200,
+      "reviewStatus": "pass",
+      "question": "~ a O° c\\Y\ne oO Ks >\n», «* ef\n\nA farmer presents with difficulty Swallowing and jaw tightening. He gives a history of getting\nhis finger jammed in the rustic gate a few days ago. He gives no history of previous tetanus\nimmunization. After evaluation, he was diagnosedwith tetanus. The release of which of the\nfollowing neurotransmitters is afféeted by the toxin responsible for this condition?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Dopamine Ww PY\n\nOY oh"
+        },
+        {
+          "letter": "B",
+          "text": "Acetylcholine 4. PS\nod a"
+        },
+        {
+          "letter": "C",
+          "text": "GABA & a \\S >"
+        },
+        {
+          "letter": "D",
+          "text": "Adrenaline \\"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 18,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash",
+            "many_isolated_letters",
+            "many_linebreaks",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "~ a O° c\\Y",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "many_isolated_letters"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "», «* ef",
+              "reasons": [
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_C",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "GABA & a \\S >",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Adrenaline \\",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q013",
+      "questionNumber": 13,
+      "sourcePage": 201,
+      "reviewStatus": "pass",
+      "question": "Which of the following is the wrong match? Now",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Sympathetic preganglionic fibres - release acetylcholine c&"
+        },
+        {
+          "letter": "B",
+          "text": "Parasympathetic preganglionic fibres - release aceiiehotine 2"
+        },
+        {
+          "letter": "C",
+          "text": "Sympathetic post ganglionic fibres - release noradrenaline, * s\n\naN ~ 2\n) Sweat glands - innervated by sympathétié adrenergic fibrés & -\n.~ cas <\nO° w\n‘ of KO 2 =\n- > S aS"
+        },
+        {
+          "letter": "D",
+          "text": "Sweat glands - innervated by sympathetic adrenergic fibres"
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "option_C",
+          "severity": 13,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "many_linebreaks",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "aN ~ 2",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 5,
+              "text": ".~ cas <",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "‘ of KO 2 =",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "- > S aS",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q014",
+      "questionNumber": 14,
+      "sourcePage": 201,
+      "reviewStatus": "pass",
+      "question": "o> vay a\nco x 5S\n2 ~~ ae\nWhich part of the basal ganglia is thenetirotransinitfer glutamate secreted from?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Globus pallidus interna ow =~"
+        },
+        {
+          "letter": "B",
+          "text": "Globus pallidus extersia® ae\nSubthalami ¥ >\n6) Subthalamie nul x"
+        },
+        {
+          "letter": "C",
+          "text": "Subthalamic nucleus"
+        },
+        {
+          "letter": "D",
+          "text": "Putamen ~\\~ oe"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "option_A",
+          "severity": 9,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Globus pallidus interna ow =~",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Putamen ~\\~ oe",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 9,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "o> vay a",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "2 ~~ ae",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q018",
+      "questionNumber": 18,
+      "sourcePage": 202,
+      "reviewStatus": "pass",
+      "question": "oa xO ~\nWhich statement regarding.th©NMDA receptor is incorréet?\n> Ne 4k",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Glutamate is its endogenous agonist” O°"
+        },
+        {
+          "letter": "B",
+          "text": "Glycine is essential for thignééeptor's respohse to its endogenous agonist"
+        },
+        {
+          "letter": "C",
+          "text": "It is a chloride ion chayhel ae"
+        },
+        {
+          "letter": "D",
+          "text": "It is present in hippocampal neufons\nKS \\o~"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "option_D",
+          "severity": 12,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "KS \\o~",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 9,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "oa xO ~",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "> Ne 4k",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

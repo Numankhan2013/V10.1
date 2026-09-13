@@ -1,0 +1,563 @@
+{
+  "schemaVersion": 1,
+  "subject": "Physiology",
+  "chapterId": "8",
+  "chapter": "Muscle Physiology II",
+  "candidateQuestionCount": 8,
+  "questions": [
+    {
+      "id": "marrow__PHYS_CH08_Q002",
+      "questionNumber": 2,
+      "sourcePage": 160,
+      "reviewStatus": "pass",
+      "question": "~— ~ ‘ ~\nIntercalated discs are seen in nO ve ; . €\n\nao w<' ~",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Skeletal muscle ., Sa ‘C .{"
+        },
+        {
+          "letter": "B",
+          "text": "Smooth muscle Oo 9 y"
+        },
+        {
+          "letter": "C",
+          "text": "Cardiac muscle , C v.\\,"
+        },
+        {
+          "letter": "D",
+          "text": "All of the above > ; C"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "option_C",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Cardiac muscle , C v.\\,",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "~— ~ ‘ ~",
+              "reasons": [
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "ao w<' ~",
+              "reasons": [
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_A",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Skeletal muscle ., Sa ‘C .{",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q003",
+      "questionNumber": 3,
+      "sourcePage": 160,
+      "reviewStatus": "pass",
+      "question": ". se rand\nActivation of, the sympathetic system increases the myocardial contractility of a patient.\n\n+ . . oye . .\n\nWhich of the following is responsible for this positive inotropic effect?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Phosphorylation of Phospholamban"
+        },
+        {
+          "letter": "B",
+          "text": "Dephosphorylation of Phospholamban"
+        },
+        {
+          "letter": "C",
+          "text": "Decreased levels of cAMP"
+        },
+        {
+          "letter": "D",
+          "text": "Increased permeability of cell membrane"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 9,
+          "reasons": [
+            "edge_noise",
+            "many_linebreaks",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": ". se rand",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "+ . . oye . .",
+              "reasons": [
+                "edge_noise",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q006",
+      "questionNumber": 6,
+      "sourcePage": 161,
+      "reviewStatus": "pass",
+      "question": "ne oOo fe:\nThe following graph displays which physiological lawior the heart? ..\n“.\" te ‘\n270 Systolic\nintravascular\n240 pressure\n210\nBS\n= 180\nE 150 Developed\noe tension\n£ 120\na\nye 6 90\nKS * 60 Diastolic\n‘ intravascular\n30 pressure\nie}\n10 20 30 40 50 60 70\nDiastolic volume (mL)",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Starling Law"
+        },
+        {
+          "letter": "B",
+          "text": "Laplace Law"
+        },
+        {
+          "letter": "C",
+          "text": "Bainbridge Law"
+        },
+        {
+          "letter": "D",
+          "text": "Bell-Magendie law"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 13,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "many_linebreaks",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "“.\" te ‘",
+              "reasons": [
+                "edge_noise",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "= 180",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 15,
+              "text": "KS * 60 Diastolic",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 16,
+              "text": "‘ intravascular",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 18,
+              "text": "ie}",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q008",
+      "questionNumber": 8,
+      "sourcePage": 162,
+      "reviewStatus": "pass",
+      "question": "Which of the following is true regarding excitation-contraction coupling in smooth muscle?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Presence of troponin is essential ~S >"
+        },
+        {
+          "letter": "B",
+          "text": "Sustained contraction occurs with high calcium concentration Oo ’\n\nme os"
+        },
+        {
+          "letter": "C",
+          "text": "Phosphorylation of actin is required for contraction’ 2 e"
+        },
+        {
+          "letter": "D",
+          "text": "Cellular calcium concentration is essential to.cause contraction = _\nx t >"
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "option_A",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Presence of troponin is essential ~S >",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q009",
+      "questionNumber": 9,
+      "sourcePage": 162,
+      "reviewStatus": "pass",
+      "question": "ae e< © Y\"\nCalmodulin is mostly both structurally and‘functionally rélated to\n) A ¢",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Actin o* <y"
+        },
+        {
+          "letter": "B",
+          "text": "Myosin light chain kinase, ~ © ~\\*"
+        },
+        {
+          "letter": "C",
+          "text": "Troponin C —— ‘"
+        },
+        {
+          "letter": "D",
+          "text": "Tropomyosin . Qo ao \"\n\n~\\ ~ >\n~,' ."
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "option_D",
+          "severity": 15,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "~\\ ~ >",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "~,' .",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 12,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Myosin light chain kinase, ~ © ~\\*",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q012",
+      "questionNumber": 12,
+      "sourcePage": 163,
+      "reviewStatus": "pass",
+      "question": "Which of the following acts to increase the release of calcium ions from the endoplasmic\nreticulum of a smooth muscle? ce\"",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Calsequestrin ” x :\n\noh ak"
+        },
+        {
+          "letter": "B",
+          "text": "Diacylglycerol sc “ e)"
+        },
+        {
+          "letter": "C",
+          "text": "Inositol Triphosphate (IP3) ~ a ‘ ."
+        },
+        {
+          "letter": "D",
+          "text": "1, 25 di hydroxy cholecalciferol ww i o~ i 4"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "option_D",
+          "severity": 9,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "1, 25 di hydroxy cholecalciferol ww i o~ i 4",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_C",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Inositol Triphosphate (IP3) ~ a ‘ .",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q013",
+      "questionNumber": 13,
+      "sourcePage": 163,
+      "reviewStatus": "pass",
+      "question": "Cy c A\nWhich of the following statements regarding smooth-muscle is false?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Unitary smooth muscle has afuristable menibrane potential"
+        },
+        {
+          "letter": "B",
+          "text": "Dense Bodies are present.instead of Dlines"
+        },
+        {
+          "letter": "C",
+          "text": "It can exert a variable ‘tension at any'given length"
+        },
+        {
+          "letter": "D",
+          "text": "Sympathetic stimulation produces excitatory membrane potentials\n\nK- ‘ z ia\n. .\""
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "option_D",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "K- ‘ z ia",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 4,
+              "text": ". .\"",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q014",
+      "questionNumber": 14,
+      "sourcePage": 163,
+      "reviewStatus": "pass_with_source_note",
+      "question": "Given below is the demonstration of tetanization in the gastrocnemius muscle of a frog.\nIdentify the tetanising frequency.\n\n10mm\nSpeed=1000mm/sec - a ’\n>\\\niw \"s\noy ~ »",
+      "options": [
+        {
+          "letter": "A",
+          "text": "25-20 Hz * > a) ©"
+        },
+        {
+          "letter": "B",
+          "text": "30-35 Hz Ww rat CO"
+        },
+        {
+          "letter": "C",
+          "text": "15-20 Hz son &< O >\n> as {"
+        },
+        {
+          "letter": "D",
+          "text": "10-15 Hz oO “ 2 a Hs\noy oS >\n«> ?\n~O ¢ \\<\nwv"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "option_D",
+          "severity": 16,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash",
+            "many_linebreaks",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 4,
+              "text": "~O ¢ \\<",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 13,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash",
+            "many_linebreaks"
+          ],
+          "suspectLines": [
+            {
+              "line": 6,
+              "text": ">\\",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "iw \"s",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "oy ~ »",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_C",
+          "severity": 9,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "> as {",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

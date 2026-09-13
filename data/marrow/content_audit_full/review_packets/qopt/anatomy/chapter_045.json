@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "subject": "Anatomy",
+  "chapterId": "45",
+  "chapter": "Heart",
+  "candidateQuestionCount": 2,
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH45_Q018",
+      "questionNumber": 18,
+      "sourcePage": 820,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "All of the following are true about the right coronary artery except _____",
+      "options": [
+        {
+          "letter": "A",
+          "text": "It's diameter is less than left coronary artery"
+        },
+        {
+          "letter": "B",
+          "text": "It arises from the anterior aortic sinus"
+        },
+        {
+          "letter": "C",
+          "text": "It gives rise to circumflex coronary branch"
+        },
+        {
+          "letter": "D",
+          "text": "Right conal artery is it's first branch"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "All of the following are true about the right coronary artery except _____",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH45_Q032",
+      "questionNumber": 32,
+      "sourcePage": 824,
+      "reviewStatus": "pass",
+      "question": "Sympathetic innervation of heart is by ______",
+      "options": [
+        {
+          "letter": "A",
+          "text": "T1-T3"
+        },
+        {
+          "letter": "B",
+          "text": "T1-T5"
+        },
+        {
+          "letter": "C",
+          "text": "T3-T7"
+        },
+        {
+          "letter": "D",
+          "text": "L1-L5"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 5,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Sympathetic innervation of heart is by ______",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
