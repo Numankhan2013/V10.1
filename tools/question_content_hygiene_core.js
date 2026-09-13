@@ -50,6 +50,25 @@
     return decoded?String(current).trim():value;
   }
 
+  function nkSanitizeMarrowStructuredExplanation(value) {
+    if(value===null||value===undefined)return value;
+    if(typeof value!=='object'||Array.isArray(value)){
+      return {text:nkSanitizeMarrowText(value),tables:[],figures:[]};
+    }
+    for(const key of ['text','content','label','title']){
+      if(Object.prototype.hasOwnProperty.call(value,key))value[key]=nkSanitizeMarrowText(value[key]);
+    }
+    if(Array.isArray(value.blocks)){
+      value.blocks.forEach(block=>{
+        if(!block||typeof block!=='object'||Array.isArray(block))return;
+        for(const key of ['text','content','label','title']){
+          if(Object.prototype.hasOwnProperty.call(block,key))block[key]=nkSanitizeMarrowText(block[key]);
+        }
+      });
+    }
+    return value;
+  }
+
   function nkSanitizeMarrowQuestion(question) {
     if(!question||typeof question!=='object')return question;
     const isMarrow=String(question.id||'').startsWith('marrow__');
@@ -59,8 +78,11 @@
     }
 
     question.question=nkCleanQuestionStem(nkSanitizeMarrowText(question.question));
-    for(const key of ['explanation','rationale','solution','keyTakeaway','takeaway']){
+    for(const key of ['explanation','rationale','solution','keyTakeaway','takeaway','correctAnswerText']){
       if(Object.prototype.hasOwnProperty.call(question,key))question[key]=nkSanitizeMarrowText(question[key]);
+    }
+    if(Object.prototype.hasOwnProperty.call(question,'structuredExplanation')){
+      question.structuredExplanation=nkSanitizeMarrowStructuredExplanation(question.structuredExplanation);
     }
     if(Array.isArray(question.options)){
       question.options.forEach(option=>{

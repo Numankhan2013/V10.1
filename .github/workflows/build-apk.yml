@@ -149,6 +149,8 @@ jobs:
         run: python3 tools/apply_question_content_hygiene_v1.py
       - name: Test question content hygiene
         run: python3 tools/test_question_content_hygiene_v1.py
+      - name: Apply source-aligned Marrow topic numbering
+        run: python3 tools/apply_marrow_topic_numbering_v1.py
       - name: Install secure Android asset origin and migrate existing local data
         run: python3 tools/apply_android_secure_origin_v1.py
       - name: Apply cross-device sync and responsive PWA layer
@@ -289,6 +291,8 @@ jobs:
         run: python3 tools/verify_recall_dock_browser.py
       - name: Verify Marrow bank selector and native explanation in browser
         run: python3 tools/verify_marrow_bank_browser.py
+      - name: Verify Marrow learner content hygiene in browser
+        run: python3 tools/verify_marrow_content_hygiene_browser.py
       - name: Verify populated Marrow structured table in browser
         run: python3 tools/verify_marrow_structured_table_browser.py
       - name: Verify Continue Practice controls and pause resume in browser

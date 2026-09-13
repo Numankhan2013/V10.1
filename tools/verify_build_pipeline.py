@@ -38,6 +38,7 @@ required_order = [
     "tools/test_continue_practice_resume_v1.py",
     "tools/apply_question_content_hygiene_v1.py",
     "tools/test_question_content_hygiene_v1.py",
+    "tools/apply_marrow_topic_numbering_v1.py",
     "tools/apply_android_secure_origin_v1.py",
     "tools/apply_cross_device_pwa_v1.py",
     "tools/test_cross_device_sync_v1.py",
@@ -61,6 +62,7 @@ for marker in ("runs-on: ubuntu-latest", "actions/setup-python@", "PyMuPDF Pillo
                "tools/verify_product_contract.py --stage packaged",
                "tools/verify_marrow_structured_table_browser.py",
                "tools/verify_continue_practice_browser.py",
+               "tools/verify_marrow_content_hygiene_browser.py",
                "NK_MARROW_STRUCTURED_TABLE_RENDERER_V1"):
     if marker not in text:
         raise SystemExit(f"Full Linux/PDF verification requirement missing: {marker}")
