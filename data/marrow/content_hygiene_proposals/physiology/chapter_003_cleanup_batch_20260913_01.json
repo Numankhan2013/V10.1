@@ -1,0 +1,21 @@
+{
+  "proposalVersion": 1,
+  "reviewStatus": "REVIEWED",
+  "purpose": "Reviewed source-faithful learner-display explanation cleanup from rendered Marrow ED8 Physiology pages 41-43; cleanup only, no explanation enhancement.",
+  "subject": "Physiology",
+  "chapterId": "3",
+  "questions": {
+    "marrow__PHYS_CH03_Q001": {
+      "explanation": "Lipid-soluble substances are transported across the cell membrane via diffusion.\n• The rate of diffusion depends directly on lipid solubility.\n• Characteristics of simple diffusion\n• The only form of transport that is not carrier-mediated\n• Occurs down an electrochemical gradient (\"downhill\")\n• Does not require metabolic energy and therefore is passive\n• Permeability\n• Describes the ease with which a solute diffuses through a membrane\n• Depends on the characteristics of the solute and the membrane\n• Small hydrophobic solutes (e.g., O2) have the highest permeabilities in lipid membranes.\n• Hydrophilic solutes (e.g., Na+) must cross cell membranes through water-filled channels, or pores. If the solute is an ion, then its flux will depend on both the concentration difference and the potential difference across the membrane."
+    },
+    "marrow__PHYS_CH03_Q002": {
+      "explanation": "Among the following substances, oxygen diffuses more rapidly through phospholipid membranes as it is a lipid-soluble substance.\nPhospholipid membranes are:\n• Permeable to lipid-soluble substances (e.g., O2, CO2, NH3, steroid hormones)\n• Impermeable to water-soluble substances (e.g., Na+, Cl-, glucose)\n• Semipermeable to water"
+    },
+    "marrow__PHYS_CH03_Q004": {
+      "explanation": "The net effect on the diffusion is, it becomes 3x.\nThe magnitude of the diffusion:\nwhere,\n• J = net rate of diffusion\n• D = diffusion coefficient\n• A = area of the membrane\n• Δx = thickness of the membrane or the distance the molecule must travel across for diffusion\n• Δc = concentration gradient\nIn the condition mentioned above, the surface area, the thickness of the membrane and intracellular concentration becomes doubled. This means,\n• A is doubled = 2A\n• Δx is doubled = 2Δx\n• IC is doubled. 10 × 2 = 20 units; EC is 5 units.\nSo, Δc = 20 - 5 = 15. Δc was 5 with the original concentrations. Hence Δc has been tripled.\nNow,\nJ = -D × 2A × 3Δc / 2Δx = 3 × [D A Δc / Δx]\nTherefore the diffusion of the substance increases by three-fold.\n2nd method:\nJ = -DA (Δc / Δx)\nAfter applying changes, Δc = intracellular conc. - extracellular conc. = 10 - 5 = 5\nTherefore, J1 = -DA (5 / Δx)\nAfter appropriate doublings, new intracellular conc. = 10 × 2 = 20; new extracellular conc. = 5 (since no change); Δc = 20 - 5 = 15\nTherefore, J2 = -D × 2A × (15 / 2Δx)\n= -DA (15 / Δx)\nNow, J2 / J1 = [-DA (15 / Δx)] / [-DA (5 / Δx)]\nJ2 / J1 = 15 / 5\n= 3\nTherefore the diffusion of the substance increases by three-fold."
+    },
+    "marrow__PHYS_CH03_Q005": {
+      "explanation": "Simple diffusion is not carrier-mediated transport hence do not follow saturation kinetics.\n• Facilitated diffusion, primary active transport, and secondary active transport all involve integral membrane proteins and are called carrier-mediated transport.\n• All carrier-mediated transport system follows saturation kinetics.\n• The figure shows that as the concentration of the diffusing substance increases, the rate of simple diffusion continues to increase proportionately, but in the case of facilitated diffusion, the rate of diffusion cannot rise greater than the transport maximum (Tm). Tm is analogous to the maximum velocity (Vmax) level in enzyme kinetics."
+    }
+  }
+}
