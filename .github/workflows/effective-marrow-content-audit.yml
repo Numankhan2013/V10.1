@@ -17,6 +17,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: marrow-effective-content-audit-fix-marrow-full-content-cleanup-20260913
+  cancel-in-progress: false
+
 jobs:
   audit:
     runs-on: ubuntu-latest
@@ -52,7 +56,7 @@ jobs:
       - name: Commit derived effective audit
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "418982154+github-actions[bot]@users.noreply.github.com"
           git add data/marrow/content_audit_effective
           if git diff --cached --quiet; then
             echo "Effective audit already current."
