@@ -23,9 +23,9 @@ PUNCT_RUN_RE = re.compile(r"[^\w\s]{4,}", re.UNICODE)
 ISOLATED_LETTER_RE = re.compile(r"(?<!\w)[A-Za-z](?!\w)")
 WEIRD_EDGE_RE = re.compile(r"^(?:[\s~|\\<>{}\[\]`^_*=.,;:'\"“”‘’!?/+-]*[A-Za-z0-9]{0,2}[\s~|\\<>{}\[\]`^_*=.,;:'\"“”‘’!?/+-]{2,})|(?:[~|\\<>{}`^_*=]{2,}\s*)$", re.UNICODE)
 
-# Characters that are highly unusual as standalone learner prose but can occur
-# in diagrams/code leakage. We do not flag ordinary medical operators (+ - = < > / %).
-HARD_NOISE = set("~|\\{} `^")
+# Characters highly unusual in learner prose. Ordinary spaces and common
+# medical operators (+ - = < > / %) are intentionally excluded.
+HARD_NOISE = set("~|\\{}`^")
 
 
 def line_reasons(line: str) -> list[str]:
