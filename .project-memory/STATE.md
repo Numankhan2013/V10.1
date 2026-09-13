@@ -80,26 +80,29 @@ Do not certify this behavior by calling only an internal helper or by using a su
 - Full-corpus regression passed **2,711 questions / 27,898 learner-facing fields**. Physiology Ch5 and Ch7 have a 390x844 real-browser regression covering question, options, answer-time study support, tuned explanation and three distractor rationales.
 - Root cause of the old sanitizer branch browser failure was a hidden unrelated topic-numbering side effect in the former hygiene installer. Topic numbering is now an explicit protected build stage; sanitation remains logically independent.
 - Exact candidate Engineering Gate `34738522874` and full Android/PWA/browser/APK/package/preview run `34738530102` passed. Preview `https://8d6d9366.nk-qbank.pages.dev`; production promotion skipped.
-
-- Correction after user preview review: the first sanitizer gate caught serialized JSON but missed OCR/code-like debris already embedded in source-transcribed question and option strings. Verified follow-up `55d7ac8a89c2bbf6a01db5d305b8c975c344c1f3` adds stable-ID, source-fingerprinted learner-display overrides for every Physiology Ch5 and Ch7 question: **63 questions, 252 options, and matching correct-answer display text**. Raw source and answer indexes are unchanged. The browser gate now compares all 315 rendered question/option values exactly and opens Ch5 Q1 plus Ch7 Q1, Q2 and Q35 through the learner UI. Engineering `34740460617` and full Android/PWA/browser/APK/package run `34740465004` passed; preview `https://c4744474.nk-qbank.pages.dev`; production skipped. Do not claim other chapters are visually clean without equivalent reviewed overrides/browser evidence.
+- Correction after user preview review: verified follow-up `55d7ac8a89c2bbf6a01db5d305b8c975c344c1f3` adds stable-ID, source-fingerprinted learner-display overrides for Physiology Ch5 and Ch7. Engineering `34740460617` and full Android/PWA/browser/APK/package run `34740465004` passed; preview `https://c4744474.nk-qbank.pages.dev`; production skipped. Do not claim other chapters are visually clean without equivalent reviewed overrides/browser evidence.
 
 ## Explanation lane
 
 ### FULLY_VERIFIED_HISTORY
 
-- Anatomy Ch6 Q1–Q7 is canonical history, not current ownership. Its certified checkpoint `58bb99d5c1fc96a98b4f922a963dba16105487d1` is an ancestor of the Physiology batch base; exact-head Engineering Gate `34715415821` and full Android/PWA/APK/package run `34715415818` passed there. Historical PR #52 remains evidence only and is non-blocking.
-- Canonical pre-batch inventory at Physiology acquisition was **588 enhanced / 2,123 pending / 2,711 total**, Physiology raw SHA `f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6`.
+- Anatomy Ch6 Q1–Q7 (`marrow__ANAT_CH06_Q001..Q007`) is canonical history. Certified checkpoint `58bb99d5c1fc96a98b4f922a963dba16105487d1`; exact-head Engineering Gate `34715415821` and full Android/PWA/APK/package run `34715415818` passed. Historical PR #52 is evidence only and non-blocking.
+- Physiology Ch11 Q1–Q6 (`marrow__PHYS_CH11_Q001..Q006`) has now been reconciled into canonical. Live Git proves canonical merge commit `e01cc0b9a8e62885d29b0c2e7ac6417ce8c96f05`; the older CURRENT_UNVERIFIED memory entry was stale and is superseded by repository state.
+- Canonical inventory before the current Anatomy transplant is **594 enhanced / 2,117 pending / 2,711 total**, fingerprint `f860fc38da57af2d20be05efa33a5594b08425008a2cbcb2f3dff0bfdd27b974`. Raw source hashes remain Anatomy `f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387`, Biochemistry `919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1`, Physiology `f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6`.
 
-### CURRENT_UNVERIFIED
+### CURRENT_UNVERIFIED — Anatomy owns the lane
 
-- Owner: **Physiology Chapter 11 Q1–Q6** (`marrow__PHYS_CH11_Q001..Q006`), one bounded source-order batch, workload score **16.0**.
-- Branch: `feature/marrow-explanation-physiology-ch11-q001-q006-20260913`; exact canonical base SHA `4f943af34bb4bd49f644f2655e23459fc1534031`.
-- Authored content commit: `bd3e2f814f0fd2a2cf901b5b2a1bee1f132da0ec`; bounded-prefix validator commit: `9e34d44aef7de7a92e6ad17afe9d3f8b7681a195`.
-- Q1/Q2/Q5 preserve source figure metadata through the immutable canonical source record. Q6 uses `resolved_reconstruction` to preserve source-keyed option A while explicitly correcting the overbroad claim that mechanoreceptor and exteroceptor are universally synonymous.
-- Deterministic candidate inventory: **594 enhanced / 2,117 pending / 2,711 total**; question-record fingerprint `f860fc38da57af2d20be05efa33a5594b08425008a2cbcb2f3dff0bfdd27b974`; raw source unchanged.
-- State: **STATIC_VALIDATED**. Inventory, Physiology rollout, Anatomy rollout, and Biochemistry rollout validators passed before this memory checkpoint was committed.
-- Still required before `FULLY_VERIFIED`: stable-ID real-browser regression for this batch; shared Practice/CBT/Review/FSRS regressions; PR/exact-head Engineering Gate; full Android/PWA/APK/package/reproducibility/preview verification; reconciliation back into `feature/marrow-canonical-full-current` followed by canonical exact-head certification if canonical moved.
+- Batch ID: `anatomy-20260913-ch6-q8-q18-r2`.
+- Scope: `marrow__ANAT_CH06_Q008..Q018`, **11 contiguous questions**, workload score **16.5**. No Q19+ work has started.
+- The earlier PR #56 / branch `automation/marrow-explanations-anatomy-20260913-ch06-q008-q018` is stale donor/history only and must not be merged.
+- Fresh transplant branch: `automation/marrow-explanations-anatomy-20260913-ch06-q008-q018-r2`, created from exact canonical base `e01cc0b9a8e62885d29b0c2e7ac6417ce8c96f05`.
+- Stable-ID content was transplanted without copying stale shared inventory/memory. Q8–Q18 augmentation commit `ef4475b24927a28e2ce233793789dd1096b1a390`; Anatomy validator extension commit `3c8463a64b683312ef84d2024e95bddcd5cfe972`; Q18 stable-ID browser regression commit `9816dc73cfd03d39a0c8983975efd2f0a0b5ef3e`; browser wrapper reconciliation commit `4013cdc7b42c6d4dc91df3021a0231615fd1591d` preserves the canonical Physiology Ch11 browser regression.
+- Q12/Q16/Q17/Q18 remain figure-dependent through immutable source metadata. Q18 also owns a structured embryological-remnants table; its browser test verifies meaningful cells, rejects `[object Object]`, requires exactly three distractor rows, and preserves the FSRS recall dock.
+- Raw imported source is unchanged. The 11 IDs are expected to move deterministic inventory to **605 enhanced / 2,106 pending / 2,711 total**; the new fingerprint must be produced by the repository generator and must not be guessed.
+- State: **CONTENT_AUTHORED** on the fresh canonical-based transplant. Exact-current-candidate validation has not yet certified this branch.
+- Exact next action: open a fresh PR to `feature/marrow-canonical-full-current` so Engineering Gate can run on the exact candidate. If the persisted inventory mismatch is the only failure, use that deterministic CI output for one bounded inventory repair, then require a fresh exact-head Engineering Gate and full Android/PWA/browser/APK/package/reproducibility/preview run on the same candidate SHA. Reconcile only after both are green; if canonical moves, transplant/reconcile again by stable ID rather than merging stale history.
 - Production promotion remains prohibited.
+
 ## Image lane
 
 - Automated Biochemistry image integration is paused. Ch4 Q11 remains the exact unresolved Biochemistry reference and is preserved as `REVIEW_REQUIRED`; two recovery attempts failed before shared registry/progress mutation because embedded PDF text was corrupted. No verified Q11 learner-facing result exists on a side branch, and no Biochemistry work was skipped or newly started.
@@ -120,14 +123,15 @@ Do not certify this behavior by calling only an internal helper or by using a su
 
 ## Known problems / cautions
 
+- Anatomy Ch6 Q8–Q18 is CURRENT_UNVERIFIED and blocks other explanation writers until exact-head candidate and canonical certification complete.
 - Physiology image coverage remains incomplete after the verified bounded batch, and Biochemistry Q11 remains unresolved/paused.
-- Former canonical tip `4f716c3` had a memory-validator wording failure only; the reconciled batch restores the required status vocabulary without changing accepted product behavior.
+- Production promotion remains prohibited unless explicitly requested.
 
 ## Current priorities / Next step
 
-1. **Main product work may proceed from live canonical.** Preserve the accepted Practice contract above.
-2. **Explanation lane:** Physiology Ch11 Q1–Q6 is `CURRENT_UNVERIFIED` on the exact canonical base recorded above. Finish stable-ID browser/full exact-head certification and reconcile it into live canonical before releasing the lane.
-3. **Image lane:** Batch 02 is unverified and unreconciled historical evidence only; do not treat its 12 assets as canonical. Resume from live canonical at `marrow__PHYS_CH03_Q007:figure:1` after fresh ownership/fingerprint checks. Keep automated Biochemistry paused with Q11 preserved unresolved.
+1. **Explanation lane:** finish the fresh Anatomy Q8–Q18 canonical transplant. Open a fresh PR, deterministically regenerate/reconcile the 2,711-question inventory, require exact-head Engineering + full Android/PWA/browser/APK/package/reproducibility/preview verification, then reconcile into live canonical and exact-current-head certify before releasing the lane. Stop after FULLY_VERIFIED; do not start Q19+ in the same run.
+2. **Main product work may proceed from live canonical.** Preserve the accepted Practice contract above.
+3. **Image lane:** Batch 02 is unverified historical evidence only; resume from live canonical after fresh ownership/fingerprint checks. Keep automated Biochemistry paused with Q11 unresolved.
 4. Production promotion remains prohibited unless the user explicitly asks for it.
 
 ## Memory pointers
