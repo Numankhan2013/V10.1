@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 13 stems/options, verified against rendered ED8 pages 241-245. Removes OCR debris only; answer indices remain immutable.",
+  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 13 stems/options, verified against rendered ED8 pages 241-245. Removes OCR debris only; answer indices remain immutable; additional reviewed source-faithful cleanup.",
   "subject": "Physiology",
   "chapterId": "13",
-  "sourceFingerprint": "67e00125c800c3105520e6e8a29e304dfec203a5f3a8d291c2e775a65552bd7a",
+  "sourceFingerprint": "6216e5b729cdc7865cc363a86e4fc2b7ada8708fda5f94f93aac3f8aa87f60de",
   "questions": {
     "marrow__PHYS_CH13_Q001": {
       "question": "Light entering the eye first passes through ______ retinal layer.",
@@ -12,7 +12,8 @@
         "Outer nuclear layer",
         "Outer plexiform layer",
         "Retinal ganglion layer"
-      ]
+      ],
+      "explanation": "Light passes first through the retinal ganglion layer, the most anterior/inner layer of the retina.\nLight then passes through other layers of the retina until it reaches the photoreceptors in the posterior/outer region of the retina.\nRetina is organized into 10 layers or zones where distinctive components are clustered together to form continuous strata.\n• Light passes in the direction: Vitreous humor(anterior) → choroid(most posterior), encountering the cell layers in that direction (ganglion cell layer → photoreceptors).\n• Visual processing/Phototransduction occurs in the opposite direction (photoreceptors → ganglion cell layer)."
     },
     "marrow__PHYS_CH13_Q002": {
       "question": "Initiation of visual impulse is associated with ______.",
@@ -21,7 +22,8 @@
         "Photoisomerisation and hydrolysis of visual purple",
         "NADP",
         "NAD"
-      ]
+      ],
+      "explanation": "Initiation of visual impulse is associated with photoisomerisation and hydrolysis of visual purple.\nRhodopsin or visual purple, the photosensitive pigment, is composed of opsin (a protein belonging to the superfamily of G protein-coupled receptors) and retinal (an aldehyde of vitamin A). When light strikes the photoreceptors, retinal is chemically transformed in a process called photoisomerization, which begins the transduction process."
     },
     "marrow__PHYS_CH13_Q010": {
       "question": "The fibers from contralateral nasal retina project to the following layers of lateral geniculate nucleus ______.",
@@ -30,7 +32,8 @@
         "1,4,6",
         "1,2,3",
         "4,5,6"
-      ]
+      ],
+      "explanation": "On each side, layers 1, 4, and 6 of the lateral geniculate nucleus receive input from the contralateral eye, whereas layers 2, 3, and 5 receive input from the ipsilateral eye. (Refer figure)."
     },
     "marrow__PHYS_CH13_Q014": {
       "question": "Auditory information is relayed through ______ thalamic nucleus.",
@@ -39,7 +42,8 @@
         "Lateral geniculate nucleus",
         "Medial geniculate nucleus",
         "Ventral Posterolateral nucleus"
-      ]
+      ],
+      "explanation": "The medial geniculate nucleus is the thalamic nucleus that conveys auditory information from the brainstem to the primary auditory cortex.\nLateral geniculate nucleus is the thalamic nucleus that conveys visual information."
     },
     "marrow__PHYS_CH13_Q018": {
       "question": "Mitral cells are seen in ______.",
@@ -58,6 +62,72 @@
         "Olfactory",
         "Somatosensory"
       ]
+    },
+    "marrow__PHYS_CH13_Q004": {
+      "explanation": "Central fovea (foveola) contains only cones (rod-free area) and is a region of highest resolution.\nRegional Variations in the Retina\n\nMacula lutea\n• Located at posterior pole, temporal to the optic disc\n• Area of central vision\n• High density of photoreceptors and interneurons\nOptic disc\n• Lacks photoreceptors\n• Is called “Blind spot”\n• Normally a person is unaware of blind spot because\n• Corresponding part of the visual field can be seen by the contralateral eye\n• Neurological processes complete the incomplete image perceptually\nPeripheral retina\n• Higher ratio of rods to cones = Rod to cone → 20:1\n• Greater degree of convergence of photoreceptors to the target interneuron (bipolar cells)\n• More sensitivity to light\n• Lower visual acuity"
+    },
+    "marrow__PHYS_CH13_Q005": {
+      "question": "The rod receptor potential differs from other surface receptors in that it shows ______.",
+      "options": [
+        "Depolarization",
+        "Decreased negativity",
+        "Increased conductance of sodium",
+        "Hyperpolarization"
+      ],
+      "explanation": "The rod receptor potential differs from other surface receptors in that it shows hyperpolarization.\nIn most sensory receptors: Arrival of stimulus → Ion channels are opened up allowing current to flow → depolarisation of the receptor.\nIn photoreceptors: When the light strikes the outer segment, a cascade of reactions (refer figure) are initiated that close some of the Na+ channels in the outer segment and results in hyperpolarization."
+    },
+    "marrow__PHYS_CH13_Q007": {
+      "question": "Purely depolarizing cells in optic pathway are ______.",
+      "options": [
+        "Bipolar cells",
+        "Cones",
+        "Amacrine cells",
+        "Rods"
+      ],
+      "explanation": "The responses of the rods, cones, and horizontal cells are hyperpolarizing, and the responses of the bipolar cells are either hyperpolarizing or depolarizing, whereas amacrine cells produce purely depolarizing potential."
+    },
+    "marrow__PHYS_CH13_Q008": {
+      "explanation": "Amacrine cells release acetylcholine.\nAmacrine cells are one of the neuronal cell types of the retina. They transmit signals in two directions, either directly from bipolar cells to ganglion cells or horizontally within the inner plexiform layer from axons of the bipolar cells to dendrites of the ganglion cells or to other amacrine cells.\nAmacrine cells release GABA, glycine, dopamine, acetylcholine & indolamine.\nOther neuronal cell types of the retina are:\n• The photoreceptors: rods & cones\n• Horizontal cells\n• Bipolar cells\n• Ganglion cells\nOf these cell types, only neurotransmitters secreted by photoreceptors & amacrine cells have been discovered. Rods and cones release glutamate at their synapses with the bipolar cells."
+    },
+    "marrow__PHYS_CH13_Q011": {
+      "question": "Parvocellular pathway carries signal for detection of ______.",
+      "options": [
+        "Color contrast",
+        "Luminous contrast",
+        "Temporal frequency",
+        "Saccadic eye movements"
+      ],
+      "explanation": "From the Lateral Geniculate Nucleus (LGN), a magnocellular pathway (from layers 1 and 2) and a parvocellular pathway (from the rest of the layers) project to the visual cortex.\n\nParvocellular pathway\n• Receive input entirely from type X retinal ganglion cells, and transmit color.\n• Convey accurate point-to-point spatial information.\n• Terminate in layer 4C of the primary visual cortex.\n• Carries signals for color vision, texture, shape, and fine details.\n\nMagnocellular pathway\n• Formed by Y ganglion cells project to magnocellular layers of the lateral geniculate nucleus.\n• Colorblind, transmitting only black-and-white information.\n• Terminate in layer 4C of the primary visual cortex.\n• Carries signals for detection of movement, depth, and flicker."
+    },
+    "marrow__PHYS_CH13_Q012": {
+      "question": "The axons from lateral geniculate nucleus terminate in ______ layer of primary visual cortex.",
+      "options": [
+        "Layer 1",
+        "Layer 4",
+        "Layer 2 and 3",
+        "Layer 5 and 6"
+      ],
+      "explanation": "The axons from the lateral geniculate nucleus (LGN) mostly end in layer 4.\nThe primary visual receiving area (primary visual cortex) is located principally on the sides of the calcarine fissure and has 6 layers similar to the neocortex. Layer 4 receives most of the input from the LGN, which is divided further into 4A, 4B, 4C°, and 4Cβ.\nThe magnocellular pathways from layers 1 and 2 of the LGN end in layer 4C° while the parvocellular pathways from layers 3-6 of the LGN end in layer 4Cβ."
+    },
+    "marrow__PHYS_CH13_Q015": {
+      "question": "In the auditory pathway, which is the first structure that can determine the direction of the perceived sound?",
+      "options": [
+        "Cochlear nucleus",
+        "Inferior colliculus",
+        "Lateral lemniscus",
+        "Superior olivary nucleus"
+      ],
+      "explanation": "The superior olivary nuclei receive information from both ears and begin the process of detecting the direction from which a sound comes.\nThe eighth nerves reach their respective cochlear nuclei in the medulla from where the nerves travel to both the ipsilateral and contralateral superior olivary nuclei in the pons and hence giving it the ability to detect the direction of the sound.\nThe lateral part of superior olivary nucleus does so by comparing the difference in intensities of sound reaching the two ears, whereas the medial part of the superior olivary nucleus detects the time lag between the signals entering the two ears."
+    },
+    "marrow__PHYS_CH13_Q017": {
+      "question": "Umami taste is evoked by ______.",
+      "options": [
+        "Glucose",
+        "Quinine",
+        "Glutamate",
+        "Sodium chloride"
+      ],
+      "explanation": "Umami taste is triggered particularly by the monosodium glutamate (MSG) used so extensively in Asian cooking.\nTaste Receptors\n• Humans have five established basic tastes: sweet, salt, sour, bitter and umami.\n• The taste receptors for these five basic tastes are of two major types:\n• Ligand-gated channels (ionotropic receptors): for salt and sour taste\n• G-Protein Coupled Receptors (metabotropic receptors): for sweet, bitter and umami\n• Salt and sour taste are mediated through epithelial sodium channels (ENaC)\n• Na+ movement through ENaC → salt taste\n• H+ movement through ENaC → sour taste\n• Sweet, bitter, and umami are sensed via GPCRs\n• T1R2 and T1R3 families → sweet taste\n• T2R family → bitter taste\n• Metabotropic glutamate receptor (mGluR4) → Umami"
     }
   }
 }
