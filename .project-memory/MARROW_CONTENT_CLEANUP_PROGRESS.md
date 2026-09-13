@@ -45,3 +45,18 @@
 - The promotion workflow validated every active v2 override, rebuilt the complete 2,711-question effective bank, re-ran learner-visible debris detection, proved raw/effective correct-option indexes identical, and kept `questionOptionCandidateQuestions` exactly 0.
 - Effective residual after promotion: 532 explanation candidates globally; Anatomy 54, Biochemistry 112, Physiology 366. Biochemistry Chapter 1 has no remaining detector-flagged explanation candidates.
 - Exact next unresolved Biochemistry source-order item requiring cleanup: `marrow__BIOCHEM_CH03_Q003`, explanation page 52. Continue in Chapter 3 source order.
+
+## 2026-09-13 — Physiology cleanup batch 02
+
+- Cleanup integration lane: `fix/marrow-full-content-cleanup-20260913`.
+- Cleanup branch head immediately before proposal mutation: `544f02fcf3183a99c8c958c882875b9dad16575c`; canonical head immediately before and after promotion remained `feature/marrow-canonical-full-current` at `fcb7c51af1f24d3090a5f7b483bf4c6f2cc003a0`. The canonical advance remains Anatomy-only and does not intersect Physiology Chapter 3.
+- Reviewed proposal commit: `30ee16e69b3ed4cd45311c4ca7b4456754630259`.
+- Verified promotion commit: `41b2c79b26659463779a6927207e16f34dd023a3`.
+- Promotion/validation workflow: `34747955253`, SUCCESS.
+- Source reviewed: verified Marrow ED8 Physiology rendered pages 43-47 for Chapter 3 `Transport Across Cell Membrane`.
+- Active source-fingerprinted v2 cleanup file: `data/marrow/content_hygiene_overrides_v2/physiology/chapter_003.json`.
+- CLEANED IDs: `marrow__PHYS_CH03_Q006`, `marrow__PHYS_CH03_Q007`, `marrow__PHYS_CH03_Q009`, `marrow__PHYS_CH03_Q010`, `marrow__PHYS_CH03_Q011`, `marrow__PHYS_CH03_Q012`, `marrow__PHYS_CH03_Q013`.
+- Cleanup reconstructed only readable source prose and source-listed examples from the rendered pages, removing OCR noise, footer/brand text and flattened diagram/table debris. Q8 was not touched because it was not in the current debris queue. No question or option text was changed; no answer index or answer mapping changed.
+- The promotion workflow validated every active v2 override, rebuilt and rescanned the complete 2,711-question effective bank, proved raw/effective correct-option indexes identical, and kept `questionOptionCandidateQuestions` exactly 0.
+- Effective residual after promotion: 525 explanation candidates globally; Anatomy 54, Biochemistry 112, Physiology 359. Chapter 3 now has 10 detector-flagged explanation candidates; Q4 remains the previously documented legitimate-equation false-positive.
+- Exact next unresolved Physiology source-order item requiring cleanup after skipping documented Q4 false-positive: `marrow__PHYS_CH03_Q014`, explanation page 48. Continue in Chapter 3 source order.
