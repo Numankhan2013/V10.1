@@ -1,7 +1,7 @@
 {
   "proposalVersion": 1,
   "reviewStatus": "REVIEWED",
-  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 28 stems/options, verified against rendered ED8 pages 499-502. Removes OCR/graph debris only; answer indices remain immutable.",
+  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 28 stems/options plus Q10 explanation, verified against rendered ED8 source pages. Removes OCR/graph debris only; answer indices remain immutable.",
   "subject": "Physiology",
   "chapterId": "28",
   "questions": {
@@ -19,7 +19,8 @@
     },
     "marrow__PHYSIO_CH28_Q010": {
       "question": "A 30-year-old woman has a resting heart rate of 70 beats/min. Her pressure-volume diagram of the left ventricle is given below. What is her cardiac output (in mL/min)? (Point 2 corresponds to 120 ml)",
-      "options": ["2000", "3000", "4900", "7000"]
+      "options": ["2000", "3000", "4900", "7000"],
+      "explanation": "In this case, the patient has a heart rate of 70 beats/min and the stroke volume can be determined from the given pressure-volume diagram.\nPoint 2 corresponds to the EDV (end diastolic volume) = 120 mL.\nPoint 1 corresponds to the ESV (end systolic volume) = 50 mL.\nThus, stroke volume (SV) = EDV − ESV = 120 − 50 = 70 mL.\nTherefore, cardiac output = HR × SV = 70 × 70 = 4900 mL/min."
     },
     "marrow__PHYSIO_CH28_Q016": {
       "question": "Electromechanical systole is the time interval between ______.",
