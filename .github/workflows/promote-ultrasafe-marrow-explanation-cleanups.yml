@@ -1,0 +1,47 @@
+name: Promote ultra-safe Marrow explanation cleanups
+
+on:
+  push:
+    branches:
+      - fix/marrow-full-content-cleanup-20260913
+    paths:
+      - tools/promote_ultrasafe_marrow_explanation_cleanups.py
+      - data/marrow/explanation_cleanup_auto_review/preview_summary.json
+      - data/marrow/explanation_cleanup_auto_review/preview_residual_index.json
+      - data/marrow/explanation_cleanup_auto_review/anatomy/**
+      - data/marrow/explanation_cleanup_auto_review/biochemistry/**
+      - data/marrow/explanation_cleanup_auto_review/physiology/**
+      - .github/workflows/promote-ultrasafe-marrow-explanation-cleanups.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: marrow-ultrasafe-explanation-promotion
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Promote detector-clean non-semantic explanation edits
+        run: python tools/promote_ultrasafe_marrow_explanation_cleanups.py
+      - name: Validate every active v2 override
+        run: python tools/test_marrow_content_overrides_v2.py
+      - name: Commit active overrides
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "418982154+github-actions[bot]@users.noreply.github.com"
+          git add data/marrow/content_hygiene_overrides_v2
+          if git diff --cached --quiet; then
+            echo "No new ultra-safe explanations to activate."
+            exit 0
+          fi
+          git commit -m "Promote ultra-safe Marrow explanation cleanups"
+          git fetch origin fix/marrow-full-content-cleanup-20260913
+          git rebase origin/fix/marrow-full-content-cleanup-20260913
+          git push origin HEAD:fix/marrow-full-content-cleanup-20260913
