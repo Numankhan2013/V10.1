@@ -21,7 +21,12 @@ BRAND_RE = re.compile(r"(?i)\b(?:prepladder|marrow\s*qbank|qbank\s*page|©\s*mar
 SERIALIZED_RE = re.compile(r"(?:\[object Object\]|\{\s*[\"'](?:text|type|content|value)[\"']\s*:|\"(?:text|type|content)\"\s*:)")
 PUNCT_RUN_RE = re.compile(r"[^\w\s]{4,}", re.UNICODE)
 ISOLATED_LETTER_RE = re.compile(r"(?<!\w)[A-Za-z](?!\w)")
-WEIRD_EDGE_RE = re.compile(r"^(?:[\s~|\\<>{}\[\]`^_*=.,;:'\"“”‘’!?/+-]*[A-Za-z0-9]{0,2}[\s~|\\<>{}\[\]`^_*=.,;:'\"“”‘’!?/+-]{2,})|(?:[~|\\<>{}`^_*=]{2,}\s*)$", re.UNICODE)
+# Whole-line edge junk only. The old expression was not end-anchored and could
+# misclassify legitimate bullets such as '+ Desensitisation - ...'.
+WEIRD_EDGE_RE = re.compile(
+    r"^[\s~|\\<>{}\[\]`^_*=.,;:'\"“”‘’!?/+\-]*[A-Za-z0-9]{0,3}[\s~|\\<>{}\[\]`^_*=.,;:'\"“”‘’!?/+\-]*$",
+    re.UNICODE,
+)
 TRAILING_OCR_RES = (
     re.compile(r"\s+[A-Za-z]{1,2}\s+\d+\s+[A-Za-z]\s*$"),
     re.compile(r"\s+[A-Za-z]{2}\s+\d+[\"”']\s*$"),
@@ -46,7 +51,7 @@ def line_reasons(line: str) -> list[str]:
         reasons.append("hard_noise_char")
     if PUNCT_RUN_RE.search(stripped):
         reasons.append("punctuation_run")
-    if WEIRD_EDGE_RE.search(stripped):
+    if WEIRD_EDGE_RE.fullmatch(stripped):
         reasons.append("edge_noise")
     if any(pattern.search(stripped) for pattern in TRAILING_OCR_RES):
         reasons.append("ocr_suffix")
