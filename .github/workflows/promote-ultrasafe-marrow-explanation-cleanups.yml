@@ -6,11 +6,9 @@ on:
       - fix/marrow-full-content-cleanup-20260913
     paths:
       - tools/promote_ultrasafe_marrow_explanation_cleanups.py
-      - data/marrow/explanation_cleanup_auto_review/preview_summary.json
-      - data/marrow/explanation_cleanup_auto_review/preview_residual_index.json
-      - data/marrow/explanation_cleanup_auto_review/anatomy/**
-      - data/marrow/explanation_cleanup_auto_review/biochemistry/**
-      - data/marrow/explanation_cleanup_auto_review/physiology/**
+      - tools/generate_safe_marrow_explanation_cleanup_review.py
+      - tools/audit_safe_marrow_explanation_cleanup_preview.py
+      - data/marrow/content_audit_effective/**
       - .github/workflows/promote-ultrasafe-marrow-explanation-cleanups.yml
   workflow_dispatch:
 
@@ -30,15 +28,46 @@ jobs:
           fetch-depth: 0
       - name: Validate active v2 baseline before automation
         run: python tools/test_marrow_content_overrides_v2.py
+      - name: Regenerate current inert explanation review
+        run: |
+          python tools/generate_safe_marrow_explanation_cleanup_review.py
+          python tools/audit_safe_marrow_explanation_cleanup_preview.py
       - name: Promote detector-clean non-semantic explanation edits
         run: python tools/promote_ultrasafe_marrow_explanation_cleanups.py
       - name: Validate every active v2 override after promotion
         run: python tools/test_marrow_content_overrides_v2.py
-      - name: Commit active overrides
+      - name: Rebuild and scan effective learner-visible bank
+        run: |
+          python tools/export_effective_marrow_content_audit.py
+          python tools/audit_effective_marrow_visible_debris.py
+      - name: Verify corpus and answer-index invariants
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('data/marrow/content_audit_effective')
+          m=json.loads((p/'manifest.json').read_text())
+          assert m['totalQuestions']==2711
+          raw={}
+          eff={}
+          for slug in ('anatomy','biochemistry','physiology'):
+              for f in (Path('data/marrow/content_audit_full')/slug).glob('chapter_*.json'):
+                  for q in json.loads(f.read_text())['questions']:
+                      raw[q['id']]=q['correctOption']
+              for f in (p/slug).glob('chapter_*.json'):
+                  for q in json.loads(f.read_text())['questions']:
+                      eff[q['id']]=q['correctOption']
+          assert len(raw)==len(eff)==2711
+          assert raw==eff
+          summary=json.loads((p/'review_packets'/'summary.json').read_text())
+          assert summary['questionOptionCandidateQuestions']==0
+          print('ULTRASAFE_MARROW_EFFECTIVE_AUDIT_OK', summary)
+          PY
+      - name: Commit active overrides and refreshed audit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "418982154+github-actions[bot]@users.noreply.github.com"
-          git add data/marrow/content_hygiene_overrides_v2
+          git add data/marrow/content_hygiene_overrides_v2 data/marrow/content_audit_effective
           if git diff --cached --quiet; then
             echo "No new ultra-safe explanations to activate."
             exit 0
