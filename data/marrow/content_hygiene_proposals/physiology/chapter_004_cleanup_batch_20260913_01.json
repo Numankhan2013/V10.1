@@ -1,0 +1,18 @@
+{
+  "proposalVersion": 1,
+  "reviewStatus": "REVIEWED",
+  "purpose": "Reviewed source-faithful learner-display explanation cleanup from rendered Marrow ED8 Physiology pages 59-62; cleanup only, no explanation enhancement.",
+  "subject": "Physiology",
+  "chapterId": "4",
+  "questions": {
+    "marrow__PHYS_CH04_Q001": {
+      "explanation": "Equilibrium potential for an ion is calculated using the Nernst equation.\nWhen there is a concentration gradient for an ion across the membrane, the ion tends to diffuse down the concentration gradient. The electric potential that exactly opposes this net diffusion is called the equilibrium potential for that ion. This is calculated using the Nernst equation.\nIt is expressed as the potential inside the cell (intracellular potential relative to the extracellular potential).\nTo calculate the value of the equilibrium potential:\nNernst equation\nEMF (millivolts) = ±(61/z) × log(Concentration inside / Concentration outside)\nNote: In this formula, the choice of concentration of the ion placed in the numerator and denominator does not matter because the formula is only used to derive the numerical value and not the sign (+/-). Mathematically, log(100/10) = 1 and log(10/100) = -1. Hence, changing the numerator and denominator only changes the sign and the numerical value remains the same.\nThis equation is used only to derive the numerical value of the potential. It is NOT used to derive the sign/charge (+/-).\nThe sign/charge is derived from logic:\n• In a positive (+) ion, if the concentration of the + ion is greater outside, then the + ion moves from outside to inside. The intracellular potential becomes more positive relatively. Hence, the potential will be positive.\n• In a positive (+) ion, if the concentration of the + ion is greater inside, then the + ion moves from inside to outside. The intracellular potential becomes more negative relatively (as + ion moves outside). Hence the potential will be negative.\n• In a negative (-) ion, if the concentration of the - ion is greater outside, then the - ion moves from outside to inside. The intracellular potential becomes more negative relatively. Hence the potential will be negative.\n• In a negative (-) ion, if the concentration of the - ion is greater inside, then the - ion moves from inside to outside. The intracellular potential becomes more positive relatively (as - ion moves outside). Hence the potential will be positive."
+    },
+    "marrow__PHYS_CH04_Q002": {
+      "explanation": "The Goldman equation is used to calculate the diffusion potential when the membrane is permeable to several different ions.\nGoldman-Hodgkin-Katz equation\nHere:\n• P = permeability of the membrane to each ion.\n• C = concentrations of the respective ions on the inside (i) and outside (o) of the membrane.\nNa+, K+ and Cl- are the most important ions involved in the development of membrane potentials in nerve fibres and muscle fibres."
+    },
+    "marrow__PHYS_CH04_Q003": {
+      "explanation": "Gibbs-Donnan equilibrium explains the effect of a non-diffusible ion on the distribution of permeant ions.\nConsider the situation depicted below.\nThe membrane is permeable to K+ and Cl-. However, it is impermeable to the proteins. The impermeable protein molecules hinder the movement of K+ (negative charge of the proteins holding back positive charge of K+) and favor the movement of Cl- (like charges repel).\nAccording to the Gibbs-Donnan equation, at equilibrium, the concentration ratios of diffusible ions are equal across the membrane:\n[K+]x / [K+]y = [Cl-]y / [Cl-]x\nCross-multiplying:\n[K+]x[Cl-]x = [K+]y[Cl-]y"
+    }
+  }
+}
