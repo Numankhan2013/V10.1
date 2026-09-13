@@ -83,6 +83,15 @@ Do not certify this behavior by calling only an internal helper or by using a su
 
 - Correction after user preview review: the first sanitizer gate caught serialized JSON but missed OCR/code-like debris already embedded in source-transcribed question and option strings. Verified follow-up `55d7ac8a89c2bbf6a01db5d305b8c975c344c1f3` adds stable-ID, source-fingerprinted learner-display overrides for every Physiology Ch5 and Ch7 question: **63 questions, 252 options, and matching correct-answer display text**. Raw source and answer indexes are unchanged. The browser gate now compares all 315 rendered question/option values exactly and opens Ch5 Q1 plus Ch7 Q1, Q2 and Q35 through the learner UI. Engineering `34740460617` and full Android/PWA/browser/APK/package run `34740465004` passed; preview `https://c4744474.nk-qbank.pages.dev`; production skipped. Do not claim other chapters are visually clean without equivalent reviewed overrides/browser evidence.
 
+### Current full-corpus cleanup lane
+
+- Cleanup integration lane: `fix/marrow-full-content-cleanup-20260913`; do not merge this campaign to canonical/main without explicit reconciliation/approval.
+- Latest verified Anatomy cleanup batch: **Chapter 25 Cerebellum Q3, Q4, Q7, Q8, Q11** (`marrow__ANAT_CH25_Q003`, `Q004`, `Q007`, `Q008`, `Q011`). Exact Marrow ED8 rendered explanation pages **429–432** were reviewed; embedded PDF text was not trusted. Diagram OCR/noise was omitted while readable source prose was preserved.
+- Reviewed proposal commit: `840d30c6f9740a5c48623518486d10fc2c78a2cd`. Promotion workflow `34764056130` passed source-fingerprint promotion, all active v2 validation, full effective-bank rebuild/debris scan, and corpus/answer-index invariants. Verified promotion commit: `fbdd221f69dfb1f8483b53ed052fb39dc83bc8d4`.
+- Post-promotion effective cleanup audit: **2,711 questions**, **0 question/option candidates**, **401 explanation candidates** globally: Anatomy **26**, Biochemistry **59**, Physiology **316**. Chapter 25 is no longer in the explanation queue.
+- Anatomy Ch14 retains one previously reviewed detector false-positive from legitimate source table separators; do not distort source content solely to eliminate that heuristic hit.
+- Exact next real Anatomy cleanup target: **Ch26 Q4** (`marrow__ANAT_CH26_Q004`, Vascular supply of Brain), question page **435**, answer-key page **443**, explanation pages **445–446**. Ch26 currently has 10 explanation candidates. Continue in deterministic source order unless a source-grounded deferral is recorded.
+
 ## Explanation lane
 
 - Canonical explanation inventory before Anatomy Ch6 Q1–Q7: **581 enhanced / 2,130 pending / 2,711 total**.
@@ -119,9 +128,10 @@ Do not certify this behavior by calling only an internal helper or by using a su
 ## Current priorities / Next step
 
 1. **Main product work may proceed from live canonical.** Preserve the accepted Practice contract above.
-2. **Explanation lane:** reconcile Anatomy Ch6 Q1–Q7 from the newest valid stable-ID scope onto the then-live canonical head, re-run exact-head deterministic/browser/full gates, then release the lane only after canonical integration.
-3. **Image lane:** Batch 02 is unverified and unreconciled historical evidence only; do not treat its 12 assets as canonical. Resume from live canonical at `marrow__PHYS_CH03_Q007:figure:1` after fresh ownership/fingerprint checks. Keep automated Biochemistry paused with Q11 preserved unresolved.
-4. Production promotion remains prohibited unless the user explicitly asks for it.
+2. **Learner-content cleanup:** continue Anatomy from `marrow__ANAT_CH26_Q004` on the cleanup lane, after resolving live cleanup/canonical heads and rebuilding the effective audit; keep the Ch14 table-separator detector false-positive documented rather than rewriting valid source.
+3. **Explanation lane:** reconcile Anatomy Ch6 Q1–Q7 from the newest valid stable-ID scope onto the then-live canonical head, re-run exact-head deterministic/browser/full gates, then release the lane only after canonical integration.
+4. **Image lane:** Batch 02 is unverified and unreconciled historical evidence only; do not treat its 12 assets as canonical. Resume from live canonical at `marrow__PHYS_CH03_Q007:figure:1` after fresh ownership/fingerprint checks. Keep automated Biochemistry paused with Q11 preserved unresolved.
+5. Production promotion remains prohibited unless the user explicitly asks for it.
 
 ## Memory pointers
 
