@@ -32,5 +32,7 @@ jobs:
             echo "Active overrides already current."
             exit 0
           fi
-          git commit -m "Promote reviewed Marrow content cleanup [skip ci]"
+          git commit -m "Promote reviewed Marrow content cleanup"
+          git fetch origin fix/marrow-full-content-cleanup-20260913
+          git rebase origin/fix/marrow-full-content-cleanup-20260913
           git push origin HEAD:fix/marrow-full-content-cleanup-20260913
