@@ -1,0 +1,82 @@
+name: Physiology explanation batch prep
+
+on:
+  push:
+    branches:
+      - feature/marrow-explanation-physiology-ch11-q001-q006-20260913
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    if: github.event.head_commit.message != 'Record Physiology Ch11 Q1-Q6 unverified state'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout batch branch
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Regenerate deterministic explanation inventory
+        run: python3 tools/inventory_marrow_explanations.py --write
+      - name: Validate bounded Physiology rollout and inventory
+        run: |
+          python3 tools/test_marrow_explanation_inventory.py
+          python3 tools/test_marrow_physio_explanation_rollout.py
+          python3 tools/test_marrow_anatomy_explanation_rollout.py
+          python3 tools/test_marrow_biochem_explanation_rollout.py
+      - name: Record CURRENT_UNVERIFIED ownership and handoff
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib, json, re
+
+          inv_path=Path('data/marrow/explanation_inventory_v1.json')
+          inv=json.loads(inv_path.read_text(encoding='utf-8'))
+          records=inv['questions']
+          fingerprint=hashlib.sha256(json.dumps(records,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode('utf-8')).hexdigest()
+          status=inv['summary']['enhancementStatus']
+          assert status=={'enhanced-reference':594,'pending':2117}, status
+
+          state_path=Path('.project-memory/STATE.md')
+          state=state_path.read_text(encoding='utf-8')
+          replacement=f'''## Explanation lane
+
+### FULLY_VERIFIED_HISTORY
+
+- Anatomy Ch6 Q1–Q7 is canonical history, not current ownership. Its certified checkpoint `58bb99d5c1fc96a98b4f922a963dba16105487d1` is an ancestor of the Physiology batch base; exact-head Engineering Gate `34715415821` and full Android/PWA/APK/package run `34715415818` passed there. Historical PR #52 remains evidence only and is non-blocking.
+- Canonical pre-batch inventory at Physiology acquisition was **588 enhanced / 2,123 pending / 2,711 total**, Physiology raw SHA `f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6`.
+
+### CURRENT_UNVERIFIED
+
+- Owner: **Physiology Chapter 11 Q1–Q6** (`marrow__PHYS_CH11_Q001..Q006`), one bounded source-order batch, workload score **16.0**.
+- Branch: `feature/marrow-explanation-physiology-ch11-q001-q006-20260913`; exact canonical base SHA `4f943af34bb4bd49f644f2655e23459fc1534031`.
+- Authored content commit: `bd3e2f814f0fd2a2cf901b5b2a1bee1f132da0ec`; bounded-prefix validator commit: `9e34d44aef7de7a92e6ad17afe9d3f8b7681a195`.
+- Q1/Q2/Q5 preserve source figure metadata through the immutable canonical source record. Q6 uses `resolved_reconstruction` to preserve source-keyed option A while explicitly correcting the overbroad claim that mechanoreceptor and exteroceptor are universally synonymous.
+- Deterministic candidate inventory: **594 enhanced / 2,117 pending / 2,711 total**; question-record fingerprint `{fingerprint}`; raw source unchanged.
+- State: **STATIC_VALIDATED**. Inventory, Physiology rollout, Anatomy rollout, and Biochemistry rollout validators passed before this memory checkpoint was committed.
+- Still required before `FULLY_VERIFIED`: stable-ID real-browser regression for this batch; shared Practice/CBT/Review/FSRS regressions; PR/exact-head Engineering Gate; full Android/PWA/APK/package/reproducibility/preview verification; reconciliation back into `feature/marrow-canonical-full-current` followed by canonical exact-head certification if canonical moved.
+- Production promotion remains prohibited.
+
+'''
+          state,n=re.subn(r'## Explanation lane\n.*?(?=## Image lane)',replacement,state,count=1,flags=re.S)
+          assert n==1
+          old='2. **Explanation lane:** reconcile Anatomy Ch6 Q1–Q7 from the newest valid stable-ID scope onto the then-live canonical head, re-run exact-head deterministic/browser/full gates, then release the lane only after canonical integration.'
+          new='2. **Explanation lane:** Physiology Ch11 Q1–Q6 is `CURRENT_UNVERIFIED` on the exact canonical base recorded above. Finish stable-ID browser/full exact-head certification and reconcile it into live canonical before releasing the lane.'
+          assert old in state
+          state=state.replace(old,new,1)
+          state_path.write_text(state,encoding='utf-8')
+
+          log=Path('.project-memory/SESSION_LOG.md')
+          entry=f'''\n\n## 2026-09-13 — Physiology Ch11 Q1–Q6 explanation batch acquired\n\n- `FULLY_VERIFIED_HISTORY`: Anatomy Ch6 Q1–Q7 certified checkpoint `58bb99d5c1fc96a98b4f922a963dba16105487d1` is already an ancestor of canonical; stale PR #52 is historical and non-blocking.\n- `CURRENT_UNVERIFIED`: Physiology Ch11 Q1–Q6 on `feature/marrow-explanation-physiology-ch11-q001-q006-20260913`, canonical base `4f943af34bb4bd49f644f2655e23459fc1534031`.\n- Workload **16.0**: six base points; source figures Q1/Q2/Q5; OCR/garbling Q1/Q2/Q3/Q5/Q6; Q6 resolved reconstruction.\n- Raw Physiology source SHA remains `f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6`; canonical corpus remains 1,014 Physiology / 2,711 global.\n- Static validation passed after deterministic inventory regeneration: **594 enhanced / 2,117 pending**, fingerprint `{fingerprint}`.\n- Next action: add stable-ID browser regression, open/reconcile PR, and require exact-head Engineering + full Android/PWA/APK/package/reproducibility/preview success before `FULLY_VERIFIED`. Production promotion prohibited.\n'''
+          log.write_text(log.read_text(encoding='utf-8')+entry,encoding='utf-8')
+          print('PHYSIO_CH11_MEMORY_OK fingerprint='+fingerprint)
+          PY
+      - name: Commit deterministic inventory and memory
+        run: |
+          git config user.name 'nk-qbank-automation'
+          git config user.email 'automation@users.noreply.github.com'
+          git add data/marrow/explanation_inventory_v1.json .project-memory/STATE.md .project-memory/SESSION_LOG.md
+          git diff --cached --check
+          git commit -m 'Record Physiology Ch11 Q1-Q6 unverified state'
+          git push origin HEAD:${GITHUB_REF_NAME}
