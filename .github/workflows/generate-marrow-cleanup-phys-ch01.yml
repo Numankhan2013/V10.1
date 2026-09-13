@@ -1,0 +1,46 @@
+name: Generate Marrow cleanup Physiology Ch1
+
+on:
+  push:
+    branches:
+      - fix/marrow-full-content-cleanup-20260913
+    paths:
+      - tools/generate_marrow_cleanup_phys_ch01.py
+      - .github/workflows/generate-marrow-cleanup-phys-ch01.yml
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Generate source-fingerprinted reviewed override
+        run: python tools/generate_marrow_cleanup_phys_ch01.py
+      - name: Verify generated override shape
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('data/marrow/content_hygiene_overrides_v2/physiology/chapter_001.json')
+          x=json.loads(p.read_text(encoding='utf-8'))
+          assert x['schemaVersion']==2
+          assert x['subject']=='Physiology' and x['chapterId']=='1'
+          assert len(x['questions'])==21
+          assert all(set(v)=={'explanation'} and v['explanation'].strip() for v in x['questions'].values())
+          print('PHYS_CH01_OVERRIDE_SHAPE_OK',len(x['questions']))
+          PY
+      - name: Commit reviewed override
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/marrow/content_hygiene_overrides_v2/physiology/chapter_001.json
+          if git diff --cached --quiet; then
+            echo "Override already current."
+            exit 0
+          fi
+          git commit -m "Clean Physiology Ch1 learner explanations [skip ci]"
+          git push origin HEAD:fix/marrow-full-content-cleanup-20260913
