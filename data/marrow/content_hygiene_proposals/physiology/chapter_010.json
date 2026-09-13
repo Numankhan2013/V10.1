@@ -1,53 +1,133 @@
 {
   "proposalVersion": 1,
   "reviewStatus": "REVIEWED",
-  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 10 stems/options, verified against rendered ED8 pages 198-202. Removes OCR debris only; answer indices remain immutable.",
+  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 10 stems/options and explanations, verified against rendered ED8 pages 198-209. Removes OCR/diagram/footer debris only; answer indices remain immutable.",
   "subject": "Physiology",
   "chapterId": "10",
   "questions": {
     "marrow__PHYS_CH10_Q001": {
       "question": "Which of the following neurotransmitter is not a biogenic amine?",
-      "options": ["Norepinephrine", "Dopamine", "Serotonin", "Glycine"]
+      "options": [
+        "Norepinephrine",
+        "Dopamine",
+        "Serotonin",
+        "Glycine"
+      ]
     },
     "marrow__PHYS_CH10_Q002": {
       "question": "The main excitatory and inhibitory neurotransmitters in the CNS are ______.",
-      "options": ["Glutamate and glycine respectively", "Aspartate and glycine respectively", "Norepinephrine and GABA respectively", "Dopamine and GABA respectively"]
+      "options": [
+        "Glutamate and glycine respectively",
+        "Aspartate and glycine respectively",
+        "Norepinephrine and GABA respectively",
+        "Dopamine and GABA respectively"
+      ],
+      "explanation": "Glutamate is the main excitatory neurotransmitter in the CNS. It is responsible for 75% of the excitatory transmission in the brain.\n\nGlycine and GABA are the main inhibitory neurotransmitters in the CNS. Glycine is the main inhibitory neurotransmitter in the spinal cord. GABA is the major inhibitory neurotransmitter in the brain."
     },
     "marrow__PHYS_CH10_Q003": {
       "question": "'A' delta fibers and 'C' fibers carry pain sensation. The neurotransmitter released by 'A' delta fibers is ______.",
-      "options": ["Substance P", "Glutamate", "Histamine", "Norepinephrine"]
+      "options": [
+        "Substance P",
+        "Glutamate",
+        "Histamine",
+        "Norepinephrine"
+      ]
     },
     "marrow__PHYS_CH10_Q005": {
       "question": "Dopamine beta hydroxylase converts dopamine to ______.",
-      "options": ["Norepinephrine", "DOPA", "Epinephrine", "Tyrosine"]
+      "options": [
+        "Norepinephrine",
+        "DOPA",
+        "Epinephrine",
+        "Tyrosine"
+      ],
+      "explanation": "Dopamine beta hydroxylase converts dopamine to norepinephrine. Vitamin C is required as a cofactor for the enzyme."
     },
     "marrow__PHYS_CH10_Q006": {
       "question": "Which of these is not a dopaminergic pathway?",
-      "options": ["Mesocortical pathway", "Nigrostriatal pathway", "Tuberoinfundibular pathway", "Corticostriatal pathway"]
+      "options": [
+        "Mesocortical pathway",
+        "Nigrostriatal pathway",
+        "Tuberoinfundibular pathway",
+        "Corticostriatal pathway"
+      ],
+      "explanation": "Corticostrial pathway is not a dopaminergic pathway.\n\nThe corticostrial pathway is the primary input pathway for the basal ganglia which uses glutamate as the neurotransmitter.\n\nImportant dopaminergic pathways are:\n• Mesolimbic pathway - Increased activity responsible for positive symptoms of schizophrenia.\n• Mesocortical pathway - Decreased activity responsible for negative symptoms of schizophrenia.\n• Nigrostriatal pathway - Decreased activity causes extrapyramidal symptoms.\n• Tuberoinfundibular pathway - Decreased activity causes increase in prolactin."
     },
     "marrow__PHYS_CH10_Q007": {
       "question": "Find the incorrect match.",
-      "options": ["Raphe nucleus - Serotonin", "Locus coeruleus - Norepinephrine", "Basal forebrain complex - GABA", "Histamine - hypothalamus"]
+      "options": [
+        "Raphe nucleus - Serotonin",
+        "Locus coeruleus - Norepinephrine",
+        "Basal forebrain complex - GABA",
+        "Histamine - hypothalamus"
+      ],
+      "explanation": "Basal forebrain complex (nucleus basalis of Meynert) is rich in acetylcholine.\n\nA loss of cholinergic neurons in the nucleus basalis of Meynert is seen in alzheimer's disease."
     },
     "marrow__PHYS_CH10_Q009": {
       "question": "An infant develops features of botulism following honey intake. This toxin blocks neuromuscular transmission by which of the following mechanisms?",
-      "options": ["Prevents release of Ach at presynaptic membrane", "Opening of calcium channels at the presynaptic membrane", "Prevents the binding of Ach at the postsynaptic membrane", "Prevents the action of Ach at the postsynaptic membrane"]
+      "options": [
+        "Prevents release of Ach at presynaptic membrane",
+        "Opening of calcium channels at the presynaptic membrane",
+        "Prevents the binding of Ach at the postsynaptic membrane",
+        "Prevents the action of Ach at the postsynaptic membrane"
+      ]
     },
     "marrow__PHYS_CH10_Q010": {
       "question": "A farmer presents with difficulty swallowing and jaw tightening. He gives a history of getting his finger jammed in the rustic gate a few days ago. He gives no history of previous tetanus immunization. After evaluation, he was diagnosed with tetanus. The release of which of the following neurotransmitters is affected by the toxin responsible for this condition?",
-      "options": ["Dopamine", "Acetylcholine", "GABA", "Adrenaline"]
+      "options": [
+        "Dopamine",
+        "Acetylcholine",
+        "GABA",
+        "Adrenaline"
+      ]
     },
     "marrow__PHYS_CH10_Q013": {
       "question": "Which of the following is the wrong match?",
-      "options": ["Sympathetic preganglionic fibres - release acetylcholine", "Parasympathetic preganglionic fibres - release acetylcholine", "Sympathetic post ganglionic fibres - release noradrenaline", "Sweat glands - innervated by sympathetic adrenergic fibres"]
+      "options": [
+        "Sympathetic preganglionic fibres - release acetylcholine",
+        "Parasympathetic preganglionic fibres - release acetylcholine",
+        "Sympathetic post ganglionic fibres - release noradrenaline",
+        "Sweat glands - innervated by sympathetic adrenergic fibres"
+      ],
+      "explanation": "Sweat glands are innervated by sympathetic cholinergic fibres (not adrenergic fibres).\n\nPre-ganglionic fibres of the sympathetic nervous system, pre-ganglionic fibers of the parasympathetic nervous system and post-ganglionic parasympathetic fibres release acetylcholine.\n\nPost-ganglionic sympathetic fibres release noradrenaline in most of the sites, except in certain places such as sweat glands, piloerector muscles and blood vessels in some skeletal muscles where acetylcholine is released."
     },
     "marrow__PHYS_CH10_Q014": {
       "question": "Which part of the basal ganglia is the neurotransmitter glutamate secreted from?",
-      "options": ["Globus pallidus interna", "Globus pallidus externa", "Subthalamic nucleus", "Putamen"]
+      "options": [
+        "Globus pallidus interna",
+        "Globus pallidus externa",
+        "Subthalamic nucleus",
+        "Putamen"
+      ],
+      "explanation": "Projections from subthalamic nucleus to globus pallidus are glutaminergic.\n\nNeurotransmitters secreted by various regions of basal ganglia:\n• Substantia nigra pars compacta = dopamine\n• Substantia nigra pars reticulata = GABA\n• Subthalmic nuclei = glutamate\n• Corpus striatum to globus pallidus = GABA\n• Intrastriate neurons = acetylcholine\n• Globus pallidus = GABA\n\nDiagrammatic representation of the principal connections of the basal ganglia.\nAcetylcholine is the transmitter produced by interneurons in the striatum.\n\n(SNr : substantia nigra pars reticulata; SNc: substantia nigra pars compacta; STN: Subthalamic nucleus ; GPe: globus pallidus externa ; GPi: Globus pallidus interna)."
     },
     "marrow__PHYS_CH10_Q018": {
       "question": "Which statement regarding the NMDA receptor is incorrect?",
-      "options": ["Glutamate is its endogenous agonist", "Glycine is essential for this receptor's response to its endogenous agonist", "It is a chloride ion channel", "It is present in hippocampal neurons"]
+      "options": [
+        "Glutamate is its endogenous agonist",
+        "Glycine is essential for this receptor's response to its endogenous agonist",
+        "It is a chloride ion channel",
+        "It is present in hippocampal neurons"
+      ],
+      "explanation": "NMDA receptor permits passage of Ca2+ and other cations (Na+), not of chloride.\n\nGlutamate is the agonist for NMDA receptor. Glycine binding to the NMDA receptor is essential for the receptor to respond to glutamate. NMDA receptors are present on hippocampal neurons.\n\nNote: GABA and glycine receptors act by increasing Cl- conductance."
+    },
+    "marrow__PHYS_CH10_Q011": {
+      "explanation": "The neurotransmitter released by Renshaw cell interneuron is glycine.\n\nRenshaw cell is an inhibitory interneuron which is activated by collaterals from spinal motor neurons. Renshaw cell terminates on the cell body of the same and other spinal motor neurons. It reduces or stops the discharge of the motor neuron by releasing glycine."
+    },
+    "marrow__PHYS_CH10_Q015": {
+      "explanation": "Serotonin is an inhibitory neurotransmitter.\n\nAcetylcholine, glutamate and norepinephrine are excitatory neurotransmitters."
+    },
+    "marrow__PHYS_CH10_Q016": {
+      "explanation": "5-HT2C receptor agonists increase satiety (state of being fed beyond capacity).\n\nImportant serotonin receptors:\n• 5-HT2A receptors mediate platelet aggregation and smooth muscle contraction.\n• 5-HT3 receptors are present in the GIT and the area postrema and are related to vomiting.\n• 5-HT4 receptors are present in the GIT and brain. They facilitate secretion and peristalsis in GIT.\n• 5-HT6 and 5-HT7 are distributed throughout the limbic system.\n\nNote: All are G protein coupled receptors except 5-HT3 which is a ligand gated ion channel receptor."
+    },
+    "marrow__PHYS_CH10_Q017": {
+      "options": [
+        "Basophil",
+        "Mast cell",
+        "Platelets",
+        "Posterior hypothalamus"
+      ],
+      "explanation": "Serotonin (5-hydroxytryptamine; 5-HT) is present in highest concentration in platelets and in the gastrointestinal tract, where it is found in the enterochromaffin cells and the myenteric plexus. It is also found within the brain stem in the midline Raphe nuclei.\n\nNote: The precursor of serotonin is tryptophan."
     }
   }
 }
