@@ -52,19 +52,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 3,
           "reasons": [
-            "edge_noise",
-            "ocr_suffix"
+            "edge_noise"
           ],
           "suspectLines": [
-            {
-              "line": 1,
-              "text": "The total number of airway generations present in between the trachea and alveolar sac is 23.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 5,
               "text": "* Conducting zone",
@@ -254,19 +246,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 3,
           "reasons": [
-            "edge_noise",
-            "ocr_suffix"
+            "edge_noise"
           ],
           "suspectLines": [
-            {
-              "line": 6,
-              "text": "cells such as:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 7,
               "text": "+ Basal cells - stem cells",
@@ -279,20 +263,6 @@
               "text": "+ Functions as stem cells",
               "reasons": [
                 "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "The conducting airways secrete several substances that in lung defense such as:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "¢ Secretory immunoglobins - IgA.",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -421,11 +391,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 11,
+          "severity": 7,
           "reasons": [
             "edge_noise",
-            "hard_noise_char",
-            "ocr_suffix"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -433,13 +402,6 @@
               "text": "+ Type I cells - The primary lining cells of the alveoli (squamous epithelium); Helps in gas",
               "reasons": [
                 "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "like drug-induced pulmonary toxicity by amiodarone, bleomycin etc.",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {

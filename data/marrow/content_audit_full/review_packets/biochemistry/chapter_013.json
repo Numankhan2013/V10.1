@@ -4,72 +4,10 @@
   "subject": "Biochemistry",
   "chapterId": "13",
   "chapter": "Fatty acid oxidation and ketogenesis",
-  "candidateQuestionCount": 6,
-  "questionOptionCandidateCount": 2,
-  "explanationCandidateCount": 6,
+  "candidateQuestionCount": 2,
+  "questionOptionCandidateCount": 0,
+  "explanationCandidateCount": 2,
   "questions": [
-    {
-      "id": "marrow__BIOCHEM_CH13_Q007",
-      "questionNumber": 7,
-      "sourcePage": 197,
-      "provenance": {
-        "sourceFile": "",
-        "questionPages": [
-          197
-        ],
-        "answerKeyPages": [
-          201
-        ],
-        "explanationPages": [
-          204
-        ],
-        "sourceMetadata": {
-          "edition": "Marrow ED8",
-          "source_filename": "biochemistryed8.pdf"
-        }
-      },
-      "reviewStatus": "pass",
-      "question": "Each cycle of β-oxidation produces __________.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "1 FADH2, 1 NAD+, and 1 acetyl-CoA"
-        },
-        {
-          "letter": "B",
-          "text": "1 FADH2, 1 NADH, and 1 acetyl-CoA"
-        },
-        {
-          "letter": "C",
-          "text": "1 FADH2, 1 NADH, and 2 CO2 molecules"
-        },
-        {
-          "letter": "D",
-          "text": "1 FAD, 1 NAD+, and 2 CO2 molecules"
-        }
-      ],
-      "correctOption": 2,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 4,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 5,
-              "text": "• In each cycle of β-oxidation, the terminal two carbons are cleaved as acetyl CoA starting at carboxyl end.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "One cycle of β-oxidation of fatty acids produces 1 FADH2, 1 NADH, and 1 acetyl-CoA.\n\n• FADH2 is formed in the reaction catalyzed by acyl CoA dehydrogenase.\n• NADH is formed in the reaction catalyzed by β-hydroxy acyl CoA dehydrogenase\n• In each cycle of β-oxidation, the terminal two carbons are cleaved as acetyl CoA starting at carboxyl end.\n\nThus, the overall reaction of each cycle of β-oxidation can be summarized as follows:\n(Cn)acyl CoA + FAD + NAD++ H2O + CoA °  (Cn-2)acyl CoA + FADH2 + NADH + Acetyl CoA +H+"
-    },
     {
       "id": "marrow__BIOCHEM_CH13_Q009",
       "questionNumber": 9,
@@ -116,243 +54,22 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 3,
           "reasons": [
-            "edge_noise",
-            "ocr_suffix"
+            "edge_noise"
           ],
           "suspectLines": [
-            {
-              "line": 1,
-              "text": "A straight-chain fatty acid comprising of 2N carbon atoms will undergo [(2N ÷ 2) -1] = (N-1) cycles of beta-oxidation and produce N number of acetyl CoA.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 7,
               "text": "So, the net ATP yield after beta-oxidation of a straight-chain fatty acid having 2N carbon atoms will be (14N-4) - 2 = (14N- 6)We must keep in mind that during the initial activation of fatty acids (conversion of fatty acid to fatty acyl CoA), 2 ATP is utilized.",
               "reasons": [
                 "edge_noise"
               ]
-            },
-            {
-              "line": 9,
-              "text": "This formula can be used to calculate net ATP yield from a straight-chain fatty acid having an even number of carbon atoms. For example, Net ATP yield from beta-oxidation of palmitic acid (16 carbon) will be 106.",
-              "reasons": [
-                "ocr_suffix"
-              ]
             }
           ]
         }
       ],
       "explanation": "A straight-chain fatty acid comprising of 2N carbon atoms will undergo [(2N ÷ 2) -1] = (N-1) cycles of beta-oxidation and produce N number of acetyl CoA.\n\nEach acetyl CoA will undergo TCA cycle, producing 10 ATP. On the other hand, each cycle of beta-oxidation also produces 1 FADH2 and 1 NADH generating 1.5 ATP and 2.5 ATP respectively. Therefore (N-1) cycles of beta-oxidation will produce (N-1) FADH2 and (N-1) NADH.\n\nThe energetics of β-oxidation of a straight-chain fatty acid comprising of 2N carbon atoms can be summarized as follows:\n\nSo, the net ATP yield after beta-oxidation of a straight-chain fatty acid having 2N carbon atoms will be (14N-4) - 2 = (14N- 6)We must keep in mind that during the initial activation of fatty acids (conversion of fatty acid to fatty acyl CoA), 2 ATP is utilized.\n\nThis formula can be used to calculate net ATP yield from a straight-chain fatty acid having an even number of carbon atoms. For example, Net ATP yield from beta-oxidation of palmitic acid (16 carbon) will be 106.\n\nCalculation: Here, 2N = 16 i.e, N = 8 . Therefore net ATP yield = (14×8 - 6) = 112-6 = 106"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH13_Q011",
-      "questionNumber": 11,
-      "sourcePage": 198,
-      "provenance": {
-        "sourceFile": "",
-        "questionPages": [
-          198
-        ],
-        "answerKeyPages": [
-          201
-        ],
-        "explanationPages": [
-          205,
-          206
-        ],
-        "sourceMetadata": {
-          "edition": "Marrow ED8",
-          "source_filename": "biochemistryed8.pdf"
-        }
-      },
-      "reviewStatus": "pass",
-      "question": "An 8-month-old infant was brought to the pediatric emergency department with recurrent seizures and hypoglycemia. His family history revealed the sudden death of his sibling at the age of 3 months. Labs showed increased dicarboxylic acid in blood and urine. Which of the following is the pathophysiology behind this clinical manifestation?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Impaired alpha oxidation of branched-chain fatty acids"
-        },
-        {
-          "letter": "B",
-          "text": "Impaired beta-oxidation of medium-chain fatty acids"
-        },
-        {
-          "letter": "C",
-          "text": "Impaired omega oxidation of medium-chain fatty acids"
-        },
-        {
-          "letter": "D",
-          "text": "Impaired peroxisomal oxidation of very long-chain fatty acids"
-        }
-      ],
-      "correctOption": 2,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 4,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "The given clinical vignette is suggestive of medium-chain acyl-CoA dehydrogenase deficiency in which there is impaired beta-oxidation of medium-chain fatty acids. This leads to the accumulation of dicarboxylic acids leading to dicarboxylic aciduria. It is characterized by:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "The given clinical vignette is suggestive of medium-chain acyl-CoA dehydrogenase deficiency in which there is impaired beta-oxidation of medium-chain fatty acids. This leads to the accumulation of dicarboxylic acids leading to dicarboxylic aciduria. It is characterized by:\n• Excretion of C6-C10 ω-dicarboxylic acids (medium-chain) in the urine.\n• Nonketotic hypoglycemia: due to the lack of ATP and acetyl CoA from β-oxidation (which is an activator of pyruvate carboxylase) to support gluconeogenesis.\n\nDefects in medium-chain acyl-CoA dehydrogenase have been identified as a cause of sudden infant death syndrome (SIDS).\n\nOmega-oxidation is an alternative way of fatty acid oxidation in the body when the beta-oxidation enzymes are either saturated or defective. Omega oxidation converts excess fatty acids to dicarboxylic acids that are soluble and hence can be excreted out via urine.\n\nOther options:\nOption A: Impaired Alpha oxidation leads to Refsum’s disease. The manifestations of classic adult Refsum's disease include retinitis pigmentosa, peripheral neuropathy, ataxia, ichthyosis, anosmia, deafness and cardiac arrhythmias.\nOption C: Medium-chain acyl CoA dehydrogenase deficiency will lead to increased (not impaired) utilization of the omega oxidation pathway, resulting in the overproduction of dicarboxylic acids.\nOption D: Impaired peroxisomal oxidation of very long-chain fatty acids (VLCFA) causes Zellweger (cerebrohepatorenal) syndrome. It is a rare inherited disorder characterized by the absence of peroxisomal enzymes in all tissues leading to the accumulation of C26—C38 polyenoic acids in brain tissue. The clinical manifestation of Zellweger syndrome includes:\n• Facial deformities resembling Down syndrome (Mongoloid facies, Hypertelorism, Frontal bossing, Upslanting palpebral fissure)\n• Brush field spots\n• Hypotonia and hyporeflexia\n• Seizures\n• Neurodevelopmental delay\n• Liver enlargement"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH13_Q014",
-      "questionNumber": 14,
-      "sourcePage": 199,
-      "provenance": {
-        "sourceFile": "",
-        "questionPages": [
-          199
-        ],
-        "answerKeyPages": [
-          202
-        ],
-        "explanationPages": [
-          207,
-          208
-        ],
-        "sourceMetadata": {
-          "edition": "Marrow ED8",
-          "source_filename": "biochemistryed8.pdf"
-        }
-      },
-      "reviewStatus": "pass",
-      "question": "Which of the following is a primary ketone body?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Acetone"
-        },
-        {
-          "letter": "B",
-          "text": "Acetoacetate"
-        },
-        {
-          "letter": "C",
-          "text": "Beta-hydroxybutyric acid"
-        },
-        {
-          "letter": "D",
-          "text": "Acetyl CoA"
-        }
-      ],
-      "correctOption": 2,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 4,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 5,
-              "text": "Ketone bodies are formed under conditions associated with a high rate of fatty acid oxidation such as:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Acetoacetate is a primary ketone body as it is directly synthesized by the pathway of ketogenesis.\n\nSecondary ketone bodies are those which are produced from the primary ketone body via spontaneous breakdown or by enzymatic reaction. Examples of secondary ketone bodies are: acetone and beta-hydroxybutyrate.\n\nKetone bodies are formed under conditions associated with a high rate of fatty acid oxidation such as:\n• Fasting\n• Carbohydrate restrictive diet\n• Starvation\n• Prolonged intense exercise\n• Untreated (or inadequately treated) type 1 diabetes mellitus.\n\nIn such conditions, there is increased production of acetyl CoA from beta-oxidation of fatty acids which inhibits pyruvate dehydrogenase and activates pyruvate carboxylase. The oxaloacetate thus produced is used for gluconeogenesis rather than the TCA cycle. Hence, acetyl CoA is diverted into ketone body synthesis.\n\nAcetyl CoA is converted into acetoacetate by the following reactions that occur in the liver mitochondria:\n\nThus, acetoacetate is the primary ketone body synthesized.\n\nHMG CoA synthase is the rate-limiting step in ketone body synthesis."
-    },
-    {
-      "id": "marrow__BIOCHEM_CH13_Q016",
-      "questionNumber": 16,
-      "sourcePage": 200,
-      "provenance": {
-        "sourceFile": "",
-        "questionPages": [
-          200
-        ],
-        "answerKeyPages": [
-          202
-        ],
-        "explanationPages": [
-          208,
-          209
-        ],
-        "sourceMetadata": {
-          "edition": "Marrow ED8",
-          "source_filename": "biochemistryed8.pdf"
-        }
-      },
-      "reviewStatus": "pass",
-      "question": "The rescue team has found a 33-year-old hiker who was stranded for 8 days. He was found in an extremely weak and dehydrated state. His breath has a fruity smell and urinalysis shows a positive ketostix test. The activity of which of the following enzymes is increased in him?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "HMG CoA synthase"
-        },
-        {
-          "letter": "B",
-          "text": "HMG CoA reductase"
-        },
-        {
-          "letter": "C",
-          "text": "Acetyl CoA carboxylase"
-        },
-        {
-          "letter": "D",
-          "text": "Pyruvate dehydrogenase"
-        }
-      ],
-      "correctOption": 1,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "The rescue team has found a 33-year-old hiker who was stranded for 8 days. He was found in an extremely weak and dehydrated state. His breath has a fruity smell and urinalysis shows a positive ketostix test. The activity of which of the following enzymes is increased in him?",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 4,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 10,
-              "text": "• Pyruvate dehydrogenase converts pyruvate into acetyl CoA.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "A fruity smell (presence of acetone in breath) and positive ketostix test (ketonuria) on the background of prolonged starvation is suggestive of starvation ketosis. This is characterized by increased activity of HMG CoA synthase enzyme.\n\nProlonged starvation implies a catabolic state in which there is excessive β-oxidation leading to increased production of acetyl CoA. The excessive acetyl CoA is utilised by the hepatocytes to synthesise ketone bodies for extrahepatic utilisation.\n\nHMG CoA synthase is the enzyme required for ketone body synthesis, it is also the rate-limiting enzyme.\n\nOther options:\n• HMG CoA reductase is involved in the synthesis of cholesterol.\n• Acetyl CoA carboxylase is involved in the fatty acid synthesis.\n• Pyruvate dehydrogenase converts pyruvate into acetyl CoA.\nAll three enzymes are inactive in low insulin state (such as prolonged starvation)."
     },
     {
       "id": "marrow__BIOCHEM_CH13_Q020",
@@ -395,39 +112,20 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Ketosis is common in type 1 DM due to:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 3,
           "reasons": [
-            "edge_noise",
-            "ocr_suffix"
+            "edge_noise"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "2, 3 and 4 statements correctly explain the reason behind increased ketogenesis as seen in type1 DM.",
               "reasons": [
-                "edge_noise",
-                "ocr_suffix"
+                "edge_noise"
               ]
             }
           ]

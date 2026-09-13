@@ -49,11 +49,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 11,
+          "severity": 7,
           "reasons": [
             "hard_noise_char",
-            "literal_backslash",
-            "ocr_suffix"
+            "literal_backslash"
           ],
           "suspectLines": [
             {
@@ -67,8 +66,7 @@
               "line": 3,
               "text": "Contents of the spermatic cord Ductus deren Go pa Seairais Testicular @ Set b\\ Testicular vein artery: > \\ \\ (wPampinitorm \\ My) be branch \\a > ef 4 spermatic fascia Fibrous stroma SE —4e@ Os Cremasteric Cremaster = fh. = 3 ons . sr ge oe oO o © a? ce",
               "reasons": [
-                "hard_noise_char",
-                "ocr_suffix"
+                "hard_noise_char"
               ]
             }
           ]
@@ -296,19 +294,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 3,
           "reasons": [
-            "edge_noise",
-            "ocr_suffix"
+            "edge_noise"
           ],
           "suspectLines": [
-            {
-              "line": 1,
-              "text": "The most likely primary cause of an enlarged inguinal lymph node is anal cancer. Lymphatics from the anal canal distal to the dentate line (anal margin) drains into the inguinal lymph nodes. Hence, anal cancer arising distal to dentate line can cause enlarged inguinal lymph nodes. Lymphatics proximal to the dentate line (anal canal) drains into internal iliac lymph nodes through superior rectal lymphatics. Option A: In testicular cancer, lymphatic spread occurs to the paraaortic lymph nodes. Option C: In sigmoid colon cancer, lymphatic spread occurs to the regional lymph node and then to the central lymph node. Option D: In prostate cancer, lymphatic spread occurs to the:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 3,
               "text": "+ Lymph nodes beside the internal iliac vein and in the hollow of the sacrum",

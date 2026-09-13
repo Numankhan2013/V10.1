@@ -3,7 +3,7 @@
   "subject": "Physiology",
   "chapterId": "28",
   "chapter": "Cardiac Cycle and Cardiac Output",
-  "candidateQuestionCount": 9,
+  "candidateQuestionCount": 6,
   "questions": [
     {
       "id": "marrow__PHYSIO_CH28_Q005",
@@ -151,6 +151,65 @@
             {
               "line": 1,
               "text": "Volume determining preload is ~ at ¥<'",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH28_Q009",
+      "questionNumber": 9,
+      "sourcePage": 500,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          500
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          508
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "reviewStatus": "pass",
+      "question": "When a person changes position from standing to supine,",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Heart rate increases"
+        },
+        {
+          "letter": "B",
+          "text": "Venous return to heart rises immediately"
+        },
+        {
+          "letter": "C",
+          "text": "Cerebral blood flow increases ™S >"
+        },
+        {
+          "letter": "D",
+          "text": "Decrease in blood flow to the lung apices % eC j xe aN"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "option_C",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Cerebral blood flow increases ™S >",
               "reasons": [
                 "hard_noise_char"
               ]
@@ -366,262 +425,6 @@
               "text": ") ~ The pressure-volume curve is shifted:to'the left ins",
               "reasons": [
                 "hard_noise_char"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYSIO_CH28_Q020",
-      "questionNumber": 20,
-      "sourcePage": 503,
-      "provenance": {
-        "sourceFile": "",
-        "questionPages": [
-          503
-        ],
-        "answerKeyPages": [
-          505
-        ],
-        "explanationPages": [
-          513,
-          514
-        ],
-        "sourceMetadata": {
-          "filename": "physiologyed8.pdf"
-        }
-      },
-      "reviewStatus": "pass",
-      "question": "The fourth heart sound is caused by:",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Closure of aortic and pulmonary valves"
-        },
-        {
-          "letter": "B",
-          "text": "Vibrations in the ventricular wall during systole"
-        },
-        {
-          "letter": "C",
-          "text": "Ventricular filling A,"
-        },
-        {
-          "letter": "D",
-          "text": "Closure of mitral and tricuspid valves mF),"
-        }
-      ],
-      "correctOption": 3,
-      "flags": [
-        {
-          "field": "option_C",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Ventricular filling A,",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "The fourth heart sound is caused by:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYSIO_CH28_Q025",
-      "questionNumber": 25,
-      "sourcePage": 504,
-      "provenance": {
-        "sourceFile": "",
-        "questionPages": [
-          504
-        ],
-        "answerKeyPages": [
-          505
-        ],
-        "explanationPages": [
-          516,
-          517
-        ],
-        "sourceMetadata": {
-          "filename": "physiologyed8.pdf"
-        }
-      },
-      "reviewStatus": "pass",
-      "question": "Reflex responsible for tachycardia during right atrial distension is:",
-      "options": [
-        {
-          "letter": "A",
-          "text": "J reflex"
-        },
-        {
-          "letter": "B",
-          "text": "Cushing reflex"
-        },
-        {
-          "letter": "C",
-          "text": "Bezold Jarisch reflex"
-        },
-        {
-          "letter": "D",
-          "text": "Bainbridge reflex"
-        }
-      ],
-      "correctOption": 4,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Reflex responsible for tachycardia during right atrial distension is:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYSIO_CH28_Q026",
-      "questionNumber": 26,
-      "sourcePage": 504,
-      "provenance": {
-        "sourceFile": "",
-        "questionPages": [
-          504
-        ],
-        "answerKeyPages": [
-          505
-        ],
-        "explanationPages": [
-          517,
-          518
-        ],
-        "sourceMetadata": {
-          "filename": "physiologyed8.pdf"
-        }
-      },
-      "reviewStatus": "needs_manual_review",
-      "question": "Arrange the following events in the sequence in which they occur, after 'p wave' in ECG:",
-      "options": [
-        {
-          "letter": "A",
-          "text": "1-2-3-4"
-        },
-        {
-          "letter": "B",
-          "text": "1-2-4-3"
-        },
-        {
-          "letter": "C",
-          "text": "3-1-2-4"
-        },
-        {
-          "letter": "D",
-          "text": "1-3-2-4"
-        }
-      ],
-      "correctOption": 2,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Arrange the following events in the sequence in which they occur, after 'p wave' in ECG:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYSIO_CH28_Q027",
-      "questionNumber": 27,
-      "sourcePage": 504,
-      "provenance": {
-        "sourceFile": "",
-        "questionPages": [
-          504,
-          505
-        ],
-        "answerKeyPages": [
-          505
-        ],
-        "explanationPages": [
-          518
-        ],
-        "sourceMetadata": {
-          "filename": "physiologyed8.pdf"
-        }
-      },
-      "reviewStatus": "pass",
-      "question": "Cardiac output is increased in:",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Pregnancy"
-        },
-        {
-          "letter": "B",
-          "text": "Sleep"
-        },
-        {
-          "letter": "C",
-          "text": "Sitting"
-        },
-        {
-          "letter": "D",
-          "text": "Standing"
-        }
-      ],
-      "correctOption": 1,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Cardiac output is increased in:",
-              "reasons": [
-                "ocr_suffix"
               ]
             }
           ]

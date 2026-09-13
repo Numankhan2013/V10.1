@@ -375,10 +375,9 @@
       "flags": [
         {
           "field": "question",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "hard_noise_char",
-            "ocr_suffix",
             "short_ocr_line"
           ],
           "suspectLines": [
@@ -386,8 +385,7 @@
               "line": 1,
               "text": "> aN? 9",
               "reasons": [
-                "edge_noise",
-                "ocr_suffix"
+                "edge_noise"
               ]
             },
             {
@@ -485,22 +483,6 @@
               "text": "Strength of muscle contraction »—~",
               "reasons": [
                 "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Log of Intensity of stimulus & 2.",
-              "reasons": [
-                "ocr_suffix"
               ]
             }
           ]

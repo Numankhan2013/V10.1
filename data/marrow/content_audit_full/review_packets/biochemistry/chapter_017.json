@@ -155,11 +155,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 11,
+          "severity": 7,
           "reasons": [
             "edge_noise",
-            "hard_noise_char",
-            "ocr_suffix"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -173,8 +172,7 @@
               "line": 9,
               "text": "the cytosol. ~~) Ce.",
               "reasons": [
-                "hard_noise_char",
-                "ocr_suffix"
+                "hard_noise_char"
               ]
             },
             {
@@ -316,12 +314,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 17,
+          "severity": 13,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -352,8 +349,7 @@
               "line": 16,
               "text": "yt = « com, 2",
               "reasons": [
-                "edge_noise",
-                "ocr_suffix"
+                "edge_noise"
               ]
             },
             {
@@ -508,12 +504,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 20,
+          "severity": 16,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "ocr_suffix",
             "punctuation_run",
             "symbol_dense_line"
           ],
@@ -643,13 +638,6 @@
               ]
             },
             {
-              "line": 62,
-              "text": "4 molecules of NH3.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
               "line": 63,
               "text": "4 Porphobilinogen + H20 -------&gt; Hydroxymethylbilane + 4 NH3",
               "reasons": [
@@ -721,13 +709,6 @@
               ]
             },
             {
-              "line": 84,
-              "text": "circumstances, the porphyrghet formed isyp ‘edominantly uroporphyrinogen III.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
               "line": 89,
               "text": "S [/ cwcine PoP = ee ue",
               "reasons": [
@@ -760,13 +741,6 @@
               "text": "Proteporpnyrinogen S__vroperpnyrinonen-tt | spontaneous",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 96,
-              "text": "Solution to Question 10:",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -827,13 +801,6 @@
                 "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 139,
-              "text": "Solution to Question 13:",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -912,6 +879,7 @@
               "line": 160,
               "text": "7) . ™ m*",
               "reasons": [
+                "hard_noise_char",
                 "symbol_dense_line"
               ]
             },
@@ -923,24 +891,17 @@
               ]
             },
             {
-              "line": 173,
-              "text": "Solution to Question 15:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
-              "line": 183,
-              "text": "Solution to Question 16:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
               "line": 191,
               "text": "‘ ~",
               "reasons": [
                 "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 193,
+              "text": "Heme oxygenase catabolises heme to biliverding€arbon monoxide and ferrieiron are released in",
+              "reasons": [
                 "hard_noise_char"
               ]
             },
@@ -963,15 +924,7 @@
               "line": 202,
               "text": "daily in the adults. ~) Ce.",
               "reasons": [
-                "hard_noise_char",
-                "ocr_suffix"
-              ]
-            },
-            {
-              "line": 205,
-              "text": "Solution to Question 18:",
-              "reasons": [
-                "ocr_suffix"
+                "hard_noise_char"
               ]
             },
             {
@@ -1025,13 +978,6 @@
               "text": "———_",
               "reasons": [
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 238,
-              "text": "Solution to Question 20:",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -1127,13 +1073,6 @@
               ]
             },
             {
-              "line": 291,
-              "text": "Solution to Question 22:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
               "line": 301,
               "text": "excretion and causes conjugated hyperbilirubinemia. o~ nie",
               "reasons": [
@@ -1181,13 +1120,6 @@
               "text": "“ ——",
               "reasons": [
                 "edge_noise"
-              ]
-            },
-            {
-              "line": 312,
-              "text": "Solution to Question 23:",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -1304,12 +1236,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 17,
+          "severity": 13,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "ocr_suffix",
             "punctuation_run"
           ],
           "suspectLines": [
@@ -1318,13 +1249,6 @@
               "text": "< & eal",
               "reasons": [
                 "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "4 molecules of NH3.",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -1433,12 +1357,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 17,
+          "severity": 13,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1456,13 +1379,6 @@
               "text": "2) (>",
               "reasons": [
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "circumstances, the porphyrghet formed isyp ‘edominantly uroporphyrinogen III.",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -1641,12 +1557,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 17,
+          "severity": 13,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1672,13 +1587,6 @@
                 "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 28,
-              "text": "Solution to Question 13:",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -1757,6 +1665,7 @@
               "line": 49,
               "text": "7) . ™ m*",
               "reasons": [
+                "hard_noise_char",
                 "symbol_dense_line"
               ]
             },
@@ -1768,24 +1677,17 @@
               ]
             },
             {
-              "line": 62,
-              "text": "Solution to Question 15:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
-              "line": 72,
-              "text": "Solution to Question 16:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
               "line": 80,
               "text": "‘ ~",
               "reasons": [
                 "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 82,
+              "text": "Heme oxygenase catabolises heme to biliverding€arbon monoxide and ferrieiron are released in",
+              "reasons": [
                 "hard_noise_char"
               ]
             },
@@ -1808,15 +1710,7 @@
               "line": 91,
               "text": "daily in the adults. ~) Ce.",
               "reasons": [
-                "hard_noise_char",
-                "ocr_suffix"
-              ]
-            },
-            {
-              "line": 94,
-              "text": "Solution to Question 18:",
-              "reasons": [
-                "ocr_suffix"
+                "hard_noise_char"
               ]
             },
             {
@@ -1870,13 +1764,6 @@
               "text": "———_",
               "reasons": [
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 127,
-              "text": "Solution to Question 20:",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -1972,13 +1859,6 @@
               ]
             },
             {
-              "line": 180,
-              "text": "Solution to Question 22:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
               "line": 190,
               "text": "excretion and causes conjugated hyperbilirubinemia. o~ nie",
               "reasons": [
@@ -2026,13 +1906,6 @@
               "text": "“ ——",
               "reasons": [
                 "edge_noise"
-              ]
-            },
-            {
-              "line": 201,
-              "text": "Solution to Question 23:",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -2233,6 +2106,7 @@
               "line": 21,
               "text": "7) . ™ m*",
               "reasons": [
+                "hard_noise_char",
                 "symbol_dense_line"
               ]
             }
@@ -2351,11 +2225,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 11,
+          "severity": 7,
           "reasons": [
             "edge_noise",
-            "hard_noise_char",
-            "ocr_suffix"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -2363,6 +2236,13 @@
               "text": "‘ ~",
               "reasons": [
                 "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "Heme oxygenase catabolises heme to biliverding€arbon monoxide and ferrieiron are released in",
+              "reasons": [
                 "hard_noise_char"
               ]
             },
@@ -2385,8 +2265,7 @@
               "line": 13,
               "text": "daily in the adults. ~) Ce.",
               "reasons": [
-                "hard_noise_char",
-                "ocr_suffix"
+                "hard_noise_char"
               ]
             }
           ]
@@ -2605,12 +2484,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 17,
+          "severity": 13,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -2707,13 +2585,6 @@
               ]
             },
             {
-              "line": 53,
-              "text": "Solution to Question 22:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
               "line": 63,
               "text": "excretion and causes conjugated hyperbilirubinemia. o~ nie",
               "reasons": [
@@ -2761,13 +2632,6 @@
               "text": "“ ——",
               "reasons": [
                 "edge_noise"
-              ]
-            },
-            {
-              "line": 74,
-              "text": "Solution to Question 23:",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {

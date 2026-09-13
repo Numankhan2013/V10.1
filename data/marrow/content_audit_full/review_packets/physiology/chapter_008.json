@@ -5,7 +5,7 @@
   "chapterId": "8",
   "chapter": "Muscle Physiology II",
   "candidateQuestionCount": 13,
-  "questionOptionCandidateCount": 9,
+  "questionOptionCandidateCount": 10,
   "explanationCandidateCount": 11,
   "questions": [
     {
@@ -45,7 +45,24 @@
         }
       ],
       "correctOption": 3,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "None ” x",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -181,6 +198,13 @@
               "reasons": [
                 "hard_noise_char",
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "Intercalated discs are seen in nO ve ; . €",
+              "reasons": [
+                "hard_noise_char"
               ]
             },
             {
@@ -461,7 +485,8 @@
               "line": 7,
               "text": "+ Increased €a2+ uptake.by the sarcoplasmic reticulum has two effects:",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "hard_noise_char"
               ]
             },
             {
@@ -688,20 +713,12 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "hard_noise_char",
-            "ocr_suffix",
             "short_ocr_line"
           ],
           "suspectLines": [
-            {
-              "line": 1,
-              "text": "ne oOo fe:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 3,
               "text": "“.\" te ‘",
@@ -1100,21 +1117,13 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
-            {
-              "line": 2,
-              "text": "Actin, myosin, and tropomyosin are present in both skeletal muscle and smooth muscle. But,",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 4,
               "text": "a ~ ( + Cc",
@@ -1359,10 +1368,11 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "short_ocr_line"
           ],
           "suspectLines": [
@@ -1378,7 +1388,8 @@
               "line": 7,
               "text": "iw \"s",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {
@@ -1432,12 +1443,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 17,
+          "severity": 13,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1486,13 +1496,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "Contraction period (latent périod to maximum force of contraction) includes 3 scales = 30 mm.",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {

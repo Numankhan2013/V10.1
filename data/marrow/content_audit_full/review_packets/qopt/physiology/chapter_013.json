@@ -3,7 +3,7 @@
   "subject": "Physiology",
   "chapterId": "13",
   "chapter": "Special Senses",
-  "candidateQuestionCount": 7,
+  "candidateQuestionCount": 6,
   "questions": [
     {
       "id": "marrow__PHYS_CH13_Q001",
@@ -214,23 +214,6 @@
               ]
             }
           ]
-        },
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 4,
-              "text": "=) a? Ow",
-              "reasons": [
-                "ocr_suffix",
-                "symbol_dense_line"
-              ]
-            }
-          ]
         }
       ]
     },
@@ -333,62 +316,6 @@
       ]
     },
     {
-      "id": "marrow__PHYS_CH13_Q017",
-      "questionNumber": 17,
-      "sourcePage": 245,
-      "provenance": {
-        "sourceFile": "physiologyed8.pdf",
-        "questionPages": [
-          245
-        ],
-        "answerKeyPages": [
-          246
-        ],
-        "explanationPages": [
-          254
-        ]
-      },
-      "reviewStatus": "pass",
-      "question": "Umami taste is evoked by.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Glucose"
-        },
-        {
-          "letter": "B",
-          "text": "Quinine"
-        },
-        {
-          "letter": "C",
-          "text": "Glutamate"
-        },
-        {
-          "letter": "D",
-          "text": "Sodium chloride No\nx 2\nwe if"
-        }
-      ],
-      "correctOption": 3,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Umami taste is evoked by.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "marrow__PHYS_CH13_Q018",
       "questionNumber": 18,
       "sourcePage": 245,
@@ -475,8 +402,8 @@
       ]
     },
     {
-      "id": "marrow__PHYS_CH13_Q020",
-      "questionNumber": 20,
+      "id": "marrow__PHYS_CH13_Q019",
+      "questionNumber": 19,
       "sourcePage": 245,
       "provenance": {
         "sourceFile": "physiologyed8.pdf",
@@ -491,39 +418,39 @@
         ]
       },
       "reviewStatus": "pass",
-      "question": "Number of cones in the retina (millions) is,",
+      "question": "Which of the fle sensoryg/stems has the smallest range of intensity discrimination?",
       "options": [
         {
           "letter": "A",
-          "text": "3-6"
+          "text": "audited xe"
         },
         {
           "letter": "B",
-          "text": "5-12"
+          "text": "Visual\n€) Olfactory\n) Somatosensory"
         },
         {
           "letter": "C",
-          "text": "10-15"
+          "text": "Olfactory"
         },
         {
           "letter": "D",
-          "text": "20"
+          "text": "Somatosensory"
         }
       ],
-      "correctOption": 1,
+      "correctOption": 3,
       "flags": [
         {
-          "field": "question",
+          "field": "option_B",
           "severity": 6,
           "reasons": [
-            "ocr_suffix"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "Number of cones in the retina (millions) is,",
+              "line": 2,
+              "text": "€) Olfactory",
               "reasons": [
-                "ocr_suffix"
+                "hard_noise_char"
               ]
             }
           ]

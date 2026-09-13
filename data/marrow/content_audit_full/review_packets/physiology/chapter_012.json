@@ -4,9 +4,9 @@
   "subject": "Physiology",
   "chapterId": "12",
   "chapter": "Somatosensory Pathways",
-  "candidateQuestionCount": 22,
-  "questionOptionCandidateCount": 16,
-  "explanationCandidateCount": 18,
+  "candidateQuestionCount": 20,
+  "questionOptionCandidateCount": 12,
+  "explanationCandidateCount": 15,
   "questions": [
     {
       "id": "marrow__PHYS_CH12_Q001",
@@ -67,19 +67,17 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 11,
+          "severity": 7,
           "reasons": [
             "edge_noise",
-            "hard_noise_char",
-            "ocr_suffix"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
               "line": 2,
               "text": "known as the Bell-~Magendie law.",
               "reasons": [
-                "hard_noise_char",
-                "ocr_suffix"
+                "hard_noise_char"
               ]
             },
             {
@@ -248,6 +246,20 @@
           ],
           "suspectLines": [
             {
+              "line": 5,
+              "text": "€ ce",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "it a €",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
               "line": 10,
               "text": "NS \\ =",
               "reasons": [
@@ -402,12 +414,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash",
-            "ocr_suffix"
+            "literal_backslash"
           ],
           "suspectLines": [
             {
@@ -418,11 +429,17 @@
               ]
             },
             {
+              "line": 5,
+              "text": "€ — a A",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
               "line": 6,
               "text": "et, an.",
               "reasons": [
-                "edge_noise",
-                "ocr_suffix"
+                "edge_noise"
               ]
             },
             {
@@ -592,25 +609,8 @@
           ]
         }
       ],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 4,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Processing of tactile stimulation occurs in Brodmann’s area in 3, 1, 2.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Processing of tactile stimulation occurs in Brodmann’s area in 3, 1, 2.\n‘The human cerebral cortex is divided into about 50 distinct areas called Brodmann’s areas based\non histological structural differences.\nAreas 3, 1, 2 which constitute primary somatosensory area I, and areas 5 and 7, which constitute\nthe somatosensory association area process sensory information like tactile stimulation.\nwe\""
+      "explanationFlags": [],
+      "explanation": null
     },
     {
       "id": "marrow__PHYS_CH12_Q007",
@@ -653,12 +653,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 17,
+          "severity": 13,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -698,13 +697,6 @@
               "text": "\\per \"Ny",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 20,
-              "text": "— oe,",
-              "reasons": [
-                "ocr_suffix"
               ]
             }
           ]
@@ -749,42 +741,17 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Somatosensory area has the largest representation for.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash",
-            "ocr_suffix"
+            "literal_backslash"
           ],
           "suspectLines": [
-            {
-              "line": 5,
-              "text": "Some body parts are represented by large areas in the somatic cortex—the lips the greatest of all,",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 8,
               "text": "\\ E cae \\\\ a",
@@ -867,10 +834,9 @@
       "questionOptionFlags": [
         {
           "field": "option_D",
-          "severity": 10,
+          "severity": 6,
           "reasons": [
-            "hard_noise_char",
-            "ocr_suffix"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -886,7 +852,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char",
-                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }
@@ -896,12 +861,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash",
-            "ocr_suffix"
+            "literal_backslash"
           ],
           "suspectLines": [
             {
@@ -925,13 +889,6 @@
               "text": "SQ SE = | = en",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 13,
-              "text": "a ox?",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -1058,64 +1015,6 @@
         }
       ],
       "explanation": "Lesion of the somatosensory areal affects the Jocatization ofisénsations.\n®) aN ?\nBilateral lesion of the sonfatgstnsory agent tends to the;félldwing impairment of sensory\njudgment: 50 <e\ne 2\n+ Inability to localize different sensations in difféfent parts of the body\n« Inability to judge degreeg fpressure against the body\n+ Inability to judge theweignt of the-ebjects\n+ Inability to judg@ shapes of formas of objects - astereognosis\n+ Tnabilityto, judge the texte of the materials\nPain and temperature are not affected both in quality and intensity in the lesion of the\nsomatosensory area I. However, they are poorly localised. Pain and temperature localization\ndepends greatly on the topographical map of the body in somatosensory area I to localize the\nsource.”"
-    },
-    {
-      "id": "marrow__PHYS_CH12_Q011",
-      "questionNumber": 11,
-      "sourcePage": 227,
-      "provenance": {
-        "sourceFile": "physiologyed8.pdf",
-        "questionPages": [
-          227
-        ],
-        "answerKeyPages": [
-          231
-        ],
-        "explanationPages": [
-          237
-        ]
-      },
-      "reviewStatus": "pass",
-      "question": "Aman was rushed to the casualty after getting stabbed in the back with a knife. On MRI, a\ncomplete transection of one side of the spinal cord is suspected. Which of the following is\nlikely to be seen in this patient?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Pain and temperature loss on the opposite side"
-        },
-        {
-          "letter": "B",
-          "text": "Fine touch lost on the opposite side"
-        },
-        {
-          "letter": "C",
-          "text": "Pain and temperature lost on the same side"
-        },
-        {
-          "letter": "D",
-          "text": "Only pain lost on the same side"
-        }
-      ],
-      "correctOption": 1,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Aman was rushed to the casualty after getting stabbed in the back with a knife. On MRI, a",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanationFlags": [],
-      "explanation": null
     },
     {
       "id": "marrow__PHYS_CH12_Q012",
@@ -1440,24 +1339,7 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Fast pain is carried by.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -1586,19 +1468,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 3,
           "reasons": [
-            "edge_noise",
-            "ocr_suffix"
+            "edge_noise"
           ],
           "suspectLines": [
-            {
-              "line": 7,
-              "text": "‘The stress-induced analgesiayize reduced paitt Sensitivity during stressful events might be due to:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 9,
               "text": "+ Release of endogenous abn gh ‘as 2-arachidonoylglycerol (2-AG) and anandamide",
@@ -1715,25 +1589,8 @@
           ]
         }
       ],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 4,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Solution to Question 18:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Solution to Question 18:\n\nTectocerebellar tract does not carry proprioceptive impluses. Tectocerebellar tract carry visual and\n\nauditory impulses.\n\nSpinocerebellar, olivo cerebellar, cuneo cerebellar tracts carry Proprioceptive impulses.\n\nVestibulocerebellar tract carry vestibular impulses."
+      "explanationFlags": [],
+      "explanation": null
     },
     {
       "id": "marrow__PHYS_CH12_Q019",
@@ -1809,64 +1666,6 @@
         }
       ],
       "explanation": "Pain and temperature in thalamus are controlled by the ventral posterior lateral nucleus. Pain and\n\ntemperature is carried by anterolateral spinothalamic tract.\n\nFibres from anterolateral spinothalamic tract and dorsal column synapse in the ventral\n\nposteriorlateral (VPL) nucleus of thalamus.\n\nOption B: The pathway from taste receptors includes synapses in the nucleus of the tractus\nsolitarius in the brainstem and ventral posterior medial nucleus in the thalamus.\nOption C: Anterior nucleus functions as a relay station for the hippocampal impulses. It receives\nafferents from mammillothalamic tract. It sends efferents to cingulate gyrus.\nOption D: Intralaminar nucleus participates in arousal reaction, it recieves afferents from reticular\nformation of brain stem.\nTs\n, a~ a\ne~ Oo\nxe ="
-    },
-    {
-      "id": "marrow__PHYS_CH12_Q020",
-      "questionNumber": 20,
-      "sourcePage": 229,
-      "provenance": {
-        "sourceFile": "physiologyed8.pdf",
-        "questionPages": [
-          229
-        ],
-        "answerKeyPages": [
-          231
-        ],
-        "explanationPages": [
-          239
-        ]
-      },
-      "reviewStatus": "pass",
-      "question": "Ventrolateral cordotomy for relief of pain in the right lower limb is being performed on a\npatient. Which of the following is cut in this procedure?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Left ventral spinothalamic tract"
-        },
-        {
-          "letter": "B",
-          "text": "Left lateral spinothalamic tract"
-        },
-        {
-          "letter": "C",
-          "text": "Right ventral spinothalamic tract"
-        },
-        {
-          "letter": "D",
-          "text": "Right lateral spinothalamic tract"
-        }
-      ],
-      "correctOption": 2,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 4,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 6,
-              "text": "C1-Ce results in a contralateral disruption of painful sensations beyond C4.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "BS x\nIn ventrolateral cordotomy, selected Pain-conducting tracts in the spinal cord, ie. fibers in the\nlateral spinoth ep pathway, ate cut leading to contralateral loss of pain and temperature\nsensation belOW the level of Ie lesion.\nIn the moré recent percutaneous approach, destruction of the lateral spinothalamic at the level of\nC1-Ce results in a contralateral disruption of painful sensations beyond C4.\nNote: The fibers carrying pain sensation ascend in the lateral spinothalamic tract while the fibers\ncarrying crude touch and pressure sensations ascend in the anterior spinothalamic tract."
     },
     {
       "id": "marrow__PHYS_CH12_Q021",
@@ -2064,24 +1863,7 @@
         }
       ],
       "correctOption": 4,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Ablation of somatosensory area 1 leads to.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",

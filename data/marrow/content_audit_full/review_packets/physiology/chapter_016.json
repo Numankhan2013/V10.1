@@ -659,11 +659,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -689,7 +688,6 @@
               "text": "*. Ire.",
               "reasons": [
                 "edge_noise",
-                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }

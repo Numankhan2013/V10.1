@@ -174,8 +174,25 @@
           ]
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Glutamate is the main'€xcitatory.nenrotransmitter in the CNS. It is responsible for 75% of the",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Glutamate is the main'€xcitatory.nenrotransmitter in the CNS. It is responsible for 75% of the\nexcitatory transmission in thebrain.\nng hey\nGlycine andhGABA are the'main inhibitory neurotransmitters in the CNS. Glycine is the main\ninhibitory neurotransmitter in the spinal cord. GABA is the major inhibitory neurotransmitter in\nthe brain,"
     },
     {
       "id": "marrow__PHYS_CH10_Q003",
@@ -242,25 +259,8 @@
           ]
         }
       ],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 4,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "The substance released by C fibers, which carry diffuse, chronic, burning pain is substance P.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "The neurotransmitter released by A delta fibers, which carry sharp pricking pain, is glutamate.\nThe substance released by C fibers, which carry diffuse, chronic, burning pain is substance P."
+      "explanationFlags": [],
+      "explanation": null
     },
     {
       "id": "marrow__PHYS_CH10_Q005",
@@ -474,22 +474,14 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 17,
+          "severity": 13,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
-            {
-              "line": 5,
-              "text": "Important dopaminergic pathways are:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 6,
               "text": "+ Mesolimbic pathway - Increased activity responsible for positive symptoms of schizophrenia.",
@@ -814,22 +806,6 @@
               "text": "», «* ef",
               "reasons": [
                 "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Acetylcholine 4. PS",
-              "reasons": [
-                "ocr_suffix"
               ]
             }
           ]

@@ -4,8 +4,8 @@
   "subject": "Physiology",
   "chapterId": "13",
   "chapter": "Special Senses",
-  "candidateQuestionCount": 17,
-  "questionOptionCandidateCount": 7,
+  "candidateQuestionCount": 18,
+  "questionOptionCandidateCount": 6,
   "explanationCandidateCount": 15,
   "questions": [
     {
@@ -83,11 +83,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 11,
+          "severity": 7,
           "reasons": [
             "edge_noise",
-            "hard_noise_char",
-            "ocr_suffix"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -102,13 +101,6 @@
               "text": "+ Visual processing/Phototransduction occurs in the opposite direction hg feeptore > ganglion",
               "reasons": [
                 "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "ee) 2 00. Sa",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -248,11 +240,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -337,7 +330,8 @@
               "line": 20,
               "text": "+ Lower visual acuity Be) K&S ‘O",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {
@@ -400,11 +394,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -443,20 +436,6 @@
               "text": "ale> | ne",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 15,
-              "text": "°. ON\" 7: se",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
-              "line": 16,
-              "text": "eo i?",
-              "reasons": [
-                "ocr_suffix"
               ]
             }
           ]
@@ -685,23 +664,6 @@
               ]
             }
           ]
-        },
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 4,
-              "text": "=) a? Ow",
-              "reasons": [
-                "ocr_suffix",
-                "symbol_dense_line"
-              ]
-            }
-          ]
         }
       ],
       "explanationFlags": [
@@ -777,11 +739,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 11,
+          "severity": 7,
           "reasons": [
             "edge_noise",
-            "hard_noise_char",
-            "ocr_suffix"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -803,13 +764,6 @@
               "text": "~s nd transmit color. of the lateral geniculate nucl",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "« eus.",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -839,13 +793,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 14,
-              "text": "tails. ker.",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -902,39 +849,17 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 6,
           "reasons": [
             "edge_noise",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
-            {
-              "line": 2,
-              "text": "‘The axons from the lateral geniatilate nucleus (LGN) mostly endin layer 4.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 3,
               "text": "=e) af ?",
               "reasons": [
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "the LGN, which is divided furthernto 4A, 4B, 4¢° Yand 4CB.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "parvocellular pathways. et layers soot the LGN end in layer 4CB.",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -1374,24 +1299,7 @@
         }
       ],
       "correctOption": 3,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Umami taste is evoked by.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -1599,6 +1507,64 @@
       "explanation": "x Ke)\nMitral cells are seen in Olfactory bulb. wo < i\nAxons of Olfactory nerves (First cranial nerye) synapse with {he mitral cells and tufted cells in the\nolfactory bulb to form anatomically diserete units called Olactory glomerili.\n‘The olfactory bulb also contains. pecgpimerular eenfhat are inhibjtery interneurons and granule\ncells that make reciprocal synapses with mitraL-and tufted cells\n=) aN 3\n‘These mitral and tufted calls econd-ordex neurons) terminate in Olfactory cortex.\noto tract\n° Mitral cell bodies\n“ QQ0@O~—\n: Wop\nBaas\nPsat\nOa"
     },
     {
+      "id": "marrow__PHYS_CH13_Q019",
+      "questionNumber": 19,
+      "sourcePage": 245,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          245
+        ],
+        "answerKeyPages": [
+          246
+        ],
+        "explanationPages": [
+          255
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "Which of the fle sensoryg/stems has the smallest range of intensity discrimination?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "audited xe"
+        },
+        {
+          "letter": "B",
+          "text": "Visual\n€) Olfactory\n) Somatosensory"
+        },
+        {
+          "letter": "C",
+          "text": "Olfactory"
+        },
+        {
+          "letter": "D",
+          "text": "Somatosensory"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [
+        {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "€) Olfactory",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
       "id": "marrow__PHYS_CH13_Q020",
       "questionNumber": 20,
       "sourcePage": 245,
@@ -1635,40 +1601,16 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Number of cones in the retina (millions) is,",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
           "severity": 7,
           "reasons": [
             "edge_noise",
-            "ocr_suffix"
+            "hard_noise_char"
           ],
           "suspectLines": [
-            {
-              "line": 1,
-              "text": "‘There are approximately 6 million cones and 120 million rods in each human eye.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 3,
               "text": "+ Each rod and cone are divided into outer segment, inner segment, nuclear region and a synaptic",
@@ -1691,10 +1633,10 @@
               ]
             },
             {
-              "line": 9,
-              "text": "longer than the time taken for light adaptation which 5 min. Ow",
+              "line": 8,
+              "text": "in visual threshold is known as dark adaptation. It is f€arly maximaliin about 20 min, much",
               "reasons": [
-                "ocr_suffix"
+                "hard_noise_char"
               ]
             },
             {

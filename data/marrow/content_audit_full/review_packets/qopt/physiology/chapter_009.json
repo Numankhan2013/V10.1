@@ -3,7 +3,7 @@
   "subject": "Physiology",
   "chapterId": "9",
   "chapter": "Synapse and Junctional Transmission",
-  "candidateQuestionCount": 16,
+  "candidateQuestionCount": 15,
   "questions": [
     {
       "id": "marrow__PHYS_CH09_Q001",
@@ -245,29 +245,6 @@
             "short_ocr_line"
           ],
           "suspectLines": []
-        },
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "ne CO s,",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
-              "line": 3,
-              "text": "X .",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
         }
       ]
     },
@@ -826,65 +803,6 @@
       ]
     },
     {
-      "id": "marrow__PHYS_CH09_Q019",
-      "questionNumber": 19,
-      "sourcePage": 177,
-      "provenance": {
-        "sourceFile": "physiologyed8.pdf",
-        "questionPages": [
-          177,
-          178
-        ],
-        "answerKeyPages": [
-          180,
-          181
-        ],
-        "explanationPages": [
-          192,
-          193
-        ]
-      },
-      "reviewStatus": "pass",
-      "question": "Presynaptic facilitation is due to prolonged opening of.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Na+ channels"
-        },
-        {
-          "letter": "B",
-          "text": "K+ channels"
-        },
-        {
-          "letter": "C",
-          "text": "Ca2+ channels"
-        },
-        {
-          "letter": "D",
-          "text": "Cl- channels"
-        }
-      ],
-      "correctOption": 3,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Presynaptic facilitation is due to prolonged opening of.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "marrow__PHYS_CH09_Q020",
       "questionNumber": 20,
       "sourcePage": 178,
@@ -925,13 +843,21 @@
       "flags": [
         {
           "field": "option_D",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "short_ocr_line"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "Synthesis of norepinephrine in motor nerves ‘ r",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 2,
               "text": "“oO i \\ .",

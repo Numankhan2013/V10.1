@@ -3,7 +3,7 @@
   "subject": "Physiology",
   "chapterId": "6",
   "chapter": "Physiology of Nerve",
-  "candidateQuestionCount": 16,
+  "candidateQuestionCount": 15,
   "questions": [
     {
       "id": "marrow__PHYS_CH06_Q001",
@@ -114,22 +114,6 @@
               "text": "Dorsal root ganglia ‘ ‘NC ~ 7",
               "reasons": [
                 "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Sympathetic ganglia : C : e,",
-              "reasons": [
-                "ocr_suffix"
               ]
             }
           ]
@@ -670,22 +654,6 @@
       "correctOption": 4,
       "flags": [
         {
-          "field": "option_C",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Type III wa ot s,",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        },
-        {
           "field": "question",
           "severity": 6,
           "reasons": [
@@ -923,23 +891,6 @@
               ]
             }
           ]
-        },
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "on “ 4 Conduction in the chemical synapses in‘CNS is e,",
-              "reasons": [
-                "edge_noise",
-                "ocr_suffix"
-              ]
-            }
-          ]
         }
       ]
     },
@@ -1002,64 +953,6 @@
       ]
     },
     {
-      "id": "marrow__PHYS_CH06_Q032",
-      "questionNumber": 32,
-      "sourcePage": 101,
-      "provenance": {
-        "sourceFile": "physiologyed8.pdf",
-        "questionPages": [
-          101,
-          102
-        ],
-        "answerKeyPages": [
-          103,
-          104
-        ],
-        "explanationPages": [
-          122
-        ]
-      },
-      "reviewStatus": "pass",
-      "question": "Absolute refractory period is due to:",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Opening of calcium channels"
-        },
-        {
-          "letter": "B",
-          "text": "Closure of potassium channels"
-        },
-        {
-          "letter": "C",
-          "text": "Closure of active gates of sodium channel"
-        },
-        {
-          "letter": "D",
-          "text": "Closure of inactive gates of sodium channel"
-        }
-      ],
-      "correctOption": 4,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Absolute refractory period is due to:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "marrow__PHYS_CH06_Q033",
       "questionNumber": 33,
       "sourcePage": 102,
@@ -1112,6 +1005,23 @@
               "line": 1,
               "text": "Identify the ions A and B based on conductance graph of a neuron shown below: 30 :.. ® . BE 20 : ae 10 \\O 8 ‘ 1 2 3 4 Time (ms)",
               "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "K, Na & ™ ov",
+              "reasons": [
+                "edge_noise",
                 "hard_noise_char"
               ]
             }

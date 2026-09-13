@@ -4,9 +4,9 @@
   "subject": "Physiology",
   "chapterId": "1",
   "chapter": "Homeostasis and cellular physiology",
-  "candidateQuestionCount": 18,
+  "candidateQuestionCount": 17,
   "questionOptionCandidateCount": 0,
-  "explanationCandidateCount": 18,
+  "explanationCandidateCount": 17,
   "questions": [
     {
       "id": "marrow__PHYS_CH01_Q001",
@@ -193,11 +193,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -207,7 +206,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char",
-                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }
@@ -258,11 +256,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -277,8 +274,7 @@
               "line": 7,
               "text": "‘ a:",
               "reasons": [
-                "edge_noise",
-                "ocr_suffix"
+                "edge_noise"
               ]
             },
             {
@@ -349,11 +345,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -361,8 +356,7 @@
               "line": 1,
               "text": "i, Se a4, att,",
               "reasons": [
-                "edge_noise",
-                "ocr_suffix"
+                "edge_noise"
               ]
             },
             {
@@ -377,8 +371,14 @@
               "line": 13,
               "text": "+ Sphingolipids: Sphingomyelin ey = a.",
               "reasons": [
-                "edge_noise",
-                "ocr_suffix"
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 14,
+              "text": "¢ Cholesterol a Ce ™y",
+              "reasons": [
+                "hard_noise_char"
               ]
             },
             {
@@ -525,26 +525,23 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 8,
+          "severity": 4,
           "reasons": [
-            "hard_noise_char",
-            "ocr_suffix"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
               "line": 4,
               "text": "Mitochondrial outer membr | 1.1",
               "reasons": [
-                "hard_noise_char",
-                "ocr_suffix"
+                "hard_noise_char"
               ]
             },
             {
               "line": 7,
               "text": "Mitochondrial inner membr | 3.2",
               "reasons": [
-                "hard_noise_char",
-                "ocr_suffix"
+                "hard_noise_char"
               ]
             }
           ]
@@ -593,22 +590,14 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 17,
+          "severity": 13,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
-            {
-              "line": 5,
-              "text": "Trans end of Golgi apparatus - Also called as releasing end, it is furthest away from RER.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 11,
               "text": "- © _\\o wesicies fe",
@@ -713,65 +702,6 @@
       "explanation": "~ ty\n5’ Nucleotidase is an enzyme marker for plasma membrane. All the other options are\nmitochondrial enzyme markers."
     },
     {
-      "id": "marrow__PHYS_CH01_Q012",
-      "questionNumber": 12,
-      "sourcePage": 7,
-      "provenance": {
-        "sourceFile": "physiologyed8.pdf",
-        "questionPages": [
-          7,
-          8
-        ],
-        "answerKeyPages": [
-          10
-        ],
-        "explanationPages": [
-          15
-        ]
-      },
-      "reviewStatus": "pass",
-      "question": "Which of the following will test negative for all mitochondrial markers?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Spermatozoa"
-        },
-        {
-          "letter": "B",
-          "text": "Ova"
-        },
-        {
-          "letter": "C",
-          "text": "Mature red blood cells"
-        },
-        {
-          "letter": "D",
-          "text": "White blood cells"
-        }
-      ],
-      "correctOption": 3,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 4,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 4,
-              "text": "generate ATP.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Mature red blood cells will test negative for all mitochondrial markers are as they do not have\nmitochondria.\nLack of mitochondria is the reason why red blood cells exclusively use anaerobic glycolysis to\ngenerate ATP."
-    },
-    {
       "id": "marrow__PHYS_CH01_Q014",
       "questionNumber": 14,
       "sourcePage": 8,
@@ -847,6 +777,20 @@
               ]
             },
             {
+              "line": 11,
+              "text": "WT membrane Gap junction €xtracellular",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 13,
+              "text": "Closed €x3 Open es",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
               "line": 16,
               "text": "ay ~se",
               "reasons": [
@@ -907,10 +851,9 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 3,
           "reasons": [
-            "edge_noise",
-            "ocr_suffix"
+            "edge_noise"
           ],
           "suspectLines": [
             {
@@ -925,13 +868,6 @@
               "text": "* Sertoli cells",
               "reasons": [
                 "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "Functions of tight junctions are:",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -987,20 +923,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 11,
+          "severity": 7,
           "reasons": [
             "edge_noise",
-            "hard_noise_char",
-            "ocr_suffix"
+            "hard_noise_char"
           ],
           "suspectLines": [
-            {
-              "line": 3,
-              "text": "important classes of CAMs are:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 6,
               "text": "* Cadherins: Ca2t+-dependent molecules that mediate cell-to-cell adhesion by homophilic reactions",
@@ -1020,13 +948,6 @@
               "text": "* Cancer cells have abnormal CAMs and hence cause decreased cell adhesion ‘anid allow individual",
               "reasons": [
                 "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "cancer cells to detach from the parent cancer. wey a,",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -1107,6 +1028,13 @@
             {
               "line": 5,
               "text": "Plasma membrane |",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 12,
+              "text": "Closed €x3 Open os",
               "reasons": [
                 "hard_noise_char"
               ]
@@ -1339,11 +1267,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1352,13 +1279,6 @@
               "text": "Microfilament(smallest diam | Actin",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "min etc.",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -1375,7 +1295,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char",
-                "ocr_suffix",
                 "symbol_dense_line"
               ]
             },

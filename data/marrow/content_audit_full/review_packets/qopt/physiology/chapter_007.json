@@ -6,6 +6,80 @@
   "candidateQuestionCount": 19,
   "questions": [
     {
+      "id": "marrow__PHYS_CH07_Q001",
+      "questionNumber": 1,
+      "sourcePage": 126,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          126
+        ],
+        "answerKeyPages": [
+          135,
+          136
+        ],
+        "explanationPages": [
+          136,
+          137
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "All of the following are the connective tissue layers of the skeletal muscle except",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Endomysium"
+        },
+        {
+          "letter": "B",
+          "text": "Sarcolemma"
+        },
+        {
+          "letter": "C",
+          "text": "Perimysium Vo 2\""
+        },
+        {
+          "letter": "D",
+          "text": "Epimysium ” x"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "option_C",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Perimysium Vo 2\"",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Epimysium ” x",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "marrow__PHYS_CH07_Q002",
       "questionNumber": 2,
       "sourcePage": 126,
@@ -90,6 +164,22 @@
               "text": "Tropomodulin Oo 9 y",
               "reasons": [
                 "ocr_suffix"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Dystrophin lO? : €",
+              "reasons": [
+                "hard_noise_char"
               ]
             }
           ]
@@ -531,48 +621,6 @@
       "correctOption": 1,
       "flags": [
         {
-          "field": "option_D",
-          "severity": 14,
-          "reasons": [
-            "hard_noise_char",
-            "ocr_suffix",
-            "short_ocr_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Tropomyosin oO . x ~S > a“ —",
-              "reasons": [
-                "hard_noise_char"
-              ]
-            },
-            {
-              "line": 2,
-              "text": "oY ~°) r.",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char",
-                "ocr_suffix",
-                "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 3,
-              "text": "> “",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 4,
-              "text": ". 2 way",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_B",
           "severity": 13,
           "reasons": [
@@ -648,36 +696,52 @@
           ]
         },
         {
+          "field": "option_D",
+          "severity": 10,
+          "reasons": [
+            "hard_noise_char",
+            "short_ocr_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Tropomyosin oO . x ~S > a“ —",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "oY ~°) r.",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "> “",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 4,
+              "text": ". 2 way",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
           "field": "option_A",
           "severity": 6,
           "reasons": [
             "short_ocr_line"
           ],
           "suspectLines": []
-        },
-        {
-          "field": "option_C",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Titin ca .<O ><",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 2,
-              "text": ". aA an o,",
-              "reasons": [
-                "edge_noise",
-                "ocr_suffix"
-              ]
-            }
-          ]
         }
       ]
     },
@@ -945,64 +1009,6 @@
       ]
     },
     {
-      "id": "marrow__PHYS_CH07_Q018",
-      "questionNumber": 18,
-      "sourcePage": 130,
-      "provenance": {
-        "sourceFile": "physiologyed8.pdf",
-        "questionPages": [
-          130,
-          131
-        ],
-        "answerKeyPages": [
-          135,
-          136
-        ],
-        "explanationPages": [
-          148
-        ]
-      },
-      "reviewStatus": "pass",
-      "question": "In human skeletal muscles, calcium ions are stored in?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Terminal cistern"
-        },
-        {
-          "letter": "B",
-          "text": "Sarcolemma"
-        },
-        {
-          "letter": "C",
-          "text": "Transverse tubules"
-        },
-        {
-          "letter": "D",
-          "text": "All are correct"
-        }
-      ],
-      "correctOption": 1,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "In human skeletal muscles, calcium ions are stored in?",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "marrow__PHYS_CH07_Q019",
       "questionNumber": 19,
       "sourcePage": 131,
@@ -1134,10 +1140,9 @@
       "flags": [
         {
           "field": "question",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "hard_noise_char",
-            "ocr_suffix",
             "short_ocr_line"
           ],
           "suspectLines": [
@@ -1148,13 +1153,6 @@
                 "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 2,
-              "text": "A skeletal muscle contraction end3when e.",
-              "reasons": [
-                "ocr_suffix"
               ]
             }
           ]
@@ -1452,6 +1450,22 @@
           ]
         },
         {
+          "field": "option_A",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "All the muscle fibers within a Biven muscle™",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
           "field": "question",
           "severity": 6,
           "reasons": [
@@ -1515,6 +1529,22 @@
       ],
       "correctOption": 1,
       "flags": [
+        {
+          "field": "option_A",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "25 x o €",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
         {
           "field": "option_D",
           "severity": 6,

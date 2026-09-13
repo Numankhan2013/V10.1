@@ -3,8 +3,64 @@
   "subject": "Physiology",
   "chapterId": "8",
   "chapter": "Muscle Physiology II",
-  "candidateQuestionCount": 9,
+  "candidateQuestionCount": 10,
   "questions": [
+    {
+      "id": "marrow__PHYS_CH08_Q001",
+      "questionNumber": 1,
+      "sourcePage": 160,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          160
+        ],
+        "answerKeyPages": [
+          164
+        ],
+        "explanationPages": [
+          165
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "Human cardiac muscle contains .",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Alpha heavy chain of Myosin"
+        },
+        {
+          "letter": "B",
+          "text": "Beta heavy chain of Myosin"
+        },
+        {
+          "letter": "C",
+          "text": "Both a and b co\""
+        },
+        {
+          "letter": "D",
+          "text": "None ” x"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "None ” x",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": "marrow__PHYS_CH08_Q002",
       "questionNumber": 2,
@@ -105,6 +161,13 @@
               "reasons": [
                 "hard_noise_char",
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "Intercalated discs are seen in nO ve ; . €",
+              "reasons": [
+                "hard_noise_char"
               ]
             },
             {
@@ -225,20 +288,12 @@
       "flags": [
         {
           "field": "question",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "hard_noise_char",
-            "ocr_suffix",
             "short_ocr_line"
           ],
           "suspectLines": [
-            {
-              "line": 1,
-              "text": "ne oOo fe:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 3,
               "text": "“.\" te ‘",
@@ -650,10 +705,11 @@
       "flags": [
         {
           "field": "question",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "short_ocr_line"
           ],
           "suspectLines": [
@@ -669,7 +725,8 @@
               "line": 7,
               "text": "iw \"s",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {

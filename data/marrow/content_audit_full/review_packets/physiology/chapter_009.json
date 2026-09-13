@@ -5,7 +5,7 @@
   "chapterId": "9",
   "chapter": "Synapse and Junctional Transmission",
   "candidateQuestionCount": 27,
-  "questionOptionCandidateCount": 16,
+  "questionOptionCandidateCount": 15,
   "explanationCandidateCount": 26,
   "questions": [
     {
@@ -68,12 +68,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 17,
+          "severity": 13,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -144,8 +143,7 @@
               "text": "re ~ Aw . A,",
               "reasons": [
                 "edge_noise",
-                "hard_noise_char",
-                "ocr_suffix"
+                "hard_noise_char"
               ]
             },
             {
@@ -230,12 +228,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 17,
+          "severity": 13,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -251,15 +248,7 @@
               "text": "~ ws. a",
               "reasons": [
                 "edge_noise",
-                "hard_noise_char",
-                "ocr_suffix"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "4 re,",
-              "reasons": [
-                "ocr_suffix"
+                "hard_noise_char"
               ]
             },
             {
@@ -440,21 +429,13 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash",
-            "ocr_suffix"
+            "literal_backslash"
           ],
           "suspectLines": [
-            {
-              "line": 1,
-              "text": "Nitric oxide is a neurotransmitter in the CNS.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 7,
               "text": "+ large molecule neurotransmitter (enkephalin)",
@@ -680,29 +661,6 @@
             "short_ocr_line"
           ],
           "suspectLines": []
-        },
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "ne CO s,",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
-              "line": 3,
-              "text": "X .",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
         }
       ],
       "explanationFlags": [
@@ -948,12 +906,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash",
-            "ocr_suffix"
+            "literal_backslash"
           ],
           "suspectLines": [
             {
@@ -985,13 +942,6 @@
               ]
             },
             {
-              "line": 17,
-              "text": "ines (diazepam), barbiturates oN?",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
               "line": 22,
               "text": "tein coupled receptorsGi—in +\\>",
               "reasons": [
@@ -1004,13 +954,6 @@
               "text": "n K+channelsGo- inhibits 0 ~",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 27,
-              "text": "or aN a?",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -1565,12 +1508,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 17,
+          "severity": 13,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1601,8 +1543,7 @@
               "line": 7,
               "text": "an action potentiala. “~ Le?",
               "reasons": [
-                "hard_noise_char",
-                "ocr_suffix"
+                "hard_noise_char"
               ]
             },
             {
@@ -2001,11 +1942,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -2022,20 +1962,6 @@
               "text": "an ») - ¢",
               "reasons": [
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "HARSERR EL, x",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "Ww aS?",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -2184,24 +2110,7 @@
         }
       ],
       "correctOption": 3,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Presynaptic facilitation is due to prolonged opening of.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -2281,13 +2190,21 @@
       "questionOptionFlags": [
         {
           "field": "option_D",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "short_ocr_line"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "Synthesis of norepinephrine in motor nerves ‘ r",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 2,
               "text": "“oO i \\ .",
@@ -2369,10 +2286,9 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 3,
           "reasons": [
-            "edge_noise",
-            "ocr_suffix"
+            "edge_noise"
           ],
           "suspectLines": [
             {
@@ -2387,13 +2303,6 @@
               "text": "* This hyperresponsiveness can be demonstrated by using: pharmacologic tools rather than actual",
               "reasons": [
                 "edge_noise"
-              ]
-            },
-            {
-              "line": 21,
-              "text": "would constrict the eye not dilate it. Also, the drug added was a sympathomimetic agent. So,",
-              "reasons": [
-                "ocr_suffix"
               ]
             }
           ]
@@ -2803,11 +2712,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -2884,7 +2794,8 @@
               "line": 28,
               "text": "2 ‘T",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {

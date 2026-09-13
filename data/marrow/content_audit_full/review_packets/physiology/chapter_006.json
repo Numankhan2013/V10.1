@@ -5,7 +5,7 @@
   "chapterId": "6",
   "chapter": "Physiology of Nerve",
   "candidateQuestionCount": 29,
-  "questionOptionCandidateCount": 16,
+  "questionOptionCandidateCount": 15,
   "explanationCandidateCount": 28,
   "questions": [
     {
@@ -136,22 +136,6 @@
               "text": "Dorsal root ganglia ‘ ‘NC ~ 7",
               "reasons": [
                 "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Sympathetic ganglia : C : e,",
-              "reasons": [
-                "ocr_suffix"
               ]
             }
           ]
@@ -603,21 +587,13 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
-            {
-              "line": 2,
-              "text": "Conduction velocity is increased by:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 7,
               "text": "to conduct up to 50 times faster than the fastest unmyelinated fibers. >*",
@@ -709,11 +685,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 11,
+          "severity": 7,
           "reasons": [
             "edge_noise",
-            "hard_noise_char",
-            "ocr_suffix"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -721,13 +696,6 @@
               "text": "Ma,” te »",
               "reasons": [
                 "edge_noise"
-              ]
-            },
-            {
-              "line": 3,
-              "text": "change in membrane potential that océurs’between point’ and point 3.",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -1288,20 +1256,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 11,
+          "severity": 7,
           "reasons": [
             "edge_noise",
-            "hard_noise_char",
-            "ocr_suffix"
+            "hard_noise_char"
           ],
           "suspectLines": [
-            {
-              "line": 15,
-              "text": "0.0 0.2 0.4 0.6 0.8 1.0 1.2",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 17,
               "text": "oF |",
@@ -1650,22 +1610,6 @@
       ],
       "correctOption": 4,
       "questionOptionFlags": [
-        {
-          "field": "option_C",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Type III wa ot s,",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        },
         {
           "field": "question",
           "severity": 6,
@@ -2241,23 +2185,6 @@
               ]
             }
           ]
-        },
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "on “ 4 Conduction in the chemical synapses in‘CNS is e,",
-              "reasons": [
-                "edge_noise",
-                "ocr_suffix"
-              ]
-            }
-          ]
         }
       ],
       "explanationFlags": [
@@ -2455,18 +2382,12 @@
               ]
             },
             {
-              "line": 29,
-              "text": "‘and viruses neurotransmitter a?",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
               "line": 34,
               "text": ". ~~ \"J",
               "reasons": [
                 "edge_noise",
                 "hard_noise_char",
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             },
@@ -2930,24 +2851,7 @@
         }
       ],
       "correctOption": 4,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Absolute refractory period is due to:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -3064,6 +2968,23 @@
               ]
             }
           ]
+        },
+        {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "K, Na & ™ ov",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
         }
       ],
       "explanationFlags": [
@@ -3127,7 +3048,8 @@
               "line": 18,
               "text": "1. Resting state - Both channels are closed.’ Fr % ‘a",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {
@@ -3158,13 +3080,6 @@
               "text": "3. The sodium influx causes-opening of igre sodium channels through positive feedback",
               "reasons": [
                 "edge_noise"
-              ]
-            },
-            {
-              "line": 24,
-              "text": "x res.",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -3209,8 +3124,7 @@
               "line": 33,
               "text": "7. Both channels are closed: The membrane returns to RMP.",
               "reasons": [
-                "edge_noise",
-                "ocr_suffix"
+                "edge_noise"
               ]
             },
             {
@@ -3269,15 +3183,21 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 17,
+          "severity": 13,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
+            {
+              "line": 7,
+              "text": "Therefore, the duration of each wave in time tracer = 0.01 seconds. ™S >",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
             {
               "line": 9,
               "text": "(maximum force of contraction), there are about 5 waves™ ~",
@@ -3298,7 +3218,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char",
-                "ocr_suffix",
                 "symbol_dense_line"
               ]
             },

@@ -4,9 +4,9 @@
   "subject": "Physiology",
   "chapterId": "35",
   "chapter": "Renal Tubular Functions, Urine Concentration and Dilution",
-  "candidateQuestionCount": 27,
-  "questionOptionCandidateCount": 2,
-  "explanationCandidateCount": 27,
+  "candidateQuestionCount": 25,
+  "questionOptionCandidateCount": 0,
+  "explanationCandidateCount": 25,
   "questions": [
     {
       "id": "marrow__PHYSIO_CH35_Q001",
@@ -46,24 +46,7 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "What is implied if a drug has more renal clearance than GFR?",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -134,19 +117,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 3,
           "reasons": [
-            "edge_noise",
-            "ocr_suffix"
+            "edge_noise"
           ],
           "suspectLines": [
-            {
-              "line": 1,
-              "text": "The correct formula is Excretion rate = UV.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 7,
               "text": "* Clearance = U*V/P",
@@ -218,39 +193,27 @@
         }
       ],
       "correctOption": 3,
-      "questionOptionFlags": [
-        {
-          "field": "option_B",
-          "severity": 6,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Glucose is completely reabsorbed in DCT.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 8,
+          "severity": 4,
           "reasons": [
-            "hard_noise_char",
-            "ocr_suffix"
+            "hard_noise_char"
           ],
           "suspectLines": [
+            {
+              "line": 3,
+              "text": "be slightly higher than inulin. Hence, it overestimates GER,™ Cc ?",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
             {
               "line": 5,
               "text": "Glucose is completely reabsorbed below the renal. threshold (ie ~180meg/dl) ih, PCT.",
               "reasons": [
-                "hard_noise_char",
-                "ocr_suffix"
+                "hard_noise_char"
               ]
             }
           ]
@@ -301,11 +264,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 17,
+          "severity": 13,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "ocr_suffix",
             "punctuation_run",
             "symbol_dense_line"
           ],
@@ -315,15 +277,7 @@
               "text": "~~ fon 2.",
               "reasons": [
                 "edge_noise",
-                "hard_noise_char",
-                "ocr_suffix"
-              ]
-            },
-            {
-              "line": 2,
-              "text": "Effective renal plasma flow in this, patient will be falsely low.",
-              "reasons": [
-                "ocr_suffix"
+                "hard_noise_char"
               ]
             },
             {
@@ -568,21 +522,13 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
-            {
-              "line": 3,
-              "text": "Potassium is maximally absorbed in PCT.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 7,
               "text": "K+ reabsorption in the thick ascending limb of Henle occurs through both transcellular (Na+- K+-",
@@ -668,11 +614,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -689,13 +634,6 @@
               "text": "a. - ad",
               "reasons": [
                 "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "In the tubular cell of the PCT, CO2 an@’H20 recombine with the help of carbonic anhydrase II,",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -791,12 +729,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 9,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "many_isolated_letters",
-            "ocr_suffix"
+            "many_isolated_letters"
           ],
           "suspectLines": [
             {
@@ -806,13 +743,6 @@
                 "edge_noise",
                 "hard_noise_char",
                 "many_isolated_letters"
-              ]
-            },
-            {
-              "line": 18,
-              "text": "HYPER a,",
-              "reasons": [
-                "ocr_suffix"
               ]
             }
           ]
@@ -863,10 +793,9 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "hard_noise_char",
-            "ocr_suffix",
             "punctuation_run",
             "symbol_dense_line"
           ],
@@ -883,8 +812,14 @@
               "line": 17,
               "text": "Nat~__@its _, Na* are,",
               "reasons": [
-                "hard_noise_char",
-                "ocr_suffix"
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 18,
+              "text": "Amino —T__ —™ Amino",
+              "reasons": [
+                "hard_noise_char"
               ]
             },
             {
@@ -1089,10 +1024,9 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 3,
           "reasons": [
-            "edge_noise",
-            "ocr_suffix"
+            "edge_noise"
           ],
           "suspectLines": [
             {
@@ -1114,13 +1048,6 @@
               "text": "6 =>",
               "reasons": [
                 "edge_noise"
-              ]
-            },
-            {
-              "line": 29,
-              "text": "progressively. ‘ig 3 in?",
-              "reasons": [
-                "ocr_suffix"
               ]
             }
           ]
@@ -1217,65 +1144,6 @@
       "explanation": "The amount of glucose excreted in the above scenario is 30 mg/min.\nCalculation:\nStep 1: Calculate total filtered glucose:\nIn this question,\n¢ GFR = 90 ml/min\n¢ Plasma glucose concentration = 200 mg/dL= 2 mg/ml (1 dL=100 ml).\n* Total filtered glucose = GFR X Plasma glucose concentration.\n= 90 ml/min X 2 mg/ml\n= 180 mg/min.\nStep 2: Check transport maximum:\nIn the above question transport maximum is 150 mg/min.\nStep 3: Calculate the excretion:\nExcretion = Total filtered glucose - Total reabsorbed glucose (Transport Maximum)\n= 180-150 mg/min\n= 30 mg/min"
     },
     {
-      "id": "marrow__PHYSIO_CH35_Q015",
-      "questionNumber": 15,
-      "sourcePage": 656,
-      "provenance": {
-        "file": "physiologyed8.pdf",
-        "edition": "ED8",
-        "question_page": 656,
-        "answer_key_pages": [
-          661,
-          662
-        ],
-        "explanation_pages": [
-          671
-        ],
-        "explanation_start_page": 671
-      },
-      "reviewStatus": "pass",
-      "question": "Choose the correct statement regarding the concentration of solutes at the end of proximal convoluted tubule",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Concentration of glucose in tubular fluid is more than that of plasma"
-        },
-        {
-          "letter": "B",
-          "text": "Concentration of urea in tubular fluid is more than that of plasma"
-        },
-        {
-          "letter": "C",
-          "text": "Concentration of bicarbonate in tubular fluid is more than that of plasma"
-        },
-        {
-          "letter": "D",
-          "text": "Concentration of sodium in tubular fluid is less than that of plasma"
-        }
-      ],
-      "correctOption": 2,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 4,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 4,
-              "text": "[TF/P]=1, when solute and water are reabsorbed at the same rate Ex - Na.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "The concentration of urea in tubular fluid is more than that of plasma. ‘ a\"\n[TF/P]&gt;4, when solute is#eabsorbed less quickly than water or when solute is secreted. Ex-\nPAH, Creatinine, Inulin»Urea.\n[TF/P]=1, when solute and water are reabsorbed at the same rate Ex - Na.\n[TF/P]&lt;1, when solute is reabsorbed more quickly than water. Ex- glucose, amino acid,\nbicarbonate."
-    },
-    {
       "id": "marrow__PHYSIO_CH35_Q017",
       "questionNumber": 17,
       "sourcePage": 657,
@@ -1318,10 +1186,9 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 3,
           "reasons": [
-            "edge_noise",
-            "ocr_suffix"
+            "edge_noise"
           ],
           "suspectLines": [
             {
@@ -1329,13 +1196,6 @@
               "text": "+ A high level of ADH, which increases the permeability of the distal tubules and collecting ducts",
               "reasons": [
                 "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "necessary for water reabsorption to occur in the presence of high levels of ADH.",
-              "reasons": [
-                "ocr_suffix"
               ]
             }
           ]
@@ -1385,19 +1245,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 3,
           "reasons": [
-            "edge_noise",
-            "ocr_suffix"
+            "edge_noise"
           ],
           "suspectLines": [
-            {
-              "line": 1,
-              "text": "Se rt,",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 8,
               "text": "a - KO ae",
@@ -1409,66 +1261,6 @@
         }
       ],
       "explanation": "Se rt,\nVasopressin has the maximum effect on the collecting ducts. >\"\nVasopressin acts by inserting aquaporin 2 présent in cytoplasmic vesicles of principal cells on to\nthe apical membrane. The effect is mediatéd via the vasopressin V2 receptor, cyclic adenosine\n5-monophosphate (cAMP), and protein, kinase A. Whenvasopressimis‘absent, the collecting duct\nepithelium is relatively impermeableto water. > >\ntonne Collecting tubule i\"@iood)\na - KO ae\nte\nWr nusrcaiated an"
-    },
-    {
-      "id": "marrow__PHYSIO_CH35_Q019",
-      "questionNumber": 19,
-      "sourcePage": 657,
-      "provenance": {
-        "file": "physiologyed8.pdf",
-        "edition": "ED8",
-        "question_page": 657,
-        "answer_key_pages": [
-          661,
-          662
-        ],
-        "explanation_pages": [
-          672,
-          673
-        ],
-        "explanation_start_page": 672
-      },
-      "reviewStatus": "pass",
-      "question": "Which of the following is true about free water clearance?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Regulated by ADH"
-        },
-        {
-          "letter": "B",
-          "text": "Regulated by aldosterone"
-        },
-        {
-          "letter": "C",
-          "text": "Unaffected by furosemide"
-        },
-        {
-          "letter": "D",
-          "text": "None of the above"
-        }
-      ],
-      "correctOption": 1,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 4,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Free water clearance is regulated by ADH.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Free water clearance is regulated by ADH.\nFree water clearance is defined as the amount of solute-free water generated by the kidneys, either\nwhen dilute urine or when concentrated urine is formed.\nFree-water clearance is positive, when excess water is being excreted (dilute urine).\nFree-water clearance is negative, when excess solutes are being removed and water is being\nconserved (concentrated urine)."
     },
     {
       "id": "marrow__PHYSIO_CH35_Q021",
@@ -1573,36 +1365,14 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 17,
+          "severity": 13,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
-            {
-              "line": 10,
-              "text": "reabsorption to occur in the presence of high levels of ADH.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "Solution to Question 24:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
-              "line": 18,
-              "text": "Solution to Question 25:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
             {
               "line": 22,
               "text": "+ Active transport of Na+ and co-transport of K+, Cl-, and other ions out of the thick portion of the",
@@ -1618,31 +1388,10 @@
               ]
             },
             {
-              "line": 26,
-              "text": "interstitium. oO.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
               "line": 27,
               "text": "+ Diffusion of only small amounts of water from the medullary tubules into the medullary",
               "reasons": [
                 "edge_noise"
-              ]
-            },
-            {
-              "line": 28,
-              "text": "interstitium x oe:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
-              "line": 30,
-              "text": "Solution to Question 26:",
-              "reasons": [
-                "ocr_suffix"
               ]
             },
             {
@@ -1664,6 +1413,13 @@
               "text": "c. Flow of fluid from PCT to DCT",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 46,
+              "text": "Solution to Question 27: 4 ™ oO. “a",
+              "reasons": [
+                "hard_noise_char"
               ]
             },
             {
@@ -1691,10 +1447,10 @@
               ]
             },
             {
-              "line": 64,
-              "text": "Solution to Question 29:",
+              "line": 75,
+              "text": "countercurrent mechanism. - .€",
               "reasons": [
-                "ocr_suffix"
+                "hard_noise_char"
               ]
             },
             {
@@ -1712,13 +1468,6 @@
               ]
             },
             {
-              "line": 88,
-              "text": "Solution to Question 32:",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
               "line": 90,
               "text": "SS 4 -:-",
               "reasons": [
@@ -1730,6 +1479,13 @@
               "text": "* Macula densa: At the end of the thick ascending limb,of Henle, and at thie beginning of the distal",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 105,
+              "text": "thereby decreasing the GFR™ .",
+              "reasons": [
+                "hard_noise_char"
               ]
             },
             {
@@ -1750,65 +1506,6 @@
         }
       ],
       "explanation": ")\nThe average urine osmolality is 100-800 mosm/kg.\n\nSolution to Question’23:\nThe requirements for excreting concentrated urine are high ADH levels and hyperosmolar renal\nmedulla.\nA high level of ADH, which increases the permeability of the distal tubules and collecting ducts to\nwater, thereby allowing these tubular segments to avidly reabsorb water, and a high osmolarity of\nthe renal medullary interstitial fluid, which provides the osmotic gradient necessary for water\nreabsorption to occur in the presence of high levels of ADH.\n\nSolution to Question 24:\nMaximum osmotic gradient is found in the inner medulla. The gradient of osmolarity from the\ncortex (300 mosm/L) to the inner medulla (1200 mosm/L) is produced by the loops of Henle as\ncountercurrent multipliers and maintained by operation of the vasa recta as countercurrent\nexchangers.\n\nSolution to Question 25:\nHyperosmolarity of the medullary interstitium is mainly due to NaCl and urea.\nThe major factors that contribute to the buildup of solute concentration into the renal medulla\nare\n+ Active transport of Na+ and co-transport of K+, Cl-, and other ions out of the thick portion of the\nascending limb of the loop of Henle into the medullary interstitium.\n+ Active transport of ions from the collecting ducts into the medullary interstitium.\n¢ Facilitated diffusion of urea from the inner medullary collecting ducts into the medullary\ninterstitium. oO.\n+ Diffusion of only small amounts of water from the medullary tubules into the medullary\ninterstitium x oe:\n@ [SSscmmucn increased in presence of ABH\nSolution to Question 26:\n\nProximal convoluted tubule (PCT) does not play a role in countercurrent mechanism.\nThe countercurrent mechanism consists of 2 components:\n¢ Countercurrent multiplier:\n\na. Absorption of water via Aquaporin 1 in thin descending limb\n\nb. Active transport of Na+- K+- 2Cl- in thick ascending limb\n\nc. Flow of fluid from PCT to DCT\n¢ Countercurrent exchanger: Vasa recta are involved in this process. They help in maintaining the\nosmotic gradient in the renal medulla. This is a passive process.\n\nGs CO Toe Lig (Cr\n© Urea build up in renal medulta 4\nSolution to Question 27: 4 ™ oO. “a\non e< ~*~\nThe maximum osmolality that catebe reached at the tip of the_medulla is proportional to the\nlength of the loop of Henle, because the Loop of Henle acts'as Countercurrent multiplier to\nmaitain the gradient in medulla. Greater is’the lengthrof loop of Henle, greater will be the\nosmolality that can be reached at the tip of the medulla.\nIn case of juxtamedullary nephrons with longer loops and thin ascending limbs, the osmotic\ngradient is spread over a.gtéater distance and the osmolality at the tip of the loop is greater.\nSolution to Question 28: \\~\nThe eye does not have a countercurrent blood flow system.\nHeat and substances, including gases, steroids and peptide hormones, can pass from venous\nblood, interstitial fluid and lymph to the arterial blood; the process is called local counter-current\ntransfer.\nExamples of countercurrent blood flow\n¢ Heat exchange between the arteries and venae comitantes of the limbs.\n¢ Vasa recta in the kidneys\n* Testes\n¢ Small intestine\nSolution to Question 29:\nThin ascending limb is not a component of the countercurrent mechanism.\nThe loop of Henle function as countercurrent multipliers and vasa recta as countercurrent\nexchangers.\nThe functioning of the loop of Henle depends upon:\n¢ High permeability of the thin descending limb to water ( via aquaporin-1)\n¢ Active transport of Na+ and Cl- from the thick ascending limb\n¢ Inflow of tubular fluid from proximal tubule and outflow to the distal tubule.\nNote: The thin ascending limbs of juxtamedullary nephrons are permeable to Na+ and Cl- and\nhence do contribute passively to countercurrent multiplication. However, among the options\nprovided, Option C is the best answer as the other options are directly responsible’ for the\ncountercurrent mechanism. - .€\nSolution to Question 30: ey aN ‘,\nThe ascending thick limb of the loop of Henle is called the diluting segmient.\nIn the ascending limb, there is the movement of Na+and Cl- outer the tubular lumen, and the\ntubular fluid becomes more dilute?\nWhen the fluid reaches the*top of the ascending limb, it becomes hypotonic to plasma.\nSolution to Question 31: .* .\nAs the filtrate flows: through the proximal convoluted tubule, the concentration of the chloride\nincreases. \"\n¢ The contehtration of chloride in the early part of the pCT is ~105 mEq/L.\n¢ As the sodium is reabsorbed, it preferentially carries glucose, amino acids, and bicarbonate.\n* This leaves behind the solute, that has a higher concentration of the chloride, which as it reaches\nthe second half of the PCT is =140 mEq/L.\nSolution to Question 32:\nMacula densa is formed by specialized tubular epithelial cells of the distal convoluted tubule.\nSS 4 -:-\n(y a 9 . >» a ane = ae : layer\n(granular cells) __tmesangial calls) 4 MSs\nJuxtaglomerular apparatus x\noe m7\nThe juxtaglomerular apparatus consists of the:following parts: , a>\n\n* Macula densa: At the end of the thick ascending limb,of Henle, and at thie beginning of the distal\ntubule, the tubular epithelial cells arespecialized to form the maculadensa. They detect sodium\nconcentration of the fluid in the tubule (chemoreteptor). In resporise to elevated sodium, the\nmacula densa cells trigger the.Contraction of the afferent arteriole, reducing the flow of blood to\nthe glomerulus and the glomerular filtration rate. This happens as follows: When there is\nincreased sodium, there is increased-sodium-potassium ATPase activity which leads to increased\nATP hydrolysis causing more adenosine formation. The adenosine receptors on the macula densa\ncells stimulate it to release niere’calcium, sosthat there is vasoconstriction of the afferent arteriole,\nthereby decreasing the GFR™ .\n\n* Lacis cells: Extraglomeérular mesangial cells situated between afferent and efferent arteriole.\n+ Granular cells/Jt Cells: Modified smooth muscle cells of the afferent arteriole, they secrete\nrenin. Fallin Pressure in afferent arteriole stimulates renin release (mechanoreceptor), which, in\nturn, increases blood pregsure."
-    },
-    {
-      "id": "marrow__PHYSIO_CH35_Q023",
-      "questionNumber": 23,
-      "sourcePage": 659,
-      "provenance": {
-        "file": "physiologyed8.pdf",
-        "edition": "ED8",
-        "question_page": 659,
-        "answer_key_pages": [
-          661,
-          662
-        ],
-        "explanation_pages": [
-          673
-        ],
-        "explanation_start_page": 673
-      },
-      "reviewStatus": "pass",
-      "question": "What are the requirements for a patient to excrete concentrated urine?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "High ADH levels and hypoosmolar renal medulla"
-        },
-        {
-          "letter": "B",
-          "text": "Low ADH levels and hypoosmolar renal medulla"
-        },
-        {
-          "letter": "C",
-          "text": "High ADH levels and hyperosmolar renal medulla"
-        },
-        {
-          "letter": "D",
-          "text": "Low ADH levels and hyperosmolar renal medulla"
-        }
-      ],
-      "correctOption": 3,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 4,
-          "reasons": [
-            "ocr_suffix"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "A high level of ADH, which increases the permeability of the distal tubules and collecting ducts to water, thereby allowing these tubular segments to avidly reabsorb water, and a high osmolarity of the renal medullary interstitial fluid, which provides the osmotic gradient necessary for water reabsorption to occur in the presence of high levels of ADH.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "The requirements for excreting concentrated urine are high ADH levels and hyperosmolar renal medulla.\nA high level of ADH, which increases the permeability of the distal tubules and collecting ducts to water, thereby allowing these tubular segments to avidly reabsorb water, and a high osmolarity of the renal medullary interstitial fluid, which provides the osmotic gradient necessary for water reabsorption to occur in the presence of high levels of ADH."
     },
     {
       "id": "marrow__PHYSIO_CH35_Q025",
@@ -1852,10 +1549,9 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 3,
           "reasons": [
-            "edge_noise",
-            "ocr_suffix"
+            "edge_noise"
           ],
           "suspectLines": [
             {
@@ -1873,24 +1569,10 @@
               ]
             },
             {
-              "line": 8,
-              "text": "interstitium. oO.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
               "line": 9,
               "text": "+ Diffusion of only small amounts of water from the medullary tubules into the medullary",
               "reasons": [
                 "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "interstitium x oe:",
-              "reasons": [
-                "ocr_suffix"
               ]
             }
           ]
@@ -2022,6 +1704,13 @@
           ],
           "suspectLines": [
             {
+              "line": 1,
+              "text": "4 ™ oO. “a",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
               "line": 2,
               "text": "on e< ~*~",
               "reasons": [
@@ -2093,6 +1782,66 @@
         }
       ],
       "explanation": "The eye does not have a countercurrent blood flow system.\nHeat and substances, including gases, steroids and peptide hormones, can pass from venous\nblood, interstitial fluid and lymph to the arterial blood; the process is called local counter-current\ntransfer.\nExamples of countercurrent blood flow\n¢ Heat exchange between the arteries and venae comitantes of the limbs.\n¢ Vasa recta in the kidneys\n* Testes\n¢ Small intestine"
+    },
+    {
+      "id": "marrow__PHYSIO_CH35_Q029",
+      "questionNumber": 29,
+      "sourcePage": 660,
+      "provenance": {
+        "file": "physiologyed8.pdf",
+        "edition": "ED8",
+        "question_page": 660,
+        "answer_key_pages": [
+          661,
+          662
+        ],
+        "explanation_pages": [
+          675,
+          676
+        ],
+        "explanation_start_page": 675
+      },
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "All of the following are components responsible for the countercurrent mechanism in the kidney except _____.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Sodium outflow in thick ascending limb"
+        },
+        {
+          "letter": "B",
+          "text": "Water outflow in thin descending limb"
+        },
+        {
+          "letter": "C",
+          "text": "Sodium outflow in thin ascending limb"
+        },
+        {
+          "letter": "D",
+          "text": "Flow of tubular fluid from PCT to DCT"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 11,
+              "text": "countercurrent mechanism. - .€",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Thin ascending limb is not a component of the countercurrent mechanism.\nThe loop of Henle function as countercurrent multipliers and vasa recta as countercurrent\nexchangers.\nThe functioning of the loop of Henle depends upon:\n¢ High permeability of the thin descending limb to water ( via aquaporin-1)\n¢ Active transport of Na+ and Cl- from the thick ascending limb\n¢ Inflow of tubular fluid from proximal tubule and outflow to the distal tubule.\nNote: The thin ascending limbs of juxtamedullary nephrons are permeable to Na+ and Cl- and\nhence do contribute passively to countercurrent multiplication. However, among the options\nprovided, Option C is the best answer as the other options are directly responsible’ for the\ncountercurrent mechanism. - .€"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q031",
@@ -2204,9 +1953,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 6,
+          "severity": 10,
           "reasons": [
             "edge_noise",
+            "hard_noise_char",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -2222,6 +1972,13 @@
               "text": "* Macula densa: At the end of the thick ascending limb,of Henle, and at thie beginning of the distal",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 17,
+              "text": "thereby decreasing the GFR™ .",
+              "reasons": [
+                "hard_noise_char"
               ]
             },
             {

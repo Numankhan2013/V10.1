@@ -65,13 +65,7 @@
               "line": 1,
               "text": "Enzymes are not heat-stable. ~~ ‘ x",
               "reasons": [
-                "hard_noise_char"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "RNA with catalytic activity. Some examples of ribozymes are:",
-              "reasons": [
+                "hard_noise_char",
                 "ocr_suffix"
               ]
             },
@@ -574,19 +568,18 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 14,
+          "severity": 10,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash",
-            "ocr_suffix"
+            "literal_backslash"
           ],
           "suspectLines": [
             {
-              "line": 10,
-              "text": "• Electrophoretic mobility=OK= 1 moves sor than CK; 3",
+              "line": 9,
+              "text": "• Subunit composition: CK-1 Bains BB whilé €K- -2 contains MB subunits",
               "reasons": [
-                "ocr_suffix"
+                "hard_noise_char"
               ]
             },
             {
@@ -850,9 +843,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 3,
           "reasons": [
-            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -861,27 +853,6 @@
               "text": "(ALT).",
               "reasons": [
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "specific marker for hepatocellular damage than AST.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "toxicity. In cirrhosis, the ratio becomes more than 1.",
-              "reasons": [
-                "ocr_suffix"
-              ]
-            },
-            {
-              "line": 18,
-              "text": "Option D: GGT is used to identify occult alcohol use.",
-              "reasons": [
-                "ocr_suffix"
               ]
             }
           ]
