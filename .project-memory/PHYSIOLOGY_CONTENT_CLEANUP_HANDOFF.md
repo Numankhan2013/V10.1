@@ -76,3 +76,27 @@
 - Chapter 10 is verified CLEANED at promotion commit `6370ce1a24fa03713bd8990f86588285e8479146`.
 - Continue from `marrow__PHYS_CH11_Q001` after resolving the live cleanup/canonical heads and current ownership again. Do not revisit Chapter 10 unless a later effective audit produces a new source-grounded regression.
 - Historical Chapter 5/7 ownership notes above are superseded only if the live promoter/validator architecture has explicitly migrated those accepted fields; never infer migration from old handoff text alone.
+
+## 2026-09-14 — Batch 13 (Chapter 11 Sensory Receptors partial cleanup)
+
+- Resolved the live cleanup lane before every mutation. Initial cleanup head was `92a7db44aa66c8765c5bb7fa5d4b26cb52a82a93`; canonical remained `fcb7c51af1f24d3090a5f7b483bf4c6f2cc003a0` throughout this run, with no intersecting canonical Physiology cleanup work.
+- Re-read the current cleanup architecture, both promotion workflows, current project state/handoff, and canonical anti-fragmentation policy before editing. The existing Chapter 11 reviewed question/options proposal and active v2 override were preserved additively.
+- Start-of-run effective audit: 2,711 questions; `questionOptionCandidateQuestions=0`; explanation candidates global **331**, Anatomy **6**, Biochemistry **43**, Physiology **282**. Chapter 11 had 15 explanation candidates.
+- Rendered verified Marrow ED8 Physiology pages **216–220** were reviewed directly for the explanation batch; embedded PDF text was visibly corrupted and was not used to infer wording. Cleanup removed diagram OCR, source footer/branding, malformed table flattening, and meaningless OCR debris while preserving readable medical source content.
+- Cleaned explanation stable IDs in deterministic source order: `marrow__PHYS_CH11_Q001`, `Q002`, `Q004`, `Q005`, `Q007`, `Q008`, `Q009`, `Q010` (8 explanation questions).
+- Q7 and Q8 contained source tables whose medical relationships were readable in the rendered pages. Their table relationships were preserved as compact source-faithful text rather than retaining unreadable flattened OCR debris. No new teaching sections, Key Takeaways, rationale expansions, or silent medical corrections were added.
+- `marrow__PHYS_CH11_Q004` remains in the broad explanation detector only because the rendered source legitimately uses `~ 1 mm` for the two-point threshold. This is a documented detector false-positive; the notation was not rewritten merely to satisfy the detector.
+- The first reviewed proposal commit was `91e0512539d48891ab8f9be7cc339f8e166bae24`. Promotion workflow `34778230516` passed all required steps and produced verified promotion commit `8e85619acf2eeb520d71d98b2f6341f06f90e48b`.
+- Post-promotion review exposed a high-priority detector false-negative in `marrow__PHYS_CH11_Q016`: its learner-visible options contained OCR tails despite the aggregate q/option detector being zero. Rendered question page **214** verified the exact four options as `It is poorly localised`, `It shows rapid adaptation`, `It is mediated by B fibers`, `It resembles fast pain`. These were repaired source-faithfully without changing option order or correctOption.
+- Q16 repair proposal commit: `51b882865723eb01d6e48c797081351a525ff114`. Promotion workflow `34778315400` passed every gate and produced verified promotion commit `2795637dd10f808d4b6fcffa292a57e8ea6bae7f`.
+- Both workflows passed source-fingerprinted proposal promotion, syntax checks, global v2 validation, full effective-bank rebuild/debris scan, 2,711-question corpus assertion, raw/effective answer-index identity, zero question/option candidate assertion, and commit/push. No validator was weakened. Raw imported bundles were not mutated.
+- Active Chapter 11 v2 override fingerprint after the final promotion: `63d4e8b9f1aca78e3dcd7420f708988d3f97fcd1152ee83670c0b5988722375b`.
+- Final effective audit: 2,711 questions; `questionOptionCandidateQuestions=0`; explanation candidates global **324**, Anatomy **6**, Biochemistry **43**, Physiology **275**. Seven of the eight cleaned explanations disappeared from the queue; Q4 is the documented `~ 1 mm` false-positive.
+- No runtime/product output paths changed, so browser/build regression was not required for this data-only batch.
+- Exact next genuine unresolved Physiology explanation target is **`marrow__PHYS_CH11_Q011`**, source question page **212**. Its rendered solution begins on ED8 PDF page **220** (the current audit packet records explanation page 221). Continue from Q11 in deterministic source order; do not re-clean Q4 unless detector policy changes or source evidence changes.
+
+### Current handoff rule
+
+- Treat Q1, Q2, Q5, Q7, Q8, Q9, and Q10 as verified CLEANED at promotion commit `2795637dd10f808d4b6fcffa292a57e8ea6bae7f`; Q4 is source-clean but intentionally retained as a detector false-positive because `~ 1 mm` is legitimate source notation.
+- Q16 question/options are source-repaired and validated, but its explanation remains unresolved and must be handled later in normal source order after Q11–Q14.
+- Continue Chapter 11 from `marrow__PHYS_CH11_Q011` after resolving live cleanup/canonical heads and ownership again.
