@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 8 stems/options, verified against rendered ED8 pages 160-164. Removes OCR/diagram debris only; answer indices remain immutable.",
+  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 8 stems/options, verified against rendered ED8 pages 160-164. Removes OCR/diagram debris only; answer indices remain immutable; additional reviewed source-faithful cleanup.",
   "subject": "Physiology",
   "chapterId": "8",
-  "sourceFingerprint": "8c77fda74b9982187914eca6274a46d957de2c3d0a08e36ac7e9e6706f87c834",
+  "sourceFingerprint": "c2782362aa838037cf3d791da60718f838b0cbd8850ed0644a8363ecf17374ce",
   "questions": {
     "marrow__PHYS_CH08_Q001": {
       "question": "Human cardiac muscle contains ________.",
@@ -12,7 +12,8 @@
         "Beta heavy chain of Myosin",
         "Both a and b",
         "None"
-      ]
+      ],
+      "explanation": "Human heart contains both alpha and beta isoforms of the myosin heavy chain. Beta isoform has a lower myosin ATPase activity than the alpha isoform.\n\n• Alpha isoform predominates in the adult atria.\n• Beta isoform predominates in the adult ventricles.\n• The spatial distribution contributes to the well coordinated contraction of the heart."
     },
     "marrow__PHYS_CH08_Q002": {
       "question": "Intercalated discs are seen in ________.",
@@ -21,7 +22,8 @@
         "Smooth muscle",
         "Cardiac muscle",
         "All of the above"
-      ]
+      ],
+      "explanation": "• Cardiac muscle fibres are made up of many individual cells connected in series and parallel with one another.\n• The areas where the end of one muscle fiber abuts on another, which always occur at Z lines, are called intercalated discs.\n• It provides a strong union between fibers, maintaining cell-to-cell cohesion, so that the pull of one contractile cell can be transmitted along its axis to the next.\n• It contains desmosomes to prevent pulling apart of the cells when strained.\n• At each intercalated disc, the plasma membrane fuses with one another forming gap junctions which provide low-resistance bridges for the spread of excitation from one fiber to another, permitting the cardiac muscle to function as a syncytium."
     },
     "marrow__PHYS_CH08_Q003": {
       "question": "Activation of the sympathetic system increases the myocardial contractility of a patient. Which of the following is responsible for this positive inotropic effect?",
@@ -30,7 +32,8 @@
         "Dephosphorylation of Phospholamban",
         "Decreased levels of cAMP",
         "Increased permeability of cell membrane"
-      ]
+      ],
+      "explanation": "Phosphorylation of phospholamban is responsible for the positive inotropic effect on the myocardium observed after the stimulation of the sympathetic nervous system.\n\nPhospholamban is a protein that regulates Ca2+ ATPase in the sarcoplasmic reticulum. When phosphorylated, phospholamban stimulates the Ca2+ ATPase, resulting in greater uptake and storage of Ca2+ by the sarcoplasmic reticulum.\n\nIncreased Ca2+ uptake by the sarcoplasmic reticulum has two effects:\n• It causes faster relaxation (i.e., briefer contraction).\n• It increases the amount of stored Ca2+ for release on subsequent beats.\n\nThis positive inotropic effect has three important features: increased peak tension, increased rate of tension development, and faster rate of relaxation. Faster relaxation means that the contraction (twitch) is shorter, allowing more time for refilling.\n\nThis effect is mediated via activation of beta-1 receptors, which are coupled via a Gs protein to adenylyl cyclase. Activation of adenylyl cyclase leads to the production of cAMP, activation of protein kinases, and phosphorylation of proteins that produce the physiologic effect of increased contractility."
     },
     "marrow__PHYS_CH08_Q006": {
       "question": "The following graph displays which physiological law of the heart?",
@@ -39,7 +42,8 @@
         "Laplace Law",
         "Bainbridge Law",
         "Bell-Magendie law"
-      ]
+      ],
+      "explanation": "The diagram displays the length-tension relationship for a cardiac muscle explaining the Starling law of the heart.\n\nIn the body, the initial length of the fibers is determined by the degree of diastolic filling of the heart, and the pressure developed in the ventricle is proportional to the volume of the ventricle at the end of the filling phase (Starling law of the heart).\n\n• The developed tension increases as the diastolic volume increases until it reaches a maximum, then tends to decrease.\n• The decrease is due to beginning disruption of the myocardial fibers and not due to a decrease in the number of cross-bridges between actin and myosin as seen in skeletal muscle."
     },
     "marrow__PHYS_CH08_Q008": {
       "question": "Which of the following is true regarding excitation-contraction coupling in smooth muscle?",
@@ -48,7 +52,8 @@
         "Sustained contraction occurs with high calcium concentration",
         "Phosphorylation of actin is required for contraction",
         "Cellular calcium concentration is essential to cause contraction"
-      ]
+      ],
+      "explanation": "Increased cytosolic Ca2+ is essential for contraction of smooth muscles.\n\nEvents in excitation-contraction coupling in smooth muscles:\n• Acetylcholine (ACh) binds to muscarinic receptors.\n• Ca2+ enters the cytoplasm of the cell.\n• Ca2+ binds to calmodulin to form the Ca2+-calmodulin complex.\n• The complex activates myosin light-chain kinase (MLCK).\n• Myosin undergoes phosphorylation.\n• Myosin ATPase activity is increased.\n• The myosin head attaches to actin and the cross-bridge cycle forms.\n• Smooth muscle contracts.\n• Myosin undergoes dephosphorylation by myosin light-chain phosphatase (MLCP).\n• Smooth muscle relaxes.\n\nA unitary smooth muscle is unique in that it can contract when stretched even in the absence of any extrinsic innervation. Stretch is followed by a decrease in membrane potential and an increase in the tone of the muscle.\n\nOther options:\n• Option A: Troponin is absent in smooth muscle.\n• Option B: Sustained contraction of smooth muscle occurs even when the calcium concentration falls. This is mainly because of the latch-bridge mechanism, where the myosin cross-bridges remain attached to actin. This mechanism allows maintenance of contraction with less expenditure of energy and is particularly important in vascular smooth muscle.\n• Option C: Unlike skeletal muscle where troponin binding is essential for contraction, smooth muscle contraction requires phosphorylation of myosin, not actin."
     },
     "marrow__PHYS_CH08_Q009": {
       "question": "Calmodulin is mostly both structurally and functionally related to ________.",
@@ -57,7 +62,8 @@
         "Myosin light chain kinase",
         "Troponin C",
         "Tropomyosin"
-      ]
+      ],
+      "explanation": "Calmodulin is structurally and functionally related to troponin. In place of troponin, smooth muscle cells contain a large amount of the regulatory protein calmodulin.\n\nCalmodulin is similar to troponin; it is different in the manner in which it initiates contraction. Calmodulin initiates contraction by activating the myosin light-chain kinase. Troponin, on the other hand, initiates contraction by causing a conformational change in the tropomyosin molecule which then uncovers the active sites on the actin filament."
     },
     "marrow__PHYS_CH08_Q010": {
       "question": "A sustained contraction with little expenditure of energy is made possible by a latching mechanism in ________.",
@@ -66,7 +72,8 @@
         "Smooth muscle",
         "Cardiac muscle",
         "All of the above"
-      ]
+      ],
+      "explanation": "• Smooth muscles can maintain prolonged full tonic contraction with little use of energy (as little as 1/300 the energy required for comparable sustained skeletal muscle contraction) and with little continued excitatory signal due to this mechanism.\n• This is due to the fact that even after dephosphorylation of myosin, the cross-bridges continue to cling on for some time.\n• The excitation-coupling mechanism occurring in smooth muscle is similar to skeletal muscles but for a few features:\n  • The process is slow and a low-energy mechanism.\n  • There is no fixed length-tension relationship as it shows the property of plasticity (smooth muscles behaving like a viscous mass rather than a rigidly structured tissue).\n  • This mechanism is specially useful in vascular smooth muscles."
     },
     "marrow__PHYS_CH08_Q012": {
       "question": "Which of the following acts to increase the release of calcium ions from the endoplasmic reticulum of a smooth muscle?",
@@ -94,6 +101,21 @@
         "15-20 Hz",
         "10-15 Hz"
       ]
+    },
+    "marrow__PHYS_CH08_Q004": {
+      "explanation": "• Phospholamban is a protein that regulates SR Ca2+ ATPase (SERCA) in the sarcoplasmic reticulum. In its dephosphorylated state, phospholamban inhibits the Ca2+ ATPase, resulting in diminished uptake and storage of Ca2+ by the sarcoplasmic reticulum, while in its phosphorylated state there is disinhibition of the Ca2+ ATPase leading to increased uptake and storage of Ca2+ by the sarcoplasmic reticulum.\n• Increased Ca2+ uptake by the sarcoplasmic reticulum has two effects:\n  • It causes faster relaxation (i.e., briefer contraction).\n  • It increases the amount of stored Ca2+ for release on subsequent beats.\n• Phosphorylation of phospholamban is responsible for the positive inotropic effect on the myocardium observed after stimulation of the sympathetic nervous system.\n• This effect is mediated via activation of beta-1 receptors, which are coupled via a Gs protein to adenylyl cyclase.\n• This positive inotropic effect has three important features: increased peak tension, increased rate of tension development, and faster rate of relaxation.\n• Faster relaxation means that the contraction (twitch) is shorter, allowing more time for refilling."
+    },
+    "marrow__PHYS_CH08_Q005": {
+      "options": [
+        "All or none phenomenon",
+        "Length-tension relationship",
+        "Tetanization",
+        "Plateau potential"
+      ],
+      "explanation": "Cardiac muscle cannot be tetanized due to a long refractory period.\n\nIn cardiac myocytes, depolarization proceeds rapidly and an overshoot of the zero potential is present. This is followed by a plateau before the membrane potential reaches the RMP (-90 mV). This plateau phase lasts for 200 msec or more. Repolarization is therefore not complete until contraction is 50% completed.\n\nPhases of cardiac action potential:\n• 0 -> Depolarisation and overshoot: due to opening of voltage-gated Na+ channels.\n• 1 -> Initial rapid repolarization: due to closure of Na+ channels and opening of K+ channels.\n• 2 -> Plateau phase: due to slow but prolonged opening of Ca2+ channels.\n• 3 -> Late rapid repolarization.\n• 4 -> Baseline (RMP).\n• Phases 3 and 4 are due to closure of Ca2+ channels and a slow, delayed increase of K+ efflux through K+ channels.\n\nDuring phases 0 to 2 and about half of phase 3 of the cardiac action potential, cardiac muscle cannot be excited again; that is, it is in its absolute refractory period. It remains relatively refractory until phase 4. Thus, cardiac muscle cannot be tetanized."
+    },
+    "marrow__PHYS_CH08_Q007": {
+      "explanation": "Hollow viscera are primarily composed of single-unit smooth muscles."
     }
   }
 }
