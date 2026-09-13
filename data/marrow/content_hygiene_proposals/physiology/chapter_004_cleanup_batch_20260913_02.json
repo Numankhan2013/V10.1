@@ -1,0 +1,27 @@
+{
+  "proposalVersion": 1,
+  "reviewStatus": "REVIEWED",
+  "purpose": "Reviewed source-faithful learner-display explanation cleanup from rendered Marrow ED8 Physiology pages 62-67; cleanup only, no explanation enhancement.",
+  "subject": "Physiology",
+  "chapterId": "4",
+  "questions": {
+    "marrow__PHYS_CH04_Q004": {
+      "explanation": "The potential of a positive ion across the membrane using Nernst equation is +60 mV.\nEMF (millivolts) = ±(61/z) × log(Concentration inside / Concentration outside)\nwhere z is the valency.\nDeriving the numerical value:\nEMF = (61/1) × log(10/100), giving a numerical value of 61 mV.\nThe choice of concentration of the ion placed in the numerator and denominator does not matter because the formula is only used to derive the numerical value and not the sign (+/-). Mathematically, log(100/10) = 1 and log(10/100) = -1. Hence, changing the numerator and denominator only changes the sign and the numerical value remains the same.\nDeciding the sign/charge: a positive ion with greater concentration extracellularly will try to diffuse inside the cell. A positive intracellular potential is required to prevent this. Hence, the sign/charge (potential) is positive.\nHence, the potential across the membrane using the Nernst equation is +60 mV (the closest answer chosen)."
+    },
+    "marrow__PHYS_CH04_Q005": {
+      "explanation": "The equilibrium potential for this negative ion using the Nernst equation is +60 mV.\nEMF (millivolts) = ±(61/z) × log(Concentration inside / Concentration outside)\nwhere z is the valency.\nDeriving the numerical value:\nEMF = (61/1) × log(100/10), giving a numerical value of 61 mV.\nDeciding the sign/charge: a negative ion with greater concentration intracellularly will try to diffuse outside the cell. A positive intracellular potential is required to prevent this. Hence, the potential is positive.\nHence, the Nernst potential is +60 mV (the closest answer chosen)."
+    },
+    "marrow__PHYS_CH04_Q009": {
+      "explanation": "Resting membrane potential of a nerve fiber is equal to the equilibrium potential of Cl- and is -70 mV."
+    },
+    "marrow__PHYS_CH04_Q010": {
+      "explanation": "The driving force on a charged ion is measured membrane potential (Em) - calculated equilibrium potential (Ex).\nNet driving force (mV) = Em - Ex\nwhere:\nEm = actual membrane potential (mV)\nEx = equilibrium potential for X (mV)\nWhen the driving force is negative (i.e., Em is more negative than the ion's equilibrium potential):\n• A cation will enter the cell.\n• An anion will leave the cell."
+    },
+    "marrow__PHYS_CH04_Q012": {
+      "explanation": "The patch-clamp technique is used to record ion current flow through a single protein channel.\nIn the patch-clamp experiment, a small pipette is carefully maneuvered to seal off a portion of a cell membrane. The pipette has an electrode bathed in an appropriate solution that allows for the recording of electrical changes through any pore in the membrane."
+    },
+    "marrow__PHYS_CH04_Q014": {
+      "explanation": "No net electrogenic transfer at RMP means X + Y + Z = 0.\nSince X = -50 and Y = -30, Z must be +80, since -80 + 80 = 0."
+    }
+  }
+}
