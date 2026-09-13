@@ -6,43 +6,43 @@
   "candidateQuestionCount": 1,
   "questions": [
     {
-      "id": "marrow__ANAT_CH18_Q004",
-      "questionNumber": 4,
-      "sourcePage": 327,
+      "id": "marrow__ANAT_CH18_Q008",
+      "questionNumber": 8,
+      "sourcePage": 329,
       "reviewStatus": "pass",
-      "question": "Which of the following nerves do not innervate the marked structure?",
+      "question": "What is Meckel's cave formed by?",
       "options": [
         {
           "letter": "A",
-          "text": "Trigeminal nerve branches"
+          "text": "Evagination of the falx cerebelli"
         },
         {
           "letter": "B",
-          "text": "C2, C3 spinal nerves"
+          "text": "Evagination of the lower layer of the falx cerebri"
         },
         {
           "letter": "C",
-          "text": "Cervical sympathetic trunk"
+          "text": "Evagination of the diaphragma sellae"
         },
         {
           "letter": "D",
-          "text": "Facial nerve branches"
+          "text": "Evagination of lower layer of the tentorium cerebelli"
         }
       ],
       "correctOption": 4,
       "flags": [
         {
-          "field": "option_B",
-          "severity": 5,
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "C2, C3 spinal nerves",
+              "text": "What is Meckel's cave formed by?",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

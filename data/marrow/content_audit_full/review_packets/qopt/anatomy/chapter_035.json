@@ -3,62 +3,134 @@
   "subject": "Anatomy",
   "chapterId": "35",
   "chapter": "Upper Limb Bones and Joints",
-  "candidateQuestionCount": 1,
+  "candidateQuestionCount": 3,
   "questions": [
     {
-      "id": "marrow__ANAT_CH35_Q003",
-      "questionNumber": 3,
-      "sourcePage": 619,
-      "reviewStatus": "needs_manual_review",
-      "question": "Which ligament transmits the weight of the upper limb to the axial skeleton?",
+      "id": "marrow__ANAT_CH35_Q006",
+      "questionNumber": 6,
+      "sourcePage": 620,
+      "reviewStatus": "pass",
+      "question": "Which muscle is attached to the floor of the structure marked A?",
       "options": [
         {
           "letter": "A",
-          "text": "1, 3 and 5"
+          "text": "Latissimus dorsi"
         },
         {
           "letter": "B",
-          "text": "1 and 3 only"
+          "text": "Teres major"
         },
         {
           "letter": "C",
-          "text": "2 and 3 only"
+          "text": "Long head of biceps"
         },
         {
           "letter": "D",
-          "text": "2, 4 and 5"
+          "text": "Pectoralis major"
         }
       ],
       "correctOption": 1,
       "flags": [
         {
-          "field": "option_A",
-          "severity": 5,
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "1, 3 and 5",
+              "text": "Which muscle is attached to the floor of the structure marked A?",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH35_Q012",
+      "questionNumber": 12,
+      "sourcePage": 622,
+      "reviewStatus": "pass",
+      "question": "A normal scapulohumeral rhythm is in the ratio of:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1:1"
         },
         {
-          "field": "option_D",
-          "severity": 5,
+          "letter": "B",
+          "text": "1:2"
+        },
+        {
+          "letter": "C",
+          "text": "2:1"
+        },
+        {
+          "letter": "D",
+          "text": "3:1"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "2, 4 and 5",
+              "text": "A normal scapulohumeral rhythm is in the ratio of:",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH35_Q019",
+      "questionNumber": 19,
+      "sourcePage": 624,
+      "reviewStatus": "pass",
+      "question": "The middle radioulnar joint is an example of a:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Plane synovial"
+        },
+        {
+          "letter": "B",
+          "text": "Primary cartilaginous"
+        },
+        {
+          "letter": "C",
+          "text": "Secondary cartilaginous"
+        },
+        {
+          "letter": "D",
+          "text": "Fibrous joint"
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The middle radioulnar joint is an example of a:",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]

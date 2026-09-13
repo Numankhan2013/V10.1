@@ -5,8 +5,8 @@
   "chapterId": "11",
   "chapter": "Sensory Receptors",
   "candidateQuestionCount": 18,
-  "questionOptionCandidateCount": 12,
-  "explanationCandidateCount": 15,
+  "questionOptionCandidateCount": 10,
+  "explanationCandidateCount": 16,
   "questions": [
     {
       "id": "marrow__PHYS_CH11_Q001",
@@ -35,24 +35,6 @@
       "correctOption": 1,
       "questionOptionFlags": [
         {
-          "field": "option_D",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "o~ o",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_C",
           "severity": 6,
           "reasons": [
@@ -63,6 +45,23 @@
               "line": 1,
               "text": "Dermatome ~ce*",
               "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "o~ o",
+              "reasons": [
+                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -136,9 +135,8 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -167,24 +165,6 @@
           ]
         },
         {
-          "field": "option_D",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "Re ~~",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_A",
           "severity": 6,
           "reasons": [
@@ -201,17 +181,18 @@
           ]
         },
         {
-          "field": "option_C",
-          "severity": 5,
+          "field": "option_D",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
               "line": 2,
-              "text": "ot >",
+              "text": "Re ~~",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "hard_noise_char"
               ]
             }
           ]
@@ -261,52 +242,6 @@
         }
       ],
       "explanation": "Fast vibration sense is mediated by Pacinian corpuscles.\nPacinian corpuscle is the most sensitive mechanoreceptor in the somatosensory system. It is\nresponsive to high-frequency (30-500 Hz) vibratory stimuli and pressure. They are rapidly\nadapting receptors.\nOption A: Merkel’s dise sense touch and sustained pressure. They are slow adapting receptors.\nPresent in epidermis.\nOption B: Meissner’s corpusele sense tap and flutter. They are present in dermtalpapillae. They\nare rapidly adapting receptors. 2\nx. 2\nOption D: Ruffini endings sense skin stretch and flutteriig vibration >\naS Ke)\n‘The following image shows Merkel's disc and Meissner's corpuscle being more superficial\n(reponsive to touch) than Ruffini endings andi ian corpysdle (which areUeeper in the dermis\nid ive t . NY i _\nand responsive to pressure) @ a2 Px\npenny = Ke } Epidermis\n\\\\ rss le <p\nnae Cy ——\nutr\nBe Soe :\nOY | meme HT a\nSome SQL"
-    },
-    {
-      "id": "marrow__PHYS_CH11_Q003",
-      "questionNumber": 3,
-      "sourcePage": 210,
-      "reviewStatus": "pass",
-      "question": "The phasic fen is o&\n= Ye",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Merkel's dise"
-        },
-        {
-          "letter": "B",
-          "text": "Ruffini's end organs"
-        },
-        {
-          "letter": "C",
-          "text": "Meissner's corpuscles"
-        },
-        {
-          "letter": "D",
-          "text": "Muscle spindle"
-        }
-      ],
-      "correctOption": 3,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "= Ye",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanationFlags": [],
-      "explanation": null
     },
     {
       "id": "marrow__PHYS_CH11_Q004",
@@ -389,9 +324,8 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -427,6 +361,52 @@
         }
       ],
       "explanation": ",~ C S\n‘The sensory receptor shown in thebpWe image ig Phcinian corpustlé. The Pacinian corpuscle is a\nrapidly adapting receptor and isan éncapsulated Feceptor. ¢\nWhen a stimulus of the sainé-strength is egntinuously given'to a sensory receptor, the frequency\nof the action potentials genérated by thésreceptor gradually decreases. This phenomenon is known\nas receptor adaptation. Depending on-whether Ts teeeptor stops responding to a stimulus rapidly\nor slowly, they are classified asrapidly adaptinig'(phasic) or slow adapting receptors (tonic).\nRe 7\n° om\nS a"
+    },
+    {
+      "id": "marrow__PHYS_CH11_Q006",
+      "questionNumber": 6,
+      "sourcePage": 211,
+      "reviewStatus": "pass",
+      "question": "Which of the following classification of receptors is the same?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Mechanoreceptors and exteroceptors"
+        },
+        {
+          "letter": "B",
+          "text": "Interoceptors and nociceptors"
+        },
+        {
+          "letter": "C",
+          "text": "Photoreceptors and proprioceptors\n4d) Telereceptors and interoceptors"
+        },
+        {
+          "letter": "D",
+          "text": "Telereceptors and interoceptors"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 8,
+              "text": "environment in which they are located. These include receptors for taste and smell as well as,",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Mechanofeceptors and extéroceptors have the same classification of receptors.\nExteroceptors are concerned with the external environment or receptors which receives external\nstimuli. Mechanoreceptors are cutaneous receptors for touch and pressure. Thus\nmechanoreceptors can be considered to be exteroceptors.\nNociceptors are pain receptors which detect physical and chemical damage occuring in the tissue.\nInteroceptors are concerned with the internal environment.\nChemoreceptors are receptors stimulated by a change in the chemical composition of the\nenvironment in which they are located. These include receptors for taste and smell as well as,\nvisceral receptors such as those sensitive to changes in the plasma level of O2, pH, and osmolality.\nTeleceptors (distance receivers) are concerned with events at a distance, example -\nphotoreceptors.\nProprioceptors provide information about the position of the body in space at any given instant."
     },
     {
       "id": "marrow__PHYS_CH11_Q007",
@@ -539,11 +519,10 @@
       "questionOptionFlags": [
         {
           "field": "option_D",
-          "severity": 12,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "symbol_dense_line"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -575,9 +554,9 @@
         },
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -645,18 +624,19 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "many_linebreaks"
+            "ocr_suffix",
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "> aN? 9",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {
@@ -680,9 +660,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 6,
+          "severity": 10,
           "reasons": [
             "edge_noise",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -691,6 +672,13 @@
               "text": "> oS bo al",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 13,
+              "text": "Hence, bradykinin is the hettepanewer (napadrdtonin) x,",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -794,10 +782,10 @@
       "questionOptionFlags": [
         {
           "field": "option_D",
-          "severity": 8,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
-            "symbol_dense_line"
+            "ocr_suffix",
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -811,6 +799,7 @@
               "line": 3,
               "text": "©@* a 4 o",
               "reasons": [
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }
@@ -828,6 +817,22 @@
               "text": "Strength of muscle contraction »—~",
               "reasons": [
                 "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Log of Intensity of stimulus & 2.",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -903,31 +908,11 @@
       "correctOption": 3,
       "questionOptionFlags": [
         {
-          "field": "option_B",
-          "severity": 12,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "literal_backslash"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Principle of labeleqliné ~\\",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "question",
           "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "many_linebreaks"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -940,6 +925,24 @@
             {
               "line": 6,
               "text": "ae =~",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Principle of labeleqliné ~\\",
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
@@ -1061,34 +1064,24 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [
-        {
-          "field": "option_D",
-          "severity": 6,
-          "reasons": [
-            "edge_noise",
-            "many_linebreaks"
-          ],
-          "suspectLines": [
-            {
-              "line": 3,
-              "text": "KO Oo >>",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 8,
+              "text": "segment or dermatome as the structure in wie pain origitiales. This principle is,",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 14,
               "text": "‘Myelination and trac | Myelinatedand carried viaNe | Unmyelinatedand carried via",
@@ -1143,9 +1136,8 @@
       "questionOptionFlags": [
         {
           "field": "option_B",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -1156,30 +1148,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "question",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 3,
-              "text": "Pain insensitive structure ig_ ©”. ~ ri",
-              "reasons": [
-                "hard_noise_char"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "> ee a ae",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1201,31 +1169,22 @@
           ]
         },
         {
-          "field": "option_C",
-          "severity": 5,
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
-              "line": 2,
-              "text": "eS. <",
+              "line": 3,
+              "text": "Pain insensitive structure ig_ ©”. ~ ri",
               "reasons": [
-                "edge_noise"
+                "hard_noise_char"
               ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
+            },
             {
-              "line": 2,
-              "text": "os “",
+              "line": 4,
+              "text": "> ee a ae",
               "reasons": [
                 "edge_noise"
               ]
@@ -1401,9 +1360,8 @@
         },
         {
           "field": "option_D",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -1462,9 +1420,9 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {

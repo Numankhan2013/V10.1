@@ -3,134 +3,46 @@
   "subject": "Physiology",
   "chapterId": "31",
   "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
-  "candidateQuestionCount": 3,
+  "candidateQuestionCount": 1,
   "questions": [
     {
-      "id": "marrow__PHYSIO_CH31_Q007",
-      "questionNumber": 7,
-      "sourcePage": 557,
+      "id": "marrow__PHYSIO_CH31_Q023",
+      "questionNumber": 23,
+      "sourcePage": 561,
       "reviewStatus": "pass",
-      "question": "Rennin is present in _____",
+      "question": "What is the effect of cholecystokinin on GIT?",
       "options": [
         {
           "letter": "A",
-          "text": "Gastric juice"
+          "text": "Contraction of sphincter of Oddi"
         },
         {
           "letter": "B",
-          "text": "Pancreatic secretions"
+          "text": "Inhibits gastric emptying"
         },
         {
           "letter": "C",
-          "text": "Kidney"
+          "text": "Inhibits pancreatic enzyme secretion"
         },
         {
           "letter": "D",
-          "text": "Saliva"
+          "text": "Relaxes gall bladder"
         }
       ],
-      "correctOption": 1,
+      "correctOption": 2,
       "flags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "Rennin is present in _____",
+              "text": "What is the effect of cholecystokinin on GIT?",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYSIO_CH31_Q019",
-      "questionNumber": 19,
-      "sourcePage": 560,
-      "reviewStatus": "pass",
-      "question": "Primary bile acids are synthesized from _____",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Cholesterol"
-        },
-        {
-          "letter": "B",
-          "text": "Amino acids"
-        },
-        {
-          "letter": "C",
-          "text": "Bilirubin"
-        },
-        {
-          "letter": "D",
-          "text": "Fatty acids"
-        }
-      ],
-      "correctOption": 1,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Primary bile acids are synthesized from _____",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYSIO_CH31_Q020",
-      "questionNumber": 20,
-      "sourcePage": 560,
-      "reviewStatus": "pass",
-      "question": "Enterohepatic circulation is necessary for the secretion of _____",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Bile salt"
-        },
-        {
-          "letter": "B",
-          "text": "Intestinal juice"
-        },
-        {
-          "letter": "C",
-          "text": "Pancreatic juice"
-        },
-        {
-          "letter": "D",
-          "text": "Bilirubin"
-        }
-      ],
-      "correctOption": 1,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Enterohepatic circulation is necessary for the secretion of _____",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

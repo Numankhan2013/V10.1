@@ -3,7 +3,7 @@
   "subject": "Physiology",
   "chapterId": "28",
   "chapter": "Cardiac Cycle and Cardiac Output",
-  "candidateQuestionCount": 7,
+  "candidateQuestionCount": 9,
   "questions": [
     {
       "id": "marrow__PHYSIO_CH28_Q005",
@@ -33,11 +33,9 @@
       "flags": [
         {
           "field": "option_D",
-          "severity": 12,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -296,43 +294,59 @@
       ]
     },
     {
-      "id": "marrow__PHYSIO_CH28_Q021",
-      "questionNumber": 21,
+      "id": "marrow__PHYSIO_CH28_Q020",
+      "questionNumber": 20,
       "sourcePage": 503,
       "reviewStatus": "pass",
-      "question": "'a' wave on JVP is for",
+      "question": "The fourth heart sound is caused by:",
       "options": [
         {
           "letter": "A",
-          "text": "Atrial contraction"
+          "text": "Closure of aortic and pulmonary valves"
         },
         {
           "letter": "B",
-          "text": "Atrial filling"
+          "text": "Vibrations in the ventricular wall during systole"
         },
         {
           "letter": "C",
-          "text": "Ventricular relaxation"
+          "text": "Ventricular filling A,"
         },
         {
           "letter": "D",
-          "text": "Ventricular filling"
+          "text": "Closure of mitral and tricuspid valves mF),"
         }
       ],
-      "correctOption": 1,
+      "correctOption": 3,
       "flags": [
         {
-          "field": "question",
-          "severity": 5,
+          "field": "option_C",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "'a' wave on JVP is for",
+              "text": "Ventricular filling A,",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The fourth heart sound is caused by:",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -340,43 +354,131 @@
       ]
     },
     {
-      "id": "marrow__PHYSIO_CH28_Q022",
-      "questionNumber": 22,
-      "sourcePage": 503,
+      "id": "marrow__PHYSIO_CH28_Q025",
+      "questionNumber": 25,
+      "sourcePage": 504,
       "reviewStatus": "pass",
-      "question": "'c' wave in JVP is seen in",
+      "question": "Reflex responsible for tachycardia during right atrial distension is:",
       "options": [
         {
           "letter": "A",
-          "text": "Iso-volumetric contraction"
+          "text": "J reflex"
         },
         {
           "letter": "B",
-          "text": "Slow filling at end of diastole"
+          "text": "Cushing reflex"
         },
         {
           "letter": "C",
-          "text": "End of systole"
+          "text": "Bezold Jarisch reflex"
         },
         {
           "letter": "D",
-          "text": "Start of diastole"
+          "text": "Bainbridge reflex"
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Reflex responsible for tachycardia during right atrial distension is:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH28_Q026",
+      "questionNumber": 26,
+      "sourcePage": 504,
+      "reviewStatus": "needs_manual_review",
+      "question": "Arrange the following events in the sequence in which they occur, after 'p wave' in ECG:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1-2-3-4"
+        },
+        {
+          "letter": "B",
+          "text": "1-2-4-3"
+        },
+        {
+          "letter": "C",
+          "text": "3-1-2-4"
+        },
+        {
+          "letter": "D",
+          "text": "1-3-2-4"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Arrange the following events in the sequence in which they occur, after 'p wave' in ECG:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH28_Q027",
+      "questionNumber": 27,
+      "sourcePage": 504,
+      "reviewStatus": "pass",
+      "question": "Cardiac output is increased in:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pregnancy"
+        },
+        {
+          "letter": "B",
+          "text": "Sleep"
+        },
+        {
+          "letter": "C",
+          "text": "Sitting"
+        },
+        {
+          "letter": "D",
+          "text": "Standing"
         }
       ],
       "correctOption": 1,
       "flags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "'c' wave in JVP is seen in",
+              "text": "Cardiac output is increased in:",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

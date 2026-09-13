@@ -4,9 +4,9 @@
   "subject": "Anatomy",
   "chapterId": "18",
   "chapter": "Meninges and dural venous sinuses",
-  "candidateQuestionCount": 1,
+  "candidateQuestionCount": 4,
   "questionOptionCandidateCount": 1,
-  "explanationCandidateCount": 0,
+  "explanationCandidateCount": 3,
   "questions": [
     {
       "id": "marrow__ANAT_CH18_Q004",
@@ -33,19 +33,111 @@
         }
       ],
       "correctOption": 4,
-      "questionOptionFlags": [
+      "questionOptionFlags": [],
+      "explanationFlags": [
         {
-          "field": "option_B",
-          "severity": 5,
+          "field": "explanation",
+          "severity": 4,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "C2, C3 spinal nerves",
+              "text": "The marked structure is cranial dura mater. It is innervated mainly by the three divisions of the trigeminal nerve, C2-C3 spinal nerves and cervical sympathetic fibers. Facial nerve branches do not innervate it.",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The marked structure is cranial dura mater. It is innervated mainly by the three divisions of the trigeminal nerve, C2-C3 spinal nerves and cervical sympathetic fibers. Facial nerve branches do not innervate it."
+    },
+    {
+      "id": "marrow__ANAT_CH18_Q005",
+      "questionNumber": 5,
+      "sourcePage": 328,
+      "reviewStatus": "pass",
+      "question": "Which part of the dura mater is supplied by all the three branches of the trigeminal nerve?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Dura of the anterior cranial fossa"
+        },
+        {
+          "letter": "B",
+          "text": "Dura of the middle cranial fossa"
+        },
+        {
+          "letter": "C",
+          "text": "Dura of the posterior cranial fossa"
+        },
+        {
+          "letter": "D",
+          "text": "Dura around the foramen magnum"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The dura of the anterior cranial fossa receives supply from all three divisions of the trigeminal nerve. The source lists anterior/posterior ethmoidal nerves from V1, nervus meningeus medius from V2, and nervus spinosus from V3.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The dura of the anterior cranial fossa receives supply from all three divisions of the trigeminal nerve. The source lists anterior/posterior ethmoidal nerves from V1, nervus meningeus medius from V2, and nervus spinosus from V3."
+    },
+    {
+      "id": "marrow__ANAT_CH18_Q008",
+      "questionNumber": 8,
+      "sourcePage": 329,
+      "reviewStatus": "pass",
+      "question": "What is Meckel's cave formed by?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Evagination of the falx cerebelli"
+        },
+        {
+          "letter": "B",
+          "text": "Evagination of the lower layer of the falx cerebri"
+        },
+        {
+          "letter": "C",
+          "text": "Evagination of the diaphragma sellae"
+        },
+        {
+          "letter": "D",
+          "text": "Evagination of lower layer of the tentorium cerebelli"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "What is Meckel's cave formed by?",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -53,6 +145,52 @@
       ],
       "explanationFlags": [],
       "explanation": null
+    },
+    {
+      "id": "marrow__ANAT_CH18_Q010",
+      "questionNumber": 10,
+      "sourcePage": 330,
+      "reviewStatus": "pass",
+      "question": "A 54-year-old male came to the hospital with a severe headache. CT scan revealed an aneurysm of the internal carotid artery within the cavernous sinus. Which of the following nerves is likely to be affected first?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Trochlear nerve"
+        },
+        {
+          "letter": "B",
+          "text": "Abducens nerve"
+        },
+        {
+          "letter": "C",
+          "text": "Ophthalmic division of the trigeminal nerve"
+        },
+        {
+          "letter": "D",
+          "text": "Maxillary division of the trigeminal nerve"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The abducens nerve is affected first because it runs within the cavernous sinus adjacent to the internal carotid artery. Oculomotor, trochlear and ophthalmic trigeminal fibers lie in the lateral wall and tend to be affected later. The maxillary division runs below the cavernous sinus rather than within it.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The abducens nerve is affected first because it runs within the cavernous sinus adjacent to the internal carotid artery. Oculomotor, trochlear and ophthalmic trigeminal fibers lie in the lateral wall and tend to be affected later. The maxillary division runs below the cavernous sinus rather than within it."
     }
   ]
 }

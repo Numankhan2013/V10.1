@@ -4,9 +4,9 @@
   "subject": "Physiology",
   "chapterId": "28",
   "chapter": "Cardiac Cycle and Cardiac Output",
-  "candidateQuestionCount": 20,
-  "questionOptionCandidateCount": 7,
-  "explanationCandidateCount": 17,
+  "candidateQuestionCount": 21,
+  "questionOptionCandidateCount": 9,
+  "explanationCandidateCount": 18,
   "questions": [
     {
       "id": "marrow__PHYSIO_CH28_Q002",
@@ -152,11 +152,9 @@
       "questionOptionFlags": [
         {
           "field": "option_D",
-          "severity": 12,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -412,10 +410,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -431,6 +430,20 @@
               "text": "from the given pressure-volume diagram \\ 2",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 25,
+              "text": "Point 2 corresponds to the EDV Endo vole) = = 120 mL,",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 27,
+              "text": "Point 1 corresponds to the Esy(end sstlinglime) = 50 mL.",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -513,11 +526,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -550,10 +564,24 @@
               ]
             },
             {
+              "line": 27,
+              "text": "into the ventricles. It correlates with ‘a' wave in JVP.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
               "line": 31,
               "text": "+ Isovolumetric Contraction",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 38,
+              "text": "It correlates with the ‘c’ wave of JVP.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -785,12 +813,20 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 23,
+              "text": "On a? ow",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 24,
               "text": ". | 0 raS <",
@@ -851,6 +887,85 @@
       "explanation": "oh KO x\nFirst heart sound and second di Sound a rns duelto ¢ Closure of atrioventricular (AV)\nand semilunar valves. co SS\nyer\nO ead\n.]"
     },
     {
+      "id": "marrow__PHYSIO_CH28_Q020",
+      "questionNumber": 20,
+      "sourcePage": 503,
+      "reviewStatus": "pass",
+      "question": "The fourth heart sound is caused by:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Closure of aortic and pulmonary valves"
+        },
+        {
+          "letter": "B",
+          "text": "Vibrations in the ventricular wall during systole"
+        },
+        {
+          "letter": "C",
+          "text": "Ventricular filling A,"
+        },
+        {
+          "letter": "D",
+          "text": "Closure of mitral and tricuspid valves mF),"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [
+        {
+          "field": "option_C",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Ventricular filling A,",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The fourth heart sound is caused by:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 8,
+              "text": "Heart sounds in relation to ECG.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "i\nThe fourth heart sow ‘al by aitricular filling.\n\nA fourth cone fard imm ity before the first sound when atrial pressure is high or the\nventricle n cine ch as ventricular hypertrophy. It is due to ventricular filling and is\nrarely hea in normal\n\nHeart sounds in relation to ECG.\n\nsa si 82 s3\n\nMARROW\n\n513"
+    },
+    {
       "id": "marrow__PHYSIO_CH28_Q021",
       "questionNumber": 21,
       "sourcePage": 503,
@@ -875,24 +990,7 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "'a' wave on JVP is for",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -996,31 +1094,15 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "'c' wave in JVP is seen in",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1036,6 +1118,13 @@
               "text": ") <? >",
               "reasons": [
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "oh rr. 3",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -1167,10 +1256,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -1210,6 +1300,13 @@
               ]
             },
             {
+              "line": 23,
+              "text": "which causes an increase in’atrial pre: ex",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
               "line": 25,
               "text": "* y descent occurs due to the passive e emptying, ofthe right atrium into the right ventricle.",
               "reasons": [
@@ -1246,7 +1343,24 @@
         }
       ],
       "correctOption": 4,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Reflex responsible for tachycardia during right atrial distension is:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -1334,15 +1448,40 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Arrange the following events in the sequence in which they occur, after 'p wave' in ECG:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "The correct sequence of fens: that ocauPher the p+ wave ‘is 1-2-4-3, ie:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 10,
               "text": "+ The p wave in the ECG represents atrial depolarization, which causes contraction of the atria,",
@@ -1361,7 +1500,8 @@
               "line": 19,
               "text": "+ This is followed by the isovolumetric contraction of the ventricle, which causes ¢ wave in JVP,",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {
@@ -1401,7 +1541,24 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Cardiac output is increased in:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",

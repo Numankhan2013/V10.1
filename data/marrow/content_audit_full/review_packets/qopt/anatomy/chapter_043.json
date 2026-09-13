@@ -6,43 +6,43 @@
   "candidateQuestionCount": 3,
   "questions": [
     {
-      "id": "marrow__ANAT_CH43_Q001",
-      "questionNumber": 1,
+      "id": "marrow__ANAT_CH43_Q002",
+      "questionNumber": 2,
       "sourcePage": 792,
       "reviewStatus": "pass",
-      "question": "The mediastinum is divided into superior and inferior by a line joining sternal angle to the ________",
+      "question": "Which of the following regions does the trachea lie in?",
       "options": [
         {
           "letter": "A",
-          "text": "T3-T4 intervertebral disc"
+          "text": "Superior mediastinum"
         },
         {
           "letter": "B",
-          "text": "T2-T3 intervertebral disc"
+          "text": "Anterior mediastinum"
         },
         {
           "letter": "C",
-          "text": "T5-T6 intervertebral disc"
+          "text": "Middle mediastinum"
         },
         {
           "letter": "D",
-          "text": "T4-T5 intervertebral disc"
+          "text": "Posterior mediastinum"
         }
       ],
-      "correctOption": 4,
+      "correctOption": 1,
       "flags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "The mediastinum is divided into superior and inferior by a line joining sternal angle to the ________",
+              "text": "Which of the following regions does the trachea lie in?",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
@@ -50,191 +50,87 @@
       ]
     },
     {
-      "id": "marrow__ANAT_CH43_Q005",
-      "questionNumber": 5,
-      "sourcePage": 793,
-      "reviewStatus": "pass_with_normalization_note",
-      "question": "Match the following structures and their locations.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "A-1, B-3, C-4, D-2"
-        },
-        {
-          "letter": "B",
-          "text": "A-2, B-3, C-4, D-1"
-        },
-        {
-          "letter": "C",
-          "text": "A-2, B-3, C-1, D-4"
-        },
-        {
-          "letter": "D",
-          "text": "A-3, B-2, C-4, D-1"
-        }
-      ],
-      "correctOption": 2,
-      "flags": [
-        {
-          "field": "option_A",
-          "severity": 7,
-          "reasons": [
-            "many_isolated_letters",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "A-1, B-3, C-4, D-2",
-              "reasons": [
-                "many_isolated_letters",
-                "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 7,
-          "reasons": [
-            "many_isolated_letters",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "A-2, B-3, C-4, D-1",
-              "reasons": [
-                "many_isolated_letters",
-                "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 7,
-          "reasons": [
-            "many_isolated_letters",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "A-2, B-3, C-1, D-4",
-              "reasons": [
-                "many_isolated_letters",
-                "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 7,
-          "reasons": [
-            "many_isolated_letters",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "A-3, B-2, C-4, D-1",
-              "reasons": [
-                "many_isolated_letters",
-                "symbol_dense_line"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__ANAT_CH43_Q013",
-      "questionNumber": 13,
-      "sourcePage": 796,
+      "id": "marrow__ANAT_CH43_Q003",
+      "questionNumber": 3,
+      "sourcePage": 792,
       "reviewStatus": "pass",
-      "question": "Identify the level of the cross-section shown in the image below.",
+      "question": "A patient with myasthenia gravis was suspected to have a thymoma and a lateral chest X-ray was ordered to confirm the diagnosis. Which of the following regions will you expect to find a mass in?",
       "options": [
         {
           "letter": "A",
-          "text": "T1 - T2"
+          "text": "Superior mediastinum"
         },
         {
           "letter": "B",
-          "text": "T2 - T3"
+          "text": "Middle mediastinum"
         },
         {
           "letter": "C",
-          "text": "T3 - T4"
+          "text": "Posterior mediastinum"
         },
         {
           "letter": "D",
-          "text": "T4 - T5"
+          "text": "Inferior mediastinum"
         }
       ],
-      "correctOption": 3,
+      "correctOption": 1,
       "flags": [
         {
-          "field": "option_A",
-          "severity": 5,
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "T1 - T2",
+              "text": "A patient with myasthenia gravis was suspected to have a thymoma and a lateral chest X-ray was ordered to confirm the diagnosis. Which of the following regions will you expect to find a mass in?",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH43_Q010",
+      "questionNumber": 10,
+      "sourcePage": 794,
+      "reviewStatus": "pass",
+      "question": "The thoracic duct usually originates at the level of:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "L1 vertebra"
         },
         {
-          "field": "option_B",
-          "severity": 5,
+          "letter": "B",
+          "text": "T7 vertebra"
+        },
+        {
+          "letter": "C",
+          "text": "L4 vertebra"
+        },
+        {
+          "letter": "D",
+          "text": "T11 vertebra"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "T2 - T3",
+              "text": "The thoracic duct usually originates at the level of:",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "T3 - T4",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "T4 - T5",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

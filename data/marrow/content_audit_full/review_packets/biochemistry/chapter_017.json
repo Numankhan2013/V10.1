@@ -4,8 +4,8 @@
   "subject": "Biochemistry",
   "chapterId": "17",
   "chapter": "Porphyrins and bile pigments",
-  "candidateQuestionCount": 20,
-  "questionOptionCandidateCount": 1,
+  "candidateQuestionCount": 19,
+  "questionOptionCandidateCount": 0,
   "explanationCandidateCount": 19,
   "questions": [
     {
@@ -125,10 +125,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -142,7 +143,8 @@
               "line": 9,
               "text": "the cytosol. ~~) Ce.",
               "reasons": [
-                "hard_noise_char"
+                "hard_noise_char",
+                "ocr_suffix"
               ]
             },
             {
@@ -254,11 +256,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -289,7 +292,8 @@
               "line": 16,
               "text": "yt = « com, 2",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {
@@ -414,11 +418,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 16,
+          "severity": 20,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "punctuation_run",
             "symbol_dense_line"
           ],
@@ -548,6 +553,13 @@
               ]
             },
             {
+              "line": 62,
+              "text": "4 molecules of NH3.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
               "line": 63,
               "text": "4 Porphobilinogen + H20 -------&gt; Hydroxymethylbilane + 4 NH3",
               "reasons": [
@@ -619,6 +631,13 @@
               ]
             },
             {
+              "line": 84,
+              "text": "circumstances, the porphyrghet formed isyp ‘edominantly uroporphyrinogen III.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
               "line": 89,
               "text": "S [/ cwcine PoP = ee ue",
               "reasons": [
@@ -651,6 +670,13 @@
               "text": "Proteporpnyrinogen S__vroperpnyrinonen-tt | spontaneous",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 96,
+              "text": "Solution to Question 10:",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -711,6 +737,13 @@
                 "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 139,
+              "text": "Solution to Question 13:",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -800,6 +833,20 @@
               ]
             },
             {
+              "line": 173,
+              "text": "Solution to Question 15:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 183,
+              "text": "Solution to Question 16:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
               "line": 191,
               "text": "‘ ~",
               "reasons": [
@@ -826,7 +873,15 @@
               "line": 202,
               "text": "daily in the adults. ~) Ce.",
               "reasons": [
-                "hard_noise_char"
+                "hard_noise_char",
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 205,
+              "text": "Solution to Question 18:",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -880,6 +935,13 @@
               "text": "———_",
               "reasons": [
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 238,
+              "text": "Solution to Question 20:",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -975,6 +1037,13 @@
               ]
             },
             {
+              "line": 291,
+              "text": "Solution to Question 22:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
               "line": 301,
               "text": "excretion and causes conjugated hyperbilirubinemia. o~ nie",
               "reasons": [
@@ -1022,6 +1091,13 @@
               "text": "“ ——",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 312,
+              "text": "Solution to Question 23:",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -1123,11 +1199,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "punctuation_run"
           ],
           "suspectLines": [
@@ -1136,6 +1213,13 @@
               "text": "< & eal",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "4 molecules of NH3.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -1229,11 +1313,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1251,6 +1336,13 @@
               "text": "2) (>",
               "reasons": [
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "circumstances, the porphyrghet formed isyp ‘edominantly uroporphyrinogen III.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -1399,11 +1491,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1429,6 +1522,13 @@
                 "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 28,
+              "text": "Solution to Question 13:",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -1518,6 +1618,20 @@
               ]
             },
             {
+              "line": 62,
+              "text": "Solution to Question 15:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 72,
+              "text": "Solution to Question 16:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
               "line": 80,
               "text": "‘ ~",
               "reasons": [
@@ -1544,7 +1658,15 @@
               "line": 91,
               "text": "daily in the adults. ~) Ce.",
               "reasons": [
-                "hard_noise_char"
+                "hard_noise_char",
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 94,
+              "text": "Solution to Question 18:",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -1598,6 +1720,13 @@
               "text": "———_",
               "reasons": [
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 127,
+              "text": "Solution to Question 20:",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -1693,6 +1822,13 @@
               ]
             },
             {
+              "line": 180,
+              "text": "Solution to Question 22:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
               "line": 190,
               "text": "excretion and causes conjugated hyperbilirubinemia. o~ nie",
               "reasons": [
@@ -1740,6 +1876,13 @@
               "text": "“ ——",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 201,
+              "text": "Solution to Question 23:",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -1985,52 +2128,6 @@
       "explanation": ">” ~\\e\nAn infant with delayed erdiption and reddish discoloration of teeth, and blisters over sun-exposed\nareas suggests a diagnosis of congenital'erythropoietic porphyria.\nCongenital erythFopoietic porphyria, also is known as Gunther's disease, is an autosomal recessive\nporphyrin is uroporphyrinogen III synthase deficiency, leading to uroporphyrin I and\ncoproporphyrin I accumilation in teeth, bone marrow, erythrocyte, plasma urine and feces.\nInfants present with port wine urine or pink stained diapers, severe cutaenous hypersensitivity,\nand reddish-brown teeth known as erythrodontia. When illuminated with UV light, the teeth show\nreddish fluorescence. It may cause non-immune hydrops in utero or shortly after birth in severe\ncases."
     },
     {
-      "id": "marrow__BIOCHEM_CH17_Q015",
-      "questionNumber": 15,
-      "sourcePage": 266,
-      "reviewStatus": "pass",
-      "question": "Which of the following porphyria is caused by a mutation of ALA synthase-2?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Acute intermittent porphyria"
-        },
-        {
-          "letter": "B",
-          "text": "Congenital erythropoietic porphyria"
-        },
-        {
-          "letter": "C",
-          "text": "X- linked protoporphyria"
-        },
-        {
-          "letter": "D",
-          "text": "Erythropoietic protoporphyria"
-        }
-      ],
-      "correctOption": 3,
-      "questionOptionFlags": [
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "X- linked protoporphyria",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanationFlags": [],
-      "explanation": null
-    },
-    {
       "id": "marrow__BIOCHEM_CH17_Q017",
       "questionNumber": 17,
       "sourcePage": 267,
@@ -2059,10 +2156,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -2092,7 +2190,8 @@
               "line": 13,
               "text": "daily in the adults. ~) Ce.",
               "reasons": [
-                "hard_noise_char"
+                "hard_noise_char",
+                "ocr_suffix"
               ]
             }
           ]
@@ -2266,11 +2365,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -2367,6 +2467,13 @@
               ]
             },
             {
+              "line": 53,
+              "text": "Solution to Question 22:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
               "line": 63,
               "text": "excretion and causes conjugated hyperbilirubinemia. o~ nie",
               "reasons": [
@@ -2414,6 +2521,13 @@
               "text": "“ ——",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 74,
+              "text": "Solution to Question 23:",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {

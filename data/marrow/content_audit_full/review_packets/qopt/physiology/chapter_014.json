@@ -3,8 +3,96 @@
   "subject": "Physiology",
   "chapterId": "14",
   "chapter": "Motor Physiology - 1",
-  "candidateQuestionCount": 1,
+  "candidateQuestionCount": 3,
   "questions": [
+    {
+      "id": "marrow__PHYS_CH14_Q008",
+      "questionNumber": 8,
+      "sourcePage": 259,
+      "reviewStatus": "pass",
+      "question": "Withdrawal reflexes are not:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Initiated by nociceptive stimuli"
+        },
+        {
+          "letter": "B",
+          "text": "Prolonged if the stimulus is strong"
+        },
+        {
+          "letter": "C",
+          "text": "An example of a flexor reflex"
+        },
+        {
+          "letter": "D",
+          "text": "Accompanied by the same response on both sides of the body"
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Withdrawal reflexes are not:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH14_Q009",
+      "questionNumber": 9,
+      "sourcePage": 259,
+      "reviewStatus": "pass",
+      "question": "The maintenance of normal posture depends on:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Integrity of reflex arc"
+        },
+        {
+          "letter": "B",
+          "text": "Muscle power"
+        },
+        {
+          "letter": "C",
+          "text": "Type of muscle fiber"
+        },
+        {
+          "letter": "D",
+          "text": "Joint movement in physiological range"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The maintenance of normal posture depends on:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": "marrow__PHYS_CH14_Q032",
       "questionNumber": 32,
@@ -33,48 +121,17 @@
       "flags": [
         {
           "field": "option_B",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "1, 2, 3",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "5, 7",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "16, 18",
-              "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]

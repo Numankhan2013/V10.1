@@ -5,7 +5,7 @@
   "chapterId": "6",
   "chapter": "Physiology of Nerve",
   "candidateQuestionCount": 29,
-  "questionOptionCandidateCount": 18,
+  "questionOptionCandidateCount": 16,
   "explanationCandidateCount": 28,
   "questions": [
     {
@@ -114,6 +114,22 @@
           ]
         },
         {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Sympathetic ganglia : C : e,",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        },
+        {
           "field": "option_D",
           "severity": 6,
           "reasons": [
@@ -175,24 +191,7 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "4 : 5 : ta! ‘ > Where does the initiation of nerve impulse occur in a spinal motor neuron?",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -383,10 +382,9 @@
       "questionOptionFlags": [
         {
           "field": "option_C",
-          "severity": 8,
+          "severity": 6,
           "reasons": [
-            "hard_noise_char",
-            "many_isolated_letters"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -518,34 +516,26 @@
               ]
             }
           ]
-        },
-        {
-          "field": "option_D",
-          "severity": 4,
-          "reasons": [
-            "many_isolated_letters"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "No relation . x ; .o a i >",
-              "reasons": [
-                "many_isolated_letters"
-              ]
-            }
-          ]
         }
       ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
+            {
+              "line": 2,
+              "text": "Conduction velocity is increased by:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 7,
               "text": "to conduct up to 50 times faster than the fastest unmyelinated fibers. >*",
@@ -602,9 +592,8 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -623,10 +612,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -634,6 +624,13 @@
               "text": "Ma,” te »",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "change in membrane potential that océurs’between point’ and point 3.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -1124,12 +1121,20 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 15,
+              "text": "0.0 0.2 0.4 0.6 0.8 1.0 1.2",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 17,
               "text": "oF |",
@@ -1296,24 +1301,7 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Cy ‘ . Aman falls into a deep sleep-with one arm‘under his-head. He finds he is not able to move this arm when he awakens. Howeyer;-it tingles andypain sensation in the arm is still intact. What is the reason for the loss.of motor function without loss of pain sensation is that in the nerves to his arm? <* .",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -1442,6 +1430,22 @@
       "correctOption": 4,
       "questionOptionFlags": [
         {
+          "field": "option_C",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Type III wa ot s,",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        },
+        {
           "field": "question",
           "severity": 6,
           "reasons": [
@@ -1516,22 +1520,6 @@
               "text": "aw aN ~ 2 All of the following are true regarding’a biphasic action potential except .",
               "reasons": [
                 "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "punctuation_run"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Recorded omthe surface...» aA ‘",
-              "reasons": [
-                "punctuation_run"
               ]
             }
           ]
@@ -1966,16 +1954,17 @@
         },
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "on “ 4 Conduction in the chemical synapses in‘CNS is e,",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
@@ -2087,11 +2076,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -2158,6 +2148,13 @@
               "text": "* Molecular motor involed in retrograde transport is Dyenin.",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 29,
+              "text": "‘and viruses neurotransmitter a?",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -2485,56 +2482,7 @@
         }
       ],
       "correctOption": 3,
-      "questionOptionFlags": [
-        {
-          "field": "option_A",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Ia - A alpha",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "II - A beta",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "IV - C",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -2608,7 +2556,24 @@
         }
       ],
       "correctOption": 4,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Absolute refractory period is due to:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -2710,80 +2675,17 @@
               ]
             }
           ]
-        },
-        {
-          "field": "option_A",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Na, K i C",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "K, Na & ™ ov",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Na, Ca ‘",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Ca, Na",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
         }
       ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -2870,6 +2772,13 @@
               ]
             },
             {
+              "line": 24,
+              "text": "x res.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
               "line": 25,
               "text": "4. Sodium conductance decreases, ? 1S",
               "reasons": [
@@ -2911,7 +2820,8 @@
               "line": 33,
               "text": "7. Both channels are closed: The membrane returns to RMP.",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {
@@ -2956,11 +2866,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -2984,6 +2895,7 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char",
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             },

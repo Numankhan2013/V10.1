@@ -4,9 +4,9 @@
   "subject": "Biochemistry",
   "chapterId": "15",
   "chapter": "Metabolism of Acylglycerols and Sphingolipids",
-  "candidateQuestionCount": 2,
-  "questionOptionCandidateCount": 2,
-  "explanationCandidateCount": 0,
+  "candidateQuestionCount": 5,
+  "questionOptionCandidateCount": 1,
+  "explanationCandidateCount": 4,
   "questions": [
     {
       "id": "marrow__BIOCHEM_CH15_Q003",
@@ -36,64 +36,68 @@
       "questionOptionFlags": [
         {
           "field": "option_A",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "2, 3, 4",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
         },
         {
           "field": "option_B",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "1, 2, 3, 5",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
         },
         {
           "field": "option_C",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "1, 3, 4, 5",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
         },
         {
           "field": "option_D",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "1, 2, 3, 4, 5",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
@@ -103,50 +107,195 @@
       "explanation": null
     },
     {
-      "id": "marrow__BIOCHEM_CH15_Q015",
-      "questionNumber": 15,
-      "sourcePage": 233,
+      "id": "marrow__BIOCHEM_CH15_Q004",
+      "questionNumber": 4,
+      "sourcePage": 229,
       "reviewStatus": "pass",
-      "question": "Sphingolipid is a type of _______",
+      "question": "Which of the following represents the structure of a phospholipid?",
       "options": [
         {
           "letter": "A",
-          "text": "Glycerol esters saponifiable lipid"
+          "text": "Glycerol + phosphate + choline or ethanolamine"
         },
         {
           "letter": "B",
-          "text": "Non-glycerol esters saponifiable lipid"
+          "text": "Monoglyceride + phosphate + choline or ethanolamine"
         },
         {
           "letter": "C",
-          "text": "Non-saponifiable lipids"
+          "text": "Diglyceride + phosphate + choline or ethanolamine"
         },
         {
           "letter": "D",
-          "text": "Derived lipid"
+          "text": "Triglyceride + phosphate + choline or ethanolamine"
         }
       ],
-      "correctOption": 2,
-      "questionOptionFlags": [
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
         {
-          "field": "question",
-          "severity": 5,
+          "field": "explanation",
+          "severity": 4,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "Sphingolipid is a type of _______",
+              "line": 3,
+              "text": "A phospholipid, such as lecithin or cephalin, is any lipid consisting of a diglyceride combined with a phosphate group. A simple organic molecule such as choline or ethanolamine is attached to the phosphate group. A diglyceride is glycerol molecule with 2 fatty acids attached to it.",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanation": "Phospholipid consists of diglyceride + phosphate + choline or ethanolamine.\n\nA phospholipid, such as lecithin or cephalin, is any lipid consisting of a diglyceride combined with a phosphate group. A simple organic molecule such as choline or ethanolamine is attached to the phosphate group. A diglyceride is glycerol molecule with 2 fatty acids attached to it."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH15_Q013",
+      "questionNumber": 13,
+      "sourcePage": 232,
+      "reviewStatus": "pass",
+      "question": "Which of the following phospholipids has a role to play in signal transmission across membranes?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Phosphatidyl serine"
+        },
+        {
+          "letter": "B",
+          "text": "Phosphatidyl inositol"
+        },
+        {
+          "letter": "C",
+          "text": "Phosphatidyl choline"
+        },
+        {
+          "letter": "D",
+          "text": "Phosphatidyl ethanolamine"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "Membrane-bound phosphatidylinositols (PI) are phosphorylated to produce polyphosphoinositides such as phosphatidylinositol 4,5-bisphosphate (PIP2). When neurotransmitters, hormones, and growth factors to receptors on the cell membrane, degradation of PIP2 by phospholipase C.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Phosphatidylinositol (PI) plays a role in signal transmission across membranes.\n\nMembrane-bound phosphatidylinositols (PI) are phosphorylated to produce polyphosphoinositides such as phosphatidylinositol 4,5-bisphosphate (PIP2). When neurotransmitters, hormones, and growth factors to receptors on the cell membrane, degradation of PIP2 by phospholipase C.\n\nThe degradation products are inositol 1,4,5-trisphosphate (IP3), which mediates the mobilization of intracellular calcium, and diacylglycerol (DAG), which activates protein kinase C. Both of these act synergistically to evoke specific cellular responses thus accomplishing signal transmission."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH15_Q019",
+      "questionNumber": 19,
+      "sourcePage": 233,
+      "reviewStatus": "pass",
+      "question": "A 1-year old boy presented with loss of motor skills, increased startle response to noise and seizures. On fundoscopy, the following image was seen. Further evaluation reveals the diagnosis of a lysosomal storage disorder. Which of the following enzymes is most likely defective in this condition?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Hexosaminidase A"
+        },
+        {
+          "letter": "B",
+          "text": "β-glucosidase"
+        },
+        {
+          "letter": "C",
+          "text": "α-galactosidase"
+        },
+        {
+          "letter": "D",
+          "text": "Glucose-6-phosphatase"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "An infant with loss of motor skills, increased startle response to noise and seizures (neurological involvement) and a cherry-red spot in the macula suggests Tay-Sachs disease. This disease is caused by a deficiency of the enzyme hexosaminidase A.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "Tay-Sachs disease is an autosomal recessive disorder resulting in the deficiency of hexosaminidase A. As a result, GM2 gangliosides are not degraded and they accumulate within lysosomes. Affected children present with loss of motor skills, increased startle response, seizures, hyperacusis, macrocephaly, neurodegeneration, blindness and muscular weakness. Cherry-red spots are seen in the macula of eye.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "An infant with loss of motor skills, increased startle response to noise and seizures (neurological involvement) and a cherry-red spot in the macula suggests Tay-Sachs disease. This disease is caused by a deficiency of the enzyme hexosaminidase A.\n\nTay-Sachs disease is an autosomal recessive disorder resulting in the deficiency of hexosaminidase A. As a result, GM2 gangliosides are not degraded and they accumulate within lysosomes. Affected children present with loss of motor skills, increased startle response, seizures, hyperacusis, macrocephaly, neurodegeneration, blindness and muscular weakness. Cherry-red spots are seen in the macula of eye.\n\nNote: The clinical features of Sandhoff's disease, due to deficiency of hexosaminidase A and B, are similar to Tay-Sachs. Affected children additionally have hepatosplenomegaly and cardiac involvement."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH15_Q020",
+      "questionNumber": 20,
+      "sourcePage": 234,
+      "reviewStatus": "pass",
+      "question": "A 6-month-old infant with progressive failure to thrive and milestone regression is being evaluated for an inborn error of metabolism. On examination, hypotonia, apathy, deafness, hepatosplenomegaly, and generalized lymphadenopathy are present. Fundus examination is shown below. A liver biopsy shows foamy hepatocytes loaded with sphingomyelin. Electron microscopy reveals zebra bodies. What is the likely diagnosis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Niemann-Pick disease type A"
+        },
+        {
+          "letter": "B",
+          "text": "Tay-Sach disease"
+        },
+        {
+          "letter": "C",
+          "text": "Niemann-Pick disease type B"
+        },
+        {
+          "letter": "D",
+          "text": "Sandhoff's disease"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Progressive failure to thrive, milestone regression, hypotonia, apathy, deafness, hepatosplenomegaly, and generalized lymphadenopathy with the cherry-red spot on fundus examination suggests a diagnosis of Niemann-Pick disease type A.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Progressive failure to thrive, milestone regression, hypotonia, apathy, deafness, hepatosplenomegaly, and generalized lymphadenopathy with the cherry-red spot on fundus examination suggests a diagnosis of Niemann-Pick disease type A.\n\nNiemann-Pick disease is a lysosomal storage disorder due to an inherited deficiency of sphingomyelinase. This results in the accumulation of sphingomyelin in the monocyte-macrophage system. Type A disease is a severe infantile form. Infants present with extensive neurologic involvement (hypotonia, milestone regression, apathy), marked visceral accumulations of sphingomyelin (hepatosplenomegaly, foamy hepatocytes, zebra bodies on EM), progressive wasting and early death within the first 3 years of life.\n\nIn contrast, patients with Niemann-Pick disease type B have organomegaly but generally no CNS involvement."
     }
   ]
 }

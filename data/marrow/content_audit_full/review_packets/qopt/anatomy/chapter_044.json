@@ -3,14 +3,58 @@
   "subject": "Anatomy",
   "chapterId": "44",
   "chapter": "Diaphragm",
-  "candidateQuestionCount": 1,
+  "candidateQuestionCount": 2,
   "questions": [
     {
-      "id": "marrow__ANAT_CH44_Q009",
-      "questionNumber": 9,
-      "sourcePage": 809,
+      "id": "marrow__ANAT_CH44_Q002",
+      "questionNumber": 2,
+      "sourcePage": 806,
       "reviewStatus": "pass",
-      "question": "All of the structures pass posterior to the crus of diaphragm except ____",
+      "question": "The structure passing through the central tendon of the diaphragm is:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Oesophagus"
+        },
+        {
+          "letter": "B",
+          "text": "Aorta"
+        },
+        {
+          "letter": "C",
+          "text": "Inferior vena cava"
+        },
+        {
+          "letter": "D",
+          "text": "Sympathetic Chain"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The structure passing through the central tendon of the diaphragm is:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH44_Q007",
+      "questionNumber": 7,
+      "sourcePage": 808,
+      "reviewStatus": "pass",
+      "question": "Which of the following does not pass through the structure marked A?",
       "options": [
         {
           "letter": "A",
@@ -26,23 +70,23 @@
         },
         {
           "letter": "D",
-          "text": "Greater splanchnic nerve"
+          "text": "Vagal trunk"
         }
       ],
       "correctOption": 4,
       "flags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "All of the structures pass posterior to the crus of diaphragm except ____",
+              "text": "Which of the following does not pass through the structure marked A?",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

@@ -3,22 +3,22 @@
   "subject": "Physiology",
   "chapterId": "3",
   "chapter": "Transport Across Cell Membrane",
-  "candidateQuestionCount": 3,
+  "candidateQuestionCount": 1,
   "questions": [
     {
-      "id": "marrow__PHYS_CH03_Q005",
-      "questionNumber": 5,
-      "sourcePage": 35,
+      "id": "marrow__PHYS_CH03_Q017",
+      "questionNumber": 17,
+      "sourcePage": 38,
       "reviewStatus": "pass",
-      "question": "Which of the following does not follow transport saturation kinetics?",
+      "question": "Glucose is absorbed in intestine by?",
       "options": [
         {
           "letter": "A",
-          "text": "Facilitated diffusion"
+          "text": "Primary active transport"
         },
         {
           "letter": "B",
-          "text": "Na+-Ca2+ exchanger"
+          "text": "Facilitated diffusion"
         },
         {
           "letter": "C",
@@ -26,111 +26,23 @@
         },
         {
           "letter": "D",
-          "text": "Coupled transport"
+          "text": "Secondary active transport"
         }
       ],
-      "correctOption": 3,
-      "flags": [
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Na+-Ca2+ exchanger",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYS_CH03_Q013",
-      "questionNumber": 13,
-      "sourcePage": 37,
-      "reviewStatus": "pass",
-      "question": "Na+-K+ ATP pump uses _____.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "ATPase"
-        },
-        {
-          "letter": "B",
-          "text": "GTPase"
-        },
-        {
-          "letter": "C",
-          "text": "Acetyl CoA"
-        },
-        {
-          "letter": "D",
-          "text": "NADPH"
-        }
-      ],
-      "correctOption": 1,
+      "correctOption": 4,
       "flags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "Na+-K+ ATP pump uses _____.",
+              "text": "Glucose is absorbed in intestine by?",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYS_CH03_Q014",
-      "questionNumber": 14,
-      "sourcePage": 37,
-      "reviewStatus": "pass",
-      "question": "Primary active transport is mediated by which one of the following enzymes?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "G-Protein"
-        },
-        {
-          "letter": "B",
-          "text": "Na+-K+ ATPase"
-        },
-        {
-          "letter": "C",
-          "text": "Carrier protein"
-        },
-        {
-          "letter": "D",
-          "text": "Channel protein"
-        }
-      ],
-      "correctOption": 2,
-      "flags": [
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Na+-K+ ATPase",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

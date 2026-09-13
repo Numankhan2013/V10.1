@@ -5,7 +5,7 @@
   "chapterId": "4",
   "chapter": "Membrane Potentials",
   "candidateQuestionCount": 13,
-  "questionOptionCandidateCount": 2,
+  "questionOptionCandidateCount": 3,
   "explanationCandidateCount": 13,
   "questions": [
     {
@@ -33,7 +33,24 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Which of the following equations is used to calculate the equilibrium potential for an ion?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -548,9 +565,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -572,6 +590,13 @@
               "text": "+ In general, all excitable cell membranes at rest are maximally permeable to K+ and thus their",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "RMP is close to equilibrium potential of K+ ion.",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -604,30 +629,14 @@
         }
       ],
       "correctOption": 4,
-      "questionOptionFlags": [
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Na+-K+ ATPase pump",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -635,6 +644,13 @@
               "text": "Na+ and the Na+-K+ ATPase pump.",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 5,
+              "text": "to Nat.",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -731,11 +747,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "punctuation_run"
           ],
           "suspectLines": [
@@ -752,6 +769,13 @@
               "text": "* aN <",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 5,
+              "text": "Net driving force (mV) = Em=BX” oN a?",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -827,7 +851,24 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "If the membrane potential of this cell is -80 mV, the driving force is greatest for which ion?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -884,11 +925,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -896,7 +938,8 @@
               "line": 5,
               "text": "x, ee.",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {
@@ -993,11 +1036,19 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 2,
+              "text": "negativity of RMP.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 5,
               "text": "K+ ions. When the extracellular concentration of K+ decreases, the concentration gradient for K+",
@@ -1038,16 +1089,17 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "X, Y, Z are three permeable ions. X = -50 and Y = -30. At RMP, if there is no net electrogenic transfer, what is the value of Z?",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]

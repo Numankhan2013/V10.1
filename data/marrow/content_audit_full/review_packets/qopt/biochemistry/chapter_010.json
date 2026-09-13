@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "subject": "Biochemistry",
+  "chapterId": "10",
+  "chapter": "Protein structure and function",
+  "candidateQuestionCount": 2,
+  "questions": [
+    {
+      "id": "marrow__BIOCHEM_CH10_Q003",
+      "questionNumber": 3,
+      "sourcePage": 153,
+      "reviewStatus": "pass",
+      "question": "Which of the following is false regarding alpha helix?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Stability of an alpha helix arises primarily from the peptide bond."
+        },
+        {
+          "letter": "B",
+          "text": "A complete turn of an alpha helix contains 3.6 amino acyl residues."
+        },
+        {
+          "letter": "C",
+          "text": "Pitch of the helix is 0.54 nm."
+        },
+        {
+          "letter": "D",
+          "text": "Large numbers of charged amino acids disrupt the helix."
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "option_C",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Pitch of the helix is 0.54 nm.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH10_Q009",
+      "questionNumber": 9,
+      "sourcePage": 155,
+      "reviewStatus": "pass",
+      "question": "What do chaperones assist in?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ubiquitinization of proteins"
+        },
+        {
+          "letter": "B",
+          "text": "Protein modification"
+        },
+        {
+          "letter": "C",
+          "text": "Protein folding"
+        },
+        {
+          "letter": "D",
+          "text": "Protein cleavage"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "What do chaperones assist in?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

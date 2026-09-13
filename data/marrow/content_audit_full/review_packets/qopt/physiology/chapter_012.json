@@ -3,7 +3,7 @@
   "subject": "Physiology",
   "chapterId": "12",
   "chapter": "Somatosensory Pathways",
-  "candidateQuestionCount": 12,
+  "candidateQuestionCount": 16,
   "questions": [
     {
       "id": "marrow__PHYS_CH12_Q001",
@@ -33,9 +33,8 @@
       "flags": [
         {
           "field": "option_D",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -79,9 +78,8 @@
       "flags": [
         {
           "field": "option_C",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -98,9 +96,8 @@
         },
         {
           "field": "option_D",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -130,25 +127,6 @@
           ]
         },
         {
-          "field": "question",
-          "severity": 10,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "many_linebreaks"
-          ],
-          "suspectLines": [
-            {
-              "line": 5,
-              "text": "o~ 2",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_A",
           "severity": 6,
           "reasons": [
@@ -159,6 +137,23 @@
               "line": 1,
               "text": "Primary neuron -e~ bh?)",
               "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 5,
+              "text": "o~ 2",
+              "reasons": [
+                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -193,25 +188,6 @@
       "correctOption": 4,
       "flags": [
         {
-          "field": "option_D",
-          "severity": 10,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "many_linebreaks"
-          ],
-          "suspectLines": [
-            {
-              "line": 5,
-              "text": "NA ~@",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_B",
           "severity": 6,
           "reasons": [
@@ -238,6 +214,23 @@
               "line": 1,
               "text": "Rapid conduction velocity & e~",
               "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 5,
+              "text": "NA ~@",
+              "reasons": [
+                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -273,12 +266,10 @@
       "flags": [
         {
           "field": "option_A",
-          "severity": 15,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "literal_backslash",
-            "symbol_dense_line"
+            "literal_backslash"
           ],
           "suspectLines": [
             {
@@ -297,62 +288,50 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH12_Q008",
+      "questionNumber": 8,
+      "sourcePage": 226,
+      "reviewStatus": "pass",
+      "question": "Somatosensory area has the largest representation for.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Lips"
         },
         {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "4, 6",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
+          "letter": "B",
+          "text": "Hand"
         },
         {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "44, 45",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
+          "letter": "C",
+          "text": "Thumb"
         },
         {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "41, 42",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
+          "letter": "D",
+          "text": "Back"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
         {
           "field": "question",
-          "severity": 3,
+          "severity": 6,
           "reasons": [
-            "many_linebreaks"
+            "ocr_suffix"
           ],
-          "suspectLines": []
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Somatosensory area has the largest representation for.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -384,12 +363,10 @@
       "flags": [
         {
           "field": "option_D",
-          "severity": 13,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "many_linebreaks",
-            "symbol_dense_line"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -405,34 +382,11 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char",
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }
           ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "ay* we",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "question",
-          "severity": 3,
-          "reasons": [
-            "many_linebreaks"
-          ],
-          "suspectLines": []
         }
       ]
     },
@@ -482,6 +436,50 @@
       ]
     },
     {
+      "id": "marrow__PHYS_CH12_Q011",
+      "questionNumber": 11,
+      "sourcePage": 227,
+      "reviewStatus": "pass",
+      "question": "Aman was rushed to the casualty after getting stabbed in the back with a knife. On MRI, a\ncomplete transection of one side of the spinal cord is suspected. Which of the following is\nlikely to be seen in this patient?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pain and temperature loss on the opposite side"
+        },
+        {
+          "letter": "B",
+          "text": "Fine touch lost on the opposite side"
+        },
+        {
+          "letter": "C",
+          "text": "Pain and temperature lost on the same side"
+        },
+        {
+          "letter": "D",
+          "text": "Only pain lost on the same side"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Aman was rushed to the casualty after getting stabbed in the back with a knife. On MRI, a",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "marrow__PHYS_CH12_Q013",
       "questionNumber": 13,
       "sourcePage": 228,
@@ -509,10 +507,10 @@
       "flags": [
         {
           "field": "option_A",
-          "severity": 9,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -533,10 +531,9 @@
         },
         {
           "field": "option_C",
-          "severity": 7,
+          "severity": 6,
           "reasons": [
-            "hard_noise_char",
-            "many_linebreaks"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -591,24 +588,6 @@
       "correctOption": 1,
       "flags": [
         {
-          "field": "option_B",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 3,
-              "text": "Enkephali ~ <>",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_D",
           "severity": 9,
           "reasons": [
@@ -626,32 +605,62 @@
           ]
         },
         {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "Enkephali ~ <>",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH12_Q016",
+      "questionNumber": 16,
+      "sourcePage": 228,
+      "reviewStatus": "pass",
+      "question": "Fast pain is carried by.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Neo spinothalamic tract"
+        },
+        {
+          "letter": "B",
+          "text": "Paleo spinothalamic tract"
+        },
+        {
+          "letter": "C",
+          "text": "Dorsal column."
+        },
+        {
+          "letter": "D",
+          "text": "None"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
           "field": "question",
           "severity": 6,
           "reasons": [
-            "edge_noise",
-            "many_linebreaks"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "o> vay a",
+              "text": "Fast pain is carried by.",
               "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "Following are the endogenous opioids except__O>*",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "a? K2",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
@@ -686,12 +695,10 @@
       "flags": [
         {
           "field": "option_D",
-          "severity": 15,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "literal_backslash",
-            "symbol_dense_line"
+            "literal_backslash"
           ],
           "suspectLines": [
             {
@@ -784,9 +791,8 @@
         },
         {
           "field": "question",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -796,22 +802,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_A",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "SS <",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -845,26 +835,6 @@
       "correctOption": 3,
       "flags": [
         {
-          "field": "option_D",
-          "severity": 12,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 4,
-              "text": "=e ~ 4&",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char",
-                "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_B",
           "severity": 6,
           "reasons": [
@@ -882,9 +852,9 @@
         },
         {
           "field": "option_C",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -892,6 +862,24 @@
               "text": "> 4 c&",
               "reasons": [
                 "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 4,
+              "text": "=e ~ 4&",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
               ]
             }
           ]
@@ -925,19 +913,53 @@
       "correctOption": 4,
       "flags": [
         {
-          "field": "question",
-          "severity": 8,
+          "field": "option_A",
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "symbol_dense_line"
+            "short_ocr_line"
+          ],
+          "suspectLines": []
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH12_Q023",
+      "questionNumber": 23,
+      "sourcePage": 230,
+      "reviewStatus": "pass",
+      "question": "Ablation of somatosensory area 1 leads to.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Total loss of pain sensation"
+        },
+        {
+          "letter": "B",
+          "text": "Total loss of touch sensation"
+        },
+        {
+          "letter": "C",
+          "text": "Loss of tactile but not 2 point discrimination\n) Loss of tactile and 2 point discrimination"
+        },
+        {
+          "letter": "D",
+          "text": "Loss of tactile and 2 point discrimination"
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
-              "line": 2,
-              "text": ". * * * ae as . .",
+              "line": 1,
+              "text": "Ablation of somatosensory area 1 leads to.",
               "reasons": [
-                "edge_noise",
-                "symbol_dense_line"
+                "ocr_suffix"
               ]
             }
           ]

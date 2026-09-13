@@ -5,7 +5,7 @@
   "chapterId": "9",
   "chapter": "Synapse and Junctional Transmission",
   "candidateQuestionCount": 27,
-  "questionOptionCandidateCount": 17,
+  "questionOptionCandidateCount": 16,
   "explanationCandidateCount": 26,
   "questions": [
     {
@@ -54,11 +54,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -129,7 +130,8 @@
               "text": "re ~ Aw . A,",
               "reasons": [
                 "edge_noise",
-                "hard_noise_char"
+                "hard_noise_char",
+                "ocr_suffix"
               ]
             },
             {
@@ -181,11 +183,9 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 12,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -203,11 +203,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -223,7 +224,15 @@
               "text": "~ ws. a",
               "reasons": [
                 "edge_noise",
-                "hard_noise_char"
+                "hard_noise_char",
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "4 re,",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -375,13 +384,21 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "Nitric oxide is a neurotransmitter in the CNS.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 7,
               "text": "+ large molecule neurotransmitter (enkephalin)",
@@ -450,26 +467,6 @@
       "correctOption": 1,
       "questionOptionFlags": [
         {
-          "field": "option_D",
-          "severity": 12,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 3,
-              "text": "~~? ~~",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char",
-                "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_C",
           "severity": 9,
           "reasons": [
@@ -482,6 +479,24 @@
               "text": "DOPA \\S",
               "reasons": [
                 "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "~~? ~~",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
               ]
             }
           ]
@@ -576,12 +591,27 @@
       "correctOption": 1,
       "questionOptionFlags": [
         {
-          "field": "question",
-          "severity": 5,
+          "field": "option_D",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "short_ocr_line"
+          ],
+          "suspectLines": []
+        },
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "ne CO s,",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 3,
               "text": "X .",
@@ -661,12 +691,11 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 15,
+          "severity": 13,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "symbol_dense_line"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -808,11 +837,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -844,6 +874,13 @@
               ]
             },
             {
+              "line": 17,
+              "text": "ines (diazepam), barbiturates oN?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
               "line": 22,
               "text": "tein coupled receptorsGi—in +\\>",
               "reasons": [
@@ -856,6 +893,13 @@
               "text": "n K+channelsGo- inhibits 0 ~",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 27,
+              "text": "or aN a?",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -1016,12 +1060,28 @@
       "correctOption": 4,
       "questionOptionFlags": [
         {
-          "field": "option_D",
-          "severity": 12,
+          "field": "option_A",
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "symbol_dense_line"
+            "short_ocr_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "‘ x ~",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -1031,24 +1091,6 @@
                 "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_A",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "‘ x ~",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
               ]
             }
           ]
@@ -1101,11 +1143,9 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 12,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -1115,22 +1155,6 @@
                 "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Na+ entry at the endplate, acetylcholine release, muscle fiber action potential",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1334,10 +1358,10 @@
       "questionOptionFlags": [
         {
           "field": "option_D",
-          "severity": 9,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -1361,11 +1385,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1396,7 +1421,8 @@
               "line": 7,
               "text": "an action potentiala. “~ Le?",
               "reasons": [
-                "hard_noise_char"
+                "hard_noise_char",
+                "ocr_suffix"
               ]
             },
             {
@@ -1454,11 +1480,9 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 10,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "many_linebreaks"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -1587,9 +1611,8 @@
       "questionOptionFlags": [
         {
           "field": "option_C",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -1599,22 +1622,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "7% c& ¢ >",
-              "reasons": [
-                "symbol_dense_line"
               ]
             }
           ]
@@ -1721,9 +1728,8 @@
       "questionOptionFlags": [
         {
           "field": "option_C",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -1754,40 +1760,16 @@
               ]
             }
           ]
-        },
-        {
-          "field": "question",
-          "severity": 8,
-          "reasons": [
-            "edge_noise",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Y\" < rat",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 2,
-              "text": "ae <O >\"",
-              "reasons": [
-                "edge_noise",
-                "symbol_dense_line"
-              ]
-            }
-          ]
         }
       ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1804,6 +1786,20 @@
               "text": "an ») - ¢",
               "reasons": [
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 11,
+              "text": "HARSERR EL, x",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 12,
+              "text": "Ww aS?",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -1926,49 +1922,17 @@
       "correctOption": 3,
       "questionOptionFlags": [
         {
-          "field": "option_A",
-          "severity": 5,
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "Na+ channels",
+              "text": "Presynaptic facilitation is due to prolonged opening of.",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "K+ channels",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Cl- channels",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
@@ -2040,11 +2004,11 @@
       "questionOptionFlags": [
         {
           "field": "option_D",
-          "severity": 12,
+          "severity": 13,
           "reasons": [
             "hard_noise_char",
             "literal_backslash",
-            "symbol_dense_line"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -2110,31 +2074,14 @@
         }
       ],
       "correctOption": 3,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "edge_noise",
-            "many_linebreaks"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "- PAS “a",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -2149,6 +2096,13 @@
               "text": "* This hyperresponsiveness can be demonstrated by using: pharmacologic tools rather than actual",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 21,
+              "text": "would constrict the eye not dilate it. Also, the drug added was a sympathomimetic agent. So,",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -2310,10 +2264,33 @@
       "correctOption": 1,
       "questionOptionFlags": [
         {
-          "field": "option_B",
-          "severity": 9,
+          "field": "option_D",
+          "severity": 10,
           "reasons": [
-            "edge_noise",
+            "hard_noise_char",
+            "short_ocr_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Both B and C =~ - fo re ‘",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "‘ SS »",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -2330,30 +2307,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Both B and C =~ - fo re ‘",
-              "reasons": [
-                "hard_noise_char"
-              ]
-            },
-            {
-              "line": 2,
-              "text": "‘ SS »",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -2450,11 +2403,10 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 12,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "symbol_dense_line"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {

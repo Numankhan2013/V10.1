@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Biochemistry",
+  "chapterId": "10",
+  "chapter": "Protein structure and function",
+  "candidateQuestionCount": 3,
+  "questionOptionCandidateCount": 2,
+  "explanationCandidateCount": 1,
+  "questions": [
+    {
+      "id": "marrow__BIOCHEM_CH10_Q003",
+      "questionNumber": 3,
+      "sourcePage": 153,
+      "reviewStatus": "pass",
+      "question": "Which of the following is false regarding alpha helix?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Stability of an alpha helix arises primarily from the peptide bond."
+        },
+        {
+          "letter": "B",
+          "text": "A complete turn of an alpha helix contains 3.6 amino acyl residues."
+        },
+        {
+          "letter": "C",
+          "text": "Pitch of the helix is 0.54 nm."
+        },
+        {
+          "letter": "D",
+          "text": "Large numbers of charged amino acids disrupt the helix."
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [
+        {
+          "field": "option_C",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Pitch of the helix is 0.54 nm.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
+      "id": "marrow__BIOCHEM_CH10_Q009",
+      "questionNumber": 9,
+      "sourcePage": 155,
+      "reviewStatus": "pass",
+      "question": "What do chaperones assist in?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ubiquitinization of proteins"
+        },
+        {
+          "letter": "B",
+          "text": "Protein modification"
+        },
+        {
+          "letter": "C",
+          "text": "Protein folding"
+        },
+        {
+          "letter": "D",
+          "text": "Protein cleavage"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "What do chaperones assist in?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
+      "id": "marrow__BIOCHEM_CH10_Q023",
+      "questionNumber": 23,
+      "sourcePage": 158,
+      "reviewStatus": "pass",
+      "question": "Which of the following is present in glycoproteins?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Monosaccharide"
+        },
+        {
+          "letter": "B",
+          "text": "Oligosaccharide"
+        },
+        {
+          "letter": "C",
+          "text": "Polysaccharide"
+        },
+        {
+          "letter": "D",
+          "text": "Disaccharide"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Oligosaccharides are present in glycoproteins. Glycoproteins contain oligosaccharide chains covalently bound to amino acids. The carbohydrate is attached by cotranslational or posttranslational modification (glycosylation). Examples include collagens, mucin, antibodies and hormones such as erythropoietin and FSH.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Oligosaccharides are present in glycoproteins. Glycoproteins contain oligosaccharide chains covalently bound to amino acids. The carbohydrate is attached by cotranslational or posttranslational modification (glycosylation). Examples include collagens, mucin, antibodies and hormones such as erythropoietin and FSH."
+    }
+  ]
+}

@@ -4,96 +4,203 @@
   "subject": "Anatomy",
   "chapterId": "60",
   "chapter": "Bones, Joints and Cartilage",
-  "candidateQuestionCount": 1,
-  "questionOptionCandidateCount": 1,
-  "explanationCandidateCount": 0,
+  "candidateQuestionCount": 4,
+  "questionOptionCandidateCount": 3,
+  "explanationCandidateCount": 2,
   "questions": [
     {
-      "id": "marrow__ANAT_CH60_Q001",
-      "questionNumber": 1,
-      "sourcePage": 1142,
+      "id": "marrow__ANAT_CH60_Q013",
+      "questionNumber": 13,
+      "sourcePage": 1146,
       "reviewStatus": "pass",
-      "question": "The total number of bones present in the axial skeleton and appendicular skeleton in an adult human being is ______ and ______, respectively.",
+      "question": "'The secondary ossification center that appears first, fuses last'. Which of the following bones violates this law?",
       "options": [
         {
           "letter": "A",
-          "text": "88, 118"
+          "text": "Radius"
         },
         {
           "letter": "B",
-          "text": "84, 122"
+          "text": "Fibula"
         },
         {
           "letter": "C",
-          "text": "76, 130"
+          "text": "Ulna"
         },
         {
           "letter": "D",
-          "text": "80, 126"
+          "text": "Sternum"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "'The secondary ossification center that appears first, fuses last'. Which of the following bones violates this law?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "The secondary ossification center at the lower end of the fibula appears before the upper-end center and fuses before the upper end.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The fibula violates the law of ossification stating that the secondary ossification center that appears first is the last to fuse.\n\nThe secondary ossification center at the lower end of the fibula appears before the upper-end center and fuses before the upper end.\n\nPrimary centers appear before birth, usually during late embryonic or early fetal life (seventh week to fourth month), and form the diaphysis. Secondary centers usually appear after birth and form the epiphysis."
+    },
+    {
+      "id": "marrow__ANAT_CH60_Q016",
+      "questionNumber": 16,
+      "sourcePage": 1147,
+      "reviewStatus": "pass",
+      "question": "Which of the following statements regarding cartilage is false?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Hyaline cartilage has perichondrium"
+        },
+        {
+          "letter": "B",
+          "text": "Fibrocartilage lacks perichondrium"
+        },
+        {
+          "letter": "C",
+          "text": "Articular cartilage has perichondrium"
+        },
+        {
+          "letter": "D",
+          "text": "Elastic cartilage has perichondrium"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 5,
+              "text": "There are three types: hyaline, elastic and fibrocartilage. Hyaline cartilage except articular cartilage, and elastic cartilage, have perichondrium; fibrocartilage does not.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Articular cartilage, despite being a type of hyaline cartilage, lacks perichondrium.\n\nCartilage is connective tissue composed of chondrocytes and fibers (collagen or yellow elastic fibers) embedded in a firm gel-like mucopolysaccharide-rich matrix. It is more elastic than bone, has no blood vessels or lymphatics, and chondrocytes are nourished by diffusion. Cartilage has no nerves and is insensitive.\n\nThere are three types: hyaline, elastic and fibrocartilage. Hyaline cartilage except articular cartilage, and elastic cartilage, have perichondrium; fibrocartilage does not."
+    },
+    {
+      "id": "marrow__ANAT_CH60_Q020",
+      "questionNumber": 20,
+      "sourcePage": 1148,
+      "reviewStatus": "pass",
+      "question": "Ligamentum flavum has high levels of:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Type 1 collagen"
+        },
+        {
+          "letter": "B",
+          "text": "Type 2 collagen"
+        },
+        {
+          "letter": "C",
+          "text": "Reticular fibres"
+        },
+        {
+          "letter": "D",
+          "text": "Elastin fibres"
         }
       ],
       "correctOption": 4,
       "questionOptionFlags": [
         {
-          "field": "option_A",
-          "severity": 5,
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "88, 118",
+              "text": "Ligamentum flavum has high levels of:",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
+      "id": "marrow__ANAT_CH60_Q022",
+      "questionNumber": 22,
+      "sourcePage": 1149,
+      "reviewStatus": "pass",
+      "question": "What are synovial joints functionally classified as?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Synarthroses"
         },
         {
-          "field": "option_B",
-          "severity": 5,
+          "letter": "B",
+          "text": "Amphiarthroses"
+        },
+        {
+          "letter": "C",
+          "text": "Diarthroses"
+        },
+        {
+          "letter": "D",
+          "text": "Syndesmosis"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "84, 122",
+              "text": "What are synovial joints functionally classified as?",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "76, 130",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "80, 126",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

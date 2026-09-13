@@ -3,94 +3,134 @@
   "subject": "Anatomy",
   "chapterId": "60",
   "chapter": "Bones, Joints and Cartilage",
-  "candidateQuestionCount": 1,
+  "candidateQuestionCount": 3,
   "questions": [
     {
-      "id": "marrow__ANAT_CH60_Q001",
-      "questionNumber": 1,
-      "sourcePage": 1142,
+      "id": "marrow__ANAT_CH60_Q013",
+      "questionNumber": 13,
+      "sourcePage": 1146,
       "reviewStatus": "pass",
-      "question": "The total number of bones present in the axial skeleton and appendicular skeleton in an adult human being is ______ and ______, respectively.",
+      "question": "'The secondary ossification center that appears first, fuses last'. Which of the following bones violates this law?",
       "options": [
         {
           "letter": "A",
-          "text": "88, 118"
+          "text": "Radius"
         },
         {
           "letter": "B",
-          "text": "84, 122"
+          "text": "Fibula"
         },
         {
           "letter": "C",
-          "text": "76, 130"
+          "text": "Ulna"
         },
         {
           "letter": "D",
-          "text": "80, 126"
+          "text": "Sternum"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "'The secondary ossification center that appears first, fuses last'. Which of the following bones violates this law?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH60_Q020",
+      "questionNumber": 20,
+      "sourcePage": 1148,
+      "reviewStatus": "pass",
+      "question": "Ligamentum flavum has high levels of:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Type 1 collagen"
+        },
+        {
+          "letter": "B",
+          "text": "Type 2 collagen"
+        },
+        {
+          "letter": "C",
+          "text": "Reticular fibres"
+        },
+        {
+          "letter": "D",
+          "text": "Elastin fibres"
         }
       ],
       "correctOption": 4,
       "flags": [
         {
-          "field": "option_A",
-          "severity": 5,
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "88, 118",
+              "text": "Ligamentum flavum has high levels of:",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH60_Q022",
+      "questionNumber": 22,
+      "sourcePage": 1149,
+      "reviewStatus": "pass",
+      "question": "What are synovial joints functionally classified as?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Synarthroses"
         },
         {
-          "field": "option_B",
-          "severity": 5,
+          "letter": "B",
+          "text": "Amphiarthroses"
+        },
+        {
+          "letter": "C",
+          "text": "Diarthroses"
+        },
+        {
+          "letter": "D",
+          "text": "Syndesmosis"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "84, 122",
+              "text": "What are synovial joints functionally classified as?",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "76, 130",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "80, 126",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

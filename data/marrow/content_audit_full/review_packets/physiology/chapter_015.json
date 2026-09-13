@@ -302,10 +302,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -319,7 +320,8 @@
               "line": 16,
               "text": "_ L.",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {
@@ -713,65 +715,35 @@
       "correctOption": 2,
       "questionOptionFlags": [
         {
-          "field": "option_A",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "1, 2",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "1, 4",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_C",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "1, 2, 4",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
         },
         {
           "field": "option_D",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "1, 2, 3, 4",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]

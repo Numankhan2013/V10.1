@@ -3,46 +3,46 @@
   "subject": "Biochemistry",
   "chapterId": "24",
   "chapter": "Basics of genetics - Nucleotide metabolism and its disorders",
-  "candidateQuestionCount": 3,
+  "candidateQuestionCount": 2,
   "questions": [
     {
-      "id": "marrow__BIOCHEM_CH24_Q005",
-      "questionNumber": 5,
+      "id": "marrow__BIOCHEM_CH24_Q006",
+      "questionNumber": 6,
       "sourcePage": 369,
       "reviewStatus": "pass",
-      "question": "The parent purine nucleotide made from de novo purine synthesis is ______",
+      "question": "A 4-year-old girl is started on rasburicase before initiating chemotherapy for acute lymphoblastic leukemia. What is the end product of the breakdown of purine nucleotides in her?",
       "options": [
         {
           "letter": "A",
-          "text": "AMP"
+          "text": "Allantoin"
         },
         {
           "letter": "B",
-          "text": "GMP"
+          "text": "Amino acid"
         },
         {
           "letter": "C",
-          "text": "IMP"
+          "text": "Ammonia"
         },
         {
           "letter": "D",
-          "text": "TMP"
+          "text": "Uric acid"
         }
       ],
-      "correctOption": 3,
+      "correctOption": 1,
       "flags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "The parent purine nucleotide made from de novo purine synthesis is ______",
+              "text": "A 4-year-old girl is started on rasburicase before initiating chemotherapy for acute lymphoblastic leukemia. What is the end product of the breakdown of purine nucleotides in her?",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
@@ -50,87 +50,43 @@
       ]
     },
     {
-      "id": "marrow__BIOCHEM_CH24_Q011",
-      "questionNumber": 11,
-      "sourcePage": 370,
+      "id": "marrow__BIOCHEM_CH24_Q015",
+      "questionNumber": 15,
+      "sourcePage": 371,
       "reviewStatus": "pass",
-      "question": "The only mitochondrial step in pyrimidine synthesis is catalyzed by the enzyme ________",
+      "question": "The blood report of a patient shows increased uric acid levels. Which of the following diagnosis can be ruled out?",
       "options": [
         {
           "letter": "A",
-          "text": "Carbamoyl phosphate synthetase-2"
+          "text": "von Gierke's disease"
         },
         {
           "letter": "B",
-          "text": "Aspartate transcarbamoylase"
+          "text": "Xanthinuria"
         },
         {
           "letter": "C",
-          "text": "Dihydroorotase"
+          "text": "Lesch-Nyhan syndrome"
         },
         {
           "letter": "D",
-          "text": "Dihydroorotate dehydrogenase"
+          "text": "Kelley-Seegmiller syndrome"
         }
       ],
-      "correctOption": 4,
+      "correctOption": 2,
       "flags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "The only mitochondrial step in pyrimidine synthesis is catalyzed by the enzyme ________",
+              "text": "The blood report of a patient shows increased uric acid levels. Which of the following diagnosis can be ruled out?",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__BIOCHEM_CH24_Q012",
-      "questionNumber": 12,
-      "sourcePage": 370,
-      "reviewStatus": "pass",
-      "question": "The rate-limiting enzyme for pyrimidine synthesis in human is ______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Aspartate Transcarbamoylase"
-        },
-        {
-          "letter": "B",
-          "text": "Carbamoyl Phosphate Synthetase I"
-        },
-        {
-          "letter": "C",
-          "text": "Carbamoyl Phosphate Synthetase II"
-        },
-        {
-          "letter": "D",
-          "text": "PRPP glutamyl amidotransferase"
-        }
-      ],
-      "correctOption": 3,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "The rate-limiting enzyme for pyrimidine synthesis in human is ______",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

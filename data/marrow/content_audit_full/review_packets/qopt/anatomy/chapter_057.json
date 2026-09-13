@@ -3,7 +3,7 @@
   "subject": "Anatomy",
   "chapterId": "57",
   "chapter": "Nerves & Vessels of Lower Limb",
-  "candidateQuestionCount": 2,
+  "candidateQuestionCount": 3,
   "questions": [
     {
       "id": "marrow__ANAT_CH57_Q002",
@@ -32,65 +32,35 @@
       "correctOption": 2,
       "flags": [
         {
-          "field": "option_A",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "L1, L2",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "L2, L3",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_C",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "L1, L2, L3",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
         },
         {
           "field": "option_D",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "L2, L3, L4",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
@@ -98,91 +68,87 @@
       ]
     },
     {
-      "id": "marrow__ANAT_CH57_Q017",
-      "questionNumber": 17,
-      "sourcePage": 1092,
+      "id": "marrow__ANAT_CH57_Q012",
+      "questionNumber": 12,
+      "sourcePage": 1091,
       "reviewStatus": "pass",
-      "question": "What is the root value of cremasteric reflex?",
+      "question": "Foot drop is caused by damage to:",
       "options": [
         {
           "letter": "A",
-          "text": "L1, L2"
+          "text": "Common peroneal nerve"
         },
         {
           "letter": "B",
-          "text": "L3, L4"
+          "text": "Femoral nerve"
         },
         {
           "letter": "C",
-          "text": "S1, S2"
+          "text": "Tibial nerve"
         },
         {
           "letter": "D",
-          "text": "T8, T9"
+          "text": "Sciatic nerve"
         }
       ],
       "correctOption": 1,
       "flags": [
         {
-          "field": "option_A",
-          "severity": 5,
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "L1, L2",
+              "text": "Foot drop is caused by damage to:",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH57_Q021",
+      "questionNumber": 21,
+      "sourcePage": 1093,
+      "reviewStatus": "pass",
+      "question": "What are above knee perforators known as?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Dodd veins"
         },
         {
-          "field": "option_B",
-          "severity": 5,
+          "letter": "B",
+          "text": "Hunter veins"
+        },
+        {
+          "letter": "C",
+          "text": "Cockett veins"
+        },
+        {
+          "letter": "D",
+          "text": "Boyd veins"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "L3, L4",
+              "text": "What are above knee perforators known as?",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "S1, S2",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "T8, T9",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

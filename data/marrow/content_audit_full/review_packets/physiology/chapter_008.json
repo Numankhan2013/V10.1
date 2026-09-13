@@ -5,7 +5,7 @@
   "chapterId": "8",
   "chapter": "Muscle Physiology II",
   "candidateQuestionCount": 13,
-  "questionOptionCandidateCount": 8,
+  "questionOptionCandidateCount": 9,
   "explanationCandidateCount": 11,
   "questions": [
     {
@@ -113,11 +113,42 @@
           ]
         },
         {
-          "field": "question",
-          "severity": 9,
+          "field": "option_A",
+          "severity": 6,
           "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Skeletal muscle ., Sa ‘C .{",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Smooth muscle Oo 9 y",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -134,22 +165,6 @@
               "reasons": [
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_A",
-          "severity": 6,
-          "reasons": [
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Skeletal muscle ., Sa ‘C .{",
-              "reasons": [
-                "hard_noise_char"
               ]
             }
           ]
@@ -285,11 +300,9 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "many_linebreaks",
-            "symbol_dense_line"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -599,14 +612,20 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 13,
+          "severity": 14,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "many_linebreaks",
-            "symbol_dense_line"
+            "ocr_suffix",
+            "short_ocr_line"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "ne oOo fe:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 3,
               "text": "“.\" te ‘",
@@ -821,13 +840,29 @@
       "correctOption": 3,
       "questionOptionFlags": [
         {
-          "field": "option_D",
-          "severity": 15,
+          "field": "option_B",
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "literal_backslash",
-            "symbol_dense_line"
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Myosin light chain kinase, ~ © ~\\*",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash"
           ],
           "suspectLines": [
             {
@@ -846,25 +881,6 @@
                 "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 12,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "literal_backslash"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Myosin light chain kinase, ~ © ~\\*",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
               ]
             }
           ]
@@ -898,7 +914,16 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "short_ocr_line"
+          ],
+          "suspectLines": []
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -948,13 +973,21 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
+            {
+              "line": 2,
+              "text": "Actin, myosin, and tropomyosin are present in both skeletal muscle and smooth muscle. But,",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 4,
               "text": "a ~ ( + Cc",
@@ -996,24 +1029,6 @@
       "correctOption": 3,
       "questionOptionFlags": [
         {
-          "field": "option_D",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "1, 25 di hydroxy cholecalciferol ww i o~ i 4",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_C",
           "severity": 6,
           "reasons": [
@@ -1024,6 +1039,23 @@
               "line": 1,
               "text": "Inositol Triphosphate (IP3) ~ a ‘ .",
               "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "1, 25 di hydroxy cholecalciferol ww i o~ i 4",
+              "reasons": [
+                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -1108,9 +1140,9 @@
       "questionOptionFlags": [
         {
           "field": "option_D",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -1160,35 +1192,12 @@
       "correctOption": 2,
       "questionOptionFlags": [
         {
-          "field": "option_D",
-          "severity": 16,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "literal_backslash",
-            "many_linebreaks",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 4,
-              "text": "~O ¢ \\<",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char",
-                "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
           "field": "question",
           "severity": 13,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "many_linebreaks"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -1218,10 +1227,10 @@
         },
         {
           "field": "option_C",
-          "severity": 9,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -1233,16 +1242,36 @@
               ]
             }
           ]
+        },
+        {
+          "field": "option_D",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 4,
+              "text": "~O ¢ \\<",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
         }
       ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1291,6 +1320,13 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "Contraction period (latent périod to maximum force of contraction) includes 3 scales = 30 mm.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {

@@ -4,9 +4,9 @@
   "subject": "Physiology",
   "chapterId": "14",
   "chapter": "Motor Physiology - 1",
-  "candidateQuestionCount": 22,
-  "questionOptionCandidateCount": 1,
-  "explanationCandidateCount": 22,
+  "candidateQuestionCount": 23,
+  "questionOptionCandidateCount": 3,
+  "explanationCandidateCount": 23,
   "questions": [
     {
       "id": "marrow__PHYS_CH14_Q001",
@@ -144,10 +144,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -155,6 +156,13 @@
               "text": "..",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 5,
+              "text": "Amuscle spindle has:",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -258,6 +266,69 @@
       "explanation": "ri\n\nack\nThe nuclear bag fibe $gense the dgatinic length of the muscle\n\nNuclear ba; fibgrd are intrafusal fibers, which are a part of the muscle spindle. Intrafusal fibers\n\nserve a purély sénsory funétion in the muscle spindle\n\nTypes of intrafusal fibers in muscle spindles:\n\nNote- Golgi tendon organ senses changes in muscle tension. Muscle spindle also provides sense of\njoint position,\n\nrons\n\nStructure Nudlei in central dilated area _| Nuclei in rows\nTypes StaticDynamic =\nPrimary sensory afferent Ia (for both the types) la\nSecondary sensory ending _| II (only for static bag fiber) | II\nEfferent static & dynamic y-motor neu | static ymotor neuron\n\ns\n\nWay of detection of the chan\nge in muscle length\n\nStatic & dynamic changes\n\nStatic change"
     },
     {
+      "id": "marrow__PHYS_CH14_Q008",
+      "questionNumber": 8,
+      "sourcePage": 259,
+      "reviewStatus": "pass",
+      "question": "Withdrawal reflexes are not:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Initiated by nociceptive stimuli"
+        },
+        {
+          "letter": "B",
+          "text": "Prolonged if the stimulus is strong"
+        },
+        {
+          "letter": "C",
+          "text": "An example of a flexor reflex"
+        },
+        {
+          "letter": "D",
+          "text": "Accompanied by the same response on both sides of the body"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Withdrawal reflexes are not:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 11,
+              "text": "Pain (e.g., touching a hot stove) stimulates the flexor reflex afferents of groups II, II, and IV,",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Withdrawal reflexes are not accompanied by the same response on both sides of the body. On the\nipsilateral side of the pain stimulus, flexors are stimulated (they contract) and extensors are\ninhibited (they relax), and the arm is jerked away from the stove. On the contralateral side, flexors\nare inhibited and extensors are stimulated (crossed extension reflex) to maintain balance\n\nIt results in flexion on the ipsilateral side and extension on the contralateral side\n\nSomatosensory and pain afferent fibers elicit withdrawal of the stimulated body part from the\nnoxious stimulus.\n\nPain (e.g., touching a hot stove) stimulates the flexor reflex afferents of groups II, II, and IV,\n\nThe afferent fibers synapse polysynaptically (via interneurons) onto motoneurons in the spinal\ncord\n\nAs a result of persistent neural activity in the polysynaptic circuits, an afterdischarge occurs. The\nafterdischarge prevents the muscle from relaxing for some time\n\n06 006"
+    },
+    {
       "id": "marrow__PHYS_CH14_Q009",
       "questionNumber": 9,
       "sourcePage": 259,
@@ -282,15 +353,40 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The maintenance of normal posture depends on:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 3,
+              "text": "The maintenance of nornial posture depends on the Integrity of reflex are.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 9,
               "text": "+ The spinal cord, which integrates spinal reflexes and contains central pattern generators.",
@@ -973,48 +1069,17 @@
       "questionOptionFlags": [
         {
           "field": "option_B",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "1, 2, 3",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "5, 7",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "16, 18",
-              "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
@@ -1122,16 +1187,31 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "Ina homunculus, the more the représéntation ofaiarea, the more precise the movements are.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 3,
               "text": "* The relative sizes of the cortical receiving reds of the sensory homunculus are proportionate to",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "«Some bod¥.parts are represented by large areas in the somatic cortex—the lips the greatest of all,",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -1215,12 +1295,20 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 7,
+              "text": "cortex with the mouth and face areas located most latefally. As one moves upward, the hand, arm,",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 8,
               "text": "trunk, and leg areas are encountered. {as seen in the figure below) 7",

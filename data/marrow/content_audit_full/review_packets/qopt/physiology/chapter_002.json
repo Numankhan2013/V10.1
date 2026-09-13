@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "subject": "Physiology",
+  "chapterId": "2",
+  "chapter": "Cellular messengers & Receptors",
+  "candidateQuestionCount": 1,
+  "questions": [
+    {
+      "id": "marrow__PHYS_CH02_Q007",
+      "questionNumber": 7,
+      "sourcePage": 21,
+      "reviewStatus": "pass",
+      "question": "Which of the following statements is true about the G-protein-coupled receptor (GPCR)?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "G proteins bind to hormones on the surface of the nucleus."
+        },
+        {
+          "letter": "B",
+          "text": "All the three subunits α, β, and γ should bind to each other for G proteins to act."
+        },
+        {
+          "letter": "C",
+          "text": "G proteins act as inhibitory or excitatory because of differences in α subunit."
+        },
+        {
+          "letter": "D",
+          "text": "G protein is bound to GTP in resting state."
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "All the three subunits α, β, and γ should bind to each other for G proteins to act.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,7 @@
   "chapterId": "51",
   "chapter": "KUB & Adrenal Gland",
   "candidateQuestionCount": 13,
-  "questionOptionCandidateCount": 0,
+  "questionOptionCandidateCount": 2,
   "explanationCandidateCount": 13,
   "questions": [
     {
@@ -232,9 +232,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -242,6 +243,13 @@
               "text": "ah ‘ 0 a The marked structure in the giyensimage is theleft kidney. The sympathetic chain is not a posterior relation of the left Kitey. «s, Pe 2 baat ny The posterior relations of the kidneys, atte as follows: nae te * One vessel - subcostal vessels 4,\" ic. rahe ao + Two ligaments - medial and.Jateral arcuateligaments + Three nerves - subeasi iliohypogasttic, and ilioinguinal nerves + Four muscles, diaphragm, psoas*major, quadratus lumborum, and transverse abdominis. + The right'kidney is relatgilto the 12th rib and the left kidney is related to the 11th and 12th ribs The below image shows the cross section of the abdomen at the level of kidney. lo ee Ly Rig",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 13,
+              "text": "nenvea liohypogastric ie.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -427,16 +435,18 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 3,
               "text": "+ Opening in the lateral angle of the trigone These are regarded as surgical constrictions of the ureter. However, only 1, 2, and 4 are the anatomical constrictions of the ureter. Normat ureteric constrictions Ureter proper aan ie eg ee & ii kal Bladder Y Uretero-vesical SET -Trigone of bladder Ureteric orifice: tai , AO\" AG ev oor ae? co",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
@@ -469,7 +479,24 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Which of the following structure is not a posterior relation of the structure marked as X?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -561,7 +588,24 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "During the cystoscopic evaluation of a patient with hematuria, where will you find the Mercier's bar?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",

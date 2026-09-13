@@ -3,7 +3,7 @@
   "subject": "Physiology",
   "chapterId": "5",
   "chapter": "Body Fluids",
-  "candidateQuestionCount": 17,
+  "candidateQuestionCount": 16,
   "questions": [
     {
       "id": "marrow__PHYS_CH05_Q002",
@@ -46,51 +46,47 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH05_Q003",
+      "questionNumber": 3,
+      "sourcePage": 68,
+      "reviewStatus": "pass",
+      "question": "ae ne? A60 kg adult'male has a haematocrit reading of 40% and a plasma volume of 3L. What is his total blood volume in L?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "4"
         },
         {
-          "field": "option_B",
-          "severity": 5,
+          "letter": "B",
+          "text": "5"
+        },
+        {
+          "letter": "C",
+          "text": "6"
+        },
+        {
+          "letter": "D",
+          "text": "7"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "30, 30 on “9 %",
+              "text": "ae ne? A60 kg adult'male has a haematocrit reading of 40% and a plasma volume of 3L. What is his total blood volume in L?",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "40, 20 . 2 - “4",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "10, 50 ay “s",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
@@ -125,11 +121,9 @@
       "flags": [
         {
           "field": "option_C",
-          "severity": 12,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -172,24 +166,6 @@
       "correctOption": 1,
       "flags": [
         {
-          "field": "question",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "nO ‘ < ~, How do we measure the volume of distribution of body fluid compartments? \"oF >’ >",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_B",
           "severity": 6,
           "reasons": [
@@ -204,47 +180,20 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYS_CH05_Q007",
-      "questionNumber": 7,
-      "sourcePage": 69,
-      "reviewStatus": "pass",
-      "question": "zs\" ‘ C , 500 mg of mannitol was injected out of which 10% is excreted. After equilibrium, plasma concentration is 3.2 mg/100 ml. Calculate ECF Volume (L).",
-      "options": [
-        {
-          "letter": "A",
-          "text": "10"
         },
-        {
-          "letter": "B",
-          "text": "14"
-        },
-        {
-          "letter": "C",
-          "text": "42"
-        },
-        {
-          "letter": "D",
-          "text": "52"
-        }
-      ],
-      "correctOption": 2,
-      "flags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "zs\" ‘ C , 500 mg of mannitol was injected out of which 10% is excreted. After equilibrium, plasma concentration is 3.2 mg/100 ml. Calculate ECF Volume (L).",
+              "text": "nO ‘ < ~, How do we measure the volume of distribution of body fluid compartments? \"oF >’ >",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "hard_noise_char"
               ]
             }
           ]
@@ -296,6 +245,50 @@
       ]
     },
     {
+      "id": "marrow__PHYS_CH05_Q012",
+      "questionNumber": 12,
+      "sourcePage": 70,
+      "reviewStatus": "pass",
+      "question": "Which of the following is higher in the ECF compared to ICF?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "K+"
+        },
+        {
+          "letter": "B",
+          "text": "Proteins"
+        },
+        {
+          "letter": "C",
+          "text": "Phosphate"
+        },
+        {
+          "letter": "D",
+          "text": "pH"
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Which of the following is higher in the ECF compared to ICF?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "marrow__PHYS_CH05_Q013",
       "questionNumber": 13,
       "sourcePage": 71,
@@ -322,11 +315,26 @@
       "correctOption": 1,
       "flags": [
         {
-          "field": "option_C",
-          "severity": 8,
+          "field": "option_A",
+          "severity": 6,
           "reasons": [
-            "hard_noise_char",
-            "many_isolated_letters"
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Phosphate : eC.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_C",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -335,50 +343,6 @@
               "reasons": [
                 "hard_noise_char",
                 "many_isolated_letters"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYS_CH05_Q014",
-      "questionNumber": 14,
-      "sourcePage": 71,
-      "reviewStatus": "pass",
-      "question": "Y ” a “ How many grams of NaCl make mole of Nacl?* ce",
-      "options": [
-        {
-          "letter": "A",
-          "text": "58.5"
-        },
-        {
-          "letter": "B",
-          "text": "56.5"
-        },
-        {
-          "letter": "C",
-          "text": "57.5"
-        },
-        {
-          "letter": "D",
-          "text": "50.5"
-        }
-      ],
-      "correctOption": 1,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Y ” a “ How many grams of NaCl make mole of Nacl?* ce",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -413,9 +377,8 @@
       "flags": [
         {
           "field": "question",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -521,9 +484,8 @@
         },
         {
           "field": "question",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -533,22 +495,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Cl- O e",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -583,9 +529,8 @@
       "flags": [
         {
           "field": "question",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -647,50 +592,6 @@
       ]
     },
     {
-      "id": "marrow__PHYS_CH05_Q022",
-      "questionNumber": 22,
-      "sourcePage": 73,
-      "reviewStatus": "pass",
-      "question": "; ha x = rat A 73-year-old diabetic man is brought'to the emérgency with an-altered sensorium. He is dehydrated and his blood glucose is 550me/dls A hyperosmolar, hyperglycemic state is suspected. Which of the given formulaé.can correctly-évaluate his serum osmolality?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "2 x sodium + (BUN/18) + (glucose/2.8) C"
-        },
-        {
-          "letter": "B",
-          "text": "2 x sodium + (glucose/18).+ (BUN/2.8)2>"
-        },
-        {
-          "letter": "C",
-          "text": "3 x sodium + (BUN/o)+ (glucose/2;8)"
-        },
-        {
-          "letter": "D",
-          "text": "3 x sodium + (gluvose/9) + (BUN/2.8) eK 4 Cc 7 x 4"
-        }
-      ],
-      "correctOption": 2,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "; ha x = rat A 73-year-old diabetic man is brought'to the emérgency with an-altered sensorium. He is dehydrated and his blood glucose is 550me/dls A hyperosmolar, hyperglycemic state is suspected. Which of the given formulaé.can correctly-évaluate his serum osmolality?",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "marrow__PHYS_CH05_Q023",
       "questionNumber": 23,
       "sourcePage": 73,
@@ -718,10 +619,9 @@
       "flags": [
         {
           "field": "question",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "hard_noise_char",
-            "punctuation_run"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -870,10 +770,9 @@
       "flags": [
         {
           "field": "option_D",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -888,9 +787,8 @@
         },
         {
           "field": "question",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [

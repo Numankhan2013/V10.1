@@ -4,10 +4,73 @@
   "subject": "Biochemistry",
   "chapterId": "26",
   "chapter": "RNA synthesis, processing and modification",
-  "candidateQuestionCount": 14,
-  "questionOptionCandidateCount": 1,
-  "explanationCandidateCount": 14,
+  "candidateQuestionCount": 18,
+  "questionOptionCandidateCount": 4,
+  "explanationCandidateCount": 17,
   "questions": [
+    {
+      "id": "marrow__BIOCHEM_CH26_Q001",
+      "questionNumber": 1,
+      "sourcePage": 404,
+      "reviewStatus": "pass",
+      "question": "Which among the following is a protein-coding RNA?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "mRNA"
+        },
+        {
+          "letter": "B",
+          "text": "tRNA"
+        },
+        {
+          "letter": "C",
+          "text": "rRNA"
+        },
+        {
+          "letter": "D",
+          "text": "snRNA"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Which among the following is a protein-coding RNA?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "mRNA is a protein-coding RNA.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "mRNA is a protein-coding RNA.\nThe mRNA convey genetic information from DNA to the ribosome, where they specify the amino\nacid sequence of the protein products of gene expression."
+    },
     {
       "id": "marrow__BIOCHEM_CH26_Q003",
       "questionNumber": 3,
@@ -37,12 +100,20 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 3,
+              "text": "Uracil (U) replaces thymine (T) as the complementary base for adenine (A) in RNA.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 5,
               "text": "cytosine a cytosine \\",
@@ -54,6 +125,52 @@
         }
       ],
       "explanation": "e\ns\nUracil (U) replaces thymine (T) as the complementary base for adenine (A) in RNA.\nDifference between RNA and DNA\ncytosine a cytosine \\\nGuanine a Guanine rT]\nn ™ Base pair a _\nAdenine, (Al acenine, (Bl\nurect Trymine il\nNuciegbases Nucleobases\nRNA DNA\nRibonucleic acid Deoxyribonucleic acid\nSS an oe"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH26_Q006",
+      "questionNumber": 6,
+      "sourcePage": 405,
+      "reviewStatus": "pass",
+      "question": "Which of the following is not a function of RNA polymerase II?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Synthesis of mRNA"
+        },
+        {
+          "letter": "B",
+          "text": "Synthesis of rRNA"
+        },
+        {
+          "letter": "C",
+          "text": "Synthesis of miRNA"
+        },
+        {
+          "letter": "D",
+          "text": "Synthesis of snRNA"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Which of the following is not a function of RNA polymerase II?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
     },
     {
       "id": "marrow__BIOCHEM_CH26_Q008",
@@ -84,11 +201,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -116,10 +234,24 @@
               ]
             },
             {
+              "line": 11,
+              "text": "Termination of transcription can be:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
               "line": 12,
               "text": "* p dependent: When the termination signals are met, p factor binds to RNA. p factor has ATP",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 13,
+              "text": "dependent helicase activity. It detaches the RNA from the DNA.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -128,11 +260,78 @@
               "reasons": [
                 "edge_noise"
               ]
+            },
+            {
+              "line": 15,
+              "text": "weaker A=U at the end.",
+              "reasons": [
+                "ocr_suffix"
+              ]
             }
           ]
         }
       ],
       "explanation": "“ey” oC ~,\nThe mushroom death cap (also known as manita phalloides) producés the toxin, o-amanitin\nwhich inhibits RNA polymerase. \\™\\ e<' >\nIn eukaryotes, o-Amanitin forms. a tight complex with the polymerase, thereby inhibiting mRNA\nsynthesis and, ultimately, protein synthesis:\nNote: Rifampicin inhibits the prokaryotic DNA-dependent RNA polymerase.\nSolution to Question 9)\" a\nRNA polymerase gives signals for the termination of RNA transcription. Proteins catalyzing\nRNA procéssing, termination}\"and polyadenylation appear to load onto RNA polymerase II soon\nafter initiation. 4\nTermination of transcription can be:\n* p dependent: When the termination signals are met, p factor binds to RNA. p factor has ATP\ndependent helicase activity. It detaches the RNA from the DNA.\n* p independent: In the 3' end of RNA, there is a series of U. RNA detaches from DNA due to\nweaker A=U at the end."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH26_Q009",
+      "questionNumber": 9,
+      "sourcePage": 406,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "Which enzyme gives signals for termination of RNA transcription?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "RNA Polymerase I"
+        },
+        {
+          "letter": "B",
+          "text": "RNA Polymerase II"
+        },
+        {
+          "letter": "C",
+          "text": "RNA Polymerase III"
+        },
+        {
+          "letter": "D",
+          "text": "Topoisomerase"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "Termination of transcription can be:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "• ρ dependent: When the termination signals are met, ρ factor binds to RNA. ρ factor has ATP-dependent helicase activity. It detaches the RNA from the DNA.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "• ρ independent: In the 3′ end of RNA, there is a series of U. RNA detaches from DNA due to weaker A=U at the end.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "RNA polymerase gives signals for the termination of RNA transcription. Proteins catalyzing RNA processing, termination, and polyadenylation appear to load onto RNA polymerase II soon after initiation.\nTermination of transcription can be:\n• ρ dependent: When the termination signals are met, ρ factor binds to RNA. ρ factor has ATP-dependent helicase activity. It detaches the RNA from the DNA.\n• ρ independent: In the 3′ end of RNA, there is a series of U. RNA detaches from DNA due to weaker A=U at the end."
     },
     {
       "id": "marrow__BIOCHEM_CH26_Q010",
@@ -163,13 +362,21 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 2,
+              "text": "that is produced, except that the non-template or coding strand has T is in place of U.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 11,
               "text": "Transcription |",
@@ -219,11 +426,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -231,6 +439,13 @@
               "text": "oO ww ~",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "primary transcripts are generated by. RNA polymerase II.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -304,11 +519,19 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "7-methyl-guanosine triphosphate capping of primary transcript is necessary for:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 2,
               "text": "* Processing of the primary transcript to mRNA",
@@ -357,13 +580,28 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "The attachment of mRNA to the ribosome is mediated through the guanyl cap at the 5' end.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "Eukaryotic mRNAs have 7-methylguanosine caps at the 5' end and poly-A tails at the 3' end.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 4,
               "text": "+ Processing of primary transcripts to mRNA. eS",
@@ -487,11 +725,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -501,6 +740,13 @@
               "reasons": [
                 "edge_noise",
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 5,
+              "text": "process, but tRNA are comparatiyely’stable and-do hot require a capping at the 5’ end.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -553,10 +799,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -566,6 +813,7 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char",
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }
@@ -684,23 +932,62 @@
         }
       ],
       "correctOption": 4,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The eukaryotic initiation factor (eIF) that helps in cap binding is?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "The eukaryotic initiation factor (eIF) that helps in cap binding is eIF 4.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "Functions of eIF:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 4,
               "text": "* eIF3 & elF 1A: First step of initiation involves dissociation of the ribosome into its 40S and",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 6,
+              "text": "delays the association of 40s and 60s.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -733,6 +1020,7 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char",
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             },
@@ -748,6 +1036,52 @@
         }
       ],
       "explanation": "The eukaryotic initiation factor (eIF) that helps in cap binding is eIF 4.\nelF are accessory proteins that help initiate protein synthesis.\nFunctions of eIF:\n* eIF3 & elF 1A: First step of initiation involves dissociation of the ribosome into its 40S and\n60S subunits. eIF3 & eIF 1A bind to newly dissociated 40s ribosomal subunit and hence\ndelays the association of 40s and 60s.\n¢ e[F2: It is involved in the formation of binary complex (GTPteIF). This complex binds to met t\nRNA. Further, the GTP-eIF-2-tRNAi ternary complex binds to the 40S ribosomal subunit to form\nthe 43S preinitiation complex. This is the second step of initiation.\n+ eIF4: It forms the cap binding complex. It binds to 5’ terminal of mRNA molecules which are\ncapped. The mRNA would then bind to the 43S preinitiation complex to form the 48s initiation\ncomplex, in the third step of initiation. Bae\n* eIF5: It is involved in the hydrolysis of GTP bound to eIF2\\, This results imbinding of 60s subunit\nwith 48s initiation complex to form the 80s initiation coinplex. This is.thé fourth step of\ninitiation. aw 2\nr Cy ha ¥ - yore Corecess\nCom@tes scare THNA to tind = la ‘i. ,\nte tart canton \" ad » 7 =\n~ om” @e-\np .\\~ ea:\neK —\n\\ ~ Sik nde eae"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH26_Q019",
+      "questionNumber": 19,
+      "sourcePage": 408,
+      "reviewStatus": "pass",
+      "question": "Which statement best explains the function of eEF-2?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "It is required for the translocation of peptidyl-tRNA during translation"
+        },
+        {
+          "letter": "B",
+          "text": "It is required for the initiation of protein synthesis"
+        },
+        {
+          "letter": "C",
+          "text": "It is the agent that binds to, and is inactivated by, chloramphenicol"
+        },
+        {
+          "letter": "D",
+          "text": "It functions as a peptidyl transferase"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 7,
+              "text": "elF-1, eIF-2, etc.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Eukaryotic elongation factor 2 (eEF-2) is required for the translocation of peptidyl-tRNA along the\nmRNA during translation.\nThe elongation reaction requires GTP hydrolysis. The corresponding elongation factor in bacteria\nis EF-G. Diphtheria toxin ADP-ribosylates eEF-2, leading to its inactivation.\nOther options:\nOption B: Initiation of eukaryotic protein synthesis requires several initiation factors, designated\nelF-1, eIF-2, etc.\nOption C: Chloramphenicol inhibits prokaryotic peptidyl transferase.\nOption D: Peptidyl transferase is an rRNA (within the large ribosomal subunit) involved in\nformation of the peptide bond between the amino acid groups within the A and P sites of the\nribosome."
     },
     {
       "id": "marrow__BIOCHEM_CH26_Q020",
@@ -778,13 +1112,21 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 3,
+              "text": "Option A: Selenocysteine is coded by UGA and not UAA OD.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 6,
               "text": "* UAA: Ochre v. \\ : )",
@@ -841,11 +1183,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -868,6 +1211,20 @@
               "text": "a ‘",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "«In the liver, the apoB gene is transcribed to mRNA which is then translated to apoB 100.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 12,
+              "text": "to UAA at a single specific site. This edited mRNA translates to apoB 48.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -918,17 +1275,17 @@
       "correctOption": 4,
       "questionOptionFlags": [
         {
-          "field": "option_D",
-          "severity": 5,
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "W, Y",
+              "text": "The illustration below shows alternative splicing of a gene which has intron segments 1, 2, 3, 4, and 5. It yields two products A and B by the action of different promoters. You are provided with the promoters w, x, y, and z, each of which binds to a different segment as shown below and acts in the marked direction. Which of the following promoters will you use to get product A?",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
@@ -937,10 +1294,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -949,6 +1307,13 @@
               "text": "4. ™ fo ra .",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "Among the given options, using’primers W andy will yield the'desired product A.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -986,6 +1351,13 @@
               "text": "* Seg 4- Needs to be transcribed but Z is not essential as Y continues the transcription in the",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 17,
+              "text": "The answer is hence promoter W and Y.",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]

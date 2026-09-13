@@ -3,7 +3,7 @@
   "subject": "Physiology",
   "chapterId": "11",
   "chapter": "Sensory Receptors",
-  "candidateQuestionCount": 12,
+  "candidateQuestionCount": 10,
   "questions": [
     {
       "id": "marrow__PHYS_CH11_Q001",
@@ -32,24 +32,6 @@
       "correctOption": 1,
       "flags": [
         {
-          "field": "option_D",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "o~ o",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_C",
           "severity": 6,
           "reasons": [
@@ -60,6 +42,23 @@
               "line": 1,
               "text": "Dermatome ~ce*",
               "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "o~ o",
+              "reasons": [
+                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -95,9 +94,8 @@
       "flags": [
         {
           "field": "question",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -126,24 +124,6 @@
           ]
         },
         {
-          "field": "option_D",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "Re ~~",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_A",
           "severity": 6,
           "reasons": [
@@ -160,61 +140,18 @@
           ]
         },
         {
-          "field": "option_C",
-          "severity": 5,
+          "field": "option_D",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
               "line": 2,
-              "text": "ot >",
+              "text": "Re ~~",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYS_CH11_Q003",
-      "questionNumber": 3,
-      "sourcePage": 210,
-      "reviewStatus": "pass",
-      "question": "The phasic fen is o&\n= Ye",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Merkel's dise"
-        },
-        {
-          "letter": "B",
-          "text": "Ruffini's end organs"
-        },
-        {
-          "letter": "C",
-          "text": "Meissner's corpuscles"
-        },
-        {
-          "letter": "D",
-          "text": "Muscle spindle"
-        }
-      ],
-      "correctOption": 3,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "= Ye",
-              "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "hard_noise_char"
               ]
             }
           ]
@@ -249,9 +186,8 @@
       "flags": [
         {
           "field": "question",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -295,11 +231,10 @@
       "flags": [
         {
           "field": "option_D",
-          "severity": 12,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "symbol_dense_line"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -331,9 +266,9 @@
         },
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -375,18 +310,19 @@
       "flags": [
         {
           "field": "question",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "many_linebreaks"
+            "ocr_suffix",
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "> aN? 9",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {
@@ -436,10 +372,10 @@
       "flags": [
         {
           "field": "option_D",
-          "severity": 8,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
-            "symbol_dense_line"
+            "ocr_suffix",
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -453,6 +389,7 @@
               "line": 3,
               "text": "©@* a 4 o",
               "reasons": [
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }
@@ -470,6 +407,22 @@
               "text": "Strength of muscle contraction »—~",
               "reasons": [
                 "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Log of Intensity of stimulus & 2.",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -503,31 +456,11 @@
       "correctOption": 3,
       "flags": [
         {
-          "field": "option_B",
-          "severity": 12,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "literal_backslash"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Principle of labeleqliné ~\\",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "question",
           "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "many_linebreaks"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -546,48 +479,21 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYS_CH11_Q016",
-      "questionNumber": 16,
-      "sourcePage": 214,
-      "reviewStatus": "pass",
-      "question": "Which of the following is true about visceral pain?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "It is poorly localised —"
         },
         {
-          "letter": "B",
-          "text": "It shows rapid adaptation & en"
-        },
-        {
-          "letter": "C",
-          "text": "It is mediated by B fibers LO Ss"
-        },
-        {
-          "letter": "D",
-          "text": "It resembles fast pain oe & *\n\nKO Oo >>\na Y AZ\n© a ee Se"
-        }
-      ],
-      "correctOption": 1,
-      "flags": [
-        {
-          "field": "option_D",
-          "severity": 6,
+          "field": "option_B",
+          "severity": 9,
           "reasons": [
-            "edge_noise",
-            "many_linebreaks"
+            "hard_noise_char",
+            "literal_backslash"
           ],
           "suspectLines": [
             {
-              "line": 3,
-              "text": "KO Oo >>",
+              "line": 1,
+              "text": "Principle of labeleqliné ~\\",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "hard_noise_char"
               ]
             }
           ]
@@ -622,9 +528,8 @@
       "flags": [
         {
           "field": "option_B",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -635,30 +540,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "question",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 3,
-              "text": "Pain insensitive structure ig_ ©”. ~ ri",
-              "reasons": [
-                "hard_noise_char"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "> ee a ae",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -680,31 +561,22 @@
           ]
         },
         {
-          "field": "option_C",
-          "severity": 5,
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
-              "line": 2,
-              "text": "eS. <",
+              "line": 3,
+              "text": "Pain insensitive structure ig_ ©”. ~ ri",
               "reasons": [
-                "edge_noise"
+                "hard_noise_char"
               ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
+            },
             {
-              "line": 2,
-              "text": "os “",
+              "line": 4,
+              "text": "> ee a ae",
               "reasons": [
                 "edge_noise"
               ]
@@ -758,9 +630,8 @@
         },
         {
           "field": "option_D",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -817,9 +688,9 @@
       "flags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {

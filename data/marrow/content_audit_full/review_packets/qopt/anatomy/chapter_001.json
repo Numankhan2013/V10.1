@@ -3,90 +3,46 @@
   "subject": "Anatomy",
   "chapterId": "1",
   "chapter": "Gametogenesis",
-  "candidateQuestionCount": 2,
+  "candidateQuestionCount": 1,
   "questions": [
     {
-      "id": "marrow__ANAT_CH01_Q014",
-      "questionNumber": 14,
-      "sourcePage": 8,
-      "reviewStatus": "pass",
-      "question": "Spermatozoa attain motility in _________",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Seminiferous tubules"
-        },
-        {
-          "letter": "B",
-          "text": "Vas deferens"
-        },
-        {
-          "letter": "C",
-          "text": "Epididymis"
-        },
-        {
-          "letter": "D",
-          "text": "Ejaculatory duct"
-        }
-      ],
-      "correctOption": 3,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Spermatozoa attain motility in _________",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__ANAT_CH01_Q018",
-      "questionNumber": 18,
+      "id": "marrow__ANAT_CH01_Q019",
+      "questionNumber": 19,
       "sourcePage": 9,
       "reviewStatus": "pass",
-      "question": "If the ovum is not fertilized, the corpus luteum may persist for about ______",
+      "question": "Meiosis occurs in:",
       "options": [
         {
           "letter": "A",
-          "text": "48 hours"
+          "text": "Adrenal"
         },
         {
           "letter": "B",
-          "text": "1 week"
+          "text": "Adult ovary"
         },
         {
           "letter": "C",
-          "text": "2 weeks"
+          "text": "Prepubertal testis"
         },
         {
           "letter": "D",
-          "text": "3 weeks"
+          "text": "Hypothalamus"
         }
       ],
-      "correctOption": 3,
+      "correctOption": 2,
       "flags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "If the ovum is not fertilized, the corpus luteum may persist for about ______",
+              "text": "Meiosis occurs in:",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

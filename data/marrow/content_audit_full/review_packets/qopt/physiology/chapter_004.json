@@ -3,46 +3,90 @@
   "subject": "Physiology",
   "chapterId": "4",
   "chapter": "Membrane Potentials",
-  "candidateQuestionCount": 2,
+  "candidateQuestionCount": 3,
   "questions": [
     {
-      "id": "marrow__PHYS_CH04_Q008",
-      "questionNumber": 8,
-      "sourcePage": 56,
+      "id": "marrow__PHYS_CH04_Q001",
+      "questionNumber": 1,
+      "sourcePage": 55,
       "reviewStatus": "pass",
-      "question": "The resting membrane potential of a nerve fibre depends on",
+      "question": "Which of the following equations is used to calculate the equilibrium potential for an ion?",
       "options": [
         {
           "letter": "A",
-          "text": "Diffusion of Na+ ions"
+          "text": "Gibbs-Donnan equation"
         },
         {
           "letter": "B",
-          "text": "Na+-K+ ATPase pump"
+          "text": "Nernst equation"
         },
         {
           "letter": "C",
-          "text": "Diffusion of K+ ions"
+          "text": "Goldmann equation"
         },
         {
           "letter": "D",
-          "text": "All of the above"
+          "text": "Bernoulli equation"
         }
       ],
-      "correctOption": 4,
+      "correctOption": 2,
       "flags": [
         {
-          "field": "option_B",
-          "severity": 5,
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "Na+-K+ ATPase pump",
+              "text": "Which of the following equations is used to calculate the equilibrium potential for an ion?",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH04_Q011",
+      "questionNumber": 11,
+      "sourcePage": 57,
+      "reviewStatus": "pass",
+      "question": "If the membrane potential of this cell is -80 mV, the driving force is greatest for which ion?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ca2+"
+        },
+        {
+          "letter": "B",
+          "text": "Cl-"
+        },
+        {
+          "letter": "C",
+          "text": "K+"
+        },
+        {
+          "letter": "D",
+          "text": "Na+"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "If the membrane potential of this cell is -80 mV, the driving force is greatest for which ion?",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -77,16 +121,17 @@
       "flags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "X, Y, Z are three permeable ions. X = -50 and Y = -30. At RMP, if there is no net electrogenic transfer, what is the value of Z?",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]

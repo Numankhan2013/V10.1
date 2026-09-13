@@ -6,43 +6,43 @@
   "candidateQuestionCount": 1,
   "questions": [
     {
-      "id": "marrow__ANAT_CH06_Q012",
-      "questionNumber": 12,
-      "sourcePage": 90,
-      "reviewStatus": "pass",
-      "question": "Marked structure is derived from the ______",
+      "id": "marrow__ANAT_CH06_Q020",
+      "questionNumber": 20,
+      "sourcePage": 93,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "The false statement about fetal circulation is:",
       "options": [
         {
           "letter": "A",
-          "text": "Endocardial cushions"
+          "text": "Anatomical closure of foramen ovale is by 3 to 5 days"
         },
         {
           "letter": "B",
-          "text": "Septum primum"
+          "text": "Anatomical closure of ductus venosus is by 3 to 7 days"
         },
         {
           "letter": "C",
-          "text": "Left venous valve"
+          "text": "Right umbilical vein is absent"
         },
         {
           "letter": "D",
-          "text": "Bulbous venosus"
+          "text": "Anatomical closure of ductus arteriosus is by 2 to 3 weeks"
         }
       ],
       "correctOption": 1,
       "flags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "Marked structure is derived from the ______",
+              "text": "The false statement about fetal circulation is:",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

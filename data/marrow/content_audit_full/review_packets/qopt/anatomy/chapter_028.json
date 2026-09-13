@@ -33,10 +33,9 @@
       "flags": [
         {
           "field": "option_A",
-          "severity": 7,
+          "severity": 6,
           "reasons": [
-            "many_isolated_letters",
-            "symbol_dense_line"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -44,6 +43,7 @@
               "text": "1:A; 2:E; 3:D; 4:B; 5:C",
               "reasons": [
                 "many_isolated_letters",
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }
@@ -51,10 +51,9 @@
         },
         {
           "field": "option_B",
-          "severity": 7,
+          "severity": 6,
           "reasons": [
-            "many_isolated_letters",
-            "symbol_dense_line"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -62,6 +61,7 @@
               "text": "1:C; 2:D; 3:E; 4:A; 5:B",
               "reasons": [
                 "many_isolated_letters",
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }
@@ -69,10 +69,9 @@
         },
         {
           "field": "option_C",
-          "severity": 7,
+          "severity": 6,
           "reasons": [
-            "many_isolated_letters",
-            "symbol_dense_line"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -80,6 +79,7 @@
               "text": "1:C; 2:E; 3:D; 4:B; 5:A",
               "reasons": [
                 "many_isolated_letters",
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }
@@ -87,10 +87,9 @@
         },
         {
           "field": "option_D",
-          "severity": 7,
+          "severity": 6,
           "reasons": [
-            "many_isolated_letters",
-            "symbol_dense_line"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -98,6 +97,7 @@
               "text": "1:A; 2:D; 3:C; 4:E; 5:B",
               "reasons": [
                 "many_isolated_letters",
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }

@@ -5,7 +5,7 @@
   "chapterId": "3",
   "chapter": "Transport Across Cell Membrane",
   "candidateQuestionCount": 22,
-  "questionOptionCandidateCount": 3,
+  "questionOptionCandidateCount": 1,
   "explanationCandidateCount": 22,
   "questions": [
     {
@@ -149,9 +149,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -159,6 +160,13 @@
               "text": "‘ 4",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "Phospholipid membranes are:",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -216,14 +224,22 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
+            "ocr_suffix",
             "punctuation_run",
             "symbol_dense_line"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "The net effect on the diffusion is, it becomes 3x.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 4,
               "text": "+ J = net rate of diffusion",
@@ -362,31 +378,15 @@
         }
       ],
       "correctOption": 3,
-      "questionOptionFlags": [
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Na+-Ca2+ exchanger",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -424,6 +424,13 @@
               "text": "3 >",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 23,
+              "text": "R © ae?",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -605,10 +612,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -616,6 +624,13 @@
               "text": "Re A | | 5 y",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "cm H,0",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -643,7 +658,8 @@
               "line": 17,
               "text": "* Osmotic pressure is calculated by Vant Hoff's law.",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
@@ -680,9 +696,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -697,6 +714,13 @@
               "text": "* Osmolality is the number of osmoles per kilogram of solvent.",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 5,
+              "text": "temperature, while the osmolality is not.",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -1035,31 +1059,15 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Na+-K+ ATP pump uses _____.",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1110,6 +1118,13 @@
               "text": "* 2 extracellular sites- for K+ and oubain",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 16,
+              "text": "Pera Mf UN. TY",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -1222,24 +1237,7 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Na+-K+ ATPase",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -1370,11 +1368,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1411,6 +1410,7 @@
               "text": "> —_ m?",
               "reasons": [
                 "edge_noise",
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             },
@@ -1460,7 +1460,24 @@
         }
       ],
       "correctOption": 4,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Glucose is absorbed in intestine by?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -1524,14 +1541,22 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
+            {
+              "line": 10,
+              "text": "Exocytosis can be:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 12,
               "text": "+ Involves prompt transport of proteins to the cell membrane in vesicles, with little or no",
@@ -1643,7 +1668,8 @@
               "line": 35,
               "text": "+ Exocytosis, Ig Mootoss équiires energy in the form of ATP.",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {

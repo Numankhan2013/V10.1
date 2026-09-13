@@ -5,86 +5,54 @@
   "chapterId": "27",
   "chapter": "Spinal Cord",
   "candidateQuestionCount": 1,
-  "questionOptionCandidateCount": 1,
-  "explanationCandidateCount": 0,
+  "questionOptionCandidateCount": 0,
+  "explanationCandidateCount": 1,
   "questions": [
     {
-      "id": "marrow__ANAT_CH27_Q007",
-      "questionNumber": 7,
-      "sourcePage": 461,
+      "id": "marrow__ANAT_CH27_Q002",
+      "questionNumber": 2,
+      "sourcePage": 459,
       "reviewStatus": "pass",
-      "question": "You are given the following section of the spinal cord. The lowest projection of the marked structure lies at which level of the spinal nerves?",
+      "question": "A needle is inserted into a particular space to withdraw CSF in an adult as shown below. At which level does this space terminate?",
       "options": [
         {
           "letter": "A",
-          "text": "T9, T10"
+          "text": "S1"
         },
         {
           "letter": "B",
-          "text": "T12, L1"
+          "text": "S2"
         },
         {
           "letter": "C",
-          "text": "S2, S3"
+          "text": "L4"
         },
         {
           "letter": "D",
-          "text": "S4, S5"
+          "text": "L2"
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [
+      "questionOptionFlags": [],
+      "explanationFlags": [
         {
-          "field": "option_A",
-          "severity": 5,
+          "field": "explanation",
+          "severity": 4,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "T9, T10",
+              "text": "The procedure shown is a lumbar puncture. The needle is introduced into the subarachnoid space, which ends at the lower border of the S2 vertebra. A lumbar puncture can be done anywhere from L1 to S2 vertebrae; beyond S2 there are only meninges. However, lumbar puncture is most commonly performed at L3 or L4.",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "S2, S3",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "S4, S5",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanation": "The procedure shown is a lumbar puncture. The needle is introduced into the subarachnoid space, which ends at the lower border of the S2 vertebra. A lumbar puncture can be done anywhere from L1 to S2 vertebrae; beyond S2 there are only meninges. However, lumbar puncture is most commonly performed at L3 or L4."
     }
   ]
 }

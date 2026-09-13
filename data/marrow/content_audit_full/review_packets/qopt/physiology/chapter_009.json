@@ -3,7 +3,7 @@
   "subject": "Physiology",
   "chapterId": "9",
   "chapter": "Synapse and Junctional Transmission",
-  "candidateQuestionCount": 17,
+  "candidateQuestionCount": 16,
   "questions": [
     {
       "id": "marrow__PHYS_CH09_Q001",
@@ -77,11 +77,9 @@
       "flags": [
         {
           "field": "question",
-          "severity": 12,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -124,26 +122,6 @@
       "correctOption": 1,
       "flags": [
         {
-          "field": "option_D",
-          "severity": 12,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 3,
-              "text": "~~? ~~",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char",
-                "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_C",
           "severity": 9,
           "reasons": [
@@ -156,6 +134,24 @@
               "text": "DOPA \\S",
               "reasons": [
                 "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "~~? ~~",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
               ]
             }
           ]
@@ -189,12 +185,27 @@
       "correctOption": 1,
       "flags": [
         {
-          "field": "question",
-          "severity": 5,
+          "field": "option_D",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "short_ocr_line"
+          ],
+          "suspectLines": []
+        },
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "ne CO s,",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 3,
               "text": "X .",
@@ -234,12 +245,11 @@
       "flags": [
         {
           "field": "question",
-          "severity": 15,
+          "severity": 13,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "symbol_dense_line"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -333,12 +343,28 @@
       "correctOption": 4,
       "flags": [
         {
-          "field": "option_D",
-          "severity": 12,
+          "field": "option_A",
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "symbol_dense_line"
+            "short_ocr_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "‘ x ~",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -348,24 +374,6 @@
                 "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_A",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "‘ x ~",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
               ]
             }
           ]
@@ -416,11 +424,9 @@
       "flags": [
         {
           "field": "question",
-          "severity": 12,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -430,22 +436,6 @@
                 "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Na+ entry at the endplate, acetylcholine release, muscle fiber action potential",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -480,10 +470,10 @@
       "flags": [
         {
           "field": "option_D",
-          "severity": 9,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -533,11 +523,9 @@
       "flags": [
         {
           "field": "question",
-          "severity": 10,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "many_linebreaks"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -594,9 +582,8 @@
       "flags": [
         {
           "field": "option_C",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -606,22 +593,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "7% c& ¢ >",
-              "reasons": [
-                "symbol_dense_line"
               ]
             }
           ]
@@ -656,9 +627,8 @@
       "flags": [
         {
           "field": "option_C",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -686,31 +656,6 @@
               "text": "Indirect inhibition .\\™ ‘",
               "reasons": [
                 "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "question",
-          "severity": 8,
-          "reasons": [
-            "edge_noise",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Y\" < rat",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 2,
-              "text": "ae <O >\"",
-              "reasons": [
-                "edge_noise",
-                "symbol_dense_line"
               ]
             }
           ]
@@ -744,49 +689,17 @@
       "correctOption": 3,
       "flags": [
         {
-          "field": "option_A",
-          "severity": 5,
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "Na+ channels",
+              "text": "Presynaptic facilitation is due to prolonged opening of.",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "K+ channels",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Cl- channels",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
@@ -821,11 +734,11 @@
       "flags": [
         {
           "field": "option_D",
-          "severity": 12,
+          "severity": 13,
           "reasons": [
             "hard_noise_char",
             "literal_backslash",
-            "symbol_dense_line"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -834,51 +747,6 @@
               "reasons": [
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYS_CH09_Q021",
-      "questionNumber": 21,
-      "sourcePage": 178,
-      "reviewStatus": "pass",
-      "question": "- PAS “a\non x .\n0 X .\nA 55-year-old woman had an autonomic neuropathy that disrupted the sympathetic nerve\nsupply to the pupillary dilator muscle of Her'right eye.(While having her eyes examined, the\nophthalmologist placed a sympathomimetic drug imboth her eyes. The right eye became\nmuch more dilated than the left eye” This suggests that:",
-      "options": [
-        {
-          "letter": "A",
-          "text": "The sympathetic nerve to the right eyeshad regenerated"
-        },
-        {
-          "letter": "B",
-          "text": "The parasympathetic nerve supply to'the right eye remained intact and compensated for the\nloss of the sympathetic nerve . *"
-        },
-        {
-          "letter": "C",
-          "text": "Denervation supersensitivity had developed\n4"
-        },
-        {
-          "letter": "D",
-          "text": "The left eye also had nerve damage and so was not responding as expected"
-        }
-      ],
-      "correctOption": 3,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 6,
-          "reasons": [
-            "edge_noise",
-            "many_linebreaks"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "- PAS “a",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -912,10 +780,33 @@
       "correctOption": 1,
       "flags": [
         {
-          "field": "option_B",
-          "severity": 9,
+          "field": "option_D",
+          "severity": 10,
           "reasons": [
-            "edge_noise",
+            "hard_noise_char",
+            "short_ocr_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Both B and C =~ - fo re ‘",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "‘ SS »",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -932,30 +823,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Both B and C =~ - fo re ‘",
-              "reasons": [
-                "hard_noise_char"
-              ]
-            },
-            {
-              "line": 2,
-              "text": "‘ SS »",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -990,11 +857,10 @@
       "flags": [
         {
           "field": "question",
-          "severity": 12,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "symbol_dense_line"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {

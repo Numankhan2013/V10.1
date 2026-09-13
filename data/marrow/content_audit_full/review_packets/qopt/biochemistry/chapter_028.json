@@ -3,8 +3,96 @@
   "subject": "Biochemistry",
   "chapterId": "28",
   "chapter": "Molecular genetics, recombinant DNA & genomic technologies",
-  "candidateQuestionCount": 1,
+  "candidateQuestionCount": 6,
   "questions": [
+    {
+      "id": "marrow__BIOCHEM_CH28_Q004",
+      "questionNumber": 4,
+      "sourcePage": 431,
+      "reviewStatus": "pass",
+      "question": "Which of the following tools of recombinant DNA technology is incorrectly paired with its use?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "DNA polymerase - copies DNA sequences in the polymerase chain reaction"
+        },
+        {
+          "letter": "B",
+          "text": "DNA ligase - enzyme that cuts DNA, creating sticky ends"
+        },
+        {
+          "letter": "C",
+          "text": "Reverse transcriptase - production of cDNA from mRNA"
+        },
+        {
+          "letter": "D",
+          "text": "Electrophoresis - RFLP analysis"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Which of the following tools of recombinant DNA technology is incorrectly paired with its use?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH28_Q006",
+      "questionNumber": 6,
+      "sourcePage": 432,
+      "reviewStatus": "pass",
+      "question": "Which of the following cloning vectors has linear DNA?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Phages"
+        },
+        {
+          "letter": "B",
+          "text": "Plasmid"
+        },
+        {
+          "letter": "C",
+          "text": "Cosmid"
+        },
+        {
+          "letter": "D",
+          "text": "All of above"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Which of the following cloning vectors has linear DNA?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": "marrow__BIOCHEM_CH28_Q009",
       "questionNumber": 9,
@@ -33,64 +121,200 @@
       "flags": [
         {
           "field": "option_A",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "1, 2, 3",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
         },
         {
           "field": "option_B",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "2, 1, 3",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
         },
         {
           "field": "option_C",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "3, 1, 2",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
         },
         {
           "field": "option_D",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "2, 3, 1",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH28_Q012",
+      "questionNumber": 12,
+      "sourcePage": 433,
+      "reviewStatus": "pass",
+      "question": "Which of the following is a function of PCR?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "To detect infectious agents, especially latent viruses"
+        },
+        {
+          "letter": "B",
+          "text": "Make prenatal genetic diagnoses"
+        },
+        {
+          "letter": "C",
+          "text": "Detect allelic polymorphisms"
+        },
+        {
+          "letter": "D",
+          "text": "All"
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Which of the following is a function of PCR?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH28_Q019",
+      "questionNumber": 19,
+      "sourcePage": 435,
+      "reviewStatus": "pass",
+      "question": "Which of the following site does the restriction enzyme act when RFLP is used in order to identify the five different species of staphylococci in a surgical ICU?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "ATGGAC-TACGTG"
+        },
+        {
+          "letter": "B",
+          "text": "GATATC-CTATAG"
+        },
+        {
+          "letter": "C",
+          "text": "TAGATA-ATCTCT"
+        },
+        {
+          "letter": "D",
+          "text": "AATATA-TATAAT"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Which of the following site does the restriction enzyme act when RFLP is used in order to identify the five different species of staphylococci in a surgical ICU?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH28_Q026",
+      "questionNumber": 26,
+      "sourcePage": 437,
+      "reviewStatus": "pass",
+      "question": "The correct order of steps in Polymerase Chain Reaction (PCR) is:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Hybridisation, Annealing, Elongation, Denaturation"
+        },
+        {
+          "letter": "B",
+          "text": "Elongation, Denaturation, Hybridisation, Annealing"
+        },
+        {
+          "letter": "C",
+          "text": "Denaturation, Annealing, Extension"
+        },
+        {
+          "letter": "D",
+          "text": "Annealing, Extension, Denaturation"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The correct order of steps in Polymerase Chain Reaction (PCR) is:",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]

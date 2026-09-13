@@ -4,71 +4,239 @@
   "subject": "Biochemistry",
   "chapterId": "22",
   "chapter": "Hematopoietic and other vitamins",
-  "candidateQuestionCount": 1,
-  "questionOptionCandidateCount": 1,
-  "explanationCandidateCount": 0,
+  "candidateQuestionCount": 5,
+  "questionOptionCandidateCount": 0,
+  "explanationCandidateCount": 5,
   "questions": [
     {
-      "id": "marrow__BIOCHEM_CH22_Q006",
-      "questionNumber": 6,
-      "sourcePage": 347,
-      "reviewStatus": "needs_manual_review",
-      "question": "Which of the following are vitamin-B12 dependent enzymes?",
+      "id": "marrow__BIOCHEM_CH22_Q001",
+      "questionNumber": 1,
+      "sourcePage": 346,
+      "reviewStatus": "pass",
+      "question": "Which of the following vitamins contains cobalt as a part of their structure?",
       "options": [
         {
           "letter": "A",
-          "text": "1, 2 , 3 and 4"
+          "text": "Vitamin B1"
         },
         {
           "letter": "B",
-          "text": "1 and 4 only"
+          "text": "Vitamin B2"
         },
         {
           "letter": "C",
-          "text": "1 and 3 only"
+          "text": "Vitamin B6"
         },
         {
           "letter": "D",
-          "text": "1, 2, and 3"
+          "text": "Vitamin B12"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "Vitamin B12 is derived mainly from animal products such as meat, fish, eggs and fortified cereals. There are no plant sources as such for vitamin B12 / cobalamine, hence strict vegetarians are at risk of developing a nutritional deficiency of vitamin B12.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Vitamin B12 contains corrin rings with cobalt as a part of its structure, hence this group of vitamins are referred to as cobalamins.\nVitamin B12 is derived mainly from animal products such as meat, fish, eggs and fortified cereals. There are no plant sources as such for vitamin B12 / cobalamine, hence strict vegetarians are at risk of developing a nutritional deficiency of vitamin B12.\nVitamin B12 deficiency is associated with defects in RBC production leading to megaloblastic anemia."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q003",
+      "questionNumber": 3,
+      "sourcePage": 346,
+      "reviewStatus": "pass",
+      "question": "A 45-year-old patient came with complaints of easy fatigability and palpitations. On examination, she had pallor. Methylmalonic acid excretion in the urine was estimated as a part of evaluation. This can be utilized to assess the nutritional status of which vitamin?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Vitamin B12"
+        },
+        {
+          "letter": "B",
+          "text": "Folic acid"
+        },
+        {
+          "letter": "C",
+          "text": "Niacin"
+        },
+        {
+          "letter": "D",
+          "text": "Iron"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The above scenario suggests anemia and methylmalonic acid excretion in the urine can be utilized to assess the nutritional status of vitamin B12.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The above scenario suggests anemia and methylmalonic acid excretion in the urine can be utilized to assess the nutritional status of vitamin B12.\nMethylmalonyl-CoA mutase is a vitamin B12-dependent enzyme. The activity of methylmalonyl CoA mutase is greatly reduced in vitamin B12 deficiency, leading to an accumulation of methylmalonic acid and its excretion in urine.\nThere are two vitamin B12-dependent enzymes:\nMethionine synthase (homocysteine methyltransferase): Catalyzes the conversion of homocysteine to methionine\nMethylmalonyl CoA mutase: methylmalonyl CoA, formed as an intermediate in the catabolism of valine, isoleucine, and propionyl CoA is converted to succinyl CoA\nNote: Urinary excretion of methylmalonic acid is also used to differentiate between megaloblastic anemia due to folate and vitamin B12 deficiency."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q004",
+      "questionNumber": 4,
+      "sourcePage": 346,
+      "reviewStatus": "pass",
+      "question": "Folate trap occurs due to the deficiency of which of the following vitamins?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pyridoxine"
+        },
+        {
+          "letter": "B",
+          "text": "Vitamin B12"
+        },
+        {
+          "letter": "C",
+          "text": "Niacin"
+        },
+        {
+          "letter": "D",
+          "text": "Folic acid"
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [
+      "questionOptionFlags": [],
+      "explanationFlags": [
         {
-          "field": "option_A",
-          "severity": 5,
+          "field": "explanation",
+          "severity": 4,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "1, 2 , 3 and 4",
+              "text": "Folate trap occurs in the deficiency of vitamin B12.",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "1, 2, and 3",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanation": "Folate trap occurs in the deficiency of vitamin B12.\n[Figure: Methionine-Folate Cycle showing methionine synthase (vitamin B12), 5-methyl tetrahydrofolate, 5,10-methylene tetrahydrofolate, homocysteine and cystathionine β synthase (vitamin B6).]\nThe conversion of 5,10-methylene-THF into 5-methyl-THF(methyltetrahydrofolate) is an irreversible process. The major source of tetrahydrofolate for tissues is 5-methyl-THF. The only way to make further use of 5-methyl-THF and to maintain the folate cycle is by the vitamin B12-dependent remethylation of homocysteine to methionine by methionine synthase enzyme.\nDecreased activity of methionine synthase in vitamin B12 deficiency results in the accumulation of methyltetrahydrofolate that cannot be used, resulting in a folate trap. The folate cycle provides a link between the functions of folate and vitamin B12, where vitamin B12 deficiency causes a functional deficiency of folate."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q012",
+      "questionNumber": 12,
+      "sourcePage": 349,
+      "reviewStatus": "pass",
+      "question": "Which of the following enhances iron absorption?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Vitamin A"
+        },
+        {
+          "letter": "B",
+          "text": "Vitamin C"
+        },
+        {
+          "letter": "C",
+          "text": "Thiamine"
+        },
+        {
+          "letter": "D",
+          "text": "Riboflavin"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Iron absorption is enhanced by vitamin C.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Iron absorption is enhanced by vitamin C.\nVitamin C reduces the ferric iron to its ferrous form, thereby helping in the process of absorption of dietary iron from the intestine.\nVitamin C deficiency causes\nDecreased absorption of iron leading to microcytic-hypochromic anemia\nDecreased hydroxylation of proline and lysine, which results in defective collagen synthesis and bleeding manifestations.\nConversely, vitamin C toxicity (&gt;2000 mg/ day) can lead to iron overloaded states.\nNote: Alcohol and fructose also enhance iron absorption. However, the absorption of both inorganic and heme iron is impaired by calcium. So, a glass of milk with a meal significantly reduces iron availability."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q013",
+      "questionNumber": 13,
+      "sourcePage": 349,
+      "reviewStatus": "pass",
+      "question": "Which of the following is false about scurvy?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Microcytic anemia can be seen"
+        },
+        {
+          "letter": "B",
+          "text": "The beading on ribs is non-tender and round"
+        },
+        {
+          "letter": "C",
+          "text": "Patient can present with pseudoparalysis"
+        },
+        {
+          "letter": "D",
+          "text": "There is impaired formation of mature connective tissue"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "A deficiency state of vitamin C results in scurvy. The clinical features are:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The beading of ribs in scurvy is sharp and tender.\nA deficiency state of vitamin C results in scurvy. The clinical features are:\nFatigue, irritability, loss of appetite\nLoose and spongy gums along with loose teeth\nSwollen joints\nPerifollicular hemorrhages\nBleeding into the skin - ecchymosis, purpura, petechiae\nPseudoparalysis\nMicrocytic anemia (due to decreased absorption of iron from the intestine)\nScorbutic rosary - sharp, tender beading at the costochondral junctions.\nMany of the deficiency symptoms can be attributed to deficient collagen synthesis caused due to an inability to hydroxylate the prolyl and lysyl residues of collagen."
     }
   ]
 }

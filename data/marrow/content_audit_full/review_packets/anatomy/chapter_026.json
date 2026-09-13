@@ -5,7 +5,7 @@
   "chapterId": "26",
   "chapter": "Vascular supply of Brain",
   "candidateQuestionCount": 16,
-  "questionOptionCandidateCount": 0,
+  "questionOptionCandidateCount": 4,
   "explanationCandidateCount": 16,
   "questions": [
     {
@@ -79,7 +79,24 @@
         }
       ],
       "correctOption": 3,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "A man presented with an excruciating headache and double vision. On examination, the following findings were observed. MRI revealed an aneurysm of the posterior communicating artery. The affected artery is a branch of:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -191,11 +208,19 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 7,
+              "text": "The arteries forming the circle of Willis are:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 8,
               "text": "+ Anterior communicating artery",
@@ -410,15 +435,40 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The chief artery of the superolateral surface of the cerebral hemisphere is:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 4,
+          "severity": 8,
           "reasons": [
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 8,
+              "text": "Lateral cerebral artery is not an artery. ae e.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 10,
               "text": "in s = 5 : Py. ~",
@@ -460,12 +510,20 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 6,
+          "severity": 10,
           "reasons": [
             "edge_noise",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
+            {
+              "line": 3,
+              "text": "The branches of the posterior cerebral artery are:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 4,
               "text": "+ Cortical branches",
@@ -613,13 +671,21 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 6,
+              "text": "forming the basilar artery. The branches of the cranial portion of the vertebral artery are:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 7,
               "text": "+ Meningeal branches - supplying dura of posterior cranial fossa",
@@ -761,7 +827,24 @@
         }
       ],
       "correctOption": 3,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The blood supply to the structure marked in the image is by:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -807,17 +890,42 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "A hypertensive man suffered a sudden, right brachiofacial paresis with dysarthria. CT showed a haemorrhage in the left basal ganglia and angiography revealed a Charcot-Bouchard aneurysm. The affected artery is a branch of:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 8,
+              "text": "TF in..",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 10,
               "text": "i \\ y 4 iy e .",
@@ -867,13 +975,21 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 3,
+              "text": "The posterior limb of internal capsule is supplied by:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 4,
               "text": "+ Charcot's artery (branch of middle cerebral artery)",

@@ -4,9 +4,9 @@
   "subject": "Anatomy",
   "chapterId": "6",
   "chapter": "Cardiovascular and Respiratory Systems",
-  "candidateQuestionCount": 1,
+  "candidateQuestionCount": 2,
   "questionOptionCandidateCount": 1,
-  "explanationCandidateCount": 0,
+  "explanationCandidateCount": 1,
   "questions": [
     {
       "id": "marrow__ANAT_CH06_Q012",
@@ -33,19 +33,65 @@
         }
       ],
       "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 7,
+              "text": "Endocardial cushions contribute to the formation of:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The structure marked is the membranous part of the interventricular septum. It is derived from endocardial cushions.\n\nEndocardial cushions are soft tissue masses that protrude in the atrioventricular and conotruncal regions.\n• Atrioventricular cushions are derived from overlying endocardial cells.\n• The conotruncal cushions are derived from the neural crest cells.\n\nEndocardial cushions contribute to the formation of:\n• Atrial septa\n• Ventricular septa (membranous portion)\n• Atrioventricular canals\n• Atrioventricular valves\n• Aortic and pulmonary channels\n\nDefects in endocardial cushion formation can result in cardiac malformations, including ASDs, VSDs, and defects involving the great vessels (transposition of the great vessels, common truncus arteriosus, and tetralogy of Fallot)."
+    },
+    {
+      "id": "marrow__ANAT_CH06_Q020",
+      "questionNumber": 20,
+      "sourcePage": 93,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "The false statement about fetal circulation is:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Anatomical closure of foramen ovale is by 3 to 5 days"
+        },
+        {
+          "letter": "B",
+          "text": "Anatomical closure of ductus venosus is by 3 to 7 days"
+        },
+        {
+          "letter": "C",
+          "text": "Right umbilical vein is absent"
+        },
+        {
+          "letter": "D",
+          "text": "Anatomical closure of ductus arteriosus is by 2 to 3 weeks"
+        }
+      ],
+      "correctOption": 1,
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "Marked structure is derived from the ______",
+              "text": "The false statement about fetal circulation is:",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

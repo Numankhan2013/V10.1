@@ -5,7 +5,7 @@
   "chapterId": "2",
   "chapter": "Cellular messengers & Receptors",
   "candidateQuestionCount": 15,
-  "questionOptionCandidateCount": 0,
+  "questionOptionCandidateCount": 1,
   "explanationCandidateCount": 15,
   "questions": [
     {
@@ -173,11 +173,19 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 4,
+              "text": "function. They are:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 5,
               "text": "+ Ligand-gated channels (Ionotropic receptors)",
@@ -317,15 +325,33 @@
         }
       ],
       "correctOption": 3,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "All the three subunits α, β, and γ should bind to each other for G proteins to act.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -351,6 +377,20 @@
               "reasons": [
                 "edge_noise",
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "G proteins have 3 subunits(?°B and m), Inuits resting state, ° subunit is bound to GDP.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 11,
+              "text": "Once the ligand is unbeiid, the intrinsic GTPase activity of the ° subunit converts GTP to GDP.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -527,11 +567,19 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 3,
+              "text": "Janus tyrosine kinase receptors (JAK-STAT) serves as receptors for:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 5,
               "text": "* Growth hormone",
@@ -666,11 +714,19 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 4,
+              "text": "Cytoplasmic Ca2+ is increased by: oO.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 5,
               "text": "+ Direct entry of Ca2+ from the ECF through Ca2+ channels that could be ligand-gated,",
@@ -915,11 +971,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -964,6 +1021,13 @@
               "text": "* i",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 13,
+              "text": "tyrosine kinase activity of ber-abl protein and is an effective treatment option for CML.",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -1056,11 +1120,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1097,6 +1162,13 @@
               "text": "Nuclear Localization oo (NLS). \\",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "¢ 2 subunits, impagyn and importin B.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {

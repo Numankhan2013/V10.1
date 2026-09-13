@@ -3,94 +3,90 @@
   "subject": "Anatomy",
   "chapterId": "50",
   "chapter": "Hepatobiliary system, Spleen & Pancreas",
-  "candidateQuestionCount": 1,
+  "candidateQuestionCount": 2,
   "questions": [
     {
-      "id": "marrow__ANAT_CH50_Q004",
-      "questionNumber": 4,
-      "sourcePage": 914,
+      "id": "marrow__ANAT_CH50_Q011",
+      "questionNumber": 11,
+      "sourcePage": 917,
       "reviewStatus": "pass",
-      "question": "The CT abdomen of a patient shows a large abscess in the right part of the liver. Which of the following Couinaud's segments are involved here?",
+      "question": "You are a surgery resident assisting in an open cholecystectomy procedure. The senior resident asks you to ligate the structure marked in the image. Which of the following structures is it a branch of?",
       "options": [
         {
           "letter": "A",
-          "text": "V, VI, VII, VIII"
+          "text": "Proper hepatic artery"
         },
         {
           "letter": "B",
-          "text": "V, VI, VII"
+          "text": "Right hepatic artery"
         },
         {
           "letter": "C",
-          "text": "IV, V, VI, VII, VIII"
+          "text": "Superior mesenteric artery"
         },
         {
           "letter": "D",
-          "text": "VI, VII, VIII"
+          "text": "Common hepatic artery"
         }
       ],
-      "correctOption": 1,
+      "correctOption": 2,
       "flags": [
         {
-          "field": "option_A",
-          "severity": 5,
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "V, VI, VII, VIII",
+              "text": "You are a surgery resident assisting in an open cholecystectomy procedure. The senior resident asks you to ligate the structure marked in the image. Which of the following structures is it a branch of?",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH50_Q016",
+      "questionNumber": 16,
+      "sourcePage": 919,
+      "reviewStatus": "pass",
+      "question": "A patient with hereditary spherocytosis is set to undergo a splenectomy. During the procedure, which of the following sites is the splenic artery ligated at?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Gastrosplenic ligament"
         },
         {
-          "field": "option_B",
-          "severity": 5,
+          "letter": "B",
+          "text": "Splenocolic ligament"
+        },
+        {
+          "letter": "C",
+          "text": "Splenorenal ligament"
+        },
+        {
+          "letter": "D",
+          "text": "Phrenicosplenic ligament"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "V, VI, VII",
+              "text": "A patient with hereditary spherocytosis is set to undergo a splenectomy. During the procedure, which of the following sites is the splenic artery ligated at?",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "IV, V, VI, VII, VIII",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "VI, VII, VIII",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

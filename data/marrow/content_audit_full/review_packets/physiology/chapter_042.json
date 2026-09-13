@@ -4,10 +4,102 @@
   "subject": "Physiology",
   "chapterId": "42",
   "chapter": "Female Reproductive Physiology",
-  "candidateQuestionCount": 5,
-  "questionOptionCandidateCount": 4,
-  "explanationCandidateCount": 1,
+  "candidateQuestionCount": 10,
+  "questionOptionCandidateCount": 2,
+  "explanationCandidateCount": 10,
   "questions": [
+    {
+      "id": "marrow__PHYSIO_CH42_Q001",
+      "questionNumber": 1,
+      "sourcePage": 783,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "Which of the following hormones is not secreted by the ovary?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Gonadotrophins"
+        },
+        {
+          "letter": "B",
+          "text": "Progesterone"
+        },
+        {
+          "letter": "C",
+          "text": "Estrogen"
+        },
+        {
+          "letter": "D",
+          "text": "Inhibin B"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 5,
+              "text": "Ovaries secrete estrogen, progesterone, and inhibin B.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Gonadotropins (FSH, LH) are not secreted by the ovary. They are secreted by the anterior\n\npituitary.\n\nOvaries secrete estrogen, progesterone, and inhibin B."
+    },
+    {
+      "id": "marrow__PHYSIO_CH42_Q002",
+      "questionNumber": 2,
+      "sourcePage": 783,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "A 30-year-old lady has regular, infrequent menstrual cycles occurring at an interval of 35-36 days. What is the usual timing of ovulation in this lady?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "14 days before menstruation"
+        },
+        {
+          "letter": "B",
+          "text": "Just before LH surge"
+        },
+        {
+          "letter": "C",
+          "text": "Just after corpus luteal maturation"
+        },
+        {
+          "letter": "D",
+          "text": "22 days before menstruation"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 5,
+              "text": "ovulation occurs on day 14 and in a 35-day cycle, ovulation will occur on day 22.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Ovulation occurs 14 days before menses, regardless of cycle length.\n\nIf we calculate the day of menstruation from the beginning of the cycle, in a 28-day cycle,\n\novulation occurs on day 14 and in a 35-day cycle, ovulation will occur on day 22.\n\nOption B: LH surge leads to ovulation. Ovulation does not occur before LH surge.\nOption C: The ruptured ovarian follicle (after ovulation) is converted into corpus luteum.\nOvulation does not occur after corpus luteal maturation.\nOption D: Ovulation will occur 14 days before menstruation, i.e. on day 22 of a 35-day cycle. It\ndoes not occur 22 days before menstruation."
+    },
     {
       "id": "marrow__PHYSIO_CH42_Q003",
       "questionNumber": 3,
@@ -55,11 +147,11 @@
       "explanation": "The human corpus luteum starts regressing ~10 days after ovulation.\n\nOvulation occurs on day 14, and the day corpus luteum begins to regress on day 25 of the menstrual cycle.\n\nTherefore,\nDays after ovulation when corpus luteum starts regressing = 25 - 14 = 11 days.\n\nThe human corpus luteum is programmed to live for 14 days, plus or minus 2 days (corpus luteum of menstruation)."
     },
     {
-      "id": "marrow__PHYSIO_CH42_Q010",
-      "questionNumber": 10,
-      "sourcePage": 785,
+      "id": "marrow__PHYSIO_CH42_Q005",
+      "questionNumber": 5,
+      "sourcePage": 784,
       "reviewStatus": "pass_with_normalization_note",
-      "question": "Corpus luteum of pregnancy is maintained by ______",
+      "question": "Which of the following is the dominant hormone in the luteal phase?",
       "options": [
         {
           "letter": "A",
@@ -71,172 +163,358 @@
         },
         {
           "letter": "C",
+          "text": "Prolactin"
+        },
+        {
+          "letter": "D",
           "text": "Oxytocin"
-        },
-        {
-          "letter": "D",
-          "text": "HCG"
-        }
-      ],
-      "correctOption": 4,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Corpus luteum of pregnancy is maintained by ______",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanationFlags": [],
-      "explanation": null
-    },
-    {
-      "id": "marrow__PHYSIO_CH42_Q011",
-      "questionNumber": 11,
-      "sourcePage": 785,
-      "reviewStatus": "pass_with_normalization_note",
-      "question": "FSH receptor is present in ______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Theca cells"
-        },
-        {
-          "letter": "B",
-          "text": "Granulosa cells"
-        },
-        {
-          "letter": "C",
-          "text": "Leydig cells"
-        },
-        {
-          "letter": "D",
-          "text": "Basement membrane of follicle"
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [
+      "questionOptionFlags": [],
+      "explanationFlags": [
         {
-          "field": "question",
-          "severity": 5,
+          "field": "explanation",
+          "severity": 4,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "FSH receptor is present in ______",
+              "line": 12,
+              "text": "• Progesterone levels are low.",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 15,
+              "text": "• Occurs 14 days before menses, regardless of cycle length. Thus, in a 28-day cycle, ovulation occurs on day 14; in a 35-day cycle, ovulation occurs on day 22.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 22,
+              "text": "• The corpus luteum begins to develop, and it synthesizes estrogen and progesterone. Vascularity and secretory activity of the endometrium increase to prepare for receipt of a fertilized egg.",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanation": "• Progesterone is the dominant hormone during the luteal phase.\n• The corpus luteum in the non-pregnant woman secretes large quantities of progesterone and a small amount of estrogen, as well as inhibin.\n• In terms of ovarian function, the menstrual cycle may be divided into two phases approximately equal in length and separated by ovulation.\n• The follicular phase, during which a mature follicle and secondary oocyte develop; and\n• The luteal phase begins after ovulation and lasts until the death of the corpus luteum.\n\nFollicular phase (days 0–14)\n• A primordial follicle develops to the Graafian stage, with atresia of neighboring follicles.\n• LH and FSH receptors are up-regulated in theca and granulosa cells.\n• Estradiol levels increase and cause proliferation of the uterus.\n• FSH and LH levels are suppressed by the negative feedback effect of estradiol on the anterior pituitary.\n• Progesterone levels are low.\n\nOvulation (day 14)\n• Occurs 14 days before menses, regardless of cycle length. Thus, in a 28-day cycle, ovulation occurs on day 14; in a 35-day cycle, ovulation occurs on day 22.\n• A burst of estradiol synthesis at the end of the follicular phase has a positive feedback effect on the secretion of FSH and LH (LH surge).\n• Ovulation occurs as a result of the estrogen-induced LH surge.\n• Estrogen levels decrease just after ovulation (but rise again during the luteal phase).\n• Cervical mucus increases in quantity; it becomes less viscous and more penetrable by sperm.\n\nLuteal phase (days 14–28)\n• The corpus luteum begins to develop, and it synthesizes estrogen and progesterone. Vascularity and secretory activity of the endometrium increase to prepare for receipt of a fertilized egg.\n• Basal body temperature increases because of the effect of progesterone on the hypothalamic thermoregulatory center.\n• If fertilization does not occur, the corpus luteum regresses at the end of the luteal phase. As a result, estradiol and progesterone levels decrease abruptly.\n\nMenses (days 0–4)\n• The endometrium is sloughed because of the abrupt withdrawal of estradiol and progesterone."
     },
     {
-      "id": "marrow__PHYSIO_CH42_Q014",
-      "questionNumber": 14,
-      "sourcePage": 786,
+      "id": "marrow__PHYSIO_CH42_Q006",
+      "questionNumber": 6,
+      "sourcePage": 784,
       "reviewStatus": "pass_with_normalization_note",
-      "question": "Secretion of estrogen is maximum ______",
+      "question": "Which of the following hormones is responsible for the maintenance of endometrial thickness in the post-ovulatory phase?",
       "options": [
         {
           "letter": "A",
-          "text": "Just before menopause"
+          "text": "Estrogen"
         },
         {
           "letter": "B",
-          "text": "At puberty"
+          "text": "Progesterone"
         },
         {
           "letter": "C",
-          "text": "At menstruation"
+          "text": "LH"
         },
         {
           "letter": "D",
-          "text": "Before ovulation"
+          "text": "FSH"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 10,
+              "text": "• When the menstrual flow ceases, a thin endometrial layer less than 1-mm thick remains. Estrogen stimulates proliferation of epithelial cells, glands, and blood vessels in the endometrium, increasing this lining to a thickness of 3 to 5 mm.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Progesterone is mainly responsible for the maintenance of endometrial thickness in the post-ovulatory phase.\n\nThe menstrual cycle consists of three phases: the menstrual phase, the proliferative phase, and the secretory, or progestational, phase.\n\nMenstrual phase: This phase is characterized by the discharge of blood and endometrial debris from the vagina.\n• It coincides with the end of the ovarian luteal phase and onset of a new follicular phase.\n• Withdrawal of progesterone on the degeneration of the corpus luteum (CL) leads simultaneously to sloughing of the endometrium (menstruation) and development of new follicles in the ovary under the influence of rising gonadotropic hormone levels.\n\nProliferative Phase: Thus, menstrual flow ceases, and the proliferative phase of the uterine cycle begins concurrently with the last portion of the ovarian follicular phase.\n• When the menstrual flow ceases, a thin endometrial layer less than 1-mm thick remains. Estrogen stimulates proliferation of epithelial cells, glands, and blood vessels in the endometrium, increasing this lining to a thickness of 3 to 5 mm.\n• The estrogen-dominant proliferative phase lasts from the end of menstruation to ovulation. Peak estrogen levels trigger the luteinizing hormone (LH) surge responsible for ovulation.\n\nSecretory or Progestational Phase: After ovulation, when a new corpus luteum is formed, the uterus enters the secretory, or progestational, phase, which coincides in time with the ovarian luteal phase. The corpus luteum secretes large amounts of progesterone and estrogen. Progesterone converts the thickened, estrogen-primed endometrium to a richly vascularized, glycogen-filled tissue.\n• This period is called either the secretory phase, because the endometrial glands are actively secreting glycogen into the uterine lumen for early nourishment of a developing embryo before it implants, or the progestational (“before pregnancy”) phase, referring to the development of a lush endometrial lining capable of supporting an early embryo after implantation.\n• If fertilization and implantation do not occur, the corpus luteum degenerates and a new follicular phase and menstrual phase begin again."
+    },
+    {
+      "id": "marrow__PHYSIO_CH42_Q007",
+      "questionNumber": 7,
+      "sourcePage": 784,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "A couple is planning to conceive by artificial intrauterine insemination (IUI). In order to ensure optimal timing for intrauterine transfer of husband sperm, the wife is advised to use a home-based ovulation predictor kit. Detecting which of the following hormones in urine is the purpose of this kit?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Estrogen"
+        },
+        {
+          "letter": "B",
+          "text": "Prolactin"
+        },
+        {
+          "letter": "C",
+          "text": "hCG"
+        },
+        {
+          "letter": "D",
+          "text": "LH"
         }
       ],
       "correctOption": 4,
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "Secretion of estrogen is maximum ______",
+              "text": "A couple is planning to conceive by artificial intrauterine insemination (IUI). In order to ensure optimal timing for intrauterine transfer of husband sperm, the wife is advised to use a home-based ovulation predictor kit. Detecting which of the following hormones in urine is the purpose of this kit?",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Detection of an increased LH level in urine will be performed by this ovulation predictor kit.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Detection of an increased LH level in urine will be performed by this ovulation predictor kit.\n\nThe most important physiological marker of imminent ovulation is luteinizing hormone (LH) surge, which is characterized by an increased level of LH in serum and urine. A peak level of 75 ng/mL of LH in serum is required for ovulation. LH surge occurs 24–36 hours before ovulation. LH peak lasts 24 hours.\n\nLH surge causes the following:\n• Completion of meiosis of ovum\n• Ovulation\n• Development of corpus luteum"
     },
     {
-      "id": "marrow__PHYSIO_CH42_Q017",
-      "questionNumber": 17,
-      "sourcePage": 787,
+      "id": "marrow__PHYSIO_CH42_Q013",
+      "questionNumber": 13,
+      "sourcePage": 786,
       "reviewStatus": "pass_with_normalization_note",
-      "question": "Inhibin B is secreted by ______",
+      "question": "A blood sample is drawn on day 20 of the menstrual cycle of a young woman undergoing evaluation for irregular menstruation. Serum level of which of the following hormones help in assessing whether her cycle was ovulatory or not?",
       "options": [
         {
           "letter": "A",
-          "text": "Ovarian follicle"
+          "text": "FSH"
         },
         {
           "letter": "B",
-          "text": "Stroma"
+          "text": "LH"
         },
         {
           "letter": "C",
-          "text": "Surface epithelium of ovary"
+          "text": "Estradiol"
         },
         {
           "letter": "D",
-          "text": "Corpus luteum"
+          "text": "Progesterone"
         }
       ],
-      "correctOption": 1,
+      "correctOption": 4,
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "Inhibin B is secreted by ______",
+              "text": "A blood sample is drawn on day 20 of the menstrual cycle of a young woman undergoing evaluation for irregular menstruation. Serum level of which of the following hormones help in assessing whether her cycle was ovulatory or not?",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "Day 20 usually corresponds to the luteal phase of the menstrual cycle. In case of anovulatory cycles, no corpus luteum will be formed and so progesterone levels will be low. Hence progesterone levels are valuable to predict if the cycles were ovulatory or not.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Whether her cycle was ovulatory or not can be validly assessed by the reported serum level of progesterone.\n\nDay 20 usually corresponds to the luteal phase of the menstrual cycle. In case of anovulatory cycles, no corpus luteum will be formed and so progesterone levels will be low. Hence progesterone levels are valuable to predict if the cycles were ovulatory or not."
+    },
+    {
+      "id": "marrow__PHYSIO_CH42_Q015",
+      "questionNumber": 15,
+      "sourcePage": 786,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "Which of the following hormones inhibit FSH and LH secretion in the luteal phase?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Growth hormone"
+        },
+        {
+          "letter": "B",
+          "text": "GnRH"
+        },
+        {
+          "letter": "C",
+          "text": "Estrogen"
+        },
+        {
+          "letter": "D",
+          "text": "Insulin like growth factor"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 6,
+              "text": "Preovulatory period: The high level of estrogens at this time (or the beginning of progesterone secretion by the follicles) causes a positive feedback stimulatory effect on the anterior pituitary leading to a surge of LH and to a lesser extent, FSH.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Estrogen inhibits FSH and LH secretion in the luteal phase.\n\nFeedback regulation of the hypothalamic-pituitary-ovarian axis\nLuteal phase: the corpus luteum secretes large quantities of progesterone and estrogen. They exert a negative feedback effect on the anterior pituitary gland causing the suppression of both FSH and LH secretion.\n\nPreovulatory period: The high level of estrogens at this time (or the beginning of progesterone secretion by the follicles) causes a positive feedback stimulatory effect on the anterior pituitary leading to a surge of LH and to a lesser extent, FSH.\n\nFollicular phase: secretion of estrogen and progesterone from the corpus luteum decreases, which leads to loss of negative feedback effect of these hormones on the anterior pituitary. Therefore, pituitary secretion of FSH begins to increase again, as much as twofold. LH secretion increases slightly as well.\n\nGnRH stimulates FSH and LH secretion. Growth hormone and IGF may cause an increase in FSH and LH levels."
+    },
+    {
+      "id": "marrow__PHYSIO_CH42_Q021",
+      "questionNumber": 21,
+      "sourcePage": 788,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "Regarding the action of progesterone which of the following is true?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Increases sensitivity of uterus to oxytocin"
+        },
+        {
+          "letter": "B",
+          "text": "Inhibits LH secretion"
+        },
+        {
+          "letter": "C",
+          "text": "Decrease in body temperature"
+        },
+        {
+          "letter": "D",
+          "text": "Causes marked proliferative changes in uterus"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 10,
+              "text": "• It stimulates respiration, and the alveolar PCO₂ in women during the luteal phase of the menstrual cycle is lower than that in men.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Progesterone inhibits LH secretion.\n\nActions of progesterone:\n• Has negative feedback effects on FSH and LH secretion during the luteal phase.\n• Maintains secretory activity of the uterus during the luteal phase.\n• Maintains pregnancy.\n• Raises the uterine threshold to contractile stimuli during pregnancy, i.e. decreases sensitivity of the uterus to oxytocin.\n• Participates in the development of the breasts.\n• Increases body temperature.\n• It stimulates respiration, and the alveolar PCO₂ in women during the luteal phase of the menstrual cycle is lower than that in men.\n• Large doses of progesterone produce natriuresis, probably by blocking the action of aldosterone on the kidney."
+    },
+    {
+      "id": "marrow__PHYSIO_CH42_Q026",
+      "questionNumber": 26,
+      "sourcePage": 789,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "β HCG is secreted by which of the following organs?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ovary"
+        },
+        {
+          "letter": "B",
+          "text": "Pituitary"
+        },
+        {
+          "letter": "C",
+          "text": "Corpus luteum"
+        },
+        {
+          "letter": "D",
+          "text": "Placenta"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 7,
+              "text": "• hCG-α is identical to the α subunit of LH, FSH, and TSH.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "β HCG (human chorionic gonadotropin) is secreted by the syncytiotrophoblast of the placenta.\n\nSome important features of βHCG:\n• hCG is a glycoprotein that contains galactose and hexosamine.\n• It is produced by the syncytiotrophoblast of the placenta.\n• It is made up of α and β subunits.\n• hCG-α is identical to the α subunit of LH, FSH, and TSH.\n• hCG is primarily luteinizing and luteotropic and has little FSH activity.\n• Its presence in early pregnancy in urine is the basis of the various laboratory tests for pregnancy, and it can sometimes be detected in the urine as early as 14 days after conception."
     }
   ]
 }

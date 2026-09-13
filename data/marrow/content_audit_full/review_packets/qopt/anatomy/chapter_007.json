@@ -6,43 +6,43 @@
   "candidateQuestionCount": 1,
   "questions": [
     {
-      "id": "marrow__ANAT_CH07_Q021",
-      "questionNumber": 21,
-      "sourcePage": 117,
+      "id": "marrow__ANAT_CH07_Q005",
+      "questionNumber": 5,
+      "sourcePage": 112,
       "reviewStatus": "pass",
-      "question": "The rectum develops from ______",
+      "question": "Which of the following structures give rise to the cecal bud?",
       "options": [
         {
           "letter": "A",
-          "text": "Hindgut"
+          "text": "Pre-arterial segment of midgut loop"
         },
         {
           "letter": "B",
-          "text": "Cloaca"
+          "text": "Post-arterial segment of midgut loop"
         },
         {
           "letter": "C",
-          "text": "Both a and b"
+          "text": "Pre-arterial segment of hindgut loop"
         },
         {
           "letter": "D",
-          "text": "None of the above"
+          "text": "Post-arterial segment of hindgut loop"
         }
       ],
-      "correctOption": 3,
+      "correctOption": 2,
       "flags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "The rectum develops from ______",
+              "text": "Which of the following structures give rise to the cecal bud?",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

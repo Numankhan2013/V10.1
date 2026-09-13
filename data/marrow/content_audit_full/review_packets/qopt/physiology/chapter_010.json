@@ -76,45 +76,9 @@
       "correctOption": 1,
       "flags": [
         {
-          "field": "question",
-          "severity": 13,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "many_linebreaks",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Ow ‘ Ray 4",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 3,
-              "text": "=~ =) es",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char",
-                "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "wk <6 <",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_A",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -147,15 +111,31 @@
           ]
         },
         {
-          "field": "option_B",
-          "severity": 5,
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
-              "line": 2,
-              "text": "Rg >X",
+              "line": 1,
+              "text": "Ow ‘ Ray 4",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "=~ =) es",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 5,
+              "text": "wk <6 <",
               "reasons": [
                 "edge_noise"
               ]
@@ -192,11 +172,9 @@
       "flags": [
         {
           "field": "question",
-          "severity": 12,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -290,13 +268,54 @@
       "correctOption": 4,
       "flags": [
         {
-          "field": "question",
-          "severity": 15,
+          "field": "option_D",
+          "severity": 13,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "punctuation_run",
-            "symbol_dense_line"
+            "literal_backslash",
+            "short_ocr_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Corticostriatal pathway 2” ~\\<",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "; ge Ua",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_A",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "‘ ‘ {e) rey oO”",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -320,52 +339,6 @@
               "text": "Which of these is not a dopaminergic pathway? > ~",
               "reasons": [
                 "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_A",
-          "severity": 12,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "‘ ‘ {e) rey oO”",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char",
-                "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 12,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "literal_backslash"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Corticostriatal pathway 2” ~\\<",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "; ge Ua",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -400,11 +373,11 @@
       "flags": [
         {
           "field": "question",
-          "severity": 12,
+          "severity": 13,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -466,38 +439,6 @@
               ]
             }
           ]
-        },
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Opening of calcium channels at the presynaptic membrane ><",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "se < 4",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
         }
       ]
     },
@@ -528,36 +469,6 @@
       "correctOption": 3,
       "flags": [
         {
-          "field": "question",
-          "severity": 18,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "literal_backslash",
-            "many_isolated_letters",
-            "many_linebreaks",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "~ a O° c\\Y",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char",
-                "many_isolated_letters"
-              ]
-            },
-            {
-              "line": 3,
-              "text": "», «* ef",
-              "reasons": [
-                "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_C",
           "severity": 9,
           "reasons": [
@@ -587,6 +498,48 @@
               "text": "Adrenaline \\",
               "reasons": [
                 "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "~ a O° c\\Y",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "many_isolated_letters"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "», «* ef",
+              "reasons": [
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Acetylcholine 4. PS",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -621,12 +574,10 @@
       "flags": [
         {
           "field": "option_C",
-          "severity": 13,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "many_linebreaks",
-            "symbol_dense_line"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -691,24 +642,6 @@
       "correctOption": 3,
       "flags": [
         {
-          "field": "option_A",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Globus pallidus interna ow =~",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_D",
           "severity": 9,
           "reasons": [
@@ -726,10 +659,26 @@
           ]
         },
         {
-          "field": "question",
-          "severity": 9,
+          "field": "option_A",
+          "severity": 6,
           "reasons": [
-            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Globus pallidus interna ow =~",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -779,30 +728,11 @@
       "correctOption": 3,
       "flags": [
         {
-          "field": "option_D",
-          "severity": 12,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "literal_backslash"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "KS \\o~",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "question",
-          "severity": 9,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -817,6 +747,24 @@
               "text": "> Ne 4k",
               "reasons": [
                 "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "KS \\o~",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
               ]
             }
           ]

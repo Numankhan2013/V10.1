@@ -3,102 +3,90 @@
   "subject": "Anatomy",
   "chapterId": "14",
   "chapter": "Cardiovascular, Lymphatic and Respiratory Systems",
-  "candidateQuestionCount": 1,
+  "candidateQuestionCount": 2,
   "questions": [
     {
-      "id": "marrow__ANAT_CH14_Q004",
-      "questionNumber": 4,
-      "sourcePage": 247,
+      "id": "marrow__ANAT_CH14_Q007",
+      "questionNumber": 7,
+      "sourcePage": 248,
       "reviewStatus": "pass",
-      "question": "Match the following marked structures to the correct areas of the lymph node.",
+      "question": "Given below is an image of a section of the small intestine. Identify the structure marked X.",
       "options": [
         {
           "letter": "A",
-          "text": "1-E, 2-A, 3-D, 4-C, 5-B"
+          "text": "Thymus"
         },
         {
           "letter": "B",
-          "text": "1-A, 2-D, 3-B, 4-C, 5-E"
+          "text": "Spleen"
         },
         {
           "letter": "C",
-          "text": "1-E, 2-D, 3-A, 4-B, 5-C"
+          "text": "MALT"
         },
         {
           "letter": "D",
-          "text": "1-A, 2-E, 3-B, 4-D, 5-C"
+          "text": "Lymph node"
         }
       ],
       "correctOption": 3,
       "flags": [
         {
-          "field": "option_A",
-          "severity": 7,
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "many_isolated_letters",
-            "symbol_dense_line"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "1-E, 2-A, 3-D, 4-C, 5-B",
+              "text": "Given below is an image of a section of the small intestine. Identify the structure marked X.",
               "reasons": [
-                "many_isolated_letters",
-                "symbol_dense_line"
+                "ocr_suffix"
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH14_Q010",
+      "questionNumber": 10,
+      "sourcePage": 250,
+      "reviewStatus": "pass",
+      "question": "Given below is a histological section of lung. Identify the structure marked X.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Alveolus"
         },
         {
-          "field": "option_B",
-          "severity": 7,
+          "letter": "B",
+          "text": "Alveolar duct"
+        },
+        {
+          "letter": "C",
+          "text": "Respiratory bronchiole"
+        },
+        {
+          "letter": "D",
+          "text": "Terminal bronchiole"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "many_isolated_letters",
-            "symbol_dense_line"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "1-A, 2-D, 3-B, 4-C, 5-E",
+              "text": "Given below is a histological section of lung. Identify the structure marked X.",
               "reasons": [
-                "many_isolated_letters",
-                "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 7,
-          "reasons": [
-            "many_isolated_letters",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "1-E, 2-D, 3-A, 4-B, 5-C",
-              "reasons": [
-                "many_isolated_letters",
-                "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 7,
-          "reasons": [
-            "many_isolated_letters",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "1-A, 2-E, 3-B, 4-D, 5-C",
-              "reasons": [
-                "many_isolated_letters",
-                "symbol_dense_line"
+                "ocr_suffix"
               ]
             }
           ]

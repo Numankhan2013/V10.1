@@ -5,141 +5,93 @@
   "chapterId": "46",
   "chapter": "Lungs and Pleura",
   "candidateQuestionCount": 2,
-  "questionOptionCandidateCount": 2,
-  "explanationCandidateCount": 0,
+  "questionOptionCandidateCount": 1,
+  "explanationCandidateCount": 1,
   "questions": [
     {
-      "id": "marrow__ANAT_CH46_Q006",
-      "questionNumber": 6,
-      "sourcePage": 847,
+      "id": "marrow__ANAT_CH46_Q005",
+      "questionNumber": 5,
+      "sourcePage": 846,
       "reviewStatus": "pass",
-      "question": "Left bronchus crosses esophagus at ________",
+      "question": "At which vertebral level does the trachea bifurcate?",
       "options": [
         {
           "letter": "A",
-          "text": "23 cm from upper incisor"
+          "text": "T7"
         },
         {
           "letter": "B",
-          "text": "15 cm from upper incisor"
+          "text": "T6"
         },
         {
           "letter": "C",
-          "text": "23 cm from lower incisor"
+          "text": "T5"
         },
         {
           "letter": "D",
-          "text": "28 cm from upper incisor"
+          "text": "T4"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 5,
+              "text": "Note: Although Gray's Anatomy 41st Ed states that the tracheal bifurcation is at T6, we choose to stick with T4 as multiple other textbooks give the answer as T4.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The trachea bifurcates at the lower border of T4 vertebra.\n\nThe trachea is 10 - 12 cm long and has 2 parts: Upper cervical; Thoracic (in superior mediastinum).\n\nNote: Although Gray's Anatomy 41st Ed states that the tracheal bifurcation is at T6, we choose to stick with T4 as multiple other textbooks give the answer as T4."
+    },
+    {
+      "id": "marrow__ANAT_CH46_Q010",
+      "questionNumber": 10,
+      "sourcePage": 848,
+      "reviewStatus": "pass",
+      "question": "What does the pleural cupola refer to?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Costal part of parietal pleura"
+        },
+        {
+          "letter": "B",
+          "text": "Mediastinal part of parietal pleura"
+        },
+        {
+          "letter": "C",
+          "text": "Visceral pleura forming pulmonary septa"
+        },
+        {
+          "letter": "D",
+          "text": "Cervical part of parietal pleura"
         }
       ],
       "correctOption": 4,
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "Left bronchus crosses esophagus at ________",
+              "text": "What does the pleural cupola refer to?",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanationFlags": [],
-      "explanation": null
-    },
-    {
-      "id": "marrow__ANAT_CH46_Q018",
-      "questionNumber": 18,
-      "sourcePage": 850,
-      "reviewStatus": "pass",
-      "question": "How many bronchopulmonary segments are there in the right and left lungs, respectively?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "9, 11"
-        },
-        {
-          "letter": "B",
-          "text": "11, 9"
-        },
-        {
-          "letter": "C",
-          "text": "10, 10"
-        },
-        {
-          "letter": "D",
-          "text": "11, 10"
-        }
-      ],
-      "correctOption": 3,
-      "questionOptionFlags": [
-        {
-          "field": "option_A",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "9, 11",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "11, 9",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "10, 10",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "11, 10",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

@@ -4,10 +4,102 @@
   "subject": "Anatomy",
   "chapterId": "28",
   "chapter": "Osteology, Scalp and Face",
-  "candidateQuestionCount": 1,
+  "candidateQuestionCount": 3,
   "questionOptionCandidateCount": 1,
-  "explanationCandidateCount": 0,
+  "explanationCandidateCount": 2,
   "questions": [
+    {
+      "id": "marrow__ANAT_CH28_Q006",
+      "questionNumber": 6,
+      "sourcePage": 473,
+      "reviewStatus": "pass",
+      "question": "Identify the foramen marked in the image below.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Foramen rotundum"
+        },
+        {
+          "letter": "B",
+          "text": "Foramen ovale"
+        },
+        {
+          "letter": "C",
+          "text": "Vidian canal"
+        },
+        {
+          "letter": "D",
+          "text": "Foramen spinosum"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The image shows the sphenoid bone. The foramen marked is the foramen rotundum. The maxillary branch of the trigeminal nerve passes through it.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The image shows the sphenoid bone. The foramen marked is the foramen rotundum. The maxillary branch of the trigeminal nerve passes through it."
+    },
+    {
+      "id": "marrow__ANAT_CH28_Q007",
+      "questionNumber": 7,
+      "sourcePage": 473,
+      "reviewStatus": "pass",
+      "question": "A patient presenting with right-sided shoulder droop and an absent gag reflex was diagnosed with Vernet's syndrome. Which of the following structures passes through the posterior part of the involved foramen?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Spinal accessory nerve"
+        },
+        {
+          "letter": "B",
+          "text": "Sigmoid sinus"
+        },
+        {
+          "letter": "C",
+          "text": "Inferior petrosal sinus"
+        },
+        {
+          "letter": "D",
+          "text": "Vagus nerve"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Vernet's syndrome or jugular foramen syndrome refers to palsies of the IX, X and XI cranial nerves traversing the jugular foramen. The sigmoid sinus passes through the posterior aspect of the jugular foramen. The jugular foramen can be divided into three compartments: anterior - inferior petrosal sinus; intermediate - CN IX, X and XI; posterior - sigmoid sinus continuing as the internal jugular vein. Arteries passing through include the meningeal branch of the ascending pharyngeal artery and the meningeal branch of the occipital artery; emissary veins may also traverse it.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Vernet's syndrome or jugular foramen syndrome refers to palsies of the IX, X and XI cranial nerves traversing the jugular foramen. The sigmoid sinus passes through the posterior aspect of the jugular foramen. The jugular foramen can be divided into three compartments: anterior - inferior petrosal sinus; intermediate - CN IX, X and XI; posterior - sigmoid sinus continuing as the internal jugular vein. Arteries passing through include the meningeal branch of the ascending pharyngeal artery and the meningeal branch of the occipital artery; emissary veins may also traverse it."
+    },
     {
       "id": "marrow__ANAT_CH28_Q023",
       "questionNumber": 23,
@@ -36,10 +128,9 @@
       "questionOptionFlags": [
         {
           "field": "option_A",
-          "severity": 7,
+          "severity": 6,
           "reasons": [
-            "many_isolated_letters",
-            "symbol_dense_line"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -47,6 +138,7 @@
               "text": "1:A; 2:E; 3:D; 4:B; 5:C",
               "reasons": [
                 "many_isolated_letters",
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }
@@ -54,10 +146,9 @@
         },
         {
           "field": "option_B",
-          "severity": 7,
+          "severity": 6,
           "reasons": [
-            "many_isolated_letters",
-            "symbol_dense_line"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -65,6 +156,7 @@
               "text": "1:C; 2:D; 3:E; 4:A; 5:B",
               "reasons": [
                 "many_isolated_letters",
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }
@@ -72,10 +164,9 @@
         },
         {
           "field": "option_C",
-          "severity": 7,
+          "severity": 6,
           "reasons": [
-            "many_isolated_letters",
-            "symbol_dense_line"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -83,6 +174,7 @@
               "text": "1:C; 2:E; 3:D; 4:B; 5:A",
               "reasons": [
                 "many_isolated_letters",
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }
@@ -90,10 +182,9 @@
         },
         {
           "field": "option_D",
-          "severity": 7,
+          "severity": 6,
           "reasons": [
-            "many_isolated_letters",
-            "symbol_dense_line"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -101,6 +192,7 @@
               "text": "1:A; 2:D; 3:C; 4:E; 5:B",
               "reasons": [
                 "many_isolated_letters",
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }

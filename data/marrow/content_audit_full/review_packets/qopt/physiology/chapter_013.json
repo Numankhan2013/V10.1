@@ -3,7 +3,7 @@
   "subject": "Physiology",
   "chapterId": "13",
   "chapter": "Special Senses",
-  "candidateQuestionCount": 6,
+  "candidateQuestionCount": 7,
   "questions": [
     {
       "id": "marrow__PHYS_CH13_Q001",
@@ -32,24 +32,6 @@
       "correctOption": 4,
       "flags": [
         {
-          "field": "option_D",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "o~ o",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_B",
           "severity": 6,
           "reasons": [
@@ -60,6 +42,23 @@
               "line": 2,
               "text": ") Outer plexiform layer ~ce*",
               "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "o~ o",
+              "reasons": [
+                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -94,32 +93,6 @@
       "correctOption": 2,
       "flags": [
         {
-          "field": "option_D",
-          "severity": 12,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "literal_backslash"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "NAD >? \\e",
-              "reasons": [
-                "hard_noise_char"
-              ]
-            },
-            {
-              "line": 2,
-              "text": "ae =~",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_A",
           "severity": 9,
           "reasons": [
@@ -137,92 +110,26 @@
           ]
         },
         {
-          "field": "question",
-          "severity": 6,
+          "field": "option_D",
+          "severity": 9,
           "reasons": [
-            "edge_noise",
-            "many_linebreaks"
+            "hard_noise_char",
+            "literal_backslash"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "eo < S",
+              "text": "NAD >? \\e",
               "reasons": [
-                "edge_noise"
+                "hard_noise_char"
               ]
             },
             {
-              "line": 5,
-              "text": ". im with Wee KC >",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
               "line": 2,
-              "text": "se >",
+              "text": "ae =~",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYS_CH13_Q006",
-      "questionNumber": 6,
-      "sourcePage": 242,
-      "reviewStatus": "pass",
-      "question": "© < we\nws A F Cea fe) >t\nWhich is the first-order neuron in the optig way? <",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Rods and cones re « ae Ss"
-        },
-        {
-          "letter": "B",
-          "text": "Ganglion cells Ney m4 LL\nCells in lateral geniculate bod xr co"
-        },
-        {
-          "letter": "C",
-          "text": "Cells in lateral geniculate-body ee _e"
-        },
-        {
-          "letter": "D",
-          "text": "Bipolar cells Con oO\na? a\na eo\nRS <°"
-        }
-      ],
-      "correctOption": 1,
-      "flags": [
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "a? a",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "RS <°",
-              "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "hard_noise_char"
               ]
             }
           ]
@@ -257,10 +164,9 @@
       "flags": [
         {
           "field": "option_A",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -274,32 +180,17 @@
           ]
         },
         {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "4.5.6 Re <<",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "symbol_dense_line"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 4,
               "text": "=) a? Ow",
               "reasons": [
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }
@@ -335,9 +226,8 @@
       "flags": [
         {
           "field": "option_A",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -354,9 +244,8 @@
         },
         {
           "field": "question",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -392,26 +281,47 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH13_Q017",
+      "questionNumber": 17,
+      "sourcePage": 245,
+      "reviewStatus": "pass",
+      "question": "Umami taste is evoked by.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Glucose"
         },
         {
-          "field": "option_D",
-          "severity": 5,
+          "letter": "B",
+          "text": "Quinine"
+        },
+        {
+          "letter": "C",
+          "text": "Glutamate"
+        },
+        {
+          "letter": "D",
+          "text": "Sodium chloride No\nx 2\nwe if"
+        }
+      ],
+      "correctOption": 3,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "Ventral Posterolateral nucleus 40> <<",
+              "text": "Umami taste is evoked by.",
               "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 3,
-              "text": "oe? =",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
@@ -445,10 +355,25 @@
       "correctOption": 2,
       "flags": [
         {
-          "field": "question",
-          "severity": 9,
+          "field": "option_C",
+          "severity": 6,
           "reasons": [
-            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Primary visual cortex. C~ es e",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -474,30 +399,50 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH13_Q020",
+      "questionNumber": 20,
+      "sourcePage": 245,
+      "reviewStatus": "pass",
+      "question": "Number of cones in the retina (millions) is,",
+      "options": [
+        {
+          "letter": "A",
+          "text": "3-6"
         },
         {
-          "field": "option_C",
+          "letter": "B",
+          "text": "5-12"
+        },
+        {
+          "letter": "C",
+          "text": "10-15"
+        },
+        {
+          "letter": "D",
+          "text": "20"
+        }
+      ],
+      "correctOption": 1,
+      "flags": [
+        {
+          "field": "question",
           "severity": 6,
           "reasons": [
-            "hard_noise_char"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "Primary visual cortex. C~ es e",
+              "text": "Number of cones in the retina (millions) is,",
               "reasons": [
-                "hard_noise_char"
+                "ocr_suffix"
               ]
             }
           ]
-        },
-        {
-          "field": "option_D",
-          "severity": 3,
-          "reasons": [
-            "many_linebreaks"
-          ],
-          "suspectLines": []
         }
       ]
     }

@@ -3,7 +3,7 @@
   "subject": "Physiology",
   "chapterId": "8",
   "chapter": "Muscle Physiology II",
-  "candidateQuestionCount": 8,
+  "candidateQuestionCount": 9,
   "questions": [
     {
       "id": "marrow__PHYS_CH08_Q002",
@@ -49,11 +49,42 @@
           ]
         },
         {
-          "field": "question",
-          "severity": 9,
+          "field": "option_A",
+          "severity": 6,
           "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Skeletal muscle ., Sa ‘C .{",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Smooth muscle Oo 9 y",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -70,22 +101,6 @@
               "reasons": [
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_A",
-          "severity": 6,
-          "reasons": [
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Skeletal muscle ., Sa ‘C .{",
-              "reasons": [
-                "hard_noise_char"
               ]
             }
           ]
@@ -120,11 +135,9 @@
       "flags": [
         {
           "field": "question",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "many_linebreaks",
-            "symbol_dense_line"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -174,14 +187,20 @@
       "flags": [
         {
           "field": "question",
-          "severity": 13,
+          "severity": 14,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "many_linebreaks",
-            "symbol_dense_line"
+            "ocr_suffix",
+            "short_ocr_line"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "ne oOo fe:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 3,
               "text": "“.\" te ‘",
@@ -293,13 +312,29 @@
       "correctOption": 3,
       "flags": [
         {
-          "field": "option_D",
-          "severity": 15,
+          "field": "option_B",
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "literal_backslash",
-            "symbol_dense_line"
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Myosin light chain kinase, ~ © ~\\*",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash"
           ],
           "suspectLines": [
             {
@@ -321,25 +356,42 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q010",
+      "questionNumber": 10,
+      "sourcePage": 162,
+      "reviewStatus": "pass",
+      "question": "‘\nA sustained contraction with little expenditure of energy is made possible by a latching\nmechanism in .",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Skeletal muscle"
         },
         {
-          "field": "option_B",
-          "severity": 12,
+          "letter": "B",
+          "text": "Smooth muscle"
+        },
+        {
+          "letter": "C",
+          "text": "Cardiac muscle"
+        },
+        {
+          "letter": "D",
+          "text": "All of the above"
+        }
+      ],
+      "correctOption": 2,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "literal_backslash"
+            "short_ocr_line"
           ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Myosin light chain kinase, ~ © ~\\*",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
+          "suspectLines": []
         }
       ]
     },
@@ -370,24 +422,6 @@
       "correctOption": 3,
       "flags": [
         {
-          "field": "option_D",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "1, 25 di hydroxy cholecalciferol ww i o~ i 4",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_C",
           "severity": 6,
           "reasons": [
@@ -398,6 +432,23 @@
               "line": 1,
               "text": "Inositol Triphosphate (IP3) ~ a ‘ .",
               "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "1, 25 di hydroxy cholecalciferol ww i o~ i 4",
+              "reasons": [
+                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -433,9 +484,9 @@
       "flags": [
         {
           "field": "option_D",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -483,35 +534,12 @@
       "correctOption": 2,
       "flags": [
         {
-          "field": "option_D",
-          "severity": 16,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "literal_backslash",
-            "many_linebreaks",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 4,
-              "text": "~O ¢ \\<",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char",
-                "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
           "field": "question",
           "severity": 13,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "many_linebreaks"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -541,10 +569,10 @@
         },
         {
           "field": "option_C",
-          "severity": 9,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -553,6 +581,25 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 9,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash"
+          ],
+          "suspectLines": [
+            {
+              "line": 4,
+              "text": "~O ¢ \\<",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
               ]
             }
           ]

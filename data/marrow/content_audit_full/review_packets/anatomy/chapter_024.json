@@ -4,8 +4,8 @@
   "subject": "Anatomy",
   "chapterId": "24",
   "chapter": "Brainstem",
-  "candidateQuestionCount": 11,
-  "questionOptionCandidateCount": 0,
+  "candidateQuestionCount": 12,
+  "questionOptionCandidateCount": 4,
   "explanationCandidateCount": 11,
   "questions": [
     {
@@ -289,7 +289,24 @@
         }
       ],
       "correctOption": 4,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Ventral tegmental decussation in the cerebral peduncle is due to:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -405,7 +422,24 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Fibres passing through the most medial part of crus-cerebri are:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -511,15 +545,33 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "A patient presented with weakness of the right side of the face with loss of pain and temperature. Pain and temperature sensation of the left leg is also lost. The lesion is most likely located at?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -618,7 +670,8 @@
               "line": 20,
               "text": "* Corticobulbar and corticospinal tract: Paralysis of face, arm, and leg,",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {
@@ -632,6 +685,52 @@
         }
       ],
       "explanation": "The above clinical scenario is suggestive of lateral pontine syndrome which occurs due to a lesion\nlocated at lateral pons. co xe es\nLateral pontine syndrome occurs aduesOthe involvement of the anterior inferior cerebellar artery.\n+ Ipsilateral manifestations include? RZ\n+ CN VII: Facial paralysis oO ?\n+ CNV: loss of pain axhvemperaturegBasation over the face.\n+ Vestibular nerye\\or nucleus: 6rizontal and vertical nystagmus, vertigo, nausea, vomiting,\noscillopsiag. \\ S)\n“auditory Merve of codlTAhe nucleus! Deafiess tianiti\n+ Middle cerebellar peduncle: Ataxia of limb and gait.\n+ Contralateral manifestations include:\n+ Spinothalamic tract: Loss of pain and temperature sensation over the body.\nMedial pontine syndrome occurs due to the involvement of the paramedian branch of the basilar\nartery.\n+ Ipsilateral manifestation\n+ CN VI: Diplopia(lateral rectus muscle paralysis - the affected eye looks downwards and inwards)\n+ Vestibular nucleus: Nystagmus.\n+ Middle cerebellar peduncle: Ataxia of limb and gait.\n+ Contralateral manifestation\n* Corticobulbar and corticospinal tract: Paralysis of face, arm, and leg,\n\n+ Medial lemniscus: loss of touch and proprioception from the body."
+    },
+    {
+      "id": "marrow__ANAT_CH24_Q009",
+      "questionNumber": 9,
+      "sourcePage": 406,
+      "reviewStatus": "pass",
+      "question": "An electrician experienced a 10,000 V shock through his body and suffered third-degree burns on his hands and scalp. Diffusion tensor imaging showed damage to the right medial lemniscus tract. This is formed by:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Anterior external arcuate fibres"
+        },
+        {
+          "letter": "B",
+          "text": "Internal arcuate fibres"
+        },
+        {
+          "letter": "C",
+          "text": "Posterior external arcuate fibres"
+        },
+        {
+          "letter": "D",
+          "text": "External arcuate fibres"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "An electrician experienced a 10,000 V shock through his body and suffered third-degree burns on his hands and scalp. Diffusion tensor imaging showed damage to the right medial lemniscus tract. This is formed by:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
     },
     {
       "id": "marrow__ANAT_CH24_Q010",

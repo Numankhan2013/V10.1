@@ -5,72 +5,54 @@
   "chapterId": "21",
   "chapter": "White Matter of the Brain",
   "candidateQuestionCount": 1,
-  "questionOptionCandidateCount": 1,
-  "explanationCandidateCount": 0,
+  "questionOptionCandidateCount": 0,
+  "explanationCandidateCount": 1,
   "questions": [
     {
-      "id": "marrow__ANAT_CH21_Q013",
-      "questionNumber": 13,
-      "sourcePage": 374,
+      "id": "marrow__ANAT_CH21_Q006",
+      "questionNumber": 6,
+      "sourcePage": 371,
       "reviewStatus": "pass",
-      "question": "Identify the structures which consist of commissural fibres:",
+      "question": "Which of the following is connected to the structure marked as A in the image below?",
       "options": [
         {
           "letter": "A",
-          "text": "A, B, C, and D"
+          "text": "Orbital cortex"
         },
         {
           "letter": "B",
-          "text": "A, B and C only"
+          "text": "Hippocampus"
         },
         {
           "letter": "C",
-          "text": "A and B only"
+          "text": "Striate cortex"
         },
         {
           "letter": "D",
-          "text": "D only"
+          "text": "Optic chiasma"
         }
       ],
-      "correctOption": 2,
-      "questionOptionFlags": [
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
         {
-          "field": "option_A",
-          "severity": 7,
+          "field": "explanation",
+          "severity": 4,
           "reasons": [
-            "edge_noise",
-            "many_isolated_letters"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "A, B, C, and D",
+              "text": "The structure marked A is the splenium of the corpus callosum and it is connected to the striate cortex. Fibers from the splenium form the forceps major and arch backward into the occipital lobe. The hippocampus lies inferior to the splenium but is not directly connected to it.",
               "reasons": [
-                "edge_noise",
-                "many_isolated_letters"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "A, B and C only",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanation": "The structure marked A is the splenium of the corpus callosum and it is connected to the striate cortex. Fibers from the splenium form the forceps major and arch backward into the occipital lobe. The hippocampus lies inferior to the splenium but is not directly connected to it."
     }
   ]
 }

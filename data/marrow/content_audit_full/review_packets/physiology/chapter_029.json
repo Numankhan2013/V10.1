@@ -1,0 +1,495 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Physiology",
+  "chapterId": "29",
+  "chapter": "Electrophysiology of the Heart",
+  "candidateQuestionCount": 9,
+  "questionOptionCandidateCount": 3,
+  "explanationCandidateCount": 8,
+  "questions": [
+    {
+      "id": "marrow__PHYSIO_CH29_Q005",
+      "questionNumber": 5,
+      "sourcePage": 520,
+      "reviewStatus": "pass",
+      "question": "If the SA node discharges at 0.00 sec, when will the action potential normally arrive at the epicardial surface at the base of the left ventricle?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "0.16 sec"
+        },
+        {
+          "letter": "B",
+          "text": "0.18 sec"
+        },
+        {
+          "letter": "C",
+          "text": "0.22 sec"
+        },
+        {
+          "letter": "D",
+          "text": "0.12 sec"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The duration of action potential to arrive at the epicardial surface at the base of the left ventricle is 0.22 sec.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "Impulse initiated from SA node at 0.00 s.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "Impulse reaches AV node at 0.03 s.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The duration of action potential to arrive at the epicardial surface at the base of the left ventricle is 0.22 sec.\nImpulse initiated from SA node at 0.00 s.\nImpulse reaches AV node at 0.03 s.\nDelay of impulse at AV node by 0.13 s resulting in a total time of 0.16 s (0.03+0.13) to reach the beginning of Purkinje fibres.\nImpulse reaches base of Purkinje fibres by 0.03 s resulting in a total time of 0.19 s (0.16+0.03) to reach the endocardial surface of the base of the ventricle.\nImpulse travels from endocardial to epicardial surface in 0.03 s (due to arrangement of myocardial fibres).\nHence, a total time of 0.22 s (0.19+0.03) is taken for the impulse to travel from SA node to epicardial surface of the base of ventricles."
+    },
+    {
+      "id": "marrow__PHYSIO_CH29_Q006",
+      "questionNumber": 6,
+      "sourcePage": 520,
+      "reviewStatus": "pass",
+      "question": "The order of depolarization after stimulation of Purkinje fibers is:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Septum→ Endocardium→ Epicardium"
+        },
+        {
+          "letter": "B",
+          "text": "Endocardium→ Epicardium→ Septum"
+        },
+        {
+          "letter": "C",
+          "text": "Epicardium→ Endocardium→ Septum"
+        },
+        {
+          "letter": "D",
+          "text": "Septum→ Epicardium→ Endocardium"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The order of depolarization after stimulation of Purkinje fibers is:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
+      "id": "marrow__PHYSIO_CH29_Q007",
+      "questionNumber": 7,
+      "sourcePage": 520,
+      "reviewStatus": "pass",
+      "question": "Phases of the ventricular muscle action potential are shown below. At which phase of the below image, the action potential is most dependant on sodium permeability?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Phase 3"
+        },
+        {
+          "letter": "B",
+          "text": "Phase 2"
+        },
+        {
+          "letter": "C",
+          "text": "Phase 0"
+        },
+        {
+          "letter": "D",
+          "text": "Phase 1"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The action potential is most dependant on sodium permeability in phase 0.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The action potential is most dependant on sodium permeability in phase 0.\nAction potential of myocardium:\n• Phase 0: Depolarisation: Influx of Na+ into myocyte.\n• Phase 1: Early repolarization: Efflux of K+ from myocyte.\n• Phase 2: Plateau: Ca2+ enters myocardial cells via voltage regulated L-type Ca2+ channels.\n• Phase 3: Repolarisation: Efflux of K+.\n• Phase 4: Restoration of RMP: Restoration of Na+ and K+ by Na-K ATPase."
+    },
+    {
+      "id": "marrow__PHYSIO_CH29_Q010",
+      "questionNumber": 10,
+      "sourcePage": 521,
+      "reviewStatus": "pass",
+      "question": "Phase 0 of pacemaker potential is initiated by:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Opening of voltage-gated Na+ channel"
+        },
+        {
+          "letter": "B",
+          "text": "Opening of voltage gated Ca2+ channel"
+        },
+        {
+          "letter": "C",
+          "text": "Inactivation of voltage gated Ca2+ channel"
+        },
+        {
+          "letter": "D",
+          "text": "Inactivation of voltage gated Na+ channel"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Phase 0 of pacemaker potential is initiated by:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "The pacemaker potential consists of:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Phase 0 of pacemaker potential is initiated by opening of voltage-gated Ca2+ channels.\nThe pacemaker potential consists of:\n• Phase 0 - This is upstroke seen due to the opening of voltage-gated Ca2+ channels. This causes an influx of calcium leading to the upstroke.\n• Phase 3 - This is followed by inactivation of the calcium channels and simultaneous activation of K+ channels. This leads to efflux of K+ bringing about repolarization.\n• Phase 4 - As the K+ efflux declines, a channel permeable to both Na+ and K+ opens leading to an influx of both Na+ and K+. This is the If channel. This is responsible for slow spontaneous diastolic depolarization. This accounts for the automaticity of SA and AV node.\nThe slope of Phase 4 in the SA node determines the heart rate.\nNote: Fast voltage-gated Na+ channels seen in myocyte potential are permanently inactivated because of the less negative resting potential of the pacemaker cells."
+    },
+    {
+      "id": "marrow__PHYSIO_CH29_Q012",
+      "questionNumber": 12,
+      "sourcePage": 522,
+      "reviewStatus": "pass",
+      "question": "In recording Lead I, the right arm is negative electrode and the positive electrode is",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Left arm"
+        },
+        {
+          "letter": "B",
+          "text": "Left leg"
+        },
+        {
+          "letter": "C",
+          "text": "Right leg"
+        },
+        {
+          "letter": "D",
+          "text": "Left arm + left leg"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "In recording Lead I, the right arm is negative electrode and the positive electrode is left arm.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "In recording Lead I, the right arm is negative electrode and the positive electrode is left arm.\nBipolar Limb leads for ECG recording:\n• LA → left arm\n• RA → right arm\n• LL → left foot"
+    },
+    {
+      "id": "marrow__PHYSIO_CH29_Q013",
+      "questionNumber": 13,
+      "sourcePage": 522,
+      "reviewStatus": "pass",
+      "question": "Einthoven law states that",
+      "options": [
+        {
+          "letter": "A",
+          "text": "II=I+III"
+        },
+        {
+          "letter": "B",
+          "text": "I=II+III"
+        },
+        {
+          "letter": "C",
+          "text": "III=I+II"
+        },
+        {
+          "letter": "D",
+          "text": "Any of the above"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Einthoven's law states Lead I + Lead III = Lead II.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Einthoven's law states Lead I + Lead III = Lead II.\nEinthoven's triangle is an imaginary formation of three limb leads in a triangle used in electrocardiography."
+    },
+    {
+      "id": "marrow__PHYSIO_CH29_Q014",
+      "questionNumber": 14,
+      "sourcePage": 522,
+      "reviewStatus": "pass",
+      "question": "In Einthoven's triangle, what is the value of lead III when lead I = 1mV and lead II = 2mV ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1"
+        },
+        {
+          "letter": "B",
+          "text": "2"
+        },
+        {
+          "letter": "C",
+          "text": "3"
+        },
+        {
+          "letter": "D",
+          "text": "4"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "According to Einthoven's law,",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "Lead I + Lead III = Lead II.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "Lead III = Lead II − Lead I = (2−1) = 1 mV.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "According to Einthoven's law,\nLead I + Lead III = Lead II.\nLead III = Lead II − Lead I = (2−1) = 1 mV."
+    },
+    {
+      "id": "marrow__PHYSIO_CH29_Q017",
+      "questionNumber": 17,
+      "sourcePage": 523,
+      "reviewStatus": "pass",
+      "question": "The PR interval indicates ____.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Atrial depolarisation"
+        },
+        {
+          "letter": "B",
+          "text": "Ventricular repolarization"
+        },
+        {
+          "letter": "C",
+          "text": "AV node conduction time"
+        },
+        {
+          "letter": "D",
+          "text": "Both A and C"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "PR interval is the time between the beginning of the P wave and the beginning of the QRS complex. It is the interval between the beginning of electrical excitation of the atria and the beginning of excitation of the ventricles. Normal duration is 0.12-0.20 s.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The PR interval indicates atrial depolarisation (P wave) and AV node conduction time (PR segment).\nPR interval is the time between the beginning of the P wave and the beginning of the QRS complex. It is the interval between the beginning of electrical excitation of the atria and the beginning of excitation of the ventricles. Normal duration is 0.12-0.20 s."
+    },
+    {
+      "id": "marrow__PHYSIO_CH29_Q022",
+      "questionNumber": 22,
+      "sourcePage": 524,
+      "reviewStatus": "pass_with_source_note",
+      "question": "The AH interval on His Bundle Electrocardiogram (HBE) corresponds to the conduction of ______ on ECG.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Through His –Purkinje system"
+        },
+        {
+          "letter": "B",
+          "text": "From AV node to bundle of His"
+        },
+        {
+          "letter": "C",
+          "text": "Purkinje to ventricular fibers"
+        },
+        {
+          "letter": "D",
+          "text": "Through ventricular fibers"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The AH interval on His Bundle Electrocardiogram (HBE) corresponds to the conduction of ______ on ECG.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The AH interval corresponds to conduction from AV node to bundle of His on an ECG.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "The record of the electrical activity obtained with the catheter passed through a vein to the right side of the heart and placed close to the tricuspid valve is HBE.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The AH interval corresponds to conduction from AV node to bundle of His on an ECG.\nHis bundle electrogram (HBE)\nThe record of the electrical activity obtained with the catheter passed through a vein to the right side of the heart and placed close to the tricuspid valve is HBE.\nIt shows 3 deflections as shown in the figure.\nWith HBE and standard ECG leads, 3 intervals can be timed accurately."
+    }
+  ]
+}

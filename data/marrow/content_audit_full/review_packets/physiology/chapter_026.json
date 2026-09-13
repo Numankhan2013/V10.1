@@ -5,7 +5,7 @@
   "chapterId": "26",
   "chapter": "Vascular System and Regional Circulation I",
   "candidateQuestionCount": 11,
-  "questionOptionCandidateCount": 0,
+  "questionOptionCandidateCount": 1,
   "explanationCandidateCount": 11,
   "questions": [
     {
@@ -326,11 +326,19 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 3,
+              "text": "The blood flow follows Ohm's law:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 4,
               "text": "F = P/R",
@@ -573,7 +581,24 @@
         }
       ],
       "correctOption": 3,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "True about coronary flow during systole is:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",

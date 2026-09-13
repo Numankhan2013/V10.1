@@ -9,129 +9,43 @@
   "explanationCandidateCount": 0,
   "questions": [
     {
-      "id": "marrow__ANAT_CH02_Q010",
-      "questionNumber": 10,
-      "sourcePage": 21,
-      "reviewStatus": "resolved_reconstruction",
-      "question": "Arrange the following events of pre-embryonic development in order, from the earlier stage to the later stage.\n\n1. Cavitation\n2. Compaction\n3. Implantation\n4. Cleavage",
+      "id": "marrow__ANAT_CH02_Q003",
+      "questionNumber": 3,
+      "sourcePage": 19,
+      "reviewStatus": "pass",
+      "question": "What is the final step of maturation of spermatozoon before fertilization known as?",
       "options": [
         {
           "letter": "A",
-          "text": "2 - 4 - 1 - 3"
+          "text": "Spermiogenesis"
         },
         {
           "letter": "B",
-          "text": "3 - 1 - 2 - 4"
+          "text": "Capacitation"
         },
         {
           "letter": "C",
-          "text": "4 - 2 - 3 - 1"
+          "text": "Acrosome reaction"
         },
         {
           "letter": "D",
-          "text": "4 - 2 - 1 - 3"
+          "text": "Cortical reaction"
         }
       ],
-      "correctOption": 4,
+      "correctOption": 2,
       "questionOptionFlags": [
         {
           "field": "question",
           "severity": 6,
           "reasons": [
-            "edge_noise",
-            "many_linebreaks"
-          ],
-          "suspectLines": [
-            {
-              "line": 3,
-              "text": "1. Cavitation",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "2. Compaction",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "3. Implantation",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "4. Cleavage",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_A",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "2 - 4 - 1 - 3",
+              "text": "What is the final step of maturation of spermatozoon before fertilization known as?",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "3 - 1 - 2 - 4",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "4 - 2 - 3 - 1",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "4 - 2 - 1 - 3",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

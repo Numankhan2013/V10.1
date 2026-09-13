@@ -4,9 +4,9 @@
   "subject": "Physiology",
   "chapterId": "12",
   "chapter": "Somatosensory Pathways",
-  "candidateQuestionCount": 20,
-  "questionOptionCandidateCount": 12,
-  "explanationCandidateCount": 15,
+  "candidateQuestionCount": 22,
+  "questionOptionCandidateCount": 16,
+  "explanationCandidateCount": 18,
   "questions": [
     {
       "id": "marrow__PHYS_CH12_Q001",
@@ -36,9 +36,8 @@
       "questionOptionFlags": [
         {
           "field": "option_D",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -56,17 +55,19 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 2,
               "text": "known as the Bell-~Magendie law.",
               "reasons": [
-                "hard_noise_char"
+                "hard_noise_char",
+                "ocr_suffix"
               ]
             },
             {
@@ -130,9 +131,8 @@
       "questionOptionFlags": [
         {
           "field": "option_C",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -149,9 +149,8 @@
         },
         {
           "field": "option_D",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -181,25 +180,6 @@
           ]
         },
         {
-          "field": "question",
-          "severity": 10,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "many_linebreaks"
-          ],
-          "suspectLines": [
-            {
-              "line": 5,
-              "text": "o~ 2",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_A",
           "severity": 6,
           "reasons": [
@@ -210,6 +190,23 @@
               "line": 1,
               "text": "Primary neuron -e~ bh?)",
               "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 5,
+              "text": "o~ 2",
+              "reasons": [
+                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -357,11 +354,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -375,7 +373,8 @@
               "line": 6,
               "text": "et, an.",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {
@@ -417,25 +416,6 @@
       "correctOption": 4,
       "questionOptionFlags": [
         {
-          "field": "option_D",
-          "severity": 10,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "many_linebreaks"
-          ],
-          "suspectLines": [
-            {
-              "line": 5,
-              "text": "NA ~@",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_B",
           "severity": 6,
           "reasons": [
@@ -462,6 +442,23 @@
               "line": 1,
               "text": "Rapid conduction velocity & e~",
               "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 5,
+              "text": "NA ~@",
+              "reasons": [
+                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -499,12 +496,10 @@
       "questionOptionFlags": [
         {
           "field": "option_A",
-          "severity": 15,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "literal_backslash",
-            "symbol_dense_line"
+            "literal_backslash"
           ],
           "suspectLines": [
             {
@@ -523,66 +518,27 @@
               ]
             }
           ]
-        },
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "4, 6",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "44, 45",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "41, 42",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "question",
-          "severity": 3,
-          "reasons": [
-            "many_linebreaks"
-          ],
-          "suspectLines": []
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Processing of tactile stimulation occurs in Brodmann’s area in 3, 1, 2.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Processing of tactile stimulation occurs in Brodmann’s area in 3, 1, 2.\n‘The human cerebral cortex is divided into about 50 distinct areas called Brodmann’s areas based\non histological structural differences.\nAreas 3, 1, 2 which constitute primary somatosensory area I, and areas 5 and 7, which constitute\nthe somatosensory association area process sensory information like tactile stimulation.\nwe\""
     },
     {
       "id": "marrow__PHYS_CH12_Q007",
@@ -613,11 +569,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -658,6 +615,13 @@
               "reasons": [
                 "hard_noise_char"
               ]
+            },
+            {
+              "line": 20,
+              "text": "— oe,",
+              "reasons": [
+                "ocr_suffix"
+              ]
             }
           ]
         }
@@ -689,17 +653,42 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Somatosensory area has the largest representation for.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 5,
+              "text": "Some body parts are represented by large areas in the somatic cortex—the lips the greatest of all,",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 8,
               "text": "\\ E cae \\\\ a",
@@ -770,12 +759,10 @@
       "questionOptionFlags": [
         {
           "field": "option_D",
-          "severity": 13,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "many_linebreaks",
-            "symbol_dense_line"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -791,44 +778,22 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char",
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }
           ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "ay* we",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "question",
-          "severity": 3,
-          "reasons": [
-            "many_linebreaks"
-          ],
-          "suspectLines": []
         }
       ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -852,6 +817,13 @@
               "text": "SQ SE = | = en",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 13,
+              "text": "a ox?",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -968,6 +940,52 @@
       "explanation": "Lesion of the somatosensory areal affects the Jocatization ofisénsations.\n®) aN ?\nBilateral lesion of the sonfatgstnsory agent tends to the;félldwing impairment of sensory\njudgment: 50 <e\ne 2\n+ Inability to localize different sensations in difféfent parts of the body\n« Inability to judge degreeg fpressure against the body\n+ Inability to judge theweignt of the-ebjects\n+ Inability to judg@ shapes of formas of objects - astereognosis\n+ Tnabilityto, judge the texte of the materials\nPain and temperature are not affected both in quality and intensity in the lesion of the\nsomatosensory area I. However, they are poorly localised. Pain and temperature localization\ndepends greatly on the topographical map of the body in somatosensory area I to localize the\nsource.”"
     },
     {
+      "id": "marrow__PHYS_CH12_Q011",
+      "questionNumber": 11,
+      "sourcePage": 227,
+      "reviewStatus": "pass",
+      "question": "Aman was rushed to the casualty after getting stabbed in the back with a knife. On MRI, a\ncomplete transection of one side of the spinal cord is suspected. Which of the following is\nlikely to be seen in this patient?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pain and temperature loss on the opposite side"
+        },
+        {
+          "letter": "B",
+          "text": "Fine touch lost on the opposite side"
+        },
+        {
+          "letter": "C",
+          "text": "Pain and temperature lost on the same side"
+        },
+        {
+          "letter": "D",
+          "text": "Only pain lost on the same side"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Aman was rushed to the casualty after getting stabbed in the back with a knife. On MRI, a",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
       "id": "marrow__PHYS_CH12_Q012",
       "questionNumber": 12,
       "sourcePage": 227,
@@ -1080,10 +1098,10 @@
       "questionOptionFlags": [
         {
           "field": "option_A",
-          "severity": 9,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -1104,10 +1122,9 @@
         },
         {
           "field": "option_C",
-          "severity": 7,
+          "severity": 6,
           "reasons": [
-            "hard_noise_char",
-            "many_linebreaks"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -1181,24 +1198,6 @@
       "correctOption": 1,
       "questionOptionFlags": [
         {
-          "field": "option_B",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 3,
-              "text": "Enkephali ~ <>",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_D",
           "severity": 9,
           "reasons": [
@@ -1216,32 +1215,18 @@
           ]
         },
         {
-          "field": "question",
+          "field": "option_B",
           "severity": 6,
           "reasons": [
-            "edge_noise",
-            "many_linebreaks"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "o> vay a",
+              "line": 3,
+              "text": "Enkephali ~ <>",
               "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "Following are the endogenous opioids except__O>*",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "a? K2",
-              "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "hard_noise_char"
               ]
             }
           ]
@@ -1275,7 +1260,24 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Fast pain is carried by.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -1356,12 +1358,10 @@
       "questionOptionFlags": [
         {
           "field": "option_D",
-          "severity": 15,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "literal_backslash",
-            "symbol_dense_line"
+            "literal_backslash"
           ],
           "suspectLines": [
             {
@@ -1394,11 +1394,19 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 7,
+              "text": "‘The stress-induced analgesiayize reduced paitt Sensitivity during stressful events might be due to:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 9,
               "text": "+ Release of endogenous abn gh ‘as 2-arachidonoylglycerol (2-AG) and anandamide",
@@ -1487,9 +1495,8 @@
         },
         {
           "field": "question",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -1502,26 +1509,27 @@
               ]
             }
           ]
-        },
+        }
+      ],
+      "explanationFlags": [
         {
-          "field": "option_A",
-          "severity": 5,
+          "field": "explanation",
+          "severity": 4,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
-              "line": 2,
-              "text": "SS <",
+              "line": 1,
+              "text": "Solution to Question 18:",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanation": "Solution to Question 18:\n\nTectocerebellar tract does not carry proprioceptive impluses. Tectocerebellar tract carry visual and\n\nauditory impulses.\n\nSpinocerebellar, olivo cerebellar, cuneo cerebellar tracts carry Proprioceptive impulses.\n\nVestibulocerebellar tract carry vestibular impulses."
     },
     {
       "id": "marrow__PHYS_CH12_Q019",
@@ -1587,6 +1595,52 @@
       "explanation": "Pain and temperature in thalamus are controlled by the ventral posterior lateral nucleus. Pain and\n\ntemperature is carried by anterolateral spinothalamic tract.\n\nFibres from anterolateral spinothalamic tract and dorsal column synapse in the ventral\n\nposteriorlateral (VPL) nucleus of thalamus.\n\nOption B: The pathway from taste receptors includes synapses in the nucleus of the tractus\nsolitarius in the brainstem and ventral posterior medial nucleus in the thalamus.\nOption C: Anterior nucleus functions as a relay station for the hippocampal impulses. It receives\nafferents from mammillothalamic tract. It sends efferents to cingulate gyrus.\nOption D: Intralaminar nucleus participates in arousal reaction, it recieves afferents from reticular\nformation of brain stem.\nTs\n, a~ a\ne~ Oo\nxe ="
     },
     {
+      "id": "marrow__PHYS_CH12_Q020",
+      "questionNumber": 20,
+      "sourcePage": 229,
+      "reviewStatus": "pass",
+      "question": "Ventrolateral cordotomy for relief of pain in the right lower limb is being performed on a\npatient. Which of the following is cut in this procedure?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Left ventral spinothalamic tract"
+        },
+        {
+          "letter": "B",
+          "text": "Left lateral spinothalamic tract"
+        },
+        {
+          "letter": "C",
+          "text": "Right ventral spinothalamic tract"
+        },
+        {
+          "letter": "D",
+          "text": "Right lateral spinothalamic tract"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 6,
+              "text": "C1-Ce results in a contralateral disruption of painful sensations beyond C4.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "BS x\nIn ventrolateral cordotomy, selected Pain-conducting tracts in the spinal cord, ie. fibers in the\nlateral spinoth ep pathway, ate cut leading to contralateral loss of pain and temperature\nsensation belOW the level of Ie lesion.\nIn the moré recent percutaneous approach, destruction of the lateral spinothalamic at the level of\nC1-Ce results in a contralateral disruption of painful sensations beyond C4.\nNote: The fibers carrying pain sensation ascend in the lateral spinothalamic tract while the fibers\ncarrying crude touch and pressure sensations ascend in the anterior spinothalamic tract."
+    },
+    {
       "id": "marrow__PHYS_CH12_Q021",
       "questionNumber": 21,
       "sourcePage": 230,
@@ -1613,26 +1667,6 @@
       "correctOption": 3,
       "questionOptionFlags": [
         {
-          "field": "option_D",
-          "severity": 12,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 4,
-              "text": "=e ~ 4&",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char",
-                "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_B",
           "severity": 6,
           "reasons": [
@@ -1650,9 +1684,9 @@
         },
         {
           "field": "option_C",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -1660,6 +1694,24 @@
               "text": "> 4 c&",
               "reasons": [
                 "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 4,
+              "text": "=e ~ 4&",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
               ]
             }
           ]
@@ -1695,22 +1747,12 @@
       "correctOption": 4,
       "questionOptionFlags": [
         {
-          "field": "question",
-          "severity": 8,
+          "field": "option_A",
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "symbol_dense_line"
+            "short_ocr_line"
           ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": ". * * * ae as . .",
-              "reasons": [
-                "edge_noise",
-                "symbol_dense_line"
-              ]
-            }
-          ]
+          "suspectLines": []
         }
       ],
       "explanationFlags": [
@@ -1758,7 +1800,24 @@
         }
       ],
       "correctOption": 4,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Ablation of somatosensory area 1 leads to.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",

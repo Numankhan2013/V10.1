@@ -4,8 +4,8 @@
   "subject": "Anatomy",
   "chapterId": "52",
   "chapter": "Internal and external genitalia",
-  "candidateQuestionCount": 9,
-  "questionOptionCandidateCount": 1,
+  "candidateQuestionCount": 8,
+  "questionOptionCandidateCount": 0,
   "explanationCandidateCount": 8,
   "questions": [
     {
@@ -37,10 +37,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -54,7 +55,8 @@
               "line": 3,
               "text": "Contents of the spermatic cord Ductus deren Go pa Seairais Testicular @ Set b\\ Testicular vein artery: > \\ \\ (wPampinitorm \\ My) be branch \\a > ef 4 spermatic fascia Fibrous stroma SE —4e@ Os Cremasteric Cremaster = fh. = 3 ons . sr ge oe oO o © a? ce",
               "reasons": [
-                "hard_noise_char"
+                "hard_noise_char",
+                "ocr_suffix"
               ]
             }
           ]
@@ -155,68 +157,6 @@
       "explanation": "y& eo o The left renal vein is likely to beGecluded | case. The Lepepeptcular vein drains into the left renal vein. Occlusion of the left renal vein des the Bee ow in the left testicular veins. As a result, the veins become swollen and citys pain on the: ffected side. Venous drainage of the testis: oor eo” The pampiniform plexus of, veins arising faith testes ascend through the inguinal canal and abdomen. They coalesce wate the Sy ar veins during their course. + The left testicular yeh drains ipo eft renal vein at a right angle. + The right testiGlar vein draihs into the inferior vena cava at an acute angle. Clinical a Varicose dilajation of the veins draining the testis is called varicocele. 90% of the varicocele occurs on the left side and mostly this is due to the absence or incompetence of valves in the testicular vein.\n\nRenal veins Right inferior phrenic vein Inferior vena Loft inferior cava phrenic vein Right Lett suprarenal oe Suprarenal vein é vein Right renal Left renal vein vein Right gonadal Left gonadal vein vein i Con eo"
     },
     {
-      "id": "marrow__ANAT_CH52_Q009",
-      "questionNumber": 9,
-      "sourcePage": 975,
-      "reviewStatus": "needs_manual_review",
-      "question": "Which of the following statements is false about the prostate?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "2 and 4"
-        },
-        {
-          "letter": "B",
-          "text": "2 and 5"
-        },
-        {
-          "letter": "C",
-          "text": "1, 3 and 5"
-        },
-        {
-          "letter": "D",
-          "text": "1, 2 and 5"
-        }
-      ],
-      "correctOption": 4,
-      "questionOptionFlags": [
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "1, 3 and 5",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "1, 2 and 5",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanationFlags": [],
-      "explanation": null
-    },
-    {
       "id": "marrow__ANAT_CH52_Q013",
       "questionNumber": 13,
       "sourcePage": 976,
@@ -291,11 +231,19 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "The most likely primary cause of an enlarged inguinal lymph node is anal cancer. Lymphatics from the anal canal distal to the dentate line (anal margin) drains into the inguinal lymph nodes. Hence, anal cancer arising distal to dentate line can cause enlarged inguinal lymph nodes. Lymphatics proximal to the dentate line (anal canal) drains into internal iliac lymph nodes through superior rectal lymphatics. Option A: In testicular cancer, lymphatic spread occurs to the paraaortic lymph nodes. Option C: In sigmoid colon cancer, lymphatic spread occurs to the regional lymph node and then to the central lymph node. Option D: In prostate cancer, lymphatic spread occurs to the:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 3,
               "text": "+ Lymph nodes beside the internal iliac vein and in the hollow of the sacrum",

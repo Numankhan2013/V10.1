@@ -5,8 +5,8 @@
   "chapterId": "5",
   "chapter": "Body Fluids",
   "candidateQuestionCount": 26,
-  "questionOptionCandidateCount": 17,
-  "explanationCandidateCount": 22,
+  "questionOptionCandidateCount": 16,
+  "explanationCandidateCount": 25,
   "questions": [
     {
       "id": "marrow__PHYS_CH05_Q001",
@@ -117,58 +117,27 @@
               ]
             }
           ]
-        },
+        }
+      ],
+      "explanationFlags": [
         {
-          "field": "option_B",
-          "severity": 5,
+          "field": "explanation",
+          "severity": 4,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "30, 30 on “9 %",
+              "line": 5,
+              "text": "The 60-40-20 rule is: 60% of body weight is water, 40% isT€F, and 20% ECF.",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "40, 20 . 2 - “4",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "10, 50 ay “s",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanation": "When expressed as the percentage of body weight, 40% of body weight is in ICR Galera of 60%),\n\nand 20% of body weight is in ECF (1/3rd of 60%). @\n\nThe 60-40-20 rule is: 60% of body weight is water, 40% isT€F, and 20% ECF.\n\n420 of ay hae FE ad a\nnS oe eer\nS Ww"
     },
     {
       "id": "marrow__PHYS_CH05_Q003",
@@ -195,7 +164,24 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "ae ne? A60 kg adult'male has a haematocrit reading of 40% and a plasma volume of 3L. What is his total blood volume in L?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -302,11 +288,9 @@
       "questionOptionFlags": [
         {
           "field": "option_C",
-          "severity": 12,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -351,24 +335,6 @@
       "correctOption": 1,
       "questionOptionFlags": [
         {
-          "field": "question",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "nO ‘ < ~, How do we measure the volume of distribution of body fluid compartments? \"oF >’ >",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_B",
           "severity": 6,
           "reasons": [
@@ -379,6 +345,23 @@
               "line": 1,
               "text": "Kety method +>} x! ¢ .",
               "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "nO ‘ < ~, How do we measure the volume of distribution of body fluid compartments? \"oF >’ >",
+              "reasons": [
+                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -441,24 +424,7 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "zs\" ‘ C , 500 mg of mannitol was injected out of which 10% is excreted. After equilibrium, plasma concentration is 3.2 mg/100 ml. Calculate ECF Volume (L).",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -536,11 +502,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -592,7 +559,8 @@
               "line": 16,
               "text": "* Since 10% is excreted, volume of inulin excreted is 1 gm.",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {
@@ -740,6 +708,69 @@
       "explanation": "As the dye diffuses out of the capillaries, the measured concentration of the dye after equilibrium\nwill be less. So, as per the formula, the volume measured will be falsely high.\nV = (Amount Injected - Amount Excreted) / Plasma concentration of dye\nDetailed explanation:\n* Dye x measures plasma volume:- dye x doesn't have the property of crossing blood vessel. If the\ndye x have been used properly, for a normal person then the value would come around 3 L\n* Dye y crosses capillaries, which means it can cross any blood vessel. This property is used to\nmeasure the value of ECF. If the dye y is given, for a normal person then the value would come\naround 14L\n* Thus if dye y is given in place of x, then the value would be 14 instead of 3 which is a false and\nthe obtained value is high when compared to normal value\n¢ Therefore the answer is falsely high."
     },
     {
+      "id": "marrow__PHYS_CH05_Q012",
+      "questionNumber": 12,
+      "sourcePage": 70,
+      "reviewStatus": "pass",
+      "question": "Which of the following is higher in the ECF compared to ICF?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "K+"
+        },
+        {
+          "letter": "B",
+          "text": "Proteins"
+        },
+        {
+          "letter": "C",
+          "text": "Phosphate"
+        },
+        {
+          "letter": "D",
+          "text": "pH"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Which of the following is higher in the ECF compared to ICF?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "ICF due to the various metabolic processes. So,/the pH of ICF-is.a little lower‘compared to ECF.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "¥ re) me :\nThe pH of ECF is 7.4 while the pH of ICF is 7.0. There is continuous generation of H+ ions in the\nICF due to the various metabolic processes. So,/the pH of ICF-is.a little lower‘compared to ECF."
+    },
+    {
       "id": "marrow__PHYS_CH05_Q013",
       "questionNumber": 13,
       "sourcePage": 71,
@@ -766,11 +797,26 @@
       "correctOption": 1,
       "questionOptionFlags": [
         {
-          "field": "option_C",
-          "severity": 8,
+          "field": "option_A",
+          "severity": 6,
           "reasons": [
-            "hard_noise_char",
-            "many_isolated_letters"
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Phosphate : eC.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_C",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -885,24 +931,7 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Y ” a “ How many grams of NaCl make mole of Nacl?* ce",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -985,9 +1014,8 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -1003,8 +1031,32 @@
           ]
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "1 equivalent of calcium is 20 g.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "calcium is 40/2 = 20g.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "1 equivalent of calcium is 20 g.\nOne equivalent is 1 mol of an ionized substance divided by its valency.\nFor calcium in solution, 1 mol is going to be 40g and its valency is 2. Therefore, 1 equivalent of\ncalcium is 40/2 = 20g."
     },
     {
       "id": "marrow__PHYS_CH05_Q016",
@@ -1261,9 +1313,8 @@
         },
         {
           "field": "question",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -1273,22 +1324,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Cl- O e",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1454,9 +1489,8 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -1475,11 +1509,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1494,7 +1529,8 @@
               "line": 10,
               "text": ". 2?",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {
@@ -1667,52 +1703,6 @@
       "explanation": "cu a\nSweating’ loss of water\" Hyperosmotic volume contraction\n* The osmolarity of ECF increases because sweat is hyposmotic (relatively more water than salt is\nlost).\n* ECF volume decreases because of the loss of volume in the sweat.\n¢ Water shifts out of ICF; as a result of the shift, ICF osmolarity increases until it is equal to ECF\nosmolarity, and ICF volume decreases.\n¢ Plasma protein concentration increases because of the decrease in ECF volume. Although\nhematocrit might also be expected to increase, it remains unchanged because of the water shifts\nout of the RBCs, decreasing their volume and offsetting the concentrating effect of the decreased\nECF volume.\n* So,Loss of hypotonic fluid causes hypertonic volume contraction."
     },
     {
-      "id": "marrow__PHYS_CH05_Q022",
-      "questionNumber": 22,
-      "sourcePage": 73,
-      "reviewStatus": "pass",
-      "question": "; ha x = rat A 73-year-old diabetic man is brought'to the emérgency with an-altered sensorium. He is dehydrated and his blood glucose is 550me/dls A hyperosmolar, hyperglycemic state is suspected. Which of the given formulaé.can correctly-évaluate his serum osmolality?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "2 x sodium + (BUN/18) + (glucose/2.8) C"
-        },
-        {
-          "letter": "B",
-          "text": "2 x sodium + (glucose/18).+ (BUN/2.8)2>"
-        },
-        {
-          "letter": "C",
-          "text": "3 x sodium + (BUN/o)+ (glucose/2;8)"
-        },
-        {
-          "letter": "D",
-          "text": "3 x sodium + (gluvose/9) + (BUN/2.8) eK 4 Cc 7 x 4"
-        }
-      ],
-      "correctOption": 2,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "; ha x = rat A 73-year-old diabetic man is brought'to the emérgency with an-altered sensorium. He is dehydrated and his blood glucose is 550me/dls A hyperosmolar, hyperglycemic state is suspected. Which of the given formulaé.can correctly-évaluate his serum osmolality?",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanationFlags": [],
-      "explanation": null
-    },
-    {
       "id": "marrow__PHYS_CH05_Q023",
       "questionNumber": 23,
       "sourcePage": 73,
@@ -1740,10 +1730,9 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "hard_noise_char",
-            "punctuation_run"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -1760,11 +1749,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -1778,7 +1768,8 @@
               "line": 6,
               "text": "+ As, ECF osmolality rises, fluid fromi ICF moves to ECF till osmotic equilibrium is established. So,",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             },
             {
@@ -2105,16 +2096,31 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 2,
+              "text": "Summary of safety factors that prevent edema is:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 3,
               "text": "* The safety factor caused by low tissue compliance in the negative pressure range is about 3 mm",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "Therefore, the total safety factor against edema is about 17 mm Hg.",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -2206,10 +2212,9 @@
       "questionOptionFlags": [
         {
           "field": "option_D",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -2224,9 +2229,8 @@
         },
         {
           "field": "question",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [

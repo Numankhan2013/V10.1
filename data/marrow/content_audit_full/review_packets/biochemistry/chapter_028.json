@@ -4,9 +4,9 @@
   "subject": "Biochemistry",
   "chapterId": "28",
   "chapter": "Molecular genetics, recombinant DNA & genomic technologies",
-  "candidateQuestionCount": 19,
-  "questionOptionCandidateCount": 1,
-  "explanationCandidateCount": 19,
+  "candidateQuestionCount": 21,
+  "questionOptionCandidateCount": 6,
+  "explanationCandidateCount": 20,
   "questions": [
     {
       "id": "marrow__BIOCHEM_CH28_Q001",
@@ -155,6 +155,52 @@
       "explanation": "Restriction endonucleases can act on AAGCTT.\nRestriction endonucleases act and cleave at the site of a palindromic sequence. A palindromic\nsequence is a sequence that reads the same backward and forward. An example is listed below.\n5' --AAGCTT-- 3!\n3' -TTCGAA- 5'"
     },
     {
+      "id": "marrow__BIOCHEM_CH28_Q004",
+      "questionNumber": 4,
+      "sourcePage": 431,
+      "reviewStatus": "pass",
+      "question": "Which of the following tools of recombinant DNA technology is incorrectly paired with its use?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "DNA polymerase - copies DNA sequences in the polymerase chain reaction"
+        },
+        {
+          "letter": "B",
+          "text": "DNA ligase - enzyme that cuts DNA, creating sticky ends"
+        },
+        {
+          "letter": "C",
+          "text": "Reverse transcriptase - production of cDNA from mRNA"
+        },
+        {
+          "letter": "D",
+          "text": "Electrophoresis - RFLP analysis"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Which of the following tools of recombinant DNA technology is incorrectly paired with its use?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
       "id": "marrow__BIOCHEM_CH28_Q006",
       "questionNumber": 6,
       "sourcePage": 432,
@@ -179,7 +225,24 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Which of the following cloning vectors has linear DNA?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -229,12 +292,20 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "Northern blotting is used for the detection of RNA.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 6,
               "text": "| (Transfer of RNA to membrane)",
@@ -276,64 +347,68 @@
       "questionOptionFlags": [
         {
           "field": "option_A",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "1, 2, 3",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
         },
         {
           "field": "option_B",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "2, 1, 3",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
         },
         {
           "field": "option_C",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "3, 1, 2",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
         },
         {
           "field": "option_D",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "2, 3, 1",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
@@ -541,14 +616,32 @@
         }
       ],
       "correctOption": 4,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Which of the following is a function of PCR?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -559,6 +652,13 @@
                 "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "All of the listed options are applications! of PCR.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -735,6 +835,52 @@
       "explanation": "RT-PCR is a method that is used for analysis of mRNA expression and its amplification.\nReverse transcriptase polymerase chain reaction (RT-PCR) is a variant of PCR and includes 2\nsteps:\n¢ Generation of complementary DNA (cDNA copies) from mRNA using reverse transcriptase -\nused to qualitatively detect gene expression\n¢ Amplification of newly synthesized cDNA by traditional PCR -This can be quantitatively\nmeasured by using fluorescent dyes (qRT-PCR).\nUses:\n* Determination of viral load in disease\n* Screening of genetic diseases and cancers ;\n——— AAA RNA * x\nReverse Ea Pamer\nTranscription\n_———————— ene 5\n=a\nPCR |\nee\nI | Amplified\n—— eee DNA\nAmplification >\\_\nEEE EEE\n—_—_—_— —LQQwWwWwEoy]o ss |\nEEE —=£2 =r\nooo A a |\noY “a\n\\ ‘ 7\n. ~~ ow"
     },
     {
+      "id": "marrow__BIOCHEM_CH28_Q018",
+      "questionNumber": 18,
+      "sourcePage": 435,
+      "reviewStatus": "pass",
+      "question": "Which of the following is correct regarding CRISPR-Cas9?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "It is a system used by bacterial cells to recognise and destroy viral DNA as a form of adaptive immunity"
+        },
+        {
+          "letter": "B",
+          "text": "It is a tool which is designed to detect TB"
+        },
+        {
+          "letter": "C",
+          "text": "It is tool designed to test air pollution"
+        },
+        {
+          "letter": "D",
+          "text": "It is a tool used in DNA sequencing"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 7,
+              "text": "complementary) DNA.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The CRISPR-Cas9 system, found in many bacteria, represents a form of acquired, or adaptive\nimmunity to infection by bacteriophages, which complements the system of restriction\nendonucleases and methylases.\nIn recent years, a novel DNA editing/gene regulatory system termed Clustered Regularly\nInterspersed Short Palindromic Repeats- CRISPR-associated gene 9 (CRISPR-Cas9) has been\ndeveloped. CRISPR uses RNA-based targeting to bring the Cas9 nuclease to foreign (or any\ncomplementary) DNA.\nWithin bacteria, this CRISPR-RNA-Cas9 complex then degrades and inactivates the targeted\nDNA."
+    },
+    {
       "id": "marrow__BIOCHEM_CH28_Q019",
       "questionNumber": 19,
       "sourcePage": 435,
@@ -759,7 +905,24 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Which of the following site does the restriction enzyme act when RFLP is used in order to identify the five different species of staphylococci in a surgical ICU?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -819,11 +982,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -838,6 +1002,13 @@
               "text": ": :",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "ethylmalonic encephalopathy, and glutaric acidemia type 1.",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -990,11 +1161,26 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 2,
+              "text": "9 and 22) is best studied by SKY.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "Option A: G banding is also a karyotyping technique but SKY is a better option between the two.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 11,
               "text": "a .",
@@ -1036,11 +1222,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1078,6 +1265,13 @@
               "text": "€€€2 a &",
               "reasons": [
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 27,
+              "text": "(e.g. bind different genes) a?",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -1229,15 +1423,33 @@
         }
       ],
       "correctOption": 3,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The correct order of steps in Polymerase Chain Reaction (PCR) is:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1253,6 +1465,13 @@
               "text": "* 30 cycles provides an amplification of 230 =109 or 1 billion copies",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 14,
+              "text": "Below is an image showing the various ingredients for carrying out PCR.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {

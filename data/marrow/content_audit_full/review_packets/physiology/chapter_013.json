@@ -4,8 +4,8 @@
   "subject": "Physiology",
   "chapterId": "13",
   "chapter": "Special Senses",
-  "candidateQuestionCount": 18,
-  "questionOptionCandidateCount": 6,
+  "candidateQuestionCount": 17,
+  "questionOptionCandidateCount": 7,
   "explanationCandidateCount": 15,
   "questions": [
     {
@@ -35,24 +35,6 @@
       "correctOption": 4,
       "questionOptionFlags": [
         {
-          "field": "option_D",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "o~ o",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_B",
           "severity": 6,
           "reasons": [
@@ -67,15 +49,33 @@
               ]
             }
           ]
+        },
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "o~ o",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
         }
       ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -90,6 +90,13 @@
               "text": "+ Visual processing/Phototransduction occurs in the opposite direction hg feeptore > ganglion",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 11,
+              "text": "ee) 2 00. Sa",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -131,32 +138,6 @@
       "correctOption": 2,
       "questionOptionFlags": [
         {
-          "field": "option_D",
-          "severity": 12,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "literal_backslash"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "NAD >? \\e",
-              "reasons": [
-                "hard_noise_char"
-              ]
-            },
-            {
-              "line": 2,
-              "text": "ae =~",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_A",
           "severity": 9,
           "reasons": [
@@ -174,41 +155,26 @@
           ]
         },
         {
-          "field": "question",
-          "severity": 6,
+          "field": "option_D",
+          "severity": 9,
           "reasons": [
-            "edge_noise",
-            "many_linebreaks"
+            "hard_noise_char",
+            "literal_backslash"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "eo < S",
+              "text": "NAD >? \\e",
               "reasons": [
-                "edge_noise"
+                "hard_noise_char"
               ]
             },
             {
-              "line": 5,
-              "text": ". im with Wee KC >",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
               "line": 2,
-              "text": "se >",
+              "text": "ae =~",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "hard_noise_char"
               ]
             }
           ]
@@ -386,10 +352,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -429,64 +396,25 @@
               "reasons": [
                 "hard_noise_char"
               ]
+            },
+            {
+              "line": 15,
+              "text": "°. ON\" 7: se",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 16,
+              "text": "eo i?",
+              "reasons": [
+                "ocr_suffix"
+              ]
             }
           ]
         }
       ],
       "explanation": "co wv\n‘The rod receptor potential ders from othé®'surface receptors in that it shows hyperpolarization.\nIn most sensory receyet Arrival ofgtimulus — Ion channels are opened up allowing current to\nflow =&gt; depolarsatt n of the receptor.\nIn photoreceptis: When the light strikes the outer segment, a cascade of reactions (refer figure)\nate initiated that close ade of the Nav channels inthe outer segment and results in\nhyperpolarization.\nEe 2\n— avr -¢ Ne\n° one || on\nae || Se\nal | es\n°. =a er\nale> | ne\n°. ON\" 7: se\neo i?\nheat ‘il"
-    },
-    {
-      "id": "marrow__PHYS_CH13_Q006",
-      "questionNumber": 6,
-      "sourcePage": 242,
-      "reviewStatus": "pass",
-      "question": "© < we\nws A F Cea fe) >t\nWhich is the first-order neuron in the optig way? <",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Rods and cones re « ae Ss"
-        },
-        {
-          "letter": "B",
-          "text": "Ganglion cells Ney m4 LL\nCells in lateral geniculate bod xr co"
-        },
-        {
-          "letter": "C",
-          "text": "Cells in lateral geniculate-body ee _e"
-        },
-        {
-          "letter": "D",
-          "text": "Bipolar cells Con oO\na? a\na eo\nRS <°"
-        }
-      ],
-      "correctOption": 1,
-      "questionOptionFlags": [
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "a? a",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "RS <°",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanationFlags": [],
-      "explanation": null
     },
     {
       "id": "marrow__PHYS_CH13_Q007",
@@ -659,10 +587,9 @@
       "questionOptionFlags": [
         {
           "field": "option_A",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -676,32 +603,17 @@
           ]
         },
         {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "4.5.6 Re <<",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "symbol_dense_line"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 4,
               "text": "=) a? Ow",
               "reasons": [
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             }
@@ -769,10 +681,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -794,6 +707,13 @@
               "text": "~s nd transmit color. of the lateral geniculate nucl",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "« eus.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -823,6 +743,13 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 14,
+              "text": "tails. ker.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -867,17 +794,39 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 6,
+          "severity": 10,
           "reasons": [
             "edge_noise",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
+            {
+              "line": 2,
+              "text": "‘The axons from the lateral geniatilate nucleus (LGN) mostly endin layer 4.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 3,
               "text": "=e) af ?",
               "reasons": [
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 6,
+              "text": "the LGN, which is divided furthernto 4A, 4B, 4¢° Yand 4CB.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "parvocellular pathways. et layers soot the LGN end in layer 4CB.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -1043,9 +992,8 @@
       "questionOptionFlags": [
         {
           "field": "option_A",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -1062,9 +1010,8 @@
         },
         {
           "field": "question",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -1097,29 +1044,6 @@
               "text": "Medial geniculate nucleus 3s Ley ~",
               "reasons": [
                 "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Ventral Posterolateral nucleus 40> <<",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 3,
-              "text": "oe? =",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1282,7 +1206,24 @@
         }
       ],
       "correctOption": 3,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Umami taste is evoked by.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -1393,10 +1334,25 @@
       "correctOption": 2,
       "questionOptionFlags": [
         {
-          "field": "question",
-          "severity": 9,
+          "field": "option_C",
+          "severity": 6,
           "reasons": [
-            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Primary visual cortex. C~ es e",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -1422,30 +1378,6 @@
               ]
             }
           ]
-        },
-        {
-          "field": "option_C",
-          "severity": 6,
-          "reasons": [
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Primary visual cortex. C~ es e",
-              "reasons": [
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 3,
-          "reasons": [
-            "many_linebreaks"
-          ],
-          "suspectLines": []
         }
       ],
       "explanationFlags": [
@@ -1511,15 +1443,40 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Number of cones in the retina (millions) is,",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "‘There are approximately 6 million cones and 120 million rods in each human eye.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 3,
               "text": "+ Each rod and cone are divided into outer segment, inner segment, nuclear region and a synaptic",
@@ -1539,6 +1496,13 @@
               "text": "+ Ifa person spends a considerable length of time in brightly ghted surroundihgs and then moves",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "longer than the time taken for light adaptation which 5 min. Ow",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {

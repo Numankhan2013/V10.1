@@ -4,16 +4,108 @@
   "subject": "Anatomy",
   "chapterId": "44",
   "chapter": "Diaphragm",
-  "candidateQuestionCount": 1,
-  "questionOptionCandidateCount": 1,
-  "explanationCandidateCount": 0,
+  "candidateQuestionCount": 3,
+  "questionOptionCandidateCount": 2,
+  "explanationCandidateCount": 1,
   "questions": [
     {
-      "id": "marrow__ANAT_CH44_Q009",
-      "questionNumber": 9,
-      "sourcePage": 809,
+      "id": "marrow__ANAT_CH44_Q002",
+      "questionNumber": 2,
+      "sourcePage": 806,
       "reviewStatus": "pass",
-      "question": "All of the structures pass posterior to the crus of diaphragm except ____",
+      "question": "The structure passing through the central tendon of the diaphragm is:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Oesophagus"
+        },
+        {
+          "letter": "B",
+          "text": "Aorta"
+        },
+        {
+          "letter": "C",
+          "text": "Inferior vena cava"
+        },
+        {
+          "letter": "D",
+          "text": "Sympathetic Chain"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The structure passing through the central tendon of the diaphragm is:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
+      "id": "marrow__ANAT_CH44_Q005",
+      "questionNumber": 5,
+      "sourcePage": 807,
+      "reviewStatus": "pass",
+      "question": "A gastroenterologist is performing an esophagoscopy in a patient with severe acid reflux. At which level will he encounter its diaphragmatic constriction?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "T8"
+        },
+        {
+          "letter": "B",
+          "text": "T9"
+        },
+        {
+          "letter": "C",
+          "text": "T10"
+        },
+        {
+          "letter": "D",
+          "text": "T12"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The esophageal hiatus is at the T10 vertebral level and forms the diaphragmatic constriction of the esophagus. The source lists contents of the hiatus as the esophagus, vagal trunks, gastric nerves, esophageal branches of the left gastric vessels and some lymphatics. It also gives the normal esophageal constrictions measured from the upper incisors: cricopharyngeus at 15 cm, aortic arch at 22.5 cm, left bronchus at 27.5 cm and diaphragmatic opening at 37.5 cm.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The esophageal hiatus is at the T10 vertebral level and forms the diaphragmatic constriction of the esophagus. The source lists contents of the hiatus as the esophagus, vagal trunks, gastric nerves, esophageal branches of the left gastric vessels and some lymphatics. It also gives the normal esophageal constrictions measured from the upper incisors: cricopharyngeus at 15 cm, aortic arch at 22.5 cm, left bronchus at 27.5 cm and diaphragmatic opening at 37.5 cm."
+    },
+    {
+      "id": "marrow__ANAT_CH44_Q007",
+      "questionNumber": 7,
+      "sourcePage": 808,
+      "reviewStatus": "pass",
+      "question": "Which of the following does not pass through the structure marked A?",
       "options": [
         {
           "letter": "A",
@@ -29,23 +121,23 @@
         },
         {
           "letter": "D",
-          "text": "Greater splanchnic nerve"
+          "text": "Vagal trunk"
         }
       ],
       "correctOption": 4,
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "All of the structures pass posterior to the crus of diaphragm except ____",
+              "text": "Which of the following does not pass through the structure marked A?",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

@@ -3,46 +3,46 @@
   "subject": "Physiology",
   "chapterId": "37",
   "chapter": "Pituitary and Thyroid",
-  "candidateQuestionCount": 2,
+  "candidateQuestionCount": 3,
   "questions": [
     {
-      "id": "marrow__PHYSIO_CH37_Q008",
-      "questionNumber": 8,
-      "sourcePage": 696,
+      "id": "marrow__PHYSIO_CH37_Q003",
+      "questionNumber": 3,
+      "sourcePage": 695,
       "reviewStatus": "pass",
-      "question": "GH has its effect on bone growth through ______",
+      "question": "Inhibitory control by the hypothalamus is exerted on:",
       "options": [
         {
           "letter": "A",
-          "text": "Directly"
+          "text": "Prolactin only"
         },
         {
           "letter": "B",
-          "text": "IGF-1"
+          "text": "Prolactin and growth hormone"
         },
         {
           "letter": "C",
-          "text": "Thyroxine"
+          "text": "Growth hormone only"
         },
         {
           "letter": "D",
-          "text": "Both directly and via IGF-1"
+          "text": "Neither"
         }
       ],
-      "correctOption": 4,
+      "correctOption": 2,
       "flags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "GH has its effect on bone growth through ______",
+              "text": "Inhibitory control by the hypothalamus is exerted on:",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
@@ -50,43 +50,87 @@
       ]
     },
     {
-      "id": "marrow__PHYSIO_CH37_Q021",
-      "questionNumber": 21,
-      "sourcePage": 700,
+      "id": "marrow__PHYSIO_CH37_Q014",
+      "questionNumber": 14,
+      "sourcePage": 698,
       "reviewStatus": "pass",
-      "question": "Half-life of T4 ______",
+      "question": "\"Vasopressin escape\" in SIADH results due to:",
       "options": [
         {
           "letter": "A",
-          "text": "10 hours"
+          "text": "Downregulation of aquaporin 2 production"
         },
         {
           "letter": "B",
-          "text": "6-7 days"
+          "text": "Increase in urine osmolarity"
         },
         {
           "letter": "C",
-          "text": "6 weeks"
+          "text": "Decrease in ADH secretion"
         },
         {
           "letter": "D",
-          "text": "2-3 months"
+          "text": "Upregulation of aquaporin 2 production"
         }
       ],
-      "correctOption": 2,
+      "correctOption": 1,
       "flags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "Half-life of T4 ______",
+              "text": "\"Vasopressin escape\" in SIADH results due to:",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH37_Q022",
+      "questionNumber": 22,
+      "sourcePage": 700,
+      "reviewStatus": "pass",
+      "question": "A 35 yr old woman presents with heat intolerance and menstrual abnormalities. On examination, a diffusely enlarged thyroid gland is present. Which of the following features will not be present in her?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Increased heart rate"
+        },
+        {
+          "letter": "B",
+          "text": "Increased stroke volume"
+        },
+        {
+          "letter": "C",
+          "text": "Decreased peripheral vascular resistance"
+        },
+        {
+          "letter": "D",
+          "text": "Decreased protein breakdown"
+        }
+      ],
+      "correctOption": 4,
+      "flags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "A 35 yr old woman presents with heat intolerance and menstrual abnormalities. On examination, a diffusely enlarged thyroid gland is present. Which of the following features will not be present in her?",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]

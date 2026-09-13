@@ -127,34 +127,6 @@
       "correctOption": 3,
       "questionOptionFlags": [
         {
-          "field": "question",
-          "severity": 12,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "a ~ ‘ .",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char",
-                "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "a w<' ~",
-              "reasons": [
-                "hard_noise_char",
-                "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_C",
           "severity": 9,
           "reasons": [
@@ -183,6 +155,48 @@
               "text": "Actin . a c .{",
               "reasons": [
                 "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Tropomodulin Oo 9 y",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "a ~ ‘ .",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "a w<' ~",
+              "reasons": [
+                "hard_noise_char",
+                "symbol_dense_line"
               ]
             }
           ]
@@ -618,39 +632,11 @@
       "correctOption": 2,
       "questionOptionFlags": [
         {
-          "field": "option_B",
-          "severity": 12,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "1.6 micrometers LO ~, % oC *",
-              "reasons": [
-                "hard_noise_char"
-              ]
-            },
-            {
-              "line": 2,
-              "text": "} , ™ ~~",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char",
-                "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_D",
-          "severity": 12,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "symbol_dense_line"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -685,6 +671,31 @@
               "text": "1.6 nanometers 3 v.\\,",
               "reasons": [
                 "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 6,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "1.6 micrometers LO ~, % oC *",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "} , ™ ~~",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
               ]
             }
           ]
@@ -737,9 +748,9 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -920,9 +931,9 @@
       "questionOptionFlags": [
         {
           "field": "option_C",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -936,9 +947,9 @@
         },
         {
           "field": "option_D",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "symbol_dense_line"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -954,11 +965,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 16,
+          "severity": 20,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "punctuation_run",
             "symbol_dense_line"
           ],
@@ -998,6 +1010,13 @@
               "text": "; ‘ oe",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 19,
+              "text": "yf oN?",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -1072,12 +1091,29 @@
       "correctOption": 2,
       "questionOptionFlags": [
         {
-          "field": "question",
-          "severity": 12,
+          "field": "option_D",
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "symbol_dense_line"
+            "short_ocr_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "; VY . i ~ 4",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 10,
+          "reasons": [
+            "hard_noise_char",
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -1100,9 +1136,8 @@
         },
         {
           "field": "option_A",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -1118,24 +1153,6 @@
               "text": "4 . hes x",
               "reasons": [
                 "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 3,
-              "text": "; VY . i ~ 4",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
               ]
             }
           ]
@@ -1298,14 +1315,74 @@
       "correctOption": 1,
       "questionOptionFlags": [
         {
-          "field": "question",
-          "severity": 16,
+          "field": "option_D",
+          "severity": 14,
           "reasons": [
-            "edge_noise",
+            "hard_noise_char",
+            "ocr_suffix",
+            "short_ocr_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Tropomyosin oO . x ~S > a“ —",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "oY ~°) r.",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "ocr_suffix",
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "> “",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 4,
+              "text": ". 2 way",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_B",
+          "severity": 13,
+          "reasons": [
             "hard_noise_char",
             "literal_backslash",
-            "many_linebreaks",
-            "symbol_dense_line"
+            "short_ocr_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": ",_ \\ <<“",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "question",
+          "severity": 13,
+          "reasons": [
+            "hard_noise_char",
+            "literal_backslash",
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -1355,72 +1432,18 @@
           ]
         },
         {
-          "field": "option_B",
-          "severity": 15,
+          "field": "option_A",
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "literal_backslash",
-            "symbol_dense_line"
+            "short_ocr_line"
           ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": ",_ \\ <<“",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char",
-                "symbol_dense_line"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 12,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Tropomyosin oO . x ~S > a“ —",
-              "reasons": [
-                "hard_noise_char"
-              ]
-            },
-            {
-              "line": 2,
-              "text": "oY ~°) r.",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char",
-                "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 3,
-              "text": "> “",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 4,
-              "text": ". 2 way",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
+          "suspectLines": []
         },
         {
           "field": "option_C",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -1434,7 +1457,8 @@
               "line": 2,
               "text": ". aA an o,",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
@@ -1598,9 +1622,8 @@
       "questionOptionFlags": [
         {
           "field": "option_A",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -1624,9 +1647,8 @@
         },
         {
           "field": "option_B",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -1649,9 +1671,9 @@
         },
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -1667,12 +1689,20 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "xe wer a?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 13,
               "text": "{ i",
@@ -1821,6 +1851,22 @@
       "correctOption": 2,
       "questionOptionFlags": [
         {
+          "field": "option_A",
+          "severity": 6,
+          "reasons": [
+            "short_ocr_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": ". >",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        },
+        {
           "field": "option_B",
           "severity": 6,
           "reasons": [
@@ -1855,22 +1901,6 @@
               "text": "ao oe ~",
               "reasons": [
                 "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_A",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": ". >",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1971,11 +2001,9 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 12,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -1993,11 +2021,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -2087,7 +2116,8 @@
               "line": 32,
               "text": "sg Tae ee is tibodl Dg |}—__$§— eoerinn ot,",
               "reasons": [
-                "hard_noise_char"
+                "hard_noise_char",
+                "ocr_suffix"
               ]
             },
             {
@@ -2212,7 +2242,24 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "In human skeletal muscles, calcium ions are stored in?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -2286,24 +2333,6 @@
       "correctOption": 4,
       "questionOptionFlags": [
         {
-          "field": "option_B",
-          "severity": 9,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ],
-          "suspectLines": [
-            {
-              "line": 3,
-              "text": "x { >",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            }
-          ]
-        },
-        {
           "field": "option_A",
           "severity": 6,
           "reasons": [
@@ -2320,10 +2349,27 @@
           ]
         },
         {
-          "field": "option_D",
-          "severity": 5,
+          "field": "option_B",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "x { >",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "option_D",
+          "severity": 6,
+          "reasons": [
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -2403,11 +2449,11 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 12,
+          "severity": 14,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
-            "symbol_dense_line"
+            "ocr_suffix",
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -2417,6 +2463,13 @@
                 "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "A skeletal muscle contraction end3when e.",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -2625,22 +2678,6 @@
               ]
             }
           ]
-        },
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "e,:",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
         }
       ],
       "explanationFlags": [
@@ -2723,9 +2760,9 @@
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -2999,9 +3036,8 @@
       "questionOptionFlags": [
         {
           "field": "option_D",
-          "severity": 12,
+          "severity": 9,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -3087,13 +3123,11 @@
       "questionOptionFlags": [
         {
           "field": "option_D",
-          "severity": 18,
+          "severity": 13,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "punctuation_run",
-            "symbol_dense_line"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -3125,11 +3159,9 @@
         },
         {
           "field": "question",
-          "severity": 10,
+          "severity": 6,
           "reasons": [
-            "hard_noise_char",
-            "many_linebreaks",
-            "symbol_dense_line"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {
@@ -3152,11 +3184,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -3166,6 +3199,13 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "be upto 600.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -3417,9 +3457,8 @@
       "questionOptionFlags": [
         {
           "field": "option_D",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -3444,11 +3483,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -3483,7 +3523,8 @@
               "line": 11,
               "text": "oy x x\\ xD,",
               "reasons": [
-                "hard_noise_char"
+                "hard_noise_char",
+                "ocr_suffix"
               ]
             },
             {
@@ -3533,14 +3574,11 @@
       "questionOptionFlags": [
         {
           "field": "option_D",
-          "severity": 19,
+          "severity": 13,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
-            "many_linebreaks",
-            "punctuation_run",
-            "symbol_dense_line"
+            "short_ocr_line"
           ],
           "suspectLines": [
             {
@@ -3576,48 +3614,17 @@
               ]
             }
           ]
-        },
-        {
-          "field": "option_A",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Na+ SO >” “a",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "K+ oY .",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
         }
       ],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 16,
+          "severity": 20,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "punctuation_run",
             "symbol_dense_line"
           ],
@@ -3653,6 +3660,13 @@
               ]
             },
             {
+              "line": 12,
+              "text": "back into the SR.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
               "line": 13,
               "text": "+ If the muscle is stimulated a second time before the muscle is fully relaxed, there is progressive",
               "reasons": [
@@ -3680,6 +3694,13 @@
               "reasons": [
                 "punctuation_run",
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 37,
+              "text": "KO fe) me.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -3723,11 +3744,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -3811,6 +3833,7 @@
               "text": "i = = e.",
               "reasons": [
                 "edge_noise",
+                "ocr_suffix",
                 "symbol_dense_line"
               ]
             },
@@ -3853,56 +3876,7 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "1, 3, and 5 are correct",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "1, 4, and 5 are correct",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "2, 4, and 5 are correct",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -4075,11 +4049,9 @@
       "questionOptionFlags": [
         {
           "field": "option_D",
-          "severity": 12,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
+            "hard_noise_char"
           ],
           "suspectLines": [
             {

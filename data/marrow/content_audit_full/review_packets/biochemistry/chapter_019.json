@@ -4,9 +4,9 @@
   "subject": "Biochemistry",
   "chapterId": "19",
   "chapter": "Enzyme Kinetics and Regulation of Activity",
-  "candidateQuestionCount": 12,
-  "questionOptionCandidateCount": 2,
-  "explanationCandidateCount": 12,
+  "candidateQuestionCount": 13,
+  "questionOptionCandidateCount": 0,
+  "explanationCandidateCount": 13,
   "questions": [
     {
       "id": "marrow__BIOCHEM_CH19_Q001",
@@ -33,24 +33,7 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Activation energy is the free energy difference between _______",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -127,11 +110,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -157,10 +141,18 @@
               ]
             },
             {
+              "line": 8,
+              "text": "Therefore, the reaction is aid to be second order with respect to reactant A.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
               "line": 12,
               "text": "Therefore) sthe 1 reaction. is\\said to be first order with respect to reactant P.",
               "reasons": [
-                "hard_noise_char"
+                "hard_noise_char",
+                "ocr_suffix"
               ]
             }
           ]
@@ -197,13 +189,21 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "x e.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 8,
               "text": "concentration does not change reactign\\velocity..This i is because the enzyme is saturated with the",
@@ -216,6 +216,13 @@
               "text": "substrate. ~",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 13,
+              "text": "substrate concentration [S] mathematically i ie,",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -352,18 +359,33 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
-            "literal_backslash"
+            "literal_backslash",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 21,
+              "text": "depends on the.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 25,
               "text": "S\\contormational",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 35,
+              "text": "any tim:",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -500,11 +522,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
             "literal_backslash",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -521,6 +544,20 @@
               "text": "Toh \\ <O x",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "important in the cell's ability to agisst enzyme acti ity.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 14,
+              "text": "the catalytic or active si e.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -557,6 +594,13 @@
               "text": "3. HMG CoA reductase Cholesterol -",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 30,
+              "text": "4.Phosphofructokinase Citrate, ATP AMP, F2,6P",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -642,32 +686,23 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Chymotrypsinogen is a ________",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
+            "ocr_suffix",
             "punctuation_run"
           ],
           "suspectLines": [
+            {
+              "line": 5,
+              "text": "trypsinogen, chymotrypsinogen, proelastase, pepsinogen, prophospholipase A2 etc.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 7,
               "text": "Proonzymes (zymogens) —-————» Active enzymes",
@@ -752,6 +787,52 @@
         }
       ],
       "explanation": "ye ~\n\n| ©) a”\n\n&*%\n\nLow dose aspirin exerts its action iby irreversibly, inhibiting exchooxygenase enzyme activity in\nplatelets, which is an example\\of suicide inhibition.\n\nA suicidal enzyme is one ttt undergoe® self -destryefion 1 in order to terminate its own activity. In\nthis case, in response to irreversible inhibition by aspirin, platelet cyclooxygenase loses its ability\nto synthesize thromboxane. It undergoes self= -destruction. Unless new platelets are formed, this\n\ncyclooxygenase activity cannot be regained:"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH19_Q017",
+      "questionNumber": 17,
+      "sourcePage": 303,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "Which of the following nucleotide triphosphate targets ATCase for feedback regulation?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cytidine triphosphate"
+        },
+        {
+          "letter": "B",
+          "text": "Adenosine triphosphate"
+        },
+        {
+          "letter": "C",
+          "text": "Guanosine triphosphate"
+        },
+        {
+          "letter": "D",
+          "text": "A &amp; B"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 13,
+              "text": "ATCase, whereas the purine nucleotide ATP activates it.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": ".¢\n\nY fas\n\n4\n\nBoth cytidine triphosphate and adenosine triphosphate target aspartate transcarbamoylase\n(ATCase) for feedback regulation.\n\nATCase, the catalyst for the first reaction unique to pyrimidine biosynthesis, is a target of\nfeedback regulation by two nucleotide triphosphates: cytidine triphosphate (CTP) and adenosine\ntriphosphate (ATP). CTP is an end product of the pyrimidine biosynthetic pathway. It inhibits\nATCase, whereas the purine nucleotide ATP activates it.\n\nHigh levels of ATP can overcome the inhibition by CTP, enabling synthesis of pyrimidine\n\nnucleotides to proceed even when purine nucleotide (CTP) levels are elevated."
     },
     {
       "id": "marrow__BIOCHEM_CH19_Q019",
@@ -860,10 +941,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -877,7 +959,8 @@
               "line": 3,
               "text": "The highest tcatitic efficiencihis| seen when Km= 2 micromole and Kcat = 200 per sec.",
               "reasons": [
-                "hard_noise_char"
+                "hard_noise_char",
+                "ocr_suffix"
               ]
             }
           ]

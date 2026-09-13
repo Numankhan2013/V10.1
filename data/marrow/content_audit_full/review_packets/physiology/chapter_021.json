@@ -4,9 +4,9 @@
   "subject": "Physiology",
   "chapterId": "21",
   "chapter": "Alveolar Gas Exchange",
-  "candidateQuestionCount": 6,
+  "candidateQuestionCount": 11,
   "questionOptionCandidateCount": 0,
-  "explanationCandidateCount": 6,
+  "explanationCandidateCount": 11,
   "questions": [
     {
       "id": "marrow__PHYSIO_CH21_Q001",
@@ -103,6 +103,73 @@
       "explanation": "The percentage of cardiac output that bypasses the pulmonary circulation or physiological shunt is 2%. The fraction of mixed venous blood that does not become oxygenated as it moves from the right atrium to the left ventricle is called physiologic shunt.\n\nCauses of physiological shunt:\n• Extrapulmonary R→L anatomic shunt (normally ~1% of cardiac output)\n• Intrapulmonary “true” shunt\n• Flow past unventilated or collapsed alveoli (e.g., due to edema, pneumonia, atelectasis)\n• Anatomic arterio-venous pathways: mixing of unoxygenated blood in bronchial veins with oxygenated blood in pulmonary capillaries or vein reduces the final partial pressure of O2 in the arterial blood (PaO2)\n• Intrapulmonary regions with low ventilation/perfusion ratio: alveolar ventilation is not zero, but blood is not completely oxygenated (a virtual shunt, not a “true” shunt)."
     },
     {
+      "id": "marrow__PHYSIO_CH21_Q005",
+      "questionNumber": 5,
+      "sourcePage": 384,
+      "reviewStatus": "pass",
+      "question": "The partial pressure of H2O at the body temperature (37° C) is (in mm Hg) ______.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "21"
+        },
+        {
+          "letter": "B",
+          "text": "47"
+        },
+        {
+          "letter": "C",
+          "text": "40"
+        },
+        {
+          "letter": "D",
+          "text": "100"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The partial pressure of water vapor at a normal body temperature of 37°C is 47 mm Hg.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "Humidification of air:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "• For instance, the water vapor pressure at 0°C is 5 mm Hg, and at 100°C it is 760 mm Hg.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "• The most important value to remember is the vapor pressure at body temperature: 47 mm Hg.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The partial pressure of water vapor at a normal body temperature of 37°C is 47 mm Hg.\n\nHumidification of air:\n• When dry air enters the respiratory system it is humidified, i.e. water molecules are continually escaping from the water surface (tissues) into the gas phase.\n• The partial pressure that the water molecules exert to escape through the surface is called the vapor pressure of the water.\n• The vapor pressure of water depends entirely on the temperature of the water.\n• The greater the temperature, the greater the kinetic activity of the molecules and, therefore, the greater the likelihood that the water molecules will escape from the surface of the water into the gas phase.\n• For instance, the water vapor pressure at 0°C is 5 mm Hg, and at 100°C it is 760 mm Hg.\n• The most important value to remember is the vapor pressure at body temperature: 47 mm Hg.\n\nOnce equilibrium is attained after diffusion, vapour pressure is called partial pressure."
+    },
+    {
       "id": "marrow__PHYSIO_CH21_Q007",
       "questionNumber": 7,
       "sourcePage": 384,
@@ -131,22 +198,84 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 16,
               "text": "Vd = (45−30)/45 × 500 = 166.66 mL.",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
         }
       ],
       "explanation": "The Bohr-Enghoff equation is used to calculate physiological dead space/total dead space.\n\nThe original Bohr equation required measurement of the alveolar partial pressure of CO2 (PACO2):\nVD/VT = (PACO2 − PeCO2) / PACO2\n\nLater Enghoff modified the equation and replaced PACO2 with PaCO2 (partial pressure of CO2 in arterial blood):\nVD/VT = (PaCO2 − PeCO2) / PaCO2\n\nWhere:\n• VD is the physiological dead space\n• VT is the tidal volume\n• PaCO2 is the partial pressure of CO2 in the arterial blood\n• PeCO2 is the average partial pressure of CO2 in the entire expired air\n\nSubstituting the values:\nVd = (45−30)/45 × 500 = 166.66 mL."
+    },
+    {
+      "id": "marrow__PHYSIO_CH21_Q008",
+      "questionNumber": 8,
+      "sourcePage": 384,
+      "reviewStatus": "pass",
+      "question": "Which of the following is true regarding dead space volume in a healthy individual?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Anatomical dead space > physiologic dead space"
+        },
+        {
+          "letter": "B",
+          "text": "Anatomical dead space < physiological dead space"
+        },
+        {
+          "letter": "C",
+          "text": "Anatomical dead space and physiologic dead space are almost equivalent"
+        },
+        {
+          "letter": "D",
+          "text": "Anatomical dead space is not related to physiologic dead space"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 11,
+              "text": "• Anatomical dead space = 150 mL.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 13,
+              "text": "• Physiological dead space = Anatomical + Alveolar = 150 + 0 = 150 mL.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 17,
+              "text": "Dead space can be measured by:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "In healthy individuals, anatomical dead space and physiological dead space are almost equivalent, and can be estimated by body weight.\n\nDead space is the volume of the airways and lungs that do not participate in gas exchange.\n\nTypes:\n• Anatomic dead space: volume of the air-occupying conducting zone where no exchange of gases takes place.\n• Alveolar/functional dead space: the volume of gas not equilibrating with blood (wasted ventilation).\n• Total dead space/physiological dead space = Anatomical + Alveolar dead space.\n\nIn healthy individuals:\n• Anatomical dead space = 150 mL.\n• Alveolar dead space is usually zero (increased in diseased conditions).\n• Physiological dead space = Anatomical + Alveolar = 150 + 0 = 150 mL.\n• Physiological dead space = Anatomical dead space.\n• Radford's formula: anatomical dead space in mL is approximately equal to the body weight in pounds.\n\nDead space can be measured by:\n• Single Breath N2 method (Fowler's method)\n• Bohr's equation."
     },
     {
       "id": "marrow__PHYSIO_CH21_Q009",
@@ -269,6 +398,52 @@
       "explanation": "Waterfall effect has been used to describe the blood flow in the middle portion of lung.\n\nIn this region blood flows in pulses. At first there is no flow because of obstruction at the collapsed venous end of the capillary bed. Pressure from the arterial side builds up until it exceeds alveolar pressure and flow resumes. This dissipates the capillary pressure and returns to the start of the cycle.\n\nThe blood flow in this region is determined by the pulmonary artery–alveolar pressure difference. Blood “falls” into the pulmonary veins, which are compliant and take whatever amount of blood can flow into them. This has been called the waterfall effect.\n\nBlood flow distribution in the lung:\nPA: Alveolar pressure\nPa: arterial pressure\nPv: venous pressure."
     },
     {
+      "id": "marrow__PHYSIO_CH21_Q011",
+      "questionNumber": 11,
+      "sourcePage": 385,
+      "reviewStatus": "pass",
+      "question": "V/Q = infinity holds true in which of the following conditions?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Foreign body obstruction in the bronchus"
+        },
+        {
+          "letter": "B",
+          "text": "Equal to dead space"
+        },
+        {
+          "letter": "C",
+          "text": "When O2 and CO2 ratio is equal"
+        },
+        {
+          "letter": "D",
+          "text": "The PO2 of alveolar air is 159 mmHg and PCO2 is 40 mmHg"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 8,
+              "text": "• The alveolar air equilibrates the humidified inspired air.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "VA/Q = infinity means that there is no exchange of O2 & CO2, which means the volume of the lung equals to dead space and the physiological effort of breathing is wasted.\n\nVA represents the ventilation in alveoli and Q represents the blood flow through the alveolus. The ratio of VA and Q explains the respiratory exchange when there is an imbalance between alveolar ventilation and alveolar blood flow. The ventilation-perfusion ratio is considered normal if there is an equal amount of blood flow & ventilation through the alveolus.\n\nVA/Q ratio is infinity when:\n• There is adequate ventilation but no perfusion.\n• No exchange of gases (O2 and CO2) through the respiratory membranes of corresponding alveoli.\n• The alveolar air equilibrates the humidified inspired air.\n• Partial pressures of the O2 and CO2 are 149 mmHg & 0 mm Hg respectively."
+    },
+    {
       "id": "marrow__PHYSIO_CH21_Q012",
       "questionNumber": 12,
       "sourcePage": 385,
@@ -297,9 +472,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 4,
+          "severity": 8,
           "reasons": [
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -308,11 +484,131 @@
               "reasons": [
                 "hard_noise_char"
               ]
+            },
+            {
+              "line": 9,
+              "text": "• Zone 3: highest ventilation compared to Zones 2 and 1, but Q >> V, hence V/Q is low.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 14,
+              "text": "PACO2 = Alveolar partial pressure of CO2.",
+              "reasons": [
+                "ocr_suffix"
+              ]
             }
           ]
         }
       ],
       "explanation": "Decreased ventilation-perfusion ratio implies decreased oxygenation due to decreased ventilation with respect to perfusion. Hence, PAO2 decreases and PCO2 increases.\n\nA decrease in the ventilation-perfusion ratio (VA/Q) is depicted by moving to the left along the normal ventilation-perfusion line as shown in the figure.\n\n• Zone 1: lowest ventilation compared to Zones 2 and 3, but V >> Q, hence V/Q is high.\n• PAO2 is highest.\n• PACO2 is lowest.\n• Zone 2: Ventilation almost equal to perfusion, but slightly lower, so V/Q is average (~0.8).\n• Zone 3: highest ventilation compared to Zones 2 and 1, but Q >> V, hence V/Q is low.\n• PAO2 is lowest.\n• PACO2 is highest.\n\nPAO2 = Alveolar partial pressure of oxygen.\nPACO2 = Alveolar partial pressure of CO2."
+    },
+    {
+      "id": "marrow__PHYSIO_CH21_Q013",
+      "questionNumber": 13,
+      "sourcePage": 386,
+      "reviewStatus": "pass",
+      "question": "A person with normal lung at sea level (760 mm Hg) is breathing 50% oxygen. With a normal respiratory quotient of 0.8, what is the approximate alveolar PO2 (in mmHg)?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "713"
+        },
+        {
+          "letter": "B",
+          "text": "159"
+        },
+        {
+          "letter": "C",
+          "text": "306"
+        },
+        {
+          "letter": "D",
+          "text": "365"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Alveolar gas equation is used to calculate partial pressure of O2 in alveolar air.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 23,
+              "text": "Step 2:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Alveolar gas equation is used to calculate partial pressure of O2 in alveolar air.\n\nPAO2 = PIO2 − (PACO2/R) + correction factor\n\nWhere:\n• PAO2 = Alveolar PO2 (mm Hg)\n• PIO2 = PO2 in inspired air (mm Hg)\n• PACO2 = Alveolar PCO2 (mm Hg), which is normally 40 mmHg\n• R = Respiratory exchange ratio or respiratory quotient (CO2 production/O2 consumption)\n• Correction factor is usually negligible.\n\nStep 1: In the question PO2 in inspired air is not given directly. It has to be calculated:\nPIO2 = FIO2 (PB − PH2O)\n\nWhere:\n• FIO2 = Fraction of inspired O2 (50% or 0.5)\n• PB = Barometric pressure (760 mmHg)\n• PH2O = Water vapour pressure (47 mmHg)\n\nSubstituting:\nPIO2 = 0.5 (760 − 47) = 0.5 × 713 = 356.5 mmHg\n\nStep 2:\nPAO2 = PIO2 − (PCO2/R) = 356.5 − (40/0.8) = 356.5 − 50 = 306.5 mmHg."
+    },
+    {
+      "id": "marrow__PHYSIO_CH21_Q015",
+      "questionNumber": 15,
+      "sourcePage": 387,
+      "reviewStatus": "pass",
+      "question": "Which of the following best describes the mean arterial oxygen tension (pO2), carbon dioxide tension (pCO2) and pH in a healthy athlete during moderate exercise?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "↓ Arterial pO2, ↓ Arterial pCO2, ↓ Arterial pH"
+        },
+        {
+          "letter": "B",
+          "text": "↓ Arterial pO2, ↑ Arterial pCO2, ↓ Arterial pH"
+        },
+        {
+          "letter": "C",
+          "text": "↑ Arterial pO2, ↓ Arterial pCO2, ↑ Arterial pH"
+        },
+        {
+          "letter": "D",
+          "text": "No change in Arterial pO2, Arterial pCO2 or Arterial pH"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "During moderate exercise, there is no change in arterial pO2, arterial pCO2 or arterial pH.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "Ventilation increases abruptly at the onset of exercise due to psychic stimuli and afferent impulses from proprioceptors in muscles, tendons, and joints. This is followed by a brief pause and then a gradual increase in ventilation. This gradual increase in ventilation is believed to be due to multiple factors such as an increase in body temperature, increase in plasma K+ level stimulating peripheral chemoreceptors, or the sensitivity of the neurons controlling the response to CO2.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "During moderate exercise, there is no change in arterial pO2, arterial pCO2 or arterial pH.\n\nVentilation increases abruptly at the onset of exercise due to psychic stimuli and afferent impulses from proprioceptors in muscles, tendons, and joints. This is followed by a brief pause and then a gradual increase in ventilation. This gradual increase in ventilation is believed to be due to multiple factors such as an increase in body temperature, increase in plasma K+ level stimulating peripheral chemoreceptors, or the sensitivity of the neurons controlling the response to CO2.\n\nIn strenuous exercise, at a certain point, the O2 uptake reaches its maximum levels, beyond which it cannot increase further. This leads to a rise in blood lactate levels. Buffering of lactic acid liberates CO2 which further increases ventilation. The increased production of lactic acid, increase in ventilation and CO2 production are proportional, and alveolar and arterial CO2 changes little to nil. This is called isocapnic buffering."
     }
   ]
 }

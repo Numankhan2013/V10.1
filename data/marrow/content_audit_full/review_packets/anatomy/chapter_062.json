@@ -4,48 +4,48 @@
   "subject": "Anatomy",
   "chapterId": "62",
   "chapter": "Cardiovascular, Lymphatic and Nervous Systems",
-  "candidateQuestionCount": 4,
-  "questionOptionCandidateCount": 4,
-  "explanationCandidateCount": 0,
+  "candidateQuestionCount": 3,
+  "questionOptionCandidateCount": 2,
+  "explanationCandidateCount": 1,
   "questions": [
     {
-      "id": "marrow__ANAT_CH62_Q001",
-      "questionNumber": 1,
+      "id": "marrow__ANAT_CH62_Q002",
+      "questionNumber": 2,
       "sourcePage": 1187,
       "reviewStatus": "pass",
-      "question": "Fenestrated capillaries are absent in__________",
+      "question": "Which of the following layers of a large blood vessel wall does the vasa vasorum supply blood to?",
       "options": [
         {
           "letter": "A",
-          "text": "Kidneys"
+          "text": "Tunica adventitia only"
         },
         {
           "letter": "B",
-          "text": "Lungs"
+          "text": "Tunica adventitia and outer part of Tunica media"
         },
         {
           "letter": "C",
-          "text": "Endocrine glands"
+          "text": "Tunica adventitia, Tunica media"
         },
         {
           "letter": "D",
-          "text": "Small intestines"
+          "text": "Tunica adventitia, Tunica media and outer part of Tunica intima"
         }
       ],
       "correctOption": 2,
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "Fenestrated capillaries are absent in__________",
+              "text": "Which of the following layers of a large blood vessel wall does the vasa vasorum supply blood to?",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
@@ -55,135 +55,89 @@
       "explanation": null
     },
     {
-      "id": "marrow__ANAT_CH62_Q003",
-      "questionNumber": 3,
-      "sourcePage": 1187,
+      "id": "marrow__ANAT_CH62_Q007",
+      "questionNumber": 7,
+      "sourcePage": 1188,
       "reviewStatus": "pass",
-      "question": "Collateral circulation refers to circulation through _______",
+      "question": "Which of the following veins have valves?",
       "options": [
         {
           "letter": "A",
-          "text": "Capillaries"
+          "text": "Hepatic veins"
         },
         {
           "letter": "B",
-          "text": "Sinusoids"
+          "text": "Inferior venacava"
         },
         {
           "letter": "C",
-          "text": "Anastomosis"
+          "text": "Cerebral veins"
         },
         {
           "letter": "D",
-          "text": "Plexuses"
+          "text": "Testicular veins"
         }
       ],
-      "correctOption": 3,
-      "questionOptionFlags": [
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
         {
-          "field": "question",
-          "severity": 5,
+          "field": "explanation",
+          "severity": 4,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "Collateral circulation refers to circulation through _______",
+              "line": 3,
+              "text": "Venous valves maintain unidirectional blood flow. The source lists valve absence in veins less than 2 mm, venae cavae, and hepatic, renal, uterine, ovarian, cerebral, spinal, pulmonary and umbilical veins; it also notes the fetal Eustachian valve of the IVC.",
               "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanation": "Testicular veins have valves.\n\nVenous valves maintain unidirectional blood flow. The source lists valve absence in veins less than 2 mm, venae cavae, and hepatic, renal, uterine, ovarian, cerebral, spinal, pulmonary and umbilical veins; it also notes the fetal Eustachian valve of the IVC."
     },
     {
-      "id": "marrow__ANAT_CH62_Q015",
-      "questionNumber": 15,
-      "sourcePage": 1190,
+      "id": "marrow__ANAT_CH62_Q012",
+      "questionNumber": 12,
+      "sourcePage": 1189,
       "reviewStatus": "pass",
-      "question": "Bipolar neurons are present in all of the following except ______",
+      "question": "An 86-year-old woman presented with sepsis and a massive right pleural effusion. She developed a chylous effusion 2 days after a chest tube insertion. An injury to the thoracic duct is suspected. Which of the following parts is not drained by it?",
       "options": [
         {
           "letter": "A",
-          "text": "Spiral ganglia"
+          "text": "Right upper limb"
         },
         {
           "letter": "B",
-          "text": "Spinal ganglia"
+          "text": "Right lower limb"
         },
         {
           "letter": "C",
-          "text": "Vestibular ganglia"
+          "text": "Left upper limb"
         },
         {
           "letter": "D",
-          "text": "Retina"
+          "text": "Left lower limb"
         }
       ],
-      "correctOption": 2,
+      "correctOption": 1,
       "questionOptionFlags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "Bipolar neurons are present in all of the following except ______",
+              "text": "An 86-year-old woman presented with sepsis and a massive right pleural effusion. She developed a chylous effusion 2 days after a chest tube insertion. An injury to the thoracic duct is suspected. Which of the following parts is not drained by it?",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanationFlags": [],
-      "explanation": null
-    },
-    {
-      "id": "marrow__ANAT_CH62_Q019",
-      "questionNumber": 19,
-      "sourcePage": 1191,
-      "reviewStatus": "pass",
-      "question": "The nerve plexuses are formed only by ______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Dorsal rami"
-        },
-        {
-          "letter": "B",
-          "text": "Ventral rami"
-        },
-        {
-          "letter": "C",
-          "text": "Dorsal roots"
-        },
-        {
-          "letter": "D",
-          "text": "Ventral roots"
-        }
-      ],
-      "correctOption": 2,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "The nerve plexuses are formed only by ______",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

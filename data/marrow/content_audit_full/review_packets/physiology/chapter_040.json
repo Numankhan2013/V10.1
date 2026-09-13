@@ -1,0 +1,348 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Physiology",
+  "chapterId": "40",
+  "chapter": "Calcium Homeostasis",
+  "candidateQuestionCount": 7,
+  "questionOptionCandidateCount": 1,
+  "explanationCandidateCount": 6,
+  "questions": [
+    {
+      "id": "marrow__PHYSIO_CH40_Q003",
+      "questionNumber": 3,
+      "sourcePage": 745,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "Which of the following is false regarding actions of vitamin D?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Vit D receptor-retinoid X receptor complex binds to DNA and activates transcription"
+        },
+        {
+          "letter": "B",
+          "text": "Vit D increases absorption of calcium from the intestine by increasing calbindin"
+        },
+        {
+          "letter": "C",
+          "text": "Phosphate flux through the gastrointestinal epithelium is enhanced by vitamin D"
+        },
+        {
+          "letter": "D",
+          "text": "Vit D decreases phosphate reabsorption by the renal tubules"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Which of the following is false regarding actions of vitamin D?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
+      "id": "marrow__PHYSIO_CH40_Q005",
+      "questionNumber": 5,
+      "sourcePage": 746,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "Which of the following decreases the conversion of 25-hydroxycholecalciferol to 1,25 dihydroxycholecalciferol?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Diet low in Ca²⁺"
+        },
+        {
+          "letter": "B",
+          "text": "Hypocalcemia"
+        },
+        {
+          "letter": "C",
+          "text": "Hyperparathyroidism"
+        },
+        {
+          "letter": "D",
+          "text": "Chronic renal failure"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "Factors which increase activity of 1α-hydroxylase are:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The conversion of 25-hydroxycholecalciferol to 1,25 dihydroxycholecalciferol is done by enzyme 1α-hydroxylase which is present in the kidney. In chronic renal failure (CRF), there is a deficiency of this enzyme and formation of the active form of vitamin D does not take place.\n\nFactors which increase activity of 1α-hydroxylase are:\n• Ca²⁺ deficiency\n• Increased parathyroid hormone (PTH)"
+    },
+    {
+      "id": "marrow__PHYSIO_CH40_Q016",
+      "questionNumber": 16,
+      "sourcePage": 748,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "Which of the following is true regarding calcium homeostasis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "90% of calcium is filtered from the glomerulus"
+        },
+        {
+          "letter": "B",
+          "text": "Calcium is reabsorbed mainly from the late distal convoluted tubule (DCT)"
+        },
+        {
+          "letter": "C",
+          "text": "Parathyroid hormone (PTH) promotes calcium reabsorption from the renal tubules"
+        },
+        {
+          "letter": "D",
+          "text": "Calcitonin promotes action of parathyroid hormone"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 5,
+              "text": "Option B: Of the filtered calcium, approximately 90 percent is reabsorbed in the proximal tubules, loops of Henle, and early distal tubules. However, when calcium levels are low and PTH levels rise, PTH promotes calcium reabsorption from the later DCT.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "Option D: Calcitonin tends to decrease plasma calcium concentration and, in general, has effects opposite to those of PTH.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "PTH promotes the reabsorption of calcium from the renal tubules.\n\nOption A: About 41 percent of the plasma calcium is bound to plasma proteins and is therefore not filtered by the glomerular capillaries. The rest of the calcium is filtered through the glomeruli into the renal tubules.\n\nOption B: Of the filtered calcium, approximately 90 percent is reabsorbed in the proximal tubules, loops of Henle, and early distal tubules. However, when calcium levels are low and PTH levels rise, PTH promotes calcium reabsorption from the later DCT.\n\nOption D: Calcitonin tends to decrease plasma calcium concentration and, in general, has effects opposite to those of PTH."
+    },
+    {
+      "id": "marrow__PHYSIO_CH40_Q018",
+      "questionNumber": 18,
+      "sourcePage": 749,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "Which of the following will be most likely seen in a patient with parathyroid deficiency after inadvertent damage to the parathyroid glands during thyroid surgery?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "High plasma phosphate, low Ca²⁺ levels and tetanus"
+        },
+        {
+          "letter": "B",
+          "text": "Low plasma Ca²⁺ level, increased muscular excitability, and Trousseau sign"
+        },
+        {
+          "letter": "C",
+          "text": "High plasma phosphate and Ca²⁺ levels and bone demineralization"
+        },
+        {
+          "letter": "D",
+          "text": "Increased muscular excitability, a high plasma Ca²⁺ level, and bone demineralization"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 6,
+              "text": "• Chvostek sign: Contraction facial muscles on tapping over facial nerve in front of the tragus of the ear.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "In a patient with parathyroid deficiency due to inadvertent damage to the parathyroid glands, the clinical evaluation will show low Ca²⁺ level, tetany, Trousseau sign, and high phosphate levels.\n\nPTH is released in response to low calcium levels. It increases the calcium levels by the following actions.\n\nFollowing signs can be elicited in hypoparathyroidism due to hypocalcemia (tetany):\n• Chvostek sign: Contraction facial muscles on tapping over facial nerve in front of the tragus of the ear.\n• Trousseau sign: Accoucheur’s hand position and painful carpopedal spasm by applying a sphygmomanometer cuff to the arm and keeping the pressure above systolic blood pressure for 5 minutes.\n\nNote: In option A, tetanus is different from tetany. Tetanus is caused by infection with the bacteria Clostridium tetani.\n\nThe image below is showing Trousseau sign."
+    },
+    {
+      "id": "marrow__PHYSIO_CH40_Q022",
+      "questionNumber": 22,
+      "sourcePage": 750,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "Which of the following is false regarding confounders affecting serum calcium level?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Total calcium concentration is altered by variations in the serum albumin concentration."
+        },
+        {
+          "letter": "B",
+          "text": "Forearm exercise can lead to falsely elevated ionized calcium levels"
+        },
+        {
+          "letter": "C",
+          "text": "Hemoconcentration due to tourniquet results in a rise of serum calcium"
+        },
+        {
+          "letter": "D",
+          "text": "Acidosis causes a decrease in the ionized calcium levels"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 5,
+              "text": "Option A: Total calcium concentration is altered by variations in the serum albumin concentration as 41% of calcium is bound to plasma proteins like albumin, hence changes in albumin concentration affects the serum calcium levels. The corrected calcium levels can be calculated as:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Acidosis does not cause a decrease in the ionized calcium levels. Rather, alkalosis causes a decrease in the ionized calcium levels.\n\nPlasma proteins are more ionized when the pH is high (alkalosis), providing more protein anions to bind with and sequester free Ca²⁺. This causes a decrease in ionized calcium and may trigger symptoms of hypocalcemia.\n\nOption A: Total calcium concentration is altered by variations in the serum albumin concentration as 41% of calcium is bound to plasma proteins like albumin, hence changes in albumin concentration affects the serum calcium levels. The corrected calcium levels can be calculated as:\n\nCorrected calcium (mg/dL) = measured total Ca (mg/dL) + 0.8 (4.0 − serum albumin [g/dL]), where 4.0 represents the average albumin level.\n\nOption B: Fist-clenching or forearm exercise can lead to falsely elevated ionized (free) calcium levels.\n\nOption C: A tourniquet is usually avoided while drawing blood for calcium measurements since hemoconcentration also leads to an increase in serum calcium levels."
+    },
+    {
+      "id": "marrow__PHYSIO_CH40_Q024",
+      "questionNumber": 24,
+      "sourcePage": 751,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "Which of these is not a marker of bone resorption?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Urine hydroxyproline"
+        },
+        {
+          "letter": "B",
+          "text": "Serum cross-linked C telopeptide"
+        },
+        {
+          "letter": "C",
+          "text": "Urine total free deoxypyridinoline"
+        },
+        {
+          "letter": "D",
+          "text": "Serum bone specific alkaline phosphatase"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "Other markers of bone formation are:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "Markers for bone resorption are:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Serum bone specific alkaline phosphatase is a marker for bone formation.\n\nOther markers of bone formation are:\n• Serum osteocalcin\n• Serum type 1 procollagen (C-terminal/N-terminal)\n\nMarkers for bone resorption are:\n• Urinary hydroxyproline\n• Urinary total pyridinoline (PYD)\n• Urinary free deoxypyridinoline (DPD)\n• Urinary collagen type 1 cross-linked N-telopeptide (NTX)\n• Urinary or serum collagen type 1 cross-linked C-telopeptide (CTX)\n• Tartrate-resistant acid phosphatase 5b\n\nInternational Osteoporosis Foundation has proposed serum CTX and serum PINP (Procollagen 1 N-terminal peptide) to be used as reference markers of bone resorption and formation, respectively, for the assessment of fracture risk and monitoring therapy in clinical settings."
+    },
+    {
+      "id": "marrow__PHYSIO_CH40_Q025",
+      "questionNumber": 25,
+      "sourcePage": 751,
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "Which of the following is not a cause of secondary hyperparathyroidism?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Parathyroid adenoma"
+        },
+        {
+          "letter": "B",
+          "text": "Lithium intake"
+        },
+        {
+          "letter": "C",
+          "text": "Vitamin D deficiency"
+        },
+        {
+          "letter": "D",
+          "text": "Chronic kidney disease"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 7,
+              "text": "• Vitamin D deficiency: Causes hypocalcemia, which triggers the increased secretion of PTH.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Parathyroid adenoma is a benign tumor of the parathyroid gland, which causes primary hyperparathyroidism (not secondary).\n\nSecondary hyperparathyroidism is characterized by high levels of parathyroid hormone, to compensate for the low levels of serum calcium, due to some other underlying condition.\n\nCauses of secondary hyperparathyroidism include:\n• Chronic kidney disease: The damaged kidneys are unable to produce sufficient amounts of the active form of vitamin D, 1,25-dihydroxycholecalciferol. This further causes hypocalcemia and triggers PTH secretion.\n• Vitamin D deficiency: Causes hypocalcemia, which triggers the increased secretion of PTH.\n• Lithium: May cause an increased set-point of calcium for parathyroid hormone suppression, which leads to parathyroid hyperplasia."
+    }
+  ]
+}

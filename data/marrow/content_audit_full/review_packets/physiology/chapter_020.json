@@ -5,7 +5,7 @@
   "chapterId": "20",
   "chapter": "Lung Mechanics",
   "candidateQuestionCount": 15,
-  "questionOptionCandidateCount": 6,
+  "questionOptionCandidateCount": 2,
   "explanationCandidateCount": 14,
   "questions": [
     {
@@ -91,52 +91,6 @@
       "explanation": "we\nIn this scenario, the person has performed a strenuous exercise, so he will be.using accessory\nmuscles of respiration along with primary muscle of respiration. Internal intercostals and\nabdominal recti are the muscles involved. sah ot\n»\nPrimary inspiratory muscles | DiaphragmExternal intercost\nal muscles\nAccessory inspiratory muscle | SternocleidomastoidScaleniA\ns Jae nasiSmall muscles of the\nhead & neck\nAccessory expiratory muscles | Internal intercostal musclesR\nectus AbdominisInternal & e\nxternal obliquesTransversus\nabdominis\nALi ‘~\n. 8 a\nClinical correlation? i\naa a\n+ The diaphtagm is the chief muscle of inspiration.\n« It is supplied by the phrenic nerve ( C3-C5 )\n¢ Hence transection of the spinal cord above the third cervical segment is fatal without artificial\nrespiration, but transection below the fifth cervical segment is not fatal because, it leaves the\nphrenic nerves that innervate the diaphragm."
     },
     {
-      "id": "marrow__PHYSIO_CH20_Q002",
-      "questionNumber": 2,
-      "sourcePage": 365,
-      "reviewStatus": "pass",
-      "question": "The intrapleural pressure is ______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Always positive"
-        },
-        {
-          "letter": "B",
-          "text": "Sometimes positive and sometimes negative"
-        },
-        {
-          "letter": "C",
-          "text": "Negative except in forced expiration"
-        },
-        {
-          "letter": "D",
-          "text": "Negative at apex but positive at base"
-        }
-      ],
-      "correctOption": 3,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "The intrapleural pressure is ______",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanationFlags": [],
-      "explanation": null
-    },
-    {
       "id": "marrow__PHYSIO_CH20_Q003",
       "questionNumber": 3,
       "sourcePage": 365,
@@ -161,38 +115,36 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "The intrapleural pressure is negative both during inspiration and expiration because ______",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 3,
+              "text": "The 2 factors that lead to a negative or subatmospheric intrapleural pressure are:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 12,
               "text": "Wy .s - Viscotal pleura",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 18,
+              "text": "24 em Hg A ; A:",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -203,10 +155,24 @@
               ]
             },
             {
+              "line": 25,
+              "text": "0 yo.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
               "line": 29,
               "text": ". a as",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 33,
+              "text": "collapse and the chest wall spring out.",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -292,31 +258,15 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "The transpulmonary pressure is the pressure difference between ______",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -339,6 +289,13 @@
               "text": "756 mm Hg (—4 mm Hg) | lal",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 17,
+              "text": "0 yo.",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -375,9 +332,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -392,6 +350,13 @@
               "text": "AP= -12-(-4) = -8 cm of H20",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "Therefore the compliance is,",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -435,9 +400,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 4,
+          "severity": 8,
           "reasons": [
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -445,6 +411,20 @@
               "text": "wah ~ oe",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "The transpulmonary pressure would be 12 emH2Q when she inhales 600mL.of air.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 25,
+              "text": "Step 3: Calculate the transpulmonary pressure (Ptp) after inhaling 600mL of air.",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -477,24 +457,7 @@
         }
       ],
       "correctOption": 3,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Compared to a gas-ventilated lung, a liquid-ventilated lung ______",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -584,24 +547,7 @@
         }
       ],
       "correctOption": 2,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "The factor responsible for hysteresis is ______",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -690,10 +636,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 17,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
+            "ocr_suffix",
             "punctuation_run",
             "symbol_dense_line"
           ],
@@ -724,6 +671,13 @@
               "text": "+ The diagram depicts the change in volume with respect to the change in intrapleural pressure,",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 10,
+              "text": "which is compliance. Here, the change is more (steep curve) with B and least (flat curve) with C.",
+              "reasons": [
+                "ocr_suffix"
               ]
             },
             {
@@ -820,9 +774,10 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -830,6 +785,20 @@
               "text": "- A— Compliance of chest",
               "reasons": [
                 "edge_noise"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "At the point where volume= FRC,",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 14,
+              "text": "For compliance of lung — Pressure considered is Transpulmonary pressure. So at FRC,",
+              "reasons": [
+                "ocr_suffix"
               ]
             }
           ]
@@ -866,10 +835,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 11,
           "reasons": [
             "edge_noise",
-            "hard_noise_char"
+            "hard_noise_char",
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
@@ -914,6 +884,20 @@
               "reasons": [
                 "edge_noise"
               ]
+            },
+            {
+              "line": 16,
+              "text": "residual capacity [FRC]) is about 0.1 Liem H20.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 17,
+              "text": "¢ The compliance of the lungs is about 0.2 Liem H20.",
+              "reasons": [
+                "ocr_suffix"
+              ]
             }
           ]
         }
@@ -945,34 +929,25 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Work of breathing is mostly due to ______",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
+      "questionOptionFlags": [],
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 14,
           "reasons": [
             "edge_noise",
             "hard_noise_char",
+            "ocr_suffix",
             "symbol_dense_line"
           ],
           "suspectLines": [
+            {
+              "line": 5,
+              "text": "wo We.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 6,
               "text": "+ Elastic/Compliance work (65%): Surface tension:(2/3rd) + Tissue elasticity q/3rd)",
@@ -1026,7 +1001,24 @@
         }
       ],
       "correctOption": 1,
-      "questionOptionFlags": [],
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "If the lung is allowed to undergo elastic recoil without the chest wall, the resultant volume of the lung would be?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
       "explanationFlags": [
         {
           "field": "explanation",
@@ -1067,6 +1059,52 @@
         }
       ],
       "explanation": "aoe oO\nIf lung is allowed to undergo elastic recoil without the chest wall, the resultant volume of the lung\nwould be minimum volunte as the oppasing force by the chest wall would be non existant.\n. -\nsh Expanding Gollapsing\n* force force\ne—.\ng\n3\n- Fre\n- ao +\nAirway force\nThe yellow line in the above graph denotes the compliance of lungs alone. According to the graph,\nwhen the pressure (x axis) inside the lung is zero, there is some volume of air lesser than FRC still\npresent (y axis) inside the lungs which is less than the functional residual capacity and residual\n\nvolume which can be called as minimum volume."
+    },
+    {
+      "id": "marrow__PHYSIO_CH20_Q017",
+      "questionNumber": 17,
+      "sourcePage": 370,
+      "reviewStatus": "pass",
+      "question": "Difference in trajectory between inspiratory loop and the expiratory loop in the curve is due to:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Difference in alveolar pressure during inspiration and expiration"
+        },
+        {
+          "letter": "B",
+          "text": "Difference in conc. of surfactant during inspiration and expiration"
+        },
+        {
+          "letter": "C",
+          "text": "Difference in airway resistance during inspiration and expiration"
+        },
+        {
+          "letter": "D",
+          "text": "Inspiration is active and expiration is passive"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Difference in trajectory between inspiratory loop and the expiratory loop in the curve is due to:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
     },
     {
       "id": "marrow__PHYSIO_CH20_Q018",

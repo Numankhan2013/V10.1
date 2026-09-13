@@ -4,70 +4,48 @@
   "subject": "Anatomy",
   "chapterId": "3",
   "chapter": "Embryonic Phase of Development",
-  "candidateQuestionCount": 2,
-  "questionOptionCandidateCount": 1,
-  "explanationCandidateCount": 1,
+  "candidateQuestionCount": 6,
+  "questionOptionCandidateCount": 2,
+  "explanationCandidateCount": 5,
   "questions": [
     {
-      "id": "marrow__ANAT_CH03_Q004",
-      "questionNumber": 4,
-      "sourcePage": 30,
-      "reviewStatus": "resolved_reconstruction",
-      "question": "Arrange the following structures formed during the development of the definitive notochord, from the earlier stage to the later stage.\n\n1. Notochordal plate\n2. Notochordal process\n3. Primitive pit (blastopore)\n4. Notochordal canal",
+      "id": "marrow__ANAT_CH03_Q006",
+      "questionNumber": 6,
+      "sourcePage": 31,
+      "reviewStatus": "pass",
+      "question": "Neurulation refers to the process of the formation of:",
       "options": [
         {
           "letter": "A",
-          "text": "3 – 4 – 2 – 1"
+          "text": "Primitive streak"
         },
         {
           "letter": "B",
-          "text": "1 – 4 – 2 – 3"
+          "text": "Neural plate"
         },
         {
           "letter": "C",
-          "text": "3 – 2 – 4 – 1"
+          "text": "Notochord"
         },
         {
           "letter": "D",
-          "text": "1 – 2 – 4 – 3"
+          "text": "Neural tube"
         }
       ],
-      "correctOption": 3,
+      "correctOption": 4,
       "questionOptionFlags": [
         {
           "field": "question",
           "severity": 6,
           "reasons": [
-            "edge_noise",
-            "many_linebreaks"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
-              "line": 3,
-              "text": "1. Notochordal plate",
+              "line": 1,
+              "text": "Neurulation refers to the process of the formation of:",
               "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "2. Notochordal process",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "3. Primitive pit (blastopore)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "4. Notochordal canal",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
@@ -75,6 +53,112 @@
       ],
       "explanationFlags": [],
       "explanation": null
+    },
+    {
+      "id": "marrow__ANAT_CH03_Q007",
+      "questionNumber": 7,
+      "sourcePage": 31,
+      "reviewStatus": "pass",
+      "question": "A 45-year-old woman presented with an itchy elevated lesion on her face as shown in the image. On dermoscopy, there is an atypical pigmented network. From which structure is the cell responsible for this lesion derived?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Lateral plate mesoderm"
+        },
+        {
+          "letter": "B",
+          "text": "Intermediate mesoderm"
+        },
+        {
+          "letter": "C",
+          "text": "Neural crest cell"
+        },
+        {
+          "letter": "D",
+          "text": "Paraxial mesoderm"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 12,
+              "text": "• In the cranial region, they contribute to the:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 17,
+              "text": "• Some of the other neural crest derivatives are:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The given image shows asymmetrical pigmented lesion on the face with an irregular border. This is suggestive of malignant melanoma arising from the melanocytes. Melanocytes are derived from neural crest cells (NCC).\n\nDuring neurulation, when the neural folds elevate and fuse, the cells at the lateral border (the neural crest) of the neuroectoderm dissociate from their neighboring cells. These neural crest cells undergo an epithelial-to-mesenchymal transition while leaving the neuroectoderm and then migrate to the underlying mesoderm.\n\nNCCs contribute to many organs and tissues and are sometimes referred to as the fourth germ layer:\n• In the trunk region, they form:\n  • Melanocytes\n  • Sensory ganglia\n  • Sympathetic and enteric neurons\n  • Schwann cells\n  • Adrenal medulla cells\n• In the cranial region, they contribute to the:\n  • Craniofacial skeleton\n  • Neurons for cranial ganglia\n  • Satellite glial cells\n  • Melanocytes\n• Some of the other neural crest derivatives are:\n  • C cells of the thyroid gland\n  • Conotruncal septum in the heart\n  • Odontoblasts\n  • Smooth muscle cells to blood vessels to face and forebrain.\n\nOption A: Lateral plate mesoderm is the lateral layer of the intraembryonic mesoderm. This is a thin layer. This layer develops a large cavity called the intraembryonic cavity and gives rise to a somatic or parietal mesodermal layer and a splanchnic or visceral mesodermal layer. The intraembryonic cavity gives rise to pericardial, pleural, and peritoneal cavities.\n\nOption B: Intermediate mesoderm is a longitudinal strip of intraembryonic mesoderm that connects paraxial with the lateral plate mesoderm. The urinary and genital systems are derived from the intermediate mesoderm.\n\nOption D: Paraxial mesoderm is the thickened plate of the intraembryonic mesoderm close to the midline, on either side of the notochord. This forms the somitomeres and somites."
+    },
+    {
+      "id": "marrow__ANAT_CH03_Q009",
+      "questionNumber": 9,
+      "sourcePage": 32,
+      "reviewStatus": "pass",
+      "question": "A 26-year-old man with congenital scoliosis is found to have hemivertebrae. The affected structures are derivatives of which layer of the mesoderm?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Lateral mesoderm"
+        },
+        {
+          "letter": "B",
+          "text": "Paraxial mesoderm"
+        },
+        {
+          "letter": "C",
+          "text": "Intermediate mesoderm"
+        },
+        {
+          "letter": "D",
+          "text": "Extraembryonic mesoderm"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "Somitomeres appear in the head region of the embryo. They are rounded structures and 7 in number. They form the mesoderm and muscles of the head and jaw.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "From here, new somites appear in craniocaudal sequence at a rate of approximately 3 pairs per day.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The vertebrae are derived from somites which are derivatives of paraxial mesoderm. The paraxial mesoderm during development gets organized into segments called somitomeres and somites.\n\nSomitomeres appear in the head region of the embryo. They are rounded structures and 7 in number. They form the mesoderm and muscles of the head and jaw.\n\nFrom the occipital region downwards, somitomeres organize into somites. The first pair of somites arise in the occipital region of the embryo at approximately the 20th day of development.\n\nFrom here, new somites appear in craniocaudal sequence at a rate of approximately 3 pairs per day.\n\nBy the end of the 5th week, 42-44 pairs of somites are present. There are 4 occipital, 8 cervical, 12 thoracic, 5 lumbar, 5 sacral, and 8 to 10 coccygeal pairs. The first occipital and the last five to seven coccygeal somites later disappear. The remaining somites form the axial skeleton."
     },
     {
       "id": "marrow__ANAT_CH03_Q011",
@@ -105,11 +189,19 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 7,
           "reasons": [
-            "edge_noise"
+            "edge_noise",
+            "ocr_suffix"
           ],
           "suspectLines": [
+            {
+              "line": 3,
+              "text": "The other labelled structures are:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
             {
               "line": 4,
               "text": "2 - Ectoderm",
@@ -135,6 +227,122 @@
         }
       ],
       "explanation": "Nucleus pulposus is derived from the notochord (marked as 1).\n\nThe other labelled structures are:\n2 - Ectoderm\n3 - Endoderm\n4 - Intraembryonic mesoderm"
+    },
+    {
+      "id": "marrow__ANAT_CH03_Q012",
+      "questionNumber": 12,
+      "sourcePage": 33,
+      "reviewStatus": "pass",
+      "question": "Which of following structures becomes the primitive gut?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Part of amniotic cavity lined by the mesoderm"
+        },
+        {
+          "letter": "B",
+          "text": "Part of amniotic cavity lined by the endoderm"
+        },
+        {
+          "letter": "C",
+          "text": "Part of yolk sac lined by the endoderm"
+        },
+        {
+          "letter": "D",
+          "text": "Part of yolk sac lined by the mesoderm"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Which of following structures becomes the primitive gut?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "With the development of the lateral folds of the embryo, a part of the yolk sac gets enclosed within the embryo, to form a tube-like structure. This structure is lined by the endoderm and is called the primitive gut.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 10,
+              "text": "The image given below shows the sections of primitive gut.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The primitive gut is derived from the part of the yolk sac lined by the endoderm.\n\nWith the development of the lateral folds of the embryo, a part of the yolk sac gets enclosed within the embryo, to form a tube-like structure. This structure is lined by the endoderm and is called the primitive gut.\n\nInitially, the primitive gut has a wide communication with the yolk sac. Later, three different sections of the primitive gut can be recognized:\n• Foregut - Part of the primitive gut cranial to the communication with the yolk sac\n• Midgut - Middle part of the primitive gut in communication with the yolk sac\n• Hindgut - Part of the primitive gut caudal to the communication with the yolk sac\n\nThe image given below shows the sections of primitive gut."
+    },
+    {
+      "id": "marrow__ANAT_CH03_Q013",
+      "questionNumber": 13,
+      "sourcePage": 34,
+      "reviewStatus": "pass",
+      "question": "A newborn presented to the NICU with respiratory distress and meconium discharge from the umbilicus. The condition occurs due to the patency of the duct that connects the primitive gut to the ____________.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Embryonic body cavity"
+        },
+        {
+          "letter": "B",
+          "text": "Chorionic cavity"
+        },
+        {
+          "letter": "C",
+          "text": "Amniotic cavity"
+        },
+        {
+          "letter": "D",
+          "text": "Yolk sac"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The presence of meconium discharge at the umbilicus is suggestive of vitelline fistula. It occurs due to patent vitelline duct, which connects the primitive gut to the yolk sac.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The presence of meconium discharge at the umbilicus is suggestive of vitelline fistula. It occurs due to patent vitelline duct, which connects the primitive gut to the yolk sac.\n\nThe primitive gut is connected to the definitive yolk sac through a narrow stalk-like communication known as the vitellointestinal duct. It is also known as vitelline duct or yolk stalk or omphalomesenteric duct.\n\nDue to the folding of the embryo in the cephalocaudal and lateral directions, the embryo gets enclosed all around by ectoderm, except in the region through which the vitellointestinal duct passes. In this region, there is a circular aperture, which is now called the umbilical opening. The vitellointestinal duct completely obliterates by the 7th week of development.\n\nVitelline duct abnormalities:\n• Meckel's diverticulum: In about 2% of the individuals, a portion of the vitelline duct persists an outpouching of the ileum called, Meckel diverticulum. The diverticulum is usually asymptomatic unless it contains heterotopic pancreatic or gastric mucosa, which may lead to bleeding, ulceration, or perforation.\n• Vitelline cyst: In some individuals, both the ends of the vitelline duct transforms into fibrous cords. However, the middle portion of the duct forms a large cyst called, enterocystoma, or vitelline cyst. As the fibrous cords run across the peritoneal cavity, it may lead to intestinal obstruction, strangulation, or volvulus."
     }
   ]
 }

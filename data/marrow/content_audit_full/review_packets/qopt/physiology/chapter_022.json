@@ -3,94 +3,46 @@
   "subject": "Physiology",
   "chapterId": "22",
   "chapter": "Gas Transport in Blood",
-  "candidateQuestionCount": 11,
+  "candidateQuestionCount": 2,
   "questions": [
     {
-      "id": "marrow__PHYSIO_CH22_Q001",
-      "questionNumber": 1,
+      "id": "marrow__PHYSIO_CH22_Q003",
+      "questionNumber": 3,
       "sourcePage": 399,
       "reviewStatus": "pass",
-      "question": "Which of the following is correct?",
+      "question": "What is the percentage of O2 carried, chemically bound to Hb?",
       "options": [
         {
           "letter": "A",
-          "text": "PT = nRV"
+          "text": "97%"
         },
         {
           "letter": "B",
-          "text": "V = PaRT"
+          "text": "3%"
         },
         {
           "letter": "C",
-          "text": "P = VnRT"
+          "text": "37%"
         },
         {
           "letter": "D",
-          "text": "PV = nRT"
+          "text": "66%"
         }
       ],
-      "correctOption": 4,
+      "correctOption": 1,
       "flags": [
         {
-          "field": "option_A",
-          "severity": 5,
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "PT = nRV",
+              "text": "What is the percentage of O2 carried, chemically bound to Hb?",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "V = PaRT",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "P = VnRT",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "PV = nRT",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]
@@ -98,439 +50,43 @@
       ]
     },
     {
-      "id": "marrow__PHYSIO_CH22_Q002",
-      "questionNumber": 2,
-      "sourcePage": 399,
+      "id": "marrow__PHYSIO_CH22_Q006",
+      "questionNumber": 6,
+      "sourcePage": 400,
       "reviewStatus": "pass",
-      "question": "Transport of CO is diffusion limited because_____",
+      "question": "Each molecule of hemoglobin carries ______ molecules of O2.",
       "options": [
         {
           "letter": "A",
-          "text": "Alveolar membrane is less permeable to CO"
+          "text": "2"
         },
         {
           "letter": "B",
-          "text": "High affinity of CO to hemoglobin"
+          "text": "4"
         },
         {
           "letter": "C",
-          "text": "CO crosses epithelial barrier slowly"
+          "text": "8"
         },
         {
           "letter": "D",
-          "text": "None"
+          "text": "16"
         }
       ],
       "correctOption": 2,
       "flags": [
         {
           "field": "question",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "Transport of CO is diffusion limited because_____",
+              "text": "Each molecule of hemoglobin carries ______ molecules of O2.",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYSIO_CH22_Q005",
-      "questionNumber": 5,
-      "sourcePage": 400,
-      "reviewStatus": "pass",
-      "question": "O2 delivery to tissues depends on all except_____",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Type of fluid administered"
-        },
-        {
-          "letter": "B",
-          "text": "Hemoglobin"
-        },
-        {
-          "letter": "C",
-          "text": "Ventilation"
-        },
-        {
-          "letter": "D",
-          "text": "Cardiac output"
-        }
-      ],
-      "correctOption": 1,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "O2 delivery to tissues depends on all except_____",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYSIO_CH22_Q007",
-      "questionNumber": 7,
-      "sourcePage": 400,
-      "reviewStatus": "pass",
-      "question": "Most of the CO2 transported in the arterial blood is in the form of_____",
-      "options": [
-        {
-          "letter": "A",
-          "text": "HCO3-"
-        },
-        {
-          "letter": "B",
-          "text": "Attached to haemoglobin"
-        },
-        {
-          "letter": "C",
-          "text": "Carbamino compounds"
-        },
-        {
-          "letter": "D",
-          "text": "Carbonic acid (H2CO3)"
-        }
-      ],
-      "correctOption": 1,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Most of the CO2 transported in the arterial blood is in the form of_____",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYSIO_CH22_Q009",
-      "questionNumber": 9,
-      "sourcePage": 401,
-      "reviewStatus": "pass",
-      "question": "The oxygen-haemoglobin dissociation curve is sigmoid shape because_____",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Binding of one O2 molecule increases the affinity of binding of subsequent O2 molecules"
-        },
-        {
-          "letter": "B",
-          "text": "Binding of one O2 molecule decreases the affinity of binding of subsequent O2 molecules"
-        },
-        {
-          "letter": "C",
-          "text": "Bohr effect"
-        },
-        {
-          "letter": "D",
-          "text": "Haldane effect"
-        }
-      ],
-      "correctOption": 1,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "The oxygen-haemoglobin dissociation curve is sigmoid shape because_____",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYSIO_CH22_Q010",
-      "questionNumber": 10,
-      "sourcePage": 401,
-      "reviewStatus": "pass",
-      "question": "Hb would be expected to become 100% saturated with oxygen at PO2 of (in mmHg)_____",
-      "options": [
-        {
-          "letter": "A",
-          "text": "75"
-        },
-        {
-          "letter": "B",
-          "text": "90"
-        },
-        {
-          "letter": "C",
-          "text": "100"
-        },
-        {
-          "letter": "D",
-          "text": "760"
-        }
-      ],
-      "correctOption": 3,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Hb would be expected to become 100% saturated with oxygen at PO2 of (in mmHg)_____",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYSIO_CH22_Q011",
-      "questionNumber": 11,
-      "sourcePage": 401,
-      "reviewStatus": "pass",
-      "question": "The normal value of P50 in an adult is (mm Hg)______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "27"
-        },
-        {
-          "letter": "B",
-          "text": "45"
-        },
-        {
-          "letter": "C",
-          "text": "10"
-        },
-        {
-          "letter": "D",
-          "text": "100"
-        }
-      ],
-      "correctOption": 1,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "The normal value of P50 in an adult is (mm Hg)______",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYSIO_CH22_Q012",
-      "questionNumber": 12,
-      "sourcePage": 401,
-      "reviewStatus": "pass",
-      "question": "Decrease in pH shifts the oxygen dissociation curve to_____",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Right"
-        },
-        {
-          "letter": "B",
-          "text": "Left"
-        },
-        {
-          "letter": "C",
-          "text": "Doesn't affect"
-        },
-        {
-          "letter": "D",
-          "text": "On either side depending on other factors"
-        }
-      ],
-      "correctOption": 1,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Decrease in pH shifts the oxygen dissociation curve to_____",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYSIO_CH22_Q015",
-      "questionNumber": 15,
-      "sourcePage": 402,
-      "reviewStatus": "pass",
-      "question": "The level of 2,3-DPG is decreased in______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Anemia"
-        },
-        {
-          "letter": "B",
-          "text": "Acidosis"
-        },
-        {
-          "letter": "C",
-          "text": "High altitude"
-        },
-        {
-          "letter": "D",
-          "text": "Exercise"
-        }
-      ],
-      "correctOption": 2,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "The level of 2,3-DPG is decreased in______",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYSIO_CH22_Q016",
-      "questionNumber": 16,
-      "sourcePage": 402,
-      "reviewStatus": "pass",
-      "question": "High affinity of HbF to O2 is due to_____",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Decreased binding with 2,3-DPG"
-        },
-        {
-          "letter": "B",
-          "text": "Increased binding with 2,3-DPG"
-        },
-        {
-          "letter": "C",
-          "text": "Increase in pH"
-        },
-        {
-          "letter": "D",
-          "text": "Decrease in concentration of Hb"
-        }
-      ],
-      "correctOption": 1,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "High affinity of HbF to O2 is due to_____",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__PHYSIO_CH22_Q017",
-      "questionNumber": 17,
-      "sourcePage": 403,
-      "reviewStatus": "pass",
-      "question": "Haldane effect is _______",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Binding of O2 to Hb favours release of CO2"
-        },
-        {
-          "letter": "B",
-          "text": "Binding of CO2 to Hb favours release of O2"
-        },
-        {
-          "letter": "C",
-          "text": "HCO3- leaving RBC in exchange for Cl-"
-        },
-        {
-          "letter": "D",
-          "text": "None of the above"
-        }
-      ],
-      "correctOption": 1,
-      "flags": [
-        {
-          "field": "question",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Haldane effect is _______",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

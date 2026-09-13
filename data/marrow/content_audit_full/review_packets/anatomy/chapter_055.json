@@ -4,10 +4,102 @@
   "subject": "Anatomy",
   "chapterId": "55",
   "chapter": "Joints of the Lower Limb",
-  "candidateQuestionCount": 1,
-  "questionOptionCandidateCount": 1,
+  "candidateQuestionCount": 3,
+  "questionOptionCandidateCount": 3,
   "explanationCandidateCount": 0,
   "questions": [
+    {
+      "id": "marrow__ANAT_CH55_Q001",
+      "questionNumber": 1,
+      "sourcePage": 1040,
+      "reviewStatus": "pass",
+      "question": "What is the zona orbicularis related to?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Tibial tuberosity"
+        },
+        {
+          "letter": "B",
+          "text": "Neck of femur"
+        },
+        {
+          "letter": "C",
+          "text": "Anatomical neck of humerus"
+        },
+        {
+          "letter": "D",
+          "text": "Ankle joint"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "What is the zona orbicularis related to?",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
+    {
+      "id": "marrow__ANAT_CH55_Q005",
+      "questionNumber": 5,
+      "sourcePage": 1041,
+      "reviewStatus": "pass",
+      "question": "Artery passing through the structure marked in the diagram below is a branch of:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Medial circumflex femoral artery"
+        },
+        {
+          "letter": "B",
+          "text": "Lateral circumflex femoral artery"
+        },
+        {
+          "letter": "C",
+          "text": "Obturator artery"
+        },
+        {
+          "letter": "D",
+          "text": "Profunda femoris artery"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [
+        {
+          "field": "question",
+          "severity": 6,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Artery passing through the structure marked in the diagram below is a branch of:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [],
+      "explanation": null
+    },
     {
       "id": "marrow__ANAT_CH55_Q018",
       "questionNumber": 18,
@@ -36,32 +128,34 @@
       "questionOptionFlags": [
         {
           "field": "option_A",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "2, 4, 5",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]
         },
         {
           "field": "option_C",
-          "severity": 5,
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
               "text": "1, 2, 3",
               "reasons": [
-                "edge_noise"
+                "edge_noise",
+                "ocr_suffix"
               ]
             }
           ]

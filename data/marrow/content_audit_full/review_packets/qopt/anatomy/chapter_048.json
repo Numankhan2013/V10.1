@@ -3,154 +3,46 @@
   "subject": "Anatomy",
   "chapterId": "48",
   "chapter": "Abdominal cavity and Peritoneum",
-  "candidateQuestionCount": 2,
+  "candidateQuestionCount": 1,
   "questions": [
     {
-      "id": "marrow__ANAT_CH48_Q002",
-      "questionNumber": 2,
-      "sourcePage": 878,
-      "reviewStatus": "needs_manual_review",
-      "question": "Which of the following structures is not present in the plane marked as 1 in the image?",
+      "id": "marrow__ANAT_CH48_Q003",
+      "questionNumber": 3,
+      "sourcePage": 879,
+      "reviewStatus": "pass",
+      "question": "Which level does the structure marked as X in the image lie at?",
       "options": [
         {
           "letter": "A",
-          "text": "1 and 3"
+          "text": "L1"
         },
         {
           "letter": "B",
-          "text": "1, 3, and 5"
+          "text": "L2"
         },
         {
           "letter": "C",
-          "text": "2, 4 and 5"
+          "text": "T11"
         },
         {
           "letter": "D",
-          "text": "1 and 4"
+          "text": "T12"
         }
       ],
       "correctOption": 1,
       "flags": [
         {
-          "field": "option_B",
-          "severity": 5,
+          "field": "question",
+          "severity": 6,
           "reasons": [
-            "edge_noise"
+            "ocr_suffix"
           ],
           "suspectLines": [
             {
               "line": 1,
-              "text": "1, 3, and 5",
+              "text": "Which level does the structure marked as X in the image lie at?",
               "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "2, 4 and 5",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "marrow__ANAT_CH48_Q005",
-      "questionNumber": 5,
-      "sourcePage": 880,
-      "reviewStatus": "needs_manual_review",
-      "question": "Which of the following statements regarding the root of the mesentery is false?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "1, 3, and 4"
-        },
-        {
-          "letter": "B",
-          "text": "1, 2, and 4"
-        },
-        {
-          "letter": "C",
-          "text": "1, 3, and 5"
-        },
-        {
-          "letter": "D",
-          "text": "1, 2, and 5"
-        }
-      ],
-      "correctOption": 3,
-      "flags": [
-        {
-          "field": "option_A",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "1, 3, and 4",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_B",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "1, 2, and 4",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_C",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "1, 3, and 5",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        },
-        {
-          "field": "option_D",
-          "severity": 5,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "1, 2, and 5",
-              "reasons": [
-                "edge_noise"
+                "ocr_suffix"
               ]
             }
           ]

@@ -1,0 +1,362 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Biochemistry",
+  "chapterId": "6",
+  "chapter": "Krebs Cycle",
+  "candidateQuestionCount": 7,
+  "questionOptionCandidateCount": 0,
+  "explanationCandidateCount": 7,
+  "questions": [
+    {
+      "id": "marrow__BIOCHEM_CH06_Q003",
+      "questionNumber": 3,
+      "sourcePage": 84,
+      "reviewStatus": "pass",
+      "question": "Which of the following is not an intermediate of the TCA cycle?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Citrate"
+        },
+        {
+          "letter": "B",
+          "text": "Acetyl CoA"
+        },
+        {
+          "letter": "C",
+          "text": "Succinyl CoA"
+        },
+        {
+          "letter": "D",
+          "text": "Fumarate"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 8,
+              "text": "The starting materials of Krebs cycle are acetyl CoA and oxaloacetic acid. All the other options are intermediates in the TCA cycle, and oxaloacetic acid is released in the end.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Acetyl CoA is not an intermediate formed in the TCA cycle, but rather it is a starting substrate.\n\nThere are three sources of acetyl-CoA:\n• From glucose: pyruvate → acetyl-CoA\n• Fatty acid oxidation → acetyl CoA\n• Ketogenic amino acid oxidation → acetyl CoA\n\nThe starting materials of Krebs cycle are acetyl CoA and oxaloacetic acid. All the other options are intermediates in the TCA cycle, and oxaloacetic acid is released in the end.\n\nThe source also depicts the Krebs cycle in a pathway diagram."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q007",
+      "questionNumber": 7,
+      "sourcePage": 85,
+      "reviewStatus": "pass",
+      "question": "At which level does valine enter the TCA cycle?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Alpha ketoglutarate"
+        },
+        {
+          "letter": "B",
+          "text": "Fumarate"
+        },
+        {
+          "letter": "C",
+          "text": "Succinyl CoA"
+        },
+        {
+          "letter": "D",
+          "text": "Acetyl CoA"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "The source table also maps amino acids to TCA entry points: alpha-ketoglutarate, succinyl CoA, fumarate, oxaloacetate, pyruvate, and acetyl CoA.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Valine enters the tricarboxylic acid cycle at the succinyl CoA level.\n\nThe source table also maps amino acids to TCA entry points: alpha-ketoglutarate, succinyl CoA, fumarate, oxaloacetate, pyruvate, and acetyl CoA."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q011",
+      "questionNumber": 11,
+      "sourcePage": 86,
+      "reviewStatus": "pass",
+      "question": "How many ATPs are generated per turn of the TCA cycle?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "10"
+        },
+        {
+          "letter": "B",
+          "text": "20"
+        },
+        {
+          "letter": "C",
+          "text": "25"
+        },
+        {
+          "letter": "D",
+          "text": "30"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Total ATP generated per turn of the TCA cycle is 10.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 10,
+              "text": "Equivalent ATP:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Total ATP generated per turn of the TCA cycle is 10.\n\nATP-yielding steps:\n• Isocitrate → alpha-ketoglutarate: 1 NADH per turn.\n• Alpha-ketoglutarate → succinyl CoA: 1 NADH per turn.\n• Succinyl CoA → succinate: 1 GTP by substrate-level phosphorylation.\n• Succinate → fumarate: 1 FADH2.\n• Malate → oxaloacetate: 1 NADH.\n\nEquivalent ATP:\n• 3 × NADH = 7.5 ATP\n• 1 × FADH2 = 1.5 ATP\n• 1 × GTP = 1 ATP\n• Total = 10 ATP per turn."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q016",
+      "questionNumber": 16,
+      "sourcePage": 87,
+      "reviewStatus": "pass",
+      "question": "All of the following enzymes are components of the pyruvate dehydrogenase enzyme complex, except",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pyruvate dehydrogenase"
+        },
+        {
+          "letter": "B",
+          "text": "Dihydrolipoyl transacetylase"
+        },
+        {
+          "letter": "C",
+          "text": "Pyruvate kinase"
+        },
+        {
+          "letter": "D",
+          "text": "Dihydrolipoyl dehydrogenase"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 5,
+              "text": "The three enzyme components are:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 10,
+              "text": "The cofactors are:",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 17,
+              "text": "Overall reaction: Pyruvate + NAD+ + CoA → Acetyl-CoA + NADH + H+ + CO2.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            },
+            {
+              "line": 24,
+              "text": "Note: Pyruvate kinase catalyzes the last step of glycolysis, transferring phosphate from phosphoenolpyruvate to ADP to form pyruvate and ATP.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Pyruvate kinase is not a component of the pyruvate dehydrogenase (PDH) enzyme complex.\n\nPDH is a multienzyme complex associated with the inner mitochondrial membrane and catalyzes oxidative decarboxylation of pyruvate to acetyl-CoA.\n\nThe three enzyme components are:\n• Pyruvate dehydrogenase\n• Dihydrolipoyl transacetylase\n• Dihydrolipoyl dehydrogenase\n\nThe cofactors are:\n• Thiamine pyrophosphate (TPP)\n• Lipoic acid\n• Coenzyme A\n• FAD\n• NAD+\n\nOverall reaction: Pyruvate + NAD+ + CoA → Acetyl-CoA + NADH + H+ + CO2.\n\nClinical aspects:\n• Arsenite and mercuric ions react with -SH groups of lipoic acid and inhibit pyruvate dehydrogenase.\n• Dietary thiamine deficiency inhibits PDH; chronic alcoholics may develop potentially fatal pyruvic and lactic acidosis.\n• Inherited pyruvate dehydrogenase deficiency presents with lactic acidosis, particularly after a glucose load, and neurological disturbances.\n\nNote: Pyruvate kinase catalyzes the last step of glycolysis, transferring phosphate from phosphoenolpyruvate to ADP to form pyruvate and ATP."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q017",
+      "questionNumber": 17,
+      "sourcePage": 88,
+      "reviewStatus": "pass",
+      "question": "Which of the following is inhibited in thiamine deficiency?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Isocitrate to alpha-ketoglutarate"
+        },
+        {
+          "letter": "B",
+          "text": "Succinate to fumarate"
+        },
+        {
+          "letter": "C",
+          "text": "Pyruvate to acetyl-CoA"
+        },
+        {
+          "letter": "D",
+          "text": "Fumarate to malate"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "Thiamine is a cofactor of the pyruvate dehydrogenase component of the PDH complex. In thiamine deficiency, pyruvate dehydrogenase is inhibited; hence pyruvate is not converted to acetyl CoA.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "In thiamine deficiency, conversion of pyruvate to acetyl CoA is inhibited.\n\nThiamine is a cofactor of the pyruvate dehydrogenase component of the PDH complex. In thiamine deficiency, pyruvate dehydrogenase is inhibited; hence pyruvate is not converted to acetyl CoA.\n\nOther options:\n• Isocitrate → alpha-ketoglutarate is catalyzed by isocitrate dehydrogenase, which uses Mn2+ or Mg2+ as cofactor.\n• Riboflavin-derived FAD is the cofactor for succinate dehydrogenase, which converts succinate to fumarate.\n\nThe source includes a pathway diagram."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q018",
+      "questionNumber": 18,
+      "sourcePage": 88,
+      "reviewStatus": "pass",
+      "question": "Which of the following is an allosteric inhibitor of pyruvate dehydrogenase?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "AMP"
+        },
+        {
+          "letter": "B",
+          "text": "ADP"
+        },
+        {
+          "letter": "C",
+          "text": "Acetyl CoA"
+        },
+        {
+          "letter": "D",
+          "text": "Citrate"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Allosteric inhibitors of the PDH enzyme complex are NADH, acetyl CoA, and ATP.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Allosteric inhibitors of the PDH enzyme complex are NADH, acetyl CoA, and ATP."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q020",
+      "questionNumber": 20,
+      "sourcePage": 88,
+      "reviewStatus": "pass",
+      "question": "Identify the anaplerotic reaction among the following?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Conversion of pyruvate to Acetyl CoA"
+        },
+        {
+          "letter": "B",
+          "text": "Conversion of pyruvate to Oxaloacetate"
+        },
+        {
+          "letter": "C",
+          "text": "Conversion of pyruvate to Acetaldehyde"
+        },
+        {
+          "letter": "D",
+          "text": "Conversion of pyruvate to Lactic acid"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "ocr_suffix"
+          ],
+          "suspectLines": [
+            {
+              "line": 6,
+              "text": "• Compounds yielding propionyl CoA can be carboxylated and isomerized to succinyl CoA.",
+              "reasons": [
+                "ocr_suffix"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Conversion of pyruvate to oxaloacetate is an anaplerotic reaction, catalyzed by pyruvate carboxylase.\n\nAnaplerotic reactions form intermediates of a metabolic pathway. This reaction is important in maintaining an adequate concentration of oxaloacetate for condensation with acetyl-CoA. If acetyl-CoA accumulates, it activates pyruvate carboxylase and inhibits pyruvate dehydrogenase, ensuring an adequate supply of oxaloacetate.\n\nOther anaplerotic reactions:\n• Compounds yielding propionyl CoA can be carboxylated and isomerized to succinyl CoA.\n• Glutamate and glutamine yield alpha-ketoglutarate via glutaminase and glutamate dehydrogenase reactions.\n• Transamination of aspartate leads directly to formation of oxaloacetate."
+    }
+  ]
+}
