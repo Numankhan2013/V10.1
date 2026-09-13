@@ -1,0 +1,49 @@
+name: Review safe Marrow explanation cleanup
+
+on:
+  push:
+    branches:
+      - fix/marrow-full-content-cleanup-20260913
+    paths:
+      - tools/generate_safe_marrow_explanation_cleanup_review.py
+      - .github/workflows/review-safe-marrow-explanation-cleanup.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Generate inert safe-cleanup review artifacts
+        run: python tools/generate_safe_marrow_explanation_cleanup_review.py
+      - name: Confirm review output is inert
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('data/marrow/explanation_cleanup_auto_review')
+          summary=json.loads((root/'summary.json').read_text())
+          assert summary['active'] is False
+          for f in root.glob('**/chapter_*.json'):
+              p=json.loads(f.read_text())
+              assert p['active'] is False
+              assert p['policy']=='safe-deletion-only-v1'
+          print('SAFE_EXPLANATION_REVIEW_INERT_OK', summary['safeChangedQuestions'])
+          PY
+      - name: Commit review artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/marrow/explanation_cleanup_auto_review
+          if git diff --cached --quiet; then
+            echo "Safe cleanup review already current."
+            exit 0
+          fi
+          git commit -m "Refresh safe Marrow explanation cleanup review [skip ci]"
+          git pull --rebase origin fix/marrow-full-content-cleanup-20260913
+          git push origin HEAD:fix/marrow-full-content-cleanup-20260913
