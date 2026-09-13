@@ -55,20 +55,30 @@ def main() -> None:
             assert len(cfg.get("rationales", {})) == 3
             assert set(cfg["rationales"]) == wrong_letters
             assert all(str(reason).strip() for reason in cfg["rationales"].values())
+            reconstruction = cfg.get("reconstruction")
+            if reconstruction is not None:
+                assert reconstruction.get("status") in {"resolved_reconstruction", "needs_manual_review"}
+                for key in ("sourceProblem", "reconstructedContent", "evidenceBasis", "reviewNote"):
+                    assert reconstruction.get(key)
 
         batch_ids.update(question_ids)
         chapter_batch_ids[chapter].update(question_ids)
 
-    # A chapter may be represented by multiple approved files (for example
-    # Chapter 10 Q1–13 + Q14–18). Validate completeness on the chapter union,
-    # not on each individual file.
+    # A chapter may span multiple bounded unattended batches. Approved coverage
+    # must always be a contiguous source-order prefix (after excluding legacy
+    # pilot IDs), so partial chapters are legal without permitting gaps or
+    # cherry-picking difficult questions.
     for chapter, approved_ids in chapter_batch_ids.items():
-        source_chapter = {
-            qid for qid, question in source_questions.items()
-            if str(question["chapterId"]) == chapter
-        }
-        approved_pilot_in_chapter = source_chapter & pilot_ids
-        assert source_chapter == approved_ids | approved_pilot_in_chapter
+        ordered_nonpilot = [
+            q["id"]
+            for q in sorted(
+                (q for q in bank["questions"] if str(q["chapterId"]) == chapter),
+                key=lambda q: int(q["questionNumber"]),
+            )
+            if q["id"] not in pilot_ids
+        ]
+        expected_prefix = set(ordered_nonpilot[: len(approved_ids)])
+        assert approved_ids == expected_prefix
 
     enhanced = enhanced_ids()
     assert pilot_ids | batch_ids <= enhanced
@@ -85,7 +95,7 @@ def main() -> None:
         f"chapters={','.join(covered)} batch_questions={len(batch_ids)} "
         f"physiology_enhanced={len(pilot_ids | batch_ids)} "
         f"approved_total={len(enhanced)} pending={total-len(enhanced)} "
-        "corpus=2711 raw_source=unchanged"
+        "coverage=contiguous-source-prefix corpus=2711 raw_source=unchanged"
     )
 
 
