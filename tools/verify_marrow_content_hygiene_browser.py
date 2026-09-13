@@ -60,7 +60,7 @@ def main() -> None:
                     "() => document.querySelectorAll('button.nk-topic-row').length===43",
                     timeout=5000,
                 )
-                page.locator("button.nk-topic-row").filter(has_text=topic).click()
+                page.locator("button.nk-topic-row").filter(has_text=topic).first.click()
                 page.locator("button.nk-library-row").first.click()
                 page.locator(".option-list button").nth(option_index).click()
                 page.wait_for_function(
