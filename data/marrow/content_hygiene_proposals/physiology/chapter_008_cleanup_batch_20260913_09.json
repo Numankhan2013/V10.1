@@ -1,0 +1,15 @@
+{
+  "proposalVersion": 1,
+  "reviewStatus": "REVIEWED",
+  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 8 explanations Q11-Q12 from rendered Marrow ED8 page 170. Removes OCR, watermark/diagram spillover, and symbol debris only; answer indices and existing reviewed fields remain unchanged. Q14 is intentionally deferred for separate source review because the rendered source contains an unresolved glyph in medically meaningful prose.",
+  "subject": "Physiology",
+  "chapterId": "8",
+  "questions": {
+    "marrow__PHYS_CH08_Q011": {
+      "explanation": "Actin, myosin, and tropomyosin are present in both skeletal muscle and smooth muscle. But, troponin is absent and calmodulin is present in smooth muscle."
+    },
+    "marrow__PHYS_CH08_Q012": {
+      "explanation": "In response to a stimulus, the efflux of calcium from intracellular stores occurs through an Inositol triphosphate receptor (IP3R)-Ca+2 channel.\n\nThe source of Ca+2 in smooth muscle contraction can be different depending on the activating stimulus.\n\n• The influx from the extracellular site through voltage or ligand-gated Ca+2 channels in the plasma membrane.\n• Efflux from intracellular stores (eg, sarcoplasmic reticulum) through the RyR and the inositol triphosphate receptor (IP3R)."
+    }
+  }
+}
