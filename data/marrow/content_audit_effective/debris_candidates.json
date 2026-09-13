@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "purpose": "Review queue for visible OCR/code debris; never an auto-rewrite list.",
-  "candidateFieldCount": 331,
-  "candidateQuestionCount": 331,
+  "candidateFieldCount": 324,
+  "candidateQuestionCount": 324,
   "candidates": [
     {
       "id": "marrow__PHYSIO_CH20_Q010",
@@ -3560,42 +3560,6 @@
       "reviewStatus": "pass_with_source_note"
     },
     {
-      "id": "marrow__PHYS_CH11_Q001",
-      "subject": "Physiology",
-      "chapterId": "11",
-      "chapter": "Sensory Receptors",
-      "questionNumber": 1,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 13,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash",
-        "symbol_dense_line"
-      ],
-      "value": "‘<A \\e\nSpatial distribution from whielia'stimulus prdduces a response is called receptive field\nSensory Unit: A single afferent neuron with all its receptor endings.\nMotor unit: Each single motor neuron and the muscle fibers it innervates.\nDermatome: Each spinal nerv@innervates a “segmental field” of the skin.\nwe ‘\n_A_ B c D",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "‘<A \\e",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 6,
-          "text": "we ‘",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 210,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYS_CH11_Q013",
       "subject": "Physiology",
       "chapterId": "11",
@@ -6303,54 +6267,6 @@
         }
       ],
       "sourcePage": 132,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH11_Q002",
-      "subject": "Physiology",
-      "chapterId": "11",
-      "chapter": "Sensory Receptors",
-      "questionNumber": 2,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 10,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash"
-      ],
-      "value": "Fast vibration sense is mediated by Pacinian corpuscles.\nPacinian corpuscle is the most sensitive mechanoreceptor in the somatosensory system. It is\nresponsive to high-frequency (30-500 Hz) vibratory stimuli and pressure. They are rapidly\nadapting receptors.\nOption A: Merkel’s dise sense touch and sustained pressure. They are slow adapting receptors.\nPresent in epidermis.\nOption B: Meissner’s corpusele sense tap and flutter. They are present in dermtalpapillae. They\nare rapidly adapting receptors. 2\nx. 2\nOption D: Ruffini endings sense skin stretch and flutteriig vibration >\naS Ke)\n‘The following image shows Merkel's disc and Meissner's corpuscle being more superficial\n(reponsive to touch) than Ruffini endings andi ian corpysdle (which areUeeper in the dermis\nid ive t . NY i _\nand responsive to pressure) @ a2 Px\npenny = Ke } Epidermis\n\\\\ rss le <p\nnae Cy ——\nutr\nBe Soe :\nOY | meme HT a\nSome SQL",
-      "suspectLines": [
-        {
-          "line": 16,
-          "text": "penny = Ke } Epidermis",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 17,
-          "text": "\\\\ rss le <p",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 19,
-          "text": "utr",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 21,
-          "text": "OY | meme HT a",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 210,
       "reviewStatus": "pass"
     },
     {
@@ -10008,46 +9924,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__PHYS_CH11_Q004",
-      "subject": "Physiology",
-      "chapterId": "11",
-      "chapter": "Sensory Receptors",
-      "questionNumber": 4,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char"
-      ],
-      "value": "‘The distance of two-point discrimination is greatest at the back of the scapula.\n\n‘The relative tactile acuity of a given region can be determined by the two-point discrimination\ntest. Here, calipers are used to determine the minimum distance between the two points which\ncan be perceived as two points. Greater the density of receptors > Smaller the receptive field —>\nMore precise the localization.\nFor eg., Stimulus points on the back, for instance, must be separated by at least 65 mm before\nthey can be distinguished as separate, whereas on the fingertips two stimuli are recognized if they\nare separated by as little as 2 mm. The lips have the greatest acuity (two-point discrimination\nthreshold ~ 1 mm)\nClinical significance:\nBlind individuals benefit from the tactile acuity of fingertips to facilitate the ability to read\nBraille. The dots forming Braille symbols are separated by 2.5 mm. xe\"\noN\n‘Two-point discrimination is used to test the integrity of the dorsal column, (niedial lemniscus)\nsystem. oO ~ o\nNe) A\nx ve\nRe) o as",
-      "suspectLines": [
-        {
-          "line": 10,
-          "text": "threshold ~ 1 mm)",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 14,
-          "text": "oN",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 16,
-          "text": "system. oO ~ o",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 210,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYS_CH11_Q012",
       "subject": "Physiology",
       "chapterId": "11",
@@ -12628,39 +12504,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__PHYS_CH11_Q009",
-      "subject": "Physiology",
-      "chapterId": "11",
-      "chapter": "Sensory Receptors",
-      "questionNumber": 9,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 6,
-      "reasons": [
-        "edge_noise",
-        "symbol_dense_line"
-      ],
-      "value": "Bradykinin is the most potent algogenic substance.\n‘An algogenie substance is a chemical released at the site of injury which mediates pain. These\ninclude bradykinin, serotonin, histamine, potassium ions, acids, acetylcholine, and proteolytic\nenzymes. RC ’\nProstaglandins and substance P enhance the sensitivity of pain endings but dot directly excite\nthem. te) oe\nNote: This is a controversial question ww ie\n‘According to Guyton and Hall, Textbook of Medial Physiologysath Edition®Rage 622-\n“One chemical that seems to be more pail than others is BradykininsResearchers have\nsuggested that bradykinin might be thea it most, responsible foreabsing pain after tissue\ndamage.\" Oo KS oe\n> oS bo al\nHence, bradykinin is the hettepanewer (napadrdtonin) x,\n“= A o>.\noF ead\nokt\n22 2",
-      "suspectLines": [
-        {
-          "line": 14,
-          "text": "“= A o>.",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 16,
-          "text": "okt",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 212,
-      "reviewStatus": "pass_with_source_note"
-    },
-    {
       "id": "marrow__PHYS_CH13_Q012",
       "subject": "Physiology",
       "chapterId": "13",
@@ -13259,99 +13102,28 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__PHYS_CH11_Q005",
+      "id": "marrow__PHYS_CH11_Q004",
       "subject": "Physiology",
       "chapterId": "11",
       "chapter": "Sensory Receptors",
-      "questionNumber": 5,
+      "questionNumber": 4,
       "fieldKind": "explanation",
       "field": "explanation",
       "severity": 4,
       "reasons": [
         "hard_noise_char"
       ],
-      "value": ",~ C S\n‘The sensory receptor shown in thebpWe image ig Phcinian corpustlé. The Pacinian corpuscle is a\nrapidly adapting receptor and isan éncapsulated Feceptor. ¢\nWhen a stimulus of the sainé-strength is egntinuously given'to a sensory receptor, the frequency\nof the action potentials genérated by thésreceptor gradually decreases. This phenomenon is known\nas receptor adaptation. Depending on-whether Ts teeeptor stops responding to a stimulus rapidly\nor slowly, they are classified asrapidly adaptinig'(phasic) or slow adapting receptors (tonic).\nRe 7\n° om\nS a",
+      "value": "The distance of two-point discrimination is greatest at the back of the scapula.\n\nThe relative tactile acuity of a given region can be determined by the two-point discrimination test. Here, calipers are used to determine the minimum distance between the two points which can be perceived as two points. Greater the density of receptors → Smaller the receptive field → More precise the localization.\nFor e.g., Stimulus points on the back, for instance, must be separated by at least 65 mm before they can be distinguished as separate, whereas on the fingertips two stimuli are recognized if they are separated by as little as 2 mm. The lips have the greatest acuity (two-point discrimination threshold ~ 1 mm).\nClinical significance:\nBlind individuals benefit from the tactile acuity of fingertips to facilitate the ability to read Braille. The dots forming Braille symbols are separated by 2.5 mm.\nTwo-point discrimination is used to test the integrity of the dorsal column (medial lemniscus) system.",
       "suspectLines": [
         {
-          "line": 1,
-          "text": ",~ C S",
+          "line": 4,
+          "text": "For e.g., Stimulus points on the back, for instance, must be separated by at least 65 mm before they can be distinguished as separate, whereas on the fingertips two stimuli are recognized if they are separated by as little as 2 mm. The lips have the greatest acuity (two-point discrimination threshold ~ 1 mm).",
           "reasons": [
             "hard_noise_char"
           ]
         }
       ],
-      "sourcePage": 211,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH11_Q007",
-      "subject": "Physiology",
-      "chapterId": "11",
-      "chapter": "Sensory Receptors",
-      "questionNumber": 7,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 4,
-      "reasons": [
-        "hard_noise_char"
-      ],
-      "value": "‘The frequency of a train of action potentials in an afferent fibre reflects the intensity of the\nstimulus given to its receptor.\nIntensity of stimulus applied to a sensory receptor can be determined by the following:\n+ Variation in frequency of action potentials generated\n+ Variations in the number of receptors activated\nOption A : Weber-Fechner Law states that magnitude of sensation felt is directly proportional to\nthe log of the intensity of the stimulus.\nOption B: A touch receptor will not generate a constant rate of discharge, even if the receptor is\ncontinuously stimulated. This is called desensitization or adaptation. If the oppasite were true (if\noption B was correct), when we have our clothes on, we would have constant fifing of neurons\nunnecessarily, in response to touch stimulus. Now os\nOption C: aS <&\n> on S\nMerkel's disc, Ruffini's endo | Pacinian corpuscle, Meissner’\nrgans, Joint capsule Muscle s_| s corpuscles, Hair end organs\npindle, Golgi tendon organs\nO er\n& ae)\nPe 1@\n; | cs e",
-      "suspectLines": [
-        {
-          "line": 14,
-          "text": "Merkel's disc, Ruffini's endo | Pacinian corpuscle, Meissner’",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 15,
-          "text": "rgans, Joint capsule Muscle s_| s corpuscles, Hair end organs",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 20,
-          "text": "; | cs e",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 211,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH11_Q008",
-      "subject": "Physiology",
-      "chapterId": "11",
-      "chapter": "Sensory Receptors",
-      "questionNumber": 8,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 4,
-      "reasons": [
-        "hard_noise_char"
-      ],
-      "value": "AS fibers do not. exaust slow pain hey transmit fast pain.\nActivation of A®*fibers, which elease glutamate, is responsible for first pain (also called fast pain\nor epicritferpain), whichidrtapid response and mediates the ability to localize the site and\nintensity of the noxious stimulus.\nNeuropathic pain can also be burning, dull and poorly localized (protopathie pain, transmitted by\nC nociceptor fibers (which release substance P).\nDual Pain Pathway\nPain can be carried by either Ad fiber (fast pain/ epicritie pain) or by C fiber (slow pain/protopathie\npain)\nMechanicalThermal Polymodal\n‘Myelination and trac | Myelinatedand carried viaNe | Unmyelinatedand carried via\nt ospinothalamic tract paleospinothalamic tract,\nImpulse conduction | Fast componentof pain Slow componentof pain",
-      "suspectLines": [
-        {
-          "line": 11,
-          "text": "‘Myelination and trac | Myelinatedand carried viaNe | Unmyelinatedand carried via",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 13,
-          "text": "Impulse conduction | Fast componentof pain Slow componentof pain",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 212,
+      "sourcePage": 210,
       "reviewStatus": "pass"
     },
     {
@@ -14500,31 +14272,6 @@
         }
       ],
       "sourcePage": 130,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH11_Q010",
-      "subject": "Physiology",
-      "chapterId": "11",
-      "chapter": "Sensory Receptors",
-      "questionNumber": 10,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 3,
-      "reasons": [
-        "edge_noise"
-      ],
-      "value": "Nid oF\nVanilloid receptors wa activated byivibration.\nno\nVanilloid reenter V1 (transient receptor potential vanilloid:) receptors are a part\nof family of nohSelective sqipbchannels called transient receptor potential (TRP) channels. These\nchannels PeSpond to inter heat, acids, and chemicals such as capsaicin,",
-      "suspectLines": [
-        {
-          "line": 3,
-          "text": "no",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 212,
       "reviewStatus": "pass"
     },
     {
