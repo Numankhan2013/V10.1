@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import shutil
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,6 +23,9 @@ def main() -> None:
         shutil.rmtree(OUT)
     OUT.mkdir(parents=True)
     index = []
+    totals = Counter()
+    qopt_subject_questions: dict[str, set[str]] = defaultdict(set)
+    explanation_subject_questions: dict[str, set[str]] = defaultdict(set)
 
     for subject, slug in SLUGS.items():
         source_dir = AUDIT / slug
@@ -45,6 +48,7 @@ def main() -> None:
                     "id": q["id"],
                     "questionNumber": q.get("questionNumber"),
                     "sourcePage": q.get("sourcePage"),
+                    "provenance": q.get("provenance"),
                     "reviewStatus": q.get("reviewStatus"),
                     "question": q.get("question"),
                     "options": q.get("options"),
@@ -63,6 +67,7 @@ def main() -> None:
                     "explanation": q.get("explanation") if expl else None,
                 })
                 if qopt:
+                    qopt_subject_questions[subject].add(str(q["id"]))
                     qopt_rows.append({
                         **base,
                         "flags": [
@@ -70,6 +75,8 @@ def main() -> None:
                             for r in qopt
                         ],
                     })
+                if expl:
+                    explanation_subject_questions[subject].add(str(q["id"]))
             if not rows:
                 continue
             qopt_count = len(qopt_rows)
@@ -105,6 +112,9 @@ def main() -> None:
                 "questionOptionCandidateCount": qopt_count,
                 "explanationCandidateCount": expl_count,
             })
+            totals["candidateQuestions"] += len(rows)
+            totals["qoptQuestionsByChapterSum"] += qopt_count
+            totals["explanationQuestionsByChapterSum"] += expl_count
 
     payload = {"chapters": index}
     (OUT / "index.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -114,11 +124,16 @@ def main() -> None:
     (OUT / "explanation_index.json").write_text(json.dumps({
         "chapters": [row for row in index if row["explanationCandidateCount"]]
     }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(
-        "MARROW_DEBRIS_REVIEW_PACKETS_OK "
-        f"chapters={len(index)} qopt_chapters={sum(bool(r['questionOptionCandidateCount']) for r in index)} "
-        f"explanation_chapters={sum(bool(r['explanationCandidateCount']) for r in index)}"
-    )
+    summary = {
+        "questionOptionCandidateQuestions": sum(len(ids) for ids in qopt_subject_questions.values()),
+        "explanationCandidateQuestions": sum(len(ids) for ids in explanation_subject_questions.values()),
+        "questionOptionBySubject": {s: len(qopt_subject_questions[s]) for s in SLUGS},
+        "explanationBySubject": {s: len(explanation_subject_questions[s]) for s in SLUGS},
+        "chaptersWithQuestionOptionCandidates": sum(bool(r["questionOptionCandidateCount"]) for r in index),
+        "chaptersWithExplanationCandidates": sum(bool(r["explanationCandidateCount"]) for r in index),
+    }
+    (OUT / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print("MARROW_DEBRIS_REVIEW_PACKETS_OK", json.dumps(summary, sort_keys=True))
 
 
 if __name__ == "__main__":
