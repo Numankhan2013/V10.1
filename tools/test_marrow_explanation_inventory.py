@@ -12,9 +12,7 @@ def main() -> None:
     stored = json.loads((DATA / "explanation_inventory_v1.json").read_text(encoding="utf-8"))
     generated = build_inventory()
     manifest = inventory_manifest(generated)
-    if stored != manifest:
-        print("MARROW_EXPLANATION_INVENTORY_EXPECTED=" + json.dumps(manifest, ensure_ascii=False, sort_keys=True))
-        raise AssertionError("stored explanation inventory differs from deterministic manifest")
+    assert stored == manifest
     assert stored["summary"]["questions"] == 2711
     assert stored["summary"]["subjects"] == {"Anatomy": 1115, "Biochemistry": 582, "Physiology": 1014}
     enhanced = len(enhanced_ids())
