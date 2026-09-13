@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "purpose": "Review queue for visible OCR/code debris; never an auto-rewrite list.",
-  "candidateFieldCount": 334,
-  "candidateQuestionCount": 334,
+  "candidateFieldCount": 331,
+  "candidateQuestionCount": 331,
   "candidates": [
     {
       "id": "marrow__PHYSIO_CH20_Q010",
@@ -489,100 +489,6 @@
         }
       ],
       "sourcePage": 400,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH25_Q015",
-      "subject": "Biochemistry",
-      "chapterId": "25",
-      "chapter": "DNA organization, replication and repair",
-      "questionNumber": 15,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 16,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash",
-        "punctuation_run",
-        "symbol_dense_line"
-      ],
-      "value": "DNA replication is not template independent.\nDNA replication occurs in S-phase of cell cycle. It is semi-conservative, semi-discontinuous\nand bidirectional. DNA strands separate and each acts as a template strand on which new\ncomplementary strand is synthesized. RNA primer is required. The new strand is synthesized\nalways in 5'-3' direction and thus, the synthesis of DNA in both strands is not the same.\n===== PDF PAGE 397 =====\nChromosome\nFree nucleotides DNA polymerase\nNOS) T , 1 \\ f)\nHDA\nNy IS EN\niG k\n(zy + / —_— Leading strand\nAne :\nOriginal vA \\ | / | (s Helicase\n(template) = a \\ fi F\nDNA agging —__p\nstrand r\nReplication = r T _—\nfork | | ‘ eX\n== Adenine ec\n== Thymine Cad  t\n@=p Cytosine .\n@m = Guanine DNA polymerase Original (template) DNA strand\neS “A “. »\n= KO o> °C eo,\na) ~ 2 <<”\n. . Ww <\" ‘ %",
-      "suspectLines": [
-        {
-          "line": 6,
-          "text": "===== PDF PAGE 397 =====",
-          "reasons": [
-            "punctuation_run",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 9,
-          "text": "NOS) T , 1 \\ f)",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 10,
-          "text": "HDA",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 14,
-          "text": "Ane :",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 15,
-          "text": "Original vA \\ | / | (s Helicase",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 16,
-          "text": "(template) = a \\ fi F",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 20,
-          "text": "fork | | ‘ eX",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 25,
-          "text": "eS “A “. »",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 27,
-          "text": "a) ~ 2 <<”",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 28,
-          "text": ". . Ww <\" ‘ %",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        }
-      ],
-      "sourcePage": 384,
       "reviewStatus": "pass"
     },
     {
@@ -9237,41 +9143,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__BIOCHEM_CH25_Q013",
-      "subject": "Biochemistry",
-      "chapterId": "25",
-      "chapter": "DNA organization, replication and repair",
-      "questionNumber": 13,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 9,
-      "reasons": [
-        "edge_noise",
-        "punctuation_run",
-        "symbol_dense_line"
-      ],
-      "value": "395\n===== PDF PAGE 396 =====\nKlenow fragment lacks 5’° 3’ exonuclease activity.\nDNA polymerase I is an enzyme involved in DNA replication. It has polymerase activity along\nwith both 3'° 5'and5'° 3' exonuclease activity. When the 5'°  3' exonuclease domain is\nremoved, the remaining fragment is called Klenow fragment. It retains the polymerization and\nproofreading activities of DNA polymerase I.",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "395",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 2,
-          "text": "===== PDF PAGE 396 =====",
-          "reasons": [
-            "punctuation_run",
-            "symbol_dense_line"
-          ]
-        }
-      ],
-      "sourcePage": 384,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYSIO_CH35_Q009",
       "subject": "Physiology",
       "chapterId": "35",
@@ -9499,33 +9370,6 @@
         }
       ],
       "sourcePage": 978,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH25_Q014",
-      "subject": "Biochemistry",
-      "chapterId": "25",
-      "chapter": "DNA organization, replication and repair",
-      "questionNumber": 14,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char"
-      ],
-      "value": "DNA synthesis occurs in the S phase.\nIn the cell cycle, replication of the DNA genome occurs only at a specified time during\nthe synthetic or S phase. During the S phase, mammalian cells contain greater-quantities of DNA\npolymerase than during the nonsynthetic phases of the sehevele. oO\n‘ ~*\nGap 1 (G1) phase consists of cell growth and preparation for DNA synthesis. It occurs before the S\nphase. Gap 2 (G2) phase occurs after S phase, during which preparation for mitosis (M phase)\noccurs. Cyclins tightly regulate the transition between phases -of the cell cycle\"\na* a Fae\nG1- Growth\nS- DNA synthesis\nG2 - Growth and\npreparation for\nmitosis\nK an M- Mitosis\n(cell division)",
-      "suspectLines": [
-        {
-          "line": 5,
-          "text": "‘ ~*",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 384,
       "reviewStatus": "pass"
     },
     {
