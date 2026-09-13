@@ -6,6 +6,7 @@ on:
       - fix/marrow-visible-content-cleanup-20260913
     paths:
       - tools/export_marrow_source_audit_current.py
+      - tools/audit_marrow_visible_debris.py
       - .github/workflows/generate-marrow-source-audit-current.yml
 
 permissions:
@@ -23,6 +24,9 @@ jobs:
       - name: Generate exact current audit views
         run: python3 tools/export_marrow_source_audit_current.py
 
+      - name: Audit learner-visible debris candidates
+        run: python3 tools/audit_marrow_visible_debris.py
+
       - name: Verify current corpus counts
         run: |
           python3 - <<'PY'
@@ -32,17 +36,19 @@ jobs:
           assert manifest['totalQuestions'] == 2711
           got = {row['subject']: row['questionCount'] for row in manifest['subjects']}
           assert got == {'Anatomy': 1115, 'Biochemistry': 582, 'Physiology': 1014}, got
-          print('SOURCE_AUDIT_CURRENT_COUNTS_OK', got)
+          audit = json.loads(Path('data/marrow/content_hygiene_debris_audit_v1.json').read_text(encoding='utf-8'))
+          assert audit['totalQuestions'] == 2711
+          print('SOURCE_AUDIT_CURRENT_COUNTS_OK', got, 'debris_candidates', audit['candidateQuestions'])
           PY
 
-      - name: Commit generated audit views
+      - name: Commit generated audit material
         run: |
-          if git diff --quiet -- data/marrow/source_audit_current; then
-            echo "Current source audit views already match."
+          if git diff --quiet -- data/marrow/source_audit_current data/marrow/content_hygiene_debris_audit_v1.json; then
+            echo "Current source audit material already matches."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/marrow/source_audit_current
-          git commit -m "Generate current Marrow source audit views [skip ci]"
+          git add data/marrow/source_audit_current data/marrow/content_hygiene_debris_audit_v1.json
+          git commit -m "Generate current Marrow content hygiene audit [skip ci]"
           git push origin HEAD:fix/marrow-visible-content-cleanup-20260913
