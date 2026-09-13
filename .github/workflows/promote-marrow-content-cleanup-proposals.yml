@@ -27,13 +27,42 @@ jobs:
         run: python tools/promote_marrow_content_cleanup_proposals.py
       - name: Syntax-check build owner and cleanup tools
         run: python -m py_compile tools/apply_marrow_bank_pilot.py tools/promote_marrow_content_cleanup_proposals.py
-      - name: Commit active source-fingerprinted overrides
+      - name: Validate every active v2 override
+        run: python tools/test_marrow_content_overrides_v2.py
+      - name: Rebuild and scan effective learner-visible bank
+        run: |
+          python tools/export_effective_marrow_content_audit.py
+          python tools/audit_effective_marrow_visible_debris.py
+      - name: Verify corpus and answer-index invariants
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('data/marrow/content_audit_effective')
+          m=json.loads((p/'manifest.json').read_text())
+          assert m['totalQuestions']==2711
+          raw={}
+          eff={}
+          for slug in ('anatomy','biochemistry','physiology'):
+              for f in (Path('data/marrow/content_audit_full')/slug).glob('chapter_*.json'):
+                  for q in json.loads(f.read_text())['questions']:
+                      raw[q['id']]=q['correctOption']
+              for f in (p/slug).glob('chapter_*.json'):
+                  for q in json.loads(f.read_text())['questions']:
+                      eff[q['id']]=q['correctOption']
+          assert len(raw)==len(eff)==2711
+          assert raw==eff
+          summary=json.loads((p/'review_packets'/'summary.json').read_text())
+          assert summary['questionOptionCandidateQuestions']==0
+          print('REVIEWED_MARROW_PROMOTION_EFFECTIVE_AUDIT_OK', summary)
+          PY
+      - name: Commit active overrides and refreshed effective audit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "418982154+github-actions[bot]@users.noreply.github.com"
-          git add data/marrow/content_hygiene_overrides_v2
+          git add data/marrow/content_hygiene_overrides_v2 data/marrow/content_audit_effective
           if git diff --cached --quiet; then
-            echo "Active overrides already current."
+            echo "Active overrides and effective audit already current."
             exit 0
           fi
           git commit -m "Promote reviewed Marrow content cleanup"
