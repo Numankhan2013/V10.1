@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import http.server
+import json
 import socketserver
 import threading
 from pathlib import Path
@@ -14,6 +15,7 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
 WEB = ROOT / "build/web"
 OUT = ROOT / "build/marrow-ui-checks"
+OVERRIDES = ROOT / "data/marrow/content_hygiene_overrides_v1.json"
 LEAK_MARKERS = (
     "[object Object]",
     '{"text"',
@@ -47,7 +49,22 @@ def main() -> None:
                 wait_until="networkidle",
             )
 
-            def open_tuned_question(topic: str, option_index: int, expected: str) -> None:
+            expected_overrides = json.loads(OVERRIDES.read_text(encoding="utf-8"))["questions"]
+            runtime_overrides = page.evaluate(
+                """ids => Object.fromEntries(nkAllBankQuestions()
+                    .filter(q => ids.includes(String(q.id)))
+                    .map(q => [String(q.id), {
+                      question: String(q.question || ''),
+                      options: (q.options || []).map(option => String(option.text || ''))
+                    }]))""",
+                list(expected_overrides),
+            )
+            if runtime_overrides != expected_overrides:
+                raise SystemExit("Generated runtime does not contain the exact reviewed Ch5/Ch7 cleanup")
+
+            def open_tuned_question(
+                topic: str, question_index: int, option_index: int, expected: str
+            ) -> None:
                 page.evaluate("window.QB.nav('dashboard')")
                 page.wait_for_timeout(80)
                 page.locator("button.nk-v3-subject-card").filter(has_text="Physiology").click()
@@ -61,7 +78,7 @@ def main() -> None:
                     timeout=5000,
                 )
                 page.locator("button.nk-topic-row").filter(has_text=topic).first.click()
-                page.locator("button.nk-library-row").first.click()
+                page.locator("button.nk-library-row").nth(question_index).click()
                 page.locator(".option-list button").nth(option_index).click()
                 page.wait_for_function(
                     "() => Boolean(document.querySelector('.nk-study-support'))",
@@ -84,11 +101,24 @@ def main() -> None:
                 if page.locator(".nk-gold-wrong-row").count() != 3:
                     raise SystemExit(f"{topic} tuned distractor surface is incomplete")
 
-            open_tuned_question("Body Fluids", 2, "60% of body weight")
+            open_tuned_question("Body Fluids", 0, 2, "60% of body weight")
+            open_tuned_question(
+                "Muscle Physiology I",
+                0,
+                1,
+                "Sarcolemma is the muscle-cell membrane",
+            )
             open_tuned_question(
                 "Muscle Physiology I",
                 1,
-                "Sarcolemma is the muscle-cell membrane",
+                2,
+                "Tropomyosin lies along the groove",
+            )
+            open_tuned_question(
+                "Muscle Physiology I",
+                34,
+                1,
+                "source explanation explicitly identifies statement 3 as correct",
             )
             page.screenshot(
                 path=str(OUT / "physiology-ch05-ch07-content-hygiene.png"),
@@ -100,7 +130,8 @@ def main() -> None:
         server.shutdown()
     print(
         "MARROW_CONTENT_HYGIENE_BROWSER_OK "
-        "physiology=Ch5_Q1,Ch7_Q1 fields=question,options,takeaway,explanation,rationales"
+        "physiology=Ch5_Q1-Q28,Ch7_Q1-Q35 "
+        "rendered=Ch5_Q1,Ch7_Q1,Q2,Q35 fields=question,options,takeaway,explanation,rationales"
     )
 
 

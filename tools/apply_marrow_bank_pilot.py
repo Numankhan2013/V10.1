@@ -195,6 +195,53 @@ expanded_anatomy,expanded_anatomy_manifest=load_expanded_bank("anatomy_ch001_063
 expanded_biochemistry,expanded_biochemistry_manifest=load_expanded_bank("biochemistry_ch001_028","Biochemistry")
 expanded_physiology,expanded_physiology_manifest=load_expanded_bank("physiology_ch001_043","Physiology")
 expanded_records=[expanded_anatomy,expanded_biochemistry,expanded_physiology]
+
+# The immutable ED8 transport preserves source transcription, including OCR
+# debris. Apply separately reviewed learner-display overrides only after source
+# verification and only to the exact stable IDs/fields declared below.
+CONTENT_OVERRIDES_PATH=DATA/"content_hygiene_overrides_v1.json"
+content_overrides=json.loads(CONTENT_OVERRIDES_PATH.read_text(encoding="utf-8"))
+override_questions=content_overrides.get("questions",{})
+expanded_source_by_id={
+    str(q.get("id","")):q for record in expanded_records for q in record.get("questions",[])
+}
+if content_overrides.get("schemaVersion")!=1 or not override_questions:
+    raise SystemExit("Marrow content-hygiene overrides identity/count mismatch")
+if not set(override_questions).issubset(expanded_source_by_id):
+    raise SystemExit("Marrow content-hygiene overrides contain unknown stable IDs")
+source_payload=[{
+    "id":qid,
+    "question":expanded_source_by_id[qid].get("question"),
+    "options":[option.get("text") for option in expanded_source_by_id[qid].get("options",[])],
+} for qid in sorted(override_questions)]
+source_fingerprint=hashlib.sha256(json.dumps(
+    source_payload,ensure_ascii=False,separators=(",",":"),sort_keys=True
+).encode("utf-8")).hexdigest()
+if source_fingerprint!=content_overrides.get("sourceFingerprint"):
+    raise SystemExit(
+        "Marrow content-hygiene source fingerprint mismatch: "+source_fingerprint
+    )
+for qid,override in override_questions.items():
+    question=expanded_source_by_id[qid]
+    clean_question=override.get("question")
+    clean_options=override.get("options")
+    if not isinstance(clean_question,str) or not clean_question.strip():
+        raise SystemExit(f"Marrow content override question is empty: {qid}")
+    if not isinstance(clean_options,list) or len(clean_options)!=4 or any(
+        not isinstance(value,str) or not value.strip() for value in clean_options
+    ):
+        raise SystemExit(f"Marrow content override options are invalid: {qid}")
+    question["question"]=clean_question.strip()
+    for option,value in zip(question.get("options",[]),clean_options):
+        option["text"]=value.strip()
+    correct_option=int(question.get("correctOption",0))
+    if correct_option not in (1,2,3,4):
+        raise SystemExit(f"Marrow content override answer index is invalid: {qid}")
+    question["correctAnswerText"]=clean_options[correct_option-1].strip()
+print(
+    "MARROW_CONTENT_HYGIENE_OVERRIDES_OK "
+    f"questions={len(override_questions)} source={source_fingerprint[:12]}"
+)
 expanded_ids=[q["id"] for record in expanded_records for q in record["questions"]]
 if len(expanded_ids)!=2711 or len(expanded_ids)!=len(set(expanded_ids)):
     raise SystemExit(f"Expanded Marrow global ID mismatch: {len(expanded_ids)}")
