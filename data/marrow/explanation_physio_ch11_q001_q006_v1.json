@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Marrow ED8 Physiology Chapter 11 Sensory Receptors explanation rollout, source-order Q1-Q6. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "11",
+    "chapterTitle": "Sensory Receptors",
+    "questionStart": 1,
+    "questionEnd": 6,
+    "questions": 6,
+    "status": "approved-rollout",
+    "canonicalBaseSha": "4f943af34bb4bd49f644f2655e23459fc1534031"
+  },
+  "workload": {
+    "target": 16,
+    "max": 20,
+    "score": 16.0,
+    "notes": "Six contiguous source-order questions. Base cost 6; +1 each for Q1, Q2 and Q5 source figures; +1 each for obvious OCR/garbling in Q1, Q2, Q3, Q5 and Q6; +2 for Q6 resolved reconstruction because the source-keyed pair is only the best available choice and the two receptor labels are classification axes rather than true synonyms."
+  },
+  "questions": {
+    "marrow__PHYS_CH11_Q001": {
+      "takeaway": "A receptive field is the region of sensory space in which stimulation changes the activity of a particular sensory neuron.",
+      "displayText": "A receptive field is the spatial region from which an adequate stimulus can alter the firing of a particular sensory neuron or sensory pathway. Receptive-field size helps determine spatial resolution: smaller receptive fields generally permit more precise localization.\n\nThis is different from a sensory unit, which is one afferent neuron together with all of its receptor endings. The source-keyed answer is therefore receptive field.",
+      "emphasis": [
+        "receptive field",
+        "spatial region",
+        "smaller receptive fields",
+        "sensory unit"
+      ],
+      "rationales": {
+        "b": "A motor unit is a motor neuron and the skeletal muscle fibers it innervates; it is a motor, not sensory-spatial, concept.",
+        "c": "A dermatome is an area of skin supplied predominantly by sensory fibers from a single spinal nerve/root, not the stimulus-responsive field of one sensory neuron.",
+        "d": "A sensory neuron is the afferent cell itself; the spatial area in which stimulation changes its activity is its receptive field."
+      }
+    },
+    "marrow__PHYS_CH11_Q002": {
+      "takeaway": "Pacinian corpuscles are rapidly adapting mechanoreceptors specialized for high-frequency vibration.",
+      "displayText": "Pacinian corpuscles are rapidly adapting, encapsulated mechanoreceptors that are especially sensitive to high-frequency vibration and rapidly changing deep pressure. Their lamellar capsule filters sustained deformation, making the receptor strongly responsive to stimulus onset, offset, and vibration.\n\nMeissner corpuscles also adapt rapidly but are tuned more to low-frequency flutter and motion across the skin. Merkel and Ruffini receptors are classically slowly adapting. Thus fast vibration is best mediated by Pacinian corpuscles.",
+      "emphasis": [
+        "Pacinian corpuscles",
+        "rapidly adapting",
+        "high-frequency vibration",
+        "Meissner corpuscles"
+      ],
+      "rationales": {
+        "a": "Merkel discs are slowly adapting type I mechanoreceptors that signal sustained pressure, edges, form, and texture rather than fast vibration.",
+        "b": "Meissner corpuscles are rapidly adapting superficial receptors that are most important for light touch and low-frequency flutter, not the high-frequency vibration asked here.",
+        "d": "Ruffini endings are slowly adapting receptors associated especially with skin stretch and hand-shape information, not fast vibration."
+      }
+    },
+    "marrow__PHYS_CH11_Q003": {
+      "takeaway": "Meissner corpuscles are phasic receptors because they adapt rapidly during a maintained stimulus.",
+      "displayText": "A phasic receptor responds strongly when a stimulus changes but its discharge falls rapidly when the stimulus is maintained. Meissner corpuscles show this rapidly adapting behavior, so they are the source-keyed phasic receptor.\n\nMerkel discs and Ruffini endings are slowly adapting cutaneous mechanoreceptors. Muscle spindles can continue signaling muscle length during a maintained stretch and therefore provide an important tonic component of proprioceptive input.",
+      "emphasis": [
+        "phasic receptor",
+        "Meissner corpuscles",
+        "rapidly adapting",
+        "tonic component"
+      ],
+      "rationales": {
+        "a": "Merkel discs are slowly adapting receptors, so they continue to signal sustained indentation rather than behaving as the phasic choice here.",
+        "b": "Ruffini endings are slowly adapting receptors that continue to signal skin stretch during a maintained deformation.",
+        "d": "Muscle spindles provide sustained information about muscle length as well as dynamic information during length change; they are not the best phasic choice in this option set."
+      }
+    },
+    "marrow__PHYS_CH11_Q004": {
+      "takeaway": "Two-point discrimination distance is greatest where receptor density is low and receptive fields are large, such as the back.",
+      "displayText": "Two-point discrimination tests spatial tactile acuity. Regions with a high density of cutaneous receptors, small receptive fields, and greater cortical representation can distinguish two stimuli at a smaller separation. Areas such as the back have lower spatial acuity and therefore require a much larger separation before two points are perceived as distinct.\n\nAmong the listed sites, the back of the scapula has the greatest two-point discrimination distance.",
+      "emphasis": [
+        "Two-point discrimination",
+        "small receptive fields",
+        "back",
+        "greatest two-point discrimination distance"
+      ],
+      "rationales": {
+        "a": "The lips have very high tactile acuity and a small two-point threshold, so they do not have the greatest discrimination distance.",
+        "b": "The palm has better spatial tactile acuity than the back and therefore a smaller two-point threshold.",
+        "d": "The dorsum of the hand has poorer acuity than the fingertips or lips, but its two-point threshold is still smaller than that of the scapular back region."
+      }
+    },
+    "marrow__PHYS_CH11_Q005": {
+      "takeaway": "A Pacinian corpuscle is an encapsulated, rapidly adapting mechanoreceptor.",
+      "displayText": "The source image identifies a Pacinian corpuscle. Pacinian corpuscles have a characteristic lamellated capsule surrounding the sensory ending and are rapidly adapting mechanoreceptors. With a sustained deformation, the mechanically filtered receptor potential and afferent firing decline rapidly, while changes in pressure and vibration produce strong responses.\n\nTherefore the correct combination is fast adapting and encapsulated.",
+      "emphasis": [
+        "Pacinian corpuscle",
+        "lamellated capsule",
+        "rapidly adapting mechanoreceptors",
+        "fast adapting and encapsulated"
+      ],
+      "rationales": {
+        "a": "Pacinian corpuscles are not slow-adapting and they are clearly encapsulated by concentric lamellae.",
+        "c": "The receptor is rapidly adapting, but calling it non-encapsulated is incorrect because the Pacinian corpuscle has a prominent capsule.",
+        "d": "The receptor is encapsulated, but it adapts rapidly rather than slowly."
+      }
+    },
+    "marrow__PHYS_CH11_Q006": {
+      "takeaway": "Mechanoreceptor and exteroceptor describe different classification axes; among these choices, cutaneous mechanoreceptors are the closest match because they commonly act as exteroceptors.",
+      "displayText": "Receptors can be classified on different axes. Mechanoreceptor describes the modality of the adequate stimulus, such as touch, pressure, vibration, or stretch. Exteroceptor describes the source/location of information, meaning stimuli arising from the external environment.\n\nThese terms are therefore not true synonyms: proprioceptors and visceral receptors can also be mechanoreceptive. However, the source-keyed pair mechanoreceptors and exteroceptors is the best available option because many cutaneous touch and pressure mechanoreceptors function as exteroceptors. The other pairs combine clearly different functional categories.",
+      "emphasis": [
+        "different axes",
+        "Mechanoreceptor",
+        "Exteroceptor",
+        "best available option"
+      ],
+      "rationales": {
+        "b": "Interoceptors monitor the internal environment, whereas nociceptors are defined by detection of potentially tissue-damaging stimuli; the categories are not equivalent.",
+        "c": "Photoreceptors are classified by light as their adequate stimulus, whereas proprioceptors signal body position and movement; they are not the same receptor class.",
+        "d": "Telereceptors detect stimuli arising at a distance, whereas interoceptors monitor the internal environment; these categories are not equivalent."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The printed stem asks which receptor classifications are 'the same' and keys mechanoreceptors with exteroceptors. The source explanation then overgeneralizes that mechanoreceptors can be considered exteroceptors, even though modality-based and source/location-based classifications are different axes.",
+        "reconstructedContent": "The learner-facing explanation preserves option A as the source-keyed best available answer while explicitly distinguishing mechanoreceptor (stimulus modality) from exteroceptor (external-source/location classification), avoiding the incorrect claim that the terms are universally synonymous.",
+        "evidenceBasis": [
+          "Canonical Marrow ED8 Physiology Chapter 11 Q6 source stem, answer key, and explanation: the source defines exteroceptors by external stimuli and mechanoreceptors by mechanical cutaneous stimuli while keying option A.",
+          "Standard sensory physiology classification: receptors may be classified independently by adequate stimulus modality and by the origin/location of the information they detect."
+        ],
+        "reviewNote": "Resolved at the augmentation layer only; raw source wording, options, and keyed answer remain unchanged."
+      }
+    }
+  }
+}

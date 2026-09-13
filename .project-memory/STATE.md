@@ -85,14 +85,21 @@ Do not certify this behavior by calling only an internal helper or by using a su
 
 ## Explanation lane
 
-- Canonical explanation inventory before Anatomy Ch6 Q1–Q7: **581 enhanced / 2,130 pending / 2,711 total**.
-- Anatomy Ch6 Q1–Q7 has been repeatedly rebased/reconciled as canonical advanced. Historical PRs #43/#49/#50 are not merge targets.
-- Current newest open reconciliation is **PR #52**, branch `feature/marrow-explanation-rollout-anatomy-ch06-q001-q007-canonical-r4`, based on canonical checkpoint `a3a4dbe80504c9214f8ffb8c7ac9479cb2798be1`, head `7bee1f4118e084fa7e5e8934fedf26e8f131f73b`.
-- Scope is stable-ID limited to `marrow__ANAT_CH06_Q001..Q007`; raw source unchanged.
-- Deterministic inventory on that reconciliation is **588 enhanced / 2,123 pending / 2,711 total** with fingerprint `87cc4e50f145cf59215dcfeb8d30fd32730747b3d964c39339b0aded8907f41d`.
-- Q2 remains `needs_manual_review` because the rendered source omits the defining numbered 1–4 legend; do not invent the missing mapping.
-- Because canonical has advanced again with accepted Practice memory updates, the explanation worker must resolve live canonical before merging or mutating and must rebase/reconcile if required. Do not wholesale-merge stale branch history.
+### FULLY_VERIFIED_HISTORY
 
+- Anatomy Ch6 Q1–Q7 is canonical history, not current ownership. Its certified checkpoint `58bb99d5c1fc96a98b4f922a963dba16105487d1` is an ancestor of the Physiology batch base; exact-head Engineering Gate `34715415821` and full Android/PWA/APK/package run `34715415818` passed there. Historical PR #52 remains evidence only and is non-blocking.
+- Canonical pre-batch inventory at Physiology acquisition was **588 enhanced / 2,123 pending / 2,711 total**, Physiology raw SHA `f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6`.
+
+### CURRENT_UNVERIFIED
+
+- Owner: **Physiology Chapter 11 Q1–Q6** (`marrow__PHYS_CH11_Q001..Q006`), one bounded source-order batch, workload score **16.0**.
+- Branch: `feature/marrow-explanation-physiology-ch11-q001-q006-20260913`; exact canonical base SHA `4f943af34bb4bd49f644f2655e23459fc1534031`.
+- Authored content commit: `bd3e2f814f0fd2a2cf901b5b2a1bee1f132da0ec`; bounded-prefix validator commit: `9e34d44aef7de7a92e6ad17afe9d3f8b7681a195`.
+- Q1/Q2/Q5 preserve source figure metadata through the immutable canonical source record. Q6 uses `resolved_reconstruction` to preserve source-keyed option A while explicitly correcting the overbroad claim that mechanoreceptor and exteroceptor are universally synonymous.
+- Deterministic candidate inventory: **594 enhanced / 2,117 pending / 2,711 total**; question-record fingerprint `f860fc38da57af2d20be05efa33a5594b08425008a2cbcb2f3dff0bfdd27b974`; raw source unchanged.
+- State: **STATIC_VALIDATED**. Inventory, Physiology rollout, Anatomy rollout, and Biochemistry rollout validators passed before this memory checkpoint was committed.
+- Still required before `FULLY_VERIFIED`: stable-ID real-browser regression for this batch; shared Practice/CBT/Review/FSRS regressions; PR/exact-head Engineering Gate; full Android/PWA/APK/package/reproducibility/preview verification; reconciliation back into `feature/marrow-canonical-full-current` followed by canonical exact-head certification if canonical moved.
+- Production promotion remains prohibited.
 ## Image lane
 
 - Automated Biochemistry image integration is paused. Ch4 Q11 remains the exact unresolved Biochemistry reference and is preserved as `REVIEW_REQUIRED`; two recovery attempts failed before shared registry/progress mutation because embedded PDF text was corrupted. No verified Q11 learner-facing result exists on a side branch, and no Biochemistry work was skipped or newly started.
@@ -119,7 +126,7 @@ Do not certify this behavior by calling only an internal helper or by using a su
 ## Current priorities / Next step
 
 1. **Main product work may proceed from live canonical.** Preserve the accepted Practice contract above.
-2. **Explanation lane:** reconcile Anatomy Ch6 Q1–Q7 from the newest valid stable-ID scope onto the then-live canonical head, re-run exact-head deterministic/browser/full gates, then release the lane only after canonical integration.
+2. **Explanation lane:** Physiology Ch11 Q1–Q6 is `CURRENT_UNVERIFIED` on the exact canonical base recorded above. Finish stable-ID browser/full exact-head certification and reconcile it into live canonical before releasing the lane.
 3. **Image lane:** Batch 02 is unverified and unreconciled historical evidence only; do not treat its 12 assets as canonical. Resume from live canonical at `marrow__PHYS_CH03_Q007:figure:1` after fresh ownership/fingerprint checks. Keep automated Biochemistry paused with Q11 preserved unresolved.
 4. Production promotion remains prohibited unless the user explicitly asks for it.
 
