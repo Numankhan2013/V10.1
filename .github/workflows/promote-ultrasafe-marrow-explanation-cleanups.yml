@@ -28,9 +28,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Validate active v2 baseline before automation
+        run: python tools/test_marrow_content_overrides_v2.py
       - name: Promote detector-clean non-semantic explanation edits
         run: python tools/promote_ultrasafe_marrow_explanation_cleanups.py
-      - name: Validate every active v2 override
+      - name: Validate every active v2 override after promotion
         run: python tools/test_marrow_content_overrides_v2.py
       - name: Commit active overrides
         run: |
@@ -42,6 +44,8 @@ jobs:
             exit 0
           fi
           git commit -m "Promote ultra-safe Marrow explanation cleanups"
+          git reset --hard HEAD
+          git clean -fd
           git fetch origin fix/marrow-full-content-cleanup-20260913
           git rebase origin/fix/marrow-full-content-cleanup-20260913
           git push origin HEAD:fix/marrow-full-content-cleanup-20260913
