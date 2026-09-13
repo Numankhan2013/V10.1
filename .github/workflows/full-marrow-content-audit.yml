@@ -1,0 +1,46 @@
+name: Full Marrow content audit
+
+on:
+  push:
+    branches:
+      - fix/marrow-full-content-cleanup-20260913
+    paths:
+      - tools/export_full_marrow_content_audit.py
+      - .github/workflows/full-marrow-content-audit.yml
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out audit branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Generate full-corpus read-only audit
+        run: python tools/export_full_marrow_content_audit.py
+      - name: Verify full-corpus counts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('data/marrow/content_audit_full/manifest.json')
+          m = json.loads(p.read_text(encoding='utf-8'))
+          assert m['totalQuestions'] == 2711
+          got = {s['subject']: (s['questionCount'], s['chapterCount']) for s in m['subjects']}
+          assert got == {'Anatomy': (1115, 63), 'Biochemistry': (582, 28), 'Physiology': (1014, 43)}, got
+          print('FULL_MARROW_CONTENT_AUDIT_COUNTS_OK', got)
+          PY
+      - name: Commit derived audit projection
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/marrow/content_audit_full
+          if git diff --cached --quiet; then
+            echo "Audit already current."
+            exit 0
+          fi
+          git commit -m "Generate full Marrow content audit [skip ci]"
+          git push origin HEAD:fix/marrow-full-content-cleanup-20260913
