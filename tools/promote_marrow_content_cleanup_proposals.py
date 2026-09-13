@@ -5,10 +5,15 @@ Proposal files are inert review artifacts. This tool verifies their stable IDs
 against the immutable complete Marrow bundles, computes a fingerprint from the
 exact raw learner fields, and writes active v2 override files. It never mutates
 source bundles or answer indexes.
+
+A proposal may safely extend an existing active chapter override. Existing fields
+are retained, new fields are merged, and any conflicting value hard-fails. This
+allows independently reviewed stem/options and explanation passes to coexist.
 """
 from __future__ import annotations
 
 import base64
+import copy
 import hashlib
 import json
 import re
@@ -76,6 +81,19 @@ def validate_clean(qid: str, override: dict) -> None:
             raise SystemExit(f"Serialized/code leakage remains in reviewed cleanup: {qid}")
 
 
+def merge_questions(existing: dict, proposed: dict, path: Path) -> dict:
+    merged = copy.deepcopy(existing)
+    for qid, proposal_override in proposed.items():
+        target = merged.setdefault(qid, {})
+        if not isinstance(target, dict):
+            raise SystemExit(f"Invalid existing override for {qid}: {path}")
+        for field, value in proposal_override.items():
+            if field in target and target[field] != value:
+                raise SystemExit(f"Reviewed proposal conflicts with active {field}: {path} {qid}")
+            target[field] = copy.deepcopy(value)
+    return merged
+
+
 def main() -> None:
     if not PROPOSALS.exists():
         print("MARROW_CLEANUP_PROPOSALS_NONE")
@@ -115,22 +133,31 @@ def main() -> None:
                 raise SystemExit(f"Proposal scope escape: {path} {qid}")
             validate_clean(qid, override)
             fields += len(override)
+
         out_path = OUT / SLUGS[subject] / f"chapter_{int(chapter):03d}.json"
-        existing = None
+        existing_questions: dict = {}
+        existing_purpose = ""
         if out_path.exists():
             existing = json.loads(out_path.read_text(encoding="utf-8"))
-            # A proposal owns a chapter atomically. Do not silently merge with a
-            # pre-existing independently reviewed chapter file.
+            if existing.get("schemaVersion") != 2 or existing.get("subject") != subject or str(existing.get("chapterId")) != chapter:
+                raise SystemExit(f"Unexpected active chapter identity: {out_path}")
             existing_questions = existing.get("questions") or {}
-            if existing_questions != questions:
-                raise SystemExit(f"Active override already differs for chapter: {out_path}")
+            existing_purpose = str(existing.get("purpose") or "")
+
+        merged = merge_questions(existing_questions, questions, path)
+        merged_ids = set(merged)
+        if merged_ids & v1_ids:
+            raise SystemExit(f"Merged active override overlaps v1: {out_path}")
+        purpose = str(proposal.get("purpose") or "Reviewed source-faithful learner-display cleanup.")
+        if existing_purpose and existing_purpose != purpose:
+            purpose = existing_purpose.rstrip(". ") + "; additional reviewed source-faithful cleanup."
         payload = {
             "schemaVersion": 2,
-            "purpose": proposal.get("purpose") or "Reviewed source-faithful learner-display cleanup.",
+            "purpose": purpose,
             "subject": subject,
             "chapterId": chapter,
-            "sourceFingerprint": fingerprint(source_by_id, ids),
-            "questions": questions,
+            "sourceFingerprint": fingerprint(source_by_id, merged_ids),
+            "questions": merged,
         }
         out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
