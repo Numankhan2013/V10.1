@@ -12,6 +12,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: marrow-reviewed-content-promotion
+  cancel-in-progress: false
+
 jobs:
   promote:
     runs-on: ubuntu-latest
@@ -33,6 +37,10 @@ jobs:
             exit 0
           fi
           git commit -m "Promote reviewed Marrow content cleanup"
+          # All intended mutations are now in the commit. Remove only runner-local
+          # py_compile/cache noise before rebasing onto a concurrently advanced branch.
+          git reset --hard HEAD
+          git clean -fd
           git fetch origin fix/marrow-full-content-cleanup-20260913
           git rebase origin/fix/marrow-full-content-cleanup-20260913
           git push origin HEAD:fix/marrow-full-content-cleanup-20260913
