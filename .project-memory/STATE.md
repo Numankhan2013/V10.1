@@ -81,6 +81,8 @@ Do not certify this behavior by calling only an internal helper or by using a su
 - Root cause of the old sanitizer branch browser failure was a hidden unrelated topic-numbering side effect in the former hygiene installer. Topic numbering is now an explicit protected build stage; sanitation remains logically independent.
 - Exact candidate Engineering Gate `34738522874` and full Android/PWA/browser/APK/package/preview run `34738530102` passed. Preview `https://8d6d9366.nk-qbank.pages.dev`; production promotion skipped.
 
+- Correction after user preview review: the first sanitizer gate caught serialized JSON but missed OCR/code-like debris already embedded in source-transcribed question and option strings. Verified follow-up `55d7ac8a89c2bbf6a01db5d305b8c975c344c1f3` adds stable-ID, source-fingerprinted learner-display overrides for every Physiology Ch5 and Ch7 question: **63 questions, 252 options, and matching correct-answer display text**. Raw source and answer indexes are unchanged. The browser gate now compares all 315 rendered question/option values exactly and opens Ch5 Q1 plus Ch7 Q1, Q2 and Q35 through the learner UI. Engineering `34740460617` and full Android/PWA/browser/APK/package run `34740465004` passed; preview `https://c4744474.nk-qbank.pages.dev`; production skipped. Do not claim other chapters are visually clean without equivalent reviewed overrides/browser evidence.
+
 ## Explanation lane
 
 - Canonical explanation inventory before Anatomy Ch6 Q1–Q7: **581 enhanced / 2,130 pending / 2,711 total**.
