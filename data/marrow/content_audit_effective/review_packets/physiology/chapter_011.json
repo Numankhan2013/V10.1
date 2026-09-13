@@ -62,7 +62,6 @@
               "line": 1,
               "text": "‘<A \\e",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -70,13 +69,6 @@
             {
               "line": 6,
               "text": "we ‘",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "_A_ B c D",
               "reasons": [
                 "edge_noise"
               ]
@@ -136,13 +128,6 @@
           ],
           "suspectLines": [
             {
-              "line": 9,
-              "text": "x. 2",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 16,
               "text": "penny = Ke } Epidermis",
               "reasons": [
@@ -153,15 +138,20 @@
               "line": 17,
               "text": "\\\\ rss le <p",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 19,
+              "text": "utr",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
               "line": 21,
               "text": "OY | meme HT a",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -212,8 +202,9 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 4,
+          "severity": 7,
           "reasons": [
+            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -222,6 +213,13 @@
               "text": "threshold ~ 1 mm)",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 14,
+              "text": "oN",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
@@ -278,9 +276,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 4,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -288,7 +285,6 @@
               "line": 1,
               "text": ",~ C S",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -339,33 +335,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 4,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
-            {
-              "line": 4,
-              "text": "+ Variation in frequency of action potentials generated",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "+ Variations in the number of receptors activated",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 13,
-              "text": "> on S",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 14,
               "text": "Merkel's disc, Ruffini's endo | Pacinian corpuscle, Meissner’",
@@ -384,7 +358,6 @@
               "line": 20,
               "text": "; | cs e",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -508,24 +481,82 @@
           ],
           "suspectLines": [
             {
-              "line": 12,
-              "text": "> oS bo al",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 14,
               "text": "“= A o>.",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 16,
+              "text": "okt",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
         }
       ],
       "explanation": "Bradykinin is the most potent algogenic substance.\n‘An algogenie substance is a chemical released at the site of injury which mediates pain. These\ninclude bradykinin, serotonin, histamine, potassium ions, acids, acetylcholine, and proteolytic\nenzymes. RC ’\nProstaglandins and substance P enhance the sensitivity of pain endings but dot directly excite\nthem. te) oe\nNote: This is a controversial question ww ie\n‘According to Guyton and Hall, Textbook of Medial Physiologysath Edition®Rage 622-\n“One chemical that seems to be more pail than others is BradykininsResearchers have\nsuggested that bradykinin might be thea it most, responsible foreabsing pain after tissue\ndamage.\" Oo KS oe\n> oS bo al\nHence, bradykinin is the hettepanewer (napadrdtonin) x,\n“= A o>.\noF ead\nokt\n22 2"
+    },
+    {
+      "id": "marrow__PHYS_CH11_Q010",
+      "questionNumber": 10,
+      "sourcePage": 212,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          212
+        ],
+        "answerKeyPages": [
+          215,
+          216
+        ],
+        "explanationPages": [
+          220
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "Vanilloid receptors are activated by all except .",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Heat"
+        },
+        {
+          "letter": "B",
+          "text": "Thermal"
+        },
+        {
+          "letter": "C",
+          "text": "Chemicals"
+        },
+        {
+          "letter": "D",
+          "text": "Vibration"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "no",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Nid oF\nVanilloid receptors wa activated byivibration.\nno\nVanilloid reenter V1 (transient receptor potential vanilloid:) receptors are a part\nof family of nohSelective sqipbchannels called transient receptor potential (TRP) channels. These\nchannels PeSpond to inter heat, acids, and chemicals such as capsaicin,"
     },
     {
       "id": "marrow__PHYS_CH11_Q011",
@@ -642,27 +673,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 7,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "symbol_dense_line"
           ],
           "suspectLines": [
-            {
-              "line": 4,
-              "text": "+ Doctrine of specific nerve energies - When the nerve pathways from a particular sense organ are",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "+ Law of projection - No matter where a particular sensory pathway is stimulated along its course",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 11,
               "text": "=)* 2 N=",
@@ -736,7 +752,6 @@
               "line": 3,
               "text": "\\. — be)",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -963,86 +978,6 @@
       "explanation": "Transcutaneous electrical nerve stimulation (TENS) of pain relief is based on the gate theory of\npain. This method uses electrodes to activate A° and AB fibers near the injury to relieve pain.\nGate control theory operates at the substantia gelatinosa of the dorsal horn of the spinal cord.\n\n‘The relief may result from inhibition of pain pathways (Inhibition of C fibers and A-delta fibers) in\nthe dorsal horn gate, by stimulation of large-diameter touch-pressure afferents(A-beta fibers). This\nis called the gate-control hypothesis.\nInteresting clinical application: Touching or shaking an injured area decreases the pain due to the\ninjury. Stimulation with an electric vibrator at the site of pain also gives some relief,\n‘The same mechanism is probably responsible for the efficacy of counterirritants. Stimulation of\nthe skin over an area of visceral inflammation produces some relief of the pain due to the visceral\ndisease. The old-fashioned mustard plaster works on this principle.\ncmeraiconme & > e\n2M ‘\nxe =\nRa oF\nSolution to Questi 8 \""
     },
     {
-      "id": "marrow__PHYS_CH11_Q019",
-      "questionNumber": 19,
-      "sourcePage": 214,
-      "provenance": {
-        "sourceFile": "physiologyed8.pdf",
-        "questionPages": [
-          214
-        ],
-        "answerKeyPages": [
-          215,
-          216
-        ],
-        "explanationPages": [
-          223
-        ]
-      },
-      "reviewStatus": "pass",
-      "question": "Primary cutaneous hyperalgesia",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Develops in the normal skin region around the area of flare\n'b) Is an abnormal condition in the skin in which painful stimuli become less severe"
-        },
-        {
-          "letter": "B",
-          "text": "Is an abnormal condition in the skin in which painful stimuli become less severe"
-        },
-        {
-          "letter": "C",
-          "text": "Is due to changes in threshold of pain receptors"
-        },
-        {
-          "letter": "D",
-          "text": "Is associated with throbbing type of pain"
-        }
-      ],
-      "correctOption": 3,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "+ Hyperalgesia and allodynia signify increased sensitivity of nociceptive afferent fibers.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 3,
-              "text": "+ Causes of hyperalgesia",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "+ The excessive sensitivity of the pain receptors, which is called primary hyperalgesia",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "+ Facilitation of sensory transmission, which is called secondary hyperalgesia.",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Hyperalgesia Ban exaggerated response to a noxious stimulus.\n+ Hyperalgesia and allodynia signify increased sensitivity of nociceptive afferent fibers.\n+ Causes of hyperalgesia\n+ The excessive sensitivity of the pain receptors, which is called primary hyperalgesia\n+ Facilitation of sensory transmission, which is called secondary hyperalgesia.\n‘An example of primary hyperalgesia is the extreme sensitivity of sunburned skin, which results\nfrom sensitization of the skin pain endings, by local tissue products from the burn — histamine,\nprostaglandins, and others.\nSecondary hyperalgesia frequently results from lesions in the spinal cord or the thalamus."
-    },
-    {
       "id": "marrow__PHYS_CH11_Q021",
       "questionNumber": 21,
       "sourcePage": 215,
@@ -1094,7 +1029,6 @@
               "line": 13,
               "text": "AS ~ ne",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },

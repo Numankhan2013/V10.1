@@ -4,9 +4,9 @@
   "subject": "Physiology",
   "chapterId": "10",
   "chapter": "Neurotransmitters",
-  "candidateQuestionCount": 8,
+  "candidateQuestionCount": 11,
   "questionOptionCandidateCount": 0,
-  "explanationCandidateCount": 8,
+  "explanationCandidateCount": 11,
   "questions": [
     {
       "id": "marrow__PHYS_CH10_Q002",
@@ -126,7 +126,6 @@
               "line": 4,
               "text": "| ‘Amino acid ®",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -134,8 +133,14 @@
               "line": 5,
               "text": "| Beem",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "we",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -185,49 +190,13 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
             "symbol_dense_line"
           ],
           "suspectLines": [
-            {
-              "line": 6,
-              "text": "+ Mesolimbic pathway - Increased activity responsible for positive symptoms of schizophrenia.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "+ Mesocortical pathway - Decreased activity responsible for negative symptoms of schizophrenia.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "+ Nigrostriatal pathway - Decreased activity causes extrapyramidal symptoms.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "+ Tuberoinfundibular pathway - Decreased activity causes increase in prolactin.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "> Thatamus",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 17,
               "text": "Mesccattial ~<a",
@@ -267,7 +236,6 @@
               "line": 27,
               "text": ". , ©>* a Se “Oo",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             }
@@ -397,6 +365,65 @@
       "explanation": "‘The neurotransmitter released by Renshaw cell interneuron is glycine. eo\nRenshaw cell is an inhibitory interneuron which is activatethby collatera@om spinal motor\nneurons. Renshaw cell terminates on the cell body of fliésame and other spinal motor neurons. It\nreduces or stops the discharge of the motor newi releasing glycine.\n7 a\nif or \"\n3 qe\n“ oo"
     },
     {
+      "id": "marrow__PHYS_CH10_Q013",
+      "questionNumber": 13,
+      "sourcePage": 201,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          201
+        ],
+        "answerKeyPages": [
+          202,
+          203
+        ],
+        "explanationPages": [
+          207
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "Which of the following is the wrong match?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Sympathetic preganglionic fibres - release acetylcholine"
+        },
+        {
+          "letter": "B",
+          "text": "Parasympathetic preganglionic fibres - release acetylcholine"
+        },
+        {
+          "letter": "C",
+          "text": "Sympathetic post ganglionic fibres - release noradrenaline"
+        },
+        {
+          "letter": "D",
+          "text": "Sweat glands - innervated by sympathetic adrenergic fibres"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 7,
+              "text": "3x?",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Sweat glands are innervated by sympathetic cholinergic fibres (not adrenergic fibres).\nPre-ganglionic fibres of the sympathetic nervous system, pre-ganglionic fibers of the\nparasympathetic nervous system and post-ganglionic parasympathetic fibres release acetylcholine.\nPost-ganglionic sympathetic fibres release noradrenaline in most of the sites, except in certain\nplaces such as sweat glands, piloerector muscles and blood vessels in some skeletal muscles where\nacetylcholine is released. eo\n3x?\ns+oP xe"
+    },
+    {
       "id": "marrow__PHYS_CH10_Q014",
       "questionNumber": 14,
       "sourcePage": 201,
@@ -445,72 +472,82 @@
           ],
           "suspectLines": [
             {
-              "line": 5,
-              "text": "+ Substantia nigra pars compacta =¢Bpamine KO Se",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": ": ¢ ce",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "+ Substantia nigra pars reticulata= GABA, > S",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "ie, Pas a",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "+ Subthalmic nuclei = glutanlate rag o&",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "+ Corpus striatum to globus pallidus GABA 6, ¥",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "+ Intrastriate neurons = acetylcholine oS",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "+ Globus pallidus = GABA)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 16,
               "text": "Geis pats || Goovs pats || substring || Sst rie",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 18,
+              "text": "ae",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
         }
       ],
       "explanation": "Projections from subthalamic nucleus to globus Pallidus are lataminergie., >\n=) Do Oo\nNeurotransmitters secreted by various régidns of basalganglia: Se\nreeie eae a\n+ Substantia nigra pars compacta =¢Bpamine KO Se\n: ¢ ce\n+ Substantia nigra pars reticulata= GABA, > S\nie, Pas a\n+ Subthalmic nuclei = glutanlate rag o&\n+ Corpus striatum to globus pallidus GABA 6, ¥\n+ Intrastriate neurons = acetylcholine oS\n+ Globus pallidus = GABA)\np ae a\nAs Basal ganglia\ncba cata cama\nGeis pats || Goovs pats || substring || Sst rie\nLee la\nae\nMARRG\nDiagrammatic representation of the principal connections of the basal ganglia.\nAcetylcholine is the transmitter produced by interneurons in the striatum.\n\n(SNr : substantia nigra pars reticulata; SNe: substantia nigra pars compacta; STN: Subthalamic\nnucleus ; GPe: globus pallidus externa ; GPi: Globus pallidus interna)."
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q015",
+      "questionNumber": 15,
+      "sourcePage": 201,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          201
+        ],
+        "answerKeyPages": [
+          202,
+          203
+        ],
+        "explanationPages": [
+          208
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "All of the following are excitatory neurotransmitters except:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Acetylcholine"
+        },
+        {
+          "letter": "B",
+          "text": "Glutamate"
+        },
+        {
+          "letter": "C",
+          "text": "Serotonin"
+        },
+        {
+          "letter": "D",
+          "text": "Norepinephrine"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "ye\"",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Serotonin is an inhibitory neurotransmitter.\nAcetylcholine, glutamate and norepinephrine are excitatory neurotransmitters.\nye\""
     },
     {
       "id": "marrow__PHYS_CH10_Q016",
@@ -554,9 +591,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
             "symbol_dense_line"
@@ -566,36 +602,7 @@
               "line": 3,
               "text": "+ 5-HT2A receptors mediate platelet aggregation and smooth{Muscle contraétion.",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "aN =) we",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "+ 5-HT3 receptors are present in the GIT‘and the area péstrema and arevrélated to vomiting.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "= or nS",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "+ 5-HT4 receptors are present in,the’GIT and brairh, Tey facilita@Secretion and peristalsis in",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -603,13 +610,6 @@
               "text": "®) “ os",
               "reasons": [
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "+ 5-HT6 and 5-H'Ty are digtributed throughout the limbje'S)8tem.",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -676,14 +676,8 @@
               "line": 6,
               "text": "ann |",
               "reasons": [
+                "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "5: Hycroxvtryptophan (HT)",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -711,6 +705,86 @@
         }
       ],
       "explanation": "Serotonisn shy droxytryagetine: 5-HT) is present in highest concentration in platelets and in the\ngastrointestinal tract, whete it is found in the enterochromaffin cells and the myenteric plexus. It\nis also found within the brain stem in the midline Raphe nuclei.\nNote: The precursor of serotonin is tryptophan.\n\nann |\n5: Hycroxvtryptophan (HT)\namino acid |\ncsoetevace\n(Gir - Hydroxytryptamine)\nomenaminn |\nSie e\nrrdrony tn S\nOr 2a\nKP Le)\na J 2\ni i © ~ AS"
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q018",
+      "questionNumber": 18,
+      "sourcePage": 202,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          202
+        ],
+        "answerKeyPages": [
+          202,
+          203
+        ],
+        "explanationPages": [
+          209
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "Which statement regarding the NMDA receptor is incorrect?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Glutamate is its endogenous agonist"
+        },
+        {
+          "letter": "B",
+          "text": "Glycine is essential for this receptor's response to its endogenous agonist"
+        },
+        {
+          "letter": "C",
+          "text": "It is a chloride ion channel"
+        },
+        {
+          "letter": "D",
+          "text": "It is present in hippocampal neurons"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 5,
+              "text": "Xe",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 6,
+              "text": "Sg",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "yt",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "LS",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "NMDA receptor permits passage’of Caat andar cations (Na+), not of chloride.\nGlutamate is the agonist forNMIDA receptor. Glycine binding to the NMDA receptor is essential\nfor the receptor to respond to state NMDA eogntors are present on hippocampal neurons.\nNote: GABA and glycine reece by increasing Cl- conductance.\nXe\nSg\nyt\nLS\ns xe"
     }
   ]
 }

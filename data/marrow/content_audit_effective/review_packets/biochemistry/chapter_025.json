@@ -51,9 +51,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "punctuation_run",
             "symbol_dense_line"
           ],
@@ -62,7 +61,6 @@
               "line": 9,
               "text": "===== PDF PAGE 390 =====",
               "reasons": [
-                "edge_noise",
                 "punctuation_run",
                 "symbol_dense_line"
               ]
@@ -130,24 +128,9 @@
               ]
             },
             {
-              "line": 13,
-              "text": ", Hydrogen bonds ; _",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 15,
-              "text": "35! GmDAdeniine 5 Ps y OH",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 16,
               "text": ". == Thymine O ra A \\ Wau",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -156,13 +139,6 @@
               "text": "SN E=a6uanine -0 0 6 Ny \\sy Ob &",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 19,
-              "text": "ZS - : HoN ae",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -176,7 +152,6 @@
               "line": 23,
               "text": "~\\ ZS ~ Sugar Guanine 8",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -184,7 +159,6 @@
               "line": 24,
               "text": "wi‘ FF phosphate ___ |______ ___",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -238,9 +212,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "punctuation_run",
             "symbol_dense_line"
           ],
@@ -249,7 +222,6 @@
               "line": 8,
               "text": "===== PDF PAGE 391 =====",
               "reasons": [
-                "edge_noise",
                 "punctuation_run",
                 "symbol_dense_line"
               ]
@@ -420,9 +392,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "punctuation_run",
             "symbol_dense_line"
           ],
@@ -431,23 +402,8 @@
               "line": 12,
               "text": "===== PDF PAGE 392 =====",
               "reasons": [
-                "edge_noise",
                 "punctuation_run",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 16,
-              "text": "z= or",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 20,
-              "text": "aw > g",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -530,18 +486,24 @@
               ]
             },
             {
-              "line": 8,
-              "text": "> bind two additional half-turn",
+              "line": 10,
+              "text": "as \\| Hg histo | (H3-H4)2tetramer has a cent",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 14,
+              "text": "NA.",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 10,
-              "text": "as \\| Hg histo | (H3-H4)2tetramer has a cent",
+              "line": 16,
+              "text": "nes",
               "reasons": [
-                "edge_noise",
-                "hard_noise_char"
+                "edge_noise"
               ]
             }
           ]
@@ -592,9 +554,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 16,
+          "severity": 13,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
             "punctuation_run",
@@ -602,54 +563,11 @@
           ],
           "suspectLines": [
             {
-              "line": 2,
-              "text": "* Phosphorylation of histone H1 is associated with the condensation of chromosomes during the",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "* Acetylation of H3 and H4 is associated with the activation or inactivation of gene transcription.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "+ Acetylation of core histones is associated with chromosomal assembly during DNA replication.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 6,
               "text": "===== PDF PAGE 393 =====",
               "reasons": [
-                "edge_noise",
                 "punctuation_run",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "* Methylation of histones is correlated with activation and repression of gene transcription",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "* ADP-ribosylation of histones is associated with DNA repair.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "* Monoubiquitylation is associated with gene activation, repression, and heterochromatic gene",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -664,20 +582,6 @@
               "text": "can bind the DNA and genes \\",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 28,
-              "text": ". — =",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 29,
-              "text": ": go Or",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -727,32 +631,17 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 7,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "oO? 2 es",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 6,
               "text": "R\\e",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "‘ Transcriptionally inactive Transcriptionally active",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -837,7 +726,6 @@
               "line": 2,
               "text": "===== PDF PAGE 394 =====",
               "reasons": [
-                "edge_noise",
                 "punctuation_run",
                 "symbol_dense_line"
               ]
@@ -848,6 +736,13 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 12,
+              "text": "be",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -936,16 +831,8 @@
               "line": 10,
               "text": "===== PDF PAGE 395 =====",
               "reasons": [
-                "edge_noise",
                 "punctuation_run",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "‘or \"d-loop”",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -959,8 +846,14 @@
               "line": 16,
               "text": "{l_ 22 tRNA-encoding genes",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 19,
+              "text": "ce",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
@@ -974,7 +867,6 @@
               "line": 27,
               "text": ". . \\, at 4",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -1038,7 +930,6 @@
               "line": 1,
               "text": "~\\ a oO rw",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1050,15 +941,8 @@
               ]
             },
             {
-              "line": 10,
-              "text": "n> & or \"d-loop\"",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 13,
-              "text": "[l_ 22 tRNA-encoding genes",
+              "line": 17,
+              "text": "i",
               "reasons": [
                 "edge_noise"
               ]
@@ -1067,7 +951,6 @@
               "line": 18,
               "text": "\\ at citocone: ON",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -1127,10 +1010,16 @@
           ],
           "suspectLines": [
             {
+              "line": 1,
+              "text": "395",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 2,
               "text": "===== PDF PAGE 396 =====",
               "reasons": [
-                "edge_noise",
                 "punctuation_run",
                 "symbol_dense_line"
               ]
@@ -1195,34 +1084,6 @@
                 "edge_noise",
                 "hard_noise_char"
               ]
-            },
-            {
-              "line": 9,
-              "text": "a* a Fae",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "G1- Growth",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "S- DNA synthesis",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "G2 - Growth and",
-              "reasons": [
-                "edge_noise"
-              ]
             }
           ]
         }
@@ -1286,7 +1147,6 @@
               "line": 6,
               "text": "===== PDF PAGE 397 =====",
               "reasons": [
-                "edge_noise",
                 "punctuation_run",
                 "symbol_dense_line"
               ]
@@ -1296,6 +1156,20 @@
               "text": "NOS) T , 1 \\ f)",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 10,
+              "text": "HDA",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 14,
+              "text": "Ane :",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
@@ -1320,32 +1194,10 @@
               ]
             },
             {
-              "line": 21,
-              "text": "== Adenine ec",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 22,
-              "text": "== Thymine Cad  t",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 25,
               "text": "eS “A “. »",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 26,
-              "text": "= KO o> °C eo,",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -1360,7 +1212,6 @@
               "line": 28,
               "text": ". . Ww <\" ‘ %",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             }
@@ -1425,7 +1276,6 @@
               "line": 4,
               "text": "Lo, '?) es ~~”",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -1438,22 +1288,8 @@
               ]
             },
             {
-              "line": 6,
-              "text": "+ Identification of the origins of repli¢ation oO",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 7,
               "text": "a> >",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "* Formation of the replication fork; synthesis of RNA primer",
               "reasons": [
                 "edge_noise"
               ]
@@ -1464,13 +1300,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "+ Initiation of DNA synthesis and eloiigation",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -1489,19 +1318,18 @@
               ]
             },
             {
-              "line": 16,
-              "text": ". Reconstitution of chromatin structure",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 21,
               "text": "===== PDF PAGE 398 =====",
               "reasons": [
-                "edge_noise",
                 "punctuation_run",
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 23,
+              "text": "a",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
@@ -1517,13 +1345,6 @@
               "reasons": [
                 "punctuation_run",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 38,
-              "text": ". x 3 >",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1585,7 +1406,6 @@
               "line": 1,
               "text": "- oO. “a",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             },
@@ -1593,7 +1413,6 @@
               "line": 2,
               "text": ". S -®",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             },
@@ -1684,9 +1503,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "punctuation_run",
             "symbol_dense_line"
           ],
@@ -1695,7 +1513,6 @@
               "line": 11,
               "text": "===== PDF PAGE 399 =====",
               "reasons": [
-                "edge_noise",
                 "punctuation_run",
                 "symbol_dense_line"
               ]
@@ -1767,24 +1584,9 @@
               ]
             },
             {
-              "line": 3,
-              "text": "o> r »",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 14,
-              "text": "_ origin of replication",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 15,
               "text": "= \\. leading strand lagging strand",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1792,7 +1594,6 @@
               "line": 20,
               "text": "| ~ BER 5) rimase azaki azaki azaki",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1800,7 +1601,6 @@
               "line": 27,
               "text": "===== PDF PAGE 400 =====",
               "reasons": [
-                "edge_noise",
                 "punctuation_run",
                 "symbol_dense_line"
               ]
@@ -1852,26 +1652,17 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
             "symbol_dense_line"
           ],
           "suspectLines": [
             {
-              "line": 7,
-              "text": "d, IAD",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 8,
               "text": "h Or ~>*",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -1919,24 +1710,9 @@
               ]
             },
             {
-              "line": 18,
-              "text": "= Adenine",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 19,
-              "text": "== Thymine C [——_",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 22,
               "text": "_ «xs ~, as",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -2014,7 +1790,6 @@
               "line": 2,
               "text": "_~ .%,",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -2083,9 +1858,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 16,
+          "severity": 13,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
             "punctuation_run",
@@ -2096,23 +1870,8 @@
               "line": 11,
               "text": "===== PDF PAGE 401 =====",
               "reasons": [
-                "edge_noise",
                 "punctuation_run",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 17,
-              "text": "+ At least two successive generations affected",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 18,
-              "text": "+ At least one case diagnosed before age 50 years",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -2133,7 +1892,6 @@
               "line": 28,
               "text": "a8 “~* 4",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -2185,9 +1943,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 4,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -2195,7 +1952,6 @@
               "line": 1,
               "text": "~ to 2,",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -2247,9 +2003,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 9,
+          "severity": 6,
           "reasons": [
-            "edge_noise",
             "punctuation_run",
             "symbol_dense_line"
           ],
@@ -2258,7 +2013,6 @@
               "line": 8,
               "text": "===== PDF PAGE 402 =====",
               "reasons": [
-                "edge_noise",
                 "punctuation_run",
                 "symbol_dense_line"
               ]
@@ -2318,6 +2072,13 @@
           ],
           "suspectLines": [
             {
+              "line": 1,
+              "text": "ow",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 10,
               "text": "La ™ _ ‘ ~ >.",
               "reasons": [
@@ -2326,8 +2087,8 @@
               ]
             },
             {
-              "line": 13,
-              "text": "= < AS ay",
+              "line": 14,
+              "text": "t",
               "reasons": [
                 "edge_noise"
               ]
@@ -2380,9 +2141,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "punctuation_run",
             "symbol_dense_line"
@@ -2392,44 +2152,14 @@
               "line": 2,
               "text": "===== PDF PAGE 403 =====",
               "reasons": [
-                "edge_noise",
                 "punctuation_run",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 13,
-              "text": "+ Hepatitis B vaccine . ‘ “ae",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 14,
-              "text": "* Molecular analysis of disease, to detect gene variations, And mutations",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 15,
-              "text": "+ Restriction Fragment Length polymorphism (REDP) and single nucleotide polymorphism (SNP)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 16,
-              "text": "* Microsatellite DNA polymorphisms aX ‘Oo cf >",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
               "line": 17,
               "text": "* Gene therapy and bone marrow transplantation i ° ~*",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -2480,9 +2210,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
             "symbol_dense_line"
@@ -2492,16 +2221,8 @@
               "line": 1,
               "text": "~~ Se.” x¢",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "TG- rich repeats and usually do not Cede for any proteins. With every DNA replication during cell",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
