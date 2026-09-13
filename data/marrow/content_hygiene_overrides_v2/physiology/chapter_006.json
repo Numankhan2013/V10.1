@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 6 stems/options. Removes OCR/diagram debris only; answer indices remain immutable; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup.",
+  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 6 stems/options. Removes OCR/diagram debris only; answer indices remain immutable; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup.",
   "subject": "Physiology",
   "chapterId": "6",
-  "sourceFingerprint": "9de455bb1719f7f21855da1993c1b629c4153b701323ca893d381145b34f2fb1",
+  "sourceFingerprint": "d5081aa08a9baa3a620765341694f07fc6e9246368d383f3bcd31ae2451d8b0d",
   "questions": {
     "marrow__PHYS_CH06_Q001": {
       "question": "Which among the following is embryologically and physiologically unrelated to other neural cells?",
@@ -80,7 +80,8 @@
         "Magnitude of current",
         "Rate of discharge",
         "Velocity of nerve conduction"
-      ]
+      ],
+      "explanation": "The rheobase is an indicator of the magnitude of the current. It is the minimum intensity (strength/magnitude) of stimulation required to generate an action potential when the stimulation is of infinite duration.\nUtilization time is the minimum time (duration) for which the rheobase has to be applied for the excitation of tissue.\nChronaxie is the minimum time (duration) for which a stimulus double the strength of rheobase has to be applied for excitation of tissue.\nStrength-duration curve gives the idea of the excitability of a tissue.\nStrength-duration relationship arises because the same minimum electrical charge necessary to excite an action potential can come from a current that is either brief but large or prolonged but small. It is the product of strength and duration that determines excitability, and thus these two parameters are inversely related in their effectiveness.\nNote: Chronaxie is a better index than rheobase and utilization time for comparing the excitability of a tissue."
     },
     "marrow__PHYS_CH06_Q017": {
       "question": "In the Erlanger and Gasser classification of peripheral nerve fibers, which type of signal is transmitted by the type B nerve fibers?",
@@ -164,6 +165,46 @@
         "Node of Ranvier"
       ],
       "explanation": "The maximum number of Na+ channels per square micrometer in myelinated neurons is present at the nodes of Ranvier. It contains 2000-12,000 channels per square micrometer.\nVoltage-gated Na+ channels are highly concentrated in the nodes of Ranvier and the initial segment in myelinated neurons.\nThe spatial distribution of ion channels along the axon plays a key role in the initiation and regulation of action potential."
+    },
+    "marrow__PHYS_CH06_Q009": {
+      "question": "Which of the following is true regarding the upstroke of a nerve action potential?",
+      "options": [
+        "There is net outward current and the cell interior becomes more negative",
+        "There is net outward current and the cell interior becomes less negative",
+        "There is net inward current and the cell interior becomes more negative",
+        "There is net inward current and the cell interior becomes less negative"
+      ],
+      "explanation": "Regarding the upstroke of a nerve action potential, there is a net inward current and the cell interior becomes less negative. The direction of the current is either:\n• same as the direction of positive charge (eg, Na+)\n• opposite to the direction of negative charge (eg, Cl-)\n• opposite to the direction of electrons\nSince Na+ moves in, there is a net inward current.\nSince the RMP increases, the cell interior becomes less negative.\nIn response to a depolarizing stimulus, some of the voltage-gated Na+ channels open and Na+ enters the cell and the membrane is brought to its threshold potential. The entry of Na+ causes the opening of more voltage-gated Na+ channels and further depolarization, setting up a positive feedback loop. The rapid upstroke in the membrane potential ensues. So, there is a net influx of Na+, and the interior of the cell becomes positive during the upstroke of the action potential."
+    },
+    "marrow__PHYS_CH06_Q011": {
+      "question": "What is known as the time period in which a second stronger impulse can elicit action potential after the application of one stimulus?",
+      "options": [
+        "Absolute refractory period",
+        "Relative refractory period",
+        "Latent refractory period",
+        "Local response"
+      ],
+      "explanation": "The refractory period is the time period in which a second stronger impulse can elicit action potential after the application of one stimulus. It can be absolute or relative.\nDuring the rising and much of the falling phases of the spike potential, the neuron is refractory to stimulation. This refractory period is divided into an:\n• Absolute refractory period; corresponding to the period from the time the firing level is reached until repolarization is about one-third complete\n• Relative refractory period, lasting from this point to the start of after-depolarization\nDuring the absolute refractory period, no stimulus, no matter how strong, will excite the nerve. However, during the relative refractory period, stimuli that are stronger than normal can cause excitation.\nThe absolute refractory period for large myelinated nerve fibers is about 1/2500 second."
+    },
+    "marrow__PHYS_CH06_Q018": {
+      "question": "A man falls into a deep sleep with one arm under his head. He finds he is not able to move this arm when he awakens. However, its tingles and pain sensation in the arm is still intact. What is the reason for the loss of motor function without loss of pain sensation is that in the nerves to his arm?",
+      "options": [
+        "B fibers are more susceptible to pressure than A fibers",
+        "A fibers are more sensitive to pressure than C fibers",
+        "C fibers are more sensitive to pressure than A fibers",
+        "Motor nerves are more affected by sleep than sensory nerves"
+      ],
+      "explanation": "The reason for the loss of motor function without loss of pain sensation is that in the nerves to his arm, A-fibers are more sensitive to pressure than C fibers.\nSleeping for a long period with the arms under the head puts pressure on a nerve. It leads to the loss of conduction in large-diameter motor, touch, and pressure fibers, while pain sensation remains relatively intact. A-fibers (includes the motor fibers) are affected.\nThe susceptibility of the nerve fibers to pressure is A > B > C.\nThis is responsible for Saturday night or Sunday morning paralysis."
+    },
+    "marrow__PHYS_CH06_Q019": {
+      "question": "Spike duration is maximum in which of the following nerve fiber?",
+      "options": [
+        "Aα",
+        "B",
+        "C",
+        "Aβ"
+      ],
+      "explanation": "Spike duration is maximum in C fibers.\nThe spike duration in decreasing order is C > B > A.\nAbsolute refractory period follows the same order: C > B > A.\nFiber A: spike duration 0.4-0.5 ms; absolute refractory period 0.4-1 ms.\nFiber B: spike duration 1.2 ms; absolute refractory period 1.2 ms.\nFiber C: spike duration 2 ms; absolute refractory period 2 ms."
     }
   }
 }
