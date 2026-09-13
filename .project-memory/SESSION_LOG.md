@@ -917,3 +917,13 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Added a separate stable-ID display-override layer for all 28 Body Fluids (Ch5) and all 35 Muscle Physiology I (Ch7) questions. It replaces 63 learner stems, 252 option labels and displayed correct-answer text with reviewed clean text after fingerprinting the exact immutable source fields; raw ED8 bundles, correct-option indexes, explanations, images and product behavior remain unchanged.
 - Strengthened browser QA to compare every one of the 315 changed learner-visible values through actual `practiceOne` rendering, then verify answer-time tuned explanations/rationales at Ch5 Q1 and Ch7 Q1, Q2 and Q35. Commit `55d7ac8a89c2bbf6a01db5d305b8c975c344c1f3`; Engineering `34740460617` passed; full Android/PWA/browser/APK/package run `34740465004` passed; preview `https://c4744474.nk-qbank.pages.dev`; production skipped.
 - This closes the two reported Physiology chapters. It is not evidence that unreviewed chapters are free of OCR debris; continue the same source-fingerprinted override workflow rather than broad regex guessing.
+
+
+## 2026-09-13 — Physiology Ch11 Q1–Q6 explanation batch acquired
+
+- `FULLY_VERIFIED_HISTORY`: Anatomy Ch6 Q1–Q7 certified checkpoint `58bb99d5c1fc96a98b4f922a963dba16105487d1` is already an ancestor of canonical; stale PR #52 is historical and non-blocking.
+- `CURRENT_UNVERIFIED`: Physiology Ch11 Q1–Q6 on `feature/marrow-explanation-physiology-ch11-q001-q006-20260913`, canonical base `4f943af34bb4bd49f644f2655e23459fc1534031`.
+- Workload **16.0**: six base points; source figures Q1/Q2/Q5; OCR/garbling Q1/Q2/Q3/Q5/Q6; Q6 resolved reconstruction.
+- Raw Physiology source SHA remains `f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6`; canonical corpus remains 1,014 Physiology / 2,711 global.
+- Static validation passed after deterministic inventory regeneration: **594 enhanced / 2,117 pending**, fingerprint `f860fc38da57af2d20be05efa33a5594b08425008a2cbcb2f3dff0bfdd27b974`.
+- Next action: add stable-ID browser regression, open/reconcile PR, and require exact-head Engineering + full Android/PWA/APK/package/reproducibility/preview success before `FULLY_VERIFIED`. Production promotion prohibited.
