@@ -1,0 +1,21 @@
+name: Test Marrow content overrides v2
+
+on:
+  push:
+    branches:
+      - fix/marrow-full-content-cleanup-20260913
+    paths:
+      - data/marrow/content_hygiene_overrides_v2/**
+      - tools/test_marrow_content_overrides_v2.py
+      - tools/apply_marrow_bank_pilot.py
+      - .github/workflows/test-marrow-content-overrides-v2.yml
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate all active v2 overrides
+        run: python tools/test_marrow_content_overrides_v2.py
+      - name: Syntax-check build owner
+        run: python -m py_compile tools/apply_marrow_bank_pilot.py tools/test_marrow_content_overrides_v2.py
