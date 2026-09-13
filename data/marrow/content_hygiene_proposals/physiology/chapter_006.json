@@ -1,7 +1,7 @@
 {
   "proposalVersion": 1,
   "reviewStatus": "REVIEWED",
-  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 6 stems/options. Removes OCR/diagram debris only; answer indices remain immutable.",
+  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 6 stems/options plus Q10 explanation. Removes OCR/diagram debris only; answer indices remain immutable.",
   "subject": "Physiology",
   "chapterId": "6",
   "questions": {
@@ -31,7 +31,8 @@
     },
     "marrow__PHYS_CH06_Q010": {
       "question": "Which of the following is correctly matched?",
-      "options": ["1", "2", "3", "4"]
+      "options": ["1", "2", "3", "4"],
+      "explanation": "The slow return of the K+ channels to the closed state also explains the after-hyperpolarization.\nIn response to a depolarizing stimulus, some of the voltage-gated Na+ channels open and Na+ enters the cell. The entry of Na+ causes the opening of more voltage-gated Na+ channels and further depolarization, setting up a positive feedback loop. The rapid upstroke in the membrane potential ensues.\nThe membrane potential moves toward the equilibrium potential for Na+ (+60 mV) but does not reach it during the action potential, primarily because the increase in Na+ conductance is short-lived. The Na+ channels rapidly enter a closed state called the inactivated state and remain in this state for a few milliseconds.\nIn addition, the direction of the electrical gradient for Na+ is reversed during the overshoot because the membrane potential is reversed, and this limits Na+ influx; also the voltage-gated K+ channels open. These factors contribute to repolarization. The opening of voltage-gated K+ channels is slower and more prolonged than the opening of the Na+ channels. The net movement of positive charge out of the cell due to K+ efflux at this time helps complete the process of repolarization.\nThe slow return of the K+ channels to the closed state also explains the after-hyperpolarization, followed by a return to the resting membrane potential.\nThus, voltage-gated K+ channels bring the action potential to an end and cause closure of their gates through a negative feedback process.\nNote: Na+ channels: Positive feedback loop; K+ channels: Negative feedback loop."
     },
     "marrow__PHYS_CH06_Q013": {
       "question": "Rheobase is an indicator of which of the following?",
