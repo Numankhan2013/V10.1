@@ -58,6 +58,8 @@ def main() -> None:
                 })
             if not rows:
                 continue
+            qopt_count = sum(bool(r["questionOptionFlags"]) for r in rows)
+            expl_count = sum(bool(r["explanationFlags"]) for r in rows)
             out_path = target_dir / chapter_path.name
             out_path.write_text(json.dumps({
                 "schemaVersion": 1,
@@ -66,8 +68,8 @@ def main() -> None:
                 "chapterId": chapter["chapterId"],
                 "chapter": chapter.get("chapter"),
                 "candidateQuestionCount": len(rows),
-                "questionOptionCandidateCount": sum(bool(r["questionOptionFlags"]) for r in rows),
-                "explanationCandidateCount": sum(bool(r["explanationFlags"]) for r in rows),
+                "questionOptionCandidateCount": qopt_count,
+                "explanationCandidateCount": expl_count,
                 "questions": rows,
             }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             index.append({
@@ -76,12 +78,23 @@ def main() -> None:
                 "chapter": chapter.get("chapter"),
                 "file": str(out_path.relative_to(AUDIT)),
                 "candidateQuestionCount": len(rows),
-                "questionOptionCandidateCount": sum(bool(r["questionOptionFlags"]) for r in rows),
-                "explanationCandidateCount": sum(bool(r["explanationFlags"]) for r in rows),
+                "questionOptionCandidateCount": qopt_count,
+                "explanationCandidateCount": expl_count,
             })
 
-    (OUT / "index.json").write_text(json.dumps({"chapters": index}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"MARROW_DEBRIS_REVIEW_PACKETS_OK chapters={len(index)}")
+    payload = {"chapters": index}
+    (OUT / "index.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (OUT / "question_option_index.json").write_text(json.dumps({
+        "chapters": [row for row in index if row["questionOptionCandidateCount"]]
+    }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (OUT / "explanation_index.json").write_text(json.dumps({
+        "chapters": [row for row in index if row["explanationCandidateCount"]]
+    }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(
+        "MARROW_DEBRIS_REVIEW_PACKETS_OK "
+        f"chapters={len(index)} qopt_chapters={sum(bool(r['questionOptionCandidateCount']) for r in index)} "
+        f"explanation_chapters={sum(bool(r['explanationCandidateCount']) for r in index)}"
+    )
 
 
 if __name__ == "__main__":
