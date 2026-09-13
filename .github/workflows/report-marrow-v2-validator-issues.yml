@@ -1,0 +1,43 @@
+name: Report Marrow v2 validator issues
+
+on:
+  push:
+    branches:
+      - fix/marrow-full-content-cleanup-20260913
+    paths:
+      - tools/report_marrow_v2_validator_issues.py
+      - data/marrow/content_hygiene_overrides_v2/**
+      - .github/workflows/report-marrow-v2-validator-issues.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: marrow-v2-validator-issue-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Generate complete hard-violation report
+        run: python tools/report_marrow_v2_validator_issues.py
+      - name: Commit derived report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "418982154+github-actions[bot]@users.noreply.github.com"
+          git add data/marrow/content_audit_effective/v2_validator_issues.json
+          if git diff --cached --quiet; then
+            echo "Validator issue report already current."
+            exit 0
+          fi
+          git commit -m "Refresh Marrow v2 validator issue report [skip ci]"
+          git reset --hard HEAD
+          git clean -fd
+          git fetch origin fix/marrow-full-content-cleanup-20260913
+          git rebase origin/fix/marrow-full-content-cleanup-20260913
+          git push origin HEAD:fix/marrow-full-content-cleanup-20260913
