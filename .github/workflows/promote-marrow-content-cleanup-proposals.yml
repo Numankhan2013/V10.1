@@ -1,0 +1,36 @@
+name: Promote Marrow content cleanup proposals
+
+on:
+  push:
+    branches:
+      - fix/marrow-full-content-cleanup-20260913
+    paths:
+      - data/marrow/content_hygiene_proposals/**
+      - tools/promote_marrow_content_cleanup_proposals.py
+      - .github/workflows/promote-marrow-content-cleanup-proposals.yml
+
+permissions:
+  contents: write
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Promote reviewed proposals with exact source fingerprints
+        run: python tools/promote_marrow_content_cleanup_proposals.py
+      - name: Syntax-check build owner and cleanup tools
+        run: python -m py_compile tools/apply_marrow_bank_pilot.py tools/promote_marrow_content_cleanup_proposals.py
+      - name: Commit active source-fingerprinted overrides
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "418982154+github-actions[bot]@users.noreply.github.com"
+          git add data/marrow/content_hygiene_overrides_v2
+          if git diff --cached --quiet; then
+            echo "Active overrides already current."
+            exit 0
+          fi
+          git commit -m "Promote reviewed Marrow content cleanup [skip ci]"
+          git push origin HEAD:fix/marrow-full-content-cleanup-20260913
