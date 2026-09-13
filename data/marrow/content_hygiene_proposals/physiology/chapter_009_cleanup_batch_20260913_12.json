@@ -1,0 +1,24 @@
+{
+  "proposalVersion": 1,
+  "reviewStatus": "REVIEWED",
+  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 9 explanations Q22/Q24-Q27, verified directly against rendered Marrow ED8 pages 194-197. Removes OCR/diagram/watermark debris only; stable IDs, question/options, answer indices, provenance, and figures remain unchanged. Q7 remains a documented detector false-positive for legitimate ~75% source notation.",
+  "subject": "Physiology",
+  "chapterId": "9",
+  "questions": {
+    "marrow__PHYS_CH09_Q022": {
+      "explanation": "Neurotransmitters should be released on depolarization of the terminal.\n\n• Neurotransmitters are the substances that mediate chemical signaling between neurons.\n• The transmission of information at chemical synapses involves the release of neurotransmitter from a presynaptic cell, diffusion across the synaptic cleft, and binding of the neurotransmitter to specific receptors on the postsynaptic membrane to produce a change in membrane potential.\n\nCriteria for the substance to be neurotransmitter\n• the substance must be demonstrated to be present in the presynaptic terminal\n• the cell must be able to synthesize the substance.\n• should be released on depolarization of the terminal.\n• there should be specific receptors for it on the postsynaptic membrane.\n• if the substance is applied exogenously to the postsynaptic membrane at physiologic concentration, the response of the postsynaptic cell must mimic the in vivo response"
+    },
+    "marrow__PHYS_CH09_Q024": {
+      "explanation": "Enkephalins have maximum potency at δ receptors.\n\nDynorphins have maximum potency at κ receptors.\n\nEndorphins have maximum potency at μ receptors.\n\nNote: There is a difference of opinion among Goodman & Gillman's textbook and Ganong’s review of medical physiology (26th edition pg 151). According to Goodman & Gillman's textbook above answer is correct."
+    },
+    "marrow__PHYS_CH09_Q025": {
+      "explanation": "Endplate potential is generated via nicotinic cholinergic receptor.\n\nThe acetylcholine released from the motor neuron diffuses to nicotinic cholinergic (NM) receptors that are concentrated at the tops of the junctional folds of the membrane of the motor endplate."
+    },
+    "marrow__PHYS_CH09_Q026": {
+      "explanation": "Binding of acetylcholine to neuromuscular junction receptors increases the Na+ and K+ conductance, and the resultant influx of Na+ produces a depolarizing potential, the endplate potential.\n\nIPSP may be due to\n• Opening of chloride ion channels through the postsynaptic neuronal membrane\n• Increase in conductance of potassium ions out of the neuron.\n• Activation of receptor enzymes that increase the number of inhibitory synaptic receptors or decrease the number of excitatory receptors.\n\nEPSP may be due to\n• The opening of sodium channels to allow large numbers of positive electrical charges to flow to the interior of the postsynaptic cell.\n• Depressed conduction through chloride or potassium channels, or both.\n• Various changes in the internal metabolism of the postsynaptic neuron to increase the number of excitatory membrane receptors or decrease the number of inhibitory membrane receptors."
+    },
+    "marrow__PHYS_CH09_Q027": {
+      "explanation": "In electrical synapses, the cytoplasm of adjacent cells is directly connected by gap junctions (connexons) that allow free movement of ions from the interior of one cell to the interior of the next cell.\n\nThe transmission in electrical synapses is bidirectional and there is no synaptic delay. Unlike chemical synapses, electrical synapse has cytoplasmic continuity.\n\nNote:\nMost of the synapses used for signal transmission in the central nervous system are chemical synapses."
+    }
+  }
+}
