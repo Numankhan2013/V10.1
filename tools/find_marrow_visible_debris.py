@@ -27,7 +27,10 @@ TRAILING_OCR_RES = (
     re.compile(r"\s+[A-Za-z]{2}\s+\d+[\"”']\s*$"),
     re.compile(r"\s+[\"”'‘’]\s*[A-Za-z]\s*$"),
 )
-HARD_NOISE = set("~|\\{}`^€™")
+# Caret is deliberately excluded: source text legitimately uses ASCII exponent
+# notation such as 10^9. This set is reserved for characters that are strong OCR
+# debris signals in learner text rather than ordinary scientific notation.
+HARD_NOISE = set("~|\\{}`€™")
 
 
 def line_reasons(line: str) -> list[str]:
