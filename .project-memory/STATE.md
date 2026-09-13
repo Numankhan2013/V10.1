@@ -87,20 +87,21 @@ Do not certify this behavior by calling only an internal helper or by using a su
 ### FULLY_VERIFIED_HISTORY
 
 - Anatomy Ch6 Q1–Q7 (`marrow__ANAT_CH06_Q001..Q007`) is canonical history. Certified checkpoint `58bb99d5c1fc96a98b4f922a963dba16105487d1`; exact-head Engineering Gate `34715415821` and full Android/PWA/APK/package run `34715415818` passed. Historical PR #52 is evidence only and non-blocking.
-- Physiology Ch11 Q1–Q6 (`marrow__PHYS_CH11_Q001..Q006`) has now been reconciled into canonical. Live Git proves canonical merge commit `e01cc0b9a8e62885d29b0c2e7ac6417ce8c96f05`; the older CURRENT_UNVERIFIED memory entry was stale and is superseded by repository state.
-- Canonical inventory before the current Anatomy transplant is **594 enhanced / 2,117 pending / 2,711 total**, fingerprint `f860fc38da57af2d20be05efa33a5594b08425008a2cbcb2f3dff0bfdd27b974`. Raw source hashes remain Anatomy `f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387`, Biochemistry `919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1`, Physiology `f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6`.
+- Physiology Ch11 Q1–Q6 (`marrow__PHYS_CH11_Q001..Q006`) is reconciled canonical history at merge commit `e01cc0b9a8e62885d29b0c2e7ac6417ce8c96f05`; older CURRENT_UNVERIFIED memory is stale evidence only.
 
 ### CURRENT_UNVERIFIED — Anatomy owns the lane
 
 - Batch ID: `anatomy-20260913-ch6-q8-q18-r2`.
 - Scope: `marrow__ANAT_CH06_Q008..Q018`, **11 contiguous questions**, workload score **16.5**. No Q19+ work has started.
-- The earlier PR #56 / branch `automation/marrow-explanations-anatomy-20260913-ch06-q008-q018` is stale donor/history only and must not be merged.
-- Fresh transplant branch: `automation/marrow-explanations-anatomy-20260913-ch06-q008-q018-r2`, created from exact canonical base `e01cc0b9a8e62885d29b0c2e7ac6417ce8c96f05`.
-- Stable-ID content was transplanted without copying stale shared inventory/memory. Q8–Q18 augmentation commit `ef4475b24927a28e2ce233793789dd1096b1a390`; Anatomy validator extension commit `3c8463a64b683312ef84d2024e95bddcd5cfe972`; Q18 stable-ID browser regression commit `9816dc73cfd03d39a0c8983975efd2f0a0b5ef3e`; browser wrapper reconciliation commit `4013cdc7b42c6d4dc91df3021a0231615fd1591d` preserves the canonical Physiology Ch11 browser regression.
-- Q12/Q16/Q17/Q18 remain figure-dependent through immutable source metadata. Q18 also owns a structured embryological-remnants table; its browser test verifies meaningful cells, rejects `[object Object]`, requires exactly three distractor rows, and preserves the FSRS recall dock.
-- Raw imported source is unchanged. The 11 IDs are expected to move deterministic inventory to **605 enhanced / 2,106 pending / 2,711 total**; the new fingerprint must be produced by the repository generator and must not be guessed.
-- State: **CONTENT_AUTHORED** on the fresh canonical-based transplant. Exact-current-candidate validation has not yet certified this branch.
-- Exact next action: open a fresh PR to `feature/marrow-canonical-full-current` so Engineering Gate can run on the exact candidate. If the persisted inventory mismatch is the only failure, use that deterministic CI output for one bounded inventory repair, then require a fresh exact-head Engineering Gate and full Android/PWA/browser/APK/package/reproducibility/preview run on the same candidate SHA. Reconcile only after both are green; if canonical moves, transplant/reconcile again by stable ID rather than merging stale history.
+- Stale donor PR #56 / branch `automation/marrow-explanations-anatomy-20260913-ch06-q008-q018` remains history only and must never be merged.
+- Fresh transplant branch `automation/marrow-explanations-anatomy-20260913-ch06-q008-q018-r2` was created from exact canonical base `e01cc0b9a8e62885d29b0c2e7ac6417ce8c96f05`. Candidate PR #58 was merged only after exact candidate certification; canonical merge commit is `420928ae4e1314cb3a23c8687801be5c7b1f0a8c`.
+- Candidate exact SHA `9b625f6a881482e43429d97f817128ec917bbfe2` passed Engineering Gate `34744191423` and full Android/PWA/browser/APK/package/reproducibility/preview run `34744283759` on the same SHA. The full build passed generated Marrow browser checks, structured-table rendering, Continue Practice regression, APK/package checks, reproducibility manifest, and preview deployment; production promotion was skipped.
+- Stable-ID content lineage: augmentation `ef4475b24927a28e2ce233793789dd1096b1a390`; Anatomy validator `3c8463a64b683312ef84d2024e95bddcd5cfe972`; Q18 stable-ID browser regression `9816dc73cfd03d39a0c8983975efd2f0a0b5ef3e`; shared browser wrapper reconciliation `4013cdc7b42c6d4dc91df3021a0231615fd1591d` preserves the Physiology Ch11 regression.
+- Q12/Q16/Q17/Q18 remain figure-dependent through immutable source metadata. Q18 also owns a structured embryological-remnants table; the stable-ID browser test verifies meaningful cells, rejects `[object Object]`, requires exactly three distractor rows, and preserves the FSRS recall dock.
+- Deterministic canonical inventory is now **605 enhanced / 2,106 pending / 2,711 total**, fingerprint `995717a6ac450e2b6a530e0521d58a43e67d4e980401989c69b544c38de98300`. Raw source hashes remain Anatomy `f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387`, Biochemistry `919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1`, Physiology `f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6`; flag counts are unchanged.
+- Raw imported source is unchanged. The canonical inventory workflow produced formatting-only tip `c4a5e24074a6a4da25efce7e669ceb6ed6678ff8` after the merge.
+- State: **PR_OPEN_CI_PENDING** only because the exact current canonical head created by this memory checkpoint must itself pass Engineering Gate and the full Android/PWA/browser/APK/package/reproducibility/preview workflow. Candidate-level content certification is already green and the batch is reconciled into canonical.
+- Exact next action: require both canonical workflows to pass on the exact same post-memory canonical SHA. If they pass and canonical has not advanced, move this batch to `FULLY_VERIFIED_HISTORY`, release the explanation lane, and stop without starting Q19+ in the same run. If canonical moves again, do not release the lane until the new exact head is certified.
 - Production promotion remains prohibited.
 
 ## Image lane
@@ -123,13 +124,13 @@ Do not certify this behavior by calling only an internal helper or by using a su
 
 ## Known problems / cautions
 
-- Anatomy Ch6 Q8–Q18 is CURRENT_UNVERIFIED and blocks other explanation writers until exact-head candidate and canonical certification complete.
+- Anatomy Ch6 Q8–Q18 is reconciled into canonical but remains CURRENT_UNVERIFIED until exact-current-head canonical Engineering + full build complete.
 - Physiology image coverage remains incomplete after the verified bounded batch, and Biochemistry Q11 remains unresolved/paused.
 - Production promotion remains prohibited unless explicitly requested.
 
 ## Current priorities / Next step
 
-1. **Explanation lane:** finish the fresh Anatomy Q8–Q18 canonical transplant. Open a fresh PR, deterministically regenerate/reconcile the 2,711-question inventory, require exact-head Engineering + full Android/PWA/browser/APK/package/reproducibility/preview verification, then reconcile into live canonical and exact-current-head certify before releasing the lane. Stop after FULLY_VERIFIED; do not start Q19+ in the same run.
+1. **Explanation lane:** certify the exact post-memory canonical head with Engineering Gate and full Android/PWA/browser/APK/package/reproducibility/preview. On dual success without a newer canonical commit, mark Anatomy Q8–Q18 FULLY_VERIFIED, release the lane, and stop; do not start Q19+ in this run.
 2. **Main product work may proceed from live canonical.** Preserve the accepted Practice contract above.
 3. **Image lane:** Batch 02 is unverified historical evidence only; resume from live canonical after fresh ownership/fingerprint checks. Keep automated Biochemistry paused with Q11 unresolved.
 4. Production promotion remains prohibited unless the user explicitly asks for it.
