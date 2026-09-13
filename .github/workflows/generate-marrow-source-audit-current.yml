@@ -1,0 +1,48 @@
+name: Generate current Marrow source audit views
+
+on:
+  push:
+    branches:
+      - fix/marrow-visible-content-cleanup-20260913
+    paths:
+      - tools/export_marrow_source_audit_current.py
+      - .github/workflows/generate-marrow-source-audit-current.yml
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out cleanup branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate exact current audit views
+        run: python3 tools/export_marrow_source_audit_current.py
+
+      - name: Verify current corpus counts
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          manifest = json.loads(Path('data/marrow/source_audit_current/manifest.json').read_text(encoding='utf-8'))
+          assert manifest['totalQuestions'] == 2711
+          got = {row['subject']: row['questionCount'] for row in manifest['subjects']}
+          assert got == {'Anatomy': 1115, 'Biochemistry': 582, 'Physiology': 1014}, got
+          print('SOURCE_AUDIT_CURRENT_COUNTS_OK', got)
+          PY
+
+      - name: Commit generated audit views
+        run: |
+          if git diff --quiet -- data/marrow/source_audit_current; then
+            echo "Current source audit views already match."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/marrow/source_audit_current
+          git commit -m "Generate current Marrow source audit views [skip ci]"
+          git push origin HEAD:fix/marrow-visible-content-cleanup-20260913
