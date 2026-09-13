@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "purpose": "Review queue for visible OCR/code debris; never an auto-rewrite list.",
-  "candidateFieldCount": 402,
-  "candidateQuestionCount": 401,
+  "candidateFieldCount": 400,
+  "candidateQuestionCount": 399,
   "candidates": [
     {
       "id": "marrow__PHYS_CH09_Q025",
@@ -12212,67 +12212,6 @@
         }
       ],
       "sourcePage": 134,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH08_Q011",
-      "subject": "Physiology",
-      "chapterId": "8",
-      "chapter": "Muscle Physiology II",
-      "questionNumber": 11,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "hard_noise_char",
-        "symbol_dense_line"
-      ],
-      "value": "WO hy\nActin, myosin, and tropomyosin are present in both skeletal muscle and smooth muscle. But,\ntroponin is absent and calmodulin is present,fn smooth musélé. 4\na ~ ( + Cc\noh xs »",
-      "suspectLines": [
-        {
-          "line": 4,
-          "text": "a ~ ( + Cc",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        }
-      ],
-      "sourcePage": 162,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH08_Q012",
-      "subject": "Physiology",
-      "chapterId": "8",
-      "chapter": "Muscle Physiology II",
-      "questionNumber": 12,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char"
-      ],
-      "value": "k. “ ae\n~~ x\nIn response to a stimulus, tHe efflux of taldium from intracellular stores occurs through an\nInositol triphosphate receptor (IP3R)>Ca+2 channel.\nThe source of Ca+2 in smooth*muscle contraction can be different depending on the activating\nstimulus. {~ .\n+ The influx from the ‘extracellular site through voltage or ligand-gated Ca+2 channels in the\nplasma membrané. '\n+ Efflux from intracellular stores (eg, sarcoplasmic reticulum) through the RyR and the inositol\ntriosephosphate receptor (IP3R).",
-      "suspectLines": [
-        {
-          "line": 2,
-          "text": "~~ x",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 6,
-          "text": "stimulus. {~ .",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 163,
       "reviewStatus": "pass"
     },
     {
