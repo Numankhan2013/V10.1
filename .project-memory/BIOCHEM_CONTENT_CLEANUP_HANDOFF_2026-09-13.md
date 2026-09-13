@@ -55,12 +55,25 @@
 - Effective Biochemistry explanation residual count: **71**, down from **72**. Global explanation residuals: Anatomy 33, Biochemistry 71, Physiology 333; total 437.
 - Chapter 18 is now cleared from the current effective explanation queue.
 
+### Batch 07 — Chapter 19 bounded source-order cleanup
+
+- Cleanup integration lane: `fix/marrow-full-content-cleanup-20260913`.
+- Canonical head checked before mutation: `fcb7c51af1f24d3090a5f7b483bf4c6f2cc003a0`; its divergence did not include a Biochemistry Chapter 19 cleanup override.
+- Reviewed proposal commit: `b0bc19f6157f4b85171d50f4a7b3f9e660b7e60b`.
+- Verified promotion commit: `38f5ce4608221b9e1b3b9ebea5e86898b9c41ec0`.
+- Source ownership: verified Marrow ED8 Biochemistry `biochemistryed8.pdf`; rendered explanation pages 305–314 were inspected for this batch.
+- CLEANED IDs: `marrow__BIOCHEM_CH19_Q001`, `Q002`, `Q005`, `Q007`, `Q009`, `Q010`, `Q011`, `Q012`, `Q013`, `Q015`, `Q016`, `Q017`.
+- Cleanup-only: removed OCR/symbol/diagram spillover and retained source-readable prose, equations, kinetics relationships and source-listed allosteric examples. No stem, option, correctOption, answer mapping, stable ID, chapter ownership or raw source was changed.
+- The reviewed-proposal promotion path completed and regenerated the source-fingerprinted v2 override plus the full effective audit. The current effective summary remains at `questionOptionCandidateQuestions` = **0**.
+- Effective Biochemistry explanation residual count: **59**, down from **71**. Global explanation residuals: Anatomy 31, Biochemistry 59, Physiology 323; total **413**.
+- Chapter 19 now has exactly three explanation candidates remaining: `marrow__BIOCHEM_CH19_Q018`, `Q019`, `Q020`; zero question/option candidates.
+
 ## Exact next Biochemistry cleanup point
 
 - Chapter 19 — `Enzyme Kinetics and Regulation of Activity`.
-- Next deterministic source-order candidate: `marrow__BIOCHEM_CH19_Q001`.
-- Question source page 298; explanation source pages 305–306.
-- Chapter 19 currently has 15 explanation candidates and zero question/option candidates. Continue in source order from Q1.
+- Next deterministic source-order candidate: `marrow__BIOCHEM_CH19_Q018`.
+- Question source pages 303–304; explanation source pages 314–315.
+- Chapter 19 currently has 3 explanation candidates and zero question/option candidates. Continue in source order from Q18.
 
 ## Coordination rule
 
