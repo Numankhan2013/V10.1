@@ -1,7 +1,7 @@
 {
   "proposalVersion": 1,
   "reviewStatus": "REVIEWED",
-  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 28 stems/options plus Q10 explanation, verified against rendered ED8 source pages. Removes OCR/graph debris only; answer indices remain immutable.",
+  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 28 stems/options plus Q10 and Q17 explanations, verified against rendered ED8 source pages. Removes OCR/graph debris only; answer indices remain immutable.",
   "subject": "Physiology",
   "chapterId": "28",
   "questions": {
@@ -28,7 +28,8 @@
     },
     "marrow__PHYSIO_CH28_Q017": {
       "question": "The pressure-volume curve is shifted to the left in:",
-      "options": ["Aortic regurgitation", "Mitral regurgitation", "Aortic stenosis", "Mitral stenosis"]
+      "options": ["Aortic regurgitation", "Mitral regurgitation", "Aortic stenosis", "Mitral stenosis"],
+      "explanation": "The pressure-volume curve is shifted to the left in mitral stenosis.\nThe PV loop is shifted to the right when there is volume overload (increased EDV).\nThe PV loop is shifted to the left in case of increased contractility or decreased compliance (decreased EDV).\nEffect of valvular diseases on the PV loop:\n• Mitral stenosis: Left and down.\n• Mitral regurgitation: Width increased and height decreased.\n• Aortic stenosis: Tall with steep slope.\n• Aortic regurgitation: Right and tall."
     }
   }
 }
