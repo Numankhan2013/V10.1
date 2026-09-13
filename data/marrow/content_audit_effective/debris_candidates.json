@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "purpose": "Review queue for visible OCR/code debris; never an auto-rewrite list.",
-  "candidateFieldCount": 400,
-  "candidateQuestionCount": 399,
+  "candidateFieldCount": 393,
+  "candidateQuestionCount": 392,
   "candidates": [
     {
       "id": "marrow__PHYS_CH09_Q025",
@@ -6246,40 +6246,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__ANAT_CH26_Q011",
-      "subject": "Anatomy",
-      "chapterId": "26",
-      "chapter": "Vascular supply of Brain",
-      "questionNumber": 11,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 10,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash"
-      ],
-      "value": "The given clinical scenario is suggestive of Wallenberg's syndrome (lateral medullary syndrome)\nand the marked vessel is the vertebral artery. The largest branch of this artery is the posterior\ninferior cerebellar artery.\nThe vertebral artery is a branch of the first part of the subclavian artery. It enters the skull\nthrough the foramen magnum and terminates by joining the vertebral artery of the opposite side\nforming the basilar artery. The branches of the cranial portion of the vertebral artery are:\n+ Meningeal branches - supplying dura of posterior cranial fossa\n+ Posterior spinal arteries - supply posterior one-third of the spinal cord\n+ Anterior spinal artery - supply anterior two-thirds of the spinal cord\n+ Posterior inferior cerebellar artery - supplies the lateral part of the medulla, cerebellar\nhemisphere, and the choroid plexus of the fourth ventricle.\n+ Medullary branches - supplying the medulla\nThe image given below shows the vertebral artery.\n\nBasilar and Vertebral arterie\nrT RSA)\nPP pets tg e\n\\ eM 92 A RED eb yra1 acory\nNow\nXY c",
-      "suspectLines": [
-        {
-          "line": 18,
-          "text": "\\ eM 92 A RED eb yra1 acory",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 19,
-          "text": "Now",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 438,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__ANAT_CH26_Q015",
       "subject": "Anatomy",
       "chapterId": "26",
@@ -11225,84 +11191,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__ANAT_CH26_Q004",
-      "subject": "Anatomy",
-      "chapterId": "26",
-      "chapter": "Vascular supply of Brain",
-      "questionNumber": 4,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "hard_noise_char",
-        "literal_backslash"
-      ],
-      "value": "The basilar artery and the anterior spinal artery are unpaired arteries in the central nervous\nsystem.\n\nThe basilar artery is a single artery formed by the union of two vertebral arteries.\nThe anterior spinal artery is a single artery formed from a branch from each vertebral artery near\nits termination.\nPaired arteries: rg = Si = = Unpaired arteries\n: Basitar artory\n“A, ow\nb Anterior spinal artery\n=i oO ae\nx a4 Vv Fay \\ (2",
-      "suspectLines": [
-        {
-          "line": 12,
-          "text": "x a4 Vv Fay \\ (2",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 435,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__ANAT_CH26_Q008",
-      "subject": "Anatomy",
-      "chapterId": "26",
-      "chapter": "Vascular supply of Brain",
-      "questionNumber": 8,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "hard_noise_char",
-        "literal_backslash"
-      ],
-      "value": "olution to Question 8: oh KO \\ a\nThe given clinical scenario with Visual field defect and Riddoch-phenomenon is suggestive\nof occipital lobe lesion oceurting due to theOcelusion of th®posterior cerebral artery.\nThe visual cortex is supplied by the pgeferior cerebralartery. Its occlusion is commonly seen\nin head injury and may be associatetwith visuabhallucinations, denial of blindness (Anton\nsyndrome), and the Riddoch'phenomenon (only moving visual targets are perceived). These\nlesions generally spare theréentral visiorimacular vision.\nThe anatomical reasoi for this sparifts attributed to the uniqueness in the blood supply. The\npart of the Ceo aa represefitiig the peripheral field vision is supplied by the posterior\ncerebral artery, Whereas, thearea at the tip of the calcarine cortex representing the central\nmacular vigion, is supplied'by a branch of the middle cerebral artery.\nee ee\na Le\n“Antator: conde ay Mischa corebrabatery\nPastonontibebral aioe",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "olution to Question 8: oh KO \\ a",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 437,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__ANAT_CH26_Q014",
-      "subject": "Anatomy",
-      "chapterId": "26",
-      "chapter": "Vascular supply of Brain",
-      "questionNumber": 14,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "hard_noise_char",
-        "literal_backslash"
-      ],
-      "value": "The given clinical scenario is suggestive of a Charcot-Bouchard aneurysm. The affected artery is\nthe Charcot's artery which is the striate branch of the middle cerebral artery marked as 'C' in the\nabove image.\n\nCharcot-Bouchard aneurysms are located in the lenticulostriate vessels of the basal ganglia and\nare commonly associated with hypertension. Charcot's artery supplies the internal capsule and\nbasal ganglia. It is also known as the 'Charcot's artery of cerebral haemorrhage'.\nTF in..\nopera coer we i\ni \\ y 4 iy e .\nMiddle cerebral e\narteries a\nSara as thr\nThe image given below shows the chrele of Willis' base ofthe'brain.\nw an pr ie\nee * ri £3\naealenl *% = re\nMT es. OOS r\nPE vy a 7 S ree\ni wih i we",
-      "suspectLines": [
-        {
-          "line": 10,
-          "text": "i \\ y 4 iy e .",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 440,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__ANAT_CH51_Q004",
       "subject": "Anatomy",
       "chapterId": "51",
@@ -15597,56 +15485,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__ANAT_CH26_Q009",
-      "subject": "Anatomy",
-      "chapterId": "26",
-      "chapter": "Vascular supply of Brain",
-      "questionNumber": 9,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 4,
-      "reasons": [
-        "hard_noise_char"
-      ],
-      "value": "The chief artery of the superolateral surface of the cerebral hemisphere is the middle cerebral\nartery.\nBoth the anterior and middle cerebral artery supply the superolateral surface of the brain but\nanterior cerebral artery supplies only a narrow strip at the upper superolateral surface rest is\nsupplied by the middle cerebral artery. Therefore, the chief artery is the middle cerebral artery.\nThe chief artery of the medial surface of the brain is an anterior cerebral artery.\nThe chief artery of the inferior surface of the brain is the posterior cerebral artery”\nLateral cerebral artery is not an artery. ae e.\nSs i\nin s = 5 : Py. ~",
-      "suspectLines": [
-        {
-          "line": 10,
-          "text": "in s = 5 : Py. ~",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 437,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__ANAT_CH26_Q012",
-      "subject": "Anatomy",
-      "chapterId": "26",
-      "chapter": "Vascular supply of Brain",
-      "questionNumber": 12,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 4,
-      "reasons": [
-        "hard_noise_char"
-      ],
-      "value": "sw KO OS\nThe marked structure is medulla oblongata. The stperior cerebellar artery does not supply the\nmedulla oblongata. cO me a\nC Bites ae Miele\neX Bevel q oe; er NP\nas ae FS dain ce\ni er . ron\n= Ofive. ine\na Meduila 7\n» Ovlengata ~— _ Antetolateral\n\nBlood supply of medulla oblongata\nees artery\n> d cerebellar artery\nS Vertebral artery\n( 7 Anterior spinal\nSw = artery e\nxy a",
-      "suspectLines": [
-        {
-          "line": 10,
-          "text": "» Ovlengata ~— _ Antetolateral",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 439,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__ANAT_CH26_Q016",
       "subject": "Anatomy",
       "chapterId": "26",
@@ -17089,31 +16927,6 @@
       ],
       "sourcePage": 783,
       "reviewStatus": "pass_with_source_note"
-    },
-    {
-      "id": "marrow__ANAT_CH26_Q010",
-      "subject": "Anatomy",
-      "chapterId": "26",
-      "chapter": "Vascular supply of Brain",
-      "questionNumber": 10,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 3,
-      "reasons": [
-        "symbol_dense_line"
-      ],
-      "value": "The marked vessel is posterior cerebral artery. It does not supply the pons, hence a thrombus in\nthis artery will not affect the pons.\nThe branches of the posterior cerebral artery are:\n+ Cortical branches\n+ Occipital lobe - visual cortex\n+ Temporal lobe - medial and inferolateral surfaces\n+ Central branches\n+ Thalamus\n+ Subthalamus\n+ Lentiform nucleus\n\n* Midbrain\n+ Pineal gland\n+ Superior and inferior colliculi\n+ Medial and lateral geniculate bodies\n+ Choroidal branches- choroid plexus of\n+ Lateral ventricle\n+ Third ventricle\nThe image given below shows the posterior cerebral arteries in the circle of Willis.\nCircle of Willis @\ni> <a enna ¢ s\nid Slr 34 ti r\nBy Superior. — =\n27 Ske\new, -__ es\noe US\no Rs",
-      "suspectLines": [
-        {
-          "line": 25,
-          "text": "ew, -__ es",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        }
-      ],
-      "sourcePage": 437,
-      "reviewStatus": "pass"
     },
     {
       "id": "marrow__BIOCHEM_CH19_Q018",
