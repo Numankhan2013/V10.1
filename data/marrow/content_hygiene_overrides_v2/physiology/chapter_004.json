@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "purpose": "Reviewed source-faithful learner-display explanation cleanup from rendered Marrow ED8 Physiology pages 59-62; cleanup only, no explanation enhancement.",
+  "purpose": "Reviewed source-faithful learner-display explanation cleanup from rendered Marrow ED8 Physiology pages 59-62; cleanup only, no explanation enhancement; additional reviewed source-faithful cleanup.",
   "subject": "Physiology",
   "chapterId": "4",
-  "sourceFingerprint": "e4793b6c4ac51bc500f02212462ca27d346449de1a4bd4cbcd11feb25ace5a15",
+  "sourceFingerprint": "c43517f946b7c92004f77a51f6794fa6e86e17fcf1d9ca6bd3f55f0b872d124f",
   "questions": {
     "marrow__PHYS_CH04_Q001": {
       "explanation": "Equilibrium potential for an ion is calculated using the Nernst equation.\nWhen there is a concentration gradient for an ion across the membrane, the ion tends to diffuse down the concentration gradient. The electric potential that exactly opposes this net diffusion is called the equilibrium potential for that ion. This is calculated using the Nernst equation.\nIt is expressed as the potential inside the cell (intracellular potential relative to the extracellular potential).\nTo calculate the value of the equilibrium potential:\nNernst equation\nEMF (millivolts) = ±(61/z) × log(Concentration inside / Concentration outside)\nNote: In this formula, the choice of concentration of the ion placed in the numerator and denominator does not matter because the formula is only used to derive the numerical value and not the sign (+/-). Mathematically, log(100/10) = 1 and log(10/100) = -1. Hence, changing the numerator and denominator only changes the sign and the numerical value remains the same.\nThis equation is used only to derive the numerical value of the potential. It is NOT used to derive the sign/charge (+/-).\nThe sign/charge is derived from logic:\n• In a positive (+) ion, if the concentration of the + ion is greater outside, then the + ion moves from outside to inside. The intracellular potential becomes more positive relatively. Hence, the potential will be positive.\n• In a positive (+) ion, if the concentration of the + ion is greater inside, then the + ion moves from inside to outside. The intracellular potential becomes more negative relatively (as + ion moves outside). Hence the potential will be negative.\n• In a negative (-) ion, if the concentration of the - ion is greater outside, then the - ion moves from outside to inside. The intracellular potential becomes more negative relatively. Hence the potential will be negative.\n• In a negative (-) ion, if the concentration of the - ion is greater inside, then the - ion moves from inside to outside. The intracellular potential becomes more positive relatively (as - ion moves outside). Hence the potential will be positive."
@@ -13,6 +13,24 @@
     },
     "marrow__PHYS_CH04_Q003": {
       "explanation": "Gibbs-Donnan equilibrium explains the effect of a non-diffusible ion on the distribution of permeant ions.\nConsider the situation depicted below.\nThe membrane is permeable to K+ and Cl-. However, it is impermeable to the proteins. The impermeable protein molecules hinder the movement of K+ (negative charge of the proteins holding back positive charge of K+) and favor the movement of Cl- (like charges repel).\nAccording to the Gibbs-Donnan equation, at equilibrium, the concentration ratios of diffusible ions are equal across the membrane:\n[K+]x / [K+]y = [Cl-]y / [Cl-]x\nCross-multiplying:\n[K+]x[Cl-]x = [K+]y[Cl-]y"
+    },
+    "marrow__PHYS_CH04_Q004": {
+      "explanation": "The potential of a positive ion across the membrane using Nernst equation is +60 mV.\nEMF (millivolts) = ±(61/z) × log(Concentration inside / Concentration outside)\nwhere z is the valency.\nDeriving the numerical value:\nEMF = (61/1) × log(10/100), giving a numerical value of 61 mV.\nThe choice of concentration of the ion placed in the numerator and denominator does not matter because the formula is only used to derive the numerical value and not the sign (+/-). Mathematically, log(100/10) = 1 and log(10/100) = -1. Hence, changing the numerator and denominator only changes the sign and the numerical value remains the same.\nDeciding the sign/charge: a positive ion with greater concentration extracellularly will try to diffuse inside the cell. A positive intracellular potential is required to prevent this. Hence, the sign/charge (potential) is positive.\nHence, the potential across the membrane using the Nernst equation is +60 mV (the closest answer chosen)."
+    },
+    "marrow__PHYS_CH04_Q005": {
+      "explanation": "The equilibrium potential for this negative ion using the Nernst equation is +60 mV.\nEMF (millivolts) = ±(61/z) × log(Concentration inside / Concentration outside)\nwhere z is the valency.\nDeriving the numerical value:\nEMF = (61/1) × log(100/10), giving a numerical value of 61 mV.\nDeciding the sign/charge: a negative ion with greater concentration intracellularly will try to diffuse outside the cell. A positive intracellular potential is required to prevent this. Hence, the potential is positive.\nHence, the Nernst potential is +60 mV (the closest answer chosen)."
+    },
+    "marrow__PHYS_CH04_Q009": {
+      "explanation": "Resting membrane potential of a nerve fiber is equal to the equilibrium potential of Cl- and is -70 mV."
+    },
+    "marrow__PHYS_CH04_Q010": {
+      "explanation": "The driving force on a charged ion is measured membrane potential (Em) - calculated equilibrium potential (Ex).\nNet driving force (mV) = Em - Ex\nwhere:\nEm = actual membrane potential (mV)\nEx = equilibrium potential for X (mV)\nWhen the driving force is negative (i.e., Em is more negative than the ion's equilibrium potential):\n• A cation will enter the cell.\n• An anion will leave the cell."
+    },
+    "marrow__PHYS_CH04_Q012": {
+      "explanation": "The patch-clamp technique is used to record ion current flow through a single protein channel.\nIn the patch-clamp experiment, a small pipette is carefully maneuvered to seal off a portion of a cell membrane. The pipette has an electrode bathed in an appropriate solution that allows for the recording of electrical changes through any pore in the membrane."
+    },
+    "marrow__PHYS_CH04_Q014": {
+      "explanation": "No net electrogenic transfer at RMP means X + Y + Z = 0.\nSince X = -50 and Y = -30, Z must be +80, since -80 + 80 = 0."
     }
   }
 }

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "purpose": "Review queue for visible OCR/code debris; never an auto-rewrite list.",
-  "candidateFieldCount": 473,
-  "candidateQuestionCount": 472,
+  "candidateFieldCount": 468,
+  "candidateQuestionCount": 467,
   "candidates": [
     {
       "id": "marrow__PHYS_CH06_Q027",
@@ -1260,185 +1260,6 @@
         }
       ],
       "sourcePage": 434,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH04_Q004",
-      "subject": "Physiology",
-      "chapterId": "4",
-      "chapter": "Membrane Potentials",
-      "questionNumber": 4,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 16,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash",
-        "punctuation_run",
-        "symbol_dense_line"
-      ],
-      "value": "The potential of a positive ion across the membrane using Nernst equation is +6omV.\n61 Concentration inside\nEMF (millivolts) = + — x log ———————_.\nz Concentration outside\nce\"\nPs\nOMARROW\nx ‘ &\nWhere, z is valency in the formula. KO oO Res\nNw ae ¢\nDeriving the numerical value: (o a a\nae O° <y\nEMF = 61/1 “log 10/100 son &< >»\n» © {\n=6 \\O < >\ni 9 x Re\nThe choice of concentration the ion placed in the nuftiefator and denominator does not matter\nbecause the formula is only used to derive the numérical value and not the sign ( +/- ).\nMathematically, log (100/10) = van log (10/100),= - 1. Hence, changing the numerator and\ndenominator only changes théign and the’nuimerical value remains the same.\n{_~ .\nDeciding the sign/charge positive ion with greater concentration extracellularly will try to\ndiffuse inside the cell “A positive intratellular potential is required to prevent this. Hence the\nsign/charge (potential) is positive(+).\nHence, the'potential acrog’the membrane using the Nernst equation is +6omV (the closest\nanswer chosen).",
-      "suspectLines": [
-        {
-          "line": 3,
-          "text": "EMF (millivolts) = + — x log ———————_.",
-          "reasons": [
-            "punctuation_run",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 5,
-          "text": "ce\"",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 6,
-          "text": "Ps",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 14,
-          "text": "» © {",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 15,
-          "text": "=6 \\O < >",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 21,
-          "text": "{_~ .",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 24,
-          "text": "sign/charge (potential) is positive(+).",
-          "reasons": [
-            "punctuation_run"
-          ]
-        }
-      ],
-      "sourcePage": 55,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH04_Q005",
-      "subject": "Physiology",
-      "chapterId": "4",
-      "chapter": "Membrane Potentials",
-      "questionNumber": 5,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 16,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash",
-        "punctuation_run",
-        "symbol_dense_line"
-      ],
-      "value": "The equilibrium potential for this negative ion using the Nernst equation is +6omV.\n61 Concentration inside\nEMF (millivolts) = + — x log ———————_.\nz Concentration outside\n.e\nPs\nOMARROW\nXW g\nWhere, z is valency in the formula. KO oO Res\nWw as .\nDeriving the numerical value: (o a a\nae O° <y\nEMF = 61/1 “log 100/10 son &< >»\n» © {\n= \\ \\ a>\n61 fe) ay Pg\nDeciding the sign/charge: Anhegative ion with greater cOficéntration intracellularly will try to\ndiffuse outside the cell. A positive intracellular potential is required to prevent this. Hence, the\npotential is positive. 2 \\e\nOS ~t\nHence, the Nernst potentials +6omvV (the ¢ldsest answer chosen).\ntig\n. \\\n~ ~\\\n5 ra\n5% se ow\nx2) \\",
-      "suspectLines": [
-        {
-          "line": 3,
-          "text": "EMF (millivolts) = + — x log ———————_.",
-          "reasons": [
-            "punctuation_run",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 5,
-          "text": ".e",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 6,
-          "text": "Ps",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 14,
-          "text": "» © {",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 15,
-          "text": "= \\ \\ a>",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 19,
-          "text": "potential is positive. 2 \\e",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 20,
-          "text": "OS ~t",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 22,
-          "text": "tig",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 23,
-          "text": ". \\",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 24,
-          "text": "~ ~\\",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 27,
-          "text": "x2) \\",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 56,
       "reviewStatus": "pass"
     },
     {
@@ -3528,128 +3349,6 @@
         }
       ],
       "sourcePage": 437,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH04_Q010",
-      "subject": "Physiology",
-      "chapterId": "4",
-      "chapter": "Membrane Potentials",
-      "questionNumber": 10,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 13,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash",
-        "punctuation_run"
-      ],
-      "value": "~~ a ra\n* aN <\nThe driving force on a charged ion is measured membrane potentigh(Em) - calculated equilibrium\npotential (Ex). Oo % &< ®\nNet driving force (mV) = Em=BX” oN a?\nae x <\nwhere, “ ay ex\nEm = Actual membrane potential (mV) OM\nEx = Equilibrium potential for.X (mV) ose\nWhen the driving forces negative (i,e.\\Em is more negative than the ion's equilibrium potential),\nthen ee Pe\n+ A cation will enter the cell...»\nv. 4\n+ An anion’will leave the’cell",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "~~ a ra",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 2,
-          "text": "* aN <",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 10,
-          "text": "When the driving forces negative (i,e.\\Em is more negative than the ion's equilibrium potential),",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 12,
-          "text": "+ A cation will enter the cell...»",
-          "reasons": [
-            "punctuation_run"
-          ]
-        }
-      ],
-      "sourcePage": 57,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH04_Q012",
-      "subject": "Physiology",
-      "chapterId": "4",
-      "chapter": "Membrane Potentials",
-      "questionNumber": 12,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 13,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash",
-        "symbol_dense_line"
-      ],
-      "value": "The patch-clamp technique is used to record ion current flow through a single protein channel.\nIn the patch-clamp experiment, a small pipette is carefully maneuvered to seal off a portion of a\ncell membrane. The pipette has an electrode bathed in an appropriate solution thafallows for the\nrecording of electrical changes through any pore in the membrane. ow\nx, ee.\n- <\n(<—e1ecriode os\na ye\nZ <<—Mictopipette\n« a ca\none lace o\n. fey Cae\noy *\nM\nSee\noS rad eS KR\na, Weel Membran Nat channel\n‘ @ ba ‘ ~\ncs ~\n* \\\"\n2 4",
-      "suspectLines": [
-        {
-          "line": 6,
-          "text": "- <",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 13,
-          "text": "oy *",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 14,
-          "text": "M",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 15,
-          "text": "See",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 18,
-          "text": "‘ @ ba ‘ ~",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 19,
-          "text": "cs ~",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 20,
-          "text": "* \\\"",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 58,
       "reviewStatus": "pass"
     },
     {
@@ -8902,68 +8601,6 @@
       ],
       "sourcePage": 436,
       "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH04_Q014",
-      "subject": "Physiology",
-      "chapterId": "4",
-      "chapter": "Membrane Potentials",
-      "questionNumber": 14,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 10,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash"
-      ],
-      "value": "No net electro genic transfer at RMP means X + Y + Z=0\nSince X = -50 and Y = -go, then Z must be +80 since (-80 +80 = 0)\neg .\nx Pd\nwe os\nDay &\nCO < .\n<P fe) s\nS S &\nCc « &\nso . Fa aS\nLr we cs\ns eo\n@ ee)\nCx R\\\nce\n> s\nQ oS\ne ae\nSs”",
-      "suspectLines": [
-        {
-          "line": 3,
-          "text": "eg .",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 7,
-          "text": "CO < .",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 15,
-          "text": "Cx R\\",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 16,
-          "text": "ce",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 17,
-          "text": "> s",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 20,
-          "text": "Ss”",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 59,
-      "reviewStatus": "pass_with_note"
     },
     {
       "id": "marrow__PHYS_CH05_Q009",
@@ -14653,46 +14290,6 @@
         }
       ],
       "sourcePage": 433,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH04_Q009",
-      "subject": "Physiology",
-      "chapterId": "4",
-      "chapter": "Membrane Potentials",
-      "questionNumber": 9,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char"
-      ],
-      "value": "6 *\nResting membrane potential of a nerve fiber is equal to the equilibrium potential Of Cl- and is\n-7omV. ™ o\nWO” tm\nWw oO\n‘ x\nww o a»",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "6 *",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 3,
-          "text": "-7omV. ™ o",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 6,
-          "text": "‘ x",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 57,
       "reviewStatus": "pass"
     },
     {
@@ -21083,6 +20680,31 @@
         {
           "line": 8,
           "text": "This equation is used only to derive the numerical value of the potential. It is NOT used to derive the sign/charge (+/-).",
+          "reasons": [
+            "punctuation_run"
+          ]
+        }
+      ],
+      "sourcePage": 55,
+      "reviewStatus": "pass"
+    },
+    {
+      "id": "marrow__PHYS_CH04_Q004",
+      "subject": "Physiology",
+      "chapterId": "4",
+      "chapter": "Membrane Potentials",
+      "questionNumber": 4,
+      "fieldKind": "explanation",
+      "field": "explanation",
+      "severity": 3,
+      "reasons": [
+        "punctuation_run"
+      ],
+      "value": "The potential of a positive ion across the membrane using Nernst equation is +60 mV.\nEMF (millivolts) = ±(61/z) × log(Concentration inside / Concentration outside)\nwhere z is the valency.\nDeriving the numerical value:\nEMF = (61/1) × log(10/100), giving a numerical value of 61 mV.\nThe choice of concentration of the ion placed in the numerator and denominator does not matter because the formula is only used to derive the numerical value and not the sign (+/-). Mathematically, log(100/10) = 1 and log(10/100) = -1. Hence, changing the numerator and denominator only changes the sign and the numerical value remains the same.\nDeciding the sign/charge: a positive ion with greater concentration extracellularly will try to diffuse inside the cell. A positive intracellular potential is required to prevent this. Hence, the sign/charge (potential) is positive.\nHence, the potential across the membrane using the Nernst equation is +60 mV (the closest answer chosen).",
+      "suspectLines": [
+        {
+          "line": 6,
+          "text": "The choice of concentration of the ion placed in the numerator and denominator does not matter because the formula is only used to derive the numerical value and not the sign (+/-). Mathematically, log(100/10) = 1 and log(10/100) = -1. Hence, changing the numerator and denominator only changes the sign and the numerical value remains the same.",
           "reasons": [
             "punctuation_run"
           ]
