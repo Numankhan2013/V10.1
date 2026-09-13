@@ -50,17 +50,23 @@ def main() -> None:
             )
 
             expected_overrides = json.loads(OVERRIDES.read_text(encoding="utf-8"))["questions"]
-            runtime_overrides = page.evaluate(
-                """ids => Object.fromEntries(nkAllBankQuestions()
-                    .filter(q => ids.includes(String(q.id)))
-                    .map(q => [String(q.id), {
-                      question: String(q.question || ''),
-                      options: (q.options || []).map(option => String(option.text || ''))
-                    }]))""",
-                list(expected_overrides),
-            )
-            if runtime_overrides != expected_overrides:
-                raise SystemExit("Generated runtime does not contain the exact reviewed Ch5/Ch7 cleanup")
+            for qid, expected_content in expected_overrides.items():
+                page.evaluate("qid => window.QB.practiceOne(qid)", qid)
+                page.wait_for_function(
+                    "() => Boolean(document.querySelector('.question-text'))",
+                    timeout=5000,
+                )
+                rendered = {
+                    "question": page.locator(".question-text").inner_text().strip(),
+                    "options": [
+                        value.strip()
+                        for value in page.locator(".option-text").all_inner_texts()
+                    ],
+                }
+                if rendered != expected_content:
+                    raise SystemExit(
+                        f"{qid} learner rendering differs from reviewed cleanup: {rendered!r}"
+                    )
 
             def open_tuned_question(
                 topic: str, question_index: int, option_index: int, expected: str
