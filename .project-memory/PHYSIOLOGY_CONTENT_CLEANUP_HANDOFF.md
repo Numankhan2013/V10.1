@@ -1,19 +1,33 @@
 # Physiology learner-visible content cleanup handoff
 
-## 2026-09-13 — Batch 04 (Chapter 4 Q1–Q3)
+## 2026-09-13 — Batch 06 (Chapter 5 deferral + Chapter 6 bounded cleanup)
 
 - Cleanup lane: `fix/marrow-full-content-cleanup-20260913`.
-- Canonical head checked before mutation: `feature/marrow-canonical-full-current` at `fcb7c51af1f24d3090a5f7b483bf4c6f2cc003a0`; no intersecting Chapter 4 cleanup ownership was identified.
-- Source of truth reviewed: rendered Marrow ED8 Physiology pages 59–62 in `physiologyed8.pdf`.
-- Cleaned stable IDs: `marrow__PHYS_CH04_Q001`, `marrow__PHYS_CH04_Q002`, `marrow__PHYS_CH04_Q003`.
-- Scope was explanation cleanup only. Raw corpus, stems, options, `correctOption`, answer mapping, figures, provenance and chapter ownership were not mutated.
-- Reviewed proposal: `data/marrow/content_hygiene_proposals/physiology/chapter_004_cleanup_batch_20260913_01.json`, initial proposal commit `4d1e9d9cfce123d528627c334284c4ecaf46aeb4`.
-- Promoted source-fingerprinted v2 override: `data/marrow/content_hygiene_overrides_v2/physiology/chapter_004.json`, promotion commit `4673000a5d9cc25178ac4405650720b9415cb097`.
-- Override source fingerprint: `e4793b6c4ac51bc500f02212462ca27d346449de1a4bd4cbcd11feb25ace5a15`.
-- Validation: `Test Marrow content overrides v2` run `34752012345` PASS; `Report Marrow v2 validator issues` run `34752012444` PASS; `Effective Marrow content audit` run `34752012366` PASS.
-- Effective audit invariants: 2,711 questions rebuilt; answer-index identity PASS; `questionOptionCandidateQuestions=0`; immutable source untouched.
-- Residual effective explanation queue after the batch and concurrent subject cleanup: global `486` explanation-candidate questions; Anatomy `43`, Biochemistry `94`, Physiology `349` in the compact explanation packets. Broad field scan shows one additional Anatomy structured-explanation-only flag.
-- Chapter 4 now has 8 explanation candidates and 0 question/option candidates.
-- Detector-review note: Q1 remains detector-flagged only because legitimate `(+/-)` notation triggers `punctuation_run`; Q3 remains detector-flagged only because the source-faithful Gibbs-Donnan equations trigger `many_isolated_letters` / `symbol_dense_line`. These are reviewed false positives and must not be "cleaned" by deleting medically meaningful notation. Q2 is absent from the residual packet and is clean by detector.
-- Current derived-audit head after workflow rebase/push: `4b0c8312e25d4a4e52856b92ce2f965c04c1fb74`.
-- Exact next unresolved real cleanup target: `marrow__PHYS_CH04_Q004` (solution on rendered ED8 pages 62–63). Continue in source order, treating Q1/Q3 as documented detector false positives rather than unresolved corruption.
+- Canonical head checked before mutation: `feature/marrow-canonical-full-current` at `fcb7c51af1f24d3090a5f7b483bf4c6f2cc003a0`; no intersecting Physiology cleanup mutation was identified.
+- Current cleanup validation architecture was re-read before mutation, including effective audit, debris detector/splitter, v2 override validator, reviewed proposal promoter, safe explanation review/preview tools, promotion workflow, and current project memory.
+- Source of truth reviewed: rendered Marrow ED8 Physiology pages 93–98 and 104–115 in `physiologyed8.pdf`.
+
+### Source-order deferral
+
+- Chapter 5 is the earliest unresolved explanation chapter, but every Chapter 5 stable ID is already owned by the accepted v1 question/option override. The current v2 promoter and v2 validator explicitly reject v1/v2 stable-ID overlap. Therefore Chapter 5 explanation cleanup cannot be safely promoted through the required source-fingerprinted v2 path without first migrating the accepted v1 ownership contract.
+- Chapter 5 was therefore deferred as `REVIEW_REQUIRED` for architecture migration. No validator was weakened, no raw source was mutated, and no direct/unsafe override was written.
+
+### Verified Chapter 6 cleanup
+
+- Cleaned stable IDs in this bounded run: `marrow__PHYS_CH06_Q001`, `Q003`, `Q004`, `Q006`, `Q007`, `Q008`, `Q009`, `Q011`, `Q013`, `Q018`, `Q019` (11 questions total).
+- Explanation cleanup removed only source-OCR/diagram spillover and preserved readable source teaching text.
+- High-priority latent learner-visible stem/option defects missed by the high-precision q/option detector were also source-repaired where encountered: Q3 OCR prefix removed; Q4 `Nat` restored to source `Na+`; Q9 option tails removed; Q11 stem prefix removed; Q18 stem/options repaired to rendered source.
+- Existing reviewed Chapter 6 question/option cleanup outside this batch was preserved exactly.
+- Proposal commits: `7f0ccd6b68f3a64c62fac881c07265b600d0264a` and `9a3965d4f8db17fa18f141bb530cf711e5e79296`.
+- Promotion commits after the fail-closed workflow: `77ff85602388bf0d60212da229ab6429026676d1` and `a510d3d3c0fd8feda2e54a6a4feebb175669f4df`.
+- Active override: `data/marrow/content_hygiene_overrides_v2/physiology/chapter_006.json` with source fingerprint `d5081aa08a9baa3a620765341694f07fc6e9246368d383f3bcd31ae2451d8b0d`.
+- Promotion workflow completed its v2 validation, full effective-bank rebuild, answer-index identity assertion, and debris audit before each bot promotion commit. Raw source remained immutable.
+- Effective audit after the final promotion: 2,711 questions; `questionOptionCandidateQuestions=0`; explanation candidates global `441`, Anatomy `36`, Biochemistry `72`, Physiology `333`.
+- Chapter 6 explanation candidates reduced from 21 before this run to 10 after this run.
+- Exact next unresolved source-order Chapter 6 candidate is `marrow__PHYS_CH06_Q022`, source question page 99, explanation pages 115–116. Continue from Q22 unless Chapter 5 v1→v2 ownership migration has been safely implemented first.
+
+### Handoff rule
+
+- Do not call Chapter 5 clean. It remains deferred solely because of the current v1/v2 ownership contract, not because source text is unavailable.
+- Do not bypass the reviewed proposal promoter or weaken v1/v2 overlap protection. A later architecture migration must preserve the already accepted Ch5/Ch7 question/options byte-for-byte while adding source-fingerprinted explanations.
+- Continue Chapter 6 in deterministic source order from Q22 for ordinary cleanup work.
