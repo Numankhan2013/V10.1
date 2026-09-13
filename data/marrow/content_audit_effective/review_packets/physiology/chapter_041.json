@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Physiology",
+  "chapterId": "41",
+  "chapter": "Male Reproductive Physiology",
+  "candidateQuestionCount": 1,
+  "questionOptionCandidateCount": 0,
+  "explanationCandidateCount": 1,
+  "questions": [
+    {
+      "id": "marrow__PHYSIO_CH41_Q019",
+      "questionNumber": 19,
+      "sourcePage": 768,
+      "provenance": {
+        "file": "physiologyed8.pdf",
+        "edition": "ED8",
+        "question_page": 768,
+        "answer_key_pages": [
+          771
+        ],
+        "explanation_start_page": 780
+      },
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "The major contribution to semen is from which of the following organs?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Seminal vesicle"
+        },
+        {
+          "letter": "B",
+          "text": "Cowpers gland"
+        },
+        {
+          "letter": "C",
+          "text": "Prostate"
+        },
+        {
+          "letter": "D",
+          "text": "Urethral gland"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "The seminal vesicles contribute ~60-70% of the volume of semen. Apart from sperm, the remaining 20-40% represents epididymal fluids, as well as secretion of the prostate gland and bulbourethral glands.",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The major contribution to semen is from seminal vesicles.\n\nThe seminal vesicles contribute ~60-70% of the volume of semen. Apart from sperm, the remaining 20-40% represents epididymal fluids, as well as secretion of the prostate gland and bulbourethral glands.\n\nThe seminal plasma originates primarily from the accessory glands (the seminal vesicles, the prostate gland, and the bulbourethral glands)."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Biochemistry",
+  "chapterId": "14",
+  "chapter": "Biosynthesis of fatty acids and Eicosanoids",
+  "candidateQuestionCount": 1,
+  "questionOptionCandidateCount": 0,
+  "explanationCandidateCount": 1,
+  "questions": [
+    {
+      "id": "marrow__BIOCHEM_CH14_Q011",
+      "questionNumber": 11,
+      "sourcePage": 213,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          213
+        ],
+        "answerKeyPages": [
+          217
+        ],
+        "explanationPages": [
+          222
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "reviewStatus": "pass",
+      "question": "Which of the following is not a part of the fatty acid synthase complex?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Enoyl reductase"
+        },
+        {
+          "letter": "B",
+          "text": "Ketoacyl synthase"
+        },
+        {
+          "letter": "C",
+          "text": "Acetyl CoA carboxylase"
+        },
+        {
+          "letter": "D",
+          "text": "Acetyl transacylase"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 4,
+              "text": "1. Condensing unit:",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "2. Reduction unit:",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 11,
+              "text": "3. Releasing unit:",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Acetyl CoA carboxylase is not a part of the fatty acid synthase complex.\n\nThe fatty acid synthase complex is a multienzyme polypeptide complex that synthesizes fatty acids from malonyl-CoA and acetyl-CoA. It is a dimer of two identical polypeptide monomers (homodimer). Each monomer contains six enzymes and the acyl carrier protein (ACP). ACP carries the intermediate products formed during fatty acid synthesis. The enzymes of the fatty acid synthase complex are as follows:\n1. Condensing unit:\n• Ketoacyl synthase\n• Malonyl/acetyl transacylase\n2. Reduction unit:\n• Dehydratase\n• Enoyl reductase\n• Beta-ketoacyl reductase\n3. Releasing unit:\n• Thioesterase"
+    }
+  ]
+}

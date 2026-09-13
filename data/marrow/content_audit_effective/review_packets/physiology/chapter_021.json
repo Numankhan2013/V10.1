@@ -1,0 +1,414 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Physiology",
+  "chapterId": "21",
+  "chapter": "Alveolar Gas Exchange",
+  "candidateQuestionCount": 6,
+  "questionOptionCandidateCount": 0,
+  "explanationCandidateCount": 6,
+  "questions": [
+    {
+      "id": "marrow__PHYSIO_CH21_Q001",
+      "questionNumber": 1,
+      "sourcePage": 383,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          383
+        ],
+        "answerKeyPages": [
+          387
+        ],
+        "explanationPages": [
+          387,
+          388
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "reviewStatus": "pass",
+      "question": "Oxygen comes from alveoli to blood by ______.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Osmosis"
+        },
+        {
+          "letter": "B",
+          "text": "Active transport"
+        },
+        {
+          "letter": "C",
+          "text": "Diffusion"
+        },
+        {
+          "letter": "D",
+          "text": "Receptor mediated"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 5,
+          "reasons": [
+            "many_isolated_letters",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 6,
+              "text": "D ∝ (ΔP × A × S) / (d × √MW)",
+              "reasons": [
+                "many_isolated_letters",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Oxygen diffuses from alveoli to blood along the concentration gradient i.e. passive process (ATP is not used).\n\nIt diffuses across respiratory membrane.\n\nIt is governed by Fick's law of diffusion:\nD ∝ (ΔP × A × S) / (d × √MW)\n\nWhere:\n• D is the diffusion rate\n• ΔP is the partial pressure difference between the two ends of the diffusion pathway\n• A is the cross-sectional area of the pathway\n• S is the solubility of the gas\n• d is the distance of diffusion\n• MW is the molecular weight of the gas\n\nDiffusion coefficient of the gas is proportional to S/√MW."
+    },
+    {
+      "id": "marrow__PHYSIO_CH21_Q003",
+      "questionNumber": 3,
+      "sourcePage": 383,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          383
+        ],
+        "answerKeyPages": [
+          387
+        ],
+        "explanationPages": [
+          389
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "reviewStatus": "pass",
+      "question": "What is the percentage of systemic cardiac output which bypasses the pulmonary circulation (physiological shunt)?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "5"
+        },
+        {
+          "letter": "B",
+          "text": "2"
+        },
+        {
+          "letter": "C",
+          "text": "10"
+        },
+        {
+          "letter": "D",
+          "text": "15"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 4,
+              "text": "• Extrapulmonary R→L anatomic shunt (normally ~1% of cardiac output)",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The percentage of cardiac output that bypasses the pulmonary circulation or physiological shunt is 2%. The fraction of mixed venous blood that does not become oxygenated as it moves from the right atrium to the left ventricle is called physiologic shunt.\n\nCauses of physiological shunt:\n• Extrapulmonary R→L anatomic shunt (normally ~1% of cardiac output)\n• Intrapulmonary “true” shunt\n• Flow past unventilated or collapsed alveoli (e.g., due to edema, pneumonia, atelectasis)\n• Anatomic arterio-venous pathways: mixing of unoxygenated blood in bronchial veins with oxygenated blood in pulmonary capillaries or vein reduces the final partial pressure of O2 in the arterial blood (PaO2)\n• Intrapulmonary regions with low ventilation/perfusion ratio: alveolar ventilation is not zero, but blood is not completely oxygenated (a virtual shunt, not a “true” shunt)."
+    },
+    {
+      "id": "marrow__PHYSIO_CH21_Q007",
+      "questionNumber": 7,
+      "sourcePage": 384,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          384
+        ],
+        "answerKeyPages": [
+          387
+        ],
+        "explanationPages": [
+          391,
+          392
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "reviewStatus": "pass",
+      "question": "If the tidal volume is 500 mL, PeCO2 is 30 mmHg and PaCO2 is 45 mmHg, calculate the dead space?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "150 mL"
+        },
+        {
+          "letter": "B",
+          "text": "160 mL"
+        },
+        {
+          "letter": "C",
+          "text": "166 mL"
+        },
+        {
+          "letter": "D",
+          "text": "145 mL"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 16,
+              "text": "Vd = (45−30)/45 × 500 = 166.66 mL.",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The Bohr-Enghoff equation is used to calculate physiological dead space/total dead space.\n\nThe original Bohr equation required measurement of the alveolar partial pressure of CO2 (PACO2):\nVD/VT = (PACO2 − PeCO2) / PACO2\n\nLater Enghoff modified the equation and replaced PACO2 with PaCO2 (partial pressure of CO2 in arterial blood):\nVD/VT = (PaCO2 − PeCO2) / PaCO2\n\nWhere:\n• VD is the physiological dead space\n• VT is the tidal volume\n• PaCO2 is the partial pressure of CO2 in the arterial blood\n• PeCO2 is the average partial pressure of CO2 in the entire expired air\n\nSubstituting the values:\nVd = (45−30)/45 × 500 = 166.66 mL."
+    },
+    {
+      "id": "marrow__PHYSIO_CH21_Q009",
+      "questionNumber": 9,
+      "sourcePage": 385,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          385
+        ],
+        "answerKeyPages": [
+          387
+        ],
+        "explanationPages": [
+          393,
+          394
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "reviewStatus": "pass",
+      "question": "From base to the apex of the lung during standing, all the following decrease except ______.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pulmonary blood flow"
+        },
+        {
+          "letter": "B",
+          "text": "Ventilation per unit volume"
+        },
+        {
+          "letter": "C",
+          "text": "V/Q ratio"
+        },
+        {
+          "letter": "D",
+          "text": "Intrapleural pressure (with respect to atmospheric pressure)"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 6,
+              "text": "PA: Alveolar pressure",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "Pa: arterial pressure",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "Pv: venous pressure",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "V/Q ratio does not decrease from the base to apex of the lung while standing.\n\nNormal differences in ventilation and perfusion of the lung in the upright position are shown in the source figure.\n\nBlood flow distribution in the lung:\nPA: Alveolar pressure\nPa: arterial pressure\nPv: venous pressure\n\nVentilation-perfusion ratio is not the same in all parts of the lungs because of the effect of gravity.\n\nAt the apex (against gravity):\nBoth ventilation and perfusion decrease since the flow is against gravity. But, a decrease in perfusion is higher than the decrease in ventilation. Hence, ratio increases (3.2).\n\nAt the base of lung:\nBoth ventilation and perfusion increase since the flow is towards gravity. Increase in perfusion is more than increase in ventilation, i.e., denominator increases. Hence, ratio decreases to 0.6.\n\nThe average value of V/Q ratio throughout lungs is 0.8.\n\nImportant points:\n• If the effect of gravity is eliminated, as in the supine position, the value is the same in all parts of the lung = 0.8.\n• V/Q ratio is infinity when perfusion is zero as in case of pulmonary embolism.\n• V/Q ratio is zero when ventilation is zero like in case of foreign body obstruction.\n• High V/Q ratio at apex leads to high pAO2 which favors the growth of microorganisms like tubercle bacilli.\n• Intra-pleural pressure decreases as we move from the base to the apex of the lung, i.e. becomes more negative as we move from the base to the apex of the lung."
+    },
+    {
+      "id": "marrow__PHYSIO_CH21_Q010",
+      "questionNumber": 10,
+      "sourcePage": 385,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          385
+        ],
+        "answerKeyPages": [
+          387
+        ],
+        "explanationPages": [
+          394,
+          395
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "reviewStatus": "pass",
+      "question": "Waterfall effect is seen in ______.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Lower and middle portions of the lung"
+        },
+        {
+          "letter": "B",
+          "text": "Upper portion of the lung"
+        },
+        {
+          "letter": "C",
+          "text": "Middle portion of the lung"
+        },
+        {
+          "letter": "D",
+          "text": "Lower portion of the lung"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 8,
+              "text": "PA: Alveolar pressure",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "Pa: arterial pressure",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 10,
+              "text": "Pv: venous pressure.",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Waterfall effect has been used to describe the blood flow in the middle portion of lung.\n\nIn this region blood flows in pulses. At first there is no flow because of obstruction at the collapsed venous end of the capillary bed. Pressure from the arterial side builds up until it exceeds alveolar pressure and flow resumes. This dissipates the capillary pressure and returns to the start of the cycle.\n\nThe blood flow in this region is determined by the pulmonary artery–alveolar pressure difference. Blood “falls” into the pulmonary veins, which are compliant and take whatever amount of blood can flow into them. This has been called the waterfall effect.\n\nBlood flow distribution in the lung:\nPA: Alveolar pressure\nPa: arterial pressure\nPv: venous pressure."
+    },
+    {
+      "id": "marrow__PHYSIO_CH21_Q012",
+      "questionNumber": 12,
+      "sourcePage": 385,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          385,
+          386
+        ],
+        "answerKeyPages": [
+          387
+        ],
+        "explanationPages": [
+          395,
+          396
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "reviewStatus": "pass",
+      "question": "The O2-CO2 diagram shown below shows a ventilation-perfusion ratio curve for the normal lung. Which of the following options best describes the effect of decreasing the ventilation-perfusion ratio on the alveolar PO2 and PCO2?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "↓ O2 tension, ↓ CO2 tension"
+        },
+        {
+          "letter": "B",
+          "text": "↑ O2 tension, ↓ CO2 tension"
+        },
+        {
+          "letter": "C",
+          "text": "O2 tension no change, ↓ CO2 tension"
+        },
+        {
+          "letter": "D",
+          "text": "↓ O2 tension, ↑ CO2 tension"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 8,
+              "text": "• Zone 2: Ventilation almost equal to perfusion, but slightly lower, so V/Q is average (~0.8).",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Decreased ventilation-perfusion ratio implies decreased oxygenation due to decreased ventilation with respect to perfusion. Hence, PAO2 decreases and PCO2 increases.\n\nA decrease in the ventilation-perfusion ratio (VA/Q) is depicted by moving to the left along the normal ventilation-perfusion line as shown in the figure.\n\n• Zone 1: lowest ventilation compared to Zones 2 and 3, but V >> Q, hence V/Q is high.\n• PAO2 is highest.\n• PACO2 is lowest.\n• Zone 2: Ventilation almost equal to perfusion, but slightly lower, so V/Q is average (~0.8).\n• Zone 3: highest ventilation compared to Zones 2 and 1, but Q >> V, hence V/Q is low.\n• PAO2 is lowest.\n• PACO2 is highest.\n\nPAO2 = Alveolar partial pressure of oxygen.\nPACO2 = Alveolar partial pressure of CO2."
+    }
+  ]
+}

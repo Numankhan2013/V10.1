@@ -1,0 +1,716 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Physiology",
+  "chapterId": "10",
+  "chapter": "Neurotransmitters",
+  "candidateQuestionCount": 8,
+  "questionOptionCandidateCount": 0,
+  "explanationCandidateCount": 8,
+  "questions": [
+    {
+      "id": "marrow__PHYS_CH10_Q002",
+      "questionNumber": 2,
+      "sourcePage": 198,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          198
+        ],
+        "answerKeyPages": [
+          202,
+          203
+        ],
+        "explanationPages": [
+          203
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "The main excitatory and inhibitory neurotransmitters in the CNS are ______.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Glutamate and glycine respectively"
+        },
+        {
+          "letter": "B",
+          "text": "Aspartate and glycine respectively"
+        },
+        {
+          "letter": "C",
+          "text": "Norepinephrine and GABA respectively"
+        },
+        {
+          "letter": "D",
+          "text": "Dopamine and GABA respectively"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "Glutamate is the main'€xcitatory.nenrotransmitter in the CNS. It is responsible for 75% of the",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Glutamate is the main'€xcitatory.nenrotransmitter in the CNS. It is responsible for 75% of the\nexcitatory transmission in thebrain.\nng hey\nGlycine andhGABA are the'main inhibitory neurotransmitters in the CNS. Glycine is the main\ninhibitory neurotransmitter in the spinal cord. GABA is the major inhibitory neurotransmitter in\nthe brain,"
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q005",
+      "questionNumber": 5,
+      "sourcePage": 199,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          199
+        ],
+        "answerKeyPages": [
+          202,
+          203
+        ],
+        "explanationPages": [
+          204
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "Dopamine beta hydroxylase converts dopamine to ______.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Norepinephrine"
+        },
+        {
+          "letter": "B",
+          "text": "DOPA"
+        },
+        {
+          "letter": "C",
+          "text": "Epinephrine"
+        },
+        {
+          "letter": "D",
+          "text": "Tyrosine"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 7,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "' ; sek",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "| ‘Amino acid ®",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 5,
+              "text": "| Beem",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Dopamine beta hydroxylase converts dopamine to norepinephrine. Vitamin C is required as a\ncofactor for the enzyme.\n' ; sek\n| ‘Amino acid ®\n| Beem\nRe weal\nwe"
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q006",
+      "questionNumber": 6,
+      "sourcePage": 199,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          199
+        ],
+        "answerKeyPages": [
+          202,
+          203
+        ],
+        "explanationPages": [
+          205
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "Which of these is not a dopaminergic pathway?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Mesocortical pathway"
+        },
+        {
+          "letter": "B",
+          "text": "Nigrostriatal pathway"
+        },
+        {
+          "letter": "C",
+          "text": "Tuberoinfundibular pathway"
+        },
+        {
+          "letter": "D",
+          "text": "Corticostriatal pathway"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 13,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 6,
+              "text": "+ Mesolimbic pathway - Increased activity responsible for positive symptoms of schizophrenia.",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "+ Mesocortical pathway - Decreased activity responsible for negative symptoms of schizophrenia.",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "+ Nigrostriatal pathway - Decreased activity causes extrapyramidal symptoms.",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "+ Tuberoinfundibular pathway - Decreased activity causes increase in prolactin.",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 12,
+              "text": "> Thatamus",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 17,
+              "text": "Mesccattial ~<a",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 18,
+              "text": "Nigostat G§ \\\\ S~ cresetun",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 19,
+              "text": "Tune. \\ GRE suosania -",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 20,
+              "text": "infurdbular \\ B niga vce",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 21,
+              "text": "pathway \\ fg e",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 27,
+              "text": ". , ©>* a Se “Oo",
+              "reasons": [
+                "edge_noise",
+                "symbol_dense_line"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "en &\nCorticosttial pathway is’nata dopaminergic pathway.\n‘The corticostrial pathway is the primary input pathway for the basal ganglia which uses glutamate\nas the neurotransmitter.\nImportant dopaminergic pathways are:\n+ Mesolimbic pathway - Increased activity responsible for positive symptoms of schizophrenia.\n+ Mesocortical pathway - Decreased activity responsible for negative symptoms of schizophrenia.\n+ Nigrostriatal pathway - Decreased activity causes extrapyramidal symptoms.\n+ Tuberoinfundibular pathway - Decreased activity causes increase in prolactin.\n\nDorsal Stictum\n> Thatamus\n0) wea accumbens\nSY Hypothalamus\nNNR Zston\nSS mA\nMesccattial ~<a\nNigostat G§ \\\\ S~ cresetun\nTune. \\ GRE suosania -\ninfurdbular \\ B niga vce\npathway \\ fg e\nNesclimbic Pay fs ‘gti -\npahway iE\nwY 7\nCe a »\nKO fe) >\n. , ©>* a Se “Oo"
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q007",
+      "questionNumber": 7,
+      "sourcePage": 199,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          199
+        ],
+        "answerKeyPages": [
+          202,
+          203
+        ],
+        "explanationPages": [
+          205
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "Find the incorrect match.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Raphe nucleus - Serotonin"
+        },
+        {
+          "letter": "B",
+          "text": "Locus coeruleus - Norepinephrine"
+        },
+        {
+          "letter": "C",
+          "text": "Basal forebrain complex - GABA"
+        },
+        {
+          "letter": "D",
+          "text": "Histamine - hypothalamus"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 7,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 2,
+              "text": "~ Oy ?",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Basal forebrain complex (nucleus basalis of Meynért) is rich inacetylcholine.\n~ Oy ?\nA.loss of cholinergic neuréng ia the nucléus basalis of Meynert is seen in alzheimer's disease.\noO 2\nOY a"
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q011",
+      "questionNumber": 11,
+      "sourcePage": 200,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          200
+        ],
+        "answerKeyPages": [
+          202,
+          203
+        ],
+        "explanationPages": [
+          206
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "The neurotransmitter released by Renshaw cell interneuron is .",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Glutamate"
+        },
+        {
+          "letter": "B",
+          "text": "Norepinephrine"
+        },
+        {
+          "letter": "C",
+          "text": "Acetyl choline"
+        },
+        {
+          "letter": "D",
+          "text": "Glycine"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 8,
+              "text": "“ oo",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "‘The neurotransmitter released by Renshaw cell interneuron is glycine. eo\nRenshaw cell is an inhibitory interneuron which is activatethby collatera@om spinal motor\nneurons. Renshaw cell terminates on the cell body of fliésame and other spinal motor neurons. It\nreduces or stops the discharge of the motor newi releasing glycine.\n7 a\nif or \"\n3 qe\n“ oo"
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q014",
+      "questionNumber": 14,
+      "sourcePage": 201,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          201
+        ],
+        "answerKeyPages": [
+          202,
+          203
+        ],
+        "explanationPages": [
+          208
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "Which part of the basal ganglia is the neurotransmitter glutamate secreted from?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Globus pallidus interna"
+        },
+        {
+          "letter": "B",
+          "text": "Globus pallidus externa"
+        },
+        {
+          "letter": "C",
+          "text": "Subthalamic nucleus"
+        },
+        {
+          "letter": "D",
+          "text": "Putamen"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 7,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 5,
+              "text": "+ Substantia nigra pars compacta =¢Bpamine KO Se",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 6,
+              "text": ": ¢ ce",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "+ Substantia nigra pars reticulata= GABA, > S",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "ie, Pas a",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "+ Subthalmic nuclei = glutanlate rag o&",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 10,
+              "text": "+ Corpus striatum to globus pallidus GABA 6, ¥",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 11,
+              "text": "+ Intrastriate neurons = acetylcholine oS",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 12,
+              "text": "+ Globus pallidus = GABA)",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 16,
+              "text": "Geis pats || Goovs pats || substring || Sst rie",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Projections from subthalamic nucleus to globus Pallidus are lataminergie., >\n=) Do Oo\nNeurotransmitters secreted by various régidns of basalganglia: Se\nreeie eae a\n+ Substantia nigra pars compacta =¢Bpamine KO Se\n: ¢ ce\n+ Substantia nigra pars reticulata= GABA, > S\nie, Pas a\n+ Subthalmic nuclei = glutanlate rag o&\n+ Corpus striatum to globus pallidus GABA 6, ¥\n+ Intrastriate neurons = acetylcholine oS\n+ Globus pallidus = GABA)\np ae a\nAs Basal ganglia\ncba cata cama\nGeis pats || Goovs pats || substring || Sst rie\nLee la\nae\nMARRG\nDiagrammatic representation of the principal connections of the basal ganglia.\nAcetylcholine is the transmitter produced by interneurons in the striatum.\n\n(SNr : substantia nigra pars reticulata; SNe: substantia nigra pars compacta; STN: Subthalamic\nnucleus ; GPe: globus pallidus externa ; GPi: Globus pallidus interna)."
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q016",
+      "questionNumber": 16,
+      "sourcePage": 201,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          201
+        ],
+        "answerKeyPages": [
+          202,
+          203
+        ],
+        "explanationPages": [
+          208
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "Which of the following is not true about serotonin receptor?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "5HT2A receptors mediate platelet aggregation"
+        },
+        {
+          "letter": "B",
+          "text": "5-HT2C receptor agonists increase appetite"
+        },
+        {
+          "letter": "C",
+          "text": "5HT3 receptors are related to vomiting"
+        },
+        {
+          "letter": "D",
+          "text": "5HT4 receptors facilitate secretion and peristalsis"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 13,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char",
+            "literal_backslash",
+            "symbol_dense_line"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "+ 5-HT2A receptors mediate platelet aggregation and smooth{Muscle contraétion.",
+              "reasons": [
+                "edge_noise",
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "aN =) we",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 5,
+              "text": "+ 5-HT3 receptors are present in the GIT‘and the area péstrema and arevrélated to vomiting.",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 6,
+              "text": "= or nS",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "+ 5-HT4 receptors are present in,the’GIT and brairh, Tey facilita@Secretion and peristalsis in",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "®) “ os",
+              "reasons": [
+                "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 10,
+              "text": "+ 5-HT6 and 5-H'Ty are digtributed throughout the limbje'S)8tem.",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 12,
+              "text": "receptor. a? \\e",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "5-HT2C receptor agonists increase satiety (state of beigg ft bevond cagerty),\nImportant serotonin receptors: aS ne\n+ 5-HT2A receptors mediate platelet aggregation and smooth{Muscle contraétion.\naN =) we\n+ 5-HT3 receptors are present in the GIT‘and the area péstrema and arevrélated to vomiting.\n= or nS\n+ 5-HT4 receptors are present in,the’GIT and brairh, Tey facilita@Secretion and peristalsis in\nGIT. es S ow\n®) “ os\n+ 5-HT6 and 5-H'Ty are digtributed throughout the limbje'S)8tem.\nNote: All are G protein coupled receptors except 5f1N'3 which is a ligand gated ion channel\nreceptor. a? \\e\nOY a\nRee of\noY sh"
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q017",
+      "questionNumber": 17,
+      "sourcePage": 202,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          202
+        ],
+        "answerKeyPages": [
+          202,
+          203
+        ],
+        "explanationPages": [
+          209
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "Serotonin is present in highest concentration in",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Basophil Ss"
+        },
+        {
+          "letter": "B",
+          "text": "Mast cell x Ca"
+        },
+        {
+          "letter": "C",
+          "text": "Platelets Ae) Le)"
+        },
+        {
+          "letter": "D",
+          "text": "Posterior hypothalamus a <“ »"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 7,
+          "reasons": [
+            "edge_noise",
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 6,
+              "text": "ann |",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "5: Hycroxvtryptophan (HT)",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "amino acid |",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 11,
+              "text": "omenaminn |",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            },
+            {
+              "line": 17,
+              "text": "i i © ~ AS",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Serotonisn shy droxytryagetine: 5-HT) is present in highest concentration in platelets and in the\ngastrointestinal tract, whete it is found in the enterochromaffin cells and the myenteric plexus. It\nis also found within the brain stem in the midline Raphe nuclei.\nNote: The precursor of serotonin is tryptophan.\n\nann |\n5: Hycroxvtryptophan (HT)\namino acid |\ncsoetevace\n(Gir - Hydroxytryptamine)\nomenaminn |\nSie e\nrrdrony tn S\nOr 2a\nKP Le)\na J 2\ni i © ~ AS"
+    }
+  ]
+}

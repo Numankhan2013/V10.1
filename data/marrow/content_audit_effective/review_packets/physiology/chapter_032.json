@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Physiology",
+  "chapterId": "32",
+  "chapter": "Digestion & Absorption",
+  "candidateQuestionCount": 1,
+  "questionOptionCandidateCount": 0,
+  "explanationCandidateCount": 1,
+  "questions": [
+    {
+      "id": "marrow__PHYSIO_CH32_Q016",
+      "questionNumber": 16,
+      "sourcePage": 580,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          580
+        ],
+        "answerKeyPages": [
+          585
+        ],
+        "explanationPages": [
+          591,
+          592
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "reviewStatus": "pass",
+      "question": "Which of the following is not absorbed in the colon?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Acetate"
+        },
+        {
+          "letter": "B",
+          "text": "Cl-"
+        },
+        {
+          "letter": "C",
+          "text": "Na+"
+        },
+        {
+          "letter": "D",
+          "text": "K+"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "K+ is not absorbed in the colon. It is secreted in the rectal fluid.",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "K+ is not absorbed in the colon. It is secreted in the rectal fluid.\n\nElectrolytes (Na+, Cl-), short-chain fatty acids (acetate, propionate, butyrate), and water are absorbed in the colon."
+    }
+  ]
+}

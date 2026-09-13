@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Compact manual-review packet. No automatic rewrite authority.",
+  "subject": "Physiology",
+  "chapterId": "42",
+  "chapter": "Female Reproductive Physiology",
+  "candidateQuestionCount": 1,
+  "questionOptionCandidateCount": 0,
+  "explanationCandidateCount": 1,
+  "questions": [
+    {
+      "id": "marrow__PHYSIO_CH42_Q003",
+      "questionNumber": 3,
+      "sourcePage": 783,
+      "provenance": {
+        "file": "physiologyed8.pdf",
+        "edition": "ED8",
+        "question_page": 783,
+        "answer_key_pages": [
+          790,
+          791
+        ],
+        "explanation_start_page": 792
+      },
+      "reviewStatus": "pass_with_source_note",
+      "question": "The corpus luteum starts regressing after how many days post ovulation?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "5"
+        },
+        {
+          "letter": "B",
+          "text": "10"
+        },
+        {
+          "letter": "C",
+          "text": "24"
+        },
+        {
+          "letter": "D",
+          "text": "17"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 4,
+          "reasons": [
+            "hard_noise_char"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "The human corpus luteum starts regressing ~10 days after ovulation.",
+              "reasons": [
+                "hard_noise_char"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The human corpus luteum starts regressing ~10 days after ovulation.\n\nOvulation occurs on day 14, and the day corpus luteum begins to regress on day 25 of the menstrual cycle.\n\nTherefore,\nDays after ovulation when corpus luteum starts regressing = 25 - 14 = 11 days.\n\nThe human corpus luteum is programmed to live for 14 days, plus or minus 2 days (corpus luteum of menstruation)."
+    }
+  ]
+}
