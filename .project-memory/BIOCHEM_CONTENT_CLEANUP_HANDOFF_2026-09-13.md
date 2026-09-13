@@ -41,12 +41,26 @@
 - Effective Biochemistry explanation residual count: **72**, down from **84**. Global explanation residuals: Anatomy 36, Biochemistry 72, Physiology 344; total 452.
 - Chapter 18 now has one explanation candidate remaining and zero question/option candidates.
 
+### Batch 06 — Chapter 18 Q17
+
+- Cleanup branch head before proposal: `1c2c68d4076a967be5f14fc5fbd298e4cb864b06`.
+- Canonical head checked before mutation: `fcb7c51af1f24d3090a5f7b483bf4c6f2cc003a0`; current canonical divergence is non-overlapping with this Biochemistry Chapter 18 cleanup.
+- Reviewed proposal commit: `9be3d4a8760436287fa2f40b60d9a37f69bb5475`.
+- Verified promotion commit: `0d7cf24410c8d93d491e70390707fd037c53c53b`.
+- Promotion/validation workflow: `34759241368` — SUCCESS.
+- Source ownership: verified Marrow ED8 Biochemistry `biochemistryed8.pdf`; Q17 question pages 287–288 and explanation page 296.
+- CLEANED ID: `marrow__BIOCHEM_CH18_Q017`.
+- Cleanup-only: removed trailing punctuation/OCR debris and noisy list transcription while preserving the source explanation that chymotrypsinogen is a zymogen whose active form is a serine protease, together with the source-listed serine-protease examples. No stem, option, answer index, or answer mapping was changed.
+- Full 2,711-question promotion validation passed, including active-v2 validation, effective-bank rebuild/debris rescan, raw/effective answer-index identity, and `questionOptionCandidateQuestions` = **0**.
+- Effective Biochemistry explanation residual count: **71**, down from **72**. Global explanation residuals: Anatomy 33, Biochemistry 71, Physiology 333; total 437.
+- Chapter 18 is now cleared from the current effective explanation queue.
+
 ## Exact next Biochemistry cleanup point
 
-- Chapter 18 — `Enzymes - Mechanism of Action & Clinical Importance`.
-- Next deterministic source-order candidate: `marrow__BIOCHEM_CH18_Q017`.
-- Question source pages 287–288; explanation source page 296.
-- Do not skip Q17. After it is resolved, rebuild the effective queue and continue to the next source-order chapter.
+- Chapter 19 — `Enzyme Kinetics and Regulation of Activity`.
+- Next deterministic source-order candidate: `marrow__BIOCHEM_CH19_Q001`.
+- Question source page 298; explanation source pages 305–306.
+- Chapter 19 currently has 15 explanation candidates and zero question/option candidates. Continue in source order from Q1.
 
 ## Coordination rule
 
