@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 11 stems/options, verified against rendered ED8 pages 210-215. Removes OCR/image debris only; answer indices remain immutable; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup.",
+  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 11 stems/options, verified against rendered ED8 pages 210-215. Removes OCR/image debris only; answer indices remain immutable; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup.",
   "subject": "Physiology",
   "chapterId": "11",
-  "sourceFingerprint": "63d4e8b9f1aca78e3dcd7420f708988d3f97fcd1152ee83670c0b5988722375b",
+  "sourceFingerprint": "8520c8d16b17d5d36e1a9ee38c60da4084ecda30ea1529a3fcdaddad2325375e",
   "questions": {
     "marrow__PHYS_CH11_Q001": {
       "question": "Spatial distribution from which a stimulus produces a response is called ______.",
@@ -62,7 +62,8 @@
         "Log of Intensity of stimulus",
         "Amplitude of action potential",
         "Duration of stimulus"
-      ]
+      ],
+      "explanation": "Weber-Fechner Law states that the magnitude of sensation felt is proportionate to the log of the intensity of the stimulus.\nOther Laws in Physiology:\n• Doctrine of specific nerve energies - When the nerve pathways from a particular sense organ are stimulated, the sensation evoked is that for which the receptor is specialized no matter how or where along the pathway the activity is initiated.\n• Law of projection - No matter where a particular sensory pathway is stimulated along its course to the cortex, the conscious sensation produced is referred to the location of the receptor. This principle is called the law of projection."
     },
     "marrow__PHYS_CH11_Q013": {
       "question": "A patient's right leg was amputated because it was unsalvageable after the motor vehicle accident. After 2 weeks of her surgery, she started feeling episodes of severe pain in the amputated area. This pain is most likely based on which of the following mechanisms?",
@@ -71,7 +72,8 @@
         "Principle of labeled line",
         "Cortical plasticity",
         "Weber-Fechner law"
-      ]
+      ],
+      "explanation": "This patient is having phantom limb pain. This pain is based on cortical plasticity.\nCortical structures are capable of reorganization after the loss of a body part. The cortical representation of the neighboring parts spreads into the cortical area that was formerly occupied by the representation of the amputated part. This is called cortical plasticity leads to the phenomenon of phantom limb pain"
     },
     "marrow__PHYS_CH11_Q017": {
       "question": "Pain insensitive structure is ____.",
@@ -98,7 +100,8 @@
         "Rectal",
         "Infrared tympanic thermometer",
         "Axillary"
-      ]
+      ],
+      "explanation": "In the given clinical scenario rectal temperature would be the preferred site to measure the core body temperature.\nDuring low or high temperatures like in Siachen, the axillary and the oral temperatures are highly misleading and should not be used to measure the core body temperatures\nInfrared tympanic thermometer measures the temperature of the eardrum which is representative of core body temperature. However, more often the thermometer is not inserted adequately or for safety reasons, they are manufactured in such a way that they do not reach deep into the ear canal, or the ear canal contains cerumen which can disturb the measurement. Hence the infrared thermometer more commonly delivers the temperature of ear canal cerumen and hence not a reliable method of measuring the core body temperature."
     },
     "marrow__PHYS_CH11_Q004": {
       "explanation": "The distance of two-point discrimination is greatest at the back of the scapula.\n\nThe relative tactile acuity of a given region can be determined by the two-point discrimination test. Here, calipers are used to determine the minimum distance between the two points which can be perceived as two points. Greater the density of receptors → Smaller the receptive field → More precise the localization.\nFor e.g., Stimulus points on the back, for instance, must be separated by at least 65 mm before they can be distinguished as separate, whereas on the fingertips two stimuli are recognized if they are separated by as little as 2 mm. The lips have the greatest acuity (two-point discrimination threshold ~ 1 mm).\nClinical significance:\nBlind individuals benefit from the tactile acuity of fingertips to facilitate the ability to read Braille. The dots forming Braille symbols are separated by 2.5 mm.\nTwo-point discrimination is used to test the integrity of the dorsal column (medial lemniscus) system."
@@ -116,7 +119,17 @@
         "It shows rapid adaptation",
         "It is mediated by B fibers",
         "It resembles fast pain"
-      ]
+      ],
+      "explanation": "Visceral pain is poorly localized, unpleasant and associated with nausea and autonomic symptoms. It often originates from thoracic and abdominal cavities, transmitted through small type C pain fibers.\nIt often radiates (or is referred) to other somatic structures perhaps due to convergence of somatic and visceral nociceptive afferent fibers on the same second-order neurons in the spinal dorsal horn that project to the thalamus and then to the primary somatosensory cortex.\nWhen pain is referred, it is usually to a structure that developed from the same embryonic segment or dermatome as the structure in which the pain originates. This principle is called the dermatomal rule.\nExample: the heart and the arm have the same segmental origin.\nAδ fiber: Mechanical/Thermal stimuli; myelinated and carried via neospinothalamic tract; conduction velocity 12–30 m/s; fast component of pain; neurotransmitter glutamate.\nC fiber: Polymodal stimuli; unmyelinated and carried via paleospinothalamic tract; conduction velocity 0.5–2 m/s; slow component of pain; neurotransmitter Substance P."
+    },
+    "marrow__PHYS_CH11_Q011": {
+      "explanation": "Heat-pain fibers begin to be stimulated at around 45 °C.\nThermal Receptors and their Excitation\nCold receptor: Peak: 24 °C. Cold nociceptor stimulated when temperature is around 5 °C. Cold receptor fibers are Aδ and C.\nWarm receptor: Peak: 45 °C. Heat nociceptor is stimulated at temperatures around 45 °C. Warm receptor fibers are unmyelinated C fibers."
+    },
+    "marrow__PHYS_CH11_Q014": {
+      "explanation": "Perception of normal sensory stimuli as painful is allodynia.\nHyperalgesia is an exaggerated response to a noxious stimulus. An example of primary hyperalgesia is the extreme sensitivity of sunburned skin, which results from sensitization of the skin pain endings by local tissue products released due to burns — histamine, prostaglandins, and others.\nCausalgia is a type of neuropathic pain."
+    },
+    "marrow__PHYS_CH11_Q018": {
+      "explanation": "Transcutaneous electrical nerve stimulation (TENS) of pain relief is based on the gate theory of pain. This method uses electrodes to activate Aδ and Aβ fibers near the injury to relieve pain.\nGate control theory operates at the substantia gelatinosa of the dorsal horn of the spinal cord.\nThe relief may result from inhibition of pain pathways (Inhibition of C fibers and A-delta fibers) in the dorsal horn gate, by stimulation of large-diameter touch-pressure afferents(A-beta fibers). This is called the gate-control hypothesis.\nInteresting clinical application: Touching or shaking an injured area decreases the pain due to the injury. Stimulation with an electric vibrator at the site of pain also gives some relief.\nThe same mechanism is probably responsible for the efficacy of counterirritants. Stimulation of the skin over an area of visceral inflammation produces some relief of the pain due to the visceral disease. The old-fashioned mustard plaster works on this principle."
     }
   }
 }

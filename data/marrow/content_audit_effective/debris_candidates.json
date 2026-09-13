@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "purpose": "Review queue for visible OCR/code debris; never an auto-rewrite list.",
-  "candidateFieldCount": 314,
-  "candidateQuestionCount": 314,
+  "candidateFieldCount": 307,
+  "candidateQuestionCount": 307,
   "candidates": [
     {
       "id": "marrow__PHYSIO_CH20_Q010",
@@ -3334,50 +3334,6 @@
       ],
       "sourcePage": 163,
       "reviewStatus": "pass_with_source_note"
-    },
-    {
-      "id": "marrow__PHYS_CH11_Q013",
-      "subject": "Physiology",
-      "chapterId": "11",
-      "chapter": "Sensory Receptors",
-      "questionNumber": 13,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 13,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash",
-        "symbol_dense_line"
-      ],
-      "value": "SON nis BAS a\nThis patient is having phantom limbrpain. This pain is based of édrtical plasticity.\n\\. — be)\nCortical structures are canalfet reorganization after thedss of a body part. The cortical\nrepresentation of the neighboring partiypTeads into thé cortical area that was formerly occupied\nby the representation of the amputaté part. This isealled cortical plasticity leads to the\nphenomenon of phantom limb paint Rn\nRe ~~\n+ om",
-      "suspectLines": [
-        {
-          "line": 3,
-          "text": "\\. — be)",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 8,
-          "text": "Re ~~",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 9,
-          "text": "+ om",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 213,
-      "reviewStatus": "pass"
     },
     {
       "id": "marrow__PHYS_CH12_Q003",
@@ -9530,139 +9486,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__PHYS_CH11_Q012",
-      "subject": "Physiology",
-      "chapterId": "11",
-      "chapter": "Sensory Receptors",
-      "questionNumber": 12,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "hard_noise_char",
-        "symbol_dense_line"
-      ],
-      "value": "Weber-Fechner Law states that the magnitude of sensation felt is proportionate to the log of the\nintensity of the stimulus.\nOther Laws in Physiology:\n+ Doctrine of specific nerve energies - When the nerve pathways from a particular sense organ are\nstimulated, the sensation evoked is that for which the receptor is specialized no matter how or\nwhere along the pathway the activity is initiated. xe\"\n+ Law of projection - No matter where a particular sensory pathway is stimulated along its course\nto the cortex, the conscious sensation produced is referee the locatign'st the receptor. This\nprinciple is called the law of projection. Oo fe)\nRe) o as\n=)* 2 N=\ni i } a <",
-      "suspectLines": [
-        {
-          "line": 11,
-          "text": "=)* 2 N=",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 12,
-          "text": "i i } a <",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 213,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH11_Q014",
-      "subject": "Physiology",
-      "chapterId": "11",
-      "chapter": "Sensory Receptors",
-      "questionNumber": 14,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char"
-      ],
-      "value": "cm ~~\nPerception of normal sensory stimuli as painful is allodynia.\nHyperalgesia is an exaggerated response to a noxious stimulus. An example of primary\nhyperalgesia is the extreme sensitivity of sunburned skin, which results from sensitization of the\nskin pain endings by local tissue products released due to burns — histamine, prostaglandins, and\nothers.\nCausalgia is a type of neuropathic pain.",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "cm ~~",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 213,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH11_Q016",
-      "subject": "Physiology",
-      "chapterId": "11",
-      "chapter": "Sensory Receptors",
-      "questionNumber": 16,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char"
-      ],
-      "value": "Visceral pain is poorly localized, unpleasant and associated with nausea and autonomic\nsymptoms. It often originates from thoracic and abdominal cavities, transmitted through small\ntype C pain fibers. e\nIt often radiates (or is referred) to other somatic structures perhaps due to cogience of somatic\nand visceral nociceptive afferent fibers on the same second¥order neuronsiin the spinal dorsal\nhorn that project to the thalamus and then to the pri matosensdby cortex.\nWhen pain is referred, it is usually to a structure ti evtoped ton the same embryonic\nsegment or dermatome as the structure in wie pain origitiales. This principle is,\ncalled the dermatomal rule. a ne “x\n© < ae\nExample: the heart and the arm have-the Same segmental origin.\nASR ROM cree\nMechanicalThermal Polymodal\n‘Myelination and trac | Myelinatedand carried viaNe | Unmyelinatedand carried via\nt ospinothalamic tract paleospinothalamic tract\nImpulse conduction | Fast componentof pain Slow componentof pain\n“\" 30",
-      "suspectLines": [
-        {
-          "line": 14,
-          "text": "‘Myelination and trac | Myelinatedand carried viaNe | Unmyelinatedand carried via",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 16,
-          "text": "Impulse conduction | Fast componentof pain Slow componentof pain",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 17,
-          "text": "“\" 30",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 214,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH11_Q021",
-      "subject": "Physiology",
-      "chapterId": "11",
-      "chapter": "Sensory Receptors",
-      "questionNumber": 21,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char"
-      ],
-      "value": "In the given clinical scenario rectal temperature would be the preferred site to measure the core\nbody temperature.\nDuring low or high temperatures like in Siachen, the axillary and the oral temperatures are highly\nmisleading and should not be used to measure the core body temperatures\nInfrared tympanic thermometer measures the temperature of the eardrum which is representative\nof core body temperature. However, more often the thermometer is not inserted adequately or for\nsafety reasons, they are manufactured in such a way that they do not reach deep. ito ‘the ear\ncanal, or the ear canal contains cerumen which can disturb the measurementoFlence the infrared\nthermometer more commonly delivers the temperature of ar canal ceruén and hence nota\nreliable method of measuring the core body temperature, oe\nx ne\nRe oO Res\nAS ~ ne\na a\nwo KO OS\nNey .S >\nie) or oa\ni) Nes x\neV vc\n@ Se)\na 2\n5 o\nRAs Sate\nce) oO\n“\" 30",
-      "suspectLines": [
-        {
-          "line": 13,
-          "text": "AS ~ ne",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 25,
-          "text": "“\" 30",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 215,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYS_CH12_Q004",
       "subject": "Physiology",
       "chapterId": "12",
@@ -12656,45 +12479,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__PHYS_CH11_Q011",
-      "subject": "Physiology",
-      "chapterId": "11",
-      "chapter": "Sensory Receptors",
-      "questionNumber": 11,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 4,
-      "reasons": [
-        "hard_noise_char"
-      ],
-      "value": "Heat-pain fibers begin to be stimulated at around 45 °C.\n‘Thermal Receptors and their Excitation\nCold nociceptor stimulated w | Heat nociceptor is stimulated\nhen temperature is arounds ° | at temperatures around4s °\nCc Cc\nCold receptor fibers areAS an | Warm receptor fibers areun\ndc myelinated C fibers",
-      "suspectLines": [
-        {
-          "line": 3,
-          "text": "Cold nociceptor stimulated w | Heat nociceptor is stimulated",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 4,
-          "text": "hen temperature is arounds ° | at temperatures around4s °",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 6,
-          "text": "Cold receptor fibers areAS an | Warm receptor fibers areun",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 212,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYS_CH12_Q001",
       "subject": "Physiology",
       "chapterId": "12",
@@ -13801,38 +13585,6 @@
         }
       ],
       "sourcePage": 130,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH11_Q018",
-      "subject": "Physiology",
-      "chapterId": "11",
-      "chapter": "Sensory Receptors",
-      "questionNumber": 18,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 3,
-      "reasons": [
-        "edge_noise"
-      ],
-      "value": "Transcutaneous electrical nerve stimulation (TENS) of pain relief is based on the gate theory of\npain. This method uses electrodes to activate A° and AB fibers near the injury to relieve pain.\nGate control theory operates at the substantia gelatinosa of the dorsal horn of the spinal cord.\n\n‘The relief may result from inhibition of pain pathways (Inhibition of C fibers and A-delta fibers) in\nthe dorsal horn gate, by stimulation of large-diameter touch-pressure afferents(A-beta fibers). This\nis called the gate-control hypothesis.\nInteresting clinical application: Touching or shaking an injured area decreases the pain due to the\ninjury. Stimulation with an electric vibrator at the site of pain also gives some relief,\n‘The same mechanism is probably responsible for the efficacy of counterirritants. Stimulation of\nthe skin over an area of visceral inflammation produces some relief of the pain due to the visceral\ndisease. The old-fashioned mustard plaster works on this principle.\ncmeraiconme & > e\n2M ‘\nxe =\nRa oF\nSolution to Questi 8 \"",
-      "suspectLines": [
-        {
-          "line": 14,
-          "text": "2M ‘",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 15,
-          "text": "xe =",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 214,
       "reviewStatus": "pass"
     },
     {
