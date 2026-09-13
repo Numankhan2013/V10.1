@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 9 stems/options, verified against rendered ED8 pages 173-179. Removes OCR/diagram debris only; answer indices remain immutable; Ultra-safe non-semantic explanation debris cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup.",
+  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 9 stems/options, verified against rendered ED8 pages 173-179. Removes OCR/diagram debris only; answer indices remain immutable; Ultra-safe non-semantic explanation debris cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup; additional reviewed source-faithful cleanup.",
   "subject": "Physiology",
   "chapterId": "9",
-  "sourceFingerprint": "a938b0d8b2db0f161055512233dc235e591ec7d312a5d08b3f657ec24fab4f07",
+  "sourceFingerprint": "94042ed778f0d598ea8a874a291d13d3a6de259f7aa8c68eeb1ff42a743eb2d5",
   "questions": {
     "marrow__PHYS_CH09_Q001": {
       "question": "A synapse is a junction between ______.",
@@ -52,7 +52,8 @@
         "It is a minor neurotransmitter in the brain",
         "It acts via both ionotropic and metabotropic receptors",
         "Glycine binding to the NMDA receptor is essential for the receptor to respond to glutamate"
-      ]
+      ],
+      "explanation": "Glutamate is a major excitatory neurotransmitter responsible for ~75% excitatory neurotransmission in the CNS.\n\nGlutamate is the best-known example of excitatory amino acid neurotransmitters. It brings about its action via both ionotropic and metabotropic receptors.\n\nGlutamate Receptors:\n\nIonotropic Glutamate Receptors\nAMPA, Kainate receptors: Primarily permits influx of Na+ and efflux of K+ → EPSP (excitatory postsynaptic potential).\nNMDA receptors: Permits ↑ influx of Ca2+ along with Na+ → EPSP (excitatory postsynaptic potential). Glycine binding to the NMDA receptor is essential for the receptor to respond to glutamate.\n\nMetabotropic Glutamate Receptor (mGluR): Leads to either ↑ in IP3/DAG or ↓ cAMP."
     },
     "marrow__PHYS_CH09_Q009": {
       "question": "Correctly matched with its receptor is ______.",
@@ -61,7 +62,8 @@
         "GABA-A – ionotropic",
         "GABA-B - Ionotropic",
         "Glycine – G-Protein Coupled Receptor"
-      ]
+      ],
+      "explanation": "GABA A is an ionotropic receptor.\n\nGABA is the major inhibitory mediator both pre and postsynaptically in the brain.\n\nGABA receptors:\n\nGABAA and GABAC: Ionotropic receptors. Activation → ↑ Cl- influx into the neurons → IPSP (inhibitory postsynaptic potential). Benzodiazepines (e.g. Diazepam), barbiturates and phenobarbital enhance/potentiate the effect of GABAA receptors (neuromodulation).\n\nGABAB: Metabotropic receptors. G-protein coupled receptors: Gi → inhibits adenylyl cyclase to open K+ channels; Go → inhibits or delays Ca2+ influx. Net effect = IPSP."
     },
     "marrow__PHYS_CH09_Q010": {
       "question": "Which is not true about neuromodulators?",
@@ -79,7 +81,8 @@
         "Ca2+ entry into the motor nerve terminal, acetylcholine release, Na+ entry at the endplate",
         "Ca2+ entry into the motor nerve terminal, Na+ entry at the endplate, motor neuron action potential",
         "Na+ entry at the endplate, acetylcholine release, muscle fiber action potential"
-      ]
+      ],
+      "explanation": "Events Occurring at the Chemical Synapse:\n\nThe action potential arriving at the end of the motor neuron increases the permeability of its endings to Ca2+\n↓\nCa2+ enters the endings and triggers a marked increase in exocytosis of the acetylcholine-containing synaptic vesicles\n↓\nBinding of acetylcholine to nicotinic receptors increases the Na+ and K+ conductance\n↓\nResultant influx of Na+ produces a local depolarizing potential, the endplate potential\n↓\nThe current created by this local potential depolarizes the adjacent muscle membrane to its firing level\n↓\nAction potentials are generated on either side of the endplate and are conducted away from the endplate in both directions along the muscle fiber. This muscle action potential, in turn, initiates muscle contraction.\n\nAcetylcholine is then removed from the synaptic cleft by acetylcholinesterase, which is present in high concentration at the neuromuscular junction."
     },
     "marrow__PHYS_CH09_Q013": {
       "question": "Inhibitory Postsynaptic Potential (IPSP) is due to influx of ______.",
@@ -88,7 +91,8 @@
         "K+",
         "Ca2+",
         "Cl-"
-      ]
+      ],
+      "explanation": "Inhibitory Postsynaptic Potential (IPSP) is due to the influx of chloride ions (Cl-).\n\nIf, binding of a neurotransmitter causes the postsynaptic membrane to become more negative (hyperpolarized), it is called an inhibitory postsynaptic potential (IPSP) because hyperpolarization moves the membrane potential farther from the threshold and makes the cell less likely to reach an action potential.\n\nIPSP may be due to:\n• Increase in Cl- influx. This action causes diffusion of negatively charged chloride ions from outside the postsynaptic neuron to the inside, thereby carrying negative charges inward and increasing the negativity inside. This leads to hyperpolarization.\n• Increase in K+ efflux. This action causes positive ions to diffuse to the exterior, which causes increased negativity inside the neuron, which leads to hyperpolarization.\n• Activation of receptor enzymes that increase the number of inhibitory synaptic receptors or decrease the number of excitatory receptors."
     },
     "marrow__PHYS_CH09_Q014": {
       "question": "The following effect in the motor neuron is due to:",
@@ -106,7 +110,8 @@
         "Postsynaptic inhibition: GABA produces IPSP",
         "Presynaptic inhibition: GABA-B receptors decrease K+ conductance.",
         "Presynaptic inhibition: GABA-A receptors increase Cl- conductance."
-      ]
+      ],
+      "explanation": "GABA-B receptors are present in the spinal cord and appear to mediate presynaptic inhibition via a G-protein that produces an increase in K+ conductance.\n\nPRE-SYNAPTIC INHIBITION\n• Presynaptic inhibition is a process mediated by neurons whose terminals are on excitatory endings, forming axoaxonal synapses.\n• The first transmitter shown to produce presynaptic inhibition was GABA. On the pre-synaptic membrane\n• Acting via GABA-A receptors, GABA increases Cl- conductance.\n• GABA-B receptors appear to mediate presynaptic inhibition via a G-protein that produces an increase in K+ conductance.\n• This leads to hyperpolarization of the pre-synaptic membrane and inhibition of release of the neurotransmittor from the pre-synaptic neuron.\n\nPOST-SYNAPTIC INHIBITION\n• Postsynaptic inhibition occurs when an inhibitory transmitter such as glycine or GABA is released from a presynaptic nerve terminal onto the postsynaptic neuron to induce an IPSP in the postsynaptic neuron.\n• In the figure shown below, an inhibitory transmitter such as GABA is released from the nerve terminals of an inhibitory interneuron (dark) that synapses on a postsynaptic neuron."
     },
     "marrow__PHYS_CH09_Q017": {
       "question": "Renshaw cell inhibition is ______.",
@@ -115,7 +120,8 @@
         "Feedback inhibition",
         "Feed forward inhibition",
         "Indirect inhibition"
-      ]
+      ],
+      "explanation": "Renshaw cell inhibition is an example of feedback inhibition.\n\nThe axon of a spinal motor neuron has a recurrent collateral that synapses on an inhibitory interneuron that terminates on the cell body of the same and other motor neurons. The inhibitory interneuron is called a Renshaw cell and its neurotransmitter is glycine."
     },
     "marrow__PHYS_CH09_Q020": {
       "question": "A person with myasthenia gravis notes increased muscle strength when he is treated with an acetylcholinesterase (AChE) inhibitor. The basis for his improvement is due to the increase in ______.",
@@ -124,7 +130,8 @@
         "The level of ACh at the muscle end plates",
         "The number of ACh receptors on the motor end plates",
         "Synthesis of norepinephrine in motor nerves"
-      ]
+      ],
+      "explanation": "Treatment with AChE inhibitors (e.g., neostigmine) prevents the degradation of ACh and prolongs the action of ACh at the muscle end plate.\n\nMyasthenia gravis:\n• It is caused by the presence of antibodies to the ACh receptor.\n• Is characterized by skeletal muscle weakness and fatigability resulting from a reduced number of ACh receptors on the muscle end plate.\n• The size of the EPP (end plate potential) is reduced.\n• Treatment with AChE inhibitors (e.g., neostigmine) prevents the degradation of ACh and prolongs the action of ACh at the muscle end plate, partially compensating for the reduced number of receptors."
     },
     "marrow__PHYS_CH09_Q024": {
       "question": "Which of the following endogenous opioids is correctly matched with the receptor at which it has maximum potency?",
@@ -159,6 +166,21 @@
     },
     "marrow__PHYS_CH09_Q004": {
       "explanation": "Nitric oxide is a neurotransmitter in the CNS.\n\nNeurotransmitters are the substances that mediate chemical signaling between neurons. They can be choline esters, biogenic amines, amino acids, and neuropeptides.\n\nTwo main classes of chemical substances that serve as neurotransmitters:\n• small-molecule neurotransmitter (acetylcholine)\n• large molecule neurotransmitter (enkephalin)\n\nThey can act on ionotropic receptors (ligand-gated ion channels) and/or metabotropic receptors on the postsynaptic membrane to produce a change in membrane potential to bring about their action.\n\nCriteria for the substance to be neurotransmitter:\n• the substance must be demonstrated to be present in the presynaptic terminal.\n• the cell must be able to synthesize the substance.\n• should be released on depolarization of the terminal.\n• there should be specific receptors for it on the postsynaptic membrane.\n• if the substance is applied exogenously to the postsynaptic membrane at physiologic concentration, the response of the postsynaptic cell must mimic the in vivo response."
+    },
+    "marrow__PHYS_CH09_Q008": {
+      "explanation": "GABA (gamma-amino-butyric acid) is probably the best known inhibitory neurotransmitter in the brain, especially in the forebrain regions.\n\nGABA mediates both presynaptic and postsynaptic inhibition.\n\nGABA Receptors:\n\nOther options:\n• Glutamate is a good example of an excitatory brain neurotransmitter.\n• Acetylcholine and glycine have been known to play either excitatory or inhibitory neurotransmitter roles depending on the particular brain circuits under study.\n\nNote:\nGlycine sometimes potentiates the excitatory action of glutamate at NMDA receptors. So, it might act as an excitatory neurotransmitter as well.\n\nGABAA and GABAC: Ionotropic receptors. Activation → ↑ Cl- influx into the neurons → IPSP (inhibitory postsynaptic potential). Benzodiazepines (diazepam), barbiturates and phenobarbital enhance/potentiate the effect of GABAA receptors (neuromodulation).\n\nGABAB: Metabotropic receptors. G-protein coupled receptors: Gi → inhibits adenylyl cyclase to open K+ channels; Go → inhibits or delays Ca2+ influx. Net effect = IPSP."
+    },
+    "marrow__PHYS_CH09_Q012": {
+      "explanation": "Excitatory postsynaptic potential (EPSP) is due to the influx of sodium ions (Na+).\n\nAt the post-synaptic membrane, neurotransmitters binding to receptors generate responses that can be excitatory or inhibitory. If it generates an excitatory response (makes the membrane more electrically positive/ depolarized), it is an excitatory postsynaptic potential (EPSP) because it makes the cell more likely to reach an action potential.\n\nEPSP may be due to\n• The opening of sodium channels or calcium channels to allow large numbers of positive electrical charges to flow to the interior of the postsynaptic cell.\n• Depressed conduction through chloride or potassium channels or both.\n• Various changes in the internal metabolism of the postsynaptic neuron to increase the number of excitatory membrane receptors or decrease the number of inhibitory membrane receptors.\n\nAs seen in the figure, following the discharge of the sensory neuron, there is positivity in the motor neuron signifying a EPSP."
+    },
+    "marrow__PHYS_CH09_Q015": {
+      "explanation": "Slow EPSPs and IPSPs are not generated by skeletal muscles.\n\nSlow excitatory postsynaptic potentials (EPSPs) and inhibitory postsynaptic potential (IPSPs) are seen in autonomic ganglia, cardiac, and smooth muscle, and cortical neurons.\n\nEPSPs and IPSPs occur after a latency of 0.5ms while slow EPSPs and IPSPs occur after a latency of 100–500 ms and last for several seconds. The slow EPSPs are due to a decrease in K+ efflux, and the slow IPSPs are due to an increase in K+ efflux."
+    },
+    "marrow__PHYS_CH09_Q018": {
+      "explanation": "Feedforward inhibition is seen in the cerebellum. In the cerebellum, stimulation of basket cells / stellate cells produces IPSPs in the Purkinje cells (i.e, inhibits Purkinje cells)\n\nIn feedforward inhibition, a presynaptic cell excites an inhibitory interneuron which then inhibits the next follower cell.\n\nIn cerebellum (Refer flow chart):\nMossy fibres\n↓\nGranule cells\n↓\nBasket cells and Stellate cells (Inhibitory interneuron)\n↓\nPurkinje cells\n\nThis arrangement is called feed-forward inhibition which presumably limits the duration of excitation produced by any given afferent volley.\n\nNote: Renshaw cell carries out the negative feedback inhibition of a spinal motor neuron."
+    },
+    "marrow__PHYS_CH09_Q019": {
+      "explanation": "Presynaptic facilitation is due to prolonged opening of Ca2+ channels.\n\nIn presynaptic facilitation, the serotonin released at the axoaxonal ending increases the intraneuronal cAMP levels → phosphorylation and consequent closure of K+ channels → slowing of repolarization and prolonging the depolarization by prolonged opening of Ca2+ channels"
     }
   }
 }

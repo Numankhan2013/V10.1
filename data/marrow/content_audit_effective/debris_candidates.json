@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "purpose": "Review queue for visible OCR/code debris; never an auto-rewrite list.",
-  "candidateFieldCount": 371,
-  "candidateQuestionCount": 371,
+  "candidateFieldCount": 360,
+  "candidateQuestionCount": 360,
   "candidates": [
     {
       "id": "marrow__PHYS_CH09_Q025",
@@ -3764,345 +3764,6 @@
       "reviewStatus": "pass_with_source_note"
     },
     {
-      "id": "marrow__PHYS_CH09_Q007",
-      "subject": "Physiology",
-      "chapterId": "9",
-      "chapter": "Synapse and Junctional Transmission",
-      "questionNumber": 7,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 13,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash",
-        "symbol_dense_line"
-      ],
-      "value": "e\nVG\n> i\nGlutamate is a major excitatory neurotransmitter responsible for ~75% excitatory\nneurotransmission in the CNS. ~ KS\n0 —<\nGlutamate is the best-known example of excitatory, amiitio acid neurotransmitters. It brings about\nits action via both ionotropic and metabotropic. xéceptors. % a»\nx ¢ \\) ~+*\nGlutamate Receptors : ~\\Y 2 ‘.\n(s) rat “\n,_ = ‘ <~\nIonotropic Glutamate Recept\nors\nAMPA, Kainate receptors Primarily permits influx of N\na+ and efflux of K+ +EPSP (\nexcitatory postsynaptic poten\ntial)\nNMDA receptors Permits 1 influx of Ca2+ alon\ng with Na+—EPSP (excitator\niC y postsynaptic potential)(Gly\n\\ po cinebinding to the NMDA rec\nN\\ eptor is essential for the rece\nptor to respond to glutamate)\nMetabotropic Glutamate Rec | Leads to either T in IP3/DAG\neptor(mGluR) or JcAMP",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "e",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 2,
-          "text": "VG",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 3,
-          "text": "> i",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 4,
-          "text": "Glutamate is a major excitatory neurotransmitter responsible for ~75% excitatory",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 5,
-          "text": "neurotransmission in the CNS. ~ KS",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 9,
-          "text": "x ¢ \\) ~+*",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 10,
-          "text": "Glutamate Receptors : ~\\Y 2 ‘.",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 12,
-          "text": ",_ = ‘ <~",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 14,
-          "text": "ors",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 22,
-          "text": "\\ po cinebinding to the NMDA rec",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 23,
-          "text": "N\\ eptor is essential for the rece",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 25,
-          "text": "Metabotropic Glutamate Rec | Leads to either T in IP3/DAG",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 174,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH09_Q009",
-      "subject": "Physiology",
-      "chapterId": "9",
-      "chapter": "Synapse and Junctional Transmission",
-      "questionNumber": 9,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 13,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash",
-        "symbol_dense_line"
-      ],
-      "value": "wie \\x\nPS =~\nGABA A is an ionotropic receptor.\nGABA is the majory inhibitory mdb pre and postsynaptically in the brain.\n®) ,**\nGABA rece o\n‘\\\nGABAAand | Ionotropic receptorsActivatio\nGABAC n —>TClinflux into the neuro\nns > IPSP (inhibitory postsy\nnaptic potential)Benzodiazep\nines (eg. Diazepam), barbitur\nates and phenobarbital enha\nnce/potentiate the effect of G\nABAAreceptors (neuromodul\nation)\nGABAB Metabotropic receptorsG pro\ntein coupled receptorsGi—in\nhibits adenylyl cyclase to ope\nn K+channels GGo- inhibits\nor delays Ca2+influxNet effe\nct=IPSP",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "wie \\x",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 2,
-          "text": "PS =~",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 5,
-          "text": "®) ,**",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 7,
-          "text": "‘\\",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 8,
-          "text": "GABAAand | Ionotropic receptorsActivatio",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 175,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH09_Q012",
-      "subject": "Physiology",
-      "chapterId": "9",
-      "chapter": "Synapse and Junctional Transmission",
-      "questionNumber": 12,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 13,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash",
-        "symbol_dense_line"
-      ],
-      "value": "~\\ aaa Oo ? &\nExcitatory postsynaptic potential (EPSP) is due-to he influx of sodium ions (Na+).\nAt the post-synaptic membrane, Decry tage binding to receptors generate responses that\ncan be excitatory or inhibitory. If it generates an excitatory response (makes the membrane more\nelectrically positive/ depolarized) Goan excitatory postsynaptic potential (EPSP) because it\nmakes the cell more likely towea an action,potential.\n: c\nEPSP may be due to Se bs\n+ The opening of soit changin channels to allow large numbers of positive\nelectrical oe flow to the i terior of the postsynaptic cell.\n. Depressedhconduction thfough chloride or potassium channels or both.\n+ Various changes in the internal metabolism of the postsynaptic neuron to increase the number of\nexcitatory membrane receptors or decrease the number of inhibitory membrane receptors.\n\nAs seen in the figure, following the discharge iof fhe sensory neuron, there is positivity in the\nmotor neuron signifying a EPSP. .)* n~- ue\na ~ ‘ ~ 4 m, “lag\non &< ~",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "~\\ aaa Oo ? &",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 7,
-          "text": ": c",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 16,
-          "text": "motor neuron signifying a EPSP. .)* n~- ue",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 17,
-          "text": "a ~ ‘ ~ 4 m, “lag",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 18,
-          "text": "on &< ~",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        }
-      ],
-      "sourcePage": 175,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH09_Q013",
-      "subject": "Physiology",
-      "chapterId": "9",
-      "chapter": "Synapse and Junctional Transmission",
-      "questionNumber": 13,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 13,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash",
-        "symbol_dense_line"
-      ],
-      "value": "«© » 4 %\n, . * ~\nInhibitory Postsynaptic Potential (IRSP) is due to the influx of chloride ions (Cl-).\nIf, binding of a neurotransmitter-¢auses the postsynaptic membrane to become more negative\n(hyperpolarized), it is called.an inhibitory postsynaptic potential (IPSP) because hyperpolarization\nmoves the membrane potential farther from the threshold and makes the cell less likely to reach\nan action potentiala. “~ Le?\nIPSP may be due to : >\n~< \\\n+ Increase in Cl- influx. This action causes diffusion of negatively charged chloride ions from\noutside the postsynaptic neuron to the inside, thereby carrying negative charges inward and\nincreasing the negativity inside. This leads to hyperpolarization.\n¢ Increase in K+ efflux. This action causes positive ions to diffuse to the exterior, which causes\nincreased negativity inside the neuron, which leads to hyperpolarization.\n+ Activation of receptor enzymes that increase the number of inhibitory synaptic receptors or\ndecrease the number of excitatory receptors.",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "«© » 4 %",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 2,
-          "text": ", . * ~",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 7,
-          "text": "an action potentiala. “~ Le?",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 9,
-          "text": "~< \\",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 176,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH09_Q018",
-      "subject": "Physiology",
-      "chapterId": "9",
-      "chapter": "Synapse and Junctional Transmission",
-      "questionNumber": 18,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 13,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash",
-        "symbol_dense_line"
-      ],
-      "value": "a ec fe RS\nFeedforward inhibition is seenin’ ‘the cerebellum. Tn the cerebellum, stimulation of basket cells /\nstellate cells produces IPSPs\\in the Purkinje tells (ie, inhibits Purkinje cells)\n, », © =\nIn feedforward inhibition, a presynaptic’cell excites an inhibitory interneuron which then inhibits\nthe next follower cell. Ne ~~ oo.”\nIn cerebellum (Refer flow chart): >\ni“ ps\nra Ye\nNA Mossy fibres\nlo\nGranule cells\nJo\nBasket cells and Stellate cells (Inhibitory interneuron)\nJo\nPurkinje cells\nThis arrangement is called feed-forward inhibition which presumably limits the duration of\nexcitation produced by any given afferent volley.\nNote: Renshaw cell carries out the negative feedback inhibition of a spinal motor neuron.",
-      "suspectLines": [
-        {
-          "line": 3,
-          "text": "stellate cells produces IPSPs\\in the Purkinje tells (ie, inhibits Purkinje cells)",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 4,
-          "text": ", », © =",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 6,
-          "text": "the next follower cell. Ne ~~ oo.”",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 11,
-          "text": "lo",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 13,
-          "text": "Jo",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 15,
-          "text": "Jo",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 177,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYS_CH09_Q027",
       "subject": "Physiology",
       "chapterId": "9",
@@ -6946,189 +6607,6 @@
         }
       ],
       "sourcePage": 132,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH09_Q008",
-      "subject": "Physiology",
-      "chapterId": "9",
-      "chapter": "Synapse and Junctional Transmission",
-      "questionNumber": 8,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 10,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash"
-      ],
-      "value": "GABA (gamma-amino-butyric acid) is probably the best known inhibitory neurotransmitter in the\nbrain, especially in the forebrain regions.\nGABA mediates both presynaptic and postsynaptic inhibition\nGABA Receptors :\nOther options :\n* Glutamate is a good example of an excitatory brain neurotransmitter.\n\n+ Acetylcholine and glycine have been known to play either excitatory or inhibitory\nneurotransmitter roles depending on the particular brain circuits under study.\nNote:\nGlycine sometimes potentiates the excitatory action of glutamate at NMDA receptors. So, it might\nact as an excitatory neurotransmitter as well.\nGABAAand | Ionotropic receptorsActivatio\nGABAC n —>TClinflux into the neuro\nns > IPSP (inhibitory postsy -\nnaptic potential)Benzodiazep uc @\"\nines (diazepam), barbiturates oN?\nand phenobarbital enhance/ o> x\npotentiate the effect of GABA OC _\nAreceptors (neuromodulation)\nGABAB Metabotropic receptorsG-pro x\ntein coupled receptorsGi—in +\\>\nhibits adenylyl cyclase to ope n=\nn K+channelsGo- inhibits 0 ~\nr delays Ca2+influxNet effect\n=IPSP\nor aN a?\noo! % xf - e\n> ave\no + \\ 4",
-      "suspectLines": [
-        {
-          "line": 13,
-          "text": "GABAAand | Ionotropic receptorsActivatio",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 22,
-          "text": "tein coupled receptorsGi—in +\\>",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 24,
-          "text": "n K+channelsGo- inhibits 0 ~",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 29,
-          "text": "> ave",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 30,
-          "text": "o + \\ 4",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 174,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH09_Q011",
-      "subject": "Physiology",
-      "chapterId": "9",
-      "chapter": "Synapse and Junctional Transmission",
-      "questionNumber": 11,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 10,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "symbol_dense_line"
-      ],
-      "value": ">\nEvents Occurring at the Chemical Synapse: . > ~ CO 2\nThe action potential arriving at the end of the’motor neurorrincreases,thé permeability of its\nendings to Ca2+ - Co C\noh * ‘ 2\nCa2+ enters the endings and'triggers a marked increase in exocytosis of the\n. Pa } . . . ¢\nacetylcholine-containing synaptic vesicles C\nBinding of acetylcholine to nicotinic receptors increases the Na+ and K+ conductance\nResultant influx.of. Nat produces‘a local depolarizing potential, the endplate potential\nThe current created by thi8 local potential depolarizes the adjacent muscle membrane to its firing\nlevel\nL\nAction potentials are generated on either side of the endplate and are conducted away from the\nendplate in both directions along the muscle fiber. This muscle action potential, in turn, initiates\nmuscle contraction.\nAcetylcholine is then removed from the synaptic cleft by acetylcholinesterase, which is present in\nhigh concentration at the neuromuscular junction.\n\n, i Preaynapae ¥ y\na S = Lae\niN\nLi ad CE). eespe\nRow contents by exocytose Ee SS an [S) a\nPRESSE | . ARMA (|) &\n® renmereees ronuning wr grased poser © See mgr mae ems carn\n+ ~~\nae S db\nKe © >\n. . (Oo — <",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": ">",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 2,
-          "text": "Events Occurring at the Chemical Synapse: . > ~ CO 2",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 7,
-          "text": ". Pa } . . . ¢",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 13,
-          "text": "L",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 22,
-          "text": "iN",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 25,
-          "text": "PRESSE | . ARMA (|) &",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 27,
-          "text": "+ ~~",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 30,
-          "text": ". . (Oo — <",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        }
-      ],
-      "sourcePage": 175,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH09_Q019",
-      "subject": "Physiology",
-      "chapterId": "9",
-      "chapter": "Synapse and Junctional Transmission",
-      "questionNumber": 19,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 10,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "symbol_dense_line"
-      ],
-      "value": "Presynaptic facilitation is due to prolonged opening of Ca2+ channels .\nIn presynaptic facilitation, the serotonin released at the axoaxonal ending increases the\nintraneuronal cAMP levels— phosphorylation and consequent closure of K+ channels > slowing\nof repolarization and prolonging the depolarization by prolonged opening of Ca2+ channels\nAction Action ce’\nCa’ — e a\nCel 4\neee = *\n: i\nNX\n>)\n{~~ |",
-      "suspectLines": [
-        {
-          "line": 8,
-          "text": "eee = *",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 9,
-          "text": ": i",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 10,
-          "text": "NX",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 12,
-          "text": "{~~ |",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        }
-      ],
-      "sourcePage": 177,
       "reviewStatus": "pass"
     },
     {
@@ -11200,81 +10678,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__PHYS_CH09_Q016",
-      "subject": "Physiology",
-      "chapterId": "9",
-      "chapter": "Synapse and Junctional Transmission",
-      "questionNumber": 16,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "hard_noise_char",
-        "symbol_dense_line"
-      ],
-      "value": "~>~ ka ¢\nGABA-B receptors are present in.the spinal cordsand appear to mediate presynaptic inhibition via\na G-protein that produces anvificrease in K+-conductance.\nPRE-SYNAPTIC INHIBITION zt\n+ Presynaptic inhibition is a process, mediated by neurons whose terminals are on excitatory\nendings, forming ‘aXoaxonal synapses.\n+ The firsttransmitter shown to produce presynaptic inhibition was GABA. On the pre-synaptic\nmembrane ;\n¢ Acting via GABA-A receptors, GABA increases Cl- conductance.\n* GABA-B receptors appear to mediate presynaptic inhibition via a G-protein that produces an\nincrease in K+ conductance.\n+ This leads to hyperpolarization of the pre-synaptic membrane and inhibition of release of the\nneurotransmittor from the pre-synaptic neuron.\n\nVor : on\nil oe\n-» y = Inhibitory neuron\nPresynaptic inhibition\n> a way. < i >\nPostsynaptic inhibition e*\nPOST-SYNAPTIC INHIBITION * > a »\n+ Postsynaptic inhibition occurs when an inhibitory tranSmitter such ag‘glycine or GABA is\nreleased from a presynaptic nerve terminal onto the(postsynaptic neuron to induce an IPSP in the\npostsynaptic neuron. . * * '\n+ In the figure shown below, an inhibitory transmitter suclivas GABA is released from the nerve\nterminals of an inhibitory interneuron (dark) that synapses on a postsynaptic neuron.",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "~>~ ka ¢",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        }
-      ],
-      "sourcePage": 177,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH09_Q017",
-      "subject": "Physiology",
-      "chapterId": "9",
-      "chapter": "Synapse and Junctional Transmission",
-      "questionNumber": 17,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "hard_noise_char",
-        "symbol_dense_line"
-      ],
-      "value": "ss ~ zt\nRenshaw cell inhibition is an example of feedback inhibition.\nThe axon of a’spinal motorneuron has a recurrent collateral that synapses on an inhibitory\ninterneuron that terminates on the cell body of the same and other motor neurons. The inhibitory\ninterneuron is called a Renshaw cell and its neurotransmitter is glycine.\n\n4 a Ss > - Motor neuron\nan ») - ¢\n— Ce\"\nInhibitory ns NS\nHARSERR EL, x\nWw aS?\nni << »\n_vK! © o* }\na) nia a",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "ss ~ zt",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 8,
-          "text": "an ») - ¢",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 13,
-          "text": "ni << »",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 14,
-          "text": "_vK! © o* }",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        }
-      ],
-      "sourcePage": 177,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYS_CH10_Q005",
       "subject": "Physiology",
       "chapterId": "10",
@@ -14050,39 +13453,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__PHYS_CH09_Q015",
-      "subject": "Physiology",
-      "chapterId": "9",
-      "chapter": "Synapse and Junctional Transmission",
-      "questionNumber": 15,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 6,
-      "reasons": [
-        "edge_noise",
-        "symbol_dense_line"
-      ],
-      "value": "oO\nSlow EPSPs and IPSPs are not generated by skeletal muscles. «\nSlow excitatory postsynaptic potentials (EPSPs) and inhibitory postsynapti¢ potential (IPSPs) are\nseen in autonomic ganglia, cardiac, and smooth muscle; and cortical neurons.\nEPSPs and IPSPs occur after a latency of 0.5ms\"while slow EPSPS and IPSPs'eccur after a latency\nof 100-500 ms and last for several seconds. The slow EPSPs)are due to a decrease in K+ efflux,\nand the slow IPSPs are due to an increasein K+ efflux: m a\noh &< .",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "oO",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 8,
-          "text": "oh &< .",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        }
-      ],
-      "sourcePage": 176,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYS_CH11_Q009",
       "subject": "Physiology",
       "chapterId": "11",
@@ -14843,6 +14213,31 @@
         }
       ],
       "sourcePage": 133,
+      "reviewStatus": "pass"
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q007",
+      "subject": "Physiology",
+      "chapterId": "9",
+      "chapter": "Synapse and Junctional Transmission",
+      "questionNumber": 7,
+      "fieldKind": "explanation",
+      "field": "explanation",
+      "severity": 4,
+      "reasons": [
+        "hard_noise_char"
+      ],
+      "value": "Glutamate is a major excitatory neurotransmitter responsible for ~75% excitatory neurotransmission in the CNS.\n\nGlutamate is the best-known example of excitatory amino acid neurotransmitters. It brings about its action via both ionotropic and metabotropic receptors.\n\nGlutamate Receptors:\n\nIonotropic Glutamate Receptors\nAMPA, Kainate receptors: Primarily permits influx of Na+ and efflux of K+ → EPSP (excitatory postsynaptic potential).\nNMDA receptors: Permits ↑ influx of Ca2+ along with Na+ → EPSP (excitatory postsynaptic potential). Glycine binding to the NMDA receptor is essential for the receptor to respond to glutamate.\n\nMetabotropic Glutamate Receptor (mGluR): Leads to either ↑ in IP3/DAG or ↓ cAMP.",
+      "suspectLines": [
+        {
+          "line": 1,
+          "text": "Glutamate is a major excitatory neurotransmitter responsible for ~75% excitatory neurotransmission in the CNS.",
+          "reasons": [
+            "hard_noise_char"
+          ]
+        }
+      ],
+      "sourcePage": 174,
       "reviewStatus": "pass"
     },
     {
@@ -16112,31 +15507,6 @@
         }
       ],
       "sourcePage": 130,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH09_Q020",
-      "subject": "Physiology",
-      "chapterId": "9",
-      "chapter": "Synapse and Junctional Transmission",
-      "questionNumber": 20,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 3,
-      "reasons": [
-        "edge_noise"
-      ],
-      "value": "an?\nTreatment with AChE inhibitors (e.g., neostigmine) prevents the degradation of ACh and prolongs\nthe action of ACh at the muscle end plate.\nMyasthenia gravis:\n* It is caused by the presence of antibodies to the ACh receptor.\n+ Is characterized by skeletal muscle weakness and fatigability resulting from a reduced number of\nACh receptors on the muscle end plate.\n¢ The size of the EPP (end plate potential) is reduced.\n¢ Treatment with AChE inhibitors (e.g., neostigmine) prevents the degradation of ACh and\nprolongs the action of ACh at the muscle end plate, partially compensating for the reduced\nnumber of receptors.",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "an?",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 178,
       "reviewStatus": "pass"
     },
     {
