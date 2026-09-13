@@ -1,0 +1,62 @@
+name: Effective Marrow content audit
+
+on:
+  push:
+    branches:
+      - fix/marrow-full-content-cleanup-20260913
+    paths:
+      - data/marrow/content_hygiene_overrides_v1.json
+      - data/marrow/content_hygiene_overrides_v2/**
+      - tools/export_effective_marrow_content_audit.py
+      - tools/audit_effective_marrow_visible_debris.py
+      - tools/find_marrow_visible_debris.py
+      - tools/split_marrow_debris_review.py
+      - .github/workflows/effective-marrow-content-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Build effective learner-visible audit
+        run: python tools/export_effective_marrow_content_audit.py
+      - name: Scan effective learner-visible text
+        run: python tools/audit_effective_marrow_visible_debris.py
+      - name: Verify corpus and answer-index invariants
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('data/marrow/content_audit_effective')
+          m=json.loads((p/'manifest.json').read_text())
+          assert m['totalQuestions']==2711
+          raw={}
+          eff={}
+          for slug in ('anatomy','biochemistry','physiology'):
+              for f in (Path('data/marrow/content_audit_full')/slug).glob('chapter_*.json'):
+                  for q in json.loads(f.read_text())['questions']:
+                      raw[q['id']]=q['correctOption']
+              for f in (p/slug).glob('chapter_*.json'):
+                  for q in json.loads(f.read_text())['questions']:
+                      eff[q['id']]=q['correctOption']
+          assert len(raw)==len(eff)==2711
+          assert raw==eff
+          print('EFFECTIVE_MARROW_ANSWER_INDEX_IDENTITY_OK questions=2711')
+          PY
+      - name: Commit derived effective audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "418982154+github-actions[bot]@users.noreply.github.com"
+          git add data/marrow/content_audit_effective
+          if git diff --cached --quiet; then
+            echo "Effective audit already current."
+            exit 0
+          fi
+          git commit -m "Refresh effective Marrow content audit [skip ci]"
+          git push origin HEAD:fix/marrow-full-content-cleanup-20260913
