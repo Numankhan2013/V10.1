@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "policy": "safe-deletion-only-v1",
+  "active": false,
+  "subject": "Anatomy",
+  "chapterId": "13",
+  "questionCount": 3,
+  "questions": {
+    "marrow__ANAT_CH13_Q005": {
+      "id": "marrow__ANAT_CH13_Q005",
+      "questionNumber": 5,
+      "sourcePage": 232,
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          232
+        ],
+        "answerKeyPages": [
+          235,
+          236
+        ],
+        "explanationPages": [
+          238,
+          239
+        ]
+      },
+      "operations": [
+        "replace_literal_backslash_with_space",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "The structures marked in the given image are: A- Molecular layer B - Purkinje layer C - Granular layer D - White matter The cerebellum is covered by pia mater which is seen as thin connective tissue, with blood vessels lying under it. The cerebellum consists of an outer grey matter (cerebellar cortex) and inner white matter. Layers of cerebellar cortex °< IN Seer ane Wipes ——— Molecular layer EOE aN ee. pine we on BONS ENT Raha \"Granular layer lo ERPS eae ———— White matter = ~\\. a ws < oO 4 ~~ « Pi XC m4 So;; cO >",
+      "cleaned": "The structures marked in the given image are: A- Molecular layer B - Purkinje layer C - Granular layer D - White matter The cerebellum is covered by pia mater which is seen as thin connective tissue, with blood vessels lying under it. The cerebellum consists of an outer grey matter (cerebellar cortex) and inner white matter. Layers of cerebellar cortex °< IN Seer ane Wipes ——— Molecular layer EOE aN ee. pine we on BONS ENT Raha \"Granular layer lo ERPS eae ———— White matter = ~ . a ws < oO 4 ~~ « Pi XC",
+      "removedFragments": [
+        " m4 So;; cO >"
+      ]
+    },
+    "marrow__ANAT_CH13_Q006": {
+      "id": "marrow__ANAT_CH13_Q006",
+      "questionNumber": 6,
+      "sourcePage": 232,
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          232
+        ],
+        "answerKeyPages": [
+          235,
+          236
+        ],
+        "explanationPages": [
+          239
+        ]
+      },
+      "operations": [
+        "trim_short_ocr_prefix"
+      ],
+      "original": "2s: « +, es) The correct order of the layers of,the-cerebral cortex from superficial to deep are: * Molecular layer (Plexiforny layer) > + External granular layer.» a ¢ External pyramid} layer C* + Internal geen layer - contains the outer band of Baillarger * Ganglionic layer (Internal Pyramidal layer) - contains the inner band of Baillarger * Multiform layer (Layer of Polymorphic cells)",
+      "cleaned": "correct order of the layers of,the-cerebral cortex from superficial to deep are: * Molecular layer (Plexiforny layer) > + External granular layer.» a ¢ External pyramid} layer C* + Internal geen layer - contains the outer band of Baillarger * Ganglionic layer (Internal Pyramidal layer) - contains the inner band of Baillarger * Multiform layer (Layer of Polymorphic cells)",
+      "removedFragments": [
+        "2s: « +, es) The "
+      ]
+    },
+    "marrow__ANAT_CH13_Q007": {
+      "id": "marrow__ANAT_CH13_Q007",
+      "questionNumber": 7,
+      "sourcePage": 233,
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          233
+        ],
+        "answerKeyPages": [
+          235,
+          236
+        ],
+        "explanationPages": [
+          239,
+          240
+        ]
+      },
+      "operations": [
+        "trim_short_ocr_suffix"
+      ],
+      "original": "The outer band of Baillarger is seen in the internal granular layer of cerebral cortex. The cerebral cortex contains nerve fibers that run radially and tangentially. The tangential fibers are concentrated in the internal granular layer (layer IV) referred to as the outer band of Baillarger and in the ganglionic layer (layer V) referred to as the inner band of Baillarger. These bands are well developed in the sensory areas because of the concentration of terminal parts of the thalamocortical fibers. In the visual cortex, the outer band of Baillarger can be seen with the naked eye and is known as the stria of Gennari. It is because of this stria that the visual cortex is also referred to as the striate cortex. The given image shows a micrograph of the visual cortex. The blue, horizontal band in the lower half of the image are the bands of Baillarger/the stria of Gennari. Subcortical white matter (predominantly blue) is seen at the very bottom of the image. Visual cortex showing bands of Baillarger — ~ ‘ >. Cc \"y",
+      "cleaned": "The outer band of Baillarger is seen in the internal granular layer of cerebral cortex. The cerebral cortex contains nerve fibers that run radially and tangentially. The tangential fibers are concentrated in the internal granular layer (layer IV) referred to as the outer band of Baillarger and in the ganglionic layer (layer V) referred to as the inner band of Baillarger. These bands are well developed in the sensory areas because of the concentration of terminal parts of the thalamocortical fibers. In the visual cortex, the outer band of Baillarger can be seen with the naked eye and is known as the stria of Gennari. It is because of this stria that the visual cortex is also referred to as the striate cortex. The given image shows a micrograph of the visual cortex. The blue, horizontal band in the lower half of the image are the bands of Baillarger/the stria of Gennari. Subcortical white matter (predominantly blue) is seen at the very bottom of the image. Visual cortex showing bands of Baillarger — ~ ‘ >.",
+      "removedFragments": [
+        " Cc \"y"
+      ]
+    }
+  }
+}

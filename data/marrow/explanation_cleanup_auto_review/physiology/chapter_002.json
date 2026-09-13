@@ -1,0 +1,442 @@
+{
+  "schemaVersion": 1,
+  "policy": "safe-deletion-only-v1",
+  "active": false,
+  "subject": "Physiology",
+  "chapterId": "2",
+  "questionCount": 13,
+  "questions": {
+    "marrow__PHYS_CH02_Q001": {
+      "id": "marrow__PHYS_CH02_Q001",
+      "questionNumber": 1,
+      "sourcePage": 20,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          20
+        ],
+        "answerKeyPages": [
+          25,
+          26
+        ],
+        "explanationPages": [
+          26
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line"
+      ],
+      "original": "Parathyroid hormone (PTH) is an example of a polypeptide hormone.\nCortisol is a steroid hormone, ‘Adrenaline and thyroxine are derivatives of the amino acid tyrosine.\n_ oO”",
+      "cleaned": "Parathyroid hormone (PTH) is an example of a polypeptide hormone.\nCortisol is a steroid hormone, ‘Adrenaline and thyroxine are derivatives of the amino acid tyrosine.",
+      "removedFragments": [
+        "_ oO”"
+      ]
+    },
+    "marrow__PHYS_CH02_Q003": {
+      "id": "marrow__PHYS_CH02_Q003",
+      "questionNumber": 3,
+      "sourcePage": 20,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          20
+        ],
+        "answerKeyPages": [
+          25,
+          26
+        ],
+        "explanationPages": [
+          27
+        ]
+      },
+      "operations": [
+        "trim_short_ocr_prefix"
+      ],
+      "original": "Cortisol is not stored before release.\nUsually, the polypeptide and protein hormones such as insulin, thyroxine or renin are stored in\nsecretory vesicles before release. They are synthesized as much larger polypeptide chains\n(preprohormones) that are biologically inactive and then processed intracellularly by specific\nproteases to yield the final hormone molecule which is stored in the secretory vesicle until needed.\nOn the other hand, steroid hormones such as cortisol are synthesised as needed and are not\nstored. They are lipid soluble and easily diffuse across cell membrane to enter the interstitial fluid\nand then blood.\nee",
+      "cleaned": "Cortisol is not stored before release.\nUsually, the polypeptide and protein hormones such as insulin, thyroxine or renin are stored in\nsecretory vesicles before release. They are synthesized as much larger polypeptide chains\npreprohormones) that are biologically inactive and then processed intracellularly by specific\nproteases to yield the final hormone molecule which is stored in the secretory vesicle until needed.\nOn the other hand, steroid hormones such as cortisol are synthesised as needed and are not\nstored. They are lipid soluble and easily diffuse across cell membrane to enter the interstitial fluid\nand then blood.\nee",
+      "removedFragments": [
+        "("
+      ]
+    },
+    "marrow__PHYS_CH02_Q004": {
+      "id": "marrow__PHYS_CH02_Q004",
+      "questionNumber": 4,
+      "sourcePage": 20,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          20,
+          21
+        ],
+        "answerKeyPages": [
+          25,
+          26
+        ],
+        "explanationPages": [
+          27
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Downregulation of receptors occurs due to internalisation inactivation. of Yeceptors or\ndesensitisation. oy &\nWS ® .\nA decrease in the level of stimulating hormones.generally leads«to an increase in the level of active\nreceptors. This is called upregulation of receptors. o~ ov\nOn the other hand, an increase in the levelof stimulating hormones, generally leads to a decrease\nin the level of active receptors. This:is‘¢alled downregulation of receptors.\nDownregulation of receptors can-occur by one’of the followingmechanisms:\n+ Desensitisation - Receptors undergo chemical modifications that make them less responsive.\n+ Internalisation - It is the temporary-sequestration of the cell membrane receptors to the inside of\nthe cell, away from the action_of Hormones. Following internalisation, the receptors are either\ndestroyed or recycled. | “\n+ Inactivation of receptors: ~~\nss\n+ Decreased produetion of receptors.\nKN ¢*\n‘ 4",
+      "cleaned": "Downregulation of receptors occurs due to internalisation inactivation. of Yeceptors or\ndesensitisation.\nA decrease in the level of stimulating hormones.generally leads«to an increase in the level of active\nreceptors. This is called upregulation of receptors.\nOn the other hand, an increase in the levelof stimulating hormones, generally leads to a decrease\nin the level of active receptors. This:is‘¢alled downregulation of receptors.\nDownregulation of receptors can-occur by one’of the followingmechanisms:\nDesensitisation - Receptors undergo chemical modifications that make them less responsive.\nInternalisation - It is the temporary-sequestration of the cell membrane receptors to the inside of\nthe cell, away from the action_of Hormones. Following internalisation, the receptors are either\ndestroyed or recycled.\nInactivation of receptors:\nss\nDecreased produetion of receptors.",
+      "removedFragments": [
+        " oy &",
+        "WS ® .",
+        " o~ ov",
+        "+ ",
+        "+ ",
+        " | “",
+        "+ ",
+        " ~~",
+        "+ ",
+        "KN ¢*",
+        "‘ 4"
+      ]
+    },
+    "marrow__PHYS_CH02_Q006": {
+      "id": "marrow__PHYS_CH02_Q006",
+      "questionNumber": 6,
+      "sourcePage": 21,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          21
+        ],
+        "answerKeyPages": [
+          25,
+          26
+        ],
+        "explanationPages": [
+          28
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Adrenaline, noradrenaline and dopamine act through a 7 pass receptor called G-protein coupled\nreceptor (GPCR).\noO.\nThe catecholamines act through GPCRs which are cell membrane receptors that'span across the\nmembrane 7 times hence called seven helix or serpentine receptors. x\n~O~ Ov\n> es ~*\nC . of\n- 7 ~~ <“s »",
+      "cleaned": "Adrenaline, noradrenaline and dopamine act through a 7 pass receptor called G-protein coupled\nreceptor (GPCR).\nThe catecholamines act through GPCRs which are cell membrane receptors that'span across the\nmembrane 7 times hence called seven helix or serpentine receptors.",
+      "removedFragments": [
+        "oO.",
+        " x",
+        "~O~ Ov",
+        "> es ~*",
+        "C . of",
+        "- 7 ~~ <“s »"
+      ]
+    },
+    "marrow__PHYS_CH02_Q007": {
+      "id": "marrow__PHYS_CH02_Q007",
+      "questionNumber": 7,
+      "sourcePage": 21,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          21
+        ],
+        "answerKeyPages": [
+          25,
+          26
+        ],
+        "explanationPages": [
+          28
+        ]
+      },
+      "operations": [
+        "remove_brand_only_line",
+        "remove_short_ocr_noise_line",
+        "replace_literal_backslash_with_space",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "he ae iw\nG proteins act as inhibitory or excitatory because of differences in ° subunit.\n~ ¢ x %,\nG protein-coupled receptors (GPCRs) are cell membrane receptors\\that span across the membrane\n7 times hence called seven helix or serpentine receptors. oe)\n, ¥, “\nG proteins have 3 subunits(?°B and m), Inuits resting state, ° subunit is bound to GDP.\nUpon ligand binding to GPCR, it undergoes a conformational change that activates G protein\nwithin the cell. The ° subunit dissociates and imturn alters the activity of second messengers such\nas cAMP, cGMP or Ca2+. ch < >\nOnce the ligand is unbeiid, the intrinsic GTPase activity of the ° subunit converts GTP to GDP.\nThis leads to reassociation of ° with the B-l™ subunit and termination of effector activation.\noe\n‘ G protein-coupled receptors\nViale . [/usene\n= ~ = S Z ~\n299 | || 9900000000 299000\nee} | 9999999999 999909\nJUWY | @ YUU\nx] — > s @\nG protein G protein ‘i\n(inactive) (active)\nMARROW",
+      "cleaned": "he ae iw\nG proteins act as inhibitory or excitatory because of differences in ° subunit.\nG protein-coupled receptors (GPCRs) are cell membrane receptors that span across the membrane\ntimes hence called seven helix or serpentine receptors.\nG proteins have 3 subunits(?°B and m), Inuits resting state, ° subunit is bound to GDP.\nUpon ligand binding to GPCR, it undergoes a conformational change that activates G protein\nwithin the cell. The ° subunit dissociates and imturn alters the activity of second messengers such\nas cAMP, cGMP or Ca2+.\nOnce the ligand is unbeiid, the intrinsic GTPase activity of the ° subunit converts GTP to GDP.\nThis leads to reassociation of ° with the B-l™ subunit and termination of effector activation.\noe\nprotein-coupled receptors\nViale . [/usene\nJUWY\nG protein G protein ‘i\ninactive) (active)",
+      "removedFragments": [
+        "~ ¢ x %,",
+        "7 ",
+        " oe)",
+        ", ¥, “",
+        " ch < >",
+        "‘ G ",
+        "= ~ = S Z ~",
+        "299 | || 9900000000 299000",
+        "ee} | 9999999999 999909",
+        " | @ YUU",
+        "x] — > s @",
+        "(",
+        "MARROW"
+      ]
+    },
+    "marrow__PHYS_CH02_Q008": {
+      "id": "marrow__PHYS_CH02_Q008",
+      "questionNumber": 8,
+      "sourcePage": 21,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          21
+        ],
+        "answerKeyPages": [
+          25,
+          26
+        ],
+        "explanationPages": [
+          29
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "The action of ° subunit of G protein is the breakdown of GTP to GDP as it has an intrinsic GTPase\n\nactivity.\n\nGuanine exchange factors (GEFs) convert GDP to GTP by nucleotide exchange.\n\nG proteins can be either stimulatory (GS) or inhibitory (Gi) with respect to the production of the\n\n2nd messenger cAMP by the enzyme adenylyl cyclase. Stimulatory or inhibitory activity resides in\n\nthe © subunit.\n\n* Cholera toxin acts on ° subunit of GS\n\n+ Pertussis toxin acts on ° subunit of Gi @\n\nNS\nno eee . 7 “se >*\nInactive”\nActive CAMP ,-———— CAMP’\nprotein Kinlase poe\nNS kinase\nProtein - PO, + ADP «———._ Protein + ATP\n+\nCell’s Response\nYe\n\\> %\nLS\n: : 2)",
+      "cleaned": "The action of ° subunit of G protein is the breakdown of GTP to GDP as it has an intrinsic GTPase\nactivity.\nGuanine exchange factors (GEFs) convert GDP to GTP by nucleotide exchange.\nG proteins can be either stimulatory (GS) or inhibitory (Gi) with respect to the production of the\n2nd messenger cAMP by the enzyme adenylyl cyclase. Stimulatory or inhibitory activity resides in\nsubunit.\nCholera toxin acts on ° subunit of GS\nPertussis toxin acts on ° subunit of Gi @\nNS\nno eee .\nInactive”\nActive CAMP ,-———— CAMP’\nprotein Kinlase poe\nNS kinase\nProtein - PO, + ADP «———._ Protein + ATP\nCell’s Response\nYe\nLS",
+      "removedFragments": [
+        "the © ",
+        "* ",
+        "+ ",
+        " 7 “se >*",
+        "+",
+        "\\> %",
+        ": : 2)"
+      ]
+    },
+    "marrow__PHYS_CH02_Q012": {
+      "id": "marrow__PHYS_CH02_Q012",
+      "questionNumber": 12,
+      "sourcePage": 22,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          22
+        ],
+        "answerKeyPages": [
+          25,
+          26
+        ],
+        "explanationPages": [
+          30
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "“>\n>*\\\nSteroid hormone receptors have an attachment site for steroid hormone, hormone-responsive\nelement, and transcription activators, but not transcription) repressors,“\n;\nTranscription repressors are proteins that bind to,specific sites on, DNA and prevent transcription\nof nearby genes. “>” ao Re\nMechanism of action of\nsteroid hormones\nSteroid hormone diffuses across the cell membrane\nland binds to its cytoplasmic receptor\n+\nHormone-receptor complex diffuses into or is\ntransported into the nucleus\n+\nHormone-receptor complex binds to the specific\nhormone response element activating the\ntranscription machinery including attachment\nof transcription activators\n4\n7 Transcription—- tmRNA\nt\nn } Translation —- new proteins\n\\ +\na Physiologic effects",
+      "cleaned": "Steroid hormone receptors have an attachment site for steroid hormone, hormone-responsive\nelement, and transcription activators, but not transcription) repressors,“\nTranscription repressors are proteins that bind to,specific sites on, DNA and prevent transcription\nof nearby genes.\nMechanism of action of\nsteroid hormones\nSteroid hormone diffuses across the cell membrane\nland binds to its cytoplasmic receptor\nHormone-receptor complex diffuses into or is\ntransported into the nucleus\nHormone-receptor complex binds to the specific\nhormone response element activating the\ntranscription machinery including attachment\nof transcription activators\n4\nTranscription—- tmRNA\nt\nTranslation —- new proteins\na Physiologic effects",
+      "removedFragments": [
+        "“>",
+        ">*\\",
+        ";",
+        " “>” ao Re",
+        "+",
+        "+",
+        "7 ",
+        "n } ",
+        "\\ +"
+      ]
+    },
+    "marrow__PHYS_CH02_Q015": {
+      "id": "marrow__PHYS_CH02_Q015",
+      "questionNumber": 15,
+      "sourcePage": 23,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          23
+        ],
+        "answerKeyPages": [
+          25,
+          26
+        ],
+        "explanationPages": [
+          31
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line"
+      ],
+      "original": "The second messenger systeny through whieh’oxytocin acts,is the phospholipase C system.\nIt activates the enzyme phospholipase.©, which breaks*down some phospholipids in the cell\nmembrane into IP3 (phosphoinositol triphosphate) and DAG (diacylglycerol). DAG then activates\nprotein kinase C and IP3 mobilisés’‘Ca2+ from mitochondria and endoplasmic reticulum to bring\nabout smooth muscle contraction and other:cellular responses.\noY s\n~~\"",
+      "cleaned": "The second messenger systeny through whieh’oxytocin acts,is the phospholipase C system.\nIt activates the enzyme phospholipase.©, which breaks*down some phospholipids in the cell\nmembrane into IP3 (phosphoinositol triphosphate) and DAG (diacylglycerol). DAG then activates\nprotein kinase C and IP3 mobilisés’‘Ca2+ from mitochondria and endoplasmic reticulum to bring\nabout smooth muscle contraction and other:cellular responses.\noY s",
+      "removedFragments": [
+        "~~\""
+      ]
+    },
+    "marrow__PHYS_CH02_Q016": {
+      "id": "marrow__PHYS_CH02_Q016",
+      "questionNumber": 16,
+      "sourcePage": 23,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          23
+        ],
+        "answerKeyPages": [
+          25,
+          26
+        ],
+        "explanationPages": [
+          31
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "‘ 4\nVasopressin does not use cAMP exclusively.\nVasopressin (ADH) acts on at least 3 kinds of receptors: V1A, ViB and V2\n+ All the 3 are G-protein coupled receptors\n+ V1A and ViB receptors (Gq) act through IP3 as a second messenger, to increase the intracellular\ncalcium concentration\n+ V2 receptors (Gs) use cAMP as a second messenger\ncAMP is the exclusive second messenger for dopamine, corticotropin and glucagon.\nDopamine has 5 receptors (D1, D2, D3, D4, D5)\nall use cAMP as second messengers\n+ D1, D5 act by increasing cAMP\n* D2, D3, D4 act by decreasing cAMP",
+      "cleaned": "Vasopressin does not use cAMP exclusively.\nVasopressin (ADH) acts on at least 3 kinds of receptors: V1A, ViB and V2\n+ All the 3 are G-protein coupled receptors\n+ V1A and ViB receptors (Gq) act through IP3 as a second messenger, to increase the intracellular\ncalcium concentration\nreceptors (Gs) use cAMP as a second messenger\ncAMP is the exclusive second messenger for dopamine, corticotropin and glucagon.\nDopamine has 5 receptors (D1,\nall use cAMP as second messengers\n+ D1, D5 act by increasing cAMP\n* D2, D3, D4 act by decreasing cAMP",
+      "removedFragments": [
+        "‘ 4",
+        "+ V2 ",
+        " D2, D3, D4, D5)"
+      ]
+    },
+    "marrow__PHYS_CH02_Q018": {
+      "id": "marrow__PHYS_CH02_Q018",
+      "questionNumber": 18,
+      "sourcePage": 24,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          24
+        ],
+        "answerKeyPages": [
+          25,
+          26
+        ],
+        "explanationPages": [
+          32
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Guanylyl cyclase is the enzyme that catalyzes the formation. of cGMP. It is CGMP that acts as the\nsecond messenger. oh rats :\ncAMP, IP3 and DAG are all second messengers. «.~\\* , )\n~~ ‘ »",
+      "cleaned": "Guanylyl cyclase is the enzyme that catalyzes the formation. of cGMP. It is CGMP that acts as the\nsecond messenger. oh rats :\ncAMP, IP3 and DAG are all second messengers. «.",
+      "removedFragments": [
+        "~\\* , )",
+        "~~ ‘ »"
+      ]
+    },
+    "marrow__PHYS_CH02_Q019": {
+      "id": "marrow__PHYS_CH02_Q019",
+      "questionNumber": 19,
+      "sourcePage": 24,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          24
+        ],
+        "answerKeyPages": [
+          25,
+          26
+        ],
+        "explanationPages": [
+          32
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "replace_literal_backslash_with_space",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "’ < >\nActivation of protein kinase C’ catises phosphotylation of proteins\nCellular Phosphorylation is-unider the cotitrol of two groups of proteins:\n+ Kinases a . o)\n* enzymes that catalyse the phosphorylation of\\tyrosine or serine residues in protein\n« Example- Protein Kinasé‘A; Protein Kinase C, Ca2+/Calmodulin Kinase\n* Phosphatases ~ ae\n+ that catalyses ithe dephosphotylation of tyrosine or serine residues in the protein\n* i\nKinases play important roles in regulating cellular physiology, including cell growth and cell\ndeath. Philadelphia chromosome, t(9:22) or the ber-abl fusion gene codes for an abnormal kinase\nthat leads to chronic myeloid leukaemia (CML). The drug imatinib was developed to block the\ntyrosine kinase activity of ber-abl protein and is an effective treatment option for CML.",
+      "cleaned": "Activation of protein kinase C’ catises phosphotylation of proteins\nCellular Phosphorylation is-unider the cotitrol of two groups of proteins:\nKinases a .\nenzymes that catalyse the phosphorylation of tyrosine or serine residues in protein\nExample- Protein Kinasé‘A; Protein Kinase C, Ca2+/Calmodulin Kinase\nPhosphatases\nthat catalyses ithe dephosphotylation of tyrosine or serine residues in the protein\nKinases play important roles in regulating cellular physiology, including cell growth and cell\ndeath. Philadelphia chromosome, t(9:22) or the ber-abl fusion gene codes for an abnormal kinase\nthat leads to chronic myeloid leukaemia (CML). The drug imatinib was developed to block the\ntyrosine kinase activity of ber-abl protein and is an effective treatment option for CML.",
+      "removedFragments": [
+        "’ < >",
+        "+ ",
+        " o)",
+        "* ",
+        "« ",
+        "* ",
+        " ~ ae",
+        "+ ",
+        "* i"
+      ]
+    },
+    "marrow__PHYS_CH02_Q020": {
+      "id": "marrow__PHYS_CH02_Q020",
+      "questionNumber": 20,
+      "sourcePage": 24,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          24,
+          25
+        ],
+        "answerKeyPages": [
+          25,
+          26
+        ],
+        "explanationPages": [
+          32,
+          33
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Among the given options, the most probable diagnosis is McCune-Albright syndrome as it is the\nonly gain-of-function mutation of G Protein.\nG proteins or G protein-coupled receptor complexes can undergo a loss- or gain-of-function\nmutation. Some examples are given below:\nIn McCune-Albright syndrome, a gain-of-function mutation in Gs° is associated with the\nrough-bordered areas of skin pigmentation and hypercortisolism. This mutation occurs during\nfetal development, creating a mosaic of normal and abnormal cells.\nRhodopsin Loss Night blindness or retinitis pi\ngmentosa\nEndothelin recept Hirschsprung disease\nor\nTSH receptor Familialhypothyroidism\nTSH receptor Familialhyperthyroidism\nic\nerty\nGsprotein Gain Pituitary adenomas with acro\nmegaly\nxO © =e\naN % er ) we\n\\O rates %\n~\\ we Oo «",
+      "cleaned": "Among the given options, the most probable diagnosis is McCune-Albright syndrome as it is the\nonly gain-of-function mutation of G Protein.\nG proteins or G protein-coupled receptor complexes can undergo a loss- or gain-of-function\nmutation. Some examples are given below:\nIn McCune-Albright syndrome, a gain-of-function mutation in Gs° is associated with the\nrough-bordered areas of skin pigmentation and hypercortisolism. This mutation occurs during\nfetal development, creating a mosaic of normal and abnormal cells.\nRhodopsin Loss Night blindness or retinitis pi\ngmentosa\nEndothelin recept Hirschsprung disease\nor\nTSH receptor Familialhypothyroidism\nTSH receptor Familialhyperthyroidism\nic\nerty\nGsprotein Gain Pituitary adenomas with acro\nmegaly\naN\nrates",
+      "removedFragments": [
+        "xO © =e",
+        " % er ) we",
+        "\\O ",
+        " %",
+        "~\\ we Oo «"
+      ]
+    },
+    "marrow__PHYS_CH02_Q021": {
+      "id": "marrow__PHYS_CH02_Q021",
+      "questionNumber": 21,
+      "sourcePage": 25,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          25
+        ],
+        "answerKeyPages": [
+          25,
+          26
+        ],
+        "explanationPages": [
+          33
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "replace_literal_backslash_with_space",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Pr ra ‘\nRat proteins are not nuclear signallin: athiways. Recombinant rat IFN- is a bioactive protein\nintended for use in cell culture appa \\ se ,\noc .\nImportin: ~? .S\n. . a a. . ots\n« Transporting protein molecu les into nucleus by binding to specific recognition sequences, called\nNuclear Localization oo (NLS). \\\n¢ 2 subunits, impagyn and importin B.\n<a — \\\nCaveolins: & \\ o~\n+ Family oPintegral membrane proteins that are principal components of caveolae membranes\n+ Involved in receptor-independent endocytosis.\n+ Acts as scaffolding proteins within caveolar membranes by compartmentalizing and\nconcentrating signaling molecules.\nNF-kB\n+ Part of a prototypical proinflammatory signaling pathway\n* based on the role of NF-«B in the expression of proinflammatory genes including cytokines,\nchemokines, and adhesion molecules",
+      "cleaned": "Pr\nRat proteins are not nuclear signallin: athiways. Recombinant rat IFN- is a bioactive protein\nintended for use in cell culture appa se ,\nImportin: ~? .\nTransporting protein molecu les into nucleus by binding to specific recognition sequences, called\nNuclear Localization oo (NLS).\nsubunits, impagyn and importin B.\nCaveolins:\nFamily oPintegral membrane proteins that are principal components of caveolae membranes\nInvolved in receptor-independent endocytosis.\nActs as scaffolding proteins within caveolar membranes by compartmentalizing and\nconcentrating signaling molecules.\nNF-kB\nPart of a prototypical proinflammatory signaling pathway\nbased on the role of NF-«B in the expression of proinflammatory genes including cytokines,\nchemokines, and adhesion molecules",
+      "removedFragments": [
+        " ra ‘",
+        "oc .",
+        "S",
+        ". . a a. . ots",
+        "« ",
+        " \\",
+        "¢ 2 ",
+        "<a — \\",
+        " & \\ o~",
+        "+ ",
+        "+ ",
+        "+ ",
+        "+ ",
+        "* "
+      ]
+    }
+  }
+}

@@ -1,0 +1,339 @@
+{
+  "schemaVersion": 1,
+  "policy": "safe-deletion-only-v1",
+  "active": false,
+  "subject": "Anatomy",
+  "chapterId": "26",
+  "questionCount": 10,
+  "questions": {
+    "marrow__ANAT_CH26_Q004": {
+      "id": "marrow__ANAT_CH26_Q004",
+      "questionNumber": 4,
+      "sourcePage": 435,
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          435
+        ],
+        "answerKeyPages": [
+          443
+        ],
+        "explanationPages": [
+          445,
+          446
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix"
+      ],
+      "original": "The basilar artery and the anterior spinal artery are unpaired arteries in the central nervous\nsystem.\n\nThe basilar artery is a single artery formed by the union of two vertebral arteries.\nThe anterior spinal artery is a single artery formed from a branch from each vertebral artery near\nits termination.\nPaired arteries: rg = Si = = Unpaired arteries\n: Basitar artory\n“A, ow\nb Anterior spinal artery\n=i oO ae\nx a4 Vv Fay \\ (2",
+      "cleaned": "The basilar artery and the anterior spinal artery are unpaired arteries in the central nervous\nsystem.\nThe basilar artery is a single artery formed by the union of two vertebral arteries.\nThe anterior spinal artery is a single artery formed from a branch from each vertebral artery near\nits termination.\nPaired arteries: rg = Si = = Unpaired arteries\nBasitar artory\nb Anterior spinal artery\n=i oO ae",
+      "removedFragments": [
+        ": ",
+        "“A, ow",
+        "x a4 Vv Fay \\ (2"
+      ]
+    },
+    "marrow__ANAT_CH26_Q008": {
+      "id": "marrow__ANAT_CH26_Q008",
+      "questionNumber": 8,
+      "sourcePage": 437,
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          437
+        ],
+        "answerKeyPages": [
+          443
+        ],
+        "explanationPages": [
+          448
+        ]
+      },
+      "operations": [
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "olution to Question 8: oh KO \\ a\nThe given clinical scenario with Visual field defect and Riddoch-phenomenon is suggestive\nof occipital lobe lesion oceurting due to theOcelusion of th®posterior cerebral artery.\nThe visual cortex is supplied by the pgeferior cerebralartery. Its occlusion is commonly seen\nin head injury and may be associatetwith visuabhallucinations, denial of blindness (Anton\nsyndrome), and the Riddoch'phenomenon (only moving visual targets are perceived). These\nlesions generally spare theréentral visiorimacular vision.\nThe anatomical reasoi for this sparifts attributed to the uniqueness in the blood supply. The\npart of the Ceo aa represefitiig the peripheral field vision is supplied by the posterior\ncerebral artery, Whereas, thearea at the tip of the calcarine cortex representing the central\nmacular vigion, is supplied'by a branch of the middle cerebral artery.\nee ee\na Le\n“Antator: conde ay Mischa corebrabatery\nPastonontibebral aioe",
+      "cleaned": "olution to Question 8:\nThe given clinical scenario with Visual field defect and Riddoch-phenomenon is suggestive\nof occipital lobe lesion oceurting due to theOcelusion of th®posterior cerebral artery.\nThe visual cortex is supplied by the pgeferior cerebralartery. Its occlusion is commonly seen\nin head injury and may be associatetwith visuabhallucinations, denial of blindness (Anton\nsyndrome), and the Riddoch'phenomenon (only moving visual targets are perceived). These\nlesions generally spare theréentral visiorimacular vision.\nThe anatomical reasoi for this sparifts attributed to the uniqueness in the blood supply.\npart of the Ceo aa represefitiig the peripheral field vision is supplied by the posterior\ncerebral artery, Whereas, thearea at the tip of the calcarine cortex representing the central\nmacular vigion, is supplied'by a branch of the middle cerebral artery.\nee ee\na Le\nAntator: conde ay Mischa corebrabatery\nPastonontibebral aioe",
+      "removedFragments": [
+        " oh KO \\ a",
+        " The",
+        "“"
+      ]
+    },
+    "marrow__ANAT_CH26_Q009": {
+      "id": "marrow__ANAT_CH26_Q009",
+      "questionNumber": 9,
+      "sourcePage": 437,
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          437
+        ],
+        "answerKeyPages": [
+          443
+        ],
+        "explanationPages": [
+          449
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line"
+      ],
+      "original": "The chief artery of the superolateral surface of the cerebral hemisphere is the middle cerebral\nartery.\nBoth the anterior and middle cerebral artery supply the superolateral surface of the brain but\nanterior cerebral artery supplies only a narrow strip at the upper superolateral surface rest is\nsupplied by the middle cerebral artery. Therefore, the chief artery is the middle cerebral artery.\nThe chief artery of the medial surface of the brain is an anterior cerebral artery.\nThe chief artery of the inferior surface of the brain is the posterior cerebral artery”\nLateral cerebral artery is not an artery. ae e.\nSs i\nin s = 5 : Py. ~",
+      "cleaned": "The chief artery of the superolateral surface of the cerebral hemisphere is the middle cerebral\nartery.\nBoth the anterior and middle cerebral artery supply the superolateral surface of the brain but\nanterior cerebral artery supplies only a narrow strip at the upper superolateral surface rest is\nsupplied by the middle cerebral artery. Therefore, the chief artery is the middle cerebral artery.\nThe chief artery of the medial surface of the brain is an anterior cerebral artery.\nThe chief artery of the inferior surface of the brain is the posterior cerebral artery”\nLateral cerebral artery is not an artery. ae e.\nSs i",
+      "removedFragments": [
+        "in s = 5 : Py. ~"
+      ]
+    },
+    "marrow__ANAT_CH26_Q010": {
+      "id": "marrow__ANAT_CH26_Q010",
+      "questionNumber": 10,
+      "sourcePage": 437,
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          437
+        ],
+        "answerKeyPages": [
+          443
+        ],
+        "explanationPages": [
+          449,
+          450
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "The marked vessel is posterior cerebral artery. It does not supply the pons, hence a thrombus in\nthis artery will not affect the pons.\nThe branches of the posterior cerebral artery are:\n+ Cortical branches\n+ Occipital lobe - visual cortex\n+ Temporal lobe - medial and inferolateral surfaces\n+ Central branches\n+ Thalamus\n+ Subthalamus\n+ Lentiform nucleus\n\n* Midbrain\n+ Pineal gland\n+ Superior and inferior colliculi\n+ Medial and lateral geniculate bodies\n+ Choroidal branches- choroid plexus of\n+ Lateral ventricle\n+ Third ventricle\nThe image given below shows the posterior cerebral arteries in the circle of Willis.\nCircle of Willis @\ni> <a enna ¢ s\nid Slr 34 ti r\nBy Superior. — =\n27 Ske\new, -__ es\noe US\no Rs",
+      "cleaned": "The marked vessel is posterior cerebral artery. It does not supply the pons, hence a thrombus in\nthis artery will not affect the pons.\nThe branches of the posterior cerebral artery are:\nCortical branches\nOccipital lobe - visual cortex\nTemporal lobe - medial and inferolateral surfaces\nCentral branches\nThalamus\nSubthalamus\nLentiform nucleus\nMidbrain\nPineal gland\nSuperior and inferior colliculi\nMedial and lateral geniculate bodies\nChoroidal branches- choroid plexus of\nLateral ventricle\nThird ventricle\nThe image given below shows the posterior cerebral arteries in the circle of Willis.\nCircle of Willis @\nenna\nid Slr 34 ti r\nBy Superior.\n27 Ske\noe US\no Rs",
+      "removedFragments": [
+        "+ ",
+        "+ ",
+        "+ ",
+        "+ ",
+        "+ ",
+        "+ ",
+        "+ ",
+        "* ",
+        "+ ",
+        "+ ",
+        "+ ",
+        "+ ",
+        "+ ",
+        "+ ",
+        "i> <a ",
+        " ¢ s",
+        " — =",
+        "ew, -__ es"
+      ]
+    },
+    "marrow__ANAT_CH26_Q011": {
+      "id": "marrow__ANAT_CH26_Q011",
+      "questionNumber": 11,
+      "sourcePage": 438,
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          438
+        ],
+        "answerKeyPages": [
+          443
+        ],
+        "explanationPages": [
+          450,
+          451
+        ]
+      },
+      "operations": [
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "The given clinical scenario is suggestive of Wallenberg's syndrome (lateral medullary syndrome)\nand the marked vessel is the vertebral artery. The largest branch of this artery is the posterior\ninferior cerebellar artery.\nThe vertebral artery is a branch of the first part of the subclavian artery. It enters the skull\nthrough the foramen magnum and terminates by joining the vertebral artery of the opposite side\nforming the basilar artery. The branches of the cranial portion of the vertebral artery are:\n+ Meningeal branches - supplying dura of posterior cranial fossa\n+ Posterior spinal arteries - supply posterior one-third of the spinal cord\n+ Anterior spinal artery - supply anterior two-thirds of the spinal cord\n+ Posterior inferior cerebellar artery - supplies the lateral part of the medulla, cerebellar\nhemisphere, and the choroid plexus of the fourth ventricle.\n+ Medullary branches - supplying the medulla\nThe image given below shows the vertebral artery.\n\nBasilar and Vertebral arterie\nrT RSA)\nPP pets tg e\n\\ eM 92 A RED eb yra1 acory\nNow\nXY c",
+      "cleaned": "The given clinical scenario is suggestive of Wallenberg's syndrome (lateral medullary syndrome)\nand the marked vessel is the vertebral artery. The largest branch of this artery is the posterior\ninferior cerebellar artery.\nThe vertebral artery is a branch of the first part of the subclavian artery. It enters the skull\nthrough the foramen magnum and terminates by joining the vertebral artery of the opposite side\nforming the basilar artery. The branches of the cranial portion of the vertebral artery are:\nMeningeal branches - supplying dura of posterior cranial fossa\nPosterior spinal arteries - supply posterior one-third of the spinal cord\nAnterior spinal artery - supply anterior two-thirds of the spinal cord\nPosterior inferior cerebellar artery - supplies the lateral part of the medulla, cerebellar\nhemisphere, and the choroid plexus of the fourth ventricle.\nMedullary branches - supplying the medulla\nThe image given below shows the vertebral artery.\nBasilar and Vertebral arterie\nrT\nPP pets tg e\nacory\nNow\nXY c",
+      "removedFragments": [
+        "+ ",
+        "+ ",
+        "+ ",
+        "+ ",
+        "+ ",
+        " RSA)",
+        "\\ eM 92 A RED eb yra1 "
+      ]
+    },
+    "marrow__ANAT_CH26_Q012": {
+      "id": "marrow__ANAT_CH26_Q012",
+      "questionNumber": 12,
+      "sourcePage": 439,
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          439
+        ],
+        "answerKeyPages": [
+          443
+        ],
+        "explanationPages": [
+          451,
+          452
+        ]
+      },
+      "operations": [
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "sw KO OS\nThe marked structure is medulla oblongata. The stperior cerebellar artery does not supply the\nmedulla oblongata. cO me a\nC Bites ae Miele\neX Bevel q oe; er NP\nas ae FS dain ce\ni er . ron\n= Ofive. ine\na Meduila 7\n» Ovlengata ~— _ Antetolateral\n\nBlood supply of medulla oblongata\nees artery\n> d cerebellar artery\nS Vertebral artery\n( 7 Anterior spinal\nSw = artery e\nxy a",
+      "cleaned": "sw KO OS\nThe marked structure is medulla oblongata. The stperior cerebellar artery does not supply the\nmedulla oblongata.\nC Bites ae Miele\neX Bevel q oe; er NP\nas ae FS dain ce\ni er .\nOfive.\na Meduila 7\nOvlengata ~— _ Antetolateral\nBlood supply of medulla oblongata\nees artery\ncerebellar artery\nS Vertebral artery\nAnterior spinal\nartery e\nxy a",
+      "removedFragments": [
+        " cO me a",
+        " ron",
+        "= ",
+        " ine",
+        "» ",
+        "> d ",
+        "( 7 ",
+        "Sw = "
+      ]
+    },
+    "marrow__ANAT_CH26_Q014": {
+      "id": "marrow__ANAT_CH26_Q014",
+      "questionNumber": 14,
+      "sourcePage": 440,
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          440
+        ],
+        "answerKeyPages": [
+          443
+        ],
+        "explanationPages": [
+          452,
+          453
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "The given clinical scenario is suggestive of a Charcot-Bouchard aneurysm. The affected artery is\nthe Charcot's artery which is the striate branch of the middle cerebral artery marked as 'C' in the\nabove image.\n\nCharcot-Bouchard aneurysms are located in the lenticulostriate vessels of the basal ganglia and\nare commonly associated with hypertension. Charcot's artery supplies the internal capsule and\nbasal ganglia. It is also known as the 'Charcot's artery of cerebral haemorrhage'.\nTF in..\nopera coer we i\ni \\ y 4 iy e .\nMiddle cerebral e\narteries a\nSara as thr\nThe image given below shows the chrele of Willis' base ofthe'brain.\nw an pr ie\nee * ri £3\naealenl *% = re\nMT es. OOS r\nPE vy a 7 S ree\ni wih i we",
+      "cleaned": "The given clinical scenario is suggestive of a Charcot-Bouchard aneurysm. The affected artery is\nthe Charcot's artery which is the striate branch of the middle cerebral artery marked as 'C' in the\nabove image.\nCharcot-Bouchard aneurysms are located in the lenticulostriate vessels of the basal ganglia and\nare commonly associated with hypertension. Charcot's artery supplies the internal capsule and\nbasal ganglia. It is also known as the 'Charcot's artery of cerebral haemorrhage'.\nopera coer we i\nMiddle cerebral e\narteries a\nSara as thr\nThe image given below shows the chrele of Willis' base ofthe'brain.\nw an pr ie\naealenl\nMT es.\nPE vy a 7 S ree\ni wih i we",
+      "removedFragments": [
+        "TF in..",
+        "i \\ y 4 iy e .",
+        "ee * ri £3",
+        " *% = re",
+        " OOS r"
+      ]
+    },
+    "marrow__ANAT_CH26_Q015": {
+      "id": "marrow__ANAT_CH26_Q015",
+      "questionNumber": 15,
+      "sourcePage": 441,
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          441
+        ],
+        "answerKeyPages": [
+          443
+        ],
+        "explanationPages": [
+          453,
+          454
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "The marked structure is the posterior limb of the internal capsule and the recurrent artery of\nHeubner is not a part of its blood supply.\nThe posterior limb of internal capsule is supplied by:\n+ Charcot's artery (branch of middle cerebral artery)\n+ Anterior choroidal artery (branch of internal carotid artery)\n\n+ Posterolateral branches of posterior cerebral artery.\na f nuclowe”\nJO ys! : pe\naos Gnu of intemal\nSepsute\n7 QR 7 i — posters wopiot\n~ tntornal capauie\nCRN\nventricle — /-— Corpus\n“ L ealiosum\nAe Ss Forni\nBody of 7 \\ ey aa\nZ ee ee a Irterno!\nThelema > ae i eapsulo\nes i Extornal\nves ee 6 By capsuo\nRed ruc aes a \\\n* Substantia nigra Pane pals",
+      "cleaned": "The marked structure is the posterior limb of the internal capsule and the recurrent artery of\nHeubner is not a part of its blood supply.\nThe posterior limb of internal capsule is supplied by:\nCharcot's artery (branch of middle cerebral artery)\nAnterior choroidal artery (branch of internal carotid artery)\nPosterolateral branches of posterior cerebral artery.\na f nuclowe”\nJO ys!\naos Gnu of intemal\nSepsute\n7 QR 7 i — posters wopiot\ntntornal capauie\nCRN\nventricle — /-— Corpus\nealiosum\nAe Ss Forni\nBody of\nZ ee ee a Irterno!\nThelema > ae i eapsulo\nes i Extornal\nves ee 6 By capsuo\nSubstantia nigra Pane pals",
+      "removedFragments": [
+        "+ ",
+        "+ ",
+        "+ ",
+        " : pe",
+        "~ ",
+        "“ L ",
+        " 7 \\ ey aa",
+        "Red ruc aes a \\",
+        "* "
+      ]
+    },
+    "marrow__ANAT_CH26_Q016": {
+      "id": "marrow__ANAT_CH26_Q016",
+      "questionNumber": 16,
+      "sourcePage": 441,
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          441
+        ],
+        "answerKeyPages": [
+          443
+        ],
+        "explanationPages": [
+          454,
+          455
+        ]
+      },
+      "operations": [
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Posterior communicating artery does not supply the putamen.\n\nFinste artory—— + “\nene — sf '\nSs] Pomiives Thatamue rig }\nOS a",
+      "cleaned": "Posterior communicating artery does not supply the putamen.\nFinste artory—— + “\nene\nPomiives Thatamue rig }\nOS a",
+      "removedFragments": [
+        " — sf '",
+        "Ss] "
+      ]
+    },
+    "marrow__ANAT_CH26_Q017": {
+      "id": "marrow__ANAT_CH26_Q017",
+      "questionNumber": 17,
+      "sourcePage": 442,
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          442
+        ],
+        "answerKeyPages": [
+          443
+        ],
+        "explanationPages": [
+          455,
+          456
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "oS «< °) i x\nCT image showing a crescent aig hyperdense lesion, is suggestive of acute subdural\nhematoma. The head injuntO s to a tear the cerebralWeins (predominantly the bridging veins\nlike the superior cerebral vein) causing'thé hematoma>The superior cerebral vein drains into the\nsuperior sagittal sinus. A & re ©\nVeins of the cerebral bemiaipeeerean be capebroed into superficial and deep. The superficial\nveins chiefly drain the cad I cortex, whilé the deep veins return blood from the deep structures\nofthe cerebrum. 6} ah\nSuperficial veins: > “\n+ Superion ie? al veins:\nThese vein$ drain the upper parts of the superolateral and medial surfaces of the cerebral\nhemisphere. They drain blood into the superior sagittal sinus.\n+ Inferior cerebral veins:\nThese veins return blood from the inferior aspect of the cerebral hemisphere into the transverse,\nsuperior petrosal, cavernous and sphenoparietal sinuses. Some also drain into the inferior sagittal\nsinus.\n+ Superficial middle cerebral vein:\nThis vein receives blood from veins on the superolateral surface. It terminates in the cavernous\nsinus.\nDeep veins:\n+ Internal cerebral veins:\nThis pair of veins originates at the foramen of Munro and eventually anastomoses to form the\ngreat vein of Galen.\n\n+ Basal veins:\nThe two basal veins are closely related to the midbrain structures and drain into the great vein of\nGalen.\n+ Great cerebral vein:\nThe two internal cerebral veins unite to form the great cerebral vein before it passes beneath the\ncorpus callosum and anastomoses with the straight sinus.\ntrternal\ncorebral vein —\n———_ oe Now\na wf coeecaven\nNK Strsiont\ntrtenor snus\nsasital sinus = “y\nAnterior \\ &\ncored —— 4) | S\nBaral vein ~< i\naD wns\nSuperior anastomotic\non (rare)\nSuperior oe\nInferior anasternotic T\nain aoe) y",
+      "cleaned": "CT image showing a crescent aig hyperdense lesion, is suggestive of acute subdural\nhematoma. The head injuntO s to a tear the cerebralWeins (predominantly the bridging veins\nlike the superior cerebral vein) causing'thé hematoma>The superior cerebral vein drains into the\nsuperior sagittal sinus.\nVeins of the cerebral bemiaipeeerean be capebroed into superficial and deep. The superficial\nveins chiefly drain the cad I cortex, whilé the deep veins return blood from the deep structures\nofthe cerebrum.\nSuperficial veins: > “\nSuperion ie? al veins:\nThese vein$ drain the upper parts of the superolateral and medial surfaces of the cerebral\nhemisphere. They drain blood into the superior sagittal sinus.\nInferior cerebral veins:\nThese veins return blood from the inferior aspect of the cerebral hemisphere into the transverse,\nsuperior petrosal, cavernous and sphenoparietal sinuses. Some also drain into the inferior sagittal\nsinus.\nSuperficial middle cerebral vein:\nThis vein receives blood from veins on the superolateral surface. It terminates in the cavernous\nsinus.\nDeep veins:\nInternal cerebral veins:\nThis pair of veins originates at the foramen of Munro and eventually anastomoses to form the\ngreat vein of Galen.\nBasal veins:\nThe two basal veins are closely related to the midbrain structures and drain into the great vein of\nGalen.\nGreat cerebral vein:\nThe two internal cerebral veins unite to form the great cerebral vein before it passes beneath the\ncorpus callosum and anastomoses with the straight sinus.\ntrternal\ncorebral vein —\na wf coeecaven\nNK Strsiont\ntrtenor snus\nsasital sinus = “y\nAnterior\ncored\nBaral vein ~< i\naD wns\nSuperior anastomotic\nrare)\nSuperior oe\nInferior anasternotic T\nain aoe) y",
+      "removedFragments": [
+        "oS «< °) i x",
+        " A & re ©",
+        " 6} ah",
+        "+ ",
+        "+ ",
+        "+ ",
+        "+ ",
+        "+ ",
+        "+ ",
+        "———_ oe Now",
+        " \\ &",
+        " —— 4) | S",
+        "on ("
+      ]
+    }
+  }
+}

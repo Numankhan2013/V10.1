@@ -1,0 +1,733 @@
+{
+  "schemaVersion": 1,
+  "policy": "safe-deletion-only-v1",
+  "active": false,
+  "subject": "Physiology",
+  "chapterId": "28",
+  "questionCount": 21,
+  "questions": {
+    "marrow__PHYSIO_CH28_Q002": {
+      "id": "marrow__PHYSIO_CH28_Q002",
+      "questionNumber": 2,
+      "sourcePage": 498,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          498
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          506
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "VIQ ratio not used to determine cardiac output. »\nMeasurement of cardiac output:\n+ Fick principle\n\n+ Dye dilution/thermodilution\n\n+ Doppler plus echocardiograph\n+ MRI",
+      "cleaned": "VIQ ratio not used to determine cardiac output.\nMeasurement of cardiac output:\nFick principle\ndilution/thermodilution\nDoppler plus echocardiograph\n+ MRI",
+      "removedFragments": [
+        " »",
+        "+ ",
+        "+ Dye ",
+        "+ "
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q003": {
+      "id": "marrow__PHYSIO_CH28_Q003",
+      "questionNumber": 3,
+      "sourcePage": 498,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          498
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          506
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line"
+      ],
+      "original": "ane\n\nCardiac output in litre perghintute divides ‘by heart rate gives stroke volume.\nCardiac output is sive By, Cardiac Qiitput = Heart Rate X Stroke Volume.\n\nThe stroke volum@'S the amounbof blood pumped out of each ventricle per beat, is about 70 mL\nfrom each yenttice i in a resting man in the supine position.\n\\ =",
+      "cleaned": "ane\nCardiac output in litre perghintute divides ‘by heart rate gives stroke volume.\nCardiac output is sive By, Cardiac Qiitput = Heart Rate X Stroke Volume.\nThe stroke volum@'S the amounbof blood pumped out of each ventricle per beat, is about 70 mL\nfrom each yenttice i in a resting man in the supine position.",
+      "removedFragments": [
+        "\\ ="
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q005": {
+      "id": "marrow__PHYSIO_CH28_Q005",
+      "questionNumber": 5,
+      "sourcePage": 499,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          499
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          506,
+          507
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Cardiac index is the cardiac output per minute per square meter of body surface.\n\nCardiac Index = Cardiac output / body surface area.\n\n506 \n\n‘Therefore Cardiac index = 5L/min /1.7m2= 2.94 L",
+      "cleaned": "Cardiac index is the cardiac output per minute per square meter of body surface.\nCardiac Index = Cardiac output / body surface area.\n506\nTherefore Cardiac index = 5L/min /1.7m2= 2.",
+      "removedFragments": [
+        "‘",
+        "94 L"
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q006": {
+      "id": "marrow__PHYSIO_CH28_Q006",
+      "questionNumber": 6,
+      "sourcePage": 499,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          499
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          507
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [],
+      "original": "Volume determining preload is End diastolic volume.\n\nPreload is the initial stretch on muscle at the end of diastole. Preload is equal to End diastolic\nvolume (EDV) and is determined by venous return to heart.\n\ne",
+      "cleaned": "Volume determining preload is End diastolic volume.\nPreload is the initial stretch on muscle at the end of diastole. Preload is equal to End diastolic\nvolume (EDV) and is determined by venous return to heart.\ne",
+      "removedFragments": []
+    },
+    "marrow__PHYSIO_CH28_Q007": {
+      "id": "marrow__PHYSIO_CH28_Q007",
+      "questionNumber": 7,
+      "sourcePage": 499,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          499
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          507
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Starling's law implies increased venous return leads tajaied carigghput\nFrank-Starling law: The energy of contraction is proportional to thenitial length of the cardiac\n\nmuscle fiber. no” o Res\nThe length of the muscle fibers is propo on to the endkdistolic volute, ‘which is determined\nby venous return. ak ad <\nIncreased\nContractility\nNormal\nZ : Decreased\n4 . Contractility\n&\nC\nSi\nLVEDP (mmHg)",
+      "cleaned": "Starling's law implies increased venous return leads tajaied carigghput\nFrank-Starling law: The energy of contraction is proportional to thenitial length of the cardiac\nmuscle fiber.\nThe length of the muscle fibers is propo on to the endkdistolic volute, ‘which is determined\nby venous return.\nIncreased\nContractility\nNormal\nDecreased\nContractility\nC\nSi\nLVEDP (mmHg)",
+      "removedFragments": [
+        " no” o Res",
+        " ak ad <",
+        "Z : ",
+        "4 . ",
+        "&"
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q008": {
+      "id": "marrow__PHYSIO_CH28_Q008",
+      "questionNumber": 8,
+      "sourcePage": 499,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          499,
+          500
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          507,
+          508
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "trim_short_ocr_prefix"
+      ],
+      "original": "Venous return to the heart during quiet standing is not facilitated by increased arterial pressure.\nFactors that facilitate venous return to the heart:\n+ Calf muscles contract and pump blood through veins.\n+ Valves don't allow the retrograde flow of blood through veins.\n\n+ Deep fascia by forming a supporting structure to veins.\n\n507 \n\nNote: The pulsations of artery helps in increasing lymph flow .",
+      "cleaned": "Venous return to the heart during quiet standing is not facilitated by increased arterial pressure.\nFactors that facilitate venous return to the heart:\nCalf muscles contract and pump blood through veins.\nValves don't allow the retrograde flow of blood through veins.\nDeep fascia by forming a supporting structure to veins.\n507\nNote: The pulsations of artery helps in increasing lymph flow .",
+      "removedFragments": [
+        "+ ",
+        "+ ",
+        "+ "
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q010": {
+      "id": "marrow__PHYSIO_CH28_Q010",
+      "questionNumber": 10,
+      "sourcePage": 500,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          500
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          508,
+          509
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_brand_only_line",
+        "remove_short_ocr_noise_line",
+        "replace_literal_backslash_with_space",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "When a person changes position from standing to supine, venous return to heart rises\nimmediately. On standing, Gravitational pull causes venous pooling of blood in the legs. On\nsupine position, this gravitational pull equalizes over body, causing the pooled blood to return\nback to heart.\nOther options:\n‘Option A: Heart rate decreases because of increased cardiae output and increaned BP Mi\nbaroreceptor reflex. a\n\nwo\nOption C: Cerebral blood flow will remain constant dugefdatoregulaise\n\nOption D: Blood flow to the apex of lung will be hig due to high fdiae output.\n¢ >. a\n\nS\n\nSs\n<\n&\n\n»\nIn this case, the patient has a-eart rate oie and Fe scroke' volume din be determined\nfrom the given pressure-volume diagram \\ 2\n\nPoint 2 corresponds to the EDV Endo vole) = = 120 mL,\n\nPoint 1 corresponds to the Esy(end sstlinglime) = 50 mL.\n\nThus, stroke volume ( WV — ESV, 2430 - 50 = 70 mL\nSOF XK\n\nTherefore, cardiag gatput = =HR XSV= 70 X 70 = 4900 mL/min.\n\nes\n\nie Pressure-volume changes ir\n\nardiac cycle\n\na\n\nLett neaericuar sre\n8\n\n° re 100 140\n\nMARROW\n\n508",
+      "cleaned": "When a person changes position from standing to supine, venous return to heart rises\nimmediately. On standing, Gravitational pull causes venous pooling of blood in the legs.\nsupine position, this gravitational pull equalizes over body, causing the pooled blood to return\nback to heart.\nOther options:\nOption A: Heart rate decreases because of increased cardiae output and increaned BP Mi\nbaroreceptor reflex.\nwo\nOption C: Cerebral blood flow will remain constant dugefdatoregulaise\nOption D: Blood flow to the apex of lung will be hig due to high fdiae output.\nS\nSs\nIn this case, the patient has a-eart rate oie and Fe scroke' volume din be determined\nfrom the given pressure-volume diagram 2\nPoint 2 corresponds to the EDV Endo vole)\nPoint 1 corresponds to the Esy(end sstlinglime)\nThus, stroke volume ( WV — ESV, 2430 - 50 = 70 mL\nSOF XK\nTherefore, cardiag gatput = =HR XSV= 70 X 70 = 4900\nes\nie Pressure-volume changes ir\nardiac cycle\na\nLett neaericuar sre\n8\n° re 100 140\n508",
+      "removedFragments": [
+        " On",
+        "‘",
+        " a",
+        "¢ >. a",
+        "<",
+        "&",
+        "»",
+        " = = 120 mL,",
+        " = 50 mL.",
+        " mL/min.",
+        "MARROW"
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q012": {
+      "id": "marrow__PHYSIO_CH28_Q012",
+      "questionNumber": 12,
+      "sourcePage": 501,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          501
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          509
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "The duration of atrial diastole is 0.7 sec. €\n\nVentricles 2\nAtria\noO\n>\nne\nme)",
+      "cleaned": "The duration of atrial diastole is 0.7 sec.\nVentricles\nAtria\noO\nne",
+      "removedFragments": [
+        " €",
+        " 2",
+        ">",
+        "me)"
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q013": {
+      "id": "marrow__PHYSIO_CH28_Q013",
+      "questionNumber": 13,
+      "sourcePage": 501,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          501
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          509,
+          510
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "@ .\n‘The indication of the end of the Bovolumetric tlexation phase is when ventricular pressure falls\nbelow atrial pressure. ¢ we\n\na’\nEvents of the Cordis gear a\nDiastole op *\n\nC\n+ Protodiastglé ,\\o~\nBefore the semilunar valvé closes, even though ventricular muscle is relaxed, blood flow into great\nvessels is due to momentum of blood.\n\n+ Iso-volumetric Relaxation\n\nThe ventricular muscle continues to relax, even though the ventricular volume does not change,\nwith all valves closed.\n\n+ Ventricular Filling\n\nIsovolumetric relaxation ends when the ventricular pressure falls below the atrial pressure and the\nAV valves open, permitting the ventricles to fill.\n\n+ Atrial Systole\n\nDuring the last third of diastole, the atria contract and give additional thrust to the inflow of blood\ninto the ventricles. It correlates with ‘a' wave in JVP.\n\nsystole\n\n+ Isovolumetric Contraction\n\n509 \n\n‘The ventricular muscle continues to contract, even though the ventricular volume does not\nchange, with all valves closed.\n\nIt correlates with the ‘c’ wave of JVP.\n\n+ Ventricular Ejection\n\nWhen the ventricular pressures rise above aortic and pulmonary pressures the valves open, and\nventricular ejection begins. Peak pressures in the left and right ventricles are about 120 and 25\nmmHg, respectively.\n\nEvents of the cardiac cycle",
+      "cleaned": "indication of the end of the Bovolumetric tlexation phase is when ventricular pressure falls\nbelow atrial pressure.\nEvents of the Cordis gear a\nDiastole\nC\nProtodiastglé\nBefore the semilunar valvé closes, even though ventricular muscle is relaxed, blood flow into great\nvessels is due to momentum of blood.\nvolumetric Relaxation\nThe ventricular muscle continues to relax, even though the ventricular volume does not change,\nwith all valves closed.\nVentricular Filling\nIsovolumetric relaxation ends when the ventricular pressure falls below the atrial pressure and the\nAV valves open, permitting the ventricles to fill.\nAtrial Systole\nDuring the last third of diastole, the atria contract and give additional thrust to the inflow of blood\ninto the ventricles. It correlates with ‘a' wave in JVP.\nsystole\nIsovolumetric Contraction\n509\nventricular muscle continues to contract, even though the ventricular volume does not\nchange, with all valves closed.\nIt correlates with the ‘c’ wave of JVP.\nVentricular Ejection\nWhen the ventricular pressures rise above aortic and pulmonary pressures the valves open, and\nventricular ejection begins. Peak pressures in the left and right ventricles are about 120 and 25\nmmHg, respectively.\nEvents of the cardiac cycle",
+      "removedFragments": [
+        "@ .",
+        "‘The ",
+        " ¢ we",
+        "a’",
+        " op *",
+        "+ ",
+        " ,\\o~",
+        "+ Iso-",
+        "+ ",
+        "+ ",
+        "+ ",
+        "‘The ",
+        "+ "
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q016": {
+      "id": "marrow__PHYSIO_CH28_Q016",
+      "questionNumber": 16,
+      "sourcePage": 502,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          502
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          510,
+          511
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [],
+      "original": "510 \n\nElectromechanical systole is the time interval between Q wave and second heart sound.\n\nTo record this both ECG and phonocardiography are required.\n\nElectromechanical systole",
+      "cleaned": "510\nElectromechanical systole is the time interval between Q wave and second heart sound.\nTo record this both ECG and phonocardiography are required.\nElectromechanical systole",
+      "removedFragments": []
+    },
+    "marrow__PHYSIO_CH28_Q017": {
+      "id": "marrow__PHYSIO_CH28_Q017",
+      "questionNumber": 17,
+      "sourcePage": 502,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          502
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          511,
+          512
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_brand_only_line",
+        "remove_short_ocr_noise_line",
+        "replace_literal_backslash_with_space",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "we .\nThe pressure-volume curve is shiftedtothe left in'hitFal stenosis.\n\nS >\nThe PV loop is shifted to the igh when thereis'volume overload (increased EDY).\n\nThe PV loop is shifted to the'left in case 8f increased contractility or decreased compliance\n(decreased EDV). & ~\\\n\nEffect of ValvularDiseases on, PR Toop:\n\n+ Mitral ifeoad: Left ang\\advin.\n+ Mitral regurgitation: Width increased and height decreased.\n\n+ Aortic stenosis: Tall with steep slope.\n\n+ Aortic regurgitation: Right and tall.\n\n511 \n\nPressure-volume changes in cardiac cycle\n\nLett ntaericuar pes\n8\n\nMARROW\n\nxY ee\n\nPressure-Volume loops\n\n© portic stenosis:\n\nWrest)\n\n© Aortic regurgitation\n\npreset)\ng\n\ntv volume (nt)\n\n© Mitral stenosis\n\n1 rss nt)\n\n© Mitrat reguraitation\n\npes ft)\ng\n\nrel wie\na",
+      "cleaned": "The pressure-volume curve is shiftedtothe left in'hitFal stenosis.\nThe PV loop is shifted to the igh when thereis'volume overload (increased\nThe PV loop is shifted to the'left in case 8f increased contractility or decreased compliance\ndecreased EDV).\nEffect of ValvularDiseases on, PR Toop:\nMitral ifeoad: Left ang advin.\nMitral regurgitation: Width increased and height decreased.\nAortic stenosis: Tall with steep slope.\nAortic regurgitation: Right and tall.\n511\nPressure-volume changes in cardiac cycle\nLett ntaericuar pes\n8\nxY ee\nPressure-Volume loops\nportic stenosis:\nWrest)\nAortic regurgitation\npreset)\ng\ntv volume (nt)\nMitral stenosis\n1 rss nt)\nMitrat reguraitation\npes\ng\nrel wie\na",
+      "removedFragments": [
+        "we .",
+        "S >",
+        " EDY).",
+        "(",
+        " & ~\\",
+        "+ ",
+        "+ ",
+        "+ ",
+        "+ ",
+        "MARROW",
+        "© ",
+        "© ",
+        "© ",
+        "© ",
+        " ft)"
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q018": {
+      "id": "marrow__PHYSIO_CH28_Q018",
+      "questionNumber": 18,
+      "sourcePage": 502,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          502
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          512,
+          513
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_brand_only_line",
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Dicrotic notch is caused by closing of aortic valve.\n\n\"A\n\nThe dicrotic notch, a small oscillation in the falling phase of the pulse wave caused by vibrations\n\nset up when the aortic valve shuts.\n\n512\n\nDicrotic notch\n\nKe\n\n‘systole phase\niactdhe phase\naaa Distt pak e@\nPep tees Xx\nMARROW\nmy a\n& « s\nfe\nOn a? ow\n. | 0 raS <",
+      "cleaned": "Dicrotic notch is caused by closing of aortic valve.\nThe dicrotic notch, a small oscillation in the falling phase of the pulse wave caused by vibrations\nset up when the aortic valve shuts.\n512\nDicrotic notch\nKe\nsystole phase\niactdhe phase\naaa Distt pak e@\nPep tees Xx\nmy a\nfe\nOn a?",
+      "removedFragments": [
+        "\"A",
+        "‘",
+        "MARROW",
+        "& « s",
+        " ow",
+        ". | 0 raS <"
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q019": {
+      "id": "marrow__PHYSIO_CH28_Q019",
+      "questionNumber": 19,
+      "sourcePage": 502,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          502
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          513
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "oh KO x\nFirst heart sound and second di Sound a rns duelto ¢ Closure of atrioventricular (AV)\nand semilunar valves. co SS\nyer\nO ead\n.]",
+      "cleaned": "oh KO x\nFirst heart sound and second di Sound a rns duelto ¢ Closure of atrioventricular\nand semilunar valves.\nyer\nO ead",
+      "removedFragments": [
+        " (AV)",
+        " co SS",
+        ".]"
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q020": {
+      "id": "marrow__PHYSIO_CH28_Q020",
+      "questionNumber": 20,
+      "sourcePage": 503,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          503
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          513,
+          514
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_brand_only_line"
+      ],
+      "original": "i\nThe fourth heart sow ‘al by aitricular filling.\n\nA fourth cone fard imm ity before the first sound when atrial pressure is high or the\nventricle n cine ch as ventricular hypertrophy. It is due to ventricular filling and is\nrarely hea in normal\n\nHeart sounds in relation to ECG.\n\nsa si 82 s3\n\nMARROW\n\n513",
+      "cleaned": "i\nThe fourth heart sow ‘al by aitricular filling.\nA fourth cone fard imm ity before the first sound when atrial pressure is high or the\nventricle n cine ch as ventricular hypertrophy. It is due to ventricular filling and is\nrarely hea in normal\nHeart sounds in relation to ECG.\nsa si 82 s3\n513",
+      "removedFragments": [
+        "MARROW"
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q021": {
+      "id": "marrow__PHYSIO_CH28_Q021",
+      "questionNumber": 21,
+      "sourcePage": 503,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          503
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          514
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "‘a wave in JVP represents atrial contraction.\n\nWaves of JVP :\n\n+ a- atrial systole pushing the blood to the ventricles.\n\n+ c- isovolumetric contraction of ventricles causing the tricuspid valve to bulge.\n\n+ x’ fall in atrial pressure during ventricular systole due to pull of valve leaflets.\n\n+ ¥- venous filling which creates an increase in atrial pressure. So\n\n+ y- passive filling of ventricles by a passive flow of the blood from the right atrium.\n~ ~\n\nvp\n\nPressure —>\n\nAtrial contraction\n“reuspid vaive slevation inte the right atrium\n\n= Downward movement of the contracting right ventricle\n= Bac pressure wave from blood filing the might arin\n“Tricuspid valve opena in narly ventricular diastole\n\n<<xoe",
+      "cleaned": "wave in JVP represents atrial contraction.\nWaves of JVP :\natrial systole pushing the blood to the ventricles.\nisovolumetric contraction of ventricles causing the tricuspid valve to bulge.\nfall in atrial pressure during ventricular systole due to pull of valve leaflets.\nvenous filling which creates an increase in atrial pressure.\npassive filling of ventricles by a passive flow of the blood from the right atrium.\nvp\nPressure\nAtrial contraction\nreuspid vaive slevation inte the right atrium\nDownward movement of the contracting right ventricle\npressure wave from blood filing the might arin\nTricuspid valve opena in narly ventricular diastole",
+      "removedFragments": [
+        "‘a ",
+        "+ a- ",
+        "+ c- ",
+        "+ x’ ",
+        "+ ¥- ",
+        " So",
+        "+ y- ",
+        "~ ~",
+        " —>",
+        "“",
+        "= ",
+        "= Bac ",
+        "“",
+        "<<xoe"
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q022": {
+      "id": "marrow__PHYSIO_CH28_Q022",
+      "questionNumber": 22,
+      "sourcePage": 503,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          503
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          514,
+          515
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "‘c waves are produced by bulging of the tricuspid valve into the right atrium during the\nIso-volumetric contraction of the right ventricle.\n\n514 \n\nWw - @\n) <? >\noh rr. 3\nThe x descent in jugular venousipressure corresponds to the wntricular systole of the cardiac\ncyde. rae) NS SS\nThe jugular venous pulse go e~\n* The waves in JVP reflect the pressure changes the right atrium.\n\n+ The internal jugular veingg preferred becatiée the external jugular vein is valved and not directly\nin line with the superi",
+      "cleaned": "waves are produced by bulging of the tricuspid valve into the right atrium during the\nvolumetric contraction of the right ventricle.\n514\noh rr.\nThe x descent in jugular venousipressure corresponds to the wntricular systole of the cardiac\ncyde.\nThe jugular venous pulse go e~\nwaves in JVP reflect the pressure changes the right atrium.\ninternal jugular veingg preferred becatiée the external jugular vein is valved and not directly\nin line with the superi",
+      "removedFragments": [
+        "‘c ",
+        "Iso-",
+        "Ww - @",
+        ") <? >",
+        " 3",
+        " rae) NS SS",
+        "* The ",
+        "+ The "
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q023": {
+      "id": "marrow__PHYSIO_CH28_Q023",
+      "questionNumber": 23,
+      "sourcePage": 503,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          503,
+          504
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          515,
+          516
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "trim_short_ocr_prefix"
+      ],
+      "original": "Ly vetume\n\n+ a wave: Corresponds to right atrial contraction.\n\n+ c wave: Corresponds to the bulging of the tricuspid valve into the right atrium during\nisovolumetric ventricular contraction.\n\n515 \n\n+ x descent: Corresponds to the atrial relaxation as the ventricular systole pulls the tricuspid valve\nduring ejection.\n+ v wave: Corresponds to the venous filling of the right atrium against a closed tricuspid valve.\n\n+ y descent: Corresponds to fall in right atrial pressure during passive emptying of the right atrium\ninto the right ventricle.",
+      "cleaned": "Ly vetume\nwave: Corresponds to right atrial contraction.\nwave: Corresponds to the bulging of the tricuspid valve into the right atrium during\nisovolumetric ventricular contraction.\n515\ndescent: Corresponds to the atrial relaxation as the ventricular systole pulls the tricuspid valve\nduring ejection.\nwave: Corresponds to the venous filling of the right atrium against a closed tricuspid valve.\ndescent: Corresponds to fall in right atrial pressure during passive emptying of the right atrium\ninto the right ventricle.",
+      "removedFragments": [
+        "+ a ",
+        "+ c ",
+        "+ x ",
+        "+ v ",
+        "+ y "
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q024": {
+      "id": "marrow__PHYSIO_CH28_Q024",
+      "questionNumber": 24,
+      "sourcePage": 504,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          504
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          516
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "'C wave in JVP represents tricuspid bulge into right atrium during isovolumetric yentricular\ncontraction. eo\n\nCharacteristics of JVP\n\n* a wave corresponds to atrial systole which causes stron of pers into the great\n\nveins. ~\nan&\n\n+ ¢ wave occurs due to the increase in atrial piestre caused by? PBulging of the. e tricuspid valve into\nthe right atrium during isovolumetric ventricilar contraction. “~~\n\nin atrial presets venti cule ystole due to pulling of\n\n©\n\n+x descent occurs due to the fall\nvalve leaflets.\n\n+ v wave is seen at the endof ventricular Petion andé@eurs due to the slow venous filling\n\nwhich causes an increase in’atrial pre: ex\nP Bere <e\n* y descent occurs due to the passive e emptying, ofthe right atrium into the right ventricle.\n\nLy vetume",
+      "cleaned": "wave in JVP represents tricuspid bulge into right atrium during isovolumetric yentricular\ncontraction.\nCharacteristics of JVP\nwave corresponds to atrial systole which causes stron of pers into the great\nveins.\nwave occurs due to the increase in atrial piestre caused by? PBulging of the. e tricuspid valve into\nthe right atrium during isovolumetric ventricilar contraction.\nin atrial presets venti cule ystole due to pulling of\ndescent occurs due to the fall\nvalve leaflets.\nwave is seen at the endof ventricular Petion andé@eurs due to the slow venous filling\nwhich causes an increase in’atrial pre: ex\nP Bere <e\ndescent occurs due to the passive e emptying, ofthe right atrium into the right ventricle.\nLy vetume",
+      "removedFragments": [
+        "'C ",
+        " eo",
+        "* a ",
+        " ~",
+        "an&",
+        "+ ¢ ",
+        " “~~",
+        "©",
+        "+x ",
+        "+ v ",
+        "* y "
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q025": {
+      "id": "marrow__PHYSIO_CH28_Q025",
+      "questionNumber": 25,
+      "sourcePage": 504,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          504
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          516,
+          517
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix"
+      ],
+      "original": "Reflex responsible for tachycardia during right atrial distension is Bainbridge reflex.\n\n516 \n\nAtrial Reflex Control of Heart Rate: The Bainbridge Reflex\n\n+ The stretch receptors of the atria that elicit the Bainbridge reflex transmit their afferent signals\nthrough the vagus nerves to the medulla of the brain.\n\n+ Then efferent signals are transmitted back through vagal and sympathetic nerves to increase\nheart rate and strength of heart contraction.\n\nBezold-Jarisch Reflex:\n\n+ Activation of chemosensitive vagal C fibres in the cardiopulmonary region (e.g. Juxta capillary\nregion of alveoli, ventricles, atria, great veins, and pulmonary artery) causes profound brady-\ncardia, hypotension and a brief period of apnea followed by rapid shallow breathing.\n\nCushing Reflex: ve\"\n\n+ When ICP is increased, the blood supply to RVLM neurons is compromised\n\n+ The local hypoxia and hypercapnia causes an increase if Aicharge fi fo@hthe neurons, producing\nhypertension, bradycardia and irregular respirationn™\n\n. A\n+ The resultant rise in systemic arterial pressyreitends to restore the blood fldw to the medulla.",
+      "cleaned": "Reflex responsible for tachycardia during right atrial distension is Bainbridge reflex.\n516\nAtrial Reflex Control of Heart Rate: The Bainbridge Reflex\nstretch receptors of the atria that elicit the Bainbridge reflex transmit their afferent signals\nthrough the vagus nerves to the medulla of the brain.\nThen efferent signals are transmitted back through vagal and sympathetic nerves to increase\nheart rate and strength of heart contraction.\nBezold-Jarisch Reflex:\nActivation of chemosensitive vagal C fibres in the cardiopulmonary region (e.g. Juxta capillary\nregion of alveoli, ventricles, atria, great veins, and pulmonary artery) causes profound brady-\ncardia, hypotension and a brief period of apnea followed by rapid shallow breathing.\nCushing Reflex: ve\"\nWhen ICP is increased, the blood supply to RVLM neurons is compromised\nlocal hypoxia and hypercapnia causes an increase if Aicharge fi fo@hthe neurons, producing\nhypertension, bradycardia and irregular respirationn™\nresultant rise in systemic arterial pressyreitends to restore the blood fldw to the medulla.",
+      "removedFragments": [
+        "+ The ",
+        "+ ",
+        "+ ",
+        "+ ",
+        "+ The ",
+        ". A",
+        "+ The "
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q026": {
+      "id": "marrow__PHYSIO_CH28_Q026",
+      "questionNumber": 26,
+      "sourcePage": 504,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          504
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          517,
+          518
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_brand_only_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "The correct sequence of fens: that ocauPher the p+ wave ‘is 1-2-4-3, ie:\na wave in JVP > First heart sound_ Ss oT wave in 1 BES — Rapid filling of ventricles.\nThe sequence of the events indie ‘question, eae better understood with the following diagram:\n\nq an ee\nLLEE GS oO\n\nMARROW\n\n+ The p wave in the ECG represents atrial depolarization, which causes contraction of the atria,\nrepresented by the ‘a’ wave in the JVP. Atrial contraction causes final filling of the ventricles\n(fourth phase of ventricular diastole)\n\n517 \n\n+ Atrial contraction is followed by the closure of the mitral valve, which causes the first-heart\nsound.\n\n+ This is followed by the isovolumetric contraction of the ventricle, which causes ¢ wave in JVP,\ndue to bulging of the tricuspid valve. This is followed by the rapid ejection phase of the ventricle.\n\n+ The T wave of ECG occurs during ventricular repolarization, which is followed by the opening of\nthe mitral valve, followed by rapid filling phase of the ventricle (second phase of ventricular\n\ndiastole).\n\nNote: Passive rapid filling occurs as the mitral valve opens just before atrial contraction occurs.",
+      "cleaned": "The correct sequence of fens: that ocauPher the p+ wave ‘is\na wave in JVP > First heart sound_ Ss oT wave in 1 BES — Rapid filling of ventricles.\nThe sequence of the events indie ‘question, eae better understood with the following diagram:\nq an ee\nLLEE GS oO\n+ The p wave in the ECG represents atrial depolarization, which causes contraction of the atria,\nrepresented by the ‘a’ wave in the JVP. Atrial contraction causes final filling of the ventricles\nfourth phase of ventricular diastole)\n517\nAtrial contraction is followed by the closure of the mitral valve, which causes the first-heart\nsound.\nThis is followed by the isovolumetric contraction of the ventricle, which causes ¢ wave in JVP,\ndue to bulging of the tricuspid valve. This is followed by the rapid ejection phase of the ventricle.\n+ The T wave of ECG occurs during ventricular repolarization, which is followed by the opening of\nthe mitral valve, followed by rapid filling phase of the ventricle (second phase of ventricular\ndiastole).\nNote: Passive rapid filling occurs as the mitral valve opens just before atrial contraction occurs.",
+      "removedFragments": [
+        " 1-2-4-3, ie:",
+        "MARROW",
+        "(",
+        "+ ",
+        "+ "
+      ]
+    },
+    "marrow__PHYSIO_CH28_Q027": {
+      "id": "marrow__PHYSIO_CH28_Q027",
+      "questionNumber": 27,
+      "sourcePage": 504,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          504,
+          505
+        ],
+        "answerKeyPages": [
+          505
+        ],
+        "explanationPages": [
+          518
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line"
+      ],
+      "original": "Cardiac output is increased in pregnancy.\n\nEffect of various conditions on cardiac output: Pes\n\nxo\n> fob 4 S\nne\nPe\n~\nIncreas | Anxiety and excitementEatin\ne gExerciseHigh environmental\nral temperaturePregnancyEpine\nphrine\nDecrea | Sitting or standing from lying\nse positionRapid arrhythmiasH\neart disease\n\n518",
+      "cleaned": "Cardiac output is increased in pregnancy.\nEffect of various conditions on cardiac output: Pes\nxo\n> fob 4 S\nne\nPe\nIncreas | Anxiety and excitementEatin\ne gExerciseHigh environmental\nral temperaturePregnancyEpine\nphrine\nDecrea | Sitting or standing from lying\nse positionRapid arrhythmiasH\neart disease\n518",
+      "removedFragments": [
+        "~"
+      ]
+    }
+  }
+}

@@ -1,0 +1,520 @@
+{
+  "schemaVersion": 1,
+  "policy": "safe-deletion-only-v1",
+  "active": false,
+  "subject": "Biochemistry",
+  "chapterId": "18",
+  "questionCount": 13,
+  "questions": {
+    "marrow__BIOCHEM_CH18_Q001": {
+      "id": "marrow__BIOCHEM_CH18_Q001",
+      "questionNumber": 1,
+      "sourcePage": 283,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          283
+        ],
+        "answerKeyPages": [
+          288,
+          289
+        ],
+        "explanationPages": [
+          289
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Enzymes are not heat-stable. ~~ ‘ x\nMost enzymes are proteins and are thus susceptible to heat--Many enzymés-also have temperature\nranges at which they are most active, and*they get deactivated at temperatures higher than the\n\n3 i F\n\naforementioned range. ‘ x* s\n\nCoenzymes are heat-stable. Enzymes are stereospecific catalysts. They are neither consumed nor\npermanently altered in a reaction. Most of,them are proteins except ribozymes. A ribozyme is\nRNA with catalytic activity. Some examples of ribozymes are:\n• Sn Rna in the spliceosome. > *\n• Ribonuclease P cs x\n• Peptidyl transferase(™ ~~\n\n« RNAse P",
+      "cleaned": "Enzymes are not heat-stable.\nMost enzymes are proteins and are thus susceptible to heat--Many enzymés-also have temperature\nranges at which they are most active, and*they get deactivated at temperatures higher than the\n3 i F\naforementioned range.\nCoenzymes are heat-stable. Enzymes are stereospecific catalysts. They are neither consumed nor\npermanently altered in a reaction. Most of,them are proteins except ribozymes. A ribozyme is\nRNA with catalytic activity. Some examples of ribozymes\n• Sn Rna in the spliceosome.\nRibonuclease P cs x\nPeptidyl transferase(™\nRNAse P",
+      "removedFragments": [
+        " ~~ ‘ x",
+        " ‘ x* s",
+        " are:",
+        " > *",
+        "• ",
+        "• ",
+        " ~~",
+        "« "
+      ]
+    },
+    "marrow__BIOCHEM_CH18_Q003": {
+      "id": "marrow__BIOCHEM_CH18_Q003",
+      "questionNumber": 3,
+      "sourcePage": 283,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          283
+        ],
+        "answerKeyPages": [
+          288,
+          289
+        ],
+        "explanationPages": [
+          290
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "The prosthetic group present in dinitrogenase is Molybdenum.\n\nProsthetic groups are non-protein part of a holoenzyme which are tightly and irreversibly bound\nto the protein part by covalent or noncovalent forces. The prosthetic group may be organic (such\nas a vitamin, sugar, or lipid) or inorganic (such as a metal ion). Metal ions constitute the most\ncommon type of prosthetic group.\n\nIf an enzyme uses metal ion as a prosthetic group it is called a metalloenzyme. Metalloenzymes\n\nhave metal ions as an integral part of their structure. ~eX\nActive enzyme = Non-protein part + Protein part\nHoloenzyme | Apoenzyme x\nf t\nInseparable from protein If separable from protein\npart part, it is called as Cofactor\n\nProsthetic group\n\nOrganic Inorganic\n| (Metal)\n\n(Metal) omen’ Cofactor\nMetalloenzymes Metal-activated\nenzymes\n. ,\n— rd\n.\n4, _",
+      "cleaned": "The prosthetic group present in dinitrogenase is Molybdenum.\nProsthetic groups are non-protein part of a holoenzyme which are tightly and irreversibly bound\nto the protein part by covalent or noncovalent forces. The prosthetic group may be organic (such\nas a vitamin, sugar, or lipid) or inorganic (such as a metal ion). Metal ions constitute the most\ncommon type of prosthetic group.\nIf an enzyme uses metal ion as a prosthetic group it is called a metalloenzyme. Metalloenzymes\nhave metal ions as an integral part of their structure.\nActive enzyme = Non-protein part + Protein part\nHoloenzyme | Apoenzyme x\nf t\nInseparable from protein If separable from protein\npart part, it is called as Cofactor\nProsthetic group\nOrganic Inorganic\nMetal)\nMetal) omen’ Cofactor\nMetalloenzymes Metal-activated\nenzymes",
+      "removedFragments": [
+        " ~eX",
+        "| (",
+        "(",
+        ". ,",
+        "— rd",
+        ".",
+        "4, _"
+      ]
+    },
+    "marrow__BIOCHEM_CH18_Q005": {
+      "id": "marrow__BIOCHEM_CH18_Q005",
+      "questionNumber": 5,
+      "sourcePage": 284,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          284
+        ],
+        "answerKeyPages": [
+          288,
+          289
+        ],
+        "explanationPages": [
+          290,
+          291
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "S-adenosyl methionine is not a coenzyme. Its a methyl group donor.\n\nCoenzymes are cofactors in which organic compound is present. Coenzymes transiently and\n\nreversibly bind to the enzyme to catalyze the reaction. They play an important role as a two-way\nshuttle.\n\nSome coenzymes:\n• Coenzyme A\n« ATP/GTP\n\n• NAD/NADP\n• FAD/FMN\n• Lipoic acid\n• B-complex vitamins\n• Vitamin C\n• Vitamin K\n\nActive enzyme = —Non-protein part + Protein part &\nVG\n\nHoloenzyme | Apoenzyme ¢\nInseparable from protein If separable from protein\npart part, it is called as Cofactor\nProsthetic group &\nOrganic Inorganic »\nT (Metal)\ninoroante Coenzyme $\n(Metal) organic Cofactor\nMetalloenzymes Metal-activated\nenzymes\n\n. s\n\n» \\\n‘a 7",
+      "cleaned": "adenosyl methionine is not a coenzyme. Its a methyl group donor.\nCoenzymes are cofactors in which organic compound is present. Coenzymes transiently and\nreversibly bind to the enzyme to catalyze the reaction. They play an important role as a two-way\nshuttle.\nSome coenzymes:\nCoenzyme A\n« ATP/GTP\nNADP\n• FAD/FMN\nLipoic acid\ncomplex vitamins\nVitamin C\nVitamin K\nActive enzyme = —Non-protein part + Protein part &\nVG\nHoloenzyme | Apoenzyme\nInseparable from protein If separable from protein\npart part, it is called as Cofactor\nProsthetic group &\nOrganic Inorganic\nMetal)\ninoroante Coenzyme $\nMetal) organic Cofactor\nMetalloenzymes Metal-activated\nenzymes",
+      "removedFragments": [
+        "S-",
+        "• ",
+        "• NAD/",
+        "• ",
+        "• B-",
+        "• ",
+        "• ",
+        " ¢",
+        " »",
+        "T (",
+        "(",
+        ". s",
+        "» \\",
+        "‘a 7"
+      ]
+    },
+    "marrow__BIOCHEM_CH18_Q006": {
+      "id": "marrow__BIOCHEM_CH18_Q006",
+      "questionNumber": 6,
+      "sourcePage": 284,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          284
+        ],
+        "answerKeyPages": [
+          288,
+          289
+        ],
+        "explanationPages": [
+          291,
+          292
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "A.\n\nEnzymes that. use’metal-ion asia Cofactor are termed as metal-activated enzymes (and\nnot metalloenzymes). ©\nMetalloenzymes are prosthetic groups in which the metal is tightly and irreversibly bound to the\nenzyme. The metal forms an integral part of its active structure. Metal-activated enzymes are\nthose that have a cofactor containing metal (inorganic) which are loosely and reversibly bound to\n\nthe enzyme. They show enhanced activity in the addition of metal.\n\nA cofactor is a non-protein part of a holoenzyme that can be separated part from the protein part.\nCofactors are mostly metal ions or inorganic. If an organic compound is present in a cofactor, it is\ncalled a coenzyme. Cofactors serve functions similar to those of prosthetic groups. Cofactors bind\nin a transient, dissociable manner to enzymes. Cofactors must be present in the medium\nsurrounding the enzyme for catalysis to occur.\n\nActive enzyme = =\n\nHoloenzyme\n\nNon-protein part +\n\nProtein part\n\nApoenzyme\n\nInseparable from protein\npart\n\nProsthetic group\n\n——\n\nInorganic\n(Metal)\n\nt\n\nMetalloenzymes\n\nOrganic",
+      "cleaned": "Enzymes that. use’metal-ion asia Cofactor are termed as metal-activated enzymes (and\nnot metalloenzymes).\nMetalloenzymes are prosthetic groups in which the metal is tightly and irreversibly bound to the\nenzyme. The metal forms an integral part of its active structure. Metal-activated enzymes are\nthose that have a cofactor containing metal (inorganic) which are loosely and reversibly bound to\nthe enzyme. They show enhanced activity in the addition of metal.\nA cofactor is a non-protein part of a holoenzyme that can be separated part from the protein part.\nCofactors are mostly metal ions or inorganic. If an organic compound is present in a cofactor, it is\ncalled a coenzyme. Cofactors serve functions similar to those of prosthetic groups. Cofactors bind\nin a transient, dissociable manner to enzymes. Cofactors must be present in the medium\nsurrounding the enzyme for catalysis to occur.\nActive enzyme = =\nHoloenzyme\nprotein part +\nProtein part\nApoenzyme\nInseparable from protein\npart\nProsthetic group\nInorganic\nMetal)\nt\nMetalloenzymes\nOrganic",
+      "removedFragments": [
+        "A.",
+        " ©",
+        "Non-",
+        "——",
+        "("
+      ]
+    },
+    "marrow__BIOCHEM_CH18_Q007": {
+      "id": "marrow__BIOCHEM_CH18_Q007",
+      "questionNumber": 7,
+      "sourcePage": 284,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          284
+        ],
+        "answerKeyPages": [
+          288,
+          289
+        ],
+        "explanationPages": [
+          292
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix"
+      ],
+      "original": "re)\n\na)\n\nIf separable from protein\npart, it is called as Cofactor\n\nOrganic Inorganic\n| (Metal)\nCoenzyme t\nCofactor\n\nMetal-activated\n\nenzymes\n. % 4\nC <N\n< > f\n.~ - 2 *\n~ 2 <<‘\nro% <\n\" 7\n‘OC ~<*\ni »,\n\nHydrolases are not involved in oxidation-reduction reactions: Hydrolases are involved in the\n\nhydrolysis of the substrate: using water.",
+      "cleaned": "If separable from protein\npart, it is called as Cofactor\nOrganic Inorganic\nMetal)\nCoenzyme t\nCofactor\nMetal-activated\nenzymes\nHydrolases are not involved in oxidation-reduction reactions: Hydrolases are involved in the\nhydrolysis of the substrate: using water.",
+      "removedFragments": [
+        "re)",
+        "a)",
+        "| (",
+        ". % 4",
+        "C <N",
+        "< > f",
+        ".~ - 2 *",
+        "~ 2 <<‘",
+        "ro% <",
+        "\" 7",
+        "‘OC ~<*",
+        "i »,"
+      ]
+    },
+    "marrow__BIOCHEM_CH18_Q008": {
+      "id": "marrow__BIOCHEM_CH18_Q008",
+      "questionNumber": 8,
+      "sourcePage": 284,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          284,
+          285
+        ],
+        "answerKeyPages": [
+          288,
+          289
+        ],
+        "explanationPages": [
+          292
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "trim_short_ocr_prefix"
+      ],
+      "original": "G\n\nTryptophan pyrrolaseds t lot a mono ‘ox¥genase. Its a di-oxygenase.\n\nOxygenases catalyzes the incoxporation of oxygen into a substrate. Oxygenases are of two types:\n\n1) Mono-ox¥gentases (Hydroxylases/ Mixed-function oxidases): Incorporate one atom of oxygen\n\ninto the substrate.\nExamples:\n• Tryptophan hydroxylase\n• Tyrosine hydroxylase\n• Cytochrome p450\n• Phenylalanine hydroxylase\n• 7-alpha hydroxylases\n\n2) Di-oxygenases: Incorporate two atoms of oxygen into a substrate.\n\nExamples:\n• Tryptophan pyrrolase\n• Homogentisate di-oxygenase (previously known as homogentisate oxidase)",
+      "cleaned": "G\nTryptophan pyrrolaseds t lot a mono ‘ox¥genase. Its a di-oxygenase.\nOxygenases catalyzes the incoxporation of oxygen into a substrate. Oxygenases are of two types:\nMono-ox¥gentases (Hydroxylases/ Mixed-function oxidases): Incorporate one atom of oxygen\ninto the substrate.\nExamples:\nTryptophan hydroxylase\nTyrosine hydroxylase\nCytochrome p450\nPhenylalanine hydroxylase\nalpha hydroxylases\noxygenases: Incorporate two atoms of oxygen into a substrate.\nExamples:\nTryptophan pyrrolase\nHomogentisate di-oxygenase (previously known as homogentisate oxidase)",
+      "removedFragments": [
+        "1) ",
+        "• ",
+        "• ",
+        "• ",
+        "• ",
+        "• 7-",
+        "2) Di-",
+        "• ",
+        "• "
+      ]
+    },
+    "marrow__BIOCHEM_CH18_Q010": {
+      "id": "marrow__BIOCHEM_CH18_Q010",
+      "questionNumber": 10,
+      "sourcePage": 285,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          285
+        ],
+        "answerKeyPages": [
+          288,
+          289
+        ],
+        "explanationPages": [
+          293
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "replace_literal_backslash_with_space",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Aldolase B is a lyase.\n\nLyases are enzymes that catalyze.the cleavage of C-C, C-O, C-N and other covalent bonds by atom\nelimination generating double bonds.\n\nSome examples of lyase s include:\n• HMG-CoA lyase, ‘\n• Argininosuccinate lyase _.\\>\n\n“‘s\"\n• ATP citrate lyase \\\n• Aldolase\n\n« Fumarase",
+      "cleaned": "Aldolase B is a lyase.\nLyases are enzymes that catalyze.the cleavage of C-C, C-O, C-N and other covalent bonds by atom\nelimination generating double bonds.\nSome examples of lyase s include:\nlyase,\nArgininosuccinate lyase _.\ncitrate lyase\nAldolase\nFumarase",
+      "removedFragments": [
+        "• HMG-CoA ",
+        " ‘",
+        "• ",
+        "\\>",
+        "“‘s\"",
+        "• ATP ",
+        "• ",
+        "« "
+      ]
+    },
+    "marrow__BIOCHEM_CH18_Q012": {
+      "id": "marrow__BIOCHEM_CH18_Q012",
+      "questionNumber": 12,
+      "sourcePage": 285,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          285
+        ],
+        "answerKeyPages": [
+          288,
+          289
+        ],
+        "explanationPages": [
+          293,
+          294
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix"
+      ],
+      "original": "Lipoprotein lipase is not a non-functional enzyme. It is a functional enzyme.\n\nFunctional enzymes have a specific function in the plasma such as coagulation factors,\npseudocholinesterases, and lipoprotein lipases.\n\nNonfunctional enzymes have no specific function in the plasma.\n• They are released from the cells as a result of normal wear and tear. Their level is very low in\nserum.\n• They serve as biomarkers whose levels in the plasma can assist in the diagnosis and prognosis of\ndiseases affecting specific tissues.\n• Eg: Lactate dehydrogenase, Creatine kinase, alkaline phosphatase, gamma glutamyl\ntranspeptidase.\n\n. Oo",
+      "cleaned": "Lipoprotein lipase is not a non-functional enzyme. It is a functional enzyme.\nFunctional enzymes have a specific function in the plasma such as coagulation factors,\npseudocholinesterases, and lipoprotein lipases.\nNonfunctional enzymes have no specific function in the plasma.\nThey are released from the cells as a result of normal wear and tear. Their level is very low in\nserum.\nThey serve as biomarkers whose levels in the plasma can assist in the diagnosis and prognosis of\ndiseases affecting specific tissues.\nLactate dehydrogenase, Creatine kinase, alkaline phosphatase, gamma glutamyl\ntranspeptidase.",
+      "removedFragments": [
+        "• ",
+        "• ",
+        "• Eg: ",
+        ". Oo"
+      ]
+    },
+    "marrow__BIOCHEM_CH18_Q013": {
+      "id": "marrow__BIOCHEM_CH18_Q013",
+      "questionNumber": 13,
+      "sourcePage": 286,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          286
+        ],
+        "answerKeyPages": [
+          288,
+          289
+        ],
+        "explanationPages": [
+          294
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "50° et\n.\n\nIsoenzymes do not have the same number of chain amino acide, z\n\nIsoenzymes are physically distinct forms of fhe same enzymeThey catalyze tiie same reaction but\ndiffer in the following: a? < .\n• Amino acid sequence and the romapler changed.aino acids a\n• Subunit composition: CK-1 Bains BB whilé €K- -2 contains MB subunits\n• Electrophoretic mobility=OK= 1 moves sor than CK; 3\n• Tissue localization: CK-1 is presenti the bral OR: +2 in the heart\n• Substrate affinity: Glucokinase fas low affinity but hexokinase has high affinity.\n\nq\\ cae",
+      "cleaned": "50° et\nIsoenzymes do not have the same number of chain amino acide, z\nIsoenzymes are physically distinct forms of fhe same enzymeThey catalyze tiie same reaction but\ndiffer in the following:\nAmino acid sequence and the romapler changed.aino acids a\nSubunit composition: CK-1 Bains BB whilé €K- -2 contains MB subunits\nElectrophoretic mobility=OK= 1 moves sor than CK; 3\nTissue localization: CK-1 is presenti the bral OR: +2 in the heart\nSubstrate affinity: Glucokinase fas low affinity but hexokinase has high affinity.",
+      "removedFragments": [
+        ".",
+        " a? < .",
+        "• ",
+        "• ",
+        "• ",
+        "• ",
+        "• ",
+        "q\\ cae"
+      ]
+    },
+    "marrow__BIOCHEM_CH18_Q014": {
+      "id": "marrow__BIOCHEM_CH18_Q014",
+      "questionNumber": 14,
+      "sourcePage": 286,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          286
+        ],
+        "answerKeyPages": [
+          288,
+          289
+        ],
+        "explanationPages": [
+          294,
+          295
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix"
+      ],
+      "original": "Oo —\n\nThe getie scenafthor a woman with fragmented RBCs and decreased RBCs is suggestive\nof hemolytic anemia. LDH1 and LDH-2 isoenzymes are expressed in the RBC and particularly\nraised during hemolysis.\n\nLDH is a tetrameric enzyme with 4 subunits. It has four subunits with two isoforms: H-isoform\n(Heart) and M-isoform (Muscle)\n\nLDH- | HHHH Heart and RBC\n1\n\nLDH- | HHHM RBC and kidney\n\nLDH- | HHMM Lungs, Spleen, Brain, Lymph\n\n3 atic tissues, Platelets\nLDH- | HMMM fs Liver and skeletal muscle\n4\n\nLDH- | MMMM | Liver and skeletal muscle",
+      "cleaned": "The getie scenafthor a woman with fragmented RBCs and decreased RBCs is suggestive\nof hemolytic anemia. LDH1 and LDH-2 isoenzymes are expressed in the RBC and particularly\nraised during hemolysis.\nLDH is a tetrameric enzyme with 4 subunits. It has four subunits with two isoforms: H-isoform\nHeart) and M-isoform (Muscle)\nHHHH Heart and RBC\n1\nHHHM RBC and kidney\nHHMM Lungs, Spleen, Brain, Lymph\natic tissues, Platelets\nHMMM fs Liver and skeletal muscle\n4\nMMMM | Liver and skeletal muscle",
+      "removedFragments": [
+        "Oo —",
+        "(",
+        "LDH- | ",
+        "LDH- | ",
+        "LDH- | ",
+        "3 ",
+        "LDH- | ",
+        "LDH- | "
+      ]
+    },
+    "marrow__BIOCHEM_CH18_Q015": {
+      "id": "marrow__BIOCHEM_CH18_Q015",
+      "questionNumber": 15,
+      "sourcePage": 286,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          286,
+          287
+        ],
+        "answerKeyPages": [
+          288,
+          289
+        ],
+        "explanationPages": [
+          295
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "The given clinical scenario of sudden onset chest pain with profuse sweating and 12 Lead\nElectrocardiogram (ECG) with ST-segment elevation in Leads II, III, and aVF is suggestive of\nmyocardial Infarction. Serum LDH 1 > LDH 2 levels are seen in this condition.\n\nUnder normal conditions, LDH 2 is predominantly presentin n the blood EDH 1is\npredominantly present in the heart. So, normally LDH | &gt LDH 1 in blood. When cardiac tissue\nis damaged LDH 1 is released into the Pret Lbae results i ing flipped lactate\n\ndehydrogenase (LDH) ratio where LDH 1 > nS\nLDH is a tetrameric enzyme with 4 subunits’ Cm four 1 subg with storms H isoform\n(heart) and M isoform (muscle) . WY as ws\n\n‘ a oO AY\n\nLDH- | HHHH Heart and RBC\n1\n\nLDH- | HHHM RBC and kidneys\n\n< LDH- | HHMM Lungs, brain, lymphatic tissu\n\n5 13 es, and platelets\n‘ ~~ LDH- | HMMM [fs Liver and skeletal muscle\nNK 4\nLDH- | MMMM | Liver and skeletal muscle\n5",
+      "cleaned": "The given clinical scenario of sudden onset chest pain with profuse sweating and 12 Lead\nElectrocardiogram (ECG) with ST-segment elevation in Leads II, III, and aVF is suggestive of\nmyocardial Infarction. Serum LDH 1 > LDH 2 levels are seen in this condition.\nUnder normal conditions, LDH 2 is predominantly presentin n the blood EDH 1is\npredominantly present in the heart. So, normally LDH | &gt LDH 1 in blood. When cardiac tissue\nis damaged LDH 1 is released into the Pret Lbae results i ing flipped lactate\ndehydrogenase (LDH) ratio where LDH 1 > nS\nLDH is a tetrameric enzyme with 4 subunits’ Cm four 1 subg with storms H isoform\nheart) and M isoform (muscle) .\n‘ a oO AY\nHHHH Heart and RBC\n1\nHHHM RBC and kidneys\nHHMM Lungs, brain, lymphatic tissu\n5 13 es, and platelets\nHMMM [fs Liver and skeletal muscle\nNK\nMMMM | Liver and skeletal muscle\n5",
+      "removedFragments": [
+        "(",
+        " WY as ws",
+        "LDH- | ",
+        "LDH- | ",
+        "< LDH- | ",
+        "‘ ~~ LDH- | ",
+        " 4",
+        "LDH- | "
+      ]
+    },
+    "marrow__BIOCHEM_CH18_Q016": {
+      "id": "marrow__BIOCHEM_CH18_Q016",
+      "questionNumber": 16,
+      "sourcePage": 287,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          287
+        ],
+        "answerKeyPages": [
+          288,
+          289
+        ],
+        "explanationPages": [
+          295,
+          296
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix"
+      ],
+      "original": "The enzyme most specific for his condition, acute viral hepatitis, is alanine aminotransferase\n(ALT).\n\nAlanine aminotransferase (ALT) is predominantly found in the liver and therefore is a more\nspecific marker for hepatocellular damage than AST.\n\nAspartate aminotransferase (AST) is found in various tissues. The AST/ALT ratio is very\nimportant.\n• AST/ALT &lt;1 is seen in hepatocellular damage like in NAFLD, toxic hepatitis, paracetamol\ntoxicity. In cirrhosis, the ratio becomes more than 1.\n\n• AST/ALT> 2 is suggestive while AST/ALT> 3 is highly suggestive of alcoholic liver disease.\nOther options:\n\nOption A: Alkaline phosphatase rise is seen in many liver diseases but more than fourfold rise\nindicates cholestasis.\n\nOption D: GGT is used to identify occult alcohol use.",
+      "cleaned": "The enzyme most specific for his condition, acute viral hepatitis, is alanine aminotransferase\nAlanine aminotransferase (ALT) is predominantly found in the liver and therefore is a more\nspecific marker for hepatocellular damage than AST.\nAspartate aminotransferase (AST) is found in various tissues. The AST/ALT ratio is very\nimportant.\nseen in hepatocellular damage like in NAFLD, toxic hepatitis, paracetamol\ntoxicity. In cirrhosis, the ratio becomes more than 1.\nsuggestive while AST/ALT> 3 is highly suggestive of alcoholic liver disease.\nOther options:\nOption A: Alkaline phosphatase rise is seen in many liver diseases but more than fourfold rise\nindicates cholestasis.\nOption D: GGT is used to identify occult alcohol use.",
+      "removedFragments": [
+        "(ALT).",
+        "• AST/ALT &lt;1 is ",
+        "• AST/ALT> 2 is "
+      ]
+    },
+    "marrow__BIOCHEM_CH18_Q017": {
+      "id": "marrow__BIOCHEM_CH18_Q017",
+      "questionNumber": 17,
+      "sourcePage": 287,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          287,
+          288
+        ],
+        "answerKeyPages": [
+          288,
+          289
+        ],
+        "explanationPages": [
+          296
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Chymotrypsinogen is a zymogen. Its active form chymotrypsin is a serine proteasé”\n\nSerine proteases are proteolytic enzymes having serine, histidine and aspartate at the active site.\nActive site consists of two binding sites and a catalytic siten While serine iSpresent in the catalytic\nsite of serine proteases, histidine and aspartate are present on binding sites. Serine proteases\ndiffer in substrate specificity.\n\nExamples of serine proteases : ‘. o .<\n• Chymotrypsin 0 rae a\n• Trypsin ks »\n• Elastase an aN -\n• Thrombin\n• Plasmin\n• Complements\n• Factor X and XI a ‘ »\n• Prostate-specific antigen.\n\n.",
+      "cleaned": "Chymotrypsinogen is a zymogen. Its active form chymotrypsin is a serine proteasé”\nSerine proteases are proteolytic enzymes having serine, histidine and aspartate at the active site.\nActive site consists of two binding sites and a catalytic siten While serine iSpresent in the catalytic\nsite of serine proteases, histidine and aspartate are present on binding sites. Serine proteases\ndiffer in substrate specificity.\nExamples of serine proteases : ‘. o .\nChymotrypsin 0 rae a\nTrypsin\nElastase an aN -\nThrombin\nPlasmin\nComplements\nFactor X and\nProstate-specific antigen.",
+      "removedFragments": [
+        "<",
+        "• ",
+        "• ",
+        " ks »",
+        "• ",
+        "• ",
+        "• ",
+        "• ",
+        "• ",
+        " XI a ‘ »",
+        "• ",
+        "."
+      ]
+    }
+  }
+}

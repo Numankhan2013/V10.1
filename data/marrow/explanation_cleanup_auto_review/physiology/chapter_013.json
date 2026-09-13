@@ -1,0 +1,509 @@
+{
+  "schemaVersion": 1,
+  "policy": "safe-deletion-only-v1",
+  "active": false,
+  "subject": "Physiology",
+  "chapterId": "13",
+  "questionCount": 15,
+  "questions": {
+    "marrow__PHYS_CH13_Q001": {
+      "id": "marrow__PHYS_CH13_Q001",
+      "questionNumber": 1,
+      "sourcePage": 241,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          241
+        ],
+        "answerKeyPages": [
+          246
+        ],
+        "explanationPages": [
+          247
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Light passes first through the retinal ganglion layer, the most anterior/inner layer of the retina.\nLight then passes through other layers of the retina until it reaches the photoreceptors in the\nposterior/outer region of the retina.\nRetina is organized into 10 layers or zones where distinctive components are clustered together to\nform continuous strata.\n+ Light passes in the direction: Vitreous humor(anterior)—> choroid(most posterior) encountering\nthe cell layers in that direction (ganglion cell layer—>photoreceptors) so ¥\n+ Visual processing/Phototransduction occurs in the opposite direction hg feeptore > ganglion\nML Lay\ncallaye — wor\nee) 2 00. Sa\n© 9° © Gea\nae\nSs Ww ~",
+      "cleaned": "Light passes first through the retinal ganglion layer, the most anterior/inner layer of the retina.\nLight then passes through other layers of the retina until it reaches the photoreceptors in the\nposterior/outer region of the retina.\nRetina is organized into 10 layers or zones where distinctive components are clustered together to\nform continuous strata.\nLight passes in the direction: Vitreous humor(anterior)—> choroid(most posterior) encountering\nthe cell layers in that direction (ganglion cell layer—>photoreceptors)\nVisual processing/Phototransduction occurs in the opposite direction hg feeptore > ganglion\nML Lay\ncallaye\nee) 2 00.\nae",
+      "removedFragments": [
+        "+ ",
+        " so ¥",
+        "+ ",
+        " — wor",
+        " Sa",
+        "© 9° © Gea",
+        "Ss Ww ~"
+      ]
+    },
+    "marrow__PHYS_CH13_Q002": {
+      "id": "marrow__PHYS_CH13_Q002",
+      "questionNumber": 2,
+      "sourcePage": 241,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          241
+        ],
+        "answerKeyPages": [
+          246
+        ],
+        "explanationPages": [
+          248
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Initiation of visual impulse is associated with photoisomerisation and hydrolysis of visual purple\nRhodopsin or visual purple, the photosensitive pigment, is composed of opsin (a protein\nbelonging to the superfamily of G protein-coupled receptors) and retinal (an aldehyde of vitamin\n‘A). When light strikes the photoreceptors, retinal is chemically transformed in a process called\nphotoisomerization, which begins the transduction process.\n\nOo o\nS&S\nwad fe)\noe",
+      "cleaned": "Initiation of visual impulse is associated with photoisomerisation and hydrolysis of visual purple\nRhodopsin or visual purple, the photosensitive pigment, is composed of opsin (a protein\nbelonging to the superfamily of G protein-coupled receptors) and retinal (an aldehyde of vitamin\nWhen light strikes the photoreceptors, retinal is chemically transformed in a process called\nphotoisomerization, which begins the transduction process.\nOo o\nwad\noe",
+      "removedFragments": [
+        "‘A). ",
+        "S&S",
+        " fe)"
+      ]
+    },
+    "marrow__PHYS_CH13_Q004": {
+      "id": "marrow__PHYS_CH13_Q004",
+      "questionNumber": 4,
+      "sourcePage": 241,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          241
+        ],
+        "answerKeyPages": [
+          246
+        ],
+        "explanationPages": [
+          249
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "replace_literal_backslash_with_space",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Central fovea (foveola) contains only cones (rod-free area) and is a region of highest resolution.\nRegional Variations in the Retina\n\nMacula lutea\n+ Located at posterior pole, temporal to the optic dise\n+ Area of central vision\n+ High density of photoreceptors and interneurons\nOptic dise\n+ Lacks photoreceptors\n+ Is called “Blind spot”\n+ Normally a person is unaware of blind spot because\n+ Corresponding part of the visual field can be seen by the contralateral eye se\n+ Neurological processes complete the incomplete image perceptually ©\nPeripheral retina Ne) fe)\n+ Higher ratio of rods to cones =Rod to cone+208 <\nWey\n+ Greater degree of convergence of photoreceptors to the target interneuromt (Bhotar cells)\no aN a\n* More sensitivity to light “\\ & « \\ <\n+ Lower visual acuity Be) K&S ‘O\nr> S >\nfe) wer O°\noS a x\n- i “Onl oe",
+      "cleaned": "Central fovea (foveola) contains only cones (rod-free area) and is a region of highest resolution.\nRegional Variations in the Retina\nMacula lutea\nLocated at posterior pole, temporal to the optic dise\nArea of central vision\nHigh density of photoreceptors and interneurons\nOptic dise\nLacks photoreceptors\ncalled “Blind spot”\nNormally a person is unaware of blind spot because\nCorresponding part of the visual field can be seen by the contralateral eye se\nNeurological processes complete the incomplete image perceptually\nPeripheral retina Ne) fe)\nHigher ratio of rods to cones =Rod to cone+208 <\nWey\nGreater degree of convergence of photoreceptors to the target interneuromt (Bhotar cells)\no aN a\nMore sensitivity to light “\nLower visual acuity Be) K&S ‘O\nfe) wer O°\noS a x\n- i “Onl oe",
+      "removedFragments": [
+        "+ ",
+        "+ ",
+        "+ ",
+        "+ ",
+        "+ Is ",
+        "+ ",
+        "+ ",
+        "+ ",
+        " ©",
+        "+ ",
+        "+ ",
+        "* ",
+        " & « \\ <",
+        "+ ",
+        "r> S >"
+      ]
+    },
+    "marrow__PHYS_CH13_Q005": {
+      "id": "marrow__PHYS_CH13_Q005",
+      "questionNumber": 5,
+      "sourcePage": 242,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          242
+        ],
+        "answerKeyPages": [
+          246
+        ],
+        "explanationPages": [
+          250
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "co wv\n‘The rod receptor potential ders from othé®'surface receptors in that it shows hyperpolarization.\nIn most sensory receyet Arrival ofgtimulus — Ion channels are opened up allowing current to\nflow =&gt; depolarsatt n of the receptor.\nIn photoreceptis: When the light strikes the outer segment, a cascade of reactions (refer figure)\nate initiated that close ade of the Nav channels inthe outer segment and results in\nhyperpolarization.\nEe 2\n— avr -¢ Ne\n° one || on\nae || Se\nal | es\n°. =a er\nale> | ne\n°. ON\" 7: se\neo i?\nheat ‘il",
+      "cleaned": "co wv\n‘The rod receptor potential ders from othé®'surface receptors in that it shows hyperpolarization.\nIn most sensory receyet Arrival ofgtimulus — Ion channels are opened up allowing current to\nflow =&gt; depolarsatt n of the receptor.\nIn photoreceptis: When the light strikes the outer segment, a cascade of reactions (refer figure)\nate initiated that close ade of the Nav channels inthe outer segment and results in\nhyperpolarization.\nEe\nheat",
+      "removedFragments": [
+        " 2",
+        "— avr -¢ Ne",
+        "° one || on",
+        "ae || Se",
+        "al | es",
+        "°. =a er",
+        "ale> | ne",
+        "°. ON\" 7: se",
+        "eo i?",
+        " ‘il"
+      ]
+    },
+    "marrow__PHYS_CH13_Q007": {
+      "id": "marrow__PHYS_CH13_Q007",
+      "questionNumber": 7,
+      "sourcePage": 242,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          242
+        ],
+        "answerKeyPages": [
+          246
+        ],
+        "explanationPages": [
+          250
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "‘The responses of the rods, cones, and horizontal cells are hyperpolarizing, and thePesponses of\n\nthe bipolar cells are either hyperpolarizing or depolarizing, whereas amacrine ¢elB produce purely\n\ndepolarizing potential. x —\n\no~ o\nNe) Le)\nan ne\nC P\n; ; n& Ras \\",
+      "cleaned": "responses of the rods, cones, and horizontal cells are hyperpolarizing, and thePesponses of\nthe bipolar cells are either hyperpolarizing or depolarizing, whereas amacrine ¢elB produce purely\ndepolarizing potential.\nan ne\nC P",
+      "removedFragments": [
+        "‘The ",
+        " x —",
+        "o~ o",
+        "Ne) Le)",
+        "; ; n& Ras \\"
+      ]
+    },
+    "marrow__PHYS_CH13_Q008": {
+      "id": "marrow__PHYS_CH13_Q008",
+      "questionNumber": 8,
+      "sourcePage": 242,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          242
+        ],
+        "answerKeyPages": [
+          246
+        ],
+        "explanationPages": [
+          250
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": ">> ie oO\n‘ ae AS <a .\n\nAmacrine cells release acety choline 9 oOo RS\n\nAmacrine cells are one of the nearohal cell types\" bf the retina, (heY transmit signals in two\n\ndirections, either directly from{bipolar dleebeinclion cells ‘of horizontally within the inner\n\nplexiform layer from axonis oF the bipolareells to dendrite’ of the ganglion cells or to other\n\namacrine cells. oO oO\n\now >\nAmacrine cells release GABA, ghVeire, dopamine; acetylcholine &amp; indolamine,\nOther neuronal cell types ofthe retina abe\"\n+The photoreceptorsxrods &amp; cones\n5 oe\n«Hori SS a\nHorizontal gd a>\n\n+ Bipolar eélls x\\\n\n+ Ganglion cells\n\nOf these cell types, only neurotransmitters secreted by photoreceptors &amp; amacrine cells have\n\nbeen discovered. Rods and cones release glutamate at their synapses with the bipolar cells.",
+      "cleaned": "Amacrine cells release acety choline 9 oOo RS\nAmacrine cells are one of the nearohal cell types\" bf the retina, (heY transmit signals in two\ndirections, either directly from{bipolar dleebeinclion cells ‘of horizontally within the inner\nplexiform layer from axonis oF the bipolareells to dendrite’ of the ganglion cells or to other\namacrine cells.\nAmacrine cells release GABA, ghVeire, dopamine; acetylcholine &amp; indolamine,\nOther neuronal cell types ofthe retina abe\"\nphotoreceptorsxrods &amp; cones\n5 oe\nHori SS a\nHorizontal\nBipolar\nGanglion cells\nOf these cell types, only neurotransmitters secreted by photoreceptors &amp; amacrine cells have\nbeen discovered. Rods and cones release glutamate at their synapses with the bipolar cells.",
+      "removedFragments": [
+        ">> ie oO",
+        "‘ ae AS <a .",
+        " oO oO",
+        "ow >",
+        "+The ",
+        "«",
+        " gd a>",
+        "+ ",
+        " eélls x\\",
+        "+ "
+      ]
+    },
+    "marrow__PHYS_CH13_Q010": {
+      "id": "marrow__PHYS_CH13_Q010",
+      "questionNumber": 10,
+      "sourcePage": 243,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          243
+        ],
+        "answerKeyPages": [
+          246
+        ],
+        "explanationPages": [
+          251
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "On each side, layers 1, 4, and 6 of the lateral geniculate nucleus receive input from the\ncontralateral eye, whereas layers 2, 3, and 5 receive input from the ipsilateral eye. (Refer figure).\nEee gD Si @\n@> 2 ox\ne << AS\n~\\ ‘2) ‘SS\nae KX @",
+      "cleaned": "On each side, layers 1, 4, and 6 of the lateral geniculate nucleus receive input from the\ncontralateral eye, whereas layers 2, 3, and 5 receive input from the ipsilateral eye. (Refer figure).\nEee gD Si @\nae",
+      "removedFragments": [
+        "@> 2 ox",
+        "e << AS",
+        "~\\ ‘2) ‘SS",
+        " KX @"
+      ]
+    },
+    "marrow__PHYS_CH13_Q011": {
+      "id": "marrow__PHYS_CH13_Q011",
+      "questionNumber": 11,
+      "sourcePage": 243,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          243
+        ],
+        "answerKeyPages": [
+          246
+        ],
+        "explanationPages": [
+          252
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "From the Lateral Geniculate Nucleus, (CGN), maggie: pathway (from layers 1 and 2) and a\nparvocellular pathway (from the xestof the layers) Soject to the visual cortex.\nrea =\nReceive input entirely from t | Formed by Y ganglion cells p\nype X retinal ganglion cells, a | roject to magnocellular layers\n~s nd transmit color. of the lateral geniculate nucl\n« eus.\nConvey accurate point-to-poi_| Colorblind, transmitting only\nnt spatial information. black-and-white information.\n‘Terminate in layer 4C of the | Terminate in layer 4C of the\nprimary visual cortex. primary visual cortex.\nCarries signals for color visio | Carries signals for detection\nn, texture, shape, and fine de | of movement, depth, and flic\ntails. ker.\n\na) a)\nSe\nxy a\nKo os Res\na ~~ i we",
+      "cleaned": "From the Lateral Geniculate Nucleus, (CGN), maggie: pathway (from layers 1 and 2) and a\nparvocellular pathway (from the xestof the layers) Soject to the visual cortex.\nrea\nReceive input entirely from t | Formed by Y ganglion cells p\nype X retinal ganglion cells, a | roject to magnocellular layers\ntransmit color. of the lateral geniculate nucl\nConvey accurate point-to-poi_| Colorblind, transmitting only\nnt spatial information. black-and-white information.\nTerminate in layer 4C of the | Terminate in layer 4C of the\nprimary visual cortex. primary visual cortex.\nCarries signals for color visio | Carries signals for detection\ntexture, shape, and fine de | of movement, depth, and flic\ntails.\nSe\nxy a\nKo os Res",
+      "removedFragments": [
+        " =",
+        "~s nd ",
+        "« eus.",
+        "‘",
+        "n, ",
+        " ker.",
+        "a) a)",
+        "a ~~ i we"
+      ]
+    },
+    "marrow__PHYS_CH13_Q012": {
+      "id": "marrow__PHYS_CH13_Q012",
+      "questionNumber": 12,
+      "sourcePage": 243,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          243
+        ],
+        "answerKeyPages": [
+          246
+        ],
+        "explanationPages": [
+          252
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix"
+      ],
+      "original": "CFO\n‘The axons from the lateral geniatilate nucleus (LGN) mostly endin layer 4.\n=e) af ?\n‘The primary visual receiving aea (primaty visual cortex) located principally on the sides of the\ncalcarine fissure and has 6 layers simile to the neocortex. Layer 4 recieves most of the input from\nthe LGN, which is divided furthernto 4A, 4B, 4¢° Yand 4CB.\n‘The magnocellular pathway eon layers 1 and’2 of the LGN end in layer 4C° while the\nparvocellular pathways. et layers soot the LGN end in layer 4CB.\nQ Oo\noe .¢\nb> fey",
+      "cleaned": "CFO\naxons from the lateral geniatilate nucleus (LGN) mostly endin layer 4.\nprimary visual receiving aea (primaty visual cortex) located principally on the sides of the\ncalcarine fissure and has 6 layers simile to the neocortex. Layer 4 recieves most of the input from\nthe LGN, which is divided furthernto 4A, 4B, 4¢° Yand 4CB.\nmagnocellular pathway eon layers 1 and’2 of the LGN end in layer 4C° while the\nparvocellular pathways. et layers soot the LGN end in layer 4CB.\nQ Oo\nb> fey",
+      "removedFragments": [
+        "‘The ",
+        "=e) af ?",
+        "‘The ",
+        "‘The ",
+        "oe .¢"
+      ]
+    },
+    "marrow__PHYS_CH13_Q014": {
+      "id": "marrow__PHYS_CH13_Q014",
+      "questionNumber": 14,
+      "sourcePage": 244,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          244
+        ],
+        "answerKeyPages": [
+          246
+        ],
+        "explanationPages": [
+          253
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix"
+      ],
+      "original": "‘The medial geniculate nucleus is the thalamic nucleus that conveys auditory information from the\nbrainstem to the primary auditory cortex.\nLateral geniculate nucleus is the thalamic nucleus that conveys visual information.\nye\"",
+      "cleaned": "medial geniculate nucleus is the thalamic nucleus that conveys auditory information from the\nbrainstem to the primary auditory cortex.\nLateral geniculate nucleus is the thalamic nucleus that conveys visual information.",
+      "removedFragments": [
+        "‘The ",
+        "ye\""
+      ]
+    },
+    "marrow__PHYS_CH13_Q015": {
+      "id": "marrow__PHYS_CH13_Q015",
+      "questionNumber": 15,
+      "sourcePage": 244,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          244
+        ],
+        "answerKeyPages": [
+          246
+        ],
+        "explanationPages": [
+          253
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "‘The superior olivary nuclei receive information from boti{@ars and begiie process of detecting\nthe direction from which a sound comes. aw e\nC ne\n‘The eighth nerves reach their respective cohlearmuclei in the njedulla from where the nerves\ntravel to both the ipsilateral and contralteral'sitperior olivaty Huclei in thespons and hence giving\nit the ability to detect the direction of the sound. PS\n% + ok *\n‘The lateral part of superior olvap its does &o'by comparingthe difference in intensities of\nsound reaching the two ears, wliefeas the medial part of the Superior olivary nucleus detects the\ntime lag between the signals enitering thestivo ears. es\nme. 2\nae av\n5 . ae 7",
+      "cleaned": "superior olivary nuclei receive information from boti{@ars and begiie process of detecting\nthe direction from which a sound comes.\nC ne\neighth nerves reach their respective cohlearmuclei in the njedulla from where the nerves\ntravel to both the ipsilateral and contralteral'sitperior olivaty Huclei in thespons and hence giving\nit the ability to detect the direction of the sound.\nlateral part of superior olvap its does &o'by comparingthe difference in intensities of\nsound reaching the two ears, wliefeas the medial part of the Superior olivary nucleus detects the\ntime lag between the signals enitering thestivo ears.\nae av\n5 .",
+      "removedFragments": [
+        "‘The ",
+        " aw e",
+        "‘The ",
+        " PS",
+        "% + ok *",
+        "‘The ",
+        " es",
+        "me. 2",
+        " ae 7"
+      ]
+    },
+    "marrow__PHYS_CH13_Q017": {
+      "id": "marrow__PHYS_CH13_Q017",
+      "questionNumber": 17,
+      "sourcePage": 245,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          245
+        ],
+        "answerKeyPages": [
+          246
+        ],
+        "explanationPages": [
+          254
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Umami taste is triggered particularly by the monosodium glutamate (MSG) used so extensively in\nAsian cooking,\nTaste Receptors\n+ Humans have five established basic tastes: sweet, salt, sour, bitter and umami\n+ The taste receptors for these five basic tastes are of two major types:\n+ Ligand-gated channels (ionotropic receptors): for salt and sour taste\n\n+ G-Protein Coupled Receptors (metabotropic receptors): for sweet, bitter and umami\n+ Salt and sour taste are mediated through epithelial sodium channels (ENaC)\n+ Na+ movement through ENaC salt taste\n+ H+ movement through ENaC — sour taste\n+» Sweet, bitter, and umami are sensed via GPCRs\n+ T1R2 and T1R3 families sweet taste\n+ TR family > bitter taste\n+ Metabotropie glutamate receptor (mGluR4) > Umami\nse\"\nx 2",
+      "cleaned": "Umami taste is triggered particularly by the monosodium glutamate (MSG) used so extensively in\nAsian cooking,\nTaste Receptors\nHumans have five established basic tastes: sweet, salt, sour, bitter and umami\ntaste receptors for these five basic tastes are of two major types:\nLigand-gated channels (ionotropic receptors): for salt and sour taste\nProtein Coupled Receptors (metabotropic receptors): for sweet, bitter and umami\nSalt and sour taste are mediated through epithelial sodium channels (ENaC)\nmovement through ENaC salt taste\nmovement through ENaC — sour taste\nSweet, bitter, and umami are sensed via GPCRs\n+ T1R2 and T1R3 families sweet taste\nfamily > bitter taste\nMetabotropie glutamate receptor (mGluR4) > Umami\nx",
+      "removedFragments": [
+        "+ ",
+        "+ The ",
+        "+ ",
+        "+ G-",
+        "+ ",
+        "+ Na+ ",
+        "+ H+ ",
+        "+» ",
+        "+ TR ",
+        "+ ",
+        "se\"",
+        " 2"
+      ]
+    },
+    "marrow__PHYS_CH13_Q018": {
+      "id": "marrow__PHYS_CH13_Q018",
+      "questionNumber": 18,
+      "sourcePage": 245,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          245
+        ],
+        "answerKeyPages": [
+          246
+        ],
+        "explanationPages": [
+          254
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "x Ke)\nMitral cells are seen in Olfactory bulb. wo < i\nAxons of Olfactory nerves (First cranial nerye) synapse with {he mitral cells and tufted cells in the\nolfactory bulb to form anatomically diserete units called Olactory glomerili.\n‘The olfactory bulb also contains. pecgpimerular eenfhat are inhibjtery interneurons and granule\ncells that make reciprocal synapses with mitraL-and tufted cells\n=) aN 3\n‘These mitral and tufted calls econd-ordex neurons) terminate in Olfactory cortex.\noto tract\n° Mitral cell bodies\n“ QQ0@O~—\n: Wop\nBaas\nPsat\nOa",
+      "cleaned": "Mitral cells are seen in Olfactory bulb.\nAxons of Olfactory nerves (First cranial nerye) synapse with {he mitral cells and tufted cells in the\nolfactory bulb to form anatomically diserete units called Olactory glomerili.\nolfactory bulb also contains. pecgpimerular eenfhat are inhibjtery interneurons and granule\ncells that make reciprocal synapses with mitraL-and tufted cells\nThese mitral and tufted calls econd-ordex neurons) terminate in Olfactory cortex.\noto tract\nMitral cell bodies\n: Wop\nBaas\nPsat\nOa",
+      "removedFragments": [
+        "x Ke)",
+        " wo < i",
+        "‘The ",
+        "=) aN 3",
+        "‘",
+        "° ",
+        "“ QQ0@O~—"
+      ]
+    },
+    "marrow__PHYS_CH13_Q020": {
+      "id": "marrow__PHYS_CH13_Q020",
+      "questionNumber": 20,
+      "sourcePage": 245,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          245
+        ],
+        "answerKeyPages": [
+          246
+        ],
+        "explanationPages": [
+          255
+        ]
+      },
+      "operations": [
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "‘There are approximately 6 million cones and 120 million rods in each human eye.\nFeatures of Photoreceptors\n+ Each rod and cone are divided into outer segment, inner segment, nuclear region and a synaptic\nzone.\n+ Saccules and dises in the outer segment contain photosensitive pigments. & .\n+ Ifa person spends a considerable length of time in brightly ghted surroundihgs and then moves\nto a dimly lighted environment, the retinas slowly beso stoned dark.\" This decline\nin visual threshold is known as dark adaptation. It is f€arly maximaliin about 20 min, much\nlonger than the time taken for light adaptation which 5 min. Ow\n+ When one passes suddenly from a dim to abrightly lighted @ivironmentythe light seems\nintensely and even uncomfortably bright(until the eyes adapt to the incréaséd illumination and the\nvisual threshold rises. This adaptation oceurs over agperiod of about hin and is called light\nadaptation. . oe P ae ee 2",
+      "cleaned": "There are approximately 6 million cones and 120 million rods in each human eye.\nFeatures of Photoreceptors\nEach rod and cone are divided into outer segment, inner segment, nuclear region and a synaptic\nzone.\nSaccules and dises in the outer segment contain photosensitive pigments.\nperson spends a considerable length of time in brightly ghted surroundihgs and then moves\nto a dimly lighted environment, the retinas slowly beso stoned dark.\" This decline\nin visual threshold is known as dark adaptation. It is f€arly maximaliin about 20 min, much\nlonger than the time taken for light adaptation which 5 min.\nWhen one passes suddenly from a dim to abrightly lighted @ivironmentythe light seems\nintensely and even uncomfortably bright(until the eyes adapt to the incréaséd illumination and the\nvisual threshold rises. This adaptation oceurs over agperiod of about hin and is called light\nadaptation. .",
+      "removedFragments": [
+        "‘",
+        "+ ",
+        "+ ",
+        " & .",
+        "+ Ifa ",
+        " Ow",
+        "+ ",
+        " oe P ae ee 2"
+      ]
+    },
+    "marrow__PHYS_CH13_Q021": {
+      "id": "marrow__PHYS_CH13_Q021",
+      "questionNumber": 21,
+      "sourcePage": 246,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          246
+        ],
+        "answerKeyPages": [
+          246
+        ],
+        "explanationPages": [
+          256
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "The site of lesion in Wernicke's hemianopic pupil is optic tract.\nWernicke hemianopic pupil is the light reflex, where, illumination of the blind half of the retina\nshows no pupillary reaction while stimulating the normal side of the retina shows a pupillary\nreaction. It is seen in lesions involving the optic tract. It is also seen in cases such as TB, syphilis\nand tumours of the optic thalamus.\n\nHomonymous hemianopia (HH) involves loss of vision on the same side of the visual field in both\neyes. HH is characteristically seen in lesions involving the visual pathway posterior to the optic\nchiasma.\nes\nxO &\nwe\nXP\" &\nsO ES if\nae « @\n\\ od 9\nEOE RO\" cae\nd eo\n& Re)\n2 R\\2\noe e\nRS x\nRY\nv8 &\neC »>\nes RV)",
+      "cleaned": "The site of lesion in Wernicke's hemianopic pupil is optic tract.\nWernicke hemianopic pupil is the light reflex, where, illumination of the blind half of the retina\nshows no pupillary reaction while stimulating the normal side of the retina shows a pupillary\nreaction. It is seen in lesions involving the optic tract. It is also seen in cases such as TB, syphilis\nand tumours of the optic thalamus.\nHomonymous hemianopia (HH) involves loss of vision on the same side of the visual field in both\neyes. HH is characteristically seen in lesions involving the visual pathway posterior to the optic\nchiasma.\nes\nwe\nsO ES if\nEOE RO\" cae\nd eo\noe e\nRS x\nRY\nes",
+      "removedFragments": [
+        "xO &",
+        "XP\" &",
+        "ae « @",
+        "\\ od 9",
+        "& Re)",
+        "2 R\\2",
+        "v8 &",
+        "eC »>",
+        " RV)"
+      ]
+    }
+  }
+}

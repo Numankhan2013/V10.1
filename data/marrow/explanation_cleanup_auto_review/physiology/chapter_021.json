@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "policy": "safe-deletion-only-v1",
+  "active": false,
+  "subject": "Physiology",
+  "chapterId": "21",
+  "questionCount": 3,
+  "questions": {
+    "marrow__PHYSIO_CH21_Q001": {
+      "id": "marrow__PHYSIO_CH21_Q001",
+      "questionNumber": 1,
+      "sourcePage": 383,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          383
+        ],
+        "answerKeyPages": [
+          387
+        ],
+        "explanationPages": [
+          387,
+          388
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Oxygen diffuses from alveoli to blood along the concentration gradient i.e. passive process (ATP is not used).\n\nIt diffuses across respiratory membrane.\n\nIt is governed by Fick's law of diffusion:\nD ∝ (ΔP × A × S) / (d × √MW)\n\nWhere:\n• D is the diffusion rate\n• ΔP is the partial pressure difference between the two ends of the diffusion pathway\n• A is the cross-sectional area of the pathway\n• S is the solubility of the gas\n• d is the distance of diffusion\n• MW is the molecular weight of the gas\n\nDiffusion coefficient of the gas is proportional to S/√MW.",
+      "cleaned": "Oxygen diffuses from alveoli to blood along the concentration gradient i.e. passive process (ATP is not used).\nIt diffuses across respiratory membrane.\nIt is governed by Fick's law of diffusion:\nWhere:\n• D is the diffusion rate\n• ΔP is the partial pressure difference between the two ends of the diffusion pathway\n• A is the cross-sectional area of the pathway\n• S is the solubility of the gas\n• d is the distance of diffusion\n• MW is the molecular weight of the gas\nDiffusion coefficient of the gas is proportional to",
+      "removedFragments": [
+        "D ∝ (ΔP × A × S) / (d × √MW)",
+        " S/√MW."
+      ]
+    },
+    "marrow__PHYSIO_CH21_Q003": {
+      "id": "marrow__PHYSIO_CH21_Q003",
+      "questionNumber": 3,
+      "sourcePage": 383,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          383
+        ],
+        "answerKeyPages": [
+          387
+        ],
+        "explanationPages": [
+          389
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "The percentage of cardiac output that bypasses the pulmonary circulation or physiological shunt is 2%. The fraction of mixed venous blood that does not become oxygenated as it moves from the right atrium to the left ventricle is called physiologic shunt.\n\nCauses of physiological shunt:\n• Extrapulmonary R→L anatomic shunt (normally ~1% of cardiac output)\n• Intrapulmonary “true” shunt\n• Flow past unventilated or collapsed alveoli (e.g., due to edema, pneumonia, atelectasis)\n• Anatomic arterio-venous pathways: mixing of unoxygenated blood in bronchial veins with oxygenated blood in pulmonary capillaries or vein reduces the final partial pressure of O2 in the arterial blood (PaO2)\n• Intrapulmonary regions with low ventilation/perfusion ratio: alveolar ventilation is not zero, but blood is not completely oxygenated (a virtual shunt, not a “true” shunt).",
+      "cleaned": "The percentage of cardiac output that bypasses the pulmonary circulation or physiological shunt is 2%. The fraction of mixed venous blood that does not become oxygenated as it moves from the right atrium to the left ventricle is called physiologic shunt.\nCauses of physiological shunt:\nExtrapulmonary R→L anatomic shunt (normally ~1% of cardiac output)\nIntrapulmonary “true” shunt\nFlow past unventilated or collapsed alveoli (e.g., due to edema, pneumonia, atelectasis)\nAnatomic arterio-venous pathways: mixing of unoxygenated blood in bronchial veins with oxygenated blood in pulmonary capillaries or vein reduces the final partial pressure of O2 in the arterial blood\nIntrapulmonary regions with low ventilation/perfusion ratio: alveolar ventilation is not zero, but blood is not completely oxygenated (a virtual shunt, not a “true” shunt).",
+      "removedFragments": [
+        "• ",
+        "• ",
+        "• ",
+        "• ",
+        " (PaO2)",
+        "• "
+      ]
+    },
+    "marrow__PHYSIO_CH21_Q012": {
+      "id": "marrow__PHYSIO_CH21_Q012",
+      "questionNumber": 12,
+      "sourcePage": 385,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          385,
+          386
+        ],
+        "answerKeyPages": [
+          387
+        ],
+        "explanationPages": [
+          395,
+          396
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Decreased ventilation-perfusion ratio implies decreased oxygenation due to decreased ventilation with respect to perfusion. Hence, PAO2 decreases and PCO2 increases.\n\nA decrease in the ventilation-perfusion ratio (VA/Q) is depicted by moving to the left along the normal ventilation-perfusion line as shown in the figure.\n\n• Zone 1: lowest ventilation compared to Zones 2 and 3, but V >> Q, hence V/Q is high.\n• PAO2 is highest.\n• PACO2 is lowest.\n• Zone 2: Ventilation almost equal to perfusion, but slightly lower, so V/Q is average (~0.8).\n• Zone 3: highest ventilation compared to Zones 2 and 1, but Q >> V, hence V/Q is low.\n• PAO2 is lowest.\n• PACO2 is highest.\n\nPAO2 = Alveolar partial pressure of oxygen.\nPACO2 = Alveolar partial pressure of CO2.",
+      "cleaned": "Decreased ventilation-perfusion ratio implies decreased oxygenation due to decreased ventilation with respect to perfusion. Hence, PAO2 decreases and PCO2 increases.\nA decrease in the ventilation-perfusion ratio (VA/Q) is depicted by moving to the left along the normal ventilation-perfusion line as shown in the figure.\nZone 1: lowest ventilation compared to Zones 2 and 3, but V >> Q, hence V/Q is high.\n• PAO2 is highest.\nPACO2 is lowest.\nZone 2: Ventilation almost equal to perfusion, but slightly lower, so V/Q is average\nZone 3: highest ventilation compared to Zones 2 and 1, but Q >> V, hence V/Q is low.\n• PAO2 is lowest.\nPACO2 is highest.\nPAO2 = Alveolar partial pressure of oxygen.\nPACO2 = Alveolar partial pressure of CO2.",
+      "removedFragments": [
+        "• ",
+        "• ",
+        "• ",
+        " (~0.8).",
+        "• ",
+        "• "
+      ]
+    }
+  }
+}

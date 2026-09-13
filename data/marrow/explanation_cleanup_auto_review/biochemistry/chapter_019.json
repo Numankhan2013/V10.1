@@ -1,0 +1,578 @@
+{
+  "schemaVersion": 1,
+  "policy": "safe-deletion-only-v1",
+  "active": false,
+  "subject": "Biochemistry",
+  "chapterId": "19",
+  "questionCount": 15,
+  "questions": {
+    "marrow__BIOCHEM_CH19_Q001": {
+      "id": "marrow__BIOCHEM_CH19_Q001",
+      "questionNumber": 1,
+      "sourcePage": 298,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          298
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          305,
+          306
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Activation energy is the free energy difference between the substrate and transition state.\n\nActivation energy is defined as the minimum energy required to start a chemical reaction. Because\nof the high activation energy, the rates of uncatalyzed chemical reactions are often slow. In an\nenzyme-catalyzed reaction, the activation energy is reduced by forming a relatively stable\nintermediate-enzyme complex. Thus, enzymes increase the rate of chemical reactions.\n\nwithout enzyme\n\nactivation\nenergy without\nenzyme\n\nnzyme activation\n\nenergy with\n\nenzyme\n\nEnergy\n\nreactants overall energy\n\ne.g. CO. +H;,0 released during\nreaction\nproducts a\nH,CO; %\n—)\no*\nReaction coordinate\n. > { >\n~~ we\n. . - “ .%",
+      "cleaned": "Activation energy is the free energy difference between the substrate and transition state.\nActivation energy is defined as the minimum energy required to start a chemical reaction. Because\nof the high activation energy, the rates of uncatalyzed chemical reactions are often slow.\nenzyme-catalyzed reaction, the activation energy is reduced by forming a relatively stable\nintermediate-enzyme complex. Thus, enzymes increase the rate of chemical reactions.\nwithout enzyme\nactivation\nenergy without\nenzyme\nnzyme activation\nenergy with\nenzyme\nEnergy\nreactants overall energy\nreleased during\nreaction\nproducts a\nReaction coordinate",
+      "removedFragments": [
+        " In an",
+        "e.g. CO. +H;,0 ",
+        "H,CO; %",
+        "—)",
+        "o*",
+        ". > { >",
+        "~~ we",
+        ". . - “ .%"
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q002": {
+      "id": "marrow__BIOCHEM_CH19_Q002",
+      "questionNumber": 2,
+      "sourcePage": 298,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          298
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          306
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "replace_literal_backslash_with_space",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "+” ros a“\n2 &* >\n\nThe above reaction has 2nd order for the forward teaction and 4st order for the reverse reaction.\nThe sum of the molar ratios-of the reactants paefities the: indtic order of the reaction.\nIn the forward reaction, A+A° P, he sum of reactants i is 2. Thus,\nRate « {A}, ye or Rate oc ays\nTherefore, the reaction is aid to be second order with respect to reactant A.\nIn the reverse reactiohgP a) A _ the’ Sahn of reactants is 1. Thus,\nRate o <P]\n\nTherefore) sthe 1 reaction. is\\said to be first order with respect to reactant P.\n\nKmetic order of reactions:\n• Zero-order reaction: Rate is independent of the concentration of reactants.\n• First-order reaction: Rate is directly proportional to the concentration of one of the reactants.\n• Second-order reaction: In the simplest kind of 2nd order reaction, the rate is proportional to the\nsquare of the concentration of one reactant.",
+      "cleaned": "The above reaction has 2nd order for the forward teaction and 4st order for the reverse reaction.\nThe sum of the molar ratios-of the reactants paefities the: indtic order of the reaction.\nIn the forward reaction, A+A° P, he sum of reactants i is 2. Thus,\nRate « {A}, ye or Rate oc ays\nTherefore, the reaction is aid to be second order with respect to reactant A.\nIn the reverse reactiohgP a) A _ the’ Sahn of reactants is 1. Thus,\nRate\nTherefore) sthe 1 reaction. is said to be first order with respect to reactant P.\nKmetic order of reactions:\nZero-order reaction: Rate is independent of the concentration of reactants.\nFirst-order reaction: Rate is directly proportional to the concentration of one of the reactants.\nSecond-order reaction: In the simplest kind of 2nd order reaction, the rate is proportional to the\nsquare of the concentration of one reactant.",
+      "removedFragments": [
+        "+” ros a“",
+        "2 &* >",
+        " o <P]",
+        "• ",
+        "• ",
+        "• "
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q005": {
+      "id": "marrow__BIOCHEM_CH19_Q005",
+      "questionNumber": 5,
+      "sourcePage": 299,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          299
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          307
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "replace_literal_backslash_with_space",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "x e.\n\nThe plot of initial reaction velocity against substrate Concentrations hyperbolic, not linear.\n\nFor a typical enzyme, the velocity of a reaction Has“a hyperboli¢rélationship-Wwith the substance\nconcentration. As the substrate concentration.increases, initial velocity (Vi)-increases until it\nreaches a maximum value Vmax. After Vmax is reached; further increase in the substrate\nconcentration does not change reactign\\velocity..This i is because the enzyme is saturated with the\nsubstrate. ~\n\nThe Michaelis constant (Km) is the substrate concentration’at which Vi is half the maximal\nvelocity i.e. Vmax/2. The Michaelis- Menten equation illustrates the relationship between Vi and\nsubstrate concentration [S] mathematically i ie,\n\nVi = Vmax « [S] / Km + [S] SON ~\n\nReaction rate\n=\n=\n\nv\n\nSubstrate concentration",
+      "cleaned": "The plot of initial reaction velocity against substrate Concentrations hyperbolic, not linear.\nFor a typical enzyme, the velocity of a reaction Has“a hyperboli¢rélationship-Wwith the substance\nconcentration. As the substrate concentration.increases, initial velocity (Vi)-increases until it\nreaches a maximum value Vmax. After Vmax is reached; further increase in the substrate\nconcentration does not change reactign velocity..This i is because the enzyme is saturated with the\nsubstrate.\nThe Michaelis constant (Km) is the substrate concentration’at which Vi is half the maximal\nvelocity i.e. Vmax/2. The Michaelis- Menten equation illustrates the relationship between Vi and\nsubstrate concentration [S] mathematically\nVmax « [S] / Km\nReaction rate\nv\nSubstrate concentration",
+      "removedFragments": [
+        "x e.",
+        " ~",
+        " i ie,",
+        "Vi = ",
+        " + [S] SON ~",
+        "=",
+        "="
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q007": {
+      "id": "marrow__BIOCHEM_CH19_Q007",
+      "questionNumber": 7,
+      "sourcePage": 300,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          300
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          308
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "trim_short_ocr_suffix"
+      ],
+      "original": "ics C\n\nThe time taken for the formation of the, same amount of product is 27 minutes.\n\nIn this reaction, the substrate concentration beconites 1000 times i.e much greater than the Km\nvalue. Thus, the rate of this reaction i is equal to Vmax and is thus independent of the substrate\nconcentration i.e. it follows Zero-order kinetiés. Thus, doubling the substrate concentration does\nnot change the velocity, off the reaction ie. it remains as Vmax.\n\nNo matter the substrate concentration, the rate of the reaction is directly proportional to the\nconcentration. of the enzyme. In this situation the enzyme concentration becomes 1/3rd. Thus, the\nvelocity of the reaction (Vi Tax) also becomes 1/3rd. This means that the time taken for the\nformation of the same amount of product will become tripled i.e 9 x 3 = 27 minutes.\n\nZero-order kinetics\n\nFirst-order kinetics\n\nReaction velocity (Vi) —>\n\nSubstrate concentration (S) ———>",
+      "cleaned": "ics C\nThe time taken for the formation of the, same amount of product is 27 minutes.\nIn this reaction, the substrate concentration beconites 1000 times i.e much greater than the Km\nvalue. Thus, the rate of this reaction i is equal to Vmax and is thus independent of the substrate\nconcentration i.e. it follows Zero-order kinetiés. Thus, doubling the substrate concentration does\nnot change the velocity, off the reaction ie. it remains as Vmax.\nNo matter the substrate concentration, the rate of the reaction is directly proportional to the\nconcentration. of the enzyme. In this situation the enzyme concentration becomes 1/3rd. Thus, the\nvelocity of the reaction (Vi Tax) also becomes 1/3rd. This means that the time taken for the\nformation of the same amount of product will become tripled i.e 9 x 3 = 27 minutes.\nZero-order kinetics\nFirst-order kinetics\nReaction velocity (Vi) —>\nSubstrate concentration",
+      "removedFragments": [
+        " (S) ———>"
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q009": {
+      "id": "marrow__BIOCHEM_CH19_Q009",
+      "questionNumber": 9,
+      "sourcePage": 300,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          300
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          309
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line"
+      ],
+      "original": "Vmax remains constant in competitive inhibition.\n\nCompetitive inhibition is when the inhibitor binds reversibly.to the substrate-binding site and\ncompetes with the substrate for the active enzyme-binding site. This effect of competitive\ninhibition can be overcome by increasing the substrate’ concentration by which maximum velocity\ncan still be achieved. Therefore, Vmax (maximum velocity of the reaction) istnaltered in this type\nof inhibition. However, the concentration-of thé substrate required to achieve half of the\nmaximum velocity is increased. Therefore;Km is increased in this condition.\n\né <\n\na =",
+      "cleaned": "Vmax remains constant in competitive inhibition.\nCompetitive inhibition is when the inhibitor binds reversibly.to the substrate-binding site and\ncompetes with the substrate for the active enzyme-binding site. This effect of competitive\ninhibition can be overcome by increasing the substrate’ concentration by which maximum velocity\ncan still be achieved. Therefore, Vmax (maximum velocity of the reaction) istnaltered in this type\nof inhibition. However, the concentration-of thé substrate required to achieve half of the\nmaximum velocity is increased. Therefore;Km is increased in this condition.",
+      "removedFragments": [
+        "é <",
+        "a ="
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q010": {
+      "id": "marrow__BIOCHEM_CH19_Q010",
+      "questionNumber": 10,
+      "sourcePage": 300,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          300,
+          301
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          309,
+          310
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Km remains constant in noncompetitive inhibition.\n\nNon-competitive inhibition of enzymes occurs by the binding of inhibitors to enzymes in locations\ndifferent from the active site. The inhibition is not overcome by increasing the concentration of\nthe substrate. Thus, noncompetitive inhibitors decrease the Vmax of the reaction.\n\nNon-competitive inhibtiors do not resemble the substrate. Thus, they do not interfere with the\nbinding of the substrate to the enzyme. Thus, Km of the enzyme does not change.\n\nEnzyme @_— onviror\nLD suvstrate\n\nInhibitor binding Substrate binding site\nsite\n\nvf\n\nCompleting the\nreaction, however,\n\ndepends on the.\n\nenzyme undergoing\n\nS\\contormational\n\nchange that\n\nStocked by the Inhibitor. ed «\n\nThe inhibitor and\nRubstrate bind)\nother. Either oF both\nmay be bound at\nany tim:\n\nTe &\n\niN ae\n\n1st\n\nCc RSraiat SR SST eae\nas :",
+      "cleaned": "Km remains constant in noncompetitive inhibition.\ncompetitive inhibition of enzymes occurs by the binding of inhibitors to enzymes in locations\ndifferent from the active site. The inhibition is not overcome by increasing the concentration of\nthe substrate. Thus, noncompetitive inhibitors decrease the Vmax of the reaction.\ncompetitive inhibtiors do not resemble the substrate. Thus, they do not interfere with the\nbinding of the substrate to the enzyme. Thus, Km of the enzyme does not change.\nEnzyme @_— onviror\nLD suvstrate\nInhibitor binding Substrate binding site\nsite\nvf\nCompleting the\nreaction, however,\ndepends on the.\nenzyme undergoing\ncontormational\nchange that\nStocked by the Inhibitor.\nThe inhibitor and\nRubstrate bind)\nother. Either oF both\nmay be bound at\nany\niN ae\n1st\nCc RSraiat SR SST eae",
+      "removedFragments": [
+        "Non-",
+        "Non-",
+        "S\\",
+        " ed «",
+        " tim:",
+        "Te &",
+        "as :"
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q011": {
+      "id": "marrow__BIOCHEM_CH19_Q011",
+      "questionNumber": 11,
+      "sourcePage": 301,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          301
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          310,
+          311
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "The red line indicates an enzymatic reaction taking place in the presence of a competitive\ninhibitor.\n\nThe graph represents the enzymatic reaction velocity in relation to substrate concentration. The\nblack line indicates the reaction taking place in the absence of any inhibitor.\n\nIn the presence of a competitive inhibitor, as indicated by the red line,\n• Vmax remains unchanged.\n• Km is increased.\n\nIn the presence of a non-competitive inhibitor, as indicated by the blue line,\n• Vmax is decreased\n\n• Km remains unchanged\nNote:\n\nSuicide inhibitors are specialized substrate analogs. They contain a chemical group that can be\ntransformed by the target enzyme. After binding to the active site of the enzyme, catalysis by the\nenzyme generates a highly reactive group that forms a covalent bond and blocks the function of\n\nthe enzyme.\nVmax\nNormal enzyme ‘Competitive >\ninhibition . x\nNon-competitive inhibition\n.\nt (s)\nKu",
+      "cleaned": "The red line indicates an enzymatic reaction taking place in the presence of a competitive\ninhibitor.\nThe graph represents the enzymatic reaction velocity in relation to substrate concentration.\nblack line indicates the reaction taking place in the absence of any inhibitor.\nIn the presence of a competitive inhibitor, as indicated by the red line,\nVmax remains unchanged.\n• Km is increased.\nIn the presence of a non-competitive inhibitor, as indicated by the blue line,\nVmax is decreased\nremains unchanged\nNote:\nSuicide inhibitors are specialized substrate analogs. They contain a chemical group that can be\ntransformed by the target enzyme. After binding to the active site of the enzyme, catalysis by the\nenzyme generates a highly reactive group that forms a covalent bond and blocks the function of\nthe enzyme.\nVmax\nNormal enzyme ‘Competitive\ninhibition .\ncompetitive inhibition\nKu",
+      "removedFragments": [
+        " The",
+        "• ",
+        "• ",
+        "• Km ",
+        " >",
+        " x",
+        "Non-",
+        ".",
+        "t (s)"
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q012": {
+      "id": "marrow__BIOCHEM_CH19_Q012",
+      "questionNumber": 12,
+      "sourcePage": 301,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          301,
+          302
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          311,
+          312
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "replace_literal_backslash_with_space",
+        "trim_short_ocr_prefix"
+      ],
+      "original": "«~~ x\n\nThe red line in the graph represents ah enzymatic reaction with a noncompetitive inhibitor.\n\nThe above graph-is called the,‘Lineweaver-Burk plot' or ‘double reciprocal’ plot. 1/vo (vo - initial\nvelocity) is plotted versus \\i/{S] ([S] - substrate concentration) and a straight line is obtained. This\nplot can be used to calculate Km and Vmax as well as to determine the mechanism of action of\nenzyme inhibitors. The x-intercept represents -1/Km while the y-intercept represents 1/Vmax.\n\nIn non-competitive inhibition, Vmax decreases (or 1/Vmax increases) but Km is\nunchanged. Hence the graphs of inhibited and uninhibited reactions have the same x-intercepts\n(converge at the same -1/Km) but different y-intercepts.\n\nNote: An allosteric inhibitor alters the conformation of an enzyme upon binding. Enzymes\naffected by allosteric inhibitors exhibit a sigmoid, not hyperbolic, relationship between Vo and [S].\n\nLineweaver-Burk plots for enzyme inhibition\n\n— inhibitor ~ inhibitor ~ inhibitor\nWW = no ibitor W = 10 inhibitor We ¢ = np inhibitor\nSlope:ckange {a i Slope:change\nYemercept: same YVantercept: change YVeintercept: change\nW{8] 1/(s] 1i[8]\nCompetitive Uncompetitive Noncompetitive\ninhibition inhibition (Wived) inhibition\nKy increased Kyreduced Ky unaffected\nVinas unaffected Vag teduced Vinay teduced\nxw” a\nwe ay a\nae © =e\n© wee <",
+      "cleaned": "The red line in the graph represents ah enzymatic reaction with a noncompetitive inhibitor.\nThe above graph-is called the,‘Lineweaver-Burk plot' or ‘double reciprocal’ plot. 1/vo (vo - initial\nvelocity) is plotted versus i/{S] ([S] - substrate concentration) and a straight line is obtained. This\nplot can be used to calculate Km and Vmax as well as to determine the mechanism of action of\nenzyme inhibitors. The x-intercept represents -1/Km while the y-intercept represents 1/Vmax.\nIn non-competitive inhibition, Vmax decreases (or 1/Vmax increases) but Km is\nunchanged. Hence the graphs of inhibited and uninhibited reactions have the same x-intercepts\nconverge at the same -1/Km) but different y-intercepts.\nNote: An allosteric inhibitor alters the conformation of an enzyme upon binding. Enzymes\naffected by allosteric inhibitors exhibit a sigmoid, not hyperbolic, relationship between Vo and [S].\nLineweaver-Burk plots for enzyme inhibition\ninhibitor ~ inhibitor ~ inhibitor\nWW = no ibitor W = 10 inhibitor We ¢ = np inhibitor\nSlope:ckange {a i Slope:change\nYemercept: same YVantercept: change YVeintercept: change\nCompetitive Uncompetitive Noncompetitive\ninhibition inhibition (Wived) inhibition\nKy increased Kyreduced Ky unaffected\nVinas unaffected Vag teduced Vinay teduced\nwe ay a",
+      "removedFragments": [
+        "«~~ x",
+        "(",
+        "— ",
+        "W{8] 1/(s] 1i[8]",
+        "xw” a",
+        "ae © =e",
+        "© wee <"
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q013": {
+      "id": "marrow__BIOCHEM_CH19_Q013",
+      "questionNumber": 13,
+      "sourcePage": 302,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          302
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          312,
+          313
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "~ ‘oy ON\nToh \\ <O x\n\nAn allosteric modifier of an encyine usually patticipates i in feedback regulation.\n\nAllosteric regulations are anatural me\nproducts or feedforward from upstream)substrate:\n\nimportant in the cell's ability to agisst enzyme acti ity.\n\nAn allosteric modifier or cigar binds to, g.healosteri site to induce a conformational change in\n‘or effectors that enhance the protein's activity are\n\nthe catalytic or active si e.\nreferred to as alloste AS\ncalled allosteric inhibitors. ~\n\nose et\n\nctivators, whe as those that decrease the protein's activity are\n\n_\now?\n\nEnzyme Allosteric inhibitor | Allosteric activator\n1. ALA synthase Heme -\n2. Aspartate transcarbamoyla | CTP ATP\nse\n3. HMG CoA reductase Cholesterol -\n4.Phosphofructokinase Citrate, ATP AMP, F2,6P\n5. Acetyl CoA carboxylase Acyl CoA Citrate\n6. Citrate synthase ATP -\n7. Carbamoyl phosphate synt | - NAG\nhase-I\n8. Carbamoyl phosphate synt | ATP -\nhase-II\no12\n\n¥\n\npict control loops, such as feedback from downstream\nAllosteric regulation is also particularly\n\n(a) Reaction\n\n——®\n\nPi\n\nactive site\n\nallosteric site\nenzyme Substrate molecule binds with active Reaction occurs and\nBt a enzyme molecule, inducing & product molecules aro\n\ninhibitor 4\now?\n‘active site Inhibitor molecule binds ‘Substrate molecule cannot bind\nwith alostrc sit of with changed active site\nenzyme, inducing a\nShangein the cv te =\n> ,\n‘* ~~\nwo oO oa\n© < =) <",
+      "cleaned": "An allosteric modifier of an encyine usually patticipates i in feedback regulation.\nAllosteric regulations are anatural me\nproducts or feedforward from upstream)substrate:\nimportant in the cell's ability to agisst enzyme acti ity.\nAn allosteric modifier or cigar binds to, g.healosteri site to induce a conformational change in\neffectors that enhance the protein's activity are\nthe catalytic or active si e.\nreferred to as alloste AS\ncalled allosteric inhibitors.\nose et\nctivators, whe as those that decrease the protein's activity are\nEnzyme Allosteric inhibitor | Allosteric activator\n1. ALA synthase Heme -\nAspartate transcarbamoyla\nse\n3. HMG CoA reductase Cholesterol\nPhosphofructokinase Citrate, ATP AMP, F2,6P\nAcetyl CoA carboxylase Acyl CoA Citrate\nCitrate synthase ATP -\nCarbamoyl phosphate synt | - NAG\nhase-I\nCarbamoyl phosphate synt | ATP -\nhase-II\no12\npict control loops, such as feedback from downstream\nAllosteric regulation is also particularly\nReaction\nPi\nactive site\nallosteric site\nenzyme Substrate molecule binds with active Reaction occurs and\nBt a enzyme molecule, inducing & product molecules aro\ninhibitor\nactive site Inhibitor molecule binds ‘Substrate molecule cannot bind\nwith alostrc sit of with changed active site\nenzyme, inducing a\nShangein the cv te =\nwo oO oa",
+      "removedFragments": [
+        "~ ‘oy ON",
+        "Toh \\ <O x",
+        "‘or ",
+        " ~",
+        "_",
+        "ow?",
+        "2. ",
+        " | CTP ATP",
+        " -",
+        "4.",
+        "5. ",
+        "6. ",
+        "7. ",
+        "8. ",
+        "¥",
+        "(a) ",
+        "——®",
+        " 4",
+        "ow?",
+        "‘",
+        "> ,",
+        "‘* ~~",
+        "© < =) <"
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q015": {
+      "id": "marrow__BIOCHEM_CH19_Q015",
+      "questionNumber": 15,
+      "sourcePage": 303,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          303
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          313,
+          314
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix"
+      ],
+      "original": "Chymotrypsinogen is a zymogen.\n\nSome enzymes are secreted as an inactive form called as zymogens. The zymogens are converted\nto their active functional forms by partial, or selective proteolysis. Examples of zymogens include\ntrypsinogen, chymotrypsinogen, proelastase, pepsinogen, prophospholipase A2 etc.\n\nProonzymes (zymogens) —-————» Active enzymes\n\n#\nPepsinogen ————————-» Pepsin\n\ntoropeptida\nTrypsinogen eS Typen\n\ntrypsin\n\n(Chymotrypsinogen Chymotrypsin\n\nProelastase aa Elastase\n\ntrypsin\n\nProcarboxypeptidases ———_» Carboxypepticases",
+      "cleaned": "Chymotrypsinogen is a zymogen.\nSome enzymes are secreted as an inactive form called as zymogens. The zymogens are converted\nto their active functional forms by partial, or selective proteolysis. Examples of zymogens include\ntrypsinogen, chymotrypsinogen, proelastase, pepsinogen, prophospholipase A2 etc.\nProonzymes (zymogens) —-————» Active enzymes\nPepsinogen ————————-» Pepsin\ntoropeptida\nTrypsinogen eS Typen\ntrypsin\nChymotrypsinogen Chymotrypsin\nProelastase aa Elastase\ntrypsin\nProcarboxypeptidases ———_» Carboxypepticases",
+      "removedFragments": [
+        "#",
+        "("
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q016": {
+      "id": "marrow__BIOCHEM_CH19_Q016",
+      "questionNumber": 16,
+      "sourcePage": 303,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          303
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          314
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "replace_literal_backslash_with_space",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "ye ~\n\n| ©) a”\n\n&*%\n\nLow dose aspirin exerts its action iby irreversibly, inhibiting exchooxygenase enzyme activity in\nplatelets, which is an example\\of suicide inhibition.\n\nA suicidal enzyme is one ttt undergoe® self -destryefion 1 in order to terminate its own activity. In\nthis case, in response to irreversible inhibition by aspirin, platelet cyclooxygenase loses its ability\nto synthesize thromboxane. It undergoes self= -destruction. Unless new platelets are formed, this\n\ncyclooxygenase activity cannot be regained:",
+      "cleaned": "Low dose aspirin exerts its action iby irreversibly, inhibiting exchooxygenase enzyme activity in\nplatelets, which is an example of suicide inhibition.\nA suicidal enzyme is one ttt undergoe® self -destryefion 1 in order to terminate its own activity.\nthis case, in response to irreversible inhibition by aspirin, platelet cyclooxygenase loses its ability\nto synthesize thromboxane. It undergoes self= -destruction. Unless new platelets are formed, this\ncyclooxygenase activity cannot be regained:",
+      "removedFragments": [
+        "ye ~",
+        "| ©) a”",
+        "&*%",
+        " In"
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q017": {
+      "id": "marrow__BIOCHEM_CH19_Q017",
+      "questionNumber": 17,
+      "sourcePage": 303,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          303
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          314
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": ".¢\n\nY fas\n\n4\n\nBoth cytidine triphosphate and adenosine triphosphate target aspartate transcarbamoylase\n(ATCase) for feedback regulation.\n\nATCase, the catalyst for the first reaction unique to pyrimidine biosynthesis, is a target of\nfeedback regulation by two nucleotide triphosphates: cytidine triphosphate (CTP) and adenosine\ntriphosphate (ATP). CTP is an end product of the pyrimidine biosynthetic pathway. It inhibits\nATCase, whereas the purine nucleotide ATP activates it.\n\nHigh levels of ATP can overcome the inhibition by CTP, enabling synthesis of pyrimidine\n\nnucleotides to proceed even when purine nucleotide (CTP) levels are elevated.",
+      "cleaned": "Y fas\n4\nBoth cytidine triphosphate and adenosine triphosphate target aspartate transcarbamoylase\nATCase) for feedback regulation.\nATCase, the catalyst for the first reaction unique to pyrimidine biosynthesis, is a target of\nfeedback regulation by two nucleotide triphosphates: cytidine triphosphate (CTP) and adenosine\ntriphosphate (ATP). CTP is an end product of the pyrimidine biosynthetic pathway. It inhibits\nATCase, whereas the purine nucleotide ATP activates\nHigh levels of ATP can overcome the inhibition by CTP, enabling synthesis of pyrimidine\nnucleotides to proceed even when purine nucleotide (CTP) levels are elevated.",
+      "removedFragments": [
+        ".¢",
+        "(",
+        " it."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q018": {
+      "id": "marrow__BIOCHEM_CH19_Q018",
+      "questionNumber": 18,
+      "sourcePage": 303,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          303,
+          304
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          314,
+          315
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "trim_short_ocr_prefix"
+      ],
+      "original": "Noncompetitive inhibition has constant Km and decreased Vmax.\n\nNoncompetitive inhibition occurs when the inhibitor binds at a site different from the\nsubstrate-binding site. The structure of the inhibitor does not resemble that of the substrate and\nthe inhibitor does not affect the binding of the substrate.\n\n@__ nivitor\n\nInhibitor binding\nshe\n\nvf",
+      "cleaned": "Noncompetitive inhibition has constant Km and decreased Vmax.\nNoncompetitive inhibition occurs when the inhibitor binds at a site different from the\nsubstrate-binding site. The structure of the inhibitor does not resemble that of the substrate and\nthe inhibitor does not affect the binding of the substrate.\nnivitor\nInhibitor binding\nshe\nvf",
+      "removedFragments": [
+        "@__ "
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q019": {
+      "id": "marrow__BIOCHEM_CH19_Q019",
+      "questionNumber": 19,
+      "sourcePage": 304,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          304
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          315,
+          316,
+          317
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "replace_literal_backslash_with_space",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "a) »\n- ;\nAmong the given graphs, the Gibbs free ia? ciate of an enzyme-catalyzed reaction is shown\n\nby graph A (Option B). Pa '\n\nGraph B (Option A) ca nngb represent the <6. free energy of an enzyme-catalyzed reaction, as\nthe energy state of f amin Germediate Om ot be lower than the product. A lower energy state of the\nintermediate i that the enzymie-intermediate complex is stable and such a complex will\n\nusually no} furthier form a praduct.\n\nDuring anehemical reaction, the product is formed by the breaking of substrate bonds and the\nconformational change of the substrate into a highly unstable transition state. This transition state\nis denoted by the peak of the graph. The Gibbs free energy curve of an enzyme-catalyzed reaction\n(with no intermediate state) is shown in the image given below:\n\nEnergy\n\nTransition state\n\nProducts\n\nTime\n\nDa as\n\nThe below graph shows the normal intermedia(@t6rmation vet an energy sate still higher than\n\nthat of the product:\n\nEnergy\n\n‘Activation\nenergy\n\n4)* ~~ iN\n• < >\n\nTransition\nstato 1\n\nTransition\n\nAGibbs\nfree energy\n\nProducts\n\nTime\n\nAll the reactions have a transition state, but not all reactions have an intermediate state. Every\nintermediate state is again always followed by another transition state.\n\nActivation energy is the energy difference between the free energy of the substrates and that of the\ntransition state. Because of the high activation energy, the rates of uncatalyzed chemical reactions\n\nare often slow.\n\nwithout enzyme\n\nactivation\nenergy without\nenzyme\n\nnzyme activation\n\nenergy with\n\nenzyme\n\nreactants\ne.g. CO, +H,0\n\nEnergy\n\noverall energy\nreleased during\n\nreaction\n\nproducts\nH,CO,\n\nReaction coordinate\n\nIn an enzyme-catalyzed reaction, the activation energy is reduced by forming & relatively stable\nintermediate-enzyme complex. Enzymes provide attachment'sites for they ‘substrate and speed up\nthe rate of reaction. They don't change\\the-energy state, of either the: Substrate or the product. The\nGibbs free energy change remains the ‘same. &S >\n\nGraph C: Free energy change-cannot be a straight line. Every R reaction passes through a\nhigh-energy intermediate transition states . ¢\n\nGraph D: The activation energy of. any ¥eaction is Hever lower than the free energy of the product.",
+      "cleaned": "Among the given graphs, the Gibbs free ia? ciate of an enzyme-catalyzed reaction is shown\nby graph A (Option B).\nGraph B (Option A) ca nngb represent the <6. free energy of an enzyme-catalyzed reaction, as\nthe energy state of f amin Germediate Om ot be lower than the product. A lower energy state of the\nintermediate i that the enzymie-intermediate complex is stable and such a complex will\nusually no} furthier form a praduct.\nDuring anehemical reaction, the product is formed by the breaking of substrate bonds and the\nconformational change of the substrate into a highly unstable transition state. This transition state\nis denoted by the peak of the graph. The Gibbs free energy curve of an enzyme-catalyzed reaction\nwith no intermediate state) is shown in the image given below:\nEnergy\nTransition state\nProducts\nTime\nDa as\nThe below graph shows the normal intermedia(@t6rmation vet an energy sate still higher than\nthat of the product:\nEnergy\nActivation\nenergy\nTransition\nstato\nTransition\nAGibbs\nfree energy\nProducts\nTime\nAll the reactions have a transition state, but not all reactions have an intermediate state. Every\nintermediate state is again always followed by another transition state.\nActivation energy is the energy difference between the free energy of the substrates and that of the\ntransition state. Because of the high activation energy, the rates of uncatalyzed chemical reactions\nare often slow.\nwithout enzyme\nactivation\nenergy without\nenzyme\nnzyme activation\nenergy with\nenzyme\nreactants\nEnergy\noverall energy\nreleased during\nreaction\nproducts\nReaction coordinate\nIn an enzyme-catalyzed reaction, the activation energy is reduced by forming & relatively stable\nintermediate-enzyme complex. Enzymes provide attachment'sites for they ‘substrate and speed up\nthe rate of reaction. They don't change the-energy state, of either the: Substrate or the product.\nGibbs free energy change remains the ‘same.\nGraph C: Free energy change-cannot be a straight line. Every R reaction passes through a\nhigh-energy intermediate transition states .\nGraph D: The activation energy of. any ¥eaction is Hever lower than the free energy of the product.",
+      "removedFragments": [
+        "a) »",
+        "- ;",
+        " Pa '",
+        "(",
+        "‘",
+        "4)* ~~ iN",
+        "• < >",
+        " 1",
+        "e.g. CO, +H,0",
+        "H,CO,",
+        " The",
+        " &S >",
+        " ¢"
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q020": {
+      "id": "marrow__BIOCHEM_CH19_Q020",
+      "questionNumber": 20,
+      "sourcePage": 304,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          304
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          317
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_suffix"
+      ],
+      "original": ": >\n\nThe highest tcatitic efficiencihis| seen when Km= 2 micromole and Kcat = 200 per sec.\n\nCatalytic Stiency i is caleulated as Kcat/Km, where Km is inversely proportional to the binding\naffinity of the enzyme and Kcat is the catalytic constant (Vmax divided by the total number of\nactive sites of the enzyme present). Higher values of Kcat and lower values of Km gives better\ncatalytic efficiency. Catalytic efficiency can be used to compare the performance of 2 different\nenzymes in catalyzing a reaction.\n\nStep 1: Km of each option after converting respective units to moles will be 10, 2, 2 and 4 (each\nmultiplied by 10-6) moles.\n\nStep 2: The catalytic efficiency is calculated as Kcat/Km. On substituting the values in various\noptions after converting to moles, the values come out to be 2, 25, 100 and 50 (each multiplied by\n106) M-1 s-1.\n\nSome enzymes can be so efficient that they convert the substrate to product instantaneously. They\n\nare limited only by the rate at which substrate diffuses towards the enzyme in a solution. These\nare called diffusion-limited enzymes and their catalytic efficiency is as high as 108 M-1 s-1.",
+      "cleaned": "The highest tcatitic efficiencihis| seen when Km= 2 micromole and Kcat = 200 per sec.\nCatalytic Stiency i is caleulated as Kcat/Km, where Km is inversely proportional to the binding\naffinity of the enzyme and Kcat is the catalytic constant (Vmax divided by the total number of\nactive sites of the enzyme present). Higher values of Kcat and lower values of Km gives better\ncatalytic efficiency. Catalytic efficiency can be used to compare the performance of 2 different\nenzymes in catalyzing a reaction.\nStep 1: Km of each option after converting respective units to moles will be 10, 2, 2 and 4 (each\nmultiplied by 10-6) moles.\nStep 2: The catalytic efficiency is calculated as Kcat/Km. On substituting the values in various\noptions after converting to moles, the values come out to be 2, 25, 100 and 50 (each multiplied by\nSome enzymes can be so efficient that they convert the substrate to product instantaneously. They\nare limited only by the rate at which substrate diffuses towards the enzyme in a solution. These\nare called diffusion-limited enzymes and their catalytic efficiency is as high",
+      "removedFragments": [
+        ": >",
+        "106) M-1 s-1.",
+        " as 108 M-1 s-1."
+      ]
+    }
+  }
+}

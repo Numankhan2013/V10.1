@@ -1,0 +1,404 @@
+{
+  "schemaVersion": 1,
+  "policy": "safe-deletion-only-v1",
+  "active": false,
+  "subject": "Physiology",
+  "chapterId": "27",
+  "questionCount": 11,
+  "questions": {
+    "marrow__PHYSIO_CH27_Q002": {
+      "id": "marrow__PHYSIO_CH27_Q002",
+      "questionNumber": 2,
+      "sourcePage": 483,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          483
+        ],
+        "answerKeyPages": [
+          488,
+          489
+        ],
+        "explanationPages": [
+          489,
+          490
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "trim_short_ocr_suffix"
+      ],
+      "original": "During exercise, the organ experiencing the smallest decrease in blood flow is brain.\n\n489 \n\nDuring exercise, the coronary and cerebral systems, are spared of vasoconstrictor effect because\nboth these circulatory areas have poor vasoconstrictor innervation .",
+      "cleaned": "During exercise, the organ experiencing the smallest decrease in blood flow is brain.\n489\nDuring exercise, the coronary and cerebral systems, are spared of vasoconstrictor effect because\nboth these circulatory areas have poor vasoconstrictor innervation",
+      "removedFragments": [
+        " ."
+      ]
+    },
+    "marrow__PHYSIO_CH27_Q004": {
+      "id": "marrow__PHYSIO_CH27_Q004",
+      "questionNumber": 4,
+      "sourcePage": 483,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          483,
+          484
+        ],
+        "answerKeyPages": [
+          488,
+          489
+        ],
+        "explanationPages": [
+          490
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": ".\nco\nThe interstitial fluid pressure aS Neottive i in the. lungs. cX\\\n\nThe interstitial fluid presstiré-i8 ‘slightly ne§ative in the body except in the encapsulated organs.\n\nIt is positive in o> e's\n\n+ Rigid closed compartments; | hone marrow, brain\n* Encapsulated organs - Kidney, skeletal vanitle\n\nThis is due to the fact@hat i in the Kido, high-pressure vessels push the interstitial fluid against\nan unyielding fil ibrous capsule raising the pressure. The same principle applies to skeletal muscle\nsurrounded d byilavers of fascia)\n\nN ~~",
+      "cleaned": "co\nThe interstitial fluid pressure aS Neottive i in the. lungs.\nThe interstitial fluid presstiré-i8 ‘slightly ne§ative in the body except in the encapsulated organs.\nIt is positive in o> e's\nRigid closed compartments; | hone marrow, brain\nEncapsulated organs - Kidney, skeletal vanitle\nThis is due to the fact@hat i in the Kido, high-pressure vessels push the interstitial fluid against\nan unyielding fil ibrous capsule raising the pressure. The same principle applies to skeletal muscle\nsurrounded d byilavers of fascia)",
+      "removedFragments": [
+        ".",
+        " cX\\",
+        "+ ",
+        "* ",
+        "N ~~"
+      ]
+    },
+    "marrow__PHYSIO_CH27_Q005": {
+      "id": "marrow__PHYSIO_CH27_Q005",
+      "questionNumber": 5,
+      "sourcePage": 484,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          484
+        ],
+        "answerKeyPages": [
+          488,
+          489
+        ],
+        "explanationPages": [
+          490,
+          491
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [],
+      "original": "Blood flow per minute in the pulmonary circulation is equal to flow through the systemic\ncirculation so as to provide continuous blood supply to the body.\n\nIf the flow rate is slower in the pulmonary circulation than systemic, then the left ventricle would\nsoon empty completely. If the flow rate is faster in the pulmonary circulation then the left\nventricle would be soon overloaded.\n\nPlease note that because some blood flows into the bronchial arteries, the actual flow through the\npulmonary circulation is slightly lesser than the flow through the systemic circulation. However,\nthis question aims to state that the blood flow through both pulmonary and systemic circulation is\nlargely equal.\n\n490",
+      "cleaned": "Blood flow per minute in the pulmonary circulation is equal to flow through the systemic\ncirculation so as to provide continuous blood supply to the body.\nIf the flow rate is slower in the pulmonary circulation than systemic, then the left ventricle would\nsoon empty completely. If the flow rate is faster in the pulmonary circulation then the left\nventricle would be soon overloaded.\nPlease note that because some blood flows into the bronchial arteries, the actual flow through the\npulmonary circulation is slightly lesser than the flow through the systemic circulation. However,\nthis question aims to state that the blood flow through both pulmonary and systemic circulation is\nlargely equal.\n490",
+      "removedFragments": []
+    },
+    "marrow__PHYSIO_CH27_Q006": {
+      "id": "marrow__PHYSIO_CH27_Q006",
+      "questionNumber": 6,
+      "sourcePage": 484,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          484
+        ],
+        "answerKeyPages": [
+          488,
+          489
+        ],
+        "explanationPages": [
+          491,
+          492
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "The shock due to a transfusion reaction is distributive shock.\n\nDuring transfusion reaction, there is decreased systemic vascular resistance due to system-wide\nvasodilation mediated by release of histamine by mast cells in response to antigen bound IgE,\nleading to distributive shock.\n\nTypes of circulatory shock:\n\n+ Hypovolemic shock: due to decreased blood in vascular compartment. E.g., haemorrhage,\ndehydration.\n\n* Cardiogenic shock: due to decreased capacity of heart to pump. E.g., any pathology of heart\ndecreasing its ability to maintain cardiac output. \\S\nO\n\n* Obstructive shock: due to conditions causing obstruction to blood flow im lungs and\nheart.E.g:pulmonary embolism. Sow a\n\n~2)\n+ Distributive/vasculogenic shock: excessive vasodilation leading to'impaired organ perfusion. E.g:\nseptic shock, SIRS, transfusion reaction, Addisonizn crisis, neuro} enic shock\n+ >\n\n.. 2\nThree stages of shock: © we J eS\n\neventually causes full recovery Kei it help from outside thezaby=\n\n+ Progressive: also called no} mpensatedy without therapy. it gets steadily worse.\nNe\n\n“4 “\n+ Non-progressive: also called comaet ited. shock, where normal.g6inpensatory mechanism\n\n-\n+ Irreversible: even therapy is inadequate to save life.<\nox ~~\n\nCer\nwe mae\nSolution to Question 7) rk ol\nDuring fetal Wigtba vessel with’ maximum concentration of oxygen is umblical vein.\n<> =)\n\\ SD weet et,\n\n491",
+      "cleaned": "The shock due to a transfusion reaction is distributive shock.\nDuring transfusion reaction, there is decreased systemic vascular resistance due to system-wide\nvasodilation mediated by release of histamine by mast cells in response to antigen bound IgE,\nleading to distributive shock.\nTypes of circulatory shock:\nHypovolemic shock: due to decreased blood in vascular compartment. E.g., haemorrhage,\ndehydration.\nCardiogenic shock: due to decreased capacity of heart to pump. E.g., any pathology of heart\ndecreasing its ability to maintain cardiac output.\nO\nObstructive shock: due to conditions causing obstruction to blood flow im lungs and\nheart.E.g:pulmonary embolism.\nDistributive/vasculogenic shock: excessive vasodilation leading to'impaired organ perfusion. E.\nseptic shock, SIRS, transfusion reaction, Addisonizn crisis, neuro} enic shock\nThree stages of shock: © we J eS\neventually causes full recovery Kei it help from outside thezaby=\nProgressive: also called no} mpensatedy without therapy. it gets steadily worse.\nNe\nprogressive: also called comaet ited. shock, where normal.g6inpensatory mechanism\nIrreversible: even therapy is inadequate to save life.\nCer\nwe mae\nSolution to Question 7) rk ol\nDuring fetal Wigtba vessel with’ maximum concentration of oxygen is umblical vein.\nweet\n491",
+      "removedFragments": [
+        "+ ",
+        "* ",
+        " \\S",
+        "* ",
+        " Sow a",
+        "~2)",
+        "+ ",
+        "g:",
+        "+ >",
+        ".. 2",
+        "+ ",
+        "“4 “",
+        "+ Non-",
+        "-",
+        "+ ",
+        "<",
+        "ox ~~",
+        "<> =)",
+        "\\ SD ",
+        " et,"
+      ]
+    },
+    "marrow__PHYSIO_CH27_Q009": {
+      "id": "marrow__PHYSIO_CH27_Q009",
+      "questionNumber": 9,
+      "sourcePage": 485,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          485
+        ],
+        "answerKeyPages": [
+          488,
+          489
+        ],
+        "explanationPages": [
+          492
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "o~\nDuring rest, blood flow through skeletal muscle averaBé3)3—4 mLmigioo g of muscle.\n\nThe resting blood flow through various organs i) 6p kg adultaman with a mean arterial pressure\n90 mmHg and O02 consumption 250 mL/min jis given beloy.O 2 O\n= nie\n<\n\\\n\na)\n\nt Liver 1500\n- Kidneys 1260\nBrain 750.\n¢) Skeletal muse | 840\n- a le\n> Q Gest muscle | 250\n& “? o\n‘ y",
+      "cleaned": "During rest, blood flow through skeletal muscle averaBé3)3—4 mLmigioo g of muscle.\nThe resting blood flow through various organs i) 6p kg adultaman with a mean arterial pressure\nmmHg and O02 consumption 250 mL/min jis given beloy.\n= nie\nt Liver 1500\nKidneys\nBrain\nSkeletal muse | 840\nGest muscle | 250",
+      "removedFragments": [
+        "o~",
+        "90 ",
+        "O 2 O",
+        "<",
+        "\\",
+        "a)",
+        "- ",
+        " 1260",
+        " 750.",
+        "¢) ",
+        "- a le",
+        "> Q ",
+        "& “? o",
+        "‘ y"
+      ]
+    },
+    "marrow__PHYSIO_CH27_Q011": {
+      "id": "marrow__PHYSIO_CH27_Q011",
+      "questionNumber": 11,
+      "sourcePage": 485,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          485
+        ],
+        "answerKeyPages": [
+          488,
+          489
+        ],
+        "explanationPages": [
+          492,
+          493
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Thin-walled and delicate vessels like capillaries are less prone to rupture and this can be explained\nby Laplace law.\n\n492 \n\nThe principal reason for these vessels' relative invulnerability is their small diameter. The\nprotective effect of small size, in this case, is an example of the law of Laplace.\n\nLaplace law states that tension in the wall of a cylinder (T) is equal to the product of the\ntransmural pressure (P) and the radius (r) divided by the wall thickness (w):\n\nT= Priw\nAs the tissue pressure is low, P is equated to the pressure inside the blood vessel.\n\nW can be ignored as well as capillaries are thin walled. Hence:\n\nP=Tir\nIn a thin-walled viscus, P = T divided by the two principal radii of curvature of the eBigcus: P=T\n(w/riti/r2) ‘NS aS\nIna cylinder such as a blood vessel, one radius is infinite, AQP = Tr e x\nHence, smaller the radius, lower is the tension necessaigiin the wall ofslance the distending\npressure. rm & ~ X\noe <N »\n( C\nWw ~ e~\nY a re\ni i : ~~ oOo ~",
+      "cleaned": "Thin-walled and delicate vessels like capillaries are less prone to rupture and this can be explained\nby Laplace law.\n492\nThe principal reason for these vessels' relative invulnerability is their small diameter.\nprotective effect of small size, in this case, is an example of the law of Laplace.\nLaplace law states that tension in the wall of a cylinder (T) is equal to the product of the\ntransmural pressure (P) and the radius (r) divided by the wall thickness\nPriw\nAs the tissue pressure is low, P is equated to the pressure inside the blood vessel.\nW can be ignored as well as capillaries are thin walled. Hence:\nP=Tir\nIn a thin-walled viscus, P = T divided by the two principal radii of curvature of the eBigcus: P=T\nriti/r2) ‘NS aS\nIna cylinder such as a blood vessel, one radius is infinite, AQP = Tr e x\nHence, smaller the radius, lower is the tension necessaigiin the wall ofslance the distending\npressure.\nY a re",
+      "removedFragments": [
+        " The",
+        " (w):",
+        "T= ",
+        "(w/",
+        " rm & ~ X",
+        "oe <N »",
+        "( C",
+        "Ww ~ e~",
+        "i i : ~~ oOo ~"
+      ]
+    },
+    "marrow__PHYSIO_CH27_Q012": {
+      "id": "marrow__PHYSIO_CH27_Q012",
+      "questionNumber": 12,
+      "sourcePage": 485,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          485,
+          486
+        ],
+        "answerKeyPages": [
+          488,
+          489
+        ],
+        "explanationPages": [
+          493,
+          494
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "trim_short_ocr_suffix"
+      ],
+      "original": "The relationship between the flow in a long narrow tube, the viscosity of the fluid, and the radius of the tube is expressed mathematically by Poiseuille's law.\n\nPoiseuille-Hagen formula:\nF = (PA − PB) × (π/8) × (1/η) × (1/L) × r⁴\n\nWhere F = flow; PA − PB = pressure difference between two ends of the tube; η = viscosity; r = radius; L = length.",
+      "cleaned": "The relationship between the flow in a long narrow tube, the viscosity of the fluid, and the radius of the tube is expressed mathematically by Poiseuille's\nPoiseuille-Hagen formula:\nF = (PA − PB) × (π/8) × (1/η)\nWhere F = flow; PA − PB = pressure difference between two ends of the tube; η = viscosity; r = radius; L = length.",
+      "removedFragments": [
+        " law.",
+        " × (1/L) × r⁴"
+      ]
+    },
+    "marrow__PHYSIO_CH27_Q014": {
+      "id": "marrow__PHYSIO_CH27_Q014",
+      "questionNumber": 14,
+      "sourcePage": 486,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          486,
+          487
+        ],
+        "answerKeyPages": [
+          488,
+          489
+        ],
+        "explanationPages": [
+          494,
+          495
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "trim_short_ocr_prefix"
+      ],
+      "original": "The \"flow\" phase (not \"ebb\") leads to activation of the innate immune system and induction of the\nhepatic acute-phase response.\nCuthbertson's ebb and flow response to trauma:\n\nThe \"ebb\" phase lasts for a brief duration and is associated with a decline in body temperature and\noxygen consumption, aimed at reducing post traumatic energy depletion.\n\nThe \"flow\" phase occurs after resuscitation from a state of shock, which leads to an increased\nmetabolic turnover, activation of the innate immune system and induction of the hepatic\nacute-phase response. This hypercatabolic condition leads to a significantly increased oxygen\nconsumption and energy expenditure.\n\n494",
+      "cleaned": "flow\" phase (not \"ebb\") leads to activation of the innate immune system and induction of the\nhepatic acute-phase response.\nCuthbertson's ebb and flow response to trauma:\nphase lasts for a brief duration and is associated with a decline in body temperature and\noxygen consumption, aimed at reducing post traumatic energy depletion.\nflow\" phase occurs after resuscitation from a state of shock, which leads to an increased\nmetabolic turnover, activation of the innate immune system and induction of the hepatic\nacute-phase response. This hypercatabolic condition leads to a significantly increased oxygen\nconsumption and energy expenditure.\n494",
+      "removedFragments": [
+        "The \"",
+        "The \"ebb\" ",
+        "The \""
+      ]
+    },
+    "marrow__PHYSIO_CH27_Q015": {
+      "id": "marrow__PHYSIO_CH27_Q015",
+      "questionNumber": 15,
+      "sourcePage": 487,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          487
+        ],
+        "answerKeyPages": [
+          488,
+          489
+        ],
+        "explanationPages": [
+          495
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix"
+      ],
+      "original": "The Hering's nerve terminates in the medulla (Tractus solitarius).\nBaroreceptor reflexes\n\n+ Carotid baroreceptors + Hering's nerve > the glossopharyngeal nerve — Tractus solitarius in\nmedulla.\n\n+ Aortic baroreceptors — Vagus nerve - tractus solitarius in medulla\n\ns\n\ni\n\n> <\n, \\ a\nSolution to Guemion 16:",
+      "cleaned": "The Hering's nerve terminates in the medulla (Tractus solitarius).\nBaroreceptor reflexes\nCarotid baroreceptors + Hering's nerve > the glossopharyngeal nerve — Tractus solitarius in\nmedulla.\nAortic baroreceptors — Vagus nerve - tractus solitarius in medulla\ns\ni\nSolution to Guemion 16:",
+      "removedFragments": [
+        "+ ",
+        "+ ",
+        "> <",
+        ", \\ a"
+      ]
+    },
+    "marrow__PHYSIO_CH27_Q017": {
+      "id": "marrow__PHYSIO_CH27_Q017",
+      "questionNumber": 17,
+      "sourcePage": 487,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          487
+        ],
+        "answerKeyPages": [
+          488,
+          489
+        ],
+        "explanationPages": [
+          495,
+          496
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix"
+      ],
+      "original": "Mayer waves are due to the variation of arterial pressure due to reflex changes in nervous control\nof blood pressure.\nThe most important mechanisms are as follows:\n\nI: Baroreceptor and chemoreceptor reflex:\n\nHigh pressure excites the baroreceptors --&gt;inhibits sympathetic nervous system and lowers the\npressure --&gt;The decreased pressure, in turn, reduces the baroreceptor stimulation\n--&gt;elevating the pressure to a high value (the response is not instantaneous, it is delayed until a\nfew seconds later). This high pressure then initiates another cycle, and the oscillation continues.\n\nII: Oscillation of the CNS Ischemic Response:\n\n495, \n\nThe cerebrospinal fluid pressure is raised to 160 mm Hg --&gt; causes compression of cerebral\nblood vessels --&gt; cerebral ischemia--&gt; CNS ischemic pressure response raises the arterial\npressure up to 200mm Hg --&gt;the brain ischemia is relieved and the sympathetic nervous\nsystem becomes inactive --&gt;the arterial pressure falls rapidly back to a much lower value,\ncausing brain ischemia once again --&gt;initiates another rise in pressure. This chain of events\nrepeats itself cyclically as long as the cerebrospinal fluid pressure remains elevated.",
+      "cleaned": "Mayer waves are due to the variation of arterial pressure due to reflex changes in nervous control\nof blood pressure.\nThe most important mechanisms are as follows:\nBaroreceptor and chemoreceptor reflex:\nHigh pressure excites the baroreceptors --&gt;inhibits sympathetic nervous system and lowers the\npressure --&gt;The decreased pressure, in turn, reduces the baroreceptor stimulation\nelevating the pressure to a high value (the response is not instantaneous, it is delayed until a\nfew seconds later). This high pressure then initiates another cycle, and the oscillation continues.\nOscillation of the CNS Ischemic Response:\nThe cerebrospinal fluid pressure is raised to 160 mm Hg --&gt; causes compression of cerebral\nblood vessels --&gt; cerebral ischemia--&gt; CNS ischemic pressure response raises the arterial\npressure up to 200mm Hg --&gt;the brain ischemia is relieved and the sympathetic nervous\nsystem becomes inactive --&gt;the arterial pressure falls rapidly back to a much lower value,\ncausing brain ischemia once again --&gt;initiates another rise in pressure. This chain of events\nrepeats itself cyclically as long as the cerebrospinal fluid pressure remains elevated.",
+      "removedFragments": [
+        "I: ",
+        "--&gt;",
+        "II: ",
+        "495,"
+      ]
+    },
+    "marrow__PHYSIO_CH27_Q018": {
+      "id": "marrow__PHYSIO_CH27_Q018",
+      "questionNumber": 18,
+      "sourcePage": 487,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          487,
+          488
+        ],
+        "answerKeyPages": [
+          488,
+          489
+        ],
+        "explanationPages": [
+          496
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_brand_only_line",
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Vasomotion means intermittent contraction of meta arterioles and precapillary spinchter.\n\\\n\nBlood usually does not flow continuously through the capillaries. Instead, it flows'intermittently,\nturning on and off every few seconds or minutes. This is Poretion, whidli is responsible for flow\n\nof blood in capillaries . < Ne) te)\nThe main regulatory factor for vasomotion is tissue'oXygen concent ition.\na A »\n\nComponents of the microcirculation\n\nMetarteriole\n\nMARROW",
+      "cleaned": "Vasomotion means intermittent contraction of meta arterioles and precapillary spinchter.\nBlood usually does not flow continuously through the capillaries. Instead, it flows'intermittently,\nturning on and off every few seconds or minutes. This is Poretion, whidli is responsible for flow\nof blood in capillaries .\nThe main regulatory factor for vasomotion is tissue'oXygen concent ition.\nComponents of the microcirculation\nMetarteriole",
+      "removedFragments": [
+        "\\",
+        " < Ne) te)",
+        "a A »",
+        "MARROW"
+      ]
+    }
+  }
+}

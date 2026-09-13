@@ -1,0 +1,395 @@
+{
+  "schemaVersion": 1,
+  "policy": "safe-deletion-only-v1",
+  "active": false,
+  "subject": "Physiology",
+  "chapterId": "8",
+  "questionCount": 10,
+  "questions": {
+    "marrow__PHYS_CH08_Q001": {
+      "id": "marrow__PHYS_CH08_Q001",
+      "questionNumber": 1,
+      "sourcePage": 160,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          160
+        ],
+        "answerKeyPages": [
+          164
+        ],
+        "explanationPages": [
+          165
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Human heart contains both alpha and beta isoforms of the myosin heavy chain. 8 isoform has a\nlower myosin ATPase activity than the ° isoform.\n*° isoform predominates in the adult atria.\n+ B isoform predominates in the adult ventricles. . ce ’\n¢ The spatial distribution contributes to the well coordinated « contraction of thé heart.\n@\n160 <\naN” >s\nx &\ni i . 2 << »",
+      "cleaned": "Human heart contains both alpha and beta isoforms of the myosin heavy chain. 8 isoform has a\nlower myosin ATPase activity than the ° isoform.\nisoform predominates in the adult atria.\nisoform predominates in the adult ventricles. .\nspatial distribution contributes to the well coordinated « contraction of thé heart.",
+      "removedFragments": [
+        "*° ",
+        "+ B ",
+        " ce ’",
+        "¢ The ",
+        "@",
+        "160 <",
+        "aN” >s",
+        "x &",
+        "i i . 2 << »"
+      ]
+    },
+    "marrow__PHYS_CH08_Q002": {
+      "id": "marrow__PHYS_CH08_Q002",
+      "questionNumber": 2,
+      "sourcePage": 160,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          160
+        ],
+        "answerKeyPages": [
+          164
+        ],
+        "explanationPages": [
+          165
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "> . \\\nvS Oo ef\nay Ss ms\n* Cardiac muscle fibres are made up of many individualcélls connected int series and parallel with\n- Wo\\ “w\none another. ss ot KO } >\n¢ The areas where the end of one. muscle fiber abul son another; which always occur at Z lines, are\ncalled intercalated discs. co e % ef\n\\~ ~ Z\n+ It provides a strong union between-fibers, maintaining cell-to-cell cohesion, so that the pull of\none contractile cell can be transmitted along itsraxis to the next.\n‘ _* \\\n* It contains Desmosomes fe prevent pulling’apart of the cells when strain\n+ At each intercalated ap the Plasipplpembrane fuses with one another forming gap junction\nwhich provide lo resis ance bree or the spread of excitation from one fiber to another\npermitting the tie muscleto metion as a syncytium.\n¢ ..\n“\" \"\n=~ —|\nm SS\nCardiac Muscle .\nMitochondria — Si nl Cardiac muscle\ncells\nMyofibrils a init ace TT\n4 ce intercalated\ndisc",
+      "cleaned": "vS Oo ef\nay Ss ms\nCardiac muscle fibres are made up of many individualcélls connected int series and parallel with\none another.\nareas where the end of one. muscle fiber abul son another; which always occur at Z lines, are\ncalled intercalated discs.\nprovides a strong union between-fibers, maintaining cell-to-cell cohesion, so that the pull of\none contractile cell can be transmitted along itsraxis to the next.\ncontains Desmosomes fe prevent pulling’apart of the cells when strain\neach intercalated ap the Plasipplpembrane fuses with one another forming gap junction\nwhich provide lo resis ance bree or the spread of excitation from one fiber to another\npermitting the tie muscleto metion as a syncytium.\nm SS\nCardiac Muscle .\nMitochondria — Si nl Cardiac muscle\ncells\nMyofibrils a init ace TT\n4 ce intercalated\ndisc",
+      "removedFragments": [
+        "> . \\",
+        "* ",
+        "- Wo\\ “w",
+        " ss ot KO } >",
+        "¢ The ",
+        " co e % ef",
+        "\\~ ~ Z",
+        "+ It ",
+        "‘ _* \\",
+        "* It ",
+        "+ At ",
+        "¢ ..",
+        "“\" \"",
+        "=~ —|"
+      ]
+    },
+    "marrow__PHYS_CH08_Q003": {
+      "id": "marrow__PHYS_CH08_Q003",
+      "questionNumber": 3,
+      "sourcePage": 160,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          160
+        ],
+        "answerKeyPages": [
+          164
+        ],
+        "explanationPages": [
+          165,
+          166
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Phosphorylation of phospholamban is responsible for the positive inotropic effect on the\nmyocardium observed after the stimulation of the sympathetic nervous system.\nPhospholamban is a protein that regulates Ca2+ATPase in the sarcoplasmic reticulum. When\nphosphorylated, phospholamban stimulates the Ca2+ ATPase, resulting in greater uptake and\nstorage of Ca2+ by the sarcoplasmic reticulum.\nIncreased Ca2+ uptake by the sarcoplasmic reticulum has two effects:\nIt causes faster relaxation (i.e., briefer contraction).\nit increases the amount of stored Ca2+ for release on subsequent beats. o\nThis positive inotropic effect has three important features: increased peak tension’ increased rate\nof tension development, and faster rate of relaxation. x “S\nFaster relaxation means that the contraction (twitch) is'shorter, allowing more time for refilling.\nThis effect is mediated via activation of B1 receptors} which are,eoupled via a,Gs protein to\nadenylyl cyclase. oo { >\nActivation of adenylyl cyclase leads to the production of CAMP, activation of protein kinases, and\nphosphorylation of proteins that produce the physiologic effect of,inereased contractility.\n‘",
+      "cleaned": "Phosphorylation of phospholamban is responsible for the positive inotropic effect on the\nmyocardium observed after the stimulation of the sympathetic nervous system.\nPhospholamban is a protein that regulates Ca2+ATPase in the sarcoplasmic reticulum. When\nphosphorylated, phospholamban stimulates the Ca2+ ATPase, resulting in greater uptake and\nstorage of Ca2+ by the sarcoplasmic reticulum.\nIncreased Ca2+ uptake by the sarcoplasmic reticulum has two effects:\nIt causes faster relaxation (i.e., briefer contraction).\nit increases the amount of stored Ca2+ for release on subsequent beats.\nThis positive inotropic effect has three important features: increased peak tension’ increased rate\nof tension development, and faster rate of relaxation.\nFaster relaxation means that the contraction (twitch) is'shorter, allowing more time for refilling.\nThis effect is mediated via activation of B1 receptors} which are,eoupled via a,Gs protein to\nadenylyl cyclase.\nActivation of adenylyl cyclase leads to the production of CAMP, activation of protein kinases, and\nphosphorylation of proteins that produce the physiologic effect of,inereased contractility.",
+      "removedFragments": [
+        " o",
+        " x “S",
+        " oo { >",
+        "‘"
+      ]
+    },
+    "marrow__PHYS_CH08_Q004": {
+      "id": "marrow__PHYS_CH08_Q004",
+      "questionNumber": 4,
+      "sourcePage": 160,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          160,
+          161
+        ],
+        "answerKeyPages": [
+          164
+        ],
+        "explanationPages": [
+          166
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "replace_literal_backslash_with_space",
+        "trim_short_ocr_prefix"
+      ],
+      "original": "; wy\n* Phospholamban is a proteingthat regulates. SR Ca2+ ATPase (SERCA) in the sarcoplasmic\nreticulum. In its dephosphorylated statephospholamban inhibits the Ca2+ ATPase, resulting in\ndiminished uptake and.storage of Ca2+\\by the sarcoplasmic reticulum, while in its phosphorylated\nstate, there is disinhibition of theCa2+ ATPase leading to increased uptake and storage of Ca2+\nby the sarcoplasmic reticulum»,\n+ Increased €a2+ uptake.by the sarcoplasmic reticulum has two effects:\n+ It causes faster relaxation (i.e., briefer contraction).\n* it increases the amount of stored Ca2+ for release on subsequent beats.\n* Phosphorylation of phospholamban is responsible for the positive inotropic effect effect on the\nmyocardium observed after the stimulation of sympathetic nervous system.\n* This effect is mediated via activation of B1 receptors, which are coupled via a Gs protein to\nadenylyl cyclase.\n¢ This positive inotropic effect has three important features: increased peak tension, increased rate\nof tension development, and faster rate of relaxation.\n¢ Faster relaxation means that the contraction (twitch) is shorter, allowing more time for refilling.",
+      "cleaned": "Phospholamban is a proteingthat regulates. SR Ca2+ ATPase (SERCA) in the sarcoplasmic\nreticulum. In its dephosphorylated statephospholamban inhibits the Ca2+ ATPase, resulting in\ndiminished uptake and.storage of Ca2+ by the sarcoplasmic reticulum, while in its phosphorylated\nstate, there is disinhibition of theCa2+ ATPase leading to increased uptake and storage of Ca2+\nby the sarcoplasmic reticulum»,\nIncreased €a2+ uptake.by the sarcoplasmic reticulum has two effects:\ncauses faster relaxation (i.e., briefer contraction).\nincreases the amount of stored Ca2+ for release on subsequent beats.\nPhosphorylation of phospholamban is responsible for the positive inotropic effect effect on the\nmyocardium observed after the stimulation of sympathetic nervous system.\nThis effect is mediated via activation of B1 receptors, which are coupled via a Gs protein to\nadenylyl cyclase.\nThis positive inotropic effect has three important features: increased peak tension, increased rate\nof tension development, and faster rate of relaxation.\nFaster relaxation means that the contraction (twitch) is shorter, allowing more time for refilling.",
+      "removedFragments": [
+        "; wy",
+        "* ",
+        "+ ",
+        "+ It ",
+        "* it ",
+        "* ",
+        "* ",
+        "¢ ",
+        "¢ "
+      ]
+    },
+    "marrow__PHYS_CH08_Q005": {
+      "id": "marrow__PHYS_CH08_Q005",
+      "questionNumber": 5,
+      "sourcePage": 161,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          161
+        ],
+        "answerKeyPages": [
+          164
+        ],
+        "explanationPages": [
+          166,
+          167
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Cardiac muscle cannot be tetanized due to long refractory period.\nIn cardiac myocytes, depolarization proceeds rapidly and an overshoot of the zero potential is\npresent. This is followed by a plateau before the membrane potential reaches the RMP (-9omV).\nThis plateau phase lasts for 200 msec or more. Repolarization is therefore not complete until\ncontraction is 50% completed.\nPhases of cardiac action potential\n* o> Depolarisation and overshoot\n¢ Due to opening of voltage-gated Na+ channels\n¢ 1 Initial rapid repolarization\n¢ Due to closure of Na+ channels and opening up of K+ channels “ a\n* 2 Plateau phase < e\n: ~O os\n+ Due to slow but prolonged opening of Ca2+ channelS) eh\n. es “s\n¢ 3 late rapid repolarization Ks at %\n> >\n* 4— Baseline (RMP) - ~ > @\nPhases 3 and 4 are due closure of Ca2+'channels anda slow, delayed increase of K+ efflux\n—~ rat =\nthrough K+ channels. .o iS a\n{\n+ During phases 0 to 2 and about half of phase. 3 of cardiac.action potential, cardiac muscle cannot\nbe excited again, that is, itis in its absolute refractory period. It remains relatively refractory until\nphase 4. Thus, cardiac muscle cannot be'tetanized.»*\nNat channets: = -\n24 a Seniesa” eu ela\n* ~ Beeb bed o 00 imo te) 200 300\n@\n- action potential | | a5 Action potential\nt Contraction } Coniraction\nTime (ms) Time ts)\n©)",
+      "cleaned": "Cardiac muscle cannot be tetanized due to long refractory period.\nIn cardiac myocytes, depolarization proceeds rapidly and an overshoot of the zero potential is\npresent. This is followed by a plateau before the membrane potential reaches the RMP\nThis plateau phase lasts for 200 msec or more. Repolarization is therefore not complete until\ncontraction is 50% completed.\nPhases of cardiac action potential\nDepolarisation and overshoot\n¢ Due to opening of voltage-gated Na+ channels\nInitial rapid repolarization\n¢ Due to closure of Na+ channels and opening up of K+ channels “ a\nPlateau phase < e\n+ Due to slow but prolonged opening of Ca2+ channelS) eh\nlate rapid repolarization Ks at %\nBaseline (RMP)\nPhases 3 and 4 are due closure of Ca2+'channels anda slow, delayed increase of K+ efflux\nthrough K+ channels. .\nDuring phases 0 to 2 and about half of phase. 3 of cardiac.action potential, cardiac muscle cannot\nbe excited again, that is, itis in its absolute refractory period. It remains relatively refractory until\nphase 4. Thus, cardiac muscle cannot be'tetanized.\nNat channets:\n24 a Seniesa” eu ela\nBeeb bed o 00 imo te) 200 300\naction potential | | a5 Action potential\nt Contraction } Coniraction\nTime (ms) Time ts)",
+      "removedFragments": [
+        " (-9omV).",
+        "* o> ",
+        "¢ 1 ",
+        "* 2 ",
+        ": ~O os",
+        ". es “s",
+        "¢ 3 ",
+        "> >",
+        "* 4— ",
+        " - ~ > @",
+        "—~ rat =",
+        "o iS a",
+        "{",
+        "+ ",
+        "»*",
+        " = -",
+        "* ~ ",
+        "@",
+        "- ",
+        "©)"
+      ]
+    },
+    "marrow__PHYS_CH08_Q006": {
+      "id": "marrow__PHYS_CH08_Q006",
+      "questionNumber": 6,
+      "sourcePage": 161,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          161
+        ],
+        "answerKeyPages": [
+          164
+        ],
+        "explanationPages": [
+          167,
+          168
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "The diagram displays the Length-Tension relationship for a cardiac muscle explaining the Starling\nlaw of the heart.\n\nIn the body, the initial length of the fibers is determined by the degree of diastolic filling of the\nheart, and the pressure developed in the ventricle is proportional to the volume of the ventricle at\nthe end of the filling phase (Starling law of the heart).\nThe developed tension increases as the diastolic volume increases until it reaches a maximum,\nthen tends to decrease.\n+ The decrease is due to beginning disruption of the myocardial fibers and not due to a decrease in\nthe number of cross-bridges between actin and myosin as seen in skeletal muscle.\n270 Systolic\nintravascular\n240 pressure e\n210 NS\n= 180\nE 150 Developed\n> tension\n§ 120\n3 &\n& 90 }\n60 Diastolic\nintravascular\n30 pressure\n10)\n10 20 30 40 50 60 70\nDiastolic volume (mL)\nta toil . “\n| ~~ |\nSolution to Question EY ‘ 4\n“\nHollow viscera, a¥e primarily composed of single-unit smooth muscles.\n~,' ‘ 3\n¥ ~~",
+      "cleaned": "The diagram displays the Length-Tension relationship for a cardiac muscle explaining the Starling\nlaw of the heart.\nIn the body, the initial length of the fibers is determined by the degree of diastolic filling of the\nheart, and the pressure developed in the ventricle is proportional to the volume of the ventricle at\nthe end of the filling phase (Starling law of the heart).\nThe developed tension increases as the diastolic volume increases until it reaches a maximum,\nthen tends to decrease.\ndecrease is due to beginning disruption of the myocardial fibers and not due to a decrease in\nthe number of cross-bridges between actin and myosin as seen in skeletal muscle.\nSystolic\nintravascular\npressure e\n210 NS\nE 150 Developed\ntension\nDiastolic\nintravascular\npressure\n10 20 30\nDiastolic volume (mL)\nta toil .\nSolution to Question EY ‘ 4\nHollow viscera, a¥e primarily composed of single-unit smooth muscles.",
+      "removedFragments": [
+        "+ The ",
+        "270 ",
+        "240 ",
+        "= 180",
+        "> ",
+        "§ 120",
+        "3 &",
+        "& 90 }",
+        "60 ",
+        "30 ",
+        "10)",
+        " 40 50 60 70",
+        " “",
+        "| ~~ |",
+        "“",
+        "~,' ‘ 3",
+        "¥ ~~"
+      ]
+    },
+    "marrow__PHYS_CH08_Q008": {
+      "id": "marrow__PHYS_CH08_Q008",
+      "questionNumber": 8,
+      "sourcePage": 162,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          162
+        ],
+        "answerKeyPages": [
+          164
+        ],
+        "explanationPages": [
+          168,
+          169
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Increased cytosolic Ca2+ is essential for contraction of smooth muscles.\nEvents in Excitation Contraction Coupling in Smooth Muscles.\n\n+\n\n+\n\n+\n\nJt\nA unitary smooth muscle is unique in that it can eontract when Stretched eyerpin the absence of\nany extrinsic innervation. Stretch is followed by a decrease in membrane’potential and an increase\nin the tone of the muscle. = ro a\nOther options: . * ‘ .\nOption a: Troponin is absent in smooth muscle. “\n\n} “ ¢\nOption b: Sustained contraction of the. smooth muscle occurs even when the calcium\nconcentration falls. This is mainly-because of the,latch-bridge mechanism where the myosin\ncross-bridges remain attached-to-the actin. This mechanism allows for maintaining the\ncontraction with less expenditure of energy,and is particularly important in the vascular smooth\nmuscle. ee ~)\nOption c: Unlike sk@letal muscletwhere troponin binding is essential for contraction, the smooth\nmuscle contraction requires phosphorylation of myosin (not actin).\naS ‘\nn 4",
+      "cleaned": "Increased cytosolic Ca2+ is essential for contraction of smooth muscles.\nEvents in Excitation Contraction Coupling in Smooth Muscles.\nJt\nA unitary smooth muscle is unique in that it can eontract when Stretched eyerpin the absence of\nany extrinsic innervation. Stretch is followed by a decrease in membrane’potential and an increase\nin the tone of the muscle.\nOther options:\nOption a: Troponin is absent in smooth muscle.\nOption b: Sustained contraction of the. smooth muscle occurs even when the calcium\nconcentration falls. This is mainly-because of the,latch-bridge mechanism where the myosin\ncross-bridges remain attached-to-the actin. This mechanism allows for maintaining the\ncontraction with less expenditure of energy,and is particularly important in the vascular smooth\nmuscle.\nOption c: Unlike sk@letal muscletwhere troponin binding is essential for contraction, the smooth\nmuscle contraction requires phosphorylation of myosin (not actin).\nn",
+      "removedFragments": [
+        "+",
+        "+",
+        "+",
+        " = ro a",
+        " . * ‘ .",
+        " “",
+        "} “ ¢",
+        " ee ~)",
+        "aS ‘",
+        " 4"
+      ]
+    },
+    "marrow__PHYS_CH08_Q011": {
+      "id": "marrow__PHYS_CH08_Q011",
+      "questionNumber": 11,
+      "sourcePage": 162,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          162,
+          163
+        ],
+        "answerKeyPages": [
+          164
+        ],
+        "explanationPages": [
+          170
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "WO hy\nActin, myosin, and tropomyosin are present in both skeletal muscle and smooth muscle. But,\ntroponin is absent and calmodulin is present,fn smooth musélé. 4\na ~ ( + Cc\noh xs »",
+      "cleaned": "WO hy\nActin, myosin, and tropomyosin are present in both skeletal muscle and smooth muscle.\ntroponin is absent and calmodulin is present,fn smooth musélé.\noh",
+      "removedFragments": [
+        " But,",
+        " 4",
+        "a ~ ( + Cc",
+        " xs »"
+      ]
+    },
+    "marrow__PHYS_CH08_Q012": {
+      "id": "marrow__PHYS_CH08_Q012",
+      "questionNumber": 12,
+      "sourcePage": 163,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          163
+        ],
+        "answerKeyPages": [
+          164
+        ],
+        "explanationPages": [
+          170
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "k. “ ae\n~~ x\nIn response to a stimulus, tHe efflux of taldium from intracellular stores occurs through an\nInositol triphosphate receptor (IP3R)>Ca+2 channel.\nThe source of Ca+2 in smooth*muscle contraction can be different depending on the activating\nstimulus. {~ .\n+ The influx from the ‘extracellular site through voltage or ligand-gated Ca+2 channels in the\nplasma membrané. '\n+ Efflux from intracellular stores (eg, sarcoplasmic reticulum) through the RyR and the inositol\ntriosephosphate receptor (IP3R).",
+      "cleaned": "In response to a stimulus, tHe efflux of taldium from intracellular stores occurs through an\nInositol triphosphate receptor (IP3R)>Ca+2 channel.\nThe source of Ca+2 in smooth*muscle contraction can be different depending on the activating\nstimulus.\ninflux from the ‘extracellular site through voltage or ligand-gated Ca+2 channels in the\nplasma membrané.\nEfflux from intracellular stores (eg, sarcoplasmic reticulum) through the RyR and the inositol\ntriosephosphate receptor",
+      "removedFragments": [
+        "k. “ ae",
+        "~~ x",
+        " {~ .",
+        "+ The ",
+        " '",
+        "+ ",
+        " (IP3R)."
+      ]
+    },
+    "marrow__PHYS_CH08_Q014": {
+      "id": "marrow__PHYS_CH08_Q014",
+      "questionNumber": 14,
+      "sourcePage": 163,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          163,
+          164
+        ],
+        "answerKeyPages": [
+          164
+        ],
+        "explanationPages": [
+          171,
+          172
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "- *\nTetanizing frequency demonstrated by the muscle is 33Hz. In the above graph, we know,\nThe speed of the paper is 1000mm/sec. xs < »\nx > { >\n+ The y-axis represents millivolts, the x-axiSfepresents time a\n+ The scale on the x-axis is 1omm. \\ - Co C\n@ ~S ~\n+ The area under the graph represents the muscle’contraction. |\nContraction period (latent périod to maximum force of contraction) includes 3 scales = 30 mm.\nAs paper speed is 1000mm/sec, > oy\nContraction period = 30mm = (30/1000) = 30 msec.\nTetanizing frequency = 1/eontraction period’ = 1000/30 = 33Hz.\nTetanization Y _\nThe features of muScle contraction can be demonstrated by eliciting single muscle twitches. The\nadding together of individual twitch contractions to increase the intensity of overall muscle\ncontraction is Summation Summation occurs in two ways:\n* by increasing the number of motor units contracting simultaneously, which is multiple liber\nsummations.\n* by increasing the frequency of contraction, which is called frequency summation and can lead to\ntetanization.\nWhen the frequency of a contraction reaches a critical level, the successive contractions eventually\nfuse together, and the whole muscle contraction appears to be completely smooth and continuous,\nthis is called tetanization.\nTetanization occurs in two ways:\n* Complete tetanus occurs when no relaxation occurs between stimuli.\n* Incomplete tetanus when periods of incomplete relaxation take place between the summated\nstimuli.\n\n| Sse 7 a\n1\naa _\n©\nCad eo\n©) S z&\na a\nRS < <P\nS s es\nd 2\n& ©\n2 ye\nom S\nRs +\n»8 &\nPe\n~ y",
+      "cleaned": "Tetanizing frequency demonstrated by the muscle is 33Hz. In the above graph, we know,\nThe speed of the paper is 1000mm/sec.\naxis represents millivolts, the x-axiSfepresents time a\nscale on the x-axis is 1omm.\narea under the graph represents the muscle’contraction.\nContraction period (latent périod to maximum force of contraction) includes 3 scales = 30 mm.\nAs paper speed is 1000mm/sec,\nContraction period = 30mm = (30/1000) = 30 msec.\nTetanizing frequency = 1/eontraction period’ = 1000/30 = 33Hz.\nTetanization\nThe features of muScle contraction can be demonstrated by eliciting single muscle twitches.\nadding together of individual twitch contractions to increase the intensity of overall muscle\ncontraction is Summation Summation occurs in two ways:\nincreasing the number of motor units contracting simultaneously, which is multiple liber\nsummations.\nincreasing the frequency of contraction, which is called frequency summation and can lead to\ntetanization.\nWhen the frequency of a contraction reaches a critical level, the successive contractions eventually\nfuse together, and the whole muscle contraction appears to be completely smooth and continuous,\nthis is called tetanization.\nTetanization occurs in two ways:\nComplete tetanus occurs when no relaxation occurs between stimuli.\nIncomplete tetanus when periods of incomplete relaxation take place between the summated\nstimuli.\n1\nCad eo\na a\nS s es\nd\n2 ye\nom S\nPe",
+      "removedFragments": [
+        "- *",
+        " xs < »",
+        "x > { >",
+        "+ The y-",
+        "+ The ",
+        " \\ - Co C",
+        "@ ~S ~",
+        "+ The ",
+        " |",
+        " > oy",
+        " Y _",
+        " The",
+        "* by ",
+        "* by ",
+        "* ",
+        "* ",
+        "| Sse 7 a",
+        "aa _",
+        "©",
+        "©) S z&",
+        "RS < <P",
+        " 2",
+        "& ©",
+        "Rs +",
+        "»8 &",
+        "~ y"
+      ]
+    }
+  }
+}

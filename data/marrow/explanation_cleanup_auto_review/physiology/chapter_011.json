@@ -1,0 +1,453 @@
+{
+  "schemaVersion": 1,
+  "policy": "safe-deletion-only-v1",
+  "active": false,
+  "subject": "Physiology",
+  "chapterId": "11",
+  "questionCount": 14,
+  "questions": {
+    "marrow__PHYS_CH11_Q001": {
+      "id": "marrow__PHYS_CH11_Q001",
+      "questionNumber": 1,
+      "sourcePage": 210,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          210
+        ],
+        "answerKeyPages": [
+          215,
+          216
+        ],
+        "explanationPages": [
+          217
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line"
+      ],
+      "original": "‘<A \\e\nSpatial distribution from whielia'stimulus prdduces a response is called receptive field\nSensory Unit: A single afferent neuron with all its receptor endings.\nMotor unit: Each single motor neuron and the muscle fibers it innervates.\nDermatome: Each spinal nerv@innervates a “segmental field” of the skin.\nwe ‘\n_A_ B c D",
+      "cleaned": "Spatial distribution from whielia'stimulus prdduces a response is called receptive field\nSensory Unit: A single afferent neuron with all its receptor endings.\nMotor unit: Each single motor neuron and the muscle fibers it innervates.\nDermatome: Each spinal nerv@innervates a “segmental field” of the skin.\n_A_ B c D",
+      "removedFragments": [
+        "‘<A \\e",
+        "we ‘"
+      ]
+    },
+    "marrow__PHYS_CH11_Q002": {
+      "id": "marrow__PHYS_CH11_Q002",
+      "questionNumber": 2,
+      "sourcePage": 210,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          210
+        ],
+        "answerKeyPages": [
+          215,
+          216
+        ],
+        "explanationPages": [
+          217
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Fast vibration sense is mediated by Pacinian corpuscles.\nPacinian corpuscle is the most sensitive mechanoreceptor in the somatosensory system. It is\nresponsive to high-frequency (30-500 Hz) vibratory stimuli and pressure. They are rapidly\nadapting receptors.\nOption A: Merkel’s dise sense touch and sustained pressure. They are slow adapting receptors.\nPresent in epidermis.\nOption B: Meissner’s corpusele sense tap and flutter. They are present in dermtalpapillae. They\nare rapidly adapting receptors. 2\nx. 2\nOption D: Ruffini endings sense skin stretch and flutteriig vibration >\naS Ke)\n‘The following image shows Merkel's disc and Meissner's corpuscle being more superficial\n(reponsive to touch) than Ruffini endings andi ian corpysdle (which areUeeper in the dermis\nid ive t . NY i _\nand responsive to pressure) @ a2 Px\npenny = Ke } Epidermis\n\\\\ rss le <p\nnae Cy ——\nutr\nBe Soe :\nOY | meme HT a\nSome SQL",
+      "cleaned": "Fast vibration sense is mediated by Pacinian corpuscles.\nPacinian corpuscle is the most sensitive mechanoreceptor in the somatosensory system.\nresponsive to high-frequency (30-500 Hz) vibratory stimuli and pressure. They are rapidly\nadapting receptors.\nOption A: Merkel’s dise sense touch and sustained pressure. They are slow adapting receptors.\nPresent in epidermis.\nOption B: Meissner’s corpusele sense tap and flutter. They are present in dermtalpapillae. They\nare rapidly adapting receptors.\nOption D: Ruffini endings sense skin stretch and flutteriig vibration\naS\nfollowing image shows Merkel's disc and Meissner's corpuscle being more superficial\nreponsive to touch) than Ruffini endings andi ian corpysdle (which areUeeper in the dermis\nid ive t .\nand responsive to pressure) @ a2 Px\npenny = Ke } Epidermis\nnae\nutr\nBe\nmeme HT a\nSome SQL",
+      "removedFragments": [
+        " It is",
+        " 2",
+        "x. 2",
+        " >",
+        " Ke)",
+        "‘The ",
+        "(",
+        " NY i _",
+        "\\\\ rss le <p",
+        " Cy ——",
+        " Soe :",
+        "OY | "
+      ]
+    },
+    "marrow__PHYS_CH11_Q004": {
+      "id": "marrow__PHYS_CH11_Q004",
+      "questionNumber": 4,
+      "sourcePage": 210,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          210
+        ],
+        "answerKeyPages": [
+          215,
+          216
+        ],
+        "explanationPages": [
+          218
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "‘The distance of two-point discrimination is greatest at the back of the scapula.\n\n‘The relative tactile acuity of a given region can be determined by the two-point discrimination\ntest. Here, calipers are used to determine the minimum distance between the two points which\ncan be perceived as two points. Greater the density of receptors > Smaller the receptive field —>\nMore precise the localization.\nFor eg., Stimulus points on the back, for instance, must be separated by at least 65 mm before\nthey can be distinguished as separate, whereas on the fingertips two stimuli are recognized if they\nare separated by as little as 2 mm. The lips have the greatest acuity (two-point discrimination\nthreshold ~ 1 mm)\nClinical significance:\nBlind individuals benefit from the tactile acuity of fingertips to facilitate the ability to read\nBraille. The dots forming Braille symbols are separated by 2.5 mm. xe\"\noN\n‘Two-point discrimination is used to test the integrity of the dorsal column, (niedial lemniscus)\nsystem. oO ~ o\nNe) A\nx ve\nRe) o as",
+      "cleaned": "distance of two-point discrimination is greatest at the back of the scapula.\nrelative tactile acuity of a given region can be determined by the two-point discrimination\ntest. Here, calipers are used to determine the minimum distance between the two points which\ncan be perceived as two points. Greater the density of receptors > Smaller the receptive field —>\nMore precise the localization.\nStimulus points on the back, for instance, must be separated by at least 65 mm before\nthey can be distinguished as separate, whereas on the fingertips two stimuli are recognized if they\nare separated by as little as 2 mm. The lips have the greatest acuity (two-point discrimination\nthreshold\nClinical significance:\nBlind individuals benefit from the tactile acuity of fingertips to facilitate the ability to read\nBraille. The dots forming Braille symbols are separated by 2.5 mm.\noN\npoint discrimination is used to test the integrity of the dorsal column, (niedial lemniscus)\nsystem.\nx ve\nRe) o as",
+      "removedFragments": [
+        "‘The ",
+        "‘The ",
+        "For eg., ",
+        " ~ 1 mm)",
+        " xe\"",
+        "‘Two-",
+        " oO ~ o",
+        "Ne) A"
+      ]
+    },
+    "marrow__PHYS_CH11_Q005": {
+      "id": "marrow__PHYS_CH11_Q005",
+      "questionNumber": 5,
+      "sourcePage": 211,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          211
+        ],
+        "answerKeyPages": [
+          215,
+          216
+        ],
+        "explanationPages": [
+          218
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": ",~ C S\n‘The sensory receptor shown in thebpWe image ig Phcinian corpustlé. The Pacinian corpuscle is a\nrapidly adapting receptor and isan éncapsulated Feceptor. ¢\nWhen a stimulus of the sainé-strength is egntinuously given'to a sensory receptor, the frequency\nof the action potentials genérated by thésreceptor gradually decreases. This phenomenon is known\nas receptor adaptation. Depending on-whether Ts teeeptor stops responding to a stimulus rapidly\nor slowly, they are classified asrapidly adaptinig'(phasic) or slow adapting receptors (tonic).\nRe 7\n° om\nS a",
+      "cleaned": "sensory receptor shown in thebpWe image ig Phcinian corpustlé. The Pacinian corpuscle is a\nrapidly adapting receptor and isan éncapsulated Feceptor.\nWhen a stimulus of the sainé-strength is egntinuously given'to a sensory receptor, the frequency\nof the action potentials genérated by thésreceptor gradually decreases. This phenomenon is known\nas receptor adaptation. Depending on-whether Ts teeeptor stops responding to a stimulus rapidly\nor slowly, they are classified asrapidly adaptinig'(phasic) or slow adapting receptors (tonic).\nRe\nS a",
+      "removedFragments": [
+        ",~ C S",
+        "‘The ",
+        " ¢",
+        " 7",
+        "° om"
+      ]
+    },
+    "marrow__PHYS_CH11_Q007": {
+      "id": "marrow__PHYS_CH11_Q007",
+      "questionNumber": 7,
+      "sourcePage": 211,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          211
+        ],
+        "answerKeyPages": [
+          215,
+          216
+        ],
+        "explanationPages": [
+          219
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "‘The frequency of a train of action potentials in an afferent fibre reflects the intensity of the\nstimulus given to its receptor.\nIntensity of stimulus applied to a sensory receptor can be determined by the following:\n+ Variation in frequency of action potentials generated\n+ Variations in the number of receptors activated\nOption A : Weber-Fechner Law states that magnitude of sensation felt is directly proportional to\nthe log of the intensity of the stimulus.\nOption B: A touch receptor will not generate a constant rate of discharge, even if the receptor is\ncontinuously stimulated. This is called desensitization or adaptation. If the oppasite were true (if\noption B was correct), when we have our clothes on, we would have constant fifing of neurons\nunnecessarily, in response to touch stimulus. Now os\nOption C: aS <&\n> on S\nMerkel's disc, Ruffini's endo | Pacinian corpuscle, Meissner’\nrgans, Joint capsule Muscle s_| s corpuscles, Hair end organs\npindle, Golgi tendon organs\nO er\n& ae)\nPe 1@\n; | cs e",
+      "cleaned": "frequency of a train of action potentials in an afferent fibre reflects the intensity of the\nstimulus given to its receptor.\nIntensity of stimulus applied to a sensory receptor can be determined by the following:\nVariation in frequency of action potentials generated\nVariations in the number of receptors activated\nOption A : Weber-Fechner Law states that magnitude of sensation felt is directly proportional to\nthe log of the intensity of the stimulus.\nOption B: A touch receptor will not generate a constant rate of discharge, even if the receptor is\ncontinuously stimulated. This is called desensitization or adaptation. If the oppasite were true (if\noption B was correct), when we have our clothes on, we would have constant fifing of neurons\nunnecessarily, in response to touch stimulus.\nOption\nMerkel's disc, Ruffini's endo | Pacinian corpuscle, Meissner’\nrgans, Joint capsule Muscle s_| s corpuscles, Hair end organs\npindle, Golgi tendon organs\nO er",
+      "removedFragments": [
+        "‘The ",
+        "+ ",
+        "+ ",
+        " Now os",
+        " C: aS <&",
+        "> on S",
+        "& ae)",
+        "Pe 1@",
+        "; | cs e"
+      ]
+    },
+    "marrow__PHYS_CH11_Q008": {
+      "id": "marrow__PHYS_CH11_Q008",
+      "questionNumber": 8,
+      "sourcePage": 212,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          212
+        ],
+        "answerKeyPages": [
+          215,
+          216
+        ],
+        "explanationPages": [
+          220
+        ]
+      },
+      "operations": [
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "AS fibers do not. exaust slow pain hey transmit fast pain.\nActivation of A®*fibers, which elease glutamate, is responsible for first pain (also called fast pain\nor epicritferpain), whichidrtapid response and mediates the ability to localize the site and\nintensity of the noxious stimulus.\nNeuropathic pain can also be burning, dull and poorly localized (protopathie pain, transmitted by\nC nociceptor fibers (which release substance P).\nDual Pain Pathway\nPain can be carried by either Ad fiber (fast pain/ epicritie pain) or by C fiber (slow pain/protopathie\npain)\nMechanicalThermal Polymodal\n‘Myelination and trac | Myelinatedand carried viaNe | Unmyelinatedand carried via\nt ospinothalamic tract paleospinothalamic tract,\nImpulse conduction | Fast componentof pain Slow componentof pain",
+      "cleaned": "AS fibers do not. exaust slow pain hey transmit fast pain.\nActivation of A®*fibers, which elease glutamate, is responsible for first pain (also called fast pain\nor epicritferpain), whichidrtapid response and mediates the ability to localize the site and\nintensity of the noxious stimulus.\nNeuropathic pain can also be burning, dull and poorly localized (protopathie pain, transmitted by\nC nociceptor fibers (which release substance\nDual Pain Pathway\nPain can be carried by either Ad fiber (fast pain/ epicritie pain) or by C fiber (slow pain/protopathie\npain)\nMechanicalThermal Polymodal\nMyelination and trac | Myelinatedand carried viaNe | Unmyelinatedand carried via\nt ospinothalamic tract paleospinothalamic tract,\nImpulse conduction | Fast componentof pain Slow componentof pain",
+      "removedFragments": [
+        " P).",
+        "‘"
+      ]
+    },
+    "marrow__PHYS_CH11_Q009": {
+      "id": "marrow__PHYS_CH11_Q009",
+      "questionNumber": 9,
+      "sourcePage": 212,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          212
+        ],
+        "answerKeyPages": [
+          215,
+          216
+        ],
+        "explanationPages": [
+          220
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Bradykinin is the most potent algogenic substance.\n‘An algogenie substance is a chemical released at the site of injury which mediates pain. These\ninclude bradykinin, serotonin, histamine, potassium ions, acids, acetylcholine, and proteolytic\nenzymes. RC ’\nProstaglandins and substance P enhance the sensitivity of pain endings but dot directly excite\nthem. te) oe\nNote: This is a controversial question ww ie\n‘According to Guyton and Hall, Textbook of Medial Physiologysath Edition®Rage 622-\n“One chemical that seems to be more pail than others is BradykininsResearchers have\nsuggested that bradykinin might be thea it most, responsible foreabsing pain after tissue\ndamage.\" Oo KS oe\n> oS bo al\nHence, bradykinin is the hettepanewer (napadrdtonin) x,\n“= A o>.\noF ead\nokt\n22 2",
+      "cleaned": "Bradykinin is the most potent algogenic substance.\nalgogenie substance is a chemical released at the site of injury which mediates pain. These\ninclude bradykinin, serotonin, histamine, potassium ions, acids, acetylcholine, and proteolytic\nenzymes.\nProstaglandins and substance P enhance the sensitivity of pain endings but dot directly excite\nthem.\nNote: This is a controversial question ww ie\nAccording to Guyton and Hall, Textbook of Medial Physiologysath Edition®Rage\nchemical that seems to be more pail than others is BradykininsResearchers have\nsuggested that bradykinin might be thea it most, responsible foreabsing pain after tissue\ndamage.\n> oS bo al\nHence, bradykinin is the hettepanewer (napadrdtonin)\noF ead\nokt\n22",
+      "removedFragments": [
+        "‘An ",
+        " RC ’",
+        " te) oe",
+        "‘",
+        " 622-",
+        "“One ",
+        "\" Oo KS oe",
+        " x,",
+        "“= A o>.",
+        " 2"
+      ]
+    },
+    "marrow__PHYS_CH11_Q011": {
+      "id": "marrow__PHYS_CH11_Q011",
+      "questionNumber": 11,
+      "sourcePage": 212,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          212
+        ],
+        "answerKeyPages": [
+          215,
+          216
+        ],
+        "explanationPages": [
+          221
+        ]
+      },
+      "operations": [
+        "trim_short_ocr_prefix"
+      ],
+      "original": "Heat-pain fibers begin to be stimulated at around 45 °C.\n‘Thermal Receptors and their Excitation\nCold nociceptor stimulated w | Heat nociceptor is stimulated\nhen temperature is arounds ° | at temperatures around4s °\nCc Cc\nCold receptor fibers areAS an | Warm receptor fibers areun\ndc myelinated C fibers",
+      "cleaned": "Heat-pain fibers begin to be stimulated at around 45 °C.\nThermal Receptors and their Excitation\nCold nociceptor stimulated w | Heat nociceptor is stimulated\nhen temperature is arounds ° | at temperatures around4s °\nCc Cc\nCold receptor fibers areAS an | Warm receptor fibers areun\ndc myelinated C fibers",
+      "removedFragments": [
+        "‘"
+      ]
+    },
+    "marrow__PHYS_CH11_Q012": {
+      "id": "marrow__PHYS_CH11_Q012",
+      "questionNumber": 12,
+      "sourcePage": 213,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          213
+        ],
+        "answerKeyPages": [
+          215,
+          216
+        ],
+        "explanationPages": [
+          221
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Weber-Fechner Law states that the magnitude of sensation felt is proportionate to the log of the\nintensity of the stimulus.\nOther Laws in Physiology:\n+ Doctrine of specific nerve energies - When the nerve pathways from a particular sense organ are\nstimulated, the sensation evoked is that for which the receptor is specialized no matter how or\nwhere along the pathway the activity is initiated. xe\"\n+ Law of projection - No matter where a particular sensory pathway is stimulated along its course\nto the cortex, the conscious sensation produced is referee the locatign'st the receptor. This\nprinciple is called the law of projection. Oo fe)\nRe) o as\n=)* 2 N=\ni i } a <",
+      "cleaned": "Weber-Fechner Law states that the magnitude of sensation felt is proportionate to the log of the\nintensity of the stimulus.\nOther Laws in Physiology:\nDoctrine of specific nerve energies - When the nerve pathways from a particular sense organ are\nstimulated, the sensation evoked is that for which the receptor is specialized no matter how or\nwhere along the pathway the activity is initiated.\n+ Law of projection - No matter where a particular sensory pathway is stimulated along its course\nto the cortex, the conscious sensation produced is referee the locatign'st the receptor. This\nprinciple is called the law of projection.\nRe) o as",
+      "removedFragments": [
+        "+ ",
+        " xe\"",
+        " Oo fe)",
+        "=)* 2 N=",
+        "i i } a <"
+      ]
+    },
+    "marrow__PHYS_CH11_Q013": {
+      "id": "marrow__PHYS_CH11_Q013",
+      "questionNumber": 13,
+      "sourcePage": 213,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          213
+        ],
+        "answerKeyPages": [
+          215,
+          216
+        ],
+        "explanationPages": [
+          221
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line"
+      ],
+      "original": "SON nis BAS a\nThis patient is having phantom limbrpain. This pain is based of édrtical plasticity.\n\\. — be)\nCortical structures are canalfet reorganization after thedss of a body part. The cortical\nrepresentation of the neighboring partiypTeads into thé cortical area that was formerly occupied\nby the representation of the amputaté part. This isealled cortical plasticity leads to the\nphenomenon of phantom limb paint Rn\nRe ~~\n+ om",
+      "cleaned": "SON nis BAS a\nThis patient is having phantom limbrpain. This pain is based of édrtical plasticity.\nCortical structures are canalfet reorganization after thedss of a body part. The cortical\nrepresentation of the neighboring partiypTeads into thé cortical area that was formerly occupied\nby the representation of the amputaté part. This isealled cortical plasticity leads to the\nphenomenon of phantom limb paint Rn",
+      "removedFragments": [
+        "\\. — be)",
+        "Re ~~",
+        "+ om"
+      ]
+    },
+    "marrow__PHYS_CH11_Q014": {
+      "id": "marrow__PHYS_CH11_Q014",
+      "questionNumber": 14,
+      "sourcePage": 213,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          213
+        ],
+        "answerKeyPages": [
+          215,
+          216
+        ],
+        "explanationPages": [
+          221
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line"
+      ],
+      "original": "cm ~~\nPerception of normal sensory stimuli as painful is allodynia.\nHyperalgesia is an exaggerated response to a noxious stimulus. An example of primary\nhyperalgesia is the extreme sensitivity of sunburned skin, which results from sensitization of the\nskin pain endings by local tissue products released due to burns — histamine, prostaglandins, and\nothers.\nCausalgia is a type of neuropathic pain.",
+      "cleaned": "Perception of normal sensory stimuli as painful is allodynia.\nHyperalgesia is an exaggerated response to a noxious stimulus. An example of primary\nhyperalgesia is the extreme sensitivity of sunburned skin, which results from sensitization of the\nskin pain endings by local tissue products released due to burns — histamine, prostaglandins, and\nothers.\nCausalgia is a type of neuropathic pain.",
+      "removedFragments": [
+        "cm ~~"
+      ]
+    },
+    "marrow__PHYS_CH11_Q016": {
+      "id": "marrow__PHYS_CH11_Q016",
+      "questionNumber": 16,
+      "sourcePage": 214,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          214
+        ],
+        "answerKeyPages": [
+          215,
+          216
+        ],
+        "explanationPages": [
+          222
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Visceral pain is poorly localized, unpleasant and associated with nausea and autonomic\nsymptoms. It often originates from thoracic and abdominal cavities, transmitted through small\ntype C pain fibers. e\nIt often radiates (or is referred) to other somatic structures perhaps due to cogience of somatic\nand visceral nociceptive afferent fibers on the same second¥order neuronsiin the spinal dorsal\nhorn that project to the thalamus and then to the pri matosensdby cortex.\nWhen pain is referred, it is usually to a structure ti evtoped ton the same embryonic\nsegment or dermatome as the structure in wie pain origitiales. This principle is,\ncalled the dermatomal rule. a ne “x\n© < ae\nExample: the heart and the arm have-the Same segmental origin.\nASR ROM cree\nMechanicalThermal Polymodal\n‘Myelination and trac | Myelinatedand carried viaNe | Unmyelinatedand carried via\nt ospinothalamic tract paleospinothalamic tract\nImpulse conduction | Fast componentof pain Slow componentof pain\n“\" 30",
+      "cleaned": "Visceral pain is poorly localized, unpleasant and associated with nausea and autonomic\nsymptoms. It often originates from thoracic and abdominal cavities, transmitted through small\ntype C pain fibers.\nIt often radiates (or is referred) to other somatic structures perhaps due to cogience of somatic\nand visceral nociceptive afferent fibers on the same second¥order neuronsiin the spinal dorsal\nhorn that project to the thalamus and then to the pri matosensdby cortex.\nWhen pain is referred, it is usually to a structure ti evtoped ton the same embryonic\nsegment or dermatome as the structure in wie pain origitiales. This principle\ncalled the dermatomal rule.\nExample: the heart and the arm have-the Same segmental origin.\nASR ROM cree\nMechanicalThermal Polymodal\nMyelination and trac | Myelinatedand carried viaNe | Unmyelinatedand carried via\nt ospinothalamic tract paleospinothalamic tract\nImpulse conduction | Fast componentof pain Slow componentof pain",
+      "removedFragments": [
+        " e",
+        " is,",
+        " a ne “x",
+        "© < ae",
+        "‘",
+        "“\" 30"
+      ]
+    },
+    "marrow__PHYS_CH11_Q018": {
+      "id": "marrow__PHYS_CH11_Q018",
+      "questionNumber": 18,
+      "sourcePage": 214,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          214
+        ],
+        "answerKeyPages": [
+          215,
+          216
+        ],
+        "explanationPages": [
+          223
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Transcutaneous electrical nerve stimulation (TENS) of pain relief is based on the gate theory of\npain. This method uses electrodes to activate A° and AB fibers near the injury to relieve pain.\nGate control theory operates at the substantia gelatinosa of the dorsal horn of the spinal cord.\n\n‘The relief may result from inhibition of pain pathways (Inhibition of C fibers and A-delta fibers) in\nthe dorsal horn gate, by stimulation of large-diameter touch-pressure afferents(A-beta fibers). This\nis called the gate-control hypothesis.\nInteresting clinical application: Touching or shaking an injured area decreases the pain due to the\ninjury. Stimulation with an electric vibrator at the site of pain also gives some relief,\n‘The same mechanism is probably responsible for the efficacy of counterirritants. Stimulation of\nthe skin over an area of visceral inflammation produces some relief of the pain due to the visceral\ndisease. The old-fashioned mustard plaster works on this principle.\ncmeraiconme & > e\n2M ‘\nxe =\nRa oF\nSolution to Questi 8 \"",
+      "cleaned": "Transcutaneous electrical nerve stimulation (TENS) of pain relief is based on the gate theory of\npain. This method uses electrodes to activate A° and AB fibers near the injury to relieve pain.\nGate control theory operates at the substantia gelatinosa of the dorsal horn of the spinal cord.\nrelief may result from inhibition of pain pathways (Inhibition of C fibers and A-delta fibers) in\nthe dorsal horn gate, by stimulation of large-diameter touch-pressure afferents(A-beta fibers). This\nis called the gate-control hypothesis.\nInteresting clinical application: Touching or shaking an injured area decreases the pain due to the\ninjury. Stimulation with an electric vibrator at the site of pain also gives some relief,\nsame mechanism is probably responsible for the efficacy of counterirritants. Stimulation of\nthe skin over an area of visceral inflammation produces some relief of the pain due to the visceral\ndisease. The old-fashioned mustard plaster works on this principle.\ncmeraiconme\nRa oF\nSolution to Questi 8 \"",
+      "removedFragments": [
+        "‘The ",
+        "‘The ",
+        " & > e",
+        "2M ‘",
+        "xe ="
+      ]
+    },
+    "marrow__PHYS_CH11_Q021": {
+      "id": "marrow__PHYS_CH11_Q021",
+      "questionNumber": 21,
+      "sourcePage": 215,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          215
+        ],
+        "answerKeyPages": [
+          215,
+          216
+        ],
+        "explanationPages": [
+          224
+        ]
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "In the given clinical scenario rectal temperature would be the preferred site to measure the core\nbody temperature.\nDuring low or high temperatures like in Siachen, the axillary and the oral temperatures are highly\nmisleading and should not be used to measure the core body temperatures\nInfrared tympanic thermometer measures the temperature of the eardrum which is representative\nof core body temperature. However, more often the thermometer is not inserted adequately or for\nsafety reasons, they are manufactured in such a way that they do not reach deep. ito ‘the ear\ncanal, or the ear canal contains cerumen which can disturb the measurementoFlence the infrared\nthermometer more commonly delivers the temperature of ar canal ceruén and hence nota\nreliable method of measuring the core body temperature, oe\nx ne\nRe oO Res\nAS ~ ne\na a\nwo KO OS\nNey .S >\nie) or oa\ni) Nes x\neV vc\n@ Se)\na 2\n5 o\nRAs Sate\nce) oO\n“\" 30",
+      "cleaned": "In the given clinical scenario rectal temperature would be the preferred site to measure the core\nbody temperature.\nDuring low or high temperatures like in Siachen, the axillary and the oral temperatures are highly\nmisleading and should not be used to measure the core body temperatures\nInfrared tympanic thermometer measures the temperature of the eardrum which is representative\nof core body temperature. However, more often the thermometer is not inserted adequately or for\nsafety reasons, they are manufactured in such a way that they do not reach deep.\ncanal, or the ear canal contains cerumen which can disturb the measurementoFlence the infrared\nthermometer more commonly delivers the temperature of ar canal ceruén and hence nota\nreliable method of measuring the core body temperature, oe\nx ne\nRe oO Res\na a\nwo KO OS\nNey .\nie) or oa\ni) Nes x\neV vc\na\n5 o\nRAs Sate\nce) oO",
+      "removedFragments": [
+        " ito ‘the ear",
+        "AS ~ ne",
+        "S >",
+        "@ Se)",
+        " 2",
+        "“\" 30"
+      ]
+    }
+  }
+}

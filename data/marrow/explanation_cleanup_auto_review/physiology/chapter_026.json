@@ -1,0 +1,264 @@
+{
+  "schemaVersion": 1,
+  "policy": "safe-deletion-only-v1",
+  "active": false,
+  "subject": "Physiology",
+  "chapterId": "26",
+  "questionCount": 8,
+  "questions": {
+    "marrow__PHYSIO_CH26_Q003": {
+      "id": "marrow__PHYSIO_CH26_Q003",
+      "questionNumber": 3,
+      "sourcePage": 468,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          468
+        ],
+        "answerKeyPages": [
+          473
+        ],
+        "explanationPages": [
+          474
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Largest percentage of blood volume in the circulatory system is in veins.\n\nVessels and Percentage of Total Blood Volume\n\n-\nSS\n\nHeart 12\n\nPulmonary circulation | 18 )\n\nAorta 2\n>\n\nArtery 8 ?\n\nKy\nArteriole 1 .\nCapillary 5\n\nVenule, vein, vena cav | 54\na\n\noe\n&",
+      "cleaned": "Largest percentage of blood volume in the circulatory system is in veins.\nVessels and Percentage of Total Blood Volume\nSS\nHeart\nPulmonary circulation\nAorta\nArtery\nKy\nArteriole\nCapillary\nVenule, vein, vena cav | 54\na\noe",
+      "removedFragments": [
+        "-",
+        " 12",
+        " | 18 )",
+        " 2",
+        ">",
+        " 8 ?",
+        " 1 .",
+        " 5",
+        "&"
+      ]
+    },
+    "marrow__PHYSIO_CH26_Q004": {
+      "id": "marrow__PHYSIO_CH26_Q004",
+      "questionNumber": 4,
+      "sourcePage": 468,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          468,
+          469
+        ],
+        "answerKeyPages": [
+          473
+        ],
+        "explanationPages": [
+          474
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line"
+      ],
+      "original": "ws\nstories eonrenseele s\nCapillaries contain 5% f the total blood volume.\nee\n‘ y",
+      "cleaned": "ws\nstories eonrenseele s\nCapillaries contain 5% f the total blood volume.\nee",
+      "removedFragments": [
+        "‘ y"
+      ]
+    },
+    "marrow__PHYSIO_CH26_Q005": {
+      "id": "marrow__PHYSIO_CH26_Q005",
+      "questionNumber": 5,
+      "sourcePage": 469,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          469
+        ],
+        "answerKeyPages": [
+          473
+        ],
+        "explanationPages": [
+          474,
+          475
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix",
+        "trim_short_ocr_suffix"
+      ],
+      "original": "In circulatory system, the highest velocity of blood flow is in the aorta.\n\n+ The velocity of blood flow is inversely proportional to vascular cross-sectional area.\n\n. “ _\nv= velocity O >\nF= blood flow through the vessel re\nA=vascular cross-sectional area Wy =A ~ .\n\n+ Aorta has the least cross sectional area (4, 5 cmi2) and capillaniés have the maximum cross\n\nsectional area (4500 cm2)- ‘Thus, under resting condi the velocity is highest in aorta and\nleast in capillaries. © »\n\nr",
+      "cleaned": "In circulatory system, the highest velocity of blood flow is in the aorta.\nvelocity of blood flow is inversely proportional to vascular cross-sectional area.\nvelocity\nblood flow through the vessel re\nvascular cross-sectional area\nAorta has the least cross sectional area (4, 5 cmi2) and capillaniés have the maximum cross\nsectional area (4500 cm2)- ‘Thus, under resting condi the velocity is highest in aorta and\nleast in capillaries.\nr",
+      "removedFragments": [
+        "+ The ",
+        ". “ _",
+        "v= ",
+        " O >",
+        "F= ",
+        "A=",
+        " Wy =A ~ .",
+        "+ ",
+        " © »"
+      ]
+    },
+    "marrow__PHYSIO_CH26_Q006": {
+      "id": "marrow__PHYSIO_CH26_Q006",
+      "questionNumber": 6,
+      "sourcePage": 469,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          469
+        ],
+        "answerKeyPages": [
+          473
+        ],
+        "explanationPages": [
+          475
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_suffix"
+      ],
+      "original": ". > ~\n\nThe largest compliaice i in the cifetlatory system is of veins.\n\nVascular eompliance/eapacitanice i is the total quantity of blood that can be stored in a given\nportion of the circulation for each mmHg pressure rise.\n\nVascular Compliance = distensibility X volume.\n\nThe compliance of a systemic vein is about 24 times that of its corresponding artery because it is\nabout 8 times as distensible and has a volume about 3 times as artery (8 x 3 = 24).",
+      "cleaned": "The largest compliaice i in the cifetlatory system is of veins.\nVascular eompliance/eapacitanice i is the total quantity of blood that can be stored in a given\nportion of the circulation for each mmHg pressure rise.\nVascular Compliance = distensibility X volume.\nThe compliance of a systemic vein is about 24 times that of its corresponding artery because it is\nabout 8 times as distensible and has a volume about 3 times as artery (8",
+      "removedFragments": [
+        ". > ~",
+        " x 3 = 24)."
+      ]
+    },
+    "marrow__PHYSIO_CH26_Q007": {
+      "id": "marrow__PHYSIO_CH26_Q007",
+      "questionNumber": 7,
+      "sourcePage": 469,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          469
+        ],
+        "answerKeyPages": [
+          473
+        ],
+        "explanationPages": [
+          475,
+          476
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line",
+        "trim_short_ocr_prefix"
+      ],
+      "original": "The Bernoulli's theorem states that in a tube or blood vessel, the sum of the kinetic energy of flow\nand pressure energy is constant.\n\nOther options:\n\n+ Option B: Travelling wave theory (Theories of hearing): Low tones produce maximum\nstimulation at the apex of the cochlea.\n\n475, \n\n* Option C: Weber—Fechner law: The magnitude of sensation felt is proportional to the log of the\nintensity of the stimulus.\n\n* Option D: Frank—Starling law of the heart: Force of contraction is proportional to stretch of the\ncardiac muscle.",
+      "cleaned": "The Bernoulli's theorem states that in a tube or blood vessel, the sum of the kinetic energy of flow\nand pressure energy is constant.\nOther options:\nOption B: Travelling wave theory (Theories of hearing): Low tones produce maximum\nstimulation at the apex of the cochlea.\nOption C: Weber—Fechner law: The magnitude of sensation felt is proportional to the log of the\nintensity of the stimulus.\nOption D: Frank—Starling law of the heart: Force of contraction is proportional to stretch of the\ncardiac muscle.",
+      "removedFragments": [
+        "+ ",
+        "475,",
+        "* ",
+        "* "
+      ]
+    },
+    "marrow__PHYSIO_CH26_Q015": {
+      "id": "marrow__PHYSIO_CH26_Q015",
+      "questionNumber": 15,
+      "sourcePage": 471,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          471
+        ],
+        "answerKeyPages": [
+          473
+        ],
+        "explanationPages": [
+          480
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "remove_short_ocr_noise_line"
+      ],
+      "original": ".\\°\n\nThe coronary blood flow in systole has a greater decrease in subendocardium than epicardium.\n\nThe myocardial compression in systole compresses the subendocardial vessels to a greater extent,\nand the force is sufficiently dissipated in the epicardium to permit some flow in this region\nthroughout the cardiac cycle.",
+      "cleaned": "The coronary blood flow in systole has a greater decrease in subendocardium than epicardium.\nThe myocardial compression in systole compresses the subendocardial vessels to a greater extent,\nand the force is sufficiently dissipated in the epicardium to permit some flow in this region\nthroughout the cardiac cycle.",
+      "removedFragments": [
+        ".\\°"
+      ]
+    },
+    "marrow__PHYSIO_CH26_Q016": {
+      "id": "marrow__PHYSIO_CH26_Q016",
+      "questionNumber": 16,
+      "sourcePage": 471,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          471,
+          472
+        ],
+        "answerKeyPages": [
+          473
+        ],
+        "explanationPages": [
+          480,
+          481
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "trim_short_ocr_prefix"
+      ],
+      "original": "Based on the agglutination test shown in the image, the blood group is O positive.\n\nAs agglutination is present only in 'Rh' and not with 'A' and 'B' hence the blood group is O Rh\npositive.\n\nAgglutination Agglutination Agglutination\nabsent absent present\nA B\n©@MARROW\nat",
+      "cleaned": "Based on the agglutination test shown in the image, the blood group is O positive.\nAs agglutination is present only in 'Rh' and not with 'A' and 'B' hence the blood group is O Rh\npositive.\nAgglutination Agglutination Agglutination\nabsent absent present\nA B\nMARROW\nat",
+      "removedFragments": [
+        "©@"
+      ]
+    },
+    "marrow__PHYSIO_CH26_Q018": {
+      "id": "marrow__PHYSIO_CH26_Q018",
+      "questionNumber": 18,
+      "sourcePage": 472,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          472
+        ],
+        "answerKeyPages": [
+          473
+        ],
+        "explanationPages": [
+          482
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "operations": [
+        "trim_short_ocr_suffix"
+      ],
+      "original": "Inferior vena cava has the highest oxygen concentration in fetal circulation.\n\nThe blood gets oxygenated in the placenta and this passes to the umbilical vein. From the\numbilical vein, 50% of the blood enters the hepatic circulation and 50% bypasses the liver to enter\nthe inferior vena cava. From here, the blood enters the heart via the right atrium. The right atrium\nalso receives deoxygenated blood from the superior vena cava. This mixed blood is distributed to\nthe body via aorta. e@\n\nTherefore, inferior vena cava has the highest concentration of oxygen in the fetal Girculation.\n\nvy",
+      "cleaned": "Inferior vena cava has the highest oxygen concentration in fetal circulation.\nThe blood gets oxygenated in the placenta and this passes to the umbilical vein. From the\numbilical vein, 50% of the blood enters the hepatic circulation and 50% bypasses the liver to enter\nthe inferior vena cava. From here, the blood enters the heart via the right atrium. The right atrium\nalso receives deoxygenated blood from the superior vena cava. This mixed blood is distributed to\nthe body via aorta.\nTherefore, inferior vena cava has the highest concentration of oxygen in the fetal Girculation.\nvy",
+      "removedFragments": [
+        " e@"
+      ]
+    }
+  }
+}
