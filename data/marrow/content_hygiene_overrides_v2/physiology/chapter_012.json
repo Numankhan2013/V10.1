@@ -3,7 +3,7 @@
   "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 12 stems/options, verified against rendered ED8 pages 225-230. Removes OCR debris only; answer indices remain immutable.",
   "subject": "Physiology",
   "chapterId": "12",
-  "sourceFingerprint": "60decb1ad659ffe760ec3b48f4667cf9a6d3f9d81515a608b477db3a00526e40",
+  "sourceFingerprint": "9b473168d5bc44e22f6efe5cf33ebf805ea0d6235465933fa9a5398fcaf4aab2",
   "questions": {
     "marrow__PHYS_CH12_Q001": {
       "question": "The principle that “In spinal cords, dorsal roots are sensory and ventral roots are motor” is known as ______.",
@@ -117,7 +117,8 @@
         "Pain and temperature loss in the opposite side",
         "Loss of tactile and proprioception on the same side",
         "Loss of tactile and proprioception on the opposite side"
-      ]
+      ],
+      "explanation": "Lesion in the medial lemniscus at the level of pons causes loss of tactile and proprioception on the opposite side.\nFibers of medial lemniscus ascend ipsilaterally in the dorsal columns of the spinal cord to the medulla, where they synapse in the gracilus and cuneate nuclei.\nThe second-order neurons from these nuclei cross the midline and ascend in the medial lemniscus to end in the contralateral ventral posterior lateral (VPL) nucleus and related specific sensory relay nuclei of the thalamus."
     },
     "marrow__PHYS_CH12_Q003": {
       "explanation": "Decussation of ascending spinal pathways occurs mainly within the spinal cord and medulla oblongata. Most of the ascending pathways and tracts do decussate or cross; however, some remain uncrossed.\nDorsal column pathway crosses in the medulla oblongata.\nThe anterior and lateral spinothalamic tract crosses obliquely in the spinal segments."
@@ -136,6 +137,19 @@
     },
     "marrow__PHYS_CH12_Q016": {
       "explanation": "Fast pain is carried by neospinothalamic tract.\nPain signals take two pathways to the brain:\n• Neospinothalmic tract for fast pain/epicritic pain (Aδ fibres)\n• Paleospinothalamic tract for slow pain/Protopathic pain (C fibres)"
+    },
+    "marrow__PHYS_CH12_Q019": {
+      "explanation": "Pain and temperature in thalamus are controlled by the ventral posterior lateral nucleus. Pain and temperature is carried by anterolateral spinothalamic tract.\nFibres from anterolateral spinothalamic tract and dorsal column synapse in the ventral posteriorlateral (VPL) nucleus of thalamus.\nOption B: The pathway from taste receptors includes synapses in the nucleus of the tractus solitarius in the brainstem and ventral posterior medial nucleus in the thalamus.\nOption C: Anterior nucleus functions as a relay station for the hippocampal impulses. It receives afferents from mammillothalamic tract. It sends efferents to cingulate gyrus.\nOption D: Intralaminar nucleus participates in arousal reaction, it recieves afferents from reticular formation of brain stem."
+    },
+    "marrow__PHYS_CH12_Q023": {
+      "question": "Ablation of somatosensory area 1 leads to ______.",
+      "options": [
+        "Total loss of pain sensation",
+        "Total loss of touch sensation",
+        "Loss of tactile but not 2 point discrimination",
+        "Loss of tactile and 2 point discrimination"
+      ],
+      "explanation": "Ablation of somatosensory area 1 leads to Loss of tactile and 2 point discrimination.\nWidespread bilateral excision of the somatosensory area I causes loss of the following types of sensory judgment:\n• The person is unable to localize discretely the different sensations in the different parts of the body. However, he or she can localize these sensations crudely, such as to a particular hand. The brain stem, thalamus, or parts of the cerebral cortex can perform some degree of localization.\n• The person is unable to judge critical degrees of pressure/weight/texture."
     }
   }
 }
