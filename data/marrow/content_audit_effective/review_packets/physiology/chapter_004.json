@@ -4,9 +4,9 @@
   "subject": "Physiology",
   "chapterId": "4",
   "chapter": "Membrane Potentials",
-  "candidateQuestionCount": 9,
+  "candidateQuestionCount": 8,
   "questionOptionCandidateCount": 0,
-  "explanationCandidateCount": 9,
+  "explanationCandidateCount": 8,
   "questions": [
     {
       "id": "marrow__PHYS_CH04_Q001",
@@ -50,151 +50,29 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 16,
+          "severity": 3,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "literal_backslash",
-            "punctuation_run",
-            "symbol_dense_line"
+            "punctuation_run"
           ],
           "suspectLines": [
             {
-              "line": 10,
-              "text": "EMF (millivolts) = + — x log ————————_ co\"",
+              "line": 7,
+              "text": "Note: In this formula, the choice of concentration of the ion placed in the numerator and denominator does not matter because the formula is only used to derive the numerical value and not the sign (+/-). Mathematically, log(100/10) = 1 and log(10/100) = -1. Hence, changing the numerator and denominator only changes the sign and the numerical value remains the same.",
               "reasons": [
                 "punctuation_run"
               ]
             },
             {
-              "line": 13,
-              "text": "ot «<* >",
-              "reasons": [
-                "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 19,
-              "text": "the sign/charge (+). ¢ al",
+              "line": 8,
+              "text": "This equation is used only to derive the numerical value of the potential. It is NOT used to derive the sign/charge (+/-).",
               "reasons": [
                 "punctuation_run"
               ]
-            },
-            {
-              "line": 20,
-              "text": ". \\",
-              "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            },
-            {
-              "line": 24,
-              "text": "will be positive. \\",
-              "reasons": [
-                "hard_noise_char"
-              ]
             }
           ]
         }
       ],
-      "explanation": "Equilibrium potential for an ion is calculated using the Nernst equation\nWhen there is a concentration gradient for an ion across the membrane, the ion tends to diffuse\ndown the concentration gradient. The electric potential that exactly opposes this net diffusion is\ncalled the equilibrium potential for that ion. This is calculated using the Nernst equation.\nIt is expressed as the potential inside the cell (intracellular potential relative to the extracellular\npotential).\nTo calculate the value of the equilibrium potential:\nNernst equation\na. 61 Concentration inside .\nEMF (millivolts) = + — x log ————————_ co\"\nZz Concentration outside = @\nMARROW >\not «<* >\nNote: In this formula, the choice’of concentration of the ion placed in the numerator and\ndenominator does not mattetbécause the formula is onlydised to derive the numerical value and\nnot the sign ( +/- ). Mathematically, log(100/10) = 1_an@-log (10/100) = - 1. Hence, changing the\nnumerator and denominator only changes the sigitahd the numerical value remains the same.\nThis equation is used only to derive the numerical value of the potential. It is NOT used to derive\nthe sign/charge (+). ¢ al\n. \\\nThe sign/charge is dexivéd from logic\n+ Ina positive (+)10n, if the concentration of the + ion is greater outside, then the + ion moves\nfrom outside toiinside. The intr: facellular potential becomes more + relatively. Hence, the potential\nwill be positive. \\\n+ Ina positive (+) ion, if the concentration of the + ion is greater inside, then the + ion moves from\ninside to outside. The intracellular potential becomes more - relatively (as + ion moves outside).\nHence the potential will be negative.\n+ In a negative (-) ion, if the concentration of the - ion is greater outside, then the - ion moves from\noutside to inside. The intracellular potential becomes more - relatively. Hence the potential will be\nnegative.\n+ In a negative (-) ion, if the concentration of the - ion is greater inside, then the - ion moves from\ninside to outside. The intracellular potential becomes more + relatively (as - ion moves outside).\nHence the potential will be positive."
-    },
-    {
-      "id": "marrow__PHYS_CH04_Q002",
-      "questionNumber": 2,
-      "sourcePage": 55,
-      "provenance": {
-        "sourceFile": "physiologyed8.pdf",
-        "questionPages": [
-          55
-        ],
-        "answerKeyPages": [
-          59
-        ],
-        "explanationPages": [
-          61
-        ]
-      },
-      "reviewStatus": "pass",
-      "question": "Which of the following is used to calculate the equilibrium potential for diffusion of multiple ions?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Gibbs-Donnan equation"
-        },
-        {
-          "letter": "B",
-          "text": "Nernst equation"
-        },
-        {
-          "letter": "C",
-          "text": "Goldmann equation"
-        },
-        {
-          "letter": "D",
-          "text": "Henderson equation"
-        }
-      ],
-      "correctOption": 3,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 13,
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "literal_backslash",
-            "symbol_dense_line"
-          ],
-          "suspectLines": [
-            {
-              "line": 10,
-              "text": "~j cy ty Sag",
-              "reasons": [
-                "hard_noise_char"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "ot &<* >",
-              "reasons": [
-                "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 13,
-              "text": "a a ~?",
-              "reasons": [
-                "hard_noise_char"
-              ]
-            },
-            {
-              "line": 18,
-              "text": "<<",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 19,
-              "text": "» \\",
-              "reasons": [
-                "hard_noise_char"
-              ]
-            },
-            {
-              "line": 20,
-              "text": "» ~\\",
-              "reasons": [
-                "hard_noise_char"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "‘The Goldman equation is used to calculate the diffusion potential when the membrane is\npermeable to several different ions.\nGoldman-Hodgkin-Katz equation\nGoldman-Hodgkin-Katz equation\nCysPhaet OyPet CosPop xc\"\nm as\nEF (ilivots) = -61x log e\nCysPut Cyt CosPop\n&\n~j cy ty Sag\not &<* >\nHere, Ney é& rae\na a ~?\n+ P= permeability of the mientbrane to eath ion, and oS\n+ C= concentrations of the respectiveions on the inside (i) and outside (0) of the membrane.\nThe Nat, K+ and Cl- are the mosPimportant igris involved in the development of membrane\npotentials in nerve fibres arid muscle fibyes.©>\n<<\n» \\\n» ~\\\n-) 2\n‘ on s"
+      "explanation": "Equilibrium potential for an ion is calculated using the Nernst equation.\nWhen there is a concentration gradient for an ion across the membrane, the ion tends to diffuse down the concentration gradient. The electric potential that exactly opposes this net diffusion is called the equilibrium potential for that ion. This is calculated using the Nernst equation.\nIt is expressed as the potential inside the cell (intracellular potential relative to the extracellular potential).\nTo calculate the value of the equilibrium potential:\nNernst equation\nEMF (millivolts) = ±(61/z) × log(Concentration inside / Concentration outside)\nNote: In this formula, the choice of concentration of the ion placed in the numerator and denominator does not matter because the formula is only used to derive the numerical value and not the sign (+/-). Mathematically, log(100/10) = 1 and log(10/100) = -1. Hence, changing the numerator and denominator only changes the sign and the numerical value remains the same.\nThis equation is used only to derive the numerical value of the potential. It is NOT used to derive the sign/charge (+/-).\nThe sign/charge is derived from logic:\n• In a positive (+) ion, if the concentration of the + ion is greater outside, then the + ion moves from outside to inside. The intracellular potential becomes more positive relatively. Hence, the potential will be positive.\n• In a positive (+) ion, if the concentration of the + ion is greater inside, then the + ion moves from inside to outside. The intracellular potential becomes more negative relatively (as + ion moves outside). Hence the potential will be negative.\n• In a negative (-) ion, if the concentration of the - ion is greater outside, then the - ion moves from outside to inside. The intracellular potential becomes more negative relatively. Hence the potential will be negative.\n• In a negative (-) ion, if the concentration of the - ion is greater inside, then the - ion moves from inside to outside. The intracellular potential becomes more positive relatively (as - ion moves outside). Hence the potential will be positive."
     },
     {
       "id": "marrow__PHYS_CH04_Q003",
@@ -238,76 +116,32 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 15,
+          "severity": 5,
           "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "literal_backslash",
             "many_isolated_letters",
             "symbol_dense_line"
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "‘ \\",
+              "line": 5,
+              "text": "[K+]x / [K+]y = [Cl-]y / [Cl-]x",
               "reasons": [
-                "edge_noise",
-                "hard_noise_char"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "Ke | KK",
-              "reasons": [
-                "hard_noise_char"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "or",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 22,
-              "text": "i _()",
-              "reasons": [
+                "many_isolated_letters",
                 "symbol_dense_line"
               ]
             },
             {
-              "line": 24,
-              "text": "\") (y)",
+              "line": 7,
+              "text": "[K+]x[Cl-]x = [K+]y[Cl-]y",
               "reasons": [
+                "many_isolated_letters",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 25,
-              "text": "IK’) (Cl,",
-              "reasons": [
-                "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 27,
-              "text": "[KY] (C=) [cr",
-              "reasons": [
-                "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 28,
-              "text": "X X Y Y",
-              "reasons": [
-                "many_isolated_letters"
               ]
             }
           ]
         }
       ],
-      "explanation": "‘ \\\nGibbs-Donnan equilibrium explains the effect of a non-diffusible ion on the distribution of\npermeant ions.\nConsider the situation depicted below,\nGibbs-Donnan equilibrium\nx a\nA rn ey\nKe | KK\ncr cr\nProt” 5\nor\n@\nMARROW\nxV as\nF Se > e\n‘The membrane is permeable to K+ and Cl-. However, it is impetmeable to théproteins. The\nimpermeable protein molecules hinder themovement of K* (negative charge of the proteins\nholding back positive charge of the Kane favor epee of Ch (like charges repel).\nAccording to the Gibbs-Donnan equation, at equilibritim, the coneeniration ratios of diffusible\nions are equal across the membfane. io AS\now ww’ » i ail\ni _()\nIK’) [dy\n\") (y)\nIK’) (Cl,\nSOY Cross-multiplying\n[KY] (C=) [cr\nX X Y Y"
+      "explanation": "Gibbs-Donnan equilibrium explains the effect of a non-diffusible ion on the distribution of permeant ions.\nConsider the situation depicted below.\nThe membrane is permeable to K+ and Cl-. However, it is impermeable to the proteins. The impermeable protein molecules hinder the movement of K+ (negative charge of the proteins holding back positive charge of K+) and favor the movement of Cl- (like charges repel).\nAccording to the Gibbs-Donnan equation, at equilibrium, the concentration ratios of diffusible ions are equal across the membrane:\n[K+]x / [K+]y = [Cl-]y / [Cl-]x\nCross-multiplying:\n[K+]x[Cl-]x = [K+]y[Cl-]y"
     },
     {
       "id": "marrow__PHYS_CH04_Q004",
