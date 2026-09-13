@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Find likely learner-visible OCR/code debris in the full Marrow audit projection.
 
-This is deliberately an over-inclusive REVIEW QUEUE, not an automatic rewriter.
-It never mutates source or learner data. Stable-ID reviewed overrides remain the
-only accepted path for OCR/source-transcription cleanup.
+This is a REVIEW QUEUE, never an automatic rewriter. Question/option detection is
+intentionally high-precision; explanation detection is broader because rendered
+page OCR and diagram labels are the dominant corruption source there.
 """
 from __future__ import annotations
 
@@ -17,14 +17,16 @@ AUDIT = ROOT / "data" / "marrow" / "content_audit_full"
 OUT = AUDIT / "debris_candidates.json"
 SUMMARY = AUDIT / "debris_summary.json"
 
-BRAND_RE = re.compile(r"(?i)\b(?:prepladder|marrow\s*qbank|qbank\s*page|©\s*marrow)\b")
+BRAND_RE = re.compile(r"(?i)\b(?:prepladder|marrow\s*qbank|qbank\s*page|©\s*marrow|©marrow)\b")
 SERIALIZED_RE = re.compile(r"(?:\[object Object\]|\{\s*[\"'](?:text|type|content|value)[\"']\s*:|\"(?:text|type|content)\"\s*:)")
 PUNCT_RUN_RE = re.compile(r"[^\w\s]{4,}", re.UNICODE)
 ISOLATED_LETTER_RE = re.compile(r"(?<!\w)[A-Za-z](?!\w)")
 WEIRD_EDGE_RE = re.compile(r"^(?:[\s~|\\<>{}\[\]`^_*=.,;:'\"“”‘’!?/+-]*[A-Za-z0-9]{0,2}[\s~|\\<>{}\[\]`^_*=.,;:'\"“”‘’!?/+-]{2,})|(?:[~|\\<>{}`^_*=]{2,}\s*)$", re.UNICODE)
-
-# Characters highly unusual in learner prose. Ordinary spaces and common
-# medical operators (+ - = < > / %) are intentionally excluded.
+TRAILING_OCR_RE = re.compile(
+    r"(?:\s+[A-Za-z]{1,2}\s+\d+\s+[A-Za-z]\s*$|"
+    r"\s+[A-Za-z0-9]{1,3}[?;,:.™€]+\s*(?:[A-Za-z0-9]{0,2})\s*$)",
+    re.UNICODE,
+)
 HARD_NOISE = set("~|\\{}`^")
 
 
@@ -43,6 +45,8 @@ def line_reasons(line: str) -> list[str]:
         reasons.append("punctuation_run")
     if WEIRD_EDGE_RE.search(stripped):
         reasons.append("edge_noise")
+    if TRAILING_OCR_RE.search(stripped):
+        reasons.append("ocr_suffix")
 
     nonspace = [c for c in stripped if not c.isspace()]
     alnum = sum(c.isalnum() for c in nonspace)
@@ -71,29 +75,47 @@ def field_reasons(value: object, field: str) -> tuple[list[str], list[dict]]:
         reasons.append("code_fence")
     if "\\" in value:
         reasons.append("literal_backslash")
-    if field in {"question", "option"} and value.count("\n") >= 4:
-        reasons.append("many_linebreaks")
-    for idx, line in enumerate(value.splitlines(), start=1):
+
+    lines = value.splitlines()
+    for idx, line in enumerate(lines, start=1):
         lr = line_reasons(line)
         if lr:
             suspect_lines.append({"line": idx, "text": line, "reasons": lr})
             reasons.extend(lr)
-    return sorted(set(reasons)), suspect_lines
+
+    reasons = sorted(set(reasons))
+    if field in {"question", "option"}:
+        # Avoid flagging legitimate blanks, enumerations, label matching and
+        # compact numeric choices merely because they are punctuation-dense.
+        strong = {
+            "serialized_value", "object_string", "code_fence", "brand_or_footer",
+            "hard_noise_char", "literal_backslash", "ocr_suffix", "non_string",
+        }
+        kept = [reason for reason in reasons if reason in strong]
+        # A short isolated OCR line in a multi-line stem/option is also strong
+        # evidence, even when it contains no special hard-noise character.
+        if len(lines) > 1:
+            for line in lines:
+                stripped = line.strip()
+                if not stripped:
+                    continue
+                words = re.findall(r"[A-Za-z]+", stripped)
+                if len(stripped) <= 12 and stripped[:1] in ".,;:'\"“”‘’<>" and len(words) <= 2:
+                    kept.append("short_ocr_line")
+                    break
+        reasons = sorted(set(kept))
+        if not reasons:
+            suspect_lines = []
+
+    return reasons, suspect_lines
 
 
 def severity(reasons: list[str], field: str) -> int:
     weights = {
-        "serialized_value": 8,
-        "object_string": 8,
-        "code_fence": 6,
-        "brand_or_footer": 5,
-        "hard_noise_char": 4,
-        "literal_backslash": 3,
-        "punctuation_run": 3,
-        "symbol_dense_line": 3,
-        "edge_noise": 3,
-        "many_isolated_letters": 2,
-        "many_linebreaks": 1,
+        "serialized_value": 8, "object_string": 8, "code_fence": 6,
+        "brand_or_footer": 5, "hard_noise_char": 4, "literal_backslash": 3,
+        "ocr_suffix": 4, "short_ocr_line": 4, "punctuation_run": 3,
+        "symbol_dense_line": 3, "edge_noise": 3, "many_isolated_letters": 2,
         "non_string": 5,
     }
     score = sum(weights.get(r, 1) for r in set(reasons))
@@ -128,19 +150,11 @@ def main() -> None:
                     if not reasons:
                         continue
                     row = {
-                        "id": qid,
-                        "subject": q.get("subject"),
-                        "chapterId": str(q.get("chapterId")),
-                        "chapter": q.get("chapter"),
-                        "questionNumber": q.get("questionNumber"),
-                        "fieldKind": kind,
-                        "field": label,
-                        "severity": severity(reasons, kind),
-                        "reasons": reasons,
-                        "value": value,
-                        "suspectLines": suspect_lines,
-                        "sourcePage": q.get("sourcePage"),
-                        "reviewStatus": q.get("reviewStatus"),
+                        "id": qid, "subject": q.get("subject"), "chapterId": str(q.get("chapterId")),
+                        "chapter": q.get("chapter"), "questionNumber": q.get("questionNumber"),
+                        "fieldKind": kind, "field": label, "severity": severity(reasons, kind),
+                        "reasons": reasons, "value": value, "suspectLines": suspect_lines,
+                        "sourcePage": q.get("sourcePage"), "reviewStatus": q.get("reviewStatus"),
                     }
                     candidates.append(row)
                     counts[kind] += 1
@@ -150,7 +164,7 @@ def main() -> None:
     candidates.sort(key=lambda r: (-r["severity"], r["subject"], int(r["chapterId"]), int(r.get("questionNumber") or 0), r["field"]))
     OUT.write_text(json.dumps({
         "schemaVersion": 1,
-        "purpose": "Over-inclusive review queue for visible OCR/code debris; not an auto-rewrite list.",
+        "purpose": "Review queue for visible OCR/code debris; never an auto-rewrite list.",
         "candidateFieldCount": len(candidates),
         "candidateQuestionCount": len({r['id'] for r in candidates}),
         "candidates": candidates,
