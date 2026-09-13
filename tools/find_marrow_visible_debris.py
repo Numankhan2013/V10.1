@@ -22,12 +22,12 @@ SERIALIZED_RE = re.compile(r"(?:\[object Object\]|\{\s*[\"'](?:text|type|content
 PUNCT_RUN_RE = re.compile(r"[^\w\s]{4,}", re.UNICODE)
 ISOLATED_LETTER_RE = re.compile(r"(?<!\w)[A-Za-z](?!\w)")
 WEIRD_EDGE_RE = re.compile(r"^(?:[\s~|\\<>{}\[\]`^_*=.,;:'\"“”‘’!?/+-]*[A-Za-z0-9]{0,2}[\s~|\\<>{}\[\]`^_*=.,;:'\"“”‘’!?/+-]{2,})|(?:[~|\\<>{}`^_*=]{2,}\s*)$", re.UNICODE)
-TRAILING_OCR_RE = re.compile(
-    r"(?:\s+[A-Za-z]{1,2}\s+\d+\s+[A-Za-z]\s*$|"
-    r"\s+[A-Za-z0-9]{1,3}[?;,:.™€]+\s*(?:[A-Za-z0-9]{0,2})\s*$)",
-    re.UNICODE,
+TRAILING_OCR_RES = (
+    re.compile(r"\s+[A-Za-z]{1,2}\s+\d+\s+[A-Za-z]\s*$"),
+    re.compile(r"\s+[A-Za-z]{2}\s+\d+[\"”']\s*$"),
+    re.compile(r"\s+[\"”'‘’]\s*[A-Za-z]\s*$"),
 )
-HARD_NOISE = set("~|\\{}`^")
+HARD_NOISE = set("~|\\{}`^€™")
 
 
 def line_reasons(line: str) -> list[str]:
@@ -45,7 +45,7 @@ def line_reasons(line: str) -> list[str]:
         reasons.append("punctuation_run")
     if WEIRD_EDGE_RE.search(stripped):
         reasons.append("edge_noise")
-    if TRAILING_OCR_RE.search(stripped):
+    if any(pattern.search(stripped) for pattern in TRAILING_OCR_RES):
         reasons.append("ocr_suffix")
 
     nonspace = [c for c in stripped if not c.isspace()]
@@ -85,15 +85,11 @@ def field_reasons(value: object, field: str) -> tuple[list[str], list[dict]]:
 
     reasons = sorted(set(reasons))
     if field in {"question", "option"}:
-        # Avoid flagging legitimate blanks, enumerations, label matching and
-        # compact numeric choices merely because they are punctuation-dense.
         strong = {
             "serialized_value", "object_string", "code_fence", "brand_or_footer",
             "hard_noise_char", "literal_backslash", "ocr_suffix", "non_string",
         }
         kept = [reason for reason in reasons if reason in strong]
-        # A short isolated OCR line in a multi-line stem/option is also strong
-        # evidence, even when it contains no special hard-noise character.
         if len(lines) > 1:
             for line in lines:
                 stripped = line.strip()
