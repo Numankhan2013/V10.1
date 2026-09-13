@@ -7,6 +7,7 @@ on:
     paths:
       - tools/export_full_marrow_content_audit.py
       - tools/find_marrow_visible_debris.py
+      - tools/split_marrow_debris_review.py
       - .github/workflows/full-marrow-content-audit.yml
 
 permissions:
@@ -36,6 +37,8 @@ jobs:
           PY
       - name: Build over-inclusive visible-debris review queue
         run: python tools/find_marrow_visible_debris.py
+      - name: Split review queue by chapter
+        run: python tools/split_marrow_debris_review.py
       - name: Commit derived audit projection
         run: |
           git config user.name "github-actions[bot]"
