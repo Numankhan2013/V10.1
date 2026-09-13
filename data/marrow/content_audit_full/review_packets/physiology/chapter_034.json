@@ -4,9 +4,9 @@
   "subject": "Physiology",
   "chapterId": "34",
   "chapter": "Glomerular Filtration Rate, Renal Blood Flow, and Renal Clearance",
-  "candidateQuestionCount": 23,
+  "candidateQuestionCount": 18,
   "questionOptionCandidateCount": 0,
-  "explanationCandidateCount": 23,
+  "explanationCandidateCount": 18,
   "questions": [
     {
       "id": "marrow__PHYSIO_CH34_Q001",
@@ -47,9 +47,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 4,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -57,15 +56,7 @@
               "line": 11,
               "text": "= B- intercalated | Noe",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "ot =o S@",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -112,9 +103,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 7,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "symbol_dense_line"
           ],
@@ -123,7 +113,6 @@
               "line": 1,
               "text": "‘ye * ra \" ~~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -256,19 +245,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 4,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
-            {
-              "line": 4,
-              "text": "‘ NY prin 750",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 6,
               "text": "Skeletal musc | 840",
@@ -287,83 +268,6 @@
         }
       ],
       "explanation": "Kidneys receive approximately 20 to 28% of the cardiae output, which is approximately 1000 mL\nper minute. ; a? tg\n8 liver 1500,\n‘ NY prin 750\nBrain 750\nSkeletal musc | 840\nHeart muscle | 250"
-    },
-    {
-      "id": "marrow__PHYSIO_CH34_Q005",
-      "questionNumber": 5,
-      "sourcePage": 623,
-      "provenance": {
-        "file": "physiologyed8.pdf",
-        "edition": "ED8",
-        "question_page": 623,
-        "answer_key_pages": [
-          631,
-          632
-        ],
-        "explanation_start_page": 634
-      },
-      "reviewStatus": "pass_with_normalization_note",
-      "question": "What is the normal resting GFR?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "125 mL/min"
-        },
-        {
-          "letter": "B",
-          "text": "90 mL/min"
-        },
-        {
-          "letter": "C",
-          "text": "60 mL/min"
-        },
-        {
-          "letter": "D",
-          "text": "150 mL/min"
-        }
-      ],
-      "correctOption": 1,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 13,
-              "text": "PG: Glomerular hydrostatic pressure",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 14,
-              "text": "1B: Bowman's capsule oncotic pressure ¢,\"",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 16,
-              "text": "PB: Bowman's capsule hydrostatic pressure aro rr Oo",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 17,
-              "text": "mG: Glomerular capillary oncotic pressure * a",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "The GFR in a healthy adult of average size is approximately 125 mL/min.\nGlomerular filtration rate (GFR) is the volume of fluid filtered from the renal\nglomerular capillaries into the Bowman's capsule per unit time.\nThe GFR is determined by\n\n¢ Sum of the hydrostatic and colloid osmotic forces across the glomerular membrane, which gives\nthe net filtration pressure\n¢ Glomerular Kf (glomerular ultrafiltration coefficient)\nMathematically, it can be expressed as follows:\nGFR= Kf [ forces favoring filtration- forces opposing filtration]\nGFR= Kf [PG + mB -PB- 1G]\nForces Favoring Filtration\nPG: Glomerular hydrostatic pressure\n1B: Bowman's capsule oncotic pressure ¢,\"\nForces Opposing Filtration e@*\nPB: Bowman's capsule hydrostatic pressure aro rr Oo\nmG: Glomerular capillary oncotic pressure * a"
     },
     {
       "id": "marrow__PHYSIO_CH34_Q006",
@@ -404,9 +308,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 16,
+          "severity": 13,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
             "punctuation_run",
@@ -421,17 +324,9 @@
               ]
             },
             {
-              "line": 6,
-              "text": ". had Ral",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 8,
               "text": "Bf! 000 IW - —-—-——-—.",
               "reasons": [
-                "edge_noise",
                 "punctuation_run",
                 "symbol_dense_line"
               ]
@@ -480,31 +375,15 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 4,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
             {
-              "line": 5,
-              "text": "* Basement membrane:",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "+ Layer of epithelial cells (podocytes) surrounding the outer surface of the capillary basement",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 12,
               "text": "ri / ‘ } rs",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -512,29 +391,7 @@
               "line": 14,
               "text": "B| 20 oa .",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 18,
-              "text": "A. The endothelial cells of the glomerulus; pore fenestra) ot >",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 19,
-              "text": "ow > oe",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 20,
-              "text": "B. Glomerular basement membrane: 1. Lamina rara interna 2. Lamina@ehsa 3. Lamina rara",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -543,95 +400,11 @@
               "reasons": [
                 "hard_noise_char"
               ]
-            },
-            {
-              "line": 23,
-              "text": "C. Podocytes: 1. Enzymatic and structural protein : Filtration Slit 3. Diaphragm.",
-              "reasons": [
-                "edge_noise"
-              ]
             }
           ]
         }
       ],
       "explanation": "Mesangium does not form a filtration barrier. It is made up of mesangial cells, supporting\nglomerular capillaries.\nThe filtration barrier consists of:\n¢ Endothelium of the capillary\n* Basement membrane:\n¢ Lamina densa - electron-dense layer. It contains type IV collagen\n¢ Lamina rara interna - contains glycosaminoglycan heparan sulfate which has a negative charge\n¢ Lamina rara externa - contains glycosaminoglycan heparan sulfate which has a negative charge\n+ Layer of epithelial cells (podocytes) surrounding the outer surface of the capillary basement\nmembrane\n\nri / ‘ } rs\nY » 3 WW\nB| 20 oa .\nAli SCORE\nSQV More\nx aX\nA. The endothelial cells of the glomerulus; pore fenestra) ot >\now > oe\nB. Glomerular basement membrane: 1. Lamina rara interna 2. Lamina@ehsa 3. Lamina rara\nexterna ~ © '»\nSA Oe\nC. Podocytes: 1. Enzymatic and structural protein : Filtration Slit 3. Diaphragm."
-    },
-    {
-      "id": "marrow__PHYSIO_CH34_Q010",
-      "questionNumber": 10,
-      "sourcePage": 624,
-      "provenance": {
-        "file": "physiologyed8.pdf",
-        "edition": "ED8",
-        "question_page": 624,
-        "answer_key_pages": [
-          631,
-          632
-        ],
-        "explanation_start_page": 637
-      },
-      "reviewStatus": "pass_with_normalization_note",
-      "question": "What size of neutral substances are permitted by the filtration barriers?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "8–10 nm"
-        },
-        {
-          "letter": "B",
-          "text": "4–8 nm"
-        },
-        {
-          "letter": "C",
-          "text": "8–10 µm"
-        },
-        {
-          "letter": "D",
-          "text": "4–8 µm"
-        }
-      ],
-      "correctOption": 2,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 3,
-              "text": "+ <4 nm - freely filtered",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "* Between 4-8 nm - the permeability is inversely proportional to the diameter",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "* Genetically abnormal basement membranes: Alport’s syndrome (° 3 and ° 4 chains on the long",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "+ Autoimmune response to basement membrane collagen IV (° 3 NC1",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Filtration barriers permit neutral substances that have the size of 4-8 nm.\nNeutral substances with diameters:\n+ <4 nm - freely filtered\n¢ >8 nm - not filtered\n* Between 4-8 nm - the permeability is inversely proportional to the diameter\nClinical correlation:\n* Genetically abnormal basement membranes: Alport’s syndrome (° 3 and ° 4 chains on the long\narm of chromosome 2 involved in autosomal dominant and recessive pattern; ° 5 chain on X\n\nchromosome involved in X-linked inheritance)\n+ Autoimmune response to basement membrane collagen IV (° 3 NC1\ndomain): Goodpasture’s syndrome"
     },
     {
       "id": "marrow__PHYSIO_CH34_Q011",
@@ -681,27 +454,6 @@
           ],
           "suspectLines": [
             {
-              "line": 3,
-              "text": "* Macula densa: Specialized cells at the end of the thick ascending limb of Henle formis the macula",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "+ Lacis cells: Extraglomerular mesangial cells situatéabetween afferent and efferent arteriole.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "* Granular cells/JG cells: Modified smooth mitedé cells of thé.afferent arteriolé, that secrete",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 10,
               "text": "turn, increases blood pressure. ‘ >\\ - eK oO RS .",
               "reasons": [
@@ -719,16 +471,21 @@
               "line": 12,
               "text": "_* Pa, S|] 3",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 14,
+              "text": "Por",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
               "line": 17,
               "text": "~ SS : < Ea a) Parietal",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -783,9 +540,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 4,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -794,13 +550,6 @@
               "text": "Net filtration pressure = (45-10-20+0) ~co\"",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "= 15 mmHg sea <<",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -847,9 +596,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 7,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -858,7 +606,6 @@
               "line": 2,
               "text": "clearance will be equal to GFRwife 125 ml/min \\*",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -867,20 +614,6 @@
               "text": "kidneys at'all. ~",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "Cx. Px = Ux. V",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 17,
-              "text": "Ux. V",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -942,8 +675,8 @@
               ]
             },
             {
-              "line": 4,
-              "text": ". C inulin =",
+              "line": 5,
+              "text": "Pai",
               "reasons": [
                 "edge_noise"
               ]
@@ -963,17 +696,9 @@
               ]
             },
             {
-              "line": 16,
-              "text": "* Nontoxic 2 . <y",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 17,
               "text": "+ Not metabolized by the body~ © \\*",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -981,76 +706,6 @@
         }
       ],
       "explanation": "In the given scenario, inulin clearance = GFR.< co\nInulin clearance is calculated-by the forntula: ¢ \\\nVin in\n. C inulin =\nPai\nSubstituting the values given,\n¢ Uinulin= 25 mg/mL\n¢ Vinulin= 10 mL/min\n¢ Pinulin=2 mg/mL\n\nThus, Inulin clearance=GFR (normal GFR= 125 ml/min) C \\ .\nInulin is a polymer of fructose, clearance, of inulin can bé used for meaSurement of GFR, because\nof the following reasons: a ~ ef a —\n¢ Freely filtered » c A\n¢ Neither reabsorbed nor Seereted in the tubules C .\n* Nontoxic 2 . <y\n+ Not metabolized by the body~ © \\*"
-    },
-    {
-      "id": "marrow__PHYSIO_CH34_Q016",
-      "questionNumber": 16,
-      "sourcePage": 625,
-      "provenance": {
-        "file": "physiologyed8.pdf",
-        "edition": "ED8",
-        "question_page": 625,
-        "answer_key_pages": [
-          631,
-          632
-        ],
-        "explanation_start_page": 641
-      },
-      "reviewStatus": "pass_with_normalization_note",
-      "question": "A patient's urine flow rate is 2 mL/min. What is the clearance of a substance X whose plasma concentration is 10 mg/mL and in urine is 100 mg/mL?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "0.2 mL/min"
-        },
-        {
-          "letter": "B",
-          "text": "2 mL/min"
-        },
-        {
-          "letter": "C",
-          "text": "20 mL/min"
-        },
-        {
-          "letter": "D",
-          "text": "200 mL/min"
-        }
-      ],
-      "correctOption": 3,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "Ux. V",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "C = Clearance (mL/min)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "V= Urine flow rate per minute (mL/min)=2mL/min",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "The clearanve in the given scenario is 20 ml/ min.\nUx. V\n\nC = Clearance (mL/min)\n[U]x = Urine concentration of substance x (mg/mL)=100mg/mL\nV= Urine flow rate per minute (mL/min)=2mL/min\n[P]x = Plasma concentration of substance x (mg/mL)=10mg/mL\nSubstituting the values,"
     },
     {
       "id": "marrow__PHYSIO_CH34_Q018",
@@ -1116,62 +771,6 @@
       "explanation": "High protein intake increases GFR.\n\nEffect of protein intake on GFR\nHigh dietary protein\nAmino acids eC,’\ntAmino acids and NaC! reabsorption *\nin PCT (Na-amino acid cotransporter)\n2 NaCl in macula densa\ndensa {Afferent arteriolar resistance >\nfeedback |\n1GFR\nMARROW\n\nNote: Increase in the plasma proteim concentration‘is not the same as high protein intake. An\n\nincrease in the plasma protein concentration decreases GFR due to a raised oncotic pressure. A\n\nhigh protein intake raises the‘amino acid concentration in the blood, not the plasma protein\n\nconcentration. — ‘"
     },
     {
-      "id": "marrow__PHYSIO_CH34_Q019",
-      "questionNumber": 19,
-      "sourcePage": 626,
-      "provenance": {
-        "file": "physiologyed8.pdf",
-        "edition": "ED8",
-        "question_page": 626,
-        "answer_key_pages": [
-          631,
-          632
-        ],
-        "explanation_start_page": 643
-      },
-      "reviewStatus": "pass_with_normalization_note",
-      "question": "Which of the following would cause an increase in both GFR and RPF?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Hyperproteinemia"
-        },
-        {
-          "letter": "B",
-          "text": "Constriction of efferent arteriole"
-        },
-        {
-          "letter": "C",
-          "text": "Dilation of efferent arteriole"
-        },
-        {
-          "letter": "D",
-          "text": "Dilation of the afferent arteriole"
-        }
-      ],
-      "correctOption": 4,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 3,
-              "text": "+ Increase renal plasma flow (RPF) - because renal vascular resistance is decreased",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Dilation of the afferent arteriole will increase both GFR and RPF.\n\n+ Increase renal plasma flow (RPF) - because renal vascular resistance is decreased\n\n¢ Increase glomerular filtration rate (GFR) - because glomerular capillary hydrostatic pressure is\n\nincreased.\n\n¢ Filtration fraction (FF) remains normal\n\nDilation of the efferent arteriole will increase RPF but decrease GFR."
-    },
-    {
       "id": "marrow__PHYSIO_CH34_Q021",
       "questionNumber": 21,
       "sourcePage": 627,
@@ -1228,83 +827,6 @@
       "explanation": "Prostaglandins increase blood flow in the renal cortex and decrease blood flow in the renal\nmedulla. _O~ PA\nPGEz2 is partially responsible for the vasodilatation of thé afferent arteriole, which increases blood\nflow to the glomerulus. This phenomenon describes'why NSAIDs, (which inhibit prostaglandin\nsynthesis) result in afferent arteriole vasoconStriction. It can ‘cause a reduced. GFR in patients who\nrely heavily on prostaglandin synthesis tomaintain renabblood flow."
     },
     {
-      "id": "marrow__PHYSIO_CH34_Q022",
-      "questionNumber": 22,
-      "sourcePage": 627,
-      "provenance": {
-        "file": "physiologyed8.pdf",
-        "edition": "ED8",
-        "question_page": 627,
-        "answer_key_pages": [
-          631,
-          632
-        ],
-        "explanation_start_page": 644
-      },
-      "reviewStatus": "pass_with_normalization_note",
-      "question": "Which part of the proximal tubule is most susceptible to ischemic injury?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "S1"
-        },
-        {
-          "letter": "B",
-          "text": "S2"
-        },
-        {
-          "letter": "C",
-          "text": "S3"
-        },
-        {
-          "letter": "D",
-          "text": "S4"
-        }
-      ],
-      "correctOption": 3,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 7,
-              "text": "* Si segment: ist half of PCT",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "* S3 segment: 2nd half of proximal straight tubule",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 22,
-              "text": "nu “a %",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 23,
-              "text": "z > oO >",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Regions of the kidney most prone,todschemic injufy are the S3 segment of the proximal tubule\nand the medullary thick ascending limb of the loop of Henle (mTAL). These tubular areas exist\nphysiologically in relatively lower oxygen,conditions.\nThe S3 segment, in particdlar, has aanuch lower capability of producing energy through glycolysis\nunder anaerobic conditions than-the mTAL.\nBased on the ultrastructure-_proximal tubule is divided into three segments:\n* Si segment: ist half of PCT\n¢ S2 segment: 2nd half of PCT and 1st half of proximal straight tubule\n* S3 segment: 2nd half of proximal straight tubule\n\nParts of proximal tubule\nCortex\nProximal oA —S\ntubule] & Ca— VU Sowa\n) <i Collecting tubule\nCoop of Herteaa ti Thin segment of\nLoop of Henle = y\nwe wo\"\ni al\nMARROW\nXW x\nnu “a %\nz > oO >\na) ae Pa :"
-    },
-    {
       "id": "marrow__PHYSIO_CH34_Q023",
       "questionNumber": 23,
       "sourcePage": 627,
@@ -1343,9 +865,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 4,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -1361,13 +882,6 @@
               "text": "be used for RPF measurement. we ~~ io.",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "* UPAH = urine concentration of PAH (mg/mL)",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1414,40 +928,11 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 4,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
-            {
-              "line": 6,
-              "text": "a. ERPE = fe - Renart Plasma flow >",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "= w 4 PAW",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "= cpap Vv",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "b. Ecradion Roto = Ite pereentoge of PAH",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 15,
               "text": "dividing the ERPF by 0.9;thence getting the final value of ~ 700mL per minute",
@@ -1499,25 +984,16 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 7,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
           "suspectLines": [
             {
-              "line": 12,
-              "text": "* Myogenic mechanism ¥ eC",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 15,
               "text": "| Tarterial wall tension (BP) \\",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1525,7 +1001,6 @@
               "line": 22,
               "text": "~ MARROW",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -1573,9 +1048,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 7,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "symbol_dense_line"
           ],
@@ -1584,7 +1058,6 @@
               "line": 1,
               "text": ". VU SN ( >>",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             },
@@ -1702,20 +1175,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 7,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
           "suspectLines": [
-            {
-              "line": 10,
-              "text": "* Basement membrane:",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 19,
               "text": "zero. - €",
@@ -1727,7 +1192,6 @@
               "line": 27,
               "text": "same size. oO a “~*",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1735,7 +1199,6 @@
               "line": 29,
               "text": "nm, has a very low filtration rate. c= ° \\",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }

@@ -4,9 +4,9 @@
   "subject": "Physiology",
   "chapterId": "10",
   "chapter": "Neurotransmitters",
-  "candidateQuestionCount": 14,
+  "candidateQuestionCount": 15,
   "questionOptionCandidateCount": 11,
-  "explanationCandidateCount": 8,
+  "explanationCandidateCount": 11,
   "questions": [
     {
       "id": "marrow__PHYS_CH10_Q001",
@@ -118,7 +118,6 @@
               "line": 2,
               "text": "\\\\ Ne S",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -149,26 +148,11 @@
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "Ow ‘ Ray 4",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 3,
               "text": "=~ =) es",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "wk <6 <",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -244,16 +228,8 @@
               "line": 1,
               "text": "~~) ae",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 3,
-              "text": "‘A’ delta fibersiand 'C fibers earry pain sensation. The neurotransmitter released by ‘A’ delta",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -338,7 +314,6 @@
               "line": 4,
               "text": "| ‘Amino acid ®",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -346,8 +321,14 @@
               "line": 5,
               "text": "| Beem",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "we",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -407,15 +388,7 @@
               "line": 1,
               "text": "Corticostriatal pathway 2” ~\\<",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "; ge Ua",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -431,7 +404,6 @@
               "line": 2,
               "text": "‘ ‘ {e) rey oO”",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -449,7 +421,6 @@
               "line": 1,
               "text": "x ~~ oe Res",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -474,49 +445,13 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
             "symbol_dense_line"
           ],
           "suspectLines": [
-            {
-              "line": 6,
-              "text": "+ Mesolimbic pathway - Increased activity responsible for positive symptoms of schizophrenia.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "+ Mesocortical pathway - Decreased activity responsible for negative symptoms of schizophrenia.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "+ Nigrostriatal pathway - Decreased activity causes extrapyramidal symptoms.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "+ Tuberoinfundibular pathway - Decreased activity causes increase in prolactin.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "> Thatamus",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 17,
               "text": "Mesccattial ~<a",
@@ -556,7 +491,6 @@
               "line": 27,
               "text": ". , ©>* a Se “Oo",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             }
@@ -704,6 +638,13 @@
               "reasons": [
                 "hard_noise_char"
               ]
+            },
+            {
+              "line": 3,
+              "text": "of",
+              "reasons": [
+                "edge_noise"
+              ]
             }
           ]
         }
@@ -796,7 +737,6 @@
               "line": 1,
               "text": "~ a O° c\\Y",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "many_isolated_letters"
               ]
@@ -924,7 +864,6 @@
               "line": 3,
               "text": "aN ~ 2",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -936,17 +875,21 @@
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
-            },
+            }
+          ]
+        }
+      ],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
             {
               "line": 7,
-              "text": "‘ of KO 2 =",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "- > S aS",
+              "text": "3x?",
               "reasons": [
                 "edge_noise"
               ]
@@ -954,8 +897,7 @@
           ]
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanation": "Sweat glands are innervated by sympathetic cholinergic fibres (not adrenergic fibres).\nPre-ganglionic fibres of the sympathetic nervous system, pre-ganglionic fibers of the\nparasympathetic nervous system and post-ganglionic parasympathetic fibres release acetylcholine.\nPost-ganglionic sympathetic fibres release noradrenaline in most of the sites, except in certain\nplaces such as sweat glands, piloerector muscles and blood vessels in some skeletal muscles where\nacetylcholine is released. eo\n3x?\ns+oP xe"
     },
     {
       "id": "marrow__PHYS_CH10_Q014",
@@ -1024,7 +966,6 @@
               "line": 1,
               "text": "Globus pallidus interna ow =~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -1038,17 +979,9 @@
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "o> vay a",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 3,
               "text": "2 ~~ ae",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -1065,72 +998,82 @@
           ],
           "suspectLines": [
             {
-              "line": 5,
-              "text": "+ Substantia nigra pars compacta =¢Bpamine KO Se",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": ": ¢ ce",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "+ Substantia nigra pars reticulata= GABA, > S",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "ie, Pas a",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "+ Subthalmic nuclei = glutanlate rag o&",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "+ Corpus striatum to globus pallidus GABA 6, ¥",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "+ Intrastriate neurons = acetylcholine oS",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "+ Globus pallidus = GABA)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 16,
               "text": "Geis pats || Goovs pats || substring || Sst rie",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 18,
+              "text": "ae",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
         }
       ],
       "explanation": "Projections from subthalamic nucleus to globus Pallidus are lataminergie., >\n=) Do Oo\nNeurotransmitters secreted by various régidns of basalganglia: Se\nreeie eae a\n+ Substantia nigra pars compacta =¢Bpamine KO Se\n: ¢ ce\n+ Substantia nigra pars reticulata= GABA, > S\nie, Pas a\n+ Subthalmic nuclei = glutanlate rag o&\n+ Corpus striatum to globus pallidus GABA 6, ¥\n+ Intrastriate neurons = acetylcholine oS\n+ Globus pallidus = GABA)\np ae a\nAs Basal ganglia\ncba cata cama\nGeis pats || Goovs pats || substring || Sst rie\nLee la\nae\nMARRG\nDiagrammatic representation of the principal connections of the basal ganglia.\nAcetylcholine is the transmitter produced by interneurons in the striatum.\n\n(SNr : substantia nigra pars reticulata; SNe: substantia nigra pars compacta; STN: Subthalamic\nnucleus ; GPe: globus pallidus externa ; GPi: Globus pallidus interna)."
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q015",
+      "questionNumber": 15,
+      "sourcePage": 201,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          201
+        ],
+        "answerKeyPages": [
+          202,
+          203
+        ],
+        "explanationPages": [
+          208
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "All of the following are excitatory neurotransmitters except:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Acetylcholine"
+        },
+        {
+          "letter": "B",
+          "text": "Glutamate"
+        },
+        {
+          "letter": "C",
+          "text": "Serotonin"
+        },
+        {
+          "letter": "D",
+          "text": "Norepinephrine"
+        }
+      ],
+      "correctOption": 3,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "ye\"",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Serotonin is an inhibitory neurotransmitter.\nAcetylcholine, glutamate and norepinephrine are excitatory neurotransmitters.\nye\""
     },
     {
       "id": "marrow__PHYS_CH10_Q016",
@@ -1174,9 +1117,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
             "symbol_dense_line"
@@ -1186,36 +1128,7 @@
               "line": 3,
               "text": "+ 5-HT2A receptors mediate platelet aggregation and smooth{Muscle contraétion.",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "aN =) we",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "+ 5-HT3 receptors are present in the GIT‘and the area péstrema and arevrélated to vomiting.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "= or nS",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "+ 5-HT4 receptors are present in,the’GIT and brairh, Tey facilita@Secretion and peristalsis in",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -1223,13 +1136,6 @@
               "text": "®) “ os",
               "reasons": [
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "+ 5-HT6 and 5-H'Ty are digtributed throughout the limbje'S)8tem.",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -1296,14 +1202,8 @@
               "line": 6,
               "text": "ann |",
               "reasons": [
+                "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "5: Hycroxvtryptophan (HT)",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -1385,13 +1285,6 @@
               "reasons": [
                 "hard_noise_char"
               ]
-            },
-            {
-              "line": 3,
-              "text": "> Ne 4k",
-              "reasons": [
-                "edge_noise"
-              ]
             }
           ]
         },
@@ -1407,15 +1300,52 @@
               "line": 2,
               "text": "KS \\o~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
           ]
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 5,
+              "text": "Xe",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 6,
+              "text": "Sg",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "yt",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "LS",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "NMDA receptor permits passage’of Caat andar cations (Na+), not of chloride.\nGlutamate is the agonist forNMIDA receptor. Glycine binding to the NMDA receptor is essential\nfor the receptor to respond to state NMDA eogntors are present on hippocampal neurons.\nNote: GABA and glycine reece by increasing Cl- conductance.\nXe\nSg\nyt\nLS\ns xe"
     }
   ]
 }

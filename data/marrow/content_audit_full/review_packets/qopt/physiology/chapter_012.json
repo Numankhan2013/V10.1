@@ -54,7 +54,6 @@
               "line": 3,
               "text": "x ~K",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -134,6 +133,13 @@
               ]
             },
             {
+              "line": 2,
+              "text": "ol",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 3,
               "text": "| oy",
               "reasons": [
@@ -177,7 +183,6 @@
               "line": 5,
               "text": "o~ 2",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -266,7 +271,6 @@
               "line": 5,
               "text": "NA ~@",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -385,17 +389,9 @@
           ],
           "suspectLines": [
             {
-              "line": 4,
-              "text": "ee < S",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 5,
               "text": "- ~ aN? 2",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -513,13 +509,6 @@
               "reasons": [
                 "hard_noise_char"
               ]
-            },
-            {
-              "line": 2,
-              "text": "; Noe so",
-              "reasons": [
-                "edge_noise"
-              ]
             }
           ]
         },
@@ -621,7 +610,6 @@
               "line": 3,
               "text": "Enkephali ~ <>",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -676,17 +664,9 @@
           ],
           "suspectLines": [
             {
-              "line": 2,
-              "text": "‘ of KO es",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 3,
               "text": "\\O> S >",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -695,7 +675,6 @@
               "line": 4,
               "text": "- ke) Xo ses~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -786,8 +765,14 @@
               "line": 2,
               "text": "e~ oO",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "Oo",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -854,15 +839,7 @@
           "reasons": [
             "short_ocr_line"
           ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "> 4 c&",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
+          "suspectLines": []
         },
         {
           "field": "option_D",
@@ -875,7 +852,6 @@
               "line": 4,
               "text": "=e ~ 4&",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]

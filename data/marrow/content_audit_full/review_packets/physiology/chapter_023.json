@@ -59,15 +59,8 @@
           ],
           "suspectLines": [
             {
-              "line": 8,
-              "text": "_ ¢",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 15,
-              "text": "Ae “e",
+              "line": 7,
+              "text": "o?",
               "reasons": [
                 "edge_noise"
               ]
@@ -76,20 +69,12 @@
               "line": 16,
               "text": "Lung Capacities: ~~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
             {
-              "line": 24,
-              "text": "+ The inspiratory capacity is the maximum amount of air inspired from the end-expiratory level.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 26,
-              "text": "+ The functional residual capacity represents the volume of the air remaining in the lungs after",
+              "line": 20,
+              "text": ".",
               "reasons": [
                 "edge_noise"
               ]
@@ -98,76 +83,6 @@
         }
       ],
       "explanation": "Functional Residual Capacity (FRC) is expiratory reserve volume + residual volume.\n\nFrom the picture given below, (FRC = ERV + RV).\n\nLung volumes and Capacities\n\no?\n_ ¢\nAl me\n3 xian cane vi\n8) retains Soe\nesa oral\nTime(seconds)\nSMARROW\nAe “e\nLung Capacities: ~~\nThe total lung capacity can be broken down into alternative capacities that help to define\nfunctioning lungs. >\n\n.\n+The vital Wong capacity\"MWers to the inaximuit aniount of air expired front the fally inflated lang\nor maximum inspiratory level.\n\n+ The inspiratory capacity is the maximum amount of air inspired from the end-expiratory level.\n\n+ The functional residual capacity represents the volume of the air remaining in the lungs after\nexpiration of a normal breath."
-    },
-    {
-      "id": "marrow__PHYSIO_CH23_Q003",
-      "questionNumber": 3,
-      "sourcePage": 416,
-      "provenance": {
-        "sourceFile": "",
-        "questionPages": [
-          416,
-          417
-        ],
-        "answerKeyPages": [
-          423
-        ],
-        "explanationPages": [
-          424,
-          425
-        ],
-        "sourceMetadata": {
-          "filename": "physiologyed8.pdf"
-        }
-      },
-      "reviewStatus": "pass",
-      "question": "A 27-year-old man is breathing quietly. He then inhales as much air as possible and exhales as much air as he can, producing the spirogram shown in the figure. What is his expiratory reserve volume (in liters)?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "2.0"
-        },
-        {
-          "letter": "B",
-          "text": "2.5"
-        },
-        {
-          "letter": "C",
-          "text": "3.0"
-        },
-        {
-          "letter": "D",
-          "text": "3.5"
-        }
-      ],
-      "correctOption": 1,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 4,
-              "text": "+ Functional Residual Capacity = 3L",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "+ Residual Volume = 1L",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Expiratory Reserve Volume = Functional Residual Capacity - Residual Volume\nIn the given spirogram,\n\n+ Functional Residual Capacity = 3L\n\n+ Residual Volume = 1L\n\nTherefore,\n\nExpiratory Reserve Volume = Functional Residual Capacity — Residual Volume = 3-1 = 2\nNote:\nThe residual volume is the volume of air remaining in the lungs after the most forceful expiration.\n\nThe functional residual capacity equals the expiratory reserve volume plus the residual volume.\nThis capacity is the amount of air that remains in the lungs at the end of normal expiration\n\nThe expiratory reserve volume is the maximum extra volume of air that can be expired by forceful\nexpiration after the end of a normal tidal expiration."
     },
     {
       "id": "marrow__PHYSIO_CH23_Q004",
@@ -222,10 +137,16 @@
           ],
           "suspectLines": [
             {
+              "line": 1,
+              "text": "Noy",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 7,
               "text": "+ N2 washout method ww ~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -233,34 +154,12 @@
               "line": 9,
               "text": "+ Helium-dilution method ~ Ke “«",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
             {
-              "line": 10,
-              "text": "KN >»",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "+ Body plethysmography",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 15,
-              "text": "+ Functional residual capacity",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 17,
-              "text": "+ Total lung capacity",
+              "line": 20,
+              "text": "qv",
               "reasons": [
                 "edge_noise"
               ]
@@ -273,59 +172,17 @@
               ]
             },
             {
-              "line": 27,
-              "text": "+ Stretchability of the lung tissues, particularly their elastic connective tissue.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 29,
-              "text": "+ Surface tension at the air-water interfaces within the alveoli, which is markedly reduced in the",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 40,
-              "text": "+ Anatomical dead space is the respiratory system volume exclusive of alveoli.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 42,
-              "text": "+ Alveolar dead space is the volume of gas not equilibrating with blood i.e. wasted ventilation.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 43,
-              "text": "+ Physiological/total dead space is the sum of anatomical and alveolar dead space.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 45,
-              "text": "+ The equation used for the calculation of total/physiological dead space is the Bohr's equation.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 53,
-              "text": "N, concentration)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 59,
               "text": "the N2 concentration of ie) gas during | *eObiration agéplotted.",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 78,
+              "text": "ase",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
@@ -364,15 +221,8 @@
               ]
             },
             {
-              "line": 99,
-              "text": "+ Respiratory rate (RR)= 10/min",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 100,
-              "text": "+ Tidal volume (VT) = 600 mL",
+              "line": 94,
+              "text": "ma",
               "reasons": [
                 "edge_noise"
               ]
@@ -381,7 +231,6 @@
               "line": 104,
               "text": "+ Dead space volume (VD) = 150 ml. in a young man-\\)",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -393,22 +242,43 @@
               ]
             },
             {
-              "line": 108,
-              "text": "> aN o",
+              "line": 107,
+              "text": "we",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 111,
-              "text": "+ Dead space volume = v=o RS a",
+              "line": 109,
+              "text": "o",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 113,
-              "text": "+ Tidal volume = VT = 500 go we",
+              "line": 112,
+              "text": "g",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 115,
+              "text": "=",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 116,
+              "text": "2",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 117,
+              "text": "e",
               "reasons": [
                 "edge_noise"
               ]
@@ -421,43 +291,8 @@
               ]
             },
             {
-              "line": 127,
-              "text": "= 15 X (650-150)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 129,
-              "text": "= 7500mL/min or 7.5L/min.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 141,
-              "text": "+ Normal young adult: CV &lt;lt; FRC",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 143,
-              "text": "+ At 65 years of age: CV=FRC",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 145,
-              "text": "+ Small airway disease: CV &gt&gt;FRC",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 147,
-              "text": "+ In case of hyaline membrane disease, FRC is smaller than closing volume.",
+              "line": 149,
+              "text": "se\"",
               "reasons": [
                 "edge_noise"
               ]
@@ -474,7 +309,6 @@
               "line": 166,
               "text": "~ Nels",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -493,6 +327,13 @@
               ]
             },
             {
+              "line": 175,
+              "text": "ve",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 176,
               "text": "TLc& | T L",
               "reasons": [
@@ -500,15 +341,8 @@
               ]
             },
             {
-              "line": 193,
-              "text": "* During a forced expiration, the reas seni gegines of a variable extrathoraeie obstruction",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 199,
-              "text": "+ However, during a forced inspifation, the pages insiae thelupper airway decreases below",
+              "line": 177,
+              "text": "RV",
               "reasons": [
                 "edge_noise"
               ]
@@ -523,20 +357,6 @@
             {
               "line": 205,
               "text": "oN =",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 206,
-              "text": "+ Flow-volume curves are yéry useful in agsessing obstructions of upper airways and the trachea",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 222,
-              "text": "ae: Tumor inthe",
               "reasons": [
                 "edge_noise"
               ]
@@ -563,43 +383,36 @@
               ]
             },
             {
-              "line": 253,
-              "text": "+ In the flow-volume curve, the point of intersection between abscissa and flow-volume curve gives",
+              "line": 267,
+              "text": "500",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 258,
-              "text": "+ From the given flow-volume curve we can note that:",
+              "line": 268,
+              "text": "400",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 259,
-              "text": "+ Total Lung Capacity (TLC) = 5.5 L",
+              "line": 269,
+              "text": "300",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 261,
-              "text": "+ Residual volume (RV)= 1.0 L",
+              "line": 270,
+              "text": "200",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 263,
-              "text": "+ Thus,",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 265,
-              "text": "+ FVC=TLC-RV=4.5L",
+              "line": 272,
+              "text": "100",
               "reasons": [
                 "edge_noise"
               ]
@@ -608,7 +421,6 @@
               "line": 280,
               "text": "~ © ~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -650,43 +462,15 @@
               ]
             },
             {
-              "line": 337,
-              "text": "+ In obstructive lung Gade. both FEY1 ‘nd FVC reduces, where the decrease in FEV1 is more",
+              "line": 331,
+              "text": "g",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 340,
-              "text": "+ The total sua dpacity is isl normal in chronic bronchitis, while increased in emphysema.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 342,
-              "text": "+ Functioilal’ Residual Capacity (FRC) is the volume of air present in the lungs at the end of passive",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 350,
-              "text": "+ The vital lung capacity refers to the maximum amount of air expired from the fully inflated lung",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 353,
-              "text": "+ The inspiratory capacity is the maximum amount of air inspired from the end-expiratory level.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 355,
-              "text": "+ The functional residual capacity represents the volume of the air remaining in the lungs after",
+              "line": 366,
+              "text": "H20.",
               "reasons": [
                 "edge_noise"
               ]
@@ -748,45 +532,17 @@
           ],
           "suspectLines": [
             {
-              "line": 3,
-              "text": "+ Anatomical dead space is the respiratory system volume exclusive of alveoli.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "+ Alveolar dead space is the volume of gas not equilibrating with blood i.e. wasted ventilation.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "+ Physiological/total dead space is the sum of anatomical and alveolar dead space.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "+ The equation used for the calculation of total/physiological dead space is the Bohr's equation.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 16,
-              "text": "N, concentration)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 22,
               "text": "the N2 concentration of ie) gas during | *eObiration agéplotted.",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 41,
+              "text": "ase",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
@@ -822,6 +578,13 @@
               "text": "Pulmonary disease:Emphyse | Increase",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 57,
+              "text": "ma",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -881,24 +644,9 @@
           ],
           "suspectLines": [
             {
-              "line": 3,
-              "text": "+ Respiratory rate (RR)= 10/min",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "+ Tidal volume (VT) = 600 mL",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 8,
               "text": "+ Dead space volume (VD) = 150 ml. in a young man-\\)",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -910,8 +658,15 @@
               ]
             },
             {
-              "line": 12,
-              "text": "> aN o",
+              "line": 11,
+              "text": "we",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 13,
+              "text": "o",
               "reasons": [
                 "edge_noise"
               ]
@@ -974,15 +729,29 @@
           ],
           "suspectLines": [
             {
-              "line": 2,
-              "text": "+ Dead space volume = v=o RS a",
+              "line": 3,
+              "text": "g",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 4,
-              "text": "+ Tidal volume = VT = 500 go we",
+              "line": 6,
+              "text": "=",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 7,
+              "text": "2",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "e",
               "reasons": [
                 "edge_noise"
               ]
@@ -995,43 +764,8 @@
               ]
             },
             {
-              "line": 18,
-              "text": "= 15 X (650-150)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 20,
-              "text": "= 7500mL/min or 7.5L/min.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 32,
-              "text": "+ Normal young adult: CV &lt;lt; FRC",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 34,
-              "text": "+ At 65 years of age: CV=FRC",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 36,
-              "text": "+ Small airway disease: CV &gt&gt;FRC",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 38,
-              "text": "+ In case of hyaline membrane disease, FRC is smaller than closing volume.",
+              "line": 40,
+              "text": "se\"",
               "reasons": [
                 "edge_noise"
               ]
@@ -1048,7 +782,6 @@
               "line": 57,
               "text": "~ Nels",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1067,6 +800,13 @@
               ]
             },
             {
+              "line": 66,
+              "text": "ve",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 67,
               "text": "TLc& | T L",
               "reasons": [
@@ -1074,15 +814,8 @@
               ]
             },
             {
-              "line": 84,
-              "text": "* During a forced expiration, the reas seni gegines of a variable extrathoraeie obstruction",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 90,
-              "text": "+ However, during a forced inspifation, the pages insiae thelupper airway decreases below",
+              "line": 68,
+              "text": "RV",
               "reasons": [
                 "edge_noise"
               ]
@@ -1097,20 +830,6 @@
             {
               "line": 96,
               "text": "oN =",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 97,
-              "text": "+ Flow-volume curves are yéry useful in agsessing obstructions of upper airways and the trachea",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 113,
-              "text": "ae: Tumor inthe",
               "reasons": [
                 "edge_noise"
               ]
@@ -1137,43 +856,36 @@
               ]
             },
             {
-              "line": 144,
-              "text": "+ In the flow-volume curve, the point of intersection between abscissa and flow-volume curve gives",
+              "line": 158,
+              "text": "500",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 149,
-              "text": "+ From the given flow-volume curve we can note that:",
+              "line": 159,
+              "text": "400",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 150,
-              "text": "+ Total Lung Capacity (TLC) = 5.5 L",
+              "line": 160,
+              "text": "300",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 152,
-              "text": "+ Residual volume (RV)= 1.0 L",
+              "line": 161,
+              "text": "200",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 154,
-              "text": "+ Thus,",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 156,
-              "text": "+ FVC=TLC-RV=4.5L",
+              "line": 163,
+              "text": "100",
               "reasons": [
                 "edge_noise"
               ]
@@ -1182,7 +894,6 @@
               "line": 171,
               "text": "~ © ~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1224,43 +935,15 @@
               ]
             },
             {
-              "line": 228,
-              "text": "+ In obstructive lung Gade. both FEY1 ‘nd FVC reduces, where the decrease in FEV1 is more",
+              "line": 222,
+              "text": "g",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 231,
-              "text": "+ The total sua dpacity is isl normal in chronic bronchitis, while increased in emphysema.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 233,
-              "text": "+ Functioilal’ Residual Capacity (FRC) is the volume of air present in the lungs at the end of passive",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 241,
-              "text": "+ The vital lung capacity refers to the maximum amount of air expired from the fully inflated lung",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 244,
-              "text": "+ The inspiratory capacity is the maximum amount of air inspired from the end-expiratory level.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 246,
-              "text": "+ The functional residual capacity represents the volume of the air remaining in the lungs after",
+              "line": 257,
+              "text": "H20.",
               "reasons": [
                 "edge_noise"
               ]
@@ -1321,29 +1004,8 @@
           ],
           "suspectLines": [
             {
-              "line": 10,
-              "text": "+ Normal young adult: CV &lt;lt; FRC",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "+ At 65 years of age: CV=FRC",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 14,
-              "text": "+ Small airway disease: CV &gt&gt;FRC",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 16,
-              "text": "+ In case of hyaline membrane disease, FRC is smaller than closing volume.",
+              "line": 18,
+              "text": "se\"",
               "reasons": [
                 "edge_noise"
               ]
@@ -1404,6 +1066,13 @@
           ],
           "suspectLines": [
             {
+              "line": 1,
+              "text": "2",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 5,
               "text": "~,",
               "reasons": [
@@ -1415,7 +1084,6 @@
               "line": 16,
               "text": "~ Nels",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1434,10 +1102,24 @@
               ]
             },
             {
+              "line": 25,
+              "text": "ve",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 26,
               "text": "TLc& | T L",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 27,
+              "text": "RV",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -1500,20 +1182,6 @@
           ],
           "suspectLines": [
             {
-              "line": 13,
-              "text": "* During a forced expiration, the reas seni gegines of a variable extrathoraeie obstruction",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 19,
-              "text": "+ However, during a forced inspifation, the pages insiae thelupper airway decreases below",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 23,
               "text": "variable extrathoracic obstructions” \\e",
               "reasons": [
@@ -1523,20 +1191,6 @@
             {
               "line": 25,
               "text": "oN =",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 26,
-              "text": "+ Flow-volume curves are yéry useful in agsessing obstructions of upper airways and the trachea",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 42,
-              "text": "ae: Tumor inthe",
               "reasons": [
                 "edge_noise"
               ]
@@ -1602,7 +1256,6 @@
               "line": 1,
               "text": "‘ s\\ Ko) . &",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -1678,43 +1331,36 @@
           ],
           "suspectLines": [
             {
-              "line": 7,
-              "text": "+ In the flow-volume curve, the point of intersection between abscissa and flow-volume curve gives",
+              "line": 21,
+              "text": "500",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 12,
-              "text": "+ From the given flow-volume curve we can note that:",
+              "line": 22,
+              "text": "400",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 13,
-              "text": "+ Total Lung Capacity (TLC) = 5.5 L",
+              "line": 23,
+              "text": "300",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 15,
-              "text": "+ Residual volume (RV)= 1.0 L",
+              "line": 24,
+              "text": "200",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 17,
-              "text": "+ Thus,",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 19,
-              "text": "+ FVC=TLC-RV=4.5L",
+              "line": 26,
+              "text": "100",
               "reasons": [
                 "edge_noise"
               ]
@@ -1780,7 +1426,6 @@
               "line": 3,
               "text": "~ © ~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1931,43 +1576,8 @@
           ],
           "suspectLines": [
             {
-              "line": 7,
-              "text": "+ In obstructive lung Gade. both FEY1 ‘nd FVC reduces, where the decrease in FEV1 is more",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "+ The total sua dpacity is isl normal in chronic bronchitis, while increased in emphysema.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "+ Functioilal’ Residual Capacity (FRC) is the volume of air present in the lungs at the end of passive",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 20,
-              "text": "+ The vital lung capacity refers to the maximum amount of air expired from the fully inflated lung",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 23,
-              "text": "+ The inspiratory capacity is the maximum amount of air inspired from the end-expiratory level.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 25,
-              "text": "+ The functional residual capacity represents the volume of the air remaining in the lungs after",
+              "line": 1,
+              "text": "g",
               "reasons": [
                 "edge_noise"
               ]
@@ -1976,6 +1586,68 @@
         }
       ],
       "explanation": "g\nve)\n\nIn COPD, the functional residuabapacity i increfes. Total lung capacity may be increased or\nnormal. Hence, both 1 and d28 rae ¢ Correct\n\n+ In obstructive lung Gade. both FEY1 ‘nd FVC reduces, where the decrease in FEV1 is more\nthan the reduction nin RVC. Asa result e ratio of FEV1/FVC also decreases.\n\n+ The total sua dpacity is isl normal in chronic bronchitis, while increased in emphysema.\n\n+ Functioilal’ Residual Capacity (FRC) is the volume of air present in the lungs at the end of passive\nexpiration. In COPD, FRC is increased.\n\nLung Capacities:\n\nThe total lung capacity can be broken down into alternative capacities that help to define\nfunctioning lungs.\n\n+ The vital lung capacity refers to the maximum amount of air expired from the fully inflated lung\nor maximum inspiratory level.\n\n+ The inspiratory capacity is the maximum amount of air inspired from the end-expiratory level.\n\n+ The functional residual capacity represents the volume of the air remaining in the lungs after\nexpiration of a normal breath. Functional Residual Capacity (FRC) is expiratory reserve volume +\nresidual volume."
+    },
+    {
+      "id": "marrow__PHYSIO_CH23_Q018",
+      "questionNumber": 18,
+      "sourcePage": 423,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          423
+        ],
+        "answerKeyPages": [
+          423
+        ],
+        "explanationPages": [
+          432,
+          433
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "reviewStatus": "pass",
+      "question": "Which of the following factors is most likely to stimulate ventilation after strenuous exercise?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Collateral impulses from higher than brain centres"
+        },
+        {
+          "letter": "B",
+          "text": "Increased mean arterial H+"
+        },
+        {
+          "letter": "C",
+          "text": "Decreased mean arterial PO2"
+        },
+        {
+          "letter": "D",
+          "text": "Decreased mean arterial PCO2"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 6,
+              "text": "H20.",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The stimulus to ventilation after strenuous exercise is increased mean arterial H+.\n\nThe respiratory rate after exercise does not reach a basal level until the O2 debt is repaid. The\nstimulus for ventilation is increased mean arterial H+ due to an increase in blood lactic acid\nlevels. Most of the lactic acid is converted to glycogen and some amount is converted to CO2 and\nH20."
     }
   ]
 }

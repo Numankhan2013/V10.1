@@ -4,9 +4,9 @@
   "subject": "Physiology",
   "chapterId": "9",
   "chapter": "Synapse and Junctional Transmission",
-  "candidateQuestionCount": 27,
+  "candidateQuestionCount": 26,
   "questionOptionCandidateCount": 15,
-  "explanationCandidateCount": 26,
+  "explanationCandidateCount": 23,
   "questions": [
     {
       "id": "marrow__PHYS_CH09_Q001",
@@ -59,6 +59,7 @@
               "line": 2,
               "text": "}",
               "reasons": [
+                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -89,15 +90,7 @@
               "line": 6,
               "text": "There are two major types of synapses: . ‘ ~~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "* Electrical a 4",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -105,13 +98,6 @@
               "text": "of a chemical synapse . os K<' ~",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "A : S vesicles",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -124,40 +110,30 @@
               ]
             },
             {
-              "line": 16,
-              "text": "y >»",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 19,
               "text": "\\ Post-synaptic vid",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 21,
+              "text": "“4",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
               "line": 23,
               "text": "re ~ Aw . A,",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 25,
-              "text": "> oy ce",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
               "line": 26,
               "text": ": — \\ <~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -217,7 +193,6 @@
               "line": 1,
               "text": "~~ oO \"4",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -237,17 +212,9 @@
           ],
           "suspectLines": [
             {
-              "line": 2,
-              "text": ". Oo iS >",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 4,
               "text": "~ ws. a",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -262,7 +229,6 @@
               "line": 16,
               "text": "A. Chemical synapse \\ \\",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -277,7 +243,6 @@
               "line": 18,
               "text": "4 ~~ », > \\",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -287,13 +252,6 @@
               "text": "yy —_—",
               "reasons": [
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 20,
-              "text": "‘ —oao 7 ee Ge os",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -362,7 +320,6 @@
               "line": 8,
               "text": "2 . © _©",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             },
@@ -374,8 +331,8 @@
               ]
             },
             {
-              "line": 12,
-              "text": "‘ oe Presynaptic ee",
+              "line": 14,
+              "text": "ine",
               "reasons": [
                 "edge_noise"
               ]
@@ -429,46 +386,16 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 7,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
           "suspectLines": [
             {
-              "line": 7,
-              "text": "+ large molecule neurotransmitter (enkephalin)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "+ the substance must be demonstrated to be present in the presynaptic terminal.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 13,
-              "text": "+ the cell must be able to synthesize the substance.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 15,
-              "text": "+ there should be specific receptors for it on the postsynaptic membrane. ?",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 16,
               "text": "+ if the substance is applied exogenously to the postsynaptic membrane at\\physiologic",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -567,7 +494,6 @@
               "line": 1,
               "text": "~ A < a e",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -595,17 +521,9 @@
               ]
             },
             {
-              "line": 10,
-              "text": "+ Tyrosine - catecholamines : dopamine, norepinephrine, and epinephrine .",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 12,
               "text": "+ Histidine’Shistamine \\“ -",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -663,46 +581,8 @@
           "suspectLines": []
         }
       ],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 5,
-              "text": "* by gating ion channels directly (ionotropic receptors).",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "* by activating a second messenger (metabotropic receptor) for a prolonged postsynaptic neuronal",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "* Opening specific ion channels through the post-synaptic cell membrane.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 14,
-              "text": "+ Activation of gene transcription. Activation of gene transcription is one of the most important",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Neurotransmitter receptors that act through second messenger systems are called metabotropic\nreceptors.\nNeurotransmitters bind to receptors on the post-synaptic membrane to activate ion channels in\none of the two ways:\n* by gating ion channels directly (ionotropic receptors).\n* by activating a second messenger (metabotropic receptor) for a prolonged postsynaptic neuronal\nexcitation or inhibition. Most commonly activated is a G-protein coupled membrane receptor.\nThe following four changes can occur usually after binding to a G-protein coupled receptor:\n* Opening specific ion channels through the post-synaptic cell membrane.\n\n¢ Activation of cyclic adenosine monophosphate (cAMP) or cyclic guanosine monophosphate\n(cGMP) in the neuronal cell.\n¢ Activation of one or more intracellular enzymes.\n+ Activation of gene transcription. Activation of gene transcription is one of the most important\neffects of activation of the second messenger systems because gene transcription can cause\nformation of new proteins within the neuron, thereby changing its metabolic machinery or its\nstructure."
+      "explanationFlags": [],
+      "explanation": null
     },
     {
       "id": "marrow__PHYS_CH09_Q007",
@@ -753,13 +633,6 @@
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "Ss ‘ ca",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 2,
               "text": "‘ \\ ~ >",
               "reasons": [
@@ -782,6 +655,20 @@
             "symbol_dense_line"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "e",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "VG",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
             {
               "line": 3,
               "text": "> i",
@@ -828,8 +715,8 @@
               ]
             },
             {
-              "line": 16,
-              "text": "a+ and efflux of K+ +EPSP (",
+              "line": 14,
+              "text": "ors",
               "reasons": [
                 "edge_noise"
               ]
@@ -838,7 +725,6 @@
               "line": 22,
               "text": "\\ po cinebinding to the NMDA rec",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -846,7 +732,6 @@
               "line": 23,
               "text": "N\\ eptor is essential for the rece",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -914,20 +799,6 @@
           ],
           "suspectLines": [
             {
-              "line": 6,
-              "text": "* Glutamate is a good example of an excitatory brain neurotransmitter.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "+ Acetylcholine and glycine have been known to play either excitatory or inhibitory",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 13,
               "text": "GABAAand | Ionotropic receptorsActivatio",
               "reasons": [
@@ -935,17 +806,9 @@
               ]
             },
             {
-              "line": 15,
-              "text": "ns > IPSP (inhibitory postsy -",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 22,
               "text": "tein coupled receptorsGi—in +\\>",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -954,13 +817,6 @@
               "text": "n K+channelsGo- inhibits 0 ~",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 28,
-              "text": "oo! % xf - e",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -974,7 +830,6 @@
               "line": 30,
               "text": "o + \\ 4",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -1035,6 +890,13 @@
               "reasons": [
                 "hard_noise_char"
               ]
+            },
+            {
+              "line": 2,
+              "text": "Oo",
+              "reasons": [
+                "edge_noise"
+              ]
             }
           ]
         }
@@ -1069,7 +931,6 @@
               "line": 5,
               "text": "®) ,**",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             },
@@ -1086,13 +947,6 @@
               "text": "GABAAand | Ionotropic receptorsActivatio",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "ns > IPSP (inhibitory postsy",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1247,9 +1101,15 @@
               "line": 1,
               "text": "a> ~)",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "4",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -1266,6 +1126,13 @@
           ],
           "suspectLines": [
             {
+              "line": 1,
+              "text": ">",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 2,
               "text": "Events Occurring at the Chemical Synapse: . > ~ CO 2",
               "reasons": [
@@ -1273,24 +1140,23 @@
               ]
             },
             {
-              "line": 5,
-              "text": "oh * ‘ 2",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 7,
               "text": ". Pa } . . . ¢",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
             },
             {
-              "line": 20,
-              "text": ", i Preaynapae ¥ y",
+              "line": 13,
+              "text": "L",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 22,
+              "text": "iN",
               "reasons": [
                 "edge_noise"
               ]
@@ -1314,7 +1180,6 @@
               "line": 30,
               "text": ". . (Oo — <",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             }
@@ -1379,34 +1244,12 @@
               "line": 1,
               "text": "~\\ aaa Oo ? &",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
             {
               "line": 7,
               "text": ": c",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "+ The opening of soit changin channels to allow large numbers of positive",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": ". Depressedhconduction thfough chloride or potassium channels or both.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "+ Various changes in the internal metabolism of the postsynaptic neuron to increase the number of",
               "reasons": [
                 "edge_noise"
               ]
@@ -1422,7 +1265,6 @@
               "line": 17,
               "text": "a ~ ‘ ~ 4 m, “lag",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -1488,13 +1330,6 @@
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "Cl- NS",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 3,
               "text": "“2 ~",
               "reasons": [
@@ -1533,13 +1368,6 @@
               ]
             },
             {
-              "line": 4,
-              "text": "If, binding of a neurotransmitter-¢auses the postsynaptic membrane to become more negative",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 7,
               "text": "an action potentiala. “~ Le?",
               "reasons": [
@@ -1552,20 +1380,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "+ Increase in Cl- influx. This action causes diffusion of negatively charged chloride ions from",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 15,
-              "text": "+ Activation of receptor enzymes that increase the number of inhibitory synaptic receptors or",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1621,13 +1435,6 @@
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "ww\" e",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 2,
               "text": "The following effect in the motor neuron is: due to: aie ~ <",
               "reasons": [
@@ -1645,32 +1452,8 @@
           ]
         }
       ],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 9,
-              "text": "* Opening of chloride ion channels through the post-synaptic neuronal membrane.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "+ Increase in conductance of potassium ions to the outside of the postsynaptic neuron.",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Activation of receptor enzymes that increase the number of inhibitory synaptic receptors can\ncause the effect shown, namely, the generation of IPSP.\nIn the figure given, there is an increased negativity in the motor neuron following the action\npotential in the interneuron. So, the synaptic potential is IPSP. This can be caused at the\n\npostsynaptic membrane due to Cl- influx, K+ efflux or activation of receptor enzymes that increase\nthe number of inhibitory synaptic receptors or decrease the number of excitatory receptors.\nOther options:\n* Opening of chloride ion channels through the post-synaptic neuronal membrane.\n+ Increase in conductance of potassium ions to the outside of the postsynaptic neuron.\n¢ Increase in conductance of sodium ions inside the neuron causes the generation of an EPSP."
+      "explanationFlags": [],
+      "explanation": null
     },
     {
       "id": "marrow__PHYS_CH09_Q015",
@@ -1715,11 +1498,19 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 6,
           "reasons": [
+            "edge_noise",
             "symbol_dense_line"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "oO",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
             {
               "line": 8,
               "text": "oh &< .",
@@ -1783,7 +1574,6 @@
               "line": 2,
               "text": "a ~ os",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -1793,9 +1583,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 7,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "symbol_dense_line"
           ],
@@ -1804,58 +1593,8 @@
               "line": 1,
               "text": "~>~ ka ¢",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "+ Presynaptic inhibition is a process, mediated by neurons whose terminals are on excitatory",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "+ The firsttransmitter shown to produce presynaptic inhibition was GABA. On the pre-synaptic",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "* GABA-B receptors appear to mediate presynaptic inhibition via a G-protein that produces an",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "+ This leads to hyperpolarization of the pre-synaptic membrane and inhibition of release of the",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 19,
-              "text": "> a way. < i >",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 22,
-              "text": "+ Postsynaptic inhibition occurs when an inhibitory tranSmitter such ag‘glycine or GABA is",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 25,
-              "text": "+ In the figure shown below, an inhibitory transmitter suclivas GABA is released from the nerve",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1915,7 +1654,6 @@
               "line": 1,
               "text": "Feed forward inhibition ‘ ~\\*",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -1942,9 +1680,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 7,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "symbol_dense_line"
           ],
@@ -1953,7 +1690,6 @@
               "line": 1,
               "text": "ss ~ zt",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1968,7 +1704,6 @@
               "line": 13,
               "text": "ni << »",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             },
@@ -1976,7 +1711,6 @@
               "line": 14,
               "text": "_vK! © o* }",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -2047,7 +1781,6 @@
               "line": 4,
               "text": ", », © =",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             },
@@ -2059,8 +1792,22 @@
               ]
             },
             {
-              "line": 8,
-              "text": "i“ ps",
+              "line": 11,
+              "text": "lo",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 13,
+              "text": "Jo",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 15,
+              "text": "Jo",
               "reasons": [
                 "edge_noise"
               ]
@@ -2122,8 +1869,8 @@
           ],
           "suspectLines": [
             {
-              "line": 6,
-              "text": "Ca’ — e a",
+              "line": 8,
+              "text": "eee = *",
               "reasons": [
                 "edge_noise"
               ]
@@ -2131,6 +1878,13 @@
             {
               "line": 9,
               "text": ": i",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 10,
+              "text": "NX",
               "reasons": [
                 "edge_noise"
               ]
@@ -2225,15 +1979,8 @@
           ],
           "suspectLines": [
             {
-              "line": 5,
-              "text": "* It is caused by the presence of antibodies to the ACh receptor.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "+ Is characterized by skeletal muscle weakness and fatigability resulting from a reduced number of",
+              "line": 1,
+              "text": "an?",
               "reasons": [
                 "edge_noise"
               ]
@@ -2242,73 +1989,6 @@
         }
       ],
       "explanation": "an?\nTreatment with AChE inhibitors (e.g., neostigmine) prevents the degradation of ACh and prolongs\nthe action of ACh at the muscle end plate.\nMyasthenia gravis:\n* It is caused by the presence of antibodies to the ACh receptor.\n+ Is characterized by skeletal muscle weakness and fatigability resulting from a reduced number of\nACh receptors on the muscle end plate.\n¢ The size of the EPP (end plate potential) is reduced.\n¢ Treatment with AChE inhibitors (e.g., neostigmine) prevents the degradation of ACh and\nprolongs the action of ACh at the muscle end plate, partially compensating for the reduced\nnumber of receptors."
-    },
-    {
-      "id": "marrow__PHYS_CH09_Q021",
-      "questionNumber": 21,
-      "sourcePage": 178,
-      "provenance": {
-        "sourceFile": "physiologyed8.pdf",
-        "questionPages": [
-          178
-        ],
-        "answerKeyPages": [
-          180,
-          181
-        ],
-        "explanationPages": [
-          193,
-          194
-        ]
-      },
-      "reviewStatus": "pass",
-      "question": "- PAS “a\non x .\n0 X .\nA 55-year-old woman had an autonomic neuropathy that disrupted the sympathetic nerve\nsupply to the pupillary dilator muscle of Her'right eye.(While having her eyes examined, the\nophthalmologist placed a sympathomimetic drug imboth her eyes. The right eye became\nmuch more dilated than the left eye” This suggests that:",
-      "options": [
-        {
-          "letter": "A",
-          "text": "The sympathetic nerve to the right eyeshad regenerated"
-        },
-        {
-          "letter": "B",
-          "text": "The parasympathetic nerve supply to'the right eye remained intact and compensated for the\nloss of the sympathetic nerve . *"
-        },
-        {
-          "letter": "C",
-          "text": "Denervation supersensitivity had developed\n4"
-        },
-        {
-          "letter": "D",
-          "text": "The left eye also had nerve damage and so was not responding as expected"
-        }
-      ],
-      "correctOption": 3,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 5,
-              "text": "* When the motor nerve to skeletal muscle is degenerated, the muscle gradually becomes",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 13,
-              "text": "* This hyperresponsiveness can be demonstrated by using: pharmacologic tools rather than actual",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Denervation supersensitivity develops in the muscle after the nerve supplying it is cut. Since the\nnerve to her right dilator pupillae is damaged, the right eye becomes excessively sensitive to the\nsympathomimetic drug. So, the right eye becomes much more dilated than the left.\nDenervation Supersensitivity:\n* When the motor nerve to skeletal muscle is degenerated, the muscle gradually becomes\nextremely sensitive to acetylcholine. This is called denervation hypersensitivity or supersensitivity.\n¢ Normally nicotinic receptors are located only in the vicinity of the motor endplate where the\naxon of the motor nerve terminates. When the motor nerve is severed, there is a marked\nproliferation of nicotinic receptors over a wide region of the neuromuscular junction.\n¢ Denervation supersensitivity also occurs at autonomic junctions. Smooth musclepunlike skeletal\nmuscle, does not atrophy when denervated, but it becomes hyperresponsive to‘the chemical\nmediator that normally activates it. - NM\n* This hyperresponsiveness can be demonstrated by using: pharmacologic tools rather than actual\nnerve section. Prolonged use of a drug such as reserpine can be used to deplete transmitter stores\nand prevent the target organ from being exposed to norepinephrine for an extended period. Once\nthe drug usage is stopped, smooth muscle.and’eardiac muscle-will be supersensitive to subsequent\nrelease of the neurotransmitter. : < c\nOption a) If the symapthetic nervewould have regénerated, bothright and left eye would have\nbeen equally sensitive to the drugyand so, would have dilatedequally.\nOption b) Parasympathetie-nerves supply*the spinchter, pupillae muscle. So, if stimulated they\nwould constrict the eye not dilate it. Also, the drug added was a sympathomimetic agent. So,\nparasympathetic nerves are not stimulated in the first place\nOption d) If the left eye was,damaged, it would’also have denervation supersensitivity. Again, both\neyes would dilate equally, but more than that of normal."
     },
     {
       "id": "marrow__PHYS_CH09_Q022",
@@ -2358,43 +2038,8 @@
           ],
           "suspectLines": [
             {
-              "line": 3,
-              "text": "* Neurotransmitters are the substances that mediate chemical signaling between neurons.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "+ the substance must be demonstrated to be present in the presynaptic terminal",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "* the cell must be able to synthesize the substance.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "+ should be released on depolarization of the terminal.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "+ there should be specific receptors for it on the postsynaptic membrane.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "+ if the substance is applied exogenously to the postsynaptic membrane at physiologic",
+              "line": 1,
+              "text": "‘",
               "reasons": [
                 "edge_noise"
               ]
@@ -2518,13 +2163,6 @@
               "reasons": [
                 "hard_noise_char"
               ]
-            },
-            {
-              "line": 2,
-              "text": "‘ SS »",
-              "reasons": [
-                "edge_noise"
-              ]
             }
           ]
         },
@@ -2556,9 +2194,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
             "symbol_dense_line"
@@ -2568,16 +2205,8 @@
               "line": 2,
               "text": "~ 2) ©",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "nA <N s",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -2591,7 +2220,6 @@
               "line": 9,
               "text": "textbook above answer is correct. ~% <<",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -2599,7 +2227,6 @@
               "line": 10,
               "text": ", » ha ~~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -2741,7 +2368,6 @@
               "line": 7,
               "text": "\\ {|} 41. Action potential depolarises |",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -2756,7 +2382,6 @@
               "line": 12,
               "text": "; (i sa) S4ney | 4, ACh activates ACHR |",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -2764,15 +2389,7 @@
               "line": 15,
               "text": "y , ; ; | | forming EPP",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 16,
-              "text": "‘ Te a0 ed . . 6. Voltage gated Na+ channels",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -2780,6 +2397,13 @@
               "text": "Chidinases y 5 | terminate the signal",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 23,
+              "text": "‘Ahn",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
@@ -2794,7 +2418,6 @@
               "line": 28,
               "text": "2 ‘T",
               "reasons": [
-                "edge_noise",
                 "ocr_suffix"
               ]
             },
@@ -2803,20 +2426,6 @@
               "text": "Hydrophilic channel 5 Ks ; ° ~‘e",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 32,
-              "text": "wo _g",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 33,
-              "text": "ni “a >",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -2882,13 +2491,6 @@
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "we: re ry",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 5,
               "text": "potential. 4 & ~ e ,.",
               "reasons": [
@@ -2912,26 +2514,12 @@
               ]
             },
             {
-              "line": 9,
-              "text": "* Opening of chloride ion channels through'the postsynaptic neuronal membrane",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 10,
               "text": "{~~ >",
               "reasons": [
                 "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "+ Activation of receot enzymes(that increase the number of inhibitory synaptic receptors or",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -2999,8 +2587,15 @@
           ],
           "suspectLines": [
             {
-              "line": 20,
-              "text": "Sw” io",
+              "line": 12,
+              "text": "or",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 18,
+              "text": "HO",
               "reasons": [
                 "edge_noise"
               ]
@@ -3009,7 +2604,6 @@
               "line": 23,
               "text": "2? \\&",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -3025,6 +2619,20 @@
             {
               "line": 26,
               "text": "os “",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 27,
+              "text": ">",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 28,
+              "text": "EV",
               "reasons": [
                 "edge_noise"
               ]

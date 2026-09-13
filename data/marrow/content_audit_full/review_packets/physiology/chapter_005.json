@@ -4,9 +4,9 @@
   "subject": "Physiology",
   "chapterId": "5",
   "chapter": "Body Fluids",
-  "candidateQuestionCount": 25,
+  "candidateQuestionCount": 23,
   "questionOptionCandidateCount": 14,
-  "explanationCandidateCount": 23,
+  "explanationCandidateCount": 20,
   "questions": [
     {
       "id": "marrow__PHYS_CH05_Q001",
@@ -79,10 +79,24 @@
               ]
             },
             {
+              "line": 6,
+              "text": "Ss",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 7,
               "text": "Minera | 7%",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "ls",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -223,8 +237,8 @@
               ]
             },
             {
-              "line": 7,
-              "text": "1 - Hematocrit",
+              "line": 8,
+              "text": "3L",
               "reasons": [
                 "edge_noise"
               ]
@@ -277,9 +291,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 7,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "symbol_dense_line"
           ],
@@ -288,7 +301,6 @@
               "line": 1,
               "text": "~s~ Ay % :",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -348,7 +360,6 @@
               "line": 1,
               "text": "60 ~S >)",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -426,7 +437,6 @@
               "line": 1,
               "text": "nO ‘ < ~, How do we measure the volume of distribution of body fluid compartments? \"oF >’ >",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -436,9 +446,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 7,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "symbol_dense_line"
           ],
@@ -447,7 +456,6 @@
               "line": 7,
               "text": "{ Indicator Mass A = Indicator Mass B",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -514,36 +522,8 @@
           ],
           "suspectLines": [
             {
-              "line": 4,
-              "text": "Vv = -_—nrT",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "* V = volume of compartment . Cx fe) , .",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "+ Amount injected = 500 mg Y ” a “",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "+ Plasma concentration of the indicator = 3.2mg/ioomL “>",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 25,
-              "text": "= 14,062.5 mL",
+              "line": 26,
+              "text": "=14L",
               "reasons": [
                 "edge_noise"
               ]
@@ -609,27 +589,12 @@
               "line": 1,
               "text": "\\ ts 3 ,",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
             {
               "line": 5,
               "text": "o .",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "* Since 10% is excreted, volume of inulin excreted is regm. The amount of inulin diluted in ECF is",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "= 9000 * 2 ae",
               "reasons": [
                 "edge_noise"
               ]
@@ -646,13 +611,12 @@
               "line": 13,
               "text": "= 18,000omL™",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
             {
-              "line": 16,
-              "text": "* Since 10% is excreted, volume of inulin excreted is 1 gm.",
+              "line": 14,
+              "text": "=18L",
               "reasons": [
                 "edge_noise"
               ]
@@ -728,12 +692,20 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 10,
           "reasons": [
+            "edge_noise",
             "hard_noise_char",
             "symbol_dense_line"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "vC",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
             {
               "line": 7,
               "text": "~% ‘ ® ri",
@@ -746,87 +718,6 @@
         }
       ],
       "explanation": "vC\nThe ECF volume can be estimated using any of several substances that disperse in the plasma and\ninterstitial fluid but do not readily petmeate the cell membrane.\nExample- radioactive sodium, thidsulfate ion;and inulin.\nHint : Sodium (Na+) can ¢ross blood vessel'but not cell wall passively (therefore used to measure\nECF volume ) c 4\n~% ‘ ® ri"
-    },
-    {
-      "id": "marrow__PHYS_CH05_Q010",
-      "questionNumber": 10,
-      "sourcePage": 70,
-      "provenance": {
-        "sourceFile": "physiologyed8.pdf",
-        "questionPages": [
-          70
-        ],
-        "answerKeyPages": [
-          76,
-          77
-        ],
-        "explanationPages": [
-          83,
-          84
-        ]
-      },
-      "reviewStatus": "pass",
-      "question": "+) E Pe - rat A dye X which measures the plasma volume is réplaced by dye Y which can diffuse out of the capillaries. Which of the following is true regarding the newly measured plasma volume?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "It is falsely high , (om on ,"
-        },
-        {
-          "letter": "B",
-          "text": "It is falsely low a. “a"
-        },
-        {
-          "letter": "C",
-          "text": "Itremains thesame _¢% we"
-        },
-        {
-          "letter": "D",
-          "text": "Insufficient information given ae 4 Cc 7"
-        }
-      ],
-      "correctOption": 1,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 3,
-              "text": "V = (Amount Injected - Amount Excreted) / Plasma concentration of dye",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "* Dye x measures plasma volume:- dye x doesn't have the property of crossing blood vessel. If the",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "* Dye y crosses capillaries, which means it can cross any blood vessel. This property is used to",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "* Thus if dye y is given in place of x, then the value would be 14 instead of 3 which is a false and",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "As the dye diffuses out of the capillaries, the measured concentration of the dye after equilibrium\nwill be less. So, as per the formula, the volume measured will be falsely high.\nV = (Amount Injected - Amount Excreted) / Plasma concentration of dye\nDetailed explanation:\n* Dye x measures plasma volume:- dye x doesn't have the property of crossing blood vessel. If the\ndye x have been used properly, for a normal person then the value would come around 3 L\n* Dye y crosses capillaries, which means it can cross any blood vessel. This property is used to\nmeasure the value of ECF. If the dye y is given, for a normal person then the value would come\naround 14L\n* Thus if dye y is given in place of x, then the value would be 14 instead of 3 which is a false and\nthe obtained value is high when compared to normal value\n¢ Therefore the answer is falsely high."
     },
     {
       "id": "marrow__PHYS_CH05_Q013",
@@ -898,20 +789,6 @@
           ],
           "suspectLines": [
             {
-              "line": 3,
-              "text": "* Major anion- Phosphate 0 \"",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "* Major cation- K+ .",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 6,
               "text": "~~\" \\",
               "reasons": [
@@ -924,7 +801,6 @@
               "line": 7,
               "text": "* Cation- Na+ \\",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -936,8 +812,8 @@
               ]
             },
             {
-              "line": 15,
-              "text": "= 100 g 5",
+              "line": 12,
+              "text": "150",
               "reasons": [
                 "edge_noise"
               ]
@@ -1016,7 +892,6 @@
               "line": 1,
               "text": "\\ - ro a",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1024,30 +899,21 @@
               "line": 2,
               "text": "< S ri.\"",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "+ A mole is the gram-moleeular weight ofta substance (molecular weight of a substance in grams)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "* Each mole consists 0&6 X 10 23 molecules.",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
               "line": 9,
               "text": "+ The molecular\\weight of a substance is the ratio of the mass of 1/12th the mass of an atom of",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 11,
+              "text": "4",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -1106,7 +972,6 @@
               "line": 1,
               "text": "~\\ ow How much is one equivalent of calcium (molecular weight = 40)?",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -1115,88 +980,6 @@
       ],
       "explanationFlags": [],
       "explanation": null
-    },
-    {
-      "id": "marrow__PHYS_CH05_Q016",
-      "questionNumber": 16,
-      "sourcePage": 71,
-      "provenance": {
-        "sourceFile": "physiologyed8.pdf",
-        "questionPages": [
-          71,
-          72
-        ],
-        "answerKeyPages": [
-          76,
-          77
-        ],
-        "explanationPages": [
-          85,
-          86
-        ]
-      },
-      "reviewStatus": "pass",
-      "question": "The unit expressing the concentration of osmotically active particles is",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Mole"
-        },
-        {
-          "letter": "B",
-          "text": "Equivalent"
-        },
-        {
-          "letter": "C",
-          "text": "Osmole"
-        },
-        {
-          "letter": "D",
-          "text": "Valency"
-        }
-      ],
-      "correctOption": 3,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 4,
-              "text": "* NaCl dissociate into 2 particles- Na+ and Cl- in an ideal solution. Hence we can say that for every",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "+ If a solute is a non-ionizing compound such as glucose, the osmotic pressure is a function of the",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "* NOTE: The body fluids are not ideal solutions, and although the dissociation of strong",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 13,
-              "text": "oO” ¢",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "The concentration of osmotically active particles is usually expressed in osmoles. Normal plasma\nosmolality is 280 to 290 mosmole/kg H2O0\n¢ Example\n* NaCl dissociate into 2 particles- Na+ and Cl- in an ideal solution. Hence we can say that for every\n1 mole of NaCl, there are 2 osmoles.\n+ If a solute is a non-ionizing compound such as glucose, the osmotic pressure is a function of the\nnumber of glucose molecules present.\n* NOTE: The body fluids are not ideal solutions, and although the dissociation of strong\nelectrolytes is complete, the number of particles free to exert an osmotic effect is reduced owing to\nthe interaction between the ions. Thus, 1mol of NaCl per litre body fluids contribute somewhat\nless than 2 osmoles. The more concentrated the solution, the greater the deviation from the ideal\nsolution. . y\noO” ¢"
     },
     {
       "id": "marrow__PHYS_CH05_Q017",
@@ -1270,7 +1053,6 @@
               "line": 1,
               "text": "KO” ‘@) >",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             },
@@ -1282,24 +1064,10 @@
               ]
             },
             {
-              "line": 7,
-              "text": "* Option A : The solution is iso-osmotic. (150mimol of NaCl contains 150mmol of Nat and",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 9,
               "text": "which is isotonic.) \\",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "* Option B and C: The solutions are hyper-osmotic. This will lead to shrinking of the RBCs.",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -1326,10 +1094,16 @@
               ]
             },
             {
+              "line": 19,
+              "text": "H20 :",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 20,
               "text": "~~ ~ < ~ »",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -1345,7 +1119,6 @@
               "line": 22,
               "text": ". . ~ fA) .",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -1423,7 +1196,6 @@
               "line": 1,
               "text": "> S~ ae: Ps, ~ ~ ()* 4 x Sy Normal osmolarity of plasma is mainly ‘due to_&* . >",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -1463,20 +1235,6 @@
               ]
             },
             {
-              "line": 5,
-              "text": "* Osmolarity (mOsm/L) = 2 [Na+] (mEq/E) + 0.055 [Glucose] (mg/dL) + 0.36 [BUN] (mg/dL)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "+ Because sodium and its associated’ anions (CL@HCO3- ) account for about 94 per cent of the",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 8,
               "text": "{~ +.",
               "reasons": [
@@ -1492,69 +1250,6 @@
                 "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "+ Posm = 2.1.x Plasma'sodium concentration",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "* With a plasma ‘sodium concentration of 142 mEq/L, the plasma osmolarity would be estimated",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 14,
-              "text": "+ In conditions associated with renal disease, the contribution of two other solutes, glucose and",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 18,
-              "text": "* Contribution to plasma osmolarity:",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 19,
-              "text": "* Na+ and associated anions: 270 mOsm/L",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 20,
-              "text": "* Glucose : 5 mOsm/L",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 21,
-              "text": "* Urea: 5 mOsm/L",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 22,
-              "text": "* Plasma proteins: 2 mOsm/L",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 23,
-              "text": "* Other ions: 8 mOsm/L",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1613,7 +1308,6 @@
               "line": 1,
               "text": ".\\ fi ~)> aK ‘ x 4 Plasma proteins contribute only slightly to the total number of osmotically active particles because",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -1639,8 +1333,22 @@
               ]
             },
             {
+              "line": 9,
+              "text": "e",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 10,
               "text": ". 2?",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 11,
+              "text": "‘e",
               "reasons": [
                 "edge_noise"
               ]
@@ -1653,17 +1361,9 @@
               ]
             },
             {
-              "line": 15,
-              "text": "_s- _ a i ni",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 17,
               "text": "‘ < ; 4 a \\ »~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -1807,39 +1507,8 @@
           ]
         }
       ],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 3,
-              "text": "* The osmolarity of ECF increases because sweat is hyposmotic (relatively more water than salt is",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "* ECF volume decreases because of the loss of volume in the sweat.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "* So,Loss of hypotonic fluid causes hypertonic volume contraction.",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "cu a\nSweating’ loss of water\" Hyperosmotic volume contraction\n* The osmolarity of ECF increases because sweat is hyposmotic (relatively more water than salt is\nlost).\n* ECF volume decreases because of the loss of volume in the sweat.\n¢ Water shifts out of ICF; as a result of the shift, ICF osmolarity increases until it is equal to ECF\nosmolarity, and ICF volume decreases.\n¢ Plasma protein concentration increases because of the decrease in ECF volume. Although\nhematocrit might also be expected to increase, it remains unchanged because of the water shifts\nout of the RBCs, decreasing their volume and offsetting the concentrating effect of the decreased\nECF volume.\n* So,Loss of hypotonic fluid causes hypertonic volume contraction."
+      "explanationFlags": [],
+      "explanation": null
     },
     {
       "id": "marrow__PHYS_CH05_Q023",
@@ -1902,9 +1571,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 7,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
@@ -1914,20 +1582,6 @@
               "text": "and causes osmosis of water out of the cellS\\int6 the extracellular compartment",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "+ As, ECF osmolality rises, fluid fromi ICF moves to ECF till osmotic equilibrium is established. So,",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "B. Hypotonic Nact ©. Hypertonic Nact",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1996,29 +1650,14 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 15,
+          "severity": 12,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "many_isolated_letters",
             "punctuation_run",
             "symbol_dense_line"
           ],
           "suspectLines": [
-            {
-              "line": 5,
-              "text": "* ECF fluid enters ICF untill osmotic equilibrium is re-established.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "ee ‘expansion",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 9,
               "text": "2 200- } : ~",
@@ -2038,39 +1677,16 @@
               "line": 11,
               "text": "0 | em .___..-2.....2 4} n",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "punctuation_run",
                 "symbol_dense_line"
               ]
             },
             {
-              "line": 14,
-              "text": "== Intracellular fluid",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 16,
               "text": "+--+ Change after administration",
               "reasons": [
-                "edge_noise",
                 "punctuation_run"
-              ]
-            },
-            {
-              "line": 17,
-              "text": "- Diarrnee imate oeeer cael",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 18,
-              "text": "Cc“ Volume contraction",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -2078,13 +1694,6 @@
               "text": "FS q q F i",
               "reasons": [
                 "many_isolated_letters"
-              ]
-            },
-            {
-              "line": 22,
-              "text": "<= 1cF ECF",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -2170,34 +1779,12 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 7,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "punctuation_run"
           ],
           "suspectLines": [
-            {
-              "line": 3,
-              "text": "* The osmolarity of ECF decreases.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "* ECF volume decreases because of the loss of volume.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "* So, loss of hypertonic fluid causes hypotonic volume contraction.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 12,
               "text": "3 100 — } j",
@@ -2206,17 +1793,9 @@
               ]
             },
             {
-              "line": 15,
-              "text": "= Intracellular fluid",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 17,
               "text": "+--+ Change after administration",
               "reasons": [
-                "edge_noise",
                 "punctuation_run"
               ]
             },
@@ -2224,22 +1803,7 @@
               "line": 19,
               "text": "wi‘ 8 i i } i",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 20,
-              "text": "‘ & 4 i i",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 28,
-              "text": "= 1cF ECF",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -2296,8 +1860,8 @@
           ],
           "suspectLines": [
             {
-              "line": 3,
-              "text": "* The safety factor caused by low tissue compliance in the negative pressure range is about 3 mm",
+              "line": 4,
+              "text": "Hg",
               "reasons": [
                 "edge_noise"
               ]
@@ -2443,7 +2007,6 @@
               "line": 1,
               "text": "es . aT . « o © > J-125 labelled albumin is used for measurement of: ~~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }

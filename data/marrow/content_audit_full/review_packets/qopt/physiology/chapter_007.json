@@ -314,7 +314,6 @@
               "line": 2,
               "text": "} , ™ ~~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -442,15 +441,7 @@
           "reasons": [
             "short_ocr_line"
           ],
-          "suspectLines": [
-            {
-              "line": 3,
-              "text": ". cy Cc",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
+          "suspectLines": []
         },
         {
           "field": "option_D",
@@ -522,7 +513,6 @@
               "line": 3,
               "text": "; VY . i ~ 4",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -536,13 +526,6 @@
             "short_ocr_line"
           ],
           "suspectLines": [
-            {
-              "line": 1,
-              "text": ">* ao Pas",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 2,
               "text": "~~ { > ay",
@@ -566,13 +549,6 @@
               "text": "The tail ends of actin filaments to Z dise~ ~~\"",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 3,
-              "text": "4 . hes x",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -678,20 +654,6 @@
               "reasons": [
                 "edge_noise"
               ]
-            },
-            {
-              "line": 9,
-              "text": "ww _g",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "ni “a »",
-              "reasons": [
-                "edge_noise"
-              ]
             }
           ]
         },
@@ -714,7 +676,6 @@
               "line": 2,
               "text": "oY ~°) r.",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -722,13 +683,6 @@
             {
               "line": 3,
               "text": "> “",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 4,
-              "text": ". 2 way",
               "reasons": [
                 "edge_noise"
               ]
@@ -803,7 +757,6 @@
               "line": 2,
               "text": "7 \\- 5",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -999,7 +952,6 @@
               "line": 1,
               "text": "*4 ~ 7 2)",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -1087,15 +1039,7 @@
           "reasons": [
             "short_ocr_line"
           ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "‘ SS »",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
+          "suspectLines": []
         }
       ]
     },
@@ -1280,15 +1224,7 @@
           "reasons": [
             "short_ocr_line"
           ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": ". o* ey",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
+          "suspectLines": []
         }
       ]
     },
@@ -1344,13 +1280,6 @@
               "text": "More oxidative capacity ee: , : ra a “ \\",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 3,
-              "text": "on - .<O A",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1426,7 +1355,6 @@
               "line": 1,
               "text": "A fascicle and’a nerve .~\\>",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "punctuation_run"
               ]
@@ -1435,7 +1363,6 @@
               "line": 3,
               "text": "~.; «",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -1461,6 +1388,13 @@
               "text": "All the muscle fibers within a Biven muscle™",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "qh",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -1563,7 +1497,6 @@
               "line": 3,
               "text": "on <0 ~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -1621,13 +1554,6 @@
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "Cl- of ‘",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 3,
               "text": "~\\ xy",
               "reasons": [
@@ -1639,7 +1565,6 @@
               "line": 4,
               "text": "~*~; «",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "punctuation_run",
                 "symbol_dense_line"
@@ -1707,7 +1632,6 @@
               "line": 2,
               "text": ". . 3s > .% >",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             },
@@ -1716,6 +1640,13 @@
               "text": "ao O° ~",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "oO",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]

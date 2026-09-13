@@ -4,9 +4,9 @@
   "subject": "Biochemistry",
   "chapterId": "18",
   "chapter": "Enzymes - Mechanism of Action & Clinical Importance",
-  "candidateQuestionCount": 10,
+  "candidateQuestionCount": 13,
   "questionOptionCandidateCount": 0,
-  "explanationCandidateCount": 10,
+  "explanationCandidateCount": 13,
   "questions": [
     {
       "id": "marrow__BIOCHEM_CH18_Q001",
@@ -54,9 +54,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 11,
+          "severity": 8,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "ocr_suffix"
           ],
@@ -73,7 +72,6 @@
               "line": 14,
               "text": "• Peptidyl transferase(™ ~~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -152,13 +150,19 @@
               "line": 20,
               "text": "| (Metal)",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
             {
               "line": 25,
               "text": ". ,",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 27,
+              "text": ".",
               "reasons": [
                 "edge_noise"
               ]
@@ -230,6 +234,13 @@
           ],
           "suspectLines": [
             {
+              "line": 20,
+              "text": "VG",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 22,
               "text": "Holoenzyme | Apoenzyme ¢",
               "reasons": [
@@ -254,6 +265,77 @@
         }
       ],
       "explanation": "S-adenosyl methionine is not a coenzyme. Its a methyl group donor.\n\nCoenzymes are cofactors in which organic compound is present. Coenzymes transiently and\n\nreversibly bind to the enzyme to catalyze the reaction. They play an important role as a two-way\nshuttle.\n\nSome coenzymes:\n• Coenzyme A\n« ATP/GTP\n\n• NAD/NADP\n• FAD/FMN\n• Lipoic acid\n• B-complex vitamins\n• Vitamin C\n• Vitamin K\n\nActive enzyme = —Non-protein part + Protein part &\nVG\n\nHoloenzyme | Apoenzyme ¢\nInseparable from protein If separable from protein\npart part, it is called as Cofactor\nProsthetic group &\nOrganic Inorganic »\nT (Metal)\ninoroante Coenzyme $\n(Metal) organic Cofactor\nMetalloenzymes Metal-activated\nenzymes\n\n. s\n\n» \\\n‘a 7"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH18_Q006",
+      "questionNumber": 6,
+      "sourcePage": 284,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          284
+        ],
+        "answerKeyPages": [
+          288,
+          289
+        ],
+        "explanationPages": [
+          291,
+          292
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "reviewStatus": "pass",
+      "question": "Which of the following is false?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cofactors have functions similar to those of prosthetic groups."
+        },
+        {
+          "letter": "B",
+          "text": "Cofactors bind in a transient, dissociable manner to enzymes."
+        },
+        {
+          "letter": "C",
+          "text": "The most common cofactors are metal ions."
+        },
+        {
+          "letter": "D",
+          "text": "Enzymes that use metal ion as a cofactor are termed as metalloenzymes."
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "A.",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 37,
+              "text": "t",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "A.\n\nEnzymes that. use’metal-ion asia Cofactor are termed as metal-activated enzymes (and\nnot metalloenzymes). ©\nMetalloenzymes are prosthetic groups in which the metal is tightly and irreversibly bound to the\nenzyme. The metal forms an integral part of its active structure. Metal-activated enzymes are\nthose that have a cofactor containing metal (inorganic) which are loosely and reversibly bound to\n\nthe enzyme. They show enhanced activity in the addition of metal.\n\nA cofactor is a non-protein part of a holoenzyme that can be separated part from the protein part.\nCofactors are mostly metal ions or inorganic. If an organic compound is present in a cofactor, it is\ncalled a coenzyme. Cofactors serve functions similar to those of prosthetic groups. Cofactors bind\nin a transient, dissociable manner to enzymes. Cofactors must be present in the medium\nsurrounding the enzyme for catalysis to occur.\n\nActive enzyme = =\n\nHoloenzyme\n\nNon-protein part +\n\nProtein part\n\nApoenzyme\n\nInseparable from protein\npart\n\nProsthetic group\n\n——\n\nInorganic\n(Metal)\n\nt\n\nMetalloenzymes\n\nOrganic"
     },
     {
       "id": "marrow__BIOCHEM_CH18_Q007",
@@ -312,22 +394,7 @@
               "line": 9,
               "text": "| (Metal)",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 16,
-              "text": ". % 4",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 17,
-              "text": "C <N",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -375,6 +442,70 @@
         }
       ],
       "explanation": "re)\n\na)\n\nIf separable from protein\npart, it is called as Cofactor\n\nOrganic Inorganic\n| (Metal)\nCoenzyme t\nCofactor\n\nMetal-activated\n\nenzymes\n. % 4\nC <N\n< > f\n.~ - 2 *\n~ 2 <<‘\nro% <\n\" 7\n‘OC ~<*\ni »,\n\nHydrolases are not involved in oxidation-reduction reactions: Hydrolases are involved in the\n\nhydrolysis of the substrate: using water."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH18_Q008",
+      "questionNumber": 8,
+      "sourcePage": 284,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          284,
+          285
+        ],
+        "answerKeyPages": [
+          288,
+          289
+        ],
+        "explanationPages": [
+          292
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "reviewStatus": "pass",
+      "question": "Which of the following is not a mono-oxygenase?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Tryptophan pyrrolase"
+        },
+        {
+          "letter": "B",
+          "text": "Tryptophan hydroxylase"
+        },
+        {
+          "letter": "C",
+          "text": "Tyrosine hydroxylase"
+        },
+        {
+          "letter": "D",
+          "text": "Cytochrome p450"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "G",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "G\n\nTryptophan pyrrolaseds t lot a mono ‘ox¥genase. Its a di-oxygenase.\n\nOxygenases catalyzes the incoxporation of oxygen into a substrate. Oxygenases are of two types:\n\n1) Mono-ox¥gentases (Hydroxylases/ Mixed-function oxidases): Incorporate one atom of oxygen\n\ninto the substrate.\nExamples:\n• Tryptophan hydroxylase\n• Tyrosine hydroxylase\n• Cytochrome p450\n• Phenylalanine hydroxylase\n• 7-alpha hydroxylases\n\n2) Di-oxygenases: Incorporate two atoms of oxygen into a substrate.\n\nExamples:\n• Tryptophan pyrrolase\n• Homogentisate di-oxygenase (previously known as homogentisate oxidase)"
     },
     {
       "id": "marrow__BIOCHEM_CH18_Q010",
@@ -434,7 +565,6 @@
               "line": 8,
               "text": "• Argininosuccinate lyase _.\\>",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -576,6 +706,13 @@
           ],
           "suspectLines": [
             {
+              "line": 2,
+              "text": ".",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 9,
               "text": "• Subunit composition: CK-1 Bains BB whilé €K- -2 contains MB subunits",
               "reasons": [
@@ -586,7 +723,6 @@
               "line": 14,
               "text": "q\\ cae",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -642,8 +778,9 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 4,
+          "severity": 7,
           "reasons": [
+            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -652,6 +789,13 @@
               "text": "LDH- | HHHH Heart and RBC",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 11,
+              "text": "1",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
@@ -673,6 +817,13 @@
               "text": "LDH- | HMMM fs Liver and skeletal muscle",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 19,
+              "text": "4",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
@@ -748,17 +899,17 @@
               ]
             },
             {
-              "line": 13,
-              "text": "‘ a oO AY",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 15,
               "text": "LDH- | HHHH Heart and RBC",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 16,
+              "text": "1",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
@@ -772,7 +923,6 @@
               "line": 20,
               "text": "< LDH- | HHMM Lungs, brain, lymphatic tissu",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -780,7 +930,6 @@
               "line": 23,
               "text": "‘ ~~ LDH- | HMMM [fs Liver and skeletal muscle",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -789,6 +938,13 @@
               "text": "LDH- | MMMM | Liver and skeletal muscle",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 26,
+              "text": "5",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -859,6 +1015,70 @@
         }
       ],
       "explanation": "The enzyme most specific for his condition, acute viral hepatitis, is alanine aminotransferase\n(ALT).\n\nAlanine aminotransferase (ALT) is predominantly found in the liver and therefore is a more\nspecific marker for hepatocellular damage than AST.\n\nAspartate aminotransferase (AST) is found in various tissues. The AST/ALT ratio is very\nimportant.\n• AST/ALT &lt;1 is seen in hepatocellular damage like in NAFLD, toxic hepatitis, paracetamol\ntoxicity. In cirrhosis, the ratio becomes more than 1.\n\n• AST/ALT> 2 is suggestive while AST/ALT> 3 is highly suggestive of alcoholic liver disease.\nOther options:\n\nOption A: Alkaline phosphatase rise is seen in many liver diseases but more than fourfold rise\nindicates cholestasis.\n\nOption D: GGT is used to identify occult alcohol use."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH18_Q017",
+      "questionNumber": 17,
+      "sourcePage": 287,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          287,
+          288
+        ],
+        "answerKeyPages": [
+          288,
+          289
+        ],
+        "explanationPages": [
+          296
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "reviewStatus": "pass",
+      "question": "Which of the following is not a serine protease?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Chymotrypsinogen"
+        },
+        {
+          "letter": "B",
+          "text": "Plasmin"
+        },
+        {
+          "letter": "C",
+          "text": "Prostate specific antigen"
+        },
+        {
+          "letter": "D",
+          "text": "Elastase"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 18,
+              "text": ".",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Chymotrypsinogen is a zymogen. Its active form chymotrypsin is a serine proteasé”\n\nSerine proteases are proteolytic enzymes having serine, histidine and aspartate at the active site.\nActive site consists of two binding sites and a catalytic siten While serine iSpresent in the catalytic\nsite of serine proteases, histidine and aspartate are present on binding sites. Serine proteases\ndiffer in substrate specificity.\n\nExamples of serine proteases : ‘. o .<\n• Chymotrypsin 0 rae a\n• Trypsin ks »\n• Elastase an aN -\n• Thrombin\n• Plasmin\n• Complements\n• Factor X and XI a ‘ »\n• Prostate-specific antigen.\n\n."
     }
   ]
 }

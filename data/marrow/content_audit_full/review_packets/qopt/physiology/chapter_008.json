@@ -229,13 +229,6 @@
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": ". se rand",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 4,
               "text": "+ . . oye . .",
               "reasons": [
@@ -303,6 +296,20 @@
               ]
             },
             {
+              "line": 7,
+              "text": "210",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "BS",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 9,
               "text": "= 180",
               "reasons": [
@@ -310,15 +317,8 @@
               ]
             },
             {
-              "line": 15,
-              "text": "KS * 60 Diastolic",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 16,
-              "text": "‘ intravascular",
+              "line": 13,
+              "text": "a",
               "reasons": [
                 "edge_noise"
               ]
@@ -327,6 +327,7 @@
               "line": 18,
               "text": "ie}",
               "reasons": [
+                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -441,7 +442,6 @@
               "line": 1,
               "text": "Myosin light chain kinase, ~ © ~\\*",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -522,7 +522,15 @@
           "reasons": [
             "short_ocr_line"
           ],
-          "suspectLines": []
+          "suspectLines": [
+            {
+              "line": 1,
+              "text": "‘",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -591,7 +599,6 @@
               "line": 1,
               "text": "1, 25 di hydroxy cholecalciferol ww i o~ i 4",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -645,13 +652,6 @@
             "short_ocr_line"
           ],
           "suspectLines": [
-            {
-              "line": 3,
-              "text": "K- ‘ z ia",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 4,
               "text": ". .\"",
@@ -725,7 +725,6 @@
               "line": 7,
               "text": "iw \"s",
               "reasons": [
-                "edge_noise",
                 "ocr_suffix"
               ]
             },
@@ -733,7 +732,6 @@
               "line": 8,
               "text": "oy ~ »",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -769,9 +767,15 @@
               "line": 4,
               "text": "~O ¢ \\<",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 5,
+              "text": "wv",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]

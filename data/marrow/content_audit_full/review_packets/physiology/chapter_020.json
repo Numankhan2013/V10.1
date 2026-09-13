@@ -4,9 +4,9 @@
   "subject": "Physiology",
   "chapterId": "20",
   "chapter": "Lung Mechanics",
-  "candidateQuestionCount": 14,
+  "candidateQuestionCount": 11,
   "questionOptionCandidateCount": 0,
-  "explanationCandidateCount": 14,
+  "explanationCandidateCount": 11,
   "questions": [
     {
       "id": "marrow__PHYSIO_CH20_Q001",
@@ -59,6 +59,13 @@
           ],
           "suspectLines": [
             {
+              "line": 1,
+              "text": "we",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 6,
               "text": "Primary inspiratory muscles | DiaphragmExternal intercost",
               "reasons": [
@@ -83,21 +90,8 @@
               "line": 15,
               "text": "ALi ‘~",
               "reasons": [
+                "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 16,
-              "text": ". 8 a",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 19,
-              "text": "+ The diaphtagm is the chief muscle of inspiration.",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -149,105 +143,22 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 4,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
-            {
-              "line": 12,
-              "text": "Wy .s - Viscotal pleura",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 22,
               "text": "756 mm Hg (—4 mm Hg) | lal",
               "reasons": [
                 "hard_noise_char"
               ]
-            },
-            {
-              "line": 29,
-              "text": ". a as",
-              "reasons": [
-                "edge_noise"
-              ]
             }
           ]
         }
       ],
       "explanation": "The intrapleural pressure is negative both during inspiration and expiration because the thoracic\ncage and lung recoil in opposite direction.\nThe 2 factors that lead to a negative or subatmospheric intrapleural pressure are:\n« The lungs, with their elastic properties, tend to collapse, and the chest wall, with its elastic\nproperties, tends to spring out. When these two opposing forces pull on the intrapleural space, a\nnegative pressure, or vacuum, is created.\n¢ The continuous suction of excess fluid into the lymphatic channels. ara\nAtmosphenc pressure .\n%\n»\n3 by Pariotat pleura\nWy .s - Viscotal pleura\n\nTranspulmonary pressure:\n\n760 mmHg: 756 ming ff Q Pleural cavity\n\n24 em Hg A ; A:\n\nIntrapleural pressure: on — Thoracic wall\n\n756 mm Hg (—4 mm Hg) | lal\n\nLung\n0 yo.\nC 7\nIntra-alveolar pressure: Diaphragm\n760 mm Hg (0 mm Hg)\n. a as\nApplied aspects .\nIn cases of pneumothorax*intrapleural pressure suddenly becomes equal to atmospheric pressure.\nThus instead of its normal negative value, intrapleural pressure becomes zero. Hence lungs\ncollapse and the chest wall spring out."
-    },
-    {
-      "id": "marrow__PHYSIO_CH20_Q005",
-      "questionNumber": 5,
-      "sourcePage": 366,
-      "provenance": {
-        "sourceFile": "",
-        "questionPages": [
-          366
-        ],
-        "answerKeyPages": [
-          371
-        ],
-        "explanationPages": [
-          374
-        ],
-        "sourceMetadata": {
-          "filename": "physiologyed8.pdf"
-        }
-      },
-      "reviewStatus": "pass",
-      "question": "With reference to atmospheric pressure, what is the alveolar pressure at the end of normal inspiration (in cms of H2O)?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "+1.0"
-        },
-        {
-          "letter": "B",
-          "text": "0"
-        },
-        {
-          "letter": "C",
-          "text": "-1.0"
-        },
-        {
-          "letter": "D",
-          "text": "-6.0"
-        }
-      ],
-      "correctOption": 2,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 13,
-              "text": "- 7 ae a *",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 14,
-              "text": ". . ao a co",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "At the end of inspiration, the alveolar pressure is zero with reference to the atmospheric pressure.\nWhenever alveolar pressure equals atmospheric pressure, alveolar pressure is said to be zero. This\nhappens when no air is moving in or out of the lungs.\nDuring inspiration, the diaphragm contracts, causing the volume of the thorax to increase. As lung\nvolume increases, the pressure in the lungs must decrease. (Boyle's law states that P x V is\nconstant at a given temperature.) Halfway through inspiration, the alveolar pressure falls below\natmospheric pressure (-1 cm H20). The pressure gradient between the atmosphere ‘and the alveoli\ndrives airflow into the lung. Air flows into the lungs until, at the end of inspiration, alveolar\npressure is once again equal to the atmospheric pressure; ihe pressure gradient between the\natmosphere and the alveoli has dissipated, and airflow. mbe'the lungs eéases.\nDuring expiration, alveolar pressure rises to about ¥1 cm of H20. a 1\n«< inn vo a\n- 7 ae a *\n. . ao a co"
     },
     {
       "id": "marrow__PHYSIO_CH20_Q006",
@@ -315,8 +226,8 @@
               ]
             },
             {
-              "line": 11,
-              "text": "Wy .s - Viscotal pleura",
+              "line": 9,
+              "text": "a",
               "reasons": [
                 "edge_noise"
               ]
@@ -332,82 +243,6 @@
         }
       ],
       "explanation": "aA was ™y\n~ ~ 1\nTranspulmonary pressure is intra-alveolar préssure minus intrapleural pressure. (Mnemonic\nTAP: Transpulmonary pressure = Alveolar‘pressure - Pleural pressure)\nIt is the pressure difference betweerrthat in the alveoli and that on the outer surfaces of the lungs,\nand it is a measure of the elastic forces in the. lungs that tend to collapse the lungs at each instant\nof respiration, called the recoil pressure... *\nAtmosphenc pressure\na\n3 by - Pariotat pleura\nWy .s - Viscotal pleura\nTranspulmonary pressure: ,, 2\n7760 mm Hg - 756 min Hg Pleural cavity\nIntrapleural pressure: on — Thoracic wall\n756 mm Hg (—4 mm Hg) | lal\nLung\n0 yo.\nC 7\nIntra-alveolar pressure: Diaphragm\n760 mm Hg (0 mm Hg)"
-    },
-    {
-      "id": "marrow__PHYSIO_CH20_Q007",
-      "questionNumber": 7,
-      "sourcePage": 366,
-      "provenance": {
-        "sourceFile": "",
-        "questionPages": [
-          366
-        ],
-        "answerKeyPages": [
-          371
-        ],
-        "explanationPages": [
-          374,
-          375
-        ],
-        "sourceMetadata": {
-          "filename": "physiologyed8.pdf"
-        }
-      },
-      "reviewStatus": "pass",
-      "question": "A man inspires 1000ml from a spirometer. The intrapleural pressure was -4cm H2O before inspiration and -12cm H2O at the end of inspiration. What is the compliance of lungs?(ml/cm H2O)?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "50"
-        },
-        {
-          "letter": "B",
-          "text": "100"
-        },
-        {
-          "letter": "C",
-          "text": "125"
-        },
-        {
-          "letter": "D",
-          "text": "150"
-        }
-      ],
-      "correctOption": 3,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 4,
-              "text": "AV= 1000 mL",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "AP= -12-(-4) = -8 cm of H20",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "C= 1000/8= 125 mL/cm of H20",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Compliance is change in volume per unit change in pressure.\n° C= AV/AP\nIn this case,\nAV= 1000 mL\nAP= -12-(-4) = -8 cm of H20\nThe minus sign indicates that the pressure has fallen by 8cms of H20 at the end of inspiration\nTherefore the compliance is,\nC= 1000/8= 125 mL/cm of H20"
     },
     {
       "id": "marrow__PHYSIO_CH20_Q008",
@@ -521,6 +356,20 @@
           ],
           "suspectLines": [
             {
+              "line": 5,
+              "text": "Soo",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 6,
+              "text": "ze",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 9,
               "text": "2 .",
               "reasons": [
@@ -528,8 +377,8 @@
               ]
             },
             {
-              "line": 14,
-              "text": "* When the lungs are filled with alr, there is an interface between the alveolar fluid and the air in",
+              "line": 10,
+              "text": ".aoo",
               "reasons": [
                 "edge_noise"
               ]
@@ -543,29 +392,8 @@
               ]
             },
             {
-              "line": 18,
-              "text": "+ But, in the case of thé:saline solutioy-filled lungs, there is no air—fluid interface and there is",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 20,
-              "text": "+ Hence, the pressure—volyme-curve obtained with saline measures only the tissue elasticity.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 22,
               "text": "X :",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 23,
-              "text": "+ The difference in the curves generated during inflation and deflation, termed hysteresis, is not",
               "reasons": [
                 "edge_noise"
               ]
@@ -631,8 +459,22 @@
           ],
           "suspectLines": [
             {
-              "line": 14,
-              "text": "ge *° Hystorisis",
+              "line": 9,
+              "text": "=",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 12,
+              "text": "ge,",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 15,
+              "text": "‘3",
               "reasons": [
                 "edge_noise"
               ]
@@ -652,15 +494,8 @@
               ]
             },
             {
-              "line": 22,
-              "text": "a -47 .",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 33,
-              "text": ": Surtace tension reduces",
+              "line": 34,
+              "text": "oy",
               "reasons": [
                 "edge_noise"
               ]
@@ -677,7 +512,6 @@
               "line": 64,
               "text": ". . = wo x",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             }
@@ -747,31 +581,10 @@
               ]
             },
             {
-              "line": 5,
-              "text": "+ The pressure-volume relationship is the fundamental relation between the work of breathing and",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 8,
               "text": "A x ~ .",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "+ The diagram depicts the change in volume with respect to the change in intrapleural pressure,",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 13,
-              "text": "+ The “stiffer” lung displays a more horizontal.curve (C), meaning that it takes a greater pressure to",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -783,19 +596,18 @@
               ]
             },
             {
-              "line": 17,
-              "text": "+ Curve (B) is morecompliant as‘it takes lesser pressure to achieve the same inflation volume",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 18,
               "text": "compared tg nidrmal (A). «~*~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "punctuation_run"
+              ]
+            },
+            {
+              "line": 19,
+              "text": ".",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
@@ -807,6 +619,13 @@
               ]
             },
             {
+              "line": 34,
+              "text": "7",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 36,
               "text": "= ,",
               "reasons": [
@@ -814,8 +633,29 @@
               ]
             },
             {
-              "line": 40,
-              "text": "23 /3 Fibrosis",
+              "line": 37,
+              "text": "a",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 38,
+              "text": "5",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 43,
+              "text": "bs",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 44,
+              "text": "Nun",
               "reasons": [
                 "edge_noise"
               ]
@@ -831,68 +671,6 @@
         }
       ],
       "explanation": "- aN\nary on\n7 «ft .\n\n+ The pressure-volume relationship is the fundamental relation between the work of breathing and\nlung mechanics. en a a\n\nA x ~ .\n+ The diagram depicts the change in volume with respect to the change in intrapleural pressure,\nwhich is compliance. Here, the change is more (steep curve) with B and least (flat curve) with C.\n\ncn i\n+ The “stiffer” lung displays a more horizontal.curve (C), meaning that it takes a greater pressure to\n. + . ad. .\nachieve the same inflation’volume compared with a normal lung (A). These lungs are called less\ncompliant. se “4\n+ Curve (B) is morecompliant as‘it takes lesser pressure to achieve the same inflation volume\ncompared tg nidrmal (A). «~*~\n.\n. . “A\nApplied aspect: :\nCompliance is increased in emphysema. The mechanism is shown in the flow chart below.\n\nReduced Alpha 1 antitrypsin levels\n(it is an antiprotease which prevents\ndegradation of elastin by trypsin)\nIncreased degradation of elastin by trypsin\nDecreased elastic recoil\nincreased compliance (Compliance is wo\ninversely proportional to elastance)\nCompliance is decreased in case of pulmonary edema or fibrosis. ae\nae 47 .\n8 Emphysema\n7\n6 Normal\n= ,\na\n5\n3 4\n23 /3 Fibrosis\n3 2 pe\ncue 1\nbs\nNun\n‘ Q\n10 20 30 40\nTranspulmonary pressure (cm H20)"
-    },
-    {
-      "id": "marrow__PHYSIO_CH20_Q012",
-      "questionNumber": 12,
-      "sourcePage": 368,
-      "provenance": {
-        "sourceFile": "",
-        "questionPages": [
-          368
-        ],
-        "answerKeyPages": [
-          371
-        ],
-        "explanationPages": [
-          379,
-          380
-        ],
-        "sourceMetadata": {
-          "filename": "physiologyed8.pdf"
-        }
-      },
-      "reviewStatus": "pass",
-      "question": "In the pressure-volume graph shown below, compliance of lung is represented by ______.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "A"
-        },
-        {
-          "letter": "B",
-          "text": "B"
-        },
-        {
-          "letter": "C",
-          "text": "C"
-        },
-        {
-          "letter": "D",
-          "text": "None of the above"
-        }
-      ],
-      "correctOption": 2,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "- A— Compliance of chest",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "In the given pressure-volume graph:\n- A— Compliance of chest\n¢ B— Compliance of lung\n¢ C— Compliance of lung and chest wall\nThe equilibrium position is at functional residual capacity (FRC), where the expanding force on\nthe chest wall is exactly equal to the collapsing force on the lungs. FRC is also known as relaxation\nvolume and represents the amount of air remaining in the lungs at the end of normal expiration.\n\nAt the point where volume= FRC,\n« Intraalveolar pressure is equal to atmospheric pressure and considered as zero.\n« Intrapleural pressure is negative (-2.5 mmHg)\n¢ Transpulmonary pressure = Intraalveolar pressure — intrapleural pressure = 0 — (-2.5 mmHg) =\n+2.5 mmHg.\nFor compliance of lung — Pressure considered is Transpulmonary pressure. So at FRC,\nTranspulmonary pressure is positive (+2.5 mmHg). Hence, B indicates compliance of lung.\nFor compliance of chest wall — Pressure considered is intrapleural — atmospheric pressure. At\nFRC, this value is -2.5 mmHg. Hence, A represents compliance of the chest wall.\nWhen the volume is FRC, the combined lung and chest-wall curve intersects the xtaxis atan\nairway pressure of zero. Hence, C represents the combined chest wall and lung compliance.\nan a"
     },
     {
       "id": "marrow__PHYSIO_CH20_Q013",
@@ -952,20 +730,6 @@
               ]
             },
             {
-              "line": 5,
-              "text": "* Static compliance: It is measured at rest. oo x",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "* Dynamic compliance: It is Ineasured during breathing: It considers airflow",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 11,
               "text": "~~ 4",
               "reasons": [
@@ -974,15 +738,8 @@
               ]
             },
             {
-              "line": 12,
-              "text": "+ It is greater at low ling volumes thah at high lung volumes. For this reason, the term specific",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 15,
-              "text": "+ The total.¢ompliance ofa normal person near the normal end-expiratory lung volume (functional",
+              "line": 14,
+              "text": "an",
               "reasons": [
                 "edge_noise"
               ]
@@ -1044,8 +801,15 @@
           ],
           "suspectLines": [
             {
-              "line": 6,
-              "text": "+ Elastic/Compliance work (65%): Surface tension:(2/3rd) + Tissue elasticity q/3rd)",
+              "line": 1,
+              "text": "ye",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 3,
+              "text": "ao",
               "reasons": [
                 "edge_noise"
               ]
@@ -1129,8 +893,15 @@
               ]
             },
             {
-              "line": 6,
-              "text": "* force force",
+              "line": 8,
+              "text": "g",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "3",
               "reasons": [
                 "edge_noise"
               ]
@@ -1198,8 +969,9 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 4,
+          "severity": 7,
           "reasons": [
+            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -1208,6 +980,13 @@
               "text": "individuals. ~ _ a",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 13,
+              "text": "sh",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]

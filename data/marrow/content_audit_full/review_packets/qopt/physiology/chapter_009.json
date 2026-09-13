@@ -56,6 +56,7 @@
               "line": 2,
               "text": "}",
               "reasons": [
+                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -113,7 +114,6 @@
               "line": 1,
               "text": "~~ oO \"4",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -297,13 +297,6 @@
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "Ss ‘ ca",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 2,
               "text": "‘ \\ ~ >",
               "reasons": [
@@ -367,6 +360,13 @@
               "text": "Glycine — G-Protein Coupled Receptor ~S >",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "Oo",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -518,9 +518,15 @@
               "line": 1,
               "text": "a> ~)",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "4",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -574,13 +580,6 @@
             "short_ocr_line"
           ],
           "suspectLines": [
-            {
-              "line": 1,
-              "text": "Cl- NS",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 3,
               "text": "“2 ~",
@@ -640,13 +639,6 @@
             "hard_noise_char"
           ],
           "suspectLines": [
-            {
-              "line": 1,
-              "text": "ww\" e",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 2,
               "text": "The following effect in the motor neuron is: due to: aie ~ <",
@@ -717,7 +709,6 @@
               "line": 2,
               "text": "a ~ os",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -777,7 +768,6 @@
               "line": 1,
               "text": "Feed forward inhibition ‘ ~\\*",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -922,13 +912,6 @@
               "text": "Both B and C =~ - fo re ‘",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 2,
-              "text": "‘ SS »",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]

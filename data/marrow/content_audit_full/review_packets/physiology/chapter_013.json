@@ -4,7 +4,7 @@
   "subject": "Physiology",
   "chapterId": "13",
   "chapter": "Special Senses",
-  "candidateQuestionCount": 18,
+  "candidateQuestionCount": 16,
   "questionOptionCandidateCount": 6,
   "explanationCandidateCount": 15,
   "questions": [
@@ -59,6 +59,13 @@
               "reasons": [
                 "hard_noise_char"
               ]
+            },
+            {
+              "line": 3,
+              "text": "of",
+              "reasons": [
+                "edge_noise"
+              ]
             }
           ]
         },
@@ -73,7 +80,6 @@
               "line": 2,
               "text": "o~ o",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -90,15 +96,8 @@
           ],
           "suspectLines": [
             {
-              "line": 6,
-              "text": "+ Light passes in the direction: Vitreous humor(anterior)—> choroid(most posterior) encountering",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "+ Visual processing/Phototransduction occurs in the opposite direction hg feeptore > ganglion",
+              "line": 13,
+              "text": "ae",
               "reasons": [
                 "edge_noise"
               ]
@@ -196,8 +195,25 @@
           ]
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 10,
+              "text": "oe",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Initiation of visual impulse is associated with photoisomerisation and hydrolysis of visual purple\nRhodopsin or visual purple, the photosensitive pigment, is composed of opsin (a protein\nbelonging to the superfamily of G protein-coupled receptors) and retinal (an aldehyde of vitamin\n‘A). When light strikes the photoreceptors, retinal is chemically transformed in a process called\nphotoisomerization, which begins the transduction process.\n\nOo o\nS&S\nwad fe)\noe"
     },
     {
       "id": "marrow__PHYS_CH13_Q004",
@@ -249,71 +265,8 @@
           ],
           "suspectLines": [
             {
-              "line": 5,
-              "text": "+ Located at posterior pole, temporal to the optic dise",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "+ Area of central vision",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "+ High density of photoreceptors and interneurons",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "+ Lacks photoreceptors",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "+ Is called “Blind spot”",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "+ Normally a person is unaware of blind spot because",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "+ Corresponding part of the visual field can be seen by the contralateral eye se",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 13,
-              "text": "+ Neurological processes complete the incomplete image perceptually ©",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 15,
-              "text": "+ Higher ratio of rods to cones =Rod to cone+208 <",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 17,
-              "text": "+ Greater degree of convergence of photoreceptors to the target interneuromt (Bhotar cells)",
+              "line": 16,
+              "text": "Wey",
               "reasons": [
                 "edge_noise"
               ]
@@ -322,7 +275,6 @@
               "line": 19,
               "text": "* More sensitivity to light “\\ & « \\ <",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -330,22 +282,7 @@
               "line": 20,
               "text": "+ Lower visual acuity Be) K&S ‘O",
               "reasons": [
-                "edge_noise",
                 "ocr_suffix"
-              ]
-            },
-            {
-              "line": 21,
-              "text": "r> S >",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 24,
-              "text": "- i “Onl oe",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -394,9 +331,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 7,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "symbol_dense_line"
           ],
@@ -412,7 +348,6 @@
               "line": 11,
               "text": "ae || Se",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -420,7 +355,6 @@
               "line": 12,
               "text": "al | es",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -484,9 +418,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
             "symbol_dense_line"
@@ -496,7 +429,6 @@
               "line": 7,
               "text": "o~ o",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -504,7 +436,6 @@
               "line": 11,
               "text": "; ; n& Ras \\",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -563,20 +494,6 @@
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": ">> ie oO",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 2,
-              "text": "‘ ae AS <a .",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 8,
               "text": "directions, either directly from{bipolar dleebeinclion cells ‘of horizontally within the inner",
               "reasons": [
@@ -594,15 +511,7 @@
               "line": 22,
               "text": "+ Bipolar eélls x\\",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 24,
-              "text": "+ Ganglion cells",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -669,26 +578,17 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
             "symbol_dense_line"
           ],
           "suspectLines": [
             {
-              "line": 5,
-              "text": "e << AS",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 6,
               "text": "~\\ ‘2) ‘SS",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -746,6 +646,13 @@
           ],
           "suspectLines": [
             {
+              "line": 3,
+              "text": "rea =",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 4,
               "text": "Receive input entirely from t | Formed by Y ganglion cells p",
               "reasons": [
@@ -791,15 +698,20 @@
               "line": 13,
               "text": "n, texture, shape, and fine de | of movement, depth, and flic",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 17,
+              "text": "Se",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
               "line": 20,
               "text": "a ~~ i we",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -856,158 +768,23 @@
           ],
           "suspectLines": [
             {
+              "line": 1,
+              "text": "CFO",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 3,
               "text": "=e) af ?",
               "reasons": [
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "oe .¢",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "b> fey",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
         }
       ],
       "explanation": "CFO\n‘The axons from the lateral geniatilate nucleus (LGN) mostly endin layer 4.\n=e) af ?\n‘The primary visual receiving aea (primaty visual cortex) located principally on the sides of the\ncalcarine fissure and has 6 layers simile to the neocortex. Layer 4 recieves most of the input from\nthe LGN, which is divided furthernto 4A, 4B, 4¢° Yand 4CB.\n‘The magnocellular pathway eon layers 1 and’2 of the LGN end in layer 4C° while the\nparvocellular pathways. et layers soot the LGN end in layer 4CB.\nQ Oo\noe .¢\nb> fey"
-    },
-    {
-      "id": "marrow__PHYS_CH13_Q013",
-      "questionNumber": 13,
-      "sourcePage": 244,
-      "provenance": {
-        "sourceFile": "physiologyed8.pdf",
-        "questionPages": [
-          244
-        ],
-        "answerKeyPages": [
-          246
-        ],
-        "explanationPages": [
-          253
-        ]
-      },
-      "reviewStatus": "pass",
-      "question": "An ophthalmologist explains to a patient that he is a protanope. These patients have difficulty\nin identifying which of the following color?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Red"
-        },
-        {
-          "letter": "B",
-          "text": "Green"
-        },
-        {
-          "letter": "C",
-          "text": "Blue"
-        },
-        {
-          "letter": "D",
-          "text": "Bl ye\"\n\n) Black x\n6° e"
-        }
-      ],
-      "correctOption": 1,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "+ Anomalous Trichromatic Vision",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 3,
-              "text": "+ Deficiency of red is Protanomaly.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "+ Deficiency of green is Deuteranomaly.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "+ Deficiency of blue is Tritanomaly.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "+ Dichromatic Vision (Individuals with only two cone systems)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "+ Blindness to red color Protanopia (Protanope).",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "+ Blindness to green color Deuteranopia (Deuteranope).",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "+ Blindness to blue color Tritanopia (Tritanope).",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "* Monochromatic Vision Have only one cone system.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "+ Color blindness is X-linked recessive.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 13,
-              "text": "+ Achromatopsia/ Achromasia- Color blindness is due to lesions of area V8 of the visual cortex.",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Protanopes are dichromats with difficulty in identifying red color.\n+ Anomalous Trichromatic Vision\n+ Deficiency of red is Protanomaly.\n+ Deficiency of green is Deuteranomaly.\n+ Deficiency of blue is Tritanomaly.\n+ Dichromatic Vision (Individuals with only two cone systems)\n+ Blindness to red color Protanopia (Protanope).\n+ Blindness to green color Deuteranopia (Deuteranope).\n+ Blindness to blue color Tritanopia (Tritanope).\n* Monochromatic Vision Have only one cone system.\n+ Color blindness is X-linked recessive.\n\n+ Achromatopsia/ Achromasia- Color blindness is due to lesions of area V8 of the visual cortex."
     },
     {
       "id": "marrow__PHYS_CH13_Q014",
@@ -1059,7 +836,6 @@
               "line": 1,
               "text": "Dorsomedial nucleus ,~ Sy \\*",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -1078,13 +854,6 @@
               "text": "Auditory information is relayed through _\\\"thalamiemndleus. o>",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "Ce -« Pa",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1106,8 +875,25 @@
           ]
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 4,
+              "text": "ye\"",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "‘The medial geniculate nucleus is the thalamic nucleus that conveys auditory information from the\nbrainstem to the primary auditory cortex.\nLateral geniculate nucleus is the thalamic nucleus that conveys visual information.\nye\""
     },
     {
       "id": "marrow__PHYS_CH13_Q015",
@@ -1150,9 +936,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 7,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "symbol_dense_line"
           ],
@@ -1170,97 +955,11 @@
               "reasons": [
                 "symbol_dense_line"
               ]
-            },
-            {
-              "line": 11,
-              "text": "me. 2",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 13,
-              "text": "5 . ae 7",
-              "reasons": [
-                "edge_noise"
-              ]
             }
           ]
         }
       ],
       "explanation": "‘The superior olivary nuclei receive information from boti{@ars and begiie process of detecting\nthe direction from which a sound comes. aw e\nC ne\n‘The eighth nerves reach their respective cohlearmuclei in the njedulla from where the nerves\ntravel to both the ipsilateral and contralteral'sitperior olivaty Huclei in thespons and hence giving\nit the ability to detect the direction of the sound. PS\n% + ok *\n‘The lateral part of superior olvap its does &o'by comparingthe difference in intensities of\nsound reaching the two ears, wliefeas the medial part of the Superior olivary nucleus detects the\ntime lag between the signals enitering thestivo ears. es\nme. 2\nae av\n5 . ae 7"
-    },
-    {
-      "id": "marrow__PHYS_CH13_Q016",
-      "questionNumber": 16,
-      "sourcePage": 244,
-      "provenance": {
-        "sourceFile": "physiologyed8.pdf",
-        "questionPages": [
-          244
-        ],
-        "answerKeyPages": [
-          246
-        ],
-        "explanationPages": [
-          253
-        ]
-      },
-      "reviewStatus": "pass",
-      "question": "Which of the following events prompts the auditory system to interpret a sound as loud?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Decreased number of inner hair cells become stimulated"
-        },
-        {
-          "letter": "B",
-          "text": "Decreased number of outer hair cells become stimulated"
-        },
-        {
-          "letter": "C",
-          "text": "Hair cells excite nerve endings at a diminished rate"
-        },
-        {
-          "letter": "D",
-          "text": "Amplitude of vibration of the basilar membrane increases"
-        }
-      ],
-      "correctOption": 4,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "+ As the sound, yeines louder. the amplitude of vibration of the basilar membrane increases so",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "+ As the amplitude increasts- more and more hair cells on the fringes ofthe resonating portion of",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "+ As the amplitude of vibration reaches high intensity, the outer hair cells become recruited at a",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "‘There are at least Lhrdeays that th@auditory system determines loudness:\n+ As the sound, yeines louder. the amplitude of vibration of the basilar membrane increases so\nthat hair ells cite the nefvé’endings at more rapid rates.\n+ As the amplitude increasts- more and more hair cells on the fringes ofthe resonating portion of\nthe basilar membrane become stimulated.\n+ As the amplitude of vibration reaches high intensity, the outer hair cells become recruited at a\nsignificant rate."
     },
     {
       "id": "marrow__PHYS_CH13_Q017",
@@ -1309,71 +1008,8 @@
           ],
           "suspectLines": [
             {
-              "line": 4,
-              "text": "+ Humans have five established basic tastes: sweet, salt, sour, bitter and umami",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "+ The taste receptors for these five basic tastes are of two major types:",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "+ Ligand-gated channels (ionotropic receptors): for salt and sour taste",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "+ G-Protein Coupled Receptors (metabotropic receptors): for sweet, bitter and umami",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "+ Salt and sour taste are mediated through epithelial sodium channels (ENaC)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "+ Na+ movement through ENaC salt taste",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "+ H+ movement through ENaC — sour taste",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 13,
-              "text": "+ T1R2 and T1R3 families sweet taste",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 14,
-              "text": "+ TR family > bitter taste",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 15,
-              "text": "+ Metabotropie glutamate receptor (mGluR4) > Umami",
+              "line": 16,
+              "text": "se\"",
               "reasons": [
                 "edge_noise"
               ]
@@ -1452,13 +1088,6 @@
               ]
             },
             {
-              "line": 2,
-              "text": "‘ : «2 fe) Rey",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 3,
               "text": "Mitral cells are seen in a. i} n&",
               "reasons": [
@@ -1489,7 +1118,6 @@
               "line": 11,
               "text": "“ QQ0@O~—",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -1497,6 +1125,13 @@
             {
               "line": 12,
               "text": ": Wop",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 15,
+              "text": "Oa",
               "reasons": [
                 "edge_noise"
               ]
@@ -1605,45 +1240,16 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 4,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
-            {
-              "line": 3,
-              "text": "+ Each rod and cone are divided into outer segment, inner segment, nuclear region and a synaptic",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "+ Saccules and dises in the outer segment contain photosensitive pigments. & .",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "+ Ifa person spends a considerable length of time in brightly ghted surroundihgs and then moves",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 8,
               "text": "in visual threshold is known as dark adaptation. It is f€arly maximaliin about 20 min, much",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "+ When one passes suddenly from a dim to abrightly lighted @ivironmentythe light seems",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1700,8 +1306,15 @@
           ],
           "suspectLines": [
             {
-              "line": 13,
-              "text": "XP\" &",
+              "line": 10,
+              "text": "es",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 12,
+              "text": "we",
               "reasons": [
                 "edge_noise"
               ]
@@ -1710,7 +1323,6 @@
               "line": 16,
               "text": "\\ od 9",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1719,6 +1331,13 @@
               "text": "2 R\\2",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 23,
+              "text": "RY",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]

@@ -4,9 +4,9 @@
   "subject": "Physiology",
   "chapterId": "2",
   "chapter": "Cellular messengers & Receptors",
-  "candidateQuestionCount": 15,
+  "candidateQuestionCount": 13,
   "questionOptionCandidateCount": 0,
-  "explanationCandidateCount": 15,
+  "explanationCandidateCount": 13,
   "questions": [
     {
       "id": "marrow__PHYS_CH02_Q001",
@@ -68,6 +68,65 @@
       "explanation": "Parathyroid hormone (PTH) is an example of a polypeptide hormone.\nCortisol is a steroid hormone, ‘Adrenaline and thyroxine are derivatives of the amino acid tyrosine.\n_ oO”"
     },
     {
+      "id": "marrow__PHYS_CH02_Q003",
+      "questionNumber": 3,
+      "sourcePage": 20,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          20
+        ],
+        "answerKeyPages": [
+          25,
+          26
+        ],
+        "explanationPages": [
+          27
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "Which of the following hormone is not stored before release?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Insulin"
+        },
+        {
+          "letter": "B",
+          "text": "Cortisol"
+        },
+        {
+          "letter": "C",
+          "text": "Thyroxine"
+        },
+        {
+          "letter": "D",
+          "text": "Renin"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 9,
+              "text": "ee",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Cortisol is not stored before release.\nUsually, the polypeptide and protein hormones such as insulin, thyroxine or renin are stored in\nsecretory vesicles before release. They are synthesized as much larger polypeptide chains\n(preprohormones) that are biologically inactive and then processed intracellularly by specific\nproteases to yield the final hormone molecule which is stored in the secretory vesicle until needed.\nOn the other hand, steroid hormones such as cortisol are synthesised as needed and are not\nstored. They are lipid soluble and easily diffuse across cell membrane to enter the interstitial fluid\nand then blood.\nee"
+    },
+    {
       "id": "marrow__PHYS_CH02_Q004",
       "questionNumber": 4,
       "sourcePage": 20,
@@ -124,20 +183,6 @@
               ]
             },
             {
-              "line": 9,
-              "text": "+ Desensitisation - Receptors undergo chemical modifications that make them less responsive.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "+ Internalisation - It is the temporary-sequestration of the cell membrane receptors to the inside of",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 12,
               "text": "destroyed or recycled. | “",
               "reasons": [
@@ -148,13 +193,12 @@
               "line": 13,
               "text": "+ Inactivation of receptors: ~~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
             {
-              "line": 15,
-              "text": "+ Decreased produetion of receptors.",
+              "line": 14,
+              "text": "ss",
               "reasons": [
                 "edge_noise"
               ]
@@ -170,94 +214,6 @@
         }
       ],
       "explanation": "Downregulation of receptors occurs due to internalisation inactivation. of Yeceptors or\ndesensitisation. oy &\nWS ® .\nA decrease in the level of stimulating hormones.generally leads«to an increase in the level of active\nreceptors. This is called upregulation of receptors. o~ ov\nOn the other hand, an increase in the levelof stimulating hormones, generally leads to a decrease\nin the level of active receptors. This:is‘¢alled downregulation of receptors.\nDownregulation of receptors can-occur by one’of the followingmechanisms:\n+ Desensitisation - Receptors undergo chemical modifications that make them less responsive.\n+ Internalisation - It is the temporary-sequestration of the cell membrane receptors to the inside of\nthe cell, away from the action_of Hormones. Following internalisation, the receptors are either\ndestroyed or recycled. | “\n+ Inactivation of receptors: ~~\nss\n+ Decreased produetion of receptors.\nKN ¢*\n‘ 4"
-    },
-    {
-      "id": "marrow__PHYS_CH02_Q005",
-      "questionNumber": 5,
-      "sourcePage": 21,
-      "provenance": {
-        "sourceFile": "physiologyed8.pdf",
-        "questionPages": [
-          21
-        ],
-        "answerKeyPages": [
-          25,
-          26
-        ],
-        "explanationPages": [
-          27,
-          28
-        ]
-      },
-      "reviewStatus": "pass",
-      "question": "Receptors on cell membrane that activate ion channel after binding with agonists are _____.",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Nicotinic cholinergic"
-        },
-        {
-          "letter": "B",
-          "text": "Muscarinic cholinergic"
-        },
-        {
-          "letter": "C",
-          "text": "Opioid μ receptors"
-        },
-        {
-          "letter": "D",
-          "text": "GABAB receptors"
-        }
-      ],
-      "correctOption": 1,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 5,
-              "text": "+ Ligand-gated channels (Ionotropic receptors)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "+ When bound to these receptors, a membrane channel is opened leading to a brief increase in",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "+ Examples - GABAA, GABAC, Nicotinic cholinergic, Glycine and Serotonin (5HT3 subtype).",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "* G-protein coupled receptors (Metabotropic receptors)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "* When bound to these receptors, secondary messengers are released that modulate voltage-gated",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Nicotinic cholinergic receptors activate an ion channel after binding with its agonist. These\nreceptors are called ligand-gated channels or ionotropic receptors.\nReceptors for neurotransmitters are classified into two broad families based on structure and\nfunction. They are:\n+ Ligand-gated channels (Ionotropic receptors)\n+ When bound to these receptors, a membrane channel is opened leading to a brief increase in\nionic conductance.\n¢ Important for fast synaptic transmission.\n+ Examples - GABAA, GABAC, Nicotinic cholinergic, Glycine and Serotonin (5HT3 subtype).\n* G-protein coupled receptors (Metabotropic receptors)\n* When bound to these receptors, secondary messengers are released that modulate voltage-gated\nchannels on neuronal membranes.\n« Examples - GABAB, Muscarinic cholinergic, Catecholamines, Serotonin (all subtypes except\n5HT3) and opioid receptors."
     },
     {
       "id": "marrow__PHYS_CH02_Q006",
@@ -309,10 +265,16 @@
           ],
           "suspectLines": [
             {
+              "line": 3,
+              "text": "oO.",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 6,
               "text": "~O~ Ov",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -326,17 +288,9 @@
               ]
             },
             {
-              "line": 8,
-              "text": "C . of",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 9,
               "text": "- 7 ~~ <“s »",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -401,7 +355,6 @@
               "line": 3,
               "text": "~ ¢ x %,",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -417,7 +370,6 @@
               "line": 6,
               "text": ", ¥, “",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             },
@@ -429,8 +381,8 @@
               ]
             },
             {
-              "line": 14,
-              "text": "‘ G protein-coupled receptors",
+              "line": 13,
+              "text": "oe",
               "reasons": [
                 "edge_noise"
               ]
@@ -439,7 +391,6 @@
               "line": 16,
               "text": "= ~ = S Z ~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -455,7 +406,6 @@
               "line": 18,
               "text": "ee} | 9999999999 999909",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -470,7 +420,6 @@
               "line": 20,
               "text": "x] — > s @",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             },
@@ -538,22 +487,8 @@
           ],
           "suspectLines": [
             {
-              "line": 13,
-              "text": "* Cholera toxin acts on ° subunit of GS",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 15,
-              "text": "+ Pertussis toxin acts on ° subunit of Gi @",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 18,
-              "text": "no eee . 7 “se >*",
+              "line": 17,
+              "text": "NS",
               "reasons": [
                 "edge_noise"
               ]
@@ -573,18 +508,37 @@
               ]
             },
             {
+              "line": 24,
+              "text": "+",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 26,
+              "text": "Ye",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 27,
               "text": "\\> %",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 28,
+              "text": "LS",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
               "line": 29,
               "text": ": : 2)",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             }
@@ -592,87 +546,6 @@
         }
       ],
       "explanation": "The action of ° subunit of G protein is the breakdown of GTP to GDP as it has an intrinsic GTPase\n\nactivity.\n\nGuanine exchange factors (GEFs) convert GDP to GTP by nucleotide exchange.\n\nG proteins can be either stimulatory (GS) or inhibitory (Gi) with respect to the production of the\n\n2nd messenger cAMP by the enzyme adenylyl cyclase. Stimulatory or inhibitory activity resides in\n\nthe © subunit.\n\n* Cholera toxin acts on ° subunit of GS\n\n+ Pertussis toxin acts on ° subunit of Gi @\n\nNS\nno eee . 7 “se >*\nInactive”\nActive CAMP ,-———— CAMP’\nprotein Kinlase poe\nNS kinase\nProtein - PO, + ADP «———._ Protein + ATP\n+\nCell’s Response\nYe\n\\> %\nLS\n: : 2)"
-    },
-    {
-      "id": "marrow__PHYS_CH02_Q010",
-      "questionNumber": 10,
-      "sourcePage": 22,
-      "provenance": {
-        "sourceFile": "physiologyed8.pdf",
-        "questionPages": [
-          22
-        ],
-        "answerKeyPages": [
-          25,
-          26
-        ],
-        "explanationPages": [
-          29,
-          30
-        ]
-      },
-      "reviewStatus": "pass",
-      "question": "Which hormone acts on JAK-STAT kinase receptor?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "TSH"
-        },
-        {
-          "letter": "B",
-          "text": "Thyroxine"
-        },
-        {
-          "letter": "C",
-          "text": "GH"
-        },
-        {
-          "letter": "D",
-          "text": "FSH"
-        }
-      ],
-      "correctOption": 3,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 5,
-              "text": "* Growth hormone",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "+ Prolactin",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "+ Erythropoietin",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "+ Leptin",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Growth hormone acts on JAK-STAT receptors.\n\nJanus tyrosine kinase receptors (JAK-STAT) serves as receptors for:\n\n* Growth hormone\n\n+ Prolactin\n\n+ Erythropoietin\n+ Leptin\nThyroxine acts on nuclear receptors. TSH and FSH act on G protein-coupled receptors."
     },
     {
       "id": "marrow__PHYS_CH02_Q012",
@@ -739,10 +612,44 @@
               ]
             },
             {
+              "line": 5,
+              "text": ";",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 12,
+              "text": "+",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 15,
+              "text": "+",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 20,
+              "text": "4",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 22,
+              "text": "t",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 23,
               "text": "n } Translation —- new proteins",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -758,79 +665,6 @@
         }
       ],
       "explanation": "“>\n>*\\\nSteroid hormone receptors have an attachment site for steroid hormone, hormone-responsive\nelement, and transcription activators, but not transcription) repressors,“\n;\nTranscription repressors are proteins that bind to,specific sites on, DNA and prevent transcription\nof nearby genes. “>” ao Re\nMechanism of action of\nsteroid hormones\nSteroid hormone diffuses across the cell membrane\nland binds to its cytoplasmic receptor\n+\nHormone-receptor complex diffuses into or is\ntransported into the nucleus\n+\nHormone-receptor complex binds to the specific\nhormone response element activating the\ntranscription machinery including attachment\nof transcription activators\n4\n7 Transcription—- tmRNA\nt\nn } Translation —- new proteins\n\\ +\na Physiologic effects"
-    },
-    {
-      "id": "marrow__PHYS_CH02_Q014",
-      "questionNumber": 14,
-      "sourcePage": 23,
-      "provenance": {
-        "sourceFile": "physiologyed8.pdf",
-        "questionPages": [
-          23
-        ],
-        "answerKeyPages": [
-          25,
-          26
-        ],
-        "explanationPages": [
-          31
-        ]
-      },
-      "reviewStatus": "pass",
-      "question": "Which one of the following acts as a second messenger?",
-      "options": [
-        {
-          "letter": "A",
-          "text": "Mg2+"
-        },
-        {
-          "letter": "B",
-          "text": "Cl-"
-        },
-        {
-          "letter": "C",
-          "text": "Ca2+"
-        },
-        {
-          "letter": "D",
-          "text": "PO4 3-"
-        }
-      ],
-      "correctOption": 3,
-      "questionOptionFlags": [],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 5,
-              "text": "+ Direct entry of Ca2+ from the ECF through Ca2+ channels that could be ligand-gated,",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "* Mobilisation of Ca2+ that are stored in high concentrations in the endoplasmic reticulum by",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "= <s x",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Among the following calcium (Ca2+) acts as a second messenger.\nIncreased cytoplasmic Ca2+ binds to and activates calcium-binding proteins (calmodulin,\ntroponin) or activate protein kinases (or phospholipase C) to bring about physiological effects.\nCytoplasmic Ca2+ is increased by: oO.\n+ Direct entry of Ca2+ from the ECF through Ca2+ channels that could be ligand-gated,\nvoltage-gated or stretch-activated (mechanically gated). aw o\n* Mobilisation of Ca2+ that are stored in high concentrations in the endoplasmic reticulum by\nother second messengers such as IP3-DAG (Inositol.friphosphate-and diacylglycerol).\n= <s x"
     },
     {
       "id": "marrow__PHYS_CH02_Q015",
@@ -946,41 +780,6 @@
               "reasons": [
                 "edge_noise"
               ]
-            },
-            {
-              "line": 4,
-              "text": "+ All the 3 are G-protein coupled receptors",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "+ V1A and ViB receptors (Gq) act through IP3 as a second messenger, to increase the intracellular",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "+ V2 receptors (Gs) use cAMP as a second messenger",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "+ D1, D5 act by increasing cAMP",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "* D2, D3, D4 act by decreasing cAMP",
-              "reasons": [
-                "edge_noise"
-              ]
             }
           ]
         }
@@ -1029,9 +828,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 16,
+          "severity": 13,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
             "punctuation_run",
@@ -1050,7 +848,6 @@
               "line": 4,
               "text": "~~ ‘ »",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -1117,17 +914,9 @@
               ]
             },
             {
-              "line": 4,
-              "text": "+ Kinases a . o)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 5,
               "text": "* enzymes that catalyse the phosphorylation of\\tyrosine or serine residues in protein",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1135,15 +924,7 @@
               "line": 7,
               "text": "* Phosphatases ~ ae",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "+ that catalyses ithe dephosphotylation of tyrosine or serine residues in the protein",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -1210,6 +991,20 @@
           ],
           "suspectLines": [
             {
+              "line": 11,
+              "text": "or",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 14,
+              "text": "ic",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 20,
               "text": "\\O rates %",
               "reasons": [
@@ -1220,7 +1015,6 @@
               "line": 21,
               "text": "~\\ we Oo «",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -1301,13 +1095,6 @@
               ]
             },
             {
-              "line": 6,
-              "text": ". . a a. . ots",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 8,
               "text": "Nuclear Localization oo (NLS). \\",
               "reasons": [
@@ -1327,41 +1114,6 @@
               "text": "Caveolins: & \\ o~",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "+ Family oPintegral membrane proteins that are principal components of caveolae membranes",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 13,
-              "text": "+ Involved in receptor-independent endocytosis.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 14,
-              "text": "+ Acts as scaffolding proteins within caveolar membranes by compartmentalizing and",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 17,
-              "text": "+ Part of a prototypical proinflammatory signaling pathway",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 18,
-              "text": "* based on the role of NF-«B in the expression of proinflammatory genes including cytokines,",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]

@@ -4,9 +4,9 @@
   "subject": "Biochemistry",
   "chapterId": "19",
   "chapter": "Enzyme Kinetics and Regulation of Activity",
-  "candidateQuestionCount": 12,
+  "candidateQuestionCount": 15,
   "questionOptionCandidateCount": 0,
-  "explanationCandidateCount": 12,
+  "explanationCandidateCount": 15,
   "questions": [
     {
       "id": "marrow__BIOCHEM_CH19_Q001",
@@ -70,6 +70,13 @@
               ]
             },
             {
+              "line": 29,
+              "text": "o*",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 31,
               "text": ". > { >",
               "reasons": [
@@ -90,7 +97,6 @@
               "line": 33,
               "text": ". . - “ .%",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             }
@@ -145,21 +151,13 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
             "symbol_dense_line"
           ],
           "suspectLines": [
-            {
-              "line": 1,
-              "text": "+” ros a“",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 2,
               "text": "2 &* >",
@@ -257,8 +255,28 @@
               "line": 15,
               "text": "Vi = Vmax « [S] / Km + [S] SON ~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 18,
+              "text": "=",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 19,
+              "text": "=",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 21,
+              "text": "v",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -448,10 +466,24 @@
           ],
           "suspectLines": [
             {
+              "line": 16,
+              "text": "vf",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 25,
               "text": "S\\contormational",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 41,
+              "text": "1st",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
@@ -465,6 +497,77 @@
         }
       ],
       "explanation": "Km remains constant in noncompetitive inhibition.\n\nNon-competitive inhibition of enzymes occurs by the binding of inhibitors to enzymes in locations\ndifferent from the active site. The inhibition is not overcome by increasing the concentration of\nthe substrate. Thus, noncompetitive inhibitors decrease the Vmax of the reaction.\n\nNon-competitive inhibtiors do not resemble the substrate. Thus, they do not interfere with the\nbinding of the substrate to the enzyme. Thus, Km of the enzyme does not change.\n\nEnzyme @_— onviror\nLD suvstrate\n\nInhibitor binding Substrate binding site\nsite\n\nvf\n\nCompleting the\nreaction, however,\n\ndepends on the.\n\nenzyme undergoing\n\nS\\contormational\n\nchange that\n\nStocked by the Inhibitor. ed «\n\nThe inhibitor and\nRubstrate bind)\nother. Either oF both\nmay be bound at\nany tim:\n\nTe &\n\niN ae\n\n1st\n\nCc RSraiat SR SST eae\nas :"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH19_Q011",
+      "questionNumber": 11,
+      "sourcePage": 301,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          301
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          310,
+          311
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "reviewStatus": "pass",
+      "question": "Which of the following situations does the red line in the following graph depict?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Reaction with a competitive inhibitor"
+        },
+        {
+          "letter": "B",
+          "text": "Reaction with a noncompetitive inhibitor"
+        },
+        {
+          "letter": "C",
+          "text": "Reaction with a suicide inhibitor"
+        },
+        {
+          "letter": "D",
+          "text": "None of the above"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 26,
+              "text": ".",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 28,
+              "text": "Ku",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "The red line indicates an enzymatic reaction taking place in the presence of a competitive\ninhibitor.\n\nThe graph represents the enzymatic reaction velocity in relation to substrate concentration. The\nblack line indicates the reaction taking place in the absence of any inhibitor.\n\nIn the presence of a competitive inhibitor, as indicated by the red line,\n• Vmax remains unchanged.\n• Km is increased.\n\nIn the presence of a non-competitive inhibitor, as indicated by the blue line,\n• Vmax is decreased\n\n• Km remains unchanged\nNote:\n\nSuicide inhibitors are specialized substrate analogs. They contain a chemical group that can be\ntransformed by the target enzyme. After binding to the active site of the enzyme, catalysis by the\nenzyme generates a highly reactive group that forms a covalent bond and blocks the function of\n\nthe enzyme.\nVmax\nNormal enzyme ‘Competitive >\ninhibition . x\nNon-competitive inhibition\n.\nt (s)\nKu"
     },
     {
       "id": "marrow__BIOCHEM_CH19_Q012",
@@ -514,9 +617,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash",
             "symbol_dense_line"
@@ -545,13 +647,6 @@
               ]
             },
             {
-              "line": 20,
-              "text": "WW = no ibitor W = 10 inhibitor We ¢ = np inhibitor",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 21,
               "text": "Slope:ckange {a i Slope:change",
               "reasons": [
@@ -564,13 +659,6 @@
               "reasons": [
                 "hard_noise_char",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 28,
-              "text": "xw” a",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -637,7 +725,6 @@
               "line": 1,
               "text": "~ ‘oy ON",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -656,6 +743,20 @@
               ]
             },
             {
+              "line": 22,
+              "text": "_",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 23,
+              "text": "ow?",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 25,
               "text": "Enzyme Allosteric inhibitor | Allosteric activator",
               "reasons": [
@@ -663,37 +764,15 @@
               ]
             },
             {
-              "line": 26,
-              "text": "1. ALA synthase Heme -",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 27,
               "text": "2. Aspartate transcarbamoyla | CTP ATP",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
             {
-              "line": 29,
-              "text": "3. HMG CoA reductase Cholesterol -",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 31,
-              "text": "5. Acetyl CoA carboxylase Acyl CoA Citrate",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 32,
-              "text": "6. Citrate synthase ATP -",
+              "line": 28,
+              "text": "se",
               "reasons": [
                 "edge_noise"
               ]
@@ -702,7 +781,6 @@
               "line": 33,
               "text": "7. Carbamoyl phosphate synt | - NAG",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -710,8 +788,28 @@
               "line": 35,
               "text": "8. Carbamoyl phosphate synt | ATP -",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 37,
+              "text": "o12",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 48,
+              "text": "Pi",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 57,
+              "text": "ow?",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
@@ -879,7 +977,6 @@
               "line": 3,
               "text": "| ©) a”",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -895,6 +992,141 @@
         }
       ],
       "explanation": "ye ~\n\n| ©) a”\n\n&*%\n\nLow dose aspirin exerts its action iby irreversibly, inhibiting exchooxygenase enzyme activity in\nplatelets, which is an example\\of suicide inhibition.\n\nA suicidal enzyme is one ttt undergoe® self -destryefion 1 in order to terminate its own activity. In\nthis case, in response to irreversible inhibition by aspirin, platelet cyclooxygenase loses its ability\nto synthesize thromboxane. It undergoes self= -destruction. Unless new platelets are formed, this\n\ncyclooxygenase activity cannot be regained:"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH19_Q017",
+      "questionNumber": 17,
+      "sourcePage": 303,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          303
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          314
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "reviewStatus": "pass_with_normalization_note",
+      "question": "Which of the following nucleotide triphosphate targets ATCase for feedback regulation?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cytidine triphosphate"
+        },
+        {
+          "letter": "B",
+          "text": "Adenosine triphosphate"
+        },
+        {
+          "letter": "C",
+          "text": "Guanosine triphosphate"
+        },
+        {
+          "letter": "D",
+          "text": "A &amp; B"
+        }
+      ],
+      "correctOption": 4,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 5,
+              "text": "4",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": ".¢\n\nY fas\n\n4\n\nBoth cytidine triphosphate and adenosine triphosphate target aspartate transcarbamoylase\n(ATCase) for feedback regulation.\n\nATCase, the catalyst for the first reaction unique to pyrimidine biosynthesis, is a target of\nfeedback regulation by two nucleotide triphosphates: cytidine triphosphate (CTP) and adenosine\ntriphosphate (ATP). CTP is an end product of the pyrimidine biosynthetic pathway. It inhibits\nATCase, whereas the purine nucleotide ATP activates it.\n\nHigh levels of ATP can overcome the inhibition by CTP, enabling synthesis of pyrimidine\n\nnucleotides to proceed even when purine nucleotide (CTP) levels are elevated."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH19_Q018",
+      "questionNumber": 18,
+      "sourcePage": 303,
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          303,
+          304
+        ],
+        "answerKeyPages": [
+          304,
+          305
+        ],
+        "explanationPages": [
+          314,
+          315
+        ],
+        "sourceMetadata": {
+          "edition": "Marrow ED8",
+          "source_filename": "biochemistryed8.pdf"
+        }
+      },
+      "reviewStatus": "pass",
+      "question": "Which of the following is true regarding non-competitive inhibition?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Constant Km and increased Vmax"
+        },
+        {
+          "letter": "B",
+          "text": "Constant Km and decreased Vmax"
+        },
+        {
+          "letter": "C",
+          "text": "Decreased Km and decreased Vmax"
+        },
+        {
+          "letter": "D",
+          "text": "Decreased Km and increased Vmax"
+        }
+      ],
+      "correctOption": 2,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 10,
+              "text": "she",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 12,
+              "text": "vf",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Noncompetitive inhibition has constant Km and decreased Vmax.\n\nNoncompetitive inhibition occurs when the inhibitor binds at a site different from the\nsubstrate-binding site. The structure of the inhibitor does not resemble that of the substrate and\nthe inhibitor does not affect the binding of the substrate.\n\n@__ nivitor\n\nInhibitor binding\nshe\n\nvf"
     },
     {
       "id": "marrow__BIOCHEM_CH19_Q019",

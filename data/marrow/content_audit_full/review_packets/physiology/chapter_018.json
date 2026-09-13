@@ -4,10 +4,69 @@
   "subject": "Physiology",
   "chapterId": "18",
   "chapter": "Higher Mental Functions",
-  "candidateQuestionCount": 19,
+  "candidateQuestionCount": 20,
   "questionOptionCandidateCount": 0,
-  "explanationCandidateCount": 19,
+  "explanationCandidateCount": 20,
   "questions": [
+    {
+      "id": "marrow__PHYS_CH18_Q002",
+      "questionNumber": 2,
+      "sourcePage": 330,
+      "provenance": {
+        "sourceFile": "physiologyed8.pdf",
+        "questionPages": [
+          330
+        ],
+        "answerKeyPages": [
+          337,
+          338
+        ],
+        "explanationPages": [
+          339
+        ]
+      },
+      "reviewStatus": "pass",
+      "question": "Which is the EEG wave recorded in a subject who is awake but eyes closed?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Alpha waves"
+        },
+        {
+          "letter": "B",
+          "text": "Beta waves"
+        },
+        {
+          "letter": "C",
+          "text": "Theta waves"
+        },
+        {
+          "letter": "D",
+          "text": "Delta waves"
+        }
+      ],
+      "correctOption": 1,
+      "questionOptionFlags": [],
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 3,
+              "text": "le\"",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Alpha-waves are recorded best in the parieto-occipital region in adults at rest, i.e. awake but\nrelaxed with eyes closed.\nle\""
+    },
     {
       "id": "marrow__PHYS_CH18_Q003",
       "questionNumber": 3,
@@ -57,6 +116,20 @@
             "literal_backslash"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "Bae",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "Le",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
             {
               "line": 5,
               "text": "rg \\",
@@ -127,8 +200,9 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 3,
+          "severity": 6,
           "reasons": [
+            "edge_noise",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -137,6 +211,48 @@
               "text": "o)) re—",
               "reasons": [
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 8,
+              "text": "o",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 9,
+              "text": "=",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 11,
+              "text": ">",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 12,
+              "text": "i",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 13,
+              "text": "ok",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 14,
+              "text": "Le",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -200,22 +316,8 @@
               ]
             },
             {
-              "line": 3,
-              "text": "+ In young adults, the largest amount of sleep time (50-60%):is-spent in stage 2 NREM sleep;",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "+ REM sleep occupies 80% of totabgleep time iermature infants and 50 % in full-term",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "ha! a",
+              "line": 11,
+              "text": "Ss",
               "reasons": [
                 "edge_noise"
               ]
@@ -282,36 +384,8 @@
           ],
           "suspectLines": [
             {
-              "line": 6,
-              "text": "+ Electrical stimulation of the anterior hypothalamus and the adjacent basal forebrain region",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "+ These cells are thought to produce sleep by inhibiting the histaminergic cells in the posterior",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "+ They are maximally active in NREM sleep and inactive during waking and REM sleep.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "+ NREM sleep is produced by synchronized synaptic potentials in cortical neurons generated by",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 15,
-              "text": ". . a a",
+              "line": 14,
+              "text": "1",
               "reasons": [
                 "edge_noise"
               ]
@@ -322,13 +396,13 @@
       "explanation": "The nucleus coeruleus (locus coeruleus) is rich in norepinephrine and the Raphe nuclei of ARAS is\nrich in serotonin. These regions when stimulated induce arousal. Thus, the dorsal raphe nucleus is\nnot involved in NREM sleep.\nGenesis and Regulation of NREM sleep\n\n+ Electrical stimulation of the anterior hypothalamus and the adjacent basal forebrain region\nrapidly induces sleep mediated by GABA-ergic inhibitory neurons called the NREM-on cells.\n+ These cells are thought to produce sleep by inhibiting the histaminergic cells in the posterior\nhypothalamus as well as cells of the nucleus reticularis pontis oralis in the midbrain that mediate\narousal.\n+ They are maximally active in NREM sleep and inactive during waking and REM sleep.\n+ NREM sleep is produced by synchronized synaptic potentials in cortical neurons generated by\nthe rhythmic firing of thalamic relay neurons that project to the cortex. (Thalamocortical loop)\n1\n. . a a"
     },
     {
-      "id": "marrow__PHYS_CH18_Q009",
-      "questionNumber": 9,
-      "sourcePage": 332,
+      "id": "marrow__PHYS_CH18_Q008",
+      "questionNumber": 8,
+      "sourcePage": 331,
       "provenance": {
         "sourceFile": "physiologyed8.pdf",
         "questionPages": [
-          332
+          331
         ],
         "answerKeyPages": [
           337,
@@ -339,26 +413,26 @@
         ]
       },
       "reviewStatus": "pass",
-      "question": "Which of the following is associated with slow-wave sleep?",
+      "question": "Delta waves are seen in ______.",
       "options": [
         {
           "letter": "A",
-          "text": "Nightmares"
+          "text": "Deep sleep"
         },
         {
           "letter": "B",
-          "text": "Cardiac arrhythmias"
+          "text": "REM Sleep"
         },
         {
           "letter": "C",
-          "text": "Penile tumescence"
+          "text": "Awake state"
         },
         {
           "letter": "D",
-          "text": "Delta activity"
+          "text": "NREM 1"
         }
       ],
-      "correctOption": 4,
+      "correctOption": 1,
       "questionOptionFlags": [],
       "explanationFlags": [
         {
@@ -370,7 +444,14 @@
           "suspectLines": [
             {
               "line": 1,
-              "text": "rs\" G ek",
+              "text": "e",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "aaa .",
               "reasons": [
                 "edge_noise"
               ]
@@ -378,7 +459,7 @@
           ]
         }
       ],
-      "explanation": "rs\" G ek\nIn slow-wave sleep, (StagéS3 and 4 of NREM) delta wavés' predominate the EEG.\ni fae\nS fe e\nra ih"
+      "explanation": "e\naaa .\nDelta waves are predominant in N3 (formerly called stagég! and 4) of NREM. This is characteristic\nof deep sleep, also referred to as slow wave sleep. » =,\" ie ! c\n(Delta waves for Deep sleep) wore : ce ‘se a\nrah = rt\na a, ns\nth an rt"
     },
     {
       "id": "marrow__PHYS_CH18_Q010",
@@ -499,9 +580,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 11,
+          "severity": 8,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "ocr_suffix"
           ],
@@ -517,7 +597,6 @@
               "line": 15,
               "text": "| Inhibition of pineal gland",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -532,7 +611,6 @@
               "line": 17,
               "text": "| melatonin Pei, ‘a",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "ocr_suffix"
               ]
@@ -590,50 +668,8 @@
           ],
           "suspectLines": [
             {
-              "line": 5,
-              "text": "ee _ oA",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "+ Procedural memory (ekilggpstnabits) i, striatum, cerebellum, motor cortex",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "+ Priming in neocortex... 5",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "+ Non-associative learning (includes*habituation and sensitization, e.g., Byhearting facts)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 13,
-              "text": ". Associatixg learning: clasgida’and operant conditioning",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 17,
-              "text": "+ Semantic memory (facts) e.g., Knowing capital of India: Parts of brain involved are temporal",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 19,
-              "text": "+ Episodic memory (events) e.g., Recalling first day in college: hippocampus, medial temporal lobe",
+              "line": 12,
+              "text": "At]",
               "reasons": [
                 "edge_noise"
               ]
@@ -693,123 +729,23 @@
           ],
           "suspectLines": [
             {
-              "line": 9,
-              "text": "+ Production of enhanced postsynaptic potential, which occurs after a brief tetanizing train of",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 15,
               "text": "+ This enhancement lasts up to 60 seconds. A } hs",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 17,
-              "text": "+ Habituation hy, Fa,\" “ %",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 19,
-              "text": "+ Asimple form of learning in which neutral stimulus is repeated many times until the subject",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 24,
-              "text": "+ A classic example of non-associaiii@ learning (exg, ‘Yearning a, faet by heart)",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
               "line": 25,
               "text": "* Sensitization: The opposite of'habituation.».\".~ ~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "punctuation_run"
               ]
             },
             {
-              "line": 27,
-              "text": "+ Long-term Potentiation (LTP) sa eo",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 28,
-              "text": "yh! a",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 30,
-              "text": "+ A rapidly developing persistent galiancement of the post-synaptic potential response to",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 34,
-              "text": "+ Characteristically observed in the hippoetampus",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 37,
-              "text": "+ Long-term Depression. o",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 38,
               "text": "a +",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 39,
-              "text": "+ Is the opposite-of LTP _»,\"s",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 40,
-              "text": "4, a",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 42,
-              "text": "+ Characterized by a decrease in synaptic strength",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 44,
-              "text": "+ Produced by slower stimulation of presynaptic neuron",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 46,
-              "text": "* May be involved in the neural mechanism by which learning occurs in the cerebellum",
               "reasons": [
                 "edge_noise"
               ]
@@ -862,33 +798,17 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 13,
+          "severity": 10,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "punctuation_run",
             "symbol_dense_line"
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "+ Wernicke’s area, lies behind the primary auditory cortex in the posterior part of the superior",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 3,
-              "text": "+ Wernicke’s area is concerned with language comprehension.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 5,
               "text": "| Se |e i> I",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -902,24 +822,10 @@
               ]
             },
             {
-              "line": 13,
-              "text": "‘= ce he",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 14,
               "text": "can gO ~",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 15,
-              "text": "ae: ca * 2",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -976,20 +882,6 @@
             "symbol_dense_line"
           ],
           "suspectLines": [
-            {
-              "line": 3,
-              "text": "+ Repetition is impaired in Brocat’s aphasia. Ve",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "+ Aphasias are abnormalities. of language,functions that are not due to defects of vision or hearing",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 7,
               "text": "~>* al",
@@ -1069,6 +961,27 @@
               ]
             },
             {
+              "line": 19,
+              "text": "Le",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 22,
+              "text": "Ay,",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 23,
+              "text": "AAV",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 24,
               "text": "\\ /",
               "reasons": [
@@ -1087,7 +1000,15 @@
               "line": 27,
               "text": "\\",
               "reasons": [
+                "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 29,
+              "text": ">",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
@@ -1096,6 +1017,20 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 31,
+              "text": "\"eg",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 32,
+              "text": "a",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -1155,50 +1090,15 @@
           ],
           "suspectLines": [
             {
-              "line": 3,
-              "text": "+ Immediate",
+              "line": 8,
+              "text": "1",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 4,
-              "text": "+ Recent",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "+ Remote",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 7,
-              "text": "+ Digit span test: Most important and best test for immediate memory +",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "+ Serial (100-7) subtraction test is the best for concentration ao",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "* Days of the week backwards on of",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "* Spell WORLD backwards = e) a. t)",
+              "line": 10,
+              "text": "Le",
               "reasons": [
                 "edge_noise"
               ]
@@ -1212,38 +1112,10 @@
               ]
             },
             {
-              "line": 14,
-              "text": "* (20-3) test ah < s,",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 17,
-              "text": "te , ch",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 21,
               "text": "numbers correctly. i ‘. ms 2 \\",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 24,
-              "text": "+ Normally a person can repeat.ip to 7 digits GF 2)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 25,
-              "text": "+ E.g., Examiner says 2 - $81 -5 7-7; %. The person has to repeat in the same order 2 — 4 — 8 -1",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -1261,8 +1133,8 @@
               ]
             },
             {
-              "line": 28,
-              "text": ". Reprodugtion of longer digits in backward direction.",
+              "line": 29,
+              "text": "ah,",
               "reasons": [
                 "edge_noise"
               ]
@@ -1271,43 +1143,7 @@
               "line": 30,
               "text": "* Normally a person can repeat up to 5 digits (+/- 1) in backward direction (making option C",
               "reasons": [
-                "edge_noise",
                 "punctuation_run"
-              ]
-            },
-            {
-              "line": 32,
-              "text": "+ Eg : Examiner says 2 - 4 -8 -1—5 -7 - 9. The person has to repeat it backwards. 9 -7 -5 -1 -8- 4- 2.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 34,
-              "text": "* 5 scores / steps are taken in to account",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 35,
-              "text": "* 1st score — When the patient tells 93 (100 - 7 = 93)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 36,
-              "text": "+ 2nd score - When the patient tells 86 (93 — 7 = 86)",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 37,
-              "text": "+ And soon..100 , 93 ,86,79,72,65",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1366,36 +1202,15 @@
           ],
           "suspectLines": [
             {
-              "line": 4,
-              "text": "= emmeeeae aces @",
+              "line": 21,
+              "text": "a",
               "reasons": [
                 "edge_noise"
               ]
             },
             {
-              "line": 6,
-              "text": "= fd a dt da bbelbbadedabebibebabbabelebedisbele",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 15,
-              "text": "+ EOG shows Positive activity oe ye",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 17,
-              "text": "+ EEG shows Mixed waves CS Saal",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 19,
-              "text": "+ EMG shows Minima goin al,",
+              "line": 24,
+              "text": "ae",
               "reasons": [
                 "edge_noise"
               ]
@@ -1405,6 +1220,13 @@
               "text": "Active stat | Fast | + +",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 26,
+              "text": "e",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
@@ -1422,10 +1244,16 @@
               ]
             },
             {
+              "line": 30,
+              "text": "ep",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 32,
               "text": "| ra rrr 7",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1440,13 +1268,12 @@
               "line": 37,
               "text": "ne | or woe 4",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
             {
-              "line": 38,
-              "text": "= ae gn Ce",
+              "line": 39,
+              "text": "Bre",
               "reasons": [
                 "edge_noise"
               ]
@@ -1455,7 +1282,6 @@
               "line": 40,
               "text": "| |e Pa a a se) Sr eS ee",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1588,6 +1414,13 @@
               ]
             },
             {
+              "line": 2,
+              "text": "ao",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 5,
               "text": "x “\\",
               "reasons": [
@@ -1652,6 +1485,20 @@
           ],
           "suspectLines": [
             {
+              "line": 1,
+              "text": "eB.",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 2,
+              "text": "ce",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 3,
               "text": "ee |",
               "reasons": [
@@ -1668,64 +1515,8 @@
               ]
             },
             {
-              "line": 8,
-              "text": "4 =A",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "+ Impairs the executive functions: motivation, ‘attention, and ‘sequencing’of actions",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 11,
               "text": "i < ,",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "+ Aphasia, apraxia, constructional apraxia, neglect,,and memory deficits can be seen",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 13,
-              "text": ". ie fet",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 14,
-              "text": "* Characterized by changes in personality te ra",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 15,
-              "text": "+ Apathetic indifference and-impulsive behaviour. _e",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 16,
-              "text": "* Commonly urinary incontinence and faecal incontinence is seen",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 17,
-              "text": "+ Commonly produced by trauma) infarcts, tuthdurs, lobotomy, multiple sclerosis, or Pick's",
               "reasons": [
                 "edge_noise"
               ]
@@ -1753,13 +1544,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 24,
-              "text": "4, 4",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -1817,9 +1601,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 6,
+          "severity": 3,
           "reasons": [
-            "edge_noise",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -1827,51 +1610,20 @@
               "line": 13,
               "text": "Note: = _=",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 15,
-              "text": "+ Autotopagnosia - inability to recognize or to orient anys part of one's,owit body",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 16,
-              "text": "+ Simultagnosia - inability to recognize multiple elements ina visual-presentation, one object or",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 18,
-              "text": "* Somatagnosia - inability to identify any/patt of the body,,either one’sidwn or another's body",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
               "line": 19,
               "text": "= i ‘s,*",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 20,
-              "text": "+ Tactile agnosia (astereognosis) - ‘inability to recogihide objects byctouch, in the presence of intact",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
               "line": 22,
               "text": "o. =, r),",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             }
@@ -1947,50 +1699,8 @@
               ]
             },
             {
-              "line": 7,
-              "text": "* Genesis of emétion and rating of emotional importance —from the limbic system — amygdala.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "+ The limbiésystem houses‘the emotional association areas, which direct the hypothalamus to",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "+ The amygdala rates the emotional importance of an experience and activates the hippocampus",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 14,
-              "text": "+ Damage to the amygdala ablates the ability to distinguish fear and anger in other persons’ voices",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 16,
-              "text": "+ Regulation of emotion - frontal lobe.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 22,
-              "text": "J “ a / ag COMPONENTS IN",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 23,
-              "text": "> ae THE CEREBRUM",
+              "line": 27,
+              "text": "Sno",
               "reasons": [
                 "edge_noise"
               ]
@@ -2003,8 +1713,15 @@
               ]
             },
             {
-              "line": 29,
-              "text": "“ g e",
+              "line": 34,
+              "text": "2?",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 35,
+              "text": "Ss",
               "reasons": [
                 "edge_noise"
               ]
@@ -2017,9 +1734,17 @@
               ]
             },
             {
+              "line": 37,
+              "text": "ao",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 38,
               "text": "~f",
               "reasons": [
+                "edge_noise",
                 "hard_noise_char"
               ]
             }

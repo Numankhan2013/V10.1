@@ -57,7 +57,6 @@
               "line": 3,
               "text": "x ~K",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -67,9 +66,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 7,
+          "severity": 4,
           "reasons": [
-            "edge_noise",
             "hard_noise_char"
           ],
           "suspectLines": [
@@ -78,34 +76,6 @@
               "text": "known as the Bell-~Magendie law.",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 4,
-              "text": "+ Muller's doctrine of specific nerve energies: When the nerve pathways from a particular sense",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "+ Law of projection: No matter where a particular sensory pathway is stimulated along its course",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "+ Weber-Fechner Law: Magnitude of sensation felt is directly proportional to the log of the",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 12,
-              "text": "+ Labelled line theory: All the sensations from the different parts of the body travel along specified",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -185,6 +155,13 @@
               ]
             },
             {
+              "line": 2,
+              "text": "ol",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 3,
               "text": "| oy",
               "reasons": [
@@ -228,7 +205,6 @@
               "line": 5,
               "text": "o~ 2",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -245,6 +221,13 @@
             "literal_backslash"
           ],
           "suspectLines": [
+            {
+              "line": 1,
+              "text": "oN?",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
             {
               "line": 5,
               "text": "€ ce",
@@ -333,7 +316,6 @@
               "line": 8,
               "text": "a = \\ a",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -361,10 +343,16 @@
               ]
             },
             {
+              "line": 13,
+              "text": "eee",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 15,
               "text": "So «7 <<",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
               ]
             }
@@ -414,32 +402,17 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 10,
+          "severity": 7,
           "reasons": [
-            "edge_noise",
             "hard_noise_char",
             "literal_backslash"
           ],
           "suspectLines": [
             {
-              "line": 1,
-              "text": "3, dorsal enfin, Uncomsfi",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 5,
               "text": "€ — a A",
               "reasons": [
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "et, an.",
-              "reasons": [
-                "edge_noise"
               ]
             },
             {
@@ -535,7 +508,6 @@
               "line": 5,
               "text": "NA ~@",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -609,8 +581,25 @@
           ]
         }
       ],
-      "explanationFlags": [],
-      "explanation": null
+      "explanationFlags": [
+        {
+          "field": "explanation",
+          "severity": 3,
+          "reasons": [
+            "edge_noise"
+          ],
+          "suspectLines": [
+            {
+              "line": 6,
+              "text": "we\"",
+              "reasons": [
+                "edge_noise"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": "Processing of tactile stimulation occurs in Brodmann’s area in 3, 1, 2.\n‘The human cerebral cortex is divided into about 50 distinct areas called Brodmann’s areas based\non histological structural differences.\nAreas 3, 1, 2 which constitute primary somatosensory area I, and areas 5 and 7, which constitute\nthe somatosensory association area process sensory information like tactile stimulation.\nwe\""
     },
     {
       "id": "marrow__PHYS_CH12_Q007",
@@ -672,7 +661,6 @@
               "line": 10,
               "text": "ae ~t",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -680,15 +668,20 @@
               "line": 15,
               "text": "a- i ——_",
               "reasons": [
-                "edge_noise",
                 "symbol_dense_line"
+              ]
+            },
+            {
+              "line": 16,
+              "text": "Ca\"",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
               "line": 17,
               "text": "iy, Ce eEP ~< a",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -697,6 +690,13 @@
               "text": "\\per \"Ny",
               "reasons": [
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 19,
+              "text": "ae",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -756,7 +756,6 @@
               "line": 8,
               "text": "\\ E cae \\\\ a",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -769,13 +768,6 @@
               ]
             },
             {
-              "line": 13,
-              "text": "c= Wn .",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 14,
               "text": "Da >",
               "reasons": [
@@ -785,6 +777,13 @@
             {
               "line": 18,
               "text": "YY =",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
+              "line": 20,
+              "text": "SS",
               "reasons": [
                 "edge_noise"
               ]
@@ -840,17 +839,9 @@
           ],
           "suspectLines": [
             {
-              "line": 4,
-              "text": "ee < S",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 5,
               "text": "- ~ aN? 2",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -872,8 +863,14 @@
               "line": 9,
               "text": "| Keo? Fy 7eDes \\\\_",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 10,
+              "text": "‘ico",
+              "reasons": [
+                "edge_noise"
               ]
             },
             {
@@ -895,15 +892,7 @@
               "line": 14,
               "text": "\\. a 2",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 17,
-              "text": "a: O eo",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -970,9 +959,8 @@
       "explanationFlags": [
         {
           "field": "explanation",
-          "severity": 6,
+          "severity": 3,
           "reasons": [
-            "edge_noise",
             "symbol_dense_line"
           ],
           "suspectLines": [
@@ -981,34 +969,6 @@
               "text": "®) aN ?",
               "reasons": [
                 "symbol_dense_line"
-              ]
-            },
-            {
-              "line": 6,
-              "text": "+ Inability to localize different sensations in difféfent parts of the body",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "+ Inability to judge theweignt of the-ebjects",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 9,
-              "text": "+ Inability to judg@ shapes of formas of objects - astereognosis",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "+ Tnabilityto, judge the texte of the materials",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1072,17 +1032,9 @@
               ]
             },
             {
-              "line": 7,
-              "text": "+ Pyramidal tract: Pyramidal weakness (ipsilateral-ppér motor newton type of paralysis) below",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 9,
               "text": "+ Dorsal columns: Impaired fine touch, 2{point discrimination, proprigesption, vibration below",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1094,17 +1046,9 @@
               ]
             },
             {
-              "line": 12,
-              "text": "+ Spinothalamic tract: Loss of pain, temperature, erude touch, préssure sensation below the level",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 16,
               "text": "o~ o *",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -1165,13 +1109,6 @@
               "reasons": [
                 "hard_noise_char"
               ]
-            },
-            {
-              "line": 2,
-              "text": "; Noe so",
-              "reasons": [
-                "edge_noise"
-              ]
             }
           ]
         },
@@ -1206,25 +1143,8 @@
           ]
         }
       ],
-      "explanationFlags": [
-        {
-          "field": "explanation",
-          "severity": 3,
-          "reasons": [
-            "edge_noise"
-          ],
-          "suspectLines": [
-            {
-              "line": 1,
-              "text": "Ny >»",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
-        }
-      ],
-      "explanation": "Ny >»\nIich-specifi fibers have been dem@ustrated in the anterolateral spinothalamic tract. They are\ncarried by yagyfated neryesfiber C. Itching can be produced by repeated local mechanical\nstimulatianrof 3 in, variety(of chemical agents including histamine and kinins released in the skin\nin response to tissue dame\nSimple scratching relieves itching because it activates large fast conducting afferents (AB) that gate\nthe transmission in the dorsal horn in a manner analogous to inhibition of pain by stimulation of\nsimilar afferents (Gate control theory)."
+      "explanationFlags": [],
+      "explanation": null
     },
     {
       "id": "marrow__PHYS_CH12_Q014",
@@ -1292,7 +1212,6 @@
               "line": 3,
               "text": "Enkephali ~ <>",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -1358,17 +1277,9 @@
               ]
             },
             {
-              "line": 5,
-              "text": "+ Neospinothalmic tract for fast pain/epicritic,pair(As fibres) &",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 7,
               "text": "+ Paleospinothalamic tract for slow pain/Protopathic pain (Ctibres) “~~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1378,13 +1289,6 @@
               "reasons": [
                 "edge_noise",
                 "hard_noise_char"
-              ]
-            },
-            {
-              "line": 10,
-              "text": "so\" ee",
-              "reasons": [
-                "edge_noise"
               ]
             }
           ]
@@ -1439,17 +1343,9 @@
           ],
           "suspectLines": [
             {
-              "line": 2,
-              "text": "‘ of KO es",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
               "line": 3,
               "text": "\\O> S >",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -1458,7 +1354,6 @@
               "line": 4,
               "text": "- ke) Xo ses~",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             }
@@ -1473,20 +1368,6 @@
             "edge_noise"
           ],
           "suspectLines": [
-            {
-              "line": 9,
-              "text": "+ Release of endogenous abn gh ‘as 2-arachidonoylglycerol (2-AG) and anandamide",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 11,
-              "text": "+ Release of Norepingbbrine frombrainstem catecholaminergic neurons in the amygdala.",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
             {
               "line": 13,
               "text": "oO ’",
@@ -1582,8 +1463,14 @@
               "line": 2,
               "text": "e~ oO",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
+              ]
+            },
+            {
+              "line": 4,
+              "text": "Oo",
+              "reasons": [
+                "edge_noise"
               ]
             }
           ]
@@ -1640,10 +1527,16 @@
           ],
           "suspectLines": [
             {
+              "line": 15,
+              "text": "Ts",
+              "reasons": [
+                "edge_noise"
+              ]
+            },
+            {
               "line": 16,
               "text": ", a~ a",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1651,7 +1544,6 @@
               "line": 17,
               "text": "e~ Oo",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char"
               ]
             },
@@ -1727,15 +1619,7 @@
           "reasons": [
             "short_ocr_line"
           ],
-          "suspectLines": [
-            {
-              "line": 2,
-              "text": "> 4 c&",
-              "reasons": [
-                "edge_noise"
-              ]
-            }
-          ]
+          "suspectLines": []
         },
         {
           "field": "option_D",
@@ -1748,7 +1632,6 @@
               "line": 4,
               "text": "=e ~ 4&",
               "reasons": [
-                "edge_noise",
                 "hard_noise_char",
                 "symbol_dense_line"
               ]
@@ -1875,20 +1758,6 @@
             {
               "line": 2,
               "text": "he =",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 5,
-              "text": "+ The person is unable to localige Wiscretel ‘thé different sensations in the different parts of the",
-              "reasons": [
-                "edge_noise"
-              ]
-            },
-            {
-              "line": 8,
-              "text": "+ The person is unable to judge exftieal degrees of pfessure/weight/texture.",
               "reasons": [
                 "edge_noise"
               ]
