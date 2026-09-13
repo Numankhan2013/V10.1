@@ -30,3 +30,18 @@
 - The promotion workflow validated all active v2 overrides, rebuilt the complete 2,711-question effective bank, re-ran learner-visible debris detection, proved raw/effective correct-option indexes identical, and kept `questionOptionCandidateQuestions` exactly 0.
 - Effective residual after promotion: 540 explanation candidates globally; Anatomy 54, Biochemistry 120, Physiology 366. Chapter 12 now has four residual explanation candidates.
 - Exact next unresolved Anatomy source-order item requiring cleanup: `marrow__ANAT_CH12_Q008`, explanation page 225. Continue in Chapter 12 source order.
+
+## 2026-09-13 — Biochemistry cleanup batch 01
+
+- Cleanup integration lane: `fix/marrow-full-content-cleanup-20260913`.
+- Canonical head checked immediately before mutation: `feature/marrow-canonical-full-current` at `fcb7c51af1f24d3090a5f7b483bf4c6f2cc003a0`; the concurrent canonical work is Anatomy-only and does not overlap this Biochemistry Chapter 1 batch.
+- Reviewed proposal commit: `83536341688c9d39f1cafab8a10cd32802d8d2d7`.
+- Verified promotion commit: `12f7a204ce60514ec3540d0dd92d28dba24e4d71`.
+- Promotion/validation workflow: `34747048098`, SUCCESS.
+- Source reviewed: verified Marrow ED8 Biochemistry `biochemistryed8.pdf`; rendered explanation pages 11-18 for Chapter 1 `Chemistry of Carbohydrates, Amino sugars and Mucopolysaccharides`.
+- Active source-fingerprinted v2 cleanup file: `data/marrow/content_hygiene_overrides_v2/biochemistry/chapter_001.json`.
+- CLEANED IDs: `marrow__BIOCHEM_CH01_Q001`, `marrow__BIOCHEM_CH01_Q004`, `marrow__BIOCHEM_CH01_Q006`, `marrow__BIOCHEM_CH01_Q007`, `marrow__BIOCHEM_CH01_Q009`, `marrow__BIOCHEM_CH01_Q018`, `marrow__BIOCHEM_CH01_Q020`, `marrow__BIOCHEM_CH01_Q021`.
+- Cleanup reconstructed only readable source prose/tables from the rendered pages and removed OCR/diagram/footer debris. No question or option text was changed in this batch; no answer index or mapping changed. No items were deferred in this batch.
+- The promotion workflow validated every active v2 override, rebuilt the complete 2,711-question effective bank, re-ran learner-visible debris detection, proved raw/effective correct-option indexes identical, and kept `questionOptionCandidateQuestions` exactly 0.
+- Effective residual after promotion: 532 explanation candidates globally; Anatomy 54, Biochemistry 112, Physiology 366. Biochemistry Chapter 1 has no remaining detector-flagged explanation candidates.
+- Exact next unresolved Biochemistry source-order item requiring cleanup: `marrow__BIOCHEM_CH03_Q003`, explanation page 52. Continue in Chapter 3 source order.
