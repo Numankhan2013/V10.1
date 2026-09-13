@@ -6,6 +6,7 @@ on:
       - fix/marrow-full-content-cleanup-20260913
     paths:
       - tools/export_full_marrow_content_audit.py
+      - tools/find_marrow_visible_debris.py
       - .github/workflows/full-marrow-content-audit.yml
 
 permissions:
@@ -33,6 +34,8 @@ jobs:
           assert got == {'Anatomy': (1115, 63), 'Biochemistry': (582, 28), 'Physiology': (1014, 43)}, got
           print('FULL_MARROW_CONTENT_AUDIT_COUNTS_OK', got)
           PY
+      - name: Build over-inclusive visible-debris review queue
+        run: python tools/find_marrow_visible_debris.py
       - name: Commit derived audit projection
         run: |
           git config user.name "github-actions[bot]"
@@ -42,5 +45,5 @@ jobs:
             echo "Audit already current."
             exit 0
           fi
-          git commit -m "Generate full Marrow content audit [skip ci]"
+          git commit -m "Refresh full Marrow content audit [skip ci]"
           git push origin HEAD:fix/marrow-full-content-cleanup-20260913
