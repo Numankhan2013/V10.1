@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "purpose": "Review queue for visible OCR/code debris; never an auto-rewrite list.",
-  "candidateFieldCount": 200,
-  "candidateQuestionCount": 200,
+  "candidateFieldCount": 197,
+  "candidateQuestionCount": 197,
   "candidates": [
     {
       "id": "marrow__PHYSIO_CH20_Q010",
@@ -6844,73 +6844,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__PHYSIO_CH19_Q005",
-      "subject": "Physiology",
-      "chapterId": "19",
-      "chapter": "Functional Anatomy",
-      "questionNumber": 5,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char"
-      ],
-      "value": "Salbutamol, a short-acting beta (adrenergic) agonist (SABA) is a bronchodilator. Similarly,\nvasoactive intestinal polypeptide (VIP) is also a bronchodilator. Along with dynorphin, it is part of\nthe non-adrenergic non-cholinergic (NANC) inhibitory system.\nBronchial innervation:\nOther potent bronchoconstrictors are histamine and leukotrienes.\nClinical relevance:\n¢ Methacholine sensitivity test or Airway hyperresponsiveness test: Methacholine which is similar\nto acetylcholine causes exaggerated bronchoconstriction in case of bronchial asthma.\n¢ 5-Lipoxygenase inhibitor (5-LOX inhibitor-Zileuton), selective CysLT-receptor antagonists (Cys\nleukotriene receptor antagonist-zafirlukast, pranlukast, and montelukast}, and B2 receptor\nagonists are used in the treatment of asthma.\nSite Type of recept Effect\nor\nSympathetic system\nTracheal and bronchial smoo 2 Relaxation\nth muscle\nBronchial glands ° 1B2 Reduce secretionIncrease sec\nretion\nParasympathetic system (mor\ne predominant)\n‘Tracheal and bronchialsmoo M2, M3 Contraction\nth muscle\nBronchial glands M2, M3 Stimulation",
-      "suspectLines": [
-        {
-          "line": 10,
-          "text": "leukotriene receptor antagonist-zafirlukast, pranlukast, and montelukast}, and B2 receptor",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 13,
-          "text": "or",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 353,
-      "reviewStatus": "pass_with_normalization_note"
-    },
-    {
-      "id": "marrow__PHYSIO_CH19_Q006",
-      "subject": "Physiology",
-      "chapterId": "19",
-      "chapter": "Functional Anatomy",
-      "questionNumber": 6,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char"
-      ],
-      "value": "Type 2 pneumocytes secrete surfactant in the lungs.\nAlveolar Lining Epithelial Cells\nTwo types\n+ Type I cells - The primary lining cells of the alveoli (squamous epithelium); Helps in gas\nexchange\n¢ Type II cells - Granular pneumocytes produce surfactant\nType II cells make 60% of epithelial cells in alveoli but type I cells form 95% of the total surface\narea because of its flat surface.\nType II cells are stem cells which help in replenishing damaged Type 1 pneumocytes in conditions\nlike drug-induced pulmonary toxicity by amiodarone, bleomycin etc.\nOther cells — Pulmonary alveolar macrophages (PAMs/type 3 alveolar cells}, lymphocytes, plasma\ncells, neuroendocrine cells (APUD cells-Amine precursor uptake and decarboxylation), and mast\ncells.\nalveokes coptany “\n~\ncootuien",
-      "suspectLines": [
-        {
-          "line": 11,
-          "text": "Other cells — Pulmonary alveolar macrophages (PAMs/type 3 alveolar cells}, lymphocytes, plasma",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 15,
-          "text": "~",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 353,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYSIO_CH20_Q001",
       "subject": "Physiology",
       "chapterId": "20",
@@ -8585,31 +8518,6 @@
       ],
       "sourcePage": 260,
       "reviewStatus": "pass_with_source_note"
-    },
-    {
-      "id": "marrow__PHYSIO_CH19_Q010",
-      "subject": "Physiology",
-      "chapterId": "19",
-      "chapter": "Functional Anatomy",
-      "questionNumber": 10,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 4,
-      "reasons": [
-        "hard_noise_char"
-      ],
-      "value": "Stability of alveoli is maintained by increased alveolar surface area by surfactant.\nSurfactant reduces the lung's tendency to recoil so that they do not collapse easily and so the\nstability of the alveoli is maintained.\nFactors that maintain alveolar stability\n+ Pulmonary surfactant: | surface tension within alveoli\n¢ Mechanical interdependence: prevents alveolar collapse\nInterdependence\nThe tendency of one alveolus to collapse is opposed by the traction exerted by the surrounding\nalveoli. Thus, the collapse of a single alveolus stretches and distorts the surrounding alveoli, which\nin turn are connected to other alveoli. This support offered to lung units by those surrounding\nthem is termed Interdependence.",
-      "suspectLines": [
-        {
-          "line": 5,
-          "text": "+ Pulmonary surfactant: | surface tension within alveoli",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 354,
-      "reviewStatus": "pass"
     },
     {
       "id": "marrow__PHYSIO_CH20_Q003",
