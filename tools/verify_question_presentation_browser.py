@@ -39,8 +39,10 @@ def main() -> None:
             page.evaluate("window.QB.practiceOne('physiology-1-13')")
             table = page.locator(".question-text .nk-match-table")
             table.wait_for(state="visible")
-            if table.locator("th").all_inner_texts() != ["List I", "List II"]:
-                raise SystemExit(f"Matching table headers are wrong: {table.locator('th').all_inner_texts()!r}")
+            headers = table.locator("th").all_inner_texts()
+            normalized_headers = [" ".join(value.split()).upper() for value in headers]
+            if normalized_headers != ["LIST I", "LIST II"]:
+                raise SystemExit(f"Matching table headers are wrong: {headers!r}")
             visible = table.inner_text()
             for expected in ("Acetylcholine (ACh)", "Raphe nuclei", "Norepinephrine (NE)", "Locus ceruleus"):
                 if expected not in visible:
@@ -61,8 +63,9 @@ def main() -> None:
             page.evaluate("window.QB.practiceOne('physiology-19-12')")
             statements = page.locator(".question-text .nk-match-table")
             statements.wait_for(state="visible")
-            if statements.locator("th").all_inner_texts() != ["Statements"]:
-                raise SystemExit("Combination-question labels were not presented as a statement list")
+            statement_headers = statements.locator("th").all_inner_texts()
+            if [" ".join(value.split()).upper() for value in statement_headers] != ["STATEMENTS"]:
+                raise SystemExit(f"Combination-question labels were not presented as a statement list: {statement_headers!r}")
             statement_text = statements.inner_text()
             for expected in ("Liver", "Kidney", "Muscle", "Heart"):
                 if expected not in statement_text:
