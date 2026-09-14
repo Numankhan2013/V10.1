@@ -1,0 +1,23 @@
+# Physiology learner-visible cleanup handoff — Batch 31
+
+- Subject: Physiology
+- Cleanup branch: `fix/marrow-full-content-cleanup-20260913`
+- Cleanup head before proposal write: `c5234eb89ac48e5891997565023c2ac00ef01b6f`
+- Canonical comparison head before proposal write: `d111b7c6a4efcbdc09c15354072973b78fee35b2`
+- Canonical did not advance during this bounded batch and no Chapter 25 stable-ID/provenance intersection was present.
+- Initial effective global audit: 2,711 questions; 0 question/option candidates; 162 explanation candidates = Anatomy 1 / Biochemistry 6 / Physiology 155.
+- Initial Chapter 25 review packet: 16 explanation candidates, 0 question/option candidates.
+- Reviewed stable IDs: `marrow__PHYSIO_CH25_Q001`, `marrow__PHYSIO_CH25_Q002`, `marrow__PHYSIO_CH25_Q003`, `marrow__PHYSIO_CH25_Q004`, `marrow__PHYSIO_CH25_Q005`.
+- Source provenance: Q1 question page 446, answer-key pages 453–454, explanation pages 454–455; Q2 question page 446, answer-key pages 453–454, explanation pages 455–456; Q3 question page 446, answer-key pages 453–454, explanation page 456; Q4 question pages 446–447, answer-key pages 453–454, explanation pages 456–457; Q5 question page 447, answer-key pages 453–454, explanation page 457.
+- Authoritative rendered Marrow ED8 pages reviewed: 454–457. Embedded/extracted PDF text was visibly corrupted and was not used as authority.
+- Cleanup actions: restored readable source prose for Q1–Q5; removed OCR-flattened diagram noise and non-prose diagram labels where the prose already carried the source relationship; reconstructed Q2's small inspiration control table textually because its relationship was readable and medically meaningful; for Q5, removed OCR spillover that had swallowed later numbered solutions and retained only the actual rendered Q5 explanation. No fine-tuning, teaching expansion, gold-standard sections, stylistic rewrite, answer change, provenance change, figure change, option change, or raw-bundle mutation.
+- Reviewed proposal: `data/marrow/content_hygiene_proposals/physiology/chapter_025_cleanup_batch_20260914_31.json`
+- Proposal commit: `b13168f8a712ae782e8f843375bc0e6bea3eae76`.
+- Promotion workflow: `34852575854` — PASS.
+- Verified promotion commit: `47c5514504220a82a5b6f9bbb45ac7110b4a5c62`.
+- Active Chapter 25 v2 source fingerprint after promotion: `8d842eae8a9797016e7cb94b9d6f653a8f4964306e62d4d78a4edb158d19b0dd`.
+- Validation: global v2 override validator PASS; full effective 2,711-question audit rebuilt; raw/effective `correctOption` maps identical; learner-visible debris scan rebuilt; `questionOptionCandidateQuestions == 0`; four-option and answer-mapping invariants preserved; no source brand/serialization marker was introduced. No runtime output paths were modified, so no browser/build regression was required.
+- Effective residual explanation detector counts after promotion: global 157 = Anatomy 1 / Biochemistry 6 / Physiology 150. Question/option candidates remain 0 globally.
+- Chapter 25 residual explanation candidates: 11. Q1–Q5 are absent from the regenerated explanation queue. Q6 is not detector-listed. Exact next unresolved Physiology item is `marrow__PHYSIO_CH25_Q007` — Regulation of Respiration; question page 447, answer-key pages 453–454, explanation page 459.
+- Cleanup branch immediately before this handoff write: `47c5514504220a82a5b6f9bbb45ac7110b4a5c62`; canonical remained `d111b7c6a4efcbdc09c15354072973b78fee35b2`.
+- Nothing was merged to canonical or `main`.
