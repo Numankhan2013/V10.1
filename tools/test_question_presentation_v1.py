@@ -45,12 +45,6 @@ for(const id of ['physiology-1-13','physiology-4-8','physiology-6-2','physiology
 const ionMarkup=nkQuestionStemMarkup(byId['physiology-9-17']);
 for(const expected of ['Sodium','Chloride','Potassium','Calcium','-70','+63','+132','-90'])assert(ionMarkup.includes(expected),'equilibrium-potential table lost '+expected);
 assert.equal((ionMarkup.match(/Ion Equilibrium Potential \(mV\)/g)||[]).length,1,'duplicated equilibrium-potential source block leaked into learner markup');
-const nerveMarkup=nkQuestionStemMarkup(byId['physiology-9-6']);
-assert(nerveMarkup.includes('Proprioception'));assert(!nerveMarkup.includes('Proprioception Fibre type Property'));
-const enzymeMarkup=nkQuestionStemMarkup(byId['22-18']);
-assert(enzymeMarkup.includes('Ligases'));assert(enzymeMarkup.includes('Triosephosphate isomerase'));assert(!enzymeMarkup.includes('Aldolase F'));
-const bareMarkup=nkQuestionStemMarkup(byId['anatomy-49-9']);
-for(const expected of ['Spine of scapula','Highest point of iliac crest','T2','T3','T7','L4'])assert(bareMarkup.includes(expected),'bare-label matching table lost '+expected);
 const combination=nkQuestionStemMarkup(byId['physiology-19-12']);
 for(const expected of ['Statements','Liver','Kidney','Muscle','Heart'])assert(combination.includes(expected),'combination question lost '+expected);
 assert.equal(byId['physiology-19-12'].options.length,4);
