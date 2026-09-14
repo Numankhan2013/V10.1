@@ -29,7 +29,7 @@
 - Do not fork Practice, CBT, Review Solutions, FSRS, sync, modules, persistence, analytics or navigation by subject/bank.
 - Primary navigation: **Home · FSRS · Tests · Insights · More**.
 - Study hierarchy: **My Subjects → subject → bank chooser → Topics journey → topic → Practice/Topic Test**.
-- FSRS remains review-only; genuinely unseen questions are not introduced by FSRS.
+- FSRS schedules every answered question. Pause commits answered work only; final submission adds remaining unanswered session IDs as skipped. Questions outside a submitted session remain unseen and excluded.
 - Old Wrong Questions dashboard/tab remains retired/replaced by Spaced FSRS.
 - Preserve approved V3 Home/Topics/question/Review/FSRS/module/timing behavior; do not restore rank/membership UI.
 
@@ -72,6 +72,14 @@ Do not certify this behavior by calling only an internal helper or by using a su
 - `[object Object]` in learner-visible output is a hard failure.
 - Table-bearing browser regressions must verify actual expected cell content, not container existence.
 - The user physically verified the structured-table repair at canonical commit `c829599050173d24408b72e8dc564ba501a156b4`.
+
+## Question-presentation and FSRS lifecycle hardening — local candidate
+
+- Corpus audit found eight PrepLadder records where table/explanation fragments were mixed into answer choices; four additional records have no reliable answer contract.
+- `question_presentation_core.js` separates coherent A–D/A–E choices from supporting extraction fragments, renders matching/list material as a semantic table in Practice/CBT/Review, and fails incomplete records closed. Source datasets are unchanged.
+- FSRS eligibility now includes correct-only attempts. Pause commits answered attempts/reviews without adding untouched questions; final Submit marks all remaining unanswered session IDs skipped.
+- Deterministic helper/corpus tests pass locally. Generated PWA browser gates cover a real broken PrepLadder matching record, incomplete-record fail-closed behavior, and answer→Pause→FSRS / Submit→skipped lifecycle boundaries.
+- Status: **locally verified only**. Full Linux generated-app/browser/APK/package verification and physical-device review are still required; do not call this build-verified or accepted.
 
 ## Learner-content hygiene
 
@@ -127,13 +135,16 @@ Do not certify this behavior by calling only an internal helper or by using a su
 - Anatomy Ch6 Q8–Q18 is reconciled into canonical but remains CURRENT_UNVERIFIED until exact-current-head canonical Engineering + full build complete.
 - Physiology image coverage remains incomplete after the verified bounded batch, and Biochemistry Q11 remains unresolved/paused.
 - Production promotion remains prohibited unless explicitly requested.
+- Four PrepLadder source records remain structurally incomplete and are intentionally non-answerable rather than producing corrupt attempts: `anatomy-22-4`, `physiology-23-38`, `physiology-24-6`, `physiology-33-33`.
+- The current reliability candidate is local-only until its full Linux/browser/APK gate passes.
 
 ## Current priorities / Next step
 
 1. **Explanation lane:** certify the exact post-memory canonical head with Engineering Gate and full Android/PWA/browser/APK/package/reproducibility/preview. On dual success without a newer canonical commit, mark Anatomy Q8–Q18 FULLY_VERIFIED, release the lane, and stop; do not start Q19+ in this run.
-2. **Main product work may proceed from live canonical.** Preserve the accepted Practice contract above.
-3. **Image lane:** Batch 02 is unverified historical evidence only; resume from live canonical after fresh ownership/fingerprint checks. Keep automated Biochemistry paused with Q11 unresolved.
-4. Production promotion remains prohibited unless the user explicitly asks for it.
+2. **Reliability candidate:** run the full Linux/browser/APK pipeline and physically review the matching table before acceptance.
+3. **Main product work may proceed from live canonical.** Preserve the accepted Practice contract above.
+4. **Image lane:** Batch 02 is unverified historical evidence only; resume from live canonical after fresh ownership/fingerprint checks. Keep automated Biochemistry paused with Q11 unresolved.
+5. Production promotion remains prohibited unless the user explicitly asks for it.
 
 ## Memory pointers
 

@@ -927,3 +927,11 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Raw Physiology source SHA remains `f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6`; canonical corpus remains 1,014 Physiology / 2,711 global.
 - Static validation passed after deterministic inventory regeneration: **594 enhanced / 2,117 pending**, fingerprint `f860fc38da57af2d20be05efa33a5594b08425008a2cbcb2f3dff0bfdd27b974`.
 - Next action: add stable-ID browser regression, open/reconcile PR, and require exact-head Engineering + full Android/PWA/APK/package/reproducibility/preview success before `FULLY_VERIFIED`. Production promotion prohibited.
+
+## 2026-09-14 — FSRS lifecycle and shared question-presentation hardening
+
+- Audited the 2,686-question PrepLadder corpus and found eight records with extraction-owned matching/table fragments mixed into answer choices plus four records without a reliable answer contract.
+- Added one runtime presentation normalizer and semantic matching/list renderer shared by Practice, CBT, and Review. It preserves immutable source data, reduces repaired questions to coherent A–D/A–E choices, and fails the four incomplete records closed.
+- Correct-only attempts now enter FSRS. Pause commits pending answered work but leaves untouched IDs unseen; explicit final submission marks every remaining unanswered session ID skipped.
+- Added deterministic transform/helper/full-corpus tests, generated-browser presentation coverage, and an end-to-end answer→Pause→FSRS / Submit→skipped regression on the actual Continue Practice path.
+- Local checks pass; full Linux generated-app/browser/APK/package verification and physical-device review remain required. No production promotion was attempted.

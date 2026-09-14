@@ -176,11 +176,67 @@ def main() -> None:
                 raise SystemExit(f"Home Continue did not repair persisted one-question state: {repaired}")
 
             context.close()
+
+            # FSRS lifecycle regression: real answers are committed when Pause
+            # leaves the question flow, while untouched questions remain unseen.
+            context = browser.new_context(viewport={"width": 390, "height": 844}, service_workers="block")
+            page = context.new_page()
+            page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
+            page.goto(origin + "/#dashboard", wait_until="domcontentloaded")
+            page.wait_for_function("window.QB && window.QB.getState")
+            page.evaluate("window.QB.startAllPractice()")
+            page.wait_for_function("window.QB.getState().activeSession?.questionIds?.length > 4")
+            lifecycle_ids = page.evaluate("[...window.QB.getState().activeSession.questionIds]")
+            answered = lifecycle_ids[:4]
+            untouched = lifecycle_ids[4:]
+            for index, qid in enumerate(answered):
+                correct = page.evaluate("""qid => {
+                  const all=[...(window.QBANK_DATA?.questions||[]),...((window.SUBJECT_QBANK_DATA?.subjects||[]).flatMap(x=>x.questions||[]))];
+                  return Number(all.find(q=>String(q.id)===String(qid))?.correctOption||0);
+                }""", qid)
+                if not correct:
+                    raise SystemExit(f"Could not resolve canonical correctOption for lifecycle question {qid}")
+                page.evaluate("i => window.QB.goIndex(i)", index)
+                page.evaluate("args => window.QB.selectPractice(args.id,args.correct)", {"id": qid, "correct": correct})
+
+            page.evaluate("window.QB.openSessionReview()")
+            page.locator("#nk-session-review").get_by_role("button", name="Pause", exact=True).click()
+            page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='paused'")
+            paused_fsrs = page.evaluate("""({answered,untouched}) => {
+              const state=window.QB.getState();
+              return {
+                attempts:Object.fromEntries(answered.map(id=>[id,(state.attempts[id]||[]).length])),
+                reviews:Object.fromEntries(answered.map(id=>[id,Boolean(state.reviews[id]?.schemaVersion===2)])),
+                untouchedAttempts:untouched.filter(id=>(state.attempts[id]||[]).length),
+                untouchedReviews:untouched.filter(id=>state.reviews[id]),
+                untouchedEligible:untouched.filter(id=>state.fsrsReviewEligible?.[id])
+              };
+            }""", {"answered": answered, "untouched": untouched})
+            if not all(count == 1 for count in paused_fsrs["attempts"].values()) or not all(paused_fsrs["reviews"].values()):
+                raise SystemExit(f"Answered questions did not enter FSRS when Practice paused: {paused_fsrs}")
+            if paused_fsrs["untouchedAttempts"] or paused_fsrs["untouchedReviews"] or paused_fsrs["untouchedEligible"]:
+                raise SystemExit(f"Pause introduced untouched questions into FSRS: {paused_fsrs}")
+
+            page.locator("button.nk-home-focus-action").click()
+            page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='active'")
+            # A stale/expired submitted flag without a selected answer must not
+            # prevent final submission from recording the question as skipped.
+            page.evaluate("id => window.QB.getState().activeSession.submitted[id]=true", untouched[0])
+            page.evaluate("window.QB.openSessionReview()")
+            page.locator("#nk-session-review").get_by_role("button", name="Submit", exact=True).click()
+            page.wait_for_function("!window.QB.getState().activeSession")
+            submitted_skips = page.evaluate("""untouched => {
+              const state=window.QB.getState();
+              return untouched.filter(id=>state.fsrsReviewEligible?.[id]?.reason==='skipped');
+            }""", untouched)
+            if submitted_skips != untouched:
+                raise SystemExit(f"Final submission did not add every unanswered question to FSRS: {submitted_skips}")
+            context.close()
             browser.close()
     finally:
         server.shutdown()
 
-    print("CONTINUE_PRACTICE_BROWSER_OK widths=320,390,768 single_review_grid=true footer=previous_next home_continue=true real_practice_session=true saved_index=4")
+    print("CONTINUE_PRACTICE_BROWSER_OK widths=320,390,768 single_review_grid=true footer=previous_next home_continue=true real_practice_session=true saved_index=4 fsrs_pause_boundary=true submit_skips=true")
 
 
 if __name__ == "__main__":

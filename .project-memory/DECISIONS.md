@@ -292,8 +292,8 @@ accepted rollback baseline until a later candidate is physically accepted.
 Regular topic Practice uses the existing synced activeSession and completed-test
 history, augmented with explicit lifecycle, original ordered question IDs and stable
 subject/bank/topic context. Pause retains the session and Submit completes it;
-answered correct/wrong IDs are removed only from the resumed serving queue, while
-skipped and unseen IDs remain. A genuinely complete topic routes Continue Practice
+resume restores the full original ordered question list and saved position with
+answered progress intact. A genuinely complete topic routes Continue Practice
 to the immediately next canonical topic. Wrong/Bookmarks, FSRS, Review, CBT and
 Custom Study Modules are not reclassified as ordinary continuation sessions.
 
@@ -301,3 +301,17 @@ The legacy v102-practice-layer mutation observer is removed because hiding every
 Practice button labelled Submit contradicts the approved two-control contract.
 Generated viewport regressions, not static marker checks alone, own reachability and
 footer-collision protection. Production promotion remains a separate explicit act.
+
+## 23. FSRS eligibility follows session lifecycle; presentation normalization is shared (2026-09-14)
+
+Every answered attempt, correct or incorrect, is eligible for FSRS. Pause first
+commits any pending answered rating but creates no history for untouched questions.
+Explicit final Practice/CBT submission marks every remaining unanswered ID from
+that session as skipped. This boundary preserves resumability while ensuring a
+completed session has a complete scheduling record.
+
+Question-presentation repair is runtime-derived from immutable source records and
+shared by Practice, CBT, and Review. A coherent A–D/A–E run owns the answer choices;
+numbered/lettered extraction fragments become semantic matching/list support, never
+buttons. If a usable choice contract or correct index cannot be established, the
+question fails closed instead of recording a potentially false answer.

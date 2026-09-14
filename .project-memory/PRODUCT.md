@@ -60,7 +60,9 @@ Prefer building over narrating.
 - **Revision libraries:** Bookmarks (manual), Wrong (auto from incorrect),
   Due Review (FSRS spaced queue); empty states explain how to fill them. FSRS
   ratings, Today queue, forecast, settings, migration, and undo work in both
-  the Android APK and website/PWA.
+  the Android APK and website/PWA. Every answered question is scheduled;
+  Pause commits only answered work, while final session submission makes all
+  remaining unanswered questions eligible as skipped. Globally unseen questions stay out.
 - **Custom Study Modules (V11.5):** reusable sets from subject/topic +
   Unattempted/Wrong/Bookmarked/Mixed (seeded shuffle, Mixed weighted
   Wrong-heavy); frozen IDs at creation (status changes never rebuild);
@@ -77,6 +79,10 @@ Prefer building over narrating.
   and similar source metadata must not appear in displayed stems. Prefer a
   concise correct-answer fallback over a confident but semantically merged
   takeaway.
+- **Question presentation:** Matching/list questions render semantic tables through
+  the shared Practice, CBT, and Review presentation layer. Extraction fragments
+  must never become clickable choices; incomplete answer contracts fail closed
+  rather than saving an unreliable attempt.
 ## Multi-bank source behavior
 
 - A medical subject may contain multiple question-bank sources. If so, selecting

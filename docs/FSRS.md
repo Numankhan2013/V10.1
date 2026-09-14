@@ -9,12 +9,13 @@ NK QBank includes a functional offline FSRS v6 review system in both the Android
 - Existing `state.reviews` entries migrate to schema v2. A local migration backup is created, and each legacy due date is preserved until that card receives its first new FSRS rating.
 - Immutable attempts are the replay and synchronization truth. Schema-v2 review cards are derived from sorted attempts, with audit snapshots on rated attempts.
 - Practice ratings support Again, Hard, Good, and Easy. CBT answers map to binary Again/Good outcomes, and a pending Good rating can be recovered if a session closes between answer submission and navigation.
-- The all-subject Today queue prioritizes due learning/relearning cards, applies the 150-card daily and 30-new-card limits, supports subject/topic filters, shows counts and estimates, and provides a seven-day forecast plus lapse attention flags.
+- Every answered question enters the FSRS pool, regardless of correctness. Pausing commits answered questions (including a pending default-Good rating) but never adds untouched questions. Final Practice/CBT submission marks every remaining unanswered question as skipped and eligible; questions outside a submitted session remain unseen and excluded.
+- The all-subject Today queue prioritizes due learning/relearning cards, applies the 150-distinct-card daily cap, supports subject/topic filters, shows counts and estimates, and provides a seven-day forecast plus lapse attention flags.
 - Settings change future ratings without rewriting past attempt history. Undo records a reversible event rather than deleting synchronized history.
 
 ## Build and verification
 
-The deterministic pipeline installs FSRS after cross-device integration and verifies the generated source, web artifact, and packaged APK assets. `tools/test_fsrs_v1.py` covers migration, replay, ratings, queue caps and filters, preferences, undo, pending-rating recovery, and the offline vendor assets.
+The deterministic pipeline installs FSRS after cross-device integration and verifies the generated source, web artifact, and packaged APK assets. `tools/test_fsrs_v1.py` covers migration, replay, all-attempt eligibility, ratings, queue caps and filters, preferences, undo, pending-rating recovery, and the offline vendor assets. The generated-browser Continue Practice regression owns the Pause-versus-Submit boundary.
 
 FSRS acceptance status as of 2026-09-07: the new APK was installed and confirmed working, and the website/PWA was opened and confirmed functional. The separate Firebase cross-device synchronization acceptance remains tracked in the project memory and deployment handoff.
 

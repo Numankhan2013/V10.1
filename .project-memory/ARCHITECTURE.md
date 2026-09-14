@@ -74,12 +74,12 @@ checked deterministic rollout ledger.
   `nkStudyModuleList`, `nkFindStudyModule`, `nkNormalizeStudyModule(s)`,
   `nkModuleValidQuestionIds`, `nkModuleProgress`, `nkSyncModuleFromSession`,
   draft/builder/persistence/resume/finish/restart + Home prioritization.
-- Continue Practice candidate (tools/continue_practice_resume_core.js,
+- Continue Practice (`tools/continue_practice_resume_core.js`,
   NK_CONTINUE_PRACTICE_RESUME_V1): regular topic Practice owns explicit
   activeSession.lifecycle, immutable original-order sessionQuestionIds, and
   practiceContext {subject,bank,topicId,title,questionIds}. Pause retains the active
-  synced session; resume filters only submitted IDs; Practice completion copies the
-  context into test history for deterministic same-topic remainder/next-topic routing.
+  synced session; resume restores the complete original ordered session and saved
+  position; Practice completion copies context into test history for continuation.
   No new top-level learner state exists. Wrong/Bookmarks, FSRS, Review, CBT and
   Custom Study Modules are excluded.
 - Source visuals contract: per-question `visual {type:"source-pdf",
@@ -88,7 +88,7 @@ checked deterministic rollout ledger.
 
 ## Deterministic build pipeline (order enforced)
 
-`tools/verify_build_pipeline.py` requires this order (41 protected steps):
+`tools/verify_build_pipeline.py` requires this order (44 protected steps):
 
 `fix_review_build` → `harden_review_renderer` →
 `build_source_visual_metadata` → `improve_source_visual_assets_v1` →
@@ -103,8 +103,12 @@ checked deterministic rollout ledger.
 `test_whole_app_vision_v1` → `apply_custom_study_modules_v1` →
 `test_custom_study_modules_v1` → `apply_home_command_center_v1` →
 `test_home_command_center_v1` → `apply_continue_practice_resume_v1` →
-`test_continue_practice_resume_v1` → `fix_boot_syntax` →
-`verify_product_contract --stage generated` → `verify_cbt_invariants`.
+`test_continue_practice_resume_v1` → `apply_question_content_hygiene_v1` →
+Android/sync/FSRS layers → `fix_boot_syntax` → Marrow registration →
+`apply_marrow_structured_table_renderer_v1` →
+`apply_question_presentation_v1` → `test_question_presentation_v1` →
+image installation → `verify_product_contract --stage generated` →
+`verify_cbt_invariants`.
 
 Full `build-apk.yml` additionally runs: study-metrics test, source contract,
 PDF renderers + `PyMuPDF`/`Pillow` maps (`build_biochem_solution_map`,
@@ -144,6 +148,19 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   until the first post-migration rating. Preferences sync in the existing envelope.
 - The combined queue asserts globally unique IDs, prioritizes due learning/relearning,
   then low-retrievability overdue reviews, then capped new cards.
+- Eligibility is lifecycle-based: every active attempt (correct or incorrect)
+  is in the pool; an unanswered ID becomes `reason: skipped` only at explicit
+  final submission. Pause commits pending answered ratings through the navigation
+  wrapper and does not synthesize events for untouched IDs.
+
+## Shared question-presentation normalization
+
+- `tools/apply_question_presentation_v1.py` installs
+  `question_presentation_core.js` after all PrepLadder/Marrow records exist.
+- It finds coherent A–D/A–E answer runs, separates extraction-owned table or
+  explanation fragments, and wires one semantic stem renderer into Practice,
+  CBT, and Review. Source records remain unchanged on disk.
+- Records without a usable choice sequence/correct index fail closed.
 
 ## Marrow multi-bank extension — expanded Phase A architecture
 

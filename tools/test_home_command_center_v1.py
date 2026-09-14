@@ -36,7 +36,7 @@ window.QB={openStudyModuleBuilder};
         'Review shortcuts','FSRS','Bookmarks','My Subjects','nkSubjectStatsV3','nkOpenSubjectLibrary',
         'STUDY LIBRARY','study-library','complete topic journey','My Progress','Today','This Week','This Month','This Year',
         'Better questions. A brighter you.','Strongest Chapters','Study Sessions',"Today's Review",
-        'FSRS Review','Choose subject','All Subjects','wrong or encountered and skipped','Unseen QBank questions are never introduced here.',
+        'FSRS Review','Choose subject','All Subjects','Every answered question is scheduled here','pausing keeps untouched questions out',
         "['fsrs','FSRS','refresh']",'Question Source','Full Question Bank','Custom Module','Wrong Questions','Bookmarked Questions',
         'openMultiSubjectTestBuilder','openStudyModuleBuilder','Number of Questions','[10,20,50,100]',
         'minutes total. Spend that total time across questions however you need.','Practice has no limiting countdown. Time is still recorded for your analysis.',
@@ -44,9 +44,7 @@ window.QB={openStudyModuleBuilder};
         "state.fsrsReviewEligible", "reason:'skipped'", 'nkReviewEligibility', 'nkReviewDue',
         'function nkFsrsLaunchQueue', 'nkFsrsQueue({subject})', 'queue.cards||[]', 'queue.rolledOver',
         'due reviews roll forward under your daily limit.',
-        'function nkSessionQuestionEncountered(s,id)', 'Number(s.questionTimes?.[key]||0)>0',
-        'Number(s.strictQuestionTime?.[key]||0)>0', 'Boolean(s.strictExpired?.[key])',
-        'if(nkSessionQuestionEncountered(s,key)&&!answered&&!submitted)', 'nkMarkSkippedFromSession(s)',
+        "if(!answered)state.fsrsReviewEligible[key]", 'nkMarkSkippedFromSession(s)',
         "route.page==='study-library'", "route.page==='fsrs'", "window.QB.nkStartTopicTimedTest('${c.id}')",
         "window.QB.nkOpenSubjectLibrary('${esc(x.subject)}')", '@media(max-width:560px)','@media(prefers-reduced-motion:reduce)'
     )
@@ -58,7 +56,9 @@ window.QB={openStudyModuleBuilder};
         "nk-test-toggle-grid","Timer off","Practice 20 Random Questions",
         "['topics','Topics','book']",
         "s.questionIds.forEach(id=>{if(!s.answers?.[id])state.fsrsReviewEligible",
-        "function nkStartReviewOnly(subject=nkFsrsSubjectFilter){const rows=nkReviewDue(subject)"
+        "if(!answered&&!submitted)state.fsrsReviewEligible[key]",
+        "function nkStartReviewOnly(subject=nkFsrsSubjectFilter){const rows=nkReviewDue(subject)",
+        "nkSessionQuestionEncountered"
     )
     survived=[x for x in prohibited if x in updated]
     if survived:raise SystemExit(f'Obsolete Home/Test behavior survived: {survived}')
@@ -79,7 +79,7 @@ window.QB={openStudyModuleBuilder};
                 if bad in html:raise SystemExit(f'Generated app retained prohibited FSRS behavior: {bad}')
             print('HOME_V3_INTEGRATION_OK')
 
-    print('HOME_V3_CONTRACT_OK: hybrid Home, subject→Topics, capped FSRS wrong/encountered-skip only, global Test budget, strict topic timer')
+    print('HOME_V3_CONTRACT_OK: hybrid Home, subject→Topics, answered-plus-submitted-skip FSRS, global Test budget, strict topic timer')
 
 
 if __name__=='__main__':main()

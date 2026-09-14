@@ -47,6 +47,8 @@ required_order = [
     "tools/fix_boot_syntax.py",
     "tools/apply_marrow_bank_pilot.py",
     "tools/apply_marrow_structured_table_renderer_v1.py",
+    "tools/apply_question_presentation_v1.py",
+    "tools/test_question_presentation_v1.py",
     "tools/install_marrow_images.py",
     "tools/test_marrow_bank_pilot.py",
     "tools/verify_product_contract.py --stage generated",
@@ -62,8 +64,10 @@ for marker in ("runs-on: ubuntu-latest", "actions/setup-python@", "PyMuPDF Pillo
                "tools/verify_product_contract.py --stage packaged",
                "tools/verify_marrow_structured_table_browser.py",
                "tools/verify_continue_practice_browser.py",
+               "tools/verify_question_presentation_browser.py",
                "tools/verify_marrow_content_hygiene_browser.py",
-               "NK_MARROW_STRUCTURED_TABLE_RENDERER_V1"):
+               "NK_MARROW_STRUCTURED_TABLE_RENDERER_V1",
+               "NK_QUESTION_PRESENTATION_V1_START"):
     if marker not in text:
         raise SystemExit(f"Full Linux/PDF verification requirement missing: {marker}")
 if not (text.index("PyMuPDF Pillow") < text.index("tools/verification_preflight.py --require-pdf")
@@ -100,6 +104,8 @@ if text.find("tools/apply_marrow_bank_pilot.py") > text.find("tools/apply_marrow
     raise SystemExit("Structured-table compatibility must run after Marrow bank generation")
 if text.find("tools/apply_marrow_structured_table_renderer_v1.py") > text.find("tools/install_marrow_images.py"):
     raise SystemExit("Structured-table compatibility must precede image installation")
+if text.find("tools/apply_question_presentation_v1.py") < text.find("tools/apply_marrow_structured_table_renderer_v1.py") or text.find("tools/apply_question_presentation_v1.py") > text.find("tools/install_marrow_images.py"):
+    raise SystemExit("Question presentation normalization must follow Marrow registration and precede image installation")
 if "v11.1-engineering-foundation" not in text:
     raise SystemExit("Engineering branch is not protected by the build workflow")
 for marker in (
