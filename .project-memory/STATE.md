@@ -57,16 +57,17 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 - Browser regressions must verify meaningful expected cell content, not container existence.
 - User physically verified the structured-table repair at `c829599050173d24408b72e8dc564ba501a156b4`.
 
-## Reliability candidate — FSRS lifecycle + shared question presentation
+## Reliability checkpoint — FSRS lifecycle + shared question presentation
 
-- Substantive candidate commit: `cb37f577bd4cbe59e4005018d24dc7ba0f0bad18` (`Harden FSRS lifecycle and question presentation`).
+- Substantive implementation commit: `cb37f577bd4cbe59e4005018d24dc7ba0f0bad18` (`Harden FSRS lifecycle and question presentation`).
 - Corpus audit found eight PrepLadder records where table/explanation fragments were mixed into answer choices; four more records have no reliable answer contract.
 - `question_presentation_core.js` separates coherent A–D/A–E choices from extraction-owned support fragments, renders matching/list material semantically in Practice/CBT/Review, and fails incomplete records closed. Source datasets remain unchanged.
-- FSRS eligibility now includes correct-only attempts. Pause commits answered attempts/reviews without adding untouched questions; final Submit marks all remaining unanswered session IDs skipped.
-- Deterministic helper/corpus tests pass locally. Generated-browser coverage exercises a broken PrepLadder matching record, incomplete-record fail-closed behavior, and answer→Pause→FSRS / Submit→skipped lifecycle boundaries.
-- First exact-head Engineering Gate `34833580760` and full build `34833580864` both stopped at `verify_project_memory.py` before product tests because `STATE.md` exceeded 150 lines. This was a memory-placement failure, not evidence of a product-code failure.
-- This checkpoint condenses `STATE.md` while preserving the already-updated `ARCHITECTURE.md`, `DECISIONS.md`, `PRODUCT.md`, and `SESSION_LOG.md` handoff material.
-- Status: **CI_RETRY_REQUIRED**. Do not call the reliability candidate build-verified or accepted until current canonical Engineering Gate and full Android/PWA/browser/APK/package verification both pass. Physical-device review is still required for acceptance.
+- FSRS eligibility includes correct-only attempts. Pause commits answered attempts/reviews without adding untouched questions; final Submit marks all remaining unanswered session IDs skipped.
+- First exact-head Engineering `34833580760` and full build `34833580864` stopped at `verify_project_memory.py` because `STATE.md` exceeded the 150-line operational-memory limit; product tests had not run.
+- Memory repair commit `36b0bd25b1d2e1dfa2e4505304bdfdcb9790ed4a` condensed `STATE.md` without discarding the already-updated `ARCHITECTURE.md`, `DECISIONS.md`, `PRODUCT.md`, and `SESSION_LOG.md`. Engineering `34834161997` then passed. Full run `34834161627` reached real-browser testing and exposed one test-contract defect: rendered semantic headers were `LIST I` / `LIST II`, while the regression required title case.
+- Verification-contract fix `3c6d36980221d4065b686513b4e5e2d0e1711c3d` normalizes header whitespace/case only; it does not weaken source-cell, A–D choice, correct-answer, semantic-table, fail-closed, or JavaScript-error assertions.
+- Exact-head Engineering `34834434837` passed. Full Android/PWA run `34834434831` passed generated product verification, offline PWA/FSRS/image checks, real-browser bank/content/table/matching checks, Continue Practice pause/resume, APK build, packaged-product verification, reproducibility manifest, packaged Marrow image verification, artifact upload, and PWA preview deployment. Production promotion was skipped.
+- Status: **BUILD_VERIFIED**. Physical-device review of the new matching/list question presentation is still required before calling this reliability checkpoint user-accepted.
 
 ## Learner-content hygiene
 
@@ -76,11 +77,11 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Explanation lane
 
-- FULLY_VERIFIED history: Anatomy Ch6 Q1–Q7 is canonical at certified checkpoint `58bb99d5c1fc96a98b4f922a963dba16105487d1`; Physiology Ch11 Q1–Q6 is reconciled history at `e01cc0b9a8e62885d29b0c2e7ac6417ce8c96f05`.
-- CURRENT_UNVERIFIED owner: Anatomy batch `anatomy-20260913-ch6-q8-q18-r2`, scope `marrow__ANAT_CH06_Q008..Q018`, 11 questions, workload 16.5; no Q19+ work started.
-- Fresh transplant branch was based on exact canonical `e01cc0b9a8e62885d29b0c2e7ac6417ce8c96f05`; candidate `9b625f6a881482e43429d97f817128ec917bbfe2` passed Engineering `34744191423` and full run `34744283759`; canonical merge is `420928ae4e1314cb3a23c8687801be5c7b1f0a8c`.
-- Inventory: **605 enhanced / 2,106 pending / 2,711 total**, fingerprint `995717a6ac450e2b6a530e0521d58a43e67d4e980401989c69b544c38de98300`; raw source hashes unchanged.
-- Keep the explanation lane owned until the current canonical head is dual-green; then move Q8–Q18 to FULLY_VERIFIED_HISTORY, release the lane, and stop without starting Q19+ in the same run.
+- FULLY_VERIFIED history: Anatomy Ch6 Q1–Q7 at certified checkpoint `58bb99d5c1fc96a98b4f922a963dba16105487d1`; Anatomy Ch6 Q8–Q18 reconciled at `420928ae4e1314cb3a23c8687801be5c7b1f0a8c` and released after canonical dual-green Engineering `34834434837` + full run `34834434831`; Physiology Ch11 Q1–Q6 at `e01cc0b9a8e62885d29b0c2e7ac6417ce8c96f05`.
+- No explanation batch is currently owned by the completed Anatomy Q8–Q18 run. Do not retroactively extend it to Q19+.
+- Anatomy Q8–Q18 candidate `9b625f6a881482e43429d97f817128ec917bbfe2` had already passed Engineering `34744191423` and full run `34744283759` before canonical merge.
+- Inventory remains **605 enhanced / 2,106 pending / 2,711 total**, fingerprint `995717a6ac450e2b6a530e0521d58a43e67d4e980401989c69b544c38de98300`; raw source hashes unchanged.
+- Any next explanation automation must reacquire ownership from the live canonical state and start a new batch; do not assume Q19+ ownership from the released batch.
 - Production promotion prohibited.
 
 ## Image lane
@@ -100,19 +101,17 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Known problems / cautions
 
-- Reliability candidate is not build-verified yet because both first exact-head workflows stopped at the memory-length gate before product tests.
-- Anatomy Ch6 Q8–Q18 is reconciled but remains CURRENT_UNVERIFIED until current-head canonical Engineering + full build are green.
+- Reliability checkpoint is build-verified but not yet user/device-accepted; physically review the new matching/list presentation before acceptance.
 - Physiology image coverage remains incomplete; Biochemistry Q11 remains unresolved/paused.
 - Four PrepLadder source records remain intentionally non-answerable rather than recording corrupt attempts: `anatomy-22-4`, `physiology-23-38`, `physiology-24-6`, `physiology-33-33`.
 - Production promotion remains prohibited unless explicitly requested.
 
 ## Current priorities / Next step
 
-1. **Reliability candidate:** rerun current canonical Engineering Gate and full Android/PWA/browser/APK/package pipeline after this memory-size repair. If a later stage fails, fix that actual product/test failure and rerun exact-head verification.
-2. **Explanation lane:** after current canonical is dual-green, mark Anatomy Q8–Q18 FULLY_VERIFIED and release the lane; do not start Q19+ in the same verification run.
-3. **Physical review:** inspect the generated matching-table/question presentation on device before accepting the reliability candidate.
-4. **Image lane:** resume from live canonical after fresh ownership/fingerprint checks; keep automated Biochemistry paused at Q11.
-5. Production promotion remains prohibited unless the user explicitly asks for it.
+1. **Physical review:** inspect the build-verified matching/list question presentation on device before accepting the reliability checkpoint.
+2. **Explanation lane:** the Anatomy Q8–Q18 lane is released; any Q19+ work must begin as a new owned batch from the live canonical head.
+3. **Image lane:** resume from live canonical after fresh ownership/fingerprint checks; keep automated Biochemistry paused at Q11.
+4. Production promotion remains prohibited unless the user explicitly asks for it.
 
 ## Memory pointers
 
