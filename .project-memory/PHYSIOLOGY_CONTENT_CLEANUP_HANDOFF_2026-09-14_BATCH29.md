@@ -1,0 +1,21 @@
+# Physiology learner-visible cleanup handoff — Batch 29
+
+- Subject: Physiology
+- Cleanup branch: `fix/marrow-full-content-cleanup-20260913`
+- Canonical comparison head before proposal write: `2134ae4b67f86d20355fa39b465f8c6a80c58d4a`
+- Cleanup head before proposal write: `463df78d3fb3bed1f1638e069038f59b481adaa0`
+- Canonical delta since prior comparison touched project-memory/question-presentation files only; no Chapter 23 Marrow content intersection was found.
+- Initial effective Chapter 23 review packet: 11 explanation candidates, 0 question/option candidates.
+- Reviewed stable IDs: `marrow__PHYSIO_CH23_Q007` through `marrow__PHYSIO_CH23_Q017` inclusive.
+- Rendered authoritative ED8 explanation pages reviewed: 427–432. Embedded PDF text was not trusted because it is corrupted on these pages.
+- Cleanup action: removed OCR/serialization/graph/diagram spillover while preserving readable source prose and medically meaningful table relationships. No teaching expansion, new rationale sections, key takeaways, answer changes, provenance changes, figure changes, or raw-bundle mutations.
+- Reviewed proposal: `data/marrow/content_hygiene_proposals/physiology/chapter_023_cleanup_batch_20260914_29.json`
+- Proposal commit: `7aa9aeeec35254818f3ae216f3a52e2a8d4c57fc`
+- Promotion workflow: `34839306916` — PASS.
+- Verified promotion commit: `065d29048ddc9bfd4d2de8c2f6efbed72881ee22`
+- Active Chapter 23 v2 source fingerprint after promotion: `117f00498eeade02be6ca2011d461c71862cfeb40da9e218867524e94496efe9`
+- Validation: global v2 override validator PASS; full effective 2,711-question audit rebuilt; raw/effective `correctOption` maps identical; learner-visible debris scan rebuilt; `questionOptionCandidateQuestions == 0`; all Q7–Q17 cleaned IDs absent from the regenerated explanation queue; four-option and answer mapping invariants preserved. No runtime output paths were modified, so no browser/build regression was required for this batch.
+- Effective residual explanations after promotion: global 162 = Anatomy 1 / Biochemistry 6 / Physiology 155. Question/option candidates remain 0 globally.
+- Chapter 23 residual: one explanation candidate, `marrow__PHYSIO_CH23_Q018` (question page 423; answer-key page 423; explanation pages 432–433). Detector currently flags the OCR text `H20.`; rendered page 433 visibly shows the intended source notation as H2O, so this item should be reviewed source-faithfully in the next bounded run rather than silently corrected here.
+- Exact next unresolved Physiology item: `marrow__PHYSIO_CH23_Q018`.
+- Nothing was merged to canonical or `main`.
