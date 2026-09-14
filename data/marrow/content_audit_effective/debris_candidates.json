@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "purpose": "Review queue for visible OCR/code debris; never an auto-rewrite list.",
-  "candidateFieldCount": 93,
-  "candidateQuestionCount": 93,
+  "candidateFieldCount": 84,
+  "candidateQuestionCount": 84,
   "candidates": [
     {
       "id": "marrow__PHYS_CH07_Q009",
@@ -1784,48 +1784,6 @@
       "reviewStatus": "pass_with_source_note"
     },
     {
-      "id": "marrow__PHYSIO_CH35_Q011",
-      "subject": "Physiology",
-      "chapterId": "35",
-      "chapter": "Renal Tubular Functions, Urine Concentration and Dilution",
-      "questionNumber": 11,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 13,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash",
-        "symbol_dense_line"
-      ],
-      "value": "- oO. “a\n- .\nThe actual renal threshold is about 200 mg/d (i.e., 2 g/L ) (1g/k=100m¢/dl) and the transport\nmaximum for glucose is 375 mg/min. %\nFor substances that are actively reabsorbed or secreted; there is a limit to the rate at which\nthe solute can be transported, whichis referred;to a8 the transport maximum. This limit is due to\nsaturation of the specific transport systems involved.\nNormally, measurable glucose does not appear in the urine because essentially all the\nfiltered glucose is reabsorbed in the‘proximal tubule.\nThe transport maximum for glucose is about 375 mg/min, whereas the filtered load of glucose is\nonly about\\a25\"mg/min. With large increases in GFR and/or plasma glucose concentration\nthat increa’e the filteredlead of glucose above 375 mg/min, the excess glucose filtered is not\nreabsorbed and passes into the urine.\nWhen the plasma glucose concentration is 100 mg/100 ml and the filtered load is at its normal\nlevel (125 mg/min) there is no loss of glucose in the urine. However, when the plasma\nconcentration of glucose rises above about 200 mg/100 ml, increasing the filtered load to about\n250 mg/min, a small amount of glucose begins to appear in the urine. This point is termed as the\nthreshold for glucose.\nSplay is due to separation between filtered load and exceretion. It occurs due to different\ntransport maximums of different nephrons.\n\ns y\n\nB 400 i é\n\nPieeme oiucces concentration\n(mg/100 mi) C >.",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "- oO. “a",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 2,
-          "text": "- .",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 11,
-          "text": "only about\\a25\"mg/min. With large increases in GFR and/or plasma glucose concentration",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 654,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYSIO_CH35_Q022",
       "subject": "Physiology",
       "chapterId": "35",
@@ -1960,43 +1918,6 @@
         }
       ],
       "sourcePage": 74,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH35_Q005",
-      "subject": "Physiology",
-      "chapterId": "35",
-      "chapter": "Renal Tubular Functions, Urine Concentration and Dilution",
-      "questionNumber": 5,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 12,
-      "reasons": [
-        "hard_noise_char",
-        "literal_backslash",
-        "many_isolated_letters",
-        "symbol_dense_line"
-      ],
-      "value": "Thick ascending limb of loop of Henle has Na+ - 2Cl- - K+ co transporter that cotrahsports one\nNa+, one K+, and 2Cl- from the tubular lumen into the tubular cells. This is an example of\nsecondary active transport. x o\nNat is transported out of the cell into the interstitium by Na, K ATPase in the basolateral\nmembrane of the cell.  % an\nCl- exits in basolateral CIC-Kb Cl- channels, 'Barttin, a protein in the cell membrane, is essential\nfor normal ClC-Kb function. 4) <= rat\nK+ moves from the cell to the interstitium and the tubular lumenby ROMK(renal outer medullary\npotassium channel) and other.K* channels. _ ¢ ‘\nTubular ‘Tubular cell in thick, Interstitial\nlumen ascending limb fluid\n: ~ ( Shin\nN\\A i K+ S— => K+\nROMK ROMK",
-      "suspectLines": [
-        {
-          "line": 12,
-          "text": ": ~ ( Shin",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 13,
-          "text": "N\\A i K+ S— => K+",
-          "reasons": [
-            "hard_noise_char",
-            "many_isolated_letters",
-            "symbol_dense_line"
-          ]
-        }
-      ],
-      "sourcePage": 653,
       "reviewStatus": "pass"
     },
     {
@@ -2685,321 +2606,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__PHYSIO_CH35_Q004",
-      "subject": "Physiology",
-      "chapterId": "35",
-      "chapter": "Renal Tubular Functions, Urine Concentration and Dilution",
-      "questionNumber": 4,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 10,
-      "reasons": [
-        "hard_noise_char",
-        "punctuation_run",
-        "symbol_dense_line"
-      ],
-      "value": "~~ fon 2.\nEffective renal plasma flow in this, patient will be falsely low.\nIt is equal to the clearancerof.para-aminohippurate (PAH) as shown by the following equation.\nFRPF : ———— =(PAH\nWhere,\n¢ ERPF = Effective Renal Plasma Flow\n¢ UPAH = [PAH] in urine\n¢ V= Urine flow rate\n¢ PPAH = [PAH] in plasma\n¢ CPAH = Clearance of PAH\nAt high concentrations of PAH, as given in this question, tubular secretion attains saturation after\nwhich the clearance of PAH falls. Hence, a low ERPF will be seen.",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "~~ fon 2.",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 4,
-          "text": "FRPF : ———— =(PAH",
-          "reasons": [
-            "punctuation_run",
-            "symbol_dense_line"
-          ]
-        }
-      ],
-      "sourcePage": 652,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH35_Q006",
-      "subject": "Physiology",
-      "chapterId": "35",
-      "chapter": "Renal Tubular Functions, Urine Concentration and Dilution",
-      "questionNumber": 6,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 10,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash"
-      ],
-      "value": "The principal site of absorption of Na + is PCT. About 60-65% of filtered sodium is reabsorbed in\nthe proximal convoluted tubule (PCT), coupled with the movement of H+, glucose, amino acids,\norganic acids, phosphate, and other electrolytes and substances.\nAll segments of nephron are involved in sodium reabsorption except thin descending loop of\nHenle.\n30 Thick ascending limb of the] | Na+—2Cl-—K cotransporter\noop of Henle\n3 Collecting ducts ENaC channels (regulated by\naldosterone to permit homeo\nstatic adjustments)\nTubular function ?,%\nSo\nPartially reabsorbed 2\nUrea\n“Gorey”\n— ‘ 2 H,O (66%) Soltes\nOy FT me\n, we. f ww) S\\ s\nGlucose Amino, 97%) — | j\n106% aslo |\nave! D {=\nHormone regulated segment\n(Collecting duct)\nwy SS",
-      "suspectLines": [
-        {
-          "line": 6,
-          "text": "30 Thick ascending limb of the] | Na+—2Cl-—K cotransporter",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 12,
-          "text": "So",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 18,
-          "text": ", we. f ww) S\\ s",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 19,
-          "text": "Glucose Amino, 97%) — | j",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 20,
-          "text": "106% aslo |",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 21,
-          "text": "ave! D {=",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 653,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH35_Q007",
-      "subject": "Physiology",
-      "chapterId": "35",
-      "chapter": "Renal Tubular Functions, Urine Concentration and Dilution",
-      "questionNumber": 7,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 10,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "symbol_dense_line"
-      ],
-      "value": ">\nRes Ke)\nPotassium is maximally absorbed in PCT.\nPotassium is freely filtered by the glomerulus. The bulk of filtered K+ is reabsorbed in the\nproximal tubule. In the proximal tubule, K+ absorption is primarily passive and proportional to\nNat and water through paracellular transport.\nK+ reabsorption in the thick ascending limb of Henle occurs through both transcellular (Na+- K+-\n2Cl- cotransport) and paracellular pathways.\nK+ secretion begins in the early distal convoluted tubule and progressively increases along the\ndistal nephron into the cortical collecting duct . Most urinary K+ can be accounted for by K+\nsecretion mediated by principal cells. Under conditions of K+ depletion, reabsorption of K+ occurs\nin the collecting duct.\nIt is the only electrolyte to be reabsorbed as well as secreted.\nCez7% > Dietary K+\nLow-kK’ diet only Aldosterone\nt NEERRIS.] Acic-base\nZ Flow rate\nSs — Luminal anions\na i\nK 20% )\n___ =e Sf\n(Excretion 1%—-110% )\nxW a\nre ~ aA »\nws © ed\n. . © ra a “",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": ">",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 21,
-          "text": "___ =e Sf",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 24,
-          "text": "re ~ aA »",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 26,
-          "text": ". . © ra a “",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        }
-      ],
-      "sourcePage": 653,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH35_Q008",
-      "subject": "Physiology",
-      "chapterId": "35",
-      "chapter": "Renal Tubular Functions, Urine Concentration and Dilution",
-      "questionNumber": 8,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 10,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "symbol_dense_line"
-      ],
-      "value": "oi a Pe rb a\nBicarbonate is reabsorbed at thé luminal membrane in the form of CO2 and H20 with the help of\nNa+ - H+ exchanger. co me, ~%\na. - ad\nIn the tubular cell of the PCT, CO2 an@’H20 recombine with the help of carbonic anhydrase II,\nand then dissociate into H+ and HCO3-. From here,’ the H+ moves back into the tubular lumen via\nthe Na+ - H+ exchanger whilethe HCO3- is- reabsorbed at the basolateral membrane via the Na+ -\nHCO3- co-transporter. re hs\nas ms’ ees { Tubular cell in PCT J } eeaeoe!\nATi =) |\nHCOs\" + Na* Nat\nHton *Ht Ht + HCO; i |\n| || HCO3”\nNat\nHeCO3 H2CO3 |\nH20 | COs a Coz I H20 COs. |",
-      "suspectLines": [
-        {
-          "line": 3,
-          "text": "Na+ - H+ exchanger. co me, ~%",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 9,
-          "text": "as ms’ ees { Tubular cell in PCT J } eeaeoe!",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 10,
-          "text": "ATi =) |",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 12,
-          "text": "Hton *Ht Ht + HCO; i |",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 13,
-          "text": "| || HCO3”",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 14,
-          "text": "Nat",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 15,
-          "text": "HeCO3 H2CO3 |",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 16,
-          "text": "H20 | COs a Coz I H20 COs. |",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 653,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH35_Q010",
-      "subject": "Physiology",
-      "chapterId": "35",
-      "chapter": "Renal Tubular Functions, Urine Concentration and Dilution",
-      "questionNumber": 10,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 10,
-      "reasons": [
-        "hard_noise_char",
-        "punctuation_run",
-        "symbol_dense_line"
-      ],
-      "value": "Sodium symport occuf) along with glucose transport into the cell.\nSodium and glucose’ are co-transported across the luminal membrane of proximal tubular\ncells. This Qccuts via sodium: glucose co-transporters (SGLT2 and SGLT1). The energy derived\nfrom the movement of Na+ is used to move glucose against its concentration gradient into the\ntubular cell. This is referred to as secondary active transport.\nThe Nat is then pumped out of the cell into the interstitium, and the glucose exits by facilitated\ndiffusion via glucose transporter (GLUT)-2 along the basolateral membrane into the interstitial\nfluid.\nClinical correlation:\nFanconi-Bickel syndrome: Defective GLUT2\nIsolated renal glycosuria: Defective SGLT2\nTubular Tubular cell Interstitial\nlumen fluid\notur\nGlucose ___SS*%,_, Glucose ———————==—> Glucose\nNat Ga nat Nat\nNat~__@its _, Na* are,\nAmino —T__ —™ Amino\nacids acids\nx yy { : >",
-      "suspectLines": [
-        {
-          "line": 15,
-          "text": "Glucose ___SS*%,_, Glucose ———————==—> Glucose",
-          "reasons": [
-            "punctuation_run",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 17,
-          "text": "Nat~__@its _, Na* are,",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 18,
-          "text": "Amino —T__ —™ Amino",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 20,
-          "text": "x yy { : >",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        }
-      ],
-      "sourcePage": 654,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH35_Q009",
-      "subject": "Physiology",
-      "chapterId": "35",
-      "chapter": "Renal Tubular Functions, Urine Concentration and Dilution",
-      "questionNumber": 9,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 9,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "many_isolated_letters"
-      ],
-      "value": "Glucose and amino acids are completely reabsorbed in the proximal tubule.\nOption A: Maximum reabsorption occurs in proximal tubule\nOption B: Urea is reabsorbed and secreted. It is reabsorbed in PCT and in collecting duct. It is\nsecreted in thin ascending loop of henle.\nOption C: H+ is secreted in PCT as well as in collecting ducts.\nPartially reabsorbed\net\nElectrolytes (62%)\nlea.Ne) ©\n(eax)\nH.0 (66%) ys\nvn ee wk\n~ p : 7 J “ISO re a J e ‘\nGlucdse Antino _& y=\n—_— Solutes oo\n100% ase\nPn,\nHYPER a,\nHormone regulated segment\n(Collecting duct)\na x a,\"",
-      "suspectLines": [
-        {
-          "line": 7,
-          "text": "et",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 13,
-          "text": "~ p : 7 J “ISO re a J e ‘",
-          "reasons": [
-            "hard_noise_char",
-            "many_isolated_letters"
-          ]
-        },
-        {
-          "line": 17,
-          "text": "Pn,",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 654,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYS_CH03_Q004",
       "subject": "Physiology",
       "chapterId": "3",
@@ -3468,39 +3074,6 @@
         }
       ],
       "sourcePage": 257,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH35_Q012",
-      "subject": "Physiology",
-      "chapterId": "35",
-      "chapter": "Renal Tubular Functions, Urine Concentration and Dilution",
-      "questionNumber": 12,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "hard_noise_char",
-        "literal_backslash"
-      ],
-      "value": "\\ - ro a\nThe labellings depticed are a. Filtered, b. Seereted, c. Tm, d. Exereted\nFiltered Load: The filtered-lead of PAH iticreases linearly as the unbound concentration of PAH\nincreases (filtered load = GFR. [P]PAH)) on\nSecretion: At low concentrationsef PAH, many‘carriers are available and secretion increases\nlinearly as the plasma concentration increasés. When the PAH concentration increases to a level\nwhere the carriers are saturated, Tm is reached. After this point, no matter how much the PAH\nconcentration increases} there can béno further increase in the secretion rate.\nExcretion. For a’Setreted substarice such as PAH, excretion is the sum of filtration and\nsecretion, At low PAH concéntrations (below Tm), excretion increases steeply with increases in\nplasma PAH concentration because both filtration and secretion are increasing. At PAH\nconcentrations above Tm, excretion increases less steeply (and parallels the curve for filtration)\nbecause only the filtration component increases as concentration increases; secretion is already\nsaturated.",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "\\ - ro a",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 8,
-          "text": "concentration increases} there can béno further increase in the secretion rate.",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 654,
       "reviewStatus": "pass"
     },
     {
@@ -3987,24 +3560,70 @@
       "reasons": [
         "hard_noise_char"
       ],
-      "value": "Creatinine is partially secreted and never reabsorbed. Clearance of creatinine (CCx) ean also be\nused to determine GFR. Since creatinine is secreted by the tubules, the clearance of creatinine will\nbe slightly higher than inulin. Hence, it overestimates GER,™ Cc ?\nInulin is completely filtered and never reabsorbed. Hence, it can bexised for GFR estimation.\nGlucose is completely reabsorbed below the renal. threshold (ie ~180meg/dl) ih, PCT.\nPAH(para amino hippuric acid) at low plastna concentrations ‘is completely filtered and\nsecreted. Hence, it can be used for estimation of renal blood flow.",
+      "value": "Creatinine is partially secreted and never reabsorbed. Clearance of creatinine (CCr) can also be used to determine GFR. Since creatinine is secreted by the tubules, the clearance of creatinine will be slightly higher than inulin. Hence, it overestimates GFR.\nInulin is completely filtered and never reabsorbed. Hence, it can be used for GFR estimation.\nGlucose is completely reabsorbed below the renal threshold (i.e. ~180 mg/dL) in PCT.\nPAH (para-aminohippuric acid) at low plasma concentrations is completely filtered and secreted. Hence, it can be used for estimation of renal blood flow.",
       "suspectLines": [
         {
           "line": 3,
-          "text": "be slightly higher than inulin. Hence, it overestimates GER,™ Cc ?",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 5,
-          "text": "Glucose is completely reabsorbed below the renal. threshold (ie ~180meg/dl) ih, PCT.",
+          "text": "Glucose is completely reabsorbed below the renal threshold (i.e. ~180 mg/dL) in PCT.",
           "reasons": [
             "hard_noise_char"
           ]
         }
       ],
       "sourcePage": 652,
+      "reviewStatus": "pass"
+    },
+    {
+      "id": "marrow__PHYSIO_CH35_Q006",
+      "subject": "Physiology",
+      "chapterId": "35",
+      "chapter": "Renal Tubular Functions, Urine Concentration and Dilution",
+      "questionNumber": 6,
+      "fieldKind": "explanation",
+      "field": "explanation",
+      "severity": 4,
+      "reasons": [
+        "hard_noise_char"
+      ],
+      "value": "The principal site of absorption of Na+ is PCT. About 60-65% of filtered sodium is reabsorbed in the proximal convoluted tubule (PCT), coupled with the movement of H+, glucose, amino acids, organic acids, phosphate, and other electrolytes and substances.\nAll segments of nephron are involved in sodium reabsorption except thin descending loop of Henle.\n% of filtered Na reabsorbed | Part of nephron | Main transporter involved\n60 | PCT | Na+-H+ exchanger\n30 | Thick ascending limb of the loop of Henle | Na+-2Cl--K cotransporter\n7 | DCT | Na-Cl cotransporter\n3 | Collecting ducts | ENaC channels (regulated by aldosterone to permit homeostatic adjustments)",
+      "suspectLines": [
+        {
+          "line": 3,
+          "text": "% of filtered Na reabsorbed | Part of nephron | Main transporter involved",
+          "reasons": [
+            "hard_noise_char"
+          ]
+        },
+        {
+          "line": 4,
+          "text": "60 | PCT | Na+-H+ exchanger",
+          "reasons": [
+            "hard_noise_char"
+          ]
+        },
+        {
+          "line": 5,
+          "text": "30 | Thick ascending limb of the loop of Henle | Na+-2Cl--K cotransporter",
+          "reasons": [
+            "hard_noise_char"
+          ]
+        },
+        {
+          "line": 6,
+          "text": "7 | DCT | Na-Cl cotransporter",
+          "reasons": [
+            "hard_noise_char"
+          ]
+        },
+        {
+          "line": 7,
+          "text": "3 | Collecting ducts | ENaC channels (regulated by aldosterone to permit homeostatic adjustments)",
+          "reasons": [
+            "hard_noise_char"
+          ]
+        }
+      ],
+      "sourcePage": 653,
       "reviewStatus": "pass"
     },
     {
@@ -4347,38 +3966,6 @@
         }
       ],
       "sourcePage": 485,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH35_Q013",
-      "subject": "Physiology",
-      "chapterId": "35",
-      "chapter": "Renal Tubular Functions, Urine Concentration and Dilution",
-      "questionNumber": 13,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 3,
-      "reasons": [
-        "edge_noise"
-      ],
-      "value": "In uncontrolled diabetes, the plasma clearance of glucose is greater than zero.\nNormally, all the glucose that is filtered is reabsorbed and no glucose is excreted in the urine.\nHence, the clearance is zero. In uncontrolled diabetes, since the plasma glucose concentration is\ngreater than the renal threshold for reabsorption, excess glucose is excreted in the urine and the\nclearance is greater than zero.\nClearance of different substances can be shown in a graph as follows:\nGlucose, mg/dL\n200 400 600\n600 20 40 60 80\nPAH, mg/dL\n= 400\n=z PAH\n8 300\n3 200\n= Inulin\n100 Pr cea fo\n6 =>\nPlasma level C,*\nThe above graph depicts renal handling of glucose, inulin, and para-aminohippurate (PAH) and\ncan be explained as follows: ) —e 7%\nGlucose clearance: Normally, all the glucose that is, filtered is reabsorbed and no glucose is\nexcreted in the urine. Hence, thésclearance is zerd. In uncontrolléd diabetes, since the plasma\nglucose concentration is greater,than the renal threshold for réabsorption, excess glucose is\nexcreted in the urine and the’tlearance is‘greater than zero.\nInulin clearance: Inulin is freely filtered and is neither reabsorbed nor secreted. Hence, it is\nconstant and equal to the glomerular filtration rate.\nPAH clearance: PAH is bothsfiltered and secreted. When plasma PAH is low, clearance is high.\nHowever, as plasma PAH rises above:the threshold level for PAH secretion, clearance falls\nprogressively. ‘ig 3 in?\nx 4",
-      "suspectLines": [
-        {
-          "line": 11,
-          "text": "= 400",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 17,
-          "text": "6 =>",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 655,
       "reviewStatus": "pass"
     },
     {
