@@ -1,0 +1,23 @@
+# Physiology learner-visible cleanup handoff — Batch 30
+
+- Subject: Physiology
+- Cleanup branch: `fix/marrow-full-content-cleanup-20260913`
+- Cleanup head before proposal write: `b2d28d46feacd8974dc79626244fc2ea6d251b55`
+- Canonical comparison head before proposal write: `d111b7c6a4efcbdc09c15354072973b78fee35b2`
+- The canonical advance from `2134ae4b67f86d20355fa39b465f8c6a80c58d4a` to `d111b7c6a4efcbdc09c15354072973b78fee35b2` was question-presentation/product work and did not intersect the Chapter 23 cleanup stable ID/provenance used here.
+- Initial effective Chapter 23 review packet: 1 explanation candidate, 0 question/option candidates.
+- Reviewed stable ID: `marrow__PHYSIO_CH23_Q018`.
+- Source provenance: question page 423; answer-key page 423; explanation pages 432–433.
+- Authoritative rendered ED8 pages reviewed: 432–433. Rendered page 433 clearly shows the final chemical notation as `H2O`; the effective OCR text incorrectly contained `H20`.
+- Cleanup action: source-faithful OCR restoration `H20` → `H2O` only. No fine-tuning, teaching expansion, stylistic rewrite, answer change, provenance change, figure change, option change, or raw-bundle mutation.
+- Reviewed proposal: `data/marrow/content_hygiene_proposals/physiology/chapter_023_cleanup_batch_20260914_30.json`
+- Proposal commit: `3d7d027c0677831268fe6c6758fe04ccdfbc2d34`
+- Promotion workflow: `34844251813` — PASS.
+- Verified promotion commit: `a48ddfc7467b099fbe98a5b6df29bac063422fac`.
+- Active Chapter 23 v2 source fingerprint after promotion: `3e8340f8488cfa6d7a4d10f8d7e115f624ec658baac7d546fbc5139c3ae9ffc7`.
+- Validation: global v2 override validator PASS; full effective 2,711-question audit rebuilt; raw/effective `correctOption` maps identical; learner-visible debris scan rebuilt; `questionOptionCandidateQuestions == 0`; four-option and answer mapping invariants preserved; no source brand/serialization marker was introduced. No runtime output paths were modified, so no browser/build regression was required.
+- Detector note: `marrow__PHYSIO_CH23_Q018` remains detector-listed solely because the legitimate source line `H2O.` matches the current broad `edge_noise` heuristic. This is a documented detector false-positive; do not distort source-faithful `H2O` merely to clear the heuristic.
+- Effective residual explanation detector counts therefore remain global 162 = Anatomy 1 / Biochemistry 6 / Physiology 155. Question/option candidates remain 0 globally.
+- Chapter 24 has no current explanation candidates. The exact next ordinary actionable Physiology target is `marrow__PHYSIO_CH25_Q001` — Regulation of Respiration; question page 446, answer-key pages 453–454, explanation pages 454–455. Its explanation contains obvious OCR/diagram spillover and must be source-reviewed before cleanup.
+- Cleanup branch immediately before this handoff write: `a48ddfc7467b099fbe98a5b6df29bac063422fac`; canonical remained `d111b7c6a4efcbdc09c15354072973b78fee35b2`.
+- Nothing was merged to canonical or `main`.
