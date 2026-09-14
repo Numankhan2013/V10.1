@@ -167,12 +167,64 @@
     return {prompt:prompt||'Match the following.',groups,rows};
   }
 
+  function nkQuestionOverrideTable(prompt,left,right,headers){
+    const groups=[left,right].filter(group=>Array.isArray(group)&&group.length);
+    const rows=Array.from({length:Math.max(...groups.map(group=>group.length))},(_,index)=>groups.map(group=>group[index]||null));
+    return {prompt,groups,rows,headers};
+  }
+
+  function nkQuestionMatchingOverride(q){
+    const id=String(q?.id||''),question=String(q?.question||'').replace(/\s+/g,' ').trim();
+    const matches=pattern=>pattern.test(question);
+    if(id==='26-13'&&matches(/functional assessment tests/i))return nkQuestionOverrideTable(
+      'Match the following vitamins with their respective functional assessment tests:',
+      [{label:'1',value:'Vitamin B1 (Thiamine)'},{label:'2',value:'Vitamin B2 (Riboflavin)'},{label:'3',value:'Vitamin B6 (Pyridoxine)'},{label:'4',value:'Vitamin B12 (Cobalamin)'}],
+      [{label:'a',value:'Measure urinary methylmalonic acid'},{label:'b',value:'Measure transketolase activity in red blood cells'},{label:'c',value:'Measure glutathione reductase activity in red blood cells'},{label:'d',value:'Measure activation of red blood cell transaminases with pyridoxal phosphate'}],
+      ['Vitamins','Functional assessment tests']);
+    if(id==='physiology-10-10'&&matches(/labeled parts of (?:the )?sarcomere/i))return nkQuestionOverrideTable(
+      'Match the labeled parts of the sarcomere (A–E) with their correct names.',
+      ['A','B','C','D','E'].map(label=>({label,value:'Source image label'})),
+      [{label:'1',value:'Z-line'},{label:'2',value:'I-band'},{label:'3',value:'M-line'},{label:'4',value:'A-band'},{label:'5',value:'H-zone'}],
+      ['Image labels','Candidate structures']);
+    if(id==='physiology-36-7'&&matches(/actions of insulin/i))return nkQuestionOverrideTable(
+      'Match the following actions of insulin with the correct category:',
+      [{label:'1',value:'Cell growth'},{label:'2',value:'Reabsorption of K+, Na+, and phosphate from the kidney'},{label:'3',value:'Food intake'},{label:'4',value:'Entry of phosphate and magnesium into the cell'},{label:'5',value:'Body weight'},{label:'6',value:'Lipolysis'},{label:'7',value:'Potassium uptake into cells'}],
+      [{label:'a',value:'Increased by insulin'},{label:'b',value:'Decreased by insulin'}],
+      ['Insulin action','Category']);
+    if(id==='anatomy-3-12'&&matches(/^Match the following:/i))return nkQuestionOverrideTable(
+      'Match labels A–F in the source image with the correct basal-ganglia structures.',
+      ['A','B','C','D','E','F'].map(label=>({label,value:'Source image label'})),
+      [{label:'1',value:'Caudate nucleus'},{label:'2',value:'Globus pallidus'},{label:'3',value:'Putamen'},{label:'4',value:'Substantia nigra'},{label:'5',value:'Subthalamic nucleus'},{label:'6',value:'Thalamus'}],
+      ['Image labels','Candidate structures']);
+    if(id==='anatomy-14-3'&&matches(/locations in the middle ear/i))return nkQuestionOverrideTable(
+      'Match the following structures with their respective locations in the middle ear:',
+      [{label:'A',value:'Tympanic plexus'},{label:'B',value:'Head of malleus'},{label:'C',value:'Stapedius muscle'},{label:'D',value:'Tympanic membrane'}],
+      [{label:'1',value:'Epitympanum'},{label:'2',value:'Lateral wall'},{label:'3',value:'Promontory of cochlea'},{label:'4',value:'Mesotympanum'}],
+      ['Structures','Locations']);
+    if(id==='anatomy-29-16'&&matches(/section of the heart.*match the marked/i))return nkQuestionOverrideTable(
+      'Match the marked structures (A–D) in the source heart section with the candidate structures.',
+      ['A','B','C','D'].map(label=>({label,value:'Source image label'})),
+      [{label:'1',value:'Musculi pectinati'},{label:'2',value:'Anterior papillary muscle of left ventricle'},{label:'3',value:'Anterior papillary muscle of right ventricle'},{label:'4',value:'Anterior leaflet of mitral valve'},{label:'5',value:'Membranous part of ventricular septum'}],
+      ['Image labels','Candidate structures']);
+    if(id==='anatomy-29-33'&&matches(/auscultatory areas of the heart/i))return nkQuestionOverrideTable(
+      'Match image markers 1–4 with the correct cardiac auscultatory areas.',
+      ['1','2','3','4'].map(label=>({label,value:'Source image marker'})),
+      [{label:'a',value:'Aortic area'},{label:'b',value:'Mitral area'},{label:'c',value:'Pulmonary area'},{label:'d',value:'Tricuspid area'}],
+      ['Image markers','Candidate areas']);
+    if(id==='anatomy-30-4'&&matches(/dermatomal distribution/i))return nkQuestionOverrideTable(
+      'Match the following landmarks with their corresponding dermatomal distribution:',
+      [{label:'A',value:'Thumb'},{label:'B',value:'Umbilicus'},{label:'C',value:'Knee'},{label:'D',value:'Dorsum of foot'}],
+      [{label:'1',value:'L3'},{label:'2',value:'L5'},{label:'3',value:'C6'},{label:'4',value:'T10'}],
+      ['Landmarks','Dermatomes']);
+    return null;
+  }
+
   function nkQuestionStemMarkup(q){
-    const presentation=nkQuestionPresentationFor(q),matching=nkQuestionMatchingSource(q,presentation),continuation=matching?null:nkQuestionContinuationSource(q,presentation),table=nkQuestionMatchingTable(matching||continuation,Boolean(continuation));
+    const presentation=nkQuestionPresentationFor(q),matching=nkQuestionMatchingSource(q,presentation),continuation=matching?null:nkQuestionContinuationSource(q,presentation),table=nkQuestionMatchingTable(matching||continuation,Boolean(continuation))||nkQuestionMatchingOverride(q);
     const unavailable=presentation.valid?'':`<div class="nk-question-unavailable" role="status"><strong>Answer choices unavailable</strong><span>This source record is incomplete, so answering is disabled instead of recording an unreliable result.</span></div>`;
     if(!table)return `<span class="nk-question-prompt">${esc(String(q?.question||'').replace(/\*\*Type:\*\*\s*Match the Following/ig,'').trim())}</span>${unavailable}`;
-    const headers=table.groups.map((_,index)=>`<th scope="col">${table.groups.length===1?'Statements':`List ${['I','II','III'][index]||index+1}`}</th>`).join('');
-    const rows=table.rows.map(row=>`<tr>${row.map(cell=>`<td>${cell?`<b>${esc(cell.label)}</b><span>${esc(cell.value)}</span>`:'<span aria-hidden="true">—</span>'}</td>`).join('')}</tr>`).join('');
+    const headers=table.groups.map((_,index)=>`<th scope="col">${esc((table.headers||[])[index]||(table.groups.length===1?'Statements':`List ${['I','II','III'][index]||index+1}`))}</th>`).join('');
+    const rows=table.rows.map(row=>`<tr>${row.map(cell=>`<td>${cell?`${String(cell.label||'').trim()?`<b>${esc(cell.label)}</b>`:''}<span>${esc(cell.value)}</span>`:'<span aria-hidden="true">—</span>'}</td>`).join('')}</tr>`).join('');
     return `<span class="nk-question-prompt">${esc(table.prompt)}</span><div class="nk-match-table-scroll"><table class="nk-match-table"><thead><tr>${headers}</tr></thead><tbody>${rows}</tbody></table></div>${unavailable}`;
   }
 
