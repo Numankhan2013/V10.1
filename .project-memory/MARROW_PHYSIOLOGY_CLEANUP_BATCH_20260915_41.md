@@ -1,0 +1,19 @@
+# Marrow Physiology learner-visible cleanup — Batch 41 handoff
+
+- Subject: Physiology.
+- Cleanup lane before memory write: `fix/marrow-full-content-cleanup-20260913` at verified promotion commit `cf8bd52485e46a04f1293f211e8f8bb594a4cc02`.
+- Canonical comparison immediately before the memory write: `feature/marrow-canonical-full-current` at `94edb3af43eb38a1ef762b08c1bdb152c15b3359`. Canonical remained unchanged, did not intersect this batch, and was not mutated or merged.
+- Prior fail-closed deferral remains active: `marrow__PHYSIO_CH34_Q030` is still `REVIEW_REQUIRED` because authoritative rendered ED8 page 649 contains an unreadable missing-glyph block; no medical-context inference was used.
+- Bounded explanation-only scope: `marrow__PHYSIO_CH35_Q018`, `Q021`, `Q022`, `Q025`, `Q027`, `Q031`, and `Q032` (7 questions), completing all ordinary unresolved Chapter 35 explanation items.
+- Authoritative rendered Marrow ED8 explanation pages reviewed: 672–677. Q18 page 672; Q21/Q22 page 673; Q25 page 674; Q27 page 675; Q31 page 676; Q32 pages 676–677. Question pages span 657–660; answer-key pages 661–662.
+- Cleanup only: removed OCR/serialization garbage, cross-question solution spillover, non-prose diagram labels, source branding/footer material, malformed symbol noise, and OCR-flattened diagram debris while preserving readable source medical prose. Q22 was reduced to its actual one-sentence source explanation after the raw OCR had swallowed solutions Q23–Q32. Q27 preserves the rendered source spelling `maitain` rather than silently rewriting source wording. No Key Takeaways, new rationale sections, teaching expansion, or stylistic rewrite was added.
+- Reviewed proposal: `data/marrow/content_hygiene_proposals/physiology/chapter_035_cleanup_batch_20260915_41.json`; proposal commit `770c1adf15cabed9dba2d47f8fb7a01e562d9eb9`.
+- Promotion workflow: `34909543063` (`Promote Marrow content cleanup proposals`), promote job `104193739723`, conclusion `success`; every workflow stage passed.
+- Verified final promotion commit: `cf8bd52485e46a04f1293f211e8f8bb594a4cc02`.
+- Active Chapter 35 v2 source fingerprint after promotion: `942bb1d537ed282334ab4b3da9fb1bff2d054475fd64324c02b037c99feaa0d8`.
+- Validation: exact source-fingerprint promotion passed; syntax checks passed; global active-v2 validator passed; complete effective 2,711-question learner-bank rebuild passed; raw/effective `correctOption` maps were identical; `questionOptionCandidateQuestions == 0`; four-option count and `correctAnswerText` mapping remained intact because this batch was explanation-only; no runtime output path was touched, so browser/build regression was not required.
+- Effective explanation candidates after final promotion: global 77; Anatomy 1; Biochemistry 6; Physiology 70. Question/option candidates remain 0 globally.
+- All seven cleaned IDs disappeared from the regenerated explanation debris queue. Chapter 35 now has only two detector candidates, the previously documented false positives `marrow__PHYSIO_CH35_Q003` (`~180 mg/dL`) and `marrow__PHYSIO_CH35_Q006` (source-faithful `|` table separators); neither was altered to satisfy the heuristic.
+- Forward detector review: `marrow__PHYSIO_CH41_Q019` is a legitimate source `~60-70%` approximation false positive, and `marrow__PHYSIO_CH42_Q003` is a legitimate source `~10 days` approximation false positive. They should not be rewritten merely to silence the detector.
+- Exact unresolved source-legibility deferral remains `marrow__PHYSIO_CH34_Q030` (`REVIEW_REQUIRED`). No new ordinary actionable Chapter 35/41/42 item remains after this batch; future Physiology cleanup should resume from the remaining previously adjudicated/legacy residual queue only after re-reading current handoffs and provenance.
+- Nothing was merged to canonical or `main`.
