@@ -167,15 +167,30 @@
     return {prompt:prompt||'Match the following.',groups,rows};
   }
 
-  function nkQuestionOverrideTable(prompt,left,right,headers){
-    const groups=[left,right].filter(group=>Array.isArray(group)&&group.length);
+  function nkQuestionOverrideGrid(prompt,columns,headers){
+    const groups=(Array.isArray(columns)?columns:[]).filter(group=>Array.isArray(group)&&group.length);
+    if(!groups.length)return null;
     const rows=Array.from({length:Math.max(...groups.map(group=>group.length))},(_,index)=>groups.map(group=>group[index]||null));
     return {prompt,groups,rows,headers};
+  }
+
+  function nkQuestionOverrideTable(prompt,left,right,headers){
+    return nkQuestionOverrideGrid(prompt,[left,right],headers);
   }
 
   function nkQuestionMatchingOverride(q){
     const id=String(q?.id||''),question=String(q?.question||'').replace(/\s+/g,' ').trim();
     const matches=pattern=>pattern.test(question);
+    const optionTexts=(Array.isArray(q?.options)?q.options:[]).map(option=>String(option?.text||'').trim());
+    if(id==='physiology-9-22'&&Number(q?.sourcePage)===259&&optionTexts.join('|')==='1|2|3|4'&&matches(/type, direction and mediators of axonal transport/i)&&matches(/1\s+Anterograde\s+Cell body to axon terminal\s+Dynein/i))return nkQuestionOverrideGrid(
+      'Which of the following statements accurately describes the type, direction and mediators of axonal transport?',
+      [
+        ['1','2','3','4'].map(value=>({label:'',value})),
+        ['Anterograde','Anterograde','Retrograde','Retrograde'].map(value=>({label:'',value})),
+        ['Cell body to axon terminal','Axon terminal to cell body','Axon terminal to cell body','Cell body to axon terminal'].map(value=>({label:'',value})),
+        ['Dynein','Kinesin','Dynein','Kinesin'].map(value=>({label:'',value}))
+      ],
+      ['Statement','Type','Direction','Mediator']);
     if(id==='26-13'&&matches(/functional assessment tests/i))return nkQuestionOverrideTable(
       'Match the following vitamins with their respective functional assessment tests:',
       [{label:'1',value:'Vitamin B1 (Thiamine)'},{label:'2',value:'Vitamin B2 (Riboflavin)'},{label:'3',value:'Vitamin B6 (Pyridoxine)'},{label:'4',value:'Vitamin B12 (Cobalamin)'}],

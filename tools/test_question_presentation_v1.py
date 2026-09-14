@@ -45,6 +45,12 @@ for(const id of ['physiology-1-13','physiology-4-8','physiology-6-2','physiology
 const ionMarkup=nkQuestionStemMarkup(byId['physiology-9-17']);
 for(const expected of ['Sodium','Chloride','Potassium','Calcium','-70','+63','+132','-90'])assert(ionMarkup.includes(expected),'equilibrium-potential table lost '+expected);
 assert.equal((ionMarkup.match(/Ion Equilibrium Potential \(mV\)/g)||[]).length,1,'duplicated equilibrium-potential source block leaked into learner markup');
+const transportMarkup=nkQuestionStemMarkup(byId['physiology-9-22']);
+for(const expected of ['Statement','Type','Direction','Mediator','Anterograde','Retrograde','Cell body to axon terminal','Axon terminal to cell body','Dynein','Kinesin'])assert(transportMarkup.includes(expected),'axonal-transport table lost '+expected);
+assert.equal((transportMarkup.match(/Anterograde/g)||[]).length,2,'duplicated anterograde source rows leaked into learner markup');
+assert.equal((transportMarkup.match(/Retrograde/g)||[]).length,2,'duplicated retrograde source rows leaked into learner markup');
+assert.deepEqual(byId['physiology-9-22'].options.map(option=>option.text),['1','2','3','4']);
+assert.equal(byId['physiology-9-22'].correctOption,3,'axonal-transport canonical answer changed');
 const combination=nkQuestionStemMarkup(byId['physiology-19-12']);
 for(const expected of ['Statements','Liver','Kidney','Muscle','Heart'])assert(combination.includes(expected),'combination question lost '+expected);
 assert.equal(byId['physiology-19-12'].options.length,4);
@@ -53,7 +59,7 @@ for(const q of SUBJECTS.flatMap(record=>record.questions||[])){
   const markup=nkQuestionStemMarkup(q);assert.equal(typeof markup,'string');assert(!markup.includes('[object Object]'),q.id+' rendered an object token');
   if(markup.includes('nk-match-table'))tableCount++;
 }
-assert(tableCount>=45,'expected corpus-wide matching/list questions to use semantic tables');
+assert(tableCount>=46,'expected corpus-wide matching/list/row-table questions to use semantic tables');
 console.log('QUESTION_PRESENTATION_BEHAVIOR_OK repaired='+repaired+' invalid='+invalid.length+' semantic_tables='+tableCount);
 '''
     with tempfile.NamedTemporaryFile("w", suffix=".js", encoding="utf-8", delete=False) as handle:

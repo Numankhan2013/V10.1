@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exercise normalized matching questions through the generated learner UI."""
+"""Exercise normalized matching and structured row questions through the generated learner UI."""
 
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -77,6 +77,26 @@ def main() -> None:
                 raise SystemExit("Equilibrium-potential matching question does not expose exactly four canonical choices")
             page.screenshot(path=str(output / "prepladder-equilibrium-potential-matching.png"), full_page=True)
 
+            page.evaluate("window.QB.practiceOne('physiology-9-22')")
+            transport_table = page.locator(".question-text .nk-match-table")
+            transport_table.wait_for(state="visible")
+            transport_headers = [" ".join(value.split()).upper() for value in transport_table.locator("th").all_inner_texts()]
+            if transport_headers != ["STATEMENT", "TYPE", "DIRECTION", "MEDIATOR"]:
+                raise SystemExit(f"Axonal-transport table headers are wrong: {transport_headers!r}")
+            transport_visible = transport_table.inner_text()
+            for expected in ("1", "2", "3", "4", "Anterograde", "Retrograde", "Cell body to axon terminal", "Axon terminal to cell body", "Dynein", "Kinesin"):
+                if expected not in transport_visible:
+                    raise SystemExit(f"Axonal-transport table lost source cell {expected!r}: {transport_visible!r}")
+            if transport_visible.count("Anterograde") != 2 or transport_visible.count("Retrograde") != 2:
+                raise SystemExit(f"Duplicated axonal-transport source rows leaked into learner table: {transport_visible!r}")
+            transport_options = page.locator(".option-list button")
+            if transport_options.count() != 4 or page.locator(".option-text").all_inner_texts() != ["1", "2", "3", "4"]:
+                raise SystemExit("Axonal-transport question did not preserve its four canonical row-number choices")
+            transport_options.nth(2).click()
+            if page.locator(".option-list .correct").count() != 1:
+                raise SystemExit("Axonal-transport table did not preserve canonical correct option 3")
+            page.screenshot(path=str(output / "prepladder-axonal-transport-table.png"), full_page=True)
+
             page.evaluate("window.QB.practiceOne('physiology-19-12')")
             statements = page.locator(".question-text .nk-match-table")
             statements.wait_for(state="visible")
@@ -103,7 +123,7 @@ def main() -> None:
     finally:
         server.shutdown()
 
-    print("QUESTION_PRESENTATION_BROWSER_OK matching_table=true alternate_matching_table=true combination_list=true choices=4 incomplete_fail_closed=true")
+    print("QUESTION_PRESENTATION_BROWSER_OK matching_table=true alternate_matching_table=true row_selection_table=true combination_list=true choices=4 incomplete_fail_closed=true")
 
 
 if __name__ == "__main__":
