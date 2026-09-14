@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "purpose": "Review queue for visible OCR/code debris; never an auto-rewrite list.",
-  "candidateFieldCount": 117,
-  "candidateQuestionCount": 117,
+  "candidateFieldCount": 110,
+  "candidateQuestionCount": 110,
   "candidates": [
     {
       "id": "marrow__PHYS_CH07_Q009",
@@ -2785,47 +2785,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__PHYSIO_CH28_Q022",
-      "subject": "Physiology",
-      "chapterId": "28",
-      "chapter": "Cardiac Cycle and Cardiac Output",
-      "questionNumber": 22,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 10,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "symbol_dense_line"
-      ],
-      "value": "‘c waves are produced by bulging of the tricuspid valve into the right atrium during the\nIso-volumetric contraction of the right ventricle.\n\n514 \n\nWw - @\n) <? >\noh rr. 3\nThe x descent in jugular venousipressure corresponds to the wntricular systole of the cardiac\ncyde. rae) NS SS\nThe jugular venous pulse go e~\n* The waves in JVP reflect the pressure changes the right atrium.\n\n+ The internal jugular veingg preferred becatiée the external jugular vein is valved and not directly\nin line with the superi",
-      "suspectLines": [
-        {
-          "line": 4,
-          "text": "514 ",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 7,
-          "text": ") <? >",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 11,
-          "text": "The jugular venous pulse go e~",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 503,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYSIO_CH34_Q015",
       "subject": "Physiology",
       "chapterId": "34",
@@ -3667,156 +3626,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__PHYSIO_CH28_Q021",
-      "subject": "Physiology",
-      "chapterId": "28",
-      "chapter": "Cardiac Cycle and Cardiac Output",
-      "questionNumber": 21,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char"
-      ],
-      "value": "‘a wave in JVP represents atrial contraction.\n\nWaves of JVP :\n\n+ a- atrial systole pushing the blood to the ventricles.\n\n+ c- isovolumetric contraction of ventricles causing the tricuspid valve to bulge.\n\n+ x’ fall in atrial pressure during ventricular systole due to pull of valve leaflets.\n\n+ ¥- venous filling which creates an increase in atrial pressure. So\n\n+ y- passive filling of ventricles by a passive flow of the blood from the right atrium.\n~ ~\n\nvp\n\nPressure —>\n\nAtrial contraction\n“reuspid vaive slevation inte the right atrium\n\n= Downward movement of the contracting right ventricle\n= Bac pressure wave from blood filing the might arin\n“Tricuspid valve opena in narly ventricular diastole\n\n<<xoe",
-      "suspectLines": [
-        {
-          "line": 14,
-          "text": "~ ~",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 16,
-          "text": "vp",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 27,
-          "text": "<<xoe",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 503,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH28_Q025",
-      "subject": "Physiology",
-      "chapterId": "28",
-      "chapter": "Cardiac Cycle and Cardiac Output",
-      "questionNumber": 25,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char"
-      ],
-      "value": "Reflex responsible for tachycardia during right atrial distension is Bainbridge reflex.\n\n516 \n\nAtrial Reflex Control of Heart Rate: The Bainbridge Reflex\n\n+ The stretch receptors of the atria that elicit the Bainbridge reflex transmit their afferent signals\nthrough the vagus nerves to the medulla of the brain.\n\n+ Then efferent signals are transmitted back through vagal and sympathetic nerves to increase\nheart rate and strength of heart contraction.\n\nBezold-Jarisch Reflex:\n\n+ Activation of chemosensitive vagal C fibres in the cardiopulmonary region (e.g. Juxta capillary\nregion of alveoli, ventricles, atria, great veins, and pulmonary artery) causes profound brady-\ncardia, hypotension and a brief period of apnea followed by rapid shallow breathing.\n\nCushing Reflex: ve\"\n\n+ When ICP is increased, the blood supply to RVLM neurons is compromised\n\n+ The local hypoxia and hypercapnia causes an increase if Aicharge fi fo@hthe neurons, producing\nhypertension, bradycardia and irregular respirationn™\n\n. A\n+ The resultant rise in systemic arterial pressyreitends to restore the blood fldw to the medulla.",
-      "suspectLines": [
-        {
-          "line": 3,
-          "text": "516 ",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 24,
-          "text": "hypertension, bradycardia and irregular respirationn™",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 26,
-          "text": ". A",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 504,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH28_Q027",
-      "subject": "Physiology",
-      "chapterId": "28",
-      "chapter": "Cardiac Cycle and Cardiac Output",
-      "questionNumber": 27,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char"
-      ],
-      "value": "Cardiac output is increased in pregnancy.\n\nEffect of various conditions on cardiac output: Pes\n\nxo\n> fob 4 S\nne\nPe\n~\nIncreas | Anxiety and excitementEatin\ne gExerciseHigh environmental\nral temperaturePregnancyEpine\nphrine\nDecrea | Sitting or standing from lying\nse positionRapid arrhythmiasH\neart disease\n\n518",
-      "suspectLines": [
-        {
-          "line": 5,
-          "text": "xo",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 7,
-          "text": "ne",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 8,
-          "text": "Pe",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 9,
-          "text": "~",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 10,
-          "text": "Increas | Anxiety and excitementEatin",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 14,
-          "text": "Decrea | Sitting or standing from lying",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 18,
-          "text": "518",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 504,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYSIO_CH34_Q002",
       "subject": "Physiology",
       "chapterId": "34",
@@ -4498,38 +4307,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__PHYSIO_CH28_Q024",
-      "subject": "Physiology",
-      "chapterId": "28",
-      "chapter": "Cardiac Cycle and Cardiac Output",
-      "questionNumber": 24,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 4,
-      "reasons": [
-        "hard_noise_char"
-      ],
-      "value": "'C wave in JVP represents tricuspid bulge into right atrium during isovolumetric yentricular\ncontraction. eo\n\nCharacteristics of JVP\n\n* a wave corresponds to atrial systole which causes stron of pers into the great\n\nveins. ~\nan&\n\n+ ¢ wave occurs due to the increase in atrial piestre caused by? PBulging of the. e tricuspid valve into\nthe right atrium during isovolumetric ventricilar contraction. “~~\n\nin atrial presets venti cule ystole due to pulling of\n\n©\n\n+x descent occurs due to the fall\nvalve leaflets.\n\n+ v wave is seen at the endof ventricular Petion andé@eurs due to the slow venous filling\n\nwhich causes an increase in’atrial pre: ex\nP Bere <e\n* y descent occurs due to the passive e emptying, ofthe right atrium into the right ventricle.\n\nLy vetume",
-      "suspectLines": [
-        {
-          "line": 8,
-          "text": "veins. ~",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 12,
-          "text": "the right atrium during isovolumetric ventricilar contraction. “~~",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 504,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYSIO_CH34_Q001",
       "subject": "Physiology",
       "chapterId": "34",
@@ -5187,56 +4964,6 @@
       ],
       "sourcePage": 485,
       "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH28_Q023",
-      "subject": "Physiology",
-      "chapterId": "28",
-      "chapter": "Cardiac Cycle and Cardiac Output",
-      "questionNumber": 23,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 3,
-      "reasons": [
-        "edge_noise"
-      ],
-      "value": "Ly vetume\n\n+ a wave: Corresponds to right atrial contraction.\n\n+ c wave: Corresponds to the bulging of the tricuspid valve into the right atrium during\nisovolumetric ventricular contraction.\n\n515 \n\n+ x descent: Corresponds to the atrial relaxation as the ventricular systole pulls the tricuspid valve\nduring ejection.\n+ v wave: Corresponds to the venous filling of the right atrium against a closed tricuspid valve.\n\n+ y descent: Corresponds to fall in right atrial pressure during passive emptying of the right atrium\ninto the right ventricle.",
-      "suspectLines": [
-        {
-          "line": 8,
-          "text": "515 ",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 503,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH28_Q026",
-      "subject": "Physiology",
-      "chapterId": "28",
-      "chapter": "Cardiac Cycle and Cardiac Output",
-      "questionNumber": 26,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 3,
-      "reasons": [
-        "edge_noise"
-      ],
-      "value": "The correct sequence of fens: that ocauPher the p+ wave ‘is 1-2-4-3, ie:\na wave in JVP > First heart sound_ Ss oT wave in 1 BES — Rapid filling of ventricles.\nThe sequence of the events indie ‘question, eae better understood with the following diagram:\n\nq an ee\nLLEE GS oO\n\nMARROW\n\n+ The p wave in the ECG represents atrial depolarization, which causes contraction of the atria,\nrepresented by the ‘a’ wave in the JVP. Atrial contraction causes final filling of the ventricles\n(fourth phase of ventricular diastole)\n\n517 \n\n+ Atrial contraction is followed by the closure of the mitral valve, which causes the first-heart\nsound.\n\n+ This is followed by the isovolumetric contraction of the ventricle, which causes ¢ wave in JVP,\ndue to bulging of the tricuspid valve. This is followed by the rapid ejection phase of the ventricle.\n\n+ The T wave of ECG occurs during ventricular repolarization, which is followed by the opening of\nthe mitral valve, followed by rapid filling phase of the ventricle (second phase of ventricular\n\ndiastole).\n\nNote: Passive rapid filling occurs as the mitral valve opens just before atrial contraction occurs.",
-      "suspectLines": [
-        {
-          "line": 14,
-          "text": "517 ",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 504,
-      "reviewStatus": "needs_manual_review"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q013",
