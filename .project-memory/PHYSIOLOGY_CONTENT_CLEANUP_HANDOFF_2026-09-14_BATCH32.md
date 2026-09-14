@@ -1,0 +1,21 @@
+# Physiology learner-visible cleanup handoff — Batch 32
+
+- Subject: Physiology
+- Cleanup branch: `fix/marrow-full-content-cleanup-20260913`
+- Cleanup head before proposal write: `fa18dc45f5ca761849685be9885e099ffde75394`.
+- Canonical comparison head before proposal write: `5352eb415e96834f3514139951a17ef7da3f368a`; its then-new delta affected question-presentation tooling only and did not intersect Chapter 25 stable IDs or provenance.
+- Initial effective global audit carried forward from the immediately preceding verified handoff: 2,711 questions; 0 question/option candidates; 157 explanation candidates = Anatomy 1 / Biochemistry 6 / Physiology 150.
+- Initial Chapter 25 review packet: 11 explanation candidates, 0 question/option candidates.
+- Reviewed stable IDs in deterministic source order: `marrow__PHYSIO_CH25_Q007`, `marrow__PHYSIO_CH25_Q009`, `marrow__PHYSIO_CH25_Q012`, `marrow__PHYSIO_CH25_Q013`, `marrow__PHYSIO_CH25_Q015`, `marrow__PHYSIO_CH25_Q016`.
+- Authoritative rendered Marrow ED8 explanation pages reviewed: 459–462. The PDF extracted-text layer was visibly corrupted and was not used as authority.
+- Cleanup actions: restored only readable source-faithful prose and relationships; removed OCR/diagram-label spillover, meaningless symbol runs, malformed separators and cross-question solution spillover. Q9 was bounded strictly to its own rendered solution before Q10. No fine-tuning, teaching expansion, gold-standard sections, stylistic rewrite, answer change, provenance change, figure change, stem/option change, or raw-bundle mutation.
+- Reviewed proposal: `data/marrow/content_hygiene_proposals/physiology/chapter_025_cleanup_batch_20260914_32.json`.
+- Proposal commit: `798a8bc5187fa287c775e4585d764f480d65f53d`.
+- Promotion workflow: `34856802468` — PASS.
+- Verified promotion commit: `924be9ac9d45c268500b04d282662b88ba8405d1`.
+- Active Chapter 25 v2 source fingerprint after promotion: `d3cb4d0dee8ea0210ec712fc905ba5c8908ecc306fd7927f2f21d37398a49cda`.
+- Validation: exact source-fingerprint promotion PASS; global v2 override validator PASS; full effective 2,711-question audit rebuilt; learner-visible debris scan rebuilt; raw/effective `correctOption` maps identical; `questionOptionCandidateQuestions == 0`; existing four-option and correct-answer mapping invariants preserved; targeted explanations contain no source footer/brand/serialization marker. No runtime output path was modified, so no browser/build regression was required.
+- Effective residual explanation detector counts after promotion: global 151 = Anatomy 1 / Biochemistry 6 / Physiology 144. Question/option candidates remain 0 globally.
+- Chapter 25 residual explanation candidates: 5. Q7, Q9, Q12, Q13, Q15 and Q16 are absent from the regenerated explanation queue. Exact next unresolved Physiology item is `marrow__PHYSIO_CH25_Q019` — Regulation of Respiration; question page 450, answer-key pages 453–454, explanation page 463.
+- Before this handoff write, cleanup head was `924be9ac9d45c268500b04d282662b88ba8405d1`. Canonical had subsequently advanced to `94edb3af43eb38a1ef762b08c1bdb152c15b3359`; that additional delta modified project-memory handoff/state files for structured question reform only and did not intersect this Chapter 25 cleanup.
+- Nothing was merged to canonical or `main`.
