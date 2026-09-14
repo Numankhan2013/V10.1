@@ -10,56 +10,28 @@ This was not a one-question manual patch. The existing shared runtime architectu
 
 Audit of the generated PrepLadder artifact found 63 questions containing `match` / `matching`. The prior build rendered 39 semantic matching/list tables. Several missed questions already had enough structure for the existing parser; the detector alone blocked them. The audit also found parser limitations around duplicated extracted table blocks, A–F source labels, `Column A / Column B` prose references, bare `a…d ↔ i…iv` notation, and label-only source groups.
 
-The generalized architecture increases semantic table renderings in the built artifact from 39 to 53 while preserving structural gating so ordinary prose such as “injured during a soccer match” is not converted into a table.
+The generalized architecture increased semantic table renderings from 39 to 53 while preserving structural gating so ordinary prose such as “injured during a soccer match” is not converted into a table.
 
-## Architecture repair
+## Generic architecture repair
 
 Canonical implementation lineage:
 
 - `d9dd3271d8375bab3d1f6c4c1fa77e67d8d988ab` — generalized shared matching-table architecture.
 - `c87ea82fd60b7fa5c181f3c58449b54968bc1111` — expanded corpus/unit regressions.
 - `54e0f97318abd3eb4d3d2a83f4b2587a8226ac53` — browser regression for alternate matching prompts, including the user-reported equilibrium-potential question.
-- `f0471f5b494c50e36bf7e3952be90a33ba45dea1` — source-stable final regression contract after removing transformed-content assumptions from source-stage unit tests.
+- `f0471f5b494c50e36bf7e3952be90a33ba45dea1` — source-stable final regression contract.
 
-The shared renderer now:
+The shared renderer now accepts general `match` / `matching` wording but renders only when structural evidence is present; trims repeated source-table blocks; supports A–H and roman i–viii labels; ignores Column/List prose headers as row labels; supports bare letter↔roman notation; and preserves source fidelity rather than fabricating missing cells.
 
-- accepts general `match` / `matching` wording but renders a table only when structural evidence is present;
-- trims repeated source-table blocks/headings rather than leaking the duplicate into the last cell;
-- supports source labels through A–H and roman i–viii, including legitimate A–F / 1–6 tables;
-- ignores `Column A`, `Column B`, `List A`, etc. when those are prose/header references rather than row labels;
-- supports bare `a…h ↔ i…viii` source notation;
-- can preserve label-only source groups when another group contains meaningful source values, without inventing missing text;
-- leaves source-incomplete/image-dependent records un-reconstructed rather than fabricating content.
+## Exact ion regression
 
-## Exact user-reported regression
+`physiology-9-17` is explicitly exercised in the generated PWA browser regression. It must show List I / List II with Sodium, Chloride, Potassium, Calcium and -70, +63, +132, -90; expose exactly four canonical answer choices; and show the duplicated `Ion Equilibrium Potential (mV)` source block only once.
 
-`physiology-9-17` is now explicitly exercised in the generated PWA browser regression. The test requires:
+The generic repair was verified at `f0471f5b494c50e36bf7e3952be90a33ba45dea1`: Engineering `34837009703` PASS and full Android/PWA/browser/APK/package run `34837009688` PASS. Production promotion was skipped.
 
-- a visible semantic List I / List II table;
-- Sodium, Chloride, Potassium, Calcium;
-- -70, +63, +132, -90;
-- exactly four canonical answer choices;
-- the duplicated `Ion Equilibrium Potential (mV)` source block to appear only once in the learner-visible question.
+## Source-backed residual matching repairs
 
-The earlier “good” example `physiology-9-6` also benefits from repeated-prelude cleanup; the architecture no longer intentionally relies on its accidental trailing header text.
-
-## Verification
-
-Exact-head canonical checkpoint `f0471f5b494c50e36bf7e3952be90a33ba45dea1`:
-
-- Engineering Gate `34837009703`: **PASS**.
-- Full Android/PWA/browser/APK/package run `34837009688`: **PASS**.
-- Generated PrepLadder matching-question browser regression: **PASS**, including `physiology-9-17`.
-- Continue Practice browser regression: **PASS**.
-- APK build/package/reproducibility/Marrow asset checks: **PASS**.
-- PWA preview deployment: **PASS**.
-- Production promotion: **SKIPPED** as required.
-
-Status is **BUILD_VERIFIED**, not yet user-accepted. User should physically re-review the new preview across several matching questions before acceptance.
-
-## Remaining matching records
-
-After the generalized built-artifact audit, the following genuine match-like records still do not have enough safely parseable text structure for generic reconstruction and may require source-image inspection or targeted/manual repair:
+Some genuine matching questions do not contain enough text structure for a safe generic parser because one side is image-owned or extraction-flattened. They must not be left as raw prose and must not be guessed. Commit `d111b7c6a4efcbdc09c15354072973b78fee35b2` added source-fingerprinted presentation overrides for the previously listed residuals:
 
 - `26-13`
 - `physiology-10-10`
@@ -70,10 +42,43 @@ After the generalized built-artifact audit, the following genuine match-like rec
 - `anatomy-29-33`
 - `anatomy-30-4`
 
-Do not force these through generic parsing if one side of the match is absent or image-dependent. Preserve source fidelity and repair them only with sufficient source evidence.
+These are no longer “unrepaired residuals.” They use explicit source-backed presentation data while leaving the canonical question/options/correct-answer records unchanged. Future structurally incomplete matching questions should follow the same rule: generic parser first, then source-backed targeted reform if needed.
 
 Ordinary non-table uses of the word “match” such as `physiology-32-23`, `anatomy-22-20`, and `anatomy-29-24` must remain ordinary MCQs/prose.
 
-## Next action
+## Structured row-selection family
 
-Have the user physically inspect the newly deployed preview, especially `physiology-9-17` and a spread of matching questions across subjects/chapters. If residual failures are among the structurally incomplete/image-dependent IDs above, handle them as targeted source-fidelity repairs rather than broadening the generic parser until it guesses.
+User review then exposed a separate family that is not phrased as a matching question at all: `physiology-9-22`, an axonal-transport question whose source contains a four-column table and whose choices are only `1 / 2 / 3 / 4`. Extraction had flattened and duplicated the source table into the stem.
+
+Commit `5352eb415e96834f3514139951a17ef7da3f368a` adds a reusable multi-column override-grid path and a source-fingerprinted reform for `physiology-9-22`. Learner presentation is now:
+
+- prompt: “Which of the following statements accurately describes the type, direction and mediators of axonal transport?”
+- columns: **Statement / Type / Direction / Mediator**;
+- rows preserved from source:
+  - 1 | Anterograde | Cell body to axon terminal | Dynein
+  - 2 | Anterograde | Axon terminal to cell body | Kinesin
+  - 3 | Retrograde | Axon terminal to cell body | Dynein
+  - 4 | Retrograde | Cell body to axon terminal | Kinesin
+- answer choices remain exactly `1 / 2 / 3 / 4`;
+- canonical `correctOption` remains `3`;
+- raw duplicated source rows do not appear in the learner stem.
+
+The browser regression now explicitly opens `physiology-9-22`, verifies all four headers and source cells, asserts no duplicated row block, confirms the four canonical row-number choices, and confirms option 3 remains the correct answer.
+
+## Current verification
+
+Exact product checkpoint `5352eb415e96834f3514139951a17ef7da3f368a`:
+
+- Engineering Gate `34855852205`: **PASS**.
+- Full Android/PWA/browser/APK/package run `34855852211`: **PASS**.
+- PrepLadder question-presentation browser regression: **PASS**, covering the normal matching table, the equilibrium-potential alternate wording, the new axonal-transport row-selection table, the combination-list case, and fail-closed incomplete choices.
+- Continue Practice browser regression: **PASS**.
+- APK build/package/reproducibility/Marrow asset checks: **PASS**.
+- PWA preview deployment: **PASS**.
+- Production promotion: **SKIPPED**.
+
+Status is **BUILD_VERIFIED / USER_REVIEW_PENDING**. The ion question has been physically confirmed by the user. The new axonal-transport row-table and the source-backed residual matching overrides still need user preview review before being called accepted.
+
+## Rule for future malformed structured questions
+
+Do not limit this cleanup to literal “Match…” wording. If a learner-facing stem clearly contains a duplicated or flattened source table/list and the question asks the learner to select a row, combination, label mapping, or structured statement, first attempt a safe structural parser. If that cannot reconstruct the source faithfully, inspect the authoritative source and add a stable-ID/source-fingerprinted presentation override. Never rewrite the canonical answer contract merely to make the UI prettier, and never leave a clearly recoverable table as unreadable flattened prose.

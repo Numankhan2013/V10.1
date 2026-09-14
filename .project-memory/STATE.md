@@ -57,22 +57,24 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 - Browser regressions must verify meaningful expected cell content, not container existence.
 - User physically verified the structured-table repair at `c829599050173d24408b72e8dc564ba501a156b4`.
 
-## Matching/list question architecture — build verified, user re-review pending
+## Matching/list and structured-question presentation — build verified, user review pending
 
-- Shared architecture is real and generic; the earlier partial success was **not** a one-record manual patch. Root cause of the residual failures was a brittle hard-coded `match` wording detector plus parser limits.
-- User preview review exposed the concrete miss `physiology-9-17` (“Match the ion with its equilibrium potential…”): `physiology-9-6` rendered a table, while `physiology-9-17` leaked a duplicated raw source table because its wording never entered the shared parser.
-- Canonical repair lineage culminates at `f0471f5b494c50e36bf7e3952be90a33ba45dea1`. The renderer now uses broad match intent plus structural gating, trims duplicate source blocks, supports A–H / i–viii labels, skips Column/List header references, handles bare letter↔roman notation, and preserves label-only groups without inventing source text.
-- Built-artifact audit: **63** PrepLadder records contain `match`/`matching`; semantic table renderings increased from **39 to 53** after the generalized repair. Ordinary prose uses of “match” remain ordinary questions because structural evidence is required.
-- `physiology-9-17` is now an explicit generated-browser regression requiring List I/List II, Sodium/Chloride/Potassium/Calcium, -70/+63/+132/-90, exactly four answer choices, and no duplicated `Ion Equilibrium Potential (mV)` block.
-- Exact-head Engineering `34837009703` passed. Full Android/PWA/browser/APK/package run `34837009688` passed, including the exact matching browser regression, Continue Practice, APK/package/reproducibility checks, asset verification and PWA preview deployment. Production promotion was skipped.
-- Remaining genuine match-like records without enough generic text structure are `26-13`, `physiology-10-10`, `physiology-36-7`, `anatomy-3-12`, `anatomy-14-3`, `anatomy-29-16`, `anatomy-29-33`, `anatomy-30-4`; use source-image/targeted repair rather than guessing.
+- Shared matching architecture is real and generic; the earlier partial success was **not** a one-record manual patch. The original residual failures came from a brittle wording detector plus parser limits.
+- Generic repair lineage through `f0471f5b494c50e36bf7e3952be90a33ba45dea1` broadened match intent with structural gating, trims duplicate source blocks, supports A–H / i–viii labels, ignores Column/List header prose, and handles bare letter↔roman notation without inventing source content.
+- Built-artifact audit found **63** PrepLadder records containing `match`/`matching`; generic semantic table renderings increased from **39 to 53**. Ordinary prose uses of “match” remain ordinary questions because structural evidence is required.
+- `physiology-9-17` (“Match the ion…”) is an explicit browser regression requiring List I/List II, Sodium/Chloride/Potassium/Calcium, -70/+63/+132/-90, four canonical choices, and no duplicated source block. User physically confirmed this ion-question repair in preview.
+- Commit `d111b7c6a4efcbdc09c15354072973b78fee35b2` source-fingerprint-reformed the previously listed structurally incomplete/image-dependent matching residuals (`26-13`, `physiology-10-10`, `physiology-36-7`, `anatomy-3-12`, `anatomy-14-3`, `anatomy-29-16`, `anatomy-29-33`, `anatomy-30-4`) instead of leaving flattened prose or guessing. These are no longer pending generic-parser residuals.
+- User then exposed a separate structured row-selection family: `physiology-9-22` (axonal transport) is not worded as “match” but contained a duplicated flattened four-column source table with choices `1/2/3/4`.
+- Commit `5352eb415e96834f3514139951a17ef7da3f368a` added reusable multi-column override-grid presentation and reformed `physiology-9-22` into **Statement / Type / Direction / Mediator** while preserving the original four choices and canonical `correctOption=3`.
+- Exact-head Engineering `34855852205` passed. Full Android/PWA/browser/APK/package run `34855852211` passed, including the new axonal-transport browser regression, matching regressions, Continue Practice, APK/package/reproducibility checks, asset verification, and PWA preview deployment. Production promotion was skipped.
+- Rule going forward: for duplicated/flattened source tables or list structures, use safe generic parsing first; if source structure is not safely inferable, perform a stable-ID/source-fingerprinted presentation reform from authoritative source. Do not alter the canonical answer contract and do not leave a clearly recoverable table as raw prose.
 - Full handoff: `.project-memory/MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`.
-- Status: **BUILD_VERIFIED / USER_REVIEW_PENDING**. Do not call the generalized matching repair user-accepted until the user rechecks the new preview across several chapters.
+- Status: **BUILD_VERIFIED / USER_REVIEW_PENDING** for the new axonal-transport and source-backed residual presentations; the ion-question repair itself is user-preview verified.
 
 ## Learner-content hygiene
 
 - Whole-corpus serialized JSON/code sanitizer candidate `45f6539fff535fadc6aaa6970894f9ff123422fa` passed Engineering `34738522874` and full run `34738530102` over **2,711 questions / 27,898 learner-facing fields**; raw ED8 source is unchanged.
-- User preview review found residual OCR debris in Physiology Ch5/Ch7; verified follow-up `55d7ac8a89c2bbf6a01db5d305b8c975c344c1f3` added source-fingerprinted stable-ID display overrides for those two chapters. Engineering `34740460617` and full run `34740465004` passed; preview `https://c4744474.nk-qbank.pages.dev`; production skipped.
+- User preview review found residual OCR debris in Physiology Ch5/Ch7; verified follow-up `55d7ac8a89c2bbf6a01db5d305b8c975c344c1f3` added source-fingerprinted stable-ID display overrides for those two chapters. Engineering `34740460617` and full run `34740465004` passed; production skipped.
 - Do not generalize Ch5/Ch7 cleanliness to unreviewed chapters; use the same source-fingerprinted override workflow for future OCR cleanup.
 
 ## Explanation lane
@@ -100,15 +102,16 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Known problems / cautions
 
-- Matching/list architecture is now build-verified but still awaits user physical re-review on the new preview; eight structurally incomplete/image-dependent match records remain targeted/manual candidates.
+- New axonal-transport and source-backed residual structured presentations are build-verified but still need user physical preview review before acceptance.
+- Future flattened table/list questions may exist outside literal `match` wording; treat them as structured-presentation defects, not ordinary prose cleanup.
 - Physiology image coverage remains incomplete; Biochemistry Q11 remains unresolved/paused.
 - Four PrepLadder source records remain intentionally non-answerable rather than recording corrupt attempts: `anatomy-22-4`, `physiology-23-38`, `physiology-24-6`, `physiology-33-33`.
 - Production promotion remains prohibited unless explicitly requested.
 
 ## Current priorities / Next step
 
-1. **Physical review:** user should inspect the newly deployed preview across multiple matching questions, especially `physiology-9-17`, before accepting the generalized architecture.
-2. **Residual matching cases:** if failures map to the eight incomplete/image-dependent IDs, use source-fidelity targeted repair rather than broad parser guessing.
+1. **Physical review:** inspect `physiology-9-22` and a spread of the source-backed residual matching questions in the newest preview; ion question `physiology-9-17` is already user-preview verified.
+2. **Structured-question cleanup:** when more duplicated/flattened source tables are found, use generic parsing where safe and source-backed stable-ID reform otherwise.
 3. **Explanation lane:** any Q19+ work must begin as a new owned batch from the live canonical head.
 4. **Image lane:** resume from live canonical after fresh ownership/fingerprint checks; keep automated Biochemistry paused at Q11.
 5. Production promotion remains prohibited unless the user explicitly asks for it.
@@ -116,7 +119,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 ## Memory pointers
 
 - Memory schema: `.project-memory/README.md`.
-- Matching architecture handoff: `.project-memory/MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`.
+- Matching/structured presentation handoff: `.project-memory/MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`.
 - Chronological work/CI history: `.project-memory/SESSION_LOG.md`.
 - Accepted Practice handoff: `.project-memory/CONTINUE_PRACTICE_HANDOFF.md`.
 - Practice postmortem: `.project-memory/PRACTICE_FLOW_POSTMORTEM_2026-09-12.md`.
