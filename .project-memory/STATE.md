@@ -10,7 +10,7 @@
 - **Sole Marrow/product integration trunk:** `feature/marrow-canonical-full-current`.
 - Production / `main` remains explicit and guarded; do not promote without user approval.
 - Resolve the live canonical HEAD at run start; never hardcode a supposed current HEAD into automation logic.
-- Latest accepted Practice behavior was verified from checkpoint `74abb670c3ae088e06653681e85c347212222455`; full run `34695680534` succeeded and the user physically confirmed the Continue Practice flow.
+- Latest accepted Practice behavior was verified from checkpoint `74abb670c3ae088e06653681e85c347212222455`; full run `34695680534` succeeded and the user physically confirmed the Continue Practice flow. This behavior is build-verified, **device-verified**, and user-accepted.
 
 ## Complete canonical Marrow ED8 source
 
@@ -44,7 +44,7 @@
 - If an older buggy client reduced `questionIds` to one current question, rebuild the visible session from `sessionQuestionIds`; a multi-question session must never collapse to `1 / 1`.
 - Special modes (CBT, Review, Wrong/Bookmarks, FSRS, Custom Study Modules) remain outside this override unless explicitly redesigned.
 - Postmortem: `.project-memory/PRACTICE_FLOW_POSTMORTEM_2026-09-12.md`; implementation handoff: `.project-memory/CONTINUE_PRACTICE_HANDOFF.md`.
-- Status: **accepted / user-device verified**. Do not describe this flow as pending.
+- Status: **accepted / device-verified / user-verified**. Do not describe this flow as pending.
 
 ## Mandatory Practice regression sequence
 
