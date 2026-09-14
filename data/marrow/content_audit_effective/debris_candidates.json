@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "purpose": "Review queue for visible OCR/code debris; never an auto-rewrite list.",
-  "candidateFieldCount": 129,
-  "candidateQuestionCount": 129,
+  "candidateFieldCount": 120,
+  "candidateQuestionCount": 120,
   "candidates": [
     {
       "id": "marrow__PHYS_CH07_Q009",
@@ -2785,89 +2785,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__PHYSIO_CH28_Q003",
-      "subject": "Physiology",
-      "chapterId": "28",
-      "chapter": "Cardiac Cycle and Cardiac Output",
-      "questionNumber": 3,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 10,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash"
-      ],
-      "value": "ane\n\nCardiac output in litre perghintute divides ‘by heart rate gives stroke volume.\nCardiac output is sive By, Cardiac Qiitput = Heart Rate X Stroke Volume.\n\nThe stroke volum@'S the amounbof blood pumped out of each ventricle per beat, is about 70 mL\nfrom each yenttice i in a resting man in the supine position.\n\\ =",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "ane",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 8,
-          "text": "\\ =",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 498,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH28_Q013",
-      "subject": "Physiology",
-      "chapterId": "28",
-      "chapter": "Cardiac Cycle and Cardiac Output",
-      "questionNumber": 13,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 10,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash"
-      ],
-      "value": "@ .\n‘The indication of the end of the Bovolumetric tlexation phase is when ventricular pressure falls\nbelow atrial pressure. ¢ we\n\na’\nEvents of the Cordis gear a\nDiastole op *\n\nC\n+ Protodiastglé ,\\o~\nBefore the semilunar valvé closes, even though ventricular muscle is relaxed, blood flow into great\nvessels is due to momentum of blood.\n\n+ Iso-volumetric Relaxation\n\nThe ventricular muscle continues to relax, even though the ventricular volume does not change,\nwith all valves closed.\n\n+ Ventricular Filling\n\nIsovolumetric relaxation ends when the ventricular pressure falls below the atrial pressure and the\nAV valves open, permitting the ventricles to fill.\n\n+ Atrial Systole\n\nDuring the last third of diastole, the atria contract and give additional thrust to the inflow of blood\ninto the ventricles. It correlates with ‘a' wave in JVP.\n\nsystole\n\n+ Isovolumetric Contraction\n\n509 \n\n‘The ventricular muscle continues to contract, even though the ventricular volume does not\nchange, with all valves closed.\n\nIt correlates with the ‘c’ wave of JVP.\n\n+ Ventricular Ejection\n\nWhen the ventricular pressures rise above aortic and pulmonary pressures the valves open, and\nventricular ejection begins. Peak pressures in the left and right ventricles are about 120 and 25\nmmHg, respectively.\n\nEvents of the cardiac cycle",
-      "suspectLines": [
-        {
-          "line": 5,
-          "text": "a’",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 9,
-          "text": "C",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 10,
-          "text": "+ Protodiastglé ,\\o~",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 33,
-          "text": "509 ",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 501,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYSIO_CH28_Q022",
       "subject": "Physiology",
       "chapterId": "28",
@@ -3747,107 +3664,6 @@
         }
       ],
       "sourcePage": 257,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH28_Q012",
-      "subject": "Physiology",
-      "chapterId": "28",
-      "chapter": "Cardiac Cycle and Cardiac Output",
-      "questionNumber": 12,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char"
-      ],
-      "value": "The duration of atrial diastole is 0.7 sec. €\n\nVentricles 2\nAtria\noO\n>\nne\nme)",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "The duration of atrial diastole is 0.7 sec. €",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 5,
-          "text": "oO",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 6,
-          "text": ">",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 7,
-          "text": "ne",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 501,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH28_Q018",
-      "subject": "Physiology",
-      "chapterId": "28",
-      "chapter": "Cardiac Cycle and Cardiac Output",
-      "questionNumber": 18,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char"
-      ],
-      "value": "Dicrotic notch is caused by closing of aortic valve.\n\n\"A\n\nThe dicrotic notch, a small oscillation in the falling phase of the pulse wave caused by vibrations\n\nset up when the aortic valve shuts.\n\n512\n\nDicrotic notch\n\nKe\n\n‘systole phase\niactdhe phase\naaa Distt pak e@\nPep tees Xx\nMARROW\nmy a\n& « s\nfe\nOn a? ow\n. | 0 raS <",
-      "suspectLines": [
-        {
-          "line": 3,
-          "text": "\"A",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 9,
-          "text": "512",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 13,
-          "text": "Ke",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 22,
-          "text": "fe",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 24,
-          "text": ". | 0 raS <",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 502,
       "reviewStatus": "pass"
     },
     {
@@ -5373,31 +5189,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__PHYSIO_CH28_Q002",
-      "subject": "Physiology",
-      "chapterId": "28",
-      "chapter": "Cardiac Cycle and Cardiac Output",
-      "questionNumber": 2,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 3,
-      "reasons": [
-        "edge_noise"
-      ],
-      "value": "VIQ ratio not used to determine cardiac output. »\nMeasurement of cardiac output:\n+ Fick principle\n\n+ Dye dilution/thermodilution\n\n+ Doppler plus echocardiograph\n+ MRI",
-      "suspectLines": [
-        {
-          "line": 8,
-          "text": "+ MRI",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 498,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYSIO_CH28_Q005",
       "subject": "Physiology",
       "chapterId": "28",
@@ -5448,63 +5239,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__PHYSIO_CH28_Q007",
-      "subject": "Physiology",
-      "chapterId": "28",
-      "chapter": "Cardiac Cycle and Cardiac Output",
-      "questionNumber": 7,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 3,
-      "reasons": [
-        "edge_noise"
-      ],
-      "value": "Starling's law implies increased venous return leads tajaied carigghput\nFrank-Starling law: The energy of contraction is proportional to thenitial length of the cardiac\n\nmuscle fiber. no” o Res\nThe length of the muscle fibers is propo on to the endkdistolic volute, ‘which is determined\nby venous return. ak ad <\nIncreased\nContractility\nNormal\nZ : Decreased\n4 . Contractility\n&\nC\nSi\nLVEDP (mmHg)",
-      "suspectLines": [
-        {
-          "line": 13,
-          "text": "C",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 14,
-          "text": "Si",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 499,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH28_Q008",
-      "subject": "Physiology",
-      "chapterId": "28",
-      "chapter": "Cardiac Cycle and Cardiac Output",
-      "questionNumber": 8,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 3,
-      "reasons": [
-        "edge_noise"
-      ],
-      "value": "Venous return to the heart during quiet standing is not facilitated by increased arterial pressure.\nFactors that facilitate venous return to the heart:\n+ Calf muscles contract and pump blood through veins.\n+ Valves don't allow the retrograde flow of blood through veins.\n\n+ Deep fascia by forming a supporting structure to veins.\n\n507 \n\nNote: The pulsations of artery helps in increasing lymph flow .",
-      "suspectLines": [
-        {
-          "line": 8,
-          "text": "507 ",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 499,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYSIO_CH28_Q016",
       "subject": "Physiology",
       "chapterId": "28",
@@ -5527,70 +5261,6 @@
         }
       ],
       "sourcePage": 502,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH28_Q019",
-      "subject": "Physiology",
-      "chapterId": "28",
-      "chapter": "Cardiac Cycle and Cardiac Output",
-      "questionNumber": 19,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 3,
-      "reasons": [
-        "edge_noise"
-      ],
-      "value": "oh KO x\nFirst heart sound and second di Sound a rns duelto ¢ Closure of atrioventricular (AV)\nand semilunar valves. co SS\nyer\nO ead\n.]",
-      "suspectLines": [
-        {
-          "line": 4,
-          "text": "yer",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 6,
-          "text": ".]",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 502,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYSIO_CH28_Q020",
-      "subject": "Physiology",
-      "chapterId": "28",
-      "chapter": "Cardiac Cycle and Cardiac Output",
-      "questionNumber": 20,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 3,
-      "reasons": [
-        "edge_noise"
-      ],
-      "value": "i\nThe fourth heart sow ‘al by aitricular filling.\n\nA fourth cone fard imm ity before the first sound when atrial pressure is high or the\nventricle n cine ch as ventricular hypertrophy. It is due to ventricular filling and is\nrarely hea in normal\n\nHeart sounds in relation to ECG.\n\nsa si 82 s3\n\nMARROW\n\n513",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "i",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 14,
-          "text": "513",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 503,
       "reviewStatus": "pass"
     },
     {
