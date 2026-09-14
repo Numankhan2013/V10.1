@@ -1,17 +1,19 @@
 {
   "proposalVersion": 1,
   "reviewStatus": "REVIEWED",
-  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 28 stems/options plus Q10 and Q17 explanations, verified against rendered ED8 source pages. Removes OCR/graph debris only; answer indices remain immutable.",
+  "purpose": "Source-faithful learner-display cleanup of Physiology Chapter 28 stems/options plus reviewed explanations, verified against rendered ED8 source pages. Removes OCR/graph debris only; answer indices remain immutable.",
   "subject": "Physiology",
   "chapterId": "28",
   "questions": {
     "marrow__PHYSIO_CH28_Q005": {
       "question": "A patient with cardiac output 5 L/min and body surface area 1.7 m2. What will be the cardiac index (L/min/m2)?",
-      "options": ["3", "4", "5", "6"]
+      "options": ["3", "4", "5", "6"],
+      "explanation": "Cardiac index is the cardiac output per minute per square meter of body surface.\n\nCardiac Index = Cardiac output / body surface area.\n\nTherefore Cardiac index = 5L/min /1.7m2= 2.94 L"
     },
     "marrow__PHYSIO_CH28_Q006": {
       "question": "Volume determining preload is ______.",
-      "options": ["End systolic volume", "Volume of blood in aorta", "Ventricular ejection volume", "End diastolic volume"]
+      "options": ["End systolic volume", "Volume of blood in aorta", "Ventricular ejection volume", "End diastolic volume"],
+      "explanation": "Volume determining preload is End diastolic volume.\n\nPreload is the initial stretch on muscle at the end of diastole. Preload is equal to End diastolic volume (EDV) and is determined by venous return to heart."
     },
     "marrow__PHYSIO_CH28_Q009": {
       "question": "When a person changes position from standing to supine, ______.",
@@ -24,7 +26,8 @@
     },
     "marrow__PHYSIO_CH28_Q016": {
       "question": "Electromechanical systole is the time interval between ______.",
-      "options": ["Q wave and T wave", "S wave and T wave", "R wave and first heart sound", "Q wave and second heart sound"]
+      "options": ["Q wave and T wave", "S wave and T wave", "R wave and first heart sound", "Q wave and second heart sound"],
+      "explanation": "Electromechanical systole is the time interval between Q wave and second heart sound.\n\nTo record this both ECG and phonocardiography are required."
     },
     "marrow__PHYSIO_CH28_Q017": {
       "question": "The pressure-volume curve is shifted to the left in:",
