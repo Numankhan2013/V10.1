@@ -56,8 +56,10 @@
 
   function nkQuestionMatchingSource(q,presentation){
     const question=String(q?.question||'');
-    const matching=/\bmatch(?:ing)?\s+(?:the\s+)?(?:following|column|columns|pairs|items|terms|parts|types|zones|actions|receptors|structures|disorders|vitamins|mechanisms|walls?|muscles|arteries|waves|molecules)\b/i.test(question)||/\*\*Type:\*\*\s*Match/i.test(question);
-    if(!matching)return null;
+    // Matching intent is cheap to recognize; structural evidence is the real gate.
+    // Do not hard-code a vocabulary after "match" because valid source prompts vary
+    // ("match the ion...", "match each...", "correct match ... Column A/B", etc.).
+    if(!/\bmatch(?:ing)?\b/i.test(question)&&!/\*\*Type:\*\*\s*Match/i.test(question))return null;
     const support=(presentation?.supporting||[]).map(option=>`${String(option?.letter||'').trim()}. ${String(option?.text||'').trim()}`.trim()).filter(Boolean);
     return [question,...support].join(' ')
       .replace(/\*\*Type:\*\*\s*Match the Following/ig,' ')
@@ -74,26 +76,93 @@
       .replace(/\s+/g,' ').trim();
   }
 
+  function nkQuestionTrimRepeatedPrelude(value,prelude){
+    const clean=String(value||'').replace(/\s+/g,' ').trim();
+    const lead=String(prelude||'').replace(/\s+/g,' ').trim();
+    if(!clean||!lead)return clean;
+    const words=lead.split(' ');
+    for(let index=0;index<words.length-1;index++){
+      const suffix=words.slice(index).join(' ').trim();
+      if(suffix.length<8)continue;
+      if(clean.toLowerCase().endsWith((' '+suffix).toLowerCase()))return clean.slice(0,clean.length-suffix.length).trim();
+    }
+    return clean;
+  }
+
+  function nkQuestionBareMatchingTable(source){
+    const marker=/(?:^|\s)(viii|vii|vi|iv|iii|ii|i|v|[a-h])(?=\s+\S)/g;
+    const raw=[...source.matchAll(marker)];if(raw.length<6)return null;
+    const rank={letter:['a','b','c','d','e','f','g','h'],roman:['i','ii','iii','iv','v','vi','vii','viii']};
+    const seen={letter:new Set(),roman:new Set()},accepted=[];let repeatAt=-1;
+    for(const hit of raw){
+      const key=hit[1].toLowerCase(),family=key.length===1&&/[a-h]/.test(key)?'letter':'roman';
+      if(seen[family].has(key)){
+        if([...seen.letter].length>=3&&[...seen.roman].length>=3){repeatAt=hit.index||0;break;}
+        continue;
+      }
+      const expected=rank[family][seen[family].size];
+      if(key!==expected)continue;
+      seen[family].add(key);accepted.push({hit,key,family});
+    }
+    if(seen.letter.size<3||seen.roman.size<3)return null;
+    accepted.sort((a,b)=>(a.hit.index||0)-(b.hit.index||0));
+    const first=accepted[0].hit.index||0,prelude=source.slice(0,first).trim();
+    const groups={letter:[],roman:[]};
+    accepted.forEach((entry,index)=>{
+      const start=(entry.hit.index||0)+entry.hit[0].length;
+      const end=index+1<accepted.length?(accepted[index+1].hit.index||source.length):(repeatAt>=0?repeatAt:source.length);
+      let value=source.slice(start,end).trim();
+      if(index===accepted.length-1)value=nkQuestionTrimRepeatedPrelude(value,prelude);
+      if(value)groups[entry.family].push({label:entry.hit[1],value});
+    });
+    if(repeatAt>=0){
+      const firstValues=[groups.letter[0]?.value,groups.roman[0]?.value].filter(value=>String(value||'').length>=4);
+      for(const group of [groups.letter,groups.roman]){
+        const last=group[group.length-1];if(!last)continue;
+        for(const firstValue of firstValues){
+          const at=last.value.indexOf(firstValue);if(at>0)last.value=last.value.slice(0,at).trim();
+        }
+      }
+    }
+    const list=[groups.letter,groups.roman].filter(group=>group.length>=3);
+    if(list.length<2)return null;
+    const rows=Array.from({length:Math.max(...list.map(group=>group.length))},(_,index)=>list.map(group=>group[index]||null));
+    return {prompt:prelude||'Match the following.',groups:list,rows};
+  }
+
   function nkQuestionMatchingTable(source,allowSingle=false){
     if(!source)return null;
-    const marker=/(?:^|\s)([1-9]\d*|[A-Ea-e]|iv|iii|ii|i|v)(?:[.)](?=\s|[A-Z])|(?=\s+[A-E][.)]))/g;
-    const hits=[...source.matchAll(marker)];if(hits.length<4)return null;
+    const marker=/(?:^|\s)([1-9]\d*|[A-Ha-h]|viii|vii|vi|iv|iii|ii|i|v)(?:[.)](?=\s|[A-Z])|(?=\s+[A-Ha-h][.)]))/g;
+    const rawHits=[...source.matchAll(marker)];
+    if(rawHits.length<4)return allowSingle?null:nkQuestionBareMatchingTable(source);
     const families={number:[],letter:[],roman:[]},seen={number:new Set(),letter:new Set(),roman:new Set()};
-    let firstAccepted=-1;
-    hits.forEach((hit,index)=>{
+    const accepted=[];let firstAccepted=-1,repeatAt=-1;
+    for(const hit of rawHits){
+      const before=source.slice(Math.max(0,(hit.index||0)-16),hit.index||0);
+      if(/\b(?:Column|List)\s*$/i.test(before))continue;
       const raw=hit[1],lower=raw.toLowerCase();
-      const family=/^\d+$/.test(raw)?'number':/^(?:i|ii|iii|iv|v)$/.test(lower)&&raw===lower?'roman':'letter';
+      const family=/^\d+$/.test(raw)?'number':/^(?:i|ii|iii|iv|v|vi|vii|viii)$/.test(lower)&&raw===lower?'roman':'letter';
       const key=family==='letter'?raw.toUpperCase():lower;
-      if(seen[family].has(key))return;
-      const start=(hit.index||0)+hit[0].length,end=index+1<hits.length?(hits[index+1].index||source.length):source.length;
+      if(seen[family].has(key)){
+        const completeFamilies=Object.values(seen).filter(group=>group.size>=2).length;
+        if(completeFamilies>=2){repeatAt=hit.index||0;break;}
+        continue;
+      }
+      seen[family].add(key);accepted.push({hit,raw,family,key});if(firstAccepted<0)firstAccepted=hit.index||0;
+    }
+    const prelude=firstAccepted>=0?source.slice(0,firstAccepted).trim():'';
+    accepted.forEach((entry,index)=>{
+      const start=(entry.hit.index||0)+entry.hit[0].length;
+      const end=index+1<accepted.length?(accepted[index+1].hit.index||source.length):(repeatAt>=0?repeatAt:source.length);
       let value=source.slice(start,end).trim().replace(/\*\*.*$/,'').trim().replace(/^["']|["']$/g,'');
-      if(!value)return;
-      seen[family].add(key);families[family].push({label:raw,value});if(firstAccepted<0)firstAccepted=hit.index||0;
+      if(index===accepted.length-1)value=nkQuestionTrimRepeatedPrelude(value,prelude);
+      families[entry.family].push({label:entry.raw,value});
     });
     const groups=Object.values(families).filter(items=>items.length>=2).sort((a,b)=>a[0].label.localeCompare(b[0].label,undefined,{numeric:true}));
-    if(groups.length<(allowSingle?1:2))return null;
+    const informative=groups.filter(group=>group.filter(item=>String(item.value||'').trim()).length>=2);
+    if(groups.length<(allowSingle?1:2)||!informative.length)return allowSingle?null:nkQuestionBareMatchingTable(source);
     const rows=Array.from({length:Math.max(...groups.map(group=>group.length))},(_,index)=>groups.map(group=>group[index]||null));
-    let prompt=source.slice(0,Math.max(0,firstAccepted)).trim();
+    let prompt=prelude;
     prompt=prompt.replace(/\b(?:Column|List)\s+[A-CI1-3](?:\s+(?:Column|List)\s+[A-CII1-3]){1,2}\s*$/i,'').trim();
     return {prompt:prompt||'Match the following.',groups,rows};
   }
