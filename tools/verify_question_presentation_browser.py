@@ -60,6 +60,23 @@ def main() -> None:
                 raise SystemExit("Normalized matching answer did not use the canonical correctOption")
             page.screenshot(path=str(output / "prepladder-matching-question.png"), full_page=True)
 
+            page.evaluate("window.QB.practiceOne('physiology-9-17')")
+            ion_table = page.locator(".question-text .nk-match-table")
+            ion_table.wait_for(state="visible")
+            ion_headers = ion_table.locator("th").all_inner_texts()
+            if [" ".join(value.split()).upper() for value in ion_headers] != ["LIST I", "LIST II"]:
+                raise SystemExit(f"Equilibrium-potential matching table headers are wrong: {ion_headers!r}")
+            ion_visible = ion_table.inner_text()
+            for expected in ("Sodium", "Chloride", "Potassium", "Calcium", "-70", "+63", "+132", "-90"):
+                if expected not in ion_visible:
+                    raise SystemExit(f"Equilibrium-potential matching table lost source cell {expected!r}: {ion_visible!r}")
+            ion_question = page.locator(".question-text").inner_text()
+            if ion_question.count("Ion Equilibrium Potential (mV)") != 1:
+                raise SystemExit(f"Duplicated source table leaked into equilibrium-potential question: {ion_question!r}")
+            if page.locator(".option-list button").count() != 4:
+                raise SystemExit("Equilibrium-potential matching question does not expose exactly four canonical choices")
+            page.screenshot(path=str(output / "prepladder-equilibrium-potential-matching.png"), full_page=True)
+
             page.evaluate("window.QB.practiceOne('physiology-19-12')")
             statements = page.locator(".question-text .nk-match-table")
             statements.wait_for(state="visible")
@@ -86,7 +103,7 @@ def main() -> None:
     finally:
         server.shutdown()
 
-    print("QUESTION_PRESENTATION_BROWSER_OK matching_table=true combination_list=true choices=4 incomplete_fail_closed=true")
+    print("QUESTION_PRESENTATION_BROWSER_OK matching_table=true alternate_matching_table=true combination_list=true choices=4 incomplete_fail_closed=true")
 
 
 if __name__ == "__main__":
