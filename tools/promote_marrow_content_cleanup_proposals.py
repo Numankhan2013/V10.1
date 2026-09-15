@@ -94,6 +94,11 @@ def merge_questions(existing: dict, proposed: dict, path: Path) -> dict:
     return merged
 
 
+def v1_compatible(qid: str, override: dict, v1_ids: set[str], where: Path) -> None:
+    if qid in v1_ids and (not isinstance(override, dict) or set(override) != {"explanation"}):
+        raise SystemExit(f"Cleanup conflicts with accepted v1 question/options ownership: {where} {qid}")
+
+
 def main() -> None:
     if not PROPOSALS.exists():
         print("MARROW_CLEANUP_PROPOSALS_NONE")
@@ -121,8 +126,6 @@ def main() -> None:
         if subject not in BANKS or not chapter or not isinstance(questions, dict) or not questions:
             raise SystemExit(f"Proposal identity/content invalid: {path}")
         ids = set(questions)
-        if ids & v1_ids:
-            raise SystemExit(f"Proposal overlaps accepted v1 Ch5/Ch7 IDs: {path}")
         if ids & seen:
             raise SystemExit(f"Duplicate proposal stable IDs: {path}")
         if not ids.issubset(source_by_id):
@@ -132,6 +135,7 @@ def main() -> None:
             if source.get("subject") != subject or str(source.get("chapterId")) != chapter:
                 raise SystemExit(f"Proposal scope escape: {path} {qid}")
             validate_clean(qid, override)
+            v1_compatible(qid, override, v1_ids, path)
             fields += len(override)
 
         out_path = OUT / SLUGS[subject] / f"chapter_{int(chapter):03d}.json"
@@ -146,8 +150,8 @@ def main() -> None:
 
         merged = merge_questions(existing_questions, questions, path)
         merged_ids = set(merged)
-        if merged_ids & v1_ids:
-            raise SystemExit(f"Merged active override overlaps v1: {out_path}")
+        for qid in merged_ids & v1_ids:
+            v1_compatible(qid, merged[qid], v1_ids, out_path)
         purpose = str(proposal.get("purpose") or "Reviewed source-faithful learner-display cleanup.")
         if existing_purpose and existing_purpose != purpose:
             purpose = existing_purpose.rstrip(". ") + "; additional reviewed source-faithful cleanup."
