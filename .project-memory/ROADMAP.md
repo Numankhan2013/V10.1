@@ -31,7 +31,20 @@ Check off only when build-verified **and** device-verified where UI is involved.
       CI and generated 320/390/768 px visual QA pass at a717563; canonical
       reconciliation and physical-device acceptance remain.
 
-## Marrow expansion — current priority
+## PrepLadder source-visual quality — ahead of remaining Marrow images
+
+- [ ] Run the exact Linux PDF/generated-app pipeline for the new non-destructive
+      full-corpus inventory and crop-safety gate. Inspect high-risk-first
+      source/production sheets in bounded batches; record manual PASS only after
+      axes, labels, legends, borders, panels, ownership and answer safety pass.
+- [ ] Run the representative phone/tablet browser gate, APK/package checks and
+      Engineering Gate on one exact canonical SHA. Physical-device acceptance
+      and production promotion remain explicit user actions.
+- [ ] After PrepLadder certification, resume Marrow Biochemistry at
+      `marrow__BIOCHEM_CH04_Q011:figure:1`; clear 4 tracked-unreleased, 34
+      untracked and 31 text-cue references before moving to Physiology.
+
+## Marrow expansion
 
 - [x] Consolidate the tested feature lineage into authoritative Git `main`
       through PRs #6/#7; run 409 passed and both Cloudflare steps were skipped.

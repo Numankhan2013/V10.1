@@ -935,3 +935,10 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Correct-only attempts now enter FSRS. Pause commits pending answered work but leaves untouched IDs unseen; explicit final submission marks every remaining unanswered session ID skipped.
 - Added deterministic transform/helper/full-corpus tests, generated-browser presentation coverage, and an end-to-end answer→Pause→FSRS / Submit→skipped regression on the actual Continue Practice path.
 - Local checks pass; full Linux generated-app/browser/APK/package verification and physical-device review remain required. No production promotion was attempted.
+
+## 2026-09-15 — PrepLadder visual quality pipeline implemented
+
+- Kept stable question IDs/text ownership and replaced native-raster tight crop plus second background-color crop/resample with complete native frames. Opaque JPEG streams remain byte-identical; other rasters use a proportional lossless PNG safety canvas; graph/plot candidates use padded 288-DPI PDF regions.
+- Added a complete generated inventory with PDF page/xref/coordinates, method, dimensions, hashes, question owner and risk flags. The audit-only quality stage checks hashes, size, aspect, meaningful/text boundary contact, neighboring questions and answer-revealing text, then emits high-risk-first source/production comparison sheets in batches of eight. Manual review remains explicitly pending.
+- Added phone/tablet graph/table/clinical/diagram/multi-panel browser checks with fullscreen zoom, PWA offline precaching for every PrepLadder visual, APK inventory/PNG+JPEG checks, source-level regression contracts and CI artifact upload.
+- Targeted presentation/FSRS/pipeline tests passed. Full local verification initially exposed two browser scripts missing from the Termux CI-only list and an overlong STATE handoff; both were corrected. Linux PDF regeneration, automated audit results, bounded sheet review, browser/APK/package CI and physical-device acceptance remain required; production was not promoted.

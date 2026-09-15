@@ -87,6 +87,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Image lane
 
+- PrepLadder repair now precedes remaining Marrow images. The candidate removes destructive crop/resample stages, preserves full native frames/JPEG bytes, uses padded 288-DPI graph regions, emits provenance/risk inventory plus eight-item comparison sheets, gates boundary/text/answer leakage, precaches visuals offline, and adds phone/tablet browser checks. Local checks pass; exact-head Linux PDF generation, manual sheet review, browser/APK CI and physical acceptance remain.
 - Automated Biochemistry image integration is paused. Ch4 Q11 remains `REVIEW_REQUIRED`; two recovery attempts failed before shared registry/progress mutation because embedded PDF text was corrupted. No verified Q11 learner-facing result exists.
 - Verified manual Physiology Batch 01 product commit `719e2aa0cfbacb829781e9a7953af4717a6a6f5a` is canonical; Engineering `34699015727` and full run `34699016754` passed; production skipped.
 - Batch 02 on historical branch `manual/marrow-physiology-fastlane-20260912-b02` is unverified evidence only: 40 refs audited, 14 metadata-invalid, 12 new assets, 14 specialist deferrals; targeted run `34704088880` failed canonical wiring and was never reconciled.
@@ -113,8 +114,9 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 1. **Physical review:** inspect `physiology-9-22` and a spread of the source-backed residual matching questions in the newest preview; ion question `physiology-9-17` is already user-preview verified.
 2. **Structured-question cleanup:** when more duplicated/flattened source tables are found, use generic parsing where safe and source-backed stable-ID reform otherwise.
 3. **Explanation lane:** any Q19+ work must begin as a new owned batch from the live canonical head.
-4. **Image lane:** resume from live canonical after fresh ownership/fingerprint checks; keep automated Biochemistry paused at Q11.
-5. Production promotion remains prohibited unless the user explicitly asks for it.
+4. **PrepLadder visuals:** run exact-head Linux generation/audit, inspect bounded comparisons, then browser/APK/package gates and physical acceptance.
+5. **Marrow images:** after PrepLadder certification, resume Biochemistry Q11 and complete its source-coverage gate before Physiology.
+6. Production promotion remains prohibited unless the user explicitly asks for it.
 
 ## Memory pointers
 

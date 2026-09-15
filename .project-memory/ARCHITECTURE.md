@@ -85,6 +85,17 @@ checked deterministic rollout ledger.
 - Source visuals contract: per-question `visual {type:"source-pdf",
   source, page, crop{left,top,right,bottom} (PDF points, optional),
   fit: contain|width|native}`; renderer consumes metadata only.
+- PrepLadder generation is owned by `build_source_visual_metadata.py`: complete
+  native JPEG bytes, complete lossless native rasters with proportional safety
+  canvas, or padded 288-DPI PDF-region PNGs for graphs/vector labels. It emits
+  `source_visual_inventory.json`. The historically named
+  `improve_source_visual_assets_v1.py` is now audit-only: hashes, dimensions,
+  aspect/boundary/text/answer-leak gates and eight-item comparison sheets.
+  Manual PASS records in `data/prepladder_visual_reviews.json` are pinned to
+  visual hash, owner, page and crop; stale/orphaned approvals fail closed. PWA
+  service-worker packaging includes every released source visual; browser QA
+  exercises graph, table, clinical, diagram and multi-panel representatives at
+  phone/tablet sizes plus fullscreen zoom.
 
 ## Deterministic build pipeline (order enforced)
 

@@ -17,13 +17,18 @@ Only explicit user physical-device approval promotes a baseline. CI + static
 checks are never sufficient. Basis: `docs/ENGINEERING_BASELINE.md`, Run 220
 (`73c0428`, run `34011265432`).
 
-## 3. Source visuals are frozen infrastructure (standing)
+## 3. Source visuals are provenance-locked infrastructure (revised 2026-09-15)
 
-Native raster figures at native resolution, tight crops, lossless PNG display
-cache (~420: Anatomy 297 / Physiology 62 / Biochemistry 51); original PDFs stay
-authoritative; exact normalized stem matching; subject-specific PDFs only; no
-fuzzy cross-subject assignment; no `Question N has image` heuristics; aspect
-preserved; fullscreen zoom/pan protected. Do not alter during unrelated UI work.
+The original PDFs stay authoritative; exact normalized stem matching,
+subject-specific PDFs, stable question IDs, aspect preservation and fullscreen
+zoom/pan remain protected. Native JPEG streams are copied byte-for-byte. Other
+native rasters retain every source pixel on a proportional lossless PNG safety
+canvas. Graphs/plots that may own PDF vector text are rendered from a generously
+padded 288-DPI PDF region. Background-color tight cropping, sharpening, AI
+reconstruction and claims of recovered detail are prohibited. Every generated
+visual must carry source page/coordinates, hashes, dimensions, method, owner and
+risk flags; automated crop-safety gates and bounded source/production sheets do
+not replace manual visual review.
 
 ## 4. Subject renderer isolation (standing)
 

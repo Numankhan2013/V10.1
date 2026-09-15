@@ -272,7 +272,8 @@ jobs:
           test -s app/src/main/assets/source_visual_metadata.js
           test -s app/src/main/assets/source_visual_renderer.js
           test -d app/src/main/assets/source_visuals
-          test -n "$(find app/src/main/assets/source_visuals -type f -name '*.png' -print -quit)"
+          test -n "$(find app/src/main/assets/source_visuals -type f \( -name '*.png' -o -name '*.jpg' \) -print -quit)"
+          test -s app/src/main/assets/source_visual_inventory.json
           test -f app/src/main/assets/Biochemistry_QBank_Source.pdf
           test -f app/src/main/assets/Physiology_QBank_Source.pdf
           test -f app/src/main/assets/Anatomy_QBank_Source.pdf
@@ -304,6 +305,8 @@ jobs:
         run: python3 tools/verify_question_presentation_browser.py
       - name: Verify Continue Practice controls and pause resume in browser
         run: python3 tools/verify_continue_practice_browser.py
+      - name: Verify representative PrepLadder visuals and fullscreen viewer
+        run: python3 tools/verify_prepladder_visuals_browser.py
       - name: Capture Marrow image comparisons
         run: python3 tools/capture_marrow_image_review.py
       - name: Upload recall dock and Marrow pilot screenshots
@@ -315,6 +318,9 @@ jobs:
             build/ui-checks/*.png
             build/marrow-ui-checks/*.png
             build/marrow-image-review/*.png
+            build/prepladder-visual-audit/*.png
+            build/prepladder-visual-audit/*.json
+            build/prepladder-visual-browser/*.png
           retention-days: 3
           if-no-files-found: warn
       - name: Set up JDK 17
@@ -381,7 +387,8 @@ jobs:
           grep -q 'qbank_active_bank_v1' /tmp/packaged-index.html
           unzip -l "$APK" | grep -q 'assets/vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js'
           unzip -l "$APK" | grep -q 'assets/vendor/ts-fsrs/LICENSE'
-          test "$(unzip -l "$APK" | grep -c 'source_visuals/.*\.png')" -ge 400
+          test "$(unzip -l "$APK" | grep -Ec 'source_visuals/.*\.(png|jpg)')" -ge 400
+          unzip -l "$APK" | grep -q 'assets/source_visual_inventory.json'
           python3 - <<'PY'
           from pathlib import Path
           import re, subprocess, tempfile
