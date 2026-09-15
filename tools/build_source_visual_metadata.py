@@ -134,10 +134,10 @@ def main():
                 graph=bool(GRAPH_CUE.search(risk_text));table=bool(TABLE_CUE.search(risk_text));medical=bool(MEDICAL_CUE.search(risk_text));external_text=any(not r.contains(fitz.Rect(word[:4])) for word in risk_words);label_cue=bool(LABEL_CUE.search(risk_text));labelled=external_text or label_cue
                 needs_region=not xref or graph or (external_text and label_cue and not medical)
                 cache_key=(int(xref),int(smask),subject) if xref and not needs_region else None
-                if cache_key in asset_cache:visual=dict(asset_cache[cache_key])
+                if cache_key in asset_cache and asset_cache[cache_key] is not None:visual=dict(asset_cache[cache_key])
                 else:
                     visual=region_asset(page,r,subject) if needs_region else native_asset(doc,xref,smask,subject)
-                    if cache_key:asset_cache[cache_key]=visual
+                    if cache_key and visual is not None:asset_cache[cache_key]=dict(visual)
                 if visual is None:
                     try:visual=region_asset(page,r,subject)
                     except Exception:visual=None

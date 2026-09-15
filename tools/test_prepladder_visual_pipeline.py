@@ -22,6 +22,9 @@ for required in (
     "riskFlags",
 ):
     assert required in generator, required
+assert "if cache_key in asset_cache and asset_cache[cache_key] is not None" in generator
+assert "if cache_key and visual is not None:asset_cache[cache_key]=dict(visual)" in generator
+assert "if cache_key:asset_cache[cache_key]=visual" not in generator
 for required in (
     "technicalChecks",
     "answer-revealing source text intersects visual crop",
