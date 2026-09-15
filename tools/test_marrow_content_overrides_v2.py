@@ -66,8 +66,13 @@ def main() -> None:
         ids = set(questions)
         if not ids or not ids.issubset(source_by_id):
             raise SystemExit(f"Unknown/empty v2 IDs: {path}")
-        if ids & v1_ids:
-            raise SystemExit(f"v2 overlaps accepted v1 Ch5/Ch7: {path}")
+        # V1 owns reviewed question/options for Physiology Ch5/Ch7. V2 may
+        # safely add an explanation for the same stable ID, but may never
+        # replace or duplicate those v1-owned learner fields.
+        for qid in ids & v1_ids:
+            override = questions[qid]
+            if not isinstance(override, dict) or set(override) != {"explanation"}:
+                raise SystemExit(f"v2 conflicts with accepted v1 question/options ownership: {path} {qid}")
         if ids & seen:
             raise SystemExit(f"Duplicate stable IDs across v2 files: {path}")
         if fp(source_by_id, ids) != payload.get("sourceFingerprint"):
