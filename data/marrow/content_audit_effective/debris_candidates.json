@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "purpose": "Review queue for visible OCR/code debris; never an auto-rewrite list.",
-  "candidateFieldCount": 64,
-  "candidateQuestionCount": 64,
+  "candidateFieldCount": 60,
+  "candidateQuestionCount": 60,
   "candidates": [
     {
       "id": "marrow__PHYS_CH07_Q009",
@@ -1481,41 +1481,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__PHYS_CH05_Q027",
-      "subject": "Physiology",
-      "chapterId": "5",
-      "chapter": "Body Fluids",
-      "questionNumber": 27,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 10,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash"
-      ],
-      "value": "~~ ry\n500-600 ml of transient loss/insensible loss per day would have-to:be accounted for in the\ncalculation. KO Cc >\nAlthough water is lost through sweating especially in hot climates or during physical exertion, we\ntend to lose water at rest as well. Physiologically, water evaporates‘from the skin and lungs at a\nrate of about 600 to 700 ml/dayAThis is known as\\insensible water loss.",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "~~ ry",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 6,
-          "text": "rate of about 600 to 700 ml/dayAThis is known as\\insensible water loss.",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 76,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYS_CH07_Q001",
       "subject": "Physiology",
       "chapterId": "7",
@@ -2045,79 +2010,6 @@
         }
       ],
       "sourcePage": 34,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH05_Q025",
-      "subject": "Physiology",
-      "chapterId": "5",
-      "chapter": "Body Fluids",
-      "questionNumber": 25,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "hard_noise_char",
-        "punctuation_run"
-      ],
-      "value": "In adrenal insufficiency there is hypo-osmotic volume contraction. Aldosterone deficiency leads to\nincreased sodium loss (loss of hyperosmotic fluid).\n* The osmolarity of ECF decreases.\n* ECF volume decreases because of the loss of volume.\n¢ Water shifts into ICF; as a result of the shift, ICF osmolarity decreases until it is equal to ECF\nosmolarity, and ICF volume increases.\n* So, loss of hypertonic fluid causes hypotonic volume contraction.\nPlease note that in the diagram, the horizontal axis represents volume and vertical axis represents\nosmolarity.\nHypo-osmostic\n2 i :\n3 100 — } j\n° 10 20 30 40\nVolume (L)\n= Intracellular fluid\nExtracellular fluid\n+--+ Change after administration\nte eel oA\nwi‘ 8 i i } i\n‘ & 4 i i\nL tere t = Liters: =\nDiarrnee seam ees seam\nenacted\nVolume contraction\nintueion of ieceasive eon\nseceunts hate Hace innate\nVolume expansion\n= 1cF ECF\nThe Darrow Yannet diagrams of various conditions are shown above.",
-      "suspectLines": [
-        {
-          "line": 12,
-          "text": "3 100 — } j",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 17,
-          "text": "+--+ Change after administration",
-          "reasons": [
-            "punctuation_run"
-          ]
-        },
-        {
-          "line": 19,
-          "text": "wi‘ 8 i i } i",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 75,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH05_Q028",
-      "subject": "Physiology",
-      "chapterId": "5",
-      "chapter": "Body Fluids",
-      "questionNumber": 28,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char"
-      ],
-      "value": "‘ C\n1-125 labelled albumin is the.most commonly used substance for the measurement of plasma\nvolume. ow ~",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "‘ C",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 3,
-          "text": "volume. ow ~",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 76,
       "reviewStatus": "pass"
     },
     {
@@ -2945,31 +2837,6 @@
         }
       ],
       "sourcePage": 55,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH05_Q026",
-      "subject": "Physiology",
-      "chapterId": "5",
-      "chapter": "Body Fluids",
-      "questionNumber": 26,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 3,
-      "reasons": [
-        "edge_noise"
-      ],
-      "value": "The total safety factor against edema is about 17 mmHg.\nSummary of safety factors that prevent edema is:\n* The safety factor caused by low tissue compliance in the negative pressure range is about 3 mm\nHg\n¢ The safety factor caused by increased lymph flow is about 7 mm Hg\n¢ The safety factor caused by washdown of proteins from the interstitial spaces is about 7 mm Hg\n\nTherefore, the total safety factor against edema is about 17 mm Hg.",
-      "suspectLines": [
-        {
-          "line": 4,
-          "text": "Hg",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 75,
       "reviewStatus": "pass"
     },
     {
