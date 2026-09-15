@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "purpose": "Review queue for visible OCR/code debris; never an auto-rewrite list.",
-  "candidateFieldCount": 69,
-  "candidateQuestionCount": 69,
+  "candidateFieldCount": 64,
+  "candidateQuestionCount": 64,
   "candidates": [
     {
       "id": "marrow__PHYS_CH07_Q009",
@@ -379,280 +379,6 @@
         }
       ],
       "sourcePage": 437,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH05_Q013",
-      "subject": "Physiology",
-      "chapterId": "5",
-      "chapter": "Body Fluids",
-      "questionNumber": 13,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 13,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash",
-        "symbol_dense_line"
-      ],
-      "value": "Phosphate is the most abundant intracellular anion. _&\n*ICF 2)\n* Major anion- Phosphate 0 \"\n* Major cation- K+ .\n¢ Major anion- Cl- > .\n~~\" \\\n* Cation- Na+ \\\n¢ Protein content in ICF is ~8 times greater than plasma (ECF)\n\n‘a Extracellular fluid Intracellular fluid\nBisson Interstitial fluid\n150\nQ g\nfl 5\n= 100 g 5\na 5 s\ne 3 a\n50 oS |\no |\nNat cr Protein —",
-      "suspectLines": [
-        {
-          "line": 6,
-          "text": "~~\" \\",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 7,
-          "text": "* Cation- Na+ \\",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 8,
-          "text": "¢ Protein content in ICF is ~8 times greater than plasma (ECF)",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 12,
-          "text": "150",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 18,
-          "text": "50 oS |",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 19,
-          "text": "o |",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 71,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH05_Q014",
-      "subject": "Physiology",
-      "chapterId": "5",
-      "chapter": "Body Fluids",
-      "questionNumber": 14,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 13,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash",
-        "symbol_dense_line"
-      ],
-      "value": "\\ - ro a\n< S ri.\"\n1 mol of NaCl is 58.5 g NO j : .\n+ A mole is the gram-moleeular weight ofta substance (molecular weight of a substance in grams)\n¢ In this case, the molecular weight of Na-23 and GF°35.5.\n¢1mol of NaCl = 23 g + 35.5 258.5 g Y\nNote .- ,\n* Each mole consists 0&6 X 10 23 molecules.\n+ The molecular\\weight of a substance is the ratio of the mass of 1/12th the mass of an atom of\ncarbon-12, Because molecular weight is a ratio, it is dimensionless.\n4\n¢ The Dalton (Da) is a unit of mass equal to the mass of 1/12th the mass of an atom of carbon-12.\nThus molecular mass is expressed in units.",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "\\ - ro a",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 2,
-          "text": "< S ri.\"",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 9,
-          "text": "+ The molecular\\weight of a substance is the ratio of the mass of 1/12th the mass of an atom of",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 11,
-          "text": "4",
-          "reasons": [
-            "edge_noise"
-          ]
-        }
-      ],
-      "sourcePage": 71,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH05_Q017",
-      "subject": "Physiology",
-      "chapterId": "5",
-      "chapter": "Body Fluids",
-      "questionNumber": 17,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 13,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash",
-        "symbol_dense_line"
-      ],
-      "value": "KO” ‘@) >\nUrea is a highly permeable solute, 300mMol/L urea soltttion behaves as a hypotonic solution.\nUrea diffuses to the inside of RBC's via UTB channels very rapidly? while the rest of the solutes in\nthe ECF cannot enter the cell.So.the ECF now becomes hypotonic. So, fluid enters the RBC and\ncauses their lysis. C. % ¢\nOther Options : \\ *e)\n* Option A : The solution is iso-osmotic. (150mimol of NaCl contains 150mmol of Nat and\n150mmol of Cl- ions making the total osmolality 300 mOsm/L.This is equivalent to 0.9% NaCl\nwhich is isotonic.) \\\n* Option B and C: The solutions are hyper-osmotic. This will lead to shrinking of the RBCs.\nNote : 4 ~\n“~\" \\\n¢ If a cell is*\\placed into a hypotonic solution that has a lower concentration of impermeant solutes\n(&lt;282 mOsm/L), water will diffuse into the cell, causing it to swell.\n¢ If a cell is placed in a hypertonic solution having a higher concentration of impermeant solutes,\nwater will flow out of the cell leading to cell shrinkage.\n\nHypertonic Isotonic Hypotonic\nH20 :\n~~ ~ < ~ »\n« o © >\n. . ~ fA) .",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "KO” ‘@) >",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 6,
-          "text": "Other Options : \\ *e)",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 9,
-          "text": "which is isotonic.) \\",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 11,
-          "text": "Note : 4 ~",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 12,
-          "text": "“~\" \\",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 13,
-          "text": "¢ If a cell is*\\placed into a hypotonic solution that has a lower concentration of impermeant solutes",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 19,
-          "text": "H20 :",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 20,
-          "text": "~~ ~ < ~ »",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 21,
-          "text": "« o © >",
-          "reasons": [
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 22,
-          "text": ". . ~ fA) .",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        }
-      ],
-      "sourcePage": 72,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH05_Q019",
-      "subject": "Physiology",
-      "chapterId": "5",
-      "chapter": "Body Fluids",
-      "questionNumber": 19,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 13,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "literal_backslash",
-        "symbol_dense_line"
-      ],
-      "value": "Proteins actually contribute only slightly to the total number of osmotically active particles (~1\nmOsm) because of their low molar concentration and high molecular weight.\nProtein concentration measured as g/L may be high. However, as their molecular weight is high,\nthe protein concentration in terms of moles per liter ( molar concentration) will be low. Thus, they\ncontribute only slightly to the total number of osmotically active particles.\nDetailed explanation: Terms like high, low are always used for comparison. Here we compare\nplasma proteins and sodium (sodium is chosen because it contributes the maximum part of\nosmolarity). Look at the values given below (just for understanding )\ne\n. 2?\n‘e\nMolar concentration 0.75mosm/L(Low) 270m0\nsm/L\nMolecular weight( 1 mole =) | 67,000 g(High)\n_s- _ a i ni\nai Or a\n‘ < ; 4 a \\ »~",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "Proteins actually contribute only slightly to the total number of osmotically active particles (~1",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 9,
-          "text": "e",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 10,
-          "text": ". 2?",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 11,
-          "text": "‘e",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 14,
-          "text": "Molecular weight( 1 mole =) | 67,000 g(High)",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 17,
-          "text": "‘ < ; 4 a \\ »~",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        }
-      ],
-      "sourcePage": 72,
       "reviewStatus": "pass"
     },
     {
@@ -1720,65 +1446,6 @@
       "reviewStatus": "pass_with_source_note"
     },
     {
-      "id": "marrow__PHYS_CH05_Q024",
-      "subject": "Physiology",
-      "chapterId": "5",
-      "chapter": "Body Fluids",
-      "questionNumber": 24,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 12,
-      "reasons": [
-        "hard_noise_char",
-        "many_isolated_letters",
-        "punctuation_run",
-        "symbol_dense_line"
-      ],
-      "value": "In the given darrow yannet diagram, there is hypoosmostic volume expansion which is suggestive\nof SIADH.\n¢ In SIADH there is excessive secretion of ADH. So, excess water is retained in the body.\n¢ So, ECF volume rises. ECF osmolality decreases.\n* ECF fluid enters ICF untill osmotic equilibrium is re-established.\n¢ So, ICF volume rises. ICF osmolality decreases.\nHypo-osmostic\nee ‘expansion\n2 200- } : ~\n3 100- | H\n0 | em .___..-2.....2 4} n\n° 10 20 30 40 >\nVolume (L)\n== Intracellular fluid\nExtracellular fluid\n+--+ Change after administration\n- Diarrnee imate oeeer cael\nCc“ Volume contraction\nFS q q F i\nisotonic Nact Noct intake sions\nVolume expansion\n<= 1cF ECF\nThe Darrow Yannet diagrams of various conditions are shown above",
-      "suspectLines": [
-        {
-          "line": 9,
-          "text": "2 200- } : ~",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 10,
-          "text": "3 100- | H",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 11,
-          "text": "0 | em .___..-2.....2 4} n",
-          "reasons": [
-            "hard_noise_char",
-            "punctuation_run",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 16,
-          "text": "+--+ Change after administration",
-          "reasons": [
-            "punctuation_run"
-          ]
-        },
-        {
-          "line": 19,
-          "text": "FS q q F i",
-          "reasons": [
-            "many_isolated_letters"
-          ]
-        }
-      ],
-      "sourcePage": 74,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYS_CH07_Q013",
       "subject": "Physiology",
       "chapterId": "7",
@@ -1811,109 +1478,6 @@
         }
       ],
       "sourcePage": 129,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH05_Q018",
-      "subject": "Physiology",
-      "chapterId": "5",
-      "chapter": "Body Fluids",
-      "questionNumber": 18,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 10,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "symbol_dense_line"
-      ],
-      "value": "oles oOo “wr\nNormal plasma osmolarity (~290° mOsm/L) is mainly due to Nat and its accompanying anions,\nprincipally Cl- and HCO3=_—) ~% oO\n) ,_ ~\n* Osmolarity (mOsm/L) = 2 [Na+] (mEq/E) + 0.055 [Glucose] (mg/dL) + 0.36 [BUN] (mg/dL)\n+ Because sodium and its associated’ anions (CL@HCO3- ) account for about 94 per cent of the\nsolute in the extracellular compartment, plasma osmolarity (Posm) can be roughly approximated\n{~ +.\nas s\" ‘\nov ~~!\n+ Posm = 2.1.x Plasma'sodium concentration\n* With a plasma ‘sodium concentration of 142 mEq/L, the plasma osmolarity would be estimated\nfrom the formula above to be about 298 mOsm/L.\n+ In conditions associated with renal disease, the contribution of two other solutes, glucose and\nurea, should be included.\n¢ Because urea easily permeates most cell membranes, it exerts little effective osmotic pressure\nunder steady-state conditions. (Ineffective osmoles)\n* Contribution to plasma osmolarity:\n* Na+ and associated anions: 270 mOsm/L\n* Glucose : 5 mOsm/L\n* Urea: 5 mOsm/L\n* Plasma proteins: 2 mOsm/L\n* Other ions: 8 mOsm/L",
-      "suspectLines": [
-        {
-          "line": 2,
-          "text": "Normal plasma osmolarity (~290° mOsm/L) is mainly due to Nat and its accompanying anions,",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 3,
-          "text": "principally Cl- and HCO3=_—) ~% oO",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        },
-        {
-          "line": 4,
-          "text": ") ,_ ~",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 8,
-          "text": "{~ +.",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 10,
-          "text": "ov ~~!",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        }
-      ],
-      "sourcePage": 72,
-      "reviewStatus": "pass"
-    },
-    {
-      "id": "marrow__PHYS_CH05_Q020",
-      "subject": "Physiology",
-      "chapterId": "5",
-      "chapter": "Body Fluids",
-      "questionNumber": 20,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 10,
-      "reasons": [
-        "edge_noise",
-        "hard_noise_char",
-        "symbol_dense_line"
-      ],
-      "value": "NV P| —~\nThe amount of water lost by sweating ihighly variable depending on physical activity and\nenvironmental temperature. The volume of sweat formally is about 100 ml/day, but in very hot\nweather or during heavy exercise fluid loss in. sweat occasionally increase to 1 to 2 L/hour.\n< < oe\na ~}",
-      "suspectLines": [
-        {
-          "line": 1,
-          "text": "NV P| —~",
-          "reasons": [
-            "hard_noise_char",
-            "symbol_dense_line"
-          ]
-        },
-        {
-          "line": 5,
-          "text": "< < oe",
-          "reasons": [
-            "edge_noise"
-          ]
-        },
-        {
-          "line": 6,
-          "text": "a ~}",
-          "reasons": [
-            "edge_noise",
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 72,
       "reviewStatus": "pass"
     },
     {
@@ -2484,32 +2048,6 @@
       "reviewStatus": "pass"
     },
     {
-      "id": "marrow__PHYS_CH05_Q023",
-      "subject": "Physiology",
-      "chapterId": "5",
-      "chapter": "Body Fluids",
-      "questionNumber": 23,
-      "fieldKind": "explanation",
-      "field": "explanation",
-      "severity": 7,
-      "reasons": [
-        "hard_noise_char",
-        "literal_backslash"
-      ],
-      "value": "The images shown in the figure are called Darrow YannefDiagrams. They depict the change in\nplasma osmolality and plasma volume in various conditions.\nIf a hypertonic solution is added to the extracelltlar fluid, the-exttacellular o8molarity increases\nand causes osmosis of water out of the cellS\\int6 the extracellular compartment\n¢ ECF osmolality increases. ECF volume increases. Co rs\n+ As, ECF osmolality rises, fluid fromi ICF moves to ECF till osmotic equilibrium is established. So,\n¢ ICF osmolality rises. ICRyolime decreasés. 4\nTherefore, the net effect is an increase if extracellular-volume (greater than the volume of fluid\nadded), a decrease in intracellular-volume, and @rise in osmolarity in both compartments.\nNote : The dotted line in the diagram is the change after either addition or removal of fluid\n5 ° o oO 20 10 oO : — :\nB. Hypotonic Nact ©. Hypertonic Nact",
-      "suspectLines": [
-        {
-          "line": 4,
-          "text": "and causes osmosis of water out of the cellS\\int6 the extracellular compartment",
-          "reasons": [
-            "hard_noise_char"
-          ]
-        }
-      ],
-      "sourcePage": 73,
-      "reviewStatus": "pass"
-    },
-    {
       "id": "marrow__PHYS_CH05_Q025",
       "subject": "Physiology",
       "chapterId": "5",
@@ -2933,6 +2471,81 @@
         }
       ],
       "sourcePage": 68,
+      "reviewStatus": "pass"
+    },
+    {
+      "id": "marrow__PHYS_CH05_Q013",
+      "subject": "Physiology",
+      "chapterId": "5",
+      "chapter": "Body Fluids",
+      "questionNumber": 13,
+      "fieldKind": "explanation",
+      "field": "explanation",
+      "severity": 4,
+      "reasons": [
+        "hard_noise_char"
+      ],
+      "value": "Phosphate is the most abundant intracellular anion.\n\n• ICF\n• Major anion - Phosphate\n• Major cation - K+\n• ECF\n• Major anion - Cl−\n• Major cation - Na+\n• Protein content in ICF is ~8 times greater than plasma (ECF)",
+      "suspectLines": [
+        {
+          "line": 9,
+          "text": "• Protein content in ICF is ~8 times greater than plasma (ECF)",
+          "reasons": [
+            "hard_noise_char"
+          ]
+        }
+      ],
+      "sourcePage": 71,
+      "reviewStatus": "pass"
+    },
+    {
+      "id": "marrow__PHYS_CH05_Q018",
+      "subject": "Physiology",
+      "chapterId": "5",
+      "chapter": "Body Fluids",
+      "questionNumber": 18,
+      "fieldKind": "explanation",
+      "field": "explanation",
+      "severity": 4,
+      "reasons": [
+        "hard_noise_char"
+      ],
+      "value": "Normal plasma osmolarity (~290 mOsm/L) is mainly due to Na+ and its accompanying anions, principally Cl− and HCO3−.\n\n• Osmolarity (mOsm/L) = 2 [Na+] (mEq/L) + 0.055 [glucose] (mg/dL) + 0.36 [BUN] (mg/dL)\n• Because sodium and its associated anions (Cl−, HCO3−) account for about 94 per cent of the solute in the extracellular compartment, plasma osmolarity (Posm) can be roughly approximated as:\n• Posm = 2.1 × Plasma sodium concentration\n• With a plasma sodium concentration of 142 mEq/L, the plasma osmolarity would be estimated from the formula above to be about 298 mOsm/L.\n• In conditions associated with renal disease, the contribution of two other solutes, glucose and urea, should be included.\n• Because urea easily permeates most cell membranes, it exerts little effective osmotic pressure under steady-state conditions. (Ineffective osmoles)\n• Contribution to plasma osmolarity:\n• Na+ and associated anions: 270 mOsm/L\n• Glucose: 5 mOsm/L\n• Urea: 5 mOsm/L\n• Plasma proteins: 2 mOsm/L\n• Other ions: 8 mOsm/L",
+      "suspectLines": [
+        {
+          "line": 1,
+          "text": "Normal plasma osmolarity (~290 mOsm/L) is mainly due to Na+ and its accompanying anions, principally Cl− and HCO3−.",
+          "reasons": [
+            "hard_noise_char"
+          ]
+        }
+      ],
+      "sourcePage": 72,
+      "reviewStatus": "pass"
+    },
+    {
+      "id": "marrow__PHYS_CH05_Q019",
+      "subject": "Physiology",
+      "chapterId": "5",
+      "chapter": "Body Fluids",
+      "questionNumber": 19,
+      "fieldKind": "explanation",
+      "field": "explanation",
+      "severity": 4,
+      "reasons": [
+        "hard_noise_char"
+      ],
+      "value": "Proteins actually contribute only slightly to the total number of osmotically active particles (~1 mOsm) because of their low molar concentration and high molecular weight.\nProtein concentration measured as g/L may be high. However, as their molecular weight is high, the protein concentration in terms of moles per liter (molar concentration) will be low. Thus, they contribute only slightly to the total number of osmotically active particles.\n\nDetailed explanation: Terms like high, low are always used for comparison. Here we compare plasma proteins and sodium (sodium is chosen because it contributes the maximum part of osmolarity).",
+      "suspectLines": [
+        {
+          "line": 1,
+          "text": "Proteins actually contribute only slightly to the total number of osmotically active particles (~1 mOsm) because of their low molar concentration and high molecular weight.",
+          "reasons": [
+            "hard_noise_char"
+          ]
+        }
+      ],
+      "sourcePage": 72,
       "reviewStatus": "pass"
     },
     {
