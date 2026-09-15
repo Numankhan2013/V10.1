@@ -60,6 +60,7 @@ def main() -> None:
     applied_ids: set[str] = set()
     v1 = json.loads(V1.read_text(encoding="utf-8"))
     v1_questions = v1.get("questions") or {}
+    v1_ids = set(v1_questions)
     v1_source = [{
         "id": qid,
         "question": raw_by_id[qid].get("question"),
@@ -78,14 +79,22 @@ def main() -> None:
 
     v2_files = sorted(V2.glob("**/*.json")) if V2.exists() else []
     v2_explanation_count = 0
+    v2_seen: set[str] = set()
     for path in v2_files:
         payload = json.loads(path.read_text(encoding="utf-8"))
         questions = payload.get("questions") or {}
         ids = set(questions)
-        if ids & applied_ids:
-            raise SystemExit(f"V2 overlaps another active cleanup: {path}")
+        if ids & v2_seen:
+            raise SystemExit(f"V2 overlaps another active v2 cleanup: {path}")
         if not ids.issubset(raw_by_id):
             raise SystemExit(f"V2 has unknown IDs: {path}")
+        # V1 owns question/options for Ch5/Ch7. An explanation-only v2 entry
+        # composes with those fields; any attempt to touch the same v1-owned
+        # learner fields remains a hard failure.
+        for qid in ids & v1_ids:
+            override = questions[qid]
+            if not isinstance(override, dict) or set(override) != {"explanation"}:
+                raise SystemExit(f"V2 conflicts with accepted v1 question/options ownership: {path} {qid}")
         source = [{
             "id": qid,
             "question": raw_by_id[qid].get("question"),
@@ -114,6 +123,7 @@ def main() -> None:
                 q["structuredExplanationText"] = text
                 v2_explanation_count += 1
             applied_ids.add(qid)
+        v2_seen.update(ids)
 
     for qid, expected in correct_by_id.items():
         if int(effective_by_id[qid]["correctOption"]) != expected:
