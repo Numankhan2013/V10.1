@@ -81,6 +81,16 @@ jobs:
         run: python3 tools/build_source_visual_metadata.py
       - name: Improve source figures without inventing detail
         run: python3 tools/improve_source_visual_assets_v1.py
+      - name: Upload PrepLadder visual audit diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: prepladder-visual-audit-${{ github.sha }}
+          path: |
+            build/prepladder-visual-audit/*.png
+            build/prepladder-visual-audit/*.json
+          retention-days: 3
+          if-no-files-found: warn
       - name: Install source visual renderer
         run: python3 tools/install_source_visual_renderer.py
       - name: Verify source visual contract
