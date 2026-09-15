@@ -100,10 +100,11 @@ def crop_box(page,bbox,margin=18.0):
     return {'left':round(max(pr.x0,r.x0),2),'top':round(max(pr.y0,r.y0),2),'right':round(min(pr.x1,r.x1),2),'bottom':round(min(pr.y1,r.y1),2)}
 
 def region_asset(page,bbox,subject):
-    crop=crop_box(page,bbox);clip=fitz.Rect(crop['left'],crop['top'],crop['right'],crop['bottom']);pm=page.get_pixmap(matrix=fitz.Matrix(4,4),clip=clip,alpha=False);raw=pm.tobytes('png');digest=hashlib.sha256(raw).hexdigest()
+    crop=crop_box(page,bbox,0);clip=fitz.Rect(crop['left'],crop['top'],crop['right'],crop['bottom']);pm=page.get_pixmap(matrix=fitz.Matrix(4,4),clip=clip,alpha=False)
+    rendered=Image.frombytes('RGB',[pm.width,pm.height],pm.samples);pad=72;rendered=ImageOps.expand(rendered,border=(pad,pad,pad,pad),fill=(255,255,255));buffer=__import__('io').BytesIO();rendered.save(buffer,format='PNG',optimize=False);raw=buffer.getvalue();digest=hashlib.sha256(raw).hexdigest()
     rel=Path('source_visuals')/subject.lower()/f'{digest[:24]}.png';out=ASSETS/rel;out.parent.mkdir(parents=True,exist_ok=True)
     if not out.exists():out.write_bytes(raw)
-    return {'type':'asset','source':rel.as_posix(),'fit':'contain','nativeWidth':round(clip.width,2),'nativeHeight':round(clip.height,2),'outputWidth':pm.width,'outputHeight':pm.height,'cropPdf':crop,'extractionMethod':'pdf-region-288dpi','productionSha256':digest,'safetyPadPixels':72,'fullNativeFrame':False}
+    return {'type':'asset','source':rel.as_posix(),'fit':'contain','nativeWidth':round(clip.width,2),'nativeHeight':round(clip.height,2),'outputWidth':rendered.width,'outputHeight':rendered.height,'cropPdf':crop,'extractionMethod':'pdf-region-288dpi','productionSha256':digest,'safetyPadPixels':pad,'safetyPadX':pad,'safetyPadY':pad,'fullNativeFrame':False}
 
 def main():
     VISDIR.mkdir(parents=True,exist_ok=True); allmeta={};report={};inventory=[]
@@ -144,7 +145,7 @@ def main():
                 if visual:
                     asset_blocks+=1
                     audit_id=hashlib.sha1(f"{subject}:{owner['id']}:{pno}:{xref}:{round(r.x0,2)}:{round(r.y0,2)}:{round(r.x1,2)}:{round(r.y1,2)}".encode()).hexdigest()[:20]
-                    visual.update({'auditId':audit_id,'sourcePdf':pdf_name,'sourcePage':pno,'sourceXref':xref,'sourceSmask':smask or None,'sourcePlacement':crop_box(page,r,0),'sourceComparisonCrop':crop_box(page,r,18)})
+                    visual.update({'auditId':audit_id,'sourcePdf':pdf_name,'sourcePage':pno,'sourceXref':xref,'sourceSmask':smask or None,'sourcePlacement':crop_box(page,r,0),'sourceComparisonCrop':visual.get('cropPdf') or crop_box(page,r,18)})
                     flags=[]
                     if graph:flags.append('graph-plot-waveform')
                     if table:flags.append('table-flowchart')

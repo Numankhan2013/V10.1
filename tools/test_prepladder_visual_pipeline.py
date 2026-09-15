@@ -20,6 +20,8 @@ for required in (
     "sourceComparisonCrop",
     "questionId",
     "riskFlags",
+    "crop_box(page,bbox,0)",
+    "pad=72",
 ):
     assert required in generator, required
 assert "if cache_key in asset_cache and asset_cache[cache_key] is not None" in generator
@@ -32,6 +34,7 @@ for required in (
     "comparison-batch-",
     "PENDING_MANUAL_REVIEW",
     "prepladder_visual_reviews.json",
+    "PDF-region safety canvas missing",
 ):
     assert required in audit or required in generator, required
 assert workflow.index("build_source_visual_metadata.py") < workflow.index("improve_source_visual_assets_v1.py") < workflow.index("verify_source_visual_contract.py")

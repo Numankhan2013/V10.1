@@ -23,8 +23,9 @@ The original PDFs stay authoritative; exact normalized stem matching,
 subject-specific PDFs, stable question IDs, aspect preservation and fullscreen
 zoom/pan remain protected. Native JPEG streams are copied byte-for-byte. Other
 native rasters retain every source pixel on a proportional lossless PNG safety
-canvas. Graphs/plots that may own PDF vector text are rendered from a generously
-padded 288-DPI PDF region. Background-color tight cropping, sharpening, AI
+canvas. Graphs/plots that may own PDF vector text are rendered from the complete
+detected figure placement at 288 DPI, then receive a 72-pixel lossless safety
+canvas without collecting surrounding question prose. Background-color tight cropping, sharpening, AI
 reconstruction and claims of recovered detail are prohibited. Every generated
 visual must carry source page/coordinates, hashes, dimensions, method, owner and
 risk flags; automated crop-safety gates and bounded source/production sheets do

@@ -87,7 +87,8 @@ checked deterministic rollout ledger.
   fit: contain|width|native}`; renderer consumes metadata only.
 - PrepLadder generation is owned by `build_source_visual_metadata.py`: complete
   native JPEG bytes, complete lossless native rasters with proportional safety
-  canvas, or padded 288-DPI PDF-region PNGs for graphs/vector labels. It emits
+  canvas, or complete 288-DPI PDF-placement PNGs with a 72-pixel lossless
+  safety canvas for graphs/vector labels. It emits
   `source_visual_inventory.json`. The historically named
   `improve_source_visual_assets_v1.py` is now audit-only: hashes, dimensions,
   aspect/boundary/text/answer-leak gates and eight-item comparison sheets.

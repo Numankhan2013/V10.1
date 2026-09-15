@@ -117,7 +117,9 @@ def technical_checks(item, document):
                     failures.append("native source pixels could not be verified")
         boundary = "SAFE_PADDED_COMPLETE_NATIVE_FRAME"
     elif method == "pdf-region-288dpi":
-        if dark_edge_fraction(image) > 0.10:
+        if min(pad_x, pad_y) < 32 or width <= pad_x * 2 or height <= pad_y * 2:
+            failures.append("PDF-region safety canvas missing")
+        elif dark_edge_fraction(image) > 0.001:
             failures.append("meaningful pixels touch PDF-region boundary")
         boundary = "SAFE_PADDED_PDF_REGION"
     else:
@@ -145,7 +147,7 @@ def technical_checks(item, document):
     if method == "native-raster-lossless-png-full-frame" and pad:
         production_ratio = (width - 2 * pad_x) / max(1, height - 2 * pad_y)
     elif method == "pdf-region-288dpi":
-        production_ratio = width / max(1, height)
+        production_ratio = (width - 2 * pad_x) / max(1, height - 2 * pad_y)
         source_ratio = crop.width / max(1, crop.height)
     else:
         production_ratio = width / max(1, height)

@@ -33,8 +33,10 @@ visual: {
   runtime metadata also records `questionId` and a stable visual `auditId`.
 - Copy opaque native JPEG streams byte-for-byte. Preserve every pixel of other
   native rasters and use lossless PNG with a proportional safety canvas.
-- Render graphs/plots from the complete padded PDF figure region at 288 DPI so
-  vector axes and labels outside an embedded raster are not lost.
+- Render graphs/plots from the complete detected PDF figure placement at 288
+  DPI so vector axes and labels layered over an embedded raster are retained.
+  Add a 72-pixel lossless safety canvas after rendering instead of sweeping
+  surrounding question prose into the source crop.
 - Never use background-color tight cropping, a second crop pass, sharpening,
   generative enhancement, inpainting, or reconstruction.
 - `source_visual_inventory.json` records subject, PDF page, xref, source
