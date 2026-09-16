@@ -98,11 +98,15 @@ def transform(source: str) -> str:
             "if(el.dataset.v103Formatted==='1'||el.children.length)return;",
         ),
     )
+    guarded_legacy_formatters = 0
     for before, after in legacy_guards:
         if before in source:
             source = source.replace(before, after)
-        elif after not in source:
-            raise SystemExit(f"Legacy explanation guard anchor missing: {before}")
+            guarded_legacy_formatters += 1
+        elif after in source:
+            guarded_legacy_formatters += 1
+    if not guarded_legacy_formatters:
+        raise SystemExit("No legacy explanation formatter was available to guard")
 
     options_anchor = "function nkSessionOptions(q,selected,mode,submitted) {\n    const locked="
     options_replacement = "function nkSessionOptions(q,selected,mode,submitted) {\n    const presentation=nkQuestionPresentationFor(q);if(!presentation.valid)return '';\n    const locked="

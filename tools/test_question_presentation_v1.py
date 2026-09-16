@@ -115,6 +115,9 @@ function legacyFormatted(el){if(el.dataset.v103Formatted==='1')return;}
     assert ".nk-sci-sub,.nk-sci-sup" in updated
     assert "if(!el||el.dataset.v103Structured==='1'||el.children.length)return;" in updated
     assert "if(el.dataset.v103Formatted==='1'||el.children.length)return;" in updated
+    generated_fixture = fixture.replace("function legacyStructured(el){if(!el||el.dataset.v103Structured==='1')return;}\n", "")
+    generated_updated = transform(generated_fixture)
+    assert "if(el.dataset.v103Formatted==='1'||el.children.length)return;" in generated_updated
     for marker in ("NK_QUESTION_PRESENTATION_V1_START", "nk-question-presentation-v1", "nkQuestionPresentationFor", "nkQuestionMatchingTable"):
         assert marker in updated
 
