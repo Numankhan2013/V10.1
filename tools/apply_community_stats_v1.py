@@ -10,6 +10,7 @@ revealed by the existing question renderer.
 from __future__ import annotations
 
 import base64
+import difflib
 import hashlib
 import html
 import json
@@ -24,12 +25,19 @@ STATS = DATA / "community_stats_v1.json"
 BUNDLE_PREFIX = "biochemistry_ch001_028"
 STYLE_ID = "nk-community-stats-v1-style"
 SCRIPT_ID = "nk-community-stats-v1-script"
+SUBSCRIPT_TRANS = str.maketrans("₀₁₂₃₄₅₆₇₈₉", "0123456789")
 
 
 def normalize_stem(value: str) -> str:
     value = html.unescape(str(value or "")).lower()
     value = re.sub(r"[_\W]+", " ", value, flags=re.UNICODE)
     return re.sub(r"\s+", " ", value).strip()
+
+
+def normalize_option(value: str) -> str:
+    value = html.unescape(str(value or "")).translate(SUBSCRIPT_TRANS).lower()
+    value = re.sub(r"<[^>]+>", "", value)
+    return re.sub(r"[^a-z0-9]+", "", value)
 
 
 def load_verified_bundle(prefix: str) -> dict:
@@ -54,6 +62,99 @@ def load_verified_bundle(prefix: str) -> dict:
     return json.loads(raw.decode("utf-8"))
 
 
+def source_option_map(record: dict) -> dict[str, str]:
+    options = record.get("sourceOptions") or {}
+    if set(options) != {"A", "B", "C", "D"}:
+        return {}
+    normalized = {letter: normalize_option(options[letter]) for letter in "ABCD"}
+    if any(not value for value in normalized.values()) or len(set(normalized.values())) != 4:
+        return {}
+    return normalized
+
+
+def option_fingerprint_match(question: dict, source_options: dict[str, str]) -> dict[str, str] | None:
+    options = question.get("options") or []
+    if len(options) != 4:
+        return None
+    canonical = {str(option.get("letter", "")): normalize_option(option.get("text", "")) for option in options}
+    if set(canonical) != {"A", "B", "C", "D"} or any(not value for value in canonical.values()):
+        return None
+    if set(canonical.values()) != set(source_options.values()):
+        return None
+    # Return source letter -> canonical letter so percentages remain attached to
+    # the exact option text even if a newer QBank edition reordered choices.
+    reverse = {value: letter for letter, value in canonical.items()}
+    return {source_letter: reverse[value] for source_letter, value in source_options.items()}
+
+
+def find_canonical_question(record: dict, questions: list[dict], by_stem: dict[str, list[dict]]) -> tuple[dict, dict[str, str], str]:
+    stem_key = normalize_stem(record.get("questionStem", ""))
+    exact = by_stem.get(stem_key, [])
+    source_options = source_option_map(record)
+
+    if len(exact) == 1:
+        question = exact[0]
+        if source_options:
+            mapping = option_fingerprint_match(question, source_options)
+            if mapping is None:
+                raise SystemExit(
+                    f"Community stats: exact stem matched {question.get('id')} but source options differ"
+                )
+        else:
+            mapping = {letter: letter for letter in "ABCD"}
+        return question, mapping, "exact_stem"
+    if len(exact) > 1:
+        raise SystemExit(
+            f"Community stats: ambiguous exact stem for {record.get('sourceQuestionId')}: {len(exact)} matches"
+        )
+
+    # Old solved-QBank references can use slightly different wording from ED8.
+    # In that case, only accept a question whose full four-option fingerprint is
+    # identical after harmless formula/markup normalization. This is stricter
+    # than fuzzy-stem matching and prevents percentages being attached to a
+    # merely similar question.
+    if source_options:
+        fingerprint_matches: list[tuple[dict, dict[str, str], float]] = []
+        for question in questions:
+            mapping = option_fingerprint_match(question, source_options)
+            if mapping is None:
+                continue
+            ratio = difflib.SequenceMatcher(
+                None, stem_key, normalize_stem(question.get("question", ""))
+            ).ratio()
+            fingerprint_matches.append((question, mapping, ratio))
+        if len(fingerprint_matches) == 1:
+            question, mapping, ratio = fingerprint_matches[0]
+            if ratio < 0.45:
+                raise SystemExit(
+                    f"Community stats: option fingerprint found {question.get('id')} but stem similarity "
+                    f"is only {ratio:.3f}"
+                )
+            return question, mapping, f"option_fingerprint:{ratio:.3f}"
+        if len(fingerprint_matches) > 1:
+            fingerprint_matches.sort(key=lambda item: item[2], reverse=True)
+            details = ", ".join(
+                f"{item[0].get('id')}:{item[2]:.3f}" for item in fingerprint_matches[:5]
+            )
+            raise SystemExit(
+                f"Community stats: ambiguous option fingerprint for {record.get('sourceQuestionId')}: {details}"
+            )
+
+    nearest = sorted(
+        (
+            difflib.SequenceMatcher(None, stem_key, normalize_stem(question.get("question", ""))).ratio(),
+            str(question.get("id", "")),
+            str(question.get("question", ""))[:120],
+        )
+        for question in questions
+    )[-5:]
+    nearest.reverse()
+    debug = " | ".join(f"{qid}:{score:.3f}:{stem}" for score, qid, stem in nearest)
+    raise SystemExit(
+        f"Community stats: no safe canonical match for {record.get('sourceQuestionId')}; nearest={debug}"
+    )
+
+
 def resolved_stats() -> tuple[dict, dict]:
     payload = json.loads(STATS.read_text(encoding="utf-8"))
     if payload.get("schemaVersion") != 1:
@@ -73,27 +174,29 @@ def resolved_stats() -> tuple[dict, dict]:
 
     resolved: dict[str, dict] = {}
     browser_by_stem: dict[str, dict] = {}
+    match_methods: list[str] = []
     for record in records:
         if record.get("subject") != "Biochemistry":
             raise SystemExit("Community stats: v1 pilot currently accepts Biochemistry records only")
-        stem_key = normalize_stem(record.get("questionStem", ""))
-        matches = by_stem.get(stem_key, [])
-        if len(matches) != 1:
-            raise SystemExit(
-                f"Community stats: expected exactly one canonical match for "
-                f"{record.get('sourceQuestionId')}, found {len(matches)}"
-            )
-        question = matches[0]
+        question, source_to_canonical, match_method = find_canonical_question(record, questions, by_stem)
         qid = str(question.get("id", ""))
         options = question.get("options") or []
         if len(options) != 4 or [str(o.get("letter", "")) for o in options] != ["A", "B", "C", "D"]:
             raise SystemExit(f"Community stats: option contract mismatch for {qid}")
-        option_pct = record.get("optionPct") or {}
-        if set(option_pct) != {"A", "B", "C", "D"}:
+        source_pct = record.get("optionPct") or {}
+        if set(source_pct) != {"A", "B", "C", "D"}:
             raise SystemExit(f"Community stats: A-D distribution missing for {qid}")
-        values = [int(option_pct[letter]) for letter in "ABCD"]
+        values = [int(source_pct[letter]) for letter in "ABCD"]
         if any(value < 0 or value > 100 for value in values) or sum(values) != 100:
             raise SystemExit(f"Community stats: invalid response distribution for {qid}")
+
+        # Remap percentages by option identity, not by source letter position.
+        option_pct = {
+            canonical_letter: int(source_pct[source_letter])
+            for source_letter, canonical_letter in source_to_canonical.items()
+        }
+        if set(option_pct) != {"A", "B", "C", "D"}:
+            raise SystemExit(f"Community stats: option remap incomplete for {qid}")
         correct_index = int(question.get("correctOption", 0))
         if correct_index not in (1, 2, 3, 4):
             raise SystemExit(f"Community stats: canonical correct option invalid for {qid}")
@@ -104,6 +207,7 @@ def resolved_stats() -> tuple[dict, dict]:
                 f"Community stats: correctPct does not match canonical answer for {qid} "
                 f"({correct_letter})"
             )
+        canonical_stem_key = normalize_stem(question.get("question", ""))
         item = {
             "canonicalQuestionId": qid,
             "sourceQuestionId": str(record.get("sourceQuestionId", "")),
@@ -112,10 +216,12 @@ def resolved_stats() -> tuple[dict, dict]:
             "correctPct": correct_pct,
             "optionPct": {letter: int(option_pct[letter]) for letter in "ABCD"},
         }
-        if qid in resolved or stem_key in browser_by_stem:
+        if qid in resolved or canonical_stem_key in browser_by_stem:
             raise SystemExit(f"Community stats: duplicate resolved record for {qid}")
         resolved[qid] = item
-        browser_by_stem[stem_key] = item
+        browser_by_stem[canonical_stem_key] = item
+        match_methods.append(f"{qid}={match_method}")
+    print("COMMUNITY_STATS_MATCH_OK " + " ".join(match_methods))
     return resolved, browser_by_stem
 
 
