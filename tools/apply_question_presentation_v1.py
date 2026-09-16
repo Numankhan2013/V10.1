@@ -3,6 +3,7 @@
 
 from pathlib import Path
 import re
+import runpy
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "app/src/main/assets/index.html"
@@ -56,6 +57,12 @@ def main() -> None:
     source = HTML.read_text(encoding="utf-8")
     HTML.write_text(transform(source), encoding="utf-8")
     print("QUESTION_PRESENTATION_OK normalized_choices=true matching_tables=true invalid_fail_closed=true")
+
+    # Keep the community-statistics pilot downstream of the final shared
+    # question renderer without adding a second renderer or modifying option
+    # correctness classes. Its own build-time matcher fails closed.
+    runpy.run_path(str(ROOT / "tools/apply_community_stats_v1.py"), run_name="__main__")
+    runpy.run_path(str(ROOT / "tools/test_community_stats_v1.py"), run_name="__main__")
 
 
 if __name__ == "__main__":
