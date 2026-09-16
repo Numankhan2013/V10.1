@@ -51,7 +51,17 @@ def active_question_id(page):
 
 def exercise(page, item, label, viewport_name, output):
     open_question(page, item)
-    image = page.locator(".nk-source-visual img").first
+    visuals = page.locator(".nk-source-visual img")
+    if label == "multi-panel":
+        count = visuals.count()
+        if count < 2:
+            raise SystemExit(
+                f"Multi-panel PrepLadder question mounted fewer than two visuals at {viewport_name}: {count}"
+            )
+        page.wait_for_function(
+            "Array.from(document.querySelectorAll('.nk-source-visual img')).every(img=>img.naturalWidth>0)"
+        )
+    image = visuals.first
     geometry = image.evaluate("node=>({naturalWidth:node.naturalWidth,naturalHeight:node.naturalHeight,width:node.getBoundingClientRect().width,height:node.getBoundingClientRect().height,complete:node.complete})")
     if not geometry["complete"] or min(geometry["naturalWidth"], geometry["naturalHeight"]) < 40:
         raise SystemExit(f"{label} visual did not load at useful source dimensions: {geometry}")
