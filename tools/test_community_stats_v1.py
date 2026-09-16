@@ -29,10 +29,13 @@ assert "list.insertAdjacentElement('afterend',summary)" in s
 assert "text.appendChild(badge)" in s
 assert "option.classList" not in s[s.index('id="nk-community-stats-v1-script"'):]
 
-# The pilot source sample from the supplied solved QBank reference must survive
-# intact through resolution and injection.
-assert 'MB1414' in s
-assert '"correctPct":69' in s
-assert '"optionPct":{"A":19,"B":69,"C":4,"D":8}' in s
+# Every current source-sidecar record must survive resolution and injection
+# intact. Keep this fixture-driven so changing the reviewed pilot record does
+# not leave a stale question ID or percentage tuple in the regression test.
+for record in payload["records"]:
+    assert record["sourceQuestionId"] in s
+    assert f'"correctPct":{int(record["correctPct"])}' in s
+    option_pct = json.dumps(record["optionPct"], separators=(",", ":"))
+    assert f'"optionPct":{option_pct}' in s
 
-print("COMMUNITY_STATS_V1_TEST_OK hidden_until_reveal=1 baseline_option_classes_untouched=1")
+print("COMMUNITY_STATS_V1_TEST_OK hidden_until_reveal=1 baseline_option_classes_untouched=1 fixture_driven=1")
