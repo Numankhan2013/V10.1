@@ -98,6 +98,8 @@ function nkTakeaway(takeaway){return `<p>${esc(takeaway)}</p>`;}
 function practicePage(){return `<div class="question-text">${esc(q.question)}</div>`}
 function examPage(){return `<div class="question-text" data-marrow-question="">${esc(q.question)}</div>`}
 function reviewTestPage(){return `<div class="question-text">${esc(q.question)}</div>`}
+function legacyStructured(el){if(!el||el.dataset.v103Structured==='1')return;}
+function legacyFormatted(el){if(el.dataset.v103Formatted==='1')return;}
   window.QB={};
 </script></body></html>'''
     updated = transform(fixture)
@@ -111,6 +113,8 @@ function reviewTestPage(){return `<div class="question-text">${esc(q.question)}<
     assert "'<strong>'+nkScientificMarkup(o.text||'')+'</strong>" in updated
     assert "nkScientificMarkup(reason)" in updated
     assert ".nk-sci-sub,.nk-sci-sup" in updated
+    assert "if(!el||el.dataset.v103Structured==='1'||el.children.length)return;" in updated
+    assert "if(el.dataset.v103Formatted==='1'||el.children.length)return;" in updated
     for marker in ("NK_QUESTION_PRESENTATION_V1_START", "nk-question-presentation-v1", "nkQuestionPresentationFor", "nkQuestionMatchingTable"):
         assert marker in updated
 
