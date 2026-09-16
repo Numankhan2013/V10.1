@@ -57,7 +57,7 @@ Run artifacts include:
 
 - `V11.7-android-pwa` — artifact `10430051035`,
 - `prepladder-visual-audit-2340bd201fabcc05e6d45932c7f8e5fa451e14f0` — artifact `10429946824`,
-- `recall-dock-and-marrow-pilot-screenshots` — artifact `10429842589`.
+- `recall-dock-and-marrow-pilot-screenshots` — artifact `10430045424`.
 
 ## Remaining certification work
 
