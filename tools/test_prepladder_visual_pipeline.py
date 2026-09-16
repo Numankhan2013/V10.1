@@ -44,6 +44,7 @@ for required in (
     "activeSession",
     "questionId",
     "nk-v113-question",
+    "nk-v114-session",
     "Prep\\s*ladder\\s*X\\s*Qbank",
     "findVisual(card,qt.textContent||'')",
 ):
@@ -57,6 +58,7 @@ for required in (
     'backdrop.wait_for(state="visible")',
     'panel.wait_for(state="visible")',
     "Fullscreen backdrop does not cover viewport",
+    "Multi-panel PrepLadder question mounted fewer than two visuals",
 ):
     assert required in browser, required
 assert 'viewer.wait_for(state="visible")' not in browser
@@ -64,4 +66,4 @@ assert "BY_ID" not in browser
 assert workflow.index("build_source_visual_metadata.py") < workflow.index("improve_source_visual_assets_v1.py") < workflow.index("verify_source_visual_contract.py")
 assert "verify_prepladder_visuals_browser.py" in workflow
 assert "source_visuals').rglob" in web
-print("PREPLADDER_VISUAL_PIPELINE_TEST_OK destructive_crops=0 inventory=true crop_safety=true review_batches=true offline=true browser=true stable_identity=true public_owner_check=true fullscreen_surface=true")
+print("PREPLADDER_VISUAL_PIPELINE_TEST_OK destructive_crops=0 inventory=true crop_safety=true review_batches=true offline=true browser=true stable_identity=true shared_session_identity=true public_owner_check=true fullscreen_surface=true grouped_visuals=true")
