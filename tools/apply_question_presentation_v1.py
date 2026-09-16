@@ -82,32 +82,6 @@ def transform(source: str) -> str:
         if before in source:
             source = source.replace(before, after)
 
-    # The modern explanation renderer already emits structured, escaped HTML.
-    # Two legacy MutationObserver formatters used to flatten that markup back to
-    # text and rebuild it, which silently removed semantic sub/sup elements (and
-    # other inline formatting) immediately after render. Leave those legacy
-    # fallbacks available for genuinely plain-text containers, but never let
-    # them rewrite content that has already been structured.
-    legacy_guards = (
-        (
-            "if(!el||el.dataset.v103Structured==='1')return;",
-            "if(!el||el.dataset.v103Structured==='1'||el.children.length)return;",
-        ),
-        (
-            "if(el.dataset.v103Formatted==='1')return;",
-            "if(el.dataset.v103Formatted==='1'||el.children.length)return;",
-        ),
-    )
-    guarded_legacy_formatters = 0
-    for before, after in legacy_guards:
-        if before in source:
-            source = source.replace(before, after)
-            guarded_legacy_formatters += 1
-        elif after in source:
-            guarded_legacy_formatters += 1
-    if not guarded_legacy_formatters:
-        raise SystemExit("No legacy explanation formatter was available to guard")
-
     options_anchor = "function nkSessionOptions(q,selected,mode,submitted) {\n    const locked="
     options_replacement = "function nkSessionOptions(q,selected,mode,submitted) {\n    const presentation=nkQuestionPresentationFor(q);if(!presentation.valid)return '';\n    const locked="
     if options_anchor in source:

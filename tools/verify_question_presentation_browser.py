@@ -120,10 +120,14 @@ def main() -> None:
             magnesium.locator("sup.nk-sci-sup").wait_for(state="visible")
             if magnesium.locator("sup.nk-sci-sup").inner_text() != "2+" or "■" in magnesium.inner_text():
                 raise SystemExit(f"Safe ionic OCR notation was not repaired in an answer choice: {magnesium.inner_text()!r}")
-            page.locator(".option-list button").nth(2).click()
+            # PrepLadder explanations deliberately use original source-PDF pages;
+            # exercise the native enhanced-text explanation path with Marrow.
+            page.evaluate("window.QB.practiceOne('marrow__PHYS_CH09_Q007')")
+            page.locator(".option-list button").first.click()
+            page.locator(".feedback-body").wait_for(state="visible")
             feedback_superscripts = page.locator(".feedback-body sup.nk-sci-sup").all_inner_texts()
             if "2+" not in feedback_superscripts:
-                raise SystemExit(f"Scientific notation did not reach the explanation renderer: {feedback_superscripts!r}")
+                raise SystemExit(f"Scientific notation did not reach the native explanation renderer: {feedback_superscripts!r}")
 
             page.evaluate("window.QB.practiceOne('28-3')")
             acid_base = page.locator(".question-text")
