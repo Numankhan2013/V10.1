@@ -9,6 +9,7 @@ audit = (ROOT / "tools/improve_source_visual_assets_v1.py").read_text(encoding="
 workflow = (ROOT / ".github/workflows/build-apk.yml").read_text(encoding="utf-8")
 web = (ROOT / "tools/build_web_dist.py").read_text(encoding="utf-8")
 renderer = (ROOT / "app/src/main/assets/source_visual_renderer.js").read_text(encoding="utf-8")
+browser = (ROOT / "tools/verify_prepladder_visuals_browser.py").read_text(encoding="utf-8")
 
 for forbidden in ("crop_native_figure", "Image.Resampling", "LANCZOS", "dominant_edge"):
     assert forbidden not in generator
@@ -47,7 +48,15 @@ for required in (
     "findVisual(card,qt.textContent||'')",
 ):
     assert required in renderer, required
+for required in (
+    "window.QB&&window.QB.getState",
+    "activeSession",
+    "session.questionIds[session.index]",
+    "Stable PrepLadder owner mismatch",
+):
+    assert required in browser, required
+assert "BY_ID" not in browser
 assert workflow.index("build_source_visual_metadata.py") < workflow.index("improve_source_visual_assets_v1.py") < workflow.index("verify_source_visual_contract.py")
 assert "verify_prepladder_visuals_browser.py" in workflow
 assert "source_visuals').rglob" in web
-print("PREPLADDER_VISUAL_PIPELINE_TEST_OK destructive_crops=0 inventory=true crop_safety=true review_batches=true offline=true browser=true stable_identity=true")
+print("PREPLADDER_VISUAL_PIPELINE_TEST_OK destructive_crops=0 inventory=true crop_safety=true review_batches=true offline=true browser=true stable_identity=true public_owner_check=true")
