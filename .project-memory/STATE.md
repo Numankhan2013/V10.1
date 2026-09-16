@@ -10,6 +10,7 @@
 - **Sole Marrow/product integration trunk:** `feature/marrow-canonical-full-current`.
 - Production / `main` remains explicit and guarded; do not promote without user approval.
 - Resolve the live canonical HEAD at run start; never hardcode a supposed current HEAD into automation logic.
+- Latest exact-head build-verified product checkpoint: `2340bd201fabcc05e6d45932c7f8e5fa451e14f0`. Engineering `35053564204` succeeded and full Android/PWA/browser/APK/package run `35053564213` succeeded. Cloudflare preview deployment succeeded; production promotion was intentionally skipped.
 - Latest accepted Practice behavior was verified from checkpoint `74abb670c3ae088e06653681e85c347212222455`; full run `34695680534` succeeded and the user physically confirmed the Continue Practice flow. This behavior is build-verified, **device-verified**, and user-accepted.
 
 ## Complete canonical Marrow ED8 source
@@ -87,7 +88,12 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Image lane
 
-- PrepLadder repair now precedes remaining Marrow images. The candidate removes destructive crop/resample stages, preserves full native frames/JPEG bytes, uses padded 288-DPI graph regions, emits provenance/risk inventory plus eight-item comparison sheets, gates boundary/text/answer leakage, precaches visuals offline, and adds phone/tablet browser checks. Engineering passed at `6e4a1e9`; full generation exposed a `None` cache defect now narrowly corrected locally. All 46 available local checks pass; exact-head Linux PDF generation, manual sheet review, browser/APK CI and physical acceptance remain.
+- PrepLadder source-visual engineering is now exact-head build verified at product code `2340bd201fabcc05e6d45932c7f8e5fa451e14f0`: Engineering `35053564204` and full Android/PWA/browser/APK/package run `35053564213` both succeeded.
+- Stable source-visual ownership resolves by active stable question ID across both `.nk-v113-question` and shared `.nk-v114-session` wrappers, with text fallback retained. This specifically fixes matching/table presentations such as Anatomy `anatomy-9-1`, whose visible stem is semantically rewritten before visual mounting.
+- Browser coverage is green for graph, table, diagnostic/clinical image, diagram and multi-panel representatives on phone (`390×844`) and tablet (`820×1180`). The verifier requires stable owner identity, loaded source pixels, preserved aspect ratio/readable size, a real visible fullscreen backdrop/panel covering ≥95% of the viewport, functional zoom, and ≥2 mounted images for the multi-panel representative.
+- APK build, packaged product contract, reproducibility manifest, packaged Marrow image-byte checks, artifact upload and Cloudflare preview deployment all passed in run `35053564213`. Production promotion was intentionally skipped.
+- Technical source-visual audit remains **422 total / 422 PENDING_MANUAL_REVIEW**. Technical/browser validation is green, but source-visual release certification is **not complete** until those bounded comparison items receive manual review/acceptance.
+- Dedicated handoff: `.project-memory/PREPLADDER_VISUAL_VERIFICATION_2026-09-16.md`.
 - Automated Biochemistry image integration is paused. Ch4 Q11 remains `REVIEW_REQUIRED`; two recovery attempts failed before shared registry/progress mutation because embedded PDF text was corrupted. No verified Q11 learner-facing result exists.
 - Verified manual Physiology Batch 01 product commit `719e2aa0cfbacb829781e9a7953af4717a6a6f5a` is canonical; Engineering `34699015727` and full run `34699016754` passed; production skipped.
 - Batch 02 on historical branch `manual/marrow-physiology-fastlane-20260912-b02` is unverified evidence only: 40 refs audited, 14 metadata-invalid, 12 new assets, 14 specialist deferrals; targeted run `34704088880` failed canonical wiring and was never reconciled.
@@ -103,6 +109,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Known problems / cautions
 
+- PrepLadder source-visual technical/browser gates are green, but **422 audit entries still require manual source-comparison review**; do not label that lane release-certified yet.
 - New axonal-transport and source-backed residual structured presentations are build-verified but still need user physical preview review before acceptance.
 - Future flattened table/list questions may exist outside literal `match` wording; treat them as structured-presentation defects, not ordinary prose cleanup.
 - Physiology image coverage remains incomplete; Biochemistry Q11 remains unresolved/paused.
@@ -111,16 +118,17 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Current priorities / Next step
 
-1. **Physical review:** inspect `physiology-9-22` and a spread of the source-backed residual matching questions in the newest preview; ion question `physiology-9-17` is already user-preview verified.
-2. **Structured-question cleanup:** when more duplicated/flattened source tables are found, use generic parsing where safe and source-backed stable-ID reform otherwise.
-3. **Explanation lane:** any Q19+ work must begin as a new owned batch from the live canonical head.
-4. **PrepLadder visuals:** run exact-head Linux generation/audit, inspect bounded comparisons, then browser/APK/package gates and physical acceptance.
-5. **Marrow images:** after PrepLadder certification, resume Biochemistry Q11 and complete its source-coverage gate before Physiology.
+1. **PrepLadder visual manual review:** review the 422 bounded source-comparison audit entries. Runtime/browser/APK/package verification is already green at `2340bd201fabcc05e6d45932c7f8e5fa451e14f0`; do not rerun or redesign the verified visual mounting path unless new evidence appears.
+2. **Physical review:** inspect `physiology-9-22` and a spread of the source-backed residual matching questions in the newest preview; ion question `physiology-9-17` is already user-preview verified.
+3. **Structured-question cleanup:** when more duplicated/flattened source tables are found, use generic parsing where safe and source-backed stable-ID reform otherwise.
+4. **Explanation lane:** any Q19+ work must begin as a new owned batch from the live canonical head.
+5. **Marrow images:** after PrepLadder manual certification, resume Biochemistry Q11 and complete its source-coverage gate before Physiology.
 6. Production promotion remains prohibited unless the user explicitly asks for it.
 
 ## Memory pointers
 
 - Memory schema: `.project-memory/README.md`.
+- PrepLadder visual verification handoff: `.project-memory/PREPLADDER_VISUAL_VERIFICATION_2026-09-16.md`.
 - Matching/structured presentation handoff: `.project-memory/MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`.
 - Chronological work/CI history: `.project-memory/SESSION_LOG.md`.
 - Accepted Practice handoff: `.project-memory/CONTINUE_PRACTICE_HANDOFF.md`.
