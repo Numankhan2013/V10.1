@@ -37,6 +37,18 @@ def open_question(page, item):
     page.wait_for_function("document.querySelector('.nk-source-visual img')?.naturalWidth > 0")
 
 
+def active_question_id(page):
+    return page.evaluate(
+        """()=>{
+            const state=window.QB&&window.QB.getState?window.QB.getState():null;
+            const session=state&&state.activeSession;
+            return session&&Array.isArray(session.questionIds)
+                ? session.questionIds[session.index]
+                : null;
+        }"""
+    )
+
+
 def exercise(page, item, label, viewport_name, output):
     open_question(page, item)
     image = page.locator(".nk-source-visual img").first
@@ -49,8 +61,11 @@ def exercise(page, item, label, viewport_name, output):
     display_ratio = geometry["width"] / geometry["height"]
     if abs(source_ratio / display_ratio - 1) > 0.02:
         raise SystemExit(f"{label} aspect ratio changed at {viewport_name}: {geometry}")
-    if not page.evaluate("id=>Boolean(typeof BY_ID!=='undefined'&&BY_ID[id])", item.get("questionId")):
-        raise SystemExit(f"Stable PrepLadder owner question missing: {item['questionId']}")
+    owner_id = active_question_id(page)
+    if owner_id != item["questionId"]:
+        raise SystemExit(
+            f"Stable PrepLadder owner mismatch: expected {item['questionId']}, got {owner_id!r}"
+        )
     image.click()
     viewer = page.locator("#nk-source-viewer")
     viewer.wait_for(state="visible")
