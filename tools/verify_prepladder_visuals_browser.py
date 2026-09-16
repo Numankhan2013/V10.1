@@ -68,9 +68,17 @@ def exercise(page, item, label, viewport_name, output):
         )
     image.click()
     viewer = page.locator("#nk-source-viewer")
-    viewer.wait_for(state="visible")
+    viewer.wait_for(state="attached")
+    backdrop = viewer.locator(".nk-sv-backdrop")
+    backdrop.wait_for(state="visible")
+    panel = viewer.locator(".nk-sv-panel")
+    panel.wait_for(state="visible")
     viewer.locator(".nk-sv-img").wait_for(state="visible")
     page.wait_for_function("document.querySelector('#nk-source-viewer .nk-sv-img')?.naturalWidth > 0")
+    surface = backdrop.evaluate("node=>({width:node.getBoundingClientRect().width,height:node.getBoundingClientRect().height})")
+    viewport = page.viewport_size
+    if not viewport or surface["width"] < viewport["width"] * 0.95 or surface["height"] < viewport["height"] * 0.95:
+        raise SystemExit(f"Fullscreen backdrop does not cover viewport for {label} at {viewport_name}: {surface}")
     before = viewer.locator(".nk-sv-img").evaluate("node=>getComputedStyle(node).transform")
     viewer.locator('[data-z="+"]').click()
     after = viewer.locator(".nk-sv-img").evaluate("node=>getComputedStyle(node).transform")
