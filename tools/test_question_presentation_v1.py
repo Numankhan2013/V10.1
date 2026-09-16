@@ -29,6 +29,20 @@ const five={question:'Assertion and reason',correctOption:5,options:'ABCDE'.spli
 const leaked={question:'Which statements are correct?',correctOption:1,options:[...['A','B','C','D'].map(letter=>({letter,text:'Choice '+letter})),{letter:'E',text:'Fig: source. The other options B, C and D are incorrect.'}]};assert.equal(nkQuestionPresentationFor(leaked).options.length,4);
 const incomplete={question:'Image-only source',correctOption:4,options:[{letter:'B',text:'caption'}]};assert(!nkQuestionPresentationFor(incomplete).valid);assert(nkQuestionStemMarkup(incomplete).includes('answering is disabled'));
 const hostile={question:'Ordinary <script>alert(1)</script>',correctOption:1,options:[{letter:'A',text:'Yes'},{letter:'B',text:'No'}]};const safe=nkQuestionStemMarkup(hostile);assert(safe.includes('&lt;script&gt;'));assert(!safe.includes('<script>'));
+const scientific=nkScientificMarkup('10^6; H2O + CO2 → HCO3^- + H+; Ca2+; α2; HbA1c');
+for(const expected of [
+  '10<sup class="nk-sci-sup">6</sup>',
+  'H<sub class="nk-sci-sub">2</sub>O',
+  'CO<sub class="nk-sci-sub">2</sub>',
+  'HCO<sub class="nk-sci-sub">3</sub><sup class="nk-sci-sup">−</sup>',
+  'H<sup class="nk-sci-sup">+</sup>',
+  'Ca<sup class="nk-sci-sup">2+</sup>',
+  'α<sub class="nk-sci-sub">2</sub>',
+  'HbA<sub class="nk-sci-sub">1c</sub>'
+])assert(scientific.includes(expected),'scientific renderer lost '+expected);
+const repairedScience=nkScientificMarkup('Mg²■; Na■; Cl■; pCO■; HCO■■; PO2■■');
+for(const expected of ['Mg<sup class="nk-sci-sup">2+</sup>','Na<sup class="nk-sci-sup">+</sup>','Cl<sup class="nk-sci-sup">−</sup>','pCO<sub class="nk-sci-sub">2</sub>','HCO<sub class="nk-sci-sub">3</sub><sup class="nk-sci-sup">−</sup>','PO<sub class="nk-sci-sub">2</sub>'])assert(repairedScience.includes(expected),'safe OCR notation repair lost '+expected);
+assert(!nkScientificMarkup('A<B<C').includes('<B>'),'scientific formatting bypassed HTML escaping');
 
 const context={window:{}};vm.createContext(context);
 for(const file of ['app/src/main/assets/qbank_data.js','app/src/main/assets/subjects_qbank_data.js'])vm.runInContext(fs.readFileSync(file,'utf8'),context);
@@ -72,9 +86,15 @@ console.log('QUESTION_PRESENTATION_BEHAVIOR_OK repaired='+repaired+' invalid='+i
 
 
 def test_transform() -> None:
-    fixture = '''<html><head></head><body><script>
+    fixture = r'''<html><head></head><body><script>
+  function richText(text) {
+    return esc(String(text||'')).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
+  }
 function nkSessionOptions(q,selected,mode,submitted) {
-    const locked=true;return q.options;}
+    const locked=true;return `<span class="option-text">${esc(o.text)}</span>`;}
+function nkGoldText(text){let html=esc(String(text||''));return html;}
+function nkGoldWrong(o,reason){return '<strong>'+esc(o.text||'')+'</strong><p>'+esc(reason)+'</p>';}
+function nkTakeaway(takeaway){return `<p>${esc(takeaway)}</p>`;}
 function practicePage(){return `<div class="question-text">${esc(q.question)}</div>`}
 function examPage(){return `<div class="question-text" data-marrow-question="">${esc(q.question)}</div>`}
 function reviewTestPage(){return `<div class="question-text">${esc(q.question)}</div>`}
@@ -84,6 +104,13 @@ function reviewTestPage(){return `<div class="question-text">${esc(q.question)}<
     assert transform(updated) == updated
     assert updated.count("${nkQuestionStemMarkup(q)}") == 3
     assert "if(!presentation.valid)return '';" in updated
+    assert "return nkScientificMarkup(text)" in updated
+    assert "${nkScientificMarkup(o.text)}" in updated
+    assert "${nkScientificMarkup(takeaway)}" in updated
+    assert "let html=nkScientificMarkup(text);" in updated
+    assert "'<strong>'+nkScientificMarkup(o.text||'')+'</strong>" in updated
+    assert "nkScientificMarkup(reason)" in updated
+    assert ".nk-sci-sub,.nk-sci-sup" in updated
     for marker in ("NK_QUESTION_PRESENTATION_V1_START", "nk-question-presentation-v1", "nkQuestionPresentationFor", "nkQuestionMatchingTable"):
         assert marker in updated
 

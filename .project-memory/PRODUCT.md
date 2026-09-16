@@ -6,8 +6,8 @@ Private, local-first medical QBank for personal MBBS study: accepted Android
 APK plus a V11.7 responsive PWA/cross-device evolution candidate.
 Currently covers **Anatomy, Physiology, Biochemistry**. PrepLadder remains
 Anatomy 1,068 Q, Physiology 899 Q, Biochemistry 719 Q. The active Marrow
-feature candidate additionally contains Anatomy 819/48, Biochemistry 543/26,
-and Physiology 753/33 (2,115 Marrow questions total).
+feature candidate additionally contains Anatomy 1,115/63, Biochemistry 582/28,
+and Physiology 1,014/43 (2,711 Marrow questions total).
 
 ## Phase
 
@@ -82,15 +82,17 @@ Prefer building over narrating.
 - **Question presentation:** Matching/list questions render semantic tables through
   the shared Practice, CBT, and Review presentation layer. Extraction fragments
   must never become clickable choices; incomplete answer contracts fail closed
-  rather than saving an unreliable attempt.
+  rather than saving an unreliable attempt. Stems, options, takeaways, native and
+  enhanced explanations, and structured-table cells share one safe scientific-text
+  boundary for subscripts, superscripts, ionic charges, and explicit exponents.
 ## Multi-bank source behavior
 
 - A medical subject may contain multiple question-bank sources. If so, selecting
   the subject opens a source selector before Topics.
 - Current Marrow feature candidate:
-  - Anatomy → PrepLadder | Marrow (819 questions / 48 Marrow topics).
-  - Biochemistry → PrepLadder | Marrow (543 / 26).
-  - Physiology → PrepLadder | Marrow (753 / 33).
+  - Anatomy → PrepLadder | Marrow (1,115 questions / 63 Marrow topics).
+  - Biochemistry → PrepLadder | Marrow (582 / 28).
+  - Physiology → PrepLadder | Marrow (1,014 / 43).
 - Bank/source selection changes content provenance, not the learning engine.
   Practice, CBT, Review, Custom Study Modules, FSRS, sync, analytics, bookmarks,
   persistence and revision queues remain shared.

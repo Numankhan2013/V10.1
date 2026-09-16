@@ -110,6 +110,34 @@ def main() -> None:
             if page.locator(".option-list button").count() != 4:
                 raise SystemExit("Combination question does not expose exactly four canonical choices")
 
+            page.evaluate("window.QB.practiceOne('22-8')")
+            exponent_text = page.locator(".question-text sup.nk-sci-sup").all_inner_texts()
+            if exponent_text != ["6", "9"]:
+                raise SystemExit(f"Caret exponents did not render semantically in the question stem: {exponent_text!r}")
+
+            page.evaluate("window.QB.practiceOne('17-1')")
+            magnesium = page.locator(".option-text").nth(3)
+            magnesium.locator("sup.nk-sci-sup").wait_for(state="visible")
+            if magnesium.locator("sup.nk-sci-sup").inner_text() != "2+" or "■" in magnesium.inner_text():
+                raise SystemExit(f"Safe ionic OCR notation was not repaired in an answer choice: {magnesium.inner_text()!r}")
+            page.locator(".option-list button").nth(2).click()
+            feedback_superscripts = page.locator(".feedback-body sup.nk-sci-sup").all_inner_texts()
+            if "2+" not in feedback_superscripts:
+                raise SystemExit(f"Scientific notation did not reach the explanation renderer: {feedback_superscripts!r}")
+
+            page.evaluate("window.QB.practiceOne('28-3')")
+            acid_base = page.locator(".question-text")
+            acid_base_subscripts = acid_base.locator("sub.nk-sci-sub").all_inner_texts()
+            acid_base_superscripts = acid_base.locator("sup.nk-sci-sup").all_inner_texts()
+            if acid_base_subscripts != ["2", "3"] or acid_base_superscripts != ["−"]:
+                raise SystemExit(
+                    "Blood-gas notation did not render as pCO₂ / HCO₃⁻: "
+                    f"sub={acid_base_subscripts!r} sup={acid_base_superscripts!r}"
+                )
+            if "■" in acid_base.inner_text():
+                raise SystemExit("A safely recoverable OCR placeholder remained in the blood-gas stem")
+            page.screenshot(path=str(output / "scientific-notation-question.png"), full_page=True)
+
             page.evaluate("window.QB.practiceOne('physiology-24-6')")
             page.locator(".nk-question-unavailable").wait_for(state="visible")
             if page.locator(".option-list button").count():
@@ -123,7 +151,7 @@ def main() -> None:
     finally:
         server.shutdown()
 
-    print("QUESTION_PRESENTATION_BROWSER_OK matching_table=true alternate_matching_table=true row_selection_table=true combination_list=true choices=4 incomplete_fail_closed=true")
+    print("QUESTION_PRESENTATION_BROWSER_OK matching_table=true alternate_matching_table=true row_selection_table=true combination_list=true scientific_stem=true scientific_options=true scientific_explanations=true choices=4 incomplete_fail_closed=true")
 
 
 if __name__ == "__main__":

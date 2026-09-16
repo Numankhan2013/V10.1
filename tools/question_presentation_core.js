@@ -1,6 +1,51 @@
   /* NK_QUESTION_PRESENTATION_V1_START
      Normalize extraction-shaped choices once, then render matching questions
      semantically across Practice, CBT, and Review without rewriting source data. */
+  function nkNormalizeScientificDisplayText(text){
+    // Repair only notation whose missing OCR glyph is unambiguous. Ambiguous
+    // source loss (for example, whether ■-1,4 was alpha or beta) stays visible
+    // for source-backed content review instead of being guessed here.
+    return String(text??'')
+      .replace(/((?:P|p|Pa)(?:CO|O)2)■+/g,'$1')
+      .replace(/H\s*■\s*O/g,'H2O')
+      .replace(/FADH■/g,'FADH2')
+      .replace(/NADP■/g,'NADP+')
+      .replace(/NAD■/g,'NAD+')
+      .replace(/HCO\s*(?:3\s*)?■+/g,'HCO3−')
+      .replace(/NH4\s*■/g,'NH4+')
+      .replace(/CO■/g,'CO2')
+      .replace(/O■/g,'O2')
+      .replace(/\b(Ca|Mg|Fe|Cu|Zn|Mn)([²³])\s*■/g,(_,ion,magnitude)=>ion+(magnitude==='²'?'2':'3')+'+')
+      .replace(/\b(Na|K)\s*■/g,'$1+')
+      .replace(/\bCl\s*■/g,'Cl−')
+      .replace(/\bH\s*■/g,'H+');
+  }
+
+  function nkScientificMarkup(text){
+    let html=esc(nkNormalizeScientificDisplayText(text));
+    const tokens=[];
+    const stash=(kind,value)=>{const index=tokens.push(`<${kind} class="nk-sci-${kind}">${value}</${kind}>`)-1;return `\uE000${index}\uE001`;};
+
+    // Explicit source notation always wins: x^4, 10^{-6}, SO4^2-, H_{2}O.
+    html=html.replace(/([A-Za-z0-9)\]])\s*\^\s*\{\s*([+−-]?\d+[+−-]?|[+−-])\s*\}/g,(_,base,power)=>base+stash('sup',power.replace(/-/g,'−')));
+    html=html.replace(/([A-Za-z0-9)\]])\s*\^\s*([+−-]?\d+[+−-]?|[+−-])/g,(_,base,power)=>base+stash('sup',power.replace(/-/g,'−')));
+    html=html.replace(/([A-Za-z0-9)\]])\s*_\s*\{\s*([A-Za-z0-9,+−-]+)\s*\}/g,(_,base,index)=>base+stash('sub',index));
+
+    // Ionic charge is a superscript. For monatomic ions the numeral is charge
+    // magnitude (Ca2+), not an atom count; molecular ions are handled below.
+    html=html.replace(/(^|[^A-Za-z0-9])(Ca|Mg|Fe|Cu|Zn|Mn)\s*([23])\s*([+−-])(?![A-Za-z0-9])/g,(_,lead,ion,magnitude,charge)=>lead+ion+stash('sup',magnitude+charge.replace(/-/g,'−')));
+    html=html.replace(/(^|[^A-Za-z0-9])(H|Na|K|Cl)\s*([+−-])(?![A-Za-z0-9])/g,(_,lead,ion,charge)=>lead+ion+stash('sup',charge.replace(/-/g,'−')));
+
+    // Common biochemical and physiological formulae are deliberately bounded.
+    // This avoids turning ordinary identifiers and question numbers into maths.
+    const formula=/(^|[^A-Za-z0-9])((?:(?:Pa|PA|pa|p|P)(?:CO2|O2))|C6H12O6|H2PO4|H2CO3|H2O2|HCO3|HPO4|FADH2|NADH2|NH4|SO4|PO4|CH2O|H2O|NH3|CO2|NO2|O2|N2)([+−-]?)(?![A-Za-z0-9])/g;
+    html=html.replace(formula,(_,lead,value,charge)=>lead+value.replace(/\d+/g,digits=>stash('sub',digits))+(charge?stash('sup',charge.replace(/-/g,'−')):''));
+    html=html.replace(/(^|[^A-Za-z0-9])HbA1c(?![A-Za-z0-9])/g,(_,lead)=>lead+'HbA'+stash('sub','1c'));
+    html=html.replace(/([αβγ])([1-4])(?!\d)/g,(_,letter,index)=>letter+stash('sub',index));
+
+    return html.replace(/\uE000(\d+)\uE001/g,(_,index)=>tokens[Number(index)]||'');
+  }
+
   function nkQuestionOptionRuns(options){
     const runs=[];let current=[];
     (Array.isArray(options)?options:[]).forEach((option,index)=>{
@@ -237,10 +282,10 @@
   function nkQuestionStemMarkup(q){
     const presentation=nkQuestionPresentationFor(q),matching=nkQuestionMatchingSource(q,presentation),continuation=matching?null:nkQuestionContinuationSource(q,presentation),table=nkQuestionMatchingTable(matching||continuation,Boolean(continuation))||nkQuestionMatchingOverride(q);
     const unavailable=presentation.valid?'':`<div class="nk-question-unavailable" role="status"><strong>Answer choices unavailable</strong><span>This source record is incomplete, so answering is disabled instead of recording an unreliable result.</span></div>`;
-    if(!table)return `<span class="nk-question-prompt">${esc(String(q?.question||'').replace(/\*\*Type:\*\*\s*Match the Following/ig,'').trim())}</span>${unavailable}`;
-    const headers=table.groups.map((_,index)=>`<th scope="col">${esc((table.headers||[])[index]||(table.groups.length===1?'Statements':`List ${['I','II','III'][index]||index+1}`))}</th>`).join('');
-    const rows=table.rows.map(row=>`<tr>${row.map(cell=>`<td>${cell?`${String(cell.label||'').trim()?`<b>${esc(cell.label)}</b>`:''}<span>${esc(cell.value)}</span>`:'<span aria-hidden="true">—</span>'}</td>`).join('')}</tr>`).join('');
-    return `<span class="nk-question-prompt">${esc(table.prompt)}</span><div class="nk-match-table-scroll"><table class="nk-match-table"><thead><tr>${headers}</tr></thead><tbody>${rows}</tbody></table></div>${unavailable}`;
+    if(!table)return `<span class="nk-question-prompt">${nkScientificMarkup(String(q?.question||'').replace(/\*\*Type:\*\*\s*Match the Following/ig,'').trim())}</span>${unavailable}`;
+    const headers=table.groups.map((_,index)=>`<th scope="col">${nkScientificMarkup((table.headers||[])[index]||(table.groups.length===1?'Statements':`List ${['I','II','III'][index]||index+1}`))}</th>`).join('');
+    const rows=table.rows.map(row=>`<tr>${row.map(cell=>`<td>${cell?`${String(cell.label||'').trim()?`<b>${nkScientificMarkup(cell.label)}</b>`:''}<span>${nkScientificMarkup(cell.value)}</span>`:'<span aria-hidden="true">—</span>'}</td>`).join('')}</tr>`).join('');
+    return `<span class="nk-question-prompt">${nkScientificMarkup(table.prompt)}</span><div class="nk-match-table-scroll"><table class="nk-match-table"><thead><tr>${headers}</tr></thead><tbody>${rows}</tbody></table></div>${unavailable}`;
   }
 
   nkNormalizeQuestionPresentationCorpus();

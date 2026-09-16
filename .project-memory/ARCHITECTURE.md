@@ -173,6 +173,13 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   explanation fragments, and wires one semantic stem renderer into Practice,
   CBT, and Review. Source records remain unchanged on disk.
 - Records without a usable choice sequence/correct index fail closed.
+- The same late layer owns `nkScientificMarkup`: it escapes first, then emits
+  bounded semantic `<sub>`/`<sup>` markup for explicit exponents, common
+  biochemical formulae, blood-gas notation, ionic charges and a conservative set
+  of unambiguous OCR-placeholder repairs. It is wired into Practice/CBT/Review
+  stems and options, PrepLadder `richText`, takeaways, Marrow native tables/text,
+  and the separate enhanced-explanation wrapper. Ambiguous missing glyphs remain
+  visible for source-backed stable-ID cleanup rather than being guessed.
 
 ## Marrow multi-bank extension — expanded Phase A architecture
 
@@ -186,17 +193,17 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   `nkBankRecords`, `nkBankRecord`, `nkAllBankQuestions` and global
   namespaced IDs let the existing engines resolve all bank questions safely.
 - Current Marrow records:
-  - Anatomy: 819 questions / 48 topics.
-  - Biochemistry: 543 / 26.
-  - Physiology: 753 / 33.
-  - Combined: 2,115 unique questions / 107 topics.
+  - Anatomy: 1,115 questions / 63 topics.
+  - Biochemistry: 582 / 28.
+  - Physiology: 1,014 / 43.
+  - Combined: 2,711 unique questions / 134 topics.
 - Expanded transport is manifest-verified compressed/base64 data:
-  `data/marrow/anatomy_phase_a.zlib.b64.part*` +
-  `anatomy_phase_a_manifest.json`;
-  `biochemistry_phase_a.zlib.b64.part*` +
-  `biochemistry_phase_a_manifest.json`;
-  `physiology_ch001_033.zlib.b64.part*` +
-  `physiology_ch001_033_manifest.json`.
+  `data/marrow/anatomy_ch001_063.zlib.b64.part*` +
+  `anatomy_ch001_063_manifest.json`;
+  `biochemistry_ch001_028.zlib.b64.part*` +
+  `biochemistry_ch001_028_manifest.json`;
+  `physiology_ch001_043.zlib.b64.part*` +
+  `physiology_ch001_043_manifest.json`.
   The launcher validates shard count, base64/compressed/raw lengths, SHA-256,
   subject/bank identity, topic/question counts, unique namespaced IDs, four-option
   shape, correctOption bounds and question→topic linkage before use.
@@ -205,9 +212,9 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   Marrow envelope; approved augmentation IDs remain subsets of the expanded banks.
 - Explanation architecture is layered and non-destructive: all Marrow uses native
   structured source text/tables; the approved enhanced layer remains only on the
-  142-question subset until a later explanation phase.
+  audited 605-question subset; the remaining 2,106 records retain native text.
 - `data/marrow/explanation_inventory_v1.json` is deterministic, text-free review
-  metadata for all 2,115 IDs. It is regenerated from source hashes and never
+  metadata for all 2,711 IDs. It is regenerated from source hashes and never
   changes imported records or learner-facing explanations.
 - Three resolved Anatomy reconstructions remain deterministic and provenance-marked:
   `ANAT_CH02_Q010`, `ANAT_CH03_Q004`, `ANAT_CH04_Q013`.

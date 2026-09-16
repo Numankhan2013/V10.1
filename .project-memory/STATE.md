@@ -72,6 +72,12 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 - Full handoff: `.project-memory/MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`.
 - Status: **BUILD_VERIFIED / USER_REVIEW_PENDING** for the new axonal-transport and source-backed residual presentations; the ion-question repair itself is user-preview verified.
 
+## Scientific notation presentation — locally verified / full CI pending
+
+- One shared, escape-first formatter now serves Practice, CBT and Review stems/options, takeaways, PrepLadder explanations/tables, Marrow native structured text/tables, and the separate enhanced-explanation wrapper. It renders explicit powers, common chemical/physiological subscripts and ionic charges, and only unambiguous OCR-placeholder repairs; raw source data remains unchanged.
+- Corpus audit found notation markup in **424 PrepLadder** and **695 Marrow** learner fields. After safe normalization, ambiguous source loss remains on **7 PrepLadder** surface records (`5-10`, `5-14`, `14-9`, `physiology-9-18`, `physiology-20-7`, `physiology-23-11`, `physiology-26-20`) and **2 Marrow** stems (`marrow__BIOCHEM_CH14_Q013`, `marrow__BIOCHEM_CH17_Q008`); these require source-backed per-record cleanup, not a broader regex. Residual OCR placeholders also remain in 55 PrepLadder and 1 Marrow explanation records.
+- All **46 available local checks** pass, including corpus behavior, escaping, build-order/product contracts and JS syntax. Generated PWA browser checks now cover stems, choices and explanations; Linux generated-app/browser/APK/package CI and physical review remain pending.
+
 ## Learner-content hygiene
 
 - Whole-corpus serialized JSON/code sanitizer candidate `45f6539fff535fadc6aaa6970894f9ff123422fa` passed Engineering `34738522874` and full run `34738530102` over **2,711 questions / 27,898 learner-facing fields**; raw ED8 source is unchanged.
@@ -112,6 +118,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 - PrepLadder source-visual technical/browser gates are green, but **422 audit entries still require manual source-comparison review**; do not label that lane release-certified yet.
 - New axonal-transport and source-backed residual structured presentations are build-verified but still need user physical preview review before acceptance.
 - Future flattened table/list questions may exist outside literal `match` wording; treat them as structured-presentation defects, not ordinary prose cleanup.
+- Nine question/option records and 56 explanation records retain ambiguous `■` OCR loss after safe scientific rendering; resolve them from authoritative source with stable-ID/fingerprinted cleanup rather than guessing globally.
 - Physiology image coverage remains incomplete; Biochemistry Q11 remains unresolved/paused.
 - Four PrepLadder source records remain intentionally non-answerable rather than recording corrupt attempts: `anatomy-22-4`, `physiology-23-38`, `physiology-24-6`, `physiology-33-33`.
 - Production promotion remains prohibited unless explicitly requested.
