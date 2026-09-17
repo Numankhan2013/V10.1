@@ -25,6 +25,65 @@ const table=nkQuestionStemMarkup(broken);assert(table.includes('nk-match-table')
 const alternate={id:'alternate-match',question:'Match the ion with its equilibrium potential in a normal mammalian cell. Ion Equilibrium Potential (mV) 1. Sodium A. -70 2. Chloride B. +63 3. Potassium C. +132 4. Calcium D. -90 Ion Equilibrium Potential (mV) 1. Sodium A. -70 2. Chloride B. +63 3. Potassium C. +132 4. Calcium D. -90',correctOption:1,options:[
  {letter:'A',text:'1-B, 2-A, 3-D, 4-C'},{letter:'B',text:'1-D, 2-C, 3-B, 4-A'},{letter:'C',text:'1-C, 2-D, 3-A, 4-B'},{letter:'D',text:'1-A, 2-B, 3-C, 4-D'}]};
 const alternateMarkup=nkQuestionStemMarkup(alternate);assert(alternateMarkup.includes('nk-match-table'));for(const expected of ['Sodium','Chloride','Potassium','Calcium','-70','+63','+132','-90'])assert(alternateMarkup.includes(expected));assert.equal((alternateMarkup.match(/Ion Equilibrium Potential \(mV\)/g)||[]).length,1);assert(!alternateMarkup.includes('-90 Ion Equilibrium'));
+const nerveRows=[['1','Aα','a','Preganglionic autonomic'],['2','Aβ','b','Touch'],['3','Aδ','c','Temperature'],['4','B','d','Proprioception']];
+const nerveOptions=[{letter:'A',text:'1-d, 2-b, 3-c, 4-a'},{letter:'B',text:'1-a, 2-b, 3-d, 4-c'},{letter:'C',text:'1-b, 2-a, 3-c, 4-d'},{letter:'D',text:'1-c, 2-d, 3-b, 4-a'}];
+const nerveBlock='Fibre type Property 1. Aα a. Preganglionic autonomic 2. Aβ b. Touch 3. Aδ c. Temperature 4. B d. Proprioception';
+const nerve={id:'physiology-9-6',sourcePage:253,question:'Match the following nerve fibre type with its respective property. '+nerveBlock+' '+nerveBlock,correctOption:1,options:nerveOptions.map(option=>({...option}))};
+const assertNerve=q=>{
+  const before=JSON.stringify(q),p=nkQuestionPresentationFor(q),markup=nkQuestionStemMarkup(q);
+  assert.equal(q.id,'physiology-9-6');assert.equal(q.sourcePage,253);assert(p.valid);
+  assert.deepEqual(p.table.rows.map(row=>row.flatMap(cell=>[cell.label,cell.value])),nerveRows);
+  assert(markup.includes('<table class="nk-match-table">'));assert.equal((markup.match(/<tr>/g)||[]).length,5);
+  for(const row of nerveRows)assert(markup.includes('<tr>'+[row.slice(0,2),row.slice(2)].map(([label,value])=>'<td><b>'+label+'</b><span>'+value+'</span></td>').join('')+'</tr>'));
+  assert(!markup.includes('—'));assert.equal((markup.match(/Proprioception/g)||[]).length,1);
+  assert.deepEqual(p.options,nerveOptions);assert.equal(p.options.length,4);assert.equal(q.correctOption,1);assert.equal(p.options[q.correctOption-1].text,nerveOptions[0].text);
+  assert.strictEqual(nkQuestionPresentationFor(q),p);assert.equal(JSON.stringify(q),before);
+};
+assertNerve(nerve);
+const malformed=[
+  'List I List II 1. Alpha 2. Beta',
+  'Column A Column B 1. Alpha 2. Beta',
+  'a Alpha i One b Beta ii',
+  '1. Alpha a. One 2. Beta b. Two 1. CHANGED a. WRONG',
+  'a Alpha i One b Beta ii Two a Gamma iii Three c Delta iv Four',
+  '1. Alpha a. One 2. Beta b. Two 1. Alpha a. WRONG',
+  'a Alpha i One b Beta ii Two a Alpha i WRONG',
+  '1. Alpha a. One 2. Beta b. Two 3. Gamma c. Three 4. Delta',
+  '1. Alpha a. One 2. Beta b. Two 3. Gamma c. Three d. Four',
+  '1. Alpha a. One 2. Beta b. Two 3. Gamma c.',
+  '1. Alpha a. One 2. Beta b. — 3. Gamma c. Three',
+  '1. Alpha a. One 2. b. Two 3. Gamma c. Three',
+  '1. Alpha a. One 3. Gamma b. Two 4. Delta c. Three',
+  '1. Alpha b. One 2. Beta c. Two 3. Gamma d. Three',
+  '1. Alpha a. One 2. Beta b. Two 3. Gamma d. Three',
+  '1. Alpha a. One 2. Beta b. Two 3. Gamma b. Three',
+  '1. Alpha a. One 2. Beta b. Two 1. Gamma c. Three',
+  'a Alpha i One b Beta ii Two c Gamma iv Three',
+  'a Alpha i One b Beta ii Two c Gamma iii Three d Delta',
+  'a Alpha i One b Beta ii Two c Gamma iii —'
+];
+for(const source of malformed){
+  const q={question:'Match the following: '+source,correctOption:1,options:nerveOptions.map(option=>({...option}))},before=JSON.stringify(q);
+  const p=nkQuestionPresentationFor(q);assert.equal(p.valid,false,source);assert.equal(p.table,null,source);
+  const markup=nkQuestionStemMarkup(q);assert(markup.includes('answering is disabled'),source);assert(!markup.includes('<table'),source);
+  assert.strictEqual(nkQuestionPresentationFor(q),p);assert.equal(JSON.stringify(q),before);
+}
+for(const source of [nerveBlock,nerveBlock+' '+nerveBlock,nerveBlock+' '+nerveBlock+' '+nerveBlock,nerveBlock+' Fibre type Property 1. Aα a. Preganglionic autonomic']){
+  const parsed=nkQuestionMatchingTable('Match the following: '+source);assert.deepEqual(parsed.rows.map(row=>row.flatMap(cell=>[cell.label,cell.value])),nerveRows);
+}
+const bare=nkQuestionMatchingTable('Match each: a Alpha i One b Beta ii Two c Gamma iii Three a Alpha i One b Beta ii Two c Gamma iii Three');
+assert.deepEqual(bare.rows.map(row=>row.map(cell=>cell.value)),[['Alpha','One'],['Beta','Two'],['Gamma','Three']]);
+const ordinary={question:'He was injured during a soccer match. Which muscle is affected?',correctOption:1,options:nerveOptions};
+assert(nkQuestionPresentationFor(ordinary).valid);assert.equal(nkQuestionPresentationFor(ordinary).table,null);
+for(const question of ['During a match he sustained an injury. 1. Pain 2. Swelling','Match the clinical description to the diagnosis.']){
+  const q={...ordinary,question};assert(nkQuestionPresentationFor(q).valid);assert.equal(nkQuestionPresentationFor(q).table,null);
+}
+const barePrefix=nkQuestionMatchingTable('Match each: a Alpha i One b Beta ii Two a Alpha i On');
+assert.deepEqual(barePrefix.rows.map(row=>row.map(cell=>cell.value)),[['Alpha','One'],['Beta','Two']]);
+const startupContext={SUBJECTS:[{questions:malformed.map(source=>({question:'Match the following: '+source,correctOption:1,options:nerveOptions}))}]};
+vm.createContext(startupContext);vm.runInContext(fs.readFileSync('tools/question_presentation_core.js','utf8'),startupContext);
+for(const q of startupContext.SUBJECTS[0].questions){assert.equal(q.__nkQuestionPresentation.valid,false);assert.equal(q.__nkQuestionPresentation.table,null);}
+const single=nkQuestionMatchingTable('Choose statements: A. Liver B. Kidney C. Muscle D. Heart',true);assert.equal(single.groups.length,1);assert.equal(single.rows.length,4);
 const five={question:'Assertion and reason',correctOption:5,options:'ABCDE'.split('').map(letter=>({letter,text:'Choice '+letter}))};assert.equal(nkQuestionPresentationFor(five).options.length,5);assert(nkQuestionPresentationFor(five).valid);
 const leaked={question:'Which statements are correct?',correctOption:1,options:[...['A','B','C','D'].map(letter=>({letter,text:'Choice '+letter})),{letter:'E',text:'Fig: source. The other options B, C and D are incorrect.'}]};assert.equal(nkQuestionPresentationFor(leaked).options.length,4);
 const incomplete={question:'Image-only source',correctOption:4,options:[{letter:'B',text:'caption'}]};assert(!nkQuestionPresentationFor(incomplete).valid);assert(nkQuestionStemMarkup(incomplete).includes('answering is disabled'));
@@ -47,13 +106,39 @@ assert(!nkScientificMarkup('A<B<C').includes('<B>'),'scientific formatting bypas
 const context={window:{}};vm.createContext(context);
 for(const file of ['app/src/main/assets/qbank_data.js','app/src/main/assets/subjects_qbank_data.js'])vm.runInContext(fs.readFileSync(file,'utf8'),context);
 SUBJECTS=[{subject:'Biochemistry',questions:context.window.QBANK_DATA.questions},...context.window.SUBJECT_QBANK_DATA.subjects];
+const porphyria=SUBJECTS.flatMap(record=>record.questions||[]).find(q=>q.id==='24-9');
+const porphyriaGroups=[
+  ['Acute intermittent porphyria','Porphyria Cutanea Tarda','Hereditary coproporphyria','Congenital erythropoietic porphyria'].map((value,index)=>({label:'ABCD'[index],value})),
+  ['Neuropsychiatric manifestations','Photosensitivity','Both Neuropsychiatric manifestation and photosensitivity'].map((value,index)=>({label:['i','ii','iii'][index],value}))
+];
+assert.deepEqual(porphyria.options.map(option=>option.text),['A-i, B-ii, C-iii, D-ii','A-i, B-ii, C-ii, D-iii','A-ii, B-i, C-iii, D-iii','A-ii, B-i, C-ii, D-iii']);
+assert.equal(porphyria.correctOption,1);assert.equal(nkQuestionPairedTableValid(porphyriaGroups,true),true);assert.equal(nkQuestionPairedTableValid(porphyriaGroups),false);
+console.log('PORPHYRIA_MANY_TO_ONE_OK lengths='+porphyriaGroups.map(group=>group.length).join(',')+' canonical='+porphyria.options[porphyria.correctOption-1].text);
 let repaired=0,repairedIds=[],invalid=[];for(const q of SUBJECTS.flatMap(record=>record.questions||[])){delete q.__nkQuestionPresentation;const p=nkQuestionPresentationFor(q);if(p.repaired){repaired++;repairedIds.push(q.id);}if(!p.valid)invalid.push(q.id);}
 assert.equal(repaired,8,'all extraction-shaped option arrays should normalize generically');
 assert.deepEqual(repairedIds.sort(),['anatomy-10-1','anatomy-29-1','anatomy-46-12','physiology-1-13','physiology-19-12','physiology-24-10','physiology-4-8','physiology-6-2']);
-assert.deepEqual(invalid.sort(),['anatomy-22-4','physiology-23-38','physiology-24-6','physiology-33-33']);
+assert.deepEqual(invalid.sort(),['10-10','10-4','13-21','anatomy-14-5','anatomy-22-4','anatomy-40-10','anatomy-46-8','anatomy-47-2','anatomy-49-9','anatomy-50-8','anatomy-9-1','physiology-20-25','physiology-23-38','physiology-24-10','physiology-24-6','physiology-33-33','physiology-4-8','physiology-6-2']);
 const byId=Object.fromEntries(SUBJECTS.flatMap(record=>record.questions||[]).map(q=>[q.id,q]));
+assertNerve(byId['physiology-9-6']);
+for(const [id,labels] of Object.entries({'24-9':'A,B,C,D|i,ii,iii','anatomy-27-23':'1,2,3,4|a,b,c,d,e','anatomy-7-8':'1,2|a,b|i,ii,iii,iv'})){
+  const q=byId[id],p=nkQuestionPresentationFor(q),before=JSON.stringify(q);
+  assert(p.valid,id);assert.equal(p.table.groups.map(group=>group.map(cell=>cell.label).join(',')).join('|'),labels);
+  assert.strictEqual(nkQuestionPresentationFor(q),p);assert.equal(JSON.stringify(q),before);
+  for(const mutate of [q=>{q.question=q.question.replace(/3\)|4\)/g,'');},q=>{q.options[0].text+=' changed';},q=>{q.sourcePage++;},q=>{q.correctOption=q.correctOption===1?2:1;},q=>{q.question=q.question.replace(/porphyria|artery|Fourth/g,'CHANGED');}]){
+    const changed=JSON.parse(before);mutate(changed);if(JSON.stringify(changed)===before)continue;assert.equal(nkQuestionMatchingOverride(changed),null,id+' stale override');
+    if(changed.question!==q.question||changed.options[0].text!==q.options[0].text||changed.sourcePage!==q.sourcePage||changed.correctOption!==q.correctOption)assert(!nkQuestionPresentationFor(changed).valid,id+' stale unequal question');
+  }
+}
+const missingCoronary=JSON.parse(JSON.stringify(byId['anatomy-27-23']));missingCoronary.question=missingCoronary.question.replace(/3\)|4\)/g,'');
+assert(!nkQuestionPresentationFor(missingCoronary).valid);assert(nkQuestionStemMarkup(missingCoronary).includes('answering is disabled'));
+for(const id of ['physiology-36-7','anatomy-29-16'])assert(nkQuestionPresentationFor(byId[id]).valid,id+' established unequal override');
 assert.equal(byId['physiology-1-13'].options.length,4);
-for(const id of ['physiology-1-13','physiology-4-8','physiology-6-2','physiology-24-10','physiology-6-6','physiology-9-17','anatomy-5-6','anatomy-7-9','5-8','10-10','22-18','anatomy-14-5','anatomy-40-10','anatomy-47-2','anatomy-49-9']){
+for(const id of ['anatomy-14-5','anatomy-40-10','anatomy-47-2','anatomy-9-1','10-10','10-4','13-21','anatomy-46-8','anatomy-49-9','anatomy-50-8','physiology-20-25','physiology-24-10','physiology-4-8','physiology-6-2']){
+  const p=nkQuestionPresentationFor(byId[id]);
+  assert(!p.valid,id+' with incomplete or conflicting source structure must fail closed');assert.equal(p.table,null,id+' with incomplete or conflicting source structure must not render a fabricated table');
+  const markup=nkQuestionStemMarkup(byId[id]);assert(markup.includes('answering is disabled'),id+' must hide choices when source structure is incomplete');assert(!markup.includes('<table'),id+' must not render a table when source structure is incomplete');
+}
+for(const id of ['physiology-1-13','physiology-6-6','physiology-9-17','anatomy-5-6','anatomy-7-9','5-8','22-18']){
   const markup=nkQuestionStemMarkup(byId[id]);assert(markup.includes('nk-match-table'),id+' should render structured matching data');assert(markup.includes('List I')&&markup.includes('List II'),id+' should retain both matching lists');
 }
 const ionMarkup=nkQuestionStemMarkup(byId['physiology-9-17']);

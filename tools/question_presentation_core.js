@@ -83,6 +83,10 @@
     const valid=options.length>=2&&options.length<=5&&Number.isInteger(correct)&&correct>=1&&correct<=options.length&&options.every((option,index)=>String(option?.letter||'').trim().toUpperCase()===String.fromCharCode(65+index)&&String(option?.text||'').trim());
     const repaired=valid&&(options.length!==original.length||options.some((option,index)=>option!==original[index]));
     const presentation={options,supporting,valid,repaired,originalOptionCount:original.length};
+    const matching=nkQuestionMatchingSource(q,presentation),continuation=matching?null:nkQuestionContinuationSource(q,presentation);
+    const generic=nkQuestionMatchingTable(matching||continuation,Boolean(continuation));
+    presentation.table=(generic?.valid!==false?generic:null)||nkQuestionMatchingOverride(q);
+    if(generic?.valid===false&&!presentation.table)presentation.valid=false;
     try{Object.defineProperty(q,'__nkQuestionPresentation',{value:presentation,configurable:true});}catch(_){q.__nkQuestionPresentation=presentation;}
     if(valid&&repaired)q.options=options;
     return presentation;
@@ -134,22 +138,50 @@
     return clean;
   }
 
+  function nkQuestionPairedTableValid(groups,allowUnequal=false){
+    const roman=['i','ii','iii','iv','v','vi','vii','viii'];
+    return groups.length>=2&&groups[0].length>=2&&groups.every(group=>(allowUnequal||group.length===groups[0].length)&&group.every((cell,index)=>{
+      const label=String(cell.label||''),first=String(group[0].label||'');
+      const expected=/^\d+$/.test(first)?String(index+1):roman.includes(first)?roman[index]:String.fromCharCode(first===first.toUpperCase()?65+index:97+index);
+      return label===expected&&/[\p{L}\p{N}]/u.test(String(cell.value||''));
+    }));
+  }
+
+  function nkQuestionRepeatedSourceValid(source,first,repeatAt,prelude){
+    if(repeatAt<0)return true;
+    const clean=value=>value.replace(/\s+/g,' ').trim();
+    const body=clean(nkQuestionTrimRepeatedPrelude(source.slice(first,repeatAt),prelude));
+    let rest=clean(source.slice(repeatAt));
+    if(!body)return false;
+    while(rest){
+      if(body.startsWith(rest))return true;
+      if(!rest.startsWith(body))return false;
+      rest=rest.slice(body.length).trim();
+      if(!rest)return true;
+      const next=rest.indexOf(body.slice(0,body.indexOf(' ')+1));
+      if(next>0){
+        const header=rest.slice(0,next).trim();
+        if(nkQuestionTrimRepeatedPrelude('end '+header,prelude)!=='end')return false;
+        rest=rest.slice(next);
+      }
+    }
+    return true;
+  }
+
   function nkQuestionBareMatchingTable(source){
-    const marker=/(?:^|\s)(viii|vii|vi|iv|iii|ii|i|v|[a-h])(?=\s+\S)/g;
-    const raw=[...source.matchAll(marker)];if(raw.length<6)return null;
+    const marker=/(?:^|\s)(viii|vii|vi|iv|iii|ii|i|v|[a-h])(?=\s|$)/g;
+    const raw=[...source.matchAll(marker)];if(raw.length<4)return null;
     const rank={letter:['a','b','c','d','e','f','g','h'],roman:['i','ii','iii','iv','v','vi','vii','viii']};
-    const seen={letter:new Set(),roman:new Set()},accepted=[];let repeatAt=-1;
+    const seen={letter:new Set(),roman:new Set()},accepted=[];let repeatAt=-1,coherent=true;
     for(const hit of raw){
       const key=hit[1].toLowerCase(),family=key.length===1&&/[a-h]/.test(key)?'letter':'roman';
       if(seen[family].has(key)){
-        if([...seen.letter].length>=3&&[...seen.roman].length>=3){repeatAt=hit.index||0;break;}
-        continue;
+        repeatAt=hit.index||0;coherent=coherent&&key===rank[family][0];break;
       }
-      const expected=rank[family][seen[family].size];
-      if(key!==expected)continue;
+      if(key!==rank[family][seen[family].size])coherent=false;
       seen[family].add(key);accepted.push({hit,key,family});
     }
-    if(seen.letter.size<3||seen.roman.size<3)return null;
+    if(!seen.letter.size||!seen.roman.size)return null;
     accepted.sort((a,b)=>(a.hit.index||0)-(b.hit.index||0));
     const first=accepted[0].hit.index||0,prelude=source.slice(0,first).trim();
     const groups={letter:[],roman:[]};
@@ -158,7 +190,7 @@
       const end=index+1<accepted.length?(accepted[index+1].hit.index||source.length):(repeatAt>=0?repeatAt:source.length);
       let value=source.slice(start,end).trim();
       if(index===accepted.length-1)value=nkQuestionTrimRepeatedPrelude(value,prelude);
-      if(value)groups[entry.family].push({label:entry.hit[1],value});
+      groups[entry.family].push({label:entry.hit[1],value});
     });
     if(repeatAt>=0){
       const firstValues=[groups.letter[0]?.value,groups.roman[0]?.value].filter(value=>String(value||'').length>=4);
@@ -169,29 +201,36 @@
         }
       }
     }
-    const list=[groups.letter,groups.roman].filter(group=>group.length>=3);
-    if(list.length<2)return null;
+    const list=[groups.letter,groups.roman];
+    if(!coherent||!nkQuestionPairedTableValid(list)||!nkQuestionRepeatedSourceValid(source,first,repeatAt,prelude))return {valid:false};
     const rows=Array.from({length:Math.max(...list.map(group=>group.length))},(_,index)=>list.map(group=>group[index]||null));
     return {prompt:prelude||'Match the following.',groups:list,rows};
   }
 
-  function nkQuestionMatchingTable(source,allowSingle=false){
+  function nkQuestionMatchingTable(source,allowSingle=false,allowUnequal=false){
     if(!source)return null;
-    const marker=/(?:^|\s)([1-9]\d*|[A-Ha-h]|viii|vii|vi|iv|iii|ii|i|v)(?:[.)](?=\s|[A-Z])|(?=\s+[A-Ha-h][.)]))/g;
+    const marker=/(?:^|\s)([1-9]\d*|[A-Ha-h]|viii|vii|vi|iv|iii|ii|i|v)(?:([.)])(?=\s|[A-Z]|$)|(?=\s+[A-Ha-h][.)]))/g;
     const rawHits=[...source.matchAll(marker)];
-    if(rawHits.length<4)return allowSingle?null:nkQuestionBareMatchingTable(source);
+    const explicitPair=/\b(?:List|Column)\s+(?:I|1|A)\b[\s\S]*\b(?:List|Column)\s+(?:II|2|B)\b/i.test(source);
+    if(rawHits.length<2)return (allowSingle?null:nkQuestionBareMatchingTable(source))||(explicitPair?{valid:false}:null);
     const families={number:[],letter:[],roman:[]},seen={number:new Set(),letter:new Set(),roman:new Set()};
-    const accepted=[];let firstAccepted=-1,repeatAt=-1;
+    const accepted=[];let firstAccepted=-1,repeatAt=-1,duplicate=false;
     for(const hit of rawHits){
+      if(!hit[2]&&!/^\d+$/.test(hit[1]))continue;
       const before=source.slice(Math.max(0,(hit.index||0)-16),hit.index||0);
       if(/\b(?:Column|List)\s*$/i.test(before))continue;
       const raw=hit[1],lower=raw.toLowerCase();
       const family=/^\d+$/.test(raw)?'number':/^(?:i|ii|iii|iv|v|vi|vii|viii)$/.test(lower)&&raw===lower?'roman':'letter';
       const key=family==='letter'?raw.toUpperCase():lower;
       if(seen[family].has(key)){
-        const completeFamilies=Object.values(seen).filter(group=>group.size>=2).length;
-        if(completeFamilies>=2){repeatAt=hit.index||0;break;}
-        continue;
+        repeatAt=hit.index||0;
+        duplicate=key!==accepted.find(entry=>entry.family===family)?.key||rawHits.filter(other=>other.index>hit.index).some(other=>{
+          if(!other[2]&&!/^\d+$/.test(other[1]))return false;
+          const label=other[1],lowerLabel=label.toLowerCase();
+          const otherFamily=/^\d+$/.test(label)?'number':/^(?:i|ii|iii|iv|v|vi|vii|viii)$/.test(lowerLabel)&&label===lowerLabel?'roman':'letter';
+          return !seen[otherFamily].has(otherFamily==='letter'?label.toUpperCase():lowerLabel);
+        });
+        break;
       }
       seen[family].add(key);accepted.push({hit,raw,family,key});if(firstAccepted<0)firstAccepted=hit.index||0;
     }
@@ -203,7 +242,13 @@
       if(index===accepted.length-1)value=nkQuestionTrimRepeatedPrelude(value,prelude);
       families[entry.family].push({label:entry.raw,value});
     });
-    const groups=Object.values(families).filter(items=>items.length>=2).sort((a,b)=>a[0].label.localeCompare(b[0].label,undefined,{numeric:true}));
+    const populated=Object.values(families).filter(items=>items.length);
+    if(explicitPair&&populated.length<2)return {valid:false};
+    if(populated.length>=2&&!nkQuestionRepeatedSourceValid(source,firstAccepted,repeatAt,prelude))return {valid:false};
+    const rowNumbers=populated.length===3&&families.number.length&&families.number.every(cell=>!cell.value)&&accepted.filter(entry=>entry.family==='number').every(entry=>!entry.hit[2]);
+    const paired=rowNumbers?populated.filter(group=>group!==families.number):populated;
+    if(populated.length>=2&&(duplicate||!nkQuestionPairedTableValid(paired,allowUnequal)||rowNumbers&&(families.number.length!==paired[0].length||families.number.some((cell,index)=>cell.label!==String(index+1)))))return {valid:false};
+    const groups=populated.filter(items=>items.length>=2).sort((a,b)=>a[0].label.localeCompare(b[0].label,undefined,{numeric:true}));
     const informative=groups.filter(group=>group.filter(item=>String(item.value||'').trim()).length>=2);
     if(groups.length<(allowSingle?1:2)||!informative.length)return allowSingle?null:nkQuestionBareMatchingTable(source);
     const rows=Array.from({length:Math.max(...groups.map(group=>group.length))},(_,index)=>groups.map(group=>group[index]||null));
@@ -236,6 +281,19 @@
         ['Dynein','Kinesin','Dynein','Kinesin'].map(value=>({label:'',value}))
       ],
       ['Statement','Type','Direction','Mediator']);
+    const unequal={
+      '24-9':{fingerprint:1673284248,labels:'A,B,C,D|i,ii,iii'},
+      'anatomy-27-23':{fingerprint:2911370955,labels:'1,2,3,4|a,b,c,d,e'},
+      'anatomy-7-8':{fingerprint:633904461,labels:'1,2|a,b|i,ii,iii,iv'}
+    }[id];
+    if(unequal){
+      const source=JSON.stringify([question,(q.options||[]).map(option=>[option.letter,String(option.text||'').trim()]),q.correctOption,q.sourcePage??null]);
+      let fingerprint=2166136261;
+      for(let index=0;index<source.length;index++)fingerprint=Math.imul(fingerprint^source.charCodeAt(index),16777619);
+      if((fingerprint>>>0)!==unequal.fingerprint)return null;
+      const table=nkQuestionMatchingTable(nkQuestionMatchingSource(q,{supporting:[]}),false,true);
+      if(table&&table.valid!==false&&table.groups.map(group=>group.map(cell=>cell.label).join(',')).join('|')===unequal.labels)return table;
+    }
     if(id==='26-13'&&matches(/functional assessment tests/i))return nkQuestionOverrideTable(
       'Match the following vitamins with their respective functional assessment tests:',
       [{label:'1',value:'Vitamin B1 (Thiamine)'},{label:'2',value:'Vitamin B2 (Riboflavin)'},{label:'3',value:'Vitamin B6 (Pyridoxine)'},{label:'4',value:'Vitamin B12 (Cobalamin)'}],
@@ -280,7 +338,7 @@
   }
 
   function nkQuestionStemMarkup(q){
-    const presentation=nkQuestionPresentationFor(q),matching=nkQuestionMatchingSource(q,presentation),continuation=matching?null:nkQuestionContinuationSource(q,presentation),table=nkQuestionMatchingTable(matching||continuation,Boolean(continuation))||nkQuestionMatchingOverride(q);
+    const presentation=nkQuestionPresentationFor(q),table=presentation.table;
     const unavailable=presentation.valid?'':`<div class="nk-question-unavailable" role="status"><strong>Answer choices unavailable</strong><span>This source record is incomplete, so answering is disabled instead of recording an unreliable result.</span></div>`;
     if(!table)return `<span class="nk-question-prompt">${nkScientificMarkup(String(q?.question||'').replace(/\*\*Type:\*\*\s*Match the Following/ig,'').trim())}</span>${unavailable}`;
     const headers=table.groups.map((_,index)=>`<th scope="col">${nkScientificMarkup((table.headers||[])[index]||(table.groups.length===1?'Statements':`List ${['I','II','III'][index]||index+1}`))}</th>`).join('');
