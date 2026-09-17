@@ -114,11 +114,131 @@ const porphyriaGroups=[
 assert.deepEqual(porphyria.options.map(option=>option.text),['A-i, B-ii, C-iii, D-ii','A-i, B-ii, C-ii, D-iii','A-ii, B-i, C-iii, D-iii','A-ii, B-i, C-ii, D-iii']);
 assert.equal(porphyria.correctOption,1);assert.equal(nkQuestionPairedTableValid(porphyriaGroups,true),true);assert.equal(nkQuestionPairedTableValid(porphyriaGroups),false);
 console.log('PORPHYRIA_MANY_TO_ONE_OK lengths='+porphyriaGroups.map(group=>group.length).join(',')+' canonical='+porphyria.options[porphyria.correctOption-1].text);
+const rawById=Object.fromEntries(SUBJECTS.flatMap(record=>record.questions||[]).map(q=>[q.id,JSON.stringify(q)]));
 let repaired=0,repairedIds=[],invalid=[];for(const q of SUBJECTS.flatMap(record=>record.questions||[])){delete q.__nkQuestionPresentation;const p=nkQuestionPresentationFor(q);if(p.repaired){repaired++;repairedIds.push(q.id);}if(!p.valid)invalid.push(q.id);}
 assert.equal(repaired,8,'all extraction-shaped option arrays should normalize generically');
 assert.deepEqual(repairedIds.sort(),['anatomy-10-1','anatomy-29-1','anatomy-46-12','physiology-1-13','physiology-19-12','physiology-24-10','physiology-4-8','physiology-6-2']);
-assert.deepEqual(invalid.sort(),['10-10','10-4','13-21','anatomy-14-5','anatomy-22-4','anatomy-40-10','anatomy-46-8','anatomy-47-2','anatomy-49-9','anatomy-50-8','anatomy-9-1','physiology-20-25','physiology-23-38','physiology-24-10','physiology-24-6','physiology-33-33','physiology-4-8','physiology-6-2']);
+assert.deepEqual(invalid.sort(),['anatomy-14-5','anatomy-22-4','anatomy-40-10','anatomy-47-2','anatomy-9-1','physiology-23-38','physiology-24-6','physiology-33-33']);
 const byId=Object.fromEntries(SUBJECTS.flatMap(record=>record.questions||[]).map(q=>[q.id,q]));
+const completeSources={
+  '10-10':{correct:1,rows:[
+    ['1','Apolipoprotein A-I','a','Enhances lipoprotein lipase activity, facilitating triglyceride hydrolysis.'],
+    ['2','Apolipoprotein B-100','b','Involved in the transport of dietary lipids from the intestine to other tissues.'],
+    ['3','Apolipoprotein C-II','c','Helps in reverse cholesterol transport, removing excess cholesterol from tissue back to liver.'],
+    ['4','Apolipoprotein E','d','Essential for binding to LDL receptors on various tissues.']
+  ]},
+  '10-4':{correct:1,rows:[
+    ['A','Choline Deficiency','1','Increases NADH, hindering fatty acid oxidation and promoting triacylglycerol accumulation.'],
+    ['B','Orotic Acid Interference','2','Impairs VLDL secretion, resulting in triacylglycerol accumulation and a fatty liver.'],
+    ['C','Vitamin E and Selenium','3','Involved in pyrimidine synthesis. Disrupts VLDL glycosylation, hindering release.'],
+    ['D','Ethanol Consumption','4','Protect against liver damage from lipid peroxidation']
+  ]},
+  '13-21':{correct:2,rows:[
+    ['1','Ninhydrin test','a','Detects compouds containing 2 or more peptide bonds'],
+    ['2','Xanthoproteic test','b','Detects aromatic amino acids'],
+    ['3','Sakaguchi test','c','Detects arginine'],
+    ['4','Biuret test','d','Detects alpha-amino acids']
+  ]},
+  'anatomy-46-8':{correct:3,rows:[
+    ['1','Found in cartilage (Hyaline and Elastic Cartilage)','a','Type I collagen'],
+    ['2','Major component of basement membranes','b','Type II collagen'],
+    ['3','Predominant in bowel and blood vessels','c','Type III collagen'],
+    ['4','Primary collagen in bones, tendons, and dermis','d','Type IV collagen']
+  ]},
+  'anatomy-49-9':{correct:4,rows:[
+    ['a','Spine of scapula','i','T2'],
+    ['b','Highest point of iliac crest','ii','T3'],
+    ['c','Superior angle of scapula','iii','T7'],
+    ['d','Inferior angle of scapula','iv','L4']
+  ]},
+  'anatomy-50-8':{correct:4,rows:[
+    ['a','Pectoralis major','1','Extension at shoulder'],
+    ['b','Supraspinatus','2','Flexion at shoulder'],
+    ['c','Infraspinatus','3','Lateral rotation of the shoulder'],
+    ['d','Latissimus dorsi','4','Abduction at shoulder']
+  ]},
+  'physiology-20-25':{correct:2,rows:[
+    ['1','Ascending Limb of Loop of Henle','a','Blood loses water and gains solutes as it passes through the hyperosmotic medullary interstitium.'],
+    ['2','Descending Limb of Loop of Henle','b','Blood gains water and loses solutes as it passes through the less concentrated interstitium.'],
+    ['3','Ascending Vasa Recta','c','Actively transports sodium and chloride into the interstitium, diluting the filtrate.'],
+    ['4','Descending Vasa Recta','d','Permeable to water; water is reabsorbed into the interstitium, concentrating the filtrate.']
+  ]},
+  'physiology-24-10':{correct:2,rows:[
+    ['','1','A','Pulmonary artery pressure > Pulmonary venous pressure > Alveolar pressure','i','Continuous blood flow'],
+    ['','2','B','Alveolar pressure > Pulmonary artery pressure > Pulmonary venous pressure','ii','No blood flow'],
+    ['','3','C','Pulmonary artery pressure > Alveolar pressure > Pulmonary venous pressure','iii','Intermittent blood flow (only during systole)']
+  ]},
+  'physiology-4-8':{correct:2,rows:[
+    ['1','Cingulate Gyrus','A','Conversion of short-term memory to long-term memory'],
+    ['2','Parahippocampal Gyrus','B','Controls heart rate, blood pressure, cognitive and emotional processing'],
+    ['3','Hippocampus','C','Responsible for controlling recent memories of the brain'],
+    ['4','Mammillary Body and Anterior Nucleus of Thalamus','D','Spatial memory, the memory of three-dimensional space']
+  ]},
+  'physiology-6-2':{correct:1,rows:[
+    ['1','Beta','A','8-13','i','Deep sleep'],
+    ['2','Alpha','B','14-30','ii','Relaxation, eyes closed'],
+    ['3','Theta','C','2-4','iii','Alert and active thinking'],
+    ['4','Delta','D','5-7','iv','Light sleep, emotional stress in adults']
+  ]}
+};
+for(const [id,expected] of Object.entries(completeSources)){
+  const q=byId[id],raw=JSON.parse(rawById[id]),p=nkQuestionPresentationFor(q),markup=nkQuestionStemMarkup(q);
+  assert(p.valid,id);assert.equal(q.id,id);assert.equal(q.question,raw.question,id);
+  assert.equal(q.sourcePage,raw.sourcePage,id);assert.equal(q.sourcePageEnd,raw.sourcePageEnd,id);
+  assert.equal(q.correctOption,expected.correct,id);assert.equal(q.correctOption,raw.correctOption,id);
+  assert.equal(p.options.length,4,id);assert.deepEqual(p.options,raw.options.slice(-4),id);assert.deepEqual(q.options,p.options,id);
+  assert.deepEqual(p.options.map(option=>option.letter),['A','B','C','D'],id);
+  assert.equal(p.options[q.correctOption-1].text,raw.options.slice(-4)[expected.correct-1].text,id);
+  assert.deepEqual(p.supporting,raw.options.slice(0,-4),id);
+  assert.deepEqual(p.table.rows.map(row=>row.flatMap(cell=>[cell.label,cell.value])),expected.rows,id);
+  assert.equal((markup.match(/<tr>/g)||[]).length,expected.rows.length+1,id);
+  assert(!markup.includes('—'),id);assert(!markup.includes('<span></span>'),id);assert(!markup.includes('answering is disabled'),id);
+  for(const row of expected.rows){
+    let html='<tr>';
+    for(let index=0;index<row.length;index+=2)html+='<td>'+(row[index]?'<b>'+nkScientificMarkup(row[index])+'</b>':'')+'<span>'+nkScientificMarkup(row[index+1])+'</span></td>';
+    assert(markup.includes(html+'</tr>'),id);
+  }
+  assert(!markup.includes('Prepladder X Qbank'),id);
+  const selected=nkQuestionCompleteSourceOverride(raw,{supporting:raw.options.slice(0,-4)});
+  assert.deepEqual(selected.rows,p.table.rows,id);assert.equal(JSON.stringify(raw),rawById[id],id+' selection must not mutate source');
+  const before=JSON.stringify(q);assert.strictEqual(nkQuestionPresentationFor(q),p);assert.equal(JSON.stringify(q),before,id);
+  const mutations=[
+    q=>{q.id+='-changed';},
+    q=>{q.question=' '+q.question;},
+    q=>{q.question+=' changed';},
+    q=>{q.question=q.question.replace('Match','Changed');},
+    q=>{q.correctOption=q.correctOption===1?2:1;},
+    q=>{q.sourcePage++;},
+    q=>{q.sourcePageEnd++;},
+    q=>{delete q.sourcePageEnd;},
+    q=>{q.options.reverse();},
+    q=>{q.options.pop();},
+    q=>{q.options.push({letter:'E',text:'changed'});},
+    ...raw.options.flatMap((_,index)=>[
+      q=>{q.options[index].text+=' changed';},
+      q=>{q.options[index].letter='Z';}
+    ])
+  ];
+  if(raw.options.length>4)mutations.push(q=>{q.options=q.options.slice(-4);});
+  for(const mutate of mutations){
+    const changed=JSON.parse(rawById[id]);mutate(changed);
+    const rejected=nkQuestionCompleteSourceOverride(changed,{supporting:changed.options.slice(0,-4)});
+    assert(rejected===null||rejected.valid===false,id+' stale override');
+    const changedPresentation=nkQuestionPresentationFor(changed);
+    assert(!changedPresentation.valid,id+' stale source must fail closed');assert.equal(changedPresentation.table,null,id);
+  }
+}
+const zones=byId['physiology-24-10'].__nkQuestionPresentation.table;
+assert.deepEqual(zones.headers,['Zone','Pressure Relationship','Blood Flow Characteristic']);
+assert.deepEqual(zones.groups[0],[{label:'',value:'1'},{label:'',value:'2'},{label:'',value:'3'}]);
+const completeStartup={SUBJECTS:[{questions:Object.keys(completeSources).map(id=>JSON.parse(rawById[id]))}]};
+vm.createContext(completeStartup);vm.runInContext(fs.readFileSync('tools/question_presentation_core.js','utf8'),completeStartup);
+for(const q of completeStartup.SUBJECTS[0].questions){
+  assert(q.__nkQuestionPresentation.valid,q.id+' startup');
+  assert.deepEqual(q.__nkQuestionPresentation.table.rows.map(row=>row.flatMap(cell=>[cell.label,cell.value])),completeSources[q.id].rows,q.id);
+  assert.deepEqual(q.options,JSON.parse(rawById[q.id]).options.slice(-4),q.id);
+}
+console.log('COMPLETE_SOURCE_OVERRIDES_OK records='+Object.keys(completeSources).length+' exact_rows=true mutation_rejection=true startup=true');
 assertNerve(byId['physiology-9-6']);
 for(const [id,labels] of Object.entries({'24-9':'A,B,C,D|i,ii,iii','anatomy-27-23':'1,2,3,4|a,b,c,d,e','anatomy-7-8':'1,2|a,b|i,ii,iii,iv'})){
   const q=byId[id],p=nkQuestionPresentationFor(q),before=JSON.stringify(q);
@@ -133,7 +253,7 @@ const missingCoronary=JSON.parse(JSON.stringify(byId['anatomy-27-23']));missingC
 assert(!nkQuestionPresentationFor(missingCoronary).valid);assert(nkQuestionStemMarkup(missingCoronary).includes('answering is disabled'));
 for(const id of ['physiology-36-7','anatomy-29-16'])assert(nkQuestionPresentationFor(byId[id]).valid,id+' established unequal override');
 assert.equal(byId['physiology-1-13'].options.length,4);
-for(const id of ['anatomy-14-5','anatomy-40-10','anatomy-47-2','anatomy-9-1','10-10','10-4','13-21','anatomy-46-8','anatomy-49-9','anatomy-50-8','physiology-20-25','physiology-24-10','physiology-4-8','physiology-6-2']){
+for(const id of ['anatomy-14-5','anatomy-40-10','anatomy-47-2','anatomy-9-1']){
   const p=nkQuestionPresentationFor(byId[id]);
   assert(!p.valid,id+' with incomplete or conflicting source structure must fail closed');assert.equal(p.table,null,id+' with incomplete or conflicting source structure must not render a fabricated table');
   const markup=nkQuestionStemMarkup(byId[id]);assert(markup.includes('answering is disabled'),id+' must hide choices when source structure is incomplete');assert(!markup.includes('<table'),id+' must not render a table when source structure is incomplete');
