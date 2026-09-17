@@ -10,7 +10,7 @@
 - **Sole Marrow/product integration trunk:** `feature/marrow-canonical-full-current`.
 - Production / `main` remains explicit and guarded; do not promote without user approval.
 - Resolve the live canonical HEAD at run start; never hardcode a supposed current HEAD into automation logic.
-- Latest exact-head build-verified product checkpoint: `2340bd201fabcc05e6d45932c7f8e5fa451e14f0`. Engineering `35053564204` succeeded and full Android/PWA/browser/APK/package run `35053564213` succeeded. Cloudflare preview deployment succeeded; production promotion was intentionally skipped.
+- Latest completed CI checkpoint: `ee17ddb8898fa4755d5ab40f0dcd916fbfe6c53b`. Engineering `35209815549` and full Android/PWA/browser/APK/package run `35209815375` succeeded; preview deployed and production promotion skipped. Phase 3 subsequently found a hygiene/override integration gap not covered by those browser checks; local follow-up is not yet build-verified.
 - Latest accepted Practice behavior was verified from checkpoint `74abb670c3ae088e06653681e85c347212222455`; full run `34695680534` succeeded and the user physically confirmed the Continue Practice flow. This behavior is build-verified, **device-verified**, and user-accepted.
 
 ## Complete canonical Marrow ED8 source

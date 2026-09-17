@@ -197,6 +197,54 @@ def main() -> None:
             page.evaluate("window.QB.nkOpenSubjectLibrary('Biochemistry')")
             page.locator("button.nk-bank-card").filter(has_text="PrepLadder").click()
             page.locator("button.nk-topic-row").first.wait_for(state="visible")
+            complete_sources = {
+                "10-10": (1, [
+                    ["1", "Apolipoprotein A-I", "a", "Enhances lipoprotein lipase activity, facilitating triglyceride hydrolysis."],
+                    ["2", "Apolipoprotein B-100", "b", "Involved in the transport of dietary lipids from the intestine to other tissues."],
+                    ["3", "Apolipoprotein C-II", "c", "Helps in reverse cholesterol transport, removing excess cholesterol from tissue back to liver."],
+                    ["4", "Apolipoprotein E", "d", "Essential for binding to LDL receptors on various tissues."],
+                ]),
+                "10-4": (1, [
+                    ["A", "Choline Deficiency", "1", "Increases NADH, hindering fatty acid oxidation and promoting triacylglycerol accumulation."],
+                    ["B", "Orotic Acid Interference", "2", "Impairs VLDL secretion, resulting in triacylglycerol accumulation and a fatty liver."],
+                    ["C", "Vitamin E and Selenium", "3", "Involved in pyrimidine synthesis. Disrupts VLDL glycosylation, hindering release."],
+                    ["D", "Ethanol Consumption", "4", "Protect against liver damage from lipid peroxidation"],
+                ]),
+                "13-21": (2, [
+                    ["1", "Ninhydrin test", "a", "Detects compouds containing 2 or more peptide bonds"],
+                    ["2", "Xanthoproteic test", "b", "Detects aromatic amino acids"],
+                    ["3", "Sakaguchi test", "c", "Detects arginine"],
+                    ["4", "Biuret test", "d", "Detects alpha-amino acids"],
+                ]),
+            }
+            for question_id, (correct_option, expected_rows) in complete_sources.items():
+                page.evaluate("id => window.QB.practiceOne(id)", question_id)
+                canonical = page.evaluate("""() => {
+                    const s = window.QB.getState().activeSession;
+                    const q = window.QB.__presentationQuestion(s.questionIds[s.index]);
+                    return {id: q.id, correctOption: q.correctOption,
+                        choices: q.options.map(option => option.text)};
+                }""")
+                if canonical["id"] != question_id or canonical["correctOption"] != correct_option:
+                    raise SystemExit(f"Complete-source question identity/answer changed: {canonical!r}")
+                source_table = page.locator(".question-text table.nk-match-table")
+                source_table.wait_for(state="visible")
+                actual_rows = source_table.locator("tbody tr").evaluate_all("""rows => rows.map(row =>
+                    [...row.querySelectorAll('td')].flatMap(cell =>
+                        [cell.querySelector('b')?.innerText || '', cell.querySelector('span')?.innerText || '']))""")
+                if actual_rows != expected_rows or "—" in source_table.inner_text():
+                    raise SystemExit(f"Complete-source rows changed for {question_id}: {actual_rows!r}")
+                source_options = page.locator(".option-list button")
+                if source_options.count() != 4 or source_options.locator(".option-text").all_inner_texts() != canonical["choices"]:
+                    raise SystemExit(f"Complete-source choices changed for {question_id}")
+                source_options.nth(correct_option - 1).click()
+                page.locator(".option-list .correct").wait_for(state="visible")
+                correct_indices = page.locator(".option-list .option").evaluate_all(
+                    "nodes => nodes.flatMap((node, index) => node.classList.contains('correct') ? [index + 1] : [])")
+                if correct_indices != [correct_option]:
+                    raise SystemExit(f"Complete-source correctness changed for {question_id}: {correct_indices!r}")
+                page.screenshot(path=str(output / f"prepladder-complete-source-{question_id}.png"), full_page=True)
+
             page.evaluate("window.QB.practiceOne('22-8')")
             exponent_text = page.locator(".question-text sup.nk-sci-sup").all_inner_texts()
             if exponent_text != ["6", "9"]:

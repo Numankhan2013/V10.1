@@ -271,9 +271,9 @@
 
   function nkQuestionCompleteSourceOverride(q,presentation){
     const spec={
-      '10-10':{fingerprint:1134614291,end:'d. Essential for binding to LDL receptors on various tissues.',labels:'1,2,3,4|a,b,c,d'},
-      '10-4':{fingerprint:454729420,end:'4) Protect against liver damage from lipid peroxidation',labels:'A,B,C,D|1,2,3,4',order:[1,0]},
-      '13-21':{fingerprint:714291559,end:'4.Biuret test d. Detects alpha-amino acids',labels:'1,2,3,4|a,b,c,d'},
+      '10-10':{fingerprint:1134614291,hygieneFingerprint:1230821176,end:'d. Essential for binding to LDL receptors on various tissues.',labels:'1,2,3,4|a,b,c,d'},
+      '10-4':{fingerprint:454729420,hygieneFingerprint:3919098584,end:'4) Protect against liver damage from lipid peroxidation',labels:'A,B,C,D|1,2,3,4',order:[1,0]},
+      '13-21':{fingerprint:714291559,hygieneFingerprint:1232599268,end:'4.Biuret test d. Detects alpha-amino acids',labels:'1,2,3,4|a,b,c,d'},
       'anatomy-46-8':{fingerprint:1500056273,end:'d. Type IV collagen',labels:'1,2,3,4|a,b,c,d'},
       'anatomy-49-9':{fingerprint:1315878665,end:'iv L4',labels:'a,b,c,d|i,ii,iii,iv'},
       'anatomy-50-8':{fingerprint:2335395126,end:'4. Abduction at shoulder',labels:'a,b,c,d|1,2,3,4',order:[1,0]},
@@ -286,7 +286,7 @@
     const source=JSON.stringify([q.id,q.question,q.options,q.correctOption,q.sourcePage,q.sourcePageEnd]);
     let fingerprint=2166136261;
     for(let index=0;index<source.length;index++)fingerprint=Math.imul(fingerprint^source.charCodeAt(index),16777619);
-    if((fingerprint>>>0)!==spec.fingerprint)return {valid:false};
+    if((fingerprint>>>0)!==spec.fingerprint&&(fingerprint>>>0)!==spec.hygieneFingerprint)return {valid:false};
     const matching=nkQuestionMatchingSource(q,presentation),end=matching?.indexOf(spec.end)??-1;
     if(end<0)return {valid:false};
     const table=nkQuestionMatchingTable(matching.slice(0,end+spec.end.length));

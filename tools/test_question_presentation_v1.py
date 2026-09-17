@@ -238,7 +238,54 @@ for(const q of completeStartup.SUBJECTS[0].questions){
   assert.deepEqual(q.__nkQuestionPresentation.table.rows.map(row=>row.flatMap(cell=>[cell.label,cell.value])),completeSources[q.id].rows,q.id);
   assert.deepEqual(q.options,JSON.parse(rawById[q.id]).options.slice(-4),q.id);
 }
-console.log('COMPLETE_SOURCE_OVERRIDES_OK records='+Object.keys(completeSources).length+' exact_rows=true mutation_rejection=true startup=true');
+const hygieneStartup={SUBJECTS:[{questions:Object.keys(completeSources).map(id=>JSON.parse(rawById[id]))}]};
+vm.createContext(hygieneStartup);
+vm.runInContext(fs.readFileSync('tools/question_content_hygiene_core.js','utf8'),hygieneStartup);
+const sourceHash=q=>{
+  const source=JSON.stringify([q.id,q.question,q.options,q.correctOption,q.sourcePage,q.sourcePageEnd]);
+  let hash=2166136261;
+  for(let index=0;index<source.length;index++)hash=Math.imul(hash^source.charCodeAt(index),16777619);
+  return hash>>>0;
+};
+for(const q of hygieneStartup.SUBJECTS[0].questions){
+  const before=sourceHash(q);
+  hygieneStartup.nkSanitizeMarrowQuestion(q);
+  const cleaned=JSON.stringify(q);
+  hygieneStartup.nkSanitizeMarrowQuestion(q);
+  assert.equal(JSON.stringify(q),cleaned,q.id+' hygiene idempotence');
+  console.log('OVERRIDE_HYGIENE_HASH id='+q.id+' raw='+before+' cleaned='+sourceHash(q));
+}
+vm.runInContext(fs.readFileSync('tools/question_presentation_core.js','utf8'),hygieneStartup);
+for(const q of hygieneStartup.SUBJECTS[0].questions){
+  const raw=JSON.parse(rawById[q.id]);
+  assert(q.__nkQuestionPresentation.valid,q.id+' hygiene-before-presentation startup');
+  assert.deepEqual(q.__nkQuestionPresentation.table.rows.map(row=>row.flatMap(cell=>[cell.label,cell.value])),completeSources[q.id].rows,q.id);
+  assert.deepEqual(q.options,raw.options.slice(-4),q.id);
+  assert.equal(q.correctOption,raw.correctOption,q.id);
+  assert.equal(q.sourcePage,raw.sourcePage,q.id);
+  assert.equal(q.sourcePageEnd,raw.sourcePageEnd,q.id);
+  const clean=JSON.parse(rawById[q.id]);hygieneStartup.nkSanitizeMarrowQuestion(clean);
+  for(const mutate of [
+    value=>{value.question+=' changed';},
+    value=>{value.question=' '+value.question;},
+    value=>{value.question=value.question.replace('Match','Changed');},
+    value=>{value.sourcePage++;},
+    value=>{value.sourcePageEnd++;},
+    value=>{value.correctOption=value.correctOption===1?2:1;},
+    value=>{value.options.reverse();},
+    value=>{value.options.pop();},
+    ...clean.options.flatMap((_,index)=>[
+      value=>{value.options[index].text+=' changed';},
+      value=>{value.options[index].letter='Z';}
+    ])
+  ]){
+    const changed=JSON.parse(JSON.stringify(clean));mutate(changed);
+    const rejected=hygieneStartup.nkQuestionPresentationFor(changed);
+    assert(!rejected.valid,q.id+' changed hygienic source must fail closed');
+    assert.equal(rejected.table,null,q.id);
+  }
+}
+console.log('COMPLETE_SOURCE_OVERRIDES_OK records='+Object.keys(completeSources).length+' exact_rows=true mutation_rejection=true startup=true hygiene_startup=true');
 assertNerve(byId['physiology-9-6']);
 for(const [id,labels] of Object.entries({'24-9':'A,B,C,D|i,ii,iii','anatomy-27-23':'1,2,3,4|a,b,c,d,e','anatomy-7-8':'1,2|a,b|i,ii,iii,iv'})){
   const q=byId[id],p=nkQuestionPresentationFor(q),before=JSON.stringify(q);
