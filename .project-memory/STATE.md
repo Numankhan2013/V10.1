@@ -125,12 +125,12 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Current priorities / Next step
 
-1. **PrepLadder visual manual review:** review the 422 bounded source-comparison audit entries. Runtime/browser/APK/package verification is already green at `2340bd201fabcc05e6d45932c7f8e5fa451e14f0`; do not rerun or redesign the verified visual mounting path unless new evidence appears.
-2. **Physical review:** inspect `physiology-9-22` and a spread of the source-backed residual matching questions in the newest preview; ion question `physiology-9-17` is already user-preview verified.
-3. **Structured-question cleanup:** when more duplicated/flattened source tables are found, use generic parsing where safe and source-backed stable-ID reform otherwise.
-4. **Explanation lane:** any Q19+ work must begin as a new owned batch from the live canonical head.
-5. **Marrow images:** after PrepLadder manual certification, resume Biochemistry Q11 and complete its source-coverage gate before Physiology.
-6. Production promotion remains prohibited unless the user explicitly asks for it.
+1. **P0 fidelity campaign is the exclusive active lane:** follow `.project-memory/P0_QUESTION_FIDELITY_CAMPAIGN_2026-09-17.md` sequentially. No unrelated images, explanation tuning, community statistics or UI work.
+2. Phases 0 and 1 complete at starting commit `758c0be2346d1b1459d699b1e4b40e9f90162cf3`. Exact nerve-fibre question `physiology-9-6`, source page 253, contains all four rows twice; bare fibre value B collided with property label b and prematurely terminated parsing.
+3. Phase 2 remains open. Product commit `212f632afe636304845b8cdb8b9ee06b0bc57721` adds scoped paired integrity, duplicate-content checks, guarded unequal structures and exact regression. CI `35198486810` passed nerve/ion/row-selection checks but failed on obsolete native-explanation `.feedback-body` locator; selector correction awaits new CI.
+4. Focused unit result: 8 option normalizations, 18 invalid PrepLadder records, 48 semantic tables. Four prior invalid records plus 14 newly fail-closed structures are pinned in `tools/test_question_presentation_v1.py`; source review is deferred to Phase 3, not assumed resolved.
+5. User authorized campaign commits/pushes for GitHub browser checks. No local browser/container installations; generated verification runs on Linux CI. Preserve `.project-memory/STATE.md.orig` untracked.
+6. Do not advance to Phase 3 until Phase 2 is genuinely green. Production promotion remains prohibited; no user acceptance claimed.
 
 ## Memory pointers
 

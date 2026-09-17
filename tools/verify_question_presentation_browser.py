@@ -214,9 +214,17 @@ def main() -> None:
             page.locator("button.nk-topic-row").first.wait_for(state="visible")
 
             page.evaluate("window.QB.practiceOne('marrow__PHYS_CH09_Q007')")
+            marrow_session = page.evaluate("""() => {
+                const s = window.QB.getState().activeSession;
+                return {mode: s?.mode, id: s?.questionIds?.[s.index]};
+            }""")
+            if marrow_session != {"mode": "practice", "id": "marrow__PHYS_CH09_Q007"}:
+                raise SystemExit(f"Scientific explanation Practice opened the wrong stable question: {marrow_session!r}")
             page.locator(".option-list button").first.click()
-            page.locator(".feedback-body").wait_for(state="visible")
-            feedback_superscripts = page.locator(".feedback-body sup.nk-sci-sup").all_inner_texts()
+            page.screenshot(path=str(output / "marrow-scientific-explanation.png"), full_page=True)
+            feedback = page.locator('[data-marrow-explanation="marrow__PHYS_CH09_Q007"] .nk-gold-explanation')
+            feedback.wait_for(state="visible")
+            feedback_superscripts = feedback.locator("sup.nk-sci-sup").all_inner_texts()
             if "2+" not in feedback_superscripts:
                 raise SystemExit(f"Scientific notation did not reach the native explanation renderer: {feedback_superscripts!r}")
 
