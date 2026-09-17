@@ -10,7 +10,7 @@
 - **Sole Marrow/product integration trunk:** `feature/marrow-canonical-full-current`.
 - Production / `main` remains explicit and guarded; do not promote without user approval.
 - Resolve the live canonical HEAD at run start; never hardcode a supposed current HEAD into automation logic.
-- Latest verified CI checkpoint: `7eed91c80eb9c9abfea64f7e59a7e7403059aaed`; Engineering `35214461030` and full Android/PWA/browser/APK/package run `35214461049` succeeded (live GitHub rechecked). User checked preview, not blanket acceptance. The subsequent local Biochemistry 4-3 stem repair is not yet build/browser-verified.
+- Latest verified CI checkpoint: `77206c41fb3a85fdac44f05efdcd89bbd33f1cf2`; Engineering `35220737574` and full Android/PWA/browser/APK/package run `35220737666` succeeded (live GitHub rechecked). This includes the Biochemistry 4-3 stem repair; user preview review is not blanket acceptance. The subsequent uncommitted Biochemistry 5-10 repair is locally verified, NOT build/browser-verified.
 - Latest accepted Practice behavior was verified from checkpoint `74abb670c3ae088e06653681e85c347212222455`; full run `34695680534` succeeded and the user physically confirmed the Continue Practice flow. This behavior is build-verified, **device-verified**, and user-accepted.
 
 ## Complete canonical Marrow ED8 source

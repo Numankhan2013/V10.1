@@ -245,6 +245,55 @@ def main() -> None:
             page.screenshot(path=str(output / "prepladder-biochemistry-4-3-stem.png"), full_page=True)
             print("BIOCHEM_4_3_BROWSER_OK exact_prompt=true choices=4 canonical_answer=2")
 
+            page.evaluate("window.QB.practiceOne('5-10')")
+            glycogen_raw = ("Which of the following statements is true on the structure of glycogen?\n"
+                            "Arranged in 12 concentric layers Glucose residues are connected by ■-1,4 linkage\n"
+                            "Branching points formed by α-1,6 linkage")
+            glycogen_prompt = glycogen_raw.replace("■", "α")
+            glycogen_choices = ["1,2", "2,3", "1,2,3", "1,3"]
+            glycogen_canonical = page.evaluate("""() => {
+                const s = window.QB.getState().activeSession;
+                const q = window.QB.__presentationQuestion(s.questionIds[s.index]);
+                return {mode: s.mode, id: q.id, question: q.question, correctOption: q.correctOption,
+                    sourcePage: q.sourcePage, sourcePageEnd: q.sourcePageEnd,
+                    letters: q.options.map(option => option.letter), choices: q.options.map(option => option.text)};
+            }""")
+            if glycogen_canonical != {"mode": "practice", "id": "5-10", "question": glycogen_raw,
+                                     "correctOption": 3, "sourcePage": 101, "sourcePageEnd": 101,
+                                     "letters": ["A", "B", "C", "D"], "choices": glycogen_choices}:
+                raise SystemExit(f"Biochemistry 5-10 canonical record changed: {glycogen_canonical!r}")
+            glycogen_stem = page.locator(".question-text .nk-question-prompt")
+            glycogen_stem.wait_for(state="visible")
+            if glycogen_stem.count() != 1 or glycogen_stem.text_content() != glycogen_prompt or "\u25a0" in glycogen_stem.inner_text():
+                raise SystemExit(f"Biochemistry 5-10 linkage repair missing: {glycogen_stem.all_text_contents()!r}")
+            if "Glucose residues are connected by α-1,4 linkage" not in glycogen_stem.inner_text():
+                raise SystemExit("Biochemistry 5-10 restored linkage is not learner-visible")
+            if page.locator(".question-text table, .question-text .nk-question-unavailable").count():
+                raise SystemExit("Biochemistry 5-10 invented a table or disabled valid choices")
+            glycogen_options = page.locator(".option-list button")
+            if glycogen_options.count() != 4 or glycogen_options.locator(".option-text").all_inner_texts() != glycogen_choices or glycogen_options.locator(".option-letter").all_inner_texts() != ["A", "B", "C", "D"]:
+                raise SystemExit("Biochemistry 5-10 lost its four ordered canonical choices")
+            if any(not glycogen_options.nth(index).is_enabled() for index in range(4)):
+                raise SystemExit("Biochemistry 5-10 choices are not enabled")
+            if page.locator(".option-list .correct, .option-list .wrong").count():
+                raise SystemExit("Biochemistry 5-10 leaked correctness before answering")
+            glycogen_options.nth(2).click()
+            page.locator(".option-list .correct").wait_for(state="visible")
+            glycogen_answer = page.evaluate("""() => {
+                const s = window.QB.getState().activeSession;
+                const id = s.questionIds[s.index];
+                return {id, answer: s.answers[id], submitted: s.submitted[id],
+                    correctOption: window.QB.__presentationQuestion(id).correctOption};
+            }""")
+            if glycogen_answer != {"id": "5-10", "answer": 3, "submitted": True, "correctOption": 3}:
+                raise SystemExit(f"Biochemistry 5-10 answer contract changed: {glycogen_answer!r}")
+            correct_indices = page.locator(".option-list .option").evaluate_all(
+                "nodes => nodes.flatMap((node, index) => node.classList.contains('correct') ? [index + 1] : [])")
+            if correct_indices != [3] or page.locator(".option-list .wrong").count() or page.locator(".option-list .option-text").all_inner_texts() != glycogen_choices or glycogen_stem.text_content() != glycogen_prompt or "\u25a0" in glycogen_stem.inner_text():
+                raise SystemExit("Biochemistry 5-10 post-answer presentation changed")
+            page.screenshot(path=str(output / "prepladder-biochemistry-5-10-stem.png"), full_page=True)
+            print("BIOCHEM_5_10_BROWSER_OK exact_prompt=true no_square=true choices=4 canonical_answer=3")
+
             complete_sources = {
                 "10-10": (1, [
                     ["1", "Apolipoprotein A-I", "a", "Enhances lipoprotein lipase activity, facilitating triglyceride hydrolysis."],

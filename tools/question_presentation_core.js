@@ -373,11 +373,13 @@
   }
 
   function nkQuestionStemOverride(q){
-    if(q?.id!=='4-3')return null;
+    const fingerprints={'4-3':[1923549704,464611166],'5-10':[236525982]}[q?.id];
+    if(!fingerprints)return null;
     const source=JSON.stringify([q.id,q.question,q.options,q.correctOption,q.sourcePage,q.sourcePageEnd]);
     let fingerprint=2166136261;
     for(let index=0;index<source.length;index++)fingerprint=Math.imul(fingerprint^source.charCodeAt(index),16777619);
-    if(![1923549704,464611166].includes(fingerprint>>>0))return {valid:false};
+    if(!fingerprints.includes(fingerprint>>>0))return {valid:false};
+    if(q.id==='5-10')return {prompt:q.question.replace('■','α')};
     return {prompt:'Which of the following tissues is unable to transport glucose independently of insulin?'};
   }
 

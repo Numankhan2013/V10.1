@@ -297,6 +297,66 @@ for(const cleaned of [false,true]){
   assert(!startup.nkQuestionStemMarkup(other).includes(glucosePrompt));
 }
 console.log('BIOCHEM_4_3_STEM_OK raw=true hygiene_startup=true idempotent=true canonical_unchanged=true no_table=true mismatch_rejected=true wrong_id_rejected=true');
+const glycogenRaw='Which of the following statements is true on the structure of glycogen?\nArranged in 12 concentric layers Glucose residues are connected by ■-1,4 linkage\nBranching points formed by α-1,6 linkage';
+const glycogenPrompt='Which of the following statements is true on the structure of glycogen?\nArranged in 12 concentric layers Glucose residues are connected by α-1,4 linkage\nBranching points formed by α-1,6 linkage';
+const glycogenOptions=['1,2','2,3','1,2,3','1,3'].map((text,index)=>({letter:'ABCD'[index],text}));
+for(const cleaned of [false,true]){
+  const q=JSON.parse(rawById['5-10']);
+  if(cleaned)hygieneStartup.nkSanitizeMarrowQuestion(q);
+  const before=JSON.stringify(q),options=q.options;
+  assert.equal(q.question,glycogenRaw);assert.equal(sourceHash(q),236525982);
+  assert(q.explanation.includes('Short chains of glucose residues are linked by α-1,4 glycosidic bonds (Statement 2)'));
+  assert.equal(nkNormalizeScientificDisplayText(q.question),glycogenRaw);
+  assert(nkScientificMarkup(q.question).includes('■-1,4'));
+  const startup={SUBJECTS:[{questions:[q]}],esc};
+  vm.createContext(startup);
+  vm.runInContext(fs.readFileSync('tools/question_presentation_core.js','utf8'),startup);
+  const p=q.__nkQuestionPresentation,markup=startup.nkQuestionStemMarkup(q);
+  assert(p.valid);assert(!p.repaired);assert.equal(p.stem,glycogenPrompt);assert.equal(p.table,null);
+  assert.equal(p.stem,q.question.replace('■','α'));assert.equal(p.stem.length,q.question.length);
+  assert.equal(markup,'<span class="nk-question-prompt">'+glycogenPrompt+'</span>');assert(!markup.includes('\u25a0'));
+  assert.deepEqual(p.options,glycogenOptions);assert.deepEqual(p.supporting,[]);
+  assert.strictEqual(q.options,options);assert.equal(q.correctOption,3);assert.equal(p.options[q.correctOption-1].text,'1,2,3');
+  assert.equal(q.id,'5-10');assert.equal(q.sourcePage,101);assert.equal(q.sourcePageEnd,101);
+  assert.equal(JSON.stringify(q),before);assert.strictEqual(startup.nkQuestionPresentationFor(q),p);
+  delete q.__nkQuestionPresentation;
+  startup.nkNormalizeQuestionPresentationCorpus();
+  assert.equal(startup.nkQuestionStemMarkup(q),markup);assert.equal(JSON.stringify(q),before);
+  for(const mutate of [
+    value=>{value.question+=' changed';},
+    value=>{value.question=' '+value.question;},
+    value=>{value.question=value.question.replace('■','β');},
+    value=>{value.correctOption=1;},
+    value=>{value.sourcePage++;},
+    value=>{value.sourcePageEnd++;},
+    value=>{delete value.sourcePageEnd;},
+    value=>{value.options.reverse();},
+    value=>{value.options.pop();},
+    ...q.options.flatMap((_,index)=>[
+      value=>{value.options[index].text+=' changed';},
+      value=>{value.options[index].letter='Z';}
+    ])
+  ]){
+    const changed=JSON.parse(before);mutate(changed);const snapshot=JSON.stringify(changed);
+    assert.equal(startup.nkQuestionStemOverride(changed).valid,false);
+    const rejected=startup.nkQuestionPresentationFor(changed);
+    assert(!rejected.valid);assert.equal(rejected.stem,undefined);assert.equal(rejected.table,null);
+    assert(!startup.nkQuestionStemMarkup(changed).includes(glycogenPrompt));
+    assert(startup.nkQuestionStemMarkup(changed).includes('answering is disabled'));
+    assert.equal(JSON.stringify(changed),snapshot);
+  }
+  const other=JSON.parse(before);other.id='wrong-id-5-10';
+  assert.equal(startup.nkQuestionStemOverride(other),null);
+  assert(startup.nkQuestionPresentationFor(other).valid);assert.equal(startup.nkQuestionPresentationFor(other).stem,undefined);
+  assert.equal(startup.nkQuestionStemMarkup(other),'<span class="nk-question-prompt">'+glycogenRaw+'</span>');
+}
+for(const question of ['Glucose residues are connected by ■-1,4 linkage','Unknown ■ block; ■-1,6 linkage']){
+  const q={id:'unknown-block',question,options:glycogenOptions,correctOption:3},before=JSON.stringify(q);
+  assert.equal(nkQuestionStemOverride(q),null);assert.equal(nkNormalizeScientificDisplayText(question),question);
+  assert.equal(nkScientificMarkup(question),question);assert.equal(nkQuestionStemMarkup(q),'<span class="nk-question-prompt">'+question+'</span>');
+  assert.equal(JSON.stringify(q),before);
+}
+console.log('BIOCHEM_5_10_STEM_OK raw=true hygiene_startup=true exact_alpha=true canonical_answer=3 canonical_unchanged=true mismatch_rejected=true wrong_id_rejected=true unknown_blocks_preserved=true');
 for(const q of hygieneStartup.SUBJECTS[0].questions){
   const before=sourceHash(q);
   hygieneStartup.nkSanitizeMarrowQuestion(q);
