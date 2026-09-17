@@ -197,6 +197,54 @@ def main() -> None:
             page.evaluate("window.QB.nkOpenSubjectLibrary('Biochemistry')")
             page.locator("button.nk-bank-card").filter(has_text="PrepLadder").click()
             page.locator("button.nk-topic-row").first.wait_for(state="visible")
+            page.evaluate("window.QB.practiceOne('4-3')")
+            glucose_prompt = "Which of the following tissues is unable to transport glucose independently of insulin?"
+            glucose_choices = ["Hepatocytes", "Cardiac muscle", "RBC", "Neurons"]
+            glucose_canonical = page.evaluate("""() => {
+                const s = window.QB.getState().activeSession;
+                const q = window.QB.__presentationQuestion(s.questionIds[s.index]);
+                return {mode: s.mode, id: q.id, question: q.question, correctOption: q.correctOption,
+                    sourcePage: q.sourcePage, sourcePageEnd: q.sourcePageEnd,
+                    letters: q.options.map(option => option.letter), choices: q.options.map(option => option.text)};
+            }""")
+            if glucose_canonical != {"mode": "practice", "id": "4-3",
+                                    "question": "GLUT3 c) Erythrocytes\n4.GLUT4 d) Skeletal Muscle",
+                                    "correctOption": 2, "sourcePage": 82, "sourcePageEnd": 82,
+                                    "letters": ["A", "B", "C", "D"], "choices": glucose_choices}:
+                raise SystemExit(f"Biochemistry 4-3 canonical record changed: {glucose_canonical!r}")
+            glucose_stem = page.locator(".question-text .nk-question-prompt")
+            glucose_stem.wait_for(state="visible")
+            if glucose_stem.count() != 1 or glucose_stem.inner_text() != glucose_prompt:
+                raise SystemExit(f"Biochemistry 4-3 source prompt missing: {glucose_stem.all_inner_texts()!r}")
+            if page.locator(".question-text table, .question-text .nk-question-unavailable").count():
+                raise SystemExit("Biochemistry 4-3 invented a table or disabled valid choices")
+            if any(fragment in page.locator(".question-text").inner_text() for fragment in
+                   ("GLUT3", "Erythrocytes", "GLUT4", "Skeletal Muscle")):
+                raise SystemExit("Biochemistry 4-3 leaked the preceding question fragment")
+            glucose_options = page.locator(".option-list button")
+            if glucose_options.count() != 4 or glucose_options.locator(".option-text").all_inner_texts() != glucose_choices or glucose_options.locator(".option-letter").all_inner_texts() != ["A", "B", "C", "D"]:
+                raise SystemExit("Biochemistry 4-3 lost its four ordered canonical choices")
+            if any(not glucose_options.nth(index).is_enabled() for index in range(4)):
+                raise SystemExit("Biochemistry 4-3 choices are not enabled")
+            if page.locator(".option-list .correct, .option-list .wrong").count():
+                raise SystemExit("Biochemistry 4-3 leaked correctness before answering")
+            glucose_options.nth(1).click()
+            page.locator(".option-list .correct").wait_for(state="visible")
+            glucose_answer = page.evaluate("""() => {
+                const s = window.QB.getState().activeSession;
+                const id = s.questionIds[s.index];
+                return {id, answer: s.answers[id], submitted: s.submitted[id],
+                    correctOption: window.QB.__presentationQuestion(id).correctOption};
+            }""")
+            if glucose_answer != {"id": "4-3", "answer": 2, "submitted": True, "correctOption": 2}:
+                raise SystemExit(f"Biochemistry 4-3 answer contract changed: {glucose_answer!r}")
+            correct_indices = page.locator(".option-list .option").evaluate_all(
+                "nodes => nodes.flatMap((node, index) => node.classList.contains('correct') ? [index + 1] : [])")
+            if correct_indices != [2] or page.locator(".option-list .wrong").count() or page.locator(".option-list .option-text").all_inner_texts() != glucose_choices or glucose_stem.inner_text() != glucose_prompt:
+                raise SystemExit("Biochemistry 4-3 post-answer presentation changed")
+            page.screenshot(path=str(output / "prepladder-biochemistry-4-3-stem.png"), full_page=True)
+            print("BIOCHEM_4_3_BROWSER_OK exact_prompt=true choices=4 canonical_answer=2")
+
             complete_sources = {
                 "10-10": (1, [
                     ["1", "Apolipoprotein A-I", "a", "Enhances lipoprotein lipase activity, facilitating triglyceride hydrolysis."],

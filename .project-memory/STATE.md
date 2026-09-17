@@ -10,7 +10,7 @@
 - **Sole Marrow/product integration trunk:** `feature/marrow-canonical-full-current`.
 - Production / `main` remains explicit and guarded; do not promote without user approval.
 - Resolve the live canonical HEAD at run start; never hardcode a supposed current HEAD into automation logic.
-- Latest completed CI checkpoint: `ee17ddb8898fa4755d5ab40f0dcd916fbfe6c53b`. Engineering `35209815549` and full Android/PWA/browser/APK/package run `35209815375` succeeded; preview deployed and production promotion skipped. Phase 3 subsequently found a hygiene/override integration gap not covered by those browser checks; local follow-up is not yet build-verified.
+- Latest verified CI checkpoint: `7eed91c80eb9c9abfea64f7e59a7e7403059aaed`; Engineering `35214461030` and full Android/PWA/browser/APK/package run `35214461049` succeeded (live GitHub rechecked). User checked preview, not blanket acceptance. The subsequent local Biochemistry 4-3 stem repair is not yet build/browser-verified.
 - Latest accepted Practice behavior was verified from checkpoint `74abb670c3ae088e06653681e85c347212222455`; full run `34695680534` succeeded and the user physically confirmed the Continue Practice flow. This behavior is build-verified, **device-verified**, and user-accepted.
 
 ## Complete canonical Marrow ED8 source
@@ -127,10 +127,10 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 1. **P0 fidelity campaign is the exclusive active lane:** follow `.project-memory/P0_QUESTION_FIDELITY_CAMPAIGN_2026-09-17.md` sequentially. No unrelated images, explanation tuning, community statistics or UI work.
 2. Phases 0 and 1 complete at starting commit `758c0be2346d1b1459d699b1e4b40e9f90162cf3`. Exact nerve-fibre question `physiology-9-6`, source page 253, contains all four rows twice; bare fibre value B collided with property label b and prematurely terminated parsing.
-3. Phase 2 remains open. Product commit `212f632afe636304845b8cdb8b9ee06b0bc57721` adds scoped paired integrity, duplicate-content checks, guarded unequal structures and exact regression. CI `35198486810` passed nerve/ion/row-selection checks but failed on obsolete native-explanation `.feedback-body` locator; selector correction awaits new CI.
-4. Focused unit result: 8 option normalizations, 18 invalid PrepLadder records, 48 semantic tables. Four prior invalid records plus 14 newly fail-closed structures are pinned in `tools/test_question_presentation_v1.py`; source review is deferred to Phase 3, not assumed resolved.
-5. User authorized campaign commits/pushes for GitHub browser checks. No local browser/container installations; generated verification runs on Linux CI. Preserve `.project-memory/STATE.md.orig` untracked.
-6. Do not advance to Phase 3 until Phase 2 is genuinely green. Production promotion remains prohibited; no user acceptance claimed.
+3. Phase 2 gates are green at the latest verified checkpoint above, including corrected native-explanation selectors and hygiene-aware complete-source overrides. **Phase 3 remains OPEN**; other audit candidates are not presumed defective or resolved.
+4. Only PrepLadder Biochemistry `4-3` is repaired locally: stable-ID + exact raw/hygiene fingerprints select the source page-82 question-3 stem; page 83 confirms A Hepatocytes / B Cardiac muscle / C RBC / D Neurons. Canonical stem/options/answer (`2`), identity and metadata remain unchanged; no table is invented. Source-page range 82–83 exposure is deferred, not written into canonical metadata.
+5. `python3 tools/test_question_presentation_v1.py` passes raw/hygiene startup, idempotence, source mismatch/wrong-ID negatives and corpus checks (8 option normalizations, 8 invalid, 58 semantic tables). `python3 tools/verify_local.py` passes all 46 checks. Narrow generated-Practice browser regression added but NOT run: local Playwright absent; new repair needs Linux browser/build verification and user review.
+6. This task explicitly prohibits commits/pushes; none performed. No browser/container installations. Preserve `.project-memory/STATE.md.orig` untracked. Production promotion remains prohibited; user preview check is not blanket acceptance.
 
 ## Memory pointers
 

@@ -173,6 +173,10 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   explanation fragments, and wires one semantic stem renderer into Practice,
   CBT, and Review. Source records remain unchanged on disk.
 - Records without a usable choice sequence/correct index fail closed.
+- Source-backed stem-only repairs use `nkQuestionStemOverride` and presentation-owned
+  `stem`, independent of table overrides. Biochemistry `4-3` requires its stable ID
+  and exact raw/hygiene-normalized source fingerprint; mismatches fail closed.
+  Rendering does not rewrite canonical stems, choices, answer indices or page metadata.
 - The same late layer owns `nkScientificMarkup`: it escapes first, then emits
   bounded semantic `<sub>`/`<sup>` markup for explicit exponents, common
   biochemical formulae, blood-gas notation, ionic charges and a conservative set

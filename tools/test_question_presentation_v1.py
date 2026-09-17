@@ -247,6 +247,56 @@ const sourceHash=q=>{
   for(let index=0;index<source.length;index++)hash=Math.imul(hash^source.charCodeAt(index),16777619);
   return hash>>>0;
 };
+const glucosePrompt='Which of the following tissues is unable to transport glucose independently of insulin?';
+const glucoseOptions=['Hepatocytes','Cardiac muscle','RBC','Neurons'].map((text,index)=>({letter:'ABCD'[index],text}));
+for(const cleaned of [false,true]){
+  const q=JSON.parse(rawById['4-3']);
+  if(cleaned)hygieneStartup.nkSanitizeMarrowQuestion(q);
+  const before=JSON.stringify(q),options=q.options;
+  assert.equal(sourceHash(q),cleaned?464611166:1923549704);
+  const startup={SUBJECTS:[{questions:[q]}],esc};
+  vm.createContext(startup);
+  vm.runInContext(fs.readFileSync('tools/question_presentation_core.js','utf8'),startup);
+  const p=q.__nkQuestionPresentation,markup=startup.nkQuestionStemMarkup(q);
+  assert(p.valid);assert(!p.repaired);assert.equal(p.stem,glucosePrompt);assert.equal(p.table,null);
+  assert.equal(markup,'<span class="nk-question-prompt">'+glucosePrompt+'</span>');
+  for(const junk of ['GLUT3','Erythrocytes','GLUT4','Skeletal Muscle','<table'])assert(!markup.includes(junk));
+  assert.deepEqual(p.options,glucoseOptions);assert.deepEqual(p.supporting,[]);
+  assert.strictEqual(q.options,options);assert.equal(q.correctOption,2);assert.equal(p.options[q.correctOption-1].text,'Cardiac muscle');
+  assert.equal(JSON.stringify(q),before);assert.equal(q.sourcePage,82);assert.equal(q.sourcePageEnd,82);
+  assert.strictEqual(startup.nkQuestionPresentationFor(q),p);
+  assert.equal(startup.nkQuestionStemMarkup(q),markup);
+  delete q.__nkQuestionPresentation;
+  startup.nkNormalizeQuestionPresentationCorpus();
+  assert.equal(startup.nkQuestionStemMarkup(q),markup);assert.equal(JSON.stringify(q),before);
+  for(const mutate of [
+    value=>{value.question+=' changed';},
+    value=>{value.question=' '+value.question;},
+    value=>{value.correctOption=1;},
+    value=>{value.sourcePage++;},
+    value=>{value.sourcePageEnd++;},
+    value=>{delete value.sourcePageEnd;},
+    value=>{value.options.reverse();},
+    value=>{value.options.pop();},
+    ...q.options.flatMap((_,index)=>[
+      value=>{value.options[index].text+=' changed';},
+      value=>{value.options[index].letter='Z';}
+    ])
+  ]){
+    const changed=JSON.parse(before);mutate(changed);const snapshot=JSON.stringify(changed);
+    const rejected=startup.nkQuestionPresentationFor(changed);
+    assert(!rejected.valid);assert.equal(rejected.stem,undefined);assert.equal(rejected.table,null);
+    assert(!startup.nkQuestionStemMarkup(changed).includes(glucosePrompt));
+    assert(startup.nkQuestionStemMarkup(changed).includes('answering is disabled'));
+    assert.equal(JSON.stringify(changed),snapshot);
+  }
+  const other=JSON.parse(before);other.id='wrong-id-4-3';
+  assert.equal(startup.nkQuestionStemOverride(other),null);
+  assert.equal(startup.nkQuestionPresentationFor(other).stem,undefined);
+  assert(startup.nkQuestionPresentationFor(other).valid);
+  assert(!startup.nkQuestionStemMarkup(other).includes(glucosePrompt));
+}
+console.log('BIOCHEM_4_3_STEM_OK raw=true hygiene_startup=true idempotent=true canonical_unchanged=true no_table=true mismatch_rejected=true wrong_id_rejected=true');
 for(const q of hygieneStartup.SUBJECTS[0].questions){
   const before=sourceHash(q);
   hygieneStartup.nkSanitizeMarrowQuestion(q);

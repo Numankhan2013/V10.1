@@ -88,8 +88,11 @@
     const generic=selected===null?nkQuestionMatchingTable(matching||continuation,Boolean(continuation)):selected;
     presentation.table=(generic?.valid!==false?generic:null)||nkQuestionMatchingOverride(q);
     if(generic?.valid===false&&!presentation.table)presentation.valid=false;
+    const stem=nkQuestionStemOverride(q);
+    if(stem?.valid===false)presentation.valid=false;
+    else if(stem)presentation.stem=stem.prompt;
     try{Object.defineProperty(q,'__nkQuestionPresentation',{value:presentation,configurable:true});}catch(_){q.__nkQuestionPresentation=presentation;}
-    if(valid&&repaired)q.options=options;
+    if(valid&&repaired&&stem?.valid!==false)q.options=options;
     return presentation;
   }
 
@@ -369,10 +372,19 @@
     return null;
   }
 
+  function nkQuestionStemOverride(q){
+    if(q?.id!=='4-3')return null;
+    const source=JSON.stringify([q.id,q.question,q.options,q.correctOption,q.sourcePage,q.sourcePageEnd]);
+    let fingerprint=2166136261;
+    for(let index=0;index<source.length;index++)fingerprint=Math.imul(fingerprint^source.charCodeAt(index),16777619);
+    if(![1923549704,464611166].includes(fingerprint>>>0))return {valid:false};
+    return {prompt:'Which of the following tissues is unable to transport glucose independently of insulin?'};
+  }
+
   function nkQuestionStemMarkup(q){
     const presentation=nkQuestionPresentationFor(q),table=presentation.table;
     const unavailable=presentation.valid?'':`<div class="nk-question-unavailable" role="status"><strong>Answer choices unavailable</strong><span>This source record is incomplete, so answering is disabled instead of recording an unreliable result.</span></div>`;
-    if(!table)return `<span class="nk-question-prompt">${nkScientificMarkup(String(q?.question||'').replace(/\*\*Type:\*\*\s*Match the Following/ig,'').trim())}</span>${unavailable}`;
+    if(!table)return `<span class="nk-question-prompt">${nkScientificMarkup(String(presentation.stem??q?.question??'').replace(/\*\*Type:\*\*\s*Match the Following/ig,'').trim())}</span>${unavailable}`;
     const headers=table.groups.map((_,index)=>`<th scope="col">${nkScientificMarkup((table.headers||[])[index]||(table.groups.length===1?'Statements':`List ${['I','II','III'][index]||index+1}`))}</th>`).join('');
     const rows=table.rows.map(row=>`<tr>${row.map(cell=>`<td>${cell?`${String(cell.label||'').trim()?`<b>${nkScientificMarkup(cell.label)}</b>`:''}<span>${nkScientificMarkup(cell.value)}</span>`:'<span aria-hidden="true">—</span>'}</td>`).join('')}</tr>`).join('');
     return `<span class="nk-question-prompt">${nkScientificMarkup(table.prompt)}</span><div class="nk-match-table-scroll"><table class="nk-match-table"><thead><tr>${headers}</tr></thead><tbody>${rows}</tbody></table></div>${unavailable}`;
