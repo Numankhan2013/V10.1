@@ -325,7 +325,9 @@ def main() -> None:
             }""")
             if phosphorylase_answer != {"id": "5-14", "answer": 4, "submitted": True, "correctOption": 4}:
                 raise SystemExit(f"Biochemistry 5-14 answer contract changed: {phosphorylase_answer!r}")
-            if phosphorylase_options.locator(".option-text").all_inner_texts() != phosphorylase_choices:
+            phosphorylase_correct = page.locator(".option-list .option").evaluate_all(
+                "nodes => nodes.flatMap((node, index) => node.classList.contains('correct') ? [index + 1] : [])")
+            if phosphorylase_correct != [4] or page.locator(".option-list .wrong").count() or page.locator(".option-list .option-text").all_inner_texts() != phosphorylase_choices:
                 raise SystemExit("Biochemistry 5-14 post-answer presentation changed")
             page.screenshot(path=str(output / "prepladder-biochemistry-5-14-option.png"), full_page=True)
             print("BIOCHEM_5_14_BROWSER_OK exact_alpha=true no_square=true choices=4 canonical_answer=4")
