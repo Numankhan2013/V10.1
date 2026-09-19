@@ -998,3 +998,11 @@ Implemented approved recovery in existing transform owners: Topics separate path
 
 - Committed and pushed `ee5d0dc` (STATE reconciliation at f5daabe + Phase 3 adjudication). No product code in that commit.
 - Phase 4 forensic (no repairs): raw PrepLadder 117 with ■ / Marrow 2; post-normalization 60 questions with ■ (stem 8, option 3, explanation 56, structured 1); � 0. Category A: 5-10 (override-verified), 5-14 option B (explanation corroborates α-1,4, needs p102 source confirm), 4-12 explanation (same family). Category B ambiguous (no guessing): 14-9, physiology-9-18/20-7/23-11/26-20, Marrow CH14_Q013/CH17_Q008, F0/F1 + fragment classes. Wrote `.project-memory/PHASE4_NOTATION_FORENSIC_2026-09-19.md`. Local 46/46 + memory verify pass. Next: Phase 5 per-record source-backed repair starting with 5-14 p102 when authorized.
+
+## 2026-09-19 — Phase 5 first repair: Biochemistry 5-14 option override (local, CI pending)
+
+- Source evidence: bundled PDF p102 Q14 option B carries `■-1,4` in the authoritative text layer; p123 solution states `Glycogen phosphorylase cleaves α-1,4 linkages (Option B)`; the record's own explanation corroborates. α is source-confirmed, not guessed.
+- Added `nkQuestionOptionOverride` in `tools/question_presentation_core.js` (stable-ID + raw/post-repair fingerprints `1528761351`/`2762270306`; mismatch fails closed without mutation; in-memory display copy only, stored source unchanged; idempotent via post-repair fingerprint + presentation cache). Wired into `nkQuestionPresentationFor` alongside the stem override.
+- Added `BIOCHEM_5_14_OPTION_OK` unit regression (raw/hygiene startup, exact α, answer 4, letters/order unchanged, stored `■` intact, 10 mismatch mutations fail closed unmutated, wrong-ID null) and a generated-Practice browser regression (fixed choices, no ■, answer D, screenshot). Corpus counts unchanged (8 repaired, 8 invalid, 58 semantic tables); local 46/46 pass.
+- Caution handled: an early Python-side fingerprint (`939228177`) mismatched JS serialization (Python uses `', '`/`': '` separators); recomputed JS-side before hardcoding.
+- Next: commit/push, watch Engineering + full CI, then user preview review. Remaining Phase 5 queue unchanged (4-12 + ambiguous set need per-record source work).

@@ -91,6 +91,13 @@
     const stem=nkQuestionStemOverride(q);
     if(stem?.valid===false)presentation.valid=false;
     else if(stem)presentation.stem=stem.prompt;
+    const optionOverride=nkQuestionOptionOverride(q);
+    if(optionOverride?.valid===false)presentation.valid=false;
+    else if(optionOverride){
+      const target=q.options?.[optionOverride.index];
+      if(target&&String(target.letter||'').trim().toUpperCase()===optionOverride.letter)target.text=optionOverride.text;
+      else presentation.valid=false;
+    }
     try{Object.defineProperty(q,'__nkQuestionPresentation',{value:presentation,configurable:true});}catch(_){q.__nkQuestionPresentation=presentation;}
     if(valid&&repaired&&stem?.valid!==false)q.options=options;
     return presentation;
@@ -381,6 +388,25 @@
     if(!fingerprints.includes(fingerprint>>>0))return {valid:false};
     if(q.id==='5-10')return {prompt:q.question.replace('■','α')};
     return {prompt:'Which of the following tissues is unable to transport glucose independently of insulin?'};
+  }
+
+  function nkQuestionOptionOverride(q){
+    // Presentation-owned option-text repair for source-confirmed OCR loss.
+    // Accepts both the raw and the already-repaired serialization so
+    // re-presentation stays idempotent; anything else fails closed.
+    // Stored source data is never written; only the in-memory display copy
+    // is repaired, mirroring the existing repaired-run q.options handling.
+    const fingerprints={'5-14':[1528761351,2762270306]}[q?.id];
+    if(!fingerprints)return null;
+    const source=JSON.stringify([q.id,q.question,q.options,q.correctOption,q.sourcePage,q.sourcePageEnd]);
+    let fingerprint=2166136261;
+    for(let index=0;index<source.length;index++)fingerprint=Math.imul(fingerprint^source.charCodeAt(index),16777619);
+    if(!fingerprints.includes(fingerprint>>>0))return {valid:false};
+    // Biochemistry 5-14 option B (source page 102): the authoritative PDF
+    // text layer itself carries ■-1,4, while the page-123 solution states
+    // "Glycogen phosphorylase cleaves α-1,4 linkages (Option B)".
+    if(q.id==='5-14')return {index:1,letter:'B',text:'Glycogen phosphorylase cleaves α-1,4 linkages'};
+    return null;
   }
 
   function nkQuestionStemMarkup(q){

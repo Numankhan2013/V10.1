@@ -294,6 +294,42 @@ def main() -> None:
             page.screenshot(path=str(output / "prepladder-biochemistry-5-10-stem.png"), full_page=True)
             print("BIOCHEM_5_10_BROWSER_OK exact_prompt=true no_square=true choices=4 canonical_answer=3")
 
+            page.evaluate("window.QB.practiceOne('5-14')")
+            phosphorylase_raw = "Glycogen phosphorylase cleaves ■-1,4 linkages"
+            phosphorylase_fixed = "Glycogen phosphorylase cleaves α-1,4 linkages"
+            phosphorylase_choices = ["Glucose-6-phosphatase acts in liver", phosphorylase_fixed,
+                                     "Phosphoglucomutase converts glucose-1-phosphate into glucose-6-phosphate",
+                                     "Glycogenolysis is the reverse process of glycogenesis."]
+            phosphorylase_stem = page.locator(".question-text .nk-question-prompt")
+            phosphorylase_stem.wait_for(state="visible")
+            if phosphorylase_stem.count() != 1 or "false regarding glycogenolysis" not in phosphorylase_stem.inner_text():
+                raise SystemExit(f"Biochemistry 5-14 stem missing: {phosphorylase_stem.all_text_contents()!r}")
+            if page.locator(".question-text table, .question-text .nk-question-unavailable").count():
+                raise SystemExit("Biochemistry 5-14 invented a table or disabled valid choices")
+            phosphorylase_options = page.locator(".option-list button")
+            if phosphorylase_options.count() != 4 or phosphorylase_options.locator(".option-text").all_inner_texts() != phosphorylase_choices or phosphorylase_options.locator(".option-letter").all_inner_texts() != ["A", "B", "C", "D"]:
+                raise SystemExit(f"Biochemistry 5-14 option repair missing: {phosphorylase_options.locator('.option-text').all_inner_texts()!r}")
+            if "\u25a0" in page.locator(".option-list").inner_text():
+                raise SystemExit("Biochemistry 5-14 dark-block placeholder remains learner-visible")
+            if any(not phosphorylase_options.nth(index).is_enabled() for index in range(4)):
+                raise SystemExit("Biochemistry 5-14 choices are not enabled")
+            if page.locator(".option-list .correct, .option-list .wrong").count():
+                raise SystemExit("Biochemistry 5-14 leaked correctness before answering")
+            phosphorylase_options.nth(3).click()
+            page.locator(".option-list .correct").wait_for(state="visible")
+            phosphorylase_answer = page.evaluate("""() => {
+                const s = window.QB.getState().activeSession;
+                const id = s.questionIds[s.index];
+                return {id, answer: s.answers[id], submitted: s.submitted[id],
+                    correctOption: window.QB.__presentationQuestion(id).correctOption};
+            }""")
+            if phosphorylase_answer != {"id": "5-14", "answer": 4, "submitted": True, "correctOption": 4}:
+                raise SystemExit(f"Biochemistry 5-14 answer contract changed: {phosphorylase_answer!r}")
+            if phosphorylase_options.locator(".option-text").all_inner_texts() != phosphorylase_choices:
+                raise SystemExit("Biochemistry 5-14 post-answer presentation changed")
+            page.screenshot(path=str(output / "prepladder-biochemistry-5-14-option.png"), full_page=True)
+            print("BIOCHEM_5_14_BROWSER_OK exact_alpha=true no_square=true choices=4 canonical_answer=4")
+
             complete_sources = {
                 "10-10": (1, [
                     ["1", "Apolipoprotein A-I", "a", "Enhances lipoprotein lipase activity, facilitating triglyceride hydrolysis."],

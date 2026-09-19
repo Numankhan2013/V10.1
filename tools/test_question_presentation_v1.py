@@ -357,6 +357,56 @@ for(const question of ['Glucose residues are connected by ■-1,4 linkage','Unkn
   assert.equal(JSON.stringify(q),before);
 }
 console.log('BIOCHEM_5_10_STEM_OK raw=true hygiene_startup=true exact_alpha=true canonical_answer=3 canonical_unchanged=true mismatch_rejected=true wrong_id_rejected=true unknown_blocks_preserved=true');
+const phosphorylaseRaw='Glycogen phosphorylase cleaves ■-1,4 linkages';
+const phosphorylaseFixed='Glycogen phosphorylase cleaves α-1,4 linkages';
+for(const cleaned of [false,true]){
+  const q=JSON.parse(rawById['5-14']);
+  if(cleaned)hygieneStartup.nkSanitizeMarrowQuestion(q);
+  assert.equal(sourceHash(q),1528761351);
+  assert.equal(q.options[1].text,phosphorylaseRaw);
+  assert(q.explanation.includes('Glycogen phosphorylase cleaves α-1,4 linkages (Option B)'));
+  assert.equal(nkNormalizeScientificDisplayText(q.options[1].text),phosphorylaseRaw);
+  const startup={SUBJECTS:[{questions:[q]}],esc};
+  vm.createContext(startup);
+  vm.runInContext(fs.readFileSync('tools/question_presentation_core.js','utf8'),startup);
+  const p=q.__nkQuestionPresentation;
+  assert(p.valid);assert(!p.repaired);assert.equal(p.stem,undefined);assert.equal(p.table,null);
+  assert.equal(q.options[1].text,phosphorylaseFixed);assert.equal(p.options[1].text,phosphorylaseFixed);
+  assert(!JSON.stringify(p.options).includes('\u25a0'));
+  assert.deepEqual(q.options.map(option=>option.letter),['A','B','C','D']);
+  assert.equal(q.correctOption,4);assert.equal(p.options[q.correctOption-1].text,'Glycogenolysis is the reverse process of glycogenesis.');
+  assert.equal(q.id,'5-14');assert.equal(q.sourcePage,102);assert.equal(q.sourcePageEnd,102);
+  assert(JSON.parse(rawById['5-14']).options[1].text.includes('\u25a0'));
+  assert.strictEqual(startup.nkQuestionPresentationFor(q),p);
+  delete q.__nkQuestionPresentation;
+  startup.nkNormalizeQuestionPresentationCorpus();
+  const renormalized=startup.nkQuestionPresentationFor(q);
+  assert(renormalized.valid);assert.equal(q.options[1].text,phosphorylaseFixed);
+  for(const mutate of [
+    value=>{value.options[1].text+=' changed';},
+    value=>{value.options[1].text=value.options[1].text.replace('■','β');},
+    value=>{value.question+=' changed';},
+    value=>{value.correctOption=1;},
+    value=>{value.sourcePage++;},
+    value=>{value.sourcePageEnd++;},
+    value=>{delete value.sourcePageEnd;},
+    value=>{value.options.reverse();},
+    value=>{value.options.pop();},
+    ...q.options.flatMap((_,index)=>[
+      value=>{value.options[index].letter='Z';}
+    ])
+  ]){
+    const changed=JSON.parse(rawById['5-14']);if(cleaned)hygieneStartup.nkSanitizeMarrowQuestion(changed);mutate(changed);const snapshot=JSON.stringify(changed);
+    assert.equal(startup.nkQuestionOptionOverride(changed).valid,false);
+    const rejected=startup.nkQuestionPresentationFor(changed);
+    assert(!rejected.valid);assert.equal(rejected.table,null);
+    assert.equal(JSON.stringify(changed),snapshot);
+  }
+  const other=JSON.parse(rawById['5-14']);other.id='wrong-id-5-14';
+  assert.equal(startup.nkQuestionOptionOverride(other),null);
+  assert(startup.nkQuestionPresentationFor(other).valid);
+}
+console.log('BIOCHEM_5_14_OPTION_OK raw=true hygiene_startup=true exact_alpha=true canonical_answer=4 stored_unchanged=true mismatch_rejected=true wrong_id_rejected=true');
 for(const q of hygieneStartup.SUBJECTS[0].questions){
   const before=sourceHash(q);
   hygieneStartup.nkSanitizeMarrowQuestion(q);
