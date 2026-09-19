@@ -1006,3 +1006,8 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Added `BIOCHEM_5_14_OPTION_OK` unit regression (raw/hygiene startup, exact α, answer 4, letters/order unchanged, stored `■` intact, 10 mismatch mutations fail closed unmutated, wrong-ID null) and a generated-Practice browser regression (fixed choices, no ■, answer D, screenshot). Corpus counts unchanged (8 repaired, 8 invalid, 58 semantic tables); local 46/46 pass.
 - Caution handled: an early Python-side fingerprint (`939228177`) mismatched JS serialization (Python uses `', '`/`': '` separators); recomputed JS-side before hardcoding.
 - Next: commit/push, watch Engineering + full CI, then user preview review. Remaining Phase 5 queue unchanged (4-12 + ambiguous set need per-record source work).
+
+## 2026-09-19 — 5-14 repair build/browser-verified at f19a866
+
+- First 5-14 candidate `5c99208` passed Engineering but failed the full run on the new browser assertion (`post-answer presentation changed`): submitted options render as `div`, not `button`, so the tag-specific selector found zero nodes. Fixed in `f19a866` with tag-agnostic `.option-list .option` / `.option-text` checks mirroring the 4-3/5-10 pattern. No product logic changed.
+- Exact-head Engineering `35429941297` + full `35429941288` both succeeded, including `BIOCHEM_5_14_OPTION_OK` and `BIOCHEM_5_14_BROWSER_OK exact_alpha=true no_square=true choices=4 canonical_answer=4`. STATE checkpoint advanced to `f19a866`. Production untouched; user preview review pending. Next per campaign: per-record Phase 5 repairs from authoritative pages only.
