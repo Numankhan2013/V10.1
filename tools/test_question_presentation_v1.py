@@ -407,6 +407,67 @@ for(const cleaned of [false,true]){
   assert(startup.nkQuestionPresentationFor(other).valid);
 }
 console.log('BIOCHEM_5_14_OPTION_OK raw=true hygiene_startup=true exact_alpha=true canonical_answer=4 stored_unchanged=true mismatch_rejected=true wrong_id_rejected=true');
+const explanationHash=q=>{
+  const source=JSON.stringify([q.id,q.question,q.options,q.correctOption,q.sourcePage,q.sourcePageEnd,q.explanation]);
+  let hash=2166136261;
+  for(let index=0;index<source.length;index++)hash=Math.imul(hash^source.charCodeAt(index),16777619);
+  return hash>>>0;
+};
+for(const cleaned of [false,true]){
+  const q=JSON.parse(rawById['4-12']);
+  if(cleaned)hygieneStartup.nkSanitizeMarrowQuestion(q);
+  const before=JSON.stringify(q);
+  assert.equal(sourceHash(q),3976059100);
+  assert.equal(explanationHash(q),2733095777);
+  assert.equal((q.explanation.match(/■-1,4/g)||[]).length,2);
+  assert(q.explanation.includes('connected by ■-1,4 linkage'));
+  assert(q.explanation.includes('cleaves ■-1,4 linkages'));
+  assert.equal(q.correctOption,3);assert.equal(q.sourcePage,85);
+  const startup={SUBJECTS:[{questions:[q]}],esc};
+  vm.createContext(startup);
+  vm.runInContext(fs.readFileSync('tools/question_presentation_core.js','utf8'),startup);
+  const p=q.__nkQuestionPresentation;
+  assert(p.valid);assert(!p.repaired);assert.equal(p.stem,undefined);assert.equal(p.table,null);
+  assert.equal((q.explanation.match(/α-1,4/g)||[]).length,2);
+  assert(q.explanation.includes('connected by α-1,4 linkage'));
+  assert(q.explanation.includes('cleaves α-1,4 linkages'));
+  assert(!q.explanation.includes('■'));
+  assert(!JSON.stringify(p.options).includes('\u25a0'));
+  assert.deepEqual(q.options.map(option=>option.letter),['A','B','C','D']);
+  assert.equal(q.correctOption,3);assert.equal(p.options[q.correctOption-1].text,'Fructose-2,6-bisphosphate');
+  assert.equal(explanationHash(q),1814125949);
+  assert(JSON.parse(rawById['4-12']).explanation.includes('■-1,4'));
+  assert.strictEqual(startup.nkQuestionPresentationFor(q),p);
+  delete q.__nkQuestionPresentation;
+  startup.nkNormalizeQuestionPresentationCorpus();
+  const renormalized=startup.nkQuestionPresentationFor(q);
+  assert(renormalized.valid);assert(!q.explanation.includes('■'));
+  assert.equal(explanationHash(q),1814125949);
+  for(const mutate of [
+    value=>{value.explanation+=' changed';},
+    value=>{value.explanation=value.explanation.replace('■','β');},
+    value=>{value.question+=' changed';},
+    value=>{value.correctOption=1;},
+    value=>{value.sourcePage++;},
+    value=>{value.sourcePageEnd++;},
+    value=>{delete value.sourcePageEnd;},
+    value=>{value.options.reverse();},
+    value=>{value.options.pop();},
+    ...q.options.flatMap((_,index)=>[
+      value=>{value.options[index].text+=' changed';}
+    ])
+  ]){
+    const changed=JSON.parse(rawById['4-12']);if(cleaned)hygieneStartup.nkSanitizeMarrowQuestion(changed);mutate(changed);const snapshot=JSON.stringify(changed);
+    assert.equal(startup.nkQuestionExplanationOverride(changed).valid,false);
+    const rejected=startup.nkQuestionPresentationFor(changed);
+    assert(!rejected.valid);assert.equal(rejected.table,null);
+    assert.equal(JSON.stringify(changed),snapshot);
+  }
+  const other=JSON.parse(rawById['4-12']);other.id='wrong-id-4-12';
+  assert.equal(startup.nkQuestionExplanationOverride(other),null);
+  assert(startup.nkQuestionPresentationFor(other).valid);
+}
+console.log('BIOCHEM_4_12_EXPLANATION_OK raw=true hygiene_startup=true exact_alpha=true canonical_answer=3 stored_unchanged=true mismatch_rejected=true wrong_id_rejected=true');
 for(const q of hygieneStartup.SUBJECTS[0].questions){
   const before=sourceHash(q);
   hygieneStartup.nkSanitizeMarrowQuestion(q);

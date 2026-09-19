@@ -98,6 +98,12 @@
       if(target&&String(target.letter||'').trim().toUpperCase()===optionOverride.letter)target.text=optionOverride.text;
       else presentation.valid=false;
     }
+    const explanationOverride=nkQuestionExplanationOverride(q);
+    if(explanationOverride?.valid===false)presentation.valid=false;
+    else if(explanationOverride){
+      if(typeof q.explanation==='string'&&q.explanation.includes('■-1,4'))q.explanation=explanationOverride.text;
+      else if(String(q.explanation??'').includes('■-1,4'))presentation.valid=false;
+    }
     try{Object.defineProperty(q,'__nkQuestionPresentation',{value:presentation,configurable:true});}catch(_){q.__nkQuestionPresentation=presentation;}
     if(valid&&repaired&&stem?.valid!==false)q.options=options;
     return presentation;
@@ -406,6 +412,24 @@
     // text layer itself carries ■-1,4, while the page-123 solution states
     // "Glycogen phosphorylase cleaves α-1,4 linkages (Option B)".
     if(q.id==='5-14')return {index:1,letter:'B',text:'Glycogen phosphorylase cleaves α-1,4 linkages'};
+    return null;
+  }
+
+  function nkQuestionExplanationOverride(q){
+    // Presentation-owned explanation-text repair for source-confirmed OCR loss.
+    // Biochemistry 4-12 explanation embeds two glycogen-family ■-1,4 strings
+    // (Q10 structure + Q14 glycogenolysis) whose authoritative solutions state
+    // α-1,4 (p117: "linked by α-1,4 glycosidic bonds"; p123: "cleaves α-1,4
+    // linkages (Option B)"). Fingerprint includes the explanation so unrelated
+    // explanation edits fail closed; raw + repaired serializations accepted
+    // for idempotent re-presentation. Stored source is never written.
+    const fingerprints={'4-12':[2733095777,1814125949]}[q?.id];
+    if(!fingerprints)return null;
+    const source=JSON.stringify([q.id,q.question,q.options,q.correctOption,q.sourcePage,q.sourcePageEnd,q.explanation]);
+    let fingerprint=2166136261;
+    for(let index=0;index<source.length;index++)fingerprint=Math.imul(fingerprint^source.charCodeAt(index),16777619);
+    if(!fingerprints.includes(fingerprint>>>0))return {valid:false};
+    if(q.id==='4-12')return {text:String(q.explanation??'').replaceAll('■-1,4','α-1,4')};
     return null;
   }
 

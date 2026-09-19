@@ -332,6 +332,29 @@ def main() -> None:
             page.screenshot(path=str(output / "prepladder-biochemistry-5-14-option.png"), full_page=True)
             print("BIOCHEM_5_14_BROWSER_OK exact_alpha=true no_square=true choices=4 canonical_answer=4")
 
+            page.evaluate("window.QB.practiceOne('4-12')")
+            regulator_choices = ["ATP", "Citrate", "Fructose-2,6-bisphosphate", "Acetyl-CoA"]
+            regulator_stem = page.locator(".question-text .nk-question-prompt")
+            regulator_stem.wait_for(state="visible")
+            if regulator_stem.count() != 1 or "positive regulator" not in regulator_stem.inner_text():
+                raise SystemExit(f"Biochemistry 4-12 stem missing: {regulator_stem.all_text_contents()!r}")
+            if page.locator(".question-text table, .question-text .nk-question-unavailable").count():
+                raise SystemExit("Biochemistry 4-12 invented a table or disabled valid choices")
+            regulator_options = page.locator(".option-list button")
+            if regulator_options.count() != 4 or regulator_options.locator(".option-text").all_inner_texts() != regulator_choices:
+                raise SystemExit(f"Biochemistry 4-12 choices changed: {regulator_options.locator('.option-text').all_inner_texts()!r}")
+            regulator_options.nth(2).click()
+            page.locator(".option-list .correct").wait_for(state="visible")
+            regulator_feedback = page.locator(".feedback-body")
+            regulator_feedback.wait_for(state="visible")
+            regulator_text = regulator_feedback.inner_text()
+            if "connected by \u03b1-1,4 linkage" not in regulator_text or "cleaves \u03b1-1,4 linkages" not in regulator_text:
+                raise SystemExit("Biochemistry 4-12 explanation alpha repair missing from learner feedback")
+            if "\u25a0" in regulator_text:
+                raise SystemExit("Biochemistry 4-12 dark-block placeholder remains in learner explanation")
+            page.screenshot(path=str(output / "prepladder-biochemistry-4-12-explanation.png"), full_page=True)
+            print("BIOCHEM_4_12_BROWSER_OK exact_alpha=true no_square=true choices=4 canonical_answer=3")
+
             complete_sources = {
                 "10-10": (1, [
                     ["1", "Apolipoprotein A-I", "a", "Enhances lipoprotein lipase activity, facilitating triglyceride hydrolysis."],
