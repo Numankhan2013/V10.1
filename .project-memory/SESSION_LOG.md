@@ -993,3 +993,8 @@ Implemented approved recovery in existing transform owners: Topics separate path
 
 - Wrote `.project-memory/PHASE3_STRUCTURE_ADJUDICATION_2026-09-19.md` at `f5daabe`: fail-closed 8 all correctly answering-disabled (4 known intentional + 4 image/source-dependent); true match-family residuals are image-owned or combination-type; bulk incomplete-unsafe is combination/row-selection/enumeration adjudication, not proven parser loss; 4-3/5-10 unresolved flags are an audit artifact (pre-override stem recorded), both build-verified.
 - No new demonstrated failure class; no product/test/browser edits; no commits/pushes in this step. Local 46/46 pass; memory verify pass; audit --check deterministic pass. Production untouched. Next per campaign: Phase 4 scientific-notation forensic audit.
+
+## 2026-09-19 — P0 memory pushed; Phase 4 forensic inventory complete (read-only)
+
+- Committed and pushed `ee5d0dc` (STATE reconciliation at f5daabe + Phase 3 adjudication). No product code in that commit.
+- Phase 4 forensic (no repairs): raw PrepLadder 117 with ■ / Marrow 2; post-normalization 60 questions with ■ (stem 8, option 3, explanation 56, structured 1); � 0. Category A: 5-10 (override-verified), 5-14 option B (explanation corroborates α-1,4, needs p102 source confirm), 4-12 explanation (same family). Category B ambiguous (no guessing): 14-9, physiology-9-18/20-7/23-11/26-20, Marrow CH14_Q013/CH17_Q008, F0/F1 + fragment classes. Wrote `.project-memory/PHASE4_NOTATION_FORENSIC_2026-09-19.md`. Local 46/46 + memory verify pass. Next: Phase 5 per-record source-backed repair starting with 5-14 p102 when authorized.
