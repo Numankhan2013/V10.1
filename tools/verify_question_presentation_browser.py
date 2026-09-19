@@ -347,11 +347,27 @@ def main() -> None:
             page.locator(".option-list .correct").wait_for(state="visible")
             regulator_feedback = page.locator(".feedback-body")
             regulator_feedback.wait_for(state="visible")
-            regulator_text = regulator_feedback.inner_text()
-            if "connected by \u03b1-1,4 linkage" not in regulator_text or "cleaves \u03b1-1,4 linkages" not in regulator_text:
-                raise SystemExit("Biochemistry 4-12 explanation alpha repair missing from learner feedback")
-            if "\u25a0" in regulator_text:
-                raise SystemExit("Biochemistry 4-12 dark-block placeholder remains in learner explanation")
+            # Practice renders Biochemistry explanations from original source-PDF
+            # solution images (repair_source_solution_renderer), not explanation
+            # text, so the text repair below serves Review/takeaway surfaces.
+            # Here assert the PDF-image surface is intact and no dark block is
+            # learner-visible on the Practice surface.
+            if page.locator(".feedback-body .source-pdf-explanation").count() != 1:
+                raise SystemExit("Biochemistry 4-12 source-PDF explanation surface missing")
+            if "\u25a0" in (page.locator(".question-text").inner_text() + regulator_feedback.inner_text()):
+                raise SystemExit("Biochemistry 4-12 dark-block placeholder remains on Practice surface")
+            regulator_live = page.evaluate("""() => {
+                const q = window.QB.__presentationQuestion('4-12');
+                return {id: q.id, correctOption: q.correctOption, sourcePage: q.sourcePage,
+                    explanation: q.explanation};
+            }""")
+            if regulator_live["id"] != "4-12" or regulator_live["correctOption"] != 3 or regulator_live["sourcePage"] != 85:
+                raise SystemExit(f"Biochemistry 4-12 live record changed: {regulator_live!r}")
+            regulator_exp = regulator_live["explanation"] or ""
+            if "connected by \u03b1-1,4 linkage" not in regulator_exp or "cleaves \u03b1-1,4 linkages" not in regulator_exp:
+                raise SystemExit("Biochemistry 4-12 explanation alpha repair missing from live display copy")
+            if "\u25a0-1,4" in regulator_exp:
+                raise SystemExit("Biochemistry 4-12 dark-block placeholder remains in live display copy")
             page.screenshot(path=str(output / "prepladder-biochemistry-4-12-explanation.png"), full_page=True)
             print("BIOCHEM_4_12_BROWSER_OK exact_alpha=true no_square=true choices=4 canonical_answer=3")
 
