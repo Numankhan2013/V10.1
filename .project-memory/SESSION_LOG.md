@@ -1033,3 +1033,10 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - User clarified ownership: image integration belongs to automations, not the primary agent. The P0 campaign's temporary image priority lock is lifted only for that automation lane; remaining fidelity work and source-quality gates remain open.
 - Audited canonical `feature/marrow-canonical-full-current` at `356cce4`, matching remote. Exact-head Engineering `35453226391` and full Android/PWA/browser/APK/package run `35453226292` succeeded; production was not promoted. Local 46 checks passed. Image registry validation, progress `--check`, and coverage `--check` passed without modifying image state.
 - Created `.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md` with the live-base, ownership, first Biochemistry reference, rendered-page review, coverage and reconciliation contract. Corrected stale image ownership/priority instructions and scientific-notation CI status. No image assets, bindings, source data or product code were changed. New handoff commit must receive its own exact-head CI before automations treat it as build-verified.
+
+
+## 2026-09-21 — Biochemistry explanation canonical-memory drift repair
+- Re-read `docs/MARROW_EXPLANATION_AUTOMATION_RUNBOOK.md`, `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`, mandatory project memory and implementation guidance from live canonical `0c57fd4deb0a0ffb6ea57865bef56ac00b52c1e0`.
+- Reconciled derived `STATE.md` explanation memory with the deterministic canonical full-corpus inventory: **615 enhanced / 2,096 pending / 2,711 total**, fingerprint `2ad7006f78607d0974269e4aad0baaed9cba6124560885adb3e30f3e6651ce14`.
+- Recorded Biochemistry Ch12 Q1–Q10 as FULLY_VERIFIED_HISTORY; no new explanation content was authored in this repair.
+- Exact next Biochemistry source-order candidate after reacquiring a free explanation lane: Ch12 Q11–Q14. Raw source remains immutable; production promotion remains prohibited.
