@@ -86,9 +86,9 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Explanation lane
 
-- FULLY_VERIFIED history: Anatomy Ch6 Q1–Q7 at certified checkpoint `58bb99d5c1fc96a98b4f922a963dba16105487d1`; Anatomy Ch6 Q8–Q18 reconciled at `420928ae4e1314cb3a23c8687801be5c7b1f0a8c` and released after canonical dual-green Engineering `34834434837` + full run `34834434831`; Physiology Ch11 Q1–Q6 at `e01cc0b9a8e62885d29b0c2e7ac6417ce8c96f05`.
+- FULLY_VERIFIED history: Anatomy Ch6 Q1–Q7 at certified checkpoint `58bb99d5c1fc96a98b4f922a963dba16105487d1`; Anatomy Ch6 Q8–Q18 reconciled at `420928ae4e1314cb3a23c8687801be5c7b1f0a8c` and released after canonical dual-green Engineering `34834434837` + full run `34834434831`; Physiology Ch11 Q1–Q6 at `e01cc0b9a8e62885d29b0c2e7ac6417ce8c96f05`. Biochemistry Ch12 Q1–Q10 was transplanted by stable ID, dual-green on candidate `b541a61b5b037b9f9ae27e71bed5affafc60e3f4`, reconciled through canonical merge `76c3be68b9c24bec90af0d4868f896f687bb670b`, and followed by deterministic inventory refresh to canonical `0c57fd4deb0a0ffb6ea57865bef56ac00b52c1e0`; Q7 remains `needs_manual_review` as carried by the verified donor.
 - No explanation batch is currently owned by the completed Anatomy Q8–Q18 run. Do not retroactively extend it to Q19+.
-- Inventory remains **605 enhanced / 2,106 pending / 2,711 total**, fingerprint `995717a6ac450e2b6a530e0521d58a43e67d4e980401989c69b544c38de98300`; raw source hashes unchanged.
+- Inventory is **615 enhanced / 2,096 pending / 2,711 total**, fingerprint `2ad7006f78607d0974269e4aad0baaed9cba6124560885adb3e30f3e6651ce14`; raw source hashes unchanged. This is the deterministic canonical full-corpus inventory after the verified Biochemistry Ch12 Q1–Q10 transplant.
 - Any next explanation automation must reacquire ownership from the live canonical state and start a new batch.
 - Production promotion prohibited.
 
