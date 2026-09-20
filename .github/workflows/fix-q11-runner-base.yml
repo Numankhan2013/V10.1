@@ -1,0 +1,24 @@
+name: Fix Q11 runner ancestry guard
+on:
+  push:
+    branches:
+      - automation/marrow-images-biochemistry-coverage-20260920-q11-resume
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Patch once
+        run: |
+          set -euo pipefail
+          f=.github/workflows/biochem-q11-recovery-runner.yml
+          if grep -q 'git rev-parse HEAD\^' "$f"; then
+            sed -i 's@test "$(git rev-parse HEAD\^)" = "b9b10fffb0d5de31b0e64d90af7e4220d7a790c8"@test "$(git merge-base b9b10fffb0d5de31b0e64d90af7e4220d7a790c8 HEAD)" = "b9b10fffb0d5de31b0e64d90af7e4220d7a790c8"@' "$f"
+            git add "$f"
+            git -c user.name='NK QBank Automation' -c user.email='actions@users.noreply.github.com' commit -m 'Fix bounded Q11 runner base guard'
+            git push origin HEAD
+          fi
