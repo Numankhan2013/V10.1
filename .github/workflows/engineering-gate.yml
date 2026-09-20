@@ -57,6 +57,14 @@ jobs:
         run: python3 tools/test_marrow_topic_taxonomy.py
       - name: Validate Marrow explanation inventory
         run: python3 tools/test_marrow_explanation_inventory.py
+      - name: Upload regenerated explanation inventory on drift
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: marrow-explanation-inventory-drift
+          path: data/marrow/explanation_inventory_v1.json
+          if-no-files-found: error
+          retention-days: 1
       - name: Validate Marrow Biochemistry explanation gold sample
         run: python3 tools/test_marrow_biochem_explanation_sample.py
       - name: Validate Marrow Biochemistry explanation rollout
