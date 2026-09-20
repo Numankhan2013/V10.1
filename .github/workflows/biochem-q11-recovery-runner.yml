@@ -1,0 +1,104 @@
+name: Biochemistry Q11 bounded recovery runner
+on:
+  push:
+    branches:
+      - automation/marrow-images-biochemistry-coverage-20260920-q11-resume
+permissions:
+  contents: write
+  actions: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Guard completed runner
+        id: guard
+        run: |
+          if [ -f data/marrow/images/recovery_checkpoints/biochem_ch04_q011_20260920_complete.json ]; then echo 'done=true' >> "$GITHUB_OUTPUT"; else echo 'done=false' >> "$GITHUB_OUTPUT"; fi
+      - name: Install audit dependencies
+        if: steps.guard.outputs.done != 'true'
+        run: python3 -m pip install pypdf==6.18.0 pymupdf pillow
+      - name: Fresh authoritative preflight and bounded Q11 recovery
+        if: steps.guard.outputs.done != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD^)" = "b9b10fffb0d5de31b0e64d90af7e4220d7a790c8"
+          test "$(sha256sum data/marrow/source_pdfs/biochemistryed8.pdf | awk '{print $1}')" = "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+          test "$(stat -c%s data/marrow/source_pdfs/biochemistryed8.pdf)" = "7958177"
+          python3 tools/marrow_images.py audit
+          python3 tools/marrow_image_coverage.py --subject Biochemistry
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_image_progress.py --check
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          c=json.loads(Path('data/marrow/images/coverage.json').read_text())
+          rows=[r for r in c['sourceVisuals'] if r['subject']=='Biochemistry' and r['coverageStatus'] not in ('RELEASED','SOURCE_METADATA_INVALID')]
+          assert rows and rows[0]['id']=='marrow__BIOCHEM_CH04_Q011:figure:1', rows[:2]
+          s=c['summary']['Biochemistry']
+          assert s['sourceVisualReferences']==110 and s['releasedSourceVisualReferences']==71
+          PY
+          mkdir -p build/q11-extract
+          python3 tools/marrow_images.py extract --subject Biochemistry --page 70 --xref 162 --output build/q11-extract
+          test -f build/q11-extract/e302242457457cdcabcca8ced492809b2f1947c049b719ff49a0be6bd6a222f6.jpg
+          cp build/q11-extract/e302242457457cdcabcca8ced492809b2f1947c049b719ff49a0be6bd6a222f6.jpg data/marrow/images/originals/e302242457457cdcabcca8ced492809b2f1947c049b719ff49a0be6bd6a222f6.jpg
+          python3 - <<'PY'
+          import json, hashlib
+          from pathlib import Path
+          regp=Path('data/marrow/images/registry.json'); reg=json.loads(regp.read_text())
+          q='marrow__BIOCHEM_CH04_Q011'; digest='e302242457457cdcabcca8ced492809b2f1947c049b719ff49a0be6bd6a222f6'
+          assert not any(a.get('id')=='biochemistry-e302242457457cdc' for a in reg['assets'])
+          # Preserve the historical rejected fructose binding; do not alter it.
+          old=[(a,b) for a in reg['assets'] for b in a.get('bindings',[]) if b.get('questionId')==q]
+          assert any((b.get('status')=='REJECTED' or a.get('status')=='REJECTED') for a,b in old), 'Expected preserved rejected Q11 binding missing'
+          p=Path('data/marrow/images/originals/'+digest+'.jpg'); assert hashlib.sha256(p.read_bytes()).hexdigest()==digest
+          asset={
+            'id':'biochemistry-e302242457457cdc','subject':'Biochemistry','kind':'diagram',
+            'source':{'file':'biochemistryed8.pdf','sha256':'463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb','page':70,'xref':162,'region':[162.0,56.0,450.0,272.0]},
+            'bindings':[{'questionId':q,'role':'explanation','order':1,'alt':'Source galactose metabolism pathway diagram','status':'PASS','source':{'page':70,'xref':162,'region':[162.0,56.0,450.0,272.0]},'qa':{'sourceCompared':True,'notes':'Authoritative rendered pages 69-70 inspected as a continuation: page 69 recorded candidate is fructose metabolism and remains rejected for Q11; page 70 xref 162 is the Q11-owned Metabolism of galactose diagram. Native source bytes preserve all pathway labels/arrows without processing.','evidence':'Rendered-page continuation review plus native xref 162, region and SHA checkpoint.'}}],
+            'original':{'path':'data/marrow/images/originals/'+digest+'.jpg','sha256':digest,'width':600,'height':451},
+            'production':{'path':'data/marrow/images/originals/'+digest+'.jpg','sha256':digest,'width':600,'height':451},
+            'method':'native-jpeg-stream','status':'PASS',
+            'qa':{'sourceCompared':True,'notes':'Compared authoritative rendered Q11 continuation across pages 69-70 with native page-70 xref 162. Correct galactose pathway, labels and arrows preserved byte-identically; no crop, reconstruction, generation, inpainting or sharpening.','evidence':'Q11 rendered-page/native-xref recovery checkpoint','originalSha256':digest,'productionSha256':digest}
+          }
+          reg['assets'].append(asset); regp.write_text(json.dumps(reg,ensure_ascii=False,indent=2)+'\n')
+          adjp=Path('data/marrow/images/source_reference_adjudications.json'); adj=json.loads(adjp.read_text())
+          rid=q+':figure:1'; assert not any(e['id']==rid for e in adj['entries'])
+          adj['entries'].append({'id':rid,'questionId':q,'subject':'Biochemistry','role':'explanation','sourcePages':[69],'status':'SOURCE_METADATA_INVALID','source':{'file':'biochemistryed8.pdf','sha256':'463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb'},'reason':'Canonical figure metadata pins Q11 to page 69, but rendered authoritative source shows the page-69 native figure is fructose metabolism; Q11 explanation continues onto page 70 where xref 162 is the actual galactose-metabolism figure. The false page-69 mapping must not be satisfied by relabeling page 70 as page 69.','evidence':'Bounded recovery review: full rendered pages 69 and 70 inspected with Q11 explanation continuity; page 69 xref 1146 is fructose metabolism and historical Q11 binding remains REJECTED; page 70 xref 162 is 600x451 native JPEG SHA '+digest+' and is independently bound to Q11.'})
+          adjp.write_text(json.dumps(adj,ensure_ascii=False,indent=2)+'\n')
+          PY
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_images.py release
+          python3 tools/marrow_image_progress.py
+          python3 tools/marrow_image_progress.py --check
+          python3 tools/marrow_images.py audit
+          python3 tools/marrow_image_coverage.py --subject Biochemistry
+          python3 tools/marrow_image_coverage.py --subject Biochemistry --check
+          python3 tools/test_marrow_images.py
+          python3 tools/verify_build_pipeline.py
+          python3 tools/verify_local.py
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          c=json.loads(Path('data/marrow/images/coverage.json').read_text()); s=c['summary']['Biochemistry']
+          rows=[r for r in c['sourceVisuals'] if r['subject']=='Biochemistry' and r['coverageStatus'] not in ('RELEASED','SOURCE_METADATA_INVALID')]
+          nxt=rows[0]['id'] if rows else 'TEXT_CUE_BACKLOG_OR_COMPLETE'
+          cp=Path('data/marrow/images/recovery_checkpoints/biochem_ch04_q011_20260920_complete.json'); cp.parent.mkdir(parents=True,exist_ok=True)
+          cp.write_text(json.dumps({'status':'COMPLETE_BOUNDED_BATCH','canonicalBase':'b9b10fffb0d5de31b0e64d90af7e4220d7a790c8','questionId':'marrow__BIOCHEM_CH04_Q011','referenceId':'marrow__BIOCHEM_CH04_Q011:figure:1','releasedAsset':'biochemistry-e302242457457cdc','productionSha256':'e302242457457cdcabcca8ced492809b2f1947c049b719ff49a0be6bd6a222f6','coverage':s,'nextSourceReference':nxt},indent=2)+'\n')
+          state=Path('.project-memory/STATE.md'); text=state.read_text()
+          old='- Marrow image integration is owned by the user\'s automations.'
+          start=text.index(old); end=text.index('\n- Verified manual Physiology Batch 01',start)
+          replacement=(f"- Marrow image integration is owned by the user's automations. Latest bounded Biochemistry Q11 recovery uses authoritative rendered-page continuation evidence: recorded page-69 fructose mapping adjudicated SOURCE_METADATA_INVALID while native page-70 xref 162 galactose pathway is independently PASS-bound/released. Coverage now {s['sourceVisualReferences']} raw / {s['effectiveLearnerVisualReferences']} effective / {s['releasedSourceVisualReferences']} released / {s['invalidSourceMetadataReferences']} invalid / {s['trackedButUnreleasedReferences']} tracked-unreleased / {s['untrackedSourceVisualReferences']} untracked / {s['textCueReviewItems']} text-cue. Next source-order reference: `{nxt}`. Subject remains incomplete until the require-complete gate passes. Physiology automation remains paused until Biochemistry coverage recovery.")
+          state.write_text(text[:start]+replacement+text[end:])
+          log=Path('.project-memory/SESSION_LOG.md')
+          log.write_text(log.read_text()+f"\n\n## 2026-09-20 — Biochemistry image coverage Q11 recovery\n- Base: `b9b10fffb0d5de31b0e64d90af7e4220d7a790c8`; bounded target `marrow__BIOCHEM_CH04_Q011:figure:1`.\n- Rendered pages 69-70 establish metadata defect: page 69 figure is fructose metabolism; Q11 continues to page 70 native xref 162 galactose pathway. Preserved historical rejected page-69 binding; adjudicated only the false recorded page-69 reference.\n- Released native 600x451 JPEG `biochemistry-e302242457457cdc`, SHA `{ 'e302242457457cdcabcca8ced492809b2f1947c049b719ff49a0be6bd6a222f6' }`, explanation-only, byte-identical, no processing/generation.\n- Coverage after mutation: {json.dumps(s,sort_keys=True)}. Next deterministic source reference: `{nxt}`.\n- Local/source gates run before commit; exact-head Engineering/full Android-PWA verification is dispatched by the image automation CI bridge after push. Production promotion prohibited.\n")
+          PY
+          python3 tools/verify_project_memory.py
+          git diff --check
+          git status --short
+          git add data/marrow/images app/src/main/assets/marrow_visual_metadata.js app/src/main/assets/marrow_visuals .project-memory/STATE.md .project-memory/SESSION_LOG.md
+          git -c user.name='NK QBank Automation' -c user.email='actions@users.noreply.github.com' commit -m 'Recover Biochemistry Ch4 Q11 galactose figure'
+          git push origin HEAD
