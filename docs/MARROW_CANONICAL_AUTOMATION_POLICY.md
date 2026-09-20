@@ -71,7 +71,7 @@ Future explanation batches containing tables must validate both source table int
 
 ## Image work
 
-- Read the Marrow image automation runbook plus this policy.
+- Image integration is owned by the user's automations. Read `.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md`, `docs/MARROW_IMAGE_PIPELINE.md`, `docs/MARROW_IMAGE_COVERAGE_GATE.md`, and this policy. The primary agent prepares the integration trunk but does not perform image batches.
 - `INTEGRATION_BASE_BRANCH` is `feature/marrow-canonical-full-current`.
 - The shared image registry/progress state on the canonical trunk is authoritative after reconciliation.
 - Existing verified image assets/bindings from historical image branches may be transplanted by content hash + stable question ID + provenance; never wholesale-merge an old incomplete source lineage.

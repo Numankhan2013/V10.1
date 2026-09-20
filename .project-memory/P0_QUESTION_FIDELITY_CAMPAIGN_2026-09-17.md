@@ -2,6 +2,13 @@
 
 ## Purpose
 
+**Priority update, 2026-09-20:** The user assigned image integration to
+automations and authorized preparing the canonical branch for them. The
+temporary image-work prohibition in this campaign is superseded for that lane
+only. This does not mark the campaign complete, resolve ambiguous notation,
+relax source-fidelity gates, or authorize percentage-correct/UI work. See
+`.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md` for the image handoff.
+
 This is the active stabilization directive for NK QBank. It exists because user physical review exposed two learner-facing fidelity defects that must be resolved before unrelated cleanup, explanation tuning, image integration, percentage/community-statistics work, or new features resume.
 
 This is **not a speed task**. Correctness and source fidelity matter more than throughput.
@@ -41,7 +48,7 @@ The app currently displays an incomplete fourth row with a missing counterpart /
 2. **Never guess scientific notation.** Repair only notation that is unambiguous from source/context. Ambiguous source loss must remain flagged for source-backed repair.
 3. **Preserve the canonical answer contract.** Presentation repair must not casually alter canonical option text, option order, `correctOption`, stable question identity, history/FSRS mappings, or source records.
 4. **Source fidelity beats visual prettiness.** An unavailable question is preferable to a clean-looking incorrect question.
-5. **No unrelated work during this campaign.** Do not resume percentage/community statistics, unrelated UI work, image integration, explanation fine-tuning, or broad content cleanup until this fidelity gate is complete.
+5. **No unrelated work during this campaign.** Do not resume percentage/community statistics, unrelated UI work, explanation fine-tuning, or broad content cleanup until this fidelity gate is complete. The 2026-09-20 user priority update above permits the separate automation-owned image lane under its existing source and coverage gates.
 6. **Do not promote to production without explicit user approval.**
 
 ---
@@ -411,7 +418,7 @@ Until this file is completed through Phase 8, do **not** resume:
 - percentage/community-statistics work;
 - new features;
 - unrelated UI redesign;
-- image integration;
+- image integration outside the 2026-09-20 automation-owned exception above;
 - explanation fine-tuning;
 - broad cleanup work unrelated to these P0 fidelity defects.
 

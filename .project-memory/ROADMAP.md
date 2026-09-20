@@ -31,7 +31,7 @@ Check off only when build-verified **and** device-verified where UI is involved.
       CI and generated 320/390/768 px visual QA pass at a717563; canonical
       reconciliation and physical-device acceptance remain.
 
-## PrepLadder source-visual quality — ahead of remaining Marrow images
+## PrepLadder source-visual quality — separate from Marrow automation
 
 - [ ] Run the exact Linux PDF/generated-app pipeline for the new non-destructive
       full-corpus inventory and crop-safety gate. Inspect high-risk-first
@@ -40,9 +40,10 @@ Check off only when build-verified **and** device-verified where UI is involved.
 - [ ] Run the representative phone/tablet browser gate, APK/package checks and
       Engineering Gate on one exact canonical SHA. Physical-device acceptance
       and production promotion remain explicit user actions.
-- [ ] After PrepLadder certification, resume Marrow Biochemistry at
-      `marrow__BIOCHEM_CH04_Q011:figure:1`; clear 4 tracked-unreleased, 34
-      untracked and 31 text-cue references before moving to Physiology.
+- [ ] Marrow Biochemistry automations may proceed independently from the
+      PrepLadder manual source-comparison queue. Start at
+      `marrow__BIOCHEM_CH04_Q011:figure:1`; current coverage has 4
+      tracked-unreleased, 34 untracked and 31 text-cue references.
 
 ## Marrow expansion
 
@@ -83,12 +84,12 @@ Check off only when build-verified **and** device-verified where UI is involved.
       rollout loader, inventory, Q17 browser regression, APK/package contracts
       and preview deployment. When explanation work resumes, continue in source
       order from **Physiology Chapter 6 — Physiology of Nerve**.
-- [ ] Image integration is a separate workstream owned by the **primary agent**.
-      The current branch has 147 approved assets and 166 released bindings serving
-      152 questions. Batches 05–07 reviewed 90 bindings and released 72; 17 false
-      page-neighbor/reuse mappings were rejected and one below-baseline Golgi-tendon
-      figure is held for reconstruction. Continue bounded native-first review, then
-      resolve multi-candidate, masked, vector and reconstruction cases separately.
+- [ ] Image integration is an **automation-owned** workstream. Start from the live
+      canonical head and the source-reference coverage ledger, not historical
+      reviewed-registry counts. Biochemistry is next at
+      `marrow__BIOCHEM_CH04_Q011:figure:1`; keep unresolved source corruption
+      flagged and reconcile each verified bounded batch into canonical. See
+      `.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md`.
 - [ ] Continue later Marrow chapters beyond the supplied current scope only when
       verified source JSONL is available.
 - [ ] Keep production promotion deliberate; build/browser success is not acceptance.
