@@ -1,0 +1,54 @@
+name: Biochemistry Ch12 Tail Source Projection Once
+on:
+  push:
+    branches:
+      - automation/biochem-explanation-ch12-q012-q014-20260921
+permissions:
+  contents: write
+jobs:
+  project:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: automation/biochem-explanation-ch12-q012-q014-20260921
+          fetch-depth: 0
+      - name: Verify exact canonical base
+        run: |
+          git fetch origin feature/marrow-canonical-full-current
+          test "$(git rev-parse origin/feature/marrow-canonical-full-current)" = "77d2b682442217e1281ea54f0f546cd7281be41b"
+          test "$(git merge-base HEAD origin/feature/marrow-canonical-full-current)" = "77d2b682442217e1281ea54f0f546cd7281be41b"
+      - name: Extract authoritative Ch12 Q12-Q14 projection
+        run: |
+          python3 - <<'PY'
+          import base64, hashlib, json, zlib
+          from pathlib import Path
+          data=Path('data/marrow')
+          encoded=''.join(p.read_text().strip() for p in sorted(data.glob('biochemistry_ch001_028.zlib.b64.part*')))
+          raw=zlib.decompress(base64.b64decode(encoded))
+          assert hashlib.sha256(raw).hexdigest() == '919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1'
+          bank=json.loads(raw)
+          wanted={f'marrow__BIOCHEM_CH12_Q{i:03d}' for i in range(12,15)}
+          rows=[q for q in bank['questions'] if q['id'] in wanted]
+          assert {q['id'] for q in rows} == wanted
+          assert all(str(q['chapterId'])=='12' for q in rows)
+          rows.sort(key=lambda q:int(q['questionNumber']))
+          out={
+            'schemaVersion':1,
+            'purpose':'Authoritative read-only source projection for unattended Biochemistry explanation authoring; raw source bundle remains immutable.',
+            'canonicalBase':'77d2b682442217e1281ea54f0f546cd7281be41b',
+            'sourceRawSha256':hashlib.sha256(raw).hexdigest(),
+            'subject':'Biochemistry','chapterId':'12','questionRange':'Q12-Q14','questions':rows,
+          }
+          target=data/'source_audit'/'biochemistry_ch12_q012_q014_source.json'
+          target.parent.mkdir(parents=True,exist_ok=True)
+          target.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
+          PY
+      - name: Commit projection and remove one-time workflow
+        run: |
+          rm .github/workflows/biochem-ch12-tail-source-projection-once.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/marrow/source_audit/biochemistry_ch12_q012_q014_source.json .github/workflows/biochem-ch12-tail-source-projection-once.yml
+          git commit -m "Project authoritative Biochemistry Ch12 Q12-Q14 source"
+          git push origin HEAD:automation/biochem-explanation-ch12-q012-q014-20260921
