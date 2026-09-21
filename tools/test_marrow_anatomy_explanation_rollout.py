@@ -10,6 +10,7 @@ EXPECTED_CANONICAL_SHA = "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d
 BATCHES = (
     ("explanation_anatomy_ch06_q001_q007_v1.json", 1, 7, "700cde07869068a7d3aadf77dc89d7bd85726530"),
     ("explanation_anatomy_ch06_q008_q018_v1.json", 8, 18, "e01cc0b9a8e62885d29b0c2e7ac6417ce8c96f05"),
+    ("explanation_anatomy_ch06_q019_q025_v1.json", 19, 25, "0c57fd4deb0a0ffb6ea57865bef56ac00b52c1e0"),
 )
 
 
@@ -49,6 +50,14 @@ def validate_batch(canonical_by_id: dict, legacy_by_id: dict, filename: str, sta
         assert all(str(reason).strip() for reason in cfg["rationales"].values())
 
 
+def validate_reconstruction(questions: dict, canonical_by_id: dict, qid: str) -> None:
+    reconstruction = questions[qid].get("reconstruction", {})
+    assert reconstruction.get("status") == "needs_manual_review"
+    for key in ("sourceProblem", "reconstructedContent", "evidenceBasis", "reviewNote"):
+        assert str(reconstruction.get(key, "")).strip()
+    assert canonical_by_id[qid].get("reviewStatus") == "needs_manual_review"
+
+
 def main() -> None:
     canonical, canonical_sha = load_sharded("anatomy_ch001_063")
     legacy, _ = load_sharded("anatomy_phase_a")
@@ -59,14 +68,16 @@ def main() -> None:
     for args in BATCHES:
         validate_batch(canonical_by_id, legacy_by_id, *args)
 
-    q2 = json.loads((DATA / BATCHES[0][0]).read_text(encoding="utf-8"))["questions"]["marrow__ANAT_CH06_Q002"]
-    reconstruction = q2.get("reconstruction", {})
-    assert reconstruction.get("status") == "needs_manual_review"
-    for key in ("sourceProblem", "reconstructedContent", "evidenceBasis", "reviewNote"):
-        assert reconstruction.get(key)
-    assert canonical_by_id["marrow__ANAT_CH06_Q002"].get("reviewStatus") == "needs_manual_review"
+    q1_7 = json.loads((DATA / BATCHES[0][0]).read_text(encoding="utf-8"))["questions"]
+    q19_25 = json.loads((DATA / BATCHES[2][0]).read_text(encoding="utf-8"))["questions"]
+    validate_reconstruction(q1_7, canonical_by_id, "marrow__ANAT_CH06_Q002")
+    validate_reconstruction(q19_25, canonical_by_id, "marrow__ANAT_CH06_Q024")
 
-    print("MARROW_ANATOMY_EXPLANATION_ROLLOUT_TEST_OK chapter=6 ranges=1-7,8-18 count=18 canonical_source=pinned legacy_equivalence=pinned q2=needs_manual_review")
+    print(
+        "MARROW_ANATOMY_EXPLANATION_ROLLOUT_TEST_OK "
+        "chapter=6 ranges=1-7,8-18,19-25 count=25 canonical_source=pinned "
+        "legacy_equivalence=pinned q2=needs_manual_review q24=needs_manual_review"
+    )
 
 
 if __name__ == "__main__":
