@@ -1,0 +1,21 @@
+# Anatomy explanation automation handoff — Ch6 Q19–Q25
+
+- State: PR_OPEN_CI_PENDING / CURRENT_UNVERIFIED.
+- Subject: Anatomy.
+- Canonical integration trunk: `feature/marrow-canonical-full-current`.
+- Exact canonical base SHA: `0c57fd4deb0a0ffb6ea57865bef56ac00b52c1e0`.
+- Batch branch: `automation/marrow-explanations-anatomy-20260920-ch06-q019`.
+- Range: `marrow__ANAT_CH06_Q019` through `marrow__ANAT_CH06_Q025` (7 contiguous questions; chapter tail).
+- Starting deterministic inventory: 615 enhanced-reference / 2,096 pending / 2,711 total; starting question-record fingerprint `2ad7006f78607d0974269e4aad0baaed9cba6124560885adb3e30f3e6651ce14`.
+- Raw source remains immutable.
+- Source ownership: current canonical full Anatomy bundle is `data/marrow/anatomy_ch001_063.zlib.b64.part*`; canonical manifest/source hash remains authoritative. Historical connector-readable Ch6 audit at `9c714d5bb9f4a55bc9baeaf56ada328b49b882dd` was used only as a readable source view for the same stable IDs; no raw source was changed.
+- Workload score: 16.0 for Q19–Q25. Q20 carries a structured source table/provenance note; Q21/Q23/Q25 are figure-supported; Q24 carries a structured table, figure and missing numbered-list source defect requiring reconstruction review.
+- Authored augmentation: `data/marrow/explanation_anatomy_ch06_q019_q025_v1.json`.
+- Reconstruction: Q24 is explicitly `needs_manual_review`. The source preserves the medical chronology and keyed answer `2-4-3-1` but omits the numbered mapping assigning phases to 1–4; the augmentation teaches the recoverable chronology and does not invent that mapping. Q19–Q23/Q25 need no reconstruction metadata.
+- Quality contract authored: meaningful takeaway, structured medical explanation, 1–4 verbatim emphasis anchors, and exactly three non-key rationales for each four-option SBA.
+- FULLY_VERIFIED_HISTORY remains separate: Anatomy Ch6 Q1–Q18 only.
+- PR: #61, base `feature/marrow-canonical-full-current`, opened from authored head `1a7e00be8fad57bb8abedef768f3a54f5c9229f6`; initial GitHub mergeability was not yet resolved/false at creation.
+- CI: no pull-request workflow run was visible immediately after PR creation. The handoff update itself advances the branch head, so exact-head CI must certify the new current head, not the authored predecessor.
+- Failure classification: none; CI is pending. Q24 remains source-review-required by design, which is non-fatal and must not disable the worker.
+- Exact next action: re-read canonical HEAD/ownership/fingerprint, resolve PR #61 current head and CI. Run/inspect static Anatomy rollout/source-ID/key/rationale/emphasis/reconstruction validation and deterministic 2,711-ID inventory, then shared browser/Practice/CBT/Review/FSRS regressions and exact-head Engineering + full Android/PWA/APK/package/reproducibility/preview verification. Only after exact-current-head dual-green may the batch reconcile into canonical and release the explanation lane.
+- Production promotion prohibited.
