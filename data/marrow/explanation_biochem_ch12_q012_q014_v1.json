@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Biochemistry Chapter 12 explanation rollout. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "12",
+    "chapterTitle": "Lipids: Basics",
+    "questionStart": 12,
+    "questionEnd": 14,
+    "questions": 3,
+    "status": "approved-rollout",
+    "workloadScore": 3.5,
+    "canonicalBaseSha": "8378ba6db8c7c0f95bfcc3a9b71efbf2ccebbe78",
+    "sourceProjectionSha": "ccf1476f6073421d9df41bd6dc8bcfc117ce5f23",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH12_Q012": {
+      "takeaway": "Free fatty acids circulate in plasma bound noncovalently to albumin.",
+      "displayText": "Free fatty acids are hydrophobic, so they do not circulate freely in the aqueous plasma. Instead, they are transported noncovalently bound to albumin, especially after release from adipose tissue during lipolysis.\n\nAlbumin therefore serves as the principal plasma carrier for circulating free (non-esterified) fatty acids.",
+      "emphasis": ["Free fatty acids", "bound to albumin", "principal plasma carrier"],
+      "rationales": {
+        "a": "Ceruloplasmin is the major copper-carrying plasma protein; it is not the principal carrier of free fatty acids.",
+        "b": "Prealbumin is an older name for transthyretin, which transports thyroxine and retinol-binding protein rather than free fatty acids.",
+        "d": "Transthyretin transports thyroid hormone and retinol-binding protein; circulating free fatty acids are carried mainly by albumin."
+      }
+    },
+    "marrow__BIOCHEM_CH12_Q013": {
+      "takeaway": "Respiratory quotient is CO2 produced divided by O2 consumed; for fat it is approximately 0.7.",
+      "displayText": "The respiratory quotient (RQ) is the molar ratio of carbon dioxide produced to oxygen consumed during substrate oxidation: RQ = CO2 produced / O2 consumed.\n\nFat has an RQ of approximately 0.7 (the source comparison table gives 0.71). Fatty acids are relatively reduced and therefore require proportionally more oxygen for oxidation than carbohydrate, whose RQ is about 1.0.",
+      "emphasis": ["respiratory quotient (RQ)", "CO2 produced / O2 consumed", "approximately 0.7", "carbohydrate, whose RQ is about 1.0"],
+      "rationales": {
+        "a": "An RQ of 1.0 is characteristic of carbohydrate oxidation, not lipid oxidation.",
+        "b": "An RQ near 0.8 is closer to protein oxidation (about 0.81 in the source table), not fat.",
+        "d": "An RQ of 0.6 is lower than the standard value for fat; the source gives fat as 0.71."
+      },
+      "sourceNotes": ["The immutable source contains the structured table 'Respiratory quotient for various substances' with carbohydrate 1.00, protein 0.81, fat 0.71 and alcohol 0.66; it remains source-owned and must render as a populated table."]
+    },
+    "marrow__BIOCHEM_CH12_Q014": {
+      "takeaway": "Zellweger (cerebrohepatorenal) syndrome causes accumulation of very-long-chain fatty acids because peroxisomal function is defective.",
+      "displayText": "Cerebrohepatorenal syndrome (Zellweger syndrome) is a peroxisome-biogenesis disorder caused by defects in peroxins. The resulting generalized loss of peroxisomal function impairs peroxisomal beta-oxidation of very-long-chain fatty acids.\n\nConsequently, very-long-chain fatty acids accumulate, including in brain tissue, producing severe neurologic disease such as hypotonia and seizures. Other peroxisomal pathways are also affected, including plasmalogen and bile-acid metabolism.",
+      "emphasis": ["Zellweger syndrome", "peroxisome-biogenesis disorder", "very-long-chain fatty acids", "accumulate"],
+      "rationales": {
+        "b": "Glucose accumulation is not the characteristic biochemical defect in Zellweger syndrome; the primary problem is loss of peroxisomal functions.",
+        "c": "Lactic acid accumulation suggests disorders causing impaired oxidative metabolism or pyruvate handling, not the defining peroxisomal defect of Zellweger syndrome.",
+        "d": "Triglyceride accumulation is not the characteristic brain metabolite abnormality; defective peroxisomal oxidation leads to accumulation of very-long-chain fatty acids."
+      }
+    }
+  }
+}
