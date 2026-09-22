@@ -142,8 +142,10 @@ def main():
                 page.evaluate('window.QB.nextQ()')
                 assert page.evaluate('id=>window.QB.getState().attempts[id].at(-1).source', fsrsid) == 'fsrs-review'
                 # End special session via its existing final review control.
+                page.evaluate('window.QB.openSessionReview()')
                 page.evaluate('window.QB.endSession()')
                 page.wait_for_function('!window.QB.getState().activeSession')
+                assert page.locator('#nk-session-review,#qb-question-navigator').count() == 0, 'completed special session left a blocking overlay'
                 page.get_by_role('button', name='Review Solutions', exact=True).click()
                 page.wait_for_function("window.QB.getState().activeSession?.mode==='review'")
                 review_before = page.evaluate('JSON.stringify([window.QB.getState().attempts,window.QB.getState().reviews,window.QB.getState().tests])')

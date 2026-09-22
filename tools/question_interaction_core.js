@@ -32,7 +32,12 @@
       if(tx.dirty&&nkInteractionSave()===false){state=before;return false;}
     }catch(error){state=before;nkStorageError('Question action was not saved. Try the action again',error);return false;}
     finally{nkInteractionTransaction=null;}
-    if(tx.navigation)nkFsrsOriginalNavigate.apply(null,tx.navigation);
+    if(tx.navigation){
+      if(!['practice','exam','review-test'].includes(tx.navigation[0])){
+        document.getElementById('nk-session-review')?.remove();document.getElementById('qb-question-navigator')?.remove();
+      }
+      nkFsrsOriginalNavigate.apply(null,tx.navigation);
+    }
     if(tx.render)nkInteractionRender();
     tx.effects.forEach(([fn,args])=>fn.apply(null,args));
     return result;
