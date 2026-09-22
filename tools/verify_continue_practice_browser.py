@@ -273,8 +273,8 @@ def main() -> None:
             analysis.click()
             page.wait_for_function("window.QB.getState().activeSession?.mode==='review'")
             review_session_id = page.evaluate("window.QB.getState().activeSession.id")
-            page.locator("#cr-next").click()
-            page.locator("#cr-prev").click()
+            page.get_by_role("button", name="Next", exact=True).click()
+            page.get_by_role("button", name="Previous", exact=True).click()
             if page.evaluate("window.QB.getState().activeSession.id") != review_session_id:
                 raise SystemExit("Review Previous/Next replaced the read-only review session")
             page.locator("#cr-grid").click()
