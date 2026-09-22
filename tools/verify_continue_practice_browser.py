@@ -268,7 +268,7 @@ def main() -> None:
 
             # Complete the daily loop through Analysis and the read-only Review
             # surface, including Previous/Next, the grid, and End Review.
-            analysis = page.locator(".v102-review-action")
+            analysis = page.get_by_role("button", name="Review Solutions", exact=True)
             analysis.wait_for(state="visible")
             analysis.click()
             page.wait_for_function("window.QB.getState().activeSession?.mode==='review'")
