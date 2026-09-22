@@ -94,7 +94,10 @@ def main() -> None:
             # Major-navigation smoke matrix on the same final generated app.
             for target in ("fsrs", "tests", "analytics", "more", "bookmarks", "module-builder", "study-library"):
                 page.evaluate("target => window.QB.nav(target)", target)
-                page.wait_for_function("target => location.hash.includes(target) && document.querySelector('#app')?.innerText.trim().length > 0", target)
+                page.wait_for_function(
+                    "target => location.hash.includes(target) && document.querySelector('#app')?.innerText.trim().length > 0",
+                    arg=target,
+                )
                 if page.locator("#modal, #qb-question-navigator, #nk-session-review").count():
                     raise SystemExit(f"Stale overlay appeared during navigation to {target}")
             page.evaluate("window.QB.nav('dashboard')")
