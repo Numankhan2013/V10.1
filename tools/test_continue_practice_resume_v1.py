@@ -26,7 +26,7 @@ global.window={QB:{}};
 global.document={getElementById:()=>null};
 global.setTimeout=fn=>fn();
 
-let route={page:'practice'},saved=0,oldContinueCalls=0,legacyHomeContinueCalls=0,opened=null,started=null;
+let route={page:'practice'},saved=0,failSaves=false,oldContinueCalls=0,legacyHomeContinueCalls=0,opened=null,started=null;
 let navigatorCalls=0,reviewCalls=0;
 const make=(topic,count,start=1)=>Array.from({length:count},(_,i)=>({id:`q${start+i}`,subject:'Anatomy',bank:'Marrow',chapterId:topic,chapter:topic==='t1'?'Topic One':'Topic Two'}));
 const questions=[...make('t1',20),...make('t2',3,21)],BY_ID=Object.fromEntries(questions.map(q=>[q.id,q]));
@@ -34,9 +34,10 @@ const SUBJECTS=[{subject:'Anatomy',bank:'Marrow',topics:[{id:'t1',title:'Topic O
 let state={attempts:{},tests:[],activeSession:null,fsrsReviewEligible:{}};
 const activeSubject='Anatomy',nkFindStudyQuestion=id=>BY_ID[id]||null,nkTopicTitleForQuestion=q=>q.chapter;
 const nkBankRecords=subject=>SUBJECTS.filter(r=>r.subject===subject),qAttempts=id=>state.attempts[id]||[];
-const saveState=()=>{saved++},navigate=page=>{route.page=page},openBank=()=>{},openSubjectTopics=()=>{};
+const saveState=()=>{saved++;return !failSaves},navigate=page=>{route.page=page},openBank=()=>{},openSubjectTopics=()=>{};
+const saveExamElapsed=()=>{},recordAttempt=()=>{};let submitExam=()=>true;
 const nkOpenSubjectChapter=(subject,bank,topicId)=>{opened={subject,bank,topicId}};
-const startSession=(ids,mode,title)=>{started={ids:[...ids],mode,title};state.activeSession={id:'new',mode,title,questionIds:[...ids],index:0,answers:{},submitted:{},questionTimes:{}}};
+let startSession=(ids,mode,title)=>{started={ids:[...ids],mode,title};state.activeSession={id:'new',mode,title,questionIds:[...ids],index:0,answers:{},submitted:{},questionTimes:{}}};
 const savePracticeElapsed=()=>{},nkMarkSkippedFromSession=s=>{const id=s.questionIds[s.index];if(!s.submitted[id])state.fsrsReviewEligible[id]={reason:'skipped'}};
 const endSession=()=>finishPracticeSession();
 let finishPracticeSession=()=>{const s=state.activeSession;state.tests.push({id:'done',kind:'practice',questionIds:[...s.questionIds],createdAt:99});state.activeSession=null;};
@@ -123,12 +124,27 @@ assert.equal(state.activeSession.index,4);
 assert.equal(state.activeSession.questionIds[4],'q5');
 assert.equal(legacyHomeContinueCalls,0);
 
+// A failed Pause save must retain the live session and must not navigate away.
+route.page='practice';state.activeSession.lifecycle='active';const beforeFailedPause=JSON.stringify(state.activeSession);failSaves=true;
+assert.equal(nkPausePractice(),false);
+assert.equal(route.page,'practice');
+assert.equal(JSON.stringify(state.activeSession),beforeFailedPause);
+failSaves=false;
+
 for(const id of state.activeSession.questionIds)state.activeSession.submitted[id]=true;
+const beforeFailedSubmit=JSON.stringify(state.activeSession),testsBeforeFailedSubmit=state.tests.length;failSaves=true;
+assert.equal(nkSubmitPracticeSession(),false);
+assert.equal(JSON.stringify(state.activeSession),beforeFailedSubmit);
+assert.equal(state.tests.length,testsBeforeFailedSubmit);
+failSaves=false;
 nkSubmitPracticeSession();
 assert.equal(state.activeSession,null);
 assert.equal(state.tests.at(-1).questionIds.length,20);
 assert.equal(state.tests.at(-1).practiceContext.topicId,'t1');
 assert.equal(state.tests.at(-1).practiceContext.completed,true);
+const submittedTestCount=state.tests.length;
+assert.equal(nkSubmitPracticeSession(),false);
+assert.equal(state.tests.length,submittedTestCount);
 
 for(let i=1;i<=20;i++)state.attempts[`q${i}`]=[{at:i,correct:true}];
 started=null;opened=null;nkContinueRecentPractice();
@@ -138,8 +154,23 @@ assert.equal(started,null);
 state.tests=[{id:'partial',kind:'practice',createdAt:100,practiceContext:{subject:'Anatomy',bank:'Marrow',topicId:'t1',title:'Topic One'}}];
 delete state.attempts.q18;delete state.attempts.q19;delete state.attempts.q20;started=null;opened=null;
 nkContinueRecentPractice();
-assert.deepEqual(started.ids,['q18','q19','q20']);
-assert.equal(started.mode,'practice');
+assert.deepEqual(state.activeSession.questionIds,['q18','q19','q20']);
+assert.equal(state.activeSession.mode,'practice');
+
+// Timed CBT is exclusive and its terminal save is failure-aware/idempotent.
+const now=Date.now();state.activeSession={id:'exam-live',mode:'exam',title:'CBT',questionIds:['q1'],index:0,answers:{q1:1},submitted:{},questionTimes:{q1:5},startedAt:now,deadlineAt:now+60000};
+assert.equal(startSession(['q2'],'practice','New Practice','normal'),false);
+assert.equal(state.activeSession.id,'exam-live');
+failSaves=true;const testsBeforeExamFailure=state.tests.length;
+assert.equal(submitExam(false),false);
+assert.equal(state.activeSession.id,'exam-live');
+assert.equal(state.tests.length,testsBeforeExamFailure);
+failSaves=false;
+assert.equal(submitExam(false),true);
+assert.equal(state.activeSession,null);
+const examCount=state.tests.length;
+assert.equal(submitExam(false),false);
+assert.equal(state.tests.length,examCount);
 
 // Non-normal Practice modes keep their existing behavior.
 state.activeSession={mode:'practice',studyModuleId:'module-1',questionIds:['q1'],index:0,answers:{},submitted:{}};

@@ -321,3 +321,19 @@ shared by Practice, CBT, and Review. A coherent A–D/A–E run owns the answer 
 numbered/lettered extraction fragments become semantic matching/list support, never
 buttons. If a usable choice contract or correct index cannot be established, the
 question fails closed instead of recording a potentially false answer.
+
+## 24. Durable learner state and normal Practice sync are separate concerns (2026-09-22)
+
+`activeSession` remains the compatible live UI surface, but normal Practice also
+owns one versioned checkpoint with immutable membership, explicit lifecycle, and
+per-question revision metadata. Special sessions may suspend that checkpoint but
+must not become Home's Continue Practice. Terminal checkpoint states outrank stale
+active copies.
+
+All learner-state writes use one success-reporting, revisioned transaction with a
+pending journal and last-known-good recovery copy. Destructive transitions may
+navigate or clear live state only after this transaction succeeds. Normal Practice
+sync uses its checkpoint rather than the transient `sessions/active` entity:
+same-session progress merges per question, membership mismatches fail closed, and
+different unfinished sessions surface a conflict. Full rationale and defect
+coverage: `docs/CORE_RELIABILITY_DEFECT_LEDGER_2026-09-22.md`.

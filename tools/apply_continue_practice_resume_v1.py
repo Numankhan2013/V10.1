@@ -66,7 +66,7 @@ def transform(source: str) -> str:
         raise SystemExit("HTML head anchor missing")
     source = source.replace("</head>", CSS + "\n</head>", 1)
 
-    exports = "nkPausePractice,nkSubmitPracticeSession,"
+    exports = "nkPausePractice,nkSubmitPracticeSession,nkDiscardNormalPractice,nkResolvePracticeReplacement,nkResolveTimedSession,"
     if exports not in source:
         qb = "window.QB={"
         if source.count(qb) != 1:

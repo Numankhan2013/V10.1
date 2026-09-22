@@ -1040,3 +1040,12 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Reconciled derived `STATE.md` explanation memory with the deterministic canonical full-corpus inventory: **615 enhanced / 2,096 pending / 2,711 total**, fingerprint `2ad7006f78607d0974269e4aad0baaed9cba6124560885adb3e30f3e6651ce14`.
 - Recorded Biochemistry Ch12 Q1–Q10 as FULLY_VERIFIED_HISTORY; no new explanation content was authored in this repair.
 - Exact next Biochemistry source-order candidate after reacquiring a free explanation lane: Ch12 Q11–Q14. Raw source remains immutable; production promotion remains prohibited.
+
+## 2026-09-22 — Core reliability hardening candidate
+
+- Branched `feature/marrow-core-reliability-hardening-20260922` from freshly fetched canonical `105cf02e358d8f869d745e698fc4faa32d777c92`; preserved untracked `.project-memory/STATE.md.orig`.
+- Added revisioned transactional learner-state persistence with pending journal, last-known-good recovery, visible retryable errors, and synchronous pagehide/background state + outbox capture.
+- Added a versioned normal-Practice checkpoint, explicit active/paused/suspended/terminal lifecycle, Resume-or-Discard replacement gate, atomic/idempotent Practice and CBT submit, restart-safe exclusive CBT, and transient Review cleanup.
+- Split normal Practice cloud sync from special sessions. Same-session progress merges per-question; different sessions and membership mismatches surface conflicts; terminal state cannot regress. Sync metadata now has journal/LKG recovery.
+- Expanded unit/contracts for corruption, interrupted/quota failures, destructive-transition rollback, duplicate submit, CBT exclusivity, concurrent/offline merge behavior, outbox safety, and special-mode isolation. Expanded the generated browser loop for a fresh-context restart, bookmark persistence, major navigation/back smoke, phone/iPad viewports, Analysis and complete Review Solutions navigation.
+- `python3 tools/verify_local.py` passes all 47 local checks. Full ordered Linux PDF/generated-browser/Android/PWA/APK/package CI and physical-device proof remain pending. Production was not promoted.

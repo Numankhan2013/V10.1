@@ -105,6 +105,14 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 - Batch 02 on historical branch `manual/marrow-physiology-fastlane-20260912-b02` is unverified evidence only: 40 refs audited, 14 metadata-invalid, 12 new assets, 14 specialist deferrals; targeted run `34704088880` failed canonical wiring and was never reconciled.
 - Canonical Physiology coverage remains 294 raw / 290 effective / 44 released / 4 invalid metadata / 48 resolved / 21 tracked-unreleased / 225 untracked / 28 text-cue. Next canonical reference: `marrow__PHYS_CH03_Q007:figure:1`.
 
+## Core reliability hardening candidate — local verification complete
+
+- Branch `feature/marrow-core-reliability-hardening-20260922` was created from live canonical `105cf02e358d8f869d745e698fc4faa32d777c92`.
+- Learner state now has revision/schema validation, pending + last-known-good recovery, success-reporting saves, a versioned normal-Practice checkpoint, failure-aware terminal transitions, restart-safe exclusive CBT, and checkpoint-specific conflict-safe cloud merge.
+- The accepted Continue Practice footer/grid/Review UI is unchanged. Browser coverage adds fresh-context restart, bookmarks, major navigation/back smoke, `390×844` + `820×1180`, Analysis, Review Solutions, grid, Previous/Next, End Review, and Home return.
+- Defect ledger: `docs/CORE_RELIABILITY_DEFECT_LEDGER_2026-09-22.md`.
+- Local status: `python3 tools/verify_local.py` passed 47 checks. Candidate is **not build-verified** until both exact-head required workflows pass, and is not device-verified. Production remains untouched.
+
 ## Anti-fragmentation rules
 
 - Explanation and image work build from `feature/marrow-canonical-full-current` and the complete 2,711-question corpus.
@@ -126,9 +134,9 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Current priorities / Next step
 
-1. **User priority, 2026-09-20:** prepare the canonical branch for image automations; the primary agent does not integrate images. This overrides only the P0 campaign's temporary prohibition on image work. P0 fidelity remains open and its source-fidelity rules stay in force. Percentage-correct and unrelated UI work remain parked.
-2. Automation must resolve the live canonical head, inspect the current registry/progress/coverage, claim one bounded Biochemistry batch, and reconcile only verified stable-ID/content-hash work into canonical before the next batch. Follow `.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md` and `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
-3. P0 Phase 3 has 219 source-review-required audit candidates, not 219 proven learner defects. Phase 5 exhausted safe text-layer notation repairs; the remaining ambiguous blocks require rendered-page review. Keep `PHASE3_STRUCTURE_ADJUDICATION_2026-09-19.md`, `PHASE4_NOTATION_FORENSIC_2026-09-19.md`, and `PHASE5_AMBIGUOUS_ADJUDICATION_2026-09-19.md` as fidelity handoffs. Phase 6 cross-surface review, final campaign sign-off and user acceptance remain pending.
+1. Complete exact-head Engineering + full Android/PWA/browser/APK/package CI for the core-reliability branch; do not claim build verification until both are green on the same final SHA. Then perform the listed physical Android/iPad lifecycle checks before acceptance.
+2. Image automation remains independently owned and must continue from live canonical, not from this unreconciled reliability branch. Follow `.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md` and `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
+3. P0 Phase 3 has 219 source-review-required audit candidates, not 219 proven learner defects. Phase 5 exhausted safe text-layer notation repairs; remaining ambiguous blocks require rendered-page review. Phase 6 cross-surface review, final campaign sign-off and user acceptance remain pending.
 
 ## Memory pointers
 
