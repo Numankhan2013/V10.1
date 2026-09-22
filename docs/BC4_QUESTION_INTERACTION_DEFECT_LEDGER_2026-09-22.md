@@ -36,6 +36,11 @@ assertion was removed. Rerun pending.
 - Canonical does not expose option-percentage badges or “X% got it right”. The
   historical percentage pilot is unmerged; these are not added as a BC4 feature.
 - Generated runtime phone/tablet coverage is not physical device verification.
+- The full build now also installs its exact APK in an Android 35 emulator and
+  exercises native WebView phone/tablet layouts, hardware Back, force-stop/reopen,
+  Pause/Resume, bookmark/attempt persistence, double navigation/submission and
+  read-only Review. This is native emulator verification, not physical acceptance;
+  the first run is pending. No app debugging flags or production code were added.
 - Final exact-SHA verification and results remain pending.
 
 Local real-handler coverage now includes 20 assertions: stale question and old

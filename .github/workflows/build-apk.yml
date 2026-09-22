@@ -19,6 +19,41 @@ permissions:
   contents: read
 
 jobs:
+  android-interaction:
+    name: Android WebView interaction regression
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      - uses: actions/download-artifact@v4
+        with:
+          name: V11.7-android-pwa
+          path: build/android-artifact
+      - name: Install Android interaction driver
+        run: npm install --no-package-lock --prefix "$RUNNER_TEMP/bc4-node" playwright@1.55.1
+      - name: Enable emulator acceleration
+        run: sudo chmod a+rw /dev/kvm
+      - name: Exercise packaged APK on Android phone and tablet
+        uses: reactivecircus/android-emulator-runner@v2
+        env:
+          NODE_PATH: ${{ runner.temp }}/bc4-node/node_modules
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          disable-animations: true
+          script: node tools/verify_android_question_interaction.js
+      - name: Upload Android interaction evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-question-interaction
+          path: build/android-interaction/
+          retention-days: 3
   build:
     runs-on: ubuntu-latest
     env:
