@@ -64,7 +64,20 @@
   const nkIntegrityPause=nkPausePractice;
   nkPausePractice=nkQuestionAction(function(){nkFsrsRecoverPending();return nkIntegrityPause.apply(this,arguments);});
   submitExam=nkQuestionAction(submitExam);
-  finishPracticeSession=nkQuestionAction(finishPracticeSession);
+  const nkIntegrityFinishPractice=finishPracticeSession;
+  finishPracticeSession=nkQuestionAction(function(){
+    const s=state.activeSession;
+    if(s?.mode==='practice'){
+      const index=s.index;
+      // Older clients can persist a selected but unsubmitted answer. Explicit
+      // final Submit must record it through the same answer/FSRS path once.
+      s.questionIds.forEach((id,i)=>{
+        if(!s.submitted?.[id]&&nkValidQuestionOption(nkPracticeResumeQuestion(id),s.answers?.[id])){s.index=i;submitPractice();}
+      });
+      s.index=index;nkFsrsRecoverPending();
+    }
+    return nkIntegrityFinishPractice.apply(this,arguments);
+  });
   nkSubmitPracticeSession=nkQuestionAction(nkSubmitPracticeSession);
   endSession=nkQuestionAction(endSession);
   if(typeof closeQuestionNavigator==='function'){

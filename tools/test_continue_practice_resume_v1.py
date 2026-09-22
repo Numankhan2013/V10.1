@@ -180,6 +180,9 @@ assert.equal(practiceActionBar().includes('nk-practice-session-controls'),false)
 state.activeSession={mode:'practice',title:'Wrong Questions',questionIds:['q1'],index:0,answers:{},submitted:{}};
 assert.equal(nkPausePractice(),false);
 assert.equal(practiceActionBar().includes('nk-practice-session-controls'),false);
+state.activeSession={mode:'practice',context:'normal',originRoute:'topics',title:'Bookmarked Questions',questionIds:['q1'],index:0,answers:{},submitted:{}};
+assert.equal(nkPracticeResumeEligible(state.activeSession),false,'normal context cannot hide the Bookmarks identity');
+assert.equal(nkPausePractice(),false);
 
 console.log('CONTINUE_PRACTICE_BEHAVIOR_OK single_grid=true footer=previous_next durable_pause=true home_continue=true full_session=20 saved_index=4');
 '''

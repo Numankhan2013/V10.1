@@ -16,8 +16,10 @@ def main():
     integrity = ROOT / 'tools/question_interaction_core.js'
     runtime = r'''
 const assert=require('assert');global.window=globalThis;
-window.FSRS=require(process.argv[2]);window.addEventListener=()=>{};
-global.document={addEventListener:()=>{},getElementById:()=>null,querySelector:()=>null,querySelectorAll:()=>[],body:{insertAdjacentHTML:()=>{}}};
+const events={},windowEvents={};window.FSRS=require(process.argv[2]);window.addEventListener=(name,fn)=>{windowEvents[name]=fn};
+global.document={addEventListener:(name,fn)=>{events[name]=fn},getElementById:()=>null,querySelector:()=>null,querySelectorAll:()=>[],body:{insertAdjacentHTML:()=>{}}};
+let historyTarget='';global.history={replaceState:(a,b,target)=>{historyTarget=target}};
+function parseHash(){return {page:'dashboard'};}
 const questions=['q1','q2','q3'].map(id=>({id,correctOption:1,options:['A','B','C','D'].map(letter=>({letter,text:letter}))}));
 const SUBJECTS=[{subject:'Biochemistry',questions}],BY_ID=Object.fromEntries(questions.map(q=>[q.id,q]));
 let state,failed=false,writes=0,renders=0;const LS_KEY='state';let persisted='';
@@ -48,6 +50,15 @@ check('FSRS context remains FSRS for the daily cap',()=>{state.activeSession.con
 check('double submission and rating produce one attempt',()=>{selectPractice('q1',1);selectPractice('q1',2);submitPractice();nkRateCurrent(3);nkRateCurrent(3);assert.equal(state.attempts.q1.length,1);assert.equal(state.attempts.q1[0].selected,1);assert.equal(state.reviews.q1.repetitions,1);});
 check('CBT selection changes before submission without FSRS',()=>{reset('exam');selectExam(1);selectExam(2);assert.equal(state.activeSession.answers.q1,2);assert.deepEqual(state.attempts,{});assert.deepEqual(state.reviews,{});});
 check('one wrong-answer action has one durable commit',()=>{writes=0;selectPractice('q1',2);assert.equal(writes,1);assert.equal(state.attempts.q1.length,1);});
+check('final submission commits a legacy selected answer to FSRS',()=>{state.activeSession.answers.q2=1;finishPracticeSession();assert.equal(state.attempts.q2?.length,1);assert.equal(state.reviews.q2.repetitions,1);});
+check('history Back commits pending FSRS exactly once',()=>{selectPractice('q1',1);windowEvents.hashchange();assert.equal(state.attempts.q1.length,1);windowEvents.hashchange();assert.equal(state.attempts.q1.length,1);});
+check('failed history Back restores route and pending work',()=>{selectPractice('q1',1);const before=JSON.stringify(state);failed=true;windowEvents.hashchange();assert.equal(JSON.stringify(state),before);assert.equal(historyTarget,'#practice');});
+check('stale pointer and double-click are rejected',()=>{
+ let stopped=0;const target={isConnected:true};const event={target:{closest:()=>target},detail:1,preventDefault:()=>{},stopImmediatePropagation:()=>stopped++};
+ events.pointerdown(event);state.activeSession.index=1;events.click(event);assert.equal(stopped,1);
+ events.click({...event,detail:2});assert.equal(stopped,2);
+ events.pointerdown(event);events.click(event);assert.equal(stopped,2,'fresh distinct tap must work');
+});
 if(failures.length){console.error(failures.join('\n'));process.exit(1);}
 console.log('QUESTION_INTERACTION_INTEGRITY_OK');
 '''

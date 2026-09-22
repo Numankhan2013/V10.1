@@ -49,6 +49,12 @@ failKey='';
 assert.throws(()=>nkNormalizeState({...valid,stateSchemaVersion:99}),/unsupported state schema/);
 state.activeSession={id:'exam',mode:'exam',questionIds:['q1'],startedAt:100};assert(nkDurablePersist(state,'suspend normal Practice'));
 assert(state.normalPracticeCheckpoint.lifecycle==='suspended','special session must suspend, not replace, normal Practice');
+for(const title of ['Bookmarked Questions','Wrong Questions','FSRS Review']){
+  state.activeSession={id:'special-'+title,mode:'practice',context:'normal',title,questionIds:['q2'],answers:{q2:1},submitted:{q2:true},index:0};
+  assert(nkDurablePersist(state,'special-mode isolation'));
+  assert(state.normalPracticeCheckpoint.sessionId==='practice-1','default normal context must not hide a special-mode title');
+  assert.deepStrictEqual(state.normalPracticeCheckpoint.answers,{q1:2});
+}
 console.log('DURABLE_PERSISTENCE_BEHAVIOR_OK');
 '''
     with tempfile.TemporaryDirectory() as directory:

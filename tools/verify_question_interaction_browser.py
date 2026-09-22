@@ -128,7 +128,7 @@ def main():
                     cp = page.evaluate('window.QB.getState().normalPracticeCheckpoint')
                     assert cp['sessionId'] == original['id'] and cp['answers'] == saved['answers']
                 # Due skipped fixture, with no invented attempt, enters real FSRS.
-                page.evaluate('''id=>{window.QB.getState().fsrsReviewEligible[id]={reason:'skipped',at:Date.now()};window.QB.saveState();window.QB.nkStartTodaysReview();}''', ids[4])
+                page.evaluate('''id=>{const st=window.QB.getState();st.fsrsReviewEligible=st.fsrsReviewEligible||{};st.fsrsReviewEligible[id]={reason:'skipped',at:Date.now()};window.QB.saveState();window.QB.nkStartTodaysReview();}''', ids[4])
                 page.wait_for_function("window.QB.getState().activeSession?.context==='spaced-review'")
                 assert page.evaluate('window.QB.getState().normalPracticeCheckpoint.sessionId') == original['id']
                 fsrsid = session(page)['questionIds'][0]
@@ -161,6 +161,7 @@ def main():
                 page.locator('#nk-session-review').get_by_role('button', name='Submit', exact=True).dblclick()
                 page.wait_for_function('!window.QB.getState().activeSession')
                 assert page.evaluate('id=>window.QB.getState().tests.filter(t=>t.id===`practice_${id}`).length', original['id']) == 1
+                assert page.evaluate('id=>(window.QB.getState().attempts[id]||[]).length===1 && Boolean(window.QB.getState().reviews[id])', ids[3]), 'legacy selected answer counted without attempt/FSRS'
                 assert page.evaluate('ids=>ids.every(id=>window.QB.getState().fsrsReviewEligible[id]?.reason==="skipped")', ids[5:])
                 assert page.evaluate('id=>Boolean(window.QB.getState().bookmarks[id])', ids[1])
                 # Actual CBT builder: changes remain private until final Submit.

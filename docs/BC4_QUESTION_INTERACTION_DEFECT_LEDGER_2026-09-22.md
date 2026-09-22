@@ -16,6 +16,14 @@ content, explanations, images, inventories, or automation assets change in BC4.
 | QI-03 | Invoke selection for an expired CBT question, or legacy Retry on Review / submitted Practice. | Visual locking was not enforced by all handlers. | Enforce expired/submitted/read-only state at handler boundary. Existing CBT answer changes remain allowed before submission. | Handler immutability, CBT changeability and duplicate-attempt tests pass. Browser matrix pending. |
 | QI-04 | Enter Bookmarks with default normal context, or FSRS using context without originRoute. | Normal-mode classification reads only the first populated field; reliable session creation drops originRoute; FSRS source classification ignores context. | Classify all session identity fields and preserve originRoute at creation; FSRS source has a context fallback. | FSRS-source test reproduced before fix and passes after; full Practice→Wrong→Bookmarks→FSRS→Review→Practice browser transition pending. |
 | QI-05 | Browser/Android WebView history Back while recall is pending. | hashchange bypasses the function-navigation FSRS save boundary and may retain modal overlays. | History boundary durably flushes elapsed/pending work, restores the old route on failure, and removes stale navigation overlays after success. | Browser history regression pending; native WebView uses the same history path. Physical Android testing not available in this environment. |
+| QI-06 | Restore a legacy selected-but-unsubmitted Practice answer, then submit the session. Analysis counts it but no attempt or FSRS event exists. | Final result classification reads selections while attempt creation runs only in question submission. | Explicit final submission commits every valid pending selection through the shared answer/FSRS path inside the same transaction. Pause still preserves the unsubmitted state. | Failing regression reproduced; fixed handler test and final-submit browser assertion added. |
+
+First full candidate `d4c1aed`: Engineering passed (`35752801349`); build
+`35752800543` passed the existing browser/lifecycle suites and the BC4 answer,
+quota, double-navigation, Pause/reload and Wrong/Bookmarks checks, then failed in
+the new test fixture because it assumed `fsrsReviewEligible` was initialized.
+The fixture now initializes its skipped-state map explicitly; no product
+assertion was removed. Rerun pending.
 
 ## Scope and audit contract
 
