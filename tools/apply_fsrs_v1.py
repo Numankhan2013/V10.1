@@ -8,6 +8,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "app/src/main/assets/index.html"
 CORE = ROOT / "tools/fsrs_scheduler_core.js"
+INTERACTION_CORE = ROOT / "tools/question_interaction_core.js"
 
 CSS = r'''<style id="nk-fsrs-v1">
 .nk-fsrs-today{display:grid;gap:14px;margin:14px 0}.nk-fsrs-counts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.nk-fsrs-counts b{display:grid;gap:3px;padding:11px;border-radius:13px;background:#f5f7fb;font-size:22px}.nk-fsrs-counts small{font-size:10px;color:var(--muted);text-transform:uppercase}.nk-fsrs-forecast{height:62px;display:flex;align-items:end;gap:9px}.nk-fsrs-forecast span{height:100%;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:end;gap:4px}.nk-fsrs-forecast i{display:block;width:100%;max-width:32px;border-radius:6px 6px 2px 2px;background:var(--primary)}.nk-fsrs-forecast small{font-size:9px;color:var(--muted)}/* NK_FSRS_RECALL_DOCK_V2 */
@@ -39,6 +40,8 @@ body:has(.nk-fsrs-settings){background:#f7f4fc!important}
 
 
 def transform(source: str) -> str:
+    source = re.sub(r"  /\* NK_QUESTION_INTERACTION_INTEGRITY_V1_START \*/.*?/\* NK_QUESTION_INTERACTION_INTEGRITY_V1_END \*/\s*", "", source, flags=re.S)
+    source = source.replace("  window.QB={", INTERACTION_CORE.read_text(encoding="utf-8") + "\n  window.QB={", 1)
     if "else if(route.page==='fsrs-settings')" not in source:
         source=source.replace("else if(route.page==='more') out=morePage();", "else if(route.page==='fsrs-settings') out=nkFsrsSettingsMarkup();\n    else if(route.page==='more') out=morePage();",1)
         source=source.replace("function render() {", "function render() {\n    if(nkFsrsGuardRoute()) return;",1)
@@ -61,7 +64,8 @@ def transform(source: str) -> str:
     anchor = "  window.QB={"
     if source.count(anchor) != 1:
         raise SystemExit(f"QB export anchor count: {source.count(anchor)}")
-    source = source.replace(anchor, CORE.read_text(encoding="utf-8") + "\n" + anchor, 1)
+    interaction_anchor = "  /* NK_QUESTION_INTERACTION_INTEGRITY_V1_START */"
+    source = source.replace(interaction_anchor, CORE.read_text(encoding="utf-8") + "\n" + interaction_anchor, 1)
     cloud_boot = "  nkReliabilityInit();\n  render();\n  nkCloudInit();\n})();"
     plain_boot = "  render();\n})();"
     if cloud_boot in source:

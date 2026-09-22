@@ -1,10 +1,14 @@
   /* NK_CONTINUE_PRACTICE_RESUME_V1_START */
+  function nkPracticeCloseOverlays(){
+    const close=()=>{document.getElementById('nk-session-review')?.remove();document.getElementById('qb-question-navigator')?.remove();};
+    if(typeof nkAfterQuestionCommit==='function')nkAfterQuestionCommit(close);else close();
+  }
   function nkPracticeResumeQuestion(id){
     return typeof nkFindStudyQuestion==='function' ? nkFindStudyQuestion(id) : (BY_ID?.[String(id)]||null);
   }
   function nkPracticeResumeEligible(s){
     if(!s||s.mode!=='practice'||s.studyModuleId)return false;
-    const origin=String(s.originRoute||s.context||s.title||'').toLowerCase();
+    const origin=[s.originRoute,s.context,s.title].filter(Boolean).join(' ').toLowerCase();
     return !/(fsrs|spaced|review|wrong|bookmark)/.test(origin);
   }
   function nkPracticeSessionIds(s){
@@ -135,7 +139,7 @@
     const before=typeof nkStateClone==='function'?nkStateClone(state):JSON.parse(JSON.stringify(state));
     if(typeof savePracticeElapsed==='function')savePracticeElapsed();nkPracticePrepareSession(s);
     s.lifecycle='paused';s.pausedAt=Date.now();s.pausedIndex=Number(s.index)||0;
-    if(saveState()===false){state=before;return false;}document.getElementById('nk-session-review')?.remove();document.getElementById('qb-question-navigator')?.remove();navigate('dashboard');return true;
+    if(saveState()===false){state=before;return false;}nkPracticeCloseOverlays();navigate('dashboard');return true;
   }
   function nkSubmitPracticeSession(){
     const s=state.activeSession;if(!nkPracticeResumeEligible(s))return false;
@@ -195,6 +199,7 @@
     const before=typeof nkStateClone==='function'?nkStateClone(state):JSON.parse(JSON.stringify(state)),now=Date.now();
     if(live&&nkPracticeResumeEligible(live)&&!normal){live.lifecycle='suspended';if(typeof nkMirrorNormalPracticeCheckpoint==='function')nkMirrorNormalPracticeCheckpoint(state);}
     state.activeSession={id:`s_${now}_${Math.random().toString(16).slice(2)}`,mode,title,questionIds:[...ids],index:0,answers:{},submitted:{},startedAt:now,lastTick:now,elapsedMs:0,questionEnteredAt:now,questionTimes:{},context};
+    state.activeSession.originRoute=context==='fsrs'||context==='spaced-review'?'fsrs':/bookmark/i.test(title)?'bookmarks':context==='wrong'||/wrong/i.test(title)?'wrong':mode==='exam'?'tests':'topics';
     if(mode==='exam')state.activeSession.deadlineAt=now+ids.length*60000;
     if(normal){state.activeSession.lifecycle='active';state.activeSession.sessionQuestionIds=[...ids];}
     if(!state.studyStartedAt)state.studyStartedAt=now;
@@ -265,7 +270,7 @@
       const checkpoint=typeof nkCheckpointFromSession==='function'?nkCheckpointFromSession(s,state.normalPracticeCheckpoint,'submitted'):{...(state.normalPracticeCheckpoint||{}),lifecycle:'submitted',updatedAt:now,terminalAt:now};
       state.normalPracticeCheckpoint=checkpoint;state.activeSession=null;
       if(saveState()===false){state=before;return false;}
-      document.getElementById('nk-session-review')?.remove();document.getElementById('qb-question-navigator')?.remove();document.querySelectorAll?.('#toast-root .toast').forEach(node=>node.remove());
+      nkPracticeCloseOverlays();document.querySelectorAll?.('#toast-root .toast').forEach(node=>node.remove());
       navigate('result',test.id);return true;
     }catch(error){state=before;if(typeof nkStorageError==='function')nkStorageError('Practice submission could not be completed',error);else showToast('Practice submission could not be saved. Try again.','bad');return false;}
   };

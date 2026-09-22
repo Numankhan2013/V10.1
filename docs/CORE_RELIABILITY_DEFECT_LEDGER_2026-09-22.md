@@ -24,6 +24,8 @@ This ledger covers persistence, Practice/CBT lifecycle, restart, and cloud-merge
 
 ## Verification status
 
+- **BC3 reconciled to canonical:** `54f7d0fe210683e6236a00a6669f145734ae0335`, fast-forward from `d0a376f` after exact-SHA Engineering `35738354092` and full Android/PWA/browser/APK/package `35738352700` succeeded. The real-answer restart/bookmark lifecycle and Review FSRS non-mutation assertions passed. No newer canonical data, image, content or automation files were changed. Production untouched; physical Android acceptance not claimed. Earlier pending statements below are historical.
+
 - Donor `db1f9ce`: Engineering `35714734167` and full Android/PWA/browser/APK/package `35714733642` succeeded, resolving the historical pending reruns above.
 - Reconciliation merges the complete donor onto fetched canonical `d0a376f6e0bc687595b5b2c8f6dd73e884838e7a`. Canonical content, images, inventory, and automation remain unchanged; `inventory_marrow_explanations.py --write` reproduces the checked-in inventory (635 enhanced, 2,076 pending).
 - The combined candidate additionally checks real answered/bookmarked Practice across a fresh context restart and asserts Review leaves attempts, results and FSRS state unchanged. Combined exact-SHA CI remains pending.

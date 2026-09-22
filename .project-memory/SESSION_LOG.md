@@ -1055,3 +1055,8 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Fetched canonical `d0a376f6e0bc687595b5b2c8f6dd73e884838e7a` and merged complete donor `db1f9ce` on `feature/marrow-bc3-reconcile-20260922`. No merge conflicts or content/image/automation changes. Regenerated explanation inventory through its owner; byte-identical to canonical.
 - Donor dual-green runs: Engineering `35714734167`, Android/PWA `35714733642`. Added same-lifecycle real-answer restart/bookmark and read-only Review FSRS isolation assertions.
 - Local runner now consistently classifies generated browser verifiers as CI-only, including canonical's new Anatomy Ch7 sentinel. Combined candidate CI pending; BC4 has not started.
+
+## 2026-09-22 — BC3 canonical, BC4 started afterward
+
+- Re-fetched canonical (still `d0a376f`), verified dual-green candidate `54f7d0fe210683e6236a00a6669f145734ae0335`, and fast-forwarded canonical to that exact SHA. Engineering `35738354092`; full Android/PWA/browser/APK/package `35738352700`; preview `https://1ece471a.nk-qbank.pages.dev`. Full Practice lifecycle, restart/bookmark, FSRS, and read-only Review isolation passed. All eight donor commits through `db1f9ce` are ancestors. Canonical content/image/automation paths remained byte-identical; inventory regenerated without differences.
+- BC4 began on `feature/marrow-bc4-question-integrity-20260922` afterward. Real-handler tests reproduced ten failure cases grouped in the BC4 ledger. Shared interaction transaction and identity validation added, plus phone/tablet browser matrix. Canonical and production remain unchanged by BC4 until verification completes. Physical Android is not claimed.

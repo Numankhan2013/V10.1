@@ -18,7 +18,7 @@
   function nkCheckpointMembership(ids){let h=2166136261;for(const char of (ids||[]).map(String).join('\u001f')){h^=char.charCodeAt(0);h=Math.imul(h,16777619);}return (h>>>0).toString(36);}
   function nkNormalPracticeSession(s){
     if(!s||s.mode!=='practice'||s.studyModuleId)return false;
-    const origin=String(s.originRoute||s.context||s.title||'').toLowerCase();
+    const origin=[s.originRoute,s.context,s.title].filter(Boolean).join(' ').toLowerCase();
     return !/(fsrs|spaced|review|wrong|bookmark)/.test(origin);
   }
   function nkNormalizeCheckpoint(raw){
