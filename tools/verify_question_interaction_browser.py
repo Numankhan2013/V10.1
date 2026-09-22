@@ -123,6 +123,10 @@ def main():
                     assert session(page)['id'] == original['id']
                     assert session(page)['questionIds'] == ids
                     assert session(page)['index'] == position
+                    if selected:
+                        assert page.locator('.option-list .selected').count() == 1
+                        assert page.locator('.option-list .correct,.option-list .wrong').count() == 0
+                        assert page.evaluate('id=>(window.QB.getState().attempts[id]||[]).length', ids[position]) == 0, 'Pause submitted a pending selection'
                 # Wrong/Bookmarks/FSRS must suspend and preserve normal Practice.
                 saved = page.evaluate('window.QB.getState().normalPracticeCheckpoint')
                 for mode in ('wrong', 'bookmarks'):
@@ -169,6 +173,9 @@ def main():
                 page.locator('#nk-session-review').get_by_role('button', name='Submit', exact=True).dblclick()
                 page.wait_for_function('!window.QB.getState().activeSession')
                 assert page.evaluate('id=>window.QB.getState().tests.filter(t=>t.id===`practice_${id}`).length', original['id']) == 1
+                result = page.evaluate('id=>window.QB.getState().tests.find(t=>t.id===`practice_${id}`)', original['id'])
+                assert result['attempted'] == 3 and result['unattempted'] == len(ids) - 3
+                assert result['correct'] + result['incorrect'] == 3
                 assert page.evaluate('id=>(window.QB.getState().attempts[id]||[]).length===1 && Boolean(window.QB.getState().reviews[id])', ids[3]), 'legacy selected answer counted without attempt/FSRS'
                 assert page.evaluate('ids=>ids.every(id=>window.QB.getState().fsrsReviewEligible[id]?.reason==="skipped")', ids[5:])
                 assert page.evaluate('id=>Boolean(window.QB.getState().bookmarks[id])', ids[1])
@@ -185,6 +192,7 @@ def main():
                 assert session(page)['answers'][cbt_qid] == 2
                 assert page.locator('.option-list .selected').count() == 1
                 assert page.locator('.option-list .correct,.option-list .wrong').count() == 0
+                page.screenshot(path=str(OUT / f'bc4-cbt-selected-{width}.png'), full_page=True)
                 assert page.evaluate('JSON.stringify([window.QB.getState().attempts,window.QB.getState().reviews])') == baseline
                 page.get_by_role('button', name='Next', exact=True).click()
                 page.get_by_role('button', name='Previous', exact=True).click()

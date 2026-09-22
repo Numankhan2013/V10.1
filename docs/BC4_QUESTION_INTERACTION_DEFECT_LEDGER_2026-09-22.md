@@ -37,3 +37,11 @@ assertion was removed. Rerun pending.
   historical percentage pilot is unmerged; these are not added as a BC4 feature.
 - Generated runtime phone/tablet coverage is not physical device verification.
 - Final exact-SHA verification and results remain pending.
+
+Local real-handler coverage now includes 20 assertions: stale question and old
+session callbacks, invalid options, stale CBT callbacks, correct/wrong save
+rollback, pending-rating/navigation rollback, bookmark rollback, expired CBT,
+Review/submitted-Practice immutability, current and legacy FSRS origin, duplicate
+submission/rating, CBT answer changes, single-commit answer, legacy final answer,
+successful/failed history Back, and duplicate/stale pointer input. Shared source
+contracts additionally test Bookmarks/Wrong/FSRS checkpoint preservation.

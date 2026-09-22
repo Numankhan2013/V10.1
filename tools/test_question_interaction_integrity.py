@@ -39,6 +39,8 @@ function reset(mode='practice'){
 let failures=[];function check(name,test){reset();try{test();console.log('PASS '+name)}catch(e){failures.push(name+': '+e.message);}}
 check('stale question selection cannot write another question',()=>{state.activeSession.index=1;selectPractice('q1',2);assert.deepEqual(state.activeSession.answers,{});});
 check('out-of-range option rejected',()=>{selectPractice('q1',99);assert.deepEqual(state.activeSession.answers,{});});
+check('old-session option callback rejected',()=>{selectPractice('q1',2,'old-session');assert.deepEqual(state.activeSession.answers,{});});
+check('stale CBT option callback rejected',()=>{reset('exam');state.activeSession.index=1;selectExam(2,'q1','session');assert.deepEqual(state.activeSession.answers,{});});
 check('failed correct answer rolls back selection and submitted state',()=>{const before=JSON.stringify(state);failed=true;selectPractice('q1',1);assert.equal(JSON.stringify(state),before);assert.equal(renders,0);});
 check('failed wrong answer rolls back attempt and FSRS',()=>{const before=JSON.stringify(state);failed=true;selectPractice('q1',2);assert.equal(JSON.stringify(state),before);assert.equal(renders,0);});
 check('failed Next preserves position and pending rating',()=>{selectPractice('q1',1);const before=JSON.stringify(state);failed=true;nextQ();assert.equal(JSON.stringify(state),before);});
@@ -47,6 +49,7 @@ check('expired timed question cannot be changed',()=>{reset('exam');state.active
 check('Review retry cannot mutate saved answers',()=>{reset('review');state.activeSession.answers.q1=2;state.activeSession.submitted.q1=true;const before=JSON.stringify(state);retryCurrent();assert.equal(JSON.stringify(state),before);});
 check('submitted Practice cannot be retried in place',()=>{selectPractice('q1',2);const before=JSON.stringify(state);retryCurrent();assert.equal(JSON.stringify(state),before);});
 check('FSRS context remains FSRS for the daily cap',()=>{state.activeSession.context='fsrs';assert.equal(nkFsrsSessionAttemptSource(state.activeSession),'fsrs-review');});
+check('legacy FSRS origin does not hide its context',()=>{state.activeSession.context='fsrs';state.activeSession.originRoute='topics';assert.equal(nkFsrsSessionAttemptSource(state.activeSession),'fsrs-review');});
 check('double submission and rating produce one attempt',()=>{selectPractice('q1',1);selectPractice('q1',2);submitPractice();nkRateCurrent(3);nkRateCurrent(3);assert.equal(state.attempts.q1.length,1);assert.equal(state.attempts.q1[0].selected,1);assert.equal(state.reviews.q1.repetitions,1);});
 check('CBT selection changes before submission without FSRS',()=>{reset('exam');selectExam(1);selectExam(2);assert.equal(state.activeSession.answers.q1,2);assert.deepEqual(state.attempts,{});assert.deepEqual(state.reviews,{});});
 check('one wrong-answer action has one durable commit',()=>{writes=0;selectPractice('q1',2);assert.equal(writes,1);assert.equal(state.attempts.q1.length,1);});

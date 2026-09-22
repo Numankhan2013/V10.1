@@ -46,13 +46,13 @@
   function nkCurrentQuestion(){const s=state.activeSession;return s?nkPracticeResumeQuestion(s.questionIds?.[s.index]):null;}
   function nkValidQuestionOption(q,n){return Boolean(q)&&Number.isInteger(Number(n))&&(q.options||[]).some(o=>String(o.letter).toUpperCase().charCodeAt(0)-64===Number(n));}
   const nkIntegritySelectPractice=selectPractice;
-  selectPractice=nkQuestionAction(nkIntegritySelectPractice,(id,n)=>{
+  selectPractice=nkQuestionAction(nkIntegritySelectPractice,(id,n,owner)=>{
     const s=state.activeSession,q=nkCurrentQuestion();
-    return s?.mode==='practice'&&String(q?.id)===String(id)&&!s.submitted?.[id]&&nkValidQuestionOption(q,n);
+    return s?.mode==='practice'&&(owner==null||String(s.id)===String(owner))&&String(q?.id)===String(id)&&!s.submitted?.[id]&&nkValidQuestionOption(q,n);
   });
-  selectExam=nkQuestionAction(selectExam,n=>{
+  selectExam=nkQuestionAction(selectExam,(n,id,owner)=>{
     const s=state.activeSession,q=nkCurrentQuestion();
-    return s?.mode==='exam'&&!s.strictExpired?.[q?.id]&&nkValidQuestionOption(q,n);
+    return s?.mode==='exam'&&(id==null||String(q?.id)===String(id))&&(owner==null||String(s.id)===String(owner))&&!s.strictExpired?.[q?.id]&&nkValidQuestionOption(q,n);
   });
   submitPractice=nkQuestionAction(submitPractice,()=>{const s=state.activeSession,q=nkCurrentQuestion();return s?.mode==='practice'&&q&&!s.submitted?.[q.id]&&nkValidQuestionOption(q,s.answers?.[q.id]);});
   // A submitted question is immutable. Starting another session is the existing

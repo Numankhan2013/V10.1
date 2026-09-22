@@ -74,7 +74,8 @@ HELPERS_AND_PRACTICE = r'''function nkSessionSubject(q) {
       else if(mode==='practice'&&isChosen){cls+=' selected';}
       else if(mode==='review'){if(isCorrect)cls+=' correct';if(isChosen&&!isCorrect)cls+=' wrong';if(!selected)cls+=' review-unattempted';}
       const tag=locked?'div':'button';
-      const action=mode==='exam'?` onclick="window.QB.selectExam(${n})"`:mode==='practice'?` onclick="window.QB.selectPractice('${q.id}',${n})"`:'';
+      const owner=String(state.activeSession?.id||'');
+      const action=mode==='exam'?` onclick="window.QB.selectExam(${n},'${q.id}','${owner}')"`:mode==='practice'?` onclick="window.QB.selectPractice('${q.id}',${n},'${owner}')"`:'';
       return `<${tag} class="${cls}"${action}${tag==='button'?' type="button"':''}><span class="option-letter">${o.letter}</span><span class="option-text">${esc(o.text)}</span></${tag}>`;
     }).join('');
   }

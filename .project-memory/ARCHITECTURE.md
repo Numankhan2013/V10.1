@@ -155,6 +155,16 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
 
 ## FSRS smart-review extension
 
+- `question_interaction_core.js`, installed immediately after the FSRS core by
+  `apply_fsrs_v1.py`, wraps question commands in nested transactions. Inner saves,
+  rendering, navigation and success feedback are deferred until one complete state
+  commit succeeds; failed actions restore the pre-action state. Option callbacks
+  carry question/session identity; submitted Practice, Review and expired CBT are
+  guarded at the handler boundary. History Back flushes pending recall through the
+  same transaction. Explicit final submission records legacy pending selections;
+  Pause retains them. Special-mode origin/context never replaces the normal
+  Practice checkpoint. Content and option rendering styles are unchanged.
+
 - `tools/apply_fsrs_v1.py` installs `tools/fsrs_scheduler_core.js` after the
   cross-device layer and loads vendored `ts-fsrs` 5.4.2 UMD plus its MIT license
   from `app/src/main/assets/vendor/ts-fsrs/`; there is no runtime CDN.
