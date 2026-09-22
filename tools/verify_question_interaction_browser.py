@@ -181,7 +181,7 @@ def main():
                 assert page.evaluate('id=>Boolean(window.QB.getState().bookmarks[id])', ids[1])
                 # Actual CBT builder: changes remain private until final Submit.
                 page.evaluate('window.QB.openSessionBuilder(null,"exam")')
-                page.locator('#modal .primary-btn').last.click()
+                page.locator('#modal').get_by_role('button', name='Start Exam', exact=True).click()
                 page.wait_for_function("window.QB.getState().activeSession?.mode==='exam'")
                 settle(page)
                 cbt = session(page)
