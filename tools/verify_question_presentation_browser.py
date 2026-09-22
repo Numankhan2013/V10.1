@@ -53,6 +53,18 @@ def main() -> None:
                     replacement.get_by_role(
                         "button", name="Discard and start new", exact=True
                     ).click()
+                page.wait_for_function(
+                    """id => {
+                        const session=window.QB.getState().activeSession;
+                        return session?.questionIds?.[session.index]===id;
+                    }""",
+                    question_id,
+                    timeout=5000,
+                )
+                # Same-route session replacement updates state synchronously;
+                # explicitly exercise the app's same-route render path before
+                # inspecting presentation markup.
+                page.evaluate("window.QB.nav('practice')")
 
             page.locator("button.nk-v3-subject-card").filter(has_text="Physiology").click()
             page.locator("button.nk-bank-card").filter(has_text="PrepLadder").click()
