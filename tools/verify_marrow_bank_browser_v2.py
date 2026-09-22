@@ -140,6 +140,39 @@ extra = shot + """
 if source.count(shot) != 1:
     raise SystemExit(f"Anatomy tuned insertion anchor count={source.count(shot)}")
 source = source.replace(shot, extra, 1)
+
+# The reliability layer deliberately protects one resumable normal-Practice
+# checkpoint. This content-focused suite opens many unrelated questions in one
+# browser context, so each replacement must exercise the product's explicit
+# Discard decision instead of silently overwriting the saved session.
+helper_anchor = """            def assert_sections(expected):
+                actual=page.locator('.nk-topic-group>h2').all_inner_texts()
+                if actual!=expected: raise SystemExit(f'Marrow topic sections/order mismatch: {actual!r}')
+"""
+helper = helper_anchor + """            def open_library_question(row, wait_ms=80):
+                row.click();page.wait_for_timeout(wait_ms)
+                replacement=page.locator('#nk-practice-replacement')
+                if replacement.count() and replacement.is_visible():
+                    replacement.get_by_role('button',name='Discard and start new',exact=True).click()
+                    page.wait_for_timeout(wait_ms)
+"""
+if source.count(helper_anchor) != 1:
+    raise SystemExit(f"Practice replacement helper anchor count={source.count(helper_anchor)}")
+source = source.replace(helper_anchor, helper, 1)
+
+library_click = _re.compile(
+    r"(?m)^(?P<indent>[ ]{12,})(?P<row>page\.locator\('button\.nk-library-row'\)(?:\.first|\.nth\(\d+\))?)"
+    r"\.click\(\);page\.wait_for_timeout\((?P<wait>\d+)\)$"
+)
+source, library_click_count = library_click.subn(
+    lambda match: (
+        match.group('indent') + 'open_library_question(' + match.group('row')
+        + ', ' + match.group('wait') + ')'
+    ),
+    source,
+)
+if library_click_count < 20:
+    raise SystemExit(f"Expected at least 20 Practice-aware library clicks, found {library_click_count}")
 '''
 
 wrapper = wrapper.replace(anchor, "\n" + compat + anchor, 1)
