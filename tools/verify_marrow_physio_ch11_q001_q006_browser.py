@@ -38,6 +38,9 @@ def open_ch11(page):
 
 def check_question(page, index: int, stable_id: str, option_index: int, markers: tuple[str, ...], shot: str):
     page.locator("button.nk-library-row").nth(index).click()
+    replacement = page.locator("#nk-practice-replacement")
+    if replacement.count() and replacement.is_visible():
+        replacement.get_by_role("button", name="Discard and start new", exact=True).click()
     page.wait_for_function("() => document.querySelectorAll('.option-list button').length===4", timeout=5000)
     page.locator(".option-list button").nth(option_index).click()
     page.wait_for_timeout(140)

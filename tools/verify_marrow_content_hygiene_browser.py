@@ -49,9 +49,17 @@ def main() -> None:
                 wait_until="networkidle",
             )
 
+            def open_practice_question(qid: str) -> None:
+                page.evaluate("id => window.QB.practiceOne(id)", qid)
+                replacement = page.locator("#nk-practice-replacement")
+                if replacement.count() and replacement.is_visible():
+                    replacement.get_by_role(
+                        "button", name="Discard and start new", exact=True
+                    ).click()
+
             expected_overrides = json.loads(OVERRIDES.read_text(encoding="utf-8"))["questions"]
             for qid, expected_content in expected_overrides.items():
-                page.evaluate("qid => window.QB.practiceOne(qid)", qid)
+                open_practice_question(qid)
                 page.wait_for_function(
                     "() => Boolean(document.querySelector('.question-text'))",
                     timeout=5000,
@@ -85,6 +93,11 @@ def main() -> None:
                 )
                 page.locator("button.nk-topic-row").filter(has_text=topic).first.click()
                 page.locator("button.nk-library-row").nth(question_index).click()
+                replacement = page.locator("#nk-practice-replacement")
+                if replacement.count() and replacement.is_visible():
+                    replacement.get_by_role(
+                        "button", name="Discard and start new", exact=True
+                    ).click()
                 page.locator(".option-list button").nth(option_index).click()
                 page.wait_for_function(
                     "() => Boolean(document.querySelector('.nk-study-support'))",
