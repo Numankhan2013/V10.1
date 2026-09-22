@@ -58,6 +58,22 @@ A blocker requires current authoritative memory plus live Git/head evidence. A s
 
 Before every write, re-read canonical `STATE.md`, exact branch/head, shared fingerprint/registry state, and current ownership. If those changed, stop and rebase/reconcile rather than choosing one side.
 
+### Non-blocking REVIEW_REQUIRED deferral
+
+A `REVIEW_REQUIRED`, `SOURCE_LIMITED`, source-access failure, OCR/text-layer failure, rendered-page dependency, or other unresolved candidate does **not** own the shared writer lane unless there is an actual unreconciled mutation to the shared image registry/progress state.
+
+For image work, apply these rules:
+
+1. A subject worker may attempt the same deterministic candidate at most two bounded times in one run.
+2. If the candidate still cannot be verified safely, record it as a deferred `REVIEW_REQUIRED` item with exact stable question/reference ID, evidence, failure class, and required retry action. Do not mark it PASS, do not invent source content, and do not erase it from the subject queue.
+3. If those attempts made no shared registry/progress mutation, the worker must release the image writer lane immediately after checkpointing. Another subject is then free to mutate the shared registry from the live canonical head.
+4. A deferred item must be retried on that subject's later recurrences, but it must not freeze unrelated later subjects or the global image pipeline.
+5. Deterministic source order is preserved within the subject by keeping the deferred item as the first retry target. This does not create a global cross-subject lock.
+6. A lane remains genuinely owned only when live Git plus current memory prove there is unreconciled shared-state mutation, a candidate branch that must be reconciled or abandoned, or another active writer currently modifying the shared registry/progress files.
+7. Historical instructions such as “Physiology remains paused until Biochemistry recovery” or “do not skip the visual” mean only that the unresolved Biochemistry item must remain in its retry queue; they do not authorize indefinite ownership of the shared writer lane.
+
+This deferral rule is an automation-liveness rule. It never weakens medical/source fidelity: unresolved visual content stays unreleased until authoritative review succeeds.
+
 ## Product protection
 
 The V3/correct-index product lineage and accepted shared Practice/CBT/Review/FSRS/sync/modules/navigation architecture are preserved. Do not redesign UI, fork engines by subject, merge/promote production, or weaken regressions as part of content/image automation.
