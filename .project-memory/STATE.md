@@ -110,13 +110,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 - Reconciliation branch: `feature/marrow-bc3-reconcile-20260922`, based on fetched canonical `d0a376f6e0bc687595b5b2c8f6dd73e884838e7a`, merging the complete BC3 donor through `db1f9ce` without replacing canonical history.
 - Donor Engineering `35714734167` and full Android/PWA `35714733642` succeeded. Combined-candidate exact-SHA verification is still required before canonical fast-forward.
 - Newer Anatomy Ch7 Q1–Q10 explanations, browser sentinel, and all canonical content/image/automation files are preserved. Canonical inventory generator reproduces 635 enhanced / 2,076 pending / 2,711 total with no generated diff.
-- BC4 must wait until BC3 is green and reconciled onto canonical. Production remains untouched.
-
-- Branch `feature/marrow-core-reliability-hardening-20260922` was created from live canonical `105cf02e358d8f869d745e698fc4faa32d777c92`.
-- Learner state now has revision/schema validation, pending + last-known-good recovery, success-reporting saves, a versioned normal-Practice checkpoint, failure-aware terminal transitions, restart-safe exclusive CBT, and checkpoint-specific conflict-safe cloud merge.
-- The accepted Continue Practice footer/grid/Review UI is unchanged. Browser coverage adds fresh-context restart, bookmarks, major navigation/back smoke, `390×844` + `820×1180`, Analysis, Review Solutions, grid, Previous/Next, End Review, and Home return.
-- Defect ledger: `docs/CORE_RELIABILITY_DEFECT_LEDGER_2026-09-22.md`.
-- Local status: `python3 tools/verify_local.py` passed 47 checks. Candidate is **not build-verified** until both exact-head required workflows pass, and is not device-verified. Production remains untouched.
+- BC4 waits for green canonical BC3. Persistence, checkpoint, CBT, sync and lifecycle details: `docs/CORE_RELIABILITY_DEFECT_LEDGER_2026-09-22.md`. Combined candidate is not yet build-verified or device-verified; production remains untouched.
 
 ## Anti-fragmentation rules
 
