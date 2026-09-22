@@ -21,6 +21,10 @@ def session(page):
 
 def settle(page):
     page.wait_for_function("document.querySelector('.nk-session-count')?.innerText.trim().startsWith(String(window.QB.getState().activeSession.index+1))")
+    page.wait_for_function("""() => {
+      const s=window.QB.getState().activeSession;
+      return s.mode!=='practice'||Array.from(document.querySelectorAll('.option-list [onclick]')).some(el=>el.getAttribute('onclick').includes("'"+s.questionIds[s.index]+"'"));
+    }""")
 
 
 def fail_storage(page, enabled):
@@ -124,12 +128,14 @@ def main():
                 for mode in ('wrong', 'bookmarks'):
                     page.evaluate('kind=>window.QB.startLibrary(kind)', mode)
                     page.wait_for_function('id=>window.QB.getState().activeSession?.id!==id', arg=original['id'])
+                    settle(page)
                     assert page.locator('#nk-practice-replacement').count() == 0
                     cp = page.evaluate('window.QB.getState().normalPracticeCheckpoint')
                     assert cp['sessionId'] == original['id'] and cp['answers'] == saved['answers']
                 # Due skipped fixture, with no invented attempt, enters real FSRS.
-                page.evaluate('''id=>{const st=window.QB.getState();st.fsrsReviewEligible=st.fsrsReviewEligible||{};st.fsrsReviewEligible[id]={reason:'skipped',at:Date.now()};window.QB.saveState();window.QB.nkStartTodaysReview();}''', ids[4])
+                page.evaluate('''ids=>{const st=window.QB.getState();st.fsrsReviewEligible=st.fsrsReviewEligible||{};ids.forEach(id=>st.fsrsReviewEligible[id]={reason:'skipped',at:Date.now()});window.QB.saveState();window.QB.nkStartTodaysReview();}''', ids[4:7])
                 page.wait_for_function("window.QB.getState().activeSession?.context==='spaced-review'")
+                settle(page)
                 assert page.evaluate('window.QB.getState().normalPracticeCheckpoint.sessionId') == original['id']
                 fsrsid = session(page)['questionIds'][0]
                 page.locator('.option-list button').first.click()
