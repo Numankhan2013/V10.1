@@ -8,9 +8,11 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "app/src/main/assets/index.html"
 CORE = ROOT / "tools/cross_device_sync_core.js"
+STORAGE_CORE = ROOT / "tools/durable_persistence_core.js"
 
 CSS = r'''<style id="nk-cross-device-pwa-v1">
 .nk-cloud-card{display:grid;gap:13px}.nk-cloud-error{font-size:12px;line-height:1.5;overflow-wrap:anywhere}.nk-cloud-error summary{cursor:pointer;min-height:44px;display:flex;align-items:center}.nk-cloud-card label{display:grid;gap:6px;color:var(--muted);font-size:11px;font-weight:800}.nk-cloud-card input{width:100%;min-height:46px;border:1px solid var(--line);border-radius:12px;padding:0 13px;background:var(--surface);color:var(--ink);font:inherit}.nk-cloud-card input:focus{outline:3px solid rgba(63,207,232,.22);border-color:var(--primary)}.nk-cloud-actions{display:flex;gap:9px;flex-wrap:wrap}.nk-cloud-actions button{min-height:44px;border:1px solid var(--line);border-radius:12px;padding:0 16px;background:var(--surface);font-weight:800;color:var(--ink)}.nk-cloud-actions .primary-btn{background:var(--primary);border-color:var(--primary);color:#073943}.nk-cloud-user{display:flex;align-items:center;gap:10px}.nk-cloud-user div{display:grid;gap:3px}.nk-cloud-user small{color:var(--muted)}.nk-cloud-dot{width:11px;height:11px;border-radius:50%;background:#a9adba;box-shadow:0 0 0 5px rgba(169,173,186,.14)}.nk-cloud-dot.is-online{background:var(--success);box-shadow:0 0 0 5px rgba(21,154,104,.13)}.nk-cloud-dot.is-error{background:var(--error);box-shadow:0 0 0 5px rgba(214,75,88,.12)}.nk-cloud-pwa{padding-top:11px;border-top:1px solid var(--line);font-size:11px;line-height:1.5;color:var(--muted)}.nk-pwa-update{position:fixed;z-index:11000;left:50%;bottom:calc(82px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(430px,calc(100% - 24px));display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:15px;background:#171a2b;color:#fff;box-shadow:0 12px 34px rgba(15,18,35,.28);font-size:12px;font-weight:750}.nk-pwa-update button{min-height:38px;border:0;border-radius:10px;padding:0 13px;background:var(--primary);color:#073943;font-weight:850}
+.nk-storage-error{position:fixed;z-index:12050;left:12px;right:12px;bottom:calc(92px + env(safe-area-inset-bottom));max-width:720px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #e29aa2;border-radius:14px;background:#fff4f5;color:#7c2732;box-shadow:0 12px 34px rgba(80,18,27,.22);font-size:12px;font-weight:750}.nk-storage-error button{flex:none;min-height:40px;border:0;border-radius:10px;padding:0 13px;background:#9d3340;color:#fff;font-weight:850}
 @media (min-width:768px) and (min-height:600px){body{background:#eef1f6}.app-shell{min-height:100vh;padding-left:88px}.topbar{left:88px!important;width:calc(100% - 88px)!important}.bottom-nav{position:fixed!important;left:0!important;right:auto!important;top:0!important;bottom:0!important;width:88px!important;height:100vh!important;display:flex!important;flex-direction:column!important;justify-content:center!important;gap:8px!important;padding:18px 8px calc(18px + env(safe-area-inset-bottom))!important;border-top:0!important;border-right:1px solid var(--line)!important}.nav-item{width:72px!important;min-height:66px!important;border-radius:15px!important;flex:none!important}.nav-item.active{background:rgba(63,207,232,.13)!important}.page{width:min(1180px,calc(100% - 32px));margin:0 auto;padding:28px 22px 54px!important}.dashboard-v10,.nk-app-v114{max-width:none!important}.more-card-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.nk-study-set-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.nk-module-topic-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}.question-card{padding:24px}.question-text{font-size:20px;line-height:1.58}.option-text{font-size:16px}.feedback-body{font-size:15px}.source-pdf-scroll{max-width:100%}}
 @media (min-width:1024px) and (orientation:landscape){.question-shell{grid-template-columns:minmax(0,1.55fr) minmax(310px,.75fr)!important;gap:20px}.navigator{position:sticky!important;top:82px!important;align-self:start}.dashboard-v10>.dashboard-section.grid-2{grid-template-columns:1.15fr .85fr}.nk-module-builder-card{padding:24px!important}}
 @media (display-mode:standalone){body{overscroll-behavior:none}.topbar{padding-top:env(safe-area-inset-top)}}@media (display-mode:standalone) and (min-width:768px) and (min-height:600px){.page{padding-bottom:calc(38px + env(safe-area-inset-bottom))!important}}
@@ -38,6 +40,21 @@ def transform(source: str) -> str:
         return source
 
     source = replace_once(source, "</head>", META + "\n" + CSS + "\n</head>", "head metadata")
+    storage_core = STORAGE_CORE.read_text(encoding="utf-8").rstrip()
+    source = replace_once(source, "  let state = loadState();", storage_core + "\n\n  let state = loadState();", "durable storage bootstrap")
+    state_functions = re.compile(r"  function loadState\(\) \{.*?\n  \}\n\n  function saveState\(\) \{.*?\n  \}", re.S)
+    hit = state_functions.search(source)
+    if not hit:
+        raise SystemExit("state load/save functions not found")
+    replacement = '''  function loadState() { return nkDurableLoadState(); }
+
+  function saveState() {
+    if(typeof nkSyncModuleFromSession==='function')nkSyncModuleFromSession();
+    const ok=nkDurablePersist(state,'state update');
+    if(ok&&typeof nkScheduleCloudSync==='function')nkScheduleCloudSync();
+    return ok;
+  }'''
+    source = source[:hit.start()] + replacement + source[hit.end():]
     source = source.replace("location.protocol !== 'file:'", "location.hostname !== 'qbank.local'", 1)
     simple_sw = "if ('serviceWorker' in navigator && location.hostname !== 'qbank.local') { window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {})); }"
     update_sw = """if ('serviceWorker' in navigator && location.hostname !== 'qbank.local') { window.addEventListener('load', async () => { try { let updateRequested=false,refreshing=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(updateRequested&&!refreshing){refreshing=true;location.reload();}});const registration=await navigator.serviceWorker.register('./sw.js'); const offer=worker=>{if(!worker||document.querySelector('.nk-pwa-update'))return;const bar=document.createElement('div');bar.className='nk-pwa-update';bar.innerHTML='<span>A QBank update is ready.</span><button type=\"button\">Update</button>';bar.querySelector('button').onclick=()=>{updateRequested=true;worker.postMessage('SKIP_WAITING');};document.body.appendChild(bar);};if(registration.waiting)offer(registration.waiting);registration.addEventListener('updatefound',()=>{const worker=registration.installing;worker?.addEventListener('statechange',()=>{if(worker.state==='installed'&&navigator.serviceWorker.controller)offer(worker);});});}catch(error){console.warn('PWA update check unavailable',error);} }); }"""
@@ -57,12 +74,6 @@ def transform(source: str) -> str:
         "    localStorage.setItem('qbank_active_subject_v1',activeSubject);",
         "    localStorage.setItem('qbank_active_subject_v1',activeSubject);\n    if(typeof nkScheduleCloudSync==='function')nkScheduleCloudSync();",
         "subject persistence hook",
-    )
-    source = replace_once(
-        source,
-        "    try { nkSyncModuleFromSession(); localStorage.setItem(LS_KEY, JSON.stringify(state)); }\n    catch (e) { showToast('Progress could not be saved on this device.', 'bad'); }",
-        "    try { nkSyncModuleFromSession(); localStorage.setItem(LS_KEY, JSON.stringify(state)); if(typeof nkScheduleCloudSync==='function')nkScheduleCloudSync(); }\n    catch (e) { showToast('Progress could not be saved on this device.', 'bad'); }",
-        "save hook",
     )
     source = replace_once(
         source,
@@ -98,7 +109,7 @@ def transform(source: str) -> str:
     if not export_match:
         raise SystemExit("Canonical QB export not found")
     exports = export_match.group(1)
-    additions = "nkCloudAuthenticate,nkCloudSignOut,nkCloudSyncNow,"
+    additions = "saveState,nkRetryPersistence,nkCloudAuthenticate,nkCloudSignOut,nkCloudSyncNow,"
     if "nkCloudAuthenticate" not in exports:
         exports = additions + exports
         source = source[: export_match.start(1)] + exports + source[export_match.end(1) :]
@@ -108,7 +119,13 @@ def transform(source: str) -> str:
     if export_pos < 0:
         raise SystemExit("QB export insertion point not found")
     source = source[:export_pos] + core + "\n" + source[export_pos:]
-    source = replace_once(source, "  render();\n})();", "  render();\n  nkCloudInit();\n})();", "cloud boot")
+    source = replace_once(source, "  render();\n})();", "  nkReliabilityInit();\n  render();\n  nkCloudInit();\n})();", "reliability/cloud boot")
+
+    # Late legacy Review helpers must use the same durable writer. They remain
+    # outside the app IIFE, so route them through the exported compatibility API.
+    source = source.replace("localStorage.setItem(STORAGE_KEY,JSON.stringify(state))", "window.NKQBankStorage.persistExternalState(state)")
+    source = source.replace("localStorage.setItem('qbank_state_v1',JSON.stringify(st))", "window.NKQBankStorage.persistExternalState(st)")
+    source = source.replace("localStorage.setItem(LS,JSON.stringify(s))", "window.NKQBankStorage.persistExternalState(s)")
 
     # Browser source visuals use same-origin generated assets; Android retains its asset URL.
     renderer = ROOT / "app/src/main/assets/source_visual_renderer.js"
@@ -119,7 +136,7 @@ def transform(source: str) -> str:
         if old in text:
             renderer.write_text(text.replace(old, new, 1), encoding="utf-8")
 
-    required = ["NK_CROSS_DEVICE_SYNC_V1_START", "nkCloudAccountCard()", "qbank-config.js", "manifest.webmanifest", "nkCloudInit();", "nkCloudAuthenticate,nkCloudSignOut,nkCloudSyncNow", "syncEpoch"]
+    required = ["NK_DURABLE_PERSISTENCE_V2_START", "NK_CROSS_DEVICE_SYNC_V1_START", "nkCloudAccountCard()", "qbank-config.js", "manifest.webmanifest", "nkReliabilityInit();", "nkCloudInit();", "saveState,nkRetryPersistence,nkCloudAuthenticate", "syncEpoch"]
     missing = [marker for marker in required if marker not in source]
     if missing:
         raise SystemExit(f"Cross-device/PWA markers missing: {missing}")

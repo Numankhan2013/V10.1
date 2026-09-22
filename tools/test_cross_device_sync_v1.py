@@ -10,9 +10,55 @@ import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 CORE = ROOT / "tools/cross_device_sync_core.js"
+STORAGE_CORE = ROOT / "tools/durable_persistence_core.js"
+
+
+def test_durable_persistence() -> None:
+    harness = r'''
+const assert=require('assert');
+const data={};let failKey='';
+const adapter={getItem:key=>Object.prototype.hasOwnProperty.call(data,key)?data[key]:null,setItem:(key,value)=>{if(key===failKey)throw new Error('quota');data[key]=String(value);},removeItem:key=>delete data[key]};
+const nodes={};
+global.window={__NK_STORAGE_ADAPTER:adapter,QB:{}};
+global.localStorage=adapter;
+global.document={getElementById:id=>nodes[id]||null,createElement:()=>({id:'',className:'',setAttribute(){},querySelector:()=>({textContent:''}),innerHTML:''}),body:{appendChild:node=>{nodes[node.id]=node}}};
+const LS_KEY='qbank_state_v1';
+const defaultState=()=>({attempts:{},bookmarks:{},reviews:{},tests:[],studyModules:[],activeSession:null,studyStartedAt:null});
+''' + STORAGE_CORE.read_text(encoding="utf-8") + r'''
+const valid={...defaultState(),stateSchemaVersion:2,stateRevision:7,bookmarks:{q1:{addedAt:1}}};
+data[NK_STATE_LKG_KEY]=JSON.stringify(valid);data[LS_KEY]='{broken';
+let recovered=nkDurableLoadState();
+assert(recovered.stateRevision===7&&recovered.bookmarks.q1,'corrupt primary must recover from LKG');
+assert(nkStorageBootNotice.includes('last valid snapshot'),'recovery must be visible');
+const pending={...valid,stateRevision:8,bookmarks:{q2:{addedAt:2}}};data[NK_STATE_PENDING_KEY]=JSON.stringify(pending);
+recovered=nkDurableLoadState();assert(recovered.stateRevision===8&&recovered.bookmarks.q2,'interrupted higher revision must recover');
+let state={...recovered,activeSession:{id:'practice-1',mode:'practice',title:'Topic',questionIds:['q1','q2'],sessionQuestionIds:['q1','q2'],index:1,answers:{q1:2},submitted:{q1:true},questionTimes:{q1:50},pendingRating:{q1:{rating:3}},startedAt:10,lifecycle:'active',practiceContext:{subject:'Anatomy',bank:'Marrow',topicId:'t1',title:'Topic'}}};
+assert(nkDurablePersist(state,'test save'),'valid state must save');
+assert(state.normalPracticeCheckpoint.sessionId==='practice-1','normal Practice checkpoint missing');
+assert.deepStrictEqual(state.normalPracticeCheckpoint.sessionQuestionIds,['q1','q2']);
+assert(state.normalPracticeCheckpoint.position.index===1&&state.normalPracticeCheckpoint.answers.q1===2&&state.normalPracticeCheckpoint.submitted.q1,'checkpoint progress missing');
+assert(state.normalPracticeCheckpoint.pendingFsrsRatings.q1.rating===3,'pending FSRS rating missing');
+const before=state.stateRevision;failKey=LS_KEY;state.bookmarks.q3={addedAt:3};
+assert(nkDurablePersist(state,'quota simulation')===false,'quota failure must be reported');
+assert(state.stateRevision===before,'failed writes must not claim a new revision');
+failKey='';
+const primaryBeforeInterrupted=data[LS_KEY];failKey=NK_STATE_LKG_KEY;state.bookmarks.q4={addedAt:4};
+assert(nkDurablePersist(state,'interrupted snapshot')===false,'interrupted snapshot write must fail closed');
+assert(data[LS_KEY]===primaryBeforeInterrupted&&!data[NK_STATE_PENDING_KEY],'failed transaction must restore the old primary and remove its journal');
+failKey='';
+assert.throws(()=>nkNormalizeState({...valid,stateSchemaVersion:99}),/unsupported state schema/);
+state.activeSession={id:'exam',mode:'exam',questionIds:['q1'],startedAt:100};assert(nkDurablePersist(state,'suspend normal Practice'));
+assert(state.normalPracticeCheckpoint.lifecycle==='suspended','special session must suspend, not replace, normal Practice');
+console.log('DURABLE_PERSISTENCE_BEHAVIOR_OK');
+'''
+    with tempfile.TemporaryDirectory() as directory:
+        script = Path(directory) / "durable-test.js"
+        script.write_text(harness, encoding="utf-8")
+        subprocess.run(["node", str(script)], check=True)
 
 
 def main() -> None:
+    test_durable_persistence()
     core = CORE.read_text(encoding="utf-8")
     harness = r'''
 const assert=(condition,message)=>{if(!condition)throw new Error(message);};
@@ -29,6 +75,17 @@ assert(!state.bookmarks.q1,'newer bookmark tombstone must win');
 nkApplyCloudEnvelope({kind:'sessions',entityId:'active',ownerDevice:'android',updatedAt:200,deleted:false,payload:JSON.stringify({id:'new',index:4}),schemaVersion:1});
 nkApplyCloudEnvelope({kind:'sessions',entityId:'active',ownerDevice:'ipad',updatedAt:150,deleted:false,payload:JSON.stringify({id:'old',index:1}),schemaVersion:1});
 assert(state.activeSession.id==='new'&&state.activeSession.index===4,'opening an older device must not replace newer session progress');
+const checkpoint=(id,ids,answers,submitted,updates,lifecycle='paused',updatedAt=200)=>({version:1,sessionId:id,sessionQuestionIds:ids,membershipHash:ids.join('\u001f'),context:{subject:'Anatomy',bank:'Marrow',topicId:'t1',title:'Topic'},position:{index:0,currentQuestionId:ids[0]},answers,submitted,questionTimes:{},pendingFsrsRatings:{},questionUpdates:updates,lifecycle,updatedAt});
+state.activeSession=null;
+state.normalPracticeCheckpoint=checkpoint('same',['q1','q2'],{q1:1},{q1:true},{q1:{revision:1,updatedAt:100}},'paused',200);
+nkApplyCloudEnvelope({kind:'practiceSessions',entityId:'normal',ownerDevice:'ipad',updatedAt:210,deleted:false,payload:JSON.stringify(checkpoint('same',['q1','q2'],{q2:2},{q2:true},{q2:{revision:1,updatedAt:210}},'active',210)),schemaVersion:1});
+assert(state.normalPracticeCheckpoint.submitted.q1&&state.normalPracticeCheckpoint.submitted.q2,'concurrent same-session answers must union');
+assert(state.normalPracticeCheckpoint.answers.q1===1&&state.normalPracticeCheckpoint.answers.q2===2,'per-question revisions must preserve both devices');
+nkApplyCloudEnvelope({kind:'practiceSessions',entityId:'normal',ownerDevice:'android',updatedAt:220,deleted:false,payload:JSON.stringify(checkpoint('same',['q1','q2'],{}, {},{},'submitted',220)),schemaVersion:1});
+nkApplyCloudEnvelope({kind:'practiceSessions',entityId:'normal',ownerDevice:'ipad',updatedAt:230,deleted:false,payload:JSON.stringify(checkpoint('same',['q1','q2'],{}, {},{},'active',230)),schemaVersion:1});
+assert(state.normalPracticeCheckpoint.lifecycle==='submitted','terminal Practice state must not regress');
+nkApplyCloudEnvelope({kind:'practiceSessions',entityId:'normal',ownerDevice:'ipad',updatedAt:240,deleted:false,payload:JSON.stringify(checkpoint('different',['q1'],{}, {},{},'paused',240)),schemaVersion:1});
+assert(state.normalPracticeConflict?.type==='different-session'&&state.normalPracticeCheckpoint.sessionId==='same','different Practice sessions must surface a conflict without replacement');
 state.studyModules=[{id:'m1',syncEpoch:'e1',submitted:{q1:true},answers:{q1:1},completedQuestionIds:['q1'],questionTimes:{q1:10}}];
 nkApplyCloudEnvelope({kind:'modules',entityId:'m1',ownerDevice:'ipad',updatedAt:300,deleted:false,payload:JSON.stringify({id:'m1',syncEpoch:'e1',submitted:{q2:true},answers:{q2:2},completedQuestionIds:['q2'],questionTimes:{q2:20}}),schemaVersion:1});
 assert(state.studyModules[0].submitted.q1&&state.studyModules[0].submitted.q2,'same-generation module progress must merge across devices');
@@ -183,7 +240,7 @@ const document={querySelector:()=>null,createElement:()=>({querySelector:()=>({s
         raise SystemExit("Synchronization must pull/merge before uploading local revisions")
     if "function nkScheduleCloudSync(){if(!nkAuth)return;nkCaptureCloudChanges();}" not in sync_core:
         raise SystemExit("Local outbox capture must be synchronous with state saves")
-    for marker in ("nkResolveFirebaseProjectId", "nkProjectIdFromToken", "stage='download'", "HTTP ${response.status}", "method:'PATCH'", "setInterval(nkCloudAutoSync,300000)", "visibilitychange", "fsrsReviewEligible", "nkMergeFsrsReviewEligible"):
+    for marker in ("nkResolveFirebaseProjectId", "nkProjectIdFromToken", "stage='download'", "HTTP ${response.status}", "method:'PATCH'", "setInterval(nkCloudAutoSync,300000)", "visibilitychange", "fsrsReviewEligible", "nkMergeFsrsReviewEligible", "practiceSessions", "nkMergePracticeCheckpoint", "NK_SYNC_META_LKG_KEY"):
         if marker not in sync_core:
             raise SystemExit(f"Cross-device sync diagnostic/project-resolution/review-eligibility contract missing: {marker}")
     if ":batchWrite" in sync_core:
@@ -192,6 +249,12 @@ const document={querySelector:()=>null,createElement:()=>({querySelector:()=>({s
     for marker in ("@media (min-width:768px) and (min-height:600px)", "min-width:1024px", "nk-pwa-update", "location.hostname !== 'qbank.local'"):
         if marker not in transform:
             raise SystemExit(f"Responsive/update transform contract missing: {marker}")
+    generated = (ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8")
+    if "NK_DURABLE_PERSISTENCE_V2_START" in generated:
+        forbidden = ("localStorage.setItem(LS_KEY, JSON.stringify(state))", "localStorage.setItem(LS_KEY,JSON.stringify(state))", "localStorage.setItem(STORAGE_KEY,JSON.stringify(state))", "localStorage.setItem('qbank_state_v1',JSON.stringify(st))")
+        hits = [item for item in forbidden if item in generated]
+        if hits:
+            raise SystemExit(f"Generated app bypasses durable state persistence: {hits}")
     android = (ROOT / "tools/apply_android_secure_origin_v1.py").read_text(encoding="utf-8")
     for marker in ("APP_ORIGIN", "migrate_local_state.html", "QBankMigration", "\\u003c"):
         if marker not in android:

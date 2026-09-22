@@ -30,7 +30,7 @@ def main():
     for path in sorted((ROOT / "tools").glob("verify_*.py")):
         if path.name == "verify_local.py":
             continue
-        if path.name in CI_VERIFIERS or path.name.startswith("verify_marrow_bank_browser_"):
+        if path.name in CI_VERIFIERS or path.name.startswith("verify_marrow_bank_browser_") or path.name.endswith("_browser.py"):
             print(f"CI_ONLY: {path.name} requires generated PDF/app artifacts", flush=True)
         else:
             commands.append([sys.executable, str(path)] + (["--stage", "source"] if path.name == "verify_product_contract.py" else []))

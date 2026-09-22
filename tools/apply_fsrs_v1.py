@@ -62,10 +62,10 @@ def transform(source: str) -> str:
     if source.count(anchor) != 1:
         raise SystemExit(f"QB export anchor count: {source.count(anchor)}")
     source = source.replace(anchor, CORE.read_text(encoding="utf-8") + "\n" + anchor, 1)
-    cloud_boot = "  render();\n  nkCloudInit();\n})();"
+    cloud_boot = "  nkReliabilityInit();\n  render();\n  nkCloudInit();\n})();"
     plain_boot = "  render();\n})();"
     if cloud_boot in source:
-        source = source.replace(cloud_boot, "  nkFsrsInit();\n  render();\n  nkCloudInit();\n})();", 1)
+        source = source.replace(cloud_boot, "  nkFsrsInit();\n  nkReliabilityInit();\n  render();\n  nkCloudInit();\n})();", 1)
     elif plain_boot in source:
         source = source.replace(plain_boot, "  nkFsrsInit();\n  render();\n})();", 1)
     else:

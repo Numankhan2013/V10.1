@@ -46,9 +46,29 @@ def main() -> None:
             page.goto(origin + "/#dashboard", wait_until="domcontentloaded")
             page.wait_for_function("window.QB && window.QB.getState")
 
+            def open_practice(question_id):
+                page.evaluate("id => window.QB.practiceOne(id)", question_id)
+                replacement = page.locator("#nk-practice-replacement")
+                if replacement.count() and replacement.is_visible():
+                    replacement.get_by_role(
+                        "button", name="Discard and start new", exact=True
+                    ).click()
+                page.wait_for_function(
+                    """id => {
+                        const session=window.QB.getState().activeSession;
+                        return session?.questionIds?.[session.index]===id;
+                    }""",
+                    arg=question_id,
+                    timeout=5000,
+                )
+                # Same-route session replacement updates state synchronously;
+                # explicitly exercise the app's same-route render path before
+                # inspecting presentation markup.
+                page.evaluate("window.QB.nav('practice')")
+
             page.locator("button.nk-v3-subject-card").filter(has_text="Physiology").click()
             page.locator("button.nk-bank-card").filter(has_text="PrepLadder").click()
-            page.evaluate("window.QB.practiceOne('physiology-9-6')")
+            open_practice("physiology-9-6")
             nerve_session = page.evaluate("""() => {
                 const s = window.QB.getState().activeSession;
                 return {mode: s?.mode, id: s?.questionIds?.[s.index]};
@@ -120,7 +140,7 @@ def main() -> None:
                 raise SystemExit(f"Nerve-fibre canonical correctOption=1 did not govern answer CSS: correct={correct_indices!r} wrong={wrong_indices!r}")
             page.screenshot(path=str(output / "prepladder-nerve-fibre-matching.png"), full_page=True)
 
-            page.evaluate("window.QB.practiceOne('physiology-1-13')")
+            open_practice("physiology-1-13")
             table = page.locator(".question-text .nk-match-table")
             table.wait_for(state="visible")
             headers = table.locator("th").all_inner_texts()
@@ -144,7 +164,7 @@ def main() -> None:
                 raise SystemExit("Normalized matching answer did not use the canonical correctOption")
             page.screenshot(path=str(output / "prepladder-matching-question.png"), full_page=True)
 
-            page.evaluate("window.QB.practiceOne('physiology-9-17')")
+            open_practice("physiology-9-17")
             ion_table = page.locator(".question-text .nk-match-table")
             ion_table.wait_for(state="visible")
             ion_headers = ion_table.locator("th").all_inner_texts()
@@ -161,7 +181,7 @@ def main() -> None:
                 raise SystemExit("Equilibrium-potential matching question does not expose exactly four canonical choices")
             page.screenshot(path=str(output / "prepladder-equilibrium-potential-matching.png"), full_page=True)
 
-            page.evaluate("window.QB.practiceOne('physiology-9-22')")
+            open_practice("physiology-9-22")
             transport_table = page.locator(".question-text .nk-match-table")
             transport_table.wait_for(state="visible")
             transport_headers = [" ".join(value.split()).upper() for value in transport_table.locator("th").all_inner_texts()]
@@ -181,7 +201,7 @@ def main() -> None:
                 raise SystemExit("Axonal-transport table did not preserve canonical correct option 3")
             page.screenshot(path=str(output / "prepladder-axonal-transport-table.png"), full_page=True)
 
-            page.evaluate("window.QB.practiceOne('physiology-19-12')")
+            open_practice("physiology-19-12")
             statements = page.locator(".question-text .nk-match-table")
             statements.wait_for(state="visible")
             statement_headers = statements.locator("th").all_inner_texts()
@@ -197,7 +217,7 @@ def main() -> None:
             page.evaluate("window.QB.nkOpenSubjectLibrary('Biochemistry')")
             page.locator("button.nk-bank-card").filter(has_text="PrepLadder").click()
             page.locator("button.nk-topic-row").first.wait_for(state="visible")
-            page.evaluate("window.QB.practiceOne('4-3')")
+            open_practice("4-3")
             glucose_prompt = "Which of the following tissues is unable to transport glucose independently of insulin?"
             glucose_choices = ["Hepatocytes", "Cardiac muscle", "RBC", "Neurons"]
             glucose_canonical = page.evaluate("""() => {
@@ -245,7 +265,7 @@ def main() -> None:
             page.screenshot(path=str(output / "prepladder-biochemistry-4-3-stem.png"), full_page=True)
             print("BIOCHEM_4_3_BROWSER_OK exact_prompt=true choices=4 canonical_answer=2")
 
-            page.evaluate("window.QB.practiceOne('5-10')")
+            open_practice("5-10")
             glycogen_raw = ("Which of the following statements is true on the structure of glycogen?\n"
                             "Arranged in 12 concentric layers Glucose residues are connected by ■-1,4 linkage\n"
                             "Branching points formed by α-1,6 linkage")
@@ -294,7 +314,7 @@ def main() -> None:
             page.screenshot(path=str(output / "prepladder-biochemistry-5-10-stem.png"), full_page=True)
             print("BIOCHEM_5_10_BROWSER_OK exact_prompt=true no_square=true choices=4 canonical_answer=3")
 
-            page.evaluate("window.QB.practiceOne('5-14')")
+            open_practice("5-14")
             phosphorylase_raw = "Glycogen phosphorylase cleaves ■-1,4 linkages"
             phosphorylase_fixed = "Glycogen phosphorylase cleaves α-1,4 linkages"
             phosphorylase_choices = ["Glucose-6-phosphatase acts in liver", phosphorylase_fixed,
@@ -332,7 +352,7 @@ def main() -> None:
             page.screenshot(path=str(output / "prepladder-biochemistry-5-14-option.png"), full_page=True)
             print("BIOCHEM_5_14_BROWSER_OK exact_alpha=true no_square=true choices=4 canonical_answer=4")
 
-            page.evaluate("window.QB.practiceOne('4-12')")
+            open_practice("4-12")
             regulator_choices = ["ATP", "Citrate", "Fructose-2,6-bisphosphate", "Acetyl-CoA"]
             regulator_stem = page.locator(".question-text .nk-question-prompt")
             regulator_stem.wait_for(state="visible")
@@ -392,7 +412,7 @@ def main() -> None:
                 ]),
             }
             for question_id, (correct_option, expected_rows) in complete_sources.items():
-                page.evaluate("id => window.QB.practiceOne(id)", question_id)
+                open_practice(question_id)
                 canonical = page.evaluate("""() => {
                     const s = window.QB.getState().activeSession;
                     const q = window.QB.__presentationQuestion(s.questionIds[s.index]);
@@ -419,12 +439,12 @@ def main() -> None:
                     raise SystemExit(f"Complete-source correctness changed for {question_id}: {correct_indices!r}")
                 page.screenshot(path=str(output / f"prepladder-complete-source-{question_id}.png"), full_page=True)
 
-            page.evaluate("window.QB.practiceOne('22-8')")
+            open_practice("22-8")
             exponent_text = page.locator(".question-text sup.nk-sci-sup").all_inner_texts()
             if exponent_text != ["6", "9"]:
                 raise SystemExit(f"Caret exponents did not render semantically in the question stem: {exponent_text!r}")
 
-            page.evaluate("window.QB.practiceOne('17-1')")
+            open_practice("17-1")
             magnesium = page.locator(".option-text").nth(3)
             magnesium.locator("sup.nk-sci-sup").wait_for(state="visible")
             if magnesium.locator("sup.nk-sci-sup").inner_text() != "2+" or "■" in magnesium.inner_text():
@@ -435,7 +455,7 @@ def main() -> None:
             page.locator("button.nk-bank-card").filter(has_text="Marrow").click()
             page.locator("button.nk-topic-row").first.wait_for(state="visible")
 
-            page.evaluate("window.QB.practiceOne('marrow__PHYS_CH09_Q007')")
+            open_practice("marrow__PHYS_CH09_Q007")
             marrow_session = page.evaluate("""() => {
                 const s = window.QB.getState().activeSession;
                 return {mode: s?.mode, id: s?.questionIds?.[s.index]};
@@ -453,7 +473,7 @@ def main() -> None:
             page.evaluate("window.QB.nkOpenSubjectLibrary('Biochemistry')")
             page.locator("button.nk-bank-card").filter(has_text="PrepLadder").click()
             page.locator("button.nk-topic-row").first.wait_for(state="visible")
-            page.evaluate("window.QB.practiceOne('28-3')")
+            open_practice("28-3")
             acid_base = page.locator(".question-text")
             acid_base_subscripts = acid_base.locator("sub.nk-sci-sub").all_inner_texts()
             acid_base_superscripts = acid_base.locator("sup.nk-sci-sup").all_inner_texts()
@@ -469,7 +489,7 @@ def main() -> None:
             page.evaluate("window.QB.nkOpenSubjectLibrary('Physiology')")
             page.locator("button.nk-bank-card").filter(has_text="PrepLadder").click()
             page.locator("button.nk-topic-row").first.wait_for(state="visible")
-            page.evaluate("window.QB.practiceOne('physiology-24-6')")
+            open_practice("physiology-24-6")
             page.locator(".nk-question-unavailable").wait_for(state="visible")
             if page.locator(".option-list button").count():
                 raise SystemExit("Incomplete source choices remained answerable")

@@ -31,9 +31,9 @@ def main() -> None:
         with sync_playwright() as playwright:
             browser = playwright.chromium.launch()
 
-            for width in (320, 390, 768):
+            for width, height in ((320, 844), (390, 844), (820, 1180)):
                 context = browser.new_context(
-                    viewport={"width": width, "height": 844},
+                    viewport={"width": width, "height": height},
                     service_workers="block",
                     reduced_motion="reduce",
                 )
@@ -88,6 +88,26 @@ def main() -> None:
             page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
             page.goto(origin + "/#dashboard", wait_until="domcontentloaded")
             page.wait_for_function("window.QB && window.QB.getState")
+            page_errors = []
+            page.on("pageerror", lambda error: page_errors.append(str(error)))
+
+            # Major-navigation smoke matrix on the same final generated app.
+            for target in ("fsrs", "tests", "analytics", "more", "bookmarks", "module-builder", "study-library"):
+                page.evaluate("target => window.QB.nav(target)", target)
+                page.wait_for_function(
+                    "target => location.hash.includes(target) && document.querySelector('#app')?.innerText.trim().length > 0",
+                    arg=target,
+                )
+                if page.locator("#modal, #qb-question-navigator, #nk-session-review").count():
+                    raise SystemExit(f"Stale overlay appeared during navigation to {target}")
+            page.evaluate("window.QB.nav('dashboard')")
+            page.wait_for_url("**/#dashboard")
+            page.evaluate("window.QB.nav('tests')")
+            page.wait_for_url("**/#tests")
+            page.go_back()
+            page.wait_for_url("**/#dashboard")
+            if page_errors:
+                raise SystemExit(f"Generated app raised page errors during navigation smoke: {page_errors}")
             page.evaluate("window.QB.startAllPractice()")
             page.wait_for_function("window.QB.getState().activeSession?.questionIds?.length > 1")
 
@@ -99,6 +119,7 @@ def main() -> None:
                 raise SystemExit(f"Practice 20 did not create a multi-question session: {original}")
             current_id = original["ids"][4]
             answered_ids = original["ids"][:4]
+            page.evaluate("id => window.QB.toggleBookmark(id)", original["ids"][2])
 
             page.evaluate("""({answered,current}) => {
               const s=window.QB.getState().activeSession;
@@ -122,6 +143,16 @@ def main() -> None:
             if paused["id"] != original["id"] or paused["ids"] != original["ids"] or paused["sessionIds"] != original["ids"] or paused["index"] != 4:
                 raise SystemExit(f"Pause did not preserve the original Practice session: {paused}")
 
+            # Simulate a fresh installed-PWA/browser process using only persisted
+            # origin state. Continue must not depend on the old JS heap.
+            storage = context.storage_state()
+            context.close()
+            context = browser.new_context(viewport={"width": 390, "height": 844}, service_workers="block", storage_state=storage)
+            page = context.new_page()
+            page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
+            page.goto(origin + "/#dashboard", wait_until="domcontentloaded")
+            page.wait_for_function("window.QB && window.QB.getState().activeSession?.lifecycle==='paused'")
+
             # The approved Home command-center owns the visible control and wires it
             # to window.QB.nkContinueRecentPractice(). Click that exact rendered path;
             # do not substitute the older Home V4 control or a direct function call.
@@ -133,7 +164,7 @@ def main() -> None:
             continue_button.click()
             page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='active'")
 
-            result = page.evaluate("""() => {
+            result = page.evaluate("""bookmarkId => {
               const s=window.QB.getState().activeSession;
               return {
                 id:s.id,
@@ -141,9 +172,10 @@ def main() -> None:
                 current:s.questionIds[s.index],
                 index:s.index,
                 submitted:s.submitted,
-                sessionIds:s.sessionQuestionIds
+                sessionIds:s.sessionQuestionIds,
+                bookmarked:Boolean(window.QB.getState().bookmarks[bookmarkId])
               };
-            }""")
+            }""", original["ids"][2])
             if result["id"] != original["id"]:
                 raise SystemExit(f"Home Continue created a new session instead of resuming the paused one: {result}")
             if result["ids"] != original["ids"] or len(result["ids"]) <= 1:
@@ -154,6 +186,8 @@ def main() -> None:
                 raise SystemExit(f"Visible session diverged from the canonical paused test: {result}")
             if not all(result["submitted"].get(qid) for qid in answered_ids):
                 raise SystemExit(f"Answered progress was lost while resuming from Home: {result}")
+            if not result["bookmarked"]:
+                raise SystemExit(f"Bookmark was lost across Practice restart: {result}")
 
             # Persisted-state repair: a previous buggy client may have reduced only
             # questionIds. The preserved sessionQuestionIds must still rebuild all IDs
@@ -189,6 +223,8 @@ def main() -> None:
             lifecycle_ids = page.evaluate("[...window.QB.getState().activeSession.questionIds]")
             answered = lifecycle_ids[:4]
             untouched = lifecycle_ids[4:]
+            lifecycle_session_id = page.evaluate("window.QB.getState().activeSession.id")
+            page.evaluate("id => window.QB.toggleBookmark(id)", answered[0])
             for index, qid in enumerate(answered):
                 correct = page.evaluate("""qid => {
                   const all=[...(window.QBANK_DATA?.questions||[]),...((window.SUBJECT_QBANK_DATA?.subjects||[]).flatMap(x=>x.questions||[]))];
@@ -199,6 +235,8 @@ def main() -> None:
                 page.evaluate("i => window.QB.goIndex(i)", index)
                 page.evaluate("args => window.QB.selectPractice(args.id,args.correct)", {"id": qid, "correct": correct})
 
+            # Navigate past an unanswered question without creating an attempt.
+            page.evaluate("window.QB.goIndex(5)")
             page.evaluate("window.QB.openSessionReview()")
             page.locator("#nk-session-review").get_by_role("button", name="Pause", exact=True).click()
             page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='paused'")
@@ -217,8 +255,21 @@ def main() -> None:
             if paused_fsrs["untouchedAttempts"] or paused_fsrs["untouchedReviews"] or paused_fsrs["untouchedEligible"]:
                 raise SystemExit(f"Pause introduced untouched questions into FSRS: {paused_fsrs}")
 
+            storage = context.storage_state()
+            context.close()
+            context = browser.new_context(viewport={"width": 390, "height": 844}, service_workers="block", storage_state=storage)
+            page = context.new_page()
+            page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
+            page.goto(origin + "/#dashboard", wait_until="domcontentloaded")
+            page.wait_for_function("window.QB && window.QB.getState().activeSession?.lifecycle==='paused'")
             page.locator("button.nk-home-focus-action").click()
             page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='active'")
+            restored = page.evaluate("""id => {
+              const st=window.QB.getState(),s=st.activeSession;
+              return {id:s.id,ids:s.questionIds,index:s.index,bookmark:Boolean(st.bookmarks[id])};
+            }""", answered[0])
+            if restored != {"id": lifecycle_session_id, "ids": lifecycle_ids, "index": 5, "bookmark": True}:
+                raise SystemExit(f"Real-answer lifecycle restart lost state: {restored}")
             # A stale/expired submitted flag without a selected answer must not
             # prevent final submission from recording the question as skipped.
             page.evaluate("id => window.QB.getState().activeSession.submitted[id]=true", untouched[0])
@@ -231,12 +282,36 @@ def main() -> None:
             }""", untouched)
             if submitted_skips != untouched:
                 raise SystemExit(f"Final submission did not add every unanswered question to FSRS: {submitted_skips}")
+
+            # Complete the daily loop through Analysis and the read-only Review
+            # surface, including Previous/Next, the grid, and End Review.
+            review_baseline = page.evaluate("JSON.stringify([window.QB.getState().attempts,window.QB.getState().reviews,window.QB.getState().tests,window.QB.getState().fsrsReviewEligible])")
+            analysis = page.get_by_role("button", name="Review Solutions", exact=True)
+            analysis.wait_for(state="visible")
+            analysis.click()
+            page.wait_for_function("window.QB.getState().activeSession?.mode==='review'")
+            review_session_id = page.evaluate("window.QB.getState().activeSession.id")
+            page.get_by_role("button", name="Next", exact=True).click()
+            page.get_by_role("button", name="Previous", exact=True).click()
+            if page.evaluate("window.QB.getState().activeSession.id") != review_session_id:
+                raise SystemExit("Review Previous/Next replaced the read-only review session")
+            page.locator("#cr-grid").click()
+            navigator = page.locator("#qb-question-navigator")
+            navigator.wait_for(state="visible")
+            navigator.get_by_role("button", name="End Review", exact=True).click()
+            page.wait_for_function("!window.QB.getState().activeSession")
+            if "result" not in page.url:
+                raise SystemExit(f"End Review returned to an invalid target: {page.url}")
+            page.evaluate("window.QB.nav('dashboard')")
+            page.wait_for_url("**/#dashboard")
+            if page.evaluate("JSON.stringify([window.QB.getState().attempts,window.QB.getState().reviews,window.QB.getState().tests,window.QB.getState().fsrsReviewEligible])") != review_baseline:
+                raise SystemExit("Read-only Review mutated attempts, results, or FSRS state")
             context.close()
             browser.close()
     finally:
         server.shutdown()
 
-    print("CONTINUE_PRACTICE_BROWSER_OK widths=320,390,768 single_review_grid=true footer=previous_next home_continue=true real_practice_session=true saved_index=4 fsrs_pause_boundary=true submit_skips=true")
+    print("CONTINUE_PRACTICE_BROWSER_OK viewports=320x844,390x844,820x1180 navigation_smoke=true browser_back=true single_review_grid=true footer=previous_next restart_resume=true home_continue=true real_practice_session=true saved_index=4 bookmark_persisted=true fsrs_pause_boundary=true submit_skips=true analysis_review_loop=true")
 
 
 if __name__ == "__main__":

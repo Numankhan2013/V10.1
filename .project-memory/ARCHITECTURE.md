@@ -42,9 +42,12 @@ checked deterministic rollout ledger.
   `CHAPTER_BY_ID`, `BY_ID` (post-transform:
   `SUBJECTS.flatMap(...q=>[String(q.id),{...q,subject...}])`),
   `activeSubject`, `applySubject(name)` + `applySubject(activeSubject)`.
-- `state` in `qbank_state_v1`: `attempts` (canonical history — never
-  `state.answers` for progress), `bookmarks`, `reviews`, `tests`,
-  `activeSession`; `qbank_active_subject_v1` for subject;
+- `state` in `qbank_state_v1`: schema-v2/revisioned `attempts` (canonical
+  history — never `state.answers` for progress), `bookmarks`, `reviews`,
+  `tests`, `activeSession`, and versioned `normalPracticeCheckpoint`;
+  `qbank_active_subject_v1` for subject. State writes use the durable pending →
+  primary → last-known-good transaction in `tools/durable_persistence_core.js`;
+  callers receive success/failure and malformed primary state recovers visibly.
   `studyModules` (max 100, normalized; see `docs/CUSTOM_STUDY_MODULES.md`).
 - Attempt helpers: `qAttempts(id)`, `latestAttempt(id)`, `chapterStats(id)`,
   `chapterQuestions(id)`, `totalAttempted()`, `overallAccuracy()`,
@@ -76,12 +79,13 @@ checked deterministic rollout ledger.
   draft/builder/persistence/resume/finish/restart + Home prioritization.
 - Continue Practice (`tools/continue_practice_resume_core.js`,
   NK_CONTINUE_PRACTICE_RESUME_V1): regular topic Practice owns explicit
-  activeSession.lifecycle, immutable original-order sessionQuestionIds, and
+  activeSession.lifecycle, immutable original-order sessionQuestionIds, and a
+  mirrored normal-Practice checkpoint with per-question revisions and
   practiceContext {subject,bank,topicId,title,questionIds}. Pause retains the active
   synced session; resume restores the complete original ordered session and saved
-  position; Practice completion copies context into test history for continuation.
-  No new top-level learner state exists. Wrong/Bookmarks, FSRS, Review, CBT and
-  Custom Study Modules are excluded.
+  position; Practice completion atomically persists a deterministic result and
+  terminal checkpoint before clearing the live session. Wrong/Bookmarks, FSRS,
+  Review, CBT and Custom Study Modules remain isolated from Home continuation.
 - Source visuals contract: per-question `visual {type:"source-pdf",
   source, page, crop{left,top,right,bottom} (PDF points, optional),
   fit: contain|width|native}`; renderer consumes metadata only.

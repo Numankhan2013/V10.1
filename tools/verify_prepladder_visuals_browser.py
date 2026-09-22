@@ -33,6 +33,9 @@ def open_question(page, item):
     page.evaluate("([subject])=>window.QB.nav('banks',subject)", [item["subject"]])
     page.locator("button.nk-bank-card").filter(has_text="PrepLadder").click()
     page.evaluate("([id])=>window.QB.practiceOne(id)", [item["questionId"]])
+    replacement = page.locator("#nk-practice-replacement")
+    if replacement.count() and replacement.is_visible():
+        replacement.get_by_role("button", name="Discard and start new", exact=True).click()
     page.locator(".nk-source-visual img").first.wait_for(state="visible")
     page.wait_for_function("document.querySelector('.nk-source-visual img')?.naturalWidth > 0")
 
