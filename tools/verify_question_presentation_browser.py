@@ -58,7 +58,7 @@ def main() -> None:
                         const session=window.QB.getState().activeSession;
                         return session?.questionIds?.[session.index]===id;
                     }""",
-                    question_id,
+                    arg=question_id,
                     timeout=5000,
                 )
                 # Same-route session replacement updates state synchronously;
