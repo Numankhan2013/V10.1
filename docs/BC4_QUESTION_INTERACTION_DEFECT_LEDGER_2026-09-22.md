@@ -86,3 +86,20 @@ contracts additionally test Bookmarks/Wrong/FSRS checkpoint preservation.
   Continue Practice/CBT/Review/FSRS contracts and the BC3 lifecycle browser
   regression passed. This is emulator verification only; a real physical
   Android device has not been tested in this continuation.
+
+## Canonical promotion checkpoint
+
+Documentation-inclusive BC4 SHA
+`43328c12ffde4c79db2214f7a0a351b2d326b5d7` passed Engineering
+`35817957824` and full Build V11.7 Android + PWA `35817948137`, including
+the packaged Android WebView interaction regression. Immediately before
+promotion, canonical was re-fetched at
+`54f7d0fe210683e6236a00a6669f145734ae0335`, an ancestor with zero
+divergence. Canonical was cleanly fast-forwarded to `43328c1`; its own
+Engineering `35818707731` and full Build `35818707723` both succeeded on
+that exact SHA. The canonical build reported
+`ANDROID_QUESTION_INTERACTION_OK` for the phone and tablet emulator,
+`QUESTION_INTERACTION_BROWSER_OK` for phone and tablet, and
+`CONTINUE_PRACTICE_BROWSER_OK` for the BC3 lifecycle. No physical-device
+verification or production deployment was performed. Live canonical HEAD and
+later CI should be checked from GitHub rather than inferred from this ledger.
