@@ -26,6 +26,11 @@ async function main(){
     await page.waitForFunction(()=>location.hostname==='qbank.local'&&window.QB?.getState);
     return page;
   }
+  // Android WebView updates a hash route in the current document. Playwright's
+  // waitForURL defaults to a load event, which is not emitted for that change.
+  async function waitForHash(page,hash){
+    await page.waitForFunction(expected=>location.hash===expected,hash);
+  }
   const report=[];
   try{
     for(const [label,size,density] of [['phone','1080x2400',440],['tablet','1600x2560',320]]){
@@ -48,7 +53,8 @@ async function main(){
       const pauseState=await page.evaluate(()=>({url:location.href,hash:location.hash,lifecycle:window.QB.getState().activeSession?.lifecycle,index:window.QB.getState().activeSession?.index,reviewVisible:Boolean(document.querySelector('#nk-session-review')),bodyText:document.body.innerText.slice(0,300)}));
       fs.writeFileSync(`${output}/${label}-pause-state.json`,JSON.stringify(pauseState,null,2));
       console.log('ANDROID_PAUSE_STATE '+JSON.stringify(pauseState));
-      await page.waitForURL('**/#dashboard');
+      await waitForHash(page,'#dashboard');
+      await page.waitForFunction(()=>window.QB.getState().activeSession?.lifecycle==='paused'&&!document.querySelector('#nk-session-review'));
       await device.screenshot({path:`${output}/${label}-paused.png`});
       await device.shell(`am force-stop ${pkg}`);
       // Wait for the closed process to leave Playwright's WebView inventory.
@@ -62,9 +68,9 @@ async function main(){
       assert.equal(await page.evaluate(id=>window.QB.getState().attempts[id]?.length,original.questionIds[0]),1);
       // This invokes MainActivity.onBackPressed / WebView.goBack, not JS navigation.
       await device.shell('input keyevent KEYCODE_BACK');
-      await page.waitForURL('**/#dashboard');
+      await waitForHash(page,'#dashboard');
       await page.locator('button.nk-home-focus-action').click();
-      await page.waitForURL('**/#practice');
+      await waitForHash(page,'#practice');
       await page.evaluate(()=>window.QB.openSessionReview());
       await page.locator('#nk-session-review').getByRole('button',{name:'Submit',exact:true}).dblclick();
       await page.waitForFunction(()=>!window.QB.getState().activeSession);
@@ -78,7 +84,7 @@ async function main(){
       await page.locator('#qb-question-navigator').getByRole('button',{name:'End Review',exact:true}).click();
       assert.equal(await page.evaluate(()=>JSON.stringify([window.QB.getState().attempts,window.QB.getState().reviews])),before);
       await page.evaluate(()=>window.QB.nav('dashboard'));
-      await page.waitForURL('**/#dashboard');
+      await waitForHash(page,'#dashboard');
       await device.screenshot({path:`${output}/${label}-home.png`});
       report.push({device:label,size,density,viewport:await page.evaluate(()=>({width:innerWidth,height:innerHeight})),nativeBack:'PASS',forceStopResume:'PASS',practiceReviewFsrs:'PASS'});
       console.log('ANDROID_INTERACTION_VIEWPORT_OK '+JSON.stringify(report.at(-1)));
