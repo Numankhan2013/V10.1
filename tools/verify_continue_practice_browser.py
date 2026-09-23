@@ -314,6 +314,17 @@ def main() -> None:
             if chooser.locator(".nk-saved-practice-row").count() != 3:
                 raise SystemExit("Reload did not show all three paused Practice sessions")
             chooser.screenshot(path=str(output / "three-paused-practice-phone.png"))
+            page.set_viewport_size({"width": 320, "height": 640})
+            chooser.screenshot(path=str(output / "three-paused-practice-small-phone.png"))
+            small_chooser = chooser.evaluate("""dialog => {
+              const row=dialog.querySelector('.nk-saved-practice-row');
+              const actions=[...row.querySelectorAll('button')].map(button=>button.getBoundingClientRect());
+              return {dialogFits:dialog.scrollWidth<=dialog.clientWidth,
+                pageFits:document.documentElement.scrollWidth<=innerWidth,
+                actionsFit:actions.length===2 && actions.every(rect=>rect.width>=44 && rect.left>=0 && rect.right<=innerWidth)};
+            }""")
+            if not all(small_chooser.values()):
+                raise SystemExit(f"Paused Practice chooser overflows at 320px: {small_chooser}")
             page.set_viewport_size({"width": 820, "height": 1180})
             chooser.screenshot(path=str(output / "three-paused-practice-tablet.png"))
             page.set_viewport_size({"width": 390, "height": 844})
