@@ -17,7 +17,7 @@ names are emitted for each viewport in the `study-ui-audit` artifact.
 
 | Step | Screen or action | Health and finding |
 | --- | --- | --- |
-| 01 | Home | Working; primary study actions and bottom navigation visible. |
+| 01 | Home | The 320px primary action was partly covered by bottom navigation; the narrow-screen spacing fix now asserts it remains fully visible. |
 | 01b | Subject card destination | Working; current Home card opens the preferred bank's Topics directly. |
 | 02 | Topics | Working; list, filters and continuation tray visible. |
 | 03 | Chapter library | Working; question list and entry visible. |
@@ -46,6 +46,7 @@ names are emitted for each viewport in the `study-ui-audit` artifact.
 | The CBT grid showed source question numbers in random order even though its cells navigate by session position. | `small-phone-16-cbt-grid.png`, `tablet-16-cbt-grid.png` | Display and announce `i+1`; use four columns below 361px and slightly larger status text. | Same names in the corrected artifact; 1–20 in order, status inside each cell. |
 | A long chapter title occupied space above the question and added no study value. | `small-phone-04-question.png`, `large-text-phone-04-question.png` | Remove the subject/chapter context bar from shared Practice, CBT and Review question cards. | The updated capture asserts no context bar is rendered and shows the question higher on screen. |
 | The Analysis date and heading were squeezed beside Review Solutions on phones. | `phone-09-analysis.png`, `large-text-phone-09-analysis.png` | Stack header text and action below 481px. | Same names in corrected artifact; date and heading fit. |
+| At 320px, the Home primary action was partly covered by the fixed bottom navigation on first load. | `small-phone-01-home.png` in run `35845055318` | Compact Home spacing only at widths up to 360px, retaining a 48px action target. | The capture now requires the full action above the navigation with 8px clearance. |
 
 The capture regression asserts session-position numbering, status-label bounds,
 absence of the subject/chapter context bar, and successful CBT submission from the grid. The

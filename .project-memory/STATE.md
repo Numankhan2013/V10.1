@@ -46,7 +46,7 @@
 - Special modes (CBT, Review, Wrong/Bookmarks, FSRS, Custom Study Modules) remain outside this override unless explicitly redesigned.
 - Postmortem: `.project-memory/PRACTICE_FLOW_POSTMORTEM_2026-09-12.md`; implementation handoff: `.project-memory/CONTINUE_PRACTICE_HANDOFF.md`.
 - Status: **accepted / device-verified / user-verified**. Do not describe this flow as pending.
-- Multiple paused Practice chapters were reconciled into canonical at `cb3f44b`; Engineering `35850509766` and full Android/PWA/browser/APK/emulator run `35850509865` passed. Physical Android acceptance of this extension remains pending; the original single-session Continue Practice contract above remains user/device accepted.
+- Multiple paused Practice chapters were reconciled into canonical at `cb3f44b`; Engineering `35850509766` and full Android/PWA/browser/APK/emulator run `35850509865` passed. The user confirmed the chooser/resume flow in the UI-branch preview; physical Android acceptance of this extension remains pending.
 
 ## Mandatory Practice regression sequence
 
@@ -111,7 +111,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Study UI audit and first defect batch — 2026-09-23
 
-- Baseline screenshots at 320px/390px phone, larger text, and 820px tablet found three defects (CBT grid numbering/crowding, clipped question context, squeezed Analysis header); shared fixes plus generated capture/image checks are in `docs/STUDY_UI_AUDIT_2026-09-23.md`. Local 50-check suite passed; exact final CI, in-place APK upgrade, data preservation, force-close/reopen and sync remain physical acceptance items.
+- Baseline screenshots at 320px/390px phone, larger text, and 820px tablet found CBT grid numbering/crowding, clipped question context, squeezed Analysis header, and a 320px Home action under bottom navigation. Shared fixes are in `docs/STUDY_UI_AUDIT_2026-09-23.md`; the separate UI branch passed Engineering `35895584962` and full browser/APK/Android run `35895585071`. Final canonical-lineage integration CI and physical APK/data-preservation checks remain pending.
 
 ## Anti-fragmentation rules
 
@@ -134,8 +134,8 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Current priorities / Next step
 
-1. Confirm live canonical HEAD and explanation-lane ownership before any new batch; Anatomy source order proceeds from Ch8 Q1. The Ch7 Q11–Q21 batch is build-verified and reconciled; physical preview review remains separate. Do not promote production.
-2. Complete the study UI batch by inspecting the final image screenshots and exact-SHA Engineering/full Android/PWA/browser/APK/package results. If green, retain the accepted Practice/Review behavior and continue narrow evidence-led UI checks. Physical canonical APK verification remains outstanding; production promotion remains separately guarded.
+1. Audit `feature/home-polish-canonical-audit-20260923`, based on canonical `81333f0`, with the UI changes and already-canonical multi-pause behavior. Require exact-head Engineering, browser, APK/package and Android emulator checks before recommending canonical promotion. Production remains separately guarded.
+2. Keep the accepted Practice/Review contract, Anatomy Ch7 Q11–Q21 rollout, and automation-owned image/explanation content intact. Physical APK/data-preservation review remains outstanding.
 3. Image automation remains independently owned from live canonical per `.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md`; P0 Phase 3 has 219 source-review candidates (not proven defects) with Phase 6 sign-off and user acceptance pending.
 
 ## Memory pointers
