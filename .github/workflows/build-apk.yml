@@ -234,6 +234,10 @@ jobs:
         run: python3 tools/test_marrow_biochem_explanation_rollout.py
       - name: Validate Marrow Physiology explanation rollout
         run: python3 tools/test_marrow_physio_explanation_rollout.py
+      - name: Remove subject and chapter bar from question cards
+        run: python3 tools/remove_question_context_bar_v1.py
+      - name: Verify question context bar removal
+        run: python3 tools/test_question_context_bar_v1.py
       - name: Verify final JavaScript syntax after all transformations
         run: |
           python3 - <<'PY'

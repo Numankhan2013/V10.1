@@ -18,7 +18,6 @@ def main() -> None:
       "function nkSourceTakeaway(q)",
       "function nkSessionHeader(q,s,mode,timerHtml='',gridAttrs=",
       "function nkSessionOptions(q,selected,mode,submitted)",
-      "function nkQuestionContext(q) {\n    return '';\n  }",
       "function nkStudySupport(q,timeMs,unattempted=false,renderedSource='')",
       'class="nk-v114-session is-practice"',
       'class="nk-v114-session is-exam"',
@@ -42,7 +41,6 @@ def main() -> None:
     review=section(source,"function reviewTestPage()","function closeQuestionNavigator")
     navigator=section(source,"function openQuestionNavigator()","function jumpFromNavigator")
     if "nk-option-state" in source:raise SystemExit("Option-side status holes remain")
-    if 'class="nk-question-context' in practice+exam+review:raise SystemExit("Subject/chapter context bar remains in a question renderer")
     if "<aside class=\"card navigator\">" in practice+exam+review:raise SystemExit("Legacy inline navigator remains")
     if "nkStudySupport" in exam or "renderExplanationText" in exam or "correctOption" in exam:raise SystemExit("CBT correctness/explanation leakage risk")
     if "option?.text?String(option.text)" in source:raise SystemExit("Correct-option takeaway fallback remains")
