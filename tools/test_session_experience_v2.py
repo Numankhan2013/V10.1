@@ -30,6 +30,7 @@ def main() -> None:
       "const owner=String(state.activeSession?.id||'')",
       "bottom:0!important",
       "grid-template-columns:38px minmax(0,1fr)!important",
+      ".nk-v114-session button.option:hover{transform:none!important}",
       "dna:`<svg ${common}>",
       "renderExplanationText(q.explanation,q)",
       "&scale=4",

@@ -351,3 +351,9 @@ guess when several sessions exist. CBT exclusivity, Review read-only behavior,
 FSRS pause/submit boundaries, and membership-mismatch fail-closed sync are
 unchanged. Different unfinished chapters on different devices merge by session ID
 rather than conflicting.
+
+Already paused checkpoints are immutable during unrelated session starts,
+resumes, and pagehide saves. Terminal checkpoints remain available as sync
+tombstones so an older remote paused copy cannot reopen completed work. When
+the legacy single-checkpoint alias and collection contain the same ID, the
+newer revision wins during normalization.
