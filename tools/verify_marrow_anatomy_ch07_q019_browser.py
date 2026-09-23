@@ -48,7 +48,7 @@ def main() -> None:
             page.wait_for_function("() => document.querySelectorAll('button.nk-library-row').length===21", timeout=5000)
             page.locator("button.nk-library-row").nth(18).click()
             page.wait_for_function("() => document.querySelectorAll('.option-list button').length===4", timeout=5000)
-            page.locator(".option-list button").nth(0).click()
+            page.locator(".option-list button").nth(1).click()  # Source key B; correct answers show the manual FSRS dock.
             page.wait_for_timeout(120)
             support = page.locator(".nk-study-support").inner_text().lower()
             for marker in (
