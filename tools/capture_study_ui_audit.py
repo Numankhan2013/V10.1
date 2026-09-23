@@ -78,11 +78,7 @@ def main():
                 page.locator("button.nk-library-row").first.click()
                 page.locator(".option-list button").first.wait_for(state="visible")
                 capture(page, f"{label}-04-question", observations)
-                assert page.locator(".nk-question-context").evaluate("""node => {
-                  const last=node.lastElementChild,outer=node.getBoundingClientRect(),inner=last.getBoundingClientRect();
-                  return node.scrollWidth<=node.clientWidth+1 && last.scrollWidth<=last.clientWidth+1
-                    && inner.right<=outer.right+1;
-                }"""), f"Question context clips chapter at {label}"
+                assert page.locator(".nk-question-context").count() == 0, f"Question context bar remains at {label}"
                 page.locator(".option-list button").first.click()
                 page.locator(".nk-study-support").wait_for(state="visible")
                 capture(page, f"{label}-05-answer", observations)

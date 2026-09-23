@@ -21,7 +21,7 @@ names are emitted for each viewport in the `study-ui-audit` artifact.
 | 01b | Subject card destination | Working; current Home card opens the preferred bank's Topics directly. |
 | 02 | Topics | Working; list, filters and continuation tray visible. |
 | 03 | Chapter library | Working; question list and entry visible. |
-| 04 | Unanswered Practice question | Fixed: long bank/chapter context now wraps across the header instead of clipping. |
+| 04 | Unanswered Practice question | The subject and chapter context bar has been removed; question content starts higher on the screen. |
 | 05 | Answer feedback | Working; chosen wrong and correct choices have distinct text/color states. |
 | 06 | Long explanation | Working; structured explanation scrolls beneath the fixed footer. |
 | 07 | Explanation bottom | Working; final explanation content remains reachable. |
@@ -44,11 +44,11 @@ names are emitted for each viewport in the `study-ui-audit` artifact.
 | Finding | Baseline evidence | Change | Corrected evidence |
 | --- | --- | --- | --- |
 | The CBT grid showed source question numbers in random order even though its cells navigate by session position. | `small-phone-16-cbt-grid.png`, `tablet-16-cbt-grid.png` | Display and announce `i+1`; use four columns below 361px and slightly larger status text. | Same names in the corrected artifact; 1–20 in order, status inside each cell. |
-| A long chapter title occupied a narrow trailing strip and clipped on phone and simulated larger text. | `small-phone-04-question.png`, `large-text-phone-04-question.png` | Give the context a full-width second row on phones. | Same names in corrected artifact; full title is visible. |
+| A long chapter title occupied space above the question and added no study value. | `small-phone-04-question.png`, `large-text-phone-04-question.png` | Remove the subject/chapter context bar from shared Practice, CBT and Review question cards. | The updated capture asserts no context bar is rendered and shows the question higher on screen. |
 | The Analysis date and heading were squeezed beside Review Solutions on phones. | `phone-09-analysis.png`, `large-text-phone-09-analysis.png` | Stack header text and action below 481px. | Same names in corrected artifact; date and heading fit. |
 
 The capture regression asserts session-position numbering, status-label bounds,
-full question-context bounds, and successful CBT submission from the grid. The
+absence of the subject/chapter context bar, and successful CBT submission from the grid. The
 existing Continue Practice, CBT, Review, FSRS, browser, packaged APK and Android
 emulator checks remain required on the exact final SHA.
 
