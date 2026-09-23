@@ -6,6 +6,9 @@ on:
       - feature/marrow-explanations-anatomy-20260923-ch08-q001
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   anatomy-ch08-source-audit:
     runs-on: ubuntu-latest
@@ -13,12 +16,23 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate canonical Anatomy bundle and export Ch8 Q1-Q14
         run: |
+          mkdir -p .project-memory/source-audits
           python tools/export_marrow_question_context.py \
             --subject Anatomy --chapter 8 --start 1 --end 14 \
-            | tee /tmp/anatomy-ch08-q001-q014.json
+            | tee .project-memory/source-audits/anatomy-ch08-q001-q014.json
       - name: Upload bounded source projection
         uses: actions/upload-artifact@v4
         with:
           name: anatomy-ch08-q001-q014-source
-          path: /tmp/anatomy-ch08-q001-q014.json
+          path: .project-memory/source-audits/anatomy-ch08-q001-q014.json
           if-no-files-found: error
+      - name: Checkpoint bounded source projection for unattended authoring
+        run: |
+          if git diff --quiet -- .project-memory/source-audits/anatomy-ch08-q001-q014.json && git ls-files --error-unmatch .project-memory/source-audits/anatomy-ch08-q001-q014.json >/dev/null 2>&1; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .project-memory/source-audits/anatomy-ch08-q001-q014.json
+          git commit -m "Checkpoint Anatomy Ch8 source projection [skip ci]"
+          git push
