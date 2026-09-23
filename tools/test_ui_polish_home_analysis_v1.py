@@ -25,7 +25,9 @@ def balanced(css: str, name: str) -> None:
 def main() -> None:
     # Polish markers must exist in their single-owner transforms.
     assert "nk-ui-polish-2026-09-23-home" in HOME, "home polish marker missing"
+    assert "nk-ui-polish-2026-09-23-home-v2" in HOME, "home v2 polish marker missing"
     assert "nk-ui-polish-2026-09-23-analysis" in ANALYSIS, "analysis polish marker missing"
+    assert "nk-ui-polish-2026-09-23-analysis-v2" in ANALYSIS, "analysis v2 polish marker missing"
 
     # Theme loyalty: foundation tokens must remain untouched.
     for token in ("#302b78", "#7561ff", "#f6f7fb", "#151852", "#ff8c32",

@@ -185,6 +185,28 @@ body:has(.nk-home-approved-v1),body:has(.nk-study-library-v3),body:has(.nk-fsrs-
 .nk-home-progress-track{height:7px}
 .nk-v3-section-head small{letter-spacing:.14em}
 .nk-home-quote{border:1px solid #e9e4fb}
+/* NK UI polish 2026-09-23b — Home: bolder static hierarchy, same theme (touch-visible). Marker: nk-ui-polish-2026-09-23-home-v2 */
+.nk-home-brand-icon{box-shadow:0 6px 16px rgba(117,97,255,.45)}
+.nk-home-greeting h1{font-size:34px}
+.nk-home-focus-card{padding:24px;border-radius:24px;border:1px solid rgba(255,255,255,.16)}
+.nk-home-focus-card h2{font-size:26px;font-weight:850}
+.nk-home-focus-card p{font-size:12px;color:#e4e3f5}
+.nk-home-focus-action{min-height:52px;font-size:15px;border-radius:14px}
+.nk-home-streak-flame{background:linear-gradient(135deg,#ff9a3d,#ff7a1a)}
+.nk-home-streak-copy strong{font-size:14px}
+.nk-v3-subject-card{padding:14px;border-radius:19px}
+.nk-v3-subject-icon{width:46px;height:46px;border-radius:14px}
+.nk-v3-subject-copy strong{font-size:14px}
+.nk-v3-subject-copy small{font-size:10px}
+.nk-v3-subject-progress{background:#e6e3f6}
+.nk-v3-subject-progress i{background:linear-gradient(90deg,#7561ff,#a99bf4)}
+.nk-home-quick-icon{background:linear-gradient(135deg,#f0edff,#e2d9ff)}
+.nk-home-quick-icon.is-magenta{background:linear-gradient(135deg,#fff1f7,#ffd9e8)}
+.nk-home-progress-icon{background:linear-gradient(135deg,#efedff,#ddd4ff)}
+.nk-home-progress-icon.is-green{background:linear-gradient(135deg,#e6f9ef,#cdeebd)}
+.nk-home-progress-icon.is-blue{background:linear-gradient(135deg,#e9f3ff,#cfe4fd)}
+.nk-v3-section-head h2{font-size:19px;letter-spacing:-.2px}
+.nk-home-quote{background:linear-gradient(100deg,#efe8ff,#f7f2ff)}
 </style>'''
 
 

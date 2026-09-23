@@ -113,6 +113,20 @@ css = r'''<style id="qbank-practice-analysis-v1">
 .v102-review-action:hover{transform:translateY(-1px);box-shadow:0 12px 26px rgba(81,83,232,.34)}
 @media(prefers-reduced-motion:reduce){.result-stat,.v102-review-action{transition:none!important}.result-stat:hover,.v102-review-action:hover{transform:none!important;box-shadow:none!important}}
 @media(max-width:430px){.result-stat::before{height:2px}}
+/* NK UI polish 2026-09-23b — Analysis: bolder cards, same theme (touch-visible). Marker: nk-ui-polish-2026-09-23-analysis-v2 */
+.result-stat{border-radius:18px;box-shadow:0 6px 18px rgba(24,30,58,.06)}
+.result-stat::before{height:4px}
+.result-stat-icon{width:36px;height:36px;border-radius:12px}
+.result-stat-time .result-stat-icon{background:linear-gradient(135deg,#e3e9fb,#cfd9f8)}
+.result-stat-attempted .result-stat-icon{background:linear-gradient(135deg,#e3f1ff,#c9e2fb)}
+.result-stat-question .result-stat-icon{background:linear-gradient(135deg,#efe9fb,#ddd0f7)}
+.result-stat-completion .result-stat-icon{background:linear-gradient(135deg,#ddf5ea,#c4ecda)}
+.result-stat .value{font-size:26px}
+.result-stat-head .label{font-size:11px}
+.mode-pill{font-size:11px;padding:6px 12px}
+.v102-review-action{min-height:52px;font-size:15px;border-radius:14px}
+.page-title{letter-spacing:-.3px}
+@media(max-width:430px){.result-stat .value{font-size:22px!important}.result-stat-icon{width:32px!important;height:32px!important}}
 </style>'''
 if '</head>' not in s:
     raise SystemExit('Cannot apply practice analysis style: </head> missing')
