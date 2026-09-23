@@ -35,12 +35,15 @@
   }
   function nkNormalizePracticeCheckpoints(rawList,legacy){
     const source=Array.isArray(rawList)?[...rawList]:[];
-    if(legacy&& !source.some(item=>String(item?.sessionId||'')===String(legacy.sessionId||'')))source.push(legacy);
+    // The legacy alias may have been written by an older client after its
+    // collection copy. Compare revisions even when the IDs already match.
+    if(legacy)source.push(legacy);
     const byId=new Map();for(const raw of source){const item=nkNormalizeCheckpoint(raw);if(!item)continue;const old=byId.get(item.sessionId);if(!old||Number(item.updatedAt||0)>=Number(old.updatedAt||0))byId.set(item.sessionId,item);}
-    const values=[...byId.values()],open=values.filter(item=>!NK_PRACTICE_TERMINAL.has(item.lifecycle)),closed=values.filter(item=>NK_PRACTICE_TERMINAL.has(item.lifecycle)).sort((a,b)=>Number(b.updatedAt||0)-Number(a.updatedAt||0));
-    return [...open,...closed.slice(0,Math.max(0,100-open.length))].sort((a,b)=>Number(a.createdAt||a.updatedAt||0)-Number(b.createdAt||b.updatedAt||0));
+    // Terminal records are sync tombstones. Dropping an old one would allow a
+    // delayed remote paused copy to reopen a completed or discarded session.
+    return [...byId.values()].sort((a,b)=>Number(a.createdAt||a.updatedAt||0)-Number(b.createdAt||b.updatedAt||0));
   }
-  function nkLatestPracticeCheckpoint(list){return [...(list||[])].sort((a,b)=>Number(b.updatedAt||0)-Number(a.updatedAt||0))[0]||null;}
+  function nkLatestPracticeCheckpoint(list){let latest=null;for(const item of list||[]){if(!latest||Number(item.updatedAt||0)>=Number(latest.updatedAt||0))latest=item;}return latest;}
   function nkValidateState(value){
     if(!nkStateObject(value))throw new Error('state root is not an object');
     if(value.stateSchemaVersion!=null&&(!Number.isInteger(Number(value.stateSchemaVersion))||Number(value.stateSchemaVersion)>NK_STATE_SCHEMA_VERSION||Number(value.stateSchemaVersion)<1))throw new Error('unsupported state schema');
@@ -109,7 +112,9 @@
     if(nkNormalPracticeSession(session)){
       const current=checkpoints.find(item=>String(item.sessionId)===String(session.id))||null;
       if(current&&NK_PRACTICE_TERMINAL.has(current.lifecycle)){target.activeSession=null;target.normalPracticeCheckpoints=checkpoints;target.normalPracticeCheckpoint=nkLatestPracticeCheckpoint(checkpoints);return target.normalPracticeCheckpoint;}
+      if(current&&(session.lifecycle==='paused'||session.lifecycle==='suspended')){target.normalPracticeCheckpoints=checkpoints;target.normalPracticeCheckpoint=nkLatestPracticeCheckpoint(checkpoints);return current;}
       const next=nkCheckpointFromSession(session,current,String(session.lifecycle||'active')),index=checkpoints.findIndex(item=>String(item.sessionId)===String(session.id));
+      next.updatedAt=Math.max(Number(next.updatedAt||0),...checkpoints.map(item=>Number(item.updatedAt||0)+1));
       if(index<0)checkpoints.push(next);else checkpoints[index]=next;
       target.normalPracticeCheckpoints=checkpoints;target.normalPracticeCheckpoint=nkLatestPracticeCheckpoint(checkpoints);return next;
     }
@@ -144,7 +149,7 @@
   function nkRetryPersistence(){const ok=saveState();if(ok){nkStorageClearError();if(typeof nkScheduleCloudSync==='function')nkScheduleCloudSync();}return ok;}
   function nkFlushLifecycleState(){
     const s=state?.activeSession;
-    if(s?.mode==='practice'&&typeof savePracticeElapsed==='function')savePracticeElapsed();
+    if(s?.mode==='practice'&&s.lifecycle!=='paused'&&s.lifecycle!=='suspended'&&typeof savePracticeElapsed==='function')savePracticeElapsed();
     else if(s?.mode==='exam'&&typeof saveExamElapsed==='function')saveExamElapsed();
     const ok=saveState();if(typeof nkCaptureCloudChanges==='function')nkCaptureCloudChanges();return ok;
   }

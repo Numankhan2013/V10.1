@@ -202,7 +202,7 @@
     const checkpoints=typeof nkNormalizePracticeCheckpoints==='function'?nkNormalizePracticeCheckpoints(state.normalPracticeCheckpoints,state.normalPracticeCheckpoint):[...(state.normalPracticeCheckpoints||[]),state.normalPracticeCheckpoint].filter(Boolean);
     const local=nkSyncPracticeCheckpoint(checkpoints.find(item=>String(item.sessionId)===String(remote.sessionId)));
     if(!local){checkpoints.push(remote);state.normalPracticeCheckpoints=checkpoints;state.normalPracticeCheckpoint=typeof nkLatestPracticeCheckpoint==='function'?nkLatestPracticeCheckpoint(checkpoints):remote;return remote;}
-    if(nkSyncMembership(local)!==nkSyncMembership(remote)){nkPracticeConflict(local,remote,'membership-mismatch');return local;}
+    if(local.sessionQuestionIds.length!==remote.sessionQuestionIds.length||local.sessionQuestionIds.some((id,index)=>id!==remote.sessionQuestionIds[index])){nkPracticeConflict(local,remote,'membership-mismatch');return local;}
     const ids=[...local.sessionQuestionIds],answers={},submitted={},questionTimes={},pendingFsrsRatings={},questionUpdates={};
     ids.forEach(id=>{
       const lu=local.questionUpdates?.[id]||{},ru=remote.questionUpdates?.[id]||{},remoteNewer=Number(ru.revision||0)>Number(lu.revision||0)||(Number(ru.revision||0)===Number(lu.revision||0)&&Number(ru.updatedAt||0)>Number(lu.updatedAt||0));
