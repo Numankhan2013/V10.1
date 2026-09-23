@@ -133,6 +133,7 @@ def main():
                 page.locator("button.nk-topic-row").first.click()
                 page.locator("button.nk-library-row").nth(22).click()
                 page.wait_for_function("document.querySelector('.nk-marrow-figure-button img')?.naturalWidth>0")
+                page.evaluate("document.querySelector('.nk-marrow-figure-button').scrollIntoView({block:'center'})")
                 capture(page, f"{label}-18-image-question", observations)
                 page.locator(".nk-marrow-figure-button").click()
                 page.wait_for_function("document.querySelector('#nk-source-viewer img')?.naturalWidth>0")
@@ -140,6 +141,7 @@ def main():
                 page.locator("#nk-source-viewer .nk-sv-close").click()
                 page.locator(".option-list button").first.click()
                 page.locator(".nk-study-support").wait_for(state="visible")
+                page.evaluate("document.querySelector('.nk-study-support').scrollIntoView({block:'start'})")
                 capture(page, f"{label}-20-image-explanation", observations)
 
                 report.append({"size": label, "width": width, "height": height,
