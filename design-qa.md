@@ -33,6 +33,15 @@ The Android WebView cannot be visually captured in this environment. Physical-de
 
 Final result: blocked
 
+## 2026-09-23 update
+
+The older capture limitation above applies to the original V11.4 session.
+Current CI captures the generated app at small phone, phone, simulated larger
+text and tablet sizes, and the packaged Android WebView on phone/tablet
+emulators. The current screenshot audit and first fixes are recorded in
+`docs/STUDY_UI_AUDIT_2026-09-23.md`. These captures do not establish physical
+Android acceptance.
+
 <!-- V11.7_DEPLOYMENT_HANDOFF_2026-09-07 -->
 ## V11.7 deployment handoff — 2026-09-07
 
@@ -43,4 +52,3 @@ Final result: blocked
 - Physical iPad testing found and fixed two browser runtime bugs: `278b6c5` fixed the blank-screen sync bootstrap (`nkAuth` initialization timing); `7b047e5` fixed PDF.js canvas creation by avoiding a local `document` name that shadowed the DOM document.
 - Latest hashed preview opens successfully on iPad. Before the production-promotion workflow change, the root `nk-qbank.pages.dev` still served the older blank production deployment. Source-PDF rendering, Anatomy/R2 CORS, final production URL, Android in-place upgrade, and full two-way sync still require physical verification.
 - Next: wait for CI on the current branch → manually dispatch **Build V11.7 Android + PWA** once → verify `https://nk-qbank.pages.dev` → add final Pages hostname to Firebase Authentication authorized domains → ensure R2 CORS allows the exact Pages origin and Range GETs → install V11.7 APK over V11.6 without uninstalling → verify old local data → same-account Android/iPad sync, offline/reconnect, force-close/reopen, sign-out/in tests.
-

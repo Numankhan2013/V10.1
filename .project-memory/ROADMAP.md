@@ -6,6 +6,12 @@ Check off only when build-verified **and** device-verified where UI is involved.
 
 ## Immediate (next 1–2 sessions)
 
+- [ ] Finish the 2026-09-23 study UI audit batch on one exact canonical SHA:
+      inspect the generated phone/tablet/image screenshots and pass Engineering,
+      full Android/PWA/browser/APK/package, and packaged Android emulator gates.
+      Then perform the in-place canonical APK check on a physical Android device,
+      including saved progress and force-close/reopen. Preview spot-checks and
+      emulator runs do not close physical acceptance.
 - [x] V11.5 physical-device test and acceptance. User reported Custom Study
       Modules work beautifully; accepted product commit `f13d12f`, build
       `34049637559`.

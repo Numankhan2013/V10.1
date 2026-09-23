@@ -126,6 +126,22 @@ def main():
                 page.get_by_role("button", name="Review Solutions", exact=True).wait_for(state="visible")
                 capture(page, f"{label}-17-cbt-analysis", observations)
 
+                # A question with a real Marrow microscopy figure checks the
+                # image surface and its fullscreen viewer at every audit size.
+                page.evaluate("window.QB.nav('banks','Biochemistry')")
+                page.locator("button.nk-bank-card").filter(has_text="Marrow").click()
+                page.locator("button.nk-topic-row").first.click()
+                page.locator("button.nk-library-row").nth(22).click()
+                page.wait_for_function("document.querySelector('.nk-marrow-figure-button img')?.naturalWidth>0")
+                capture(page, f"{label}-18-image-question", observations)
+                page.locator(".nk-marrow-figure-button").click()
+                page.wait_for_function("document.querySelector('#nk-source-viewer img')?.naturalWidth>0")
+                capture(page, f"{label}-19-image-viewer", observations)
+                page.locator("#nk-source-viewer .nk-sv-close").click()
+                page.locator(".option-list button").first.click()
+                page.locator(".nk-study-support").wait_for(state="visible")
+                capture(page, f"{label}-20-image-explanation", observations)
+
                 report.append({"size": label, "width": width, "height": height,
                                "largeTextSimulation": large_text,
                                "observations": observations, "pageErrors": errors})
