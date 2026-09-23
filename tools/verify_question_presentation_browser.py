@@ -47,6 +47,17 @@ def main() -> None:
             page.wait_for_function("window.QB && window.QB.getState")
 
             def open_practice(question_id):
+                # Presentation checks must stay hermetic: with multiple paused
+                # chapters supported, repeated practiceOne calls would otherwise
+                # accumulate saved sessions. Reset Practice state first so each
+                # presentation check starts fresh (the multi-pause accumulation
+                # behavior itself is covered by verify_continue_practice_browser).
+                page.evaluate("""() => {
+                    const s = window.QB.getState();
+                    s.activeSession = null;
+                    s.normalPracticeCheckpoints = [];
+                    s.normalPracticeCheckpoint = null;
+                }""")
                 page.evaluate("id => window.QB.practiceOne(id)", question_id)
                 replacement = page.locator("#nk-practice-replacement")
                 if replacement.count() and replacement.is_visible():
