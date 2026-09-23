@@ -134,7 +134,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Current priorities / Next step
 
-1. Complete the study UI batch by inspecting the final image screenshots and exact-SHA Engineering/full Android/PWA/browser/APK/package results. A separate CSS-only Home + Test Analysis polish lives on `feature/ui-polish-home-analysis-20260923` (same theme, needs user approval before any canonical merge). Physical canonical APK verification remains outstanding; production promotion remains separately guarded.
+1. Complete the study UI batch by inspecting the final image screenshots and exact-SHA Engineering/full Android/PWA/browser/APK/package results. A separate CSS-only Home + Test Analysis polish lives on `feature/home-polish-analysis-20260923` (same theme, needs user approval before any canonical merge). Physical canonical APK verification remains outstanding; production promotion remains separately guarded.
 2. Image automation remains independently owned and must continue from live canonical, not from this unreconciled reliability branch. Follow `.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md` and `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
 3. P0 Phase 3 has 219 source-review-required audit candidates, not 219 proven learner defects. Phase 5 exhausted safe text-layer notation repairs; remaining ambiguous blocks require rendered-page review. Phase 6 cross-surface review, final campaign sign-off and user acceptance remain pending.
 
