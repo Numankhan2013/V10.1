@@ -26,7 +26,7 @@ def capture(page, name, observations, *, full_page=False):
     observations.append(page.evaluate("""name => {
       const root=document.documentElement, viewport={width:innerWidth,height:innerHeight};
       const selectors=['.nk-session-footer','.nk-fsrs-rating','#nk-session-review',
-        '.nk-source-visual img','.nk-marrow-figure-button img','.nk-bottom-nav'];
+        '.nk-source-visual img','.nk-marrow-figure-button img','.nk-bottom-nav-v114'];
       const boxes={};
       for(const selector of selectors){const node=document.querySelector(selector);
         if(node){const r=node.getBoundingClientRect();boxes[selector]={x:r.x,y:r.y,width:r.width,height:r.height};}}
@@ -66,7 +66,7 @@ def main():
                 if label == "small-phone":
                     assert page.evaluate("""() => {
                       const action=document.querySelector('.nk-home-focus-action');
-                      const nav=document.querySelector('.nk-bottom-nav');
+                      const nav=document.querySelector('.nk-bottom-nav-v114');
                       if(!action||!nav)return false;
                       const button=action.getBoundingClientRect(),footer=nav.getBoundingClientRect();
                       return button.top>=0 && button.bottom<=footer.top-8 && button.height>=44;
