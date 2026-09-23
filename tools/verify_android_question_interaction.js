@@ -67,7 +67,14 @@ async function main(){
       assert(await page.evaluate(id=>Boolean(window.QB.getState().bookmarks[id]),original.questionIds[0]));
       assert.equal(await page.evaluate(id=>window.QB.getState().attempts[id]?.length,original.questionIds[0]),1);
       // This invokes MainActivity.onBackPressed / WebView.goBack, not JS navigation.
+      const backBefore=await page.evaluate(()=>({url:location.href,hash:location.hash,historyLength:history.length,lifecycle:window.QB.getState().activeSession?.lifecycle}));
       await device.shell('input keyevent KEYCODE_BACK');
+      await new Promise(resolve=>setTimeout(resolve,1000));
+      const backAfter=await page.evaluate(()=>({url:location.href,hash:location.hash,historyLength:history.length,lifecycle:window.QB.getState().activeSession?.lifecycle})).catch(error=>({error:String(error)}));
+      const backEvidence={before:backBefore,after:backAfter,focus:await device.shell('dumpsys window | grep mCurrentFocus').catch(error=>String(error))};
+      fs.writeFileSync(`${output}/${label}-back-state.json`,JSON.stringify(backEvidence,null,2));
+      console.log('ANDROID_BACK_STATE '+JSON.stringify(backEvidence));
+      await device.screenshot({path:`${output}/${label}-after-back.png`});
       await waitForHash(page,'#dashboard');
       await page.locator('button.nk-home-focus-action').click();
       await waitForHash(page,'#practice');
