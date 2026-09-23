@@ -229,10 +229,8 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   compatibility/regression subsets. Expanded records replace the learner-facing
   Marrow envelope; approved augmentation IDs remain subsets of the expanded banks.
 - Explanation architecture is layered and non-destructive: all Marrow uses native
-  structured source text/tables. The enhanced runtime layer includes only
-  `approved-reference` and `approved-rollout` batches; `candidate-rollout`
-  files retain validated identity/count but are excluded from packaging and
-  inventory enhancement counts. The current approved subset is 646 of 2,711.
+  structured source text/tables; the approved enhanced layer remains only on the
+  audited 605-question subset; the remaining 2,106 records retain native text.
 - `data/marrow/explanation_inventory_v1.json` is deterministic, text-free review
   metadata for all 2,711 IDs. It is regenerated from source hashes and never
   changes imported records or learner-facing explanations.

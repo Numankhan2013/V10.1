@@ -46,7 +46,7 @@
 - Special modes (CBT, Review, Wrong/Bookmarks, FSRS, Custom Study Modules) remain outside this override unless explicitly redesigned.
 - Postmortem: `.project-memory/PRACTICE_FLOW_POSTMORTEM_2026-09-12.md`; implementation handoff: `.project-memory/CONTINUE_PRACTICE_HANDOFF.md`.
 - Status: **accepted / device-verified / user-verified**. Do not describe this flow as pending.
-- Multiple paused Practice chapters were reconciled into canonical at `cb3f44b`; Engineering `35850509766` and full Android/PWA/browser/APK/emulator run `35850509865` passed. Physical Android acceptance of this extension remains pending; the original single-session Continue Practice contract above remains user/device accepted.
+- Multiple paused chapters live on `feature/marrow-multi-pause-20260923`; canonical reverted the first candidate while the browser blocker was diagnosed. Runs `35844859167` and `35845434978` showed the 10-4 option stationary before pointer movement but oscillating by 1 px during click. The existing question-option hover transform is the cause; the candidate now fixes it and extends three-session reliability checks. Exact final gates remain pending; resolve live SHA and CI before promotion.
 
 ## Mandatory Practice regression sequence
 
@@ -88,8 +88,8 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 ## Explanation lane
 
 - FULLY_VERIFIED history: Anatomy Ch6 Q1–Q7 at certified checkpoint `58bb99d5c1fc96a98b4f922a963dba16105487d1`; Anatomy Ch6 Q8–Q18 reconciled at `420928ae4e1314cb3a23c8687801be5c7b1f0a8c` and released after canonical dual-green Engineering `34834434837` + full run `34834434831`; Physiology Ch11 Q1–Q6 at `e01cc0b9a8e62885d29b0c2e7ac6417ce8c96f05`. Biochemistry Ch12 Q1–Q10 was transplanted by stable ID, dual-green on candidate `b541a61b5b037b9f9ae27e71bed5affafc60e3f4`, reconciled through canonical merge `76c3be68b9c24bec90af0d4868f896f687bb670b`, and followed by deterministic inventory refresh to canonical `0c57fd4deb0a0ffb6ea57865bef56ac00b52c1e0`; Q7 remains `needs_manual_review` as carried by the verified donor.
-- Anatomy Ch7 Q11–Q21 was reconciled through PR #67 into canonical merge `7215d8f`. Exact-merge Engineering `35885212819`, inventory refresh `35885212779`, and full Android/PWA/browser/APK/emulator run `35885212827` passed; preview `https://0e14d788.nk-qbank.pages.dev` deployed, production skipped. The 11 explanations are **BUILD_VERIFIED / physical review pending**. Handoff: `.project-memory/AUTOMATION_HANDOFF_ANATOMY_EXPLANATION_CH07_Q011_Q021_2026-09-23.md`.
-- Inventory is **646 enhanced / 2,065 pending / 2,711 total**, fingerprint `b32859a10f0aa88af8da1d3ef34cba64be946153fff2c06fd507620306ef28b2`; raw source hashes are unchanged.
+- No explanation batch is currently owned by the completed Anatomy Q8–Q18 run. Do not retroactively extend it to Q19+.
+- Inventory is **615 enhanced / 2,096 pending / 2,711 total**, fingerprint `2ad7006f78607d0974269e4aad0baaed9cba6124560885adb3e30f3e6651ce14`; raw source hashes unchanged. This is the deterministic canonical full-corpus inventory after the verified Biochemistry Ch12 Q1–Q10 transplant.
 - Any next explanation automation must reacquire ownership from the live canonical state and start a new batch.
 - Production promotion prohibited.
 
@@ -134,7 +134,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Current priorities / Next step
 
-1. Confirm live canonical HEAD and explanation-lane ownership before any new batch; Anatomy source order proceeds from Ch8 Q1. The Ch7 Q11–Q21 batch is build-verified and reconciled; physical preview review remains separate. Do not promote production.
+1. Finish the multiple-paused-chapters candidate on `feature/marrow-multi-pause-20260923`, then re-read and reconcile into current canonical only after one exact candidate SHA passes Engineering, full Android/PWA, generated browser, packaged APK, and Android WebView gates. Physical device acceptance remains separate. Do not promote production.
 2. Complete the study UI batch by inspecting the final image screenshots and exact-SHA Engineering/full Android/PWA/browser/APK/package results. If green, retain the accepted Practice/Review behavior and continue narrow evidence-led UI checks. Physical canonical APK verification remains outstanding; production promotion remains separately guarded.
 3. Image automation remains independently owned from live canonical per `.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md`; P0 Phase 3 has 219 source-review candidates (not proven defects) with Phase 6 sign-off and user acceptance pending.
 
