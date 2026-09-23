@@ -12,6 +12,7 @@ BATCHES = (
     ("explanation_anatomy_ch06_q008_q018_v1.json", 6, 8, 18, "e01cc0b9a8e62885d29b0c2e7ac6417ce8c96f05"),
     ("explanation_anatomy_ch06_q019_q025_v1.json", 6, 19, 25, "0c57fd4deb0a0ffb6ea57865bef56ac00b52c1e0"),
     ("explanation_anatomy_ch07_q001_q010_v1.json", 7, 1, 10, "105cf02e358d8f869d745e698fc4faa32d777c92"),
+    ("explanation_anatomy_ch07_q011_q021_v1.json", 7, 11, 21, "cb3f44b95aca5030b8b72afc9654a1b135ff96de"),
 )
 
 
@@ -76,7 +77,7 @@ def main() -> None:
 
     print(
         "MARROW_ANATOMY_EXPLANATION_ROLLOUT_TEST_OK "
-        "chapter6=1-25 chapter7=1-10 count=35 canonical_source=pinned "
+        "chapter6=1-25 chapter7=1-21 count=46 canonical_source=pinned "
         "legacy_equivalence=pinned q2=needs_manual_review q24=needs_manual_review"
     )
 
