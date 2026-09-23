@@ -356,6 +356,14 @@ jobs:
         run: python3 tools/verify_question_interaction_browser.py
       - name: Capture study UI audit across screen sizes
         run: python3 tools/capture_study_ui_audit.py
+      - name: Upload study UI audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: study-ui-audit
+          path: build/study-ui-audit/
+          retention-days: 3
+          if-no-files-found: warn
       - name: Verify representative PrepLadder visuals and fullscreen viewer
         run: python3 tools/verify_prepladder_visuals_browser.py
       - name: Capture Marrow image comparisons
@@ -368,8 +376,6 @@ jobs:
           path: |
             build/ui-checks/*.png
             build/ui-checks/bc4-interaction-report.json
-            build/study-ui-audit/*.png
-            build/study-ui-audit/report.json
             build/marrow-ui-checks/*.png
             build/marrow-image-review/*.png
             build/prepladder-visual-audit/*.png
