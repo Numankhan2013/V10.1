@@ -78,6 +78,11 @@ def main():
                 page.locator("button.nk-library-row").first.click()
                 page.locator(".option-list button").first.wait_for(state="visible")
                 capture(page, f"{label}-04-question", observations)
+                assert page.locator(".nk-question-context").evaluate("""node => {
+                  const last=node.lastElementChild,outer=node.getBoundingClientRect(),inner=last.getBoundingClientRect();
+                  return node.scrollWidth<=node.clientWidth+1 && last.scrollWidth<=last.clientWidth+1
+                    && inner.right<=outer.right+1;
+                }"""), f"Question context clips chapter at {label}"
                 page.locator(".option-list button").first.click()
                 page.locator(".nk-study-support").wait_for(state="visible")
                 capture(page, f"{label}-05-answer", observations)
@@ -110,6 +115,16 @@ def main():
                 capture(page, f"{label}-15-cbt-selected", observations)
                 page.evaluate("window.QB.openSessionReview()")
                 capture(page, f"{label}-16-cbt-grid", observations)
+                cells = page.locator(".nk-session-review-q")
+                assert [int(v) for v in cells.locator("span").all_inner_texts()] == list(range(1, cells.count() + 1)), \
+                    f"CBT grid does not use session positions at {label}"
+                assert cells.evaluate_all("""nodes => nodes.every(node => {
+                  const label=node.querySelector('small'),outer=node.getBoundingClientRect(),inner=label.getBoundingClientRect();
+                  return inner.left>=outer.left-1 && inner.right<=outer.right+1;
+                })"""), f"CBT grid status text escapes a cell at {label}"
+                page.locator("#nk-session-review").get_by_role("button", name="Submit Test", exact=True).click()
+                page.get_by_role("button", name="Review Solutions", exact=True).wait_for(state="visible")
+                capture(page, f"{label}-17-cbt-analysis", observations)
 
                 report.append({"size": label, "width": width, "height": height,
                                "largeTextSimulation": large_text,

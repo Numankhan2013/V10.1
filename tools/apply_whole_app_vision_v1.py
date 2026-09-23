@@ -407,6 +407,7 @@ body:has(.nk-topics-v114) .page{padding-top:22px!important;padding-bottom:210px!
 #nk-topic-index-menu{width:min(90vw,480px);max-height:75vh;border:1px solid #e1d9f2;border-radius:22px;padding:22px;color:#241b3c;background:#f8f5ff}
 #nk-topic-index-menu::backdrop{background:#20143680}.nk-index-link{display:block;text-align:left;width:100%;padding:15px 0;border:0;border-bottom:1px solid #e6deef;background:none;font-size:15px;color:inherit}.nk-index-link small{display:block;color:#877896;margin-top:4px}
 @media(min-width:768px) and (min-height:600px){.nk-continue-learning{left:104px;right:16px;bottom:22px}}
+@media(max-width:480px){.nk-result-v114 .nk-page-head{flex-direction:column;align-items:stretch;gap:12px}.nk-result-v114 .nk-page-head>div{min-width:0}.nk-result-v114 .nk-head-action{align-self:flex-start;min-height:44px}}
 </style>'''
 
 

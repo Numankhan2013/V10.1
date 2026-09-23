@@ -30,8 +30,8 @@ new_next = r'''function sessionReviewClass(status){return status?'answered':'una
       `${answered} answered · ${unanswered} unanswered`:
       `${answered} answered · all questions covered`;
     const cells=s.questionIds.map((id,i)=>{
-      const q=BY_ID[id],answeredQ=Boolean(s.answers[id]);
-      return `<button type="button" class="nk-session-review-q ${sessionReviewClass(answeredQ)} ${i===s.index?'active':''}" onclick="window.QB.__sessionReviewGo(${i})" aria-label="Question ${q?.questionNumber||i+1}${answeredQ?' answered':' unanswered'}"><span>${q?.questionNumber||i+1}</span><small>${answeredQ?'Answered':'Unanswered'}</small></button>`;
+      const answeredQ=Boolean(s.answers[id]);
+      return `<button type="button" class="nk-session-review-q ${sessionReviewClass(answeredQ)} ${i===s.index?'active':''}" onclick="window.QB.__sessionReviewGo(${i})" aria-label="Question ${i+1}${answeredQ?' answered':' unanswered'}"><span>${i+1}</span><small>${answeredQ?'Answered':'Unanswered'}</small></button>`;
     }).join('');
     const unansweredBtn=unanswered
       ? `<button type="button" class="ghost-btn" onclick="window.QB.__sessionReviewFirstUnanswered()">Review unanswered</button>`
@@ -71,6 +71,7 @@ css = r'''
 .nk-session-review-legend{display:flex;gap:14px;flex-wrap:wrap;margin:13px 0 15px;color:var(--muted);font-size:10px}.nk-review-dot{display:inline-block;width:9px;height:9px;border-radius:3px;border:1px solid var(--line);vertical-align:middle;margin-right:5px}.nk-review-dot.answered{background:#eef5ff;border-color:#c8d6fb}.nk-review-dot.unanswered{background:#fff}.nk-review-dot.active{background:var(--primary);border-color:var(--primary)}
 .nk-session-review-actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}.nk-session-review-actions.two{grid-template-columns:1fr 1fr}.nk-session-review-actions>*{width:100%}.nk-session-review-warning,.nk-session-review-ready{margin-top:11px;padding:10px 12px;border-radius:11px;font-size:11px;line-height:1.45}.nk-session-review-warning{background:#fff7e7;color:#7e5b18;border:1px solid #f0ddb0}.nk-session-review-ready{background:#effbf6;color:#25745e;border:1px solid #bce4d5}
 @media(max-width:640px){.nk-session-review-backdrop{padding:10px}.nk-session-review-card{padding:15px;border-radius:18px}.nk-session-review-grid{gap:6px}.nk-session-review-q{min-height:54px}.nk-session-review-actions{grid-template-columns:1fr 1fr}.nk-session-review-actions .primary-btn{grid-column:1/-1;order:-1}}
+@media(max-width:360px){.nk-session-review-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 </style>
 '''
 if 'id="nk-cbt-boundary-fix-v1"' not in s:
