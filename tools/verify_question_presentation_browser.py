@@ -442,6 +442,20 @@ def main() -> None:
                 source_options = page.locator(".option-list button")
                 if source_options.count() != 4 or source_options.locator(".option-text").all_inner_texts() != canonical["choices"]:
                     raise SystemExit(f"Complete-source choices changed for {question_id}")
+                if question_id == "10-4":
+                    movement = page.evaluate("""async () => {
+                      const button=document.querySelector('.option-list button');
+                      const samples=[];
+                      for(let i=0;i<8;i++){
+                        const box=button.getBoundingClientRect();
+                        samples.push({top:box.top,left:box.left,width:box.width,height:box.height,
+                          scrollY,scrollHeight:document.documentElement.scrollHeight,
+                          activeAnimations:button.getAnimations({subtree:true}).map(a=>a.animationName||a.effect?.constructor?.name)});
+                        await new Promise(resolve=>setTimeout(resolve,100));
+                      }
+                      return samples;
+                    }""")
+                    print(f"BIOCHEM_10_4_LAYOUT_DIAGNOSTIC {movement}", flush=True)
                 source_options.nth(correct_option - 1).click()
                 page.locator(".option-list .correct").wait_for(state="visible")
                 correct_indices = page.locator(".option-list .option").evaluate_all(
