@@ -12,7 +12,13 @@ def main() -> None:
     stored = json.loads((DATA / "explanation_inventory_v1.json").read_text(encoding="utf-8"))
     generated = build_inventory()
     manifest = inventory_manifest(generated)
-    assert stored == manifest
+    if stored != manifest:
+        differing = sorted(key for key in set(stored) | set(manifest) if stored.get(key) != manifest.get(key))
+        expected = {key: manifest.get(key) for key in differing}
+        raise AssertionError(
+            "stored explanation inventory is stale; "
+            f"differing_keys={differing} generated={json.dumps(expected, ensure_ascii=False, sort_keys=True)}"
+        )
     assert stored["summary"]["questions"] == 2711
     assert stored["summary"]["subjects"] == {"Anatomy": 1115, "Biochemistry": 582, "Physiology": 1014}
     enhanced = len(enhanced_ids())
