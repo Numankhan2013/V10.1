@@ -3,22 +3,22 @@ name: Marrow source slice audit
 on:
   push:
     branches:
-      - feature/marrow-explanations-anatomy-20260923-source-export-r2
+      - feature/marrow-explanations-anatomy-20260923-ch08-q001
   workflow_dispatch:
 
 jobs:
-  anatomy-ch07-source-audit:
+  anatomy-ch08-source-audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate canonical Anatomy bundle and export Ch7 Q11-Q21
+      - name: Validate canonical Anatomy bundle and export Ch8 Q1-Q18
         run: |
           python tools/export_marrow_question_context.py \
-            --subject Anatomy --chapter 7 --start 11 --end 21 \
-            | tee /tmp/anatomy-ch07-q011-q021.json
+            --subject Anatomy --chapter 8 --start 1 --end 18 \
+            | tee /tmp/anatomy-ch08-q001-q018.json
       - name: Upload bounded source projection
         uses: actions/upload-artifact@v4
         with:
-          name: anatomy-ch07-q011-q021-source
-          path: /tmp/anatomy-ch07-q011-q021.json
+          name: anatomy-ch08-q001-q018-source
+          path: /tmp/anatomy-ch08-q001-q018.json
           if-no-files-found: error
