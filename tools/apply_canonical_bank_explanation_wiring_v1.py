@@ -115,6 +115,19 @@ def validate_augmented_question(qid: str, cfg: dict, source_q: dict, origin: str
         fail(f"{origin}: blank distractor rationale for {qid}")
 
 
+def approved_batch(record: dict, path: Path, expected_subject: str) -> bool:
+    scope = record.get("scope", {})
+    questions = record.get("questions", {})
+    if scope.get("subject") != expected_subject or scope.get("bank") != "Marrow" or not questions:
+        fail(f"{path.name}: explanation batch identity/status mismatch")
+    status = scope.get("status")
+    if status not in {"candidate-rollout", "approved-reference", "approved-rollout"}:
+        fail(f"{path.name}: explanation batch identity/status mismatch")
+    if int(scope.get("questions", 0)) != len(questions):
+        fail(f"{path.name}: declared explanation count mismatch")
+    return status != "candidate-rollout"
+
+
 def merged_explanations(source_by_id: dict[str, dict]) -> dict[str, dict]:
     anatomy_reference = json.loads((DATA / "explanation_gold_pilot.json").read_text(encoding="utf-8")).get("questions", {})
     if len(anatomy_reference) != 62:
@@ -144,17 +157,9 @@ def merged_explanations(source_by_id: dict[str, dict]) -> dict[str, dict]:
             fail(f"no approved {expected_subject} rollout files found for {pattern}")
         for path in paths:
             record = json.loads(path.read_text(encoding="utf-8"))
-            scope = record.get("scope", {})
-            questions = record.get("questions", {})
-            if (
-                scope.get("subject") != expected_subject
-                or scope.get("bank") != "Marrow"
-                or scope.get("status") not in {"approved-reference", "approved-rollout"}
-                or not questions
-            ):
-                fail(f"{path.name}: explanation batch identity/status mismatch")
-            if int(scope.get("questions", 0)) != len(questions):
-                fail(f"{path.name}: declared explanation count mismatch")
+            if not approved_batch(record, path, expected_subject):
+                continue
+            questions = record["questions"]
             for qid, cfg in questions.items():
                 if qid in merged:
                     fail(f"{path.name}: duplicate explanation ID {qid}")
