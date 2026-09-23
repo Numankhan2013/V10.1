@@ -354,6 +354,8 @@ jobs:
         run: python3 tools/verify_continue_practice_browser.py
       - name: Verify question interaction integrity on phone and tablet
         run: python3 tools/verify_question_interaction_browser.py
+      - name: Capture study UI audit across screen sizes
+        run: python3 tools/capture_study_ui_audit.py
       - name: Verify representative PrepLadder visuals and fullscreen viewer
         run: python3 tools/verify_prepladder_visuals_browser.py
       - name: Capture Marrow image comparisons
@@ -366,6 +368,8 @@ jobs:
           path: |
             build/ui-checks/*.png
             build/ui-checks/bc4-interaction-report.json
+            build/study-ui-audit/*.png
+            build/study-ui-audit/report.json
             build/marrow-ui-checks/*.png
             build/marrow-image-review/*.png
             build/prepladder-visual-audit/*.png
