@@ -65,6 +65,10 @@ def main():
                 capture(page, f"{label}-01-home", observations)
 
                 page.locator("button.nk-v3-subject-card").filter(has_text="Biochemistry").click()
+                capture(page, f"{label}-01b-subject-destination", observations)
+                # The current Home card can enter the preferred bank directly.
+                # Open the chooser explicitly to capture both bank paths.
+                page.evaluate("window.QB.nav('banks','Biochemistry')")
                 page.locator("button.nk-bank-card").filter(has_text="Marrow").click()
                 page.locator("button.nk-topic-row").first.wait_for(state="visible")
                 capture(page, f"{label}-02-topics", observations)
