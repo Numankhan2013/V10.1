@@ -115,10 +115,8 @@
       before.forEach(id=>{if(!current[kind].has(id))nkQueueEnvelope(nkEnvelope(kind,id,null,Date.now(),true));});
       nkSyncMeta.known[kind]=[...current[kind]];
     }
-    const checkpoints=typeof nkNormalizePracticeCheckpoints==='function'?nkNormalizePracticeCheckpoints(state.normalPracticeCheckpoints,state.normalPracticeCheckpoint):[...(state.normalPracticeCheckpoints||[]),state.normalPracticeCheckpoint].filter(Boolean);
-    checkpoints.forEach(checkpoint=>nkQueueEnvelope(nkEnvelope('practiceSessions',checkpoint.sessionId,checkpoint,Number(checkpoint.updatedAt||Date.now()),false)));
-    const latest=state.normalPracticeCheckpoint||checkpoints.slice().sort((a,b)=>Number(b.updatedAt||0)-Number(a.updatedAt||0))[0];
-    if(latest)nkQueueEnvelope(nkEnvelope('practiceSessions','normal',latest,Number(latest.updatedAt||Date.now()),false));
+    const checkpoint=state.normalPracticeCheckpoint||null;
+    if(checkpoint)nkQueueEnvelope(nkEnvelope('practiceSessions','normal',checkpoint,Number(checkpoint.updatedAt||Date.now()),false));
     const special=state.activeSession&&!(typeof nkNormalPracticeSession==='function'&&nkNormalPracticeSession(state.activeSession))?state.activeSession:null;
     nkQueueEnvelope(nkEnvelope('sessions','active',special,nkEntityTimestamp(special,Date.now()),!special));
     const fsrsReviewEligible=state.fsrsReviewEligible&&Object.keys(state.fsrsReviewEligible).length?state.fsrsReviewEligible:null;
@@ -196,13 +194,12 @@
   }
   function nkSyncTerminalLifecycle(value){return ['submitted','completed','discarded'].includes(String(value||''));}
   function nkSyncMembership(checkpoint){return String(checkpoint?.membershipHash||(typeof nkCheckpointMembership==='function'?nkCheckpointMembership(checkpoint?.sessionQuestionIds||[]):(checkpoint?.sessionQuestionIds||[]).join('\u001f')));}
-  function nkPracticeConflict(local,remote,type){state.normalPracticeConflict={type,local,remote,detectedAt:Date.now()};nkSyncMeta.lastError='A saved Practice session has mismatched question membership and needs attention on this device.';return local;}
+  function nkPracticeConflict(local,remote,type){state.normalPracticeConflict={type,local,remote,detectedAt:Date.now()};nkSyncMeta.lastError=type==='different-session'?'Two devices have different unfinished Practice sessions. Resume or discard one on this device.':'A Practice session had mismatched saved question membership and was not replaced.';return local;}
   function nkMergePracticeCheckpoint(incoming){
-    const remote=nkSyncPracticeCheckpoint(incoming);if(!remote)return null;
-    const checkpoints=typeof nkNormalizePracticeCheckpoints==='function'?nkNormalizePracticeCheckpoints(state.normalPracticeCheckpoints,state.normalPracticeCheckpoint):[...(state.normalPracticeCheckpoints||[]),state.normalPracticeCheckpoint].filter(Boolean);
-    const local=nkSyncPracticeCheckpoint(checkpoints.find(item=>String(item.sessionId)===String(remote.sessionId)));
-    if(!local){checkpoints.push(remote);state.normalPracticeCheckpoints=checkpoints;state.normalPracticeCheckpoint=typeof nkLatestPracticeCheckpoint==='function'?nkLatestPracticeCheckpoint(checkpoints):remote;return remote;}
-    if(nkSyncMembership(local)!==nkSyncMembership(remote)){nkPracticeConflict(local,remote,'membership-mismatch');return local;}
+    const remote=nkSyncPracticeCheckpoint(incoming),local=nkSyncPracticeCheckpoint(state.normalPracticeCheckpoint);if(!remote)return local;
+    if(!local){state.normalPracticeCheckpoint=remote;return remote;}
+    if(String(local.sessionId)!==String(remote.sessionId)){state.normalPracticeCheckpoint=nkPracticeConflict(local,remote,'different-session');return state.normalPracticeCheckpoint;}
+    if(nkSyncMembership(local)!==nkSyncMembership(remote)){state.normalPracticeCheckpoint=nkPracticeConflict(local,remote,'membership-mismatch');return state.normalPracticeCheckpoint;}
     const ids=[...local.sessionQuestionIds],answers={},submitted={},questionTimes={},pendingFsrsRatings={},questionUpdates={};
     ids.forEach(id=>{
       const lu=local.questionUpdates?.[id]||{},ru=remote.questionUpdates?.[id]||{},remoteNewer=Number(ru.revision||0)>Number(lu.revision||0)||(Number(ru.revision||0)===Number(lu.revision||0)&&Number(ru.updatedAt||0)>Number(lu.updatedAt||0));
@@ -216,8 +213,7 @@
     const localTerminal=nkSyncTerminalLifecycle(local.lifecycle),remoteTerminal=nkSyncTerminalLifecycle(remote.lifecycle),latest=Number(remote.updatedAt||0)>Number(local.updatedAt||0)?remote:local;
     const lifecycle=localTerminal&&!remoteTerminal?local.lifecycle:remoteTerminal&&!localTerminal?remote.lifecycle:latest.lifecycle;
     const merged={...latest,sessionQuestionIds:ids,membershipHash:nkSyncMembership(local),answers,submitted,questionTimes,pendingFsrsRatings,questionUpdates,lifecycle,terminalAt:Math.max(Number(local.terminalAt||0),Number(remote.terminalAt||0))||null,updatedAt:Math.max(Number(local.updatedAt||0),Number(remote.updatedAt||0))};
-    const index=checkpoints.findIndex(item=>String(item.sessionId)===String(merged.sessionId));if(index<0)checkpoints.push(merged);else checkpoints[index]=merged;
-    state.normalPracticeCheckpoints=checkpoints;state.normalPracticeCheckpoint=typeof nkLatestPracticeCheckpoint==='function'?nkLatestPracticeCheckpoint(checkpoints):merged;
+    state.normalPracticeCheckpoint=merged;
     if(state.activeSession&&typeof nkNormalPracticeSession==='function'&&nkNormalPracticeSession(state.activeSession)&&String(state.activeSession.id)===String(merged.sessionId)){
       if(nkSyncTerminalLifecycle(merged.lifecycle))state.activeSession=null;
       else state.activeSession={...state.activeSession,questionIds:[...ids],sessionQuestionIds:[...ids],answers:{...answers},submitted:{...submitted},questionTimes:{...questionTimes},pendingRating:{...pendingFsrsRatings},index:Math.max(0,Math.min(ids.length-1,Number(merged.position?.index)||0)),lifecycle:merged.lifecycle};
@@ -227,8 +223,7 @@
   function nkCheckpointFromLegacyCloudSession(payload,updatedAt){
     if(!payload||payload.mode!=='practice'||payload.studyModuleId)return null;
     const origin=String(payload.originRoute||payload.context||payload.title||'').toLowerCase();if(/(fsrs|spaced|review|wrong|bookmark)/.test(origin))return null;
-    const existing=(state.normalPracticeCheckpoints||[]).find(item=>String(item.sessionId)===String(payload.id))||state.normalPracticeCheckpoint;
-    if(typeof nkCheckpointFromSession==='function')return nkCheckpointFromSession(payload,existing,String(payload.lifecycle||'active'));
+    if(typeof nkCheckpointFromSession==='function')return nkCheckpointFromSession(payload,state.normalPracticeCheckpoint,String(payload.lifecycle||'active'));
     const ids=(payload.sessionQuestionIds?.length?payload.sessionQuestionIds:payload.questionIds||[]).map(String);return {version:1,sessionId:String(payload.id),sessionQuestionIds:ids,membershipHash:ids.join('\u001f'),context:payload.practiceContext||{},position:{index:Number(payload.index||0),currentQuestionId:String(payload.questionIds?.[Number(payload.index)||0]||'')},answers:payload.answers||{},submitted:payload.submitted||{},questionTimes:payload.questionTimes||{},pendingFsrsRatings:payload.pendingRating||{},questionUpdates:{},lifecycle:String(payload.lifecycle||'active'),updatedAt:Number(updatedAt||Date.now())};
   }
   function nkApplyCloudEnvelope(remote){

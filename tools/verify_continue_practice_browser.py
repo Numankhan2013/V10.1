@@ -209,47 +209,6 @@ def main() -> None:
             if repaired["id"] != original["id"] or repaired["ids"] != original["ids"] or repaired["index"] != 4 or repaired["current"] != current_id:
                 raise SystemExit(f"Home Continue did not repair persisted one-question state: {repaired}")
 
-            # Two different chapters may remain paused together. Starting a new
-            # chapter preserves the old checkpoint; Home Continue then offers both.
-            page.evaluate("window.QB.openSessionReview()")
-            page.locator("#nk-session-review").get_by_role("button", name="Pause", exact=True).click()
-            page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='paused'")
-            topic_pair = page.evaluate("""() => {
-              const all=(window.SUBJECT_QBANK_DATA?.subjects||[]).flatMap(x=>x.questions||[]);
-              const found=new Map();for(const q of all){const key=String(q.chapterId||'');if(key&&!found.has(key))found.set(key,{id:String(q.id),chapterId:key,title:String(q.chapter||key)});}
-              return [...found.values()].slice(0,2);
-            }""")
-            if len(topic_pair) != 2:
-                raise SystemExit("Could not find two chapters for the multi-pause regression")
-            for topic in topic_pair:
-                page.evaluate("id => window.QB.practiceOne(id)", topic["id"])
-                page.wait_for_function("id => window.QB.getState().activeSession?.questionIds?.[0]===id", arg=topic["id"])
-                page.evaluate("window.QB.openSessionReview()")
-                page.locator("#nk-session-review").get_by_role("button", name="Pause", exact=True).click()
-                page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='paused'")
-            saved_topics = page.evaluate("""() => window.QB.getState().normalPracticeCheckpoints
-              .filter(cp=>cp.lifecycle==='paused'&&cp.context?.topicId)
-              .map(cp=>({id:cp.sessionId,topicId:cp.context.topicId,title:cp.context.title}))""")
-            topic_sessions = [next((cp for cp in saved_topics if cp["topicId"] == topic["chapterId"]), None) for topic in topic_pair]
-            if any(cp is None for cp in topic_sessions) or topic_sessions[0]["id"] == topic_sessions[1]["id"]:
-                raise SystemExit(f"Paused checkpoints for both chapters were not retained: {saved_topics}")
-            page.locator("button.nk-home-focus-action").click()
-            chooser = page.locator("#nk-practice-sessions")
-            chooser.wait_for(state="visible")
-            for index, (topic, saved_session) in enumerate(zip(topic_pair, topic_sessions)):
-                row = chooser.locator(".nk-saved-practice-row").filter(has_text=topic["title"])
-                row.get_by_role("button", name="Resume", exact=True).click()
-                page.wait_for_function("id => window.QB.getState().activeSession?.id===id", arg=saved_session["id"])
-                if not page.evaluate("id => window.QB.getState().normalPracticeCheckpoints.some(cp=>cp.sessionId===id&&cp.lifecycle==='paused')", topic_sessions[1-index]["id"]):
-                    raise SystemExit("Resuming one chapter removed the other paused chapter")
-                page.evaluate("window.QB.openSessionReview()")
-                page.locator("#nk-session-review").get_by_role("button", name="Pause", exact=True).click()
-                page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='paused'")
-                page.locator("button.nk-home-focus-action").click()
-                chooser = page.locator("#nk-practice-sessions")
-                chooser.wait_for(state="visible")
-            print("MULTIPLE_PAUSED_CHAPTERS_OK: both saved sessions resumed independently")
-
             context.close()
 
             # FSRS lifecycle regression: real answers are committed when Pause

@@ -337,17 +337,3 @@ sync uses its checkpoint rather than the transient `sessions/active` entity:
 same-session progress merges per question, membership mismatches fail closed, and
 different unfinished sessions surface a conflict. Full rationale and defect
 coverage: `docs/CORE_RELIABILITY_DEFECT_LEDGER_2026-09-22.md`.
-
-## 25. Multiple paused Practice chapters share one active session (2026-09-23)
-
-Normal Practice keeps one live `activeSession` but may retain several paused
-checkpoints in `normalPracticeCheckpoints`, with the legacy
-`normalPracticeCheckpoint` kept as the latest-alias for migration, persistence,
-and cloud compatibility. Starting another chapter auto-pauses the live chapter
-instead of forcing Resume-or-Discard; Home Continue resumes directly for a single
-saved chapter and opens an explicit Paused Practice chooser for several.
-Discard and resume are per session ID; a discard call without an ID must not
-guess when several sessions exist. CBT exclusivity, Review read-only behavior,
-FSRS pause/submit boundaries, and membership-mismatch fail-closed sync are
-unchanged. Different unfinished chapters on different devices merge by session ID
-rather than conflicting.

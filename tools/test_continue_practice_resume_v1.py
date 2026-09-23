@@ -22,7 +22,6 @@ FLOW_CORE = (ROOT / "tools/practice_single_review_grid_core.js").read_text(encod
 def run_node_behavior() -> None:
     runtime = r'''
 const assert=require('assert');
-const esc=value=>String(value??'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
 global.window={QB:{}};
 global.document={getElementById:()=>null};
 global.setTimeout=fn=>fn();
@@ -50,7 +49,7 @@ let nkContinueRecentPractice=()=>{oldContinueCalls++};
 // This is the real legacy Home path that caused the 1/1 regression.
 let continuePractice=()=>{legacyHomeContinueCalls++;const q=questions[0];if(q)startSession([q.id],'practice',`Continue · ${q.chapter}`,'normal');};
 ''' + CORE + '\n' + FLOW_CORE + r'''
-window.QB={nkPausePractice,nkSubmitPracticeSession,nkResumePracticeById,nkDiscardNormalPractice,nkPracticeSavedSessionsDialog,openQuestionNavigator,openSessionReview,nkContinueRecentPractice,continuePractice};
+window.QB={nkPausePractice,nkSubmitPracticeSession,openQuestionNavigator,openSessionReview,nkContinueRecentPractice,continuePractice};
 
 const full=Array.from({length:20},(_,i)=>`q${i+1}`);
 state.activeSession={id:'same-session',mode:'practice',title:'Topic One',questionIds:[...full],index:4,
@@ -158,30 +157,6 @@ nkContinueRecentPractice();
 assert.deepEqual(state.activeSession.questionIds,['q18','q19','q20']);
 assert.equal(state.activeSession.mode,'practice');
 
-// Pausing a second chapter creates a second independent saved session.
-state={attempts:{},tests:[],activeSession:null,fsrsReviewEligible:{},normalPracticeCheckpoints:[],normalPracticeCheckpoint:null};
-route.page='topics';
-assert.equal(startSession(Array.from({length:20},(_,i)=>`q${i+1}`),'practice','Topic One','normal'),true);
-state.activeSession.index=6;state.activeSession.submitted={q1:true,q2:true,q3:true,q4:true,q5:true,q6:true};
-assert.equal(nkPausePractice(),true);
-assert.equal(startSession(['q21','q22','q23'],'practice','Topic Two','normal'),true,'new chapter starts without resolving the paused one');
-state.activeSession.index=1;state.activeSession.submitted={q21:true};assert.equal(nkPausePractice(),true);
-assert.equal(nkPracticeCheckpoints(false).length,2);
-const secondId=state.activeSession.id;
-assert.equal(nkResumePracticeById('missing-session'),false,'unknown session IDs are rejected');
-const firstId=state.normalPracticeCheckpoints.find(cp=>cp.context.topicId==='t1').sessionId;
-assert.equal(nkResumePracticeById(firstId),true);
-assert.equal(state.activeSession.id,firstId);assert.equal(state.activeSession.index,6);
-assert.equal(nkPracticeCheckpoints(false).length,2,'resuming one chapter must keep the other paused');
-assert.equal(nkPausePractice(),true);
-let chooserHtml='';global.document.body={insertAdjacentHTML:(where,html)=>{chooserHtml=html;}};
-window.QB.continuePractice();
-assert(chooserHtml.includes('Paused Practice')&&chooserHtml.includes('Topic One')&&chooserHtml.includes('Topic Two'),'Continue Practice must show both saved chapter choices');
-assert(chooserHtml.includes(secondId));
-assert.equal(nkDiscardNormalPractice(secondId),true);
-assert.equal(nkPracticeCheckpoints(false).length,1,'discard removes only the selected chapter from the chooser');
-global.document.body=undefined;
-
 // Timed CBT is exclusive and its terminal save is failure-aware/idempotent.
 const now=Date.now();state.activeSession={id:'exam-live',mode:'exam',title:'CBT',questionIds:['q1'],index:0,answers:{q1:1},submitted:{},questionTimes:{q1:5},startedAt:now,deadlineAt:now+60000};
 assert.equal(startSession(['q2'],'practice','New Practice','normal'),false);
@@ -238,8 +213,6 @@ window.QB={continuePractice};
         STYLE_ID,
         "nkPausePractice,nkSubmitPracticeSession,",
         "sessionQuestionIds",
-        "normalPracticeCheckpoints",
-        "Paused Practice",
         "practiceContext",
         "nk-practice-final-review",
         "nkPracticeResumeOriginalHomeContinue",
@@ -258,7 +231,7 @@ def main() -> None:
     assert workflow.index("tools/apply_home_command_center_v1.py") < workflow.index("tools/apply_continue_practice_resume_v1.py") < workflow.index("tools/apply_cross_device_pwa_v1.py")
     assert "tools/test_continue_practice_resume_v1.py" in workflow
     assert "tools/test_continue_practice_resume_v1.py" in gate
-    print("CONTINUE_PRACTICE_CONTRACT_OK multiple_paused_chapters=true durable_pause=true home_resume_chooser=true full_session_resume=true footer=previous_next")
+    print("CONTINUE_PRACTICE_CONTRACT_OK single_final_grid=true durable_pause=true home_continue=true full_session_resume=true footer=previous_next")
 
 
 if __name__ == "__main__":
