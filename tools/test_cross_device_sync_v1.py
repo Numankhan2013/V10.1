@@ -35,6 +35,7 @@ recovered=nkDurableLoadState();assert(recovered.stateRevision===8&&recovered.boo
 let state={...recovered,activeSession:{id:'practice-1',mode:'practice',title:'Topic',questionIds:['q1','q2'],sessionQuestionIds:['q1','q2'],index:1,answers:{q1:2},submitted:{q1:true},questionTimes:{q1:50},pendingRating:{q1:{rating:3}},startedAt:10,lifecycle:'active',practiceContext:{subject:'Anatomy',bank:'Marrow',topicId:'t1',title:'Topic'}}};
 assert(nkDurablePersist(state,'test save'),'valid state must save');
 assert(state.normalPracticeCheckpoint.sessionId==='practice-1','normal Practice checkpoint missing');
+assert.deepStrictEqual(state.normalPracticeCheckpoints.map(x=>x.sessionId),['practice-1'],'legacy single checkpoint must migrate into the sessions collection');
 assert.deepStrictEqual(state.normalPracticeCheckpoint.sessionQuestionIds,['q1','q2']);
 assert(state.normalPracticeCheckpoint.position.index===1&&state.normalPracticeCheckpoint.answers.q1===2&&state.normalPracticeCheckpoint.submitted.q1,'checkpoint progress missing');
 assert(state.normalPracticeCheckpoint.pendingFsrsRatings.q1.rating===3,'pending FSRS rating missing');
@@ -55,6 +56,10 @@ for(const title of ['Bookmarked Questions','Wrong Questions','FSRS Review']){
   assert(state.normalPracticeCheckpoint.sessionId==='practice-1','default normal context must not hide a special-mode title');
   assert.deepStrictEqual(state.normalPracticeCheckpoint.answers,{q1:2});
 }
+const prior=state.normalPracticeCheckpoint;state.activeSession={id:'practice-2',mode:'practice',title:'Next Topic',questionIds:['q2'],sessionQuestionIds:['q2'],index:0,answers:{},submitted:{},questionTimes:{},startedAt:20,lifecycle:'active',practiceContext:{subject:'Anatomy',bank:'Marrow',topicId:'t2',title:'Next Topic'}};
+assert(nkDurablePersist(state,'second paused chapter'));
+assert.deepStrictEqual(state.normalPracticeCheckpoints.map(x=>x.sessionId).sort(),['practice-1','practice-2']);
+assert(state.normalPracticeCheckpoint.sessionId==='practice-2'&&prior.sessionId==='practice-1','latest alias and older saved checkpoint must coexist');
 console.log('DURABLE_PERSISTENCE_BEHAVIOR_OK');
 '''
     with tempfile.TemporaryDirectory() as directory:
@@ -91,7 +96,7 @@ nkApplyCloudEnvelope({kind:'practiceSessions',entityId:'normal',ownerDevice:'and
 nkApplyCloudEnvelope({kind:'practiceSessions',entityId:'normal',ownerDevice:'ipad',updatedAt:230,deleted:false,payload:JSON.stringify(checkpoint('same',['q1','q2'],{}, {},{},'active',230)),schemaVersion:1});
 assert(state.normalPracticeCheckpoint.lifecycle==='submitted','terminal Practice state must not regress');
 nkApplyCloudEnvelope({kind:'practiceSessions',entityId:'normal',ownerDevice:'ipad',updatedAt:240,deleted:false,payload:JSON.stringify(checkpoint('different',['q1'],{}, {},{},'paused',240)),schemaVersion:1});
-assert(state.normalPracticeConflict?.type==='different-session'&&state.normalPracticeCheckpoint.sessionId==='same','different Practice sessions must surface a conflict without replacement');
+assert(!state.normalPracticeConflict&&state.normalPracticeCheckpoints.some(cp=>cp.sessionId==='same')&&state.normalPracticeCheckpoints.some(cp=>cp.sessionId==='different'),'independent paused Practice sessions must merge without conflicting');
 state.studyModules=[{id:'m1',syncEpoch:'e1',submitted:{q1:true},answers:{q1:1},completedQuestionIds:['q1'],questionTimes:{q1:10}}];
 nkApplyCloudEnvelope({kind:'modules',entityId:'m1',ownerDevice:'ipad',updatedAt:300,deleted:false,payload:JSON.stringify({id:'m1',syncEpoch:'e1',submitted:{q2:true},answers:{q2:2},completedQuestionIds:['q2'],questionTimes:{q2:20}}),schemaVersion:1});
 assert(state.studyModules[0].submitted.q1&&state.studyModules[0].submitted.q2,'same-generation module progress must merge across devices');
@@ -175,6 +180,9 @@ async function testRequests(){
   assert(scheduled===0,'unchanged remote sync must never schedule another sync');
   assert(renders===0,'unchanged background sync must not rebuild the screen');
   assert(writes===0,'remote preferences must not echo back as local writes');
+  state.normalPracticeCheckpoints=[checkpoint('saved-one',['q1'],{}, {},{},'paused',500),checkpoint('saved-two',['q2'],{}, {},{},'paused',501)];state.normalPracticeCheckpoint=state.normalPracticeCheckpoints[1];nkCaptureCloudChanges();
+  assert(nkSyncMeta.outbox['practiceSessions/saved-one']&&nkSyncMeta.outbox['practiceSessions/saved-two']&&nkSyncMeta.outbox['practiceSessions/normal'],'each paused Practice session must sync under its own ID with the legacy latest-session alias');
+  state.normalPracticeCheckpoints=[];state.normalPracticeCheckpoint=null;nkSyncMeta.outbox={};nkSyncMeta.localHashes={};nkCloudRevision=0;scheduled=0;
   state.bookmarks.q9={addedAt:Date.now()};nkCaptureCloudChanges();
   assert(scheduled===1&&nkSyncMeta.outbox['bookmarks/q9'],'real local edits must still schedule upload');
   console.log('CROSS_DEVICE_SYNC_BEHAVIOR_OK');
