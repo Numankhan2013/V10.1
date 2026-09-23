@@ -262,7 +262,7 @@ def main() -> None:
             page.wait_for_function("window.QB && window.QB.getState")
             chapters = page.evaluate("""() => {
               const records=window.SUBJECT_QBANK_DATA?.subjects||[];
-              const record=records.find(r=>r.subject==='Biochemistry');
+              const record=records.find(r=>r.subject==='Physiology');
               if(!record)return [];
               const groups=new Map();
               for(const q of record.questions||[]){
@@ -279,6 +279,7 @@ def main() -> None:
             snapshots = {}
             for name, chapter in zip("ABC", chapters):
                 page.evaluate("c => window.QB.nkOpenSubjectChapter(c.subject,c.bank,c.id)", chapter)
+                page.locator(".nk-chapter-actions button.is-primary").click()
                 modal = page.locator("#modal")
                 modal.wait_for(state="visible")
                 modal.get_by_role("button", name="Start Practice", exact=True).click()
