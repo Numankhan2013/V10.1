@@ -207,6 +207,16 @@ body:has(.nk-home-approved-v1),body:has(.nk-study-library-v3),body:has(.nk-fsrs-
 .nk-home-progress-icon.is-blue{background:linear-gradient(135deg,#e9f3ff,#cfe4fd)}
 .nk-v3-section-head h2{font-size:19px;letter-spacing:-.2px}
 .nk-home-quote{background:linear-gradient(100deg,#efe8ff,#f7f2ff)}
+@media(max-width:360px){
+.nk-home-brandbar{padding-bottom:6px}
+.nk-home-greeting{padding:6px 2px 9px}
+.nk-home-greeting h1{font-size:29px}
+.nk-home-streak-card{padding:8px 10px}
+.nk-home-focus-card{margin-top:10px;padding:16px}
+.nk-home-focus-card h2{font-size:23px;margin:5px 0 3px}
+.nk-home-focus-card p{margin-bottom:10px}
+.nk-home-focus-action{min-height:48px}
+}
 </style>'''
 
 

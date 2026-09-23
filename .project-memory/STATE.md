@@ -111,7 +111,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Study UI audit and first defect batch — 2026-09-23
 
-- Baseline screenshots at 320px/390px phone, larger text, and 820px tablet found three defects (CBT grid numbering/crowding, clipped question context, squeezed Analysis header); shared fixes plus generated capture/image checks are in `docs/STUDY_UI_AUDIT_2026-09-23.md`. Local 50-check suite passed; exact final CI, in-place APK upgrade, data preservation, force-close/reopen and sync remain physical acceptance items.
+- Baseline screenshots at 320px/390px phone, larger text, and 820px tablet found CBT grid numbering/crowding, clipped question context, squeezed Analysis header, and a 320px Home action partly under bottom navigation. Shared fixes and a narrow-screen Home spacing/assertion follow-up are in `docs/STUDY_UI_AUDIT_2026-09-23.md`; exact final CI and physical APK/data-preservation checks remain pending.
 
 ## Anti-fragmentation rules
 

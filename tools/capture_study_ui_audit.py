@@ -63,6 +63,14 @@ def main():
                     # exact Android font scale still needs physical verification.
                     page.add_style_tag(content="html{font-size:125% !important;-webkit-text-size-adjust:150% !important;text-size-adjust:150% !important}")
                 capture(page, f"{label}-01-home", observations)
+                if label == "small-phone":
+                    assert page.evaluate("""() => {
+                      const action=document.querySelector('.nk-home-focus-action');
+                      const nav=document.querySelector('.nk-bottom-nav');
+                      if(!action||!nav)return false;
+                      const button=action.getBoundingClientRect(),footer=nav.getBoundingClientRect();
+                      return button.top>=0 && button.bottom<=footer.top-8 && button.height>=44;
+                    }"""), "Home primary action is obscured by bottom navigation at 320px"
 
                 page.locator("button.nk-v3-subject-card").filter(has_text="Biochemistry").click()
                 capture(page, f"{label}-01b-subject-destination", observations)
