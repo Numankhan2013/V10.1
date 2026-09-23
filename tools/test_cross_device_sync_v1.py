@@ -39,6 +39,14 @@ assert.deepStrictEqual(state.normalPracticeCheckpoints.map(x=>x.sessionId),['pra
 assert.deepStrictEqual(state.normalPracticeCheckpoint.sessionQuestionIds,['q1','q2']);
 assert(state.normalPracticeCheckpoint.position.index===1&&state.normalPracticeCheckpoint.answers.q1===2&&state.normalPracticeCheckpoint.submitted.q1,'checkpoint progress missing');
 assert(state.normalPracticeCheckpoint.pendingFsrsRatings.q1.rating===3,'pending FSRS rating missing');
+const legacyOnly={...defaultState(),normalPracticeCheckpoint:{...state.normalPracticeCheckpoint,answers:{q1:2},submitted:{q1:true},pendingFsrsRatings:{q1:{rating:3}}}};
+const migrated=nkNormalizeState(legacyOnly);
+assert.deepStrictEqual(migrated.normalPracticeCheckpoints.map(x=>x.sessionId),['practice-1'],'legacy-only checkpoint must migrate by identity');
+assert(migrated.normalPracticeCheckpoints[0].answers.q1===2&&migrated.normalPracticeCheckpoints[0].pendingFsrsRatings.q1.rating===3,'migration must keep answers and pending recall');
+const newerAlias={...migrated.normalPracticeCheckpoint,updatedAt:migrated.normalPracticeCheckpoint.updatedAt+1,answers:{q1:4}};
+assert(nkNormalizeState({...migrated,normalPracticeCheckpoint:newerAlias}).normalPracticeCheckpoints[0].answers.q1===4,'newer legacy alias must not be discarded when its ID already exists');
+const terminalRecords=Array.from({length:101},(_,i)=>({...migrated.normalPracticeCheckpoint,sessionId:`old-${i}`,lifecycle:'discarded',updatedAt:i+1}));
+assert(nkNormalizePracticeCheckpoints(terminalRecords,null).length===101,'terminal sync tombstones must survive beyond 100 sessions');
 const before=state.stateRevision;failKey=LS_KEY;state.bookmarks.q3={addedAt:3};
 assert(nkDurablePersist(state,'quota simulation')===false,'quota failure must be reported');
 assert(state.stateRevision===before,'failed writes must not claim a new revision');
@@ -60,6 +68,24 @@ const prior=state.normalPracticeCheckpoint;state.activeSession={id:'practice-2',
 assert(nkDurablePersist(state,'second paused chapter'));
 assert.deepStrictEqual(state.normalPracticeCheckpoints.map(x=>x.sessionId).sort(),['practice-1','practice-2']);
 assert(state.normalPracticeCheckpoint.sessionId==='practice-2'&&prior.sessionId==='practice-1','latest alias and older saved checkpoint must coexist');
+const firstCopy=JSON.stringify(state.normalPracticeCheckpoints.find(x=>x.sessionId==='practice-1'));
+state.activeSession={id:'module',mode:'practice',studyModuleId:'saved-set',title:'Saved set',questionIds:['q2'],answers:{},submitted:{}};
+assert(nkDurablePersist(state,'module isolation'));
+assert(JSON.stringify(state.normalPracticeCheckpoints.find(x=>x.sessionId==='practice-1'))===firstCopy,'saved study set must not mutate an unrelated paused Practice');
+state.activeSession=null;
+assert(nkDurablePersist(state,'restart snapshot'));
+const restarted=nkDurableLoadState();
+assert(restarted.normalPracticeCheckpoints.length===2&&restarted.normalPracticeCheckpoints.some(x=>x.sessionId==='practice-1'&&x.answers.q1===2),'restart must retain both independent checkpoints');
+const pausedCopy=JSON.stringify(state.normalPracticeCheckpoints);
+let elapsedCalls=0;global.savePracticeElapsed=()=>{elapsedCalls++;};global.saveState=()=>nkDurablePersist(state,'pagehide');
+state.activeSession={id:'practice-2',mode:'practice',title:'Next Topic',questionIds:['q2'],sessionQuestionIds:['q2'],index:0,answers:{},submitted:{},questionTimes:{},startedAt:20,lifecycle:'paused'};
+assert(nkFlushLifecycleState());
+assert(elapsedCalls===0&&JSON.stringify(state.normalPracticeCheckpoints)===pausedCopy,'pagehide must not accrue time or rewrite an already paused checkpoint');
+const unrelated=JSON.stringify(state.normalPracticeCheckpoints);
+state.activeSession={id:'practice-3',mode:'practice',title:'Third Topic',questionIds:['q1'],sessionQuestionIds:['q1'],index:0,answers:{q1:1},submitted:{q1:true},questionTimes:{q1:5},startedAt:30,lifecycle:'active',practiceContext:{subject:'Anatomy',bank:'Marrow',topicId:'t3',title:'Third Topic'}};
+assert(nkFlushLifecycleState());
+assert(elapsedCalls===1&&state.normalPracticeCheckpoints.length===3,'pagehide must persist only the intended live Practice');
+assert(state.normalPracticeCheckpoints.filter(x=>x.sessionId!=='practice-3').every(x=>unrelated.includes(JSON.stringify(x))),'pagehide must retain unrelated paused checkpoints byte for byte');
 console.log('DURABLE_PERSISTENCE_BEHAVIOR_OK');
 '''
     with tempfile.TemporaryDirectory() as directory:
@@ -97,6 +123,14 @@ nkApplyCloudEnvelope({kind:'practiceSessions',entityId:'normal',ownerDevice:'ipa
 assert(state.normalPracticeCheckpoint.lifecycle==='submitted','terminal Practice state must not regress');
 nkApplyCloudEnvelope({kind:'practiceSessions',entityId:'normal',ownerDevice:'ipad',updatedAt:240,deleted:false,payload:JSON.stringify(checkpoint('different',['q1'],{}, {},{},'paused',240)),schemaVersion:1});
 assert(!state.normalPracticeConflict&&state.normalPracticeCheckpoints.some(cp=>cp.sessionId==='same')&&state.normalPracticeCheckpoints.some(cp=>cp.sessionId==='different'),'independent paused Practice sessions must merge without conflicting');
+state.normalPracticeCheckpoints=[checkpoint('A',['q1'],{q1:1},{q1:true},{q1:{revision:1,updatedAt:10}},'paused',10),checkpoint('B',['q2'],{q2:2},{q2:true},{q2:{revision:1,updatedAt:20}},'paused',20),checkpoint('C',['q3'],{q3:3},{q3:true},{q3:{revision:1,updatedAt:30}},'paused',30)];
+state.normalPracticeCheckpoint=state.normalPracticeCheckpoints[2];
+const aBefore=JSON.stringify(state.normalPracticeCheckpoints[0]),cBefore=JSON.stringify(state.normalPracticeCheckpoints[2]);
+nkApplyCloudEnvelope({kind:'practiceSessions',entityId:'B',ownerDevice:'ipad',updatedAt:40,deleted:false,payload:JSON.stringify(checkpoint('B',['q2'],{q2:4},{q2:true},{q2:{revision:2,updatedAt:40}},'paused',40)),schemaVersion:1});
+assert(state.normalPracticeCheckpoints.find(cp=>cp.sessionId==='B').answers.q2===4,'remote B progress must merge by session ID');
+assert(JSON.stringify(state.normalPracticeCheckpoints.find(cp=>cp.sessionId==='A'))===aBefore&&JSON.stringify(state.normalPracticeCheckpoints.find(cp=>cp.sessionId==='C'))===cBefore,'remote B must leave A and C intact');
+nkApplyCloudEnvelope({kind:'practiceSessions',entityId:'A',ownerDevice:'ipad',updatedAt:50,deleted:false,payload:JSON.stringify(checkpoint('A',['q1'],{}, {},{},'submitted',50)),schemaVersion:1});
+assert(state.normalPracticeCheckpoints.find(cp=>cp.sessionId==='A').lifecycle==='submitted'&&state.normalPracticeCheckpoints.find(cp=>cp.sessionId==='B').answers.q2===4&&JSON.stringify(state.normalPracticeCheckpoints.find(cp=>cp.sessionId==='C'))===cBefore,'completion of A must leave B and C intact');
 state.studyModules=[{id:'m1',syncEpoch:'e1',submitted:{q1:true},answers:{q1:1},completedQuestionIds:['q1'],questionTimes:{q1:10}}];
 nkApplyCloudEnvelope({kind:'modules',entityId:'m1',ownerDevice:'ipad',updatedAt:300,deleted:false,payload:JSON.stringify({id:'m1',syncEpoch:'e1',submitted:{q2:true},answers:{q2:2},completedQuestionIds:['q2'],questionTimes:{q2:20}}),schemaVersion:1});
 assert(state.studyModules[0].submitted.q1&&state.studyModules[0].submitted.q2,'same-generation module progress must merge across devices');

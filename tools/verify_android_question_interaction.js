@@ -97,6 +97,69 @@ async function main(){
       await page.evaluate(()=>window.QB.nav('dashboard'));
       await waitForHash(page,'#dashboard');
       await device.screenshot({path:`${output}/${label}-home.png`});
+
+      const chapters=await page.evaluate(()=>{
+        const record=(window.SUBJECT_QBANK_DATA?.subjects||[]).find(r=>r.subject==='Biochemistry');
+        if(!record)return [];
+        const groups=new Map();
+        for(const q of record.questions||[]){const id=String(q.chapterId||'');if(!id)continue;if(!groups.has(id))groups.set(id,[]);groups.get(id).push(q);}
+        return [...groups].filter(([,qs])=>qs.length>=3&&qs.slice(0,2).every(q=>Number(q.correctOption)>0&&(q.options||[]).length>=4))
+          .slice(0,3).map(([id,qs])=>({subject:record.subject,bank:'PrepLadder',id,ids:qs.map(q=>String(q.id)),first:Number(qs[0].correctOption),second:Number(qs[1].correctOption),choices:qs[1].options.length}));
+      });
+      assert.equal(chapters.length,3,'three real chapters are required for packaged multi-pause');
+      const paused={};
+      for(const [index,chapter] of chapters.entries()){
+        await page.evaluate(c=>window.QB.nkOpenSubjectChapter(c.subject,c.bank,c.id),chapter);
+        await page.locator('#modal').getByRole('button',{name:'Start Practice',exact:true}).click();
+        await page.waitForFunction(ids=>JSON.stringify(window.QB.getState().activeSession?.questionIds)===JSON.stringify(ids),chapter.ids);
+        const sessionId=await page.evaluate(()=>window.QB.getState().activeSession.id);
+        await page.evaluate(({id,option})=>window.QB.selectPractice(id,option),{id:chapter.ids[0],option:chapter.first});
+        await page.evaluate(()=>window.QB.goIndex(1));
+        await page.evaluate(({id,option})=>window.QB.selectPractice(id,option),{id:chapter.ids[1],option:chapter.second%chapter.choices+1});
+        await page.evaluate(()=>window.QB.goIndex(2));
+        await page.evaluate(()=>window.QB.openSessionReview());
+        await page.locator('#nk-session-review').getByRole('button',{name:'Pause',exact:true}).click();
+        await waitForDashboard(page);
+        paused['ABC'[index]]=await page.evaluate(id=>{
+          const s=window.QB.getState();return JSON.parse(JSON.stringify(s.normalPracticeCheckpoints.find(cp=>cp.sessionId===id)));
+        },sessionId);
+        assert.deepEqual(paused['ABC'[index]].sessionQuestionIds,chapter.ids);
+        assert.equal(paused['ABC'[index]].position.index,2);
+      }
+      await device.shell(`am force-stop ${pkg}`);
+      for(let i=0;i<40&&device.webViews().some(v=>v.pkg()===pkg);i++)await new Promise(resolve=>setTimeout(resolve,250));
+      page=await launch();
+      await page.locator('button.nk-home-focus-action').click();
+      const chooser=page.locator('#nk-practice-sessions');await chooser.waitFor();
+      assert.equal(await chooser.locator('.nk-saved-practice-row').count(),3,'force-stop must retain three paused chapters');
+      await device.screenshot({path:`${output}/${label}-three-paused.png`});
+      await chooser.locator(`.nk-saved-practice-row[data-session-id="${paused.B.sessionId}"]`).getByRole('button',{name:'Resume',exact:true}).click();
+      await page.waitForFunction(id=>window.QB.getState().activeSession?.id===id,paused.B.sessionId);
+      const resumedB=await page.evaluate(()=>window.QB.getState().activeSession);
+      assert.deepEqual(resumedB.questionIds,paused.B.sessionQuestionIds);assert.equal(resumedB.index,2);
+      assert.deepEqual(resumedB.answers,paused.B.answers);assert.deepEqual(resumedB.submitted,paused.B.submitted);
+      await device.shell('input keyevent KEYCODE_BACK');
+      await waitForDashboard(page);
+      assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),paused.B.sessionId,'hardware Back must retain resumed B');
+      await page.locator('button.nk-home-focus-action').click();
+      await waitForHash(page,'#practice');
+      await page.evaluate(()=>window.QB.openSessionReview());
+      await page.locator('#nk-session-review').getByRole('button',{name:'Pause',exact:true}).click();
+      const bcBefore=await page.evaluate(ids=>ids.map(id=>JSON.stringify(window.QB.getState().normalPracticeCheckpoints.find(cp=>cp.sessionId===id))),[paused.B.sessionId,paused.C.sessionId]);
+      await page.locator('button.nk-home-focus-action').click();
+      await page.locator(`#nk-practice-sessions .nk-saved-practice-row[data-session-id="${paused.A.sessionId}"]`).getByRole('button',{name:'Resume',exact:true}).click();
+      await page.evaluate(()=>window.QB.openSessionReview());
+      await page.locator('#nk-session-review').getByRole('button',{name:'Submit',exact:true}).click();
+      await page.waitForFunction(()=>window.QB.getState().activeSession===null);
+      const bcAfter=await page.evaluate(ids=>ids.map(id=>JSON.stringify(window.QB.getState().normalPracticeCheckpoints.find(cp=>cp.sessionId===id))),[paused.B.sessionId,paused.C.sessionId]);
+      assert.deepEqual(bcAfter,bcBefore,'completing A must leave B and C byte-identical');
+      await page.evaluate(()=>window.QB.nav('dashboard'));
+      await waitForDashboard(page);
+      await page.locator('button.nk-home-focus-action').click();
+      await page.locator(`#nk-practice-sessions .nk-saved-practice-row[data-session-id="${paused.C.sessionId}"]`).getByRole('button',{name:'Resume',exact:true}).click();
+      await page.waitForFunction(id=>window.QB.getState().activeSession?.id===id,paused.C.sessionId);
+      assert.deepEqual(await page.evaluate(()=>window.QB.getState().activeSession.questionIds),paused.C.sessionQuestionIds);
+      console.log('ANDROID_MULTI_PAUSE_OK '+JSON.stringify({device:label,sessions:[paused.A.sessionId,paused.B.sessionId,paused.C.sessionId],forceStop:true,hardwareBack:true}));
       report.push({device:label,size,density,viewport:await page.evaluate(()=>({width:innerWidth,height:innerHeight})),nativeBack:'PASS',forceStopResume:'PASS',practiceReviewFsrs:'PASS'});
       console.log('ANDROID_INTERACTION_VIEWPORT_OK '+JSON.stringify(report.at(-1)));
     }

@@ -442,44 +442,7 @@ def main() -> None:
                 source_options = page.locator(".option-list button")
                 if source_options.count() != 4 or source_options.locator(".option-text").all_inner_texts() != canonical["choices"]:
                     raise SystemExit(f"Complete-source choices changed for {question_id}")
-                if question_id == "10-4":
-                    movement = page.evaluate("""async () => {
-                      const button=document.querySelector('.option-list button');
-                      const samples=[];
-                      for(let i=0;i<8;i++){
-                        const box=button.getBoundingClientRect();
-                        samples.push({top:box.top,left:box.left,width:box.width,height:box.height,
-                          scrollY,scrollHeight:document.documentElement.scrollHeight,
-                          activeAnimations:button.getAnimations({subtree:true}).map(a=>a.animationName||a.effect?.constructor?.name)});
-                        await new Promise(resolve=>setTimeout(resolve,100));
-                      }
-                      return samples;
-                    }""")
-                    print(f"BIOCHEM_10_4_LAYOUT_DIAGNOSTIC {movement}", flush=True)
-                    page.evaluate("""() => {
-                      window.__nkClickMotion=[];
-                      window.__nkClickMotionTimer=setInterval(()=>{
-                        const b=document.querySelector('.option-list button')?.getBoundingClientRect();
-                        window.__nkClickMotion.push({top:b?.top,left:b?.left,scrollY,
-                          bodyScroll:document.body.scrollTop,rootScroll:document.documentElement.scrollTop,
-                          viewportTop:visualViewport?.offsetTop,scrollHeight:document.documentElement.scrollHeight});
-                      },100);
-                    }""")
-                try:
-                    source_options.nth(correct_option - 1).click()
-                except Exception:
-                    if question_id == "10-4":
-                        motion = page.evaluate("""() => {
-                          clearInterval(window.__nkClickMotionTimer);
-                          const all=window.__nkClickMotion||[];
-                          return {first:all.slice(0,10),last:all.slice(-10),
-                            unique:[...new Set(all.map(x=>JSON.stringify(x)))].slice(0,20),
-                            scrollBehavior:getComputedStyle(document.documentElement).scrollBehavior};
-                        }""")
-                        print(f"BIOCHEM_10_4_CLICK_MOTION {motion}", flush=True)
-                    raise
-                if question_id == "10-4":
-                    page.evaluate("clearInterval(window.__nkClickMotionTimer)")
+                source_options.nth(correct_option - 1).click()
                 page.locator(".option-list .correct").wait_for(state="visible")
                 correct_indices = page.locator(".option-list .option").evaluate_all(
                     "nodes => nodes.flatMap((node, index) => node.classList.contains('correct') ? [index + 1] : [])")

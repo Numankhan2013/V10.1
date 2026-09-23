@@ -252,6 +252,112 @@ def main() -> None:
 
             context.close()
 
+            # Three genuine chapter sessions exercise the complete collection:
+            # answer, pause, reload, choose B, enter a special mode, finish A,
+            # and discard B while C remains available.
+            context = browser.new_context(viewport={"width": 390, "height": 844}, service_workers="block", reduced_motion="reduce")
+            page = context.new_page()
+            page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
+            page.goto(origin + "/#dashboard", wait_until="domcontentloaded")
+            page.wait_for_function("window.QB && window.QB.getState")
+            chapters = page.evaluate("""() => {
+              const records=window.SUBJECT_QBANK_DATA?.subjects||[];
+              const record=records.find(r=>r.subject==='Biochemistry');
+              if(!record)return [];
+              const groups=new Map();
+              for(const q of record.questions||[]){
+                const id=String(q.chapterId||'');if(!id)continue;
+                if(!groups.has(id))groups.set(id,[]);groups.get(id).push(q);
+              }
+              return [...groups].filter(([,qs])=>qs.length>=3&&qs.slice(0,2).every(q=>Number(q.correctOption)>0&&(q.options||[]).length>=4))
+                .slice(0,3).map(([id,qs])=>({subject:record.subject,bank:'PrepLadder',id,title:String(qs[0].chapter||id),
+                  ids:qs.map(q=>String(q.id)),first:Number(qs[0].correctOption),second:Number(qs[1].correctOption),choices:qs[1].options.length}));
+            }""")
+            if len(chapters) != 3:
+                raise SystemExit(f"Could not find three deterministic multi-question chapters: {chapters}")
+
+            snapshots = {}
+            for name, chapter in zip("ABC", chapters):
+                page.evaluate("c => window.QB.nkOpenSubjectChapter(c.subject,c.bank,c.id)", chapter)
+                modal = page.locator("#modal")
+                modal.wait_for(state="visible")
+                modal.get_by_role("button", name="Start Practice", exact=True).click()
+                page.wait_for_function("ids => JSON.stringify(window.QB.getState().activeSession?.questionIds)===JSON.stringify(ids)", arg=chapter["ids"])
+                session_id = page.evaluate("window.QB.getState().activeSession.id")
+                if name == "A":
+                    page.evaluate("id => window.QB.toggleBookmark(id)", chapter["ids"][0])
+                page.evaluate("args => window.QB.selectPractice(args.id,args.option)", {"id": chapter["ids"][0], "option": chapter["first"]})
+                page.evaluate("window.QB.goIndex(1)")
+                wrong = chapter["second"] % chapter["choices"] + 1
+                page.evaluate("args => window.QB.selectPractice(args.id,args.option)", {"id": chapter["ids"][1], "option": wrong})
+                page.evaluate("window.QB.goIndex(2)")
+                page.evaluate("window.QB.openSessionReview()")
+                page.locator("#nk-session-review").get_by_role("button", name="Pause", exact=True).click()
+                page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='paused'")
+                snapshots[name] = page.evaluate("""id => {
+                  const s=window.QB.getState(),cp=s.normalPracticeCheckpoints.find(x=>x.sessionId===id);
+                  return {checkpoint:cp,attempts:Object.fromEntries(cp.sessionQuestionIds.slice(0,2).map(qid=>[qid,s.attempts[qid]||[]]))};
+                }""", session_id)
+                if snapshots[name]["checkpoint"]["sessionQuestionIds"] != chapter["ids"] or snapshots[name]["checkpoint"]["position"]["index"] != 2:
+                    raise SystemExit(f"{name} lost ordered membership or index on Pause")
+                if not all(snapshots[name]["checkpoint"]["submitted"].get(qid) for qid in chapter["ids"][:2]):
+                    raise SystemExit(f"{name} lost answered progress on Pause")
+                if not all(snapshots[name]["attempts"].get(qid) for qid in chapter["ids"][:2]):
+                    raise SystemExit(f"{name} lost committed FSRS attempts on Pause")
+
+            page.reload(wait_until="domcontentloaded")
+            page.wait_for_function("window.QB && window.QB.getState().normalPracticeCheckpoints?.length>=3")
+            page.locator("button.nk-home-focus-action").click()
+            chooser = page.locator("#nk-practice-sessions")
+            chooser.wait_for(state="visible")
+            if chooser.locator(".nk-saved-practice-row").count() != 3:
+                raise SystemExit("Reload did not show all three paused Practice sessions")
+            chooser.screenshot(path=str(output / "three-paused-practice-phone.png"))
+            page.set_viewport_size({"width": 820, "height": 1180})
+            chooser.screenshot(path=str(output / "three-paused-practice-tablet.png"))
+            page.set_viewport_size({"width": 390, "height": 844})
+            chooser.locator(f'.nk-saved-practice-row[data-session-id="{snapshots["B"]["checkpoint"]["sessionId"]}"]').get_by_role("button", name="Resume", exact=True).click()
+            page.wait_for_function("id => window.QB.getState().activeSession?.id===id", arg=snapshots["B"]["checkpoint"]["sessionId"])
+            resumed_b = page.evaluate("""() => {const s=window.QB.getState().activeSession;return {ids:s.questionIds,index:s.index,answers:s.answers,submitted:s.submitted,pending:s.pendingRating};}""")
+            saved_b = snapshots["B"]["checkpoint"]
+            if resumed_b["ids"] != saved_b["sessionQuestionIds"] or resumed_b["index"] != 2 or resumed_b["answers"] != saved_b["answers"] or resumed_b["submitted"] != saved_b["submitted"] or resumed_b["pending"] != saved_b["pendingFsrsRatings"]:
+                raise SystemExit(f"B resumed with the wrong identity or progress: {resumed_b}")
+            other_before = page.evaluate("""ids => ids.map(id=>JSON.stringify(window.QB.getState().normalPracticeCheckpoints.find(cp=>cp.sessionId===id)))""", [snapshots["A"]["checkpoint"]["sessionId"], snapshots["C"]["checkpoint"]["sessionId"]])
+            page.evaluate("window.dispatchEvent(new PageTransitionEvent('pagehide'))")
+            other_after = page.evaluate("""ids => ids.map(id=>JSON.stringify(window.QB.getState().normalPracticeCheckpoints.find(cp=>cp.sessionId===id)))""", [snapshots["A"]["checkpoint"]["sessionId"], snapshots["C"]["checkpoint"]["sessionId"]])
+            if other_after != other_before:
+                raise SystemExit("pagehide while B was active altered A or C")
+            page.evaluate("window.QB.openSessionReview()")
+            page.locator("#nk-session-review").get_by_role("button", name="Pause", exact=True).click()
+            page.evaluate("window.QB.startLibrary('bookmarks')")
+            page.wait_for_function("window.QB.getState().activeSession?.originRoute==='bookmarks'")
+            page.evaluate("window.QB.endSession()")
+            page.wait_for_function("window.QB.getState().activeSession===null")
+            bc_before = page.evaluate("""ids => ids.map(id=>JSON.stringify(window.QB.getState().normalPracticeCheckpoints.find(cp=>cp.sessionId===id)))""", [snapshots["B"]["checkpoint"]["sessionId"], snapshots["C"]["checkpoint"]["sessionId"]])
+            page.evaluate("window.QB.nav('dashboard')")
+            page.locator("button.nk-home-focus-action").click()
+            page.locator(f'#nk-practice-sessions .nk-saved-practice-row[data-session-id="{snapshots["A"]["checkpoint"]["sessionId"]}"]').get_by_role("button", name="Resume", exact=True).click()
+            page.evaluate("window.QB.openSessionReview()")
+            page.locator("#nk-session-review").get_by_role("button", name="Submit", exact=True).click()
+            page.wait_for_function("window.QB.getState().activeSession===null")
+            bc_after = page.evaluate("""ids => ids.map(id=>JSON.stringify(window.QB.getState().normalPracticeCheckpoints.find(cp=>cp.sessionId===id)))""", [snapshots["B"]["checkpoint"]["sessionId"], snapshots["C"]["checkpoint"]["sessionId"]])
+            if bc_after != bc_before:
+                raise SystemExit("Completing A changed B or C")
+            page.evaluate("window.QB.nav('dashboard')")
+            page.locator("button.nk-home-focus-action").click()
+            page.locator(f'#nk-practice-sessions .nk-saved-practice-row[data-session-id="{snapshots["C"]["checkpoint"]["sessionId"]}"]').get_by_role("button", name="Resume", exact=True).click()
+            page.wait_for_function("id => window.QB.getState().activeSession?.id===id", arg=snapshots["C"]["checkpoint"]["sessionId"])
+            double_pause = page.evaluate("""() => {const first=window.QB.nkPausePractice(),before=JSON.stringify(window.QB.getState().normalPracticeCheckpoints);const second=window.QB.nkPausePractice();return {first,second,unchanged:before===JSON.stringify(window.QB.getState().normalPracticeCheckpoints)};}""")
+            if double_pause != {"first": True, "second": True, "unchanged": True}:
+                raise SystemExit(f"Double Pause was not idempotent: {double_pause}")
+            page.locator("button.nk-home-focus-action").click()
+            page.locator(f'#nk-practice-sessions .nk-saved-practice-row[data-session-id="{snapshots["B"]["checkpoint"]["sessionId"]}"]').get_by_role("button", name="Discard", exact=True).click()
+            remaining = page.evaluate("""() => window.QB.getState().normalPracticeCheckpoints.filter(cp=>!['submitted','completed','discarded'].includes(cp.lifecycle)).map(cp=>cp.sessionId)""")
+            if remaining != [snapshots["C"]["checkpoint"]["sessionId"]]:
+                raise SystemExit(f"Discarding B changed another saved Practice: {remaining}")
+            print("THREE_PAUSED_PRACTICE_BROWSER_OK reload=true resume_B=true special_mode=true complete_A=true resume_C=true discard_B=true pagehide=true double_pause=true")
+            context.close()
+
             # FSRS lifecycle regression: real answers are committed when Pause
             # leaves the question flow, while untouched questions remain unseen.
             context = browser.new_context(viewport={"width": 390, "height": 844}, service_workers="block")

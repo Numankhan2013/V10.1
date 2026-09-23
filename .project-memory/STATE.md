@@ -46,7 +46,7 @@
 - Special modes (CBT, Review, Wrong/Bookmarks, FSRS, Custom Study Modules) remain outside this override unless explicitly redesigned.
 - Postmortem: `.project-memory/PRACTICE_FLOW_POSTMORTEM_2026-09-12.md`; implementation handoff: `.project-memory/CONTINUE_PRACTICE_HANDOFF.md`.
 - Status: **accepted / device-verified / user-verified**. Do not describe this flow as pending.
-- Multiple paused chapters (2026-09-23, local candidate, CI pending): `normalPracticeCheckpoints` collection retains every paused chapter with legacy `normalPracticeCheckpoint` as latest-alias; starting a new chapter auto-pauses the live one instead of Resume-or-Discard; Home Continue resumes directly for one saved session and shows a Paused Practice chooser for several; per-ID discard; CBT/Review/FSRS/Wrong/Bookmarks isolation preserved; cross-device merges per session ID without `different-session` conflict. Single-pause behavior is unchanged when only one session is saved. Not yet build-verified or user-accepted.
+- Multiple paused chapters live on `feature/marrow-multi-pause-20260923`; canonical reverted the first candidate while the browser blocker was diagnosed. Runs `35844859167` and `35845434978` showed the 10-4 option stationary before pointer movement but oscillating by 1 px during click. The existing question-option hover transform is the cause; the candidate now fixes it and extends three-session reliability checks. Exact final gates remain pending; resolve live SHA and CI before promotion.
 
 ## Mandatory Practice regression sequence
 
@@ -134,7 +134,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Current priorities / Next step
 
-1. Finish the multiple-paused-chapters candidate on `feature/marrow-canonical-full-current` (local 50/50 green; exact-SHA Engineering + full Android/PWA/browser/APK/package CI pending). Verify Home chooser, per-chapter resume/discard, CBT/Review/FSRS isolation, and cross-device per-ID merge; then request user preview acceptance. Do not promote production.
+1. Finish the multiple-paused-chapters candidate on `feature/marrow-multi-pause-20260923`, then re-read and reconcile into current canonical only after one exact candidate SHA passes Engineering, full Android/PWA, generated browser, packaged APK, and Android WebView gates. Physical device acceptance remains separate. Do not promote production.
 2. Complete the study UI batch by inspecting the final image screenshots and exact-SHA Engineering/full Android/PWA/browser/APK/package results. If green, retain the accepted Practice/Review behavior and continue narrow evidence-led UI checks. Physical canonical APK verification remains outstanding; production promotion remains separately guarded.
 3. Image automation remains independently owned from live canonical per `.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md`; P0 Phase 3 has 219 source-review candidates (not proven defects) with Phase 6 sign-off and user acceptance pending.
 

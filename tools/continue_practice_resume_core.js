@@ -17,7 +17,7 @@
   }
   function nkPracticeCheckpoints(includeTerminal=false){
     const source=[...(Array.isArray(state.normalPracticeCheckpoints)?state.normalPracticeCheckpoints:[])];
-    if(state.normalPracticeCheckpoint&&!source.some(item=>String(item?.sessionId)===String(state.normalPracticeCheckpoint.sessionId)))source.push(state.normalPracticeCheckpoint);
+    if(state.normalPracticeCheckpoint)source.push(state.normalPracticeCheckpoint);
     const byId=new Map();for(const raw of source){const cp=typeof nkNormalizeCheckpoint==='function'?nkNormalizeCheckpoint(raw):raw;if(!cp?.sessionId)continue;const old=byId.get(String(cp.sessionId));if(!old||Number(cp.updatedAt||0)>=Number(old.updatedAt||0))byId.set(String(cp.sessionId),cp);}
     const all=[...byId.values()].sort((a,b)=>Number(b.updatedAt||0)-Number(a.updatedAt||0));
     return includeTerminal?all:all.filter(cp=>!['submitted','completed','discarded'].includes(String(cp.lifecycle)));
@@ -26,8 +26,7 @@
   function nkPracticeStoreCheckpoint(checkpoint){
     const cp=typeof nkNormalizeCheckpoint==='function'?nkNormalizeCheckpoint(checkpoint):checkpoint;if(!cp?.sessionId)return false;
     const list=nkPracticeCheckpoints(true),index=list.findIndex(item=>String(item.sessionId)===String(cp.sessionId));if(index<0)list.push(cp);else list[index]=cp;
-    const open=list.filter(item=>!['submitted','completed','discarded'].includes(String(item.lifecycle))),closed=list.filter(item=>['submitted','completed','discarded'].includes(String(item.lifecycle))).sort((a,b)=>Number(b.updatedAt||0)-Number(a.updatedAt||0));
-    state.normalPracticeCheckpoints=[...open,...closed.slice(0,Math.max(0,100-open.length))];state.normalPracticeCheckpoint=[...state.normalPracticeCheckpoints].sort((a,b)=>Number(b.updatedAt||0)-Number(a.updatedAt||0))[0]||null;
+    state.normalPracticeCheckpoints=list;state.normalPracticeCheckpoint=[...list].sort((a,b)=>Number(b.updatedAt||0)-Number(a.updatedAt||0))[0]||null;
     if(state.normalPracticeConflict?.type==='different-session')delete state.normalPracticeConflict;return true;
   }
   function nkPracticeBuildCheckpoint(session,lifecycle){
@@ -41,7 +40,7 @@
     return nkPracticeCheckpoints(false)[0]||null;
   }
   function nkPracticeSessionFromCheckpoint(checkpoint=nkPracticeCheckpoint()){
-    if(!checkpoint)return null;
+    if(!checkpoint||['submitted','completed','discarded'].includes(String(checkpoint.lifecycle)))return null;
     const ids=[...(checkpoint.sessionQuestionIds||[])].map(String),missing=ids.filter(id=>!nkPracticeResumeQuestion(id));
     if(!ids.length||missing.length){
       state.normalPracticeConflict={type:'missing-questions',sessionId:String(checkpoint.sessionId||''),missingQuestionIds:missing,detectedAt:Date.now()};
@@ -144,14 +143,15 @@
     return typeof openChapter==='function'?openChapter(context.topicId):navigate('study-library');
   }
   function nkResumePracticeSession(s){
+    if(state.activeSession===s&&s.lifecycle==='active'&&route.page==='practice')return true;
     const before=typeof nkStateClone==='function'?nkStateClone(state):JSON.parse(JSON.stringify(state));
     if(state.activeSession&&state.activeSession!==s&&!nkPracticeResumeEligible(state.activeSession)){
       if(state.activeSession.mode==='exam')nkOfferTimedSessionDecision();else showToast('Finish or leave the current study session before resuming Practice.','bad');
       return false;
     }
     const previous=state.activeSession;
-    if(previous&&previous!==s&&nkPracticeResumeEligible(previous)){
-      if(previous.lifecycle!=='paused'&&typeof savePracticeElapsed==='function')savePracticeElapsed();
+    if(previous&&previous!==s&&nkPracticeResumeEligible(previous)&&previous.lifecycle!=='paused'){
+      if(typeof savePracticeElapsed==='function')savePracticeElapsed();
       nkPracticePrepareSession(previous);previous.lifecycle='paused';previous.pausedAt=Date.now();previous.pausedIndex=Number(previous.index)||0;
       nkPracticeStoreCheckpoint(nkPracticeBuildCheckpoint(previous,'paused'));
     }
@@ -170,6 +170,7 @@
   }
   function nkPausePractice(){
     const s=state.activeSession;if(!nkPracticeResumeEligible(s))return false;
+    if(s.lifecycle==='paused')return true;
     const before=typeof nkStateClone==='function'?nkStateClone(state):JSON.parse(JSON.stringify(state));
     if(typeof savePracticeElapsed==='function')savePracticeElapsed();nkPracticePrepareSession(s);
     s.lifecycle='paused';s.pausedAt=Date.now();s.pausedIndex=Number(s.index)||0;
@@ -186,7 +187,7 @@
     if(typeof document==='undefined'||!document.body)return false;
     const checkpoints=nkPracticeCheckpoints(false);if(!checkpoints.length)return false;
     document.getElementById('nk-practice-sessions')?.remove();
-    const rows=checkpoints.map(cp=>{const total=cp.sessionQuestionIds?.length||0,done=Object.values(cp.submitted||{}).filter(Boolean).length,title=String(cp.context?.title||'Practice'),subject=String(cp.context?.subject||'Practice');return `<article class="nk-saved-practice-row"><div><strong>${esc(title)}</strong><small>${esc(subject)} · ${done}/${total} answered</small></div><div><button type="button" class="primary-btn" onclick="window.QB.nkResumePracticeById(${esc(JSON.stringify(String(cp.sessionId)))})">Resume</button><button type="button" class="ghost-btn" onclick="window.QB.nkDiscardNormalPractice(${esc(JSON.stringify(String(cp.sessionId)))})">Discard</button></div></article>`;}).join('');
+    const rows=checkpoints.map(cp=>{const total=cp.sessionQuestionIds?.length||0,done=Object.values(cp.submitted||{}).filter(Boolean).length,title=String(cp.context?.title||'Practice'),subject=String(cp.context?.subject||'Practice'),bank=String(cp.context?.bank||''),position=Math.min(total,Math.max(1,Number(cp.position?.index||0)+1)),started=new Date(Number(cp.startedAt||cp.createdAt||cp.updatedAt)).toLocaleString();return `<article class="nk-saved-practice-row" data-session-id="${esc(String(cp.sessionId))}"><div><strong>${esc(title)}</strong><small>${esc([subject,bank,`${done}/${total} answered`,`Question ${position}/${total}`,started].filter(Boolean).join(' · '))}</small></div><div><button type="button" class="primary-btn" onclick="window.QB.nkResumePracticeById(${esc(JSON.stringify(String(cp.sessionId)))})">Resume</button><button type="button" class="ghost-btn" onclick="window.QB.nkDiscardNormalPractice(${esc(JSON.stringify(String(cp.sessionId)))})">Discard</button></div></article>`;}).join('');
     document.body.insertAdjacentHTML('beforeend',`<div class="modal-backdrop" id="nk-practice-sessions"><section class="modal card nk-practice-sessions-dialog" role="dialog" aria-modal="true" aria-labelledby="nk-practice-sessions-title"><h2 id="nk-practice-sessions-title">Paused Practice</h2><p>Your chapter progress is saved. Resume any session, or start a new chapter from Topics.</p><div class="nk-saved-practice-list">${rows}</div><button type="button" class="ghost-btn" onclick="document.getElementById('nk-practice-sessions')?.remove()">Close</button></section></div>`);
     return true;
   }
@@ -197,7 +198,7 @@
   }
   function nkDiscardNormalPractice(sessionId){
     if(!sessionId&&nkPracticeCheckpoints(false).length>1)return nkPracticeSavedSessionsDialog();
-    const checkpoint=nkPracticeCheckpoint(sessionId);if(!checkpoint)return true;
+    const checkpoint=nkPracticeCheckpoint(sessionId);if(!checkpoint||['submitted','completed','discarded'].includes(String(checkpoint.lifecycle)))return true;
     const before=typeof nkStateClone==='function'?nkStateClone(state):JSON.parse(JSON.stringify(state)),now=Date.now();
     nkPracticeStoreCheckpoint({...checkpoint,lifecycle:'discarded',discardedAt:now,terminalAt:now,updatedAt:now});
     if(nkPracticeResumeEligible(state.activeSession)&&String(state.activeSession.id)===String(checkpoint.sessionId))state.activeSession=null;
@@ -234,14 +235,16 @@
   function nkStartSessionReliably(questionIds,mode='practice',title='Practice Session',context='normal',replacementApproved=false){
     const ids=[...new Set((questionIds||[]).map(String))];if(!ids.length){showToast('No questions available for this session.','bad');return false;}
     const pending={questionIds:ids,mode,title,context},live=state.activeSession;
+    if(live&&live.mode===mode&&live.title===title&&live.context===context&&live.lifecycle==='active'&&
+       Number(Date.now()-Number(live.startedAt||0))<750&&nkPracticeSessionIds(live).join('\u001f')===ids.join('\u001f'))return true;
     if(live?.mode==='exam'){
       if(nkTimedSessionExpired(live)){submitExam(true);return false;}
       nkOfferTimedSessionDecision(pending);return false;
     }
     const candidate={mode,title,context},normal=nkPracticeResumeEligible(candidate);
     const before=typeof nkStateClone==='function'?nkStateClone(state):JSON.parse(JSON.stringify(state)),now=Date.now();
-    if(live&&nkPracticeResumeEligible(live)){
-      if(live.lifecycle!=='paused'&&typeof savePracticeElapsed==='function')savePracticeElapsed();nkPracticePrepareSession(live);live.lifecycle=normal?'paused':'suspended';live.pausedAt=now;live.pausedIndex=Number(live.index)||0;
+    if(live&&nkPracticeResumeEligible(live)&&live.lifecycle!=='paused'){
+      if(typeof savePracticeElapsed==='function')savePracticeElapsed();nkPracticePrepareSession(live);live.lifecycle=normal?'paused':'suspended';live.pausedAt=now;live.pausedIndex=Number(live.index)||0;
       nkPracticeStoreCheckpoint(nkPracticeBuildCheckpoint(live,String(live.lifecycle)));
     }
     state.activeSession={id:`s_${now}_${Math.random().toString(16).slice(2)}`,mode,title,questionIds:[...ids],index:0,answers:{},submitted:{},startedAt:now,lastTick:now,elapsedMs:0,questionEnteredAt:now,questionTimes:{},context};
