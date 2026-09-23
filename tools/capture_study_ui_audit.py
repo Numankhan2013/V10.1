@@ -64,7 +64,7 @@ def main():
                     page.add_style_tag(content="html{font-size:125% !important;-webkit-text-size-adjust:150% !important;text-size-adjust:150% !important}")
                 capture(page, f"{label}-01-home", observations)
 
-                page.locator("button.nk-subject-row").filter(has_text="Biochemistry").click()
+                page.locator("button.nk-v3-subject-card").filter(has_text="Biochemistry").click()
                 page.locator("button.nk-bank-card").filter(has_text="Marrow").click()
                 page.locator("button.nk-topic-row").first.wait_for(state="visible")
                 capture(page, f"{label}-02-topics", observations)
