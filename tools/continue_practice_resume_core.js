@@ -98,12 +98,12 @@
   }
   function nkPracticeContinuation(){
     const live=state.activeSession;
+    const saved=nkPracticeCheckpoints(false);
+    if(saved.length>1)return {kind:'choices',checkpoints:saved,session:live&&nkPracticeResumeEligible(live)?live:null,context:nkPracticeIdentity(live)||null};
     if(nkPracticeResumeEligible(live)&&nkPracticeSessionIds(live).length&&live.lifecycle!=='paused'&&live.lifecycle!=='suspended'){
       const identity=nkPracticePrepareSession(live);
       return {kind:live.lifecycle==='paused'?'paused':'active',session:live,context:identity};
     }
-    const saved=nkPracticeCheckpoints(false);
-    if(saved.length>1)return {kind:'choices',checkpoints:saved,session:live&&nkPracticeResumeEligible(live)?live:null,context:nkPracticeIdentity(live)||null};
     const checkpoint=saved[0]||null;
     if(live&&nkPracticeResumeEligible(live)&&checkpoint&&String(live.id)===String(checkpoint.sessionId)){
       const identity=nkPracticeIdentity(live);return {kind:'paused',session:live,context:identity};
@@ -280,6 +280,7 @@
   const nkPracticeResumeOriginalLatest=nkLatestPracticeContext;
   nkLatestPracticeContext=function(){
     const next=nkPracticeContinuation(),context=next.context;
+    if(next.kind==='choices')return {topic:`${next.checkpoints.length} saved Practices`,subject:'',live:true,savedCount:next.checkpoints.length};
     if(['paused','active','suspended'].includes(next.kind)&&next.session){const ids=nkPracticeSessionIds(next.session),liveId=String(next.session.questionIds?.[Number(next.session.index)||0]||''),mapped=ids.indexOf(liveId),idx=mapped>=0?mapped:Math.max(0,Math.min(ids.length-1,Number(next.session.pausedIndex)||0)),q=nkPracticeResumeQuestion(ids[idx]||context?.questionIds?.[0]);return q?{q,topic:context?.title||nkTopicTitleForQuestion(q),subject:context?.subject||q.subject||activeSubject,live:true,paused:next.kind!=='active'}:null;}
     if((next.kind==='topic-remaining'||next.kind==='next-topic')&&context){const q=nkPracticeResumeQuestion(context.questionIds?.[0]);return q?{q,topic:context.title,subject:context.subject,live:false,nextTopic:next.kind==='next-topic'}:null;}
     return null;

@@ -99,7 +99,7 @@ async function main(){
       await device.screenshot({path:`${output}/${label}-home.png`});
 
       const chapters=await page.evaluate(()=>{
-        const record=(window.SUBJECT_QBANK_DATA?.subjects||[]).find(r=>r.subject==='Biochemistry');
+        const record=(window.SUBJECT_QBANK_DATA?.subjects||[]).find(r=>r.subject==='Physiology');
         if(!record)return [];
         const groups=new Map();
         for(const q of record.questions||[]){const id=String(q.chapterId||'');if(!id)continue;if(!groups.has(id))groups.set(id,[]);groups.get(id).push(q);}
@@ -110,6 +110,7 @@ async function main(){
       const paused={};
       for(const [index,chapter] of chapters.entries()){
         await page.evaluate(c=>window.QB.nkOpenSubjectChapter(c.subject,c.bank,c.id),chapter);
+        await page.locator('.nk-chapter-actions button.is-primary').click();
         await page.locator('#modal').getByRole('button',{name:'Start Practice',exact:true}).click();
         await page.waitForFunction(ids=>JSON.stringify(window.QB.getState().activeSession?.questionIds)===JSON.stringify(ids),chapter.ids);
         const sessionId=await page.evaluate(()=>window.QB.getState().activeSession.id);
@@ -142,6 +143,7 @@ async function main(){
       await waitForDashboard(page);
       assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),paused.B.sessionId,'hardware Back must retain resumed B');
       await page.locator('button.nk-home-focus-action').click();
+      await page.locator(`#nk-practice-sessions .nk-saved-practice-row[data-session-id="${paused.B.sessionId}"]`).getByRole('button',{name:'Resume',exact:true}).click();
       await waitForHash(page,'#practice');
       await page.evaluate(()=>window.QB.openSessionReview());
       await page.locator('#nk-session-review').getByRole('button',{name:'Pause',exact:true}).click();

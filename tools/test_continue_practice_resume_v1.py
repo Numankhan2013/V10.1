@@ -182,6 +182,8 @@ const secondSaved=state.normalPracticeCheckpoints.find(cp=>cp.context.topicId===
 assert.equal(nkResumePracticeById(firstId),true);
 assert.equal(state.activeSession.id,firstId);assert.equal(state.activeSession.index,6);
 assert.equal(nkPracticeCheckpoints(false).length,3,'resuming one chapter must keep the others paused');
+assert.equal(nkPracticeContinuation().kind,'choices','Home must still offer every saved session while A is active');
+assert.equal(nkLatestPracticeContext().topic,'3 saved Practices','Home must indicate the saved session count');
 const secondBefore=JSON.stringify(state.normalPracticeCheckpoints.find(cp=>cp.sessionId===secondSaved.sessionId));
 assert.equal(nkSubmitPracticeSession(),true);
 assert.equal(JSON.stringify(state.normalPracticeCheckpoints.find(cp=>cp.sessionId===secondSaved.sessionId)),secondBefore,'completing A must leave B intact');
