@@ -1,6 +1,6 @@
 # Anatomy explanation handoff — Ch7 Q11–Q21
 
-State: **STATIC_VALIDATED / exact-head CI pending**. The `approved-rollout` label makes this bounded batch eligible for the runtime map; it does not mean CI or device verification is complete.
+State: **BUILD_VERIFIED / reconciled into canonical / physical review pending**. The `approved-rollout` label makes this bounded batch eligible for the runtime map; it does not claim physical-device acceptance.
 
 - Canonical acquisition base: `cb3f44b95aca5030b8b72afc9654a1b135ff96de` on `feature/marrow-canonical-full-current`. Recheck live canonical and explanation ownership before reconciliation.
 - Batch branch: `feature/marrow-explanations-anatomy-20260923-source-export-r2`.
@@ -10,7 +10,8 @@ State: **STATIC_VALIDATED / exact-head CI pending**. The `approved-rollout` labe
 - Inventory before: **635 enhanced / 2,076 pending / 2,711 total**. Regenerated inventory after: **646 enhanced / 2,065 pending / 2,711 total**, fingerprint `b32859a10f0aa88af8da1d3ef34cba64be946153fff2c06fd507620306ef28b2`. All source hash and review flag counts are unchanged.
 - `test_marrow_anatomy_explanation_rollout.py` now covers Ch7 Q11–Q21 against canonical and legacy source. Representative generated-browser regression: `marrow__ANAT_CH07_Q019`, asserting the Chapter 7 learner route, pancreatic duct-fusion distinction, all explanation sections, three rationales and shared FSRS dock.
 - First approved-content full run `35882880054` failed only in this new browser regression because its fixture selected wrong option A, for which the shared FSRS contract applies automatic Again without a manual dock. The fixture now selects canonical correct option B; no product behavior or medical content changed. Engineering `35882922040` passed on the first content commit; rerun both gates on the final head.
+- Final batch head `43b183979ab504f4449e95d54f829d21bafebfd7` passed Engineering `35883623729` and full Android/PWA/browser/APK/emulator run `35883618689`, including Q19 browser evidence. PR #67 merged it into canonical as `7215d8ff072ee2e71905efe04dcad184d84607b3`. Canonical Engineering `35885212819`, inventory refresh `35885212779`, and full run `35885212827` all passed on that merge commit; preview `https://0e14d788.nk-qbank.pages.dev` deployed and production promotion was skipped.
 - External spot checks supported the source account of uncovered gastroschisis versus membrane-covered omphalocele, cloacal exstrophy anatomy, pancreatic bud/duct fusion and dorsal mesogastrium origin of the spleen. These checks supplement the canonical source audit; they are not physical image review.
 - Production promotion remains prohibited. Physical Android verification is separate.
 
-Next: run local checks and exact-head Engineering/full Android/PWA/browser/APK/package/emulator CI on the content commit. Review any browser evidence, then reconcile the verified batch into current canonical and rerun canonical exact-head gates. Do not start a new explanation batch until this one is reconciled.
+Next: review the preview on a physical device if desired; this is separate from build verification. Before a new explanation batch, resolve live canonical HEAD and lane ownership. Anatomy source order continues at Ch8 Q1. This handoff update changes documentation only; check CI on the live HEAD before claiming that later commit is exact-head build verified.
