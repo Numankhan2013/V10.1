@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate canonical Anatomy bundle and export Ch7 Q11-Q18
+      - name: Validate canonical Anatomy bundle and export Ch7 Q11-Q22
         run: |
           python tools/export_marrow_question_context.py \
-            --subject Anatomy --chapter 7 --start 11 --end 18 \
-            | tee /tmp/anatomy-ch07-q011-q018.json
+            --subject Anatomy --chapter 7 --start 11 --end 22 \
+            | tee /tmp/anatomy-ch07-q011-q022.json
       - name: Upload bounded source projection
         uses: actions/upload-artifact@v4
         with:
-          name: anatomy-ch07-q011-q018-source
-          path: /tmp/anatomy-ch07-q011-q018.json
+          name: anatomy-ch07-q011-q022-source
+          path: /tmp/anatomy-ch07-q011-q022.json
           if-no-files-found: error
