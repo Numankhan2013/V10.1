@@ -43,7 +43,7 @@
     // delayed remote paused copy to reopen a completed or discarded session.
     return [...byId.values()].sort((a,b)=>Number(a.createdAt||a.updatedAt||0)-Number(b.createdAt||b.updatedAt||0));
   }
-  function nkLatestPracticeCheckpoint(list){return [...(list||[])].sort((a,b)=>Number(b.updatedAt||0)-Number(a.updatedAt||0))[0]||null;}
+  function nkLatestPracticeCheckpoint(list){let latest=null;for(const item of list||[]){if(!latest||Number(item.updatedAt||0)>=Number(latest.updatedAt||0))latest=item;}return latest;}
   function nkValidateState(value){
     if(!nkStateObject(value))throw new Error('state root is not an object');
     if(value.stateSchemaVersion!=null&&(!Number.isInteger(Number(value.stateSchemaVersion))||Number(value.stateSchemaVersion)>NK_STATE_SCHEMA_VERSION||Number(value.stateSchemaVersion)<1))throw new Error('unsupported state schema');
@@ -114,6 +114,7 @@
       if(current&&NK_PRACTICE_TERMINAL.has(current.lifecycle)){target.activeSession=null;target.normalPracticeCheckpoints=checkpoints;target.normalPracticeCheckpoint=nkLatestPracticeCheckpoint(checkpoints);return target.normalPracticeCheckpoint;}
       if(current&&(session.lifecycle==='paused'||session.lifecycle==='suspended')){target.normalPracticeCheckpoints=checkpoints;target.normalPracticeCheckpoint=nkLatestPracticeCheckpoint(checkpoints);return current;}
       const next=nkCheckpointFromSession(session,current,String(session.lifecycle||'active')),index=checkpoints.findIndex(item=>String(item.sessionId)===String(session.id));
+      next.updatedAt=Math.max(Number(next.updatedAt||0),...checkpoints.map(item=>Number(item.updatedAt||0)+1));
       if(index<0)checkpoints.push(next);else checkpoints[index]=next;
       target.normalPracticeCheckpoints=checkpoints;target.normalPracticeCheckpoint=nkLatestPracticeCheckpoint(checkpoints);return next;
     }

@@ -26,7 +26,8 @@
   function nkPracticeStoreCheckpoint(checkpoint){
     const cp=typeof nkNormalizeCheckpoint==='function'?nkNormalizeCheckpoint(checkpoint):checkpoint;if(!cp?.sessionId)return false;
     const list=nkPracticeCheckpoints(true),index=list.findIndex(item=>String(item.sessionId)===String(cp.sessionId));if(index<0)list.push(cp);else list[index]=cp;
-    state.normalPracticeCheckpoints=list;state.normalPracticeCheckpoint=[...list].sort((a,b)=>Number(b.updatedAt||0)-Number(a.updatedAt||0))[0]||null;
+    cp.updatedAt=Math.max(Number(cp.updatedAt||0),...list.filter(item=>item!==cp).map(item=>Number(item.updatedAt||0)+1));
+    state.normalPracticeCheckpoints=list;state.normalPracticeCheckpoint=cp;
     if(state.normalPracticeConflict?.type==='different-session')delete state.normalPracticeConflict;return true;
   }
   function nkPracticeBuildCheckpoint(session,lifecycle){

@@ -65,7 +65,9 @@ for(const title of ['Bookmarked Questions','Wrong Questions','FSRS Review']){
   assert.deepStrictEqual(state.normalPracticeCheckpoint.answers,{q1:2});
 }
 const prior=state.normalPracticeCheckpoint;state.activeSession={id:'practice-2',mode:'practice',title:'Next Topic',questionIds:['q2'],sessionQuestionIds:['q2'],index:0,answers:{},submitted:{},questionTimes:{},startedAt:20,lifecycle:'active',practiceContext:{subject:'Anatomy',bank:'Marrow',topicId:'t2',title:'Next Topic'}};
+const realNow=Date.now,frozenNow=realNow();Date.now=()=>frozenNow;
 assert(nkDurablePersist(state,'second paused chapter'));
+Date.now=realNow;
 assert.deepStrictEqual(state.normalPracticeCheckpoints.map(x=>x.sessionId).sort(),['practice-1','practice-2']);
 assert(state.normalPracticeCheckpoint.sessionId==='practice-2'&&prior.sessionId==='practice-1','latest alias and older saved checkpoint must coexist');
 const firstCopy=JSON.stringify(state.normalPracticeCheckpoints.find(x=>x.sessionId==='practice-1'));
@@ -131,6 +133,11 @@ assert(state.normalPracticeCheckpoints.find(cp=>cp.sessionId==='B').answers.q2==
 assert(JSON.stringify(state.normalPracticeCheckpoints.find(cp=>cp.sessionId==='A'))===aBefore&&JSON.stringify(state.normalPracticeCheckpoints.find(cp=>cp.sessionId==='C'))===cBefore,'remote B must leave A and C intact');
 nkApplyCloudEnvelope({kind:'practiceSessions',entityId:'A',ownerDevice:'ipad',updatedAt:50,deleted:false,payload:JSON.stringify(checkpoint('A',['q1'],{}, {},{},'submitted',50)),schemaVersion:1});
 assert(state.normalPracticeCheckpoints.find(cp=>cp.sessionId==='A').lifecycle==='submitted'&&state.normalPracticeCheckpoints.find(cp=>cp.sessionId==='B').answers.q2===4&&JSON.stringify(state.normalPracticeCheckpoints.find(cp=>cp.sessionId==='C'))===cBefore,'completion of A must leave B and C intact');
+const bMembership=state.normalPracticeCheckpoints.find(cp=>cp.sessionId==='B');
+const forged=checkpoint('B',['q3'],{}, {},{},'paused',60);forged.membershipHash=bMembership.membershipHash;
+nkApplyCloudEnvelope({kind:'practiceSessions',entityId:'B',ownerDevice:'ipad',updatedAt:60,deleted:false,payload:JSON.stringify(forged),schemaVersion:1});
+assert(state.normalPracticeConflict?.type==='membership-mismatch'&&state.normalPracticeCheckpoints.find(cp=>cp.sessionId==='B').answers.q2===4,'ordered membership must be compared exactly, even if a hash agrees');
+delete state.normalPracticeConflict;
 state.studyModules=[{id:'m1',syncEpoch:'e1',submitted:{q1:true},answers:{q1:1},completedQuestionIds:['q1'],questionTimes:{q1:10}}];
 nkApplyCloudEnvelope({kind:'modules',entityId:'m1',ownerDevice:'ipad',updatedAt:300,deleted:false,payload:JSON.stringify({id:'m1',syncEpoch:'e1',submitted:{q2:true},answers:{q2:2},completedQuestionIds:['q2'],questionTimes:{q2:20}}),schemaVersion:1});
 assert(state.studyModules[0].submitted.q1&&state.studyModules[0].submitted.q2,'same-generation module progress must merge across devices');
