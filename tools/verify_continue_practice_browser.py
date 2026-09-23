@@ -370,6 +370,54 @@ def main() -> None:
             print("THREE_PAUSED_PRACTICE_BROWSER_OK reload=true resume_B=true special_mode=true complete_A=true resume_C=true discard_B=true pagehide=true double_pause=true")
             context.close()
 
+            # Two saved chapters leave exactly one checkpoint after submitting A.
+            # Opening Review Solutions for A must not trap Home Continue behind
+            # the read-only review session when the learner returns to Home.
+            context = browser.new_context(viewport={"width": 390, "height": 844}, service_workers="block", reduced_motion="reduce")
+            page = context.new_page()
+            page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
+            page.goto(origin + "/#dashboard", wait_until="domcontentloaded")
+            page.wait_for_function("window.QB && window.QB.getState")
+            two_ids = []
+            for chapter in chapters[:2]:
+                page.evaluate("c => window.QB.nkOpenSubjectChapter(c.subject,c.bank,c.id)", chapter)
+                page.locator(".nk-chapter-actions button.is-primary").click()
+                page.locator("#modal").get_by_role("button", name="Start Practice", exact=True).click()
+                page.wait_for_function("ids => JSON.stringify(window.QB.getState().activeSession?.questionIds)===JSON.stringify(ids)", arg=chapter["ids"])
+                two_ids.append(page.evaluate("window.QB.getState().activeSession.id"))
+                page.evaluate("window.QB.openSessionReview()")
+                page.locator("#nk-session-review").get_by_role("button", name="Pause", exact=True).click()
+                page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='paused'")
+            page.locator("button.nk-home-focus-action").click()
+            page.locator(f'#nk-practice-sessions .nk-saved-practice-row[data-session-id="{two_ids[0]}"]').get_by_role("button", name="Resume", exact=True).click()
+            page.wait_for_function("id => window.QB.getState().activeSession?.id===id", arg=two_ids[0])
+            page.evaluate("window.QB.openSessionReview()")
+            page.locator("#nk-session-review").get_by_role("button", name="Submit", exact=True).click()
+            page.wait_for_function("window.QB.getState().activeSession===null")
+            saved_after_submit = page.evaluate("""() => window.QB.getState().normalPracticeCheckpoints
+              .filter(cp=>!['submitted','completed','discarded'].includes(cp.lifecycle)).map(cp=>cp.sessionId)""")
+            if saved_after_submit != [two_ids[1]]:
+                raise SystemExit(f"Submitting A changed the saved B checkpoint: {saved_after_submit}")
+            submitted_test_id = page.evaluate("window.QB.getState().tests.at(-1).id")
+            page.evaluate("window.QB.nav('dashboard')")
+            page.locator("button.nk-home-focus-action").click()
+            if page.evaluate("window.QB.getState().activeSession?.id") != two_ids[1]:
+                raise SystemExit("Home Continue could not resume B directly after submitting A")
+            page.evaluate("window.QB.openSessionReview()")
+            page.locator("#nk-session-review").get_by_role("button", name="Pause", exact=True).click()
+            page.wait_for_function("window.QB.getState().activeSession?.lifecycle==='paused'")
+            page.evaluate("id => window.QB.reviewTest(id)", submitted_test_id)
+            page.wait_for_function("window.QB.getState().activeSession?.mode==='review'")
+            page.evaluate("window.QB.nav('dashboard')")
+            page.locator("button.nk-home-focus-action").click()
+            resumed_after_review = page.evaluate("""() => ({id:window.QB.getState().activeSession?.id,
+              mode:window.QB.getState().activeSession?.mode,
+              saved:window.QB.getState().normalPracticeCheckpoints.filter(cp=>!['submitted','completed','discarded'].includes(cp.lifecycle)).map(cp=>cp.sessionId)})""")
+            if resumed_after_review["id"] != two_ids[1] or resumed_after_review["mode"] != "practice" or resumed_after_review["saved"] != [two_ids[1]]:
+                raise SystemExit(f"Home Continue could not resume B after submitting/reviewing A: {resumed_after_review}")
+            print("TWO_PAUSED_AFTER_SUBMIT_BROWSER_OK remaining_B=true direct_home_resume=true review_exit=true home_resume=true")
+            context.close()
+
             # FSRS lifecycle regression: real answers are committed when Pause
             # leaves the question flow, while untouched questions remain unseen.
             context = browser.new_context(viewport={"width": 390, "height": 844}, service_workers="block")

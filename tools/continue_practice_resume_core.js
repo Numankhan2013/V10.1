@@ -6,8 +6,9 @@
   function nkPracticeResumeQuestion(id){
     return typeof nkFindStudyQuestion==='function' ? nkFindStudyQuestion(id) : (BY_ID?.[String(id)]||null);
   }
+  function nkPracticeTerminal(s){return ['submitted','completed','discarded'].includes(String(s?.lifecycle||''));}
   function nkPracticeResumeEligible(s){
-    if(!s||s.mode!=='practice'||s.studyModuleId)return false;
+    if(!s||nkPracticeTerminal(s)||s.mode!=='practice'||s.studyModuleId)return false;
     const origin=[s.originRoute,s.context,s.title].filter(Boolean).join(' ').toLowerCase();
     return !/(fsrs|spaced|review|wrong|bookmark)/.test(origin);
   }
@@ -97,7 +98,7 @@
     return tests[0]?.practiceContext||null;
   }
   function nkPracticeContinuation(){
-    const live=state.activeSession;
+    const live=nkPracticeTerminal(state.activeSession)?null:state.activeSession;
     const saved=nkPracticeCheckpoints(false);
     if(saved.length>1)return {kind:'choices',checkpoints:saved,session:live&&nkPracticeResumeEligible(live)?live:null,context:nkPracticeIdentity(live)||null};
     if(nkPracticeResumeEligible(live)&&nkPracticeSessionIds(live).length&&live.lifecycle!=='paused'&&live.lifecycle!=='suspended'){
@@ -144,14 +145,15 @@
     return typeof openChapter==='function'?openChapter(context.topicId):navigate('study-library');
   }
   function nkResumePracticeSession(s){
+    if(!s||nkPracticeTerminal(s))return false;
     if(state.activeSession===s&&s.lifecycle==='active'&&route.page==='practice')return true;
     const before=typeof nkStateClone==='function'?nkStateClone(state):JSON.parse(JSON.stringify(state));
-    if(state.activeSession&&state.activeSession!==s&&!nkPracticeResumeEligible(state.activeSession)){
+    if(state.activeSession&&state.activeSession!==s&&!nkPracticeResumeEligible(state.activeSession)&&state.activeSession.mode!=='review'&&!nkPracticeTerminal(state.activeSession)){
       if(state.activeSession.mode==='exam')nkOfferTimedSessionDecision();else showToast('Finish or leave the current study session before resuming Practice.','bad');
       return false;
     }
     const previous=state.activeSession;
-    if(previous&&previous!==s&&nkPracticeResumeEligible(previous)&&previous.lifecycle!=='paused'){
+    if(previous&&previous!==s&&nkPracticeResumeEligible(previous)&&!nkPracticeTerminal(previous)&&previous.lifecycle!=='paused'){
       if(typeof savePracticeElapsed==='function')savePracticeElapsed();
       nkPracticePrepareSession(previous);previous.lifecycle='paused';previous.pausedAt=Date.now();previous.pausedIndex=Number(previous.index)||0;
       nkPracticeStoreCheckpoint(nkPracticeBuildCheckpoint(previous,'paused'));

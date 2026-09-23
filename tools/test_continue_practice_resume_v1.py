@@ -36,6 +36,7 @@ let state={attempts:{},tests:[],activeSession:null,fsrsReviewEligible:{}};
 const activeSubject='Anatomy',nkFindStudyQuestion=id=>BY_ID[id]||null,nkTopicTitleForQuestion=q=>q.chapter;
 const nkBankRecords=subject=>SUBJECTS.filter(r=>r.subject===subject),qAttempts=id=>state.attempts[id]||[];
 const saveState=()=>{saved++;return !failSaves},navigate=page=>{route.page=page},openBank=()=>{},openSubjectTopics=()=>{};
+const showToast=()=>{};
 const saveExamElapsed=()=>{},recordAttempt=()=>{};let submitExam=()=>true;
 const nkOpenSubjectChapter=(subject,bank,topicId)=>{opened={subject,bank,topicId}};
 let startSession=(ids,mode,title)=>{started={ids:[...ids],mode,title};state.activeSession={id:'new',mode,title,questionIds:[...ids],index:0,answers:{},submitted:{},questionTimes:{}}};
@@ -202,6 +203,18 @@ assert.equal(nkDiscardNormalPractice(secondSaved.sessionId),true);
 assert.equal(nkPracticeCheckpoints(false).length,1,'discard removes only B');
 assert.equal(state.normalPracticeCheckpoints.find(cp=>cp.sessionId===thirdId).lifecycle,'paused','discarding B must leave C resumable');
 assert.equal(nkResumePracticeById(secondSaved.sessionId),false,'a discarded session must not reopen from a stale chooser action');
+// Review Solutions is read-only. Leaving it through Home must not block the
+// remaining saved Practice after another chapter was submitted.
+state.activeSession={id:'review-of-A',mode:'review',sourceTestId:`practice_${firstId}`,questionIds:['q1'],index:0};
+route.page='dashboard';
+assert.equal(window.QB.continuePractice(),true,'read-only review must yield to saved Practice');
+assert.equal(state.activeSession.id,thirdId);
+assert.equal(nkPausePractice(),true);
+// A stale terminal activeSession must never replace or pause the saved chapter.
+state.activeSession={id:'submitted-stale',mode:'practice',lifecycle:'submitted',originRoute:'topics',questionIds:['q1'],index:0};
+route.page='dashboard';
+assert.equal(window.QB.continuePractice(),true,'terminal session must yield to saved Practice');
+assert.equal(state.activeSession.id,thirdId);
 global.document.body=undefined;
 
 // Timed CBT is exclusive and its terminal save is failure-aware/idempotent.
