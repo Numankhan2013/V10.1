@@ -98,6 +98,21 @@ css = r'''<style id="qbank-practice-analysis-v1">
 .stat-progress > span { display:block; height:100%; border-radius:inherit; background:var(--success); }
 @media(max-width:900px){ .result-stat-grid{grid-template-columns:1fr 1fr;} }
 @media(max-width:430px){ .result-stat-grid{gap:10px;} .result-stat{min-height:116px !important;padding:12px !important;} .result-stat-head .label{font-size:10px !important;} .result-stat .value{font-size:20px !important;} .result-stat-icon{width:28px;height:28px;} }
+/* NK UI polish 2026-09-23 — Analysis: same theme, clearer hierarchy (CSS only). Marker: nk-ui-polish-2026-09-23-analysis */
+.result-stat{position:relative;overflow:hidden;transition:transform .12s ease,box-shadow .12s ease}
+.result-stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:#7357ef}
+.result-stat-time::before{background:linear-gradient(90deg,#3d65d8,#6f86db)}
+.result-stat-attempted::before{background:linear-gradient(90deg,#3977ad,#6aa9d8)}
+.result-stat-question::before{background:linear-gradient(90deg,#6c55a8,#9a83d6)}
+.result-stat-completion::before{background:linear-gradient(90deg,#159a74,#3ed598)}
+.result-stat:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(24,30,58,.08)}
+.result-stat .value{font-weight:850;letter-spacing:-.3px}
+.stat-progress > span{background:linear-gradient(90deg,#159a74,#3ed598)}
+.mode-pill{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#5d5681;background:#f2f0ff;border:1px solid #e3ddfb;padding:5px 10px;border-radius:999px}
+.v102-review-action{background:linear-gradient(135deg,#5153e8,#7354ff)!important;box-shadow:0 8px 20px rgba(81,83,232,.28);transition:transform .12s ease,box-shadow .12s ease}
+.v102-review-action:hover{transform:translateY(-1px);box-shadow:0 12px 26px rgba(81,83,232,.34)}
+@media(prefers-reduced-motion:reduce){.result-stat,.v102-review-action{transition:none!important}.result-stat:hover,.v102-review-action:hover{transform:none!important;box-shadow:none!important}}
+@media(max-width:430px){.result-stat::before{height:2px}}
 </style>'''
 if '</head>' not in s:
     raise SystemExit('Cannot apply practice analysis style: </head> missing')
