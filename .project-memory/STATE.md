@@ -105,12 +105,12 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 - Batch 02 on historical branch `manual/marrow-physiology-fastlane-20260912-b02` is unverified evidence only: 40 refs audited, 14 metadata-invalid, 12 new assets, 14 specialist deferrals; targeted run `34704088880` failed canonical wiring and was never reconciled.
 - Canonical Physiology coverage remains 294 raw / 290 effective / 44 released / 4 invalid metadata / 48 resolved / 21 tracked-unreleased / 225 untracked / 28 text-cue. Next canonical reference: `marrow__PHYS_CH03_Q007:figure:1`.
 
-## BC3 canonical / BC4 interaction hardening in progress
+## BC3 canonical / BC4 interaction hardening
 
 - Reconciliation branch: `feature/marrow-bc3-reconcile-20260922`, based on fetched canonical `d0a376f6e0bc687595b5b2c8f6dd73e884838e7a`, merging the complete BC3 donor through `db1f9ce` without replacing canonical history.
 - Canonical was fast-forwarded to `54f7d0fe210683e6236a00a6669f145734ae0335` after Engineering `35738354092` and full Android/PWA/browser/APK `35738352700` passed on that exact SHA; production untouched. Full Practice restart/submit/Review lifecycle and FSRS assertions passed.
 - Newer Anatomy Ch7 Q1–Q10 explanations, browser sentinel, and all canonical content/image/automation files are preserved. Canonical inventory generator reproduces 635 enhanced / 2,076 pending / 2,711 total with no generated diff.
-- BC4 branch: `feature/marrow-bc4-question-integrity-20260922`. Reproduced stale-question writes, non-atomic answer/navigation/bookmark failure, handler immutability gaps, and special-mode identity loss. Shared transaction/identity guards and regressions added; candidate CI pending. Ledger: `docs/BC4_QUESTION_INTERACTION_DEFECT_LEDGER_2026-09-22.md`. Physical Android checks remain unverified.
+- BC4 branch: `feature/marrow-bc4-question-integrity-20260922`. Reproduced stale-question writes, non-atomic answer/navigation/bookmark failure, handler immutability gaps, and special-mode identity loss. Shared transaction/identity guards and regressions added. The packaged Android driver was corrected after CI evidence showed two harness synchronization assumptions: a same-document hash change has no document load, and native Back can return to the original empty-hash dashboard URL. Substantive SHA `088f9906ed65f779f1dd0084459e7649973ee0a3` passed Engineering `35817762986` and full Android/PWA `35816916138`, including packaged Android 35 emulator phone/tablet interaction and the generated browser matrix. Ledger: `docs/BC4_QUESTION_INTERACTION_DEFECT_LEDGER_2026-09-22.md`. Physical Android device verification remains pending. Resolve live branch and canonical heads before promotion; documentation changes need their own exact-SHA gates.
 
 ## Anti-fragmentation rules
 
@@ -133,7 +133,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Current priorities / Next step
 
-1. Complete BC4 generated browser matrix and exact-head Engineering + full Android/PWA gates. BC3 is canonical; BC4 is not yet build-verified or device-verified.
+1. Recheck live canonical, run exact-head Engineering and full Android/PWA gates on the documented BC4 candidate, then fast-forward BC4 only if canonical is still its ancestor. Rerun both workflows on canonical. Emulator verification is complete on the substantive BC4 SHA; physical Android verification remains outstanding.
 2. Image automation remains independently owned and must continue from live canonical, not from this unreconciled reliability branch. Follow `.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md` and `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
 3. P0 Phase 3 has 219 source-review-required audit candidates, not 219 proven learner defects. Phase 5 exhausted safe text-layer notation repairs; remaining ambiguous blocks require rendered-page review. Phase 6 cross-surface review, final campaign sign-off and user acceptance remain pending.
 
