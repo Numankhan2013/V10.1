@@ -41,6 +41,8 @@ body:has(#nk-session-review.nk-practice-final-review) .nk-session-footer{
     min-height:50px!important;
   }
 }
+.nk-practice-sessions-dialog{width:min(620px,100%);max-height:82vh;overflow:auto}.nk-saved-practice-list{display:grid;gap:9px;margin:14px 0}.nk-saved-practice-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;padding:12px;border:1px solid var(--nk114-line,#e3e5ec);border-radius:13px;background:#fff}.nk-saved-practice-row>div:first-child{min-width:0}.nk-saved-practice-row strong,.nk-saved-practice-row small{display:block}.nk-saved-practice-row strong{font-size:13px;line-height:1.35;overflow-wrap:anywhere}.nk-saved-practice-row small{margin-top:4px;color:var(--muted,#777d8b);font-size:11px}.nk-saved-practice-row>div:last-child{display:flex;gap:7px}.nk-saved-practice-row button,.nk-practice-sessions-dialog>.ghost-btn{min-height:42px;padding:0 12px;border-radius:10px;font-size:12px;font-weight:800}.nk-practice-sessions-dialog>.ghost-btn{width:100%}
+@media(max-width:420px){.nk-saved-practice-row{grid-template-columns:1fr}.nk-saved-practice-row>div:last-child button{flex:1}}
 </style>'''
 
 
@@ -66,7 +68,7 @@ def transform(source: str) -> str:
         raise SystemExit("HTML head anchor missing")
     source = source.replace("</head>", CSS + "\n</head>", 1)
 
-    exports = "nkPausePractice,nkSubmitPracticeSession,nkDiscardNormalPractice,nkResolvePracticeReplacement,nkResolveTimedSession,"
+    exports = "nkPausePractice,nkSubmitPracticeSession,nkDiscardNormalPractice,nkResumePracticeById,nkPracticeSavedSessionsDialog,nkResolvePracticeReplacement,nkResolveTimedSession,"
     if exports not in source:
         qb = "window.QB={"
         if source.count(qb) != 1:

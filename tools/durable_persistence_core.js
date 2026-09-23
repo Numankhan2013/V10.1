@@ -33,6 +33,14 @@
       questionTimes:nkStateObject(raw.questionTimes)?raw.questionTimes:{},pendingFsrsRatings:nkStateObject(raw.pendingFsrsRatings)?raw.pendingFsrsRatings:{},
       questionUpdates:nkStateObject(raw.questionUpdates)?raw.questionUpdates:{},lifecycle:String(raw.lifecycle),updatedAt:Math.max(1,Number(raw.updatedAt||raw.createdAt||Date.now()))};
   }
+  function nkNormalizePracticeCheckpoints(rawList,legacy){
+    const source=Array.isArray(rawList)?[...rawList]:[];
+    if(legacy&& !source.some(item=>String(item?.sessionId||'')===String(legacy.sessionId||'')))source.push(legacy);
+    const byId=new Map();for(const raw of source){const item=nkNormalizeCheckpoint(raw);if(!item)continue;const old=byId.get(item.sessionId);if(!old||Number(item.updatedAt||0)>=Number(old.updatedAt||0))byId.set(item.sessionId,item);}
+    const values=[...byId.values()],open=values.filter(item=>!NK_PRACTICE_TERMINAL.has(item.lifecycle)),closed=values.filter(item=>NK_PRACTICE_TERMINAL.has(item.lifecycle)).sort((a,b)=>Number(b.updatedAt||0)-Number(a.updatedAt||0));
+    return [...open,...closed.slice(0,Math.max(0,100-open.length))].sort((a,b)=>Number(a.createdAt||a.updatedAt||0)-Number(b.createdAt||b.updatedAt||0));
+  }
+  function nkLatestPracticeCheckpoint(list){return [...(list||[])].sort((a,b)=>Number(b.updatedAt||0)-Number(a.updatedAt||0))[0]||null;}
   function nkValidateState(value){
     if(!nkStateObject(value))throw new Error('state root is not an object');
     if(value.stateSchemaVersion!=null&&(!Number.isInteger(Number(value.stateSchemaVersion))||Number(value.stateSchemaVersion)>NK_STATE_SCHEMA_VERSION||Number(value.stateSchemaVersion)<1))throw new Error('unsupported state schema');
@@ -43,6 +51,7 @@
     if(value.tests!=null&&!Array.isArray(value.tests))throw new Error('tests is not an array');
     if(value.studyModules!=null&&!Array.isArray(value.studyModules))throw new Error('studyModules is not an array');
     if(value.normalPracticeCheckpoint!=null&&!nkNormalizeCheckpoint(value.normalPracticeCheckpoint))throw new Error('normal Practice checkpoint is invalid');
+    if(value.normalPracticeCheckpoints!=null&&(!Array.isArray(value.normalPracticeCheckpoints)||value.normalPracticeCheckpoints.some(item=>!nkNormalizeCheckpoint(item))))throw new Error('normal Practice checkpoints are invalid');
     return true;
   }
   function nkNormalizeState(value){
@@ -50,7 +59,8 @@
     const out={...defaultState(),...value,attempts:value.attempts||{},bookmarks:value.bookmarks||{},reviews:value.reviews||{},tests:Array.isArray(value.tests)?value.tests:[]};
     out.studyModules=Array.isArray(value.studyModules)?value.studyModules:[];
     out.stateSchemaVersion=NK_STATE_SCHEMA_VERSION;out.stateRevision=nkStateRevision(value);
-    out.normalPracticeCheckpoint=value.normalPracticeCheckpoint?nkNormalizeCheckpoint(value.normalPracticeCheckpoint):null;
+    out.normalPracticeCheckpoints=nkNormalizePracticeCheckpoints(value.normalPracticeCheckpoints,value.normalPracticeCheckpoint);
+    out.normalPracticeCheckpoint=nkLatestPracticeCheckpoint(out.normalPracticeCheckpoints);
     return out;
   }
   function nkReadStateCandidate(key){
@@ -95,14 +105,16 @@
       createdAt:Number(prior?.createdAt||s.startedAt||now),updatedAt:now,terminalAt:NK_PRACTICE_TERMINAL.has(lifecycle)?now:(prior?.terminalAt||null)};
   }
   function nkMirrorNormalPracticeCheckpoint(target){
-    const current=nkNormalizeCheckpoint(target.normalPracticeCheckpoint),session=target.activeSession;
+    const checkpoints=nkNormalizePracticeCheckpoints(target.normalPracticeCheckpoints,target.normalPracticeCheckpoint),session=target.activeSession;
     if(nkNormalPracticeSession(session)){
-      if(current&&NK_PRACTICE_TERMINAL.has(current.lifecycle)&&String(current.sessionId)===String(session.id)){target.activeSession=null;target.normalPracticeCheckpoint=current;return current;}
-      target.normalPracticeCheckpoint=nkCheckpointFromSession(session,current,String(session.lifecycle||'active'));return target.normalPracticeCheckpoint;
+      const current=checkpoints.find(item=>String(item.sessionId)===String(session.id))||null;
+      if(current&&NK_PRACTICE_TERMINAL.has(current.lifecycle)){target.activeSession=null;target.normalPracticeCheckpoints=checkpoints;target.normalPracticeCheckpoint=nkLatestPracticeCheckpoint(checkpoints);return target.normalPracticeCheckpoint;}
+      const next=nkCheckpointFromSession(session,current,String(session.lifecycle||'active')),index=checkpoints.findIndex(item=>String(item.sessionId)===String(session.id));
+      if(index<0)checkpoints.push(next);else checkpoints[index]=next;
+      target.normalPracticeCheckpoints=checkpoints;target.normalPracticeCheckpoint=nkLatestPracticeCheckpoint(checkpoints);return next;
     }
-    if(session&&current&&!NK_PRACTICE_TERMINAL.has(current.lifecycle))target.normalPracticeCheckpoint={...current,lifecycle:'suspended',updatedAt:Date.now()};
-    else target.normalPracticeCheckpoint=current;
-    return target.normalPracticeCheckpoint;
+    if(session){for(let index=0;index<checkpoints.length;index++){const item=checkpoints[index];if(item.lifecycle==='active')checkpoints[index]={...item,lifecycle:'suspended',updatedAt:Date.now()};}}
+    target.normalPracticeCheckpoints=checkpoints;target.normalPracticeCheckpoint=nkLatestPracticeCheckpoint(checkpoints);return target.normalPracticeCheckpoint;
   }
   function nkPrepareTimedSession(target){
     const s=target.activeSession;if(!s||s.mode!=='exam')return;
@@ -118,7 +130,7 @@
       store.setItem(NK_STATE_PENDING_KEY,raw);store.setItem(LS_KEY,raw);
       const check=store.getItem(LS_KEY);if(check!==raw)throw new Error('primary verification failed');
       store.setItem(NK_STATE_LKG_KEY,raw);store.removeItem(NK_STATE_PENDING_KEY);
-      candidate.stateSchemaVersion=next.stateSchemaVersion;candidate.stateRevision=next.stateRevision;candidate.normalPracticeCheckpoint=next.normalPracticeCheckpoint;
+      candidate.stateSchemaVersion=next.stateSchemaVersion;candidate.stateRevision=next.stateRevision;candidate.normalPracticeCheckpoints=next.normalPracticeCheckpoints;candidate.normalPracticeCheckpoint=next.normalPracticeCheckpoint;
       nkStorageClearError();return true;
     }catch(error){
       try{store.removeItem(NK_STATE_PENDING_KEY);if(previousPrimary==null)store.removeItem(LS_KEY);else store.setItem(LS_KEY,previousPrimary);}catch(_){}
