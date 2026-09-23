@@ -45,6 +45,9 @@ async function main(){
       assert.equal(await page.evaluate(()=>window.QB.getState().activeSession.index),1);
       await page.evaluate(()=>window.QB.openSessionReview());
       await page.locator('#nk-session-review').getByRole('button',{name:'Pause',exact:true}).click();
+      const pauseState=await page.evaluate(()=>({url:location.href,hash:location.hash,lifecycle:window.QB.getState().activeSession?.lifecycle,index:window.QB.getState().activeSession?.index,reviewVisible:Boolean(document.querySelector('#nk-session-review')),bodyText:document.body.innerText.slice(0,300)}));
+      fs.writeFileSync(`${output}/${label}-pause-state.json`,JSON.stringify(pauseState,null,2));
+      console.log('ANDROID_PAUSE_STATE '+JSON.stringify(pauseState));
       await page.waitForURL('**/#dashboard');
       await device.screenshot({path:`${output}/${label}-paused.png`});
       await device.shell(`am force-stop ${pkg}`);
