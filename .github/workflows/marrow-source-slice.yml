@@ -3,36 +3,36 @@ name: Marrow source slice audit
 on:
   push:
     branches:
-      - feature/marrow-explanations-anatomy-20260924-ch09-q001
+      - feature/marrow-explanations-anatomy-20260924-ch10-q001
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  anatomy-ch09-source-audit:
+  anatomy-ch10-source-audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate canonical Anatomy bundle and export Ch9 Q1-Q18
+      - name: Validate canonical Anatomy bundle and export Ch10 Q1-Q18
         run: |
           mkdir -p .project-memory/source-audits
           python tools/export_marrow_question_context.py \
-            --subject Anatomy --chapter 9 --start 1 --end 18 \
-            | tee .project-memory/source-audits/anatomy-ch09-q001-q018.json
+            --subject Anatomy --chapter 10 --start 1 --end 18 \
+            | tee .project-memory/source-audits/anatomy-ch10-q001-q018.json
       - name: Upload bounded source projection
         uses: actions/upload-artifact@v4
         with:
-          name: anatomy-ch09-q001-q018-source
-          path: .project-memory/source-audits/anatomy-ch09-q001-q018.json
+          name: anatomy-ch10-q001-q018-source
+          path: .project-memory/source-audits/anatomy-ch10-q001-q018.json
           if-no-files-found: error
       - name: Checkpoint bounded source projection for unattended authoring
         run: |
-          if git diff --quiet -- .project-memory/source-audits/anatomy-ch09-q001-q018.json && git ls-files --error-unmatch .project-memory/source-audits/anatomy-ch09-q001-q018.json >/dev/null 2>&1; then
+          if git diff --quiet -- .project-memory/source-audits/anatomy-ch10-q001-q018.json && git ls-files --error-unmatch .project-memory/source-audits/anatomy-ch10-q001-q018.json >/dev/null 2>&1; then
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .project-memory/source-audits/anatomy-ch09-q001-q018.json
-          git commit -m "Checkpoint Anatomy Ch9 source projection [skip ci]"
+          git add .project-memory/source-audits/anatomy-ch10-q001-q018.json
+          git commit -m "Checkpoint Anatomy Ch10 source projection [skip ci]"
           git push
