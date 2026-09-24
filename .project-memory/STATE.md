@@ -134,7 +134,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Current priorities / Next step
 
-1. Review `feature/home-polish-canonical-audit-20260923`, based on canonical `81333f0`, with UI changes and already-canonical multi-pause behavior. The substantive product commit `b36aa00` passed exact-SHA Engineering, browser, APK/package and Android emulator checks. Keep it outside canonical until user acceptance; production remains separately guarded.
+1. Review `feature/home-polish-canonical-audit-20260923`, merged with canonical `13f5b7f`, with UI changes and already-canonical multi-pause behavior. Product commit `b36aa00` passed exact-SHA Engineering, browser, APK/package and Android emulator checks; the newer canonical merge needs fresh exact-head CI. Keep it outside canonical until user acceptance; production remains separately guarded.
 2. Keep the accepted Practice/Review contract, Anatomy Ch7 Q11–Q21 rollout, and automation-owned image/explanation content intact. Physical APK/data-preservation review remains outstanding.
 3. Image automation remains independently owned from live canonical per `.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md`; P0 Phase 3 has 219 source-review candidates (not proven defects) with Phase 6 sign-off and user acceptance pending.
 
