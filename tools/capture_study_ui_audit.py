@@ -63,6 +63,28 @@ def main():
                     # exact Android font scale still needs physical verification.
                     page.add_style_tag(content="html{font-size:125% !important;-webkit-text-size-adjust:150% !important;text-size-adjust:150% !important}")
                 capture(page, f"{label}-01-home", observations)
+                if label in ("phone", "tablet"):
+                    capture(page, f"{label}-01-home-full", observations, full_page=True)
+                    page.evaluate("window.QB.openStudyModuleBuilder()")
+                    page.locator(".nk-module-builder").wait_for(state="visible")
+                    capture(page, f"{label}-01c-module-banks", observations)
+                    page.evaluate("window.QB.nkModuleBuilderStep(2)")
+                    capture(page, f"{label}-01d-module-topics", observations)
+                    page.evaluate("window.QB.nkSetAllModuleTopics(true);window.QB.nkModuleBuilderStep(3)")
+                    capture(page, f"{label}-01e-module-pool", observations, full_page=True)
+                    page.evaluate("window.QB.nkModuleBuilderStep(4)")
+                    capture(page, f"{label}-01f-module-finish", observations)
+                    page.evaluate("window.QB.nav('dashboard');window.QB.nkOpenQuickStudy('pyq')")
+                    capture(page, f"{label}-01g-pyq-preset", observations, full_page=True)
+                    page.evaluate("window.QB.nav('dashboard');window.QB.nav('more')")
+                    capture(page, f"{label}-01h-more", observations, full_page=True)
+                    page.evaluate("window.QB.nav('wrong')")
+                    capture(page, f"{label}-01i-wrong", observations)
+                    page.evaluate("window.QB.nav('bookmarks')")
+                    capture(page, f"{label}-01j-bookmarks", observations)
+                    page.evaluate("window.QB.nav('analytics')")
+                    capture(page, f"{label}-01k-insights", observations, full_page=True)
+                    page.evaluate("window.QB.nav('dashboard')")
                 if label == "small-phone":
                     assert page.evaluate("""() => {
                       const action=document.querySelector('.nk-home-focus-action');
@@ -111,6 +133,12 @@ def main():
                 capture(page, f"{label}-12-fsrs", observations)
                 page.evaluate("window.QB.nav('tests')")
                 capture(page, f"{label}-13-tests", observations)
+                if label in ("phone", "tablet"):
+                    capture(page, f"{label}-13-tests-full", observations, full_page=True)
+                    page.evaluate("window.QB.nkOpenCustomSource()")
+                    page.locator("#modal").wait_for(state="visible")
+                    capture(page, f"{label}-13b-test-builder", observations)
+                    page.evaluate("window.QB.closeModal()")
                 page.evaluate('window.QB.openSessionBuilder(null,"exam")')
                 page.locator("#modal").get_by_role("button", name="Start Exam", exact=True).click()
                 page.wait_for_function("window.QB.getState().activeSession?.mode==='exam'")
