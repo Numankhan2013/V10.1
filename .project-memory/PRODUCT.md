@@ -63,9 +63,10 @@ Prefer building over narrating.
   the Android APK and website/PWA. Every answered question is scheduled;
   Pause commits only answered work, while final session submission makes all
   remaining unanswered questions eligible as skipped. Globally unseen questions stay out.
-- **Custom Study Modules (V11.5):** reusable sets from subject/topic +
-  Unattempted/Wrong/Bookmarked/Mixed (seeded shuffle, Mixed weighted
-  Wrong-heavy); frozen IDs at creation (status changes never rebuild);
+- **Custom Study Modules (V11.5 plus bank-aware candidate):** reusable sets from
+  explicit subject/bank/topic scope + All/Unattempted/Wrong/Bookmarked/Mixed
+  (seeded shuffle, Mixed weighted Wrong-heavy); optional source-backed PYQ
+  collection; frozen IDs at creation (status changes never rebuild);
   resume via Practice engine with snapshot sync; finish creates Practice
   Analysis linked to module; restart clears progress but preserves frozen set
   and global history; missing IDs skipped safely.

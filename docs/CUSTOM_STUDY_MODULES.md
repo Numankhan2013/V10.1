@@ -1,14 +1,22 @@
 # Custom Study Modules
 
-Custom Study Modules turn existing subjects, topics, question history, bookmarks,
-practice, review, and Insights into reusable focused study sets.
+Custom Study Modules turn registered question banks, subjects, topics, question
+history, bookmarks, practice, review, and Insights into reusable focused study
+sets. A bank contributes its existing `subject`, stable `bank` name, `topics`,
+and globally unique question IDs through `BANKS_BY_SUBJECT`. The module builder
+does not need a bank-specific question engine.
 
 ## Model and persistence
 
 Modules live in the existing `qbank_state_v1` localStorage document under
-`studyModules`. A module stores its subject/topic filters, pool type, frozen
+`studyModules`. A module stores its subject/bank/topic filters, pool type, frozen
 question ID list, answers, submitted IDs, timing, current position, lifecycle
 timestamps, completion state, and optional result-session ID.
+
+New selection keys encode `[subject, bank]` and `[subject, bank, topicId]` as
+JSON arrays. Old `subject::topicId` keys remain readable as PrepLadder metadata;
+their frozen question IDs and saved progress are unchanged. New modules also
+retain `subjectIds` for compatibility with existing state consumers.
 
 The selected question IDs are frozen when the module is created. Changes to a
 question's Wrong, Unattempted, or Bookmarked status never rebuild an existing
@@ -16,14 +24,27 @@ module. Missing IDs are skipped safely when a module resumes.
 
 ## Selection rules
 
-1. Reuse `SUBJECTS`, each subject's existing topics, and the unified question map.
-2. Filter by selected subject and topic IDs.
-3. Apply Unattempted, Wrong, Bookmarked, or Mixed eligibility.
-4. Deduplicate by canonical question ID.
-5. Use a seeded shuffle so selection is maintainable and testable.
-6. In Mixed mode, draw with a Wrong/Wrong/Unattempted/Wrong/Unattempted/Bookmarked
+1. Read bank records from `BANKS_BY_SUBJECT` (falling back to `SUBJECTS` in
+   pre-Marrow or isolated module builds).
+2. Filter by exact subject, bank and topic ID.
+3. Apply All, Unattempted, Wrong, Bookmarked, or Mixed eligibility.
+4. Optionally restrict to an explicit source collection such as `pyq`.
+5. Deduplicate by canonical question ID.
+6. Use a seeded shuffle so selection is maintainable and testable.
+7. In Mixed mode, draw with a Wrong/Wrong/Unattempted/Wrong/Unattempted/Bookmarked
    weighting, then fill from remaining eligible questions.
-7. Cap the created set at the actual eligible count and persist those IDs.
+8. Cap the created set at the actual eligible count and persist those IDs.
+
+## Source-backed PYQs
+
+The PrepLadder source explicitly titles 27 topics `Previous Year Questions`:
+8 Biochemistry topics/346 questions, 9 Physiology/362, and 10 Anatomy/410.
+The Marrow ED8 import currently contains no PYQ-labelled topic or per-question
+exam/year field. At build time the PrepLadder adapter gives questions in those
+source-labelled topics `studyCollections: ['pyq']`; it does not infer a specific
+exam, year or repeat status. The builder's `PYQ topics` shortcut and `PYQs`
+filter use that facet. A future bank can supply its own verified
+`studyCollections` without changing the builder.
 
 ## Session integration
 
@@ -54,4 +75,3 @@ resume progress, and Home prioritization.
 - Physical iPad testing found and fixed two browser runtime bugs: `278b6c5` fixed the blank-screen sync bootstrap (`nkAuth` initialization timing); `7b047e5` fixed PDF.js canvas creation by avoiding a local `document` name that shadowed the DOM document.
 - Latest hashed preview opens successfully on iPad. Before the production-promotion workflow change, the root `nk-qbank.pages.dev` still served the older blank production deployment. Source-PDF rendering, Anatomy/R2 CORS, final production URL, Android in-place upgrade, and full two-way sync still require physical verification.
 - Next: wait for CI on the current branch → manually dispatch **Build V11.7 Android + PWA** once → verify `https://nk-qbank.pages.dev` → add final Pages hostname to Firebase Authentication authorized domains → ensure R2 CORS allows the exact Pages origin and Range GETs → install V11.7 APK over V11.6 without uninstalling → verify old local data → same-account Android/iPad sync, offline/reconnect, force-close/reopen, sign-out/in tests.
-

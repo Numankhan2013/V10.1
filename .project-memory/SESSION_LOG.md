@@ -1124,3 +1124,20 @@ Implemented approved recovery in existing transform owners: Topics separate path
 ## 2026-09-24 — User acceptance and canonical promotion
 
 - The user confirmed the repaired preview works and explicitly requested promotion. Promote the clean audit branch by fast-forward from canonical `13f5b7f`, keeping production untouched. Product checkpoint `b6dd246` passed Engineering `35967933879` and full Android/PWA/browser/APK run `35967933880`; subsequent audit commits changed only memory. Recheck the live canonical head before push and require canonical-head CI after push. Physical in-place APK/data-preservation and real-device sync remain separate.
+
+## 2026-09-24 — Bank-aware module and source-backed PYQ candidate
+
+- The user approved the Marrow-like QBank workflow plan and prioritized a bank
+  architecture that future question sources can use. A separate worktree/branch
+  was created from the locally known canonical ref so active UI and automation
+  worktrees stay untouched.
+- Source inspection found 27 PrepLadder topics explicitly titled Previous Year
+  Questions (1,118 questions: 346 Biochemistry, 362 Physiology, 410 Anatomy).
+  The current Marrow ED8 import has no PYQ-labelled topics or exam/year fields.
+- The candidate module builder now reads the shared bank registry, stores exact
+  subject/bank/topic scope keys, keeps legacy frozen modules readable, supports
+  All questions and source-backed PYQ filtering, and offers a PYQ topic shortcut.
+  The PrepLadder registry adapter derives the `pyq` collection only from the
+  explicit source topic title; raw question imports stay unchanged.
+- This is an implementation candidate only. No generated build, CI, or physical
+  device verification was run in this session; do not call it released.

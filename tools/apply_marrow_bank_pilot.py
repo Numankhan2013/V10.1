@@ -102,10 +102,15 @@ if legacy_marker in source:
   const BANKS_BY_SUBJECT = Object.create(null);
   SUBJECTS.forEach(record=>{
     const subject=String(record.subject||'');
+    const topicTitles=Object.fromEntries((record.topics||[]).map(topic=>[String(topic.id),String(topic.title||'')]));
     (record.questions||[]).forEach(question=>{
       question.question=nkCleanQuestionStem(question.question);
       question.subject=question.subject||subject;
       question.bank=question.bank||'PrepLadder';
+      // This facet comes from the source chapter label, not an inferred exam/year.
+      if(/\bPrevious Year Questions\b/i.test(topicTitles[String(question.chapterId)]||String(question.chapter||''))){
+        question.studyCollections=[...new Set([...(Array.isArray(question.studyCollections)?question.studyCollections:[]),'pyq'])];
+      }
     });
     if(subject)BANKS_BY_SUBJECT[subject]=[{...record,subject,bank:'PrepLadder'}];
   });

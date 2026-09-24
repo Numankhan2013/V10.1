@@ -23,6 +23,23 @@
 - Source handoff: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
 - Mandatory automation policy: `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
 
+## Bank-aware module and PYQ candidate — 2026-09-24
+
+- Isolated branch: `feature/qbank-bank-aware-modules-20260924`, based on the
+  latest locally known canonical ref. Code and documentation are changed; no
+  generated build, CI or physical-device verification has been run for this
+  candidate. It is not yet integrated or released.
+- Module selection now reads `BANKS_BY_SUBJECT` with exact subject/bank/topic
+  scope keys. Old frozen modules keep their question IDs and PrepLadder topic
+  metadata. The builder adds All and source-backed PYQ pools.
+- Existing PrepLadder data contains 27 explicitly labelled Previous Year
+  Questions topics / 1,118 questions: Biochemistry 346, Physiology 362, Anatomy
+  410. The Marrow ED8 import has no PYQ/exam/year metadata. Do not claim or
+  infer Marrow PYQs from those records.
+- Next: review the candidate's generated learner flow and compatibility with
+  saved modules, then run the required exact-head build and physical review
+  before calling the feature available on a device.
+
 ## Product architecture to preserve
 
 - Shared bank architecture: `MARROW_RECORDS → MARROW_BY_SUBJECT → BANKS_BY_SUBJECT`.
@@ -61,17 +78,12 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Matching/list and structured-question presentation — build verified, user review pending
 
-- Shared matching architecture is real and generic; the earlier partial success was **not** a one-record manual patch. The original residual failures came from a brittle wording detector plus parser limits.
-- Generic repair lineage through `f0471f5b494c50e36bf7e3952be90a33ba45dea1` broadened match intent with structural gating, trims duplicate source blocks, supports A–H / i–viii labels, ignores Column/List header prose, and handles bare letter↔roman notation without inventing source content.
-- Built-artifact audit found **63** PrepLadder records containing `match`/`matching`; generic semantic table renderings increased from **39 to 53**. Ordinary prose uses of “match” remain ordinary questions because structural evidence is required.
-- `physiology-9-17` (“Match the ion…”) is an explicit browser regression requiring List I/List II, Sodium/Chloride/Potassium/Calcium, -70/+63/+132/-90, four canonical choices, and no duplicated source block. User physically confirmed this ion-question repair in preview.
-- Commit `d111b7c6a4efcbdc09c15354072973b78fee35b2` source-fingerprint-reformed the previously listed structurally incomplete/image-dependent matching residuals (`26-13`, `physiology-10-10`, `physiology-36-7`, `anatomy-3-12`, `anatomy-14-3`, `anatomy-29-16`, `anatomy-29-33`, `anatomy-30-4`) instead of leaving flattened prose or guessing. These are no longer pending generic-parser residuals.
-- User then exposed a separate structured row-selection family: `physiology-9-22` (axonal transport) is not worded as “match” but contained a duplicated flattened four-column source table with choices `1/2/3/4`.
-- Commit `5352eb415e96834f3514139951a17ef7da3f368a` added reusable multi-column override-grid presentation and reformed `physiology-9-22` into **Statement / Type / Direction / Mediator** while preserving the original four choices and canonical `correctOption=3`.
-- Exact-head Engineering `34855852205` passed. Full Android/PWA/browser/APK/package run `34855852211` passed, including the new axonal-transport browser regression, matching regressions, Continue Practice, APK/package/reproducibility checks, asset verification, and PWA preview deployment. Production promotion was skipped.
-- Rule going forward: for duplicated/flattened source tables or list structures, use safe generic parsing first; if source structure is not safely inferable, perform a stable-ID/source-fingerprinted presentation reform from authoritative source. Do not alter the canonical answer contract and do not leave a clearly recoverable table as raw prose.
-- Full handoff: `.project-memory/MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`.
-- Status: **BUILD_VERIFIED / USER_REVIEW_PENDING** for the new axonal-transport and source-backed residual presentations; the ion-question repair itself is user-preview verified.
+- The shared parser safely renders matching/list structures; source-fingerprinted
+  presentation reforms cover the remaining known incomplete records and the
+  axonal-transport row grid. Do not alter canonical answers or guess missing
+  source content. The ion-question repair is user-preview verified; later
+  residual reforms are build-verified with physical review pending.
+- Full evidence: `.project-memory/MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`.
 
 ## Scientific notation presentation — build-verified / user review pending
 
@@ -89,25 +101,18 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 - FULLY_VERIFIED history: Anatomy Ch6 Q1–Q7 at certified checkpoint `58bb99d5c1fc96a98b4f922a963dba16105487d1`; Anatomy Ch6 Q8–Q18 reconciled at `420928ae4e1314cb3a23c8687801be5c7b1f0a8c` and released after canonical dual-green Engineering `34834434837` + full run `34834434831`; Physiology Ch11 Q1–Q6 at `e01cc0b9a8e62885d29b0c2e7ac6417ce8c96f05`. Biochemistry Ch12 Q1–Q10 was transplanted by stable ID, dual-green on candidate `b541a61b5b037b9f9ae27e71bed5affafc60e3f4`, reconciled through canonical merge `76c3be68b9c24bec90af0d4868f896f687bb670b`, and followed by deterministic inventory refresh to canonical `0c57fd4deb0a0ffb6ea57865bef56ac00b52c1e0`; Q7 remains `needs_manual_review` as carried by the verified donor.
 - Anatomy Ch7 Q11–Q21 was reconciled through PR #67 into canonical merge `7215d8f`. Exact-merge Engineering `35885212819`, inventory refresh `35885212779`, and full Android/PWA/browser/APK/emulator run `35885212827` passed; preview `https://0e14d788.nk-qbank.pages.dev` deployed, production skipped. The 11 explanations are **BUILD_VERIFIED / physical review pending**. Handoff: `.project-memory/AUTOMATION_HANDOFF_ANATOMY_EXPLANATION_CH07_Q011_Q021_2026-09-23.md`.
-- Inventory is **646 enhanced / 2,065 pending / 2,711 total**, fingerprint `b32859a10f0aa88af8da1d3ef34cba64be946153fff2c06fd507620306ef28b2`; raw source hashes are unchanged.
+- The checked-in inventory currently reports **662 enhanced-reference / 2,049 pending / 2,711 total**. The previous 646/2,065 sentence lagged behind a later inventory refresh; raw source hashes are unchanged.
 - Any next explanation automation must reacquire ownership from the live canonical state and start a new batch.
 - Production promotion prohibited.
 
 ## Image lane
 
-- PrepLadder source-visual engineering is now exact-head build verified at product code `2340bd201fabcc05e6d45932c7f8e5fa451e14f0`: Engineering `35053564204` and full Android/PWA/browser/APK/package run `35053564213` both succeeded.
-- Stable source-visual ownership resolves by active stable question ID across both `.nk-v113-question` and shared `.nk-v114-session` wrappers, with text fallback retained. This specifically fixes matching/table presentations such as Anatomy `anatomy-9-1`, whose visible stem is semantically rewritten before visual mounting.
-- Browser coverage is green for graph, table, diagnostic/clinical image, diagram and multi-panel representatives on phone (`390×844`) and tablet (`820×1180`). The verifier requires stable owner identity, loaded source pixels, preserved aspect ratio/readable size, a real visible fullscreen backdrop/panel covering ≥95% of the viewport, functional zoom, and ≥2 mounted images for the multi-panel representative.
-- APK build, packaged product contract, reproducibility manifest, packaged Marrow image-byte checks, artifact upload and Cloudflare preview deployment all passed in run `35053564213`. Production promotion was intentionally skipped.
-- Technical source-visual audit remains **422 total / 422 PENDING_MANUAL_REVIEW**. Technical/browser validation is green, but source-visual release certification is **not complete** until those bounded comparison items receive manual review/acceptance.
-- Dedicated handoff: `.project-memory/PREPLADDER_VISUAL_VERIFICATION_2026-09-16.md`.
-- Marrow image integration is owned by the user's automations. Canonical registry, progress and source-reference coverage checks pass; this certifies the current ledger, not subject completeness. Biochemistry is the next bounded lane: 110 raw / 109 effective / 71 released / 1 invalid / 4 tracked-unreleased / 34 untracked / 31 text-cue items. Next source-order reference is `marrow__BIOCHEM_CH04_Q011:figure:1`. Ch4 Q11 remains `REVIEW_REQUIRED`: two attempts failed before shared-state mutation because embedded PDF text was corrupted. Require authoritative rendered-page review; do not infer or skip the visual. Physiology automation remains paused until Biochemistry coverage recovery.
-- Batch 02 on historical branch `manual/marrow-physiology-fastlane-20260912-b02` is unverified evidence only: 40 refs audited, 14 metadata-invalid, 12 new assets, 14 specialist deferrals; targeted run `34704088880` failed canonical wiring and was never reconciled.
-- Canonical Physiology coverage remains 294 raw / 290 effective / 44 released / 4 invalid metadata / 48 resolved / 21 tracked-unreleased / 225 untracked / 28 text-cue. Next canonical reference: `marrow__PHYS_CH03_Q007:figure:1`.
-
-## BC3 and BC4 canonical interaction hardening
-
-- BC3 and BC4 were reconciled into canonical through `43328c1`. Canonical Engineering `35818707731` and full Android/PWA `35818707723` passed, including packaged Android 35 emulator phone/tablet and generated browser checks. Full history: `docs/BC4_QUESTION_INTERACTION_DEFECT_LEDGER_2026-09-22.md` and `SESSION_LOG.md`. Physical Android verification remains pending.
+- PrepLadder source-visual browser/APK gates passed, but 422 source-comparison
+  audit items remain pending manual review. Handoff:
+  `.project-memory/PREPLADDER_VISUAL_VERIFICATION_2026-09-16.md`.
+- Marrow images are automation-owned. Biochemistry Q11 remains
+  `REVIEW_REQUIRED` due to corrupted embedded PDF text; inspect the rendered
+  source before release. Physiology coverage remains incomplete.
 
 ## Study UI audit and first defect batch — 2026-09-23
 
@@ -134,17 +139,10 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Current priorities / Next step
 
-1. The user accepted `feature/home-polish-canonical-audit-20260923` and authorized its fast-forward into `feature/marrow-canonical-full-current`. Resolve the live canonical SHA and exact canonical CI after the push. The integrated product checkpoint `b6dd246` passed Engineering `35967933879` and full browser/PWA/APK/Android `35967933880`; production remains separately guarded.
-2. Keep the accepted Practice/Review contract, Anatomy Ch7 Q11–Q21 rollout, and automation-owned image/explanation content intact. Physical APK/data-preservation review remains outstanding.
-3. Image automation remains independently owned from live canonical per `.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md`; P0 Phase 3 has 219 source-review candidates (not proven defects) with Phase 6 sign-off and user acceptance pending.
-
-## Memory pointers
-
-- Memory schema: `.project-memory/README.md`.
-- PrepLadder visual verification handoff: `.project-memory/PREPLADDER_VISUAL_VERIFICATION_2026-09-16.md`.
-- Matching/structured presentation handoff: `.project-memory/MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`.
-- Chronological work/CI history: `.project-memory/SESSION_LOG.md`.
-- Accepted Practice handoff: `.project-memory/CONTINUE_PRACTICE_HANDOFF.md`.
-- Practice postmortem: `.project-memory/PRACTICE_FLOW_POSTMORTEM_2026-09-12.md`.
-- Canonical source consolidation: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
-- Automation policy: `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
+1. Complete generated and physical review of the bank-aware module/PYQ candidate
+   on its exact source head, including an old saved module, Marrow-only module,
+   and PrepLadder PYQ set. It is code-only at this handoff.
+2. Keep the accepted Practice/Review contract, Anatomy Ch7 Q11–Q21 rollout, and
+   automation-owned image/explanation content intact. Production remains guarded.
+3. Image automation remains independently owned from live canonical per
+   `.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md`.

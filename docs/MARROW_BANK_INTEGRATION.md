@@ -78,6 +78,14 @@ rendering must remain untouched. Marrow uses the same Topics → Chapter →
 Practice/Test/Review architecture and globally namespaced IDs so attempts,
 bookmarks, FSRS, modules, sync and review history never collide.
 
+The module builder consumes the shared `BANKS_BY_SUBJECT` records by stable
+`subject` + `bank` identity. Each new bank record must supply topics, questions,
+and globally unique question IDs. Optional `studyCollections` facets must be
+source-backed. In particular, `pyq` means the source explicitly identifies the
+question or its collection as previous-year material; a PDF page or clinical
+stem alone is insufficient. Current Marrow ED8 records do not carry a verified
+PYQ/exam/year facet. See `docs/CUSTOM_STUDY_MODULES.md`.
+
 Do **not** build a second question engine for Marrow. Bank selection chooses the
 data/source; Practice, CBT, Review, FSRS, persistence, modules, sync, analytics,
 and navigation remain the existing engines.

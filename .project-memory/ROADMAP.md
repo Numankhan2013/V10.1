@@ -6,6 +6,17 @@ Check off only when build-verified **and** device-verified where UI is involved.
 
 ## Immediate (next 1–2 sessions)
 
+- [ ] Bank-aware study modules and PYQ candidate: select exact subject/bank/topic
+      records, preserve frozen legacy modules, expose All and source-backed PYQ
+      pools, then complete generated browser/APK and physical-device review.
+      Candidate code lives on `feature/qbank-bank-aware-modules-20260924` and is
+      not yet build-verified or accepted. PrepLadder has 1,118 source-labelled
+      PYQs; the Marrow ED8 records have no reliable PYQ/exam/year fields.
+- [ ] Follow with one-tap current mistakes/bookmarks/unseen/due revision,
+      question-linked personal study notes, and evidence-backed question facets.
+      Build these on the same bank registry and Practice/Review engine, with no
+      bank-specific duplicate session path. Do not label unverified Marrow
+      questions as PYQs or invent difficulty/high-yield tags.
 - [ ] Finish the 2026-09-23 study UI audit batch on one exact canonical SHA:
       inspect the generated phone/tablet/image screenshots and pass Engineering,
       full Android/PWA/browser/APK/package, and packaged Android emulator gates.
