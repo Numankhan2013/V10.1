@@ -263,7 +263,10 @@ def replace_function(source: str, name: str, replacement: str) -> str:
 def transform(source: str) -> str:
     if FLOW_MARKER in source:return source
     if 'NK_CUSTOM_STUDY_MODULES_V1' not in source and 'openStudyModuleBuilder' not in source:raise SystemExit('Home V3 must run after Custom Study Modules')
-    source=replace_function(source,'dashboard',HELPERS+'\n'+DASHBOARD)
+    quick_study = '<section class="nk-v3-section nk-home-quick-study"><div class="nk-v3-section-head"><div><small>QUESTION BANK</small><h2>Start focused study</h2></div><button onclick="window.QB.openStudyModuleBuilder()">Create module ${navIcon(\'chevron\',14)}</button></div><div class="nk-home-quick-grid" aria-label="Focused study shortcuts"><button onclick="window.QB.nkOpenQuickStudy(\'wrong\')"><span class="nk-home-quick-icon">${navIcon(\'refresh\',22)}</span><span><strong>Revisit mistakes</strong><small>From the current question bank</small></span>${navIcon(\'chevron\',17)}</button><button onclick="window.QB.nkOpenQuickStudy(\'unattempted\')"><span class="nk-home-quick-icon">${navIcon(\'book\',22)}</span><span><strong>Study unseen</strong><small>From the current question bank</small></span>${navIcon(\'chevron\',17)}</button><button onclick="window.QB.nkOpenQuickStudy(\'pyq\')"><span class="nk-home-quick-icon is-magenta">${navIcon(\'bookmark\',22)}</span><span><strong>Practice PYQs</strong><small>${fmtNum(nkModuleBankRecords().flatMap(record=>record.questions||[]).filter(q=>Array.isArray(q.studyCollections)&&q.studyCollections.includes(\'pyq\')).length)} source-labelled questions</small></span>${navIcon(\'chevron\',17)}</button></div></section>${nkStudySetsSection()}'
+    dashboard = DASHBOARD.replace('<section class="nk-v3-section nk-home-subjects">', quick_study + '<section class="nk-v3-section nk-home-subjects">', 1)
+    if dashboard == DASHBOARD:raise SystemExit('Home V3 focused-study insertion point missing')
+    source=replace_function(source,'dashboard',HELPERS+'\n'+dashboard)
     source=replace_function(source,'bottomNav',BOTTOM_NAV)
     source=replace_function(source,'testsPage',TESTS_PAGE)
     source=replace_function(source,'examPage',EXAM_PAGE)
@@ -285,7 +288,7 @@ def transform(source: str) -> str:
     source=re.sub(r'<style id="nk-home-command-center-v1">[\s\S]*?</style>','',source,count=1)
     if '</head>' not in source:raise SystemExit('closing head not found')
     source=source.replace('</head>',CSS+'\n</head>',1)
-    required=[FLOW_MARKER,'My Subjects','Strongest Chapters','Study Sessions',"Today's Review",'FSRS Review','Every answered question is scheduled here','pausing keeps untouched questions out','study-library',"['fsrs','FSRS'",'Full Question Bank','Custom Module','questions = ${nkTestSetup.count} minutes total',"timerMode='per-question'",'nkExpireTopicQuestion','Time expired','nkStartTopicTimedTest','nkOpenSubjectLibrary','nkMarkSkippedFromSession(s)','nkFsrsLaunchQueue','nkFsrsQueue({subject})','due reviews roll forward under your daily limit']
+    required=[FLOW_MARKER,'My Subjects','Strongest Chapters','Study Sessions',"Today's Review",'FSRS Review','Every answered question is scheduled here','pausing keeps untouched questions out','study-library',"['fsrs','FSRS'",'Full Question Bank','Custom Module','questions = ${nkTestSetup.count} minutes total',"timerMode='per-question'",'nkExpireTopicQuestion','Time expired','nkStartTopicTimedTest','nkOpenSubjectLibrary','nkMarkSkippedFromSession(s)','nkFsrsLaunchQueue','nkFsrsQueue({subject})','due reviews roll forward under your daily limit','nkOpenQuickStudy','nkStudySetsSection()']
     missing=[x for x in required if x not in source]
     if missing:raise SystemExit(f'Home V3 markers missing: {missing}')
     return source

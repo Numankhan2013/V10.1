@@ -46,6 +46,13 @@ exam, year or repeat status. The builder's `PYQ topics` shortcut and `PYQs`
 filter use that facet. A future bank can supply its own verified
 `studyCollections` without changing the builder.
 
+Home shows saved modules in the current layout. Its focused study shortcuts
+open the same builder with Wrong or Unattempted questions from the active
+subject and bank, or source-labelled PYQs from the active subject when
+available. The PYQ shortcut falls back to all registered PYQ subjects if the
+active subject has none. The builder still checks availability and lets the
+user adjust the banks, topics, pool, and count before creating a module.
+
 ## Session integration
 
 Modules create a normal Practice session with a `studyModuleId`. Existing answer,

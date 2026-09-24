@@ -208,6 +208,24 @@
     studyModuleDraft=nkNewStudyModuleDraft();navigate('module-builder');
   }
 
+  function nkOpenQuickStudy(kind){
+    if(!['wrong','unattempted','pyq'].includes(kind))return;
+    const records=nkModuleBankRecords();
+    const current=records.find(record=>record.subject===activeSubject&&nkModuleBankName(record)===(typeof activeBank==='string'?activeBank:'PrepLadder'));
+    let selected=[];
+    if(kind==='pyq'){
+      const pyqRecords=records.filter(record=>nkModuleTopics(record).some(topic=>nkModuleTopicHasCollection(record,topic.id,'pyq')));
+      selected=pyqRecords.filter(record=>record.subject===activeSubject);
+      if(!selected.length)selected=pyqRecords;
+    }else if(current)selected=[current];
+    if(!selected.length){showToast(kind==='pyq'?'No source-labelled PYQs are available.':'Choose a question bank first.','bad');return;}
+    const topicIds=selected.flatMap(record=>nkModuleTopics(record)
+      .filter(topic=>kind!=='pyq'||nkModuleTopicHasCollection(record,topic.id,'pyq'))
+      .map(topic=>nkModuleTopicKey(record.subject,topic.id,nkModuleBankName(record))));
+    studyModuleDraft={step:3,scopeIds:selected.map(record=>nkModuleScopeKey(record.subject,nkModuleBankName(record))),subjectIds:[...new Set(selected.map(record=>record.subject))],topicIds,questionPoolType:kind==='pyq'?'all':kind,collectionFilter:kind==='pyq'?'pyq':'all',questionCount:20,countMode:20,name:'',nameEdited:false};
+    navigate('module-builder');
+  }
+
   function nkToggleModuleSubject(index){
     if(!studyModuleDraft)return;const record=nkModuleBankRecords()[index];if(!record)return;
     const scope=nkModuleScopeKey(record.subject,nkModuleBankName(record)),selected=new Set(studyModuleDraft.scopeIds||[]);

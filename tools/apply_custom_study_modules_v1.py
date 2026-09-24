@@ -166,7 +166,7 @@ def transform(source: str) -> str:
     if not export_match:
         raise SystemExit("Canonical QB export not found")
     exports = export_match.group(1)
-    additions = "openStudyModuleBuilder,nkToggleModuleSubject,nkToggleModuleTopic,nkSetAllModuleTopics,nkSelectModulePyqTopics,nkSetModulePool,nkSetModuleCollection,nkSetModuleCount,nkSetCustomModuleCount,nkSetModuleName,nkModuleBuilderStep,nkCreateStudyModule,startStudyModule,exitStudyModule,finishStudyModuleEarly,restartStudyModule,renameStudyModule,deleteStudyModule,"
+    additions = "openStudyModuleBuilder,nkOpenQuickStudy,nkToggleModuleSubject,nkToggleModuleTopic,nkSetAllModuleTopics,nkSelectModulePyqTopics,nkSetModulePool,nkSetModuleCollection,nkSetModuleCount,nkSetCustomModuleCount,nkSetModuleName,nkModuleBuilderStep,nkCreateStudyModule,startStudyModule,exitStudyModule,finishStudyModuleEarly,restartStudyModule,renameStudyModule,deleteStudyModule,"
     if "openStudyModuleBuilder" not in exports:
         exports = additions + exports
         source = source[:export_match.start(1)] + exports + source[export_match.end(1):]
