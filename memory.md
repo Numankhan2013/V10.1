@@ -764,3 +764,13 @@ authentic biopsy/histology pixels exactly, and added per-binding provenance/QA s
 deduplicated assets cannot be silently attached to the wrong question. Two such
 false matches were explicitly rejected. Canonical live detail remains in
 `.project-memory/STATE.md` and `docs/MARROW_IMAGE_PIPELINE.md`.
+
+## Home and Practice audit acceptance — 2026-09-24
+
+The user accepted the repaired preview and authorized its promotion to the
+canonical branch. The integrated product checkpoint `b6dd246` passed Engineering
+`35967933879` and full browser/PWA/APK/Android `35967933880`, including the
+two-paused-chapter submit, Review Solutions, and Home Continue sequence. Canonical
+handoff and promotion status are maintained in `.project-memory/STATE.md` and
+`.project-memory/SESSION_LOG.md`; production and physical in-place upgrade remain
+separate.

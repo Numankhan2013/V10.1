@@ -111,7 +111,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Study UI audit and first defect batch — 2026-09-23
 
-- Baseline screenshots at 320px/390px phone, larger text, and 820px tablet found CBT grid numbering/crowding, clipped question context, squeezed Analysis header, and a 320px Home action under bottom navigation. Shared fixes are in `docs/STUDY_UI_AUDIT_2026-09-23.md`. Canonical-lineage audit product commit `b36aa00` passed Engineering `35898871319` and full browser/PWA/APK/Android run `35898871311`, including two saved chapters → submit one → Home Continue and Review Solutions → Home Continue. The audit branch is not canonical or physically accepted; in-place APK/data-preservation checks remain pending.
+- Baseline screenshots at 320px/390px phone, larger text, and 820px tablet found CBT grid numbering/crowding, clipped question context, squeezed Analysis header, and a 320px Home action under bottom navigation. Shared fixes are in `docs/STUDY_UI_AUDIT_2026-09-23.md`. The user accepted the preview and authorized canonical promotion. Integrated product checkpoint `b6dd246` passed Engineering `35967933879` and full browser/PWA/APK/Android `35967933880`, including two saved chapters → submit one → Home Continue and Review Solutions → Home Continue. Physical in-place APK/data-preservation checks remain pending.
 
 ## Anti-fragmentation rules
 
@@ -134,7 +134,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Current priorities / Next step
 
-1. Review `feature/home-polish-canonical-audit-20260923`, merged with canonical `13f5b7f`, with UI changes and already-canonical multi-pause behavior. Integrated product checkpoint `b6dd246` passed Engineering `35967933879` and full browser/PWA/APK/Android `35967933880`; this final handoff update changes only memory. Keep it outside canonical until user acceptance; production remains separately guarded.
+1. The user accepted `feature/home-polish-canonical-audit-20260923` and authorized its fast-forward into `feature/marrow-canonical-full-current`. Resolve the live canonical SHA and exact canonical CI after the push. The integrated product checkpoint `b6dd246` passed Engineering `35967933879` and full browser/PWA/APK/Android `35967933880`; production remains separately guarded.
 2. Keep the accepted Practice/Review contract, Anatomy Ch7 Q11–Q21 rollout, and automation-owned image/explanation content intact. Physical APK/data-preservation review remains outstanding.
 3. Image automation remains independently owned from live canonical per `.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md`; P0 Phase 3 has 219 source-review candidates (not proven defects) with Phase 6 sign-off and user acceptance pending.
 
