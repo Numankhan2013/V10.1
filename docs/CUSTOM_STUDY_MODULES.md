@@ -47,11 +47,12 @@ filter use that facet. A future bank can supply its own verified
 `studyCollections` without changing the builder.
 
 Home shows saved modules in the current layout. Its focused study shortcuts
-open the same builder with Wrong or Unattempted questions from the active
-subject and bank, or source-labelled PYQs from the active subject when
-available. The PYQ shortcut falls back to all registered PYQ subjects if the
-active subject has none. The builder still checks availability and lets the
-user adjust the banks, topics, pool, and count before creating a module.
+open the same builder with a preset pool across all available subjects and
+banks. The PYQ shortcut includes every subject and bank with explicit PYQ
+source metadata. Step 3 names every selected subject and bank, shows the
+eligible count, and offers direct controls to change banks or topics before
+the user creates a module. The active subject never silently narrows a Home
+shortcut.
 
 ## Session integration
 

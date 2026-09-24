@@ -19,10 +19,10 @@ const biochemQuestions=[];
 for(let i=1;i<=35;i++)biochemQuestions.push({id:`bio-gly-${i}`,subject:'Biochemistry',chapterId:'gly',chapter:'Glycolysis',question:`Glycolysis ${i}`,options:[],correctOption:1});
 biochemQuestions.push({id:'bio-carb-1',subject:'Biochemistry',chapterId:'carb',chapter:'Carbohydrate Metabolism',question:'Carbohydrate 1',options:[],correctOption:1});
 biochemQuestions.push({id:'bio-pyq-1',subject:'Biochemistry',bank:'PrepLadder',chapterId:'pyq',chapter:'Previous Year Questions',studyCollections:['pyq'],question:'PYQ 1',options:[],correctOption:1});
-const anatomyQuestions=[{id:'anat-1',subject:'Anatomy',chapterId:'upper',chapter:'Upper Limb',question:'Anatomy',options:[],correctOption:1}];
+const anatomyQuestions=[{id:'anat-1',subject:'Anatomy',chapterId:'upper',chapter:'Upper Limb',question:'Anatomy',options:[],correctOption:1},{id:'anat-pyq-1',subject:'Anatomy',bank:'PrepLadder',chapterId:'pyq',chapter:'Previous Year Questions',studyCollections:['pyq'],question:'Anatomy PYQ',options:[],correctOption:1}];
 const SUBJECTS=[
   {subject:'Biochemistry',topics:[{id:'gly',title:'Glycolysis',questionCount:35},{id:'carb',title:'Carbohydrate Metabolism',questionCount:1},{id:'pyq',title:'Previous Year Questions',questionCount:1}],questions:biochemQuestions},
-  {subject:'Anatomy',topics:[{id:'upper',title:'Upper Limb',questionCount:1}],questions:anatomyQuestions}
+  {subject:'Anatomy',topics:[{id:'upper',title:'Upper Limb',questionCount:1},{id:'pyq',title:'Previous Year Questions',questionCount:1}],questions:anatomyQuestions}
 ];
 const marrowQuestions=[{id:'marrow-gly-1',subject:'Biochemistry',bank:'Marrow',chapterId:'gly',chapter:'Glycolysis',question:'Marrow Glycolysis',options:[],correctOption:1}];
 const BANKS_BY_SUBJECT={Biochemistry:[{...SUBJECTS[0],bank:'PrepLadder'},{subject:'Biochemistry',bank:'Marrow',topics:[{id:'gly',title:'Glycolysis',questionCount:1}],questions:marrowQuestions}],Anatomy:[{...SUBJECTS[1],bank:'PrepLadder'}]};
@@ -51,15 +51,20 @@ run('nkSelectModulePyqTopics()');
 assert.equal(run('studyModuleDraft.collectionFilter'),'pyq');
 assert.deepEqual([...run(`nkSelectModuleQuestionIds(studyModuleDraft,'pyq')`)],['bio-pyq-1']);
 assert.equal(marrowQuestions[0].studyCollections,undefined);
+assert.equal(run("nkQuickStudyCount('wrong')"),2);
+assert.equal(run("nkQuickStudyCount('pyq')"),2);
 
-// Quick study opens the same builder with a bank-scoped source and eligible topics.
+// Quick study starts across every eligible bank, then exposes the scope for editing.
 run(`nkOpenQuickStudy('wrong')`);
 assert.equal(run('studyModuleDraft.step'),3);
 assert.equal(run('studyModuleDraft.questionPoolType'),'wrong');
-assert.deepEqual([...run('nkQuestionsForModuleDraft()')],[]);
+assert.equal(run('studyModuleDraft.scopeIds.length'),3);
+assert.deepEqual([...run('nkQuestionsForModuleDraft()')].map(q=>q.id).sort(),['bio-gly-1','bio-gly-2']);
+assert.ok(run('nkModuleBuilderPool()').includes('Change banks'));
 run(`activeBank='PrepLadder';nkOpenQuickStudy('pyq')`);
 assert.equal(run('studyModuleDraft.collectionFilter'),'pyq');
-assert.deepEqual([...run('nkQuestionsForModuleDraft()')].map(q=>q.id),['bio-pyq-1']);
+assert.equal(run('studyModuleDraft.scopeIds.length'),2);
+assert.deepEqual([...run('nkQuestionsForModuleDraft()')].map(q=>q.id).sort(),['anat-pyq-1','bio-pyq-1']);
 
 // A: wrong questions are scoped to the selected Biochemistry topics.
 run(`studyModuleDraft={subjectIds:['Biochemistry'],topicIds:['Biochemistry::gly','Biochemistry::carb'],questionPoolType:'wrong',questionCount:20}`);

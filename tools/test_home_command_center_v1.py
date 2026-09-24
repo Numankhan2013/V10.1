@@ -35,6 +35,7 @@ window.QB={openStudyModuleBuilder};
         FLOW_MARKER,STYLE_ID,'nk-home-approved-v1','TODAY\'S FOCUS','Continue Practice',
         'body:has(.nk-home-approved-v1) .nk-global-header-v114{display:none!important}',
         'Start focused study','nkOpenQuickStudy','nkStudySetsSection()',
+        "nkQuickStudyCount('wrong')","nkQuickStudyCount('unattempted')",'source-labelled PYQs · all subjects · edit scope',
         'Review shortcuts','FSRS','Bookmarks','My Subjects','nkSubjectStatsV3','nkOpenSubjectLibrary',
         'STUDY LIBRARY','study-library','complete topic journey','My Progress','Today','This Week','This Month','This Year',
         'Better questions. A brighter you.','Strongest Chapters','Study Sessions',"Today's Review",

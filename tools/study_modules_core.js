@@ -208,17 +208,20 @@
     studyModuleDraft=nkNewStudyModuleDraft();navigate('module-builder');
   }
 
+  function nkQuickStudyCount(kind){
+    const unique=new Map(nkModuleBankRecords().flatMap(record=>record.questions||[]).map(q=>[String(q.id),q]));
+    return [...unique.values()].filter(q=>{
+      if(kind==='pyq')return Array.isArray(q.studyCollections)&&q.studyCollections.includes('pyq');
+      const attempts=qAttempts(q.id);
+      return kind==='wrong'?attempts.some(attempt=>attempt&&!attempt.correct):kind==='unattempted'&&!attempts.length;
+    }).length;
+  }
+
   function nkOpenQuickStudy(kind){
     if(!['wrong','unattempted','pyq'].includes(kind))return;
     const records=nkModuleBankRecords();
-    const current=records.find(record=>record.subject===activeSubject&&nkModuleBankName(record)===(typeof activeBank==='string'?activeBank:'PrepLadder'));
-    let selected=[];
-    if(kind==='pyq'){
-      const pyqRecords=records.filter(record=>nkModuleTopics(record).some(topic=>nkModuleTopicHasCollection(record,topic.id,'pyq')));
-      selected=pyqRecords.filter(record=>record.subject===activeSubject);
-      if(!selected.length)selected=pyqRecords;
-    }else if(current)selected=[current];
-    if(!selected.length){showToast(kind==='pyq'?'No source-labelled PYQs are available.':'Choose a question bank first.','bad');return;}
+    const selected=records.filter(record=>nkModuleTopics(record).some(topic=>kind!=='pyq'||nkModuleTopicHasCollection(record,topic.id,'pyq')));
+    if(!selected.length){showToast(kind==='pyq'?'No source-labelled PYQs are available.':'No question banks are available.','bad');return;}
     const topicIds=selected.flatMap(record=>nkModuleTopics(record)
       .filter(topic=>kind!=='pyq'||nkModuleTopicHasCollection(record,topic.id,'pyq'))
       .map(topic=>nkModuleTopicKey(record.subject,topic.id,nkModuleBankName(record))));
@@ -310,11 +313,13 @@
 
   function nkModuleBuilderPool(){
     const available=nkQuestionsForModuleDraft().length,requested=Math.max(1,Number(studyModuleDraft.questionCount||20));
+    const scopes=nkModuleScopeLabels(studyModuleDraft),subjectCount=new Set(nkModuleSelectedRecords(studyModuleDraft).map(record=>record.subject)).size;
+    const scopeSummary=`<div class="nk-module-scope-summary"><div><strong>Study scope · ${fmtNum(subjectCount)} subject${subjectCount===1?'':'s'}, ${fmtNum(scopes.length)} bank${scopes.length===1?'':'s'}</strong><p>${esc(scopes.join(' · '))}</p><small>${fmtNum(available)} questions match this scope and pool</small></div><div class="nk-module-scope-actions"><button onclick="window.QB.nkModuleBuilderStep(1)">Change banks</button><button onclick="window.QB.nkModuleBuilderStep(2)">Change topics</button></div></div>`;
     const types=[['all','All questions','The complete selected topics'],['unattempted','Unattempted','Questions you have not answered'],['wrong','Wrong','Questions missed before'],['bookmarked','Bookmarked','Questions you saved'],['mixed','Mixed','Prioritises wrong and unattempted']];
     const countButtons=[10,20,30].map(count=>`<button class="${studyModuleDraft.countMode===count?'is-selected':''}" onclick="window.QB.nkSetModuleCount(${count})">${count}</button>`).join('');
     const pyqCount=nkQuestionsForModuleDraft({...studyModuleDraft,questionPoolType:'all',collectionFilter:'pyq'}).length;
     const warning=!available?(studyModuleDraft.collectionFilter==='pyq'?'No source-labelled Previous Year Questions are available in this selection.':'No eligible questions are available for the selected topics and question type.'):requested>available?`You requested ${requested}. ${available} eligible questions are currently available. The module will use all ${available}.`:`${available} eligible questions are currently available.`;
-    return `<div class="nk-module-pool-grid">${types.map(([value,title,copy])=>`<button class="${studyModuleDraft.questionPoolType===value?'is-selected':''}" onclick="window.QB.nkSetModulePool('${value}')"><strong>${title}</strong><small>${copy}</small></button>`).join('')}</div><div class="nk-module-count-block"><strong>Source collection</strong><div class="nk-module-count-presets nk-module-source-filters"><button class="${studyModuleDraft.collectionFilter==='all'?'is-selected':''}" onclick="window.QB.nkSetModuleCollection('all')">All</button><button class="${studyModuleDraft.collectionFilter==='pyq'?'is-selected':''}" onclick="window.QB.nkSetModuleCollection('pyq')">PYQs (${fmtNum(pyqCount)})</button></div><p>PYQs include only questions in source-labelled Previous Year Questions chapters; exam and year are not specified.</p></div><div class="nk-module-count-block"><strong>Question count</strong><div class="nk-module-count-presets">${countButtons}<button class="${studyModuleDraft.countMode==='custom'?'is-selected':''}" onclick="window.QB.nkSetModuleCount('custom')">Custom</button></div>${studyModuleDraft.countMode==='custom'?`<label>Custom count<input type="number" min="1" max="500" value="${requested}" oninput="window.QB.nkSetCustomModuleCount(this.value)"></label>`:''}<p id="nk-module-availability" class="${available?'':'is-error'}">${esc(warning)}</p></div>`;
+    return `${scopeSummary}<div class="nk-module-pool-grid">${types.map(([value,title,copy])=>`<button class="${studyModuleDraft.questionPoolType===value?'is-selected':''}" onclick="window.QB.nkSetModulePool('${value}')"><strong>${title}</strong><small>${copy}</small></button>`).join('')}</div><div class="nk-module-count-block"><strong>Source collection</strong><div class="nk-module-count-presets nk-module-source-filters"><button class="${studyModuleDraft.collectionFilter==='all'?'is-selected':''}" onclick="window.QB.nkSetModuleCollection('all')">All</button><button class="${studyModuleDraft.collectionFilter==='pyq'?'is-selected':''}" onclick="window.QB.nkSetModuleCollection('pyq')">PYQs (${fmtNum(pyqCount)})</button></div><p>PYQs include only questions in source-labelled Previous Year Questions chapters; exam and year are not specified.</p></div><div class="nk-module-count-block"><strong>Question count</strong><div class="nk-module-count-presets">${countButtons}<button class="${studyModuleDraft.countMode==='custom'?'is-selected':''}" onclick="window.QB.nkSetModuleCount('custom')">Custom</button></div>${studyModuleDraft.countMode==='custom'?`<label>Custom count<input type="number" min="1" max="500" value="${requested}" oninput="window.QB.nkSetCustomModuleCount(this.value)"></label>`:''}<p id="nk-module-availability" class="${available?'':'is-error'}">${esc(warning)}</p></div>`;
   }
 
   function nkModuleBuilderReview(){
