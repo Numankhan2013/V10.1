@@ -29,8 +29,8 @@
   HEAD and CI before integration. Production and canonical are untouched.
 - Bank-scoped modules/PYQs passed browser, APK and emulator at `620d3aa`;
   the user confirmed the preview works and prioritized duplicate-navigation
-  cleanup. Engineering passed at `4542160`; UI capture found the fresh Home
-  module action below navigation at 320px. Study actions now precede the streak.
+  cleanup. `c863f1f` passed Engineering `36051479141` and full browser/PWA/APK/
+  Android `36051447529`; preview `https://6ac240e8.nk-qbank.pages.dev`.
   Resolve latest exact-head CI and physical review before acceptance.
 - The cleanup retains one Home module action, a conditional Continue card,
   dedicated timed Tests, FSRS and Insights, saved-question lists in More, and
@@ -38,8 +38,8 @@
   Wrong, Unattempted, Bookmarked, Mixed and PYQ pools.
 - PYQs: 1,118 PrepLadder questions in 27 labelled topics (Biochemistry 346,
   Physiology 362, Anatomy 410). Marrow ED8 has no PYQ/exam/year metadata.
-- Next: inspect exact-head generated-app/browser/APK/emulator CI and
-  before/after captures, then ask for physical flow verdict. No
+- Next: obtain the user's physical verdict on the cleanup preview and check
+  a saved-module state before acceptance. No
   canonical merge or production promotion before acceptance.
 
 ## Product architecture to preserve

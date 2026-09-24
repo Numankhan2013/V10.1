@@ -75,7 +75,8 @@ def main():
                     page.evaluate("window.QB.nkModuleBuilderStep(4)")
                     capture(page, f"{label}-01f-module-finish", observations)
                     page.evaluate("window.QB.nav('dashboard');window.QB.openStudyModuleBuilder()")
-                    page.locator("button.nk-module-subject").filter(has_text="PrepLadder").first.click()
+                    if page.locator("button.nk-module-subject.is-selected").filter(has_text="PrepLadder").count() == 0:
+                        page.locator("button.nk-module-subject").filter(has_text="PrepLadder").first.click()
                     page.evaluate("window.QB.nkModuleBuilderStep(2);window.QB.nkSelectModulePyqTopics();window.QB.nkModuleBuilderStep(3)")
                     capture(page, f"{label}-01g-pyq-filter", observations, full_page=True)
                     page.evaluate("window.QB.nav('dashboard');window.QB.nav('more')")

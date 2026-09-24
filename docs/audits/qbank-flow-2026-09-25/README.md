@@ -18,6 +18,18 @@ build scripts to distinguish destinations that only look similar.
 | 8 | [FSRS](08-fsrs-before.png) | Good | Subject selection and due-review information form a dedicated task. | Keep the dedicated tab; remove Home and More copies of its entry point. |
 | 9 | [Results](09-result-before.png) | Mixed | Review Solutions appears near the top and again beside “Every answer”; both open the same review. | Keep the primary Review Solutions action and remove the duplicate. |
 
+## After the cleanup
+
+The generated app at `c863f1f` passed Engineering run `36051479141` and the
+full browser, PWA, APK, and Android WebView run `36051447529`. The fresh-state
+captures show [Home](10-home-after.png), [Home at 320px](11-small-phone-after.png),
+and [Tests](12-tests-after.png). Home now puts one module action and the subject
+list ahead of the streak display. The 320px Create module action is at least
+44px high and clears the bottom navigation. Tests shows one subject/topic
+builder plus separate wrong/bookmarked quick tests; it no longer offers two
+buttons for the same builder. The full capture artifact on the build run also
+includes More, Insights, FSRS, module steps, and question and result screens.
+
 ## Accessibility and evidence limits
 
 - Several old Home and Insights captions render at about 8–10 px in phone

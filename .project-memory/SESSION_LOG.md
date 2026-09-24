@@ -1176,3 +1176,9 @@ Implemented approved recovery in existing transform owners: Topics separate path
   bottom navigation in fresh state. Move study sets and subjects ahead of the
   streak card, increase the create action to 44px, and retain a coordinate
   assertion for the next capture run.
+- `c863f1f` passed Engineering `36051479141` and full browser/PWA/APK/Android
+  `36051447529`; preview is `https://6ac240e8.nk-qbank.pages.dev`. Fresh Home,
+  320px Home, and Tests after captures are linked from the audit report. A
+  capture-only condition was then fixed so the PYQ screenshot avoids a toast
+  caused by toggling the already selected PrepLadder bank. Physical review of
+  the cleaned flow and a saved-module state are outstanding.
