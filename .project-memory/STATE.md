@@ -29,8 +29,8 @@
   HEAD and CI before integration. Production and canonical are untouched.
 - Bank-scoped modules/PYQs passed browser, APK and emulator at `620d3aa`;
   the user confirmed the preview works and prioritized duplicate-navigation
-  cleanup. Engineering passed at `c1ba435`; its build reached final generated-app
-  checks, where workflow greps still expected removed Tests labels. Updated.
+  cleanup. Engineering passed at `4542160`; UI capture found the fresh Home
+  module action below navigation at 320px. Study actions now precede the streak.
   Resolve latest exact-head CI and physical review before acceptance.
 - The cleanup retains one Home module action, a conditional Continue card,
   dedicated timed Tests, FSRS and Insights, saved-question lists in More, and

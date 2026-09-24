@@ -88,14 +88,15 @@ def main():
                     capture(page, f"{label}-01k-insights", observations, full_page=True)
                     page.evaluate("window.QB.nav('dashboard')")
                 if label == "small-phone":
-                    page.locator(".nk-study-sets button").first.scroll_into_view_if_needed()
-                    assert page.evaluate("""() => {
+                    home_action = page.evaluate("""() => {
                       const action=document.querySelector('.nk-home-focus-action')||document.querySelector('.nk-study-sets button');
                       const nav=document.querySelector('.nk-bottom-nav-v114');
-                      if(!action||!nav)return false;
+                      if(!action||!nav)return {visible:false,reason:'missing action or navigation'};
                       const button=action.getBoundingClientRect(),footer=nav.getBoundingClientRect();
-                      return button.top>=0 && button.bottom<=footer.top-8 && button.height>=44;
-                    }"""), "Home study action is obscured by bottom navigation at 320px"
+                      return {visible:button.top>=0 && button.bottom<=footer.top-8 && button.height>=44,
+                        actionTop:button.top,actionBottom:button.bottom,actionHeight:button.height,navTop:footer.top};
+                    }""")
+                    assert home_action["visible"], f"Home study action is obscured by bottom navigation at 320px: {home_action}"
 
                 page.locator("button.nk-v3-subject-card").filter(has_text="Biochemistry").click()
                 capture(page, f"{label}-01b-subject-destination", observations)

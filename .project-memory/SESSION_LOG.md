@@ -1171,3 +1171,8 @@ Implemented approved recovery in existing transform owners: Topics separate path
   reached the final generated-app check. The workflow also contained stale
   grep checks for those two old labels in generated and packaged assets;
   both now assert the new Tests labels.
+- At `4542160`, Engineering `36050418627` passed and build `36050395851`
+  reached browser capture. The 320px Home first study action overlapped the
+  bottom navigation in fresh state. Move study sets and subjects ahead of the
+  streak card, increase the create action to 44px, and retain a coordinate
+  assertion for the next capture run.

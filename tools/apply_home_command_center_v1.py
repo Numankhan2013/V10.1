@@ -291,7 +291,12 @@ def transform(source: str) -> str:
                    '<section class="nk-v3-section"><div class="nk-v3-section-head"><div><small>RECENT</small>',
                    '<section class="nk-v3-section nk-home-review">'):
         dashboard = remove_home_section(dashboard, marker)
+    streak_start = dashboard.index('<section class="nk-home-streak-card">')
+    streak_end = dashboard.index('</section>', streak_start) + len('</section>')
+    streak = dashboard[streak_start:streak_end]
+    dashboard = dashboard[:streak_start] + dashboard[streak_end:]
     dashboard = dashboard.replace('<section class="nk-v3-section nk-home-subjects">', '${nkHomeFocusSection(focus)}${nkStudySetsSection()}<section class="nk-v3-section nk-home-subjects">', 1)
+    dashboard = dashboard.replace('<section class="nk-home-progress">', streak + '<section class="nk-home-progress">', 1)
     source=replace_function(source,'dashboard',HELPERS+'\n'+dashboard)
     source=replace_function(source,'bottomNav',BOTTOM_NAV)
     source=replace_function(source,'testsPage',TESTS_PAGE)

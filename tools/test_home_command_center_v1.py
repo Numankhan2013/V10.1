@@ -71,6 +71,8 @@ window.QB={openStudyModuleBuilder};
     home=updated.split('function dashboard(){',1)[1].split('function bottomNav(',1)[0]
     tests=updated.split('function testsPage(){',1)[1].split('function examPage()',1)[0]
     if '<section class="nk-home-quick-grid"' in home or 'Strongest Chapters' in home or "Today's Review" in home:raise SystemExit('Home retained duplicate launch surfaces')
+    if not home.index('${nkStudySetsSection()}') < home.index('nk-home-subjects') < home.index('nk-home-streak-card'):
+        raise SystemExit('Home places study actions below the streak decoration')
     if 'nk-test-mode-tabs' in tests or 'Custom Module' in tests or 'Full Question Bank' in tests:raise SystemExit('Tests retained duplicate setup paths')
     for fn in ('dashboard','bottomNav','testsPage','examPage','startExamTicker','submitExam'):
         if updated.count(f'function {fn}(')!=1:raise SystemExit(f'{fn} duplicated or missing')
