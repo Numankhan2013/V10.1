@@ -77,6 +77,13 @@ def main() -> None:
         raise SystemExit("Legacy Q tile brand returned")
     if "openSessionBuilder(null,'exam')" in section(source, "function openTestBuilder", "function openModeBuilder"):
         raise SystemExit("App-level CBT still opens the active-subject-only builder")
+    more = section(source, "function morePage()", "function libraryPage(")
+    for duplicate in ("row('test','Timed CBT'", "row('chart','Insights'", "row('book','Topics'", "row('clock','Due review'", "row('book','Create module'"):
+        if duplicate in more:
+            raise SystemExit(f"More retained a duplicate launcher: {duplicate}")
+    insights = section(source, "function analytics()", "function morePage()")
+    if "nkInsightsExpanded?chapterRows:chapterRows.slice(0,6)" not in insights or "nkToggleInsightsExpanded()" not in insights:
+        raise SystemExit("Insights topic list is not progressively disclosed")
     print("WHOLE_APP_VISION_OK: professional subject identity, motivational streak, all-subject random practice and multi-subject CBT are installed; protected session UI retained")
 
 

@@ -74,8 +74,10 @@ def main():
                     capture(page, f"{label}-01e-module-pool", observations, full_page=True)
                     page.evaluate("window.QB.nkModuleBuilderStep(4)")
                     capture(page, f"{label}-01f-module-finish", observations)
-                    page.evaluate("window.QB.nav('dashboard');window.QB.nkOpenQuickStudy('pyq')")
-                    capture(page, f"{label}-01g-pyq-preset", observations, full_page=True)
+                    page.evaluate("window.QB.nav('dashboard');window.QB.openStudyModuleBuilder()")
+                    page.locator("button.nk-module-subject").filter(has_text="PrepLadder").first.click()
+                    page.evaluate("window.QB.nkModuleBuilderStep(2);window.QB.nkSelectModulePyqTopics();window.QB.nkModuleBuilderStep(3)")
+                    capture(page, f"{label}-01g-pyq-filter", observations, full_page=True)
                     page.evaluate("window.QB.nav('dashboard');window.QB.nav('more')")
                     capture(page, f"{label}-01h-more", observations, full_page=True)
                     page.evaluate("window.QB.nav('wrong')")
@@ -86,13 +88,14 @@ def main():
                     capture(page, f"{label}-01k-insights", observations, full_page=True)
                     page.evaluate("window.QB.nav('dashboard')")
                 if label == "small-phone":
+                    page.locator(".nk-study-sets button").first.scroll_into_view_if_needed()
                     assert page.evaluate("""() => {
-                      const action=document.querySelector('.nk-home-focus-action');
+                      const action=document.querySelector('.nk-home-focus-action')||document.querySelector('.nk-study-sets button');
                       const nav=document.querySelector('.nk-bottom-nav-v114');
                       if(!action||!nav)return false;
                       const button=action.getBoundingClientRect(),footer=nav.getBoundingClientRect();
                       return button.top>=0 && button.bottom<=footer.top-8 && button.height>=44;
-                    }"""), "Home primary action is obscured by bottom navigation at 320px"
+                    }"""), "Home study action is obscured by bottom navigation at 320px"
 
                 page.locator("button.nk-v3-subject-card").filter(has_text="Biochemistry").click()
                 capture(page, f"{label}-01b-subject-destination", observations)

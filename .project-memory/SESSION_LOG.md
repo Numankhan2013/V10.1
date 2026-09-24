@@ -1141,3 +1141,21 @@ Implemented approved recovery in existing transform owners: Topics separate path
   explicit source topic title; raw question imports stay unchanged.
 - This is an implementation candidate only. No generated build, CI, or physical
   device verification was run in this session; do not call it released.
+
+## 2026-09-25 — QBank flow clutter audit and cleanup candidate
+
+- The user physically reviewed the bank-aware custom module/PYQ preview and
+  confirmed it works, then identified duplicate actions as the next priority.
+  No canonical or production promotion was authorized.
+- Fresh browser captures from run `36042991236` and click-handler tracing found
+  repeated Home module/FSRS/test/history actions, a Tests Practice/Timed mode
+  overlap, two timed sources opening the same builder, repeated More navigation,
+  an overly long Insights topic list, and a duplicate result Review action.
+  Evidence and step-by-step findings are in
+  `docs/audits/qbank-flow-2026-09-25/`.
+- Candidate changes conditionally show Home Continue only for real work, keep
+  one module entry, use one subject/topic timed builder, retain separate
+  wrong/bookmarked quick tests, remove repeat More links, collapse Insights
+  topics behind Show all, and keep the chapter Practice/Timed Test distinction.
+  Local and exact-head generated CI plus physical review are required before
+  accepting this cleanup.

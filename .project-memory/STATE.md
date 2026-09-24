@@ -23,22 +23,24 @@
 - Source handoff: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
 - Mandatory automation policy: `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
 
-## Bank-aware module and PYQ candidate — 2026-09-24
+## Bank-aware modules and flow cleanup — 2026-09-25
 
-- Isolated branch: `feature/qbank-bank-aware-modules-20260924`, based on the
-  latest locally known canonical ref. Code and documentation are changed; no
-  generated build, CI or physical-device verification has been run for this
-  candidate. It is not yet integrated or released.
-- Module selection now reads `BANKS_BY_SUBJECT` with exact subject/bank/topic
-  scope keys. Old frozen modules keep their question IDs and PrepLadder topic
-  metadata. The builder adds All and source-backed PYQ pools.
-- Existing PrepLadder data contains 27 explicitly labelled Previous Year
-  Questions topics / 1,118 questions: Biochemistry 346, Physiology 362, Anatomy
-  410. The Marrow ED8 import has no PYQ/exam/year metadata. Do not claim or
-  infer Marrow PYQs from those records.
-- Next: review the candidate's generated learner flow and compatibility with
-  saved modules, then run the required exact-head build and physical review
-  before calling the feature available on a device.
+- Isolated branch: `feature/qbank-bank-aware-modules-20260924`; resolve live
+  HEAD and CI before integration. Production and canonical are untouched.
+- Bank-scoped modules and source-backed PrepLadder PYQs passed full browser,
+  APK, emulator and preview runs at `620d3aa`; the user physically reviewed
+  the web preview and confirmed the custom module/PYQ flow works. The user then
+  prioritized reducing duplicate navigation; the cleanup is a new candidate
+  and has not yet passed exact-head CI or physical review.
+- The cleanup retains one Home module action, a conditional Continue card,
+  dedicated timed Tests, FSRS and Insights, saved-question lists in More, and
+  distinct chapter Practice/Timed Test. The module builder still contains
+  Wrong, Unattempted, Bookmarked, Mixed and PYQ pools.
+- PYQs: 1,118 PrepLadder questions in 27 labelled topics (Biochemistry 346,
+  Physiology 362, Anatomy 410). Marrow ED8 has no PYQ/exam/year metadata.
+- Next: pass the generated-app browser/APK/emulator pipeline on cleanup HEAD,
+  inspect before/after captures, then ask for physical flow verdict. No
+  canonical merge or production promotion before acceptance.
 
 ## Product architecture to preserve
 

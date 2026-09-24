@@ -2,6 +2,7 @@
 """Regression contract for the approved Home / Study / Test / FSRS V3 flows."""
 
 from pathlib import Path
+import subprocess
 from apply_home_command_center_v1 import FLOW_MARKER, STYLE_ID, transform
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -30,19 +31,18 @@ window.QB={openStudyModuleBuilder};
 </script></body></html>'''
     updated=transform(fixture)
     if transform(updated)!=updated:raise SystemExit('Home V3 transform is not idempotent')
+    script=updated.split('<script>',1)[1].split('</script>',1)[0]
+    subprocess.run(['node','--check'],input=script,text=True,check=True)
 
     required=(
-        FLOW_MARKER,STYLE_ID,'nk-home-approved-v1','TODAY\'S FOCUS','Continue Practice',
+        FLOW_MARKER,STYLE_ID,'nk-home-approved-v1','CONTINUE STUDYING','Continue Practice',
         'body:has(.nk-home-approved-v1) .nk-global-header-v114{display:none!important}',
-        'Start focused study','nkOpenQuickStudy','nkStudySetsSection()',
-        "nkQuickStudyCount('wrong')","nkQuickStudyCount('unattempted')",'source-labelled PYQs · all subjects · edit scope',
-        'Review shortcuts','FSRS','Bookmarks','My Subjects','nkSubjectStatsV3','nkOpenSubjectLibrary',
+        'nkHomeFocusSection(focus)','nkStudySetsSection()',
+        'FSRS','My Subjects','nkSubjectStatsV3','nkOpenSubjectLibrary',
         'STUDY LIBRARY','study-library','complete topic journey','My Progress','Today','This Week','This Month','This Year',
-        'Better questions. A brighter you.','Strongest Chapters','Study Sessions',"Today's Review",
         'FSRS Review','Choose subject','All Subjects','Every answered question is scheduled here','pausing keeps untouched questions out',
-        "['fsrs','FSRS','refresh']",'Question Source','Full Question Bank','Custom Module','Wrong Questions','Bookmarked Questions',
-        'openMultiSubjectTestBuilder','openStudyModuleBuilder','Number of Questions','[10,20,50,100]',
-        'minutes total. Spend that total time across questions however you need.','Practice has no limiting countdown. Time is still recorded for your analysis.',
+        "['fsrs','FSRS','refresh']",'Timed tests','Choose subjects and topics','Quick test','Wrong questions','Bookmarked questions','Completed tests',
+        'openMultiSubjectTestBuilder','Number of questions','[10,20,50,100]',
         "timerMode='global'","timerMode='per-question'",'Topic Test · 60 sec this question','nkExpireTopicQuestion','Time expired','submitExam(true)',
         "state.fsrsReviewEligible", "reason:'skipped'", 'nkReviewEligibility', 'nkReviewDue',
         'function nkFsrsLaunchQueue', 'nkFsrsQueue({subject})', 'queue.cards||[]', 'queue.rolledOver',
@@ -55,6 +55,7 @@ window.QB={openStudyModuleBuilder};
     if missing:raise SystemExit(f'Home V3 contract missing: {missing}')
 
     prohibited=(
+        'Start focused study','Full Question Bank','Custom Module','Review shortcuts',
         "nkOpenPracticeSubjects","nkOpenPracticeTopics","nkSetTestTimer","One minute per question when enabled.",
         "nk-test-toggle-grid","Timer off","Practice 20 Random Questions",
         "['topics','Topics','book']",
@@ -67,6 +68,10 @@ window.QB={openStudyModuleBuilder};
     if survived:raise SystemExit(f'Obsolete Home/Test behavior survived: {survived}')
 
     if updated.count(f'id="{STYLE_ID}"')!=1:raise SystemExit('Home V3 stylesheet duplicated')
+    home=updated.split('function dashboard(){',1)[1].split('function bottomNav(',1)[0]
+    tests=updated.split('function testsPage(){',1)[1].split('function examPage()',1)[0]
+    if '<section class="nk-home-quick-grid"' in home or 'Strongest Chapters' in home or "Today's Review" in home:raise SystemExit('Home retained duplicate launch surfaces')
+    if 'nk-test-mode-tabs' in tests or 'Custom Module' in tests or 'Full Question Bank' in tests:raise SystemExit('Tests retained duplicate setup paths')
     for fn in ('dashboard','bottomNav','testsPage','examPage','startExamTicker','submitExam'):
         if updated.count(f'function {fn}(')!=1:raise SystemExit(f'{fn} duplicated or missing')
     if "function untouchedQuestionEngine(){return 'protected';}" not in updated:raise SystemExit('Protected question engine mutated')

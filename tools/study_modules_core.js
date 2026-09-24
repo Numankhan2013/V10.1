@@ -400,7 +400,8 @@
 
   function nkStudySetsSection(){
     const modules=nkStudyModuleList().slice().sort((a,b)=>Number(b.lastOpenedAt||b.createdAt||0)-Number(a.lastOpenedAt||a.createdAt||0));
-    return `<section class="nk-section nk-study-sets"><div class="nk-section-head"><div><div class="nk-kicker">INTENTIONAL STUDY</div><h2>My study sets</h2></div><button class="nk-text-link" onclick="window.QB.openStudyModuleBuilder()">Create module ${navIcon('chevron',15)}</button></div>${modules.length?`<div class="nk-study-set-list">${modules.slice(0,4).map(nkStudyModuleCard).join('')}</div>`:`<div class="nk-study-set-empty"><span>${navIcon('book',22)}</span><div><strong>Build your first focused module</strong><p>Choose subjects, topics, and the exact kind of questions you need.</p></div><button onclick="window.QB.openStudyModuleBuilder()">Create module</button></div>`}</section>`;
+    const create=modules.length?`<button class="nk-text-link" onclick="window.QB.openStudyModuleBuilder()">Create module ${navIcon('chevron',15)}</button>`:'';
+    return `<section class="nk-section nk-study-sets"><div class="nk-section-head"><div><div class="nk-kicker">INTENTIONAL STUDY</div><h2>My study sets</h2></div>${create}</div>${modules.length?`<div class="nk-study-set-list">${modules.slice(0,4).map(nkStudyModuleCard).join('')}</div>`:`<div class="nk-study-set-empty"><span>${navIcon('book',22)}</span><div><strong>Build your first focused module</strong><p>Choose banks, topics, PYQs, mistakes, or unseen questions.</p></div><button onclick="window.QB.openStudyModuleBuilder()">Create module</button></div>`}</section>`;
   }
 
   function nkStudyModuleSessionContext(s){

@@ -113,13 +113,6 @@ def transform(source: str) -> str:
         "      ${nkStudySetsSection()}\n      <section class=\"nk-section\"><div class=\"nk-section-head\"><div><div class=\"nk-kicker\">STUDY LIBRARY</div><h2>Subjects</h2></div>",
         "Home study sets section",
     )
-    source = replace_once(
-        source,
-        "<section class=\"nk-settings-group\"><div class=\"nk-kicker\">STUDY</div><div>${row('test','Timed CBT'",
-        "<section class=\"nk-settings-group\"><div class=\"nk-kicker\">STUDY</div><div>${row('book','Create module','Build a reusable focused study set','window.QB.openStudyModuleBuilder()','is-violet')}${row('test','Timed CBT'",
-        "More create-module entry",
-    )
-
     practice_start, practice_end, practice = function_block(source, "practicePage")
     practice = replace_once(practice, '<section class="question-card">${nkQuestionContext(q)}', '<section class="question-card">${s.studyModuleId?nkStudyModuleSessionContext(s):\'\'}${nkQuestionContext(q)}', "module session identity")
     source = source[:practice_start] + practice + source[practice_end:]
@@ -194,7 +187,7 @@ def transform(source: str) -> str:
 def main() -> None:
     source = HTML.read_text(encoding="utf-8")
     HTML.write_text(transform(source), encoding="utf-8")
-    print("CUSTOM_STUDY_MODULES_OK: persistent stable modules, builder, resume, Home/More, analysis, and unified attempts installed")
+    print("CUSTOM_STUDY_MODULES_OK: persistent stable modules, builder, resume, Home, analysis, and unified attempts installed")
 
 
 if __name__ == "__main__":

@@ -170,14 +170,16 @@ TESTS = r'''function testsPage() {
   '''
 
 
-ANALYTICS = r'''function analytics() {
+ANALYTICS = r'''let nkInsightsExpanded=false;
+  function nkToggleInsightsExpanded(){nkInsightsExpanded=!nkInsightsExpanded;render();}
+  function analytics() {
     const attempts=Object.values(state.attempts).flat(),avgTime=avg(attempts.map(a=>a.timeSpent||0)),attempted=totalAttempted(),completion=QUESTIONS.length?attempted/QUESTIONS.length*100:0;
     const chapterRows=CHAPTERS.map(c=>({c,s:chapterStats(c.id)})).sort((a,b)=>(b.s.attempted?b.s.accuracy:-1)-(a.s.attempted?a.s.accuracy:-1));
     const recent=state.tests.slice().sort((a,b)=>b.createdAt-a.createdAt).slice(0,5);
     return shell(`<div class="nk-app-v114 nk-analytics-v114">${nkAppPageHead(`${activeSubject} · Local history`,'Insights','Performance calculated from your stored attempts and completed sessions.')}
       <div class="nk-insight-grid"><article class="is-green"><span>${navIcon('check',18)}</span><small>Accuracy</small><b>${fmtPct(overallAccuracy())}</b><p>${fmtNum(totalAttempts())} attempts</p></article><article class="is-blue"><span>${navIcon('clock',18)}</span><small>Avg. time / question</small><b>${formatDuration(avgTime)}</b><p>practice attempts</p></article><article class="is-amber"><span>${navIcon('refresh',18)}</span><small>Questions due</small><b>${fmtNum(pendingReviewCount())}</b><p>spaced review</p></article><article class="is-violet"><span>${navIcon('chart',18)}</span><small>Completion</small><b>${fmtPct(completion)}</b><p>${fmtNum(attempted)} of ${fmtNum(QUESTIONS.length)}</p></article></div>
-      <section class="nk-section"><div class="nk-section-head"><div><div class="nk-kicker">CHAPTER PERFORMANCE</div><h2>Accuracy and coverage</h2></div><span>${CHAPTERS.length} chapters</span></div><div class="nk-performance-list">${chapterRows.map(({c,s})=>{const coverage=s.total?s.attempted/s.total*100:0;return `<button onclick="window.QB.openChapter('${c.id}')"><span><strong>${esc(c.title)}</strong><small>${s.attempted}/${s.total} completed · ${s.correct} correct · ${s.incorrect} incorrect</small><i class="nk-line-progress"><i style="width:${coverage}%"></i></i></span><b class="${s.accuracy>=75?'success':s.accuracy>=50?'warning':s.attempted?'danger':''}">${s.attempted?fmtPct(s.accuracy):'—'}</b>${navIcon('chevron',16)}</button>`}).join('')}</div></section>
-      <section class="nk-section"><div class="nk-section-head"><div><div class="nk-kicker">RECENT</div><h2>Study sessions</h2></div><button class="nk-text-link" onclick="window.QB.nav('tests')">Tests ${navIcon('chevron',15)}</button></div>${recent.length?`<div class="nk-session-list">${recent.map(testRow).join('')}</div>`:nkAppEmpty('chart','No performance history yet','Complete Practice or CBT questions to build your insights.')}</section>
+      <section class="nk-section"><div class="nk-section-head"><div><div class="nk-kicker">CHAPTER PERFORMANCE</div><h2>Accuracy and coverage</h2></div><span>${CHAPTERS.length} chapters</span></div><div class="nk-performance-list">${(nkInsightsExpanded?chapterRows:chapterRows.slice(0,6)).map(({c,s})=>{const coverage=s.total?s.attempted/s.total*100:0;return `<button onclick="window.QB.openChapter('${c.id}')"><span><strong>${esc(c.title)}</strong><small>${s.attempted}/${s.total} completed · ${s.correct} correct · ${s.incorrect} incorrect</small><i class="nk-line-progress"><i style="width:${coverage}%"></i></i></span><b class="${s.accuracy>=75?'success':s.accuracy>=50?'warning':s.attempted?'danger':''}">${s.attempted?fmtPct(s.accuracy):'—'}</b>${navIcon('chevron',16)}</button>`}).join('')}</div>${chapterRows.length>6?`<button class="nk-insights-show-all" onclick="window.QB.nkToggleInsightsExpanded()">${nkInsightsExpanded?"Show fewer topics":`Show all ${fmtNum(chapterRows.length)} topics`}</button>`:""}</section>
+      <section class="nk-section"><div class="nk-section-head"><div><div class="nk-kicker">RECENT</div><h2>Study sessions</h2></div></div>${recent.length?`<div class="nk-session-list">${recent.map(testRow).join('')}</div>`:nkAppEmpty('chart','No performance history yet','Complete Practice or CBT questions to build your insights.')}</section>
     </div>`,'analytics');
   }
 
@@ -185,11 +187,10 @@ ANALYTICS = r'''function analytics() {
 
 
 MORE = r'''function morePage() {
-    const bm=bookmarkedQuestions().length,wrong=wrongQuestions().length,due=pendingReviewCount();
+    const bm=bookmarkedQuestions().length,wrong=wrongQuestions().length;
     const row=(icon,title,meta,action,tone='')=>`<button class="nk-settings-row ${tone}" onclick="${action}"><span class="nk-settings-icon">${navIcon(icon,19)}</span><span><strong>${esc(title)}</strong><small>${esc(meta)}</small></span>${navIcon('chevron',17)}</button>`;
-    return shell(`<div class="nk-app-v114 nk-more-v114">${nkAppPageHead(`${activeSubject} · Personal QBank`,'More','Revision queues, saved questions, and app controls.')}
-      <section class="nk-settings-group"><div class="nk-kicker">REVISION</div><div>${row('refresh','Wrong questions',`${fmtNum(wrong)} missed · retrieval practice`,"window.QB.nav('wrong')",'is-red')}${row('clock','Due review',`${fmtNum(due)} ready today`,"window.QB.nav('review')",'is-blue')}${row('bookmark','Bookmarks',`${fmtNum(bm)} saved by you`,"window.QB.nav('bookmarks')",'is-violet')}</div></section>
-      <section class="nk-settings-group"><div class="nk-kicker">STUDY</div><div>${row('test','Timed CBT','Build an exam from your topics','window.QB.openTestBuilder()','is-indigo')}${row('chart','Insights','Performance, completion, and timing',"window.QB.nav('analytics')",'is-green')}${row('book','Topics','Chapter-by-chapter study',"window.QB.nav('topics')",'is-blue')}</div></section>
+    return shell(`<div class="nk-app-v114 nk-more-v114">${nkAppPageHead(`${activeSubject} · Personal QBank`,'More','Saved questions and app controls.')}
+      <section class="nk-settings-group"><div class="nk-kicker">SAVED QUESTIONS</div><div>${row('refresh','Wrong questions',`${fmtNum(wrong)} missed · retrieval practice`,"window.QB.nav('wrong')",'is-red')}${row('bookmark','Bookmarks',`${fmtNum(bm)} saved by you`,"window.QB.nav('bookmarks')",'is-violet')}</div></section>
       <section class="nk-settings-group"><div class="nk-kicker">APP & SOURCE</div><div class="nk-source-card"><span class="nk-settings-icon">${navIcon('book',19)}</span><div><strong>Offline and source-faithful</strong><p>Your progress, bookmarks, review schedules, and test history stay on this device. Original source PDFs remain bundled with the app.</p><div class="nk-source-actions">${activeSubject==='Biochemistry'?`<a href="assets/Biochemistry_QBank_Source.pdf" target="_blank">Open source PDF</a>`:''}<button onclick="window.QB.resetProgress()">Reset progress</button></div></div></div></section>
     </div>`,'more');
   }
@@ -337,7 +338,7 @@ RESULT = r'''function resultPage(testId) {
       <section class="nk-result-overview"><div><div class="nk-kicker">YOU SCORED</div><b>${fmtPct(score)}</b><strong>${t.correct} / ${t.total} correct</strong><p>${score>=75?'Strong retrieval. Review the misses and keep the pattern.':score>=50?'A useful baseline. Review the incorrect answers while they are fresh.':'This set has identified exactly what needs another pass.'}</p></div>${donut(score,142)}</section>
       <div class="nk-result-counts"><div class="is-correct"><b>${t.correct}</b><span>Correct</span></div><div class="is-wrong"><b>${t.incorrect}</b><span>Incorrect</span></div><div class="is-missed"><b>${t.unattempted}</b><span>Unattempted</span></div></div>
       <div class="nk-insight-grid nk-result-stats"><article class="is-blue"><span>${navIcon('clock',18)}</span><small>Time taken</small><b>${formatDuration(t.totalTimeMs)}</b><p>${fmtNum(t.questionIds.length)} questions</p></article><article class="is-violet"><span>${navIcon('chart',18)}</span><small>Avg. time / attempted</small><b>${formatDuration(t.attempted?attemptedQuestionTime/t.attempted:0)}</b><p>selected answers only</p></article><article class="is-amber"><span>${navIcon('book',18)}</span><small>Avg. time / question</small><b>${formatDuration(t.total?totalQuestionTime/t.total:0)}</b><p>includes skips</p></article><article class="is-green"><span>${navIcon('check',18)}</span><small>Completion</small><b>${fmtPct(t.total?attempted/t.total*100:0)}</b><p>${attempted} attempted</p></article></div>
-      <section class="nk-section"><div class="nk-section-head"><div><div class="nk-kicker">QUESTION REVIEW</div><h2>Every answer</h2></div><button class="nk-text-link v102-review-action" type="button" data-v102-review-cta="1" data-review-test-id="${esc(t.id)}" onclick="return window.__QB_OPEN_REVIEW(this.getAttribute('data-review-test-id'))">Open review ${navIcon('chevron',15)}</button></div><div class="nk-result-questions">${t.questionIds.map((id,i)=>{const q=BY_ID[id],sel=t.answers[id],corr=Number(q.correctOption)===Number(sel);return `<div><span class="nk-question-index">${i+1}</span><span><strong>${esc(q.question.slice(0,125))}${q.question.length>125?'…':''}</strong><small><i class="nk-status ${sel?(corr?'is-correct':'is-wrong'):'is-unattempted'}">${sel?(corr?'Correct':'Incorrect'):'Unattempted'}</i>${esc(q.chapter)}</small></span></div>`}).join('')}</div></section>
+      <section class="nk-section"><div class="nk-section-head"><div><div class="nk-kicker">QUESTION REVIEW</div><h2>Every answer</h2></div></div><div class="nk-result-questions">${t.questionIds.map((id,i)=>{const q=BY_ID[id],sel=t.answers[id],corr=Number(q.correctOption)===Number(sel);return `<div><span class="nk-question-index">${i+1}</span><span><strong>${esc(q.question.slice(0,125))}${q.question.length>125?'…':''}</strong><small><i class="nk-status ${sel?(corr?'is-correct':'is-wrong'):'is-unattempted'}">${sel?(corr?'Correct':'Incorrect'):'Unattempted'}</i>${esc(q.chapter)}</small></span></div>`}).join('')}</div></section>
     </div>`,'tests');
   }
 
@@ -408,6 +409,7 @@ body:has(.nk-topics-v114) .page{padding-top:22px!important;padding-bottom:210px!
 #nk-topic-index-menu::backdrop{background:#20143680}.nk-index-link{display:block;text-align:left;width:100%;padding:15px 0;border:0;border-bottom:1px solid #e6deef;background:none;font-size:15px;color:inherit}.nk-index-link small{display:block;color:#877896;margin-top:4px}
 @media(min-width:768px) and (min-height:600px){.nk-continue-learning{left:104px;right:16px;bottom:22px}}
 @media(max-width:480px){.nk-result-v114 .nk-page-head{flex-direction:column;align-items:stretch;gap:12px}.nk-result-v114 .nk-page-head>div{min-width:0}.nk-result-v114 .nk-head-action{align-self:flex-start;min-height:44px}}
+.nk-insights-show-all{width:100%;min-height:44px;margin-top:9px;border:1px solid var(--nk114-line);border-radius:10px;background:#fff;color:var(--nk114-indigo);font-size:11px;font-weight:800}
 </style>'''
 
 
@@ -467,7 +469,7 @@ def transform(source: str) -> str:
         raise SystemExit("richText insertion point not found")
     source = source.replace(anchor, MULTI_SUBJECT_WORKFLOWS + anchor, 1)
     export_anchor = "window.QB={getState:()=>state,"
-    export_additions = "window.QB={getState:()=>state,startAllSubjectPractice,openMultiSubjectTestBuilder,nkSetMultiExamScope,nkUpdateMultiExamPool,nkSelectAllMultiTopics,nkConfirmMultiSubjectExam,"
+    export_additions = "window.QB={getState:()=>state,startAllSubjectPractice,nkToggleInsightsExpanded,openMultiSubjectTestBuilder,nkSetMultiExamScope,nkUpdateMultiExamPool,nkSelectAllMultiTopics,nkConfirmMultiSubjectExam,"
     if export_anchor not in source:
         raise SystemExit("window.QB export point not found")
     source = source.replace(export_anchor, export_additions, 1)
