@@ -51,7 +51,7 @@ names are emitted for each viewport in the `study-ui-audit` artifact.
 The capture regression asserts session-position numbering, status-label bounds,
 absence of the subject/chapter context bar, and successful CBT submission from the grid. The
 existing Continue Practice, CBT, Review, FSRS, browser, packaged APK and Android
-emulator checks remain required on the exact final SHA.
+emulator checks passed on product commit `b36aa00` in [full run 35898871311](https://github.com/Numankhan2013/V10.1/actions/runs/35898871311), with [Engineering Gate 35898871319](https://github.com/Numankhan2013/V10.1/actions/runs/35898871319). The browser run specifically covered two saved chapters, submitting one, resuming the other from Home, opening Review Solutions, and resuming it again from Home.
 
 ## Evidence limits
 

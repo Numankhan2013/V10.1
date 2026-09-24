@@ -111,7 +111,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Study UI audit and first defect batch — 2026-09-23
 
-- Baseline screenshots at 320px/390px phone, larger text, and 820px tablet found CBT grid numbering/crowding, clipped question context, squeezed Analysis header, and a 320px Home action under bottom navigation. Shared fixes are in `docs/STUDY_UI_AUDIT_2026-09-23.md`; the separate UI branch passed Engineering `35895584962` and full browser/APK/Android run `35895585071`. Final canonical-lineage integration CI and physical APK/data-preservation checks remain pending.
+- Baseline screenshots at 320px/390px phone, larger text, and 820px tablet found CBT grid numbering/crowding, clipped question context, squeezed Analysis header, and a 320px Home action under bottom navigation. Shared fixes are in `docs/STUDY_UI_AUDIT_2026-09-23.md`. Canonical-lineage audit product commit `b36aa00` passed Engineering `35898871319` and full browser/PWA/APK/Android run `35898871311`, including two saved chapters → submit one → Home Continue and Review Solutions → Home Continue. The audit branch is not canonical or physically accepted; in-place APK/data-preservation checks remain pending.
 
 ## Anti-fragmentation rules
 
@@ -134,7 +134,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Current priorities / Next step
 
-1. Audit `feature/home-polish-canonical-audit-20260923`, based on canonical `81333f0`, with UI changes and already-canonical multi-pause behavior. Verify the two-saved-chapter submit/Review Solutions/Home resume repair plus exact-head Engineering, browser, APK/package and Android emulator checks before recommending canonical promotion. Production remains separately guarded.
+1. Review `feature/home-polish-canonical-audit-20260923`, based on canonical `81333f0`, with UI changes and already-canonical multi-pause behavior. The substantive product commit `b36aa00` passed exact-SHA Engineering, browser, APK/package and Android emulator checks. Keep it outside canonical until user acceptance; production remains separately guarded.
 2. Keep the accepted Practice/Review contract, Anatomy Ch7 Q11–Q21 rollout, and automation-owned image/explanation content intact. Physical APK/data-preservation review remains outstanding.
 3. Image automation remains independently owned from live canonical per `.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md`; P0 Phase 3 has 219 source-review candidates (not proven defects) with Phase 6 sign-off and user acceptance pending.
 
