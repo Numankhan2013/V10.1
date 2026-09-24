@@ -8,199 +8,32 @@
   },
   "summary": {
     "questions": 2711,
-    "subjects": {
-      "Anatomy": 1115,
-      "Biochemistry": 582,
-      "Physiology": 1014
-    },
-    "enhancementStatus": {
-      "enhanced-reference": 646,
-      "pending": 2065
-    },
-    "flags": {
-      "image-dependent-review": 1167,
-      "ocr-cleanup-candidate": 254,
-      "source-omission-review": 9,
-      "source-provenance-note": 255,
-      "source-review-status": 36,
-      "source-table": 157
-    }
+    "subjects": {"Anatomy": 1115, "Biochemistry": 582, "Physiology": 1014},
+    "enhancementStatus": {"enhanced-reference": 662, "pending": 2049},
+    "flags": {"image-dependent-review": 1167, "ocr-cleanup-candidate": 254, "source-omission-review": 9, "source-provenance-note": 255, "source-review-status": 36, "source-table": 157}
   },
   "biochemistryGoldSample": [
-    {
-      "id": "marrow__BIOCHEM_CH01_Q023",
-      "chapterId": "1",
-      "flags": [
-        "image-dependent-review",
-        "ocr-cleanup-candidate",
-        "source-provenance-note"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH02_Q009",
-      "chapterId": "2",
-      "flags": [
-        "image-dependent-review",
-        "source-provenance-note",
-        "source-table"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH04_Q005",
-      "chapterId": "4",
-      "flags": [
-        "image-dependent-review",
-        "source-table"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH05_Q013",
-      "chapterId": "5",
-      "flags": [
-        "image-dependent-review"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH07_Q025",
-      "chapterId": "7",
-      "flags": [
-        "image-dependent-review",
-        "ocr-cleanup-candidate"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH08_Q018",
-      "chapterId": "8",
-      "flags": [
-        "image-dependent-review"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH10_Q033",
-      "chapterId": "10",
-      "flags": [
-        "image-dependent-review"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH11_Q008",
-      "chapterId": "11",
-      "flags": [
-        "image-dependent-review"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH12_Q011",
-      "chapterId": "12",
-      "flags": [
-        "ocr-cleanup-candidate"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH14_Q009",
-      "chapterId": "14",
-      "flags": [
-        "ocr-cleanup-candidate"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH16_Q013",
-      "chapterId": "16",
-      "flags": [
-        "image-dependent-review",
-        "source-table"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH17_Q011",
-      "chapterId": "17",
-      "flags": [
-        "ocr-cleanup-candidate",
-        "source-review-status"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH18_Q009",
-      "chapterId": "18",
-      "flags": [
-        "ocr-cleanup-candidate"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH19_Q019",
-      "chapterId": "19",
-      "flags": [
-        "image-dependent-review",
-        "ocr-cleanup-candidate"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH20_Q006",
-      "chapterId": "20",
-      "flags": [
-        "image-dependent-review"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH21_Q012",
-      "chapterId": "21",
-      "flags": [
-        "image-dependent-review",
-        "ocr-cleanup-candidate"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH22_Q006",
-      "chapterId": "22",
-      "flags": [
-        "image-dependent-review",
-        "source-review-status"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH23_Q005",
-      "chapterId": "23",
-      "flags": [
-        "source-provenance-note"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH24_Q016",
-      "chapterId": "24",
-      "flags": [
-        "image-dependent-review",
-        "ocr-cleanup-candidate"
-      ],
-      "status": "approved-reference"
-    },
-    {
-      "id": "marrow__BIOCHEM_CH26_Q014",
-      "chapterId": "26",
-      "flags": [
-        "image-dependent-review",
-        "ocr-cleanup-candidate"
-      ],
-      "status": "approved-reference"
-    }
+    {"id":"marrow__BIOCHEM_CH01_Q023","chapterId":"1","flags":["image-dependent-review","ocr-cleanup-candidate","source-provenance-note"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH02_Q009","chapterId":"2","flags":["image-dependent-review","source-provenance-note","source-table"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH04_Q005","chapterId":"4","flags":["image-dependent-review","source-table"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH05_Q013","chapterId":"5","flags":["image-dependent-review"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH07_Q025","chapterId":"7","flags":["image-dependent-review","ocr-cleanup-candidate"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH08_Q018","chapterId":"8","flags":["image-dependent-review"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH10_Q033","chapterId":"10","flags":["image-dependent-review"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH11_Q008","chapterId":"11","flags":["image-dependent-review"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH12_Q011","chapterId":"12","flags":["ocr-cleanup-candidate"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH14_Q009","chapterId":"14","flags":["ocr-cleanup-candidate"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH16_Q013","chapterId":"16","flags":["image-dependent-review","source-table"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH17_Q011","chapterId":"17","flags":["ocr-cleanup-candidate","source-review-status"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH18_Q009","chapterId":"18","flags":["ocr-cleanup-candidate"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH19_Q019","chapterId":"19","flags":["image-dependent-review","ocr-cleanup-candidate"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH20_Q006","chapterId":"20","flags":["image-dependent-review"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH21_Q012","chapterId":"21","flags":["image-dependent-review","ocr-cleanup-candidate"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH22_Q006","chapterId":"22","flags":["image-dependent-review","source-review-status"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH23_Q005","chapterId":"23","flags":["source-provenance-note"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH24_Q016","chapterId":"24","flags":["image-dependent-review","ocr-cleanup-candidate"],"status":"approved-reference"},
+    {"id":"marrow__BIOCHEM_CH26_Q014","chapterId":"26","flags":["image-dependent-review","ocr-cleanup-candidate"],"status":"approved-reference"}
   ],
   "questionRecords": 2711,
-  "questionRecordsSha256": "b32859a10f0aa88af8da1d3ef34cba64be946153fff2c06fd507620306ef28b2"
+  "questionRecordsSha256": "706d268b038cdfe9566622526ef658d925f371997d2353f296334b62e0301e32"
 }
