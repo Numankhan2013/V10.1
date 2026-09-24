@@ -1163,3 +1163,7 @@ Implemented approved recovery in existing transform owners: Topics separate path
   stopped in the new More audit assertion because it assumed `libraryPage`
   followed `morePage` after all transformations. The assertion now bounds the
   next function generically; rerun the full build on the new exact head.
+- At `8ab9f7e`, Engineering `36048520277` passed and build `36048498843`
+  reached generated product contract verification. That contract still expected
+  the old Tests labels “Full Question Bank” and “Question Source”; update it to
+  protect “Choose subjects and topics” and “Quick test” in the new flow.

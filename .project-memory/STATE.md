@@ -29,8 +29,8 @@
   HEAD and CI before integration. Production and canonical are untouched.
 - Bank-scoped modules/PYQs passed browser, APK and emulator at `620d3aa`;
   the user confirmed the preview works and prioritized duplicate-navigation
-  cleanup. Commit `5409aff` passed Engineering; build stopped in a new audit
-  assertion with a wrong function boundary after the product transformation.
+  cleanup. Engineering passed at `8ab9f7e`; its build reached generated-app
+  contract checks, which still expected removed Tests labels. Contract updated.
   Resolve latest exact-head CI and physical review before acceptance.
 - The cleanup retains one Home module action, a conditional Continue card,
   dedicated timed Tests, FSRS and Insights, saved-question lists in More, and
