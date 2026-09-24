@@ -1159,3 +1159,7 @@ Implemented approved recovery in existing transform owners: Topics separate path
   topics behind Show all, and keep the chapter Practice/Timed Test distinction.
   Local and exact-head generated CI plus physical review are required before
   accepting this cleanup.
+- Engineering run `36047623132` passed at `5409aff`. Build run `36047635922`
+  stopped in the new More audit assertion because it assumed `libraryPage`
+  followed `morePage` after all transformations. The assertion now bounds the
+  next function generically; rerun the full build on the new exact head.

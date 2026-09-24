@@ -27,19 +27,19 @@
 
 - Isolated branch: `feature/qbank-bank-aware-modules-20260924`; resolve live
   HEAD and CI before integration. Production and canonical are untouched.
-- Bank-scoped modules and source-backed PrepLadder PYQs passed full browser,
-  APK, emulator and preview runs at `620d3aa`; the user physically reviewed
-  the web preview and confirmed the custom module/PYQ flow works. The user then
-  prioritized reducing duplicate navigation; the cleanup is a new candidate
-  and has not yet passed exact-head CI or physical review.
+- Bank-scoped modules/PYQs passed browser, APK and emulator at `620d3aa`;
+  the user confirmed the preview works and prioritized duplicate-navigation
+  cleanup. Commit `5409aff` passed Engineering; build stopped in a new audit
+  assertion with a wrong function boundary after the product transformation.
+  Resolve latest exact-head CI and physical review before acceptance.
 - The cleanup retains one Home module action, a conditional Continue card,
   dedicated timed Tests, FSRS and Insights, saved-question lists in More, and
   distinct chapter Practice/Timed Test. The module builder still contains
   Wrong, Unattempted, Bookmarked, Mixed and PYQ pools.
 - PYQs: 1,118 PrepLadder questions in 27 labelled topics (Biochemistry 346,
   Physiology 362, Anatomy 410). Marrow ED8 has no PYQ/exam/year metadata.
-- Next: pass the generated-app browser/APK/emulator pipeline on cleanup HEAD,
-  inspect before/after captures, then ask for physical flow verdict. No
+- Next: inspect exact-head generated-app/browser/APK/emulator CI and
+  before/after captures, then ask for physical flow verdict. No
   canonical merge or production promotion before acceptance.
 
 ## Product architecture to preserve

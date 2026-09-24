@@ -14,6 +14,14 @@ def section(source: str, start: str, end: str) -> str:
     return source[a:b]
 
 
+def function_section(source: str, start: str) -> str:
+    a = source.index(start)
+    next_function = re.search(r"\n\s*function [A-Za-z_$][\w$]*\(", source[a + len(start):])
+    if not next_function:
+        raise SystemExit(f"No function follows {start}")
+    return source[a:a + len(start) + next_function.start()]
+
+
 def main() -> None:
     source = HTML.read_text(encoding="utf-8")
     required = [
@@ -77,7 +85,7 @@ def main() -> None:
         raise SystemExit("Legacy Q tile brand returned")
     if "openSessionBuilder(null,'exam')" in section(source, "function openTestBuilder", "function openModeBuilder"):
         raise SystemExit("App-level CBT still opens the active-subject-only builder")
-    more = section(source, "function morePage()", "function libraryPage(")
+    more = function_section(source, "function morePage()")
     for duplicate in ("row('test','Timed CBT'", "row('chart','Insights'", "row('book','Topics'", "row('clock','Due review'", "row('book','Create module'"):
         if duplicate in more:
             raise SystemExit(f"More retained a duplicate launcher: {duplicate}")
