@@ -1167,3 +1167,7 @@ Implemented approved recovery in existing transform owners: Topics separate path
   reached generated product contract verification. That contract still expected
   the old Tests labels “Full Question Bank” and “Question Source”; update it to
   protect “Choose subjects and topics” and “Quick test” in the new flow.
+- At `c1ba435`, Engineering `36049571030` passed and build `36049552630`
+  reached the final generated-app check. The workflow also contained stale
+  grep checks for those two old labels in generated and packaged assets;
+  both now assert the new Tests labels.
