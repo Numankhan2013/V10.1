@@ -67,7 +67,8 @@ Prefer building over narrating.
   Bookmarks, Unseen, and Due queues. The first three start random sets of up
   to 20; Due starts up to 20 in FSRS priority order and honors the existing
   daily cap. Full searchable Mistakes and Bookmarks lists remain available.
-  No Home action.
+  Subject, bank, and source-topic focus applies to all four queues and counts;
+  the default is all subjects and banks. No Home action.
 - **Personal question notes (candidate):** one learner-written note per stable
   question ID, available after an answer and in Review Solutions; durable
   locally and account-synced. Saved notes are read-only cards with Edit/Delete;

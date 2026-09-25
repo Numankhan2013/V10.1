@@ -84,7 +84,7 @@
   function nkFsrsRecoverPending(){const s=state.activeSession;if(!s?.pendingRating)return;Object.keys(s.pendingRating).forEach(qid=>nkFsrsCommitPending(qid,3));}
   function nkFsrsRetrievability(review,now=Date.now()){try{return nkFsrsEngine().get_retrievability(nkFsrsCardFromReview(review,now),new Date(now),false);}catch(_){return 1;}}
   function nkFsrsQueue(filters={}){
-    const now=Date.now(),prefs=nkFsrsPreferences(),all=nkFsrsAllQuestions().filter(q=>(!filters.subject||q.subject===filters.subject)&&(!filters.topic||String(q.chapterId)===String(filters.topic))&&nkFsrsEligibility(q)),due=[];
+    const now=Date.now(),prefs=nkFsrsPreferences(),all=nkFsrsAllQuestions().filter(q=>(!filters.subject||q.subject===filters.subject)&&(!filters.bank||q.bank===filters.bank)&&(!filters.topic||String(q.chapterId)===String(filters.topic))&&nkFsrsEligibility(q)),due=[];
     all.forEach(q=>{const r=state.reviews[q.id];if(!r||Number(r.nextReviewAt||r.due||0)<=now)due.push(q);});
     due.sort((a,b)=>{const ar=state.reviews[a.id],br=state.reviews[b.id],al=[1,3].includes(Number(ar?.state))?0:1,bl=[1,3].includes(Number(br?.state))?0:1;return al-bl||nkFsrsRetrievability(ar,now)-nkFsrsRetrievability(br,now)||Number(ar?.due||0)-Number(br?.due||0)||String(a.id).localeCompare(String(b.id));});
     const today=new Date(now).toDateString(),seen=new Set();

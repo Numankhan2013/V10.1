@@ -25,7 +25,8 @@ def main() -> None:
     for marker in ('NK_REVISION_DESK_V1_START', 'nkRevisionDeskPage()', 'nkRevisionBrowsePage(route.id)',
                    'nkStartRevisionQueue', 'nkOpenRevisionQuestion',
                    "route.page==='quick-revision'", "window.QB.nav('quick-revision')",
-                   'All subjects', 'All question banks', '20 questions per session'):
+                   'All subjects', 'All question banks', 'nkSetRevisionScope',
+                   'nkToggleRevisionFocus', '20 questions per session'):
         assert marker in generated, marker
     inline = generated.split("<script>", 1)[1].split("</script>", 1)[0]
     subprocess.run(["node", "--check"], input=inline, text=True, check=True)
@@ -33,22 +34,23 @@ def main() -> None:
     script = r'''
 const assert=require('node:assert/strict'),vm=require('node:vm');
 const questions=[
- {id:'anat-wrong',subject:'Anatomy',bank:'Marrow'},
- {id:'bio-bookmark',subject:'Biochemistry',bank:'PrepLadder'},
- {id:'phys-unseen',subject:'Physiology',bank:'Marrow'},
- {id:'phys-due',subject:'Physiology',bank:'PrepLadder'},
- {id:'anat-unseen',subject:'Anatomy',bank:'PrepLadder'}
+ {id:'anat-wrong',subject:'Anatomy',bank:'Marrow',chapterId:'A1'},
+ {id:'bio-bookmark',subject:'Biochemistry',bank:'PrepLadder',chapterId:'B1'},
+ {id:'phys-unseen',subject:'Physiology',bank:'Marrow',chapterId:'P1'},
+ {id:'phys-due',subject:'Physiology',bank:'PrepLadder',chapterId:'P2'},
+ {id:'anat-unseen',subject:'Anatomy',bank:'PrepLadder',chapterId:'A2'}
 ];
 const state={attempts:{'anat-wrong':[{id:'a1',correct:false,at:1}],
  'bio-bookmark':[{id:'a2',correct:true,at:2}],
  'phys-due':[{id:'a3',correct:true,at:3}]},
  bookmarks:{'bio-bookmark':{addedAt:1}},fsrsReviewEligible:{'phys-unseen':{reason:'skipped'}}};
 let started=null;
-const context={state,Math,Date,BY_ID:{},qAttempts:id=>state.attempts[id]||[],
+const context={state,Math,Date,BY_ID:{},document:{querySelector:()=>null},qAttempts:id=>state.attempts[id]||[],
  nkAllStudyQuestions:()=>questions,
+ nkBankRecord:(subject,bank)=>({topics:questions.filter(q=>q.subject===subject&&q.bank===bank).map(q=>({id:q.chapterId,title:q.chapterId+' title'}))}),
  nkFsrsActiveAttempts:id=>(state.attempts[id]||[]).filter(a=>!a.isUndo),
- nkFsrsEligibility:q=>q.id==='anat-wrong'||q.id.startsWith('wrong-')?'wrong':(['phys-due','bio-bookmark'].includes(q.id)?'attempted':''),
- nkFsrsLaunchQueue:()=>({due:[questions[3]],cards:[questions[3]],rolledOver:2}),
+ nkFsrsEligibility:q=>q.id==='anat-wrong'||q.id.startsWith('wrong-')?'wrong':(['phys-due','bio-bookmark','anat-due'].includes(q.id)?'attempted':''),
+ nkFsrsQueue:filters=>{const due=questions.filter(q=>['phys-due','anat-due'].includes(q.id)&&(!filters.subject||q.subject===filters.subject)&&(!filters.bank||q.bank===filters.bank)&&(!filters.topic||q.chapterId===filters.topic));return{due,cards:due,rolledOver:0};},
  startSession:(ids,mode,title,kind)=>{started={ids,mode,title,kind};},
  showToast:()=>{},fmtNum:String,esc:String,navIcon:()=>'',shell:x=>x,nkAppPageHead:()=>'',nkAppEmpty:()=>''};
 vm.createContext(context);vm.runInContext(SOURCE,context);
@@ -63,6 +65,21 @@ assert.equal(started.mode,'practice');assert.equal(started.kind,'wrong');assert.
 call("nkStartRevisionQueue('due')");
 assert.equal(started.kind,'fsrs');assert.equal(started.title,'Quick Revision · Due Review');
 assert.deepEqual(started.ids,['phys-due']);
+questions.push({id:'anat-due',subject:'Anatomy',bank:'Marrow',chapterId:'A2'});
+state.attempts['anat-due']=[{id:'a4',correct:true,at:4}];
+call("nkSetRevisionScope('subject','Anatomy')");
+assert.deepEqual(Array.from(call('nkRevisionDeskData().due'),q=>q.id),['anat-due'],'Due respects subject focus');
+call("nkSetRevisionScope('bank','Marrow')");
+assert.deepEqual(Array.from(call('nkRevisionDeskData().unseen'),q=>q.id),[],'Bank focus excludes PrepLadder unseen');
+call("nkSetRevisionScope('topic','A1')");
+assert.deepEqual(Array.from(call('nkRevisionDeskData().wrong'),q=>q.id),['anat-wrong']);
+assert.deepEqual(Array.from(call('nkRevisionDeskData().due'),q=>q.id),[],'Topic focus excludes other due topics');
+call("nkStartRevisionQueue('wrong')");
+assert.deepEqual(started.ids,['anat-wrong'],'Focused mistake session contains only the chosen topic');
+call("nkSetRevisionScope('topic','A2')");
+call("nkStartRevisionQueue('due')");
+assert.deepEqual(started.ids,['anat-due'],'Focused Due session uses its filtered FSRS queue');
+call("nkSetRevisionScope('subject','')");
 for(let i=0;i<25;i++){const id='wrong-'+i;questions.push({id,subject:i%2?'Anatomy':'Physiology',bank:i%2?'Marrow':'PrepLadder'});state.attempts[id]=[{id:'wrong-attempt-'+i,correct:false,at:i+10}];}
 call("nkStartRevisionQueue('wrong')");
 assert.equal(started.ids.length,20,'Quick revision keeps a mistake session to 20 questions');

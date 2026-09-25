@@ -55,6 +55,24 @@ def main() -> None:
             assert scope == "All subjects · All question banks", f"Unexpected revision scope: {scope!r}"
             page.screenshot(path=str(output / "revision-desk-phone.png"), full_page=True)
 
+            page.get_by_role("button", name="Focus questions").click()
+            page.locator("#nk-revision-subject").select_option("Anatomy")
+            assert page.locator(".nk-revision-scope").inner_text() == "Anatomy · All question banks"
+            page.locator("#nk-revision-bank").select_option("Marrow")
+            assert page.locator(".nk-revision-scope").inner_text() == "Anatomy · Marrow"
+            assert cards.nth(0).locator("b").inner_text() == "1"
+            assert cards.nth(1).locator("b").inner_text() == "0"
+            page.locator("#nk-revision-topic").select_option(index=1)
+            assert "Anatomy · Marrow · " in page.locator(".nk-revision-scope").inner_text()
+            assert cards.nth(0).locator("b").inner_text() == "1"
+            cards.nth(0).get_by_role("button", name="View all mistakes").click()
+            assert page.locator(".nk-revision-item").count() == 1
+            assert "Anatomy · Marrow" in page.locator(".nk-v3-page-hero .nk-kicker").inner_text()
+            page.get_by_role("button", name="Quick revision").click()
+            page.get_by_role("button", name="Clear focus").click()
+            assert " ".join(page.locator(".nk-revision-scope").inner_text().split()) == "All subjects · All question banks"
+            assert cards.nth(1).locator("b").inner_text() == "1"
+
             cards.nth(0).get_by_role("button", name="View all mistakes").click()
             page.get_by_role("heading", name="Mistakes").wait_for(state="visible")
             items = page.locator(".nk-revision-item")

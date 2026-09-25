@@ -52,6 +52,9 @@ checked deterministic rollout ledger.
   `studyModules` (max 100, normalized; see `docs/CUSTOM_STUDY_MODULES.md`).
   Question notes use `tools/question_notes_core.js` and one independent cloud
   envelope per question; see `docs/QUESTION_NOTES.md`.
+  Quick Revision keeps its optional subject/bank/topic focus in page memory;
+  `tools/revision_desk_core.js` filters question pools and passes the same
+  scope to `nkFsrsQueue`, whose daily cap still counts reviews across all banks.
 - Attempt helpers: `qAttempts(id)`, `latestAttempt(id)`, `chapterStats(id)`,
   `chapterQuestions(id)`, `totalAttempted()`, `overallAccuracy()`,
   `pendingReviewCount()`, `dueQuestions()`, `wrongQuestions()`,

@@ -1315,3 +1315,10 @@ Implemented approved recovery in existing transform owners: Topics separate path
   `36139466345` passed at `a5f2380`. Preview `https://9907728f.nk-qbank.pages.dev`
   returns HTTP 200 with the Quick Revision markers. Production promotion was
   disabled. Physical user preview review remains pending.
+
+- User checked the Quick Revision preview and liked the addition. The next
+  candidate adds a collapsed subject/bank/topic focus within Quick Revision.
+  All four counts and practice sets, plus the searchable full lists, share
+  this scope. FSRS gained an optional bank filter before its queue cap, while
+  the daily review cap remains global. Local behavior checks pass; generated
+  browser/PWA/APK/emulator verification and physical preview review are next.

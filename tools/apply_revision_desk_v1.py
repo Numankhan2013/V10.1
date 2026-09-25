@@ -13,6 +13,19 @@ CSS = """<style id="nk-revision-desk-v1">
 .nk-revision-desk{padding-bottom:24px}
 .nk-revision-scope{display:flex;align-items:center;gap:7px;margin:0 0 14px;color:#586a90;font-size:12px;font-weight:800}
 .nk-revision-scope span{color:#9ba5ba}
+.nk-revision-focus-wrap{margin-bottom:14px}
+.nk-revision-focus-wrap .nk-revision-scope{margin-bottom:4px;line-height:1.4}
+.nk-revision-focus-toggle{min-height:44px;padding:0 10px;border:0;border-radius:9px;background:transparent;color:#3658ad;font:inherit;font-size:12px;font-weight:800;display:inline-flex;align-items:center;gap:8px}
+.nk-revision-focus-toggle:focus-visible,.nk-revision-clear:focus-visible,.nk-revision-focus select:focus-visible{outline:3px solid #8ca3ed;outline-offset:2px}
+.nk-revision-focus[hidden]{display:none}
+.nk-revision-focus{margin-top:7px;padding:13px;border:1px solid #dce3ef;border-radius:13px;background:#fff}
+.nk-revision-focus p{margin:0 0 11px;color:#697592;font-size:12px}
+.nk-revision-focus-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.nk-revision-focus label{display:grid;gap:5px;color:#526893;font-size:11px;font-weight:800}
+.nk-revision-focus select{width:100%;min-width:0;min-height:44px;padding:0 9px;border:1px solid #dce3ef;border-radius:9px;background:#fff;color:#17204b;font:inherit;font-size:12px}
+.nk-revision-focus select:disabled{background:#f6f7fa;color:#939db0}
+.nk-revision-clear{min-height:44px;margin-top:9px;padding:0 9px;border:0;border-radius:9px;background:transparent;color:#3658ad;font:inherit;font-size:12px;font-weight:800}
+@media(max-width:540px){.nk-revision-focus-fields{grid-template-columns:1fr}}
 .nk-revision-list{display:grid;gap:11px}
 .nk-revision-card{padding:14px;border:1px solid #dce3ef;border-radius:14px;background:#fff;color:#17204b}
 .nk-revision-card-head{display:grid;grid-template-columns:38px 1fr auto;align-items:center;gap:11px}
@@ -65,7 +78,7 @@ def transform(source: str) -> str:
     source = replace_once(source, OLD_MORE_ROWS, NEW_MORE_ROWS, "More revision entry")
     bridge = "  window.QB={nkFilterNotes,nkOpenNotedQuestion,"
     source = replace_once(source, bridge,
-                          CORE.read_text(encoding="utf-8").rstrip() + "\n\n  window.QB={nkFilterNotes,nkOpenNotedQuestion,nkStartRevisionQueue,nkFilterRevisionBrowse,nkOpenRevisionQuestion,",
+                          CORE.read_text(encoding="utf-8").rstrip() + "\n\n  window.QB={nkFilterNotes,nkOpenNotedQuestion,nkStartRevisionQueue,nkFilterRevisionBrowse,nkOpenRevisionQuestion,nkToggleRevisionFocus,nkSetRevisionScope,",
                           "revision core and action")
     return source
 
