@@ -29,8 +29,19 @@ step was not the primary source of friction.
 
 The fix makes topics part of ordinary page scrolling, adds a live search,
 enlarges the complete row target and text, shows per-bank selected counts,
-offers a one-tap bank selection, and updates selections in place. A persistent
-Continue action shows the number selected and stays above the bottom nav.
+offers a one-tap bank selection when multiple banks are chosen, and updates
+selections in place. A persistent Continue action shows the number selected
+and stays above the bottom nav.
+
+![Phone after a deep topic tap](03-phone-deep-selected-after.png)
+
+![Tablet after a deep topic tap](04-tablet-deep-selected-after.png)
+
+These after captures are from the 390px/820px browser run
+[36098725634](https://github.com/Numankhan2013/V10.1/actions/runs/36098725634).
+The run also captured the initial 320px and larger-text states. A final small
+cleanup hides the per-bank action when only one bank is selected; it does not
+change the rows pictured above.
 
 ## Step 3 — Build question pool: usable, cramped
 
@@ -56,5 +67,8 @@ bottom Back button is removed and review text is enlarged.
 ## Verification
 
 The browser capture checks a deep topic tap without a scroll jump, live search,
-the removal of nested scrolling, and completion of the existing module and PYQ
-journeys. Add after screenshots and exact-head build status from the next run.
+the removal of nested scrolling, full tablet row width, a visible phone
+Continue action, and completion of the existing module and PYQ journeys.
+The final candidate additionally checks that single-bank modules do not show
+a duplicate group action and that per-bank selection works with two banks.
+Exact-head full build and physical Android review must be checked separately.

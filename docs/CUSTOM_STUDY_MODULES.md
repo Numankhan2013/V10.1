@@ -79,8 +79,9 @@ resume progress, and Home prioritization.
 
 Step 2 uses the page's normal vertical scroll, with one visible row per topic.
 Search filters the rendered rows by topic, subject, or bank without changing
-the selected topic IDs. Select all, Clear all, and per-bank selection act on
-the complete selected bank scope. Selecting a row updates its pressed state,
+the selected topic IDs. Select all and Clear all act on the complete selected
+bank scope; per-bank selection appears when multiple banks are chosen.
+Selecting a row updates its pressed state,
 checkbox, counts, and Continue availability directly in the DOM, preserving
 scroll and focus. The final question set still uses the same bank-aware topic
 keys and eligibility logic. See the [screen audit](audits/custom-module-topics-2026-09-25/README.md).

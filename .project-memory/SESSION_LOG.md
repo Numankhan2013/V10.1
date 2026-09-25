@@ -1211,3 +1211,15 @@ Implemented approved recovery in existing transform owners: Topics separate path
   top Back control remains. Bank/topic IDs and pool logic are unchanged.
 - Local source checks passed (`verify_local.py`: 51 checks, PDF pipeline skipped
   on Termux). Exact-head CI, after screenshots, and physical review are next.
+- `bb341b6` passed Engineering `36097427788`, but its first capture showed
+  Continue below the viewport on long phone lists and a half-width tablet
+  list. `b48b45c` fixed the phone action; its browser run `36098059617`
+  failed the new tablet-width assertion because a later PWA stylesheet forced
+  two topic-group columns. `08b9e37` overrode that rule with builder scope.
+- Browser capture on `08b9e37` passed at 320px, 390px, larger text, and tablet,
+  including deep-row selection without a scroll jump, search, full-width
+  tablet rows, and fixed phone Continue. Before/after evidence is in
+  `docs/audits/custom-module-topics-2026-09-25/`.
+- Final interaction cleanup hides the per-bank group action when just one bank
+  is selected; with two banks, each group can still select its own topics.
+  Exact-head full CI for this last cleanup and device review remain pending.

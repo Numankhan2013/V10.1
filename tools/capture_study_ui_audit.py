@@ -117,6 +117,16 @@ def main():
                         f"Topic search did not narrow the list at {label}"
                     capture(page, f"{label}-01d-module-topics-search", observations)
                     page.locator(".nk-module-topic-search input").fill("")
+                    assert page.locator(".nk-module-group-action").count() == 0, \
+                        f"Single-bank picker duplicates Select all at {label}"
+                    page.evaluate("window.QB.nkModuleBuilderStep(1)")
+                    page.locator("button.nk-module-subject").filter(has_text="Marrow").first.click()
+                    page.evaluate("window.QB.nkModuleBuilderStep(2)")
+                    assert page.locator(".nk-module-topic-group").count() == 2, f"Second bank is missing at {label}"
+                    page.locator(".nk-module-topic-group").nth(1).locator(".nk-module-group-action").click()
+                    assert page.locator(".nk-module-topic-group").nth(1).locator(".nk-module-topic.is-selected").count() > 0, \
+                        f"Bank topic selection failed at {label}"
+                    capture(page, f"{label}-01d-module-topics-two-banks", observations)
                     page.evaluate("window.QB.nkSetAllModuleTopics(true);window.QB.nkModuleBuilderStep(3)")
                     capture(page, f"{label}-01e-module-pool", observations, full_page=True)
                     page.evaluate("window.QB.nkModuleBuilderStep(4)")

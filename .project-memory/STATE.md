@@ -32,15 +32,15 @@
   restored at `8339764`; the user confirmed the revised flow works.
 - The custom module topic picker was found to have 50px rows inside a 390px
   scroll box. Each tap rerendered the app and lost scroll position. Candidate
-  replaces it with a full page searchable list, larger rows, bank selection,
-  live in-place selection and a visible Continue action. Require exact-head
-  browser/PWA/APK CI and physical preview review before integration.
+  replaces it with a full page searchable list, larger rows, multi-bank group
+  selection, live in-place selection and visible Continue. The 320px/390px/
+  tablet/larger-text capture passed at `08b9e37`; final cleanup needs exact-head
+  full CI and physical review.
 - Tests, FSRS and Insights stay dedicated; More keeps saved-question lists.
   The builder retains Wrong, Unattempted, Bookmarked, Mixed and PYQ pools.
 - PYQs: 1,118 PrepLadder questions in 27 labelled topics (Biochemistry 346,
   Physiology 362, Anatomy 410). Marrow ED8 has no PYQ/exam/year metadata.
-- Next: inspect the topic-picker capture and exact-head CI preview, then ask
-  for physical verdict. No canonical merge or production promotion yet.
+- Next: final exact-head CI and physical verdict; no canonical merge or production promotion.
 
 ## Product architecture to preserve
 

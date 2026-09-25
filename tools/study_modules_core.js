@@ -266,7 +266,7 @@
       const count=topics.filter(topic=>selected.has(nkModuleTopicKey(record.subject,topic.id,nkModuleBankName(record)))).length;
       const status=group.querySelector('.nk-module-group-count'),action=group.querySelector('.nk-module-group-action');
       if(status)status.textContent=`${count} of ${topics.length} selected`;
-      if(action)action.textContent=count===topics.length?'Clear bank':'Select bank';
+      if(action)action.textContent=count===topics.length?`Clear ${topics.length}`:`Select ${topics.length}`;
     });
     const label=`${selected.size} topic${selected.size===1?'':'s'} selected`;
     for(const id of ['nk-module-selected-count','nk-module-footer-count']){
@@ -365,7 +365,8 @@
     const groups=records.map((record,subjectIndex)=>{
       const bank=nkModuleBankName(record);if(!(studyModuleDraft.scopeIds||[]).includes(nkModuleScopeKey(record.subject,bank)))return'';
       const topics=nkModuleTopics(record),count=topics.filter(topic=>selected.has(nkModuleTopicKey(record.subject,topic.id,bank))).length;
-      return `<section class="nk-module-topic-group" data-subject-index="${subjectIndex}"><header><span class="is-${nkAppSubjectMeta(record.subject).key}">${nkAppSubjectIcon(record.subject,20)}</span><div><strong class="nk-module-group-title">${esc(record.subject)} · ${esc(bank)}</strong><small class="nk-module-group-count">${count} of ${topics.length} selected</small></div><button type="button" class="nk-module-group-action" onclick="window.QB.nkSetModuleBankTopics(${subjectIndex})">${count===topics.length?'Clear bank':'Select bank'}</button></header><div class="nk-module-topic-list">${topics.map((topic,topicIndex)=>{
+      const groupAction=active.length>1?`<button type="button" class="nk-module-group-action" onclick="window.QB.nkSetModuleBankTopics(${subjectIndex})">${count===topics.length?`Clear ${topics.length}`:`Select ${topics.length}`}</button>`:'';
+      return `<section class="nk-module-topic-group" data-subject-index="${subjectIndex}"><header><span class="is-${nkAppSubjectMeta(record.subject).key}">${nkAppSubjectIcon(record.subject,20)}</span><div><strong class="nk-module-group-title">${esc(record.subject)} · ${esc(bank)}</strong><small class="nk-module-group-count">${count} of ${topics.length} selected</small></div>${groupAction}</header><div class="nk-module-topic-list">${topics.map((topic,topicIndex)=>{
         const picked=selected.has(nkModuleTopicKey(record.subject,topic.id,bank)),pyq=nkModuleTopicHasCollection(record,topic.id,'pyq');
         return `<button type="button" class="nk-module-topic ${picked?'is-selected':''}" data-subject-index="${subjectIndex}" data-topic-index="${topicIndex}" aria-pressed="${picked}" onclick="window.QB.nkToggleModuleTopic(${subjectIndex},${topicIndex})"><span class="nk-module-topic-copy"><strong>${esc(topic.title)}</strong><small>${fmtNum(topic.questionCount)} questions${pyq?' · PYQs':''}</small></span><span class="nk-module-check" aria-hidden="true">${picked?navIcon('check',16):''}</span></button>`;
       }).join('')}</div></section>`;
