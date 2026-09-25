@@ -45,11 +45,16 @@ run(`studyModuleDraft={scopeIds:[nkModuleScopeKey('Biochemistry','Marrow')],subj
 assert.deepEqual([...run(`nkSelectModuleQuestionIds(studyModuleDraft,'marrow')`)],['marrow-gly-1']);
 assert.equal(run(`nkModuleScopeLabels(studyModuleDraft)[0]`),'Biochemistry · Marrow');
 
-// The PYQ shortcut uses only explicit source collection metadata.
-run(`studyModuleDraft={scopeIds:[nkModuleScopeKey('Biochemistry','PrepLadder')],subjectIds:['Biochemistry'],topicIds:[],questionPoolType:'all',collectionFilter:'all',questionCount:20}`);
+// PYQ is topic-owned: the shortcut selects PYQ topics, while Questions adds no second source filter.
+run(`studyModuleDraft={scopeIds:[nkModuleScopeKey('Biochemistry','PrepLadder')],subjectIds:['Biochemistry'],topicIds:[],questionPoolType:'all',collectionFilter:'all',questionCount:20,countMode:20}`);
 run('nkSelectModulePyqTopics()');
 assert.equal(run('studyModuleDraft.collectionFilter'),'pyq');
 assert.deepEqual([...run(`nkSelectModuleQuestionIds(studyModuleDraft,'pyq')`)],['bio-pyq-1']);
+assert.ok(!run('nkModuleBuilderPool()').includes('Source collection'));
+assert.ok(run('nkModuleBuilderPool()').includes('Topics already define what is included'));
+run(`studyModuleDraft.topicIds.push(nkModuleTopicKey('Biochemistry','gly','PrepLadder'))`);
+assert.equal(run(`nkQuestionsForModuleDraft().some(q=>q.id==='bio-gly-1')`),true);
+assert.equal(run(`nkQuestionsForModuleDraft().some(q=>q.id==='bio-pyq-1')`),true);
 assert.equal(marrowQuestions[0].studyCollections,undefined);
 assert.equal(run("nkQuickStudyCount('wrong')"),2);
 assert.equal(run("nkQuickStudyCount('pyq')"),2);
@@ -103,7 +108,7 @@ assert.equal(run('nkPriorityStudyModule().id'),'m1');
 state.studyModules[0].isCompleted=true;
 assert.equal(run('nkPriorityStudyModule().id'),'m2');
 
-console.log('CUSTOM_STUDY_MODULE_BEHAVIOR_OK: bank isolation, source-backed PYQ, filters, caps, frozen IDs, 12/30 resume, persistence, and Home priority');
+console.log('CUSTOM_STUDY_MODULE_BEHAVIOR_OK: bank isolation, topic-owned PYQ scope, question filters, caps, frozen IDs, 12/30 resume, persistence, and Home priority');
 '''
 
 
