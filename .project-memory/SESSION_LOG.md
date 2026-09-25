@@ -1182,3 +1182,11 @@ Implemented approved recovery in existing transform owners: Topics separate path
   capture-only condition was then fixed so the PYQ screenshot avoids a toast
   caused by toggling the already selected PrepLadder bank. Physical review of
   the cleaned flow and a saved-module state are outstanding.
+- The user rejected the clean Home visual at `fcd9869`: Today's Focus supplied
+  the Home feeling, and the streak belongs at the top. They accepted the
+  remaining navigation cleanup. Official Marrow QBank and PrepLadder QBank/
+  streak references were inspected. Restore the streak above a persistent
+  Today’s Focus card; give fresh users an honest subject jump, resume active
+  Practice or unfinished modules when present, and suppress a duplicated
+  Continue button on the focused saved-module card. Keep Tests, More and
+  Insights simplification intact. Capture both fresh and saved-module Home.

@@ -46,7 +46,9 @@ exam, year or repeat status. The builder's `PYQ topics` shortcut and `PYQs`
 filter use that facet. A future bank can supply its own verified
 `studyCollections` without changing the builder.
 
-Home shows saved modules and one Create module action. The builder itself
+Home's Today’s Focus resumes the most relevant unfinished module; its saved
+card still shows scope and progress without repeating the same Continue
+button. Home otherwise shows saved modules and one Create module action. The builder itself
 contains Wrong, Unattempted, Mixed, Bookmarked, and source-labelled PYQ
 selection, so the Home screen does not repeat those actions as separate
 launchers. Step 3 names every selected subject and bank, shows the eligible

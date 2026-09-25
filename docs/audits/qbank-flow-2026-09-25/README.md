@@ -8,7 +8,7 @@ build scripts to distinguish destinations that only look similar.
 
 | Step | Screen | Health | Finding | Change |
 | --- | --- | --- | --- | --- |
-| 1 | [Home](01-home-before.png) | Needs work | FSRS, module creation, session history, and progress each recur in multiple Home sections. On a fresh account, “Continue Practice” opens subject selection. Empty performance sections make the page long before there is any study data. | Show a continuation card only when there is something to continue. Keep saved modules, subjects, and one progress summary; use the dedicated tabs for FSRS, Tests, and Insights. |
+| 1 | [Home](01-home-before.png) | Needs work | FSRS, module creation, session history, and progress each recur in multiple Home sections. On a fresh account, “Continue Practice” opens subject selection. Empty performance sections make the page long before there is any study data. | Keep the top streak and Today’s Focus; make the focus action honest for each study state. Remove only duplicate secondary launchers and empty sections. |
 | 2 | [Module builder](02-module-builder-before.png) | Good | The selected banks, topics, question type, PYQ source and count are explicit before creation. “Change banks/topics” has a clear purpose. | Preserve the builder and its filters. Home has one module-creation entry in the empty state. |
 | 3 | [Tests](03-tests-before.png) | Needs work | “Full Question Bank” and “Custom Module” reach the same timed builder. The Practice tab sends Custom Module to the study-module builder. The count on Tests is repeated in the timed builder. | Make Tests a timed-test destination. Use one subject/topic builder, with wrong/bookmarked quick tests as distinct history-based sources. Put completed tests here. |
 | 4 | [Timed builder](04-test-builder-before.png) | Good | Subjects, topics, count and the Start action are visible in one place. | Keep it as the canonical subject/topic setup for timed tests. |
@@ -18,7 +18,7 @@ build scripts to distinguish destinations that only look similar.
 | 8 | [FSRS](08-fsrs-before.png) | Good | Subject selection and due-review information form a dedicated task. | Keep the dedicated tab; remove Home and More copies of its entry point. |
 | 9 | [Results](09-result-before.png) | Mixed | Review Solutions appears near the top and again beside “Every answer”; both open the same review. | Keep the primary Review Solutions action and remove the duplicate. |
 
-## After the cleanup
+## First cleanup candidate — Home rejected
 
 The generated app at `c863f1f` passed Engineering run `36051479141` and the
 full browser, PWA, APK, and Android WebView run `36051447529`. The fresh-state
@@ -29,6 +29,19 @@ list ahead of the streak display. The 320px Create module action is at least
 builder plus separate wrong/bookmarked quick tests; it no longer offers two
 buttons for the same builder. The full capture artifact on the build run also
 includes More, Insights, FSRS, module steps, and question and result screens.
+
+The user rejected this Home layout: moving the streak down and hiding Today’s
+Focus stripped out the sense of a personal study dashboard. They accepted the
+other flow changes. The next candidate restores the streak and focus hierarchy
+while keeping the deduplicated navigation.
+
+Reference check: [Marrow’s QBank guide](https://www.marrow.com/how-to-use-qbank-document)
+emphasizes a consistent solving and revision habit, and its [QBank overview](https://www.marrow.com/)
+shows visible progress and subject structure. [PrepLadder’s app guide](https://www.prepladder.com/help-center/prepladder-modules/how-to-create-test-or-qbank-practise-module)
+keeps module creation inside a deliberate QBank flow; its [Medical PG dashboard example](https://www.prepladder.com/courses/medical-pg/offerings)
+gives the streak its own prominent space. Our design inference is to keep one
+clear daily study anchor above the library, then show the module and subject
+choices without extra copies of their actions.
 
 ## Accessibility and evidence limits
 

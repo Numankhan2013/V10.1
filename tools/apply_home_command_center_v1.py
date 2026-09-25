@@ -69,11 +69,17 @@ HELPERS = r'''
     const r=nkPreferredRecord(ctx.q.subject),bank=ctx.q.bank||r?.bank;if(typeof openBank==='function'&&bank)openBank(ctx.q.subject,bank);else if(typeof openSubjectTopics==='function')openSubjectTopics(ctx.q.subject);
     const ids=nkTopicQuestionIds(ctx.q);if(ids.length)startSession(ids,'practice',ctx.topic||`${ctx.subject} Practice`);else navigate('study-library');
   }
-  function nkHomeFocusSection(focus){
-    if(!focus||state.activeSession?.studyModuleId)return '';
-    const title=focus.topic||'Continue studying';
-    const copy=focus.live?'Pick up exactly where you left off.':'Continue the next part of your study path.';
-    return `<section class="nk-home-focus-card"><div class="nk-home-focus-label">CONTINUE STUDYING</div><h2>${esc(title)}</h2><p>${esc(copy)}</p><button class="nk-focus-primary nk-home-focus-action" onclick="window.QB.nkContinueRecentPractice()"><span>Continue Practice</span><span>→</span></button></section>`;
+  function nkHomeFocusModule(focus){
+    if(focus?.live&&!state.activeSession?.studyModuleId)return null;
+    const active=state.activeSession?.studyModuleId?nkFindStudyModule(state.activeSession.studyModuleId):null;
+    return active&&!active.isCompleted?active:nkPriorityStudyModule();
+  }
+  function nkHomeFocusSection(focus,module){
+    const title=module?module.name:focus?.topic||'Choose your next topic';
+    const copy=module?`${nkModuleProgress(module).remaining} questions remain in this study set.`:focus?.live?'Pick up exactly where you left off.':focus?'Return to this topic and keep your momentum.':'Pick a subject below and make today’s study session yours.';
+    const action=module?`window.QB.startStudyModule('${esc(module.id)}')`:focus?'window.QB.nkContinueRecentPractice()':"document.querySelector('.nk-home-subjects')?.scrollIntoView({behavior:'smooth',block:'start'})";
+    const label=module?'Continue module':focus?.live?'Continue Practice':focus?'Practice this topic':'Choose a subject';
+    return `<section class="nk-home-focus-card"><div class="nk-home-focus-label">TODAY'S FOCUS</div><h2>${esc(title)}</h2><p>${esc(copy)}</p><span class="nk-home-focus-heart" aria-hidden="true">♡</span><button class="nk-focus-primary nk-home-focus-action" onclick="${action}"><span>${label}</span><span>→</span></button></section>`;
   }
   function nkHomeRangeStart(range){const d=new Date();d.setHours(0,0,0,0);if(range==='today')return d.getTime();if(range==='week'){d.setDate(d.getDate()-((d.getDay()+6)%7));return d.getTime();}if(range==='month'){d.setDate(1);return d.getTime();}d.setMonth(0,1);return d.getTime();}
   function nkHomeProgressStats(range=nkHomeProgressRange){
@@ -152,7 +158,7 @@ HELPERS = r'''
 '''
 
 DASHBOARD = r'''function dashboard(){
-    const total=nkHomePreferredTotal(),progress=nkHomeProgressStats(),focus=nkLatestPracticeContext();
+    const total=nkHomePreferredTotal(),progress=nkHomeProgressStats(),focus=nkLatestPracticeContext(),focusModule=nkHomeFocusModule(focus);
     const attemptedPct=total?Math.min(100,Math.round(progress.attempted/total*100)):0,accuracyPct=Math.min(100,Math.round(progress.accuracy||0)),mins=Math.floor(progress.studyMs/60000),studyText=progress.studyMs?`${Math.floor(mins/60)?Math.floor(mins/60)+'h ':''}${mins%60}m`:'—',studyPct=progress.studyMs?Math.max(8,Math.min(100,Math.round(mins/360*100))):0;
     const streak=currentStreak(),now=new Date(),monday=new Date(now);monday.setHours(0,0,0,0);monday.setDate(monday.getDate()-((monday.getDay()+6)%7));const activeDays=new Set();for(const items of Object.values(state.attempts||{}))for(const a of items||[])if(a?.at)activeDays.add(dayKey(new Date(a.at)));const names=['M','T','W','T','F','S','S'];const week=Array.from({length:7},(_,i)=>{const d=new Date(monday);d.setDate(monday.getDate()+i);return `<span class="nk-home-week-day ${activeDays.has(dayKey(d))?'is-done':''} ${dayKey(d)===dayKey(now)?'is-today':''}"><i></i><b>${names[i]}</b></span>`}).join('');
     const rangeLabels={today:'Today',week:'This Week',month:'This Month',year:'This Year'};
@@ -291,12 +297,7 @@ def transform(source: str) -> str:
                    '<section class="nk-v3-section"><div class="nk-v3-section-head"><div><small>RECENT</small>',
                    '<section class="nk-v3-section nk-home-review">'):
         dashboard = remove_home_section(dashboard, marker)
-    streak_start = dashboard.index('<section class="nk-home-streak-card">')
-    streak_end = dashboard.index('</section>', streak_start) + len('</section>')
-    streak = dashboard[streak_start:streak_end]
-    dashboard = dashboard[:streak_start] + dashboard[streak_end:]
-    dashboard = dashboard.replace('<section class="nk-v3-section nk-home-subjects">', '${nkHomeFocusSection(focus)}${nkStudySetsSection()}<section class="nk-v3-section nk-home-subjects">', 1)
-    dashboard = dashboard.replace('<section class="nk-home-progress">', streak + '<section class="nk-home-progress">', 1)
+    dashboard = dashboard.replace('<section class="nk-v3-section nk-home-subjects">', '${nkHomeFocusSection(focus,focusModule)}${nkStudySetsSection(focusModule?.id)}<section class="nk-v3-section nk-home-subjects">', 1)
     source=replace_function(source,'dashboard',HELPERS+'\n'+dashboard)
     source=replace_function(source,'bottomNav',BOTTOM_NAV)
     source=replace_function(source,'testsPage',TESTS_PAGE)
@@ -319,7 +320,7 @@ def transform(source: str) -> str:
     source=re.sub(r'<style id="nk-home-command-center-v1">[\s\S]*?</style>','',source,count=1)
     if '</head>' not in source:raise SystemExit('closing head not found')
     source=source.replace('</head>',CSS+'\n</head>',1)
-    required=[FLOW_MARKER,'My Subjects','My Progress','nkHomeFocusSection(focus)','nkStudySetsSection()','FSRS Review','Every answered question is scheduled here','pausing keeps untouched questions out','study-library',"['fsrs','FSRS'",'Timed tests','Choose subjects and topics','Quick test','Completed tests',"timerMode='per-question'",'nkExpireTopicQuestion','Time expired','nkStartTopicTimedTest','nkOpenSubjectLibrary','nkMarkSkippedFromSession(s)','nkFsrsLaunchQueue','nkFsrsQueue({subject})','due reviews roll forward under your daily limit']
+    required=[FLOW_MARKER,'My Subjects','My Progress','nkHomeFocusSection(focus,focusModule)','nkStudySetsSection(focusModule?.id)',"TODAY'S FOCUS",'FSRS Review','Every answered question is scheduled here','pausing keeps untouched questions out','study-library',"['fsrs','FSRS'",'Timed tests','Choose subjects and topics','Quick test','Completed tests',"timerMode='per-question'",'nkExpireTopicQuestion','Time expired','nkStartTopicTimedTest','nkOpenSubjectLibrary','nkMarkSkippedFromSession(s)','nkFsrsLaunchQueue','nkFsrsQueue({subject})','due reviews roll forward under your daily limit']
     missing=[x for x in required if x not in source]
     if missing:raise SystemExit(f'Home V3 markers missing: {missing}')
     return source

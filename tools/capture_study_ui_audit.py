@@ -63,6 +63,15 @@ def main():
                     # exact Android font scale still needs physical verification.
                     page.add_style_tag(content="html{font-size:125% !important;-webkit-text-size-adjust:150% !important;text-size-adjust:150% !important}")
                 capture(page, f"{label}-01-home", observations)
+                assert page.locator(".nk-home-streak-card").count() == 1, f"Home streak missing at {label}"
+                assert page.locator(".nk-home-focus-card").count() == 1, f"Today's Focus missing at {label}"
+                assert page.evaluate("""() => {
+                  const streak=document.querySelector('.nk-home-streak-card').getBoundingClientRect();
+                  const focus=document.querySelector('.nk-home-focus-card').getBoundingClientRect();
+                  const sets=document.querySelector('.nk-study-sets').getBoundingClientRect();
+                  return streak.top<focus.top && focus.top<sets.top;
+                }"""), f"Home study hierarchy changed at {label}"
+                assert page.locator(".nk-home-focus-action").inner_text().startswith("Choose a subject"), f"Fresh Home focus action is misleading at {label}"
                 if label in ("phone", "tablet"):
                     capture(page, f"{label}-01-home-full", observations, full_page=True)
                     page.evaluate("window.QB.openStudyModuleBuilder()")
@@ -79,6 +88,11 @@ def main():
                         page.locator("button.nk-module-subject").filter(has_text="PrepLadder").first.click()
                     page.evaluate("window.QB.nkModuleBuilderStep(2);window.QB.nkSelectModulePyqTopics();window.QB.nkModuleBuilderStep(3)")
                     capture(page, f"{label}-01g-pyq-filter", observations, full_page=True)
+                    page.evaluate("window.QB.nkModuleBuilderStep(4);window.QB.nkCreateStudyModule(false)")
+                    page.wait_for_timeout(3200)
+                    assert page.locator(".nk-home-focus-action").inner_text().startswith("Continue module"), "Saved module is not today's focus"
+                    assert page.locator(".nk-study-set-card .nk-study-set-action").count() == 0, "Home repeats the focused module action"
+                    capture(page, f"{label}-01l-home-saved-module", observations, full_page=True)
                     page.evaluate("window.QB.nav('dashboard');window.QB.nav('more')")
                     capture(page, f"{label}-01h-more", observations, full_page=True)
                     page.evaluate("window.QB.nav('wrong')")

@@ -28,18 +28,16 @@
 - Isolated branch: `feature/qbank-bank-aware-modules-20260924`; resolve live
   HEAD and CI before integration. Production and canonical are untouched.
 - Bank-scoped modules/PYQs passed browser, APK and emulator at `620d3aa`;
-  the user confirmed the preview works and prioritized duplicate-navigation
-  cleanup. `c863f1f` passed Engineering `36051479141` and full browser/PWA/APK/
-  Android `36051447529`; preview `https://6ac240e8.nk-qbank.pages.dev`.
-  Resolve latest exact-head CI and physical review before acceptance.
-- The cleanup retains one Home module action, a conditional Continue card,
-  dedicated timed Tests, FSRS and Insights, saved-question lists in More, and
-  distinct chapter Practice/Timed Test. The module builder still contains
+  the user confirmed that flow works. `fcd9869` passed all CI, but the user
+  rejected its Home look: the streak moved down and Today's Focus vanished.
+  A new candidate restores both while retaining the accepted flow cleanup.
+- Tests, FSRS and Insights stay dedicated; More keeps saved-question lists.
+  The module builder still contains
   Wrong, Unattempted, Bookmarked, Mixed and PYQ pools.
 - PYQs: 1,118 PrepLadder questions in 27 labelled topics (Biochemistry 346,
   Physiology 362, Anatomy 410). Marrow ED8 has no PYQ/exam/year metadata.
-- Next: obtain the user's physical verdict on the cleanup preview and check
-  a saved-module state before acceptance. No
+- Next: pass exact-head browser/APK/emulator CI, inspect fresh and saved-module
+  Home captures, then request a physical verdict. No
   canonical merge or production promotion before acceptance.
 
 ## Product architecture to preserve

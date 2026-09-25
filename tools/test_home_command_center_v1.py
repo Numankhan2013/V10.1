@@ -35,9 +35,9 @@ window.QB={openStudyModuleBuilder};
     subprocess.run(['node','--check'],input=script,text=True,check=True)
 
     required=(
-        FLOW_MARKER,STYLE_ID,'nk-home-approved-v1','CONTINUE STUDYING','Continue Practice',
+        FLOW_MARKER,STYLE_ID,'nk-home-approved-v1',"TODAY'S FOCUS",'Continue Practice','Choose a subject',
         'body:has(.nk-home-approved-v1) .nk-global-header-v114{display:none!important}',
-        'nkHomeFocusSection(focus)','nkStudySetsSection()',
+        'nkHomeFocusSection(focus,focusModule)','nkStudySetsSection(focusModule?.id)',
         'FSRS','My Subjects','nkSubjectStatsV3','nkOpenSubjectLibrary',
         'STUDY LIBRARY','study-library','complete topic journey','My Progress','Today','This Week','This Month','This Year',
         'FSRS Review','Choose subject','All Subjects','Every answered question is scheduled here','pausing keeps untouched questions out',
@@ -71,8 +71,8 @@ window.QB={openStudyModuleBuilder};
     home=updated.split('function dashboard(){',1)[1].split('function bottomNav(',1)[0]
     tests=updated.split('function testsPage(){',1)[1].split('function examPage()',1)[0]
     if '<section class="nk-home-quick-grid"' in home or 'Strongest Chapters' in home or "Today's Review" in home:raise SystemExit('Home retained duplicate launch surfaces')
-    if not home.index('${nkStudySetsSection()}') < home.index('nk-home-subjects') < home.index('nk-home-streak-card'):
-        raise SystemExit('Home places study actions below the streak decoration')
+    if not home.index('nk-home-streak-card') < home.index('${nkHomeFocusSection(focus,focusModule)}') < home.index('${nkStudySetsSection(focusModule?.id)}') < home.index('nk-home-subjects'):
+        raise SystemExit('Home lost its streak, Today focus, study sets, subjects hierarchy')
     if 'nk-test-mode-tabs' in tests or 'Custom Module' in tests or 'Full Question Bank' in tests:raise SystemExit('Tests retained duplicate setup paths')
     for fn in ('dashboard','bottomNav','testsPage','examPage','startExamTicker','submitExam'):
         if updated.count(f'function {fn}(')!=1:raise SystemExit(f'{fn} duplicated or missing')
