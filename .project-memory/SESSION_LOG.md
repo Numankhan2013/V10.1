@@ -1345,3 +1345,9 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - New deterministic transform, behavior check, and generated browser journey
   are wired into Engineering and full build. Local checks pass; generated
   browser/PWA/APK/emulator verification and physical preview review are next.
+- Candidate `d8e50e0` passed Engineering `36149901357` and full generated
+  browser/PWA/APK/Android emulator `36149908749`. The browser journey verified
+  no-evidence state, a three-answer Anatomy Marrow recommendation, direct
+  two-question Practice, and removal after an improved answer. Preview
+  `https://221f15a2.nk-qbank.pages.dev` returns HTTP 200 with the Insights
+  markers. Production was not promoted; physical user review remains.

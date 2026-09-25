@@ -16,3 +16,5 @@ model or Home action is added.
 Implementation: `tools/insights_focus_core.js` and
 `tools/apply_insights_focus_v1.py`. Checks: `tools/test_insights_focus_v1.py`
 and the generated browser journey `tools/verify_insights_focus_browser.py`.
+
+Build verification: Engineering `36149901357` and full generated browser/PWA/APK/Android emulator run `36149908749` passed at `d8e50e0`. Preview: https://221f15a2.nk-qbank.pages.dev. Production was not promoted; physical preview review is pending.
