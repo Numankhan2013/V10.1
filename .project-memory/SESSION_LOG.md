@@ -1309,3 +1309,9 @@ Implemented approved recovery in existing transform owners: Topics separate path
   bookmarked fixture was unintentionally due because no future schedule date
   was set. The fixture now gives that attempt a future FSRS date; rerun exact
   head before sharing the preview.
+- Corrected the browser scope assertion to normalize layout whitespace while
+  still requiring the exact all-subject/all-bank label. Exact-head Engineering
+  `36139455865` and full generated browser/PWA/APK/phone+tablet emulator run
+  `36139466345` passed at `a5f2380`. Preview `https://9907728f.nk-qbank.pages.dev`
+  returns HTTP 200 with the Quick Revision markers. Production promotion was
+  disabled. Physical user preview review remains pending.

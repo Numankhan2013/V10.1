@@ -22,3 +22,6 @@ Implementation: `tools/revision_desk_core.js` and
 `tools/apply_revision_desk_v1.py`. Verification: the behavior/transform check
 `tools/test_revision_desk_v1.py` and generated-app browser journey
 `tools/verify_revision_desk_browser.py`.
+
+
+Build verification: Engineering `36139455865` and full generated browser/PWA/APK/Android phone+tablet emulator run `36139466345` passed at `a5f2380`. Preview: https://9907728f.nk-qbank.pages.dev. Production was not promoted; physical user review is pending.
