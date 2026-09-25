@@ -1369,3 +1369,7 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - First full run `36153754707` reached the new browser journey, where its
   immediate bank-card count raced hash navigation. The check now waits for the
   rendered cards; rerun the full build. Engineering `36153754830` passed.
+- Second full run `36154572326` passed the new Marrow selection/scroll/exam
+  browser journey. It then hit the older screenshot audit's `#modal` assumption.
+  The audit now captures the full-page bank, topic, and count steps and starts
+  its CBT from that same new builder before continuing its question checks.

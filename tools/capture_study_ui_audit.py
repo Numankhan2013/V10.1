@@ -206,12 +206,19 @@ def main():
                 capture(page, f"{label}-13-tests", observations)
                 if label in ("phone", "tablet"):
                     capture(page, f"{label}-13-tests-full", observations, full_page=True)
-                    page.evaluate("window.QB.nkOpenCustomSource()")
-                    page.locator("#modal").wait_for(state="visible")
-                    capture(page, f"{label}-13b-test-builder", observations)
-                    page.evaluate("window.QB.closeModal()")
-                page.evaluate('window.QB.openSessionBuilder(null,"exam")')
-                page.locator("#modal").get_by_role("button", name="Start Exam", exact=True).click()
+                page.evaluate("window.QB.openTestBuilder()")
+                page.locator(".nk-cbt-builder .nk-module-subject").first.wait_for(state="visible")
+                if label in ("phone", "tablet"):
+                    capture(page, f"{label}-13b-test-banks", observations)
+                page.evaluate("window.QB.nkCbtSetStep(2)")
+                page.locator(".nk-cbt-topic-group").first.wait_for(state="visible")
+                if label in ("phone", "tablet"):
+                    capture(page, f"{label}-13c-test-topics", observations)
+                page.evaluate("window.QB.nkCbtSetStep(3)")
+                page.locator("#nk-cbt-custom-count").wait_for(state="visible")
+                if label in ("phone", "tablet"):
+                    capture(page, f"{label}-13d-test-questions", observations)
+                page.evaluate("window.QB.nkCbtStart()")
                 page.wait_for_function("window.QB.getState().activeSession?.mode==='exam'")
                 capture(page, f"{label}-14-cbt", observations)
                 page.locator(".option-list button").first.click()
