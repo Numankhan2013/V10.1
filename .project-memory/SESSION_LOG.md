@@ -1373,3 +1373,10 @@ Implemented approved recovery in existing transform owners: Topics separate path
   browser journey. It then hit the older screenshot audit's `#modal` assumption.
   The audit now captures the full-page bank, topic, and count steps and starts
   its CBT from that same new builder before continuing its question checks.
+- Third full run `36155392291` passed generated browser checks, the updated
+  screen-size audit, PWA packaging, and APK build. Phone/tablet captures showed
+  roomy topic rows and an accurately scoped pool; the count screen's bank list
+  was overly tall. Grouped bank names by subject and fixed the Start action
+  above mobile navigation. The Android emulator job failed before launch while
+  downloading the Google APIs system-image ZIP (unknown archive), not in app
+  interaction; rerun the exact new candidate after the UI polish.

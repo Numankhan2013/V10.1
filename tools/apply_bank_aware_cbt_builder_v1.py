@@ -33,7 +33,7 @@ CSS = '''<style id="nk-bank-aware-cbt-builder-v1">
 .nk-cbt-count input{display:block;width:100%;height:48px;box-sizing:border-box;margin-top:6px;padding:0 12px;border:1px solid #dfe4ed;border-radius:10px;background:#fff;color:#1b2855;font:inherit;font-size:15px}
 .nk-cbt-timing{display:flex;gap:11px;align-items:flex-start;margin-top:18px;padding:14px;border:1px solid #dfe7fb;border-radius:12px;background:#f2f5ff;color:#334d93}
 .nk-cbt-timing>span{flex:none}.nk-cbt-timing strong{font-size:13px}.nk-cbt-timing p{margin:5px 0 0;font-size:11px;line-height:1.5}
-@media(max-width:620px){.nk-cbt-bank-intro{align-items:flex-start;flex-direction:column}.nk-cbt-builder .nk-module-subject{min-height:76px}.nk-cbt-main-actions button{width:100%}.nk-cbt-summary{grid-template-columns:1fr}.nk-cbt-builder.is-topics .nk-module-topic-actions>span{font-size:10.5px}}
+@media(max-width:620px){body:has(.nk-cbt-builder) .page{padding-bottom:190px!important}.nk-cbt-bank-intro{align-items:flex-start;flex-direction:column}.nk-cbt-builder .nk-module-subject{min-height:76px}.nk-cbt-summary{grid-template-columns:1fr}.nk-cbt-builder.is-topics .nk-module-topic-actions>span{font-size:10.5px}.nk-cbt-main-actions{position:fixed;bottom:76px;left:50%;z-index:35;width:calc(100% - 28px);max-width:760px;min-height:72px;box-sizing:border-box;align-items:center;margin:0;padding:10px;border:1px solid #dfe4ef;border-radius:14px;background:rgba(255,255,255,.97);box-shadow:0 -8px 26px rgba(29,38,78,.09);transform:translateX(-50%)}.nk-cbt-main-actions button{width:100%}}
 </style>'''
 
 

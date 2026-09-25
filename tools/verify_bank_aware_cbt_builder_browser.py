@@ -37,6 +37,11 @@ def main() -> None:
             marrow = page.locator(".nk-cbt-builder .nk-module-subject").filter(has_text="Anatomy").filter(has_text="Marrow")
             marrow.click()
             assert marrow.get_attribute("aria-pressed") == "true"
+            assert page.evaluate("""() => {
+              const button=document.querySelector('.nk-cbt-main-actions button').getBoundingClientRect();
+              const nav=document.querySelector('.nk-bottom-nav-v114').getBoundingClientRect();
+              return button.top>=0 && button.bottom<=nav.top-8;
+            }"""), "bank selection action must stay above phone navigation"
             page.get_by_role("button", name="Continue to topics").click()
             group = page.locator(".nk-cbt-topic-group")
             expect(group).to_have_count(1)
@@ -59,6 +64,11 @@ def main() -> None:
             page.locator("#nk-cbt-custom-count").fill("10")
             page.locator("#nk-cbt-custom-count").dispatch_event("input")
             assert str(min(10, pool)) in page.locator("#nk-cbt-count-result").inner_text()
+            assert page.evaluate("""() => {
+              const button=document.querySelector('.nk-cbt-main-actions button').getBoundingClientRect();
+              const nav=document.querySelector('.nk-bottom-nav-v114').getBoundingClientRect();
+              return button.top>=0 && button.bottom<=nav.top-8;
+            }"""), "start action must stay above phone navigation"
             page.screenshot(path=str(output / "cbt-builder-questions-phone.png"), full_page=True)
             page.get_by_role("button", name="Start timed CBT").click()
             page.wait_for_function("location.hash==='#exam' && window.QB.getState().activeSession?.mode==='exam'")
