@@ -29,5 +29,8 @@ Verification hooks: `tools/test_question_notes_v1.py`,
 `tools/test_cross_device_sync_v1.py`, and the generated PWA browser journey in
 `tools/verify_question_notes_browser.py`. The initial note slice passed
 Engineering `36103198537` and full browser/PWA/APK/Android emulator
-`36103201213` at `21e28e2`; the read-only card and index require a new
-exact-head build and physical review.
+`36103201213` at `21e28e2`. The read-only card and index passed
+Engineering `36113707551` and full browser/PWA/APK/Android emulator
+`36113695753` at `34c5bcc`. Preview:
+`https://4cc816c7.nk-qbank.pages.dev`. The user checked and accepted this
+preview; physical APK review remains separate.

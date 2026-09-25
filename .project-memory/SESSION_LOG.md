@@ -1283,3 +1283,10 @@ Implemented approved recovery in existing transform owners: Topics separate path
   immediately after hash navigation, before the page rendered. The check now
   waits for the card and for a new Practice session before continuing. Rerun
   exact-head full CI.
+- The exact-head rerun at `34c5bcc` passed Engineering `36113707551` and
+  full browser/PWA/APK/Android phone and tablet emulator `36113695753`.
+  The browser journey covered the read-only card, reload, edit/cancel, index
+  search and question launch, Review and deletion. Preview
+  `https://4cc816c7.nk-qbank.pages.dev` serves the new notes markers;
+  production was not promoted. Physical device review remains.
+- User checked the preview and confirmed the notes changes work.

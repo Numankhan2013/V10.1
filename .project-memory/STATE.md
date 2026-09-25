@@ -33,10 +33,9 @@
 - Source cleanup at `a94b329` passed Engineering `36101824054` and full
   browser/PWA/APK/emulator `36101826646`. Selected regular and PYQ topics both
   contribute; Questions has no Source control. Saved modules keep frozen IDs.
-- Notes at `e623fd1` passed Engineering `36104448841` and full run
-  `36104452424`; preview `https://02152933.nk-qbank.pages.dev` was accepted
-  by the user. Read-only saved cards and More → My notes index/search now
-  await exact-head CI and physical review.
+- User accepted note core at `e623fd1`. Read-only cards and More → My notes
+  passed Engineering `36113707551` and full run `36113695753` at `34c5bcc`;
+  preview `https://4cc816c7.nk-qbank.pages.dev` was accepted. Physical APK review is separate.
 - Tests, FSRS and Insights stay dedicated; the builder retains Wrong, Unattempted,
   Bookmarked, Mixed, and source-labelled PYQ topics.
 - PYQs: 1,118 PrepLadder questions in 27 labelled topics (Biochemistry 346,
@@ -142,8 +141,8 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Current priorities / Next step
 
-1. Verify read-only notes and More → My notes on exact source head: edit/cancel/
-   delete, reload, search and cross-bank launch. Preserve accepted study flows.
+1. Physically review read-only notes and More → My notes: edit/cancel/delete,
+   reload, search and cross-bank launch. Preserve accepted study flows.
 2. Keep the accepted Practice/Review contract, Anatomy Ch7 Q11–Q21 rollout, and
    automation-owned image/explanation content intact. Production remains guarded.
 3. Image automation remains independently owned from live canonical per
