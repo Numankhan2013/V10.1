@@ -66,6 +66,7 @@ def main() -> None:
             assert "Anatomy · Marrow · " in page.locator(".nk-revision-scope").inner_text()
             assert cards.nth(0).locator("b").inner_text() == "1"
             cards.nth(0).get_by_role("button", name="View all mistakes").click()
+            page.get_by_role("heading", name="Mistakes").wait_for(state="visible")
             assert page.locator(".nk-revision-item").count() == 1
             assert "Anatomy · Marrow" in page.locator(".nk-v3-page-hero .nk-kicker").inner_text()
             page.get_by_role("button", name="Quick revision").click()

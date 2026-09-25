@@ -1322,3 +1322,7 @@ Implemented approved recovery in existing transform owners: Topics separate path
   this scope. FSRS gained an optional bank filter before its queue cap, while
   the daily review cap remains global. Local behavior checks pass; generated
   browser/PWA/APK/emulator verification and physical preview review are next.
+- First focused-revision full run `36146304612` reached the browser journey;
+  it counted a focused Mistakes list immediately after navigation, before the
+  route rendered. The check now waits for the Mistakes heading, then verifies
+  the scoped list. Engineering `36146300092` passed; rerun full CI.
