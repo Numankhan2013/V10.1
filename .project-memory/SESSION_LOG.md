@@ -1304,3 +1304,8 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - The core and transform behavior check pass locally. The generated browser
   journey now checks global bank scope, full-list search/launch, four queue
   starts, 20-question sampling, and FSRS Due behavior. Exact-head CI is next.
+- Engineering `36137989615` passed at `f31c38e`. Full run
+  `36137993203` reached the new browser journey and found its correct
+  bookmarked fixture was unintentionally due because no future schedule date
+  was set. The fixture now gives that attempt a future FSRS date; rerun exact
+  head before sharing the preview.

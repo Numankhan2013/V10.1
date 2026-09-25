@@ -38,6 +38,7 @@ def main() -> None:
               s.attempts[wrong]=[{id:'revision-wrong',selected:1,correct:false,at:now,reviewedAt:now,source:'practice',rating:1}];
               s.reviews[wrong]={schemaVersion:2,due:now-1000,nextReviewAt:now-1000,state:2,stability:1,difficulty:5,repetitions:1,lapses:1,elapsedDays:0,scheduledDays:1,lastReview:now-86400000};
               s.attempts[bookmark]=[{id:'revision-bookmark',selected:1,correct:true,at:now-2000,reviewedAt:now-2000,source:'practice',rating:3}];
+              s.reviews[bookmark]={schemaVersion:2,due:now+86400000,nextReviewAt:now+86400000,state:2,stability:4,difficulty:5,repetitions:1,lapses:0,elapsedDays:0,scheduledDays:1,lastReview:now-2000};
               s.bookmarks[bookmark]={addedAt:now};
               window.QB.saveState();
             }""", [WRONG_ID, BOOKMARK_ID])
