@@ -51,7 +51,8 @@ def main() -> None:
             assert cards.nth(1).locator("b").inner_text() == "1"
             assert int(cards.nth(2).locator("b").inner_text().replace(",", "")) > 0
             assert cards.nth(3).locator("b").inner_text() == "1"
-            assert page.locator(".nk-revision-scope").inner_text() == "All subjects · All question banks"
+            scope = " ".join(page.locator(".nk-revision-scope").inner_text().split())
+            assert scope == "All subjects · All question banks", f"Unexpected revision scope: {scope!r}"
             page.screenshot(path=str(output / "revision-desk-phone.png"), full_page=True)
 
             cards.nth(0).get_by_role("button", name="View all mistakes").click()
