@@ -42,9 +42,11 @@ The PrepLadder source explicitly titles 27 topics `Previous Year Questions`:
 The Marrow ED8 import currently contains no PYQ-labelled topic or per-question
 exam/year field. At build time the PrepLadder adapter gives questions in those
 source-labelled topics `studyCollections: ['pyq']`; it does not infer a specific
-exam, year or repeat status. The builder's `PYQ topics` shortcut and `PYQs`
-filter use that facet. A future bank can supply its own verified
-`studyCollections` without changing the builder.
+exam, year or repeat status. The Topics step's `Add PYQ topics` shortcut adds
+those source-backed topics to the selected set. Regular topics remain selected,
+and the Questions step does not apply a second source filter. A future bank can
+supply its own verified `studyCollections` for topic discovery without changing
+the builder.
 
 Home's Today’s Focus resumes the most relevant unfinished module; its saved
 card still shows scope and progress without repeating the same Continue

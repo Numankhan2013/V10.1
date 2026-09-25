@@ -1223,3 +1223,17 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Final interaction cleanup hides the per-bank group action when just one bank
   is selected; with two banks, each group can still select its own topics.
   Exact-head full CI for this last cleanup and device review remain pending.
+
+## 2026-09-25 — PYQ topic scope and Questions-step cleanup
+
+- The user confirmed the revised Topics step works, then found that the
+  Questions-step Source All/PYQ choice was redundant and misleading. Adding
+  PYQ topics had secretly set a PYQ-only filter, so regular topics selected
+  alongside them contributed no questions.
+- The candidate removes that Source control and hidden draft filter. Selected
+  regular and source-labelled PYQ topics now both contribute to the eligible
+  question pool. The PYQ quick action still preselects the source-labelled
+  topics across available banks; saved modules retain frozen question IDs.
+- Node behavior checks cover mixed regular/PYQ scope and absence of the Source
+  control. The generated browser capture now exercises a mixed selection.
+  Exact-head CI and physical review remain to be completed.

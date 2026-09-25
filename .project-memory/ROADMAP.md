@@ -6,12 +6,13 @@ Check off only when build-verified **and** device-verified where UI is involved.
 
 ## Immediate (next 1–2 sessions)
 
-- [ ] Bank-aware study modules and PYQ candidate: select exact subject/bank/topic
-      records, preserve frozen legacy modules, expose All and source-backed PYQ
-      pools, then complete generated browser/APK and physical-device review.
-      Candidate code lives on `feature/qbank-bank-aware-modules-20260924` and is
-      not yet build-verified or accepted. PrepLadder has 1,118 source-labelled
-      PYQs; the Marrow ED8 records have no reliable PYQ/exam/year fields.
+- [ ] Bank-aware study modules and PYQ candidate: exact subject/bank/topic
+      records and frozen legacy modules passed generated browser/PWA/APK/emulator
+      verification at `7b7eef2`; the user accepted the topic picker. The current
+      follow-up removes the redundant Questions-step Source control so selected
+      regular and PYQ topics both contribute questions. Finish exact-head CI and
+      physical review on `feature/qbank-bank-aware-modules-20260924`. PrepLadder
+      has 1,118 source-labelled PYQs; Marrow ED8 lacks reliable PYQ/exam/year fields.
 - [ ] Follow with one-tap current mistakes/bookmarks/unseen/due revision,
       question-linked personal study notes, and evidence-backed question facets.
       Build these on the same bank registry and Practice/Review engine, with no

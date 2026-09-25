@@ -45,11 +45,14 @@ run(`studyModuleDraft={scopeIds:[nkModuleScopeKey('Biochemistry','Marrow')],subj
 assert.deepEqual([...run(`nkSelectModuleQuestionIds(studyModuleDraft,'marrow')`)],['marrow-gly-1']);
 assert.equal(run(`nkModuleScopeLabels(studyModuleDraft)[0]`),'Biochemistry · Marrow');
 
-// The PYQ shortcut uses only explicit source collection metadata.
+// Adding PYQ topics leaves the existing topic scope intact, with no hidden filter.
 run(`studyModuleDraft={scopeIds:[nkModuleScopeKey('Biochemistry','PrepLadder')],subjectIds:['Biochemistry'],topicIds:[],questionPoolType:'all',collectionFilter:'all',questionCount:20}`);
 run('nkSelectModulePyqTopics()');
-assert.equal(run('studyModuleDraft.collectionFilter'),'pyq');
+assert.equal(run('studyModuleDraft.collectionFilter'),'all');
 assert.deepEqual([...run(`nkSelectModuleQuestionIds(studyModuleDraft,'pyq')`)],['bio-pyq-1']);
+run(`studyModuleDraft.topicIds.push(nkModuleTopicKey('Biochemistry','carb','PrepLadder'))`);
+assert.deepEqual([...run(`nkQuestionsForModuleDraft(studyModuleDraft)`)].map(q=>q.id).sort(),['bio-carb-1','bio-pyq-1']);
+assert.ok(!run('nkModuleBuilderPool()').includes('Source collection'));
 assert.equal(marrowQuestions[0].studyCollections,undefined);
 assert.equal(run("nkQuickStudyCount('wrong')"),2);
 assert.equal(run("nkQuickStudyCount('pyq')"),2);
@@ -62,7 +65,7 @@ assert.equal(run('studyModuleDraft.scopeIds.length'),3);
 assert.deepEqual([...run('nkQuestionsForModuleDraft()')].map(q=>q.id).sort(),['bio-gly-1','bio-gly-2']);
 assert.ok(run('nkModuleBuilderPool()').includes('Change banks'));
 run(`activeBank='PrepLadder';nkOpenQuickStudy('pyq')`);
-assert.equal(run('studyModuleDraft.collectionFilter'),'pyq');
+assert.equal(run('studyModuleDraft.collectionFilter'),'all');
 assert.equal(run('studyModuleDraft.scopeIds.length'),2);
 assert.deepEqual([...run('nkQuestionsForModuleDraft()')].map(q=>q.id).sort(),['anat-pyq-1','bio-pyq-1']);
 

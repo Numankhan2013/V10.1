@@ -170,7 +170,6 @@
     });
     const unique=[...new Map(scoped.map(q=>[String(q.id),q])).values()];
     return unique.filter(q=>{
-      if(draft.collectionFilter==='pyq'&&!(Array.isArray(q.studyCollections)&&q.studyCollections.includes('pyq')))return false;
       const attempts=qAttempts(q.id),wrong=attempts.some(attempt=>attempt&&!attempt.correct),bookmarked=Boolean(state.bookmarks?.[q.id]),unattempted=!attempts.length;
       if(draft.questionPoolType==='all')return true;
       if(draft.questionPoolType==='wrong')return wrong;
@@ -225,7 +224,7 @@
     const topicIds=selected.flatMap(record=>nkModuleTopics(record)
       .filter(topic=>kind!=='pyq'||nkModuleTopicHasCollection(record,topic.id,'pyq'))
       .map(topic=>nkModuleTopicKey(record.subject,topic.id,nkModuleBankName(record))));
-    studyModuleDraft={step:3,scopeIds:selected.map(record=>nkModuleScopeKey(record.subject,nkModuleBankName(record))),subjectIds:[...new Set(selected.map(record=>record.subject))],topicIds,questionPoolType:kind==='pyq'?'all':kind,collectionFilter:kind==='pyq'?'pyq':'all',questionCount:20,countMode:20,name:'',nameEdited:false};
+    studyModuleDraft={step:3,scopeIds:selected.map(record=>nkModuleScopeKey(record.subject,nkModuleBankName(record))),subjectIds:[...new Set(selected.map(record=>record.subject))],topicIds,questionPoolType:kind==='pyq'?'all':kind,collectionFilter:'all',questionCount:20,countMode:20,name:'',nameEdited:false};
     navigate('module-builder');
   }
 
@@ -317,15 +316,11 @@
       if(nkModuleTopicHasCollection(record,topic.id,'pyq')){matched++;selected.add(nkModuleTopicKey(record.subject,topic.id,nkModuleBankName(record)));}
     }));
     if(!matched){showToast('No source-labelled PYQ topics in the selected banks.');return;}
-    studyModuleDraft.topicIds=[...selected];studyModuleDraft.collectionFilter='pyq';nkSyncModuleTopicPicker();
+    studyModuleDraft.topicIds=[...selected];studyModuleDraft.collectionFilter='all';nkSyncModuleTopicPicker();
   }
 
   function nkSetModulePool(type){
     if(!studyModuleDraft||!['all','unattempted','wrong','bookmarked','mixed'].includes(type))return;studyModuleDraft.questionPoolType=type;render();
-  }
-
-  function nkSetModuleCollection(type){
-    if(!studyModuleDraft||!['all','pyq'].includes(type))return;studyModuleDraft.collectionFilter=type;render();
   }
 
   function nkSetModuleCount(value){
@@ -380,14 +375,13 @@
     const scopeSummary=`<div class="nk-module-scope-summary"><div><strong>Study scope · ${fmtNum(subjectCount)} subject${subjectCount===1?'':'s'}, ${fmtNum(scopes.length)} bank${scopes.length===1?'':'s'}</strong><p>${esc(scopes.join(' · '))}</p><small>${fmtNum(available)} questions match this scope and pool</small></div><div class="nk-module-scope-actions"><button onclick="window.QB.nkModuleBuilderStep(1)">Change banks</button><button onclick="window.QB.nkModuleBuilderStep(2)">Change topics</button></div></div>`;
     const types=[['all','All questions','The complete selected topics'],['unattempted','Unattempted','Questions you have not answered'],['wrong','Wrong','Questions missed before'],['bookmarked','Bookmarked','Questions you saved'],['mixed','Mixed','Prioritises wrong and unattempted']];
     const countButtons=[10,20,30].map(count=>`<button class="${studyModuleDraft.countMode===count?'is-selected':''}" onclick="window.QB.nkSetModuleCount(${count})">${count}</button>`).join('');
-    const pyqCount=nkQuestionsForModuleDraft({...studyModuleDraft,questionPoolType:'all',collectionFilter:'pyq'}).length;
-    const warning=!available?(studyModuleDraft.collectionFilter==='pyq'?'No source-labelled Previous Year Questions are available in this selection.':'No eligible questions are available for the selected topics and question type.'):requested>available?`You requested ${requested}. ${available} eligible questions are currently available. The module will use all ${available}.`:`${available} eligible questions are currently available.`;
-    return `${scopeSummary}<div class="nk-module-pool-grid">${types.map(([value,title,copy])=>`<button class="${studyModuleDraft.questionPoolType===value?'is-selected':''}" onclick="window.QB.nkSetModulePool('${value}')"><strong>${title}</strong><small>${copy}</small></button>`).join('')}</div><div class="nk-module-count-block"><strong>Source collection</strong><div class="nk-module-count-presets nk-module-source-filters"><button class="${studyModuleDraft.collectionFilter==='all'?'is-selected':''}" onclick="window.QB.nkSetModuleCollection('all')">All</button><button class="${studyModuleDraft.collectionFilter==='pyq'?'is-selected':''}" onclick="window.QB.nkSetModuleCollection('pyq')">PYQs (${fmtNum(pyqCount)})</button></div><p>PYQs include only questions in source-labelled Previous Year Questions chapters; exam and year are not specified.</p></div><div class="nk-module-count-block"><strong>Question count</strong><div class="nk-module-count-presets">${countButtons}<button class="${studyModuleDraft.countMode==='custom'?'is-selected':''}" onclick="window.QB.nkSetModuleCount('custom')">Custom</button></div>${studyModuleDraft.countMode==='custom'?`<label>Custom count<input type="number" min="1" max="500" value="${requested}" oninput="window.QB.nkSetCustomModuleCount(this.value)"></label>`:''}<p id="nk-module-availability" class="${available?'':'is-error'}">${esc(warning)}</p></div>`;
+    const warning=!available?'No eligible questions are available for the selected topics and question type.':requested>available?`You requested ${requested}. ${available} eligible questions are currently available. The module will use all ${available}.`:`${available} eligible questions are currently available.`;
+    return `${scopeSummary}<div class="nk-module-pool-grid">${types.map(([value,title,copy])=>`<button class="${studyModuleDraft.questionPoolType===value?'is-selected':''}" onclick="window.QB.nkSetModulePool('${value}')"><strong>${title}</strong><small>${copy}</small></button>`).join('')}</div><div class="nk-module-count-block"><strong>Question count</strong><div class="nk-module-count-presets">${countButtons}<button class="${studyModuleDraft.countMode==='custom'?'is-selected':''}" onclick="window.QB.nkSetModuleCount('custom')">Custom</button></div>${studyModuleDraft.countMode==='custom'?`<label>Custom count<input type="number" min="1" max="500" value="${requested}" oninput="window.QB.nkSetCustomModuleCount(this.value)"></label>`:''}<p id="nk-module-availability" class="${available?'':'is-error'}">${esc(warning)}</p></div>`;
   }
 
   function nkModuleBuilderReview(){
     const available=nkQuestionsForModuleDraft().length,requested=Math.max(1,Number(studyModuleDraft.questionCount||20)),actual=Math.min(requested,available),autoName=nkStudyModuleAutoName();
-    return `<label class="nk-module-name"><span>Module name</span><input maxlength="80" value="${esc(studyModuleDraft.name||autoName)}" placeholder="${esc(autoName)}" oninput="window.QB.nkSetModuleName(this.value)"></label><div class="nk-module-review-card"><div><small>Study scope</small><strong>${esc(nkModuleScopeLabels(studyModuleDraft).join(' + '))}</strong><p>${fmtNum(studyModuleDraft.topicIds.length)} topics selected</p></div><div><small>Question pool</small><strong>${esc(nkStudyModulePoolLabel(studyModuleDraft.questionPoolType))}${studyModuleDraft.collectionFilter==='pyq'?' · PYQs':''}</strong><p>${fmtNum(actual)} questions</p></div></div>${requested>available?`<div class="nk-module-warning">Only ${fmtNum(available)} eligible questions are available. You can create this module with all ${fmtNum(actual)} questions.</div>`:''}`;
+    return `<label class="nk-module-name"><span>Module name</span><input maxlength="80" value="${esc(studyModuleDraft.name||autoName)}" placeholder="${esc(autoName)}" oninput="window.QB.nkSetModuleName(this.value)"></label><div class="nk-module-review-card"><div><small>Study scope</small><strong>${esc(nkModuleScopeLabels(studyModuleDraft).join(' + '))}</strong><p>${fmtNum(studyModuleDraft.topicIds.length)} topics selected</p></div><div><small>Question pool</small><strong>${esc(nkStudyModulePoolLabel(studyModuleDraft.questionPoolType))}</strong><p>${fmtNum(actual)} questions</p></div></div>${requested>available?`<div class="nk-module-warning">Only ${fmtNum(available)} eligible questions are available. You can create this module with all ${fmtNum(actual)} questions.</div>`:''}`;
   }
 
   function studyModuleBuilderPage(){

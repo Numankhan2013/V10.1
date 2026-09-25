@@ -134,8 +134,12 @@ def main():
                     page.evaluate("window.QB.nav('dashboard');window.QB.openStudyModuleBuilder()")
                     if page.locator("button.nk-module-subject.is-selected").filter(has_text="PrepLadder").count() == 0:
                         page.locator("button.nk-module-subject").filter(has_text="PrepLadder").first.click()
-                    page.evaluate("window.QB.nkModuleBuilderStep(2);window.QB.nkSelectModulePyqTopics();window.QB.nkModuleBuilderStep(3)")
-                    capture(page, f"{label}-01g-pyq-filter", observations, full_page=True)
+                    page.evaluate("window.QB.nkModuleBuilderStep(2)")
+                    page.locator(".nk-module-topic").first.click()
+                    page.evaluate("window.QB.nkSelectModulePyqTopics();window.QB.nkModuleBuilderStep(3)")
+                    assert page.get_by_text("Source collection", exact=True).count() == 0, \
+                        f"Redundant Source collection control remains at {label}"
+                    capture(page, f"{label}-01g-pyq-plus-topic", observations, full_page=True)
                     page.evaluate("window.QB.nkModuleBuilderStep(4);window.QB.nkCreateStudyModule(false)")
                     page.wait_for_timeout(3200)
                     assert page.locator(".nk-home-focus-action").inner_text().startswith("Continue module"), "Saved module is not today's focus"

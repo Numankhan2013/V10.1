@@ -78,9 +78,10 @@ checked deterministic rollout ledger.
   `nkModuleValidQuestionIds`, `nkModuleProgress`, `nkSyncModuleFromSession`,
   draft/builder/persistence/resume/finish/restart + Home prioritization. The
   bank-aware candidate reads `BANKS_BY_SUBJECT`, keys scope by subject/bank/topic,
-  retains legacy PrepLadder topic keys, and filters optional source-backed
-  `studyCollections` facets; PrepLadder `pyq` comes from explicit source topic
-  titles in `apply_marrow_bank_pilot.py`.
+  retains legacy PrepLadder topic keys, and uses source-backed
+  `studyCollections` facets to discover PYQ topics. The Topics selection alone
+  determines module question scope; PrepLadder `pyq` comes from explicit source
+  topic titles in `apply_marrow_bank_pilot.py`.
 - Continue Practice (`tools/continue_practice_resume_core.js`,
   NK_CONTINUE_PRACTICE_RESUME_V1): regular topic Practice owns explicit
   activeSession.lifecycle, immutable original-order sessionQuestionIds, and a

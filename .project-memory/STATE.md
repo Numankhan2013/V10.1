@@ -23,24 +23,22 @@
 - Source handoff: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
 - Mandatory automation policy: `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
 
-## Bank-aware modules and topic picker — 2026-09-25
+## Bank-aware modules and next study phase — 2026-09-25
 
 - Isolated branch: `feature/qbank-bank-aware-modules-20260924`; resolve live
   HEAD and CI before integration. Production and canonical are untouched.
-- Bank-scoped modules/PYQs passed browser, APK and emulator at `620d3aa`;
-  the user confirmed that flow works. Home streak and Today's Focus were
-  restored at `8339764`; the user confirmed the revised flow works.
-- The custom module topic picker was found to have 50px rows inside a 390px
-  scroll box. Each tap rerendered the app and lost scroll position. Candidate
-  replaces it with a full page searchable list, larger rows, multi-bank group
-  selection, live in-place selection and visible Continue. The 320px/390px/
-  tablet/larger-text capture passed at `08b9e37`; final cleanup needs exact-head
-  full CI and physical review.
-- Tests, FSRS and Insights stay dedicated; More keeps saved-question lists.
-  The builder retains Wrong, Unattempted, Bookmarked, Mixed and PYQ pools.
+- Bank-scoped modules/PYQs, restored Home focus, and the searchable full-page
+  topic picker passed Engineering `36099517685` and full browser/PWA/APK/
+  emulator `36099507918` at `7b7eef2`. The user confirmed the Topics flow works.
+- Current candidate removes the duplicate Source All/PYQ control from Questions.
+  Topic selection alone determines the source scope; adding PYQ topics preserves
+  regular topics. Existing saved modules retain frozen question IDs.
+- Tests, FSRS and Insights stay dedicated; the builder retains Wrong,
+  Unattempted, Bookmarked, Mixed, and source-labelled PYQ topics.
 - PYQs: 1,118 PrepLadder questions in 27 labelled topics (Biochemistry 346,
   Physiology 362, Anatomy 410). Marrow ED8 has no PYQ/exam/year metadata.
-- Next: final exact-head CI and physical verdict; no canonical merge or production promotion.
+- Next: finish Source cleanup CI, then begin study-intelligence roadmap work;
+  no new bank import, canonical merge, or production promotion yet.
 
 ## Product architecture to preserve
 
