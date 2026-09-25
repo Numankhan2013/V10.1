@@ -27,8 +27,11 @@
     const note=nkQuestionNote(qid),section=document.createElement('section');
     section.className='nk-question-note';
     section.innerHTML=`<details ${note?'open':''}><summary><span><strong>My note</strong><small>${note?'Saved for this question':'Add a point to remember'}</small></span><span aria-hidden="true">⌄</span></summary><div class="nk-question-note-body"><label for="nk-question-note-text">Your own words</label><textarea id="nk-question-note-text" maxlength="2000" rows="4" placeholder="Write the idea you want to recall later.">${note?esc(note.text):''}</textarea><div class="nk-question-note-actions"><small role="status">${note?'Saved on this device':'Up to 2,000 characters'}</small><button type="button">Save note</button></div></div></details>`;
-    const anchor=card.querySelector('.nk-practice-response,.feedback');
-    if(anchor)anchor.insertAdjacentElement('afterend',section);else card.appendChild(section);
+    const source=card.querySelector('.nk-source-section');
+    const feedback=card.querySelector('.feedback,.nk-practice-response');
+    if(source)source.insertAdjacentElement('beforebegin',section);
+    else if(feedback)feedback.insertAdjacentElement('beforebegin',section);
+    else card.appendChild(section);
     const input=section.querySelector('textarea'),button=section.querySelector('button'),status=section.querySelector('[role="status"]');
     button.addEventListener('click',()=>{
       const value=input.value;
