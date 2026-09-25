@@ -1380,3 +1380,7 @@ Implemented approved recovery in existing transform owners: Topics separate path
   above mobile navigation. The Android emulator job failed before launch while
   downloading the Google APIs system-image ZIP (unknown archive), not in app
   interaction; rerun the exact new candidate after the UI polish.
+- Fourth full run `36156614322` reached the new browser journey and failed its
+  stricter mobile geometry assertion after filling the custom count. The fixed
+  action bar now sits 20px higher and the check reports measured bounds; rerun
+  the exact candidate before claiming preview/build verification.

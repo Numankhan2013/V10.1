@@ -37,11 +37,12 @@ def main() -> None:
             marrow = page.locator(".nk-cbt-builder .nk-module-subject").filter(has_text="Anatomy").filter(has_text="Marrow")
             marrow.click()
             assert marrow.get_attribute("aria-pressed") == "true"
-            assert page.evaluate("""() => {
+            bank_bounds = page.evaluate("""() => {
               const button=document.querySelector('.nk-cbt-main-actions button').getBoundingClientRect();
               const nav=document.querySelector('.nk-bottom-nav-v114').getBoundingClientRect();
-              return button.top>=0 && button.bottom<=nav.top-8;
-            }"""), "bank selection action must stay above phone navigation"
+              return {top:button.top,bottom:button.bottom,navTop:nav.top};
+            }""")
+            assert bank_bounds["top"] >= 0 and bank_bounds["bottom"] <= bank_bounds["navTop"] - 8, bank_bounds
             page.get_by_role("button", name="Continue to topics").click()
             group = page.locator(".nk-cbt-topic-group")
             expect(group).to_have_count(1)
@@ -64,11 +65,12 @@ def main() -> None:
             page.locator("#nk-cbt-custom-count").fill("10")
             page.locator("#nk-cbt-custom-count").dispatch_event("input")
             assert str(min(10, pool)) in page.locator("#nk-cbt-count-result").inner_text()
-            assert page.evaluate("""() => {
+            start_bounds = page.evaluate("""() => {
               const button=document.querySelector('.nk-cbt-main-actions button').getBoundingClientRect();
               const nav=document.querySelector('.nk-bottom-nav-v114').getBoundingClientRect();
-              return button.top>=0 && button.bottom<=nav.top-8;
-            }"""), "start action must stay above phone navigation"
+              return {top:button.top,bottom:button.bottom,navTop:nav.top};
+            }""")
+            assert start_bounds["top"] >= 0 and start_bounds["bottom"] <= start_bounds["navTop"] - 8, start_bounds
             page.screenshot(path=str(output / "cbt-builder-questions-phone.png"), full_page=True)
             page.get_by_role("button", name="Start timed CBT").click()
             page.wait_for_function("location.hash==='#exam' && window.QB.getState().activeSession?.mode==='exam'")
