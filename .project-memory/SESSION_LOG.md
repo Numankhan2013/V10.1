@@ -1278,3 +1278,8 @@ Implemented approved recovery in existing transform owners: Topics separate path
   edit/cancel, notes index/search, cross-bank entry, Review and delete. Local
   source verification passed; exact-head generated CI and physical review
   are pending.
+- Engineering `36113070427` passed at `39a544a`. Full run `36113073510`
+  reached the new index and stopped because the browser check counted cards
+  immediately after hash navigation, before the page rendered. The check now
+  waits for the card and for a new Practice session before continuing. Rerun
+  exact-head full CI.

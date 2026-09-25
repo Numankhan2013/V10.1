@@ -63,14 +63,19 @@ def main() -> None:
 
             page.evaluate("window.QB.nav('more')")
             page.get_by_role("button", name="My notes").click()
+            page.locator(".nk-notes-item").wait_for(state="visible", timeout=10000)
             assert page.locator(".nk-notes-item").count() == 1, "More should open the saved-note index"
             assert page.locator(".nk-notes-item-text").inner_text() == "My recall cue: compare the two fibres."
             page.locator(".nk-notes-search input").fill("no match")
             assert page.locator(".nk-notes-item:visible").count() == 0
             page.locator(".nk-notes-search input").fill("fibres")
             assert page.locator(".nk-notes-item:visible").count() == 1
+            previous_session = page.evaluate("window.QB.getState().activeSession?.id")
             page.locator(".nk-notes-item button").click()
-            page.wait_for_function("id => window.QB.getState().activeSession?.questionIds?.[0]===id", arg=QUESTION_ID)
+            page.wait_for_function(
+                "([id,previous]) => location.hash==='#practice' && window.QB.getState().activeSession?.questionIds?.[0]===id && window.QB.getState().activeSession?.id!==previous",
+                arg=[QUESTION_ID, previous_session],
+            )
             page.locator(".option").first.click()
             page.evaluate("window.QB.submitPractice()")
             note.wait_for(state="visible")
