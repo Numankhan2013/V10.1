@@ -53,8 +53,10 @@ Prefer building over narrating.
   reliable same-route scroll reset.
 - **Chapter:** Practice/Timed actions, coverage metrics, source-order library
   with Correct/Incorrect/Unattempted + PDF page.
-- **Tests:** exam-mode hero + multi-subject builder (subject cards,
-  All/Selected-topics scope, pool count, question count) + history.
+- **Tests:** exam-mode entry + full-page timed CBT builder with explicit
+  PrepLadder/Marrow bank cards, searchable full-page source topics, live exact
+  pool count, question count, and history. Questions retain the shared exam
+  timer, navigation, deferred feedback, and Review Solutions behavior.
 - **Insights:** Accuracy, Avg time, Due, Completion + chapter coverage +
   recent sessions; distinguish no-evidence from poor performance. A candidate
   cross-bank “Topics to revisit” section uses each question’s latest answer,

@@ -1351,3 +1351,18 @@ Implemented approved recovery in existing transform owners: Topics separate path
   two-question Practice, and removal after an improved answer. Preview
   `https://221f15a2.nk-qbank.pages.dev` returns HTTP 200 with the Insights
   markers. Production was not promoted; physical user review remains.
+
+## 2026-09-25 — Bank-aware timed CBT builder candidate
+
+- User called Insights useful enough to move on and asked that the next
+  selection UI receive the same full-page topic treatment as Create Module.
+- The Tests multi-subject popup used only `SUBJECTS`, excluding Marrow. Added a
+  late, bank-aware transform and three-step Tests builder: bank cards, spacious
+  searchable topic rows with group/select/clear controls, then question count.
+  Topics are keyed by exact subject, bank, and topic ID; the existing exam
+  engine, timing, Review Solutions, and chapter-specific strict timed test
+  remain shared. The Tests builder starts from all available banks/topics and
+  lets the learner narrow the scope.
+- Source behavior and generated-JavaScript syntax checks pass. Generated
+  browser/PWA/APK/emulator CI and user preview review are pending. Production
+  and canonical remain untouched.

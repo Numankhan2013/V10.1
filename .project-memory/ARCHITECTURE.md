@@ -91,6 +91,12 @@ checked deterministic rollout ledger.
   `studyCollections` facets to discover PYQ topics. The Topics selection alone
   determines module question scope; PrepLadder `pyq` comes from explicit source
   topic titles in `apply_marrow_bank_pilot.py`.
+- Timed CBT builder (`tools/bank_aware_cbt_builder_core.js`,
+  `NK_BANK_AWARE_CBT_BUILDER_V1`): the Tests entry opens a three-step full-page
+  route. It uses the shared bank registry and bank-qualified topic keys to
+  derive exact question IDs, then starts the existing exam engine. Topic taps
+  update rows and counts in place, preserving scroll. Legacy modal builders
+  remain for compatibility but are no longer the Tests entry.
 - Continue Practice (`tools/continue_practice_resume_core.js`,
   NK_CONTINUE_PRACTICE_RESUME_V1): regular topic Practice owns explicit
   activeSession.lifecycle, immutable original-order sessionQuestionIds, and a
@@ -137,7 +143,9 @@ checked deterministic rollout ledger.
 Android/sync/FSRS layers → `fix_boot_syntax` → Marrow registration →
 `apply_marrow_structured_table_renderer_v1` →
 `apply_question_presentation_v1` → `test_question_presentation_v1` →
-image installation → `verify_product_contract --stage generated` →
+image installation → notes → revision → Insights →
+`apply_bank_aware_cbt_builder_v1` → `test_bank_aware_cbt_builder_v1` →
+`verify_product_contract --stage generated` →
 `verify_cbt_invariants`.
 
 Full `build-apk.yml` additionally runs: study-metrics test, source contract,
