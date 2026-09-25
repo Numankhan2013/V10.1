@@ -55,6 +55,9 @@ checked deterministic rollout ledger.
   Quick Revision keeps its optional subject/bank/topic focus in page memory;
   `tools/revision_desk_core.js` filters question pools and passes the same
   scope to `nkFsrsQueue`, whose daily cap still counts reviews across all banks.
+  `tools/insights_focus_core.js` groups all-bank questions by exact subject,
+  bank, and source topic; it reads active attempts and launches the shared
+  Practice engine without persisting a second analytics model.
 - Attempt helpers: `qAttempts(id)`, `latestAttempt(id)`, `chapterStats(id)`,
   `chapterQuestions(id)`, `totalAttempted()`, `overallAccuracy()`,
   `pendingReviewCount()`, `dueQuestions()`, `wrongQuestions()`,

@@ -33,6 +33,8 @@ jobs:
         run: python3 tools/test_question_notes_v1.py
       - name: Test all-bank Quick Revision desk
         run: python3 tools/test_revision_desk_v1.py
+      - name: Test actionable Insights focus
+        run: python3 tools/test_insights_focus_v1.py
       - name: Test Home Today’s Focus command center
         run: python3 tools/test_home_command_center_v1.py
       - name: Test Continue Practice session resume

@@ -56,7 +56,9 @@ Prefer building over narrating.
 - **Tests:** exam-mode hero + multi-subject builder (subject cards,
   All/Selected-topics scope, pool count, question count) + history.
 - **Insights:** Accuracy, Avg time, Due, Completion + chapter coverage +
-  recent sessions; distinguish no-evidence from poor performance.
+  recent sessions; distinguish no-evidence from poor performance. A candidate
+  cross-bank “Topics to revisit” section uses each question’s latest answer,
+  shows its evidence count, and starts Practice on the remaining misses.
 - **Revision libraries:** Bookmarks (manual), Wrong (auto from incorrect),
   Due Review (FSRS spaced queue); empty states explain how to fill them. FSRS
   ratings, Today queue, forecast, settings, migration, and undo work in both

@@ -1332,3 +1332,16 @@ Implemented approved recovery in existing transform owners: Topics separate path
   clearing the focus. Preview `https://f9090829.nk-qbank.pages.dev` returns
   HTTP 200 and serves the focus markers. Production was not promoted; physical
   user review of the controls is pending.
+
+## 2026-09-25 — Insights study-next candidate
+
+- User accepted the Quick Revision focus preview. They could not find the topic
+  filter and chose to leave that refinement for later.
+- Added an Insights “Topics to revisit” section across all subjects and banks.
+  It uses the latest active answer per distinct question, shows current misses
+  and answered sample size, recommends topics with at least three answered
+  and two still missed, and opens a Practice set of up to 20 current misses.
+  No-evidence and no-current-weak-topic states are distinct.
+- New deterministic transform, behavior check, and generated browser journey
+  are wired into Engineering and full build. Local checks pass; generated
+  browser/PWA/APK/emulator verification and physical preview review are next.
