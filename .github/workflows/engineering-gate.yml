@@ -29,6 +29,8 @@ jobs:
         run: python3 tools/test_study_metrics.py
       - name: Test Custom Study Modules behavior
         run: python3 tools/test_custom_study_modules_v1.py
+      - name: Test question-linked personal notes
+        run: python3 tools/test_question_notes_v1.py
       - name: Test Home Today’s Focus command center
         run: python3 tools/test_home_command_center_v1.py
       - name: Test Continue Practice session resume

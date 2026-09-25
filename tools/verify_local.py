@@ -16,7 +16,7 @@ CI_TESTS = {
     "test_marrow_bank_pilot.py",
     "test_question_context_bar_v1.py",
 }
-CI_VERIFIERS = {"verify_cbt_invariants.py", "verify_source_visual_contract.py", "verify_recall_dock_browser.py", "verify_marrow_bank_browser.py", "verify_continue_practice_browser.py", "verify_marrow_structured_table_browser.py", "verify_marrow_content_hygiene_browser.py", "verify_marrow_anatomy_ch06_q002_browser.py", "verify_marrow_anatomy_ch06_q018_browser.py", "verify_marrow_physio_ch11_q001_q006_browser.py", "verify_question_presentation_browser.py", "verify_prepladder_visuals_browser.py"}
+CI_VERIFIERS = {"verify_cbt_invariants.py", "verify_source_visual_contract.py", "verify_recall_dock_browser.py", "verify_marrow_bank_browser.py", "verify_continue_practice_browser.py", "verify_marrow_structured_table_browser.py", "verify_marrow_content_hygiene_browser.py", "verify_marrow_anatomy_ch06_q002_browser.py", "verify_marrow_anatomy_ch06_q018_browser.py", "verify_marrow_physio_ch11_q001_q006_browser.py", "verify_question_presentation_browser.py", "verify_question_notes_browser.py", "verify_prepladder_visuals_browser.py"}
 
 
 def main():

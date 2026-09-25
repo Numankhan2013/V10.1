@@ -7,7 +7,7 @@
   const NK_SYNC_META_PENDING_KEY='qbank_sync_pending_v2';
   const NK_AUTH_KEY='qbank_firebase_auth_v1';
   const NK_PRE_CLOUD_BACKUP='qbank_state_pre_cloud_v1';
-  const NK_SYNC_KINDS=['attempts','bookmarks','tests','modules','practiceSessions','sessions','preferences'];
+  const NK_SYNC_KINDS=['attempts','bookmarks','notes','tests','modules','practiceSessions','sessions','preferences'];
   let nkCloudApplying=false,nkCloudRevision=0,nkCloudMergeChanged=false;
   let nkCloudBusy=false,nkCloudReady=false,nkCloudTimer=null,nkCloudInterval=null,nkResolvedProjectId='';
 
@@ -108,6 +108,7 @@
     const current={bookmarks:new Set(),modules:new Set()};
     Object.entries(state.attempts||{}).forEach(([qid,list])=>(Array.isArray(list)?list:[]).forEach(attempt=>{if(attempt?.id)nkQueueEnvelope(nkEnvelope('attempts',attempt.id,{qid:String(qid),attempt},Number(attempt.at||0)));}));
     Object.entries(state.bookmarks||{}).forEach(([qid,value])=>{current.bookmarks.add(String(qid));nkQueueEnvelope(nkEnvelope('bookmarks',qid,{qid:String(qid),active:true},Number(value?.updatedAt||value?.addedAt||0)));});
+    Object.entries(state.questionNotes||{}).forEach(([qid,note])=>{if(!note||typeof note.text!=='string')return;nkQueueEnvelope(nkEnvelope('notes',qid,{text:note.text,deleted:Boolean(note.deleted)},Number(note.updatedAt||0)));});
     (state.tests||[]).forEach(test=>{if(test?.id)nkQueueEnvelope(nkEnvelope('tests',test.id,test,nkEntityTimestamp(test)));});
     (state.studyModules||[]).forEach(module=>{if(!module?.id)return;current.modules.add(String(module.id));if(!module.syncEpoch)module.syncEpoch=`epoch_${module.createdAt||Date.now()}`;nkQueueEnvelope(nkEnvelope('modules',module.id,module,nkEntityTimestamp(module)));});
     for(const kind of ['bookmarks','modules']){
@@ -236,6 +237,10 @@
     const payload=winner.deleted?null:nkJson(winner.payload,null),id=winner.entityId;
     if(winner.kind==='attempts'&&payload?.attempt?.id){const qid=String(payload.qid),list=Array.isArray(state.attempts[qid])?state.attempts[qid]:[];if(!list.some(a=>String(a.id)===String(payload.attempt.id)))state.attempts[qid]=[...list,payload.attempt].sort((a,b)=>Number(a.at||0)-Number(b.at||0));}
     else if(winner.kind==='bookmarks'){if(winner.deleted||!payload?.active)delete state.bookmarks[id];else state.bookmarks[id]={addedAt:Number(winner.updatedAt),updatedAt:Number(winner.updatedAt)};}
+    else if(winner.kind==='notes'&&payload&&typeof payload.text==='string'){
+      state.questionNotes=state.questionNotes||{};
+      state.questionNotes[id]={text:payload.text.slice(0,2000),updatedAt:Number(winner.updatedAt),deleted:Boolean(payload.deleted)};
+    }
     else if(winner.kind==='tests'&&payload){const index=(state.tests||[]).findIndex(x=>String(x.id)===id);if(index<0)state.tests.push(payload);else state.tests[index]=payload;state.tests=state.tests.slice(-100);}
     else if(winner.kind==='modules'){
       const list=Array.isArray(state.studyModules)?state.studyModules:[],index=list.findIndex(x=>String(x.id)===id),local=index>=0?list[index]:null;

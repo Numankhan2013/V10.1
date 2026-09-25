@@ -50,6 +50,7 @@
     if(value.stateRevision!=null&&(!Number.isSafeInteger(Number(value.stateRevision))||Number(value.stateRevision)<0))throw new Error('invalid state revision');
     if(value.attempts!=null&&!nkStateObject(value.attempts))throw new Error('attempts is not an object');
     if(value.bookmarks!=null&&!nkStateObject(value.bookmarks))throw new Error('bookmarks is not an object');
+    if(value.questionNotes!=null&&!nkStateObject(value.questionNotes))throw new Error('question notes is not an object');
     if(value.reviews!=null&&!nkStateObject(value.reviews))throw new Error('reviews is not an object');
     if(value.tests!=null&&!Array.isArray(value.tests))throw new Error('tests is not an array');
     if(value.studyModules!=null&&!Array.isArray(value.studyModules))throw new Error('studyModules is not an array');
@@ -59,7 +60,7 @@
   }
   function nkNormalizeState(value){
     nkValidateState(value);
-    const out={...defaultState(),...value,attempts:value.attempts||{},bookmarks:value.bookmarks||{},reviews:value.reviews||{},tests:Array.isArray(value.tests)?value.tests:[]};
+    const out={...defaultState(),...value,attempts:value.attempts||{},bookmarks:value.bookmarks||{},questionNotes:value.questionNotes||{},reviews:value.reviews||{},tests:Array.isArray(value.tests)?value.tests:[]};
     out.studyModules=Array.isArray(value.studyModules)?value.studyModules:[];
     out.stateSchemaVersion=NK_STATE_SCHEMA_VERSION;out.stateRevision=nkStateRevision(value);
     out.normalPracticeCheckpoints=nkNormalizePracticeCheckpoints(value.normalPracticeCheckpoints,value.normalPracticeCheckpoint);

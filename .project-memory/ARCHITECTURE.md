@@ -44,11 +44,14 @@ checked deterministic rollout ledger.
   `activeSubject`, `applySubject(name)` + `applySubject(activeSubject)`.
 - `state` in `qbank_state_v1`: schema-v2/revisioned `attempts` (canonical
   history — never `state.answers` for progress), `bookmarks`, `reviews`,
-  `tests`, `activeSession`, and versioned `normalPracticeCheckpoint`;
+  `tests`, `activeSession`, `questionNotes` (stable question ID keyed learner
+  text/tombstone), and versioned `normalPracticeCheckpoint`;
   `qbank_active_subject_v1` for subject. State writes use the durable pending →
   primary → last-known-good transaction in `tools/durable_persistence_core.js`;
   callers receive success/failure and malformed primary state recovers visibly.
   `studyModules` (max 100, normalized; see `docs/CUSTOM_STUDY_MODULES.md`).
+  Question notes use `tools/question_notes_core.js` and one independent cloud
+  envelope per question; see `docs/QUESTION_NOTES.md`.
 - Attempt helpers: `qAttempts(id)`, `latestAttempt(id)`, `chapterStats(id)`,
   `chapterQuestions(id)`, `totalAttempted()`, `overallAccuracy()`,
   `pendingReviewCount()`, `dueQuestions()`, `wrongQuestions()`,

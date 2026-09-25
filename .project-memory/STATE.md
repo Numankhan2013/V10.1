@@ -30,15 +30,17 @@
 - Bank-scoped modules/PYQs, restored Home focus, and the searchable full-page
   topic picker passed Engineering `36099517685` and full browser/PWA/APK/
   emulator `36099507918` at `7b7eef2`. The user confirmed the Topics flow works.
-- Current candidate removes the duplicate Source All/PYQ control from Questions.
-  Topic selection alone determines the source scope; adding PYQ topics preserves
-  regular topics. Existing saved modules retain frozen question IDs.
-- Tests, FSRS and Insights stay dedicated; the builder retains Wrong,
-  Unattempted, Bookmarked, Mixed, and source-labelled PYQ topics.
+- Source cleanup at `a94b329` passed Engineering `36101824054`; full build
+  `36101826646` is running. Questions has no duplicate Source control; selected
+  regular and PYQ topics both contribute. Saved modules keep frozen IDs.
+- Next study-intelligence candidate adds question-linked personal notes after
+  answering and in Review, with durable storage and account sync. Local behavior
+  checks pass; generated browser/APK/physical review is pending.
+- Tests, FSRS and Insights stay dedicated; the builder retains Wrong, Unattempted,
+  Bookmarked, Mixed, and source-labelled PYQ topics.
 - PYQs: 1,118 PrepLadder questions in 27 labelled topics (Biochemistry 346,
   Physiology 362, Anatomy 410). Marrow ED8 has no PYQ/exam/year metadata.
-- Next: finish Source cleanup CI, then begin study-intelligence roadmap work;
-  no new bank import, canonical merge, or production promotion yet.
+- Next: exact-head notes CI and preview; no bank import or production promotion.
 
 ## Product architecture to preserve
 

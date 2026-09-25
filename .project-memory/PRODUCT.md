@@ -63,6 +63,9 @@ Prefer building over narrating.
   the Android APK and website/PWA. Every answered question is scheduled;
   Pause commits only answered work, while final session submission makes all
   remaining unanswered questions eligible as skipped. Globally unseen questions stay out.
+- **Personal question notes (candidate):** one learner-written note per stable
+  question ID, available after an answer and in Review Solutions; durable
+  locally and account-synced, with no extra Home action.
 - **Custom Study Modules (V11.5 plus bank-aware candidate):** reusable sets from
   explicit subject/bank/topic scope + All/Unattempted/Wrong/Bookmarked/Mixed
   (seeded shuffle, Mixed weighted Wrong-heavy); source-labelled PYQ topics

@@ -85,7 +85,7 @@ def transform(source: str) -> str:
     hit = reset_pattern.search(source)
     if not hit:
         raise SystemExit("reset progress function not found")
-    reset = "function resetProgress(){if(nkAuth){showToast('Sign out before resetting this device. Your cloud copy will remain safe.','bad');return;}if(confirm('Reset all local QBank progress, bookmarks, review schedules, modules, and test history on this device? The source questions will remain.')){state=defaultState();saveState();navigate('dashboard');showToast('Local progress reset.');}}"
+    reset = "function resetProgress(){if(nkAuth){showToast('Sign out before resetting this device. Your cloud copy will remain safe.','bad');return;}if(confirm('Reset all local QBank progress, bookmarks, notes, review schedules, modules, and test history on this device? The source questions will remain.')){state=defaultState();saveState();navigate('dashboard');showToast('Local progress reset.');}}"
     source = source[: hit.start()] + reset + source[hit.end() :]
 
     # Preserve sync metadata through module normalization and distinguish an intentional restart.

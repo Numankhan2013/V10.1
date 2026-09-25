@@ -25,10 +25,10 @@ global.document={getElementById:id=>nodes[id]||null,createElement:()=>({id:'',cl
 const LS_KEY='qbank_state_v1';
 const defaultState=()=>({attempts:{},bookmarks:{},reviews:{},tests:[],studyModules:[],activeSession:null,studyStartedAt:null});
 ''' + STORAGE_CORE.read_text(encoding="utf-8") + r'''
-const valid={...defaultState(),stateSchemaVersion:2,stateRevision:7,bookmarks:{q1:{addedAt:1}}};
+const valid={...defaultState(),stateSchemaVersion:2,stateRevision:7,bookmarks:{q1:{addedAt:1}},questionNotes:{q1:{text:'My clue',updatedAt:7,deleted:false}}};
 data[NK_STATE_LKG_KEY]=JSON.stringify(valid);data[LS_KEY]='{broken';
 let recovered=nkDurableLoadState();
-assert(recovered.stateRevision===7&&recovered.bookmarks.q1,'corrupt primary must recover from LKG');
+assert(recovered.stateRevision===7&&recovered.bookmarks.q1&&recovered.questionNotes.q1.text==='My clue','corrupt primary must recover notes from LKG');
 assert(nkStorageBootNotice.includes('last valid snapshot'),'recovery must be visible');
 const pending={...valid,stateRevision:8,bookmarks:{q2:{addedAt:2}}};data[NK_STATE_PENDING_KEY]=JSON.stringify(pending);
 recovered=nkDurableLoadState();assert(recovered.stateRevision===8&&recovered.bookmarks.q2,'interrupted higher revision must recover');
@@ -111,6 +111,12 @@ nkApplyCloudEnvelope({kind:'bookmarks',entityId:'q1',ownerDevice:'ipad',updatedA
 assert(Boolean(state.bookmarks.q1),'older bookmark tombstone must not erase newer state');
 nkApplyCloudEnvelope({kind:'bookmarks',entityId:'q1',ownerDevice:'ipad',updatedAt:110,deleted:true,payload:'',schemaVersion:1});
 assert(!state.bookmarks.q1,'newer bookmark tombstone must win');
+nkApplyCloudEnvelope({kind:'notes',entityId:'q1',ownerDevice:'android',updatedAt:120,deleted:false,payload:JSON.stringify({text:'Recall clue',deleted:false}),schemaVersion:1});
+assert(state.questionNotes.q1.text==='Recall clue','question note must sync by question ID');
+nkApplyCloudEnvelope({kind:'notes',entityId:'q1',ownerDevice:'ipad',updatedAt:121,deleted:false,payload:JSON.stringify({text:'',deleted:true}),schemaVersion:1});
+assert(state.questionNotes.q1.deleted,'newer note removal must sync as a tombstone');
+nkApplyCloudEnvelope({kind:'notes',entityId:'q1',ownerDevice:'android',updatedAt:120,deleted:false,payload:JSON.stringify({text:'Recall clue',deleted:false}),schemaVersion:1});
+assert(state.questionNotes.q1.deleted,'older note copy must not resurrect a removed note');
 nkApplyCloudEnvelope({kind:'sessions',entityId:'active',ownerDevice:'android',updatedAt:200,deleted:false,payload:JSON.stringify({id:'new',index:4}),schemaVersion:1});
 nkApplyCloudEnvelope({kind:'sessions',entityId:'active',ownerDevice:'ipad',updatedAt:150,deleted:false,payload:JSON.stringify({id:'old',index:1}),schemaVersion:1});
 assert(state.activeSession.id==='new'&&state.activeSession.index===4,'opening an older device must not replace newer session progress');

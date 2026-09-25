@@ -1236,4 +1236,16 @@ Implemented approved recovery in existing transform owners: Topics separate path
   topics across available banks; saved modules retain frozen question IDs.
 - Node behavior checks cover mixed regular/PYQ scope and absence of the Source
   control. The generated browser capture now exercises a mixed selection.
-  Exact-head CI and physical review remain to be completed.
+  Engineering `36101824054` passed at `a94b329`; full browser/PWA/APK/emulator
+  run `36101826646` is pending. Physical review remains.
+
+## 2026-09-25 — Question-linked personal notes candidate
+
+- Official Marrow QBank guidance emphasizes learner-written notes, bookmarks,
+  custom modules, and revision. The first study-intelligence increment adds a
+  compact note editor after answering in Practice and in Review Solutions.
+- Notes use stable question IDs, durable local state, and one sync envelope per
+  note, including a removal tombstone. Saving does not rerender the question,
+  preserving reading position. No Home action was added.
+- Local behavior, persistence/sync, and build-order checks pass. Generated
+  browser and full APK/PWA/emulator verification are still pending.
