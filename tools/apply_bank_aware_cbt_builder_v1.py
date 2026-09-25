@@ -10,6 +10,7 @@ CORE = ROOT / "tools/bank_aware_cbt_builder_core.js"
 MARKER = "NK_BANK_AWARE_CBT_BUILDER_V1_START"
 
 CSS = '''<style id="nk-bank-aware-cbt-builder-v1">
+.page:has(.nk-cbt-builder){animation:none!important;transform:none!important}
 .nk-cbt-builder{max-width:820px}.nk-cbt-builder .nk-module-builder-card{min-height:0}
 .nk-cbt-builder .nk-module-stepper{grid-template-columns:repeat(3,1fr)}
 .nk-cbt-builder .nk-module-choice-grid{margin-top:13px}

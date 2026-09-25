@@ -40,7 +40,9 @@ def main() -> None:
             bank_bounds = page.evaluate("""() => {
               const button=document.querySelector('.nk-cbt-main-actions button').getBoundingClientRect();
               const nav=document.querySelector('.nk-bottom-nav-v114').getBoundingClientRect();
-              return {top:button.top,bottom:button.bottom,navTop:nav.top};
+              return {top:button.top,bottom:button.bottom,navTop:nav.top,
+                position:getComputedStyle(document.querySelector('.nk-cbt-main-actions')).position,
+                pageTransform:getComputedStyle(document.querySelector('.page')).transform};
             }""")
             assert bank_bounds["top"] >= 0 and bank_bounds["bottom"] <= bank_bounds["navTop"] - 8, bank_bounds
             page.get_by_role("button", name="Continue to topics").click()
@@ -68,7 +70,9 @@ def main() -> None:
             start_bounds = page.evaluate("""() => {
               const button=document.querySelector('.nk-cbt-main-actions button').getBoundingClientRect();
               const nav=document.querySelector('.nk-bottom-nav-v114').getBoundingClientRect();
-              return {top:button.top,bottom:button.bottom,navTop:nav.top};
+              return {top:button.top,bottom:button.bottom,navTop:nav.top,
+                position:getComputedStyle(document.querySelector('.nk-cbt-main-actions')).position,
+                pageTransform:getComputedStyle(document.querySelector('.page')).transform};
             }""")
             assert start_bounds["top"] >= 0 and start_bounds["bottom"] <= start_bounds["navTop"] - 8, start_bounds
             page.screenshot(path=str(output / "cbt-builder-questions-phone.png"), full_page=True)

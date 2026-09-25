@@ -1384,3 +1384,8 @@ Implemented approved recovery in existing transform owners: Topics separate path
   stricter mobile geometry assertion after filling the custom count. The fixed
   action bar now sits 20px higher and the check reports measured bounds; rerun
   the exact candidate before claiming preview/build verification.
+- Fifth full run `36157405503` measured the count-step Start button at
+  y=839–887 while bottom navigation began at y=768. This points to fixed
+  positioning inside the page transform on the longer count step. The builder
+  now disables the page transform, as the full-page Topics flow already does;
+  the next browser check will report computed position and transform if needed.
