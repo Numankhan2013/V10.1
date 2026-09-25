@@ -247,14 +247,66 @@
   function nkToggleModuleTopic(subjectIndex,topicIndex){
     if(!studyModuleDraft)return;const record=nkModuleBankRecords()[subjectIndex],topic=nkModuleTopics(record)[topicIndex];if(!record||!topic)return;
     const key=nkModuleTopicKey(record.subject,topic.id,nkModuleBankName(record)),selected=new Set(studyModuleDraft.topicIds||[]);
-    if(selected.has(key))selected.delete(key);else selected.add(key);studyModuleDraft.topicIds=[...selected];render();
+    if(selected.has(key))selected.delete(key);else selected.add(key);studyModuleDraft.topicIds=[...selected];nkSyncModuleTopicPicker();
+  }
+
+  function nkSyncModuleTopicPicker(){
+    if(!document.querySelectorAll)return;
+    const records=nkModuleBankRecords(),selected=new Set(studyModuleDraft?.topicIds||[]);
+    document.querySelectorAll('.nk-module-topic[data-subject-index]').forEach(button=>{
+      const record=records[Number(button.dataset.subjectIndex)],topic=nkModuleTopics(record)[Number(button.dataset.topicIndex)];
+      if(!record||!topic)return;
+      const active=selected.has(nkModuleTopicKey(record.subject,topic.id,nkModuleBankName(record)));
+      button.classList.toggle('is-selected',active);button.setAttribute('aria-pressed',String(active));
+      const check=button.querySelector('.nk-module-check');if(check)check.innerHTML=active?navIcon('check',16):'';
+    });
+    document.querySelectorAll('.nk-module-topic-group[data-subject-index]').forEach(group=>{
+      const record=records[Number(group.dataset.subjectIndex)],topics=nkModuleTopics(record);
+      if(!record)return;
+      const count=topics.filter(topic=>selected.has(nkModuleTopicKey(record.subject,topic.id,nkModuleBankName(record)))).length;
+      const status=group.querySelector('.nk-module-group-count'),action=group.querySelector('.nk-module-group-action');
+      if(status)status.textContent=`${count} of ${topics.length} selected`;
+      if(action)action.textContent=count===topics.length?'Clear bank':'Select bank';
+    });
+    const label=`${selected.size} topic${selected.size===1?'':'s'} selected`;
+    for(const id of ['nk-module-selected-count','nk-module-footer-count']){
+      const node=document.getElementById(id);if(node)node.textContent=label;
+    }
+    const continueButton=document.getElementById('nk-module-topics-continue');
+    if(continueButton)continueButton.disabled=!selected.size;
+  }
+
+  function nkFilterModuleTopics(value){
+    const query=String(value||'').trim().toLocaleLowerCase();
+    let visible=0;
+    document.querySelectorAll('.nk-module-topic-group[data-subject-index]').forEach(group=>{
+      const scope=group.querySelector('.nk-module-group-title')?.textContent.toLocaleLowerCase()||'';
+      let groupVisible=0;
+      group.querySelectorAll('.nk-module-topic').forEach(button=>{
+        const match=!query||scope.includes(query)||button.querySelector('strong')?.textContent.toLocaleLowerCase().includes(query);
+        button.hidden=!match;if(match)groupVisible++;
+      });
+      group.hidden=!groupVisible;visible+=groupVisible;
+    });
+    const status=document.getElementById('nk-module-search-status'),empty=document.getElementById('nk-module-search-empty');
+    if(status)status.textContent=query?`${visible} matching topic${visible===1?'':'s'}`:'';
+    if(empty)empty.hidden=visible>0;
+  }
+
+  function nkSetModuleBankTopics(subjectIndex){
+    if(!studyModuleDraft)return;
+    const record=nkModuleBankRecords()[subjectIndex];if(!record)return;
+    const keys=nkModuleTopics(record).map(topic=>nkModuleTopicKey(record.subject,topic.id,nkModuleBankName(record)));
+    const selected=new Set(studyModuleDraft.topicIds||[]),allSelected=keys.every(key=>selected.has(key));
+    keys.forEach(key=>allSelected?selected.delete(key):selected.add(key));
+    studyModuleDraft.topicIds=[...selected];nkSyncModuleTopicPicker();
   }
 
   function nkSetAllModuleTopics(select){
     if(!studyModuleDraft)return;
     const selected=select?new Set(studyModuleDraft.topicIds||[]):new Set();
     if(select)nkModuleSelectedRecords(studyModuleDraft).forEach(record=>nkModuleTopics(record).forEach(topic=>selected.add(nkModuleTopicKey(record.subject,topic.id,nkModuleBankName(record)))));
-    studyModuleDraft.topicIds=[...selected];render();
+    studyModuleDraft.topicIds=[...selected];nkSyncModuleTopicPicker();
   }
 
   function nkSelectModulePyqTopics(){
@@ -265,7 +317,7 @@
       if(nkModuleTopicHasCollection(record,topic.id,'pyq')){matched++;selected.add(nkModuleTopicKey(record.subject,topic.id,nkModuleBankName(record)));}
     }));
     if(!matched){showToast('No source-labelled PYQ topics in the selected banks.');return;}
-    studyModuleDraft.topicIds=[...selected];studyModuleDraft.collectionFilter='pyq';render();
+    studyModuleDraft.topicIds=[...selected];studyModuleDraft.collectionFilter='pyq';nkSyncModuleTopicPicker();
   }
 
   function nkSetModulePool(type){
@@ -307,8 +359,18 @@
   }
 
   function nkModuleBuilderTopics(){
-    const groups=nkModuleBankRecords().map((record,subjectIndex)=>{const bank=nkModuleBankName(record);if(!(studyModuleDraft.scopeIds||[]).includes(nkModuleScopeKey(record.subject,bank)))return'';const topics=nkModuleTopics(record);return `<section class="nk-module-topic-group"><header><span class="is-${nkAppSubjectMeta(record.subject).key}">${nkAppSubjectIcon(record.subject,18)}</span><div><strong>${esc(record.subject)} · ${esc(bank)}</strong><small>${topics.length} topics</small></div></header>${topics.map((topic,topicIndex)=>{const selected=studyModuleDraft.topicIds.includes(nkModuleTopicKey(record.subject,topic.id,bank)),pyq=nkModuleTopicHasCollection(record,topic.id,'pyq');return `<button class="nk-module-topic ${selected?'is-selected':''}" onclick="window.QB.nkToggleModuleTopic(${subjectIndex},${topicIndex})"><span class="nk-module-check">${selected?navIcon('check',13):''}</span><span><strong>${esc(topic.title)}</strong><small>${fmtNum(topic.questionCount)} questions${pyq?' · PYQs':''}</small></span></button>`;}).join('')}</section>`;}).join('');
-    return `<div class="nk-module-select-tools"><button onclick="window.QB.nkSetAllModuleTopics(true)">Select all</button><button onclick="window.QB.nkSelectModulePyqTopics()">PYQ topics</button><button onclick="window.QB.nkSetAllModuleTopics(false)">Clear selection</button><span>${studyModuleDraft.topicIds.length} selected</span></div><div class="nk-module-topic-groups">${groups}</div>`;
+    const records=nkModuleBankRecords(),selected=new Set(studyModuleDraft.topicIds||[]);
+    const active=records.filter(record=>(studyModuleDraft.scopeIds||[]).includes(nkModuleScopeKey(record.subject,nkModuleBankName(record))));
+    const total=active.reduce((sum,record)=>sum+nkModuleTopics(record).length,0);
+    const groups=records.map((record,subjectIndex)=>{
+      const bank=nkModuleBankName(record);if(!(studyModuleDraft.scopeIds||[]).includes(nkModuleScopeKey(record.subject,bank)))return'';
+      const topics=nkModuleTopics(record),count=topics.filter(topic=>selected.has(nkModuleTopicKey(record.subject,topic.id,bank))).length;
+      return `<section class="nk-module-topic-group" data-subject-index="${subjectIndex}"><header><span class="is-${nkAppSubjectMeta(record.subject).key}">${nkAppSubjectIcon(record.subject,20)}</span><div><strong class="nk-module-group-title">${esc(record.subject)} · ${esc(bank)}</strong><small class="nk-module-group-count">${count} of ${topics.length} selected</small></div><button type="button" class="nk-module-group-action" onclick="window.QB.nkSetModuleBankTopics(${subjectIndex})">${count===topics.length?'Clear bank':'Select bank'}</button></header><div class="nk-module-topic-list">${topics.map((topic,topicIndex)=>{
+        const picked=selected.has(nkModuleTopicKey(record.subject,topic.id,bank)),pyq=nkModuleTopicHasCollection(record,topic.id,'pyq');
+        return `<button type="button" class="nk-module-topic ${picked?'is-selected':''}" data-subject-index="${subjectIndex}" data-topic-index="${topicIndex}" aria-pressed="${picked}" onclick="window.QB.nkToggleModuleTopic(${subjectIndex},${topicIndex})"><span class="nk-module-topic-copy"><strong>${esc(topic.title)}</strong><small>${fmtNum(topic.questionCount)} questions${pyq?' · PYQs':''}</small></span><span class="nk-module-check" aria-hidden="true">${picked?navIcon('check',16):''}</span></button>`;
+      }).join('')}</div></section>`;
+    }).join('');
+    return `<div class="nk-module-topic-intro"><strong>${fmtNum(total)} topics in ${fmtNum(active.length)} selected bank${active.length===1?'':'s'}</strong><span id="nk-module-selected-count">${selected.size} topic${selected.size===1?'':'s'} selected</span></div><label class="nk-module-topic-search"><span>Search topics</span><input type="search" placeholder="Search by chapter or topic name" autocomplete="off" oninput="window.QB.nkFilterModuleTopics(this.value)"></label><div class="nk-module-select-tools"><button type="button" onclick="window.QB.nkSetAllModuleTopics(true)">Select all</button><button type="button" onclick="window.QB.nkSelectModulePyqTopics()">Add PYQ topics</button><button type="button" onclick="window.QB.nkSetAllModuleTopics(false)">Clear all</button></div><div id="nk-module-search-status" class="nk-module-search-status" role="status"></div><div class="nk-module-topic-groups">${groups}</div><p id="nk-module-search-empty" class="nk-module-search-empty" hidden>No topics match this search.</p>`;
   }
 
   function nkModuleBuilderPool(){
@@ -332,7 +394,9 @@
     const step=studyModuleDraft.step||1,titles=['Choose question banks','Choose topics','Build question pool','Name and create'];
     const content=step===1?nkModuleBuilderSubjects():step===2?nkModuleBuilderTopics():step===3?nkModuleBuilderPool():nkModuleBuilderReview();
     const available=nkQuestionsForModuleDraft().length,canCreate=available>0&&studyModuleDraft.topicIds.length>0;
-    return shell(`<div class="nk-app-v114 nk-module-builder"><button class="nk-back-link" onclick="${step===1?"window.QB.nav('dashboard')":`window.QB.nkModuleBuilderStep(${step-1})`}">${navIcon('back',18)} ${step===1?'Home':'Back'}</button>${nkAppPageHead(`CUSTOM STUDY · STEP ${step} OF 4`,titles[step-1],'Build a focused set that stays stable while you work through it.')}<div class="nk-module-stepper">${[1,2,3,4].map(n=>`<span class="${n===step?'is-current':n<step?'is-done':''}"><i>${n<step?navIcon('check',12):n}</i><b>${['Banks','Topics','Questions','Finish'][n-1]}</b></span>`).join('')}</div><section class="nk-module-builder-card">${content}</section><div class="nk-module-builder-actions">${step>1?`<button onclick="window.QB.nkModuleBuilderStep(${step-1})">Back</button>`:'<span></span>'}${step<4?`<button class="is-primary" onclick="window.QB.nkModuleBuilderStep(${step+1})">Continue</button>`:`<div class="nk-module-final-actions"><button ${canCreate?'':'disabled'} onclick="window.QB.nkCreateStudyModule(false)">Save for later</button><button class="is-primary" ${canCreate?'':'disabled'} onclick="window.QB.nkCreateStudyModule(true)">Start now</button></div>`}</div></div>`,'dashboard');
+    const description=step===2?'Search or scroll, then tap the topics you want in this module.':'Build a focused set that stays stable while you work through it.';
+    const actions=step===2?`<div class="nk-module-builder-actions nk-module-topic-actions"><span id="nk-module-footer-count">${studyModuleDraft.topicIds.length} topic${studyModuleDraft.topicIds.length===1?'':'s'} selected</span><button id="nk-module-topics-continue" class="is-primary" ${studyModuleDraft.topicIds.length?'':'disabled'} onclick="window.QB.nkModuleBuilderStep(3)">Continue to questions</button></div>`:step<4?`<div class="nk-module-builder-actions"><button class="is-primary" onclick="window.QB.nkModuleBuilderStep(${step+1})">Continue</button></div>`:`<div class="nk-module-builder-actions"><div class="nk-module-final-actions"><button ${canCreate?'':'disabled'} onclick="window.QB.nkCreateStudyModule(false)">Save for later</button><button class="is-primary" ${canCreate?'':'disabled'} onclick="window.QB.nkCreateStudyModule(true)">Start now</button></div></div>`;
+    return shell(`<div class="nk-app-v114 nk-module-builder ${step===2?'is-topics':''}"><button class="nk-back-link" onclick="${step===1?"window.QB.nav('dashboard')":`window.QB.nkModuleBuilderStep(${step-1})`}">${navIcon('back',18)} ${step===1?'Home':'Back'}</button>${nkAppPageHead(`CUSTOM STUDY · STEP ${step} OF 4`,titles[step-1],description)}<div class="nk-module-stepper">${[1,2,3,4].map(n=>`<span class="${n===step?'is-current':n<step?'is-done':''}"><i>${n<step?navIcon('check',12):n}</i><b>${['Banks','Topics','Questions','Finish'][n-1]}</b></span>`).join('')}</div><section class="nk-module-builder-card">${content}</section>${actions}</div>`,'dashboard');
   }
 
   function nkCreateStudyModule(startNow){

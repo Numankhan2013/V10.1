@@ -1195,3 +1195,19 @@ Implemented approved recovery in existing transform owners: Topics separate path
   320px and saved-module Home captures confirm the top streak and persistent
   Focus hierarchy, a visible 320px action, and one module Continue button.
   The user has not yet physically accepted this revised Home.
+
+## 2026-09-25 — Custom module topic picker refinement
+
+- The user confirmed the restored Home flow works, then reported that the
+  custom module topic step is hard to use: a small nested scroll area, tiny
+  rows, and a jump to the top after selecting a deep topic.
+- Fresh phone/tablet captures at `d34ce8c` from full run `36095684713`
+  confirmed a 390px list pane, 50px rows, 10.5px topic titles, and a Continue
+  action below the initial phone viewport. The tap handler called `render()`.
+- The candidate replaces the inner pane with normal page scroll, adds topic
+  search and per-bank selection, enlarges row targets and builder text, keeps
+  a selected-count Continue action above the bottom nav, and updates topic
+  selection in place. The duplicate bottom Back controls were removed; the
+  top Back control remains. Bank/topic IDs and pool logic are unchanged.
+- Local source checks passed (`verify_local.py`: 51 checks, PDF pipeline skipped
+  on Termux). Exact-head CI, after screenshots, and physical review are next.

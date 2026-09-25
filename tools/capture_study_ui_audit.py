@@ -72,6 +72,12 @@ def main():
                   return streak.top<focus.top && focus.top<sets.top;
                 }"""), f"Home study hierarchy changed at {label}"
                 assert page.locator(".nk-home-focus-action").inner_text().startswith("Choose a subject"), f"Fresh Home focus action is misleading at {label}"
+                if label in ("small-phone", "large-text-phone"):
+                    page.evaluate("window.QB.openStudyModuleBuilder();window.QB.nkModuleBuilderStep(2)")
+                    capture(page, f"{label}-01d-module-topics", observations)
+                    assert page.evaluate("getComputedStyle(document.querySelector('.nk-module-topic-groups')).overflowY") == "visible", \
+                        f"Nested topic scrolling remains at {label}"
+                    page.evaluate("window.QB.nav('dashboard')")
                 if label in ("phone", "tablet"):
                     capture(page, f"{label}-01-home-full", observations, full_page=True)
                     page.evaluate("window.QB.openStudyModuleBuilder()")
@@ -79,6 +85,22 @@ def main():
                     capture(page, f"{label}-01c-module-banks", observations)
                     page.evaluate("window.QB.nkModuleBuilderStep(2)")
                     capture(page, f"{label}-01d-module-topics", observations)
+                    assert page.evaluate("getComputedStyle(document.querySelector('.nk-module-topic-groups')).overflowY") == "visible", \
+                        f"Nested topic scrolling remains at {label}"
+                    topic = page.locator(".nk-module-topic").nth(12)
+                    topic.evaluate("node => node.scrollIntoView({block:'center'})")
+                    scroll_before = page.evaluate("window.scrollY")
+                    topic.click()
+                    scroll_after = page.evaluate("window.scrollY")
+                    assert abs(scroll_after - scroll_before) <= 2, \
+                        f"Selecting a deep topic jumps the page at {label}: {scroll_before} -> {scroll_after}"
+                    assert topic.get_attribute("aria-pressed") == "true", f"Deep topic was not selected at {label}"
+                    capture(page, f"{label}-01d-module-topics-deep-selected", observations)
+                    page.locator(".nk-module-topic-search input").fill("Glycolysis")
+                    assert 0 < page.locator(".nk-module-topic:visible").count() < page.locator(".nk-module-topic").count(), \
+                        f"Topic search did not narrow the list at {label}"
+                    capture(page, f"{label}-01d-module-topics-search", observations)
+                    page.locator(".nk-module-topic-search input").fill("")
                     page.evaluate("window.QB.nkSetAllModuleTopics(true);window.QB.nkModuleBuilderStep(3)")
                     capture(page, f"{label}-01e-module-pool", observations, full_page=True)
                     page.evaluate("window.QB.nkModuleBuilderStep(4)")

@@ -23,23 +23,24 @@
 - Source handoff: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
 - Mandatory automation policy: `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
 
-## Bank-aware modules and flow cleanup — 2026-09-25
+## Bank-aware modules and topic picker — 2026-09-25
 
 - Isolated branch: `feature/qbank-bank-aware-modules-20260924`; resolve live
   HEAD and CI before integration. Production and canonical are untouched.
 - Bank-scoped modules/PYQs passed browser, APK and emulator at `620d3aa`;
-  the user confirmed that flow works. `fcd9869` passed all CI, but the user
-  rejected its Home look: the streak moved down and Today's Focus vanished.
-  `8339764` restores both, passed Engineering `36078896597` and full
-  browser/PWA/APK/Android `36078893896`; preview `https://eaa6041b.nk-qbank.pages.dev`.
+  the user confirmed that flow works. Home streak and Today's Focus were
+  restored at `8339764`; the user confirmed the revised flow works.
+- The custom module topic picker was found to have 50px rows inside a 390px
+  scroll box. Each tap rerendered the app and lost scroll position. Candidate
+  replaces it with a full page searchable list, larger rows, bank selection,
+  live in-place selection and a visible Continue action. Require exact-head
+  browser/PWA/APK CI and physical preview review before integration.
 - Tests, FSRS and Insights stay dedicated; More keeps saved-question lists.
-  The module builder still contains
-  Wrong, Unattempted, Bookmarked, Mixed and PYQ pools.
+  The builder retains Wrong, Unattempted, Bookmarked, Mixed and PYQ pools.
 - PYQs: 1,118 PrepLadder questions in 27 labelled topics (Biochemistry 346,
   Physiology 362, Anatomy 410). Marrow ED8 has no PYQ/exam/year metadata.
-- Next: request the user's physical verdict on the revised Home preview;
-  fresh, 320px and saved-module captures are in the flow audit. No
-  canonical merge or production promotion before acceptance.
+- Next: inspect the topic-picker capture and exact-head CI preview, then ask
+  for physical verdict. No canonical merge or production promotion yet.
 
 ## Product architecture to preserve
 
