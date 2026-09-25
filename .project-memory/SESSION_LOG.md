@@ -1290,3 +1290,17 @@ Implemented approved recovery in existing transform owners: Topics separate path
   `https://4cc816c7.nk-qbank.pages.dev` serves the new notes markers;
   production was not promoted. Physical device review remains.
 - User checked the preview and confirmed the notes changes work.
+
+## 2026-09-25 — All-bank Quick Revision desk
+
+- The next study-intelligence phase replaces the separate More Wrong and
+  Bookmarks launch rows with one Quick revision entry. The page explicitly
+  covers all subjects and question banks, with Mistakes, Bookmarks, Unseen,
+  and Due counts.
+- Mistakes/bookmarks/unseen start random sets of up to 20. Searchable full
+  lists preserve browse and single-question access for mistakes/bookmarks.
+  Due reuses the shared FSRS queue and its priority/daily-cap rules, starting
+  at most 20 cards. Unseen excludes active attempts and submitted skips.
+- The core and transform behavior check pass locally. The generated browser
+  journey now checks global bank scope, full-list search/launch, four queue
+  starts, 20-question sampling, and FSRS Due behavior. Exact-head CI is next.

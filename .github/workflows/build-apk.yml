@@ -242,6 +242,10 @@ jobs:
         run: python3 tools/apply_question_notes_v1.py
       - name: Test question-linked personal notes
         run: python3 tools/test_question_notes_v1.py
+      - name: Install all-bank Quick Revision desk
+        run: python3 tools/apply_revision_desk_v1.py
+      - name: Test all-bank Quick Revision desk
+        run: python3 tools/test_revision_desk_v1.py
       - name: Verify final JavaScript syntax after all transformations
         run: |
           python3 - <<'PY'
@@ -364,6 +368,8 @@ jobs:
         run: python3 tools/verify_question_interaction_browser.py
       - name: Verify personal notes in Practice and Review
         run: python3 tools/verify_question_notes_browser.py
+      - name: Verify all-bank Quick Revision queues
+        run: python3 tools/verify_revision_desk_browser.py
       - name: Capture study UI audit across screen sizes
         run: python3 tools/capture_study_ui_audit.py
       - name: Upload study UI audit evidence

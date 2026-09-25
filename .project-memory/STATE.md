@@ -40,7 +40,7 @@
   Bookmarked, Mixed, and source-labelled PYQ topics.
 - PYQs: 1,118 PrepLadder questions in 27 labelled topics (Biochemistry 346,
   Physiology 362, Anatomy 410). Marrow ED8 has no PYQ/exam/year metadata.
-- Next: verify notes/index, then build the one-tap revision queue without Home clutter.
+- Next: verify the all-bank Quick Revision desk; then add evidence-backed facets without Home clutter.
 
 ## Product architecture to preserve
 

@@ -63,6 +63,11 @@ Prefer building over narrating.
   the Android APK and website/PWA. Every answered question is scheduled;
   Pause commits only answered work, while final session submission makes all
   remaining unanswered questions eligible as skipped. Globally unseen questions stay out.
+- **Quick revision (candidate):** More offers all-subject, all-bank Mistakes,
+  Bookmarks, Unseen, and Due queues. The first three start random sets of up
+  to 20; Due starts up to 20 in FSRS priority order and honors the existing
+  daily cap. Full searchable Mistakes and Bookmarks lists remain available.
+  No Home action.
 - **Personal question notes (candidate):** one learner-written note per stable
   question ID, available after an answer and in Review Solutions; durable
   locally and account-synced. Saved notes are read-only cards with Edit/Delete;
