@@ -50,7 +50,7 @@ def main() -> None:
 
             page.reload(wait_until="domcontentloaded")
             page.wait_for_function("window.QB && window.QB.getState")
-            page.evaluate("window.QB.nav('practice')")
+            note.wait_for(state="visible")
             assert note.locator("textarea").input_value() == "My recall cue: compare the two fibres.", "Note was lost after reload"
 
             page.evaluate("""id => {

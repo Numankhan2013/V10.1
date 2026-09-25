@@ -1249,3 +1249,10 @@ Implemented approved recovery in existing transform owners: Topics separate path
   preserving reading position. No Home action was added.
 - Local behavior, persistence/sync, and build-order checks pass. Generated
   browser and full APK/PWA/emulator verification are still pending.
+- First generated browser run `36102658065` reached the note journey: save,
+  reload, and Review controls worked, but an answered Practice reload reported
+  `window.sourceSubjectV14 is not a function`. The source-PDF helper was
+  installed in a later body script than initial Practice rendering. The
+  renderer now derives its subject directly from the question's existing
+  subject/ID/source reference; the browser check requires the note to appear
+  immediately after reload with no manual navigation. Rerun full CI.

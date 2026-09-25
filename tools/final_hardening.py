@@ -87,7 +87,9 @@ for i in range(brace,len(s)):
 if end<0: raise SystemExit('renderExplanationText end not found')
 replacement=r'''function renderExplanationText(text,question){
     const id=String(question?.id||'').toLowerCase();
-    const subject=id.startsWith('anatomy-')?'anatomy':window.sourceSubjectV14(question);
+    const sourceSubject=String(question?.subject||'').toLowerCase();
+    const sourceRef=String(question?.sourceRef||'').toLowerCase();
+    const subject=id.startsWith('anatomy-')?'anatomy':(sourceSubject==='physiology'||id.startsWith('physiology-')||sourceRef.includes('physiology')?'physiology':'biochemistry');
     const label=subject==='physiology'?'Physiology':(subject==='anatomy'?'Anatomy':'Biochemistry');
     let segments=[];
     if(subject==='biochemistry' && window.BIOCHEM_SOURCE_SOLUTIONS){

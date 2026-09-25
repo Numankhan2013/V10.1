@@ -33,9 +33,9 @@
 - Source cleanup at `a94b329` passed Engineering `36101824054`; full build
   `36101826646` is running. Questions has no duplicate Source control; selected
   regular and PYQ topics both contribute. Saved modules keep frozen IDs.
-- Next study-intelligence candidate adds question-linked personal notes after
-  answering and in Review, with durable storage and account sync. Local behavior
-  checks pass; generated browser/APK/physical review is pending.
+- Notes candidate adds question-linked personal notes after answering and in
+  Review, with durable storage and sync. Browser probing found a pre-existing
+  Practice reload/PDF-helper race; the fix needs exact-head CI and device review.
 - Tests, FSRS and Insights stay dedicated; the builder retains Wrong, Unattempted,
   Bookmarked, Mixed, and source-labelled PYQ topics.
 - PYQs: 1,118 PrepLadder questions in 27 labelled topics (Biochemistry 346,
