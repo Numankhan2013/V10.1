@@ -1256,3 +1256,10 @@ Implemented approved recovery in existing transform owners: Topics separate path
   renderer now derives its subject directly from the question's existing
   subject/ID/source reference; the browser check requires the note to appear
   immediately after reload with no manual navigation. Rerun full CI.
+- `21e28e2` passed Engineering `36103198537` and full browser/PWA/APK/Android
+  emulator `36103201213`. The generated browser journey passed note save,
+  immediate reload, Review display, and removal. The preview
+  `https://d3efc7b0.nk-qbank.pages.dev` serves the final note marker and has no
+  Source control. Phone captures were inspected and saved in
+  `docs/audits/study-scope-and-notes-2026-09-25/`. Physical device acceptance
+  and production promotion remain open.

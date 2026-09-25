@@ -30,17 +30,17 @@
 - Bank-scoped modules/PYQs, restored Home focus, and the searchable full-page
   topic picker passed Engineering `36099517685` and full browser/PWA/APK/
   emulator `36099507918` at `7b7eef2`. The user confirmed the Topics flow works.
-- Source cleanup at `a94b329` passed Engineering `36101824054`; full build
-  `36101826646` is running. Questions has no duplicate Source control; selected
-  regular and PYQ topics both contribute. Saved modules keep frozen IDs.
-- Notes candidate adds question-linked personal notes after answering and in
-  Review, with durable storage and sync. Browser probing found a pre-existing
-  Practice reload/PDF-helper race; the fix needs exact-head CI and device review.
+- Source cleanup at `a94b329` passed Engineering `36101824054` and full
+  browser/PWA/APK/emulator `36101826646`. Selected regular and PYQ topics both
+  contribute; Questions has no Source control. Saved modules keep frozen IDs.
+- Notes candidate at `21e28e2` passed Engineering `36103198537` and full
+  browser/PWA/APK/emulator `36103201213`. Durable synced notes work after
+  answering and in Review; answered Practice reload is repaired.
 - Tests, FSRS and Insights stay dedicated; the builder retains Wrong, Unattempted,
   Bookmarked, Mixed, and source-labelled PYQ topics.
 - PYQs: 1,118 PrepLadder questions in 27 labelled topics (Biochemistry 346,
   Physiology 362, Anatomy 410). Marrow ED8 has no PYQ/exam/year metadata.
-- Next: exact-head notes CI and preview; no bank import or production promotion.
+- Next: final CI and physical preview review, then note index/revision queue.
 
 ## Product architecture to preserve
 

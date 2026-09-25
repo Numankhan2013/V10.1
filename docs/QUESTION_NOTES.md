@@ -19,5 +19,6 @@ and a unified revision queue without duplicating Practice.
 
 Verification: `tools/test_question_notes_v1.py`,
 `tools/test_cross_device_sync_v1.py`, and the generated PWA browser journey in
-`tools/verify_question_notes_browser.py`. Physical Android/iPad behavior still
-needs review on the preview build.
+`tools/verify_question_notes_browser.py`. Engineering `36103198537` and full
+browser/PWA/APK/Android emulator `36103201213` passed at `21e28e2`. Physical
+Android/iPad behavior still needs review on the preview build.
