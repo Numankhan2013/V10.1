@@ -31,3 +31,5 @@ Implementation: `tools/revision_desk_core.js` and
 `tools/verify_revision_desk_browser.py`.
 
 Build verification: Engineering `36139455865` and full generated browser/PWA/APK/Android phone+tablet emulator run `36139466345` passed at `a5f2380`. Preview: https://9907728f.nk-qbank.pages.dev. Production was not promoted; physical user review is pending.
+
+Focused revision verification: Engineering `36146934888` and full generated browser/PWA/APK/Android emulator run `36146938774` passed at `1d3b32e`. Preview: https://f9090829.nk-qbank.pages.dev. Physical review of the focus controls is pending.

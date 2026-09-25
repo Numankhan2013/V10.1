@@ -1326,3 +1326,9 @@ Implemented approved recovery in existing transform owners: Topics separate path
   it counted a focused Mistakes list immediately after navigation, before the
   route rendered. The check now waits for the Mistakes heading, then verifies
   the scoped list. Engineering `36146300092` passed; rerun full CI.
+- The rerun at `1d3b32e` passed Engineering `36146934888` and full
+  browser/PWA/APK/Android emulator `36146938774`. Its browser journey verified
+  the subject, bank, and topic controls, scoped counts and Mistakes list, and
+  clearing the focus. Preview `https://f9090829.nk-qbank.pages.dev` returns
+  HTTP 200 and serves the focus markers. Production was not promoted; physical
+  user review of the controls is pending.

@@ -22,10 +22,11 @@ Check off only when build-verified **and** device-verified where UI is involved.
       `36113695753` at `34c5bcc`; the user checked and accepted its preview.
       Quick Revision combines mistakes/bookmarks/unseen/due in More across
       all subjects and banks; the user accepted its preview after Engineering
-      `36139455865` and full build `36139466345` passed. The next candidate
-      adds source-backed subject, bank, and topic focus within that page. Build
-      on the same registry and Practice/Review engine; do not invent PYQ,
-      difficulty, or high-yield labels.
+      `36139455865` and full build `36139466345` passed. Source-backed subject,
+      bank, and topic focus now passed Engineering `36146934888` and full build
+      `36146938774`; physical preview review is next. Build on the same bank
+      registry and Practice/Review engine; do not invent PYQ, difficulty, or
+      high-yield labels.
 - [ ] Finish the 2026-09-23 study UI audit batch on one exact canonical SHA:
       inspect the generated phone/tablet/image screenshots and pass Engineering,
       full Android/PWA/browser/APK/package, and packaged Android emulator gates.
