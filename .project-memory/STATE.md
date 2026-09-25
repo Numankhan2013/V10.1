@@ -30,14 +30,15 @@
 - Bank-scoped modules/PYQs passed browser, APK and emulator at `620d3aa`;
   the user confirmed that flow works. `fcd9869` passed all CI, but the user
   rejected its Home look: the streak moved down and Today's Focus vanished.
-  A new candidate restores both while retaining the accepted flow cleanup.
+  `8339764` restores both, passed Engineering `36078896597` and full
+  browser/PWA/APK/Android `36078893896`; preview `https://eaa6041b.nk-qbank.pages.dev`.
 - Tests, FSRS and Insights stay dedicated; More keeps saved-question lists.
   The module builder still contains
   Wrong, Unattempted, Bookmarked, Mixed and PYQ pools.
 - PYQs: 1,118 PrepLadder questions in 27 labelled topics (Biochemistry 346,
   Physiology 362, Anatomy 410). Marrow ED8 has no PYQ/exam/year metadata.
-- Next: pass exact-head browser/APK/emulator CI, inspect fresh and saved-module
-  Home captures, then request a physical verdict. No
+- Next: request the user's physical verdict on the revised Home preview;
+  fresh, 320px and saved-module captures are in the flow audit. No
   canonical merge or production promotion before acceptance.
 
 ## Product architecture to preserve

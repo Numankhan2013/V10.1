@@ -1190,3 +1190,8 @@ Implemented approved recovery in existing transform owners: Topics separate path
   Practice or unfinished modules when present, and suppress a duplicated
   Continue button on the focused saved-module card. Keep Tests, More and
   Insights simplification intact. Capture both fresh and saved-module Home.
+- `8339764` passed Engineering `36078896597` and full browser/PWA/APK/Android
+  `36078893896`; preview is `https://eaa6041b.nk-qbank.pages.dev`. Fresh,
+  320px and saved-module Home captures confirm the top streak and persistent
+  Focus hierarchy, a visible 320px action, and one module Continue button.
+  The user has not yet physically accepted this revised Home.

@@ -43,6 +43,18 @@ gives the streak its own prominent space. Our design inference is to keep one
 clear daily study anchor above the library, then show the module and subject
 choices without extra copies of their actions.
 
+## Revised Home after the user's feedback
+
+The new [fresh Home](13-home-focus-restored.png), [320px Home](14-small-phone-focus-restored.png),
+and [saved-module Home](15-saved-module-focus.png) show the streak immediately
+under the greeting and a persistent Today’s Focus card beneath it. A fresh
+state says “Choose a subject” and scrolls to the visible subject list. A saved
+unfinished module gets the Focus Continue action; its study-set card keeps
+progress and management without a second Continue button. The browser capture
+checks this hierarchy and the 320px button position. Engineering run
+`36078896597` and full browser/PWA/APK/Android run `36078893896` passed on
+product commit `8339764`; preview: https://eaa6041b.nk-qbank.pages.dev.
+
 ## Accessibility and evidence limits
 
 - Several old Home and Insights captions render at about 8–10 px in phone
