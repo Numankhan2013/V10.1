@@ -33,14 +33,15 @@
 - Source cleanup at `a94b329` passed Engineering `36101824054` and full
   browser/PWA/APK/emulator `36101826646`. Selected regular and PYQ topics both
   contribute; Questions has no Source control. Saved modules keep frozen IDs.
-- Notes candidate at `21e28e2` passed Engineering `36103198537` and full
-  browser/PWA/APK/emulator `36103201213`. Durable synced notes work after
-  answering and in Review; answered Practice reload is repaired.
+- Notes at `e623fd1` passed Engineering `36104448841` and full run
+  `36104452424`; preview `https://02152933.nk-qbank.pages.dev` was accepted
+  by the user. Read-only saved cards and More → My notes index/search now
+  await exact-head CI and physical review.
 - Tests, FSRS and Insights stay dedicated; the builder retains Wrong, Unattempted,
   Bookmarked, Mixed, and source-labelled PYQ topics.
 - PYQs: 1,118 PrepLadder questions in 27 labelled topics (Biochemistry 346,
   Physiology 362, Anatomy 410). Marrow ED8 has no PYQ/exam/year metadata.
-- Next: final CI and physical preview review, then note index/revision queue.
+- Next: verify notes/index, then build the one-tap revision queue without Home clutter.
 
 ## Product architecture to preserve
 
@@ -141,9 +142,8 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Current priorities / Next step
 
-1. Complete generated and physical review of the bank-aware module/PYQ candidate
-   on its exact source head, including an old saved module, Marrow-only module,
-   and PrepLadder PYQ set. It is code-only at this handoff.
+1. Verify read-only notes and More → My notes on exact source head: edit/cancel/
+   delete, reload, search and cross-bank launch. Preserve accepted study flows.
 2. Keep the accepted Practice/Review contract, Anatomy Ch7 Q11–Q21 rollout, and
    automation-owned image/explanation content intact. Production remains guarded.
 3. Image automation remains independently owned from live canonical per

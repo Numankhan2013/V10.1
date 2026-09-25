@@ -1263,3 +1263,18 @@ Implemented approved recovery in existing transform owners: Topics separate path
   Source control. Phone captures were inspected and saved in
   `docs/audits/study-scope-and-notes-2026-09-25/`. Physical device acceptance
   and production promotion remain open.
+
+## 2026-09-25 — Read-only saved notes and the next notes page
+
+- User checked the preview and accepted the existing notes functionality,
+  then requested Save to close the editor and display a non-editable card with
+  Edit and Delete in the top right.
+- The question note surface now has explicit empty, editing, and saved states.
+  Save returns to read-only text; Cancel preserves the stored note; Delete
+  writes the existing sync tombstone. Failed saves keep the draft visible.
+- More → My notes is a searchable cross-bank index of saved recall cues with
+  direct Practice entry for available questions. It adds no Home action.
+- The existing generated browser journey was updated for save, reload,
+  edit/cancel, notes index/search, cross-bank entry, Review and delete. Local
+  source verification passed; exact-head generated CI and physical review
+  are pending.

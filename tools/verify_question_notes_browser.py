@@ -42,16 +42,39 @@ def main() -> None:
             page.evaluate("window.QB.submitPractice()")
             note = page.locator(".nk-question-note")
             note.wait_for(state="visible")
-            note.locator("summary").click()
+            note.get_by_role("button", name="Add note").click()
             note.locator("textarea").fill("My recall cue: compare the two fibres.")
             note.get_by_role("button", name="Save note").click()
             assert page.evaluate("id => window.QB.getState().questionNotes?.[id]?.text", QUESTION_ID) == "My recall cue: compare the two fibres."
+            assert note.locator("textarea").count() == 0
+            assert note.get_by_role("button", name="Save note").count() == 0
+            assert note.get_by_role("button", name="Cancel").count() == 0
+            assert note.locator(".nk-note-readonly").inner_text() == "My recall cue: compare the two fibres."
             page.screenshot(path=str(output / "question-notes-practice-phone.png"), full_page=True)
 
             page.reload(wait_until="domcontentloaded")
             page.wait_for_function("window.QB && window.QB.getState")
             note.wait_for(state="visible")
-            assert note.locator("textarea").input_value() == "My recall cue: compare the two fibres.", "Note was lost after reload"
+            assert note.locator(".nk-note-readonly").inner_text() == "My recall cue: compare the two fibres.", "Note was lost after reload"
+            note.get_by_role("button", name="Edit note").click()
+            note.locator("textarea").fill("Unsaved change")
+            note.get_by_role("button", name="Cancel").click()
+            assert note.locator(".nk-note-readonly").inner_text() == "My recall cue: compare the two fibres.", "Cancel changed the saved note"
+
+            page.evaluate("window.QB.nav('more')")
+            page.get_by_role("button", name="My notes").click()
+            assert page.locator(".nk-notes-item").count() == 1, "More should open the saved-note index"
+            assert page.locator(".nk-notes-item-text").inner_text() == "My recall cue: compare the two fibres."
+            page.locator(".nk-notes-search input").fill("no match")
+            assert page.locator(".nk-notes-item:visible").count() == 0
+            page.locator(".nk-notes-search input").fill("fibres")
+            assert page.locator(".nk-notes-item:visible").count() == 1
+            page.locator(".nk-notes-item button").click()
+            page.wait_for_function("id => window.QB.getState().activeSession?.questionIds?.[0]===id", arg=QUESTION_ID)
+            page.locator(".option").first.click()
+            page.evaluate("window.QB.submitPractice()")
+            note.wait_for(state="visible")
+            assert note.locator(".nk-note-readonly").inner_text() == "My recall cue: compare the two fibres."
 
             page.evaluate("""id => {
               const s=window.QB.getState();
@@ -61,10 +84,10 @@ def main() -> None:
             }""", QUESTION_ID)
             note = page.locator(".nk-question-note")
             note.wait_for(state="visible")
-            assert note.locator("textarea").input_value() == "My recall cue: compare the two fibres.", "Review did not show the note"
-            note.locator("textarea").fill("")
-            note.get_by_role("button", name="Save note").click()
+            assert note.locator(".nk-note-readonly").inner_text() == "My recall cue: compare the two fibres.", "Review did not show the note"
+            note.get_by_role("button", name="Delete note").click()
             assert page.evaluate("id => window.QB.getState().questionNotes?.[id]?.deleted", QUESTION_ID), "Removing a note needs a sync tombstone"
+            assert note.get_by_role("button", name="Add note").count() == 1
             page.screenshot(path=str(output / "question-notes-review-phone.png"), full_page=True)
             assert not errors, f"Browser errors: {errors!r}"
             print("QUESTION_NOTES_BROWSER_OK practice=true reload=true review=true removal=true")

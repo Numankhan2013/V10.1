@@ -16,11 +16,13 @@ Check off only when build-verified **and** device-verified where UI is involved.
       has 1,118 source-labelled PYQs; Marrow ED8 lacks reliable PYQ/exam/year fields.
 - [ ] Study intelligence: a first increment adds question-linked personal notes
       to answered Practice and Review, with durable local storage and account
-      sync. Generated browser/APK/emulator passed at `21e28e2`; physical review
-      is pending. Then add a compact saved-note index and one-tap current
-      mistakes/bookmarks/unseen/due revision,
-      and evidence-backed question facets. Build on the same bank registry and
-      Practice/Review engine; do not invent PYQ/difficulty/high-yield labels.
+      sync. User checked and accepted the note functionality at `e623fd1`.
+      The read-only saved card and compact More → My notes index/search are
+      implemented in the next candidate; exact-head CI and physical review
+      are pending. Next add one-tap current mistakes/bookmarks/unseen/due
+      revision and evidence-backed question facets. Build on the same bank
+      registry and Practice/Review engine; do not invent PYQ/difficulty/
+      high-yield labels.
 - [ ] Finish the 2026-09-23 study UI audit batch on one exact canonical SHA:
       inspect the generated phone/tablet/image screenshots and pass Engineering,
       full Android/PWA/browser/APK/package, and packaged Android emulator gates.

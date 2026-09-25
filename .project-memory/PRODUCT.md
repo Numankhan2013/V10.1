@@ -65,7 +65,8 @@ Prefer building over narrating.
   remaining unanswered questions eligible as skipped. Globally unseen questions stay out.
 - **Personal question notes (candidate):** one learner-written note per stable
   question ID, available after an answer and in Review Solutions; durable
-  locally and account-synced, with no extra Home action.
+  locally and account-synced. Saved notes are read-only cards with Edit/Delete;
+  More has a searchable cross-bank note index. No extra Home action.
 - **Custom Study Modules (V11.5 plus bank-aware candidate):** reusable sets from
   explicit subject/bank/topic scope + All/Unattempted/Wrong/Bookmarked/Mixed
   (seeded shuffle, Mixed weighted Wrong-heavy); source-labelled PYQ topics
