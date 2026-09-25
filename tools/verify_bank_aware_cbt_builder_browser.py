@@ -6,7 +6,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import threading
 
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import expect, sync_playwright
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -32,14 +32,14 @@ def main() -> None:
             page.wait_for_function("window.QB && window.QB.getState")
             page.get_by_role("button", name="Choose subjects and topics").click()
             page.wait_for_url("**/#test-builder")
-            assert page.locator(".nk-cbt-builder .nk-module-subject").count() == 6
+            expect(page.locator(".nk-cbt-builder .nk-module-subject")).to_have_count(6)
             page.get_by_role("button", name="Clear all").click()
             marrow = page.locator(".nk-cbt-builder .nk-module-subject").filter(has_text="Anatomy").filter(has_text="Marrow")
             marrow.click()
             assert marrow.get_attribute("aria-pressed") == "true"
             page.get_by_role("button", name="Continue to topics").click()
             group = page.locator(".nk-cbt-topic-group")
-            assert group.count() == 1
+            expect(group).to_have_count(1)
             assert "Anatomy · Marrow" in group.locator(".nk-module-group-title").inner_text()
             assert group.locator(".nk-cbt-topic").count() == 63
             assert page.evaluate("getComputedStyle(document.querySelector('.nk-module-topic-groups')).overflowY") != "auto"

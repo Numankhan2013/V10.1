@@ -1366,3 +1366,6 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Source behavior and generated-JavaScript syntax checks pass. Generated
   browser/PWA/APK/emulator CI and user preview review are pending. Production
   and canonical remain untouched.
+- First full run `36153754707` reached the new browser journey, where its
+  immediate bank-card count raced hash navigation. The check now waits for the
+  rendered cards; rerun the full build. Engineering `36153754830` passed.
