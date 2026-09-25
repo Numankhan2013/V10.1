@@ -77,6 +77,11 @@ def main():
                     capture(page, f"{label}-01d-module-topics", observations)
                     assert page.evaluate("getComputedStyle(document.querySelector('.nk-module-topic-groups')).overflowY") == "visible", \
                         f"Nested topic scrolling remains at {label}"
+                    assert page.evaluate("""() => {
+                      const action=document.querySelector('.nk-module-topic-actions').getBoundingClientRect();
+                      const nav=document.querySelector('.nk-bottom-nav-v114').getBoundingClientRect();
+                      return action.top>=0 && action.bottom<=nav.top+2;
+                    }"""), f"Topic Continue is not visible above navigation at {label}"
                     page.evaluate("window.QB.nav('dashboard')")
                 if label in ("phone", "tablet"):
                     capture(page, f"{label}-01-home-full", observations, full_page=True)
@@ -87,6 +92,17 @@ def main():
                     capture(page, f"{label}-01d-module-topics", observations)
                     assert page.evaluate("getComputedStyle(document.querySelector('.nk-module-topic-groups')).overflowY") == "visible", \
                         f"Nested topic scrolling remains at {label}"
+                    assert page.evaluate("""() => {
+                      const list=document.querySelector('.nk-module-topic-groups').getBoundingClientRect();
+                      const group=document.querySelector('.nk-module-topic-group').getBoundingClientRect();
+                      return group.width>=list.width-2;
+                    }"""), f"Topic list does not use the available width at {label}"
+                    if label == "phone":
+                        assert page.evaluate("""() => {
+                          const action=document.querySelector('.nk-module-topic-actions').getBoundingClientRect();
+                          const nav=document.querySelector('.nk-bottom-nav-v114').getBoundingClientRect();
+                          return action.top>=0 && action.bottom<=nav.top+2;
+                        }"""), "Topic Continue is not visible above phone navigation"
                     topic = page.locator(".nk-module-topic").nth(12)
                     topic.evaluate("node => node.scrollIntoView({block:'center'})")
                     scroll_before = page.evaluate("window.scrollY")
