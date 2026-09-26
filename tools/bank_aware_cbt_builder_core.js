@@ -160,8 +160,9 @@
     const count=Math.min(Math.max(1,Number(nkCbtDraft.count||20)),ids.length);
     BY_ID={...BY_ID,...Object.fromEntries(pool.map(q=>[String(q.id),q]))};
     const chosen=ids.slice(0,count),byId=new Map(pool.map(q=>[String(q.id),q]));
-    startSession(chosen,'exam',nkCbtTitle(chosen.map(id=>byId.get(id))));
-    if(state.activeSession){state.activeSession.originRoute='tests';saveState();}
+    const started=startSession(chosen,'exam',nkCbtTitle(chosen.map(id=>byId.get(id))));
+    if(started===false||state.activeSession?.mode!=='exam')return;
+    state.activeSession.originRoute='tests';saveState();
     nkCbtDraft=null;
   }
   function nkCbtBanksMarkup(){

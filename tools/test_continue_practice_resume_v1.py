@@ -231,6 +231,12 @@ assert.equal(state.activeSession,null);
 const examCount=state.tests.length;
 assert.equal(submitExam(false),false);
 assert.equal(state.tests.length,examCount);
+state.activeSession={id:'strict-live',mode:'exam',title:'Topic Test',questionIds:['q1'],index:0,
+  answers:{q1:1},submitted:{},questionTimes:{q1:61000},strictQuestionTime:{q1:60000},
+  strictExpired:{q1:true},strictQuestionStartedAt:now,timerMode:'per-question',startedAt:now};
+assert.equal(submitExam(true),true);
+assert.equal(state.tests.at(-1).questionTimes.q1,60000);
+assert.equal(state.tests.at(-1).totalTimeMs,60000);
 
 // Non-normal Practice modes keep their existing behavior.
 state.activeSession={mode:'practice',studyModuleId:'module-1',questionIds:['q1'],index:0,answers:{},submitted:{}};

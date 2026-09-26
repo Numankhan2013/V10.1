@@ -142,7 +142,7 @@ HELPERS = r'''
 
   function nkStartTopicTimedTest(cid){
     const c=CHAPTER_BY_ID[String(cid)],ids=chapterQuestions(cid).map(q=>String(q.id));if(!ids.length){showToast('No questions are available for this topic.','bad');return;}
-    startSession(ids,'exam',`${c?.title||'Topic'} · Timed Test`);const s=state.activeSession;if(!s)return;s.timerEnabled=true;s.timerMode='per-question';s.strictQuestionTime={};s.strictExpired={};s.strictQuestionStartedAt=Date.now();saveState();render();
+    const started=startSession(ids,'exam',`${c?.title||'Topic'} · Timed Test`);const s=state.activeSession;if(started===false||s?.mode!=='exam')return;s.timerEnabled=true;s.timerMode='per-question';s.strictQuestionTime={};s.strictExpired={};s.strictQuestionStartedAt=Date.now();saveState();render();
   }
   function nkStrictSpent(s,id){const base=Math.min(60000,Math.max(0,Number(s?.strictQuestionTime?.[id]||0)));if(!s||s.timerMode!=='per-question'||s.strictExpired?.[id]||String(s.questionIds?.[s.index])!==String(id))return base;return Math.min(60000,base+Math.max(0,Date.now()-Number(s.strictQuestionStartedAt||s.questionEnteredAt||s.startedAt||Date.now())));}
   function nkStrictCommitCurrent(){const s=state.activeSession;if(!s||s.mode!=='exam'||s.timerMode!=='per-question')return;const id=String(s.questionIds[s.index]);s.strictQuestionTime=s.strictQuestionTime||{};s.strictQuestionTime[id]=nkStrictSpent(s,id);s.strictQuestionStartedAt=Date.now();}

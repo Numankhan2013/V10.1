@@ -271,6 +271,7 @@
       if(s.timerMode==='per-question'&&typeof nkStrictCommitCurrent==='function')nkStrictCommitCurrent();
       if(typeof saveExamElapsed==='function')saveExamElapsed();
       const now=Date.now(),qt={...(s.questionTimes||{})},strict=s.timerMode==='per-question';let correct=0,incorrect=0,attempted=0;
+      if(strict)s.questionIds.forEach(id=>{qt[id]=Math.min(60000,Math.max(0,Number(qt[id]||0),Number(s.strictQuestionTime?.[id]||0)));});
       Object.entries(s.answers||{}).forEach(([id,selected])=>{if(!selected)return;attempted++;const q=nkPracticeResumeQuestion(id),ok=q&&Number(q.correctOption)===Number(selected);if(ok)correct++;else incorrect++;recordAttempt(id,selected,qt[id]||0,'exam',undefined,now,`exam_${String(s.id)}_${String(id)}`);});
       const unattempted=Math.max(0,s.questionIds.length-attempted);if(typeof nkMarkSkippedFromSession==='function')nkMarkSkippedFromSession(s);
       const raw=now-Number(s.startedAt||now),totalTimeMs=strict?s.questionIds.reduce((total,id)=>total+Math.min(60000,Math.max(Number(qt[id]||0),Number(s.strictQuestionTime?.[id]||0))),0):Math.min(raw,s.questionIds.length*60000);

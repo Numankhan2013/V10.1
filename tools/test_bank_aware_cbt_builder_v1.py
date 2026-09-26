@@ -42,7 +42,7 @@ const context={BANKS_BY_SUBJECT:{Anatomy:[prep,marrow],Physiology:[phys]},
   showToast:()=>{},fmtNum:String,esc:String,navIcon:()=>'',nkAppSubjectMeta:()=>({key:'anatomy'}),
   nkAppSubjectIcon:()=>'',nkAppPageHead:()=>'',shell:x=>x,
   BY_ID:{},state:{activeSession:null},saveState:()=>{saved++},
-  startSession:(ids,mode,title)=>{started={ids,mode,title};context.state.activeSession={questionIds:ids}},
+  startSession:(ids,mode,title)=>{started={ids,mode,title};context.state.activeSession={mode,questionIds:ids}},
   openTestBuilder:()=>{},openMultiSubjectTestBuilder:()=>{},Math,JSON,Set,Map,Object};
 vm.createContext(context);vm.runInContext(SOURCE,context);
 const call=code=>vm.runInContext(code,context),ids=()=>Array.from(call('nkCbtPool()'),q=>q.id);
@@ -67,6 +67,8 @@ call('nkCbtSetCount(10)');call('nkCbtStart()');
 assert.deepEqual(Array.from(started.ids),['marrow1']);assert.equal(started.mode,'exam');
 assert.equal(started.title,'Anatomy · Marrow CBT');assert.equal(context.state.activeSession.originRoute,'tests');
 assert(context.BY_ID.marrow1);assert(saved>0);
+call('openTestBuilder()');context.startSession=()=>false;
+call('nkCbtStart()');assert.notEqual(call('nkCbtDraft'),null,'blocked start keeps the builder draft');
 console.log('BANK_AWARE_CBT_BEHAVIOR_OK exactBank=true exactTopic=true session=true');
 '''.replace("SOURCE", repr(source), 1)
     subprocess.run(["node", "-e", script], cwd=ROOT, check=True)
