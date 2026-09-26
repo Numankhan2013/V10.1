@@ -1410,6 +1410,9 @@ Implemented approved recovery in existing transform owners: Topics separate path
   incorrect and unattempted IDs. It reuses the existing Practice engine and
   preserves the score, Review Solutions, history, and result persistence.
 - The new phase is isolated on `feature/qbank-bank-aware-modules-20260924`.
-  Source behavior checks pass; full generated-browser/PWA/APK/emulator
-  verification and user preview review are pending. Canonical and production
-  remain untouched.
+  Source behavior checks and Engineering `36215597577` pass. Full run
+  `36215602991` reached the existing question-interaction browser check, then
+  timed out waiting for a CBT submit to clear its active session; later checks
+  were skipped. A bounded diagnostic now reports the active session, toast,
+  and direct result-render exception on failure before rerunning. Canonical
+  and production remain untouched.
