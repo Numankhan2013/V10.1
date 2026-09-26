@@ -1443,5 +1443,13 @@ Implemented approved recovery in existing transform owners: Topics separate path
   competing topic list. No persistence schema or engine changes.
 - `test_qbank_coverage_v1.py` and `verify_qbank_coverage_browser.py` are wired
   to the full build, with source-level bank/status/navigation checks already
-  passing. Full generated-app/Android verification and preview remain pending
-  at this handoff. Production and canonical remain untouched.
+  passing. Product `220f954` passed Engineering `36218442172` and full
+  generated browser/PWA/APK/Android phone+tablet emulator `36218442273`.
+  The new browser check confirmed exact PrepLadder/Marrow counts, a filtered
+  in-progress topic, search, topic entry, and persistence after reload. Preview
+  `https://697c1da1.nk-qbank.pages.dev` returned HTTP 200. Production
+  promotion was skipped, canonical remains untouched, and user review remains.
+  Full-page phone and tablet Insights captures from the generated UI audit
+  were visually inspected: all six bank cards, overall 5,397-question/250-topic
+  totals, search and status controls, and the eight-row initial topic list are
+  legible with no duplicate active-bank chapter panel.
