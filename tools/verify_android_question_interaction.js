@@ -34,7 +34,7 @@ async function main(){
   async function waitForDashboard(page){
     await page.waitForFunction(()=>(location.hash===''||location.hash==='#dashboard')&&Boolean(document.querySelector('button.nk-home-focus-action')));
   }
-  async function tapNativeExitDialog(button,expectedMessage){
+  async function tapNativeExitDialog(button,expectedMessage,capture){
     let xml='';
     for(let attempt=0;attempt<8;attempt++){
       await device.shell('uiautomator dump /sdcard/nk-back-dialog.xml');
@@ -44,8 +44,10 @@ async function main(){
     }
     assert(xml.includes('text="Do you want to exit?"'),'Android Back must open the native exit confirmation');
     assert(xml.includes(`text="${expectedMessage}"`),`Android Back message missing: ${expectedMessage}`);
-    const node=[...xml.matchAll(/<node\b[^>]*>/g)].map(match=>match[0]).find(tag=>tag.includes(`text="${button}"`));
-    assert(node,`Android exit confirmation is missing ${button}`);
+    if(capture)await device.screenshot({path:capture});
+    const nodes=[...xml.matchAll(/<node\b[^>]*>/g)].map(match=>match[0]);
+    const node=nodes.find(tag=>tag.match(/\btext="([^"]*)"/)?.[1]?.toLowerCase()===button.toLowerCase());
+    assert(node,`Android exit confirmation is missing ${button}; visible labels: ${nodes.map(tag=>tag.match(/\btext="([^"]*)"/)?.[1]).filter(Boolean).slice(-20).join(' | ')}`);
     const bounds=node.match(/bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"/);
     assert(bounds,`Android ${button} button has no tap bounds`);
     await device.shell(`input tap ${Math.round((Number(bounds[1])+Number(bounds[3]))/2)} ${Math.round((Number(bounds[2])+Number(bounds[4]))/2)}`);
@@ -89,8 +91,7 @@ async function main(){
       // This invokes MainActivity.onBackPressed, including its native dialog.
       const backBefore=await page.evaluate(()=>({url:location.href,hash:location.hash,historyLength:history.length,lifecycle:window.QB.getState().activeSession?.lifecycle}));
       await device.shell('input keyevent KEYCODE_BACK');
-      await device.screenshot({path:`${output}/${label}-practice-exit-confirmation.png`});
-      await tapNativeExitDialog('Stay','Your practice progress will be saved if you exit now.');
+      await tapNativeExitDialog('Stay','Your practice progress will be saved if you exit now.',`${output}/${label}-practice-exit-confirmation.png`);
       assert.equal(await page.evaluate(()=>location.hash),backBefore.hash,'Stay must keep the question open');
       assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),original.id,'Stay must retain the session');
       await device.shell('input keyevent KEYCODE_BACK');
@@ -210,8 +211,7 @@ async function main(){
       assert.equal(await page.evaluate(()=>window.QB.getState().activeSession.title),'PYQ CBT');
       const examId=await page.evaluate(()=>window.QB.getState().activeSession.id);
       await device.shell('input keyevent KEYCODE_BACK');
-      await device.screenshot({path:`${output}/${label}-test-exit-confirmation.png`});
-      await tapNativeExitDialog('Stay','Your timed test will keep running if you exit now.');
+      await tapNativeExitDialog('Stay','Your timed test will keep running if you exit now.',`${output}/${label}-test-exit-confirmation.png`);
       assert.equal(await page.evaluate(()=>location.hash),'#exam','Stay must keep the timed test open');
       assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),examId);
       await device.shell('input keyevent KEYCODE_BACK');
