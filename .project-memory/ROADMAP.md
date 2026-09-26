@@ -26,6 +26,9 @@ Check off only when build-verified **and** device-verified where UI is involved.
       `36244266344` and full browser/PWA/APK/Android phone+tablet emulator
       `36244266405`. The packaged APK artifact is in that run; physical
       installed-app review remains pending.
+- [ ] Browser/PWA Back warning during Practice and timed tests: restore the
+      active question on Stay, follow history on Exit, and verify both phone
+      and tablet browser paths. Source checks pass; full preview build pending.
 - [ ] All-bank QBank coverage tracker in Insights: source-exact answer-based
       progress for each of the six current subject/bank combinations, one
       bank's searchable/filterable topics at a time, and direct topic entry.

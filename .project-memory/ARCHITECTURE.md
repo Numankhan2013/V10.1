@@ -131,6 +131,11 @@ checked deterministic rollout ledger.
   existing question-interaction boundary commits pending time/recall. The
   guard is applied after secure-origin generation and verified in the packaged
   Android phone/tablet journey.
+- Browser/PWA system Back is guarded by the shared
+  `tools/question_interaction_core.js` popstate boundary. A declined exit
+  restores the question history entry before hashchange renders another route;
+  accepted exit keeps the existing history and persistence path. `qbank.local`
+  uses the native Android dialog, so the two warnings do not stack.
 - Source visuals contract: per-question `visual {type:"source-pdf",
   source, page, crop{left,top,right,bottom} (PDF points, optional),
   fit: contain|width|native}`; renderer consumes metadata only.

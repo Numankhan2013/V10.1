@@ -38,6 +38,8 @@ Prefer building over narrating.
   warning for active Practice and timed tests. Stay keeps the same question and
   session; Exit follows the saved-session navigation. Timed tests disclose that
   their timer keeps running after exit.
+- **Browser/PWA Back during a question:** show the same warning in the web
+  preview. Stay keeps the live question; Exit follows browser history.
 - **Timed CBT:** 60 sec/question, answers changeable, correctness only after
   submit; final-question boundary opens the session-review navigator
   (answered/unanswered + jumping), never a persistent toast; singleton

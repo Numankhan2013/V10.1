@@ -1533,3 +1533,17 @@ Implemented approved recovery in existing transform owners: Topics separate path
   Web preview `https://0c0be99e.nk-qbank.pages.dev` returned HTTP 200; the
   native confirmation requires the packaged APK for user review. Production
   was not promoted.
+
+## 2026-09-26 — Web preview Back warning recovery
+
+- The user correctly reported that the Cloudflare preview lacked the Android
+  exit warning and requested a working preview immediately. The prior change
+  guarded only packaged Android `onBackPressed`; a web deployment could not
+  demonstrate it.
+- Added a Browser/PWA popstate warning in the shared question interaction
+  layer for active Practice and timed-test routes. Stay restores the question
+  history entry before hashchange; Exit follows the existing saved-session
+  route. Packaged Android on `qbank.local` keeps its native warning without a
+  duplicate web dialog. Source interaction and local 64 checks pass. The
+  generated browser check now exercises both choices and a CBT warning;
+  full CI and replacement Cloudflare preview remain pending.

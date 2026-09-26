@@ -162,8 +162,17 @@ def main():
                 page.locator('button.nk-home-focus-action').click()
                 page.wait_for_function('id=>window.QB.getState().activeSession?.id===id', arg=original['id'])
                 settle(page)
-                # Browser Back is also the Android WebView history path.
-                page.go_back()
+                # Browser/PWA Back must ask before leaving the live question.
+                with page.expect_event('dialog') as warning:
+                    page.evaluate('history.back()')
+                assert 'Do you want to exit?' in warning.value.message
+                warning.value.dismiss()
+                page.wait_for_timeout(100)
+                assert page.evaluate('location.hash') == '#practice'
+                assert session(page)['id'] == original['id']
+                with page.expect_event('dialog') as warning:
+                    page.evaluate('history.back()')
+                warning.value.accept()
                 page.wait_for_url('**/#dashboard')
                 assert page.locator('#nk-session-review,#qb-question-navigator').count() == 0
                 page.locator('button.nk-home-focus-action').click()
@@ -186,6 +195,13 @@ def main():
                 settle(page)
                 cbt = session(page)
                 cbt_qid = cbt['questionIds'][0]
+                with page.expect_event('dialog') as warning:
+                    page.evaluate('history.back()')
+                assert 'timed test will keep running' in warning.value.message
+                warning.value.dismiss()
+                page.wait_for_timeout(100)
+                assert page.evaluate('location.hash') == '#exam'
+                assert session(page)['id'] == cbt['id']
                 baseline = page.evaluate('JSON.stringify([window.QB.getState().attempts,window.QB.getState().reviews])')
                 page.locator('.option-list button').nth(0).click()
                 page.locator('.option-list button').nth(1).click()

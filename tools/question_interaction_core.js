@@ -117,6 +117,18 @@
     nkQuestionPointer=null;
     if(stale||event.detail>1){event.preventDefault();event.stopImmediatePropagation();}
   },true);
+  // Browser/PWA system Back changes history before hashchange renders the next
+  // route. Keep the question entry when the learner declines to leave.
+  // Packaged Android uses its native Back confirmation at qbank.local.
+  window.addEventListener('popstate',()=>{
+    if(location.hostname==='qbank.local')return;
+    const s=state.activeSession;
+    if(!s||!['practice','exam'].includes(s.mode)||route.page!==s.mode)return;
+    if(parseHash().page===route.page)return;
+    const current='#'+route.page+(route.id?'/'+encodeURIComponent(route.id):'');
+    const detail=s.mode==='exam'?'Your timed test will keep running if you exit now.':'Your practice progress will be saved if you exit now.';
+    if(!window.confirm('Do you want to exit?\n\n'+detail))history.pushState(null,'',current);
+  },true);
   // Browser history and Android WebView.goBack share this route boundary.
   // Commit pending recall before leaving; keep the old route on storage failure.
   window.addEventListener('hashchange',()=>{

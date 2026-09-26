@@ -18,8 +18,10 @@ def main():
 const assert=require('assert');global.window=globalThis;
 const events={},windowEvents={};window.FSRS=require(process.argv[2]);window.addEventListener=(name,fn)=>{windowEvents[name]=fn};
 global.document={addEventListener:(name,fn)=>{events[name]=fn},getElementById:()=>null,querySelector:()=>null,querySelectorAll:()=>[],body:{insertAdjacentHTML:()=>{}}};
-let historyTarget='';global.history={replaceState:(a,b,target)=>{historyTarget=target}};
-function parseHash(){return {page:'dashboard'};}
+let historyTarget='',confirmed=false,lastPrompt='';global.location={hostname:'preview.example',hash:'#dashboard'};
+global.history={replaceState:(a,b,target)=>{historyTarget=target;location.hash=target},pushState:(a,b,target)=>{historyTarget=target;location.hash=target}};
+global.confirm=message=>{lastPrompt=message;return confirmed};
+function parseHash(){return {page:location.hash.replace(/^#/,'')||'dashboard'};}
 const questions=['q1','q2','q3'].map(id=>({id,correctOption:1,options:['A','B','C','D'].map(letter=>({letter,text:letter}))}));
 const SUBJECTS=[{subject:'Biochemistry',questions}],BY_ID=Object.fromEntries(questions.map(q=>[q.id,q]));
 let state,failed=false,writes=0,renders=0;const LS_KEY='state';let persisted='';
@@ -34,6 +36,7 @@ function nkPracticeResumeQuestion(id){return BY_ID[id];}
 function reset(mode='practice'){
  state={attempts:{},reviews:{},bookmarks:{},tests:[],fsrsPreferences:null,activeSession:{id:'session',mode,context:'normal',questionIds:['q1','q2','q3'],index:0,answers:{},submitted:{},questionTimes:{},pendingRating:{}}};
  failed=false;writes=0;renders=0;saveState();
+ route.page=mode==='exam'?'exam':'practice';location.hash='#dashboard';location.hostname='preview.example';confirmed=false;lastPrompt='';historyTarget='';
 }
 ''' + handlers + '\n' + fsrs + '\n' + (integrity.read_text() if integrity.exists() else '') + r'''
 let failures=[];function check(name,test){reset();try{test();console.log('PASS '+name)}catch(e){failures.push(name+': '+e.message);}}
@@ -56,6 +59,10 @@ check('one wrong-answer action has one durable commit',()=>{writes=0;selectPract
 check('final submission commits a legacy selected answer to FSRS',()=>{state.activeSession.answers.q2=1;finishPracticeSession();assert.equal(state.attempts.q2?.length,1);assert.equal(state.reviews.q2.repetitions,1);});
 check('history Back commits pending FSRS exactly once',()=>{selectPractice('q1',1);windowEvents.hashchange();assert.equal(state.attempts.q1.length,1);windowEvents.hashchange();assert.equal(state.attempts.q1.length,1);});
 check('failed history Back restores route and pending work',()=>{selectPractice('q1',1);const before=JSON.stringify(state);failed=true;windowEvents.hashchange();assert.equal(JSON.stringify(state),before);assert.equal(historyTarget,'#practice');});
+check('browser Back Stay keeps Practice question and state',()=>{const before=JSON.stringify(state);windowEvents.popstate();assert.equal(location.hash,'#practice');assert.equal(JSON.stringify(state),before);assert(lastPrompt.includes('Do you want to exit?'));});
+check('browser Back Exit leaves Practice route available',()=>{confirmed=true;windowEvents.popstate();assert.equal(location.hash,'#dashboard');assert.equal(state.activeSession.id,'session');});
+check('browser Back warns during CBT',()=>{reset('exam');windowEvents.popstate();assert.equal(location.hash,'#exam');assert(lastPrompt.includes('timed test will keep running'));});
+check('packaged Android uses native Back dialog only',()=>{location.hostname='qbank.local';windowEvents.popstate();assert.equal(location.hash,'#dashboard');assert.equal(lastPrompt,'');});
 check('stale pointer and double-click are rejected',()=>{
  let stopped=0;const target={isConnected:true};const event={target:{closest:()=>target},detail:1,preventDefault:()=>{},stopImmediatePropagation:()=>stopped++};
  events.pointerdown(event);state.activeSession.index=1;events.click(event);assert.equal(stopped,1);
