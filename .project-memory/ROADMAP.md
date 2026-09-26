@@ -13,9 +13,11 @@ Check off only when build-verified **and** device-verified where UI is involved.
       PYQ facet. Product `13c3cd3` passed Engineering `36229006243` and full
       generated browser/PWA/APK/Android phone+tablet emulator `36229004244`;
       preview `https://e544d753.nk-qbank.pages.dev`. The user checked it and
-      requested a compact two-way PYQ toggle; that source refinement is pending
-      full build and replacement preview. Explanation quality in the current
-      three subjects is the next content priority afterward.
+      requested a compact two-way PYQ toggle. Product `af30703` passed
+      Engineering `36233896258` and full generated browser/PWA/APK/Android
+      phone+tablet emulator `36233894250`; replacement preview
+      `https://87a819e1.nk-qbank.pages.dev`. User review remains. Explanation
+      quality in the current three subjects is the next content priority.
 - [ ] All-bank QBank coverage tracker in Insights: source-exact answer-based
       progress for each of the six current subject/bank combinations, one
       bank's searchable/filterable topics at a time, and direct topic entry.

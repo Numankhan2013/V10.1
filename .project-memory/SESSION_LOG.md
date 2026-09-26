@@ -1498,5 +1498,11 @@ Implemented approved recovery in existing transform owners: Topics separate path
   keeps any regular topics added afterward. If no verified PYQs exist for the
   selected banks, the control is disabled with an in-place explanation and
   leaves the draft unchanged. Bank changes and global Select all/Clear all
-  reset the toggle state. Source and behavior checks passed; full generated
-  browser/PWA/APK/emulator and replacement preview remain pending.
+  reset the toggle state. Product `af30703` passed local 64 checks,
+  Engineering `36233896258`, and full generated browser/PWA/packaged APK/
+  Android phone+tablet emulator `36233894250`. The browser check asserted the
+  three controls share one row at both widths and verified toggle on/off and
+  the complete exam journey. Generated browser and Android phone/tablet
+  captures were visually inspected. Replacement preview
+  `https://87a819e1.nk-qbank.pages.dev` returned HTTP 200. Production was
+  not promoted; user review remains.
