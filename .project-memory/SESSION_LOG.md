@@ -1474,5 +1474,15 @@ Implemented approved recovery in existing transform owners: Topics separate path
   Solutions, topic breakdown, missed-question Practice and both-bank timer
   expiry on phone/tablet. The packaged Android emulator check also walks
   PYQ selection to Review Solutions on phone/tablet.
-- Local source/behavior checks passed. Full generated browser/PWA/APK/emulator
-  verification and preview publication remain pending at this checkpoint.
+- Local source/behavior checks passed. The final product commit `13c3cd3`
+  passed Engineering `36229006243` and full browser/PWA/packaged APK/Android
+  phone+tablet emulator `36229004244`. Browser checks confirmed the exact
+  27/1,118 all-bank PYQ set and 10/410, 9/362, 8/346 PrepLadder subsets;
+  empty Marrow-only selection preserved the draft. Both-bank strict topic
+  expiry after reload, saved PYQ and mixed tests, Review Solutions, topic
+  breakdown, history, and missed-question Practice passed. Packaged Android
+  checked PYQ selection and Review Solutions on phone and tablet while retaining
+  the existing Pause/Continue and review regressions. Generated browser phone/
+  tablet captures and Android review captures were inspected. Preview
+  `https://e544d753.nk-qbank.pages.dev` returned HTTP 200. Production was
+  not promoted; user physical review remains.
