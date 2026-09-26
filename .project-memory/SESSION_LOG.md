@@ -1418,3 +1418,12 @@ Implemented approved recovery in existing transform owners: Topics separate path
   immediately starting Practice. The follow-up now ignores a repeated submit
   click, while a later intentional tap remains available. Canonical and
   production remain untouched.
+- A browser-check follow-up replaced an inaccessible IIFE helper with exposed
+  source data and the public `window.QB` navigation API. Final product commit
+  `b65ad21` passed Engineering `36216951965` and full generated browser/PWA/
+  APK/Android phone+tablet emulator `36216944458`. The full browser journey
+  confirmed the older double-submit invariant, source-exact mixed-bank topic
+  rows, saved-result reload, and retry of only the wrong/skipped IDs. The
+  full-page 390px capture was inspected; the new section is readable and the
+  action is clear. Preview `https://c22cbdd0.nk-qbank.pages.dev` returns HTTP
+  200. Production and canonical remain unchanged; user preview review is next.

@@ -14,7 +14,7 @@
 
 - Bank-aware Custom Modules, PYQ topic selection, restored Home focus, full-page topic picker, saved read-only notes with More → My notes, Quick Revision, and cross-bank Insights are implemented on the isolated branch. The user physically reviewed their feature previews and accepted the working flows; the Quick Revision topic-filter visibility was deferred, and the Insights addition was judged adequate but not compelling.
 - Full-page Tests → bank → topics → question count builder uses exact subject/bank/topic IDs and the shared exam engine. Product `5d585de` passed Engineering `36213112458` and full browser/PWA/APK/Android emulator `36158438170`; preview `https://2752f581.nk-qbank.pages.dev`. The user checked it and said it works. The dedicated strict per-question chapter test remains.
-- Current bounded phase: completed timed CBT results show source-exact bank/topic analysis and one targeted follow-up action while retaining score, Review Solutions, history, and the shared engine. Source checks and Engineering `36215597577` passed at product `e2f4ecb`. Full runs `36215602991`/`36216099227` exposed a double Submit click landing on the newly rendered follow-up button; its guard is fixed locally and requires a full rerun before preview.
+- Completed timed CBT results now show source-exact subject/bank/topic analysis and one targeted follow-up Practice action, retaining score, Review Solutions, history, and the shared engine. The repeated-Submit tap is guarded. Product `b65ad21` passed Engineering `36216951965` and full generated browser/PWA/APK/Android phone+tablet emulator `36216944458`. The browser journey verified mixed-bank saved answers, reload, and exact missed-ID follow-up; full-page phone screenshot was inspected. Preview `https://c22cbdd0.nk-qbank.pages.dev` returns HTTP 200. User physical preview review is pending.
 - UI previews, CI/emulator checks, and user preview acceptance do **not** establish an in-place physical APK upgrade or production acceptance.
 
 ## Product architecture to preserve
@@ -43,4 +43,4 @@
 ## Known problems and next step
 
 - Canonical physical in-place APK/data-preservation check remains pending. Production promotion requires explicit authorization.
-- Build the bounded timed CBT post-test analysis on the isolated branch, verify exact saved-answer/source grouping and targeted follow-up, then share a preview. Do not claim user acceptance before review.
+- Share the verified CBT post-test analysis preview for user review. Next study phase follows that feedback. Do not claim acceptance or promote production before the user decides.

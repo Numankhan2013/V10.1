@@ -9,8 +9,9 @@ Check off only when build-verified **and** device-verified where UI is involved.
 - [ ] Timed CBT result analysis on `feature/qbank-bank-aware-modules-20260924`:
       show source-exact subject/bank/topic results from the saved test snapshot,
       then practise only that test's incorrect and unattempted IDs through the
-      shared Practice engine. Source behavior checks pass; full generated
-      browser/PWA/APK/emulator verification and user preview review remain.
+      shared Practice engine. Product `b65ad21` passed Engineering
+      `36216951965` and full browser/PWA/APK/Android emulator `36216944458`;
+      preview `https://c22cbdd0.nk-qbank.pages.dev`. User review remains.
 - [ ] Bank-aware study modules and PYQ candidate: exact subject/bank/topic
       records and frozen legacy modules passed generated browser/PWA/APK/emulator
       verification at `7b7eef2`; the user accepted the topic picker. The current
