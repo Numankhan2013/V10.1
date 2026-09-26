@@ -79,7 +79,11 @@ def main():
             assert figure.count()==1, 'Question microscopy figure missing or duplicated'
             page.wait_for_function('document.querySelector(".nk-marrow-figure-button img")?.naturalWidth===720')
             figure.click()
-            page.wait_for_function('document.querySelector("#nk-source-viewer img")?.naturalWidth===720')
+            try:
+                page.wait_for_function('document.querySelector("#nk-source-viewer img")?.naturalWidth===720', timeout=15000)
+            except Exception as exc:
+                details=page.evaluate('''() => {const img=document.querySelector('#nk-source-viewer img');return {src:img?.currentSrc||img?.src,complete:img?.complete,width:img?.naturalWidth,viewer:Boolean(document.querySelector('#nk-source-viewer'))}}''')
+                raise AssertionError(f'Marrow microscopy viewer image did not load: {details}') from exc
             page.locator('#nk-source-viewer [data-z="+"]').click()
             page.screenshot(path=str(OUT/'00b-marrow-microscopy-zoom.png'))
             page.locator('#nk-source-viewer .nk-sv-close').click()
