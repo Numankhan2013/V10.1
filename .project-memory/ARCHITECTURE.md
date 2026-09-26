@@ -97,6 +97,12 @@ checked deterministic rollout ledger.
   derive exact question IDs, then starts the existing exam engine. Topic taps
   update rows and counts in place, preserving scroll. Legacy modal builders
   remain for compatibility but are no longer the Tests entry.
+- CBT result analysis (`tools/cbt_result_analysis_core.js`,
+  `NK_CBT_RESULT_ANALYSIS_V1`) derives topic rows and missed IDs from each
+  saved test's frozen `questionIds` and `answers`, resolving question metadata
+  through the shared bank registry. Keys combine subject, bank, and topic ID.
+  It changes the result view only; targeted follow-up enters the existing
+  Practice engine. No new test or question persistence schema is introduced.
 - Continue Practice (`tools/continue_practice_resume_core.js`,
   NK_CONTINUE_PRACTICE_RESUME_V1): regular topic Practice owns explicit
   activeSession.lifecycle, immutable original-order sessionQuestionIds, and a
@@ -145,6 +151,7 @@ Android/sync/FSRS layers → `fix_boot_syntax` → Marrow registration →
 `apply_question_presentation_v1` → `test_question_presentation_v1` →
 image installation → notes → revision → Insights →
 `apply_bank_aware_cbt_builder_v1` → `test_bank_aware_cbt_builder_v1` →
+`apply_cbt_result_analysis_v1` → `test_cbt_result_analysis_v1` →
 `verify_product_contract --stage generated` →
 `verify_cbt_invariants`.
 

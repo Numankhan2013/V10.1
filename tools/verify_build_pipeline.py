@@ -59,6 +59,8 @@ required_order = [
     "tools/test_insights_focus_v1.py",
     "tools/apply_bank_aware_cbt_builder_v1.py",
     "tools/test_bank_aware_cbt_builder_v1.py",
+    "tools/apply_cbt_result_analysis_v1.py",
+    "tools/test_cbt_result_analysis_v1.py",
     "tools/verify_product_contract.py --stage generated",
     "tools/verify_cbt_invariants.py",
 ]
@@ -76,6 +78,7 @@ for marker in ("runs-on: ubuntu-latest", "actions/setup-python@", "PyMuPDF Pillo
                "tools/verify_revision_desk_browser.py",
                "tools/verify_insights_focus_browser.py",
                "tools/verify_bank_aware_cbt_builder_browser.py",
+               "tools/verify_cbt_result_analysis_browser.py",
                "tools/verify_marrow_content_hygiene_browser.py",
                "NK_MARROW_STRUCTURED_TABLE_RENDERER_V1",
                "NK_QUESTION_PRESENTATION_V1_START"):

@@ -6,13 +6,18 @@ Check off only when build-verified **and** device-verified where UI is involved.
 
 ## Immediate (next 1–2 sessions)
 
+- [ ] Timed CBT result analysis on `feature/qbank-bank-aware-modules-20260924`:
+      show source-exact subject/bank/topic results from the saved test snapshot,
+      then practise only that test's incorrect and unattempted IDs through the
+      shared Practice engine. Source behavior checks pass; full generated
+      browser/PWA/APK/emulator verification and user preview review remain.
 - [ ] Bank-aware study modules and PYQ candidate: exact subject/bank/topic
       records and frozen legacy modules passed generated browser/PWA/APK/emulator
       verification at `7b7eef2`; the user accepted the topic picker. The current
       follow-up removes the redundant Questions-step Source control so selected
       regular and PYQ topics both contribute questions; full CI passed at
-      `a94b329`. Finish physical review on
-      `feature/qbank-bank-aware-modules-20260924`. PrepLadder
+      `a94b329`. The user accepted this feature preview; the in-place APK
+      check remains separate. PrepLadder
       has 1,118 source-labelled PYQs; Marrow ED8 lacks reliable PYQ/exam/year fields.
 - [ ] Study intelligence: a first increment adds question-linked personal notes
       to answered Practice and Review, with durable local storage and account
@@ -27,8 +32,8 @@ Check off only when build-verified **and** device-verified where UI is involved.
       `36146938774`; the user accepted the preview and deferred improving
       topic-filter visibility. Cross-bank Insights recommendations from latest
       answered questions and direct targeted Practice passed Engineering
-      `36149901357` and full build `36149908749`; physical preview review is
-      next. Keep the same bank registry and engine; do not invent PYQ,
+      `36149901357` and full build `36149908749`; the user checked the preview
+      and moved on. Keep the same bank registry and engine; do not invent PYQ,
       difficulty, or high-yield labels.
 - [ ] Finish the 2026-09-23 study UI audit batch on one exact canonical SHA:
       inspect the generated phone/tablet/image screenshots and pass Engineering,

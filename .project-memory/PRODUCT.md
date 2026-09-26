@@ -56,7 +56,10 @@ Prefer building over narrating.
 - **Tests:** exam-mode entry + full-page timed CBT builder with explicit
   PrepLadder/Marrow bank cards, searchable full-page source topics, live exact
   pool count, question count, and history. Questions retain the shared exam
-  timer, navigation, deferred feedback, and Review Solutions behavior.
+  timer, navigation, deferred feedback, and Review Solutions behavior. A
+  candidate result section groups saved CBT answers by exact subject, bank,
+  and topic, distinguishes incorrect from unattempted, and launches Practice
+  on that test's missed IDs. It is test-specific evidence, not a mastery score.
 - **Insights:** Accuracy, Avg time, Due, Completion + chapter coverage +
   recent sessions; distinguish no-evidence from poor performance. A candidate
   cross-bank “Topics to revisit” section uses each question’s latest answer,

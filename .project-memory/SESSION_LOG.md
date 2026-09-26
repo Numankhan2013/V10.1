@@ -1395,4 +1395,21 @@ Implemented approved recovery in existing transform owners: Topics separate path
   the screen-size audit covered 320px/390px/larger-text/tablet. The final
   phone/tablet screenshots were inspected. Preview
   `https://2752f581.nk-qbank.pages.dev` returns HTTP 200. Production was not
-  promoted; physical user verdict is pending.
+  promoted; the user subsequently checked the feature preview and said it works.
+
+## 2026-09-26 — Compact handoff and post-CBT analysis candidate
+
+- The user checked the bank-aware CBT preview and confirmed it works, then
+  requested context compaction and the next phase. `STATE.md` was reduced from
+  a historical log to a concise operational handoff; detailed past work stays
+  in this log and the dedicated source/presentation handoffs.
+- The completed CBT result now derives source-exact subject/bank/topic rows
+  from the saved test's frozen question IDs and answers. It shows correct,
+  incorrect, and unattempted counts, avoids implying mastery from sparse
+  samples, and offers one follow-up Practice action for that test's exact
+  incorrect and unattempted IDs. It reuses the existing Practice engine and
+  preserves the score, Review Solutions, history, and result persistence.
+- The new phase is isolated on `feature/qbank-bank-aware-modules-20260924`.
+  Source behavior checks pass; full generated-browser/PWA/APK/emulator
+  verification and user preview review are pending. Canonical and production
+  remain untouched.
