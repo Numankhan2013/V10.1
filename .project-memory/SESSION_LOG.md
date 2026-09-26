@@ -1389,3 +1389,10 @@ Implemented approved recovery in existing transform owners: Topics separate path
   positioning inside the page transform on the longer count step. The builder
   now disables the page transform, as the full-page Topics flow already does;
   the next browser check will report computed position and transform if needed.
+- Product commit `5d585de` passed Engineering `36213112458` and full
+  browser/PWA/APK/Android emulator run `36158438170`. Its browser journey covered bank-exact Marrow Anatomy CBT,
+  topic-tap scroll stability, accurate count/timing, and button clearance;
+  the screen-size audit covered 320px/390px/larger-text/tablet. The final
+  phone/tablet screenshots were inspected. Preview
+  `https://2752f581.nk-qbank.pages.dev` returns HTTP 200. Production was not
+  promoted; physical user verdict is pending.

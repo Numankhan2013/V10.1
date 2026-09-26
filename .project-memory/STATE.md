@@ -41,9 +41,9 @@
 - PYQs: 1,118 PrepLadder questions in 27 labelled topics (Biochemistry 346,
   Physiology 362, Anatomy 410). Marrow ED8 has no PYQ/exam/year metadata.
 - User accepted Quick Revision focus; topic-filter visibility was deferred. Cross-bank Insights “Topics to revisit” candidate `d8e50e0` passed Engineering `36149901357` and full browser/PWA/APK/Android emulator `36149908749`. Preview `https://221f15a2.nk-qbank.pages.dev` serves HTTP 200 and the Insights markers. Physical review of this increment is pending; production remains untouched.
-- Current candidate adds full-page Tests → bank → topic → count selection from
-  both PrepLadder and Marrow with exact bank/topic-scoped CBT IDs. Source and
-  JS syntax checks pass; CI preview and user review remain pending.
+- Full-page Tests → bank → topic → count CBT includes PrepLadder and Marrow
+  with exact bank/topic IDs. Product `5d585de` passed Engineering `36213112458`
+  and full browser/PWA/APK/Android `36158438170`; preview `https://2752f581.nk-qbank.pages.dev`. User review is pending.
 
 ## Product architecture to preserve
 
@@ -144,7 +144,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Current priorities / Next step
 
-1. Verify the new timed CBT builder in generated browser/PWA/APK CI, then
-   share its preview for physical user review. Do not promote production.
+1. Share the verified timed CBT preview for physical user review. Preserve
+   the dedicated strict per-question chapter test. Do not promote production.
 2. Preserve accepted Practice/Review and automation-owned content. Notes
    physical review and Quick Revision topic-filter visibility remain open.
