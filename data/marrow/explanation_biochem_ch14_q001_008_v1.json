@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Biochemistry Chapter 14 Q1-Q8 explanation augmentation. Raw imported source remains immutable.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "14",
+    "chapter": "Biosynthesis of fatty acids and Eicosanoids",
+    "questionStart": 1,
+    "questionEnd": 8,
+    "questions": 8,
+    "status": "content-authored"
+  },
+  "source": {
+    "bundle": "biochemistry_ch001_028",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH14_Q001": {
+      "takeaway": "De novo fatty-acid synthesis occurs in the cytosol, unlike the mitochondrial pathways represented by the other choices.",
+      "displayText": "De novo fatty-acid synthesis is an extramitochondrial process: acetyl-CoA is supplied to the cytosol and fatty-acid synthase builds palmitate there. By contrast, the TCA cycle is mitochondrial; the urea cycle has mitochondrial and cytosolic steps; and gluconeogenesis includes mitochondrial as well as cytosolic reactions.",
+      "emphasis": [
+        "De novo fatty-acid synthesis",
+        "cytosol",
+        "extramitochondrial process"
+      ],
+      "rationales": {
+        "a": "The TCA (Krebs) cycle occurs in the mitochondrial matrix, so it does include mitochondrial reactions.",
+        "b": "The urea cycle is split between mitochondria and cytosol; its first two reactions occur in mitochondria.",
+        "c": "Gluconeogenesis spans compartments and includes mitochondrial reactions such as pyruvate carboxylase."
+      }
+    },
+    "marrow__BIOCHEM_CH14_Q002": {
+      "takeaway": "Fatty-acid synthesis is a reductive biosynthetic pathway that directly uses NADPH.",
+      "displayText": "De novo fatty-acid synthesis requires NADPH as its reducing equivalent during the two reduction reactions of each elongation cycle. The source identifies the HMP shunt as the major supplier of this NADPH, with extramitochondrial isocitrate dehydrogenase and malic enzyme as additional sources.",
+      "emphasis": [
+        "requires NADPH",
+        "HMP shunt",
+        "malic enzyme"
+      ],
+      "rationales": {
+        "b": "Ketone-body synthesis is driven mainly by acetyl-CoA availability and does not use NADPH as the reducing equivalent of the pathway.",
+        "c": "Gluconeogenesis uses ATP/GTP and NADH at defined steps rather than NADPH as its characteristic reducing source.",
+        "d": "Glycolysis produces NADH at the glyceraldehyde-3-phosphate dehydrogenase step; it does not characteristically consume NADPH."
+      }
+    },
+    "marrow__BIOCHEM_CH14_Q003": {
+      "takeaway": "The HMP shunt is the major hepatic source of NADPH for fatty-acid synthesis.",
+      "displayText": "The hexose monophosphate (HMP) shunt, also called the pentose phosphate pathway, generates cytosolic NADPH and ribose. Because both the HMP shunt and de novo fatty-acid synthesis occur in the cytosol, NADPH can be used directly for lipogenesis. Extramitochondrial isocitrate dehydrogenase and malic enzyme provide smaller additional amounts.",
+      "emphasis": [
+        "hexose monophosphate (HMP) shunt",
+        "cytosolic NADPH",
+        "major hepatic source",
+        "malic enzyme"
+      ],
+      "rationales": {
+        "a": "Glycolysis mainly generates ATP and NADH; it is not the major source of NADPH for fatty-acid synthesis.",
+        "b": "The TCA cycle produces NADH and FADH2 in mitochondria rather than supplying the major cytosolic NADPH pool for lipogenesis.",
+        "c": "The uronic-acid pathway is not the principal NADPH-generating pathway used for hepatic fatty-acid synthesis."
+      }
+    },
+    "marrow__BIOCHEM_CH14_Q004": {
+      "takeaway": "Acetyl-CoA carboxylase is the rate-limiting enzyme of fatty-acid synthesis and forms malonyl-CoA.",
+      "displayText": "Acetyl-CoA carboxylase catalyzes the committed, rate-limiting conversion of acetyl-CoA to malonyl-CoA in de novo fatty-acid synthesis. It is a biotin-dependent carboxylase that uses ATP and bicarbonate; citrate activates it in the well-fed state. The resulting malonyl-CoA supplies two-carbon units to fatty-acid synthase.",
+      "emphasis": [
+        "Acetyl-CoA carboxylase",
+        "rate-limiting",
+        "malonyl-CoA",
+        "biotin-dependent"
+      ],
+      "rationales": {
+        "b": "β-Hydroxyacyl-CoA dehydrogenase participates in fatty-acid β-oxidation, not the rate-limiting step of fatty-acid synthesis.",
+        "c": "Acyl-CoA dehydrogenase catalyzes the first oxidation step of mitochondrial β-oxidation and is not the regulatory enzyme of lipogenesis.",
+        "d": "Ketoacyl synthase is part of the fatty-acid synthase complex and performs condensation, but acetyl-CoA carboxylase is the pathway's rate-limiting regulatory enzyme."
+      }
+    },
+    "marrow__BIOCHEM_CH14_Q005": {
+      "takeaway": "Citrate allosterically activates acetyl-CoA carboxylase, whereas long-chain acyl-CoA inhibits it.",
+      "displayText": "Citrate is an allosteric activator of acetyl-CoA carboxylase (ACC). In the well-fed state, citrate promotes the active polymeric form of ACC, while insulin further favors activity through dephosphorylation. Glucagon and epinephrine favor phosphorylation and inactivation; long-chain acyl-CoA such as palmitoyl-CoA provides feedback inhibition.",
+      "emphasis": [
+        "Citrate",
+        "allosteric activator",
+        "dephosphorylation",
+        "palmitoyl-CoA"
+      ],
+      "rationales": {
+        "b": "Acetate is not the source-listed allosteric activator of acetyl-CoA carboxylase.",
+        "c": "Malate can participate in the citrate-pyruvate shuttle and NADPH generation, but it is not the key allosteric activator of ACC.",
+        "d": "Palmitate-derived long-chain acyl-CoA provides feedback inhibition of acetyl-CoA carboxylase rather than activation."
+      }
+    },
+    "marrow__BIOCHEM_CH14_Q006": {
+      "takeaway": "Malonyl-CoA is the key two-carbon-donor intermediate generated from acetyl-CoA during fatty-acid synthesis.",
+      "displayText": "Acetyl-CoA carboxylase converts acetyl-CoA to malonyl-CoA in the initial committed step of fatty-acid synthesis. Bicarbonate supplies the added carbon and ATP provides energy. Malonyl-CoA then enters fatty-acid synthase, where decarboxylative condensation contributes two-carbon units to the growing fatty-acyl chain.",
+      "emphasis": [
+        "malonyl-CoA",
+        "Acetyl-CoA carboxylase",
+        "Bicarbonate",
+        "two-carbon units"
+      ],
+      "rationales": {
+        "a": "Cholesterol is synthesized through the mevalonate pathway and is not the central intermediate of de novo fatty-acid synthesis.",
+        "c": "Acetyl-CoA is the starting substrate and primer; the question asks for the important intermediate produced for chain elongation, which is malonyl-CoA.",
+        "d": "Isovaleryl-CoA is an intermediate of leucine catabolism, not de novo fatty-acid synthesis."
+      }
+    },
+    "marrow__BIOCHEM_CH14_Q007": {
+      "takeaway": "Nutritional rehabilitation restores fat storage by activating acetyl-CoA carboxylase and fed-state lipogenesis.",
+      "displayText": "With adequate nutritional rehabilitation, rising insulin and substrate availability shift metabolism toward lipogenesis. Insulin favors dephosphorylation and activation of acetyl-CoA carboxylase, the rate-limiting enzyme of fatty-acid synthesis. Newly synthesized fatty acids are esterified into triacylglycerol, restoring adipose stores.",
+      "emphasis": [
+        "acetyl-CoA carboxylase",
+        "dephosphorylation and activation",
+        "lipogenesis",
+        "triacylglycerol"
+      ],
+      "rationales": {
+        "b": "Acyl-CoA dehydrogenase catalyzes β-oxidation, a catabolic pathway that breaks down fatty acids rather than restoring fat stores.",
+        "c": "Thiolase participates in β-oxidation cleavage and ketone-related reactions; it is not the rate-limiting enzyme driving fed-state fatty-acid synthesis.",
+        "d": "Carnitine palmitoyltransferase I promotes mitochondrial entry of long-chain fatty acyl groups for β-oxidation and is inhibited when malonyl-CoA is high in the fed state."
+      }
+    },
+    "marrow__BIOCHEM_CH14_Q008": {
+      "takeaway": "Palmitate (palmitic acid, C16:0) is the principal end product of de novo fatty-acid synthesis.",
+      "displayText": "Fatty-acid synthase most commonly terminates de novo synthesis at palmitate, a 16-carbon saturated long-chain fatty acid. Acetyl-CoA supplies the primer and malonyl-CoA supplies the repeated two-carbon units used to build the chain. Longer and unsaturated fatty acids are subsequently produced by elongation and desaturation pathways.",
+      "emphasis": [
+        "palmitate",
+        "16-carbon saturated",
+        "Acetyl-CoA supplies the primer",
+        "malonyl-CoA"
+      ],
+      "rationales": {
+        "a": "Arachidonic acid is a 20-carbon polyunsaturated fatty acid formed through elongation/desaturation of essential fatty-acid precursors, not the primary fatty-acid synthase end product.",
+        "b": "Oleic acid is a monounsaturated C18 fatty acid produced from stearate by desaturation; it is not the main direct product of fatty-acid synthase.",
+        "d": "Acetyl-CoA is a substrate and primer for fatty-acid synthesis, not its common final fatty-acid product."
+      }
+    }
+  }
+}
