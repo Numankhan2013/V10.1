@@ -46,10 +46,11 @@ def main() -> None:
             }""")
             expect(page.get_by_role("heading", name="Topic breakdown")).to_be_visible()
             analysis = page.locator(".nk-cbt-analysis")
+            assert analysis.locator(".nk-cbt-analysis-row").count() == 3
+            analysis.locator(".nk-cbt-analysis-rest summary").click()
             assert "Anatomy · PrepLadder" in analysis.inner_text()
             assert "Anatomy · Marrow" in analysis.inner_text()
             assert "Physiology · Marrow" in analysis.inner_text()
-            assert analysis.locator(".nk-cbt-analysis-row").count() == 3
             assert "2 questions to revisit" in analysis.inner_text()
             assert "1 incorrect · 0 unattempted" in analysis.inner_text()
             assert "0 incorrect · 1 unattempted" in analysis.inner_text()
