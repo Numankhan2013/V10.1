@@ -2,6 +2,7 @@ package com.qbank.biochemistry;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -204,6 +205,43 @@ public class MainActivity extends Activity {
     private static float parseFloat(String s,float d){try{return s==null?d:Float.parseFloat(s);}catch(Exception e){return d;}}
     private static Map<String,String> query(String raw)throws Exception{Map<String,String>m=new HashMap<>();if(raw==null)return m;for(String part:raw.split("&")){int k=part.indexOf('=');if(k<0)continue;m.put(URLDecoder.decode(part.substring(0,k),"UTF-8"),URLDecoder.decode(part.substring(k+1),"UTF-8"));}return m;}
 
-    @Override public void onBackPressed(){if(webView!=null&&webView.canGoBack())webView.goBack();else super.onBackPressed();}
+    // NATIVE_BACK_SESSION_GUARD_V1: inspect the live route before system Back leaves a question.
+    private boolean backCheckPending;
+    private AlertDialog backDialog;
+
+    private void continueBackNavigation() {
+        if (webView != null && webView.canGoBack()) webView.goBack();
+        else super.onBackPressed();
+    }
+
+    @Override public void onBackPressed() {
+        if (webView == null) { super.onBackPressed(); return; }
+        if (backCheckPending || (backDialog != null && backDialog.isShowing())) return;
+        backCheckPending = true;
+        webView.evaluateJavascript(
+            "(function(){try{var q=window.QB;var s=q&&q.getState&&q.getState().activeSession;" +
+            "var page=location.hash.split('/')[0];" +
+            "if(s&&page==='#practice'&&s.mode==='practice'&&s.lifecycle!=='paused')return 'practice';" +
+            "if(s&&page==='#exam'&&s.mode==='exam')return 'exam';" +
+            "}catch(e){}return '';})()",
+            value -> {
+                backCheckPending = false;
+                if (isFinishing()) return;
+                boolean exam = "\"exam\"".equals(value);
+                if (!exam && !"\"practice\"".equals(value)) { continueBackNavigation(); return; }
+                backDialog = new AlertDialog.Builder(this)
+                    .setTitle("Do you want to exit?")
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setMessage(exam
+                        ? "Your timed test will keep running if you exit now."
+                        : "Your practice progress will be saved if you exit now.")
+                    .setNegativeButton("Stay", null)
+                    .setPositiveButton("Exit", (dialog, which) -> continueBackNavigation())
+                    .create();
+                backDialog.setOnDismissListener(dialog -> backDialog = null);
+                backDialog.show();
+            });
+    }
+
     @Override protected void onDestroy(){synchronized(pdfLock){try{if(physiologyRenderer!=null)physiologyRenderer.close();}catch(Exception ignored){}try{if(physiologyPfd!=null)physiologyPfd.close();}catch(Exception ignored){}physiologyRenderer=null;physiologyPfd=null;}if(webView!=null){webView.loadUrl("about:blank");webView.stopLoading();webView.setWebChromeClient(null);webView.setWebViewClient(null);webView.destroy();webView=null;}super.onDestroy();}
 }

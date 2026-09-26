@@ -124,6 +124,13 @@ checked deterministic rollout ledger.
   position; Practice completion atomically persists a deterministic result and
   terminal checkpoint before clearing the live session. Wrong/Bookmarks, FSRS,
   Review, CBT and Custom Study Modules remain isolated from Home continuation.
+- Android system Back (`tools/apply_android_back_guard_v1.py`,
+  `NATIVE_BACK_SESSION_GUARD_V1`) asks the live WebView route and shared
+  `activeSession` before displaying a native warning for Practice or Exam.
+  Stay leaves state and route untouched; Exit follows WebView history, whose
+  existing question-interaction boundary commits pending time/recall. The
+  guard is applied after secure-origin generation and verified in the packaged
+  Android phone/tablet journey.
 - Source visuals contract: per-question `visual {type:"source-pdf",
   source, page, crop{left,top,right,bottom} (PDF points, optional),
   fit: contain|width|native}`; renderer consumes metadata only.
@@ -142,7 +149,7 @@ checked deterministic rollout ledger.
 
 ## Deterministic build pipeline (order enforced)
 
-`tools/verify_build_pipeline.py` requires this order (44 protected steps):
+`tools/verify_build_pipeline.py` requires the protected transform order:
 
 `fix_review_build` → `harden_review_renderer` →
 `build_source_visual_metadata` → `improve_source_visual_assets_v1` →

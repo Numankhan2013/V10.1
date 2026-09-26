@@ -54,7 +54,8 @@ def main() -> None:
     ], "source contract")
     require(manifest, ['android:label="NK QBank"', 'android:usesCleartextTraffic="false"', 'android.permission.INTERNET'], "Android manifest")
     require(native, ["setJavaScriptEnabled(true)", "setDomStorageEnabled(true)",
-                     "setAllowContentAccess(false)", "MIXED_CONTENT_NEVER_ALLOW", "APP_ORIGIN", "serveAppAsset", "qbank_origin_migration_v1"], "WebView contract")
+                     "setAllowContentAccess(false)", "MIXED_CONTENT_NEVER_ALLOW", "APP_ORIGIN", "serveAppAsset", "qbank_origin_migration_v1",
+                     "NATIVE_BACK_SESSION_GUARD_V1", "Do you want to exit?", "setNegativeButton(\"Stay\"", "setPositiveButton(\"Exit\""], "WebView contract")
 
     for asset in (
         "Biochemistry_QBank_Source.pdf", "Physiology_QBank_Source.pdf",

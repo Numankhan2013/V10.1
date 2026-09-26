@@ -34,6 +34,23 @@ async function main(){
   async function waitForDashboard(page){
     await page.waitForFunction(()=>(location.hash===''||location.hash==='#dashboard')&&Boolean(document.querySelector('button.nk-home-focus-action')));
   }
+  async function tapNativeExitDialog(button,expectedMessage){
+    let xml='';
+    for(let attempt=0;attempt<8;attempt++){
+      await device.shell('uiautomator dump /sdcard/nk-back-dialog.xml');
+      xml=String(await device.shell('cat /sdcard/nk-back-dialog.xml'));
+      if(xml.includes('text="Do you want to exit?"'))break;
+      await new Promise(resolve=>setTimeout(resolve,250));
+    }
+    assert(xml.includes('text="Do you want to exit?"'),'Android Back must open the native exit confirmation');
+    assert(xml.includes(`text="${expectedMessage}"`),`Android Back message missing: ${expectedMessage}`);
+    const node=[...xml.matchAll(/<node\b[^>]*>/g)].map(match=>match[0]).find(tag=>tag.includes(`text="${button}"`));
+    assert(node,`Android exit confirmation is missing ${button}`);
+    const bounds=node.match(/bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"/);
+    assert(bounds,`Android ${button} button has no tap bounds`);
+    await device.shell(`input tap ${Math.round((Number(bounds[1])+Number(bounds[3]))/2)} ${Math.round((Number(bounds[2])+Number(bounds[4]))/2)}`);
+    await new Promise(resolve=>setTimeout(resolve,250));
+  }
   const report=[];
   try{
     for(const [label,size,density] of [['phone','1080x2400',440],['tablet','1600x2560',320]]){
@@ -69,9 +86,15 @@ async function main(){
       assert.equal(resumed.id,original.id);assert.deepEqual(resumed.questionIds,original.questionIds);assert.equal(resumed.index,1);
       assert(await page.evaluate(id=>Boolean(window.QB.getState().bookmarks[id]),original.questionIds[0]));
       assert.equal(await page.evaluate(id=>window.QB.getState().attempts[id]?.length,original.questionIds[0]),1);
-      // This invokes MainActivity.onBackPressed / WebView.goBack, not JS navigation.
+      // This invokes MainActivity.onBackPressed, including its native dialog.
       const backBefore=await page.evaluate(()=>({url:location.href,hash:location.hash,historyLength:history.length,lifecycle:window.QB.getState().activeSession?.lifecycle}));
       await device.shell('input keyevent KEYCODE_BACK');
+      await device.screenshot({path:`${output}/${label}-practice-exit-confirmation.png`});
+      await tapNativeExitDialog('Stay','Your practice progress will be saved if you exit now.');
+      assert.equal(await page.evaluate(()=>location.hash),backBefore.hash,'Stay must keep the question open');
+      assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),original.id,'Stay must retain the session');
+      await device.shell('input keyevent KEYCODE_BACK');
+      await tapNativeExitDialog('Exit','Your practice progress will be saved if you exit now.');
       await waitForDashboard(page);
       const backAfter=await page.evaluate(()=>({url:location.href,hash:location.hash,historyLength:history.length,lifecycle:window.QB.getState().activeSession?.lifecycle,sessionId:window.QB.getState().activeSession?.id,index:window.QB.getState().activeSession?.index}));
       assert.notEqual(backAfter.hash,backBefore.hash);
@@ -140,6 +163,7 @@ async function main(){
       assert.deepEqual(resumedB.questionIds,paused.B.sessionQuestionIds);assert.equal(resumedB.index,2);
       assert.deepEqual(resumedB.answers,paused.B.answers);assert.deepEqual(resumedB.submitted,paused.B.submitted);
       await device.shell('input keyevent KEYCODE_BACK');
+      await tapNativeExitDialog('Exit','Your practice progress will be saved if you exit now.');
       await waitForDashboard(page);
       assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),paused.B.sessionId,'hardware Back must retain resumed B');
       await page.locator('button.nk-home-focus-action').click();
@@ -180,17 +204,30 @@ async function main(){
       assert.equal(await page.locator('#nk-cbt-pyq-toggle').getAttribute('aria-pressed'),'true');
       await device.screenshot({path:`${output}/${label}-pyq-topics.png`});
       await page.getByRole('button',{name:'Continue to questions'}).click();
-      await page.locator('#nk-cbt-custom-count').fill('1');
+      await page.locator('#nk-cbt-custom-count').fill('3');
       await page.getByRole('button',{name:'Start timed CBT'}).click();
       await page.waitForFunction(()=>window.QB.getState().activeSession?.mode==='exam');
       assert.equal(await page.evaluate(()=>window.QB.getState().activeSession.title),'PYQ CBT');
+      const examId=await page.evaluate(()=>window.QB.getState().activeSession.id);
+      await device.shell('input keyevent KEYCODE_BACK');
+      await device.screenshot({path:`${output}/${label}-test-exit-confirmation.png`});
+      await tapNativeExitDialog('Stay','Your timed test will keep running if you exit now.');
+      assert.equal(await page.evaluate(()=>location.hash),'#exam','Stay must keep the timed test open');
+      assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),examId);
+      await device.shell('input keyevent KEYCODE_BACK');
+      await tapNativeExitDialog('Exit','Your timed test will keep running if you exit now.');
+      await page.waitForFunction(()=>location.hash!=='#exam');
+      assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),examId,'Exit must retain the timed test');
+      await page.evaluate(()=>window.QB.nav('exam'));
+      await waitForHash(page,'#exam');
+      assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),examId,'Timed test must reopen at the same session');
       await page.evaluate(()=>window.QB.submitExam(false));
       await page.waitForFunction(()=>!window.QB.getState().activeSession&&location.hash.startsWith('#result'));
       assert.equal(await page.evaluate(()=>window.QB.getState().tests.at(-1).title),'PYQ CBT');
       await page.getByRole('button',{name:'Review Solutions',exact:true}).click();
       await page.waitForFunction(()=>window.QB.getState().activeSession?.mode==='review');
       await device.screenshot({path:`${output}/${label}-pyq-review.png`});
-      report.push({device:label,size,density,viewport:await page.evaluate(()=>({width:innerWidth,height:innerHeight})),nativeBack:'PASS',forceStopResume:'PASS',practiceReviewFsrs:'PASS',pyqCbtReview:'PASS'});
+      report.push({device:label,size,density,viewport:await page.evaluate(()=>({width:innerWidth,height:innerHeight})),nativeBackConfirmation:'PASS',forceStopResume:'PASS',practiceReviewFsrs:'PASS',pyqCbtReview:'PASS'});
       console.log('ANDROID_INTERACTION_VIEWPORT_OK '+JSON.stringify(report.at(-1)));
     }
     fs.writeFileSync(`${output}/report.json`,JSON.stringify(report,null,2));

@@ -200,6 +200,8 @@ jobs:
         run: python3 tools/apply_marrow_topic_numbering_v1.py
       - name: Install secure Android asset origin and migrate existing local data
         run: python3 tools/apply_android_secure_origin_v1.py
+      - name: Confirm Android Back before leaving active question sessions
+        run: python3 tools/apply_android_back_guard_v1.py
       - name: Apply cross-device sync and responsive PWA layer
         run: python3 tools/apply_cross_device_pwa_v1.py
       - name: Test cross-device merge and PWA contracts

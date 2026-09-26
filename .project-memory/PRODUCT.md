@@ -34,6 +34,10 @@ Prefer building over narrating.
   frictionless; unfinished-session recovery works.
 - **Practice:** immediate feedback, source explanations, free navigation,
   bookmarks, Wrong/Due queues feed revision.
+- **Android Back during a question:** show a native "Do you want to exit?"
+  warning for active Practice and timed tests. Stay keeps the same question and
+  session; Exit follows the saved-session navigation. Timed tests disclose that
+  their timer keeps running after exit.
 - **Timed CBT:** 60 sec/question, answers changeable, correctness only after
   submit; final-question boundary opens the session-review navigator
   (answered/unanswered + jumping), never a persistent toast; singleton

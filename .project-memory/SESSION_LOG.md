@@ -1505,4 +1505,20 @@ Implemented approved recovery in existing transform owners: Topics separate path
   the complete exam journey. Generated browser and Android phone/tablet
   captures were visually inspected. Replacement preview
   `https://87a819e1.nk-qbank.pages.dev` returned HTTP 200. Production was
-  not promoted; user review remains.
+  not promoted. The user later confirmed the toggle works and accepted it as
+  doable for now.
+
+## 2026-09-26 — Android Back exit warning candidate
+
+- The user reported that an accidental Android exit/back press during Practice
+  or a test immediately makes the session disappear. `MainActivity.onBackPressed`
+  previously called `WebView.goBack()` or exited the Activity without checking
+  the active question route.
+- Added a native warning for active `#practice` and `#exam` routes. Stay leaves
+  the current question untouched; Exit uses the established history boundary,
+  which saves pending question timing/recall. The timed-test message states
+  that its timer keeps running. The change is reapplied after secure-origin
+  generation by `tools/apply_android_back_guard_v1.py`; source/product and
+  build-order contracts require it. Packaged Android phone/tablet checks now
+  exercise Stay and Exit in Practice and CBT. Local 64 source checks pass;
+  full CI and preview remain pending.

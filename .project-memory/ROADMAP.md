@@ -16,8 +16,13 @@ Check off only when build-verified **and** device-verified where UI is involved.
       requested a compact two-way PYQ toggle. Product `af30703` passed
       Engineering `36233896258` and full generated browser/PWA/APK/Android
       phone+tablet emulator `36233894250`; replacement preview
-      `https://87a819e1.nk-qbank.pages.dev`. User review remains. Explanation
+      `https://87a819e1.nk-qbank.pages.dev`. The user confirmed it works and
+      accepted it as doable for now. Explanation
       quality in the current three subjects is the next content priority.
+- [ ] Android system Back safety for active Practice and timed tests: native
+      exit warning with Stay/Exit, no route or session loss on Stay, saved
+      progress on Exit, and explicit running-timer message. Candidate is in
+      source; packaged Android phone/tablet verification is pending.
 - [ ] All-bank QBank coverage tracker in Insights: source-exact answer-based
       progress for each of the six current subject/bank combinations, one
       bank's searchable/filterable topics at a time, and direct topic entry.
