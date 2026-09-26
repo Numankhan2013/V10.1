@@ -5,6 +5,11 @@
   function nkAfterQuestionCommit(effect){if(nkInteractionTransaction)nkInteractionTransaction.effects.push([effect,[]]);else effect();}
   const nkInteractionSave=saveState,nkInteractionRender=render,nkInteractionNavigate=navigate;
   const nkInteractionToast=showToast,nkInteractionHaptic=haptic;
+  let nkAppNavigationTarget=null;
+  function nkMarkAppNavigation(args){
+    const target='#'+args[0]+(args[1]?'/'+encodeURIComponent(args[1]):'');
+    if(location.hash!==target)nkAppNavigationTarget=target;
+  }
   saveState=function(){if(nkInteractionTransaction){nkInteractionTransaction.dirty=true;return true;}return nkInteractionSave.apply(this,arguments);};
   render=function(){if(nkInteractionTransaction){nkInteractionTransaction.render=true;return;}return nkInteractionRender.apply(this,arguments);};
   navigate=function(){
@@ -18,7 +23,10 @@
       }
       nkInteractionTransaction.navigation=[...arguments];return;
     }
-    return nkInteractionNavigate.apply(this,arguments);
+    nkMarkAppNavigation(arguments);
+    const result=nkInteractionNavigate.apply(this,arguments);
+    if(route.page===arguments[0]&&location.hash===nkAppNavigationTarget)nkAppNavigationTarget=null;
+    return result;
   };
   showToast=function(){if(nkInteractionTransaction){nkInteractionTransaction.effects.push([nkInteractionToast,[...arguments]]);return;}return nkInteractionToast.apply(this,arguments);};
   haptic=function(){if(nkInteractionTransaction){nkInteractionTransaction.effects.push([nkInteractionHaptic,[...arguments]]);return;}return nkInteractionHaptic.apply(this,arguments);};
@@ -36,7 +44,9 @@
       if(!['practice','exam','review-test'].includes(tx.navigation[0])){
         document.getElementById('nk-session-review')?.remove();document.getElementById('qb-question-navigator')?.remove();
       }
+      nkMarkAppNavigation(tx.navigation);
       nkFsrsOriginalNavigate.apply(null,tx.navigation);
+      if(route.page===tx.navigation[0]&&location.hash===nkAppNavigationTarget)nkAppNavigationTarget=null;
     }
     if(tx.render)nkInteractionRender();
     tx.effects.forEach(([fn,args])=>fn.apply(null,args));
@@ -122,6 +132,7 @@
   // Packaged Android uses its native Back confirmation at qbank.local.
   window.addEventListener('popstate',()=>{
     if(location.hostname==='qbank.local')return;
+    if(location.hash===nkAppNavigationTarget){nkAppNavigationTarget=null;return;}
     const s=state.activeSession;
     if(!s||!['practice','exam'].includes(s.mode)||route.page!==s.mode)return;
     if(parseHash().page===route.page)return;
@@ -132,6 +143,7 @@
   // Browser history and Android WebView.goBack share this route boundary.
   // Commit pending recall before leaving; keep the old route on storage failure.
   window.addEventListener('hashchange',()=>{
+    if(location.hash===nkAppNavigationTarget)nkAppNavigationTarget=null;
     const s=state.activeSession;if(!s||!['practice','exam'].includes(s.mode))return;
     const next=parseHash();if(next.page===route.page)return;
     const ok=nkQuestionTransaction(()=>{

@@ -170,6 +170,13 @@ def main():
                 page.wait_for_timeout(100)
                 assert page.evaluate('location.hash') == '#practice'
                 assert session(page)['id'] == original['id']
+                page.evaluate("window.QB.nkOpenSubjectLibrary('Biochemistry')")
+                page.wait_for_function("document.querySelectorAll('button.nk-bank-card').length===2")
+                assert session(page)['id'] == original['id']
+                page.evaluate("window.QB.nav('dashboard')")
+                page.wait_for_url('**/#dashboard')
+                page.locator('button.nk-home-focus-action').click()
+                settle(page)
                 with page.expect_event('dialog') as warning:
                     page.evaluate('history.back()')
                 warning.value.accept()
