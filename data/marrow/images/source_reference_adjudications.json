@@ -80,6 +80,22 @@
       },
       "reason": "The canonical figure metadata duplicates the continuation of the Q21 text/vector cytoskeletal table and does not identify a raster image.",
       "evidence": "Manual source review workflow 34698354509, artifact manual-physiology-image-batch01-source-review: full rendered Physiology ED8 page 19 inspected against PHYS_CH01_Q021. The continuation rows are already preserved in the same structured table; the image audit reports zero native candidates."
+    },
+    {
+      "id": "marrow__PHYS_CH03_Q021:figure:1",
+      "questionId": "marrow__PHYS_CH03_Q021",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        52
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The recorded figure reference is the structured transport-method table in Solution 21, not a learner image asset.",
+      "evidence": "2026-09-25: full authoritative rendered page 52 inspected against Q21. The referenced content is the table headed Method of transport / Substance involved / Energy requirement; Solution 22 begins below it."
     }
   ]
 }
