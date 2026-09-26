@@ -31,18 +31,16 @@ def main() -> None:
             page.goto(origin + "/#tests", wait_until="domcontentloaded")
             page.wait_for_function("window.QB && window.QB.getState")
             ids = page.evaluate("""() => {
-              const all=nkAllStudyQuestions();
-              const take=(bank,subject)=>all.find(q=>q.bank===bank&&q.subject===subject&&
-                Number(q.correctOption)>=1&&Number(q.correctOption)<=4);
-              const prep=take('PrepLadder','Anatomy'),marrow=take('Marrow','Anatomy'),phys=take('Marrow','Physiology');
-              const wrong=Number(prep.correctOption)%4+1;
+              const prep=window.SUBJECT_QBANK_DATA.subjects.find(s=>s.subject==='Anatomy').questions
+                .find(q=>Number(q.correctOption)>=1&&Number(q.correctOption)<=4);
+              const marrow='marrow__ANAT_CH01_Q001',phys='marrow__PHYS_CH01_Q001';
               const test={id:'cbt_analysis_browser',title:'Mixed-bank analysis check',
-                questionIds:[prep.id,marrow.id,phys.id],answers:{[prep.id]:wrong,[marrow.id]:Number(marrow.correctOption)},
+                questionIds:[prep.id,marrow,phys],answers:{[prep.id]:Number(prep.correctOption),[marrow]:1},
                 correct:1,incorrect:1,unattempted:1,total:3,attempted:2,totalTimeMs:40000,
-                questionTimes:{[prep.id]:12000,[marrow.id]:15000,[phys.id]:13000},createdAt:Date.now()-10000,originRoute:'tests'};
+                questionTimes:{[prep.id]:12000,[marrow]:15000,[phys]:13000},createdAt:Date.now()-10000,originRoute:'tests'};
               const state=window.QB.getState();state.tests.push(test);window.QB.saveState();
-              navigate('result',test.id);
-              return [prep.id,marrow.id,phys.id];
+              window.QB.nav('result',test.id);
+              return [prep.id,marrow,phys];
             }""")
             expect(page.get_by_role("heading", name="Topic breakdown")).to_be_visible()
             analysis = page.locator(".nk-cbt-analysis")
@@ -60,7 +58,7 @@ def main() -> None:
             page.get_by_role("button", name="Practise missed questions").click()
             page.wait_for_function("location.hash==='#practice' && window.QB.getState().activeSession?.mode==='practice'")
             session = page.evaluate("window.QB.getState().activeSession")
-            assert session["questionIds"] == [ids[0], ids[2]], session
+            assert session["questionIds"] == [ids[1], ids[2]], session
             assert session["context"] == "cbt-followup"
             assert not errors, errors
             browser.close()
