@@ -37,9 +37,10 @@ Prefer building over narrating.
 - **Timed CBT:** 60 sec/question, answers changeable, correctness only after
   submit; final-question boundary opens the session-review navigator
   (answered/unanswered + jumping), never a persistent toast; singleton
-  transient toasts only. The Topics step can replace the selection with
-  source-verified PYQ topics from the chosen banks, show their exact eligible
-  count, and then accept regular topics too. A saved test is titled “PYQ CBT”
+  transient toasts only. The Topics step has a compact PYQ toggle beside
+  Select all and Clear all: on selects source-verified PYQ topics from the
+  chosen banks; off removes those PYQ topics while retaining manually added
+  regular topics. It shows the exact eligible count. A saved test is titled “PYQ CBT”
   only when every selected question has the source-backed `pyq` facet.
   Dedicated chapter Topic Tests accumulate each question’s 60-second limit
   across navigation and reload, lock on expiry, and advance or submit safely.

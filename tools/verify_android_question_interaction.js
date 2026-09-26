@@ -169,9 +169,15 @@ async function main(){
       await page.evaluate(()=>window.QB.nav('tests'));
       await page.getByRole('button',{name:'Choose subjects and topics'}).click();
       await page.getByRole('button',{name:'Continue to topics'}).click();
-      assert.equal(await page.locator('.nk-cbt-pyq-action span').innerText(),'27 eligible topics · 1,118 questions');
-      await page.getByRole('button',{name:'Only verified PYQ topics'}).click();
+      assert.equal(await page.locator('#nk-cbt-pyq-toggle small').innerText(),'27 topics · 1,118 Q');
+      await page.locator('#nk-cbt-pyq-toggle').click();
+      assert.equal(await page.locator('#nk-cbt-pyq-toggle').getAttribute('aria-pressed'),'true');
       assert.equal(await page.locator('#nk-cbt-footer-count').innerText(),'27 topics · 1,118 questions');
+      await page.locator('#nk-cbt-pyq-toggle').click();
+      assert.equal(await page.locator('#nk-cbt-pyq-toggle').getAttribute('aria-pressed'),'false');
+      assert.equal(await page.locator('#nk-cbt-footer-count').innerText(),'0 topics · 0 questions');
+      await page.locator('#nk-cbt-pyq-toggle').click();
+      assert.equal(await page.locator('#nk-cbt-pyq-toggle').getAttribute('aria-pressed'),'true');
       await device.screenshot({path:`${output}/${label}-pyq-topics.png`});
       await page.getByRole('button',{name:'Continue to questions'}).click();
       await page.locator('#nk-cbt-custom-count').fill('1');

@@ -1486,3 +1486,17 @@ Implemented approved recovery in existing transform owners: Topics separate path
   tablet captures and Android review captures were inspected. Preview
   `https://e544d753.nk-qbank.pages.dev` returned HTTP 200. Production was
   not promoted; user physical review remains.
+
+## 2026-09-26 — PYQ selection control refinement
+
+- The user reviewed the exam-practice preview and confirmed the flow works,
+  then pointed out that the standalone PYQ action consumes unnecessary space
+  and cannot be turned off by tapping it again. The intended compact control
+  belongs beside Select all and Clear all in the Topics toolbar.
+- The PYQ control now has a pressed state and exact eligible count in that
+  existing row. On selects verified PYQ topics; off removes those topics and
+  keeps any regular topics added afterward. If no verified PYQs exist for the
+  selected banks, the control is disabled with an in-place explanation and
+  leaves the draft unchanged. Bank changes and global Select all/Clear all
+  reset the toggle state. Source and behavior checks passed; full generated
+  browser/PWA/APK/emulator and replacement preview remain pending.

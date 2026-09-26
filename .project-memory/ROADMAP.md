@@ -12,9 +12,10 @@ Check off only when build-verified **and** device-verified where UI is involved.
       counts are 27 PrepLadder topics/1,118 questions; Marrow has no verified
       PYQ facet. Product `13c3cd3` passed Engineering `36229006243` and full
       generated browser/PWA/APK/Android phone+tablet emulator `36229004244`;
-      preview `https://e544d753.nk-qbank.pages.dev`. User physical review
-      remains. Explanation quality in the current three subjects is the next
-      content priority afterward.
+      preview `https://e544d753.nk-qbank.pages.dev`. The user checked it and
+      requested a compact two-way PYQ toggle; that source refinement is pending
+      full build and replacement preview. Explanation quality in the current
+      three subjects is the next content priority afterward.
 - [ ] All-bank QBank coverage tracker in Insights: source-exact answer-based
       progress for each of the six current subject/bank combinations, one
       bank's searchable/filterable topics at a time, and direct topic entry.

@@ -102,9 +102,11 @@ checked deterministic rollout ledger.
   derive exact question IDs, then starts the existing exam engine. Topic taps
   update rows and counts in place, preserving scroll. Legacy modal builders
   remain for compatibility but are no longer the Tests entry. The verified-PYQ
-  action replaces topic keys only within selected banks, using topics whose
-  questions all carry `studyCollections: ['pyq']`; an empty result leaves the
-  draft intact. The selected question IDs determine the saved “PYQ CBT” title.
+  toolbar toggle replaces topic keys on activation and removes its PYQ keys on
+  deactivation, retaining manually added regular topics. It uses only selected
+  banks and topics whose questions all carry `studyCollections: ['pyq']`; an
+  empty result leaves the draft intact. The selected question IDs determine
+  the saved “PYQ CBT” title.
   The chapter Topic Test keeps cumulative per-question time and an absolute
   entry timestamp so navigation and reload cannot reset its 60-second limit.
 - CBT result analysis (`tools/cbt_result_analysis_core.js`,
