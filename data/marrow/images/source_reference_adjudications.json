@@ -80,6 +80,22 @@
       },
       "reason": "The canonical figure metadata duplicates the continuation of the Q21 text/vector cytoskeletal table and does not identify a raster image.",
       "evidence": "Manual source review workflow 34698354509, artifact manual-physiology-image-batch01-source-review: full rendered Physiology ED8 page 19 inspected against PHYS_CH01_Q021. The continuation rows are already preserved in the same structured table; the image audit reports zero native candidates."
+    },
+    {
+      "id": "marrow__PHYS_CH03_Q021:figure:1",
+      "questionId": "marrow__PHYS_CH03_Q021",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        52
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "Canonical figure metadata identifies an explanation figure on page 52, but authoritative source inspection shows Q21's content there is a structured Method of Transport / Substance Involved / Energy Requirement table rather than a learner image; the following Q22 solution owns the neighboring transcytosis visual.",
+      "evidence": "Runtime V2 bounded source review: authoritative Marrow ED8 Physiology page 52 inspected against stable ownership for PHYS_CH03_Q021. Q21 contains structured transport-table content and no Q21-owned learner figure; Solution 22 begins immediately afterward. Neighboring Q22 imagery must not be substituted."
     }
   ]
 }
