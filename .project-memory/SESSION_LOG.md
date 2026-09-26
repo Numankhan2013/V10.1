@@ -1521,4 +1521,15 @@ Implemented approved recovery in existing transform owners: Topics separate path
   generation by `tools/apply_android_back_guard_v1.py`; source/product and
   build-order contracts require it. Packaged Android phone/tablet checks now
   exercise Stay and Exit in Practice and CBT. Local 64 source checks pass;
-  full CI and preview remain pending.
+  full CI and preview were initially pending. First full run `36243605111`
+  built the APK but its emulator check looked for mixed-case "Stay" while
+  Android exposed all-caps "STAY"; the native dialog itself was present.
+  Refinement `445fd13` matched button labels case-insensitively and captured
+  the displayed dialog after it appeared. Exact-head Engineering
+  `36244266344` and full generated browser/PWA/packaged APK/Android
+  phone+tablet emulator `36244266405` passed. The report showed native Back
+  confirmation, force-stop Practice recovery, Review/FSRS, and PYQ CBT review
+  passing at both sizes. Phone and tablet dialog screenshots were inspected.
+  Web preview `https://0c0be99e.nk-qbank.pages.dev` returned HTTP 200; the
+  native confirmation requires the packaged APK for user review. Production
+  was not promoted.

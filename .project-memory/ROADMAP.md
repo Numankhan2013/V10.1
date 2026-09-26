@@ -21,8 +21,11 @@ Check off only when build-verified **and** device-verified where UI is involved.
       quality in the current three subjects is the next content priority.
 - [ ] Android system Back safety for active Practice and timed tests: native
       exit warning with Stay/Exit, no route or session loss on Stay, saved
-      progress on Exit, and explicit running-timer message. Candidate is in
-      source; packaged Android phone/tablet verification is pending.
+      progress on Exit, and explicit running-timer message. Product `e33dbab`
+      with emulator-check refinement `445fd13` passed Engineering
+      `36244266344` and full browser/PWA/APK/Android phone+tablet emulator
+      `36244266405`. The packaged APK artifact is in that run; physical
+      installed-app review remains pending.
 - [ ] All-bank QBank coverage tracker in Insights: source-exact answer-based
       progress for each of the six current subject/bank combinations, one
       bank's searchable/filterable topics at a time, and direct topic entry.
