@@ -1544,6 +1544,11 @@ Implemented approved recovery in existing transform owners: Topics separate path
   layer for active Practice and timed-test routes. Stay restores the question
   history entry before hashchange; Exit follows the existing saved-session
   route. Packaged Android on `qbank.local` keeps its native warning without a
-  duplicate web dialog. Source interaction and local 64 checks pass. The
-  generated browser check now exercises both choices and a CBT warning;
-  full CI and replacement Cloudflare preview remain pending.
+  duplicate web dialog. Initial generated browser run caught that an in-app
+  subject change could also trigger the new warning; `f450ab7` marks app
+  navigation separately and verifies that normal subject changes still work.
+  Local source checks and Engineering `36248903088` passed. Full run
+  `36248903102` passed generated browser, PWA, packaged APK, and Android
+  phone/tablet emulator checks, then deployed the Cloudflare preview. Preview
+  `https://8552f47f.nk-qbank.pages.dev` returned HTTP 200 and served the
+  new Back warning code. Production was not promoted.
