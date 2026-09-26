@@ -58,6 +58,11 @@ checked deterministic rollout ledger.
   `tools/insights_focus_core.js` groups all-bank questions by exact subject,
   bank, and source topic; it reads active attempts and launches the shared
   Practice engine without persisting a second analytics model.
+  `tools/qbank_coverage_core.js` derives an Insights study map from the same
+  bank registry and active attempts. It presents one bank's source topics at
+  a time, keeps filter/search state in page memory, and opens the existing
+  `nkOpenSubjectChapter` route. No progress schema or copied question set is
+  created.
 - Attempt helpers: `qAttempts(id)`, `latestAttempt(id)`, `chapterStats(id)`,
   `chapterQuestions(id)`, `totalAttempted()`, `overallAccuracy()`,
   `pendingReviewCount()`, `dueQuestions()`, `wrongQuestions()`,

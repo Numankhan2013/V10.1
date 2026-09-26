@@ -357,3 +357,13 @@ resumes, and pagehide saves. Terminal checkpoints remain available as sync
 tombstones so an older remote paused copy cannot reopen completed work. When
 the legacy single-checkpoint alias and collection contain the same ID, the
 newer revision wins during normalization.
+
+## 26. QBank coverage is answer-based and source-exact (2026-09-26)
+
+The Insights tracker derives each topic from `[subject, bank, topicId]` in the
+shared bank registry and counts unique questions with an active answer history.
+Latest incorrect answers are a separate revision signal; they do not block
+topic completion or imply a mastery score. One bank's topics appear at a time,
+and the tracker replaces the old active-bank chapter list in Insights. This
+offers a readable study map without a new Home action, duplicate topic list,
+or second progress persistence model.

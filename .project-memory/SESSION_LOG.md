@@ -1427,3 +1427,21 @@ Implemented approved recovery in existing transform owners: Topics separate path
   full-page 390px capture was inspected; the new section is readable and the
   action is clear. Preview `https://c22cbdd0.nk-qbank.pages.dev` returns HTTP
   200. Production and canonical remain unchanged; user preview review is next.
+
+## 2026-09-26 — All-bank QBank tracker candidate
+
+- The user checked the post-CBT analysis preview and said it works. The next
+  Marrow-level gap chosen is a clear study map: existing Topics shows one bank
+  at a time and the earlier Insights recommendation was useful but limited.
+  Marrow's published QBank material emphasizes progress tracking and
+  consistent module practice; this increment stays within the current three
+  subjects and does not add or infer source labels.
+- Added `tools/qbank_coverage_core.js` with a late deterministic owner
+  transform. Insights now shows overall and per-bank answer-based coverage,
+  topic completion, latest misses, search/status filters and exact topic
+  navigation. The old active-bank chapter list is replaced to avoid a second
+  competing topic list. No persistence schema or engine changes.
+- `test_qbank_coverage_v1.py` and `verify_qbank_coverage_browser.py` are wired
+  to the full build, with source-level bank/status/navigation checks already
+  passing. Full generated-app/Android verification and preview remain pending
+  at this handoff. Production and canonical remain untouched.

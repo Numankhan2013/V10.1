@@ -63,7 +63,11 @@ Prefer building over narrating.
 - **Insights:** Accuracy, Avg time, Due, Completion + chapter coverage +
   recent sessions; distinguish no-evidence from poor performance. A candidate
   cross-bank “Topics to revisit” section uses each question’s latest answer,
-  shows its evidence count, and starts Practice on the remaining misses.
+  shows its evidence count, and starts Practice on the remaining misses. An
+  all-bank QBank tracker candidate shows answer-based question coverage for
+  each subject/bank/topic, with search, progress filters, and direct topic
+  entry. Completion means every question in a topic was answered at least
+  once; latest misses remain visible separately and are not mastery ratings.
 - **Revision libraries:** Bookmarks (manual), Wrong (auto from incorrect),
   Due Review (FSRS spaced queue); empty states explain how to fill them. FSRS
   ratings, Today queue, forecast, settings, migration, and undo work in both

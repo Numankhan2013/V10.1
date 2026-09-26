@@ -6,12 +6,18 @@ Check off only when build-verified **and** device-verified where UI is involved.
 
 ## Immediate (next 1–2 sessions)
 
+- [ ] All-bank QBank coverage tracker in Insights: source-exact answer-based
+      progress for each of the six current subject/bank combinations, one
+      bank's searchable/filterable topics at a time, and direct topic entry.
+      Source checks pass; generated browser/PWA/APK and user preview review
+      remain. This is a study map, not an inferred mastery score.
 - [ ] Timed CBT result analysis on `feature/qbank-bank-aware-modules-20260924`:
       show source-exact subject/bank/topic results from the saved test snapshot,
       then practise only that test's incorrect and unattempted IDs through the
       shared Practice engine. Product `b65ad21` passed Engineering
       `36216951965` and full browser/PWA/APK/Android emulator `36216944458`;
-      preview `https://c22cbdd0.nk-qbank.pages.dev`. User review remains.
+      preview `https://c22cbdd0.nk-qbank.pages.dev`. The user checked it and
+      said it works; the in-place physical APK check remains separate.
 - [ ] Bank-aware study modules and PYQ candidate: exact subject/bank/topic
       records and frozen legacy modules passed generated browser/PWA/APK/emulator
       verification at `7b7eef2`; the user accepted the topic picker. The current
