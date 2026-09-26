@@ -6,6 +6,13 @@ Check off only when build-verified **and** device-verified where UI is involved.
 
 ## Immediate (next 1–2 sessions)
 
+- [ ] Exam practice candidate: one verified-PYQ action inside the bank-aware
+      CBT Topics step, cumulative 60-second chapter Topic Test timing, and a
+      complete PYQ/mixed result-to-review-to-missed-Practice journey. Source
+      counts are 27 PrepLadder topics/1,118 questions; Marrow has no verified
+      PYQ facet. Full generated browser, PWA, APK, Android emulator and preview
+      verification are required before user review. Explanation quality in the
+      current three subjects is the next content priority afterward.
 - [ ] All-bank QBank coverage tracker in Insights: source-exact answer-based
       progress for each of the six current subject/bank combinations, one
       bank's searchable/filterable topics at a time, and direct topic entry.

@@ -14,6 +14,25 @@
   function nkCbtTopicCount(record,topic){
     return (record.questions||[]).filter(q=>String(q.chapterId)===String(topic.id)).length;
   }
+  function nkCbtVerifiedPyqTopics(){
+    return nkCbtSelectedRecords().flatMap(record=>nkModuleTopics(record).filter(topic=>{
+      const questions=(record.questions||[]).filter(q=>String(q.chapterId)===String(topic.id));
+      return questions.length>0&&questions.every(q=>Array.isArray(q.studyCollections)&&q.studyCollections.includes('pyq'));
+    }).map(topic=>({record,topic})));
+  }
+  function nkCbtSelectVerifiedPyqs(){
+    if(!nkCbtDraft)return;
+    const topics=nkCbtVerifiedPyqTopics();
+    if(!topics.length){
+      const message=document.getElementById('nk-cbt-pyq-status');
+      if(message)message.textContent='No verified PYQ topics in the selected banks. Your draft is unchanged.';
+      return;
+    }
+    nkCbtDraft.topicKeys=topics.map(({record,topic})=>nkCbtTopicKey(record,topic));
+    nkCbtSyncTopics();
+    const message=document.getElementById('nk-cbt-pyq-status');
+    if(message)message.textContent=`Selected ${topics.length} verified PYQ topics. Add regular topics below if you want a mixed test.`;
+  }
   function nkCbtPool(){
     const selected=new Set(nkCbtDraft?.topicKeys||[]),questions=[];
     nkCbtSelectedRecords().forEach(record=>(record.questions||[]).forEach(q=>{
@@ -127,7 +146,8 @@
     const result=document.getElementById('nk-cbt-count-result');
     if(result)result.textContent=`${fmtNum(actual)} question${actual===1?'':'s'} · ${fmtNum(actual)} minute${actual===1?'':'s'} total`;
   }
-  function nkCbtTitle(){
+  function nkCbtTitle(questions=[]){
+    if(questions.length&&questions.every(q=>Array.isArray(q.studyCollections)&&q.studyCollections.includes('pyq')))return 'PYQ CBT';
     const records=nkCbtSelectedRecords();
     if(records.length===1)return `${records[0].subject} · ${records[0].bank} CBT`;
     const subjects=[...new Set(records.map(record=>record.subject))];
@@ -139,7 +159,8 @@
     for(let i=ids.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[ids[i],ids[j]]=[ids[j],ids[i]];}
     const count=Math.min(Math.max(1,Number(nkCbtDraft.count||20)),ids.length);
     BY_ID={...BY_ID,...Object.fromEntries(pool.map(q=>[String(q.id),q]))};
-    startSession(ids.slice(0,count),'exam',nkCbtTitle());
+    const chosen=ids.slice(0,count),byId=new Map(pool.map(q=>[String(q.id),q]));
+    startSession(chosen,'exam',nkCbtTitle(chosen.map(id=>byId.get(id))));
     if(state.activeSession){state.activeSession.originRoute='tests';saveState();}
     nkCbtDraft=null;
   }
@@ -150,12 +171,13 @@
   function nkCbtTopicsMarkup(){
     const records=nkCbtRecords(),selected=new Set(nkCbtDraft.topicKeys),active=nkCbtSelectedRecords();
     const total=active.reduce((sum,record)=>sum+nkModuleTopics(record).length,0),pool=nkCbtPool().length;
+    const pyqTopics=nkCbtVerifiedPyqTopics(),pyqQuestions=pyqTopics.reduce((sum,{record,topic})=>sum+nkCbtTopicCount(record,topic),0);
     const groups=records.map((record,recordIndex)=>{
       if(!nkCbtDraft.bankKeys.includes(nkCbtRecordKey(record)))return'';
       const topics=nkModuleTopics(record),count=topics.filter(topic=>selected.has(nkCbtTopicKey(record,topic))).length;
       return `<section class="nk-module-topic-group nk-cbt-topic-group" data-record-index="${recordIndex}"><header><span class="is-${nkAppSubjectMeta(record.subject).key}">${nkAppSubjectIcon(record.subject,20)}</span><div><strong class="nk-module-group-title">${esc(record.subject)} · ${esc(record.bank)}</strong><small class="nk-module-group-count">${count} of ${topics.length} selected</small></div><button type="button" class="nk-module-group-action" onclick="window.QB.nkCbtToggleGroup(${recordIndex})">${count===topics.length?`Clear ${topics.length}`:`Select ${topics.length}`}</button></header><div class="nk-module-topic-list">${topics.map((topic,topicIndex)=>{const picked=selected.has(nkCbtTopicKey(record,topic));return `<button type="button" class="nk-module-topic nk-cbt-topic ${picked?'is-selected':''}" data-record-index="${recordIndex}" data-topic-index="${topicIndex}" aria-pressed="${picked}" onclick="window.QB.nkCbtToggleTopic(${recordIndex},${topicIndex})"><span class="nk-module-topic-copy"><strong>${esc(topic.title)}</strong><small>${fmtNum(nkCbtTopicCount(record,topic))} questions${nkModuleTopicHasCollection(record,topic.id,'pyq')?' · PYQs':''}</small></span><span class="nk-module-check" aria-hidden="true">${picked?navIcon('check',16):''}</span></button>`;}).join('')}</div></section>`;
     }).join('');
-    return `<div class="nk-module-topic-intro"><strong>${fmtNum(total)} topics in ${active.length} selected bank${active.length===1?'':'s'}</strong><span id="nk-cbt-selected-count">${selected.size} topics · ${fmtNum(pool)} questions</span></div><label class="nk-module-topic-search"><span>Search topics</span><input type="search" placeholder="Search by chapter or topic name" autocomplete="off" oninput="window.QB.nkCbtFilterTopics(this.value)"></label><div class="nk-module-select-tools"><button type="button" onclick="window.QB.nkCbtSetTopics(true)">Select all</button><button type="button" onclick="window.QB.nkCbtSetTopics(false)">Clear all</button></div><div id="nk-cbt-search-status" class="nk-module-search-status" role="status"></div><div class="nk-module-topic-groups">${groups}</div><div id="nk-cbt-search-empty" class="nk-module-search-empty" hidden>No topics match your search.</div>`;
+    return `<div class="nk-module-topic-intro"><strong>${fmtNum(total)} topics in ${active.length} selected bank${active.length===1?'':'s'}</strong><span id="nk-cbt-selected-count">${selected.size} topics · ${fmtNum(pool)} questions</span></div><div class="nk-cbt-pyq-action"><button type="button" onclick="window.QB.nkCbtSelectVerifiedPyqs()">Only verified PYQ topics</button><span>${fmtNum(pyqTopics.length)} eligible topics · ${fmtNum(pyqQuestions)} questions</span></div><p id="nk-cbt-pyq-status" class="nk-cbt-pyq-status" role="status">${pyqTopics.length?'Replaces selected topics. You can add regular topics afterward.':'No verified PYQ topics in the selected banks. Your draft is unchanged.'}</p><label class="nk-module-topic-search"><span>Search topics</span><input type="search" placeholder="Search by chapter or topic name" autocomplete="off" oninput="window.QB.nkCbtFilterTopics(this.value)"></label><div class="nk-module-select-tools"><button type="button" onclick="window.QB.nkCbtSetTopics(true)">Select all</button><button type="button" onclick="window.QB.nkCbtSetTopics(false)">Clear all</button></div><div id="nk-cbt-search-status" class="nk-module-search-status" role="status"></div><div class="nk-module-topic-groups">${groups}</div><div id="nk-cbt-search-empty" class="nk-module-search-empty" hidden>No topics match your search.</div>`;
   }
   function nkCbtQuestionsMarkup(){
     const pool=nkCbtPool().length,actual=Math.min(nkCbtDraft.count,pool),records=nkCbtSelectedRecords();

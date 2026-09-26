@@ -144,16 +144,30 @@ HELPERS = r'''
     const c=CHAPTER_BY_ID[String(cid)],ids=chapterQuestions(cid).map(q=>String(q.id));if(!ids.length){showToast('No questions are available for this topic.','bad');return;}
     startSession(ids,'exam',`${c?.title||'Topic'} · Timed Test`);const s=state.activeSession;if(!s)return;s.timerEnabled=true;s.timerMode='per-question';s.strictQuestionTime={};s.strictExpired={};s.strictQuestionStartedAt=Date.now();saveState();render();
   }
-  function nkStrictSpent(s,id){const base=Number(s?.strictQuestionTime?.[id]||0);if(!s||s.timerMode!=='per-question'||s.strictExpired?.[id]||String(s.questionIds?.[s.index])!==String(id))return base;return base+Math.max(0,Date.now()-Number(s.strictQuestionStartedAt||Date.now()));}
-  function nkStrictCommitCurrent(){const s=state.activeSession;if(!s||s.mode!=='exam'||s.timerMode!=='per-question')return;const id=String(s.questionIds[s.index]);s.strictQuestionTime=s.strictQuestionTime||{};s.strictQuestionTime[id]=Math.min(60000,nkStrictSpent(s,id));}
-  function nkStrictResetClock(){const s=state.activeSession;if(s?.mode==='exam'&&s.timerMode==='per-question'){s.strictQuestionStartedAt=Date.now();saveState();}}
-  function nkExpireTopicQuestion(){
-    const s=state.activeSession;if(!s||s.mode!=='exam'||s.timerMode!=='per-question')return;const id=String(s.questionIds[s.index]);nkStrictCommitCurrent();saveExamElapsed();s.strictQuestionTime[id]=60000;s.strictExpired=s.strictExpired||{};s.strictExpired[id]=true;
-    if(s.index>=s.questionIds.length-1){saveState();submitExam(true);return;}s.index++;s.strictQuestionStartedAt=Date.now();saveState();render();
+  function nkStrictSpent(s,id){const base=Math.min(60000,Math.max(0,Number(s?.strictQuestionTime?.[id]||0)));if(!s||s.timerMode!=='per-question'||s.strictExpired?.[id]||String(s.questionIds?.[s.index])!==String(id))return base;return Math.min(60000,base+Math.max(0,Date.now()-Number(s.strictQuestionStartedAt||s.questionEnteredAt||s.startedAt||Date.now())));}
+  function nkStrictCommitCurrent(){const s=state.activeSession;if(!s||s.mode!=='exam'||s.timerMode!=='per-question')return;const id=String(s.questionIds[s.index]);s.strictQuestionTime=s.strictQuestionTime||{};s.strictQuestionTime[id]=nkStrictSpent(s,id);s.strictQuestionStartedAt=Date.now();}
+  function nkStrictResetClock(){const s=state.activeSession;if(s?.mode!=='exam'||s.timerMode!=='per-question')return;
+    if(s.strictExpired?.[String(s.questionIds[s.index])]){
+      const next=s.questionIds.findIndex((id,index)=>index>s.index&&!s.strictExpired[String(id)]);
+      const available=next>=0?next:s.questionIds.findIndex(id=>!s.strictExpired[String(id)]);
+      if(available<0){submitExam(true);return;}
+      s.index=available;s.questionEnteredAt=Date.now();render();
+    }
+    s.strictQuestionStartedAt=Date.now();saveState();if(nkStrictSpent(s,String(s.questionIds[s.index]))>=60000)nkExpireTopicQuestion();
   }
-  const nkHomeNextQ=nextQ;nextQ=function(){nkStrictCommitCurrent();const out=nkHomeNextQ.apply(this,arguments);nkStrictResetClock();return out;};
-  const nkHomePrevQ=prevQ;prevQ=function(){nkStrictCommitCurrent();const out=nkHomePrevQ.apply(this,arguments);nkStrictResetClock();return out;};
-  const nkHomeGoIndex=goIndex;goIndex=function(){nkStrictCommitCurrent();const out=nkHomeGoIndex.apply(this,arguments);nkStrictResetClock();return out;};
+  function nkExpireTopicQuestion(){
+    const s=state.activeSession;if(!s||s.mode!=='exam'||s.timerMode!=='per-question'||s.__terminalSaveInFlight)return false;
+    const id=String(s.questionIds[s.index]);s.strictExpired=s.strictExpired||{};
+    if(!s.strictExpired[id]){nkStrictCommitCurrent();saveExamElapsed();s.strictQuestionTime[id]=60000;s.questionTimes[id]=Math.min(60000,Number(s.questionTimes[id]||0));s.strictExpired[id]=true;}
+    const next=s.questionIds.findIndex((questionId,index)=>index>s.index&&!s.strictExpired[String(questionId)]);
+    const remaining=next>=0?next:s.questionIds.findIndex(questionId=>!s.strictExpired[String(questionId)]);
+    if(remaining<0){saveState();submitExam(true);return true;}
+    s.index=remaining;s.questionEnteredAt=Date.now();s.strictQuestionStartedAt=s.questionEnteredAt;saveState();render();return true;
+  }
+  function nkStrictBeforeNavigation(){const s=state.activeSession;if(s?.mode!=='exam'||s.timerMode!=='per-question')return true;if(nkStrictSpent(s,String(s.questionIds[s.index]))>=60000){nkExpireTopicQuestion();return false;}nkStrictCommitCurrent();return true;}
+  const nkHomeNextQ=nextQ;nextQ=function(){if(!nkStrictBeforeNavigation())return false;const out=nkHomeNextQ.apply(this,arguments);nkStrictResetClock();return out;};
+  const nkHomePrevQ=prevQ;prevQ=function(){if(!nkStrictBeforeNavigation())return false;const out=nkHomePrevQ.apply(this,arguments);nkStrictResetClock();return out;};
+  const nkHomeGoIndex=goIndex;goIndex=function(){if(!nkStrictBeforeNavigation())return false;const out=nkHomeGoIndex.apply(this,arguments);nkStrictResetClock();return out;};
   /* NK_HOME_FLOW_V3_END */
 '''
 

@@ -186,6 +186,8 @@ jobs:
         run: python3 tools/apply_home_command_center_v1.py
       - name: Test Home Today’s Focus command center
         run: python3 tools/test_home_command_center_v1.py
+      - name: Test cumulative topic-test timing and expiry
+        run: python3 tools/test_topic_timer_v1.py
       - name: Install durable Continue Practice session resume
         run: python3 tools/apply_continue_practice_resume_v1.py
       - name: Test Continue Practice session resume
@@ -390,6 +392,8 @@ jobs:
         run: python3 tools/verify_insights_focus_browser.py
       - name: Verify bank-aware timed CBT selection and exam launch
         run: python3 tools/verify_bank_aware_cbt_builder_browser.py
+      - name: Verify PYQ and mixed CBT journeys on phone and tablet
+        run: python3 tools/verify_pyq_exam_journey_browser.py
       - name: Verify saved-test CBT topic analysis and follow-up
         run: python3 tools/verify_cbt_result_analysis_browser.py
       - name: Verify all-bank QBank coverage tracker

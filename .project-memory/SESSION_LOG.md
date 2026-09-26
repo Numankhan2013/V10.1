@@ -1453,3 +1453,26 @@ Implemented approved recovery in existing transform owners: Topics separate path
   were visually inspected: all six bank cards, overall 5,397-question/250-topic
   totals, search and status controls, and the eight-row initial topic list are
   legible with no duplicate active-bank chapter panel.
+
+## 2026-09-26 — Exam practice candidate
+
+- The user chose a narrow next phase: one verified-PYQ timed-test selection in
+  the existing CBT builder, strict per-question chapter timing, and a complete
+  saved-test review/follow-up journey. New subjects and tracker polish stay
+  later. PrepLadder source topics contain 27 verified PYQ topics/1,118
+  questions; Marrow has no verified PYQ facet.
+- The builder now derives eligible topics from the selected bank records and
+  per-question `studyCollections`, replaces topic selection on request, reports
+  exact eligible counts, preserves the draft when none exist, and labels a
+  saved session “PYQ CBT” only if every chosen question carries `pyq`.
+- The chapter Topic Test’s 60-second clock now commits cumulative time on
+  navigation, persists its absolute active-question entry timestamp, rejects
+  late answers, locks expired questions, advances to available questions and
+  auto-submits after the last one. A behavior check covers navigation, reload,
+  locked-question jumps and final expiry. A generated browser check covers
+  exact bank subsets, PYQ and mixed CBT submission, saved history, Review
+  Solutions, topic breakdown, missed-question Practice and both-bank timer
+  expiry on phone/tablet. The packaged Android emulator check also walks
+  PYQ selection to Review Solutions on phone/tablet.
+- Local source/behavior checks passed. Full generated browser/PWA/APK/emulator
+  verification and preview publication remain pending at this checkpoint.

@@ -19,7 +19,7 @@ def main() -> None:
     generated = transform(fixture)
     assert transform(generated) == generated
     for marker in ("NK_BANK_AWARE_CBT_BUILDER_V1_START", "route.page==='test-builder'",
-                   "nkCbtToggleTopic", "nk-bank-aware-cbt-builder-v1"):
+                   "nkCbtToggleTopic", "nkCbtSelectVerifiedPyqs", "nk-bank-aware-cbt-builder-v1"):
         assert marker in generated, marker
     inline = generated.split("<script>", 1)[1].split("</script>", 1)[0]
     subprocess.run(["node", "--check"], input=inline, text=True, check=True)
@@ -28,7 +28,7 @@ def main() -> None:
     script = r'''
 const assert=require('node:assert/strict'),vm=require('node:vm');
 const prep={subject:'Anatomy',bank:'PrepLadder',topics:[{id:'1',title:'Prep first'},{id:'2',title:'Prep second'}],
-  questions:[{id:'prep1',chapterId:'1'},{id:'prep2',chapterId:'2'}]};
+  questions:[{id:'prep1',chapterId:'1',studyCollections:['pyq']},{id:'prep2',chapterId:'2'}]};
 const marrow={subject:'Anatomy',bank:'Marrow',topics:[{id:'1',title:'Marrow first'},{id:'2',title:'Marrow second'}],
   questions:[{id:'marrow1',chapterId:'1'},{id:'marrow2',chapterId:'2'}]};
 const phys={subject:'Physiology',bank:'Marrow',topics:[{id:'1',title:'Phys first'}],
@@ -48,8 +48,17 @@ vm.createContext(context);vm.runInContext(SOURCE,context);
 const call=code=>vm.runInContext(code,context),ids=()=>Array.from(call('nkCbtPool()'),q=>q.id);
 call('openTestBuilder()');assert.equal(route,'test-builder');
 assert.deepEqual(ids().sort(),['marrow1','marrow2','phys1','prep1','prep2']);
+assert(call('nkCbtBuilderPage()').includes('Only verified PYQ topics')===false);
+call('nkCbtSetStep(2)');
+assert(call('nkCbtBuilderPage()').includes('1 eligible topics · 1 questions'));
+call('nkCbtSelectVerifiedPyqs()');assert.deepEqual(ids(),['prep1']);
+assert.equal(call('nkCbtTitle(nkCbtPool())'),'PYQ CBT');
+call('nkCbtToggleTopic(0,1)');assert.deepEqual(ids().sort(),['prep1','prep2']);
+assert.equal(call('nkCbtTitle(nkCbtPool())'),'Mixed Subjects CBT');
 call('nkCbtSetBanks(false)');assert.deepEqual(ids(),[]);
 call('nkCbtToggleBank(1)');assert.deepEqual(ids().sort(),['marrow1','marrow2']);
+const beforeNoPyq=JSON.stringify(call('nkCbtDraft.topicKeys'));
+call('nkCbtSelectVerifiedPyqs()');assert.equal(JSON.stringify(call('nkCbtDraft.topicKeys')),beforeNoPyq,'empty PYQ selection preserves draft');
 call('nkCbtSetTopics(false)');assert.deepEqual(ids(),[]);
 call('nkCbtToggleTopic(1,0)');assert.deepEqual(ids(),['marrow1'],'same chapter ID in another bank stays separate');
 call('nkCbtSetStep(2)');

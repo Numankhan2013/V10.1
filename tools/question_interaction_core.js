@@ -52,7 +52,7 @@
   });
   selectExam=nkQuestionAction(selectExam,(n,id,owner)=>{
     const s=state.activeSession,q=nkCurrentQuestion();
-    return s?.mode==='exam'&&(id==null||String(q?.id)===String(id))&&(owner==null||String(s.id)===String(owner))&&!s.strictExpired?.[q?.id]&&nkValidQuestionOption(q,n);
+    return s?.mode==='exam'&&(id==null||String(q?.id)===String(id))&&(owner==null||String(s.id)===String(owner))&&!s.strictExpired?.[q?.id]&&(s.timerMode!=='per-question'||typeof nkStrictSpent!=='function'||nkStrictSpent(s,String(q?.id))<60000)&&nkValidQuestionOption(q,n);
   });
   submitPractice=nkQuestionAction(submitPractice,()=>{const s=state.activeSession,q=nkCurrentQuestion();return s?.mode==='practice'&&q&&!s.submitted?.[q.id]&&nkValidQuestionOption(q,s.answers?.[q.id]);});
   // A submitted question is immutable. Starting another session is the existing

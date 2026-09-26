@@ -219,7 +219,10 @@
   }
   function nkTimedSessionExpired(s,now=Date.now()){
     if(!s||s.mode!=='exam')return false;
-    const deadline=Number(s.timerMode==='per-question'?(s.strictQuestionStartedAt||s.questionEnteredAt||s.startedAt)+60000:s.deadlineAt||(Number(s.startedAt||now)+Math.max(1,(s.questionIds||[]).length)*60000));
+    if(s.timerMode==='per-question')return Boolean(s.strictExpired?.[String(s.questionIds?.[s.index])])||
+      Math.max(0,Number(s.strictQuestionTime?.[String(s.questionIds?.[s.index])]||0))+
+      Math.max(0,now-Number(s.strictQuestionStartedAt||s.questionEnteredAt||s.startedAt||now))>=60000;
+    const deadline=Number(s.deadlineAt||(Number(s.startedAt||now)+Math.max(1,(s.questionIds||[]).length)*60000));
     return deadline<=now;
   }
   function nkOfferTimedSessionDecision(pending=null){
@@ -241,7 +244,7 @@
     if(live&&live.mode===mode&&live.title===title&&live.context===context&&live.lifecycle==='active'&&
        Number(Date.now()-Number(live.startedAt||0))<750&&nkPracticeSessionIds(live).join('\u001f')===ids.join('\u001f'))return true;
     if(live?.mode==='exam'){
-      if(nkTimedSessionExpired(live)){submitExam(true);return false;}
+      if(nkTimedSessionExpired(live)){if(live.timerMode==='per-question')nkExpireTopicQuestion();else submitExam(true);return false;}
       nkOfferTimedSessionDecision(pending);return false;
     }
     const candidate={mode,title,context},normal=nkPracticeResumeEligible(candidate);
@@ -343,7 +346,7 @@
       }
     }else if(live?.mode==='review'){state.activeSession=null;changed=true;}
     if(state.activeSession?.mode==='exam'){
-      if(nkTimedSessionExpired(state.activeSession))setTimeout(()=>submitExam(true),0);
+      if(nkTimedSessionExpired(state.activeSession))setTimeout(()=>{if(state.activeSession?.timerMode==='per-question')nkExpireTopicQuestion();else submitExam(true);},0);
       else{route={page:'exam',id:null};try{history.replaceState(null,'','#exam');}catch(_){}}
     }
     if(typeof nkStorageBootNotice!=='undefined'&&nkStorageBootNotice)setTimeout(()=>nkStorageError(nkStorageBootNotice),0);

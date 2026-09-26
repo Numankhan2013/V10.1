@@ -16,6 +16,7 @@
 - Full-page Tests → bank → topics → question count builder uses exact subject/bank/topic IDs and the shared exam engine. Product `5d585de` passed Engineering `36213112458` and full browser/PWA/APK/Android emulator `36158438170`; preview `https://2752f581.nk-qbank.pages.dev`. The user checked it and said it works. The dedicated strict per-question chapter test remains.
 - Completed timed CBT results show source-exact subject/bank/topic analysis and targeted missed-ID follow-up Practice; repeated-Submit taps are guarded. Product `b65ad21` passed Engineering `36216951965` and full browser/PWA/APK/Android emulator `36216944458`; preview `https://c22cbdd0.nk-qbank.pages.dev`. The user checked it and said it works.
 - Current candidate: Insights QBank tracker for all six subject/bank combinations, showing answered-once coverage and latest misses by source topic. Bank selection, search, progress filters, and topic entry reuse the existing bank registry/routes; old active-bank chapter list is replaced. Product `220f954` passed Engineering `36218442172` and full generated browser/PWA/APK/Android phone+tablet emulator `36218442273`; full-page phone/tablet Insights captures were inspected and preview `https://697c1da1.nk-qbank.pages.dev` returned HTTP 200. User review pending.
+- Exam practice work in progress on the same branch: the CBT Topics step gains one verified-PYQ replacement action with exact counts; only all-PYQ selected question sets receive the “PYQ CBT” title. The chapter Topic Test now accumulates 60-second time across navigation/reload, locks expired questions, and advances/submits. Source and behavior checks pass locally; generated browser/PWA/APK/emulator verification and a feature preview are still pending. The source-count contract is 27 PrepLadder PYQ topics/1,118 questions, with 10/410 Anatomy, 9/362 Physiology, and 8/346 Biochemistry.
 - UI previews, CI/emulator checks, and user preview acceptance do **not** establish an in-place physical APK upgrade or production acceptance.
 
 ## Product architecture to preserve
@@ -44,4 +45,4 @@
 ## Known problems and next step
 
 - Canonical physical in-place APK/data-preservation check remains pending. Production promotion requires explicit authorization.
-- Share the verified Insights QBank tracker preview for user review. Do not promote production or claim physical device acceptance from CI.
+- Finish the exam-practice generated browser/PWA/APK/Android emulator checks and share one feature preview with a short physical review path. After review, prioritize source-backed explanations in the current three subjects. Tracker UI polish and new subject integration remain later work. Do not promote production or claim physical device acceptance from CI.
