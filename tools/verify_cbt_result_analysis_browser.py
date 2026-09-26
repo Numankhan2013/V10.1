@@ -39,7 +39,7 @@ def main() -> None:
               const test={id:'cbt_analysis_browser',title:'Mixed-bank analysis check',
                 questionIds:[prep.id,marrow.id,phys.id],answers:{[prep.id]:wrong,[marrow.id]:Number(marrow.correctOption)},
                 correct:1,incorrect:1,unattempted:1,total:3,attempted:2,totalTimeMs:40000,
-                questionTimes:{[prep.id]:12000,[marrow.id]:15000,[phys.id]:13000},createdAt:Date.now(),originRoute:'tests'};
+                questionTimes:{[prep.id]:12000,[marrow.id]:15000,[phys.id]:13000},createdAt:Date.now()-10000,originRoute:'tests'};
               const state=window.QB.getState();state.tests.push(test);window.QB.saveState();
               navigate('result',test.id);
               return [prep.id,marrow.id,phys.id];

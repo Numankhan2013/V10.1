@@ -1413,6 +1413,8 @@ Implemented approved recovery in existing transform owners: Topics separate path
   Source behavior checks and Engineering `36215597577` pass. Full run
   `36215602991` reached the existing question-interaction browser check, then
   timed out waiting for a CBT submit to clear its active session; later checks
-  were skipped. A bounded diagnostic now reports the active session, toast,
-  and direct result-render exception on failure before rerunning. Canonical
-  and production remain untouched.
+  were skipped. Diagnostic rerun `36216099227` showed the double-clicked Submit
+  had completed CBT and its second click landed on the new follow-up action,
+  immediately starting Practice. The follow-up now ignores a repeated submit
+  click, while a later intentional tap remains available. Canonical and
+  production remain untouched.

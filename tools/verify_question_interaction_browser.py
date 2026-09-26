@@ -209,25 +209,7 @@ def main():
                 assert page.locator('#nk-session-review').is_visible()
                 fail_storage(page, False)
                 page.locator('#nk-session-review').get_by_role('button', name='Submit Test', exact=True).dblclick()
-                try:
-                    page.wait_for_function('!window.QB.getState().activeSession')
-                except Exception:
-                    diagnostic = page.evaluate('''() => {
-                      const s=window.QB.getState(),live=s.activeSession;
-                      let t=s.tests?.at(-1);
-                      let resultError='';
-                      if(live){t={id:'diagnostic-cbt-result',title:live.title,questionIds:live.questionIds,
-                        answers:live.answers,correct:0,incorrect:0,unattempted:0,total:live.questionIds?.length||0,
-                        attempted:0,questionTimes:live.questionTimes||{},totalTimeMs:0,createdAt:Date.now()};
-                        s.tests.push(t)}
-                      if(t)try{resultPage(t.id)}catch(error){resultError=String(error?.stack||error)}
-                      if(t?.id==='diagnostic-cbt-result')s.tests.pop();
-                      return {session:s.activeSession&&{id:s.activeSession.id,mode:s.activeSession.mode,lifecycle:s.activeSession.lifecycle},
-                        lastTest:t&&{id:t.id,total:t.total},toast:document.querySelector('#toast-root')?.innerText,
-                        resultError,hash:location.hash};
-                    }''')
-                    print('CBT_SUBMIT_DIAGNOSTIC', diagnostic, 'pageErrors', errors, flush=True)
-                    raise
+                page.wait_for_function('!window.QB.getState().activeSession')
                 assert page.evaluate('id=>window.QB.getState().tests.filter(t=>t.id===`exam_${id}`).length', cbt['id']) == 1
                 assert page.evaluate('id=>window.QB.getState().attempts[id].at(-1).source', cbt_qid) == 'exam'
                 assert not errors, errors
