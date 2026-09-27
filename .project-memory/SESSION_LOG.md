@@ -1626,3 +1626,18 @@ Implemented approved recovery in existing transform owners: Topics separate path
   after captures showed darker text and stronger blue with fine table lines
   visible. Preview `https://ce13d233.nk-qbank.pages.dev` returned HTTP 200
   and served the rule. Physical review is pending; production was not promoted.
+
+## 2026-09-27 — Timed-test grid Abandon
+
+- The user explicitly deprioritized multiple simultaneous tests and asked for an
+  Abandon action inside the test grid, never on the question page. An unreleased
+  multiple-test candidate was reverted before deployment. The final change adds
+  confirmed Abandon to the navigator and final review grids only. Cancel or a
+  failed state save keeps the test; confirmation clears the active test without
+  recording attempts or a result, returns to Tests, and removes Resume.
+- Product `5ea37d8` with browser-check fix `191ef61` passed local 70 checks,
+  Engineering `36313958399`, and full browser/PWA/packaged APK/Android phone
+  and tablet emulator `36313958394`. Preview
+  `https://22a83cd1.nk-qbank.pages.dev` returned HTTP 200 and served the new
+  action. The user checked the preview and said it works. Production was not
+  promoted.

@@ -136,6 +136,10 @@ checked deterministic rollout ledger.
   restores the question history entry before hashchange renders another route;
   accepted exit keeps the existing history and persistence path. `qbank.local`
   uses the native Android dialog, so the two warnings do not stack.
+- `tools/apply_timed_abandon_grid_v1.py` installs confirmed timed-test Abandon
+  inside the question navigator and final review grid after the exam review
+  flags transform. It clears `activeSession` only after the learner confirms;
+  failed persistence rolls state back. It creates no result or attempts.
 - PrepLadder source-PDF explanation tone is adjusted only at display time:
   `apply_session_experience_v2.py` owns the final shared CSS filter on inline
   source page images/canvases and fullscreen source zoom. Earlier question
