@@ -257,6 +257,23 @@ async function main(){
       await page.waitForFunction(()=>document.querySelector('.source-pdf-page img')?.naturalWidth>0);
       assert.equal(await sourcePdf.evaluate(node=>getComputedStyle(node).filter),'contrast(1.16) saturate(1.12)');
       await sourcePdf.screenshot({path:`${output}/${label}-source-pdf-contrast.png`});
+      const initialPyqTest=await page.evaluate(()=>window.QB.getState().tests.at(-1));
+      await page.evaluate(id=>window.QB.nav('result',id),initialPyqTest.id);
+      await page.getByRole('button',{name:'Retake timed CBT'}).click();
+      await page.waitForFunction(()=>window.QB.getState().activeSession?.mode==='exam');
+      assert.deepEqual(await page.evaluate(()=>window.QB.getState().activeSession.questionIds),initialPyqTest.questionIds);
+      assert.deepEqual(await page.evaluate(()=>window.QB.getState().activeSession.answers),{});
+      assert.equal(await page.evaluate(()=>window.QB.getState().activeSession.context),`cbt-retake:${initialPyqTest.id}`);
+      await page.evaluate(()=>{
+        const session=window.QB.getState().activeSession;
+        const id=session.questionIds[0];session.answers[id]=nkFindStudyQuestion(id).correctOption;
+        window.QB.saveState();window.QB.submitExam(false);
+      });
+      await page.waitForFunction(()=>!window.QB.getState().activeSession&&location.hash.startsWith('#result'));
+      assert.equal(await page.evaluate(()=>window.QB.getState().tests.at(-1).retakeOf),initialPyqTest.id);
+      assert.equal(await page.locator('.nk-cbt-comparison').getByRole('heading',{name:'Initial test vs retake'}).count(),1);
+      await page.locator('.nk-cbt-comparison').scrollIntoViewIfNeeded();
+      await device.screenshot({path:`${output}/${label}-cbt-retake-comparison.png`});
       const testsBeforeAbandon=await page.evaluate(()=>window.QB.getState().tests.length);
       await page.evaluate(()=>window.QB.nav('tests'));
       await page.evaluate(()=>window.QB.openSessionBuilder(null,'exam'));
@@ -271,7 +288,7 @@ async function main(){
       await page.waitForFunction(()=>window.QB.getState().activeSession===null&&location.hash==='#tests');
       assert.equal(await page.evaluate(()=>window.QB.getState().tests.length),testsBeforeAbandon,'abandon must not save a test result');
       assert.equal(await page.locator('.nk-timed-resume.is-tests').count(),0,'abandoned test must not remain resumable');
-      report.push({device:label,size,density,viewport:await page.evaluate(()=>({width:innerWidth,height:innerHeight})),nativeBackConfirmation:'PASS',forceStopResume:'PASS',practiceReviewFsrs:'PASS',pyqCbtReview:'PASS',timedGridAbandon:'PASS'});
+      report.push({device:label,size,density,viewport:await page.evaluate(()=>({width:innerWidth,height:innerHeight})),nativeBackConfirmation:'PASS',forceStopResume:'PASS',practiceReviewFsrs:'PASS',pyqCbtReview:'PASS',timedGridAbandon:'PASS',cbtRetakeComparison:'PASS'});
       console.log('ANDROID_INTERACTION_VIEWPORT_OK '+JSON.stringify(report.at(-1)));
     }
     fs.writeFileSync(`${output}/report.json`,JSON.stringify(report,null,2));

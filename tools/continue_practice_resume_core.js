@@ -278,7 +278,7 @@
       const unattempted=Math.max(0,s.questionIds.length-attempted);if(typeof nkMarkSkippedFromSession==='function')nkMarkSkippedFromSession(s);
       const raw=now-Number(s.startedAt||now),totalTimeMs=strict?s.questionIds.reduce((total,id)=>total+Math.min(60000,Math.max(Number(qt[id]||0),Number(s.strictQuestionTime?.[id]||0))),0):Math.min(raw,s.questionIds.length*60000);
       const testId=`exam_${String(s.id)}`;let test=(state.tests||[]).find(item=>String(item.id)===testId);
-      if(!test){test={id:testId,title:s.title,questionIds:[...s.questionIds],answers:{...(s.answers||{})},questionTimes:qt,correct,incorrect,unattempted,total:s.questionIds.length,attempted,totalTimeMs,createdAt:now,autoSubmitted:Boolean(auto),timerEnabled:true,timerMode:s.timerMode||'global',originRoute:s.originRoute};state.tests.push(test);state.tests=state.tests.slice(-100);}
+      if(!test){test={id:testId,title:s.title,questionIds:[...s.questionIds],answers:{...(s.answers||{})},questionTimes:qt,correct,incorrect,unattempted,total:s.questionIds.length,attempted,totalTimeMs,createdAt:now,autoSubmitted:Boolean(auto),timerEnabled:true,timerMode:s.timerMode||'global',originRoute:s.originRoute};if(typeof s.context==='string'&&s.context.startsWith('cbt-retake:'))test.retakeOf=s.context.slice('cbt-retake:'.length);state.tests.push(test);state.tests=state.tests.slice(-100);}
       s.lifecycle='submitted';s.submittedAt=now;state.activeSession=null;
       if(saveState()===false){state=before;return false;}
       document.querySelectorAll?.('#toast-root .toast').forEach(node=>node.remove());navigate('result',test.id);return true;

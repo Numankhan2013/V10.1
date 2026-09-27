@@ -219,7 +219,7 @@ assert.equal(state.activeSession.id,thirdId);
 global.document.body=undefined;
 
 // Timed CBT is exclusive and its terminal save is failure-aware/idempotent.
-const now=Date.now();state.activeSession={id:'exam-live',mode:'exam',title:'CBT',questionIds:['q1'],index:0,answers:{q1:1},submitted:{},questionTimes:{q1:5},startedAt:now,deadlineAt:now+60000};
+const now=Date.now();state.activeSession={id:'exam-live',mode:'exam',title:'CBT',questionIds:['q1'],index:0,answers:{q1:1},submitted:{},questionTimes:{q1:5},startedAt:now,deadlineAt:now+60000,context:'cbt-retake:initial-test'};
 assert.equal(startSession(['q2'],'practice','New Practice','normal'),false);
 assert.equal(state.activeSession.id,'exam-live');
 failSaves=true;const testsBeforeExamFailure=state.tests.length;
@@ -229,6 +229,7 @@ assert.equal(state.tests.length,testsBeforeExamFailure);
 failSaves=false;
 assert.equal(submitExam(false),true);
 assert.equal(state.activeSession,null);
+assert.equal(state.tests.at(-1).retakeOf,'initial-test','retake link must survive submission');
 const examCount=state.tests.length;
 assert.equal(submitExam(false),false);
 assert.equal(state.tests.length,examCount);

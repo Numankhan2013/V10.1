@@ -34,8 +34,9 @@ def main() -> None:
               const prep=window.SUBJECT_QBANK_DATA.subjects.find(s=>s.subject==='Anatomy').questions
                 .find(q=>Number(q.correctOption)>=1&&Number(q.correctOption)<=4);
               const marrow='marrow__ANAT_CH01_Q001',phys='marrow__PHYS_CH01_Q001';
+              const marrowWrong=Number(nkFindStudyQuestion(marrow).correctOption)===1?2:1;
               const test={id:'cbt_analysis_browser',title:'Mixed-bank analysis check',
-                questionIds:[prep.id,marrow,phys],answers:{[prep.id]:Number(prep.correctOption),[marrow]:1},
+                questionIds:[prep.id,marrow,phys],answers:{[prep.id]:Number(prep.correctOption),[marrow]:marrowWrong},
                 correct:1,incorrect:1,unattempted:1,total:3,attempted:2,totalTimeMs:40000,
                 questionTimes:{[prep.id]:12000,[marrow]:15000,[phys]:13000},createdAt:Date.now()-10000,originRoute:'tests'};
               const state=window.QB.getState();state.tests.push(test);window.QB.saveState();
@@ -55,6 +56,34 @@ def main() -> None:
             page.screenshot(path=str(output / "cbt-result-analysis-phone.png"), full_page=True)
             page.reload(wait_until="domcontentloaded")
             expect(page.get_by_role("heading", name="Topic breakdown")).to_be_visible()
+            page.get_by_role("button", name="Retake timed CBT").click()
+            page.wait_for_function("location.hash==='#exam' && window.QB.getState().activeSession?.mode==='exam'")
+            retake = page.evaluate("window.QB.getState().activeSession")
+            assert retake["questionIds"] == ids, retake
+            assert retake["answers"] == {}, "retake must start with blank answers"
+            assert retake["context"] == "cbt-retake:cbt_analysis_browser"
+            page.evaluate("""() => {
+              const state=window.QB.getState(),session=state.activeSession;
+              session.questionIds.forEach(id=>{session.answers[id]=nkFindStudyQuestion(id).correctOption;});
+              window.QB.saveState();window.QB.submitExam(false);
+            }""")
+            page.wait_for_function("location.hash.startsWith('#result') && !window.QB.getState().activeSession")
+            saved = page.evaluate("window.QB.getState().tests.at(-1)")
+            assert saved["retakeOf"] == "cbt_analysis_browser"
+            assert saved["questionIds"] == ids
+            comparison = page.locator(".nk-cbt-comparison")
+            expect(comparison.get_by_role("heading", name="Initial test vs retake")).to_be_visible()
+            assert "2 more correct than your initial test" in comparison.inner_text()
+            assert "Anatomy · PrepLadder" in comparison.inner_text()
+            assert "Anatomy · Marrow" in comparison.inner_text()
+            assert "Physiology · Marrow" in comparison.inner_text()
+            expect(page.get_by_role("heading", name="Topic breakdown")).to_be_visible()
+            expect(page.get_by_role("button", name="Review Solutions")).to_be_visible()
+            page.screenshot(path=str(output / "cbt-retake-comparison-phone.png"), full_page=True)
+            page.reload(wait_until="domcontentloaded")
+            expect(page.get_by_role("heading", name="Initial test vs retake")).to_be_visible()
+            comparison.get_by_role("button", name="View initial result").click()
+            page.wait_for_function("location.hash==='#result/cbt_analysis_browser'")
             page.get_by_role("button", name="Practise missed questions").click()
             page.wait_for_function("location.hash==='#practice' && window.QB.getState().activeSession?.mode==='practice'")
             session = page.evaluate("window.QB.getState().activeSession")
@@ -64,7 +93,7 @@ def main() -> None:
             browser.close()
     finally:
         server.shutdown()
-    print("CBT_RESULT_ANALYSIS_BROWSER_OK mixedBank=true savedAnswers=true followup=true")
+    print("CBT_RESULT_ANALYSIS_BROWSER_OK mixedBank=true savedAnswers=true retakeComparison=true followup=true")
 
 
 if __name__ == "__main__":
