@@ -51,10 +51,27 @@ CSS = """<style id="nk-revision-desk-v1">
 .nk-revision-item button{width:100%;min-height:44px;display:flex;justify-content:space-between;align-items:center;border:0;border-radius:9px;background:#f4f6fc;color:#3658ad;font:inherit;font-size:12px;font-weight:800}
 .nk-revision-item button:focus-visible{outline:3px solid #8ca3ed;outline-offset:2px}
 .nk-revision-no-match{padding:18px;text-align:center;color:#697592;font-size:13px}
+/* Each revision destination keeps its own identity, so a queue list reads as a set
+   of distinct actions instead of one uniform document-style list. */
+.nk-revision-card.is-red,.nk-settings-row.is-red{--nk-tone-fg:var(--nk114-red);--nk-tone-bg:#fff0f1;--nk-tone-line:#f4d3d7}
+.nk-revision-card.is-blue,.nk-settings-row.is-blue{--nk-tone-fg:var(--nk114-blue);--nk-tone-bg:#edf4ff;--nk-tone-line:#cddefa}
+.nk-revision-card.is-green,.nk-settings-row.is-green{--nk-tone-fg:var(--nk114-green);--nk-tone-bg:#eaf8f3;--nk-tone-line:#c3e8da}
+.nk-revision-card.is-violet,.nk-settings-row.is-violet{--nk-tone-fg:var(--nk114-violet);--nk-tone-bg:#f3effc;--nk-tone-line:#dcd2f7}
+.nk-revision-card.is-indigo,.nk-settings-row.is-indigo{--nk-tone-fg:var(--nk114-indigo);--nk-tone-bg:#efeff9;--nk-tone-line:#d4d4ee}
+.nk-revision-card[class*="is-"],.nk-settings-row[class*="is-"]{transition:box-shadow .18s ease,background-color .18s ease}
+.nk-revision-card[class*="is-"]{border-color:var(--nk-tone-line);box-shadow:0 1px 2px rgba(18,23,54,.05)}
+.nk-revision-card[class*="is-"]>.nk-revision-card-head>.nk-revision-icon{background:#fff;color:var(--nk-tone-fg);box-shadow:inset 0 0 0 1px var(--nk-tone-line)}
+.nk-revision-card[class*="is-"] .nk-revision-card-copy>strong{color:var(--nk-tone-fg)}
+.nk-revision-card[class*="is-"]>.nk-revision-card-head>b{color:var(--nk-tone-fg)}
+.nk-revision-card[class*="is-"]:hover{box-shadow:0 6px 16px rgba(18,23,54,.09)}
+.nk-settings-row[class*="is-"]{background:var(--nk-tone-bg);border-bottom-color:var(--nk-tone-line)}
+.nk-settings-row[class*="is-"]>.nk-settings-icon{background:#fff;color:var(--nk-tone-fg);box-shadow:inset 0 0 0 1px var(--nk-tone-line)}
+.nk-settings-row[class*="is-"]>span+span>strong{color:var(--nk-tone-fg)}
+@media(prefers-reduced-motion:reduce){.nk-revision-card[class*="is-"],.nk-settings-row[class*="is-"]{transition:none}}
 </style>"""
 
 OLD_MORE_ROWS = """${row('refresh','Wrong questions',`${fmtNum(wrong)} missed · retrieval practice`,\"window.QB.nav('wrong')\",'is-red')}${row('bookmark','Bookmarks',`${fmtNum(bm)} saved by you`,\"window.QB.nav('bookmarks')\",'is-violet')}${row('book','My notes',`${fmtNum(nkSavedQuestionNotes().length)} recall cues`,\"window.QB.nav('notes')\")}"""
-NEW_MORE_ROWS = """${row('refresh','Quick revision','Mistakes · bookmarks · unseen · due',\"window.QB.nav('quick-revision')\")}${row('book','My notes',`${fmtNum(nkSavedQuestionNotes().length)} recall cues`,\"window.QB.nav('notes')\")}"""
+NEW_MORE_ROWS = """${row('refresh','Quick revision','Mistakes · bookmarks · unseen · due',\"window.QB.nav('quick-revision')\",'is-blue')}${row('book','My notes',`${fmtNum(nkSavedQuestionNotes().length)} recall cues`,\"window.QB.nav('notes')\",'is-violet')}"""
 
 
 def replace_once(source: str, old: str, new: str, label: str) -> str:
