@@ -1676,9 +1676,18 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Local verification: `verify_project_memory.py` passed; `verify_local.py` passed
   70 checks; revision desk unit behavior/install passed. The whole-app vision
   unit check requires the CI generated-app transform position and is not a
-  standalone local pass. Full generated browser/PWA/APK/emulator CI and exact
-  main production promotion are the remaining release gates.
-- Previous UI branch full run `36316825304` passed on its product code. A later
-  doc-only commit run failed in an Android screenshot after interaction checks
-  because the browser context closed; rerun the exact integration through the
-  main full-CI gate before release.
+  standalone local pass. Main commit `d4cf2edf4b1e4de29c0d5035c6047c684bac5fbf` passed full generated
+  browser/PWA/APK/Android phone+tablet CI in run `36320714980`. The user-authorized
+  exact-SHA release run `36321611129` passed its explicit SHA guard, regenerated
+  and verified the app, built/verified the APK, and deployed production. Wrangler
+  reported preview `https://ae11d530.nk-qbank.pages.dev` and production alias
+  `https://main.nk-qbank.pages.dev`; `https://nk-qbank.pages.dev` and the preview
+  both returned HTTP 200, and the deployed bundle contains the two UI changes.
+- The release run’s emulator job passed Android interaction assertions on phone
+  and tablet (`ANDROID_INTERACTION_VIEWPORT_OK`, including native Back, force-stop
+  resume, Practice/review/FSRS, PYQ CBT, timed-grid abandon, and CBT retake), but
+  its final screenshot capture failed because the browser context closed. The
+  preceding full exact-SHA run completed green on both devices. A second attempt
+  hit the same post-interaction screenshot capture failure. Physical in-place APK
+  upgrade/data preservation remains unverified; the production PWA release is
+  complete.

@@ -6,7 +6,7 @@
 
 - Repo: `Numankhan2013/V10.1`. Accepted product commit: `125d68b` (V11.6 accepted baseline and rollback point). The user explicitly authorized integrating the accepted study candidate and UI changes into `main` and promoting production on 2026-09-27; release only the exact SHA after full CI passes. Physical Android acceptance remains distinct.
 - Sole Marrow/product integration trunk: `feature/marrow-canonical-full-current`. Its last recorded verified canonical checkpoint was `356cce4`; Engineering `35453226391` and full Android/PWA/browser/APK `35453226292` passed. Recheck the live head before any integration.
-- Active integration candidate: `integration/ui-canonical-main-20260927`, combining the accepted study build, two reviewed UI updates, and current `main` source-audit files. Full release CI is pending.
+- Integrated production release: `main` product SHA `d4cf2edf4b1e4de29c0d5035c6047c684bac5fbf` combines the accepted study build, two reviewed UI updates, and current `main` source-audit files. Full main run `36320714980` passed; production Pages deploy run `36321611129` published preview `https://ae11d530.nk-qbank.pages.dev` and `https://nk-qbank.pages.dev` now serves the release (HTTP 200).
 - Current complete Marrow ED8 corpus: Anatomy 1,115 questions/63 topics; Biochemistry 582/28; Physiology 1,014/43; total **2,711/134**. Source data stays immutable. See `FULL_CORPUS_CONSOLIDATION.md` and `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.
 - PrepLadder source-labelled PYQs: 1,118 in 27 topics (Anatomy 410, Physiology 362, Biochemistry 346). Marrow ED8 lacks trustworthy PYQ/exam/year metadata; never infer it.
 
@@ -52,5 +52,5 @@
 
 ## Known problems and next step
 
-- Canonical physical in-place APK/data-preservation check remains pending. The user has explicitly authorized PWA production promotion after full CI; this does not establish physical Android acceptance.
-- Choose the next learner-facing study feature from an actual workflow gap. Tests already offers timed CBT from wrong and bookmarked questions; do not duplicate it in Quick Revision. Get user review of the PrepLadder source PDF contrast preview on a real device. Multiple simultaneous timed tests are deprioritized by the user. Today's Focus integration remains deferred under the user's one-minute constraint. Marrow explanation and image work remain with their existing automations. Do not claim physical APK acceptance from CI. For the authorized integration, promote only the exact full-CI-green `main` SHA.
+- Canonical physical in-place APK/data-preservation check remains pending. PWA production is published from `d4cf2edf4b1e4de29c0d5035c6047c684bac5fbf`; this does not establish physical Android acceptance.
+- Choose the next learner-facing study feature from an actual workflow gap. Tests already offers timed CBT from wrong and bookmarked questions; do not duplicate it in Quick Revision. Get user review of the PrepLadder source PDF contrast preview on a real device. Multiple simultaneous timed tests are deprioritized by the user. Today's Focus integration remains deferred under the user's one-minute constraint. Marrow explanation and image work remain with their existing automations. Do not claim physical APK acceptance from CI. The next step is the user’s physical APK upgrade/data-preservation check; production promotion for this release is complete.

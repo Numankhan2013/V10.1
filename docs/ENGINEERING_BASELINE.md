@@ -6,7 +6,7 @@
 - Physically accepted product: V11.5 Custom Study Modules
 - Accepted product commit: `125d68b`
 - Accepted lineage: `v11.5-custom-study-modules`
-- Current integration candidate: `integration/ui-canonical-main-20260927` (full CI and release verification pending)
+- Production PWA release: `d4cf2edf4b1e4de29c0d5035c6047c684bac5fbf` (main run `36320714980`, production deploy `36321611129`)
 
 V11.6 remains the recorded physically accepted Android baseline. Passing CI means a candidate is build-verified. PWA production publication can proceed after full CI and explicit user authorization; that does not change the physically accepted Android baseline, which still requires device testing.
 
