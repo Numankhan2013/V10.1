@@ -1728,6 +1728,9 @@ Implemented approved recovery in existing transform owners: Topics separate path
   sign-in is not exposed because the current Firebase client configuration only
   supports the existing email/password REST flow and has no OAuth client setup.
 - Targeted sync/auth tests and `verify_local.py` pass (70 local checks); inline
-  app JavaScript parses, and source contract/build pipeline checks pass. Termux
-  skips PDF generation and generated app/browser/APK verification; CI/preview and
-  physical Android review remain pending.
+  app JavaScript parses, and source contract/build pipeline checks pass.
+  Engineering run `36328868558` and full run `36328865681` passed, including
+  generated app, phone/tablet browser journeys, APK checks, and Android emulator
+  interactions. Preview `https://9ab4f6ec.nk-qbank.pages.dev` and branch alias
+  both returned HTTP 200 with the new auth/reset code. Production was untouched;
+  physical-device review remains pending.
