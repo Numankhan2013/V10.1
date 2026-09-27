@@ -247,7 +247,7 @@ async function main(){
       await waitForHash(page,'#exam');
       assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),examId,'Timed test must reopen at the same session');
       const firstDeadline=await page.evaluate(()=>window.QB.getState().activeSession.deadlineAt);
-      await page.evaluate(()=>window.QB.nkStartTopicTimedTest('1-1'));
+      await page.evaluate(()=>window.QB.nkStartTopicTimedTest(String(window.QBANK_DATA.chapters[0].id)));
       await page.locator('#nk-timed-session-conflict').getByRole('button',{name:'Keep test and continue'}).click();
       await page.waitForFunction(id=>window.QB.getState().activeSession?.mode==='exam'&&window.QB.getState().activeSession.id!==id,examId);
       assert.equal(await page.evaluate(()=>window.QB.getState().activeSession.timerMode),'per-question','deferred topic test must use the strict timer');

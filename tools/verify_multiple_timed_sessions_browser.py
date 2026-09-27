@@ -45,7 +45,7 @@ def main() -> None:
                 assert len(first["questionIds"]) > 1
 
                 page.evaluate("window.QB.nav('tests')")
-                page.evaluate("window.QB.nkStartTopicTimedTest('1-1')")
+                page.evaluate("window.QB.nkStartTopicTimedTest(String(window.QBANK_DATA.chapters[0].id))")
                 dialog = page.locator("#nk-timed-session-conflict")
                 dialog.wait_for(state="visible")
                 dialog.get_by_role("button", name="Keep test and continue").click()
