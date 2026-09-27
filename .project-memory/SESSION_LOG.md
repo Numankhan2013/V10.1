@@ -1715,3 +1715,33 @@ Implemented approved recovery in existing transform owners: Topics separate path
   from CI artifacts rather than a local browser.
 - Next: push for a second preview and ask the user to compare the analysis
   screen. Home remains effects-only.
+
+## 2026-09-27 — Visual pass accepted; both previews green
+
+- The user reviewed the `feature/home-question-ui-v1` test-analysis preview and
+  confirmed it works, and separately confirmed the revision-list preview
+  earlier. They also reviewed Home and consider it good, so no Home change is
+  wanted; the visual pass therefore ends at two changes: per-destination
+  identity in the More / Quick Revision lists, and per-metric identity plus
+  "1 question" pluralisation on the analysis tiles. The question screen was
+  excluded by the user from the start and was not touched.
+- Final CI for this branch: Engineering `36316825335` and full browser/PWA/
+  packaged APK/Android phone+tablet emulator `36316825304` both passed on
+  product `0b52cb1`, following `36313488892` and `36313488870` on `3b4d8e3`.
+  Previews are `https://feature-home-question-ui-v1.nk-qbank.pages.dev` and
+  the immutable `https://d1fc7f27.nk-qbank.pages.dev` for the first change.
+- What this establishes is preview acceptance only. It is not an in-place
+  physical APK upgrade, not an accepted baseline, and production was not
+  promoted.
+- Promotion is deliberately not done here. `main` remains red on the
+  `device-verified` memory gate from `7496add`, and the primary agent records
+  `feature/marrow-canonical-full-current` as the sole Marrow/product integration
+  trunk with a genuine divergence from `main` (12 main-only commits against 478
+  trunk-side commits). This branch therefore needs a deliberate reconciliation
+  onto the chosen trunk, followed by the separate guarded production step on a
+  verified `main` SHA, not a direct merge and deploy.
+- Reusable lesson from this session: the transform chain is not idempotent and
+  also writes `source_visual_renderer.js` and `MainActivity.java`, so any
+  partial or generated `index.html` must be reset before re-running it or
+  anchors fail in a cascade that reads like a regression. Several apparent
+  regressions during this work were exactly that.
