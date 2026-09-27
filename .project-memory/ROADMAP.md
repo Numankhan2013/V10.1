@@ -42,7 +42,14 @@ Check off only when build-verified **and** device-verified where UI is involved.
       same timed session or finish safely if time expired. Product `78e391f`
       passed local 68 checks, Engineering `36298273342`, and full browser/PWA/
       packaged APK/Android phone+tablet emulator run `36298273539`; preview
-      `https://edd8fb9f.nk-qbank.pages.dev`. Physical review is pending.
+      `https://edd8fb9f.nk-qbank.pages.dev`. The user confirmed it works.
+- [ ] Protect unfinished timed tests when opening a saved study module: require
+      an explicit Resume, Abandon, or Cancel choice and preserve the test on
+      Cancel/Resume or failed storage. Product `91c59b8` with packaged Android
+      check `2997cdb` passed local 68 checks, Engineering `36300815881`, and
+      full browser/PWA/packaged APK/Android phone+tablet emulator run
+      `36300815905`; preview `https://e17cbb6d.nk-qbank.pages.dev`.
+      Physical review is pending.
 - [ ] All-bank QBank coverage tracker in Insights: source-exact answer-based
       progress for each of the six current subject/bank combinations, one
       bank's searchable/filterable topics at a time, and direct topic entry.

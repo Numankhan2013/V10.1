@@ -43,7 +43,9 @@ Prefer building over narrating.
 - **Timed-test recovery after Exit:** Home, Tests, and the CBT builder show the
   same saved active test with answered and marked counts. Resume returns to
   that session while its timer continues; expiry uses the established
-  submission path.
+  submission path. Opening a saved study module while a timed test is active
+  requires an explicit Resume, Abandon, or Cancel choice; the module starts
+  only after Abandon.
 - **Timed CBT:** 60 sec/question, answers changeable, correctness only after
   submit; final-question boundary opens the session-review navigator
   (answered/unanswered + jumping), never a persistent toast; singleton

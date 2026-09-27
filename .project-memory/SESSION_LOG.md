@@ -1587,3 +1587,21 @@ Implemented approved recovery in existing transform owners: Topics separate path
   run `36298273539` passed. Cloudflare preview
   `https://edd8fb9f.nk-qbank.pages.dev` returned HTTP 200 and served the
   builder card. User physical review remains pending; production was not promoted.
+
+## 2026-09-27 — Timed-test protection when opening a saved module
+
+- The user confirmed timed-test recovery works. They proposed integrating its
+  Home notice into Today's Focus only if it could be done in under a minute
+  without changing paused Practice or saved-module behavior. The Focus has
+  multiple established resume branches, so that integration was deferred.
+- A saved study module launched through `startStudyModule` could replace an
+  active timed test because it bypassed the shared `startSession` guard. The
+  module path now opens the same explicit Resume/Abandon/Cancel dialog. Cancel
+  and Resume retain the test; Abandon persists the choice and then opens the
+  requested module. Expired tests use their existing completion logic first.
+- Product `91c59b8` with packaged Android check `2997cdb` passed local 68
+  checks, Engineering `36300815881`, and full browser/PWA/packaged APK/Android
+  phone+tablet emulator run `36300815905`. Cloudflare preview
+  `https://e17cbb6d.nk-qbank.pages.dev` returned HTTP 200 and served the
+  updated conflict dialog. User physical review is pending; production was
+  not promoted.
