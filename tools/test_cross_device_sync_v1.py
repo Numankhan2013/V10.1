@@ -130,6 +130,10 @@ assert(state.questionNotes.q1.deleted,'older note copy must not resurrect a remo
 nkApplyCloudEnvelope({kind:'sessions',entityId:'active',ownerDevice:'android',updatedAt:200,deleted:false,payload:JSON.stringify({id:'new',index:4}),schemaVersion:1});
 nkApplyCloudEnvelope({kind:'sessions',entityId:'active',ownerDevice:'ipad',updatedAt:150,deleted:false,payload:JSON.stringify({id:'old',index:1}),schemaVersion:1});
 assert(state.activeSession.id==='new'&&state.activeSession.index===4,'opening an older device must not replace newer session progress');
+state.activeSession={id:'local-timed',mode:'exam',questionIds:['q1'],startedAt:100,deadlineAt:60100};
+nkApplyCloudEnvelope({kind:'sessions',entityId:'active',ownerDevice:'ipad',updatedAt:10000,deleted:false,payload:JSON.stringify({id:'remote-module',mode:'practice',studyModuleId:'m1',questionIds:['q2']}),schemaVersion:1});
+assert(state.activeSession.id==='local-timed','a remote legacy active session must not replace a local timed test');
+state.activeSession=null;
 const timed=(id,lifecycle,updatedAt,answer)=>({id,mode:'exam',title:id,questionIds:['q1'],answers:{q1:answer},startedAt:100,deadlineAt:60100,lifecycle,updatedAt});
 nkApplyCloudEnvelope({kind:'timedSessions',entityId:'test-a',ownerDevice:'android',updatedAt:300,deleted:false,payload:JSON.stringify(timed('test-a','paused',300,1)),schemaVersion:1});
 nkApplyCloudEnvelope({kind:'timedSessions',entityId:'test-b',ownerDevice:'ipad',updatedAt:301,deleted:false,payload:JSON.stringify(timed('test-b','paused',301,2)),schemaVersion:1});

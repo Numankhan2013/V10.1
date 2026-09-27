@@ -283,7 +283,7 @@
       if(legacy)nkMergePracticeCheckpoint(legacy);
       else if(payload?.mode==='exam')nkMergeTimedSession({...payload,lifecycle:payload.lifecycle||'paused',updatedAt:Number(payload.updatedAt||winner.updatedAt)});
       else if(winner.deleted){if(state.activeSession?.mode!=='exam'&&state.activeSession&&!((typeof nkNormalPracticeSession==='function')&&nkNormalPracticeSession(state.activeSession)))state.activeSession=null;}
-      else if(payload)state.activeSession=payload;
+      else if(payload&&state.activeSession?.mode!=='exam')state.activeSession=payload;
     }
     else if(winner.kind==='preferences'&&payload){if(payload.activeSubject&&payload.activeSubject!==activeSubject&&typeof SUBJECT_BY_NAME!=='undefined'&&SUBJECT_BY_NAME[payload.activeSubject])applySubject(payload.activeSubject);if(payload.studyStartedAt)state.studyStartedAt=state.studyStartedAt?Math.min(Number(state.studyStartedAt),Number(payload.studyStartedAt)):Number(payload.studyStartedAt);if(payload.fsrsPreferences)state.fsrsPreferences={...(state.fsrsPreferences||{}),...payload.fsrsPreferences};nkMergeFsrsReviewEligible(payload.fsrsReviewEligible,winner.updatedAt);}
     // Received revisions are already synchronized; do not echo them as new edits.
