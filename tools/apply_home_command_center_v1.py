@@ -132,8 +132,8 @@ HELPERS = r'''
   function nkConfiguredQueueIds(source){const all=nkAllStudyQuestions();if(source==='wrong')return all.filter(q=>qAttempts(q.id).some(a=>a.correct===false)).map(q=>q.id);if(source==='bookmarks')return all.filter(q=>state.bookmarks?.[q.id]).map(q=>q.id);return[];}
   function nkStartConfiguredIds(ids,title){
     const list=[...new Set((ids||[]).map(String))];if(!list.length){showToast('No questions available for this selection.','bad');return;}for(let i=list.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[list[i],list[j]]=[list[j],list[i]];}
-    const count=Math.min(nkTestSetup.count,list.length),mode=nkTestSetup.mode==='exam'?'exam':'practice';BY_ID={...BY_ID,...Object.fromEntries(nkAllStudyQuestions().map(q=>[String(q.id),q]))};startSession(list.slice(0,count),mode,title);
-    if(mode==='exam'&&state.activeSession){state.activeSession.timerEnabled=true;state.activeSession.timerMode='global';saveState();render();}
+    const count=Math.min(nkTestSetup.count,list.length),mode=nkTestSetup.mode==='exam'?'exam':'practice';BY_ID={...BY_ID,...Object.fromEntries(nkAllStudyQuestions().map(q=>[String(q.id),q]))};const started=startSession(list.slice(0,count),mode,title);
+    if(started!==false&&mode==='exam'&&state.activeSession?.mode==='exam'){state.activeSession.timerEnabled=true;state.activeSession.timerMode='global';saveState();render();}
   }
   function nkStartConfiguredTest(){
     if(nkTestSetup.source==='all'){if(nkTestSetup.mode==='exam')openMultiSubjectTestBuilder();else navigate('study-library');return;}
@@ -142,7 +142,7 @@ HELPERS = r'''
 
   function nkStartTopicTimedTest(cid){
     const c=CHAPTER_BY_ID[String(cid)],ids=chapterQuestions(cid).map(q=>String(q.id));if(!ids.length){showToast('No questions are available for this topic.','bad');return;}
-    const started=startSession(ids,'exam',`${c?.title||'Topic'} · Timed Test`);const s=state.activeSession;if(started===false||s?.mode!=='exam')return;s.timerEnabled=true;s.timerMode='per-question';s.strictQuestionTime={};s.strictExpired={};s.strictQuestionStartedAt=Date.now();saveState();render();
+    const started=startSession(ids,'exam',`${c?.title||'Topic'} · Timed Test`,'topic-timed-test');const s=state.activeSession;if(started===false||s?.mode!=='exam')return;s.timerEnabled=true;s.timerMode='per-question';s.strictQuestionTime={};s.strictExpired={};s.strictQuestionStartedAt=Date.now();saveState();render();
   }
   function nkStrictSpent(s,id){const base=Math.min(60000,Math.max(0,Number(s?.strictQuestionTime?.[id]||0)));if(!s||s.timerMode!=='per-question'||s.strictExpired?.[id]||String(s.questionIds?.[s.index])!==String(id))return base;return Math.min(60000,base+Math.max(0,Date.now()-Number(s.strictQuestionStartedAt||s.questionEnteredAt||s.startedAt||Date.now())));}
   function nkStrictCommitCurrent(){const s=state.activeSession;if(!s||s.mode!=='exam'||s.timerMode!=='per-question')return;const id=String(s.questionIds[s.index]);s.strictQuestionTime=s.strictQuestionTime||{};s.strictQuestionTime[id]=nkStrictSpent(s,id);s.strictQuestionStartedAt=Date.now();}

@@ -392,6 +392,8 @@ jobs:
         run: python3 tools/verify_question_presentation_browser.py
       - name: Verify Continue Practice controls and pause resume in browser
         run: python3 tools/verify_continue_practice_browser.py
+      - name: Verify independent timed tests on phone and tablet
+        run: python3 tools/verify_multiple_timed_sessions_browser.py
       - name: Verify question interaction integrity on phone and tablet
         run: python3 tools/verify_question_interaction_browser.py
       - name: Verify personal notes in Practice and Review

@@ -7,7 +7,7 @@
   const NK_SYNC_META_PENDING_KEY='qbank_sync_pending_v2';
   const NK_AUTH_KEY='qbank_firebase_auth_v1';
   const NK_PRE_CLOUD_BACKUP='qbank_state_pre_cloud_v1';
-  const NK_SYNC_KINDS=['attempts','bookmarks','notes','tests','modules','practiceSessions','sessions','preferences'];
+  const NK_SYNC_KINDS=['attempts','bookmarks','notes','tests','modules','practiceSessions','timedSessions','sessions','preferences'];
   let nkCloudApplying=false,nkCloudRevision=0,nkCloudMergeChanged=false;
   let nkCloudBusy=false,nkCloudReady=false,nkCloudTimer=null,nkCloudInterval=null,nkResolvedProjectId='';
 
@@ -120,6 +120,8 @@
     checkpoints.forEach(checkpoint=>nkQueueEnvelope(nkEnvelope('practiceSessions',checkpoint.sessionId,checkpoint,Number(checkpoint.updatedAt||Date.now()),false)));
     const latest=state.normalPracticeCheckpoint||checkpoints.slice().sort((a,b)=>Number(b.updatedAt||0)-Number(a.updatedAt||0))[0];
     if(latest)nkQueueEnvelope(nkEnvelope('practiceSessions','normal',latest,Number(latest.updatedAt||Date.now()),false));
+    const timed=typeof nkNormalizeTimedSessions==='function'?nkNormalizeTimedSessions(state.timedSessions,state.activeSession):state.timedSessions||[];
+    timed.forEach(session=>nkQueueEnvelope(nkEnvelope('timedSessions',session.id,session,Number(session.updatedAt||Date.now()),false)));
     const special=state.activeSession&&!(typeof nkNormalPracticeSession==='function'&&nkNormalPracticeSession(state.activeSession))?state.activeSession:null;
     nkQueueEnvelope(nkEnvelope('sessions','active',special,nkEntityTimestamp(special,Date.now()),!special));
     const fsrsReviewEligible=state.fsrsReviewEligible&&Object.keys(state.fsrsReviewEligible).length?state.fsrsReviewEligible:null;
@@ -232,8 +234,26 @@
     if(typeof nkCheckpointFromSession==='function')return nkCheckpointFromSession(payload,existing,String(payload.lifecycle||'active'));
     const ids=(payload.sessionQuestionIds?.length?payload.sessionQuestionIds:payload.questionIds||[]).map(String);return {version:1,sessionId:String(payload.id),sessionQuestionIds:ids,membershipHash:ids.join('\u001f'),context:payload.practiceContext||{},position:{index:Number(payload.index||0),currentQuestionId:String(payload.questionIds?.[Number(payload.index)||0]||'')},answers:payload.answers||{},submitted:payload.submitted||{},questionTimes:payload.questionTimes||{},pendingFsrsRatings:payload.pendingRating||{},questionUpdates:{},lifecycle:String(payload.lifecycle||'active'),updatedAt:Number(updatedAt||Date.now())};
   }
+  function nkMergeTimedSession(incoming){
+    const remote=typeof nkNormalizeTimedSession==='function'?nkNormalizeTimedSession(incoming):incoming;
+    if(!remote)return null;
+    const list=typeof nkNormalizeTimedSessions==='function'?nkNormalizeTimedSessions(state.timedSessions,state.activeSession):[...(state.timedSessions||[])];
+    const local=list.find(item=>String(item.id)===String(remote.id));
+    const terminal=value=>['submitted','discarded'].includes(String(value?.lifecycle));
+    const chosen=local&&terminal(local)&&!terminal(remote)?local:
+      local&&!terminal(local)&&terminal(remote)?remote:
+      local&&Number(local.updatedAt||0)>Number(remote.updatedAt||0)?local:remote;
+    const index=list.findIndex(item=>String(item.id)===String(remote.id));
+    if(index<0)list.push(chosen);else list[index]=chosen;
+    state.timedSessions=list;
+    if(state.activeSession?.mode==='exam'&&String(state.activeSession.id)===String(remote.id)){
+      if(terminal(chosen))state.activeSession=null;
+      else if(chosen===remote)state.activeSession={...chosen,lifecycle:'active'};
+    }
+    return chosen;
+  }
   function nkApplyCloudEnvelope(remote){
-    const winner=['attempts','practiceSessions'].includes(remote.kind)?remote:nkChooseWinner(remote);if(winner!==remote&&nkHash(winner)!==nkHash(remote))return false;
+    const winner=['attempts','practiceSessions','timedSessions'].includes(remote.kind)?remote:nkChooseWinner(remote);if(winner!==remote&&nkHash(winner)!==nkHash(remote))return false;
     const payload=winner.deleted?null:nkJson(winner.payload,null),id=winner.entityId;
     if(winner.kind==='attempts'&&payload?.attempt?.id){const qid=String(payload.qid),list=Array.isArray(state.attempts[qid])?state.attempts[qid]:[];if(!list.some(a=>String(a.id)===String(payload.attempt.id)))state.attempts[qid]=[...list,payload.attempt].sort((a,b)=>Number(a.at||0)-Number(b.at||0));}
     else if(winner.kind==='bookmarks'){if(winner.deleted||!payload?.active)delete state.bookmarks[id];else state.bookmarks[id]={addedAt:Number(winner.updatedAt),updatedAt:Number(winner.updatedAt)};}
@@ -257,10 +277,12 @@
       }state.studyModules=list.slice(-100);
     }
     else if(winner.kind==='practiceSessions'&&payload)nkMergePracticeCheckpoint(payload);
+    else if(winner.kind==='timedSessions'&&payload)nkMergeTimedSession(payload);
     else if(winner.kind==='sessions'){
       const legacy=nkCheckpointFromLegacyCloudSession(payload,winner.updatedAt);
       if(legacy)nkMergePracticeCheckpoint(legacy);
-      else if(winner.deleted){if(state.activeSession&&!((typeof nkNormalPracticeSession==='function')&&nkNormalPracticeSession(state.activeSession)))state.activeSession=null;}
+      else if(payload?.mode==='exam')nkMergeTimedSession({...payload,lifecycle:payload.lifecycle||'paused',updatedAt:Number(payload.updatedAt||winner.updatedAt)});
+      else if(winner.deleted){if(state.activeSession?.mode!=='exam'&&state.activeSession&&!((typeof nkNormalPracticeSession==='function')&&nkNormalPracticeSession(state.activeSession)))state.activeSession=null;}
       else if(payload)state.activeSession=payload;
     }
     else if(winner.kind==='preferences'&&payload){if(payload.activeSubject&&payload.activeSubject!==activeSubject&&typeof SUBJECT_BY_NAME!=='undefined'&&SUBJECT_BY_NAME[payload.activeSubject])applySubject(payload.activeSubject);if(payload.studyStartedAt)state.studyStartedAt=state.studyStartedAt?Math.min(Number(state.studyStartedAt),Number(payload.studyStartedAt)):Number(payload.studyStartedAt);if(payload.fsrsPreferences)state.fsrsPreferences={...(state.fsrsPreferences||{}),...payload.fsrsPreferences};nkMergeFsrsReviewEligible(payload.fsrsReviewEligible,winner.updatedAt);}

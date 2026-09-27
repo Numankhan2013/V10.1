@@ -41,7 +41,9 @@ only `updatedAt` needs the automatic single-field query index.
 | `tests` | Stable test/session-result ID; latest revision if repeated |
 | `bookmarks` | Question ID; last-write-wins event with deletion tombstone |
 | `modules` | Module ID + restart epoch; same-epoch completed questions merge, latest metadata wins |
-| `sessions` | `active`; newest revision wins |
+| `practiceSessions` | Practice session ID; per-question revisions merge, terminal records prevent reopening |
+| `timedSessions` | Timed test ID; each test syncs independently, terminal records prevent reopening |
+| `sessions` | Legacy `active` session compatibility; timed tests migrate into `timedSessions` |
 | `preferences` | `main`; newest revision wins |
 
 Every cloud document also records `ownerDevice`, `updatedAt`, `deleted`, and
@@ -55,6 +57,9 @@ not stamp its old snapshot over a newer one. Attempts and completed tests are
 additive; bookmark/module deletion uses tombstones. Review schedules, streaks,
 wrong-question state, topic performance, and Insights are rebuilt from the
 merged canonical attempts instead of being maintained as divergent analytics.
+Timed tests retain their original global deadline or strict question clock when
+another session starts. The Tests and Home cards show each unfinished test.
+Submitting or discarding one leaves other saved tests available.
 
 The outbox and cursors live in `qbank_sync_v1`. A save writes local QBank state
 and the outbox synchronously; network transfer is debounced. Offline work stays

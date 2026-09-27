@@ -8,6 +8,7 @@
   const NK_PRACTICE_CHECKPOINT_VERSION=1;
   const NK_PRACTICE_LIFECYCLES=new Set(['active','paused','suspended','submitted','completed','discarded']);
   const NK_PRACTICE_TERMINAL=new Set(['submitted','completed','discarded']);
+  const NK_TIMED_LIFECYCLES=new Set(['active','paused','submitted','discarded']);
   let nkStorageBootNotice='';
   let nkStorageLastError='';
 
@@ -43,6 +44,30 @@
     // delayed remote paused copy to reopen a completed or discarded session.
     return [...byId.values()].sort((a,b)=>Number(a.createdAt||a.updatedAt||0)-Number(b.createdAt||b.updatedAt||0));
   }
+  function nkNormalizeTimedSession(raw){
+    if(!nkStateObject(raw)||raw.mode!=='exam'||!raw.id||!Array.isArray(raw.questionIds)||!raw.questionIds.length)return null;
+    const ids=[...new Set(raw.questionIds.map(String).filter(Boolean))];
+    if(!ids.length)return null;
+    const lifecycle=String(raw.lifecycle||'paused');if(!NK_TIMED_LIFECYCLES.has(lifecycle))return null;
+    const startedAt=Number.isFinite(Number(raw.startedAt))&&Number(raw.startedAt)>0?Number(raw.startedAt):Date.now();
+    const deadline=Number.isFinite(Number(raw.deadlineAt))&&Number(raw.deadlineAt)>0?Number(raw.deadlineAt):startedAt+ids.length*60000;
+    const updated=Number.isFinite(Number(raw.updatedAt))&&Number(raw.updatedAt)>0?Number(raw.updatedAt):startedAt;
+    return {...raw,id:String(raw.id),mode:'exam',questionIds:ids,lifecycle,startedAt,
+      deadlineAt:deadline,updatedAt:updated};
+  }
+  function nkNormalizeTimedSessions(rawList,active){
+    const byId=new Map();
+    for(const raw of (Array.isArray(rawList)?rawList:[])){
+      const item=nkNormalizeTimedSession(raw);if(!item)continue;
+      const previous=byId.get(item.id);
+      const terminal=value=>['submitted','discarded'].includes(String(value?.lifecycle));
+      if(!previous||(terminal(item)&&!terminal(previous))||
+        (terminal(item)===terminal(previous)&&Number(item.updatedAt||0)>=Number(previous.updatedAt||0)))byId.set(item.id,item);
+    }
+    const live=nkNormalizeTimedSession(active);
+    if(live){const previous=byId.get(live.id);if(!previous||!['submitted','discarded'].includes(previous.lifecycle))byId.set(live.id,live);}
+    return [...byId.values()].sort((a,b)=>Number(a.startedAt||0)-Number(b.startedAt||0));
+  }
   function nkLatestPracticeCheckpoint(list){let latest=null;for(const item of list||[]){if(!latest||Number(item.updatedAt||0)>=Number(latest.updatedAt||0))latest=item;}return latest;}
   function nkValidateState(value){
     if(!nkStateObject(value))throw new Error('state root is not an object');
@@ -56,6 +81,7 @@
     if(value.studyModules!=null&&!Array.isArray(value.studyModules))throw new Error('studyModules is not an array');
     if(value.normalPracticeCheckpoint!=null&&!nkNormalizeCheckpoint(value.normalPracticeCheckpoint))throw new Error('normal Practice checkpoint is invalid');
     if(value.normalPracticeCheckpoints!=null&&(!Array.isArray(value.normalPracticeCheckpoints)||value.normalPracticeCheckpoints.some(item=>!nkNormalizeCheckpoint(item))))throw new Error('normal Practice checkpoints are invalid');
+    if(value.timedSessions!=null&&(!Array.isArray(value.timedSessions)||value.timedSessions.some(item=>!nkNormalizeTimedSession(item))))throw new Error('timed sessions are invalid');
     return true;
   }
   function nkNormalizeState(value){
@@ -65,6 +91,11 @@
     out.stateSchemaVersion=NK_STATE_SCHEMA_VERSION;out.stateRevision=nkStateRevision(value);
     out.normalPracticeCheckpoints=nkNormalizePracticeCheckpoints(value.normalPracticeCheckpoints,value.normalPracticeCheckpoint);
     out.normalPracticeCheckpoint=nkLatestPracticeCheckpoint(out.normalPracticeCheckpoints);
+    out.timedSessions=nkNormalizeTimedSessions(value.timedSessions,value.activeSession);
+    if(out.activeSession?.mode==='exam'){
+      const saved=out.timedSessions.find(item=>item.id===String(out.activeSession.id));
+      if(saved&&['submitted','discarded'].includes(saved.lifecycle))out.activeSession=null;
+    }
     return out;
   }
   function nkReadStateCandidate(key){
@@ -125,7 +156,7 @@
   function nkPrepareTimedSession(target){
     const s=target.activeSession;if(!s||s.mode!=='exam')return;
     if(!Number(s.deadlineAt))s.deadlineAt=Number(s.startedAt||Date.now())+Math.max(1,(s.questionIds||[]).length)*60000;
-    s.updatedAt=Date.now();
+    s.lifecycle='active';s.updatedAt=Date.now();
   }
   function nkDurablePersist(candidate,reason='state save'){
     const store=nkStorageAdapter(),previousPrimary=store.getItem(LS_KEY);
@@ -136,7 +167,7 @@
       store.setItem(NK_STATE_PENDING_KEY,raw);store.setItem(LS_KEY,raw);
       const check=store.getItem(LS_KEY);if(check!==raw)throw new Error('primary verification failed');
       store.setItem(NK_STATE_LKG_KEY,raw);store.removeItem(NK_STATE_PENDING_KEY);
-      candidate.stateSchemaVersion=next.stateSchemaVersion;candidate.stateRevision=next.stateRevision;candidate.normalPracticeCheckpoints=next.normalPracticeCheckpoints;candidate.normalPracticeCheckpoint=next.normalPracticeCheckpoint;
+      candidate.stateSchemaVersion=next.stateSchemaVersion;candidate.stateRevision=next.stateRevision;candidate.normalPracticeCheckpoints=next.normalPracticeCheckpoints;candidate.normalPracticeCheckpoint=next.normalPracticeCheckpoint;candidate.timedSessions=next.timedSessions;
       nkStorageClearError();return true;
     }catch(error){
       try{store.removeItem(NK_STATE_PENDING_KEY);if(previousPrimary==null)store.removeItem(LS_KEY);else store.setItem(LS_KEY,previousPrimary);}catch(_){}

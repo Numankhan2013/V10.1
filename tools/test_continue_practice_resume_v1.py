@@ -218,7 +218,42 @@ assert.equal(window.QB.continuePractice(),true,'terminal session must yield to s
 assert.equal(state.activeSession.id,thirdId);
 global.document.body=undefined;
 
-// Timed CBT is exclusive and its terminal save is failure-aware/idempotent.
+// A second timed test can start while the first keeps its answers and deadline.
+assert.equal(startSession(['q1','q2'],'exam','First CBT','normal'),true);
+const firstTimedId=state.activeSession.id,firstDeadline=state.activeSession.deadlineAt;
+state.activeSession.answers.q1=2;state.activeSession.index=1;
+assert.equal(startSession(['q3'],'exam','Second CBT','normal'),false);
+assert.equal(nkResolveTimedSession('keep'),true);
+const secondTimedId=state.activeSession.id;
+assert.notEqual(secondTimedId,firstTimedId);
+assert.equal(state.timedSessions.find(s=>s.id===firstTimedId).answers.q1,2);
+assert.equal(state.timedSessions.find(s=>s.id===firstTimedId).deadlineAt,firstDeadline);
+assert.equal(nkActivateTimedSession(firstTimedId),true);
+assert.equal(state.activeSession.index,1);
+assert.equal(state.activeSession.deadlineAt,firstDeadline);
+assert.equal(state.timedSessions.find(s=>s.id===secondTimedId).lifecycle,'paused');
+failSaves=true;
+assert.equal(nkActivateTimedSession(secondTimedId),false,'failed switch must roll back');
+assert.equal(state.activeSession.id,firstTimedId);
+failSaves=false;
+assert.equal(nkActivateTimedSession(secondTimedId),true);
+assert.equal(state.activeSession.id,secondTimedId);
+assert.equal(nkTimedSessions().length,2);
+assert.equal(nkActivateTimedSession(firstTimedId),true);
+assert.equal(submitExam(false),true);
+assert.equal(state.timedSessions.find(s=>s.id===firstTimedId).lifecycle,'submitted');
+assert.equal(nkActivateTimedSession(firstTimedId),false,'submitted test must stay closed');
+assert.equal(nkTimedSessions().length,1,'the second timed test must remain available');
+state.activeSession={id:'chapter-between-tests',mode:'practice',title:'Topic Two',context:'normal',originRoute:'topics',
+  questionIds:['q21','q22'],sessionQuestionIds:['q21','q22'],index:1,answers:{q21:2},submitted:{q21:true},questionTimes:{q21:12},startedAt:Date.now(),lifecycle:'active'};
+assert.equal(nkActivateTimedSession(secondTimedId),true);
+assert.equal(nkPracticeFindCheckpoint('chapter-between-tests').position.index,1,'opening a saved test must checkpoint current Practice');
+assert.equal(nkResumePracticeById('chapter-between-tests'),false,'a live test must offer to keep itself before Practice resumes');
+assert.equal(nkResolveTimedSession('keep'),true);
+assert.equal(state.activeSession.id,'chapter-between-tests');
+assert.equal(state.activeSession.index,1);
+assert.equal(nkTimedSessions().length,1,'Practice resume must keep the saved timed test');
+// Timed CBT terminal save is failure-aware and idempotent.
 const now=Date.now();state.activeSession={id:'exam-live',mode:'exam',title:'CBT',questionIds:['q1'],index:0,answers:{q1:1},submitted:{},questionTimes:{q1:5},startedAt:now,deadlineAt:now+60000};
 assert.equal(startSession(['q2'],'practice','New Practice','normal'),false);
 assert.equal(state.activeSession.id,'exam-live');
@@ -252,6 +287,12 @@ state.activeSession={id:'strict-live',mode:'exam',title:'Topic Test',questionIds
 assert.equal(submitExam(true),true);
 assert.equal(state.tests.at(-1).questionTimes.q1,60000);
 assert.equal(state.tests.at(-1).totalTimeMs,60000);
+state.activeSession={id:'other-exam',mode:'exam',title:'Other CBT',questionIds:['q2'],index:0,startedAt:Date.now(),deadlineAt:Date.now()+60000};
+assert.equal(startSession(['q3'],'exam','Topic Three · Timed Test','topic-timed-test'),false);
+assert.equal(nkResolveTimedSession('keep'),true);
+assert.equal(state.activeSession.timerMode,'per-question','deferred topic test must retain its strict timer');
+assert.equal(state.activeSession.strictQuestionTime.q3,undefined);
+assert(Number(state.activeSession.strictQuestionStartedAt)>0);
 
 // Non-normal Practice modes keep their existing behavior.
 state.activeSession={mode:'practice',studyModuleId:'module-1',questionIds:['q1'],index:0,answers:{},submitted:{}};

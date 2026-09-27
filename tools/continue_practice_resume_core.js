@@ -149,7 +149,7 @@
     if(state.activeSession===s&&s.lifecycle==='active'&&route.page==='practice')return true;
     const before=typeof nkStateClone==='function'?nkStateClone(state):JSON.parse(JSON.stringify(state));
     if(state.activeSession&&state.activeSession!==s&&!nkPracticeResumeEligible(state.activeSession)&&state.activeSession.mode!=='review'&&!nkPracticeTerminal(state.activeSession)){
-      if(state.activeSession.mode==='exam')nkOfferTimedSessionDecision();else showToast('Finish or leave the current study session before resuming Practice.','bad');
+      if(state.activeSession.mode==='exam')nkOfferTimedSessionDecision({practiceSessionId:String(s.id)});else showToast('Finish or leave the current study session before resuming Practice.','bad');
       return false;
     }
     const previous=state.activeSession;
@@ -225,17 +225,62 @@
     const deadline=Number(s.deadlineAt||(Number(s.startedAt||now)+Math.max(1,(s.questionIds||[]).length)*60000));
     return deadline<=now;
   }
+  function nkTimedSessions(includeTerminal=false){
+    const list=typeof nkNormalizeTimedSessions==='function'?nkNormalizeTimedSessions(state.timedSessions,state.activeSession):(()=>{
+      const byId=new Map((state.timedSessions||[]).filter(Boolean).map(s=>[String(s.id),s]));
+      const live=state.activeSession;if(live?.mode==='exam')byId.set(String(live.id),live);
+      return [...byId.values()];
+    })();
+    return list.filter(s=>includeTerminal||!['submitted','discarded'].includes(String(s.lifecycle))).sort((a,b)=>Number(b.updatedAt||0)-Number(a.updatedAt||0));
+  }
+  function nkTimedStoreSession(session,lifecycle){
+    if(!session||session.mode!=='exam')return false;
+    const list=nkTimedSessions(true),id=String(session.id),previous=list.find(item=>String(item.id)===id);
+    if(previous&&['submitted','discarded'].includes(String(previous.lifecycle))&&!['submitted','discarded'].includes(lifecycle))return false;
+    const now=Date.now(),saved={...session,lifecycle,updatedAt:Math.max(now,Number(previous?.updatedAt||0)+1)};
+    if(['submitted','discarded'].includes(lifecycle))saved.terminalAt=now;
+    state.timedSessions=[...list.filter(item=>String(item.id)!==id),saved];return true;
+  }
+  function nkParkActiveTimedSession(lifecycle='paused'){
+    const live=state.activeSession;if(live?.mode!=='exam')return false;
+    if(typeof saveExamElapsed==='function')saveExamElapsed();
+    if(!nkTimedStoreSession(live,lifecycle))return false;
+    state.activeSession=null;return true;
+  }
+  function nkActivateTimedSession(sessionId){
+    const target=nkTimedSessions().find(s=>String(s.id)===String(sessionId));
+    if(!target){showToast('This timed test is no longer available.','bad');return false;}
+    const missing=(target.questionIds||[]).filter(id=>!nkPracticeResumeQuestion(id));
+    if(missing.length){showToast(`${missing.length} saved question${missing.length===1?' is':'s are'} unavailable. This test was kept in your saved sessions.`,'bad');return false;}
+    if(state.activeSession?.mode==='exam'&&String(state.activeSession.id)===String(sessionId)){navigate('exam');return true;}
+    const live=state.activeSession;
+    if(live&&live.mode==='practice'&&!nkPracticeResumeEligible(live)&&!live.studyModuleId&&live.lifecycle!=='submitted'){
+      showToast('Finish or leave the current study session before resuming a test.','bad');return false;
+    }
+    const before=typeof nkStateClone==='function'?nkStateClone(state):JSON.parse(JSON.stringify(state));
+    if(live?.mode==='exam')nkParkActiveTimedSession();
+    else if(nkPracticeResumeEligible(live)){
+      if(typeof savePracticeElapsed==='function')savePracticeElapsed();nkPracticePrepareSession(live);
+      live.lifecycle='paused';live.pausedAt=Date.now();live.pausedIndex=Number(live.index)||0;
+      nkPracticeStoreCheckpoint(nkPracticeBuildCheckpoint(live,'paused'));
+    }else if(live?.studyModuleId&&typeof nkSyncModuleFromSession==='function')nkSyncModuleFromSession();
+    state.activeSession={...target,lifecycle:'active',updatedAt:Date.now()};
+    if(saveState()===false){state=before;return false;}
+    navigate('exam');return true;
+  }
   function nkOfferTimedSessionDecision(pending=null){
     nkPendingInteractiveStart=pending;
     if(typeof document==='undefined'||!document.body)return false;
     document.getElementById('nk-timed-session-conflict')?.remove();
-    document.body.insertAdjacentHTML('beforeend','<div class="modal-backdrop" id="nk-timed-session-conflict"><section class="modal card" role="dialog" aria-modal="true" aria-labelledby="nk-timed-session-title"><h2 id="nk-timed-session-title">Timed test in progress</h2><p>Resume the timed test, or explicitly abandon it before opening another interactive session.</p><div class="nk-fsrs-leave-actions"><button class="primary-btn" onclick="window.QB.nkResolveTimedSession(\'resume\')">Resume test</button><button class="danger-btn" onclick="window.QB.nkResolveTimedSession(\'abandon\')">Abandon test</button><button class="ghost-btn" onclick="window.QB.nkResolveTimedSession(\'cancel\')">Cancel</button></div></section></div>');return true;
+    document.body.insertAdjacentHTML('beforeend','<div class="modal-backdrop" id="nk-timed-session-conflict"><section class="modal card" role="dialog" aria-modal="true" aria-labelledby="nk-timed-session-title"><h2 id="nk-timed-session-title">Timed test in progress</h2><p>Save this test and continue? Its timer keeps running while you work elsewhere.</p><div class="nk-fsrs-leave-actions"><button class="primary-btn" onclick="window.QB.nkResolveTimedSession(\'keep\')">Keep test and continue</button><button class="ghost-btn" onclick="window.QB.nkResolveTimedSession(\'resume\')">Resume test</button><button class="danger-btn" onclick="window.QB.nkResolveTimedSession(\'abandon\')">Abandon test</button><button class="ghost-btn" onclick="window.QB.nkResolveTimedSession(\'cancel\')">Cancel</button></div></section></div>');return true;
   }
   function nkResolveTimedSession(choice){
     document.getElementById('nk-timed-session-conflict')?.remove();const pending=nkPendingInteractiveStart;nkPendingInteractiveStart=null;
-    if(choice==='resume'){navigate('exam');return true;}if(choice!=='abandon')return false;
-    const before=typeof nkStateClone==='function'?nkStateClone(state):JSON.parse(JSON.stringify(state));if(state.activeSession?.mode==='exam')state.activeSession=null;
+    if(choice==='resume'){navigate('exam');return true;}if(choice!=='abandon'&&choice!=='keep')return false;
+    const before=typeof nkStateClone==='function'?nkStateClone(state):JSON.parse(JSON.stringify(state));
+    if(state.activeSession?.mode==='exam'&&!nkParkActiveTimedSession(choice==='abandon'?'discarded':'paused'))return false;
     if(saveState()===false){state=before;return false;}
+    if(pending?.practiceSessionId)return nkResumePracticeById(pending.practiceSessionId);
     if(pending?.studyModuleId)return startStudyModule(pending.studyModuleId);
     return pending?nkStartSessionReliably(pending.questionIds,pending.mode,pending.title,pending.context,true):navigate('dashboard');
   }
@@ -257,7 +302,14 @@
     }
     state.activeSession={id:`s_${now}_${Math.random().toString(16).slice(2)}`,mode,title,questionIds:[...ids],index:0,answers:{},submitted:{},startedAt:now,lastTick:now,elapsedMs:0,questionEnteredAt:now,questionTimes:{},context};
     state.activeSession.originRoute=context==='fsrs'||context==='spaced-review'?'fsrs':/bookmark/i.test(title)?'bookmarks':context==='wrong'||/wrong/i.test(title)?'wrong':mode==='exam'?'tests':'topics';
-    if(mode==='exam')state.activeSession.deadlineAt=now+ids.length*60000;
+    if(mode==='exam'){
+      state.activeSession.deadlineAt=now+ids.length*60000;
+      state.activeSession.timerEnabled=true;
+      state.activeSession.timerMode=context==='topic-timed-test'?'per-question':'global';
+      if(context==='topic-timed-test'){
+        state.activeSession.strictQuestionTime={};state.activeSession.strictExpired={};state.activeSession.strictQuestionStartedAt=now;
+      }
+    }
     if(normal){state.activeSession.lifecycle='active';state.activeSession.sessionQuestionIds=[...ids];}
     if(normal){nkPracticePrepareSession(state.activeSession);nkPracticeStoreCheckpoint(nkPracticeBuildCheckpoint(state.activeSession,'active'));}
     if(!state.studyStartedAt)state.studyStartedAt=now;
@@ -279,7 +331,7 @@
       const raw=now-Number(s.startedAt||now),totalTimeMs=strict?s.questionIds.reduce((total,id)=>total+Math.min(60000,Math.max(Number(qt[id]||0),Number(s.strictQuestionTime?.[id]||0))),0):Math.min(raw,s.questionIds.length*60000);
       const testId=`exam_${String(s.id)}`;let test=(state.tests||[]).find(item=>String(item.id)===testId);
       if(!test){test={id:testId,title:s.title,questionIds:[...s.questionIds],answers:{...(s.answers||{})},questionTimes:qt,correct,incorrect,unattempted,total:s.questionIds.length,attempted,totalTimeMs,createdAt:now,autoSubmitted:Boolean(auto),timerEnabled:true,timerMode:s.timerMode||'global',originRoute:s.originRoute};state.tests.push(test);state.tests=state.tests.slice(-100);}
-      s.lifecycle='submitted';s.submittedAt=now;state.activeSession=null;
+      s.lifecycle='submitted';s.submittedAt=now;nkTimedStoreSession(s,'submitted');state.activeSession=null;
       if(saveState()===false){state=before;return false;}
       document.querySelectorAll?.('#toast-root .toast').forEach(node=>node.remove());navigate('result',test.id);return true;
     }catch(error){state=before;if(typeof nkStorageError==='function')nkStorageError('Timed CBT submission could not be completed',error);else showToast('Timed CBT could not be saved. Try again.','bad');return false;}
