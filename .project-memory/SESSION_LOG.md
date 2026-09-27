@@ -1679,3 +1679,39 @@ Implemented approved recovery in existing transform owners: Topics separate path
   `study-ui-audit` captures and ask the user to compare More and Quick Revision
   against the current build. Test analysis, then Home effects-only, remain
   queued behind the user's own priority order.
+
+## 2026-09-27 — Test analysis tile identity (branch `feature/home-question-ui-v1`)
+
+- The user reviewed the revision-list preview, confirmed Quick revision and My
+  notes are now clearly distinguishable with effective colour coding, and asked
+  to continue. The remaining order is test analysis, then Home effects-only.
+- Root cause on the analysis screen. The four result tiles already emitted
+  `is-blue`, `is-violet`, `is-amber` and `is-green`, so the intent existed, but
+  the only rule that consumed a tone was `.nk-insight-grid .is-blue>span` and its
+  siblings, which colour the icon alone. The card itself came from
+  `.nk-insight-grid article`, white with a `--nk114-line` border for all four,
+  and that selector (0,1,1) outranked the bare `.is-*` rules (0,1,0) that
+  `apply_home_command_center_v1.py` contributes. The result read as one uniform
+  four-tile block, which is the same complaint the user raised about More.
+- `tools/apply_whole_app_vision_v1.py`, which owns both the `nk-result-stats`
+  markup and the insight-grid CSS, now scopes new rules to
+  `.nk-result-stats article.is-*`: a tone-matched surface, border and value
+  colour, hairline elevation, a hover lift, and a `prefers-reduced-motion`
+  override. `.nk-insight-grid` is deliberately left alone so the Insights screen
+  is unchanged. The same edit pluralises the tile count, so a one-question
+  result reads "1 question" instead of "1 questions".
+- Verification. All 10 inline scripts pass `node --check`.
+  `test_whole_app_vision_v1.py` passes at its real CI position, step 42,
+  immediately after the transform. Running it against the fully generated file
+  instead reports missing `nk-home-v114` and related markers, because
+  `apply_home_command_center_v1.py` at step 45 later replaces that markup; that
+  is a test-ordering artifact and was proven by building only to step 42, where
+  the same test reports `WHOLE_APP_VISION_OK`.
+- Two process notes worth keeping. The transform chain is not idempotent and
+  also writes `source_visual_renderer.js` and `MainActivity.java`, so a partial
+  or generated `index.html` must be reset before re-running it or anchors fail
+  in a cascade that looks like a regression. And the local build still cannot
+  complete because PyMuPDF is unreachable here, so screenshots continue to come
+  from CI artifacts rather than a local browser.
+- Next: push for a second preview and ask the user to compare the analysis
+  screen. Home remains effects-only.
