@@ -63,6 +63,8 @@ required_order = [
     "tools/test_bank_aware_cbt_builder_v1.py",
     "tools/apply_cbt_result_analysis_v1.py",
     "tools/test_cbt_result_analysis_v1.py",
+    "tools/apply_exam_review_flags_v1.py",
+    "tools/test_exam_review_flags_v1.py",
     "tools/apply_qbank_coverage_v1.py",
     "tools/test_qbank_coverage_v1.py",
     "tools/verify_product_contract.py --stage generated",

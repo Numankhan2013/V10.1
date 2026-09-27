@@ -202,6 +202,19 @@ def main():
                 settle(page)
                 cbt = session(page)
                 cbt_qid = cbt['questionIds'][0]
+                mark=page.locator('.nk-exam-review-toggle')
+                mark.click()
+                assert mark.get_attribute('aria-pressed') == 'true'
+                assert session(page)['markedForReview'][cbt_qid] is True
+                page.reload(wait_until='domcontentloaded')
+                settle(page)
+                assert page.locator('.nk-exam-review-toggle').get_attribute('aria-pressed') == 'true'
+                page.evaluate('window.QB.openQuestionNavigator()')
+                assert page.locator('#qb-question-navigator .qb-nav-q.is-marked').count() == 1
+                page.evaluate('window.QB.closeQuestionNavigator()')
+                page.evaluate('window.QB.openSessionReview()')
+                assert page.locator('#nk-session-review .nk-session-review-q.is-marked').count() == 1
+                page.evaluate('window.QB.__sessionReviewClose()')
                 with page.expect_event('dialog') as warning:
                     page.evaluate('history.back()')
                 assert 'timed test will keep running' in warning.value.message
@@ -235,6 +248,12 @@ def main():
                 page.wait_for_function('!window.QB.getState().activeSession')
                 assert page.evaluate('id=>window.QB.getState().tests.filter(t=>t.id===`exam_${id}`).length', cbt['id']) == 1
                 assert page.evaluate('id=>window.QB.getState().attempts[id].at(-1).source', cbt_qid) == 'exam'
+                assert page.evaluate('id=>window.QB.getState().tests.find(t=>t.id===`exam_${id}`).markedForReview', cbt['id']) == {cbt_qid: True}
+                assert page.get_by_role('button', name='Practise marked questions').count() == 1
+                page.wait_for_timeout(950)
+                page.get_by_role('button', name='Practise marked questions').click()
+                page.wait_for_function("window.QB.getState().activeSession?.mode==='practice'")
+                assert session(page)['questionIds'] == [cbt_qid]
                 assert not errors, errors
                 reports.append({'viewport': f'{width}x{height}', 'touch': True, 'practice': 'PASS', 'mode_isolation': 'PASS', 'back': 'PASS', 'durability': 'PASS'})
                 context.close()
