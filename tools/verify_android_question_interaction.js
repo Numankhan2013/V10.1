@@ -243,7 +243,7 @@ async function main(){
         throw error;
       });
       await device.screenshot({path:`${output}/${label}-timed-test-resume.png`});
-      await page.locator('.nk-timed-resume.is-builder button').click();
+      await page.locator('.nk-timed-resume.is-builder .nk-timed-resume-actions button:first-child').click();
       await waitForHash(page,'#exam');
       assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),examId,'Timed test must reopen at the same session');
       const firstDeadline=await page.evaluate(()=>window.QB.getState().activeSession.deadlineAt);

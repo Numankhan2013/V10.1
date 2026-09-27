@@ -226,20 +226,20 @@ def main():
                 page.wait_for_url('**/#dashboard')
                 assert page.locator('.nk-timed-resume.is-home').is_visible()
                 assert 'timer keeps running' in page.locator('.nk-timed-resume.is-home').inner_text()
-                page.locator('.nk-timed-resume.is-home button').click()
+                page.locator('.nk-timed-resume.is-home .nk-timed-resume-actions button:first-child').click()
                 page.wait_for_url('**/#exam')
                 assert session(page)['id'] == cbt['id']
                 assert session(page)['markedForReview'][cbt_qid] is True
                 page.evaluate("window.QB.nav('tests')")
                 page.wait_for_url('**/#tests')
                 assert page.locator('.nk-timed-resume.is-tests').is_visible()
-                page.locator('.nk-timed-resume.is-tests button').click()
+                page.locator('.nk-timed-resume.is-tests .nk-timed-resume-actions button:first-child').click()
                 page.wait_for_url('**/#exam')
                 assert session(page)['id'] == cbt['id']
                 page.evaluate("window.QB.nav('test-builder')")
                 page.wait_for_url('**/#test-builder')
                 assert page.locator('.nk-timed-resume.is-builder').is_visible()
-                page.locator('.nk-timed-resume.is-builder button').click()
+                page.locator('.nk-timed-resume.is-builder .nk-timed-resume-actions button:first-child').click()
                 page.wait_for_url('**/#exam')
                 assert session(page)['id'] == cbt['id']
                 page.evaluate('''() => {
