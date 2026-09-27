@@ -242,6 +242,20 @@ def main():
                 page.locator('.nk-timed-resume.is-builder button').click()
                 page.wait_for_url('**/#exam')
                 assert session(page)['id'] == cbt['id']
+                page.evaluate('''() => {
+                  const state=window.QB.getState(),id=state.activeSession.questionIds[0];
+                  state.studyModules.push({id:'timed-module-guard',name:'Saved review set',questionIds:[id],createdAt:Date.now(),lastOpenedAt:Date.now()});
+                  window.QB.startStudyModule('timed-module-guard');
+                }''')
+                conflict=page.locator('#nk-timed-session-conflict')
+                assert conflict.is_visible()
+                assert session(page)['id'] == cbt['id'], 'saved module replaced an unfinished CBT'
+                conflict.get_by_role('button', name='Cancel', exact=True).click()
+                assert session(page)['id'] == cbt['id']
+                page.evaluate("window.QB.startStudyModule('timed-module-guard')")
+                conflict.get_by_role('button', name='Resume test', exact=True).click()
+                page.wait_for_url('**/#exam')
+                assert session(page)['id'] == cbt['id']
                 baseline = page.evaluate('JSON.stringify([window.QB.getState().attempts,window.QB.getState().reviews])')
                 page.locator('.option-list button').nth(0).click()
                 page.locator('.option-list button').nth(1).click()

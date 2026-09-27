@@ -229,13 +229,15 @@
     nkPendingInteractiveStart=pending;
     if(typeof document==='undefined'||!document.body)return false;
     document.getElementById('nk-timed-session-conflict')?.remove();
-    document.body.insertAdjacentHTML('beforeend','<div class="modal-backdrop" id="nk-timed-session-conflict"><section class="modal card" role="dialog" aria-modal="true" aria-labelledby="nk-timed-session-title"><h2 id="nk-timed-session-title">Timed CBT in progress</h2><p>Resume the timed test, or explicitly abandon it before opening another interactive session.</p><div class="nk-fsrs-leave-actions"><button class="primary-btn" onclick="window.QB.nkResolveTimedSession(\'resume\')">Resume CBT</button><button class="danger-btn" onclick="window.QB.nkResolveTimedSession(\'abandon\')">Abandon CBT</button><button class="ghost-btn" onclick="window.QB.nkResolveTimedSession(\'cancel\')">Cancel</button></div></section></div>');return true;
+    document.body.insertAdjacentHTML('beforeend','<div class="modal-backdrop" id="nk-timed-session-conflict"><section class="modal card" role="dialog" aria-modal="true" aria-labelledby="nk-timed-session-title"><h2 id="nk-timed-session-title">Timed test in progress</h2><p>Resume the timed test, or explicitly abandon it before opening another interactive session.</p><div class="nk-fsrs-leave-actions"><button class="primary-btn" onclick="window.QB.nkResolveTimedSession(\'resume\')">Resume test</button><button class="danger-btn" onclick="window.QB.nkResolveTimedSession(\'abandon\')">Abandon test</button><button class="ghost-btn" onclick="window.QB.nkResolveTimedSession(\'cancel\')">Cancel</button></div></section></div>');return true;
   }
   function nkResolveTimedSession(choice){
     document.getElementById('nk-timed-session-conflict')?.remove();const pending=nkPendingInteractiveStart;nkPendingInteractiveStart=null;
     if(choice==='resume'){navigate('exam');return true;}if(choice!=='abandon')return false;
     const before=typeof nkStateClone==='function'?nkStateClone(state):JSON.parse(JSON.stringify(state));if(state.activeSession?.mode==='exam')state.activeSession=null;
-    if(saveState()===false){state=before;return false;}return pending?nkStartSessionReliably(pending.questionIds,pending.mode,pending.title,pending.context,true):navigate('dashboard');
+    if(saveState()===false){state=before;return false;}
+    if(pending?.studyModuleId)return startStudyModule(pending.studyModuleId);
+    return pending?nkStartSessionReliably(pending.questionIds,pending.mode,pending.title,pending.context,true):navigate('dashboard');
   }
   const nkPracticeOriginalStartSession=startSession;
   function nkStartSessionReliably(questionIds,mode='practice',title='Practice Session',context='normal',replacementApproved=false){

@@ -408,6 +408,15 @@
     if(module.isCompleted&&module.resultTestId){navigate('result',module.resultTestId);return;}
     const ids=nkModuleValidQuestionIds(module);
     if(!ids.length){showToast('The questions in this module are no longer available.','bad');return;}
+    const live=state.activeSession;
+    if(live?.mode==='exam'){
+      if(nkTimedSessionExpired(live)){
+        if(live.timerMode==='per-question')nkExpireTopicQuestion();else submitExam(true);
+        return false;
+      }
+      nkOfferTimedSessionDecision({studyModuleId:String(id)});
+      return false;
+    }
     const submitted={...(module.submitted||{})},firstRemaining=ids.findIndex(qid=>!submitted[qid]);
     const index=firstRemaining>=0?firstRemaining:Math.min(Math.max(0,module.currentPosition||0),ids.length-1),now=Date.now();
     const firstQuestion=BY_ID[ids[index]];

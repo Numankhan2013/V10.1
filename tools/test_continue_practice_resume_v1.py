@@ -28,7 +28,8 @@ global.document={getElementById:()=>null};
 global.setTimeout=fn=>fn();
 
 let route={page:'practice'},saved=0,failSaves=false,oldContinueCalls=0,legacyHomeContinueCalls=0,opened=null,started=null;
-let navigatorCalls=0,reviewCalls=0;
+let navigatorCalls=0,reviewCalls=0,moduleStartId=null;
+const startStudyModule=id=>{moduleStartId=id;return true};
 const make=(topic,count,start=1)=>Array.from({length:count},(_,i)=>({id:`q${start+i}`,subject:'Anatomy',bank:'Marrow',chapterId:topic,chapter:({t1:'Topic One',t2:'Topic Two',t3:'Topic Three'})[topic]}));
 const questions=[...make('t1',20),...make('t2',3,21),...make('t3',3,24)],BY_ID=Object.fromEntries(questions.map(q=>[q.id,q]));
 const SUBJECTS=[{subject:'Anatomy',bank:'Marrow',topics:[{id:'t1',title:'Topic One'},{id:'t2',title:'Topic Two'},{id:'t3',title:'Topic Three'}],questions}];
@@ -231,6 +232,20 @@ assert.equal(state.activeSession,null);
 const examCount=state.tests.length;
 assert.equal(submitExam(false),false);
 assert.equal(state.tests.length,examCount);
+state.activeSession={id:'module-conflict',mode:'exam',questionIds:['q1'],startedAt:Date.now()};
+nkPendingInteractiveStart={studyModuleId:'saved-module'};
+assert.equal(nkResolveTimedSession('cancel'),false);
+assert.equal(state.activeSession.id,'module-conflict');
+nkPendingInteractiveStart={studyModuleId:'saved-module'};
+failSaves=true;
+assert.equal(nkResolveTimedSession('abandon'),false);
+assert.equal(state.activeSession.id,'module-conflict');
+assert.equal(moduleStartId,null);
+failSaves=false;
+nkPendingInteractiveStart={studyModuleId:'saved-module'};
+assert.equal(nkResolveTimedSession('abandon'),true);
+assert.equal(state.activeSession,null);
+assert.equal(moduleStartId,'saved-module');
 state.activeSession={id:'strict-live',mode:'exam',title:'Topic Test',questionIds:['q1'],index:0,
   answers:{q1:1},submitted:{},questionTimes:{q1:61000},strictQuestionTime:{q1:60000},
   strictExpired:{q1:true},strictQuestionStartedAt:now,timerMode:'per-question',startedAt:now};

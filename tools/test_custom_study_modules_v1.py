@@ -106,6 +106,25 @@ assert.equal(run('nkPriorityStudyModule().id'),'m1');
 state.studyModules[0].isCompleted=true;
 assert.equal(run('nkPriorityStudyModule().id'),'m2');
 
+// Starting a saved module must not silently replace an unfinished timed test.
+let conflict=null,expired=0;
+ctx.nkTimedSessionExpired=s=>Boolean(s.expired);
+ctx.nkOfferTimedSessionDecision=p=>{conflict=p;return true};
+ctx.submitExam=()=>{expired++;state.activeSession=null};
+ctx.nkExpireTopicQuestion=()=>{expired++};
+const exam={id:'exam-live',mode:'exam',questionIds:['anat-1'],expired:false};
+state.activeSession=exam;
+assert.equal(run("startStudyModule('m2')"),false);
+assert.equal(state.activeSession,exam);
+assert.equal(conflict.studyModuleId,'m2');
+exam.expired=true;conflict=null;
+assert.equal(run("startStudyModule('m2')"),false);
+assert.equal(expired,1);
+assert.equal(conflict,null);
+assert.equal(state.activeSession,null);
+run("startStudyModule('m2')");
+assert.equal(state.activeSession.studyModuleId,'m2');
+
 console.log('CUSTOM_STUDY_MODULE_BEHAVIOR_OK: bank isolation, source-backed PYQ, filters, caps, frozen IDs, 12/30 resume, persistence, and Home priority');
 '''
 
