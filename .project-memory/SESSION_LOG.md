@@ -1703,5 +1703,12 @@ Implemented approved recovery in existing transform owners: Topics separate path
   the previous deploy did not update. The official Pages API requires updating
   `production_branch` for Direct Upload projects. The production workflow now
   PATCHes that field to `main` before uploading the exact approved release.
-- Follow-up: run full main CI, dispatch the exact-SHA production promotion, and
-  confirm the root and `main` aliases serve byte-identical generated app content.
+- Updated the release workflow to PATCH the Pages Direct Upload project
+  `production_branch` to `main` before deployment. Full main CI `36324929838`
+  passed; release `36325843382` updated the branch and deployed SHA
+  `d43da3dbdaa639214d676b333152654568fe5ba9`.
+- Verified the root, `main` alias, and preview
+  `https://37799f47.nk-qbank.pages.dev` return HTTP 200 and share the same
+  SHA-256 of the generated app response. The remembered spelling
+  `nkqbanks.pages.dev` does not resolve; the configured canonical domain is
+  `nk-qbank.pages.dev`. Physical Android in-place upgrade remains separate.
