@@ -1,0 +1,1512 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Derived read-only audit view. Immutable source remains the sharded Marrow bundle.",
+  "subject": "Anatomy",
+  "chapterId": "40",
+  "questionCount": 16,
+  "immutableSourcePrefix": "anatomy_phase_a",
+  "sourceRawSha256": "91668e021be2ea744d8c219da8b7445108dc4cd75e1fafe89b5e48019e04ee67",
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH40_Q001",
+      "sourceQuestionId": "ANAT_CH40_Q001",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "40",
+      "chapter": "Vessels-Upper limb",
+      "questionNumber": 1,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is not a branch of the 1st part of the subclavian artery?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Vertebral artery"
+        },
+        {
+          "letter": "B",
+          "text": "Internal thoracic artery"
+        },
+        {
+          "letter": "C",
+          "text": "Thyrocervical trunk"
+        },
+        {
+          "letter": "D",
+          "text": "Costocervical trunk"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Costocervical trunk",
+      "explanation": "The costocervical trunk is not a branch of the first part of the subclavian artery; in the source it is listed as a branch of the second part. Scalenus anterior divides the subclavian artery into three parts. The source table lists the branches of each part.",
+      "structuredExplanation": {
+        "text": "The costocervical trunk is not a branch of the first part of the subclavian artery; in the source it is listed as a branch of the second part. Scalenus anterior divides the subclavian artery into three parts. The source table lists the branches of each part.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The costocervical trunk is not a branch of the first part of the subclavian artery; in the source it is listed as a branch of the second part."
+          },
+          {
+            "type": "paragraph",
+            "text": "Scalenus anterior divides the subclavian artery into three parts. The source table lists the branches of each part."
+          },
+          {
+            "type": "table",
+            "table_id": "ANAT_CH40_Q001_T01"
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "ANAT_CH40_Q001_T01",
+            "type": "table",
+            "title": "Branches of the subclavian artery",
+            "source_page": 739,
+            "columns": [
+              {
+                "key": "part",
+                "label": "Part"
+              },
+              {
+                "key": "branches",
+                "label": "Branches"
+              }
+            ],
+            "rows": [
+              {
+                "part": "1st part",
+                "branches": "Vertebral artery (largest branch); internal thoracic artery; superior epigastric artery; musculophrenic artery; thyrocervical trunk; suprascapular artery; inferior thyroid artery; transverse cervical artery"
+              },
+              {
+                "part": "2nd part",
+                "branches": "Costocervical trunk"
+              },
+              {
+                "part": "3rd part",
+                "branches": "Dorsal scapular artery"
+              }
+            ],
+            "layout": {
+              "header_rows": 1,
+              "merged_cells": [],
+              "preserve_row_order": true
+            }
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          733
+        ],
+        "answerKeyPages": [
+          738
+        ],
+        "explanationPages": [
+          738,
+          739
+        ]
+      },
+      "sourcePage": 733,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "transcription_method": "Direct visual review of rendered PDF pages; embedded text was only a helper.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH40_Q002",
+      "sourceQuestionId": "ANAT_CH40_Q002",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "40",
+      "chapter": "Vessels-Upper limb",
+      "questionNumber": 2,
+      "questionType": "single_best_answer",
+      "question": "Which of the following muscle divides the axillary artery into 3 parts?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pectoralis major"
+        },
+        {
+          "letter": "B",
+          "text": "Teres major"
+        },
+        {
+          "letter": "C",
+          "text": "Pectoralis minor"
+        },
+        {
+          "letter": "D",
+          "text": "Teres minor"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Pectoralis minor",
+      "explanation": "The axillary artery is divided into three parts by the pectoralis minor muscle. It is the continuation of the subclavian artery from the outer border of the first rib to the lower border of teres major, after which it becomes the brachial artery. The source table shows the relation of each part to pectoralis minor and its branches.",
+      "structuredExplanation": {
+        "text": "The axillary artery is divided into three parts by the pectoralis minor muscle. It is the continuation of the subclavian artery from the outer border of the first rib to the lower border of teres major, after which it becomes the brachial artery. The source table shows the relation of each part to pectoralis minor and its branches.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The axillary artery is divided into three parts by the pectoralis minor muscle."
+          },
+          {
+            "type": "paragraph",
+            "text": "It is the continuation of the subclavian artery from the outer border of the first rib to the lower border of teres major, after which it becomes the brachial artery."
+          },
+          {
+            "type": "table",
+            "table_id": "ANAT_CH40_Q002_T01"
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "ANAT_CH40_Q002_T01",
+            "type": "table",
+            "title": "Parts and branches of the axillary artery",
+            "source_page": 739,
+            "columns": [
+              {
+                "key": "part",
+                "label": "Part"
+              },
+              {
+                "key": "relation",
+                "label": "Relation to pectoralis minor"
+              },
+              {
+                "key": "branches",
+                "label": "Branches"
+              }
+            ],
+            "rows": [
+              {
+                "part": "1st part",
+                "relation": "Lies proximal to pectoralis minor",
+                "branches": "Superior thoracic artery"
+              },
+              {
+                "part": "2nd part",
+                "relation": "Lies posterior to pectoralis minor",
+                "branches": "Thoracoacromial trunk"
+              },
+              {
+                "part": "3rd part",
+                "relation": "Lies lateral to pectoralis minor",
+                "branches": "Subscapular artery; anterior circumflex humeral artery; posterior circumflex humeral artery"
+              }
+            ],
+            "layout": {
+              "header_rows": 1,
+              "merged_cells": [],
+              "preserve_row_order": true
+            }
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          733
+        ],
+        "answerKeyPages": [
+          738
+        ],
+        "explanationPages": [
+          739
+        ]
+      },
+      "sourcePage": 733,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "transcription_method": "Direct visual review of rendered PDF pages; embedded text was only a helper.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH40_Q003",
+      "sourceQuestionId": "ANAT_CH40_Q003",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "40",
+      "chapter": "Vessels-Upper limb",
+      "questionNumber": 3,
+      "questionType": "single_best_answer",
+      "question": "A patient with anterior dislocation of the shoulder joint is found to have compression of the axillary artery. However, the blood supply of the arm seems to be non-compromised. Anastomoses between which of the following vessels maintain this circulation?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "3rd part of subclavian and 3rd part of axillary artery"
+        },
+        {
+          "letter": "B",
+          "text": "1st part of subclavian and 1st part of axillary artery"
+        },
+        {
+          "letter": "C",
+          "text": "3rd part of subclavian and 1st part of axillary artery"
+        },
+        {
+          "letter": "D",
+          "text": "1st part of subclavian and 3rd part of axillary artery"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "1st part of subclavian and 3rd part of axillary artery",
+      "explanation": "Scapular anastomosis preserves upper-limb circulation when the axillary artery is interrupted. The source states that the key anastomosis occurs between branches of the first part of the subclavian artery and branches of the third part of the axillary artery, with additional anastomoses among intercostal arteries. The source diagram and table show the scapular and acromial networks.",
+      "structuredExplanation": {
+        "text": "Scapular anastomosis preserves upper-limb circulation when the axillary artery is interrupted. The source states that the key anastomosis occurs between branches of the first part of the subclavian artery and branches of the third part of the axillary artery, with additional anastomoses among intercostal arteries. The source diagram and table show the scapular and acromial networks.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Scapular anastomosis preserves upper-limb circulation when the axillary artery is interrupted."
+          },
+          {
+            "type": "paragraph",
+            "text": "The source states that the key anastomosis occurs between branches of the first part of the subclavian artery and branches of the third part of the axillary artery, with additional anastomoses among intercostal arteries."
+          },
+          {
+            "type": "table",
+            "table_id": "ANAT_CH40_Q003_T01"
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "ANAT_CH40_Q003_T01",
+            "type": "table",
+            "title": "Scapular anastomosis",
+            "source_page": 740,
+            "columns": [
+              {
+                "key": "level",
+                "label": "Level of anastomosis"
+              },
+              {
+                "key": "artery",
+                "label": "Arteries involved"
+              },
+              {
+                "key": "source",
+                "label": "Branch/source"
+              }
+            ],
+            "rows": [
+              {
+                "level": "Body of scapula",
+                "artery": "Suprascapular artery",
+                "source": "Thyrocervical trunk"
+              },
+              {
+                "level": "Body of scapula",
+                "artery": "Deep branch of transverse cervical artery",
+                "source": "Thyrocervical trunk"
+              },
+              {
+                "level": "Body of scapula",
+                "artery": "Circumflex scapular artery",
+                "source": "Subscapular artery"
+              },
+              {
+                "level": "Inferior angle of scapula",
+                "artery": "Deep branch of transverse cervical artery",
+                "source": "Thyrocervical trunk"
+              },
+              {
+                "level": "Inferior angle of scapula",
+                "artery": "Subscapular artery",
+                "source": "3rd part axillary artery"
+              },
+              {
+                "level": "Acromion process",
+                "artery": "Thoraco-acromial artery (acromial branch)",
+                "source": "2nd part axillary artery"
+              },
+              {
+                "level": "Acromion process",
+                "artery": "Suprascapular artery (acromial branch)",
+                "source": "Thyrocervical trunk"
+              },
+              {
+                "level": "Acromion process",
+                "artery": "Posterior circumflex humeral artery (acromial branch)",
+                "source": "3rd part axillary artery"
+              }
+            ],
+            "layout": {
+              "header_rows": 1,
+              "merged_cells": [],
+              "preserve_row_order": true
+            }
+          }
+        ],
+        "figures": [
+          {
+            "description": "Scapular anastomosis around the scapula",
+            "source_page": 741,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true,
+            "labels_transcribed": []
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          733
+        ],
+        "answerKeyPages": [
+          738
+        ],
+        "explanationPages": [
+          740,
+          741
+        ]
+      },
+      "sourcePage": 733,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "transcription_method": "Direct visual review of rendered PDF pages; embedded text was only a helper.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH40_Q004",
+      "sourceQuestionId": "ANAT_CH40_Q004",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "40",
+      "chapter": "Vessels-Upper limb",
+      "questionNumber": 4,
+      "questionType": "single_best_answer",
+      "question": "A 57-year-old man presents with pain, numbness, and fatigue of the right arm. Angiography reveals decreased flow through the vessels anastomosing near the surgical neck of the humerus. The pathology is likely to be present in which of the following arteries?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1st part of axillary artery"
+        },
+        {
+          "letter": "B",
+          "text": "1st part of subclavian artery"
+        },
+        {
+          "letter": "C",
+          "text": "3rd part of axillary artery"
+        },
+        {
+          "letter": "D",
+          "text": "3rd part of subclavian artery"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "3rd part of axillary artery",
+      "explanation": "Branches of the third part of the axillary artery supply the surgical-neck region of the humerus. The source names the anterior circumflex humeral, posterior circumflex humeral and subscapular arteries, noting that the subscapular artery is not involved in the local anastomosis. A surgical-neck fracture can injure the posterior circumflex humeral artery and accompanying axillary nerve; positional compression can also occur in throwing athletes.",
+      "structuredExplanation": {
+        "text": "Branches of the third part of the axillary artery supply the surgical-neck region of the humerus. The source names the anterior circumflex humeral, posterior circumflex humeral and subscapular arteries, noting that the subscapular artery is not involved in the local anastomosis. A surgical-neck fracture can injure the posterior circumflex humeral artery and accompanying axillary nerve; positional compression can also occur in throwing athletes.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Branches of the third part of the axillary artery supply the surgical-neck region of the humerus. The source names the anterior circumflex humeral, posterior circumflex humeral and subscapular arteries, noting that the subscapular artery is not involved in the local anastomosis. A surgical-neck fracture can injure the posterior circumflex humeral artery and accompanying axillary nerve; positional compression can also occur in throwing athletes."
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Arteries around the shoulder joint",
+            "source_page": 741,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true,
+            "labels_transcribed": []
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          733,
+          734
+        ],
+        "answerKeyPages": [
+          738
+        ],
+        "explanationPages": [
+          741,
+          742
+        ]
+      },
+      "sourcePage": 733,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "transcription_method": "Direct visual review of rendered PDF pages; embedded text was only a helper.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH40_Q005",
+      "sourceQuestionId": "ANAT_CH40_Q005",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "40",
+      "chapter": "Vessels-Upper limb",
+      "questionNumber": 5,
+      "questionType": "single_best_answer",
+      "question": "Angiography of the upper limb vessels in a patient shows a blockage in the brachial artery. All of the following vessels will have decreased flow, except:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Profunda brachii artery"
+        },
+        {
+          "letter": "B",
+          "text": "Superior ulnar collateral artery"
+        },
+        {
+          "letter": "C",
+          "text": "Inferior ulnar collateral artery"
+        },
+        {
+          "letter": "D",
+          "text": "Anterior circumflex humeral artery"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Anterior circumflex humeral artery",
+      "explanation": "The anterior circumflex humeral artery is a branch of the axillary artery and therefore is not expected to show decreased flow from a brachial-artery blockage. The source lists brachial branches including profunda brachii, anterior descending (radial collateral), posterior descending (middle collateral), superior ulnar collateral and inferior ulnar collateral arteries.",
+      "structuredExplanation": {
+        "text": "The anterior circumflex humeral artery is a branch of the axillary artery and therefore is not expected to show decreased flow from a brachial-artery blockage. The source lists brachial branches including profunda brachii, anterior descending (radial collateral), posterior descending (middle collateral), superior ulnar collateral and inferior ulnar collateral arteries.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The anterior circumflex humeral artery is a branch of the axillary artery and therefore is not expected to show decreased flow from a brachial-artery blockage. The source lists brachial branches including profunda brachii, anterior descending (radial collateral), posterior descending (middle collateral), superior ulnar collateral and inferior ulnar collateral arteries."
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Branches of the brachial artery",
+            "source_page": 742,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true,
+            "labels_transcribed": []
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          734
+        ],
+        "answerKeyPages": [
+          738
+        ],
+        "explanationPages": [
+          742
+        ]
+      },
+      "sourcePage": 734,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "transcription_method": "Direct visual review of rendered PDF pages; embedded text was only a helper.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH40_Q006",
+      "sourceQuestionId": "ANAT_CH40_Q006",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "40",
+      "chapter": "Vessels-Upper limb",
+      "questionNumber": 6,
+      "questionType": "single_best_answer",
+      "question": "The interosseous recurrent artery is a branch of which of the following arteries?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Anterior interosseous artery"
+        },
+        {
+          "letter": "B",
+          "text": "Posterior interosseous artery"
+        },
+        {
+          "letter": "C",
+          "text": "Common interosseous artery"
+        },
+        {
+          "letter": "D",
+          "text": "Radial artery"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Posterior interosseous artery",
+      "explanation": "The interosseous recurrent artery is a branch of the posterior interosseous artery. The posterior interosseous artery originates from the common interosseous branch of the ulnar artery and contributes a recurrent interosseous artery to the vascular network around the elbow.",
+      "structuredExplanation": {
+        "text": "The interosseous recurrent artery is a branch of the posterior interosseous artery. The posterior interosseous artery originates from the common interosseous branch of the ulnar artery and contributes a recurrent interosseous artery to the vascular network around the elbow.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The interosseous recurrent artery is a branch of the posterior interosseous artery. The posterior interosseous artery originates from the common interosseous branch of the ulnar artery and contributes a recurrent interosseous artery to the vascular network around the elbow."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Arteries of the forearm",
+            "source_page": 743,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true,
+            "labels_transcribed": []
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          734
+        ],
+        "answerKeyPages": [
+          738
+        ],
+        "explanationPages": [
+          742,
+          743
+        ]
+      },
+      "sourcePage": 734,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "transcription_method": "Direct visual review of rendered PDF pages; embedded text was only a helper.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH40_Q007",
+      "sourceQuestionId": "ANAT_CH40_Q007",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "40",
+      "chapter": "Vessels-Upper limb",
+      "questionNumber": 7,
+      "questionType": "single_best_answer",
+      "question": "Which of the following structures pass through the opening marked in the diagram below?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Posterior interosseous artery"
+        },
+        {
+          "letter": "B",
+          "text": "Deep branch of radial nerve"
+        },
+        {
+          "letter": "C",
+          "text": "Anterior interosseous artery"
+        },
+        {
+          "letter": "D",
+          "text": "Recurrent interosseous artery"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Anterior interosseous artery",
+      "explanation": "The anterior interosseous artery passes through the marked opening in the interosseous membrane. It runs distally on the anterior aspect of the membrane and supplies the deep compartment of the forearm and the radius/ulna. Distally it perforates the membrane and terminates by joining the posterior interosseous artery.",
+      "structuredExplanation": {
+        "text": "The anterior interosseous artery passes through the marked opening in the interosseous membrane. It runs distally on the anterior aspect of the membrane and supplies the deep compartment of the forearm and the radius/ulna. Distally it perforates the membrane and terminates by joining the posterior interosseous artery.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The anterior interosseous artery passes through the marked opening in the interosseous membrane. It runs distally on the anterior aspect of the membrane and supplies the deep compartment of the forearm and the radius/ulna. Distally it perforates the membrane and terminates by joining the posterior interosseous artery."
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Interosseous membrane with opening for anterior interosseous artery",
+            "source_page": 735,
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true,
+            "labels_transcribed": []
+          },
+          {
+            "description": "Anterior interosseous artery passing through the interosseous membrane",
+            "source_page": 743,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true,
+            "labels_transcribed": []
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          734,
+          735
+        ],
+        "answerKeyPages": [
+          738
+        ],
+        "explanationPages": [
+          743
+        ]
+      },
+      "sourcePage": 734,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "transcription_method": "Direct visual review of rendered PDF pages; embedded text was only a helper.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH40_Q008",
+      "sourceQuestionId": "ANAT_CH40_Q008",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "40",
+      "chapter": "Vessels-Upper limb",
+      "questionNumber": 8,
+      "questionType": "single_best_answer",
+      "question": "Identify the structure marked in the image given below:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ulnar nerve"
+        },
+        {
+          "letter": "B",
+          "text": "Ulnar artery"
+        },
+        {
+          "letter": "C",
+          "text": "Superficial radial artery"
+        },
+        {
+          "letter": "D",
+          "text": "Median nerve"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Ulnar artery",
+      "explanation": "The marked structure is the ulnar artery, shown contributing to the superficial palmar arch. The source states that it passes deep to Guyon's canal at the wrist and contributes to the superficial and deep palmar arches.",
+      "structuredExplanation": {
+        "text": "The marked structure is the ulnar artery, shown contributing to the superficial palmar arch. The source states that it passes deep to Guyon's canal at the wrist and contributes to the superficial and deep palmar arches.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The marked structure is the ulnar artery, shown contributing to the superficial palmar arch. The source states that it passes deep to Guyon's canal at the wrist and contributes to the superficial and deep palmar arches."
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Palmar dissection with the ulnar artery marked",
+            "source_page": 735,
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true,
+            "labels_transcribed": []
+          },
+          {
+            "description": "Blood supply of the hand with ulnar artery and palmar arches",
+            "source_page": 744,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true,
+            "labels_transcribed": []
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          735,
+          736
+        ],
+        "answerKeyPages": [
+          738
+        ],
+        "explanationPages": [
+          744
+        ]
+      },
+      "sourcePage": 735,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "transcription_method": "Direct visual review of rendered PDF pages; embedded text was only a helper.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH40_Q009",
+      "sourceQuestionId": "ANAT_CH40_Q009",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "40",
+      "chapter": "Vessels-Upper limb",
+      "questionNumber": 9,
+      "questionType": "single_best_answer",
+      "question": "An intern was asked to collect a sample for arterial blood gas analysis. Before puncturing the artery, she performed a modified Allen's test to assess the circulation. However, the test result was negative. What is the inference?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Radial circulation is inadequate, hence, ulnar artery should be punctured"
+        },
+        {
+          "letter": "B",
+          "text": "Radial circulation is inadequate, hence, ulnar artery should not be punctured"
+        },
+        {
+          "letter": "C",
+          "text": "Ulnar circulation is inadequate, hence, radial artery should be punctured"
+        },
+        {
+          "letter": "D",
+          "text": "Ulnar circulation is inadequate, hence, radial artery should not be punctured"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Ulnar circulation is inadequate, hence, radial artery should not be punctured",
+      "explanation": "A negative modified Allen's test implies inadequate ulnar collateral circulation, so the radial artery should not be punctured. The test is performed before radial-artery instrumentation to assess the integrity of the superficial/deep palmar arches and ulnar patency. The patient makes a tight fist while both radial and ulnar arteries are compressed, then the hand is opened and ulnar compression is released. Return of color including the thumb is a positive test; failure of the hand to flush within about 5-15 seconds is negative and indicates inadequate ulnar circulation.",
+      "structuredExplanation": {
+        "text": "A negative modified Allen's test implies inadequate ulnar collateral circulation, so the radial artery should not be punctured. The test is performed before radial-artery instrumentation to assess the integrity of the superficial/deep palmar arches and ulnar patency. The patient makes a tight fist while both radial and ulnar arteries are compressed, then the hand is opened and ulnar compression is released. Return of color including the thumb is a positive test; failure of the hand to flush within about 5-15 seconds is negative and indicates inadequate ulnar circulation.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "A negative modified Allen's test implies inadequate ulnar collateral circulation, so the radial artery should not be punctured. The test is performed before radial-artery instrumentation to assess the integrity of the superficial/deep palmar arches and ulnar patency. The patient makes a tight fist while both radial and ulnar arteries are compressed, then the hand is opened and ulnar compression is released. Return of color including the thumb is a positive test; failure of the hand to flush within about 5-15 seconds is negative and indicates inadequate ulnar circulation."
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Modified Allen's test sequence",
+            "source_page": 745,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true,
+            "labels_transcribed": []
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          736
+        ],
+        "answerKeyPages": [
+          738
+        ],
+        "explanationPages": [
+          744,
+          745
+        ]
+      },
+      "sourcePage": 736,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "transcription_method": "Direct visual review of rendered PDF pages; embedded text was only a helper.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH40_Q010",
+      "sourceQuestionId": "ANAT_CH40_Q010",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "40",
+      "chapter": "Vessels-Upper limb",
+      "questionNumber": 10,
+      "questionType": "single_best_answer",
+      "question": "A 52-year-old man with end-stage renal disease was planning to undergo hemodialysis. An arteriovenous fistula was created on his forearm. This procedure is done mainly to achieve a minimum venous flow rate of:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "50 ml/min"
+        },
+        {
+          "letter": "B",
+          "text": "600 ml/min"
+        },
+        {
+          "letter": "C",
+          "text": "750 ml/min"
+        },
+        {
+          "letter": "D",
+          "text": "250 ml/min"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "250 ml/min",
+      "explanation": "Hemodialysis requires substantial flow; the source states approximately 250-500 mL/min. Because peripheral veins do not normally provide such high flow, an arteriovenous fistula is created. The source lists two examples: radial artery to cephalic vein at the wrist (most common) and brachial artery to cephalic vein at the elbow.",
+      "structuredExplanation": {
+        "text": "Hemodialysis requires substantial flow; the source states approximately 250-500 mL/min. Because peripheral veins do not normally provide such high flow, an arteriovenous fistula is created. The source lists two examples: radial artery to cephalic vein at the wrist (most common) and brachial artery to cephalic vein at the elbow.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Hemodialysis requires substantial flow; the source states approximately 250-500 mL/min. Because peripheral veins do not normally provide such high flow, an arteriovenous fistula is created. The source lists two examples: radial artery to cephalic vein at the wrist (most common) and brachial artery to cephalic vein at the elbow."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          736
+        ],
+        "answerKeyPages": [
+          738
+        ],
+        "explanationPages": [
+          745,
+          746
+        ]
+      },
+      "sourcePage": 736,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "transcription_method": "Direct visual review of rendered PDF pages; embedded text was only a helper.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH40_Q011",
+      "sourceQuestionId": "ANAT_CH40_Q011",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "40",
+      "chapter": "Vessels-Upper limb",
+      "questionNumber": 11,
+      "questionType": "single_best_answer",
+      "question": "Palmar venous network in the palm of hand gives rise to which of the following veins?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cephalic vein"
+        },
+        {
+          "letter": "B",
+          "text": "Basilic vein"
+        },
+        {
+          "letter": "C",
+          "text": "Median antebrachial vein"
+        },
+        {
+          "letter": "D",
+          "text": "Median cubital vein"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Median antebrachial vein",
+      "explanation": "The palmar venous network gives rise to the median antebrachial vein. This is a superficial vein of the anterior forearm; it drains superficial structures of the forearm and wrist and ascends toward the cubital fossa, where it may divide into median cephalic and median basilic veins in an inverted Y configuration. The dorsal venous network gives rise to the cephalic and basilic veins.",
+      "structuredExplanation": {
+        "text": "The palmar venous network gives rise to the median antebrachial vein. This is a superficial vein of the anterior forearm; it drains superficial structures of the forearm and wrist and ascends toward the cubital fossa, where it may divide into median cephalic and median basilic veins in an inverted Y configuration. The dorsal venous network gives rise to the cephalic and basilic veins.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The palmar venous network gives rise to the median antebrachial vein. This is a superficial vein of the anterior forearm; it drains superficial structures of the forearm and wrist and ascends toward the cubital fossa, where it may divide into median cephalic and median basilic veins in an inverted Y configuration. The dorsal venous network gives rise to the cephalic and basilic veins."
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Superficial veins of the forearm",
+            "source_page": 747,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true,
+            "labels_transcribed": []
+          },
+          {
+            "description": "Venous supply of the dorsum of the hand",
+            "source_page": 747,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true,
+            "labels_transcribed": []
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          736
+        ],
+        "answerKeyPages": [
+          738
+        ],
+        "explanationPages": [
+          746,
+          747
+        ]
+      },
+      "sourcePage": 736,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "transcription_method": "Direct visual review of rendered PDF pages; embedded text was only a helper.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH40_Q012",
+      "sourceQuestionId": "ANAT_CH40_Q012",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "40",
+      "chapter": "Vessels-Upper limb",
+      "questionNumber": 12,
+      "questionType": "single_best_answer",
+      "question": "You are asked to send a blood sample for complete blood count analysis of a clinically anemic patient. Sampling from which of the following vein is preferred?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cephalic vein"
+        },
+        {
+          "letter": "B",
+          "text": "Antecubital vein"
+        },
+        {
+          "letter": "C",
+          "text": "Basilic vein"
+        },
+        {
+          "letter": "D",
+          "text": "Brachial vein"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Antecubital vein",
+      "explanation": "The antecubital vein (median cubital vein) is the preferred vein for direct blood sampling. The source notes that it connects the cephalic and basilic veins at the roof of the cubital fossa, lies superficial to the bicipital aponeurosis and is readily accessible. It is also used for IV injections, blood transfusions and blood withdrawal. The source reviews the cephalic, basilic and brachial veins as alternatives/anatomical relations.",
+      "structuredExplanation": {
+        "text": "The antecubital vein (median cubital vein) is the preferred vein for direct blood sampling. The source notes that it connects the cephalic and basilic veins at the roof of the cubital fossa, lies superficial to the bicipital aponeurosis and is readily accessible. It is also used for IV injections, blood transfusions and blood withdrawal. The source reviews the cephalic, basilic and brachial veins as alternatives/anatomical relations.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The antecubital vein (median cubital vein) is the preferred vein for direct blood sampling. The source notes that it connects the cephalic and basilic veins at the roof of the cubital fossa, lies superficial to the bicipital aponeurosis and is readily accessible. It is also used for IV injections, blood transfusions and blood withdrawal. The source reviews the cephalic, basilic and brachial veins as alternatives/anatomical relations."
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Superficial veins of the forearm and median cubital vein",
+            "source_page": 748,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true,
+            "labels_transcribed": []
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          737
+        ],
+        "answerKeyPages": [
+          738
+        ],
+        "explanationPages": [
+          747,
+          748
+        ]
+      },
+      "sourcePage": 737,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "transcription_method": "Direct visual review of rendered PDF pages; embedded text was only a helper.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH40_Q013",
+      "sourceQuestionId": "ANAT_CH40_Q013",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "40",
+      "chapter": "Vessels-Upper limb",
+      "questionNumber": 13,
+      "questionType": "single_best_answer",
+      "question": "A patient is diagnosed with superficial thrombophlebitis of the cephalic vein. This vein drains into which of the following vessels?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Brachial vein"
+        },
+        {
+          "letter": "B",
+          "text": "Subclavian vein"
+        },
+        {
+          "letter": "C",
+          "text": "Axillary vein"
+        },
+        {
+          "letter": "D",
+          "text": "Basilic vein"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Axillary vein",
+      "explanation": "The cephalic vein drains into the axillary vein. The source describes two routes: direct drainage after piercing the clavipectoral fascia, and a smaller amount through the median cubital vein into the basilic vein and then the axillary vein.",
+      "structuredExplanation": {
+        "text": "The cephalic vein drains into the axillary vein. The source describes two routes: direct drainage after piercing the clavipectoral fascia, and a smaller amount through the median cubital vein into the basilic vein and then the axillary vein.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The cephalic vein drains into the axillary vein. The source describes two routes: direct drainage after piercing the clavipectoral fascia, and a smaller amount through the median cubital vein into the basilic vein and then the axillary vein."
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Veins of the upper limb",
+            "source_page": 749,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true,
+            "labels_transcribed": []
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          737
+        ],
+        "answerKeyPages": [
+          738
+        ],
+        "explanationPages": [
+          748,
+          749
+        ]
+      },
+      "sourcePage": 737,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "transcription_method": "Direct visual review of rendered PDF pages; embedded text was only a helper.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH40_Q014",
+      "sourceQuestionId": "ANAT_CH40_Q014",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "40",
+      "chapter": "Vessels-Upper limb",
+      "questionNumber": 14,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is a pre-axial vein?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cephalic vein"
+        },
+        {
+          "letter": "B",
+          "text": "Basilic vein"
+        },
+        {
+          "letter": "C",
+          "text": "Axillary vein"
+        },
+        {
+          "letter": "D",
+          "text": "Subclavian vein"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Cephalic vein",
+      "explanation": "The cephalic vein is a pre-axial vein. Pre-axial and post-axial borders are named according to their position relative to the limb axis. In the adult upper limb the radial/outer border is pre-axial and carries the cephalic vein, while the ulnar/inner border is post-axial and carries the basilic vein.",
+      "structuredExplanation": {
+        "text": "The cephalic vein is a pre-axial vein. Pre-axial and post-axial borders are named according to their position relative to the limb axis. In the adult upper limb the radial/outer border is pre-axial and carries the cephalic vein, while the ulnar/inner border is post-axial and carries the basilic vein.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The cephalic vein is a pre-axial vein. Pre-axial and post-axial borders are named according to their position relative to the limb axis."
+          },
+          {
+            "type": "table",
+            "table_id": "ANAT_CH40_Q014_T01"
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "ANAT_CH40_Q014_T01",
+            "type": "table",
+            "title": "Pre-axial and post-axial limb borders",
+            "source_page": 749,
+            "columns": [
+              {
+                "key": "stage",
+                "label": ""
+              },
+              {
+                "key": "preaxial",
+                "label": "Pre-axial border"
+              },
+              {
+                "key": "postaxial",
+                "label": "Post-axial border"
+              }
+            ],
+            "rows": [
+              {
+                "stage": "Embryo",
+                "preaxial": "Cranially placed limb border",
+                "postaxial": "Caudally placed limb border"
+              },
+              {
+                "stage": "Adult upper limb",
+                "preaxial": "Outer border / radial aspect; cephalic vein",
+                "postaxial": "Inner border / ulnar aspect; basilic vein"
+              },
+              {
+                "stage": "Adult lower limb",
+                "preaxial": "Inner border; greater saphenous vein",
+                "postaxial": "Outer border; lesser saphenous vein"
+              }
+            ],
+            "layout": {
+              "header_rows": 1,
+              "merged_cells": [],
+              "preserve_row_order": true
+            }
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          737
+        ],
+        "answerKeyPages": [
+          738
+        ],
+        "explanationPages": [
+          749
+        ]
+      },
+      "sourcePage": 737,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "transcription_method": "Direct visual review of rendered PDF pages; embedded text was only a helper.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH40_Q015",
+      "sourceQuestionId": "ANAT_CH40_Q015",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "40",
+      "chapter": "Vessels-Upper limb",
+      "questionNumber": 15,
+      "questionType": "single_best_answer",
+      "question": "A 40-year-old woman with breast carcinoma was planned for a mastectomy. During the procedure, a blue dye was injected to map the flow of lymphatic drainage in the axillary lymph nodes. Which of the following will receive lymphatic drainage from the rest of the axillary lymph node groups?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Central"
+        },
+        {
+          "letter": "B",
+          "text": "Apical"
+        },
+        {
+          "letter": "C",
+          "text": "Lateral"
+        },
+        {
+          "letter": "D",
+          "text": "Posterior"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Apical",
+      "explanation": "The apical group receives lymphatic drainage from the remaining axillary lymph-node groups and is therefore also called the terminal axillary lymph-node group. The source summarizes drainage as anterior, posterior and lateral groups -> central group -> apical group, followed by drainage to supraclavicular nodes.",
+      "structuredExplanation": {
+        "text": "The apical group receives lymphatic drainage from the remaining axillary lymph-node groups and is therefore also called the terminal axillary lymph-node group. The source summarizes drainage as anterior, posterior and lateral groups -> central group -> apical group, followed by drainage to supraclavicular nodes.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The apical group receives lymphatic drainage from the remaining axillary lymph-node groups and is therefore also called the terminal axillary lymph-node group. The source summarizes drainage as anterior, posterior and lateral groups -> central group -> apical group, followed by drainage to supraclavicular nodes."
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Lymphatic drainage of the axilla",
+            "source_page": 750,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true,
+            "labels_transcribed": []
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          737
+        ],
+        "answerKeyPages": [
+          738
+        ],
+        "explanationPages": [
+          750
+        ]
+      },
+      "sourcePage": 737,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "transcription_method": "Direct visual review of rendered PDF pages; embedded text was only a helper.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH40_Q016",
+      "sourceQuestionId": "ANAT_CH40_Q016",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "40",
+      "chapter": "Vessels-Upper limb",
+      "questionNumber": 16,
+      "questionType": "single_best_answer",
+      "question": "Which of the following statements regarding axillary lymph nodes is false?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Posterior group lies along subscapular vessels"
+        },
+        {
+          "letter": "B",
+          "text": "Lateral group lies along lateral thoracic vessels"
+        },
+        {
+          "letter": "C",
+          "text": "Apical group lies along axillary vessels"
+        },
+        {
+          "letter": "D",
+          "text": "Axillary lymph nodes drains trunk above the umbilicus"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Lateral group lies along lateral thoracic vessels",
+      "explanation": "The false statement is that the lateral group lies along the lateral thoracic vessels. The source places the lateral/humeral group posteromedial to the axillary vein, while the anterior/pectoral group lies along the lateral thoracic vessels. Axillary lymph nodes collectively drain the entire upper limb, breast and trunk above the umbilicus. The source divides them into lateral/humeral, anterior/pectoral, posterior/subscapular, central and apical groups and tabulates their locations, afferents and efferents.",
+      "structuredExplanation": {
+        "text": "The false statement is that the lateral group lies along the lateral thoracic vessels. The source places the lateral/humeral group posteromedial to the axillary vein, while the anterior/pectoral group lies along the lateral thoracic vessels. Axillary lymph nodes collectively drain the entire upper limb, breast and trunk above the umbilicus. The source divides them into lateral/humeral, anterior/pectoral, posterior/subscapular, central and apical groups and tabulates their locations, afferents and efferents.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The false statement is that the lateral group lies along the lateral thoracic vessels. The source places the lateral/humeral group posteromedial to the axillary vein, while the anterior/pectoral group lies along the lateral thoracic vessels."
+          },
+          {
+            "type": "paragraph",
+            "text": "Axillary lymph nodes collectively drain the entire upper limb, breast and trunk above the umbilicus."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          },
+          {
+            "type": "table",
+            "table_id": "ANAT_CH40_Q016_T01"
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "ANAT_CH40_Q016_T01",
+            "type": "table",
+            "title": "Axillary lymph-node groups",
+            "source_page": 751,
+            "columns": [
+              {
+                "key": "group",
+                "label": "Group"
+              },
+              {
+                "key": "location",
+                "label": "Location"
+              },
+              {
+                "key": "afferents",
+                "label": "Afferents"
+              },
+              {
+                "key": "efferents",
+                "label": "Efferents"
+              }
+            ],
+            "rows": [
+              {
+                "group": "Humeral / lateral",
+                "location": "Posteromedial to axillary vein",
+                "afferents": "Whole limb except vessels accompanying cephalic vein",
+                "efferents": "Central nodes; apical nodes; inferior deep cervical nodes"
+              },
+              {
+                "group": "Pectoral / anterior",
+                "location": "Along lateral thoracic vessels",
+                "afferents": "Skin and muscles of suprapumbilical anterolateral body wall and breast",
+                "efferents": "Central nodes; apical nodes"
+              },
+              {
+                "group": "Subscapular / posterior",
+                "location": "Along subscapular vessels",
+                "afferents": "Skin and muscles of inferior posterior neck, dorsal trunk and shoulder region",
+                "efferents": "Central nodes; apical nodes"
+              },
+              {
+                "group": "Central",
+                "location": "Embedded in axillary pad of fat",
+                "afferents": "All preceding groups",
+                "efferents": "Apical group"
+              },
+              {
+                "group": "Apical",
+                "location": "Deep to clavipectoral fascia, along axillary vessels",
+                "afferents": "Those accompanying cephalic vein and central-group drainage",
+                "efferents": "Unite as subclavian trunk; right to right lymphatic duct, left to thoracic duct"
+              }
+            ],
+            "layout": {
+              "header_rows": 1,
+              "merged_cells": [],
+              "preserve_row_order": true
+            }
+          }
+        ],
+        "figures": [
+          {
+            "description": "Lymphatic drainage of the axilla",
+            "source_page": 751,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true,
+            "labels_transcribed": []
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          738
+        ],
+        "answerKeyPages": [
+          738
+        ],
+        "explanationPages": [
+          750,
+          751,
+          752
+        ]
+      },
+      "sourcePage": 738,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "transcription_method": "Direct visual review of rendered PDF pages; embedded text was only a helper.",
+        "notes": []
+      }
+    }
+  ]
+}

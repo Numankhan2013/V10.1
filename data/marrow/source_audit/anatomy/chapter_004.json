@@ -1,0 +1,1257 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Derived read-only audit view. Immutable source remains the sharded Marrow bundle.",
+  "subject": "Anatomy",
+  "chapterId": "4",
+  "questionCount": 14,
+  "immutableSourcePrefix": "anatomy_phase_a",
+  "sourceRawSha256": "91668e021be2ea744d8c219da8b7445108dc4cd75e1fafe89b5e48019e04ee67",
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH04_Q001",
+      "sourceQuestionId": "ANAT_CH04_Q001",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "Placenta, Fetal Membranes and Twinning",
+      "questionNumber": 1,
+      "questionType": "single_best_answer",
+      "question": "Identify the structures labeled in the image from 1 to 4.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Decidua basalis, Decidua capsularis, Decidua parietalis, Amniotic cavity"
+        },
+        {
+          "letter": "B",
+          "text": "Decidua parietalis, Decidua capsularis, Decidua basalis, Amniotic cavity"
+        },
+        {
+          "letter": "C",
+          "text": "Decidua basalis, Decidua capsularis, Decidua parietalis, Uterine cavity"
+        },
+        {
+          "letter": "D",
+          "text": "Decidua parietalis, Decidua capsularis, Decidua basalis, Uterine cavity"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Decidua parietalis, Decidua capsularis, Decidua basalis, Uterine cavity",
+      "explanation": "The structures labeled in the above image are (1) Decidua parietalis, (2) Decidua capsularis, (3) Decidua basalis, and (4) Uterine cavity.\n\nThe decidua is the modified endometrium formed under the influence of progesterone and human chorionic gonadotropin (hCG) secreted by the cells of syncytiotrophoblast. After the implantation of the blastocyst, the decidua gets divided into 3 parts as follows:\n• Decidua capsularis: part surrounding the embryo and separating it from the uterine cavity\n• Decidua basalis: part deeper to the developing blastocyst that contributes to the maternal component of the placenta\n• Decidua parietalis: part lining the rest of the uterine cavity\n\nThe image given below shows the parts of decidua.",
+      "structuredExplanation": {
+        "text": "The structures labeled in the above image are (1) Decidua parietalis, (2) Decidua capsularis, (3) Decidua basalis, and (4) Uterine cavity.\n\nThe decidua is the modified endometrium formed under the influence of progesterone and human chorionic gonadotropin (hCG) secreted by the cells of syncytiotrophoblast. After the implantation of the blastocyst, the decidua gets divided into 3 parts as follows:\n• Decidua capsularis: part surrounding the embryo and separating it from the uterine cavity\n• Decidua basalis: part deeper to the developing blastocyst that contributes to the maternal component of the placenta\n• Decidua parietalis: part lining the rest of the uterine cavity\n\nThe image given below shows the parts of decidua.",
+        "tables": [],
+        "figures": [
+          {
+            "type": "labelled_diagram",
+            "title": "Parts of decidua",
+            "source_pages": [
+              46
+            ],
+            "role": "question",
+            "labels_transcribed": [
+              "1 - Decidua parietalis",
+              "2 - Decidua capsularis",
+              "3 - Decidua basalis",
+              "4 - Uterine cavity"
+            ],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.18,
+              "y": 0.23,
+              "width": 0.6,
+              "height": 0.34
+            },
+            "note": "The labelled image is required to interpret the numeric labels in Question 1."
+          },
+          {
+            "type": "diagram",
+            "title": "Parts of decidua",
+            "source_pages": [
+              54
+            ],
+            "role": "explanation",
+            "labels_transcribed": [
+              "Decidua parietalis",
+              "Decidua capsularis",
+              "Decidua basalis",
+              "Uterine cavity"
+            ],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.24,
+              "y": 0.57,
+              "width": 0.52,
+              "height": 0.29
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          46
+        ],
+        "answerKeyPages": [
+          53,
+          54
+        ],
+        "explanationPages": [
+          54
+        ]
+      },
+      "sourcePage": 46,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH04_Q002",
+      "sourceQuestionId": "ANAT_CH04_Q002",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "Placenta, Fetal Membranes and Twinning",
+      "questionNumber": 2,
+      "questionType": "single_best_answer",
+      "question": "Which of the following contributes to the maternal and fetal components of the structure shown below, respectively?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Decidua basalis and chorion laeve"
+        },
+        {
+          "letter": "B",
+          "text": "Decidua capsularis and chorion frondosum"
+        },
+        {
+          "letter": "C",
+          "text": "Decidua capsularis and chorion laeve"
+        },
+        {
+          "letter": "D",
+          "text": "Decidua basalis and chorion frondosum"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Decidua basalis and chorion frondosum",
+      "explanation": "The image shown is of a placenta. The maternal component of the placenta is from the decidua basalis and the fetal component is from the chorion frondosum.\n\nThe placenta is a fetomaternal organ containing tissues from two different sources as follows:\n• Maternal component - contributed by the decidua basalis. The decidua basalis is also referred to as the decidua serotina or decidual plate.\n• Fetal component - contributed by chorion frondosum. The chorionic villi adjacent to the decidua basalis undergo significant development and branching to form a bushy region called chorion frondosum.",
+      "structuredExplanation": {
+        "text": "The image shown is of a placenta. The maternal component of the placenta is from the decidua basalis and the fetal component is from the chorion frondosum.\n\nThe placenta is a fetomaternal organ containing tissues from two different sources as follows:\n• Maternal component - contributed by the decidua basalis. The decidua basalis is also referred to as the decidua serotina or decidual plate.\n• Fetal component - contributed by chorion frondosum. The chorionic villi adjacent to the decidua basalis undergo significant development and branching to form a bushy region called chorion frondosum.",
+        "tables": [],
+        "figures": [
+          {
+            "type": "clinical_image",
+            "title": "Placenta specimen",
+            "source_pages": [
+              47
+            ],
+            "role": "question",
+            "labels_transcribed": [],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.25,
+              "y": 0.06,
+              "width": 0.5,
+              "height": 0.31
+            },
+            "note": "The placental photograph is part of the question and should be retained/cropped for reconstruction."
+          },
+          {
+            "type": "diagram",
+            "title": "Development of placenta",
+            "source_pages": [
+              55
+            ],
+            "role": "explanation",
+            "labels_transcribed": [
+              "Chorion frondosum (Fetal part)",
+              "Decidua basalis (Maternal part)"
+            ],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.28,
+              "y": 0.25,
+              "width": 0.47,
+              "height": 0.28
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          46,
+          47
+        ],
+        "answerKeyPages": [
+          53,
+          54
+        ],
+        "explanationPages": [
+          55
+        ]
+      },
+      "sourcePage": 46,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH04_Q003",
+      "sourceQuestionId": "ANAT_CH04_Q003",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "Placenta, Fetal Membranes and Twinning",
+      "questionNumber": 3,
+      "questionType": "single_best_answer",
+      "question": "Which of the following statements regarding chorionic villi is false?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Primary villi contain cytotrophoblast and syncytiotrophoblast"
+        },
+        {
+          "letter": "B",
+          "text": "Secondary villi contain extraembryonic mesoderm"
+        },
+        {
+          "letter": "C",
+          "text": "Tertiary villi contain extraembryonic mesoderm"
+        },
+        {
+          "letter": "D",
+          "text": "Secondary villi contain fetal capillaries"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Secondary villi contain fetal capillaries",
+      "explanation": "Secondary villi do not contain fetal capillaries. Fetal capillaries are present in tertiary villi.\n\nChorionic villi pass through the following stages during development.",
+      "structuredExplanation": {
+        "text": "Secondary villi do not contain fetal capillaries. Fetal capillaries are present in tertiary villi.\n\nChorionic villi pass through the following stages during development.",
+        "tables": [],
+        "figures": [
+          {
+            "type": "diagram",
+            "title": "Chorionic villi: primary, secondary and tertiary villi",
+            "source_pages": [
+              56
+            ],
+            "role": "explanation",
+            "labels_transcribed": [
+              "Primary villus",
+              "Cytotrophoblast (central core)",
+              "Syncytiotrophoblast (outer layer)",
+              "Secondary villus",
+              "Extraembryonic mesoderm",
+              "Tertiary villus",
+              "Fetal capillaries"
+            ],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.22,
+              "y": 0.06,
+              "width": 0.57,
+              "height": 0.29
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          47
+        ],
+        "answerKeyPages": [
+          53,
+          54
+        ],
+        "explanationPages": [
+          55,
+          56
+        ]
+      },
+      "sourcePage": 47,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH04_Q004",
+      "sourceQuestionId": "ANAT_CH04_Q004",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "Placenta, Fetal Membranes and Twinning",
+      "questionNumber": 4,
+      "questionType": "single_best_answer",
+      "question": "Which of the following are components of the definitive chorion?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cytotrophoblast and syncytiotrophoblast"
+        },
+        {
+          "letter": "B",
+          "text": "Extraembryonic somatic mesoderm and cytotrophoblast"
+        },
+        {
+          "letter": "C",
+          "text": "Extraembryonic somatic mesoderm and syncytiotrophoblast"
+        },
+        {
+          "letter": "D",
+          "text": "Extraembryonic somatic mesoderm, cytotrophoblast, and syncytiotrophoblast"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Extraembryonic somatic mesoderm, cytotrophoblast, and syncytiotrophoblast",
+      "explanation": "The definitive chorion is an extraembryonic membrane composed of three components:\n• Extraembryonic somatic mesoderm\n• Cytotrophoblast\n• Syncytiotrophoblast\n\nIt contributes to the fetal portion of the placenta, including the villi and villus lakes.",
+      "structuredExplanation": {
+        "text": "The definitive chorion is an extraembryonic membrane composed of three components:\n• Extraembryonic somatic mesoderm\n• Cytotrophoblast\n• Syncytiotrophoblast\n\nIt contributes to the fetal portion of the placenta, including the villi and villus lakes.",
+        "tables": [],
+        "figures": [
+          {
+            "type": "diagram",
+            "title": "Definitive chorion",
+            "source_pages": [
+              56
+            ],
+            "role": "explanation",
+            "labels_transcribed": [
+              "Extraembryonic somatic mesoderm",
+              "Cytotrophoblast",
+              "Syncytiotrophoblast"
+            ],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.25,
+              "y": 0.53,
+              "width": 0.53,
+              "height": 0.29
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          47
+        ],
+        "answerKeyPages": [
+          53,
+          54
+        ],
+        "explanationPages": [
+          56
+        ]
+      },
+      "sourcePage": 47,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH04_Q005",
+      "sourceQuestionId": "ANAT_CH04_Q005",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "Placenta, Fetal Membranes and Twinning",
+      "questionNumber": 5,
+      "questionType": "single_best_answer",
+      "question": "Identify the layers marked as A, B, and C, respectively, in the image of the definitive placenta.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Rohr's layer, Langhan's layer, Nitabuch's layer"
+        },
+        {
+          "letter": "B",
+          "text": "Langhan's layer, Rohr's layer, Nitabuch's layer"
+        },
+        {
+          "letter": "C",
+          "text": "Langhan's layer, Nitabuch's layer, Rohr's layer"
+        },
+        {
+          "letter": "D",
+          "text": "Nitabuch's layer, Langhan's layer, Rohr's layer"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Langhan's layer, Rohr's layer, Nitabuch's layer",
+      "explanation": "The structures marked in the above image are (A) Langhan's layer, (B) Rohr's layer, and (C) Nitabuch's layer.\n\nThe definitive placenta consists of the chorionic plate on the fetal aspect and a basal plate on the maternal aspect with the intervillous space between them.\n\nThe structures of the definitive placenta are shown in the image below.",
+      "structuredExplanation": {
+        "text": "The structures marked in the above image are (A) Langhan's layer, (B) Rohr's layer, and (C) Nitabuch's layer.\n\nThe definitive placenta consists of the chorionic plate on the fetal aspect and a basal plate on the maternal aspect with the intervillous space between them.\n\nThe structures of the definitive placenta are shown in the image below.",
+        "tables": [],
+        "figures": [
+          {
+            "type": "labelled_diagram",
+            "title": "Definitive placenta labelled A, B and C",
+            "source_pages": [
+              48
+            ],
+            "role": "question",
+            "labels_transcribed": [
+              "A - Langhan's layer",
+              "B - Rohr's layer",
+              "C - Nitabuch's layer"
+            ],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.28,
+              "y": 0.17,
+              "width": 0.49,
+              "height": 0.29
+            },
+            "note": "This labelled diagram is required to answer Question 5."
+          },
+          {
+            "type": "diagram",
+            "title": "Definitive placenta",
+            "source_pages": [
+              57
+            ],
+            "role": "explanation",
+            "labels_transcribed": [
+              "Basal plate",
+              "Intervillous space",
+              "Chorionic plate",
+              "Stratum spongiosum of decidua basalis containing maternal blood vessels",
+              "Outer syncytiotrophoblast (Nitabuch's layer)",
+              "Cytotrophoblast",
+              "Inner syncytiotrophoblast (Rohr's fibrinoid stria)",
+              "Syncytiotrophoblast",
+              "Cytotrophoblast (Langhans layer)",
+              "Primary mesoderm with fetal blood vessels",
+              "Amnion"
+            ],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.23,
+              "y": 0.18,
+              "width": 0.57,
+              "height": 0.32
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          48
+        ],
+        "answerKeyPages": [
+          53,
+          54
+        ],
+        "explanationPages": [
+          57
+        ]
+      },
+      "sourcePage": 48,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH04_Q006",
+      "sourceQuestionId": "ANAT_CH04_Q006",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "Placenta, Fetal Membranes and Twinning",
+      "questionNumber": 6,
+      "questionType": "single_best_answer",
+      "question": "Identify the structures marked as 1 to 4, respectively, in the chorionic plate of the placental tissue as depicted below.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Amnion, extraembryonic mesoderm, syncytiotrophoblast, cytotrophoblast"
+        },
+        {
+          "letter": "B",
+          "text": "Extraembryonic mesoderm, amnion, syncytiotrophoblast, cytotrophoblast"
+        },
+        {
+          "letter": "C",
+          "text": "Amnion, extraembryonic mesoderm, cytotrophoblast, syncytiotrophoblast"
+        },
+        {
+          "letter": "D",
+          "text": "Extraembryonic mesoderm, amnion, cytotrophoblast, syncytiotrophoblast"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Amnion, extraembryonic mesoderm, cytotrophoblast, syncytiotrophoblast",
+      "explanation": "The structures labeled in the above image of the chorionic plate (fetal component) are (1) amnion, (2) extraembryonic mesoderm, (3) cytotrophoblast, and (4) syncytiotrophoblast.",
+      "structuredExplanation": {
+        "text": "The structures labeled in the above image of the chorionic plate (fetal component) are (1) amnion, (2) extraembryonic mesoderm, (3) cytotrophoblast, and (4) syncytiotrophoblast.",
+        "tables": [],
+        "figures": [
+          {
+            "type": "labelled_diagram",
+            "title": "Chorionic plate of definitive placenta labelled 1–4",
+            "source_pages": [
+              49
+            ],
+            "role": "question",
+            "labels_transcribed": [
+              "1 - Amnion",
+              "2 - Extraembryonic mesoderm",
+              "3 - Cytotrophoblast",
+              "4 - Syncytiotrophoblast"
+            ],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.27,
+              "y": 0.06,
+              "width": 0.5,
+              "height": 0.29
+            },
+            "note": "This labelled diagram is required to interpret the numeric answer choices."
+          },
+          {
+            "type": "diagram",
+            "title": "Definitive placenta (chorionic plate)",
+            "source_pages": [
+              57
+            ],
+            "role": "explanation",
+            "labels_transcribed": [
+              "Amnion",
+              "Extraembryonic mesoderm",
+              "Cytotrophoblast",
+              "Syncytiotrophoblast"
+            ],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.23,
+              "y": 0.59,
+              "width": 0.57,
+              "height": 0.3
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          48,
+          49
+        ],
+        "answerKeyPages": [
+          53,
+          54
+        ],
+        "explanationPages": [
+          57
+        ]
+      },
+      "sourcePage": 48,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH04_Q007",
+      "sourceQuestionId": "ANAT_CH04_Q007",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "Placenta, Fetal Membranes and Twinning",
+      "questionNumber": 7,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is present in the intervillous space of placenta?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Maternal blood"
+        },
+        {
+          "letter": "B",
+          "text": "Fetal blood"
+        },
+        {
+          "letter": "C",
+          "text": "Maternal and fetal blood"
+        },
+        {
+          "letter": "D",
+          "text": "Amniotic fluid"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Maternal blood",
+      "explanation": "The intervillous space between the chorionic plate and the basal plate of the placenta contains only maternal blood. Fetal blood circulates in the blood vessels in the villi.\n\nMaternal blood flows into the lacunar spaces of the syncytiotrophoblast as early as the 9th day of pregnancy. After the formation of chorionic villi, the lacunar space is known as the intervillous space.\n\nEroded uterine spiral arteries empty into the intervillous space and immerse the chorionic villi in maternal blood. In the fully formed placenta, the intervillous spaces contain about 150 mL of blood that is replaced every 15–20 seconds (i.e. three to four times per minute).",
+      "structuredExplanation": {
+        "text": "The intervillous space between the chorionic plate and the basal plate of the placenta contains only maternal blood. Fetal blood circulates in the blood vessels in the villi.\n\nMaternal blood flows into the lacunar spaces of the syncytiotrophoblast as early as the 9th day of pregnancy. After the formation of chorionic villi, the lacunar space is known as the intervillous space.\n\nEroded uterine spiral arteries empty into the intervillous space and immerse the chorionic villi in maternal blood. In the fully formed placenta, the intervillous spaces contain about 150 mL of blood that is replaced every 15–20 seconds (i.e. three to four times per minute).",
+        "tables": [],
+        "figures": [
+          {
+            "type": "diagram",
+            "title": "Definitive placenta and intervillous space",
+            "source_pages": [
+              58
+            ],
+            "role": "explanation",
+            "labels_transcribed": [
+              "Basal plate",
+              "Intervillous space",
+              "Chorionic plate",
+              "Maternal side",
+              "Fetal side"
+            ],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.23,
+              "y": 0.29,
+              "width": 0.57,
+              "height": 0.29
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          49
+        ],
+        "answerKeyPages": [
+          53,
+          54
+        ],
+        "explanationPages": [
+          58
+        ]
+      },
+      "sourcePage": 49,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH04_Q008",
+      "sourceQuestionId": "ANAT_CH04_Q008",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "Placenta, Fetal Membranes and Twinning",
+      "questionNumber": 8,
+      "questionType": "single_best_answer",
+      "question": "Which of the following are macrophages present in the mesoderm of the chorionic villus?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Langhans cells"
+        },
+        {
+          "letter": "B",
+          "text": "Nitabuch's cells"
+        },
+        {
+          "letter": "C",
+          "text": "Hofbauer cells"
+        },
+        {
+          "letter": "D",
+          "text": "Rohr's cells"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Hofbauer cells",
+      "explanation": "Hofbauer cells are fetal-derived macrophages present in the placenta.\n\nHofbauer cells are large (10–30 μm), pleomorphic cells, with highly vacuolated and granular cytoplasm. They are seen in the fetal villi of the placenta from the first trimester of pregnancy until birth.\n\nThe role of Hofbauer cells is not established yet, but they are thought to play a gate-keeper role in preventing the transmission of pathogens from the mother to the fetus.",
+      "structuredExplanation": {
+        "text": "Hofbauer cells are fetal-derived macrophages present in the placenta.\n\nHofbauer cells are large (10–30 μm), pleomorphic cells, with highly vacuolated and granular cytoplasm. They are seen in the fetal villi of the placenta from the first trimester of pregnancy until birth.\n\nThe role of Hofbauer cells is not established yet, but they are thought to play a gate-keeper role in preventing the transmission of pathogens from the mother to the fetus.",
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          49
+        ],
+        "answerKeyPages": [
+          53,
+          54
+        ],
+        "explanationPages": [
+          58
+        ]
+      },
+      "sourcePage": 49,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH04_Q009",
+      "sourceQuestionId": "ANAT_CH04_Q009",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "Placenta, Fetal Membranes and Twinning",
+      "questionNumber": 9,
+      "questionType": "single_best_answer",
+      "question": "Fertilization, as shown in the image, will result in twins that are ____________.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Dizygotic, Bichorial, Biamniotic"
+        },
+        {
+          "letter": "B",
+          "text": "Dizygotic, Monochorial, Biamniotic"
+        },
+        {
+          "letter": "C",
+          "text": "Monozygotic, Monochorial, Biamniotic"
+        },
+        {
+          "letter": "D",
+          "text": "Monozygotic, Monochorial, Monoamniotic"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Dizygotic, Bichorial, Biamniotic",
+      "explanation": "The above image shows the fertilization of two different ova by two different sperms that will result in dizygotic twins, each with its own chorion and amnion (bichorial, biamniotic).\n\nDizygotic twins arise from two oocytes that mature during the same menstrual cycle and are fertilized by two different sperm cells. Thus, dizygotic twins can be of the same or opposite sex.\n\nDizygotic embryos implant separately and develop membranes that are independent of each other. Each twin has its own placenta, its own chorion, and its own amniotic cavity.\n\nDizygotic twins are more common than monozygotic twins. They are also known as fraternal twins, sibling twins, or false twins because genetically they are as different as two separately born siblings of the same biological parents.\n\nThe image given below shows how fertilization occurs in fraternal and identical twins.",
+      "structuredExplanation": {
+        "text": "The above image shows the fertilization of two different ova by two different sperms that will result in dizygotic twins, each with its own chorion and amnion (bichorial, biamniotic).\n\nDizygotic twins arise from two oocytes that mature during the same menstrual cycle and are fertilized by two different sperm cells. Thus, dizygotic twins can be of the same or opposite sex.\n\nDizygotic embryos implant separately and develop membranes that are independent of each other. Each twin has its own placenta, its own chorion, and its own amniotic cavity.\n\nDizygotic twins are more common than monozygotic twins. They are also known as fraternal twins, sibling twins, or false twins because genetically they are as different as two separately born siblings of the same biological parents.\n\nThe image given below shows how fertilization occurs in fraternal and identical twins.",
+        "tables": [],
+        "figures": [
+          {
+            "type": "diagram",
+            "title": "Fertilization producing dizygotic twins",
+            "source_pages": [
+              50
+            ],
+            "role": "question",
+            "labels_transcribed": [],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.23,
+              "y": 0.14,
+              "width": 0.53,
+              "height": 0.31
+            },
+            "note": "The image shows two ova fertilized by two different sperms and is essential to the question."
+          },
+          {
+            "type": "diagram",
+            "title": "Fraternal and identical twins",
+            "source_pages": [
+              59
+            ],
+            "role": "explanation",
+            "labels_transcribed": [
+              "Fraternal twins",
+              "Identical twins",
+              "Fertilization",
+              "Cell divides"
+            ],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.24,
+              "y": 0.21,
+              "width": 0.53,
+              "height": 0.3
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          50
+        ],
+        "answerKeyPages": [
+          53,
+          54
+        ],
+        "explanationPages": [
+          58,
+          59
+        ]
+      },
+      "sourcePage": 50,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH04_Q010",
+      "sourceQuestionId": "ANAT_CH04_Q010",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "Placenta, Fetal Membranes and Twinning",
+      "questionNumber": 10,
+      "questionType": "single_best_answer",
+      "question": "On USG examination of a pregnant woman at 15 weeks gestation, the following finding was noted. Which of the following events will result in the development of this condition?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Early blastomere separation"
+        },
+        {
+          "letter": "B",
+          "text": "Duplication of inner cell mass before amniotic sac formation"
+        },
+        {
+          "letter": "C",
+          "text": "Duplication of embryonic disc between 4 - 7 days after fertilization"
+        },
+        {
+          "letter": "D",
+          "text": "Duplication of embryonic disc between 8 - 12 days after fertilization"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Duplication of embryonic disc between 8 - 12 days after fertilization",
+      "explanation": "The USG examination is suggestive of monozygotic, monochorionic, monoamniotic twins. Duplication of the embryonic disc between the 8-12 days after fertilization will result in the development of this condition.\n\nAt this stage, the amniotic sac is already formed. In this case, the two fetuses share a common chorion and common amniotic cavity.\n\nThe image given below shows a diagrammatic representation of the placentation.",
+      "structuredExplanation": {
+        "text": "The USG examination is suggestive of monozygotic, monochorionic, monoamniotic twins. Duplication of the embryonic disc between the 8-12 days after fertilization will result in the development of this condition.\n\nAt this stage, the amniotic sac is already formed. In this case, the two fetuses share a common chorion and common amniotic cavity.\n\nThe image given below shows a diagrammatic representation of the placentation.",
+        "tables": [],
+        "figures": [
+          {
+            "type": "ultrasound",
+            "title": "Twin pregnancy ultrasound",
+            "source_pages": [
+              51
+            ],
+            "role": "question",
+            "labels_transcribed": [],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.25,
+              "y": 0.07,
+              "width": 0.5,
+              "height": 0.3
+            },
+            "note": "The ultrasound finding is part of the question and should be preserved."
+          },
+          {
+            "type": "diagram",
+            "title": "Placentation and timing of monozygotic separation",
+            "source_pages": [
+              60
+            ],
+            "role": "explanation",
+            "labels_transcribed": [
+              "Cleavage Days 1–3 - Dichorionic/Diamniotic",
+              "Cleavage Days 4–8 - Monochorionic/Diamniotic",
+              "Cleavage Days 8–13 - Monochorionic/Monoamniotic",
+              "Cleavage Days 13–15 - Conjoined twins"
+            ],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.25,
+              "y": 0.05,
+              "width": 0.51,
+              "height": 0.31
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          50,
+          51
+        ],
+        "answerKeyPages": [
+          53,
+          54
+        ],
+        "explanationPages": [
+          59,
+          60
+        ]
+      },
+      "sourcePage": 50,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH04_Q011",
+      "sourceQuestionId": "ANAT_CH04_Q011",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "Placenta, Fetal Membranes and Twinning",
+      "questionNumber": 11,
+      "questionType": "single_best_answer",
+      "question": "The following finding was noted in the twins that were delivered a couple of hours ago. Identify the condition.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Heteropagous"
+        },
+        {
+          "letter": "B",
+          "text": "Xiphipagous"
+        },
+        {
+          "letter": "C",
+          "text": "Omphalopagous"
+        },
+        {
+          "letter": "D",
+          "text": "Pygopagus"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Pygopagus",
+      "explanation": "The image shows conjoined twins with fusion in the sacral region, which is known as the pygopagus.\n\nIn monochorionic monoamniotic twinning, incomplete duplication of the embryonic disc can occur. Incomplete separation of the monozygotic twins results in the birth of two infants that are joined or fused together at some part of the body. These twins are known as conjoined twins or Siamese twins.\n\nDepending on the degree of incomplete separation, different types of conjoined twins can form.",
+      "structuredExplanation": {
+        "text": "The image shows conjoined twins with fusion in the sacral region, which is known as the pygopagus.\n\nIn monochorionic monoamniotic twinning, incomplete duplication of the embryonic disc can occur. Incomplete separation of the monozygotic twins results in the birth of two infants that are joined or fused together at some part of the body. These twins are known as conjoined twins or Siamese twins.\n\nDepending on the degree of incomplete separation, different types of conjoined twins can form.",
+        "tables": [],
+        "figures": [
+          {
+            "type": "clinical_image",
+            "title": "Conjoined twins fused in sacral region (pygopagus)",
+            "source_pages": [
+              51
+            ],
+            "role": "question",
+            "labels_transcribed": [],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.25,
+              "y": 0.59,
+              "width": 0.5,
+              "height": 0.27
+            },
+            "note": "The paired clinical photographs are part of the question and are required for identification."
+          },
+          {
+            "type": "diagram",
+            "title": "Types of conjoined twins",
+            "source_pages": [
+              60
+            ],
+            "role": "explanation",
+            "labels_transcribed": [],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.24,
+              "y": 0.58,
+              "width": 0.55,
+              "height": 0.28
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          51,
+          52
+        ],
+        "answerKeyPages": [
+          53,
+          54
+        ],
+        "explanationPages": [
+          60
+        ]
+      },
+      "sourcePage": 51,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH04_Q012",
+      "sourceQuestionId": "ANAT_CH04_Q012",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "Placenta, Fetal Membranes and Twinning",
+      "questionNumber": 12,
+      "questionType": "single_best_answer",
+      "question": "A pregnant lady comes for a routine antenatal checkup during the first trimester. USG examination reveals the following finding. Identify the type of twins in this patient.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Dichorionic, monoamniotic"
+        },
+        {
+          "letter": "B",
+          "text": "Dichorionic, Diamniotic"
+        },
+        {
+          "letter": "C",
+          "text": "Monochorionic, Diamniotic"
+        },
+        {
+          "letter": "D",
+          "text": "Monochorionic, Monoamniotic"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Dichorionic, Diamniotic",
+      "explanation": "The given scenario is suggestive of dichorionic, diamniotic twins. The image shows two separate amniotic cavities (diamniotic) and lambda sign (dichorionic).\n\nIn dichorionic twins, there is a thick triangular projection of placental tissue between the two gestational sacs. This is known as the lambda sign or twin peak sign. The following image shows the lambda/twin peak.\n\nDichorial, diamniotic twins can occur in 2 instances:\n• Dizygotic twins: The two fertilized ova get implanted at two separate sites and develop separate chorion and two separate amniotic cavities\n• Monozygotic twins: With early blastomere separation (up to 3rd day after fertilization), the two embryos formed will have separate chorionic and amniotic sacs, similar to dizygotic twins.",
+      "structuredExplanation": {
+        "text": "The given scenario is suggestive of dichorionic, diamniotic twins. The image shows two separate amniotic cavities (diamniotic) and lambda sign (dichorionic).\n\nIn dichorionic twins, there is a thick triangular projection of placental tissue between the two gestational sacs. This is known as the lambda sign or twin peak sign. The following image shows the lambda/twin peak.\n\nDichorial, diamniotic twins can occur in 2 instances:\n• Dizygotic twins: The two fertilized ova get implanted at two separate sites and develop separate chorion and two separate amniotic cavities\n• Monozygotic twins: With early blastomere separation (up to 3rd day after fertilization), the two embryos formed will have separate chorionic and amniotic sacs, similar to dizygotic twins.",
+        "tables": [],
+        "figures": [
+          {
+            "type": "ultrasound",
+            "title": "Twin pregnancy ultrasound showing lambda/twin-peak sign",
+            "source_pages": [
+              52
+            ],
+            "role": "question",
+            "labels_transcribed": [],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.25,
+              "y": 0.28,
+              "width": 0.5,
+              "height": 0.28
+            },
+            "note": "The ultrasound image is essential to identify dichorionic diamniotic twins."
+          },
+          {
+            "type": "ultrasound",
+            "title": "Lambda sign / Twin peak sign",
+            "source_pages": [
+              61
+            ],
+            "role": "explanation",
+            "labels_transcribed": [
+              "Lambda sign/Twin peak sign"
+            ],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.25,
+              "y": 0.25,
+              "width": 0.51,
+              "height": 0.25
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          52
+        ],
+        "answerKeyPages": [
+          53,
+          54
+        ],
+        "explanationPages": [
+          61
+        ]
+      },
+      "sourcePage": 52,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH04_Q013",
+      "sourceQuestionId": "ANAT_CH04_Q013",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "Placenta, Fetal Membranes and Twinning",
+      "questionNumber": 13,
+      "questionType": "single_best_answer",
+      "question": "A 37-year-old man is diagnosed with renal failure and is advised to undergo renal transplantation. The patient has a twin brother who is willing to donate his kidney. Which of the following types of twins are HLA identical, hence the recipient twin does not require immunosuppression?\n\n1. Dichorionic diamniotic monozygotic twins\n2. Monochorionic diamniotic monozygotic twins\n3. Monochorionic monoamniotic monozygotic twins",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1 only"
+        },
+        {
+          "letter": "B",
+          "text": "2 and 3"
+        },
+        {
+          "letter": "C",
+          "text": "3 only"
+        },
+        {
+          "letter": "D",
+          "text": "1, 2, and 3"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "1, 2, and 3",
+      "explanation": "All monozygotic twins are of the same gender, genetically identical, have identical HLA genes, regardless of the stage of separation of the cell mass.\n\nAll monozygotic twins develop from a single zygote that is formed as a result of the fertilization of a single oocyte with a single sperm. At a later stage, there is a separation of the blastomeres, inner cell mass, or embryonic disc to give rise to twins. Since they are formed from a single zygote, the twins have similar genetic composition.",
+      "structuredExplanation": {
+        "text": "All monozygotic twins are of the same gender, genetically identical, have identical HLA genes, regardless of the stage of separation of the cell mass.\n\nAll monozygotic twins develop from a single zygote that is formed as a result of the fertilization of a single oocyte with a single sperm. At a later stage, there is a separation of the blastomeres, inner cell mass, or embryonic disc to give rise to twins. Since they are formed from a single zygote, the twins have similar genetic composition.",
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          52
+        ],
+        "answerKeyPages": [
+          53,
+          54
+        ],
+        "explanationPages": [
+          61
+        ]
+      },
+      "sourcePage": 52,
+      "reviewStatus": "resolved_reconstruction",
+      "reviewNotes": [
+        "The rendered source question lists answer choices using numerals 1, 2, and 3, but the definitions/list corresponding to 1–3 are not visible on the question page. No missing list was reconstructed or invented. The answer key marks option D and the source explanation states that all monozygotic twins are HLA identical regardless of the stage of separation.",
+        "Known accepted reconstruction retained from the Marrow pilot: the three monozygotic twin categories were restored from the explanation context."
+      ],
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": false,
+        "notes": [
+          "The rendered source question lists answer choices using numerals 1, 2, and 3, but the definitions/list corresponding to 1–3 are not visible on the question page. No missing list was reconstructed or invented. The answer key marks option D and the source explanation states that all monozygotic twins are HLA identical regardless of the stage of separation."
+        ]
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH04_Q014",
+      "sourceQuestionId": "ANAT_CH04_Q014",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "4",
+      "chapter": "Placenta, Fetal Membranes and Twinning",
+      "questionNumber": 14,
+      "questionType": "single_best_answer",
+      "question": "Identify the type of twin babies shown in the image below.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Dizygotic"
+        },
+        {
+          "letter": "B",
+          "text": "Monozygotic, Bichorial, Biamniotic"
+        },
+        {
+          "letter": "C",
+          "text": "Monozygotic, Monochorial, Biamniotic"
+        },
+        {
+          "letter": "D",
+          "text": "Monozygotic, Monochorial, Monoamniotic"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Monozygotic, Monochorial, Monoamniotic",
+      "explanation": "The image shows monozygotic, monochorial, monoamniotic twins. It depicts that a single zygote has separated between 8-13 days and therefore resulted in twins implanted at one site, having the same chorion and having a single amniotic cavity.\n\nThe monozygotic, monochorionic, monoamniotic twins develop due to the duplication of the embryonic disc after the amniotic sac is already formed, i.e., between the 8th and 12th day after fertilization.",
+      "structuredExplanation": {
+        "text": "The image shows monozygotic, monochorial, monoamniotic twins. It depicts that a single zygote has separated between 8-13 days and therefore resulted in twins implanted at one site, having the same chorion and having a single amniotic cavity.\n\nThe monozygotic, monochorionic, monoamniotic twins develop due to the duplication of the embryonic disc after the amniotic sac is already formed, i.e., between the 8th and 12th day after fertilization.",
+        "tables": [],
+        "figures": [
+          {
+            "type": "diagram",
+            "title": "Monozygotic monochorial monoamniotic twins after cleavage on days 8–13",
+            "source_pages": [
+              53
+            ],
+            "role": "question",
+            "labels_transcribed": [
+              "Implanted",
+              "Cleavage",
+              "Days 8–13"
+            ],
+            "crop_hint": {
+              "coordinate_system": "normalized_0_to_1",
+              "approximate": true,
+              "x": 0.2,
+              "y": 0.16,
+              "width": 0.58,
+              "height": 0.31
+            },
+            "note": "The timing and shared-sac diagram is part of Question 14 and is essential for reconstruction."
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          53
+        ],
+        "answerKeyPages": [
+          53,
+          54
+        ],
+        "explanationPages": [
+          61,
+          62
+        ]
+      },
+      "sourcePage": 53,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "visually_reviewed": true,
+        "normalized": true,
+        "notes": []
+      }
+    }
+  ]
+}

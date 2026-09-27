@@ -1,0 +1,2253 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Derived read-only audit view. Immutable source remains the sharded Marrow bundle.",
+  "subject": "Anatomy",
+  "chapterId": "39",
+  "questionCount": 23,
+  "immutableSourcePrefix": "anatomy_phase_a",
+  "sourceRawSha256": "91668e021be2ea744d8c219da8b7445108dc4cd75e1fafe89b5e48019e04ee67",
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH39_Q001",
+      "sourceQuestionId": "ANAT_CH39_Q001",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 1,
+      "questionType": "single_best_answer",
+      "question": "A 22-year-old presented with pain and stiffness in the neck following a blow with a hockey stick. On examination, the right shoulder is drooping. Which of the following muscles is likely to be paralyzed?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Trapezius"
+        },
+        {
+          "letter": "B",
+          "text": "Deltoid"
+        },
+        {
+          "letter": "C",
+          "text": "Latissimus dorsi"
+        },
+        {
+          "letter": "D",
+          "text": "Serratus anterior"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Trapezius",
+      "explanation": "Drooping of the shoulder is due to paralysis of the trapezius muscle. Trapezius is innervated by the spinal accessory nerve (CN XI).\n\nIts actions include retraction of the scapula, shrugging the shoulder, and overhead abduction together with serratus anterior. Paralysis causes shoulder droop and slight winging, with prominence of the superior angle of the scapula.",
+      "structuredExplanation": {
+        "text": "Drooping of the shoulder is due to paralysis of the trapezius muscle. Trapezius is innervated by the spinal accessory nerve (CN XI).\n\nIts actions include retraction of the scapula, shrugging the shoulder, and overhead abduction together with serratus anterior. Paralysis causes shoulder droop and slight winging, with prominence of the superior angle of the scapula.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Drooping of the shoulder is due to paralysis of the trapezius muscle. Trapezius is innervated by the spinal accessory nerve (CN XI)."
+          },
+          {
+            "type": "paragraph",
+            "text": "Its actions include retraction of the scapula, shrugging the shoulder, and overhead abduction together with serratus anterior. Paralysis causes shoulder droop and slight winging, with prominence of the superior angle of the scapula."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Superficial muscles of the back / trapezius innervation",
+            "source_pages": [
+              714
+            ],
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          703
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          713,
+          714
+        ]
+      },
+      "sourcePage": 703,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q002",
+      "sourceQuestionId": "ANAT_CH39_Q002",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 2,
+      "questionType": "single_best_answer",
+      "question": "All the following nerves can cause winging of the scapula if injured, except:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Dorsal scapular nerve"
+        },
+        {
+          "letter": "B",
+          "text": "Spinal accessory nerve"
+        },
+        {
+          "letter": "C",
+          "text": "Long thoracic nerve"
+        },
+        {
+          "letter": "D",
+          "text": "Thoracodorsal nerve"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Thoracodorsal nerve",
+      "explanation": "The thoracodorsal nerve does not cause winging of the scapula. It supplies latissimus dorsi; injury impairs extension, adduction, and medial rotation of the arm.",
+      "structuredExplanation": {
+        "text": "The thoracodorsal nerve does not cause winging of the scapula. It supplies latissimus dorsi; injury impairs extension, adduction, and medial rotation of the arm.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The thoracodorsal nerve does not cause winging of the scapula. It supplies latissimus dorsi; injury impairs extension, adduction, and medial rotation of the arm."
+          },
+          {
+            "type": "table",
+            "table_id": "ANAT_CH39_Q002_T1"
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "ANAT_CH39_Q002_T1",
+            "title": "Nerves causing winging of scapula",
+            "source_pages": [
+              714,
+              716
+            ],
+            "columns": [
+              "Nerve",
+              "Muscles supplied",
+              "Characteristic winging"
+            ],
+            "rows": [
+              [
+                "Spinal accessory nerve",
+                "Trapezius and sternocleidomastoid",
+                "Superior angle becomes more prominent; lateral winging"
+              ],
+              [
+                "Long thoracic nerve",
+                "Serratus anterior",
+                "Scapula is pulled upward and toward the spine by unopposed trapezius; medial winging"
+              ],
+              [
+                "Dorsal scapular nerve",
+                "Levator scapulae, rhomboid major and rhomboid minor",
+                "Mild winging similar to serratus anterior palsy"
+              ]
+            ],
+            "layout": "native 3-column table"
+          }
+        ],
+        "figures": [
+          {
+            "description": "Superficial muscles of the back - innervation",
+            "source_pages": [
+              715
+            ],
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          703
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          714,
+          715
+        ]
+      },
+      "sourcePage": 703,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q003",
+      "sourceQuestionId": "ANAT_CH39_Q003",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 3,
+      "questionType": "single_best_answer",
+      "question": "A 32-year-old male was brought to the emergency department after being injured in mob violence. The patient had a penetrating injury in the right shoulder region by a sharp glass piece. On examination, there was drooping of the right shoulder associated with winging of the scapula. Which of the following nerves is likely to be injured?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Long thoracic nerve"
+        },
+        {
+          "letter": "B",
+          "text": "Thoracodorsal nerve"
+        },
+        {
+          "letter": "C",
+          "text": "Spinal accessory nerve"
+        },
+        {
+          "letter": "D",
+          "text": "Dorsal scapular nerve"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Spinal accessory nerve",
+      "explanation": "Spinal accessory nerve injury can cause both drooping of the shoulder and winging of the scapula because it denervates trapezius.\n\nTrapezius retracts the scapula, shrugs the shoulder, and contributes to overhead abduction with serratus anterior.",
+      "structuredExplanation": {
+        "text": "Spinal accessory nerve injury can cause both drooping of the shoulder and winging of the scapula because it denervates trapezius.\n\nTrapezius retracts the scapula, shrugs the shoulder, and contributes to overhead abduction with serratus anterior.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Spinal accessory nerve injury can cause both drooping of the shoulder and winging of the scapula because it denervates trapezius."
+          },
+          {
+            "type": "paragraph",
+            "text": "Trapezius retracts the scapula, shrugs the shoulder, and contributes to overhead abduction with serratus anterior."
+          },
+          {
+            "type": "table",
+            "table_id": "ANAT_CH39_Q002_T1"
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "ANAT_CH39_Q002_T1",
+            "title": "Nerves causing winging of scapula",
+            "source_pages": [
+              714,
+              716
+            ],
+            "columns": [
+              "Nerve",
+              "Muscles supplied",
+              "Characteristic winging"
+            ],
+            "rows": [
+              [
+                "Spinal accessory nerve",
+                "Trapezius and sternocleidomastoid",
+                "Superior angle becomes more prominent; lateral winging"
+              ],
+              [
+                "Long thoracic nerve",
+                "Serratus anterior",
+                "Scapula is pulled upward and toward the spine by unopposed trapezius; medial winging"
+              ],
+              [
+                "Dorsal scapular nerve",
+                "Levator scapulae, rhomboid major and rhomboid minor",
+                "Mild winging similar to serratus anterior palsy"
+              ]
+            ],
+            "layout": "native 3-column table"
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          703
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          715,
+          716
+        ]
+      },
+      "sourcePage": 703,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q004",
+      "sourceQuestionId": "ANAT_CH39_Q004",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 4,
+      "questionType": "single_best_answer",
+      "question": "Which of the following muscles will not be involved in a patient with full-thickness rotator cuff tear?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Teres minor"
+        },
+        {
+          "letter": "B",
+          "text": "Teres major"
+        },
+        {
+          "letter": "C",
+          "text": "Infraspinatus"
+        },
+        {
+          "letter": "D",
+          "text": "Subscapularis"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Teres major",
+      "explanation": "Teres major is not a rotator-cuff muscle. The rotator cuff is the SITS group: supraspinatus, infraspinatus, teres minor, and subscapularis; these muscles stabilize the shoulder.",
+      "structuredExplanation": {
+        "text": "Teres major is not a rotator-cuff muscle. The rotator cuff is the SITS group: supraspinatus, infraspinatus, teres minor, and subscapularis; these muscles stabilize the shoulder.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Teres major is not a rotator-cuff muscle. The rotator cuff is the SITS group: supraspinatus, infraspinatus, teres minor, and subscapularis; these muscles stabilize the shoulder."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Rotator cuff muscles diagram",
+            "source_pages": [
+              716
+            ],
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          703,
+          704
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          716
+        ]
+      },
+      "sourcePage": 703,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q005",
+      "sourceQuestionId": "ANAT_CH39_Q005",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 5,
+      "questionType": "single_best_answer",
+      "question": "What is the nerve supply to the muscle marked in the diagram below?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Axillary nerve"
+        },
+        {
+          "letter": "B",
+          "text": "Lower subscapular nerve"
+        },
+        {
+          "letter": "C",
+          "text": "Suprascapular nerve"
+        },
+        {
+          "letter": "D",
+          "text": "Radial nerve"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Lower subscapular nerve",
+      "explanation": "The marked muscle is teres major and it is supplied by the lower subscapular nerve.",
+      "structuredExplanation": {
+        "text": "The marked muscle is teres major and it is supplied by the lower subscapular nerve.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The marked muscle is teres major and it is supplied by the lower subscapular nerve."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          },
+          {
+            "type": "figure",
+            "figure_index": 1
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Upper-limb shoulder muscles with teres major marked",
+            "source_pages": [
+              704
+            ],
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          },
+          {
+            "description": "Muscles around shoulder diagram",
+            "source_pages": [
+              717
+            ],
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          704
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          716,
+          717
+        ]
+      },
+      "sourcePage": 704,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q006",
+      "sourceQuestionId": "ANAT_CH39_Q006",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 6,
+      "questionType": "single_best_answer",
+      "question": "Following radical mastectomy, the patient is unable to extend, adduct, and internally rotate the arm. Innervation to which of the following muscles is likely to be damaged?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Deltoid"
+        },
+        {
+          "letter": "B",
+          "text": "Teres minor"
+        },
+        {
+          "letter": "C",
+          "text": "Latissimus dorsi"
+        },
+        {
+          "letter": "D",
+          "text": "Pectoralis major"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Latissimus dorsi",
+      "explanation": "Latissimus dorsi is most likely affected. It is innervated by the thoracodorsal nerve, which may be injured during radical mastectomy.\n\nLatissimus dorsi extends, adducts, and medially rotates the arm.",
+      "structuredExplanation": {
+        "text": "Latissimus dorsi is most likely affected. It is innervated by the thoracodorsal nerve, which may be injured during radical mastectomy.\n\nLatissimus dorsi extends, adducts, and medially rotates the arm.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Latissimus dorsi is most likely affected. It is innervated by the thoracodorsal nerve, which may be injured during radical mastectomy."
+          },
+          {
+            "type": "paragraph",
+            "text": "Latissimus dorsi extends, adducts, and medially rotates the arm."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          704,
+          705
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          717,
+          718
+        ]
+      },
+      "sourcePage": 704,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q007",
+      "sourceQuestionId": "ANAT_CH39_Q007",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 7,
+      "questionType": "single_best_answer",
+      "question": "Which of the following muscles is not involved in the overhead abduction of the arm?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Serratus anterior"
+        },
+        {
+          "letter": "B",
+          "text": "Deltoid"
+        },
+        {
+          "letter": "C",
+          "text": "Trapezius"
+        },
+        {
+          "letter": "D",
+          "text": "Pectoralis major"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Pectoralis major",
+      "explanation": "Pectoralis major mainly adducts and medially rotates the arm and is not involved in shoulder abduction.\n\nThe first 15 degrees of abduction is initiated by supraspinatus; approximately 15-90 degrees is carried mainly by the middle deltoid; beyond 90 degrees, rotation of the shoulder girdle by trapezius and serratus anterior contributes.",
+      "structuredExplanation": {
+        "text": "Pectoralis major mainly adducts and medially rotates the arm and is not involved in shoulder abduction.\n\nThe first 15 degrees of abduction is initiated by supraspinatus; approximately 15-90 degrees is carried mainly by the middle deltoid; beyond 90 degrees, rotation of the shoulder girdle by trapezius and serratus anterior contributes.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Pectoralis major mainly adducts and medially rotates the arm and is not involved in shoulder abduction."
+          },
+          {
+            "type": "paragraph",
+            "text": "The first 15 degrees of abduction is initiated by supraspinatus; approximately 15-90 degrees is carried mainly by the middle deltoid; beyond 90 degrees, rotation of the shoulder girdle by trapezius and serratus anterior contributes."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          705
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          718
+        ]
+      },
+      "sourcePage": 705,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q008",
+      "sourceQuestionId": "ANAT_CH39_Q008",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 8,
+      "questionType": "single_best_answer",
+      "question": "A 38-year-old man had recently joined a gym to improve his physical health. He attempted to lift a 30 kg dumbbell but developed sudden pain in his right arm. He came to the casualty with an abnormal bulge over his arm as shown in the image below. Which of the following tendons is most likely to be injured?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Brachialis tendon"
+        },
+        {
+          "letter": "B",
+          "text": "Distal tendon of biceps"
+        },
+        {
+          "letter": "C",
+          "text": "Proximal tendon of biceps"
+        },
+        {
+          "letter": "D",
+          "text": "Long belly of biceps"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Proximal tendon of biceps",
+      "explanation": "The image shows the Popeye sign, classically seen with proximal biceps tendon rupture. The bulge becomes prominent on elbow flexion as the unrestrained muscle fibres contract.\n\nProximal biceps tendon rupture makes up the large majority of biceps tendon ruptures and often has little effect on overall upper-limb function but produces the characteristic deformity.\n\nThe source notes common tendon-rupture sites including quadriceps, Achilles, rotator cuff (especially supraspinatus), and biceps.",
+      "structuredExplanation": {
+        "text": "The image shows the Popeye sign, classically seen with proximal biceps tendon rupture. The bulge becomes prominent on elbow flexion as the unrestrained muscle fibres contract.\n\nProximal biceps tendon rupture makes up the large majority of biceps tendon ruptures and often has little effect on overall upper-limb function but produces the characteristic deformity.\n\nThe source notes common tendon-rupture sites including quadriceps, Achilles, rotator cuff (especially supraspinatus), and biceps.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The image shows the Popeye sign, classically seen with proximal biceps tendon rupture. The bulge becomes prominent on elbow flexion as the unrestrained muscle fibres contract."
+          },
+          {
+            "type": "paragraph",
+            "text": "Proximal biceps tendon rupture makes up the large majority of biceps tendon ruptures and often has little effect on overall upper-limb function but produces the characteristic deformity."
+          },
+          {
+            "type": "paragraph",
+            "text": "The source notes common tendon-rupture sites including quadriceps, Achilles, rotator cuff (especially supraspinatus), and biceps."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Clinical image showing Popeye sign",
+            "source_pages": [
+              705
+            ],
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          705
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          718,
+          719
+        ]
+      },
+      "sourcePage": 705,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q009",
+      "sourceQuestionId": "ANAT_CH39_Q009",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 9,
+      "questionType": "single_best_answer",
+      "question": "Which of the following muscles cross both the shoulder and elbow joint?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Brachialis and biceps brachii"
+        },
+        {
+          "letter": "B",
+          "text": "Coracobrachialis and biceps brachii"
+        },
+        {
+          "letter": "C",
+          "text": "Long head of triceps and brachialis"
+        },
+        {
+          "letter": "D",
+          "text": "Long head of triceps and biceps brachii"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Long head of triceps and biceps brachii",
+      "explanation": "The long head of triceps and biceps brachii cross both the shoulder and elbow joints and therefore act at both joints.",
+      "structuredExplanation": {
+        "text": "The long head of triceps and biceps brachii cross both the shoulder and elbow joints and therefore act at both joints.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The long head of triceps and biceps brachii cross both the shoulder and elbow joints and therefore act at both joints."
+          },
+          {
+            "type": "table",
+            "table_id": "ANAT_CH39_Q009_T1"
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "ANAT_CH39_Q009_T1",
+            "title": "Muscles of the arm: attachments and innervation",
+            "source_page": 719,
+            "columns": [
+              "Compartment / Muscle",
+              "Origin",
+              "Insertion",
+              "Innervation"
+            ],
+            "rows": [
+              [
+                "Anterior - Coracobrachialis",
+                "Coracoid process of scapula",
+                "Medial side of midshaft of humerus",
+                "Musculocutaneous nerve"
+              ],
+              [
+                "Anterior - Brachialis",
+                "Distal half of anterior humerus",
+                "Ulnar tuberosity",
+                "Musculocutaneous and radial nerves"
+              ],
+              [
+                "Anterior - Biceps brachii",
+                "Short head: coracoid process; Long head: supraglenoid tubercle",
+                "Radial tuberosity",
+                "Musculocutaneous nerve"
+              ],
+              [
+                "Posterior - Triceps brachii",
+                "Long head: infraglenoid tubercle; medial/lateral heads: posterior humerus",
+                "Olecranon process of ulna",
+                "Radial nerve"
+              ]
+            ],
+            "layout": "native multi-column table"
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          706
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          719
+        ]
+      },
+      "sourcePage": 706,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q010",
+      "sourceQuestionId": "ANAT_CH39_Q010",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 10,
+      "questionType": "single_best_answer",
+      "question": "The structure pierced by the nerve in the diagram below is:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Short head of biceps"
+        },
+        {
+          "letter": "B",
+          "text": "Long head of biceps"
+        },
+        {
+          "letter": "C",
+          "text": "Coracobrachialis"
+        },
+        {
+          "letter": "D",
+          "text": "Medial head of triceps"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Coracobrachialis",
+      "explanation": "The nerve shown is the musculocutaneous nerve. In the axilla it pierces coracobrachialis, innervates it, and then passes through the muscle into the arm to supply the anterior arm muscles including biceps brachii and brachialis.",
+      "structuredExplanation": {
+        "text": "The nerve shown is the musculocutaneous nerve. In the axilla it pierces coracobrachialis, innervates it, and then passes through the muscle into the arm to supply the anterior arm muscles including biceps brachii and brachialis.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The nerve shown is the musculocutaneous nerve. In the axilla it pierces coracobrachialis, innervates it, and then passes through the muscle into the arm to supply the anterior arm muscles including biceps brachii and brachialis."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Musculocutaneous nerve piercing coracobrachialis",
+            "source_pages": [
+              706
+            ],
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          706
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          720
+        ]
+      },
+      "sourcePage": 706,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q011",
+      "sourceQuestionId": "ANAT_CH39_Q011",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 11,
+      "questionType": "single_best_answer",
+      "question": "Which muscle is attached to the area marked in the diagram below?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Biceps brachii"
+        },
+        {
+          "letter": "B",
+          "text": "Brachialis"
+        },
+        {
+          "letter": "C",
+          "text": "Brachioradialis"
+        },
+        {
+          "letter": "D",
+          "text": "Long head of triceps"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Biceps brachii",
+      "explanation": "The image shows the radius, identified by the radial head. The marked raised area is the radial tuberosity, which receives the insertion of biceps brachii.\n\nThe short head of biceps arises from the coracoid process and the long head from the supraglenoid tubercle; both unite into a tendon that inserts on the radial tuberosity. Innervation is by the musculocutaneous nerve (C5-C6).",
+      "structuredExplanation": {
+        "text": "The image shows the radius, identified by the radial head. The marked raised area is the radial tuberosity, which receives the insertion of biceps brachii.\n\nThe short head of biceps arises from the coracoid process and the long head from the supraglenoid tubercle; both unite into a tendon that inserts on the radial tuberosity. Innervation is by the musculocutaneous nerve (C5-C6).",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The image shows the radius, identified by the radial head. The marked raised area is the radial tuberosity, which receives the insertion of biceps brachii."
+          },
+          {
+            "type": "paragraph",
+            "text": "The short head of biceps arises from the coracoid process and the long head from the supraglenoid tubercle; both unite into a tendon that inserts on the radial tuberosity. Innervation is by the musculocutaneous nerve (C5-C6)."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Radius with radial tuberosity marked",
+            "source_pages": [
+              706,
+              707
+            ],
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          706,
+          707
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          720
+        ]
+      },
+      "sourcePage": 706,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q012",
+      "sourceQuestionId": "ANAT_CH39_Q012",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 12,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is not a composite muscle?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Brachialis"
+        },
+        {
+          "letter": "B",
+          "text": "Flexor pollicis brevis"
+        },
+        {
+          "letter": "C",
+          "text": "Trapezius"
+        },
+        {
+          "letter": "D",
+          "text": "Flexor digitorum superficialis"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Flexor digitorum superficialis",
+      "explanation": "Flexor digitorum superficialis is not a composite muscle because it is supplied by the median nerve (C8-T1) only.\n\nA composite muscle receives motor/functional supply from more than one nerve.",
+      "structuredExplanation": {
+        "text": "Flexor digitorum superficialis is not a composite muscle because it is supplied by the median nerve (C8-T1) only.\n\nA composite muscle receives motor/functional supply from more than one nerve.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Flexor digitorum superficialis is not a composite muscle because it is supplied by the median nerve (C8-T1) only."
+          },
+          {
+            "type": "paragraph",
+            "text": "A composite muscle receives motor/functional supply from more than one nerve."
+          },
+          {
+            "type": "table",
+            "table_id": "ANAT_CH39_Q012_T1"
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "ANAT_CH39_Q012_T1",
+            "title": "Examples of composite muscles and nerve supply",
+            "source_page": 721,
+            "columns": [
+              "Muscle",
+              "Nerve supply"
+            ],
+            "rows": [
+              [
+                "Subscapularis",
+                "Upper and lower subscapular nerves"
+              ],
+              [
+                "Pectoralis major",
+                "Medial and lateral pectoral nerves"
+              ],
+              [
+                "Trapezius",
+                "Motor: spinal accessory nerve; proprioception: C3-C4"
+              ],
+              [
+                "Brachialis",
+                "Motor: musculocutaneous nerve; proprioception: radial nerve"
+              ],
+              [
+                "Flexor digitorum profundus",
+                "Medial half: ulnar nerve; lateral half: anterior interosseous nerve"
+              ],
+              [
+                "Flexor pollicis brevis",
+                "Superficial head: median nerve; deep head: deep branch of ulnar nerve"
+              ]
+            ],
+            "layout": "native 2-column table"
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          707
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          720,
+          721
+        ]
+      },
+      "sourcePage": 707,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q013",
+      "sourceQuestionId": "ANAT_CH39_Q013",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 13,
+      "questionType": "single_best_answer",
+      "question": "All of the following muscles are innervated by the posterior interosseous nerve except:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Extensor carpi ulnaris"
+        },
+        {
+          "letter": "B",
+          "text": "Extensor carpi radialis longus"
+        },
+        {
+          "letter": "C",
+          "text": "Extensor digitorum"
+        },
+        {
+          "letter": "D",
+          "text": "Extensor digiti minimi"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Extensor carpi radialis longus",
+      "explanation": "Extensor carpi radialis longus and brachioradialis are supplied by the radial nerve before it divides into superficial and deep branches.\n\nAfter the deep branch of the radial nerve penetrates supinator it is called the posterior interosseous nerve, which supplies the remaining extrinsic wrist/finger extensors except extensor carpi radialis longus.",
+      "structuredExplanation": {
+        "text": "Extensor carpi radialis longus and brachioradialis are supplied by the radial nerve before it divides into superficial and deep branches.\n\nAfter the deep branch of the radial nerve penetrates supinator it is called the posterior interosseous nerve, which supplies the remaining extrinsic wrist/finger extensors except extensor carpi radialis longus.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Extensor carpi radialis longus and brachioradialis are supplied by the radial nerve before it divides into superficial and deep branches."
+          },
+          {
+            "type": "paragraph",
+            "text": "After the deep branch of the radial nerve penetrates supinator it is called the posterior interosseous nerve, which supplies the remaining extrinsic wrist/finger extensors except extensor carpi radialis longus."
+          },
+          {
+            "type": "table",
+            "table_id": "ANAT_CH39_Q013_T1"
+          },
+          {
+            "type": "table",
+            "table_id": "ANAT_CH39_Q013_T2"
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "ANAT_CH39_Q013_T1",
+            "title": "Anterior forearm muscles and innervation",
+            "source_pages": [
+              721,
+              722
+            ],
+            "columns": [
+              "Layer / Muscles",
+              "Innervation"
+            ],
+            "rows": [
+              [
+                "Superficial: palmaris longus, flexor carpi radialis, pronator teres",
+                "Median nerve"
+              ],
+              [
+                "Intermediate: flexor digitorum superficialis",
+                "Median nerve"
+              ],
+              [
+                "Deep: flexor digitorum profundus",
+                "Lateral half anterior interosseous nerve; medial half ulnar nerve"
+              ],
+              [
+                "Deep: flexor pollicis longus, pronator quadratus",
+                "Anterior interosseous nerve"
+              ]
+            ],
+            "layout": "native table"
+          },
+          {
+            "table_id": "ANAT_CH39_Q013_T2",
+            "title": "Posterior forearm muscles and innervation",
+            "source_page": 722,
+            "columns": [
+              "Muscles",
+              "Innervation"
+            ],
+            "rows": [
+              [
+                "Brachioradialis; extensor carpi radialis longus",
+                "Radial nerve before division"
+              ],
+              [
+                "Extensor carpi radialis brevis",
+                "Deep branch of radial nerve before penetrating supinator"
+              ],
+              [
+                "Extensor digitorum; extensor digiti minimi; extensor carpi ulnaris",
+                "Posterior interosseous nerve"
+              ],
+              [
+                "Supinator; abductor pollicis longus; extensor pollicis brevis; extensor pollicis longus; extensor indicis",
+                "Posterior interosseous nerve"
+              ]
+            ],
+            "layout": "native table"
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          707
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          721,
+          722
+        ]
+      },
+      "sourcePage": 707,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q014",
+      "sourceQuestionId": "ANAT_CH39_Q014",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 14,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is most likely to be affected in a patient with acute compartment syndrome of the anterior forearm?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Flexor carpi ulnaris"
+        },
+        {
+          "letter": "B",
+          "text": "Flexor pollicis longus"
+        },
+        {
+          "letter": "C",
+          "text": "Flexor carpi radialis"
+        },
+        {
+          "letter": "D",
+          "text": "Palmaris longus"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Flexor pollicis longus",
+      "explanation": "Flexor pollicis longus is most likely to be affected because it lies in the deep layer of the anterior forearm compartment.\n\nThe source groups anterior forearm muscles into superficial, intermediate, and deep layers and illustrates both superficial/deep palmar and dorsal forearm musculature.",
+      "structuredExplanation": {
+        "text": "Flexor pollicis longus is most likely to be affected because it lies in the deep layer of the anterior forearm compartment.\n\nThe source groups anterior forearm muscles into superficial, intermediate, and deep layers and illustrates both superficial/deep palmar and dorsal forearm musculature.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Flexor pollicis longus is most likely to be affected because it lies in the deep layer of the anterior forearm compartment."
+          },
+          {
+            "type": "paragraph",
+            "text": "The source groups anterior forearm muscles into superficial, intermediate, and deep layers and illustrates both superficial/deep palmar and dorsal forearm musculature."
+          },
+          {
+            "type": "table",
+            "table_id": "ANAT_CH39_Q013_T1"
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "ANAT_CH39_Q013_T1",
+            "title": "Anterior forearm muscles and innervation",
+            "source_pages": [
+              721,
+              722
+            ],
+            "columns": [
+              "Layer / Muscles",
+              "Innervation"
+            ],
+            "rows": [
+              [
+                "Superficial: palmaris longus, flexor carpi radialis, pronator teres",
+                "Median nerve"
+              ],
+              [
+                "Intermediate: flexor digitorum superficialis",
+                "Median nerve"
+              ],
+              [
+                "Deep: flexor digitorum profundus",
+                "Lateral half anterior interosseous nerve; medial half ulnar nerve"
+              ],
+              [
+                "Deep: flexor pollicis longus, pronator quadratus",
+                "Anterior interosseous nerve"
+              ]
+            ],
+            "layout": "native table"
+          }
+        ],
+        "figures": [
+          {
+            "description": "Left forearm superficial and deep muscle diagrams",
+            "source_pages": [
+              723,
+              724
+            ],
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          708
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          722,
+          723,
+          724
+        ]
+      },
+      "sourcePage": 708,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q015",
+      "sourceQuestionId": "ANAT_CH39_Q015",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 15,
+      "questionType": "single_best_answer",
+      "question": "The arrow in the image denotes which of the following muscles?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Extensor carpi radialis longus"
+        },
+        {
+          "letter": "B",
+          "text": "Brachioradialis"
+        },
+        {
+          "letter": "C",
+          "text": "Supinator"
+        },
+        {
+          "letter": "D",
+          "text": "Flexor carpi radialis brevis"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Extensor carpi radialis longus",
+      "explanation": "The arrow indicates extensor carpi radialis longus. It originates from the distal third of the lateral supracondylar ridge of the humerus and inserts at the base of the second metacarpal on the radial side.\n\nIt is innervated by the radial nerve (C6-C7), receives vascular supply from the radial recurrent artery, and extends and abducts the wrist.",
+      "structuredExplanation": {
+        "text": "The arrow indicates extensor carpi radialis longus. It originates from the distal third of the lateral supracondylar ridge of the humerus and inserts at the base of the second metacarpal on the radial side.\n\nIt is innervated by the radial nerve (C6-C7), receives vascular supply from the radial recurrent artery, and extends and abducts the wrist.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The arrow indicates extensor carpi radialis longus. It originates from the distal third of the lateral supracondylar ridge of the humerus and inserts at the base of the second metacarpal on the radial side."
+          },
+          {
+            "type": "paragraph",
+            "text": "It is innervated by the radial nerve (C6-C7), receives vascular supply from the radial recurrent artery, and extends and abducts the wrist."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          },
+          {
+            "type": "figure",
+            "figure_index": 1
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Forearm image with extensor carpi radialis longus marked",
+            "source_pages": [
+              708
+            ],
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          },
+          {
+            "description": "Extensors of the forearm diagram",
+            "source_pages": [
+              724
+            ],
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          708
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          724
+        ]
+      },
+      "sourcePage": 708,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q016",
+      "sourceQuestionId": "ANAT_CH39_Q016",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 16,
+      "questionType": "single_best_answer",
+      "question": "Which of the following muscle is unipennate?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1st dorsal interossei"
+        },
+        {
+          "letter": "B",
+          "text": "4th dorsal interossei"
+        },
+        {
+          "letter": "C",
+          "text": "3rd lumbricals"
+        },
+        {
+          "letter": "D",
+          "text": "2nd palmar interossei"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "2nd palmar interossei",
+      "explanation": "Palmar interossei are unipennate muscles. Dorsal interossei and the medial two lumbricals are bipennate; the lateral two lumbricals and palmar interossei are unipennate.\n\nA bipennate muscle has fibres converging on both sides of a central tendon.",
+      "structuredExplanation": {
+        "text": "Palmar interossei are unipennate muscles. Dorsal interossei and the medial two lumbricals are bipennate; the lateral two lumbricals and palmar interossei are unipennate.\n\nA bipennate muscle has fibres converging on both sides of a central tendon.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Palmar interossei are unipennate muscles. Dorsal interossei and the medial two lumbricals are bipennate; the lateral two lumbricals and palmar interossei are unipennate."
+          },
+          {
+            "type": "paragraph",
+            "text": "A bipennate muscle has fibres converging on both sides of a central tendon."
+          },
+          {
+            "type": "table",
+            "table_id": "ANAT_CH39_Q016_T1"
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "ANAT_CH39_Q016_T1",
+            "title": "Intrinsic and extrinsic muscles of the hand",
+            "source_page": 725,
+            "columns": [
+              "Intrinsic muscles",
+              "Extrinsic muscles"
+            ],
+            "rows": [
+              [
+                "Adductor pollicis; palmaris brevis; interossei; lumbricals; thenar; hypothenar",
+                "Originate in the forearm and insert in the hand"
+              ],
+              [
+                "Precision grip for precise movements",
+                "Power grip for forceful grip"
+              ]
+            ],
+            "layout": "native comparison table"
+          }
+        ],
+        "figures": [
+          {
+            "description": "Palmar and dorsal interossei diagrams",
+            "source_pages": [
+              725,
+              726
+            ],
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          708,
+          709
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          724,
+          725,
+          726
+        ]
+      },
+      "sourcePage": 708,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q017",
+      "sourceQuestionId": "ANAT_CH39_Q017",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 17,
+      "questionType": "single_best_answer",
+      "question": "A patient with hand weakness is being evaluated as shown below. The muscle being tested here does not have an attachment on which metacarpal?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "4th metacarpal"
+        },
+        {
+          "letter": "B",
+          "text": "2nd metacarpal"
+        },
+        {
+          "letter": "C",
+          "text": "3rd metacarpal"
+        },
+        {
+          "letter": "D",
+          "text": "5th metacarpal"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "3rd metacarpal",
+      "explanation": "The image demonstrates the card test for palmar interossei. The third metacarpal of the middle finger has no palmar-interosseous attachment.\n\nPalmar interossei lie on the palmar surfaces of the metacarpals. They arise from the second metacarpal (ulnar side), fourth metacarpal (radial side), and fifth metacarpal (radial side). The source notes that a fourth palmar interosseous muscle is present in some people.",
+      "structuredExplanation": {
+        "text": "The image demonstrates the card test for palmar interossei. The third metacarpal of the middle finger has no palmar-interosseous attachment.\n\nPalmar interossei lie on the palmar surfaces of the metacarpals. They arise from the second metacarpal (ulnar side), fourth metacarpal (radial side), and fifth metacarpal (radial side). The source notes that a fourth palmar interosseous muscle is present in some people.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The image demonstrates the card test for palmar interossei. The third metacarpal of the middle finger has no palmar-interosseous attachment."
+          },
+          {
+            "type": "paragraph",
+            "text": "Palmar interossei lie on the palmar surfaces of the metacarpals. They arise from the second metacarpal (ulnar side), fourth metacarpal (radial side), and fifth metacarpal (radial side). The source notes that a fourth palmar interosseous muscle is present in some people."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          },
+          {
+            "type": "figure",
+            "figure_index": 1
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Card test for palmar interossei",
+            "source_pages": [
+              709
+            ],
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          },
+          {
+            "description": "Palmar and dorsal interossei diagrams",
+            "source_pages": [
+              726,
+              727
+            ],
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          709
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          726,
+          727
+        ]
+      },
+      "sourcePage": 709,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q018",
+      "sourceQuestionId": "ANAT_CH39_Q018",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 18,
+      "questionType": "single_best_answer",
+      "question": "What is the function of the muscle marked as A in the image below, at the metacarpophalangeal joint?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Flexion"
+        },
+        {
+          "letter": "B",
+          "text": "Extension"
+        },
+        {
+          "letter": "C",
+          "text": "Adduction"
+        },
+        {
+          "letter": "D",
+          "text": "Abduction"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Flexion",
+      "explanation": "The muscle marked A is a lumbrical. Lumbricals flex the metacarpophalangeal joints and extend the proximal and distal interphalangeal joints through the dorsal digital expansion.\n\nThey originate from flexor digitorum profundus. The lateral two are unipennate and supplied by the median nerve; the medial two are bipennate and supplied by the ulnar nerve.",
+      "structuredExplanation": {
+        "text": "The muscle marked A is a lumbrical. Lumbricals flex the metacarpophalangeal joints and extend the proximal and distal interphalangeal joints through the dorsal digital expansion.\n\nThey originate from flexor digitorum profundus. The lateral two are unipennate and supplied by the median nerve; the medial two are bipennate and supplied by the ulnar nerve.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The muscle marked A is a lumbrical. Lumbricals flex the metacarpophalangeal joints and extend the proximal and distal interphalangeal joints through the dorsal digital expansion."
+          },
+          {
+            "type": "paragraph",
+            "text": "They originate from flexor digitorum profundus. The lateral two are unipennate and supplied by the median nerve; the medial two are bipennate and supplied by the ulnar nerve."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          },
+          {
+            "type": "figure",
+            "figure_index": 1
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Hand image with lumbrical marked A",
+            "source_pages": [
+              710
+            ],
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          },
+          {
+            "description": "Superficial intrinsic muscles of hand",
+            "source_pages": [
+              727,
+              728
+            ],
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          709,
+          710
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          727,
+          728
+        ]
+      },
+      "sourcePage": 709,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q019",
+      "sourceQuestionId": "ANAT_CH39_Q019",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 19,
+      "questionType": "single_best_answer",
+      "question": "All of the following form the marked structure except:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "2nd dorsal interossei"
+        },
+        {
+          "letter": "B",
+          "text": "Lumbricals"
+        },
+        {
+          "letter": "C",
+          "text": "Extensor digitorum"
+        },
+        {
+          "letter": "D",
+          "text": "2nd palmar interossei"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "2nd palmar interossei",
+      "explanation": "The marked structure is the dorsal digital expansion of the middle finger. A palmar interosseous muscle does not attach to the middle finger and therefore does not contribute to its dorsal digital expansion.\n\nPalmar interossei are unipennate and adduct the digits. The middle finger has no palmar interosseous muscle. Dorsal interossei are bipennate and abduct the digits; they attach to the middle three fingers.",
+      "structuredExplanation": {
+        "text": "The marked structure is the dorsal digital expansion of the middle finger. A palmar interosseous muscle does not attach to the middle finger and therefore does not contribute to its dorsal digital expansion.\n\nPalmar interossei are unipennate and adduct the digits. The middle finger has no palmar interosseous muscle. Dorsal interossei are bipennate and abduct the digits; they attach to the middle three fingers.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The marked structure is the dorsal digital expansion of the middle finger. A palmar interosseous muscle does not attach to the middle finger and therefore does not contribute to its dorsal digital expansion."
+          },
+          {
+            "type": "paragraph",
+            "text": "Palmar interossei are unipennate and adduct the digits. The middle finger has no palmar interosseous muscle. Dorsal interossei are bipennate and abduct the digits; they attach to the middle three fingers."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Dorsal digital expansion marked in hand diagram",
+            "source_pages": [
+              710
+            ],
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          710,
+          711
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          728,
+          729
+        ]
+      },
+      "sourcePage": 710,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q020",
+      "sourceQuestionId": "ANAT_CH39_Q020",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 20,
+      "questionType": "single_best_answer",
+      "question": "A patient presented with the extension of MCP joint and flexion of IP joints. Which muscle is affected?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Extensor digitorum"
+        },
+        {
+          "letter": "B",
+          "text": "Interossei and lumbricals"
+        },
+        {
+          "letter": "C",
+          "text": "Abductor pollicis"
+        },
+        {
+          "letter": "D",
+          "text": "Abductor pollicis brevis"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Interossei and lumbricals",
+      "explanation": "The lumbricals and interossei are affected. Through their attachments to the dorsal digital expansions they flex the MCP joints and extend the IP joints.\n\nWith ulnar nerve injury these intrinsic muscles may atrophy, producing extension at the MCP joints and flexion at the IP joints. The source notes that the ulnar nerve supplies all intrinsic hand muscles except the first and second lumbricals, abductor pollicis brevis, opponens pollicis, and part of flexor pollicis brevis.",
+      "structuredExplanation": {
+        "text": "The lumbricals and interossei are affected. Through their attachments to the dorsal digital expansions they flex the MCP joints and extend the IP joints.\n\nWith ulnar nerve injury these intrinsic muscles may atrophy, producing extension at the MCP joints and flexion at the IP joints. The source notes that the ulnar nerve supplies all intrinsic hand muscles except the first and second lumbricals, abductor pollicis brevis, opponens pollicis, and part of flexor pollicis brevis.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The lumbricals and interossei are affected. Through their attachments to the dorsal digital expansions they flex the MCP joints and extend the IP joints."
+          },
+          {
+            "type": "paragraph",
+            "text": "With ulnar nerve injury these intrinsic muscles may atrophy, producing extension at the MCP joints and flexion at the IP joints. The source notes that the ulnar nerve supplies all intrinsic hand muscles except the first and second lumbricals, abductor pollicis brevis, opponens pollicis, and part of flexor pollicis brevis."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          711
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          729,
+          730
+        ]
+      },
+      "sourcePage": 711,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q021",
+      "sourceQuestionId": "ANAT_CH39_Q021",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 21,
+      "questionType": "single_best_answer",
+      "question": "Which of the following muscles is inserted into the area marked in the image below?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Abductor pollicis longus"
+        },
+        {
+          "letter": "B",
+          "text": "Palmar interossei"
+        },
+        {
+          "letter": "C",
+          "text": "Opponens pollicis"
+        },
+        {
+          "letter": "D",
+          "text": "Flexor pollicis brevis"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Opponens pollicis",
+      "explanation": "The marked area is the palmar aspect of the first metacarpal. Opponens pollicis inserts here.\n\nOpponens pollicis originates from the tubercle of trapezium and flexor retinaculum, inserts along the lateral border and adjoining lateral half of the palmar aspect of the first metacarpal, and flexes the first metacarpal bone of the thumb as part of opposition.",
+      "structuredExplanation": {
+        "text": "The marked area is the palmar aspect of the first metacarpal. Opponens pollicis inserts here.\n\nOpponens pollicis originates from the tubercle of trapezium and flexor retinaculum, inserts along the lateral border and adjoining lateral half of the palmar aspect of the first metacarpal, and flexes the first metacarpal bone of the thumb as part of opposition.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The marked area is the palmar aspect of the first metacarpal. Opponens pollicis inserts here."
+          },
+          {
+            "type": "paragraph",
+            "text": "Opponens pollicis originates from the tubercle of trapezium and flexor retinaculum, inserts along the lateral border and adjoining lateral half of the palmar aspect of the first metacarpal, and flexes the first metacarpal bone of the thumb as part of opposition."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          },
+          {
+            "type": "figure",
+            "figure_index": 1
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "First metacarpal with palmar insertion area marked",
+            "source_pages": [
+              711
+            ],
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          },
+          {
+            "description": "Intrinsic muscles of the hand",
+            "source_pages": [
+              730,
+              731
+            ],
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          711
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          730,
+          731
+        ]
+      },
+      "sourcePage": 711,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q022",
+      "sourceQuestionId": "ANAT_CH39_Q022",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 22,
+      "questionType": "single_best_answer",
+      "question": "Power grip of hand is a function of:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Long flexors"
+        },
+        {
+          "letter": "B",
+          "text": "Short flexors"
+        },
+        {
+          "letter": "C",
+          "text": "Palmaris brevis"
+        },
+        {
+          "letter": "D",
+          "text": "Lumbricals"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Long flexors",
+      "explanation": "Power grip is produced by the extrinsic muscles of the hand, especially the long flexors. Extrinsic muscles originate in the forearm and insert into the hand.\n\nPrecision grip is primarily a function of intrinsic hand muscles such as adductor pollicis, palmaris brevis, interossei, lumbricals, thenar and hypothenar muscles.",
+      "structuredExplanation": {
+        "text": "Power grip is produced by the extrinsic muscles of the hand, especially the long flexors. Extrinsic muscles originate in the forearm and insert into the hand.\n\nPrecision grip is primarily a function of intrinsic hand muscles such as adductor pollicis, palmaris brevis, interossei, lumbricals, thenar and hypothenar muscles.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Power grip is produced by the extrinsic muscles of the hand, especially the long flexors. Extrinsic muscles originate in the forearm and insert into the hand."
+          },
+          {
+            "type": "paragraph",
+            "text": "Precision grip is primarily a function of intrinsic hand muscles such as adductor pollicis, palmaris brevis, interossei, lumbricals, thenar and hypothenar muscles."
+          },
+          {
+            "type": "table",
+            "table_id": "ANAT_CH39_Q016_T1"
+          }
+        ],
+        "tables": [
+          {
+            "table_id": "ANAT_CH39_Q016_T1",
+            "title": "Intrinsic and extrinsic muscles of the hand",
+            "source_page": 725,
+            "columns": [
+              "Intrinsic muscles",
+              "Extrinsic muscles"
+            ],
+            "rows": [
+              [
+                "Adductor pollicis; palmaris brevis; interossei; lumbricals; thenar; hypothenar",
+                "Originate in the forearm and insert in the hand"
+              ],
+              [
+                "Precision grip for precise movements",
+                "Power grip for forceful grip"
+              ]
+            ],
+            "layout": "native comparison table"
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          712
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          732
+        ]
+      },
+      "sourcePage": 712,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH39_Q023",
+      "sourceQuestionId": "ANAT_CH39_Q023",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "39",
+      "chapter": "Muscles - Upper Limb",
+      "questionNumber": 23,
+      "questionType": "single_best_answer",
+      "question": "What is the nerve supply of the structure marked in the image below?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Posterior interosseous nerve"
+        },
+        {
+          "letter": "B",
+          "text": "Median nerve"
+        },
+        {
+          "letter": "C",
+          "text": "Anterior interosseous nerve"
+        },
+        {
+          "letter": "D",
+          "text": "Ulnar nerve"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Median nerve",
+      "explanation": "The marked structure is the second lumbrical, which is supplied by the median nerve. The lateral two lumbricals are supplied by the median nerve and the medial two by the ulnar nerve.\n\nLumbricals flex the metacarpophalangeal joints and extend both interphalangeal joints.",
+      "structuredExplanation": {
+        "text": "The marked structure is the second lumbrical, which is supplied by the median nerve. The lateral two lumbricals are supplied by the median nerve and the medial two by the ulnar nerve.\n\nLumbricals flex the metacarpophalangeal joints and extend both interphalangeal joints.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The marked structure is the second lumbrical, which is supplied by the median nerve. The lateral two lumbricals are supplied by the median nerve and the medial two by the ulnar nerve."
+          },
+          {
+            "type": "paragraph",
+            "text": "Lumbricals flex the metacarpophalangeal joints and extend both interphalangeal joints."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          },
+          {
+            "type": "figure",
+            "figure_index": 1
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "description": "Palmar hand diagram with a lumbrical marked",
+            "source_pages": [
+              712
+            ],
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          },
+          {
+            "description": "Superficial muscles of the hand",
+            "source_pages": [
+              732
+            ],
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          712
+        ],
+        "answerKeyPages": [
+          712,
+          713
+        ],
+        "explanationPages": [
+          732
+        ]
+      },
+      "sourcePage": 712,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_visually_reviewed": true,
+        "embedded_text_layer_trusted": false,
+        "transcription_method": "Recovered from rendered Marrow ED8 Anatomy PDF pages because the previously validated canonical JSONL was absent from the project library; OCR was used only as a transcription aid and reconciled against rendered pages.",
+        "notes": []
+      }
+    }
+  ]
+}

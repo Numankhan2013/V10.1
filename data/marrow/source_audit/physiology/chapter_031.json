@@ -1,0 +1,2440 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Derived read-only audit view. Immutable source remains the sharded Marrow bundle.",
+  "subject": "Physiology",
+  "chapterId": "31",
+  "questionCount": 30,
+  "immutableSourcePrefix": "physiology_ch001_033",
+  "sourceRawSha256": "36c9608d5ef4d2422843cad38c94c86898910240a933b7d40d4a639930a559e6",
+  "questions": [
+    {
+      "id": "marrow__PHYSIO_CH31_Q001",
+      "sourceQuestionId": "PHYSIO_CH31_Q001",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 1,
+      "questionType": "single_best_answer",
+      "question": "Ptyalin is secreted by which of the following glands?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Gastric gland"
+        },
+        {
+          "letter": "B",
+          "text": "Duodenal gland"
+        },
+        {
+          "letter": "C",
+          "text": "Salivary gland"
+        },
+        {
+          "letter": "D",
+          "text": "Pancreatic gland"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Salivary gland",
+      "explanation": "Ptyalin (salivary α-amylase) is secreted by the salivary gland.\n\nThere are 3 pairs of salivary glands:\n• Parotid\n• Submandibular\n• Sublingual glands\n\nFunctions of saliva are summarized in the source figure.",
+      "structuredExplanation": {
+        "text": "Ptyalin (salivary α-amylase) is secreted by the salivary gland.\n\nThere are 3 pairs of salivary glands:\n• Parotid\n• Submandibular\n• Sublingual glands\n\nFunctions of saliva are summarized in the source figure.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Ptyalin (salivary α-amylase) is secreted by the salivary gland."
+          },
+          {
+            "type": "paragraph",
+            "text": "There are 3 pairs of salivary glands: • Parotid • Submandibular • Sublingual glands"
+          },
+          {
+            "type": "paragraph",
+            "text": "Functions of saliva are summarized in the source figure."
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH31_Q001_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          556
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          564,
+          565
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 556,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q002",
+      "sourceQuestionId": "PHYSIO_CH31_Q002",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 2,
+      "questionType": "single_best_answer",
+      "question": "Which of the following statements is false?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Meissner’s plexus is present in submucosa"
+        },
+        {
+          "letter": "B",
+          "text": "Myenteric plexus is present between inner circular and outer longitudinal muscle layer"
+        },
+        {
+          "letter": "C",
+          "text": "Muscularis mucosa is associated with peristalsis"
+        },
+        {
+          "letter": "D",
+          "text": "Villi are absent in large intestine"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Muscularis mucosa is associated with peristalsis",
+      "explanation": "Muscularis propria is associated with peristalsis and not muscularis mucosa. Contraction of muscularis mucosa alters absorptive and secretive surface area.\n\nMeissner’s plexus (submucosal plexus) is present in the submucosa. The myenteric plexus (Auerbach plexus) is present between the inner circular and outer longitudinal muscle layer.\n\nVilli are absent in the large intestine but present in the small intestine.\n\nLayers of intestinal wall from outside to inside are:\n• Serosa\n• Longitudinal smooth muscle layer\n• Circular smooth muscle layer\n• Submucosa\n• Mucosa",
+      "structuredExplanation": {
+        "text": "Muscularis propria is associated with peristalsis and not muscularis mucosa. Contraction of muscularis mucosa alters absorptive and secretive surface area.\n\nMeissner’s plexus (submucosal plexus) is present in the submucosa. The myenteric plexus (Auerbach plexus) is present between the inner circular and outer longitudinal muscle layer.\n\nVilli are absent in the large intestine but present in the small intestine.\n\nLayers of intestinal wall from outside to inside are:\n• Serosa\n• Longitudinal smooth muscle layer\n• Circular smooth muscle layer\n• Submucosa\n• Mucosa",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Muscularis propria is associated with peristalsis and not muscularis mucosa. Contraction of muscularis mucosa alters absorptive and secretive surface area."
+          },
+          {
+            "type": "paragraph",
+            "text": "Meissner’s plexus (submucosal plexus) is present in the submucosa. The myenteric plexus (Auerbach plexus) is present between the inner circular and outer longitudinal muscle layer."
+          },
+          {
+            "type": "paragraph",
+            "text": "Villi are absent in the large intestine but present in the small intestine."
+          },
+          {
+            "type": "paragraph",
+            "text": "Layers of intestinal wall from outside to inside are: • Serosa • Longitudinal smooth muscle layer • Circular smooth muscle layer • Submucosa • Mucosa"
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH31_Q002_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          556
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          565,
+          566
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 556,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q003",
+      "sourceQuestionId": "PHYSIO_CH31_Q003",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 3,
+      "questionType": "single_best_answer",
+      "question": "Salivary amylase is inactivated by which of the following?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Enteropeptidase"
+        },
+        {
+          "letter": "B",
+          "text": "Low pH of stomach"
+        },
+        {
+          "letter": "C",
+          "text": "High pH of intestine"
+        },
+        {
+          "letter": "D",
+          "text": "Chloride ions"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Low pH of stomach",
+      "explanation": "Salivary amylase is inactivated by the low pH of the stomach. It is rapidly denatured at pH 4 (gastric pH is 1 to 3.5). Salivary amylase is activated by chloride.\n\nSalivary α-amylase (Ptyalin):\n• Digests starch: cleaves internal α-1,4-glycosidic bonds in starch\n• Optimum pH: 7\n• Denatured at pH 4\n\nSince a large portion of a meal often remains unmixed for a considerable length of time in the stomach, the salivary enzyme may account for digestion of as much as 75% of the starch present before it is denatured by gastric acid.\n\nNote: Even in the absence of salivary amylase, there is no defect in carbohydrate digestion because pancreatic amylase is sufficient to digest all of the ingested starch.",
+      "structuredExplanation": {
+        "text": "Salivary amylase is inactivated by the low pH of the stomach. It is rapidly denatured at pH 4 (gastric pH is 1 to 3.5). Salivary amylase is activated by chloride.\n\nSalivary α-amylase (Ptyalin):\n• Digests starch: cleaves internal α-1,4-glycosidic bonds in starch\n• Optimum pH: 7\n• Denatured at pH 4\n\nSince a large portion of a meal often remains unmixed for a considerable length of time in the stomach, the salivary enzyme may account for digestion of as much as 75% of the starch present before it is denatured by gastric acid.\n\nNote: Even in the absence of salivary amylase, there is no defect in carbohydrate digestion because pancreatic amylase is sufficient to digest all of the ingested starch.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Salivary amylase is inactivated by the low pH of the stomach. It is rapidly denatured at pH 4 (gastric pH is 1 to 3.5). Salivary amylase is activated by chloride."
+          },
+          {
+            "type": "paragraph",
+            "text": "Salivary α-amylase (Ptyalin): • Digests starch: cleaves internal α-1,4-glycosidic bonds in starch • Optimum pH: 7 • Denatured at pH 4"
+          },
+          {
+            "type": "paragraph",
+            "text": "Since a large portion of a meal often remains unmixed for a considerable length of time in the stomach, the salivary enzyme may account for digestion of as much as 75% of the starch present before it is denatured by gastric acid."
+          },
+          {
+            "type": "paragraph",
+            "text": "Note: Even in the absence of salivary amylase, there is no defect in carbohydrate digestion because pancreatic amylase is sufficient to digest all of the ingested starch."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          556
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          566
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 556,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q004",
+      "sourceQuestionId": "PHYSIO_CH31_Q004",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 4,
+      "questionType": "single_best_answer",
+      "question": "Which of the following gland secretes lingual lipase?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Parotid gland"
+        },
+        {
+          "letter": "B",
+          "text": "Ebner’s gland"
+        },
+        {
+          "letter": "C",
+          "text": "Sublingual gland"
+        },
+        {
+          "letter": "D",
+          "text": "Submandibular gland"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Ebner’s gland",
+      "explanation": "Lingual lipase is secreted by von Ebner’s gland.\n\nvon Ebner’s gland is a serous salivary gland situated around circumvallate and foliate papillae in front of the terminal sulcus.\n\nLingual lipase hydrolyses dietary lipid. The optimal pH is 3-6. Unlike pancreatic lipase, it is not inhibited by bile salts, medium-chain FA, and lecithin. Hence, it remains active through the stomach and into the intestine.",
+      "structuredExplanation": {
+        "text": "Lingual lipase is secreted by von Ebner’s gland.\n\nvon Ebner’s gland is a serous salivary gland situated around circumvallate and foliate papillae in front of the terminal sulcus.\n\nLingual lipase hydrolyses dietary lipid. The optimal pH is 3-6. Unlike pancreatic lipase, it is not inhibited by bile salts, medium-chain FA, and lecithin. Hence, it remains active through the stomach and into the intestine.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Lingual lipase is secreted by von Ebner’s gland."
+          },
+          {
+            "type": "paragraph",
+            "text": "von Ebner’s gland is a serous salivary gland situated around circumvallate and foliate papillae in front of the terminal sulcus."
+          },
+          {
+            "type": "paragraph",
+            "text": "Lingual lipase hydrolyses dietary lipid. The optimal pH is 3-6. Unlike pancreatic lipase, it is not inhibited by bile salts, medium-chain FA, and lecithin. Hence, it remains active through the stomach and into the intestine."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          556,
+          557
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          566
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 556,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q005",
+      "sourceQuestionId": "PHYSIO_CH31_Q005",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 5,
+      "questionType": "single_best_answer",
+      "question": "Which of the following fluids have the highest daily secretion of potassium?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Bile"
+        },
+        {
+          "letter": "B",
+          "text": "Pancreatic secretion"
+        },
+        {
+          "letter": "C",
+          "text": "Jejunal secretion"
+        },
+        {
+          "letter": "D",
+          "text": "Saliva"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Saliva",
+      "explanation": "The highest daily secretion of K+ is into the saliva.\n\nIn the process of formation of saliva, Na+ and Cl- are reabsorbed from the saliva, and K+ and HCO3- are secreted into the saliva.\n\nNote: The highest concentration of K+ is in the rectal fluid.",
+      "structuredExplanation": {
+        "text": "The highest daily secretion of K+ is into the saliva.\n\nIn the process of formation of saliva, Na+ and Cl- are reabsorbed from the saliva, and K+ and HCO3- are secreted into the saliva.\n\nNote: The highest concentration of K+ is in the rectal fluid.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The highest daily secretion of K+ is into the saliva."
+          },
+          {
+            "type": "paragraph",
+            "text": "In the process of formation of saliva, Na+ and Cl- are reabsorbed from the saliva, and K+ and HCO3- are secreted into the saliva."
+          },
+          {
+            "type": "paragraph",
+            "text": "Note: The highest concentration of K+ is in the rectal fluid."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          557
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          567
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 557,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q006",
+      "sourceQuestionId": "PHYSIO_CH31_Q006",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 6,
+      "questionType": "single_best_answer",
+      "question": "The secretomotor fibers to the parotid gland causing a patient to salivate, pass through which of the following ganglions?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Geniculate ganglion"
+        },
+        {
+          "letter": "B",
+          "text": "Sphenopalatine ganglion"
+        },
+        {
+          "letter": "C",
+          "text": "Otic ganglion"
+        },
+        {
+          "letter": "D",
+          "text": "Lesser ganglion"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Otic ganglion",
+      "explanation": "The secretomotor fibers to the parotid gland pass through the Otic ganglion.\n\nSalivary secretion is almost entirely controlled by the parasympathetic nervous system. Volume is mainly mediated by parasympathetic stimulation, while the composition of saliva (increased proteinaceous content) is slightly modified by sympathetic input.\n\nThe parasympathetic preganglionic fibers are delivered by the glossopharyngeal and facial nerves to otic and submandibular ganglia respectively.",
+      "structuredExplanation": {
+        "text": "The secretomotor fibers to the parotid gland pass through the Otic ganglion.\n\nSalivary secretion is almost entirely controlled by the parasympathetic nervous system. Volume is mainly mediated by parasympathetic stimulation, while the composition of saliva (increased proteinaceous content) is slightly modified by sympathetic input.\n\nThe parasympathetic preganglionic fibers are delivered by the glossopharyngeal and facial nerves to otic and submandibular ganglia respectively.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The secretomotor fibers to the parotid gland pass through the Otic ganglion."
+          },
+          {
+            "type": "paragraph",
+            "text": "Salivary secretion is almost entirely controlled by the parasympathetic nervous system. Volume is mainly mediated by parasympathetic stimulation, while the composition of saliva (increased proteinaceous content) is slightly modified by sympathetic input."
+          },
+          {
+            "type": "paragraph",
+            "text": "The parasympathetic preganglionic fibers are delivered by the glossopharyngeal and facial nerves to otic and submandibular ganglia respectively."
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH31_Q006_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          557
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          567
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 557,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q007",
+      "sourceQuestionId": "PHYSIO_CH31_Q007",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 7,
+      "questionType": "single_best_answer",
+      "question": "Rennin is present in _____",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Gastric juice"
+        },
+        {
+          "letter": "B",
+          "text": "Pancreatic secretions"
+        },
+        {
+          "letter": "C",
+          "text": "Kidney"
+        },
+        {
+          "letter": "D",
+          "text": "Saliva"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Gastric juice",
+      "explanation": "Rennin is present in the gastric juice. It is also called chymosin.\n\nIt is a protein-digesting enzyme (endopeptidase) found in the stomach of newborn cows. It transforms (curdles) caseinogen into insoluble casein.\n\nIn humans and in some animals that lack rennin, milk is coagulated by the action of pepsin.\n\nNote: Renin is produced by juxtaglomerular cells of the kidney, which hydrolyzes angiotensinogen to angiotensin I.",
+      "structuredExplanation": {
+        "text": "Rennin is present in the gastric juice. It is also called chymosin.\n\nIt is a protein-digesting enzyme (endopeptidase) found in the stomach of newborn cows. It transforms (curdles) caseinogen into insoluble casein.\n\nIn humans and in some animals that lack rennin, milk is coagulated by the action of pepsin.\n\nNote: Renin is produced by juxtaglomerular cells of the kidney, which hydrolyzes angiotensinogen to angiotensin I.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Rennin is present in the gastric juice. It is also called chymosin."
+          },
+          {
+            "type": "paragraph",
+            "text": "It is a protein-digesting enzyme (endopeptidase) found in the stomach of newborn cows. It transforms (curdles) caseinogen into insoluble casein."
+          },
+          {
+            "type": "paragraph",
+            "text": "In humans and in some animals that lack rennin, milk is coagulated by the action of pepsin."
+          },
+          {
+            "type": "paragraph",
+            "text": "Note: Renin is produced by juxtaglomerular cells of the kidney, which hydrolyzes angiotensinogen to angiotensin I."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          557
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          567,
+          568
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 557,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q008",
+      "sourceQuestionId": "PHYSIO_CH31_Q008",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 8,
+      "questionType": "single_best_answer",
+      "question": "A patient presents with anemia and achlorhydria. After evaluation, pernicious anemia is diagnosed. Damage to which of the following cells is responsible for this condition?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Chief cells"
+        },
+        {
+          "letter": "B",
+          "text": "Parietal cells"
+        },
+        {
+          "letter": "C",
+          "text": "Enterochromaffin cells"
+        },
+        {
+          "letter": "D",
+          "text": "Goblet cells"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Parietal cells",
+      "explanation": "Pernicious anemia develops due to autoimmune damage to the parietal cells in gastric glands.\n\nThe parietal cells secrete both HCl and intrinsic factor. Therefore, when the parietal cells are destroyed, both achlorhydria, as well as pernicious anemia, develop.\n\nPernicious anemia occurs due to deficiency of the intrinsic factor of Castle, which is important for the absorption of vitamin B12.",
+      "structuredExplanation": {
+        "text": "Pernicious anemia develops due to autoimmune damage to the parietal cells in gastric glands.\n\nThe parietal cells secrete both HCl and intrinsic factor. Therefore, when the parietal cells are destroyed, both achlorhydria, as well as pernicious anemia, develop.\n\nPernicious anemia occurs due to deficiency of the intrinsic factor of Castle, which is important for the absorption of vitamin B12.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Pernicious anemia develops due to autoimmune damage to the parietal cells in gastric glands."
+          },
+          {
+            "type": "paragraph",
+            "text": "The parietal cells secrete both HCl and intrinsic factor. Therefore, when the parietal cells are destroyed, both achlorhydria, as well as pernicious anemia, develop."
+          },
+          {
+            "type": "paragraph",
+            "text": "Pernicious anemia occurs due to deficiency of the intrinsic factor of Castle, which is important for the absorption of vitamin B12."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          557,
+          558
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          568
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 557,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q009",
+      "sourceQuestionId": "PHYSIO_CH31_Q009",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 9,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is secreted by the Goblet cells?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "HCl"
+        },
+        {
+          "letter": "B",
+          "text": "Mucus"
+        },
+        {
+          "letter": "C",
+          "text": "Pepsin"
+        },
+        {
+          "letter": "D",
+          "text": "Serotonin"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Mucus",
+      "explanation": "Goblet cells secrete mucus. These cells are located on the surface of the crypts of Lieberkuhn and the villi of the small intestine.\n\nCells present in the crypts of Lieberkuhn:\n• Goblet cells - secrete mucus that acts as a lubricant and protects the intestinal surface\n• Epithelial cells - secrete succus entericus (intestinal secretion)\n• Paneth cells - secrete lysozymes and defensins (antibacterial substances)",
+      "structuredExplanation": {
+        "text": "Goblet cells secrete mucus. These cells are located on the surface of the crypts of Lieberkuhn and the villi of the small intestine.\n\nCells present in the crypts of Lieberkuhn:\n• Goblet cells - secrete mucus that acts as a lubricant and protects the intestinal surface\n• Epithelial cells - secrete succus entericus (intestinal secretion)\n• Paneth cells - secrete lysozymes and defensins (antibacterial substances)",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Goblet cells secrete mucus. These cells are located on the surface of the crypts of Lieberkuhn and the villi of the small intestine."
+          },
+          {
+            "type": "paragraph",
+            "text": "Cells present in the crypts of Lieberkuhn: • Goblet cells - secrete mucus that acts as a lubricant and protects the intestinal surface • Epithelial cells - secrete succus entericus (intestinal secretion) • Paneth cells - secrete lysozymes and defensins (antibacterial substances)"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          558
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          568
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 558,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q010",
+      "sourceQuestionId": "PHYSIO_CH31_Q010",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 10,
+      "questionType": "single_best_answer",
+      "question": "In the stomach, H+ ions are secreted in exchange for which of the following ions?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Na+"
+        },
+        {
+          "letter": "B",
+          "text": "K+"
+        },
+        {
+          "letter": "C",
+          "text": "Ca2+"
+        },
+        {
+          "letter": "D",
+          "text": "Cl-"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "K+",
+      "explanation": "H+ ions are secreted into the lumen of the stomach in exchange for K+ by the H+-K+ pump (H+, K+-ATPase).\n\nMechanism of HCl formation:\n• In the parietal cells, CO2 and H2O are converted to H+ and HCO3-, catalyzed by carbonic anhydrase.\n• H+ is secreted into the lumen of the stomach by the H+-K+ pump in exchange for K+.\n• HCO3- moves out of the cell into the bloodstream in exchange for Cl- (Cl-/HCO3- exchange). This Cl- moves into the lumen of the stomach.\n• H+ and Cl- combine to form HCl.\n\nAs HCO3- is added to the venous blood, the pH of the blood increases. This is called alkaline tide. Eventually, this HCO3- will be secreted in the pancreatic secretions to neutralize H+ in the small intestine.\n\nProton pump inhibitors inhibit the H+-K+ pump.",
+      "structuredExplanation": {
+        "text": "H+ ions are secreted into the lumen of the stomach in exchange for K+ by the H+-K+ pump (H+, K+-ATPase).\n\nMechanism of HCl formation:\n• In the parietal cells, CO2 and H2O are converted to H+ and HCO3-, catalyzed by carbonic anhydrase.\n• H+ is secreted into the lumen of the stomach by the H+-K+ pump in exchange for K+.\n• HCO3- moves out of the cell into the bloodstream in exchange for Cl- (Cl-/HCO3- exchange). This Cl- moves into the lumen of the stomach.\n• H+ and Cl- combine to form HCl.\n\nAs HCO3- is added to the venous blood, the pH of the blood increases. This is called alkaline tide. Eventually, this HCO3- will be secreted in the pancreatic secretions to neutralize H+ in the small intestine.\n\nProton pump inhibitors inhibit the H+-K+ pump.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "H+ ions are secreted into the lumen of the stomach in exchange for K+ by the H+-K+ pump (H+, K+-ATPase)."
+          },
+          {
+            "type": "paragraph",
+            "text": "Mechanism of HCl formation: • In the parietal cells, CO2 and H2O are converted to H+ and HCO3-, catalyzed by carbonic anhydrase. • H+ is secreted into the lumen of the stomach by the H+-K+ pump in exchange for K+. • HCO3- moves out of the cell into the bloodstream in exchange for Cl- (Cl-/HCO3- exchange). This Cl- moves into the lumen of the stomach. • H+ and Cl- combine to form HCl."
+          },
+          {
+            "type": "paragraph",
+            "text": "As HCO3- is added to the venous blood, the pH of the blood increases. This is called alkaline tide. Eventually, this HCO3- will be secreted in the pancreatic secretions to neutralize H+ in the small intestine."
+          },
+          {
+            "type": "paragraph",
+            "text": "Proton pump inhibitors inhibit the H+-K+ pump."
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH31_Q010_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          558
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          568,
+          569
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 558,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q011",
+      "sourceQuestionId": "PHYSIO_CH31_Q011",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 11,
+      "questionType": "single_best_answer",
+      "question": "A patient diagnosed with gastroesophageal reflux disease is found to have excess gastric secretion. All of the following are likely to increase the secretion, except:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Histamine"
+        },
+        {
+          "letter": "B",
+          "text": "Acetyl choline"
+        },
+        {
+          "letter": "C",
+          "text": "Gastrin"
+        },
+        {
+          "letter": "D",
+          "text": "HCl"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "HCl",
+      "explanation": "Gastric secretion is not increased by HCl. HCl decreases gastric secretion via a negative feedback mechanism.\n\nLow pH due to HCl in the stomach inhibits gastrin secretion, which in turn inhibits H+ secretion. Hence, the presence of HCl inhibits gastric secretion.\n\nStimuli that increase acid and gastrin secretion:\n• Distension of stomach\n• Peptides\n• Calcium\n• Alcohol and caffeine\n• Increased vagal discharge\n\nStimuli that decrease acid and gastrin secretion:\n• Gastric acid\n• Secretin family - secretin, glucagon, VIP, GIP\n• Somatostatin\n• CCK, Calcitonin\n• PGE2",
+      "structuredExplanation": {
+        "text": "Gastric secretion is not increased by HCl. HCl decreases gastric secretion via a negative feedback mechanism.\n\nLow pH due to HCl in the stomach inhibits gastrin secretion, which in turn inhibits H+ secretion. Hence, the presence of HCl inhibits gastric secretion.\n\nStimuli that increase acid and gastrin secretion:\n• Distension of stomach\n• Peptides\n• Calcium\n• Alcohol and caffeine\n• Increased vagal discharge\n\nStimuli that decrease acid and gastrin secretion:\n• Gastric acid\n• Secretin family - secretin, glucagon, VIP, GIP\n• Somatostatin\n• CCK, Calcitonin\n• PGE2",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Gastric secretion is not increased by HCl. HCl decreases gastric secretion via a negative feedback mechanism."
+          },
+          {
+            "type": "paragraph",
+            "text": "Low pH due to HCl in the stomach inhibits gastrin secretion, which in turn inhibits H+ secretion. Hence, the presence of HCl inhibits gastric secretion."
+          },
+          {
+            "type": "paragraph",
+            "text": "Stimuli that increase acid and gastrin secretion: • Distension of stomach • Peptides • Calcium • Alcohol and caffeine • Increased vagal discharge"
+          },
+          {
+            "type": "paragraph",
+            "text": "Stimuli that decrease acid and gastrin secretion: • Gastric acid • Secretin family - secretin, glucagon, VIP, GIP • Somatostatin • CCK, Calcitonin • PGE2"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          558
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          569
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 558,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q012",
+      "sourceQuestionId": "PHYSIO_CH31_Q012",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 12,
+      "questionType": "single_best_answer",
+      "question": "A patient with recurrent abdominal pain is found to have multiple duodenal ulcers. After a detailed evaluation, he is diagnosed with Zollinger-Ellison syndrome. Stimulation of which of the following can inhibit gastric secretion in this patient?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Somatostatin"
+        },
+        {
+          "letter": "B",
+          "text": "Histamine"
+        },
+        {
+          "letter": "C",
+          "text": "Vagal stimulation"
+        },
+        {
+          "letter": "D",
+          "text": "Gastrin"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Somatostatin",
+      "explanation": "Gastric secretion is inhibited by somatostatin.\n\nIt inhibits gastric secretion via both direct and indirect pathways:\n• Direct pathway - somatostatin acts directly on the acid-producing parietal cells by binding to receptors on parietal cells that are coupled to adenylyl cyclase via a Gi protein. This inhibits adenylyl cyclase, and cAMP levels are reduced. In this way, somatostatin antagonizes the stimulatory effect of histamine on H+ secretion.\n• Indirect pathway - somatostatin inhibits the release of histamine and gastrin and thus decreases H+ secretion indirectly.",
+      "structuredExplanation": {
+        "text": "Gastric secretion is inhibited by somatostatin.\n\nIt inhibits gastric secretion via both direct and indirect pathways:\n• Direct pathway - somatostatin acts directly on the acid-producing parietal cells by binding to receptors on parietal cells that are coupled to adenylyl cyclase via a Gi protein. This inhibits adenylyl cyclase, and cAMP levels are reduced. In this way, somatostatin antagonizes the stimulatory effect of histamine on H+ secretion.\n• Indirect pathway - somatostatin inhibits the release of histamine and gastrin and thus decreases H+ secretion indirectly.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Gastric secretion is inhibited by somatostatin."
+          },
+          {
+            "type": "paragraph",
+            "text": "It inhibits gastric secretion via both direct and indirect pathways: • Direct pathway - somatostatin acts directly on the acid-producing parietal cells by binding to receptors on parietal cells that are coupled to adenylyl cyclase via a Gi protein. This inhibits adenylyl cyclase, and cAMP levels are reduced. In this way, somatostatin antagonizes the stimulatory effect of histamine on H+ secretion. • Indirect pathway - somatostatin inhibits the release of histamine and gastrin and thus decreases H+ secretion indirectly."
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH31_Q012_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          558,
+          559
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          570
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 558,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q013",
+      "sourceQuestionId": "PHYSIO_CH31_Q013",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 13,
+      "questionType": "single_best_answer",
+      "question": "Maximum gastric secretion occurs in which of the following phases?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cephalic phase"
+        },
+        {
+          "letter": "B",
+          "text": "Gastric phase"
+        },
+        {
+          "letter": "C",
+          "text": "Intestinal phase"
+        },
+        {
+          "letter": "D",
+          "text": "Secretion is equal in all phases"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Gastric phase",
+      "explanation": "Maximum gastric secretion occurs in the gastric phase.",
+      "structuredExplanation": {
+        "text": "Maximum gastric secretion occurs in the gastric phase.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Maximum gastric secretion occurs in the gastric phase."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          559
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          570
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 559,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q014",
+      "sourceQuestionId": "PHYSIO_CH31_Q014",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 14,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is responsible for increasing the HCl secretion in the gastric phase?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pepsinogen"
+        },
+        {
+          "letter": "B",
+          "text": "CCK"
+        },
+        {
+          "letter": "C",
+          "text": "Gastrin"
+        },
+        {
+          "letter": "D",
+          "text": "Secretin"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Gastrin",
+      "explanation": "HCl secretion in the gastric phase is increased by gastrin.\n\nGastrin stimulates H+ secretion by interaction with cholecystokinin B (CCKB) receptor on the parietal cell which secretes HCl.",
+      "structuredExplanation": {
+        "text": "HCl secretion in the gastric phase is increased by gastrin.\n\nGastrin stimulates H+ secretion by interaction with cholecystokinin B (CCKB) receptor on the parietal cell which secretes HCl.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "HCl secretion in the gastric phase is increased by gastrin."
+          },
+          {
+            "type": "paragraph",
+            "text": "Gastrin stimulates H+ secretion by interaction with cholecystokinin B (CCKB) receptor on the parietal cell which secretes HCl."
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH31_Q014_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          559
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          570,
+          571
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 559,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q015",
+      "sourceQuestionId": "PHYSIO_CH31_Q015",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 15,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is true about the secretion from the exocrine pancreas?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "It is hypertonic"
+        },
+        {
+          "letter": "B",
+          "text": "Secretion is inhibited by Ach"
+        },
+        {
+          "letter": "C",
+          "text": "It is hypotonic"
+        },
+        {
+          "letter": "D",
+          "text": "Secretion is stimulated by cholecystokinin"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Secretion is stimulated by cholecystokinin",
+      "explanation": "Pancreatic secretion is stimulated by cholecystokinin (CCK) and Ach. It is always isotonic.\n\nIt has virtually the same Na+ and K+ concentrations as in plasma. It is rich in several digestive enzymes like amylase, trypsin, chymotrypsin, lipase, elastase, etc.",
+      "structuredExplanation": {
+        "text": "Pancreatic secretion is stimulated by cholecystokinin (CCK) and Ach. It is always isotonic.\n\nIt has virtually the same Na+ and K+ concentrations as in plasma. It is rich in several digestive enzymes like amylase, trypsin, chymotrypsin, lipase, elastase, etc.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Pancreatic secretion is stimulated by cholecystokinin (CCK) and Ach. It is always isotonic."
+          },
+          {
+            "type": "paragraph",
+            "text": "It has virtually the same Na+ and K+ concentrations as in plasma. It is rich in several digestive enzymes like amylase, trypsin, chymotrypsin, lipase, elastase, etc."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          559
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          571
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 559,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q016",
+      "sourceQuestionId": "PHYSIO_CH31_Q016",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 16,
+      "questionType": "single_best_answer",
+      "question": "Bicarbonate-rich pancreatic juice is secreted under the influence of which of the following stimulants?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Secretin"
+        },
+        {
+          "letter": "B",
+          "text": "GIP"
+        },
+        {
+          "letter": "C",
+          "text": "Pancreatozymin"
+        },
+        {
+          "letter": "D",
+          "text": "Gastrin"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Secretin",
+      "explanation": "Bicarbonate-rich pancreatic juice is secreted under the influence of secretin.\n\nSecretin is secreted by the S cells of the duodenum. Its primary function is to promote the secretion of bicarbonate-rich pancreatic juice by the ductal cells of the pancreas and duodenum. This secretion is poor in enzymes.\n\nOther functions:\n• Augments the effects of CCK\n• Inhibits gastrin release\n• Decreases gastric acid secretion\n• Contraction of the pyloric sphincter\n• Exerts trophic effect on the pancreas",
+      "structuredExplanation": {
+        "text": "Bicarbonate-rich pancreatic juice is secreted under the influence of secretin.\n\nSecretin is secreted by the S cells of the duodenum. Its primary function is to promote the secretion of bicarbonate-rich pancreatic juice by the ductal cells of the pancreas and duodenum. This secretion is poor in enzymes.\n\nOther functions:\n• Augments the effects of CCK\n• Inhibits gastrin release\n• Decreases gastric acid secretion\n• Contraction of the pyloric sphincter\n• Exerts trophic effect on the pancreas",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Bicarbonate-rich pancreatic juice is secreted under the influence of secretin."
+          },
+          {
+            "type": "paragraph",
+            "text": "Secretin is secreted by the S cells of the duodenum. Its primary function is to promote the secretion of bicarbonate-rich pancreatic juice by the ductal cells of the pancreas and duodenum. This secretion is poor in enzymes."
+          },
+          {
+            "type": "paragraph",
+            "text": "Other functions: • Augments the effects of CCK • Inhibits gastrin release • Decreases gastric acid secretion • Contraction of the pyloric sphincter • Exerts trophic effect on the pancreas"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          559,
+          560
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          571
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 559,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q017",
+      "sourceQuestionId": "PHYSIO_CH31_Q017",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 17,
+      "questionType": "single_best_answer",
+      "question": "Which among the following is the most alkaline secretion?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Saliva"
+        },
+        {
+          "letter": "B",
+          "text": "Gastric secretion"
+        },
+        {
+          "letter": "C",
+          "text": "Brunner’s gland secretion"
+        },
+        {
+          "letter": "D",
+          "text": "Small intestine secretion"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Brunner’s gland secretion",
+      "explanation": "The most alkaline secretion is Brunner’s gland secretion with a pH of 8.0-8.9.\n\nBrunner’s gland is located in the first few centimeters of the duodenal wall. It secretes large amounts of alkaline mucus in response to tactile stimuli on the duodenal mucosa, vagal stimulation, and GI hormones, especially secretin. It is inhibited by sympathetic stimulation.\n\nThe function of the mucus secreted by Brunner’s glands is to protect the duodenal wall from digestion by the highly acidic gastric juice emptying from the stomach.\n\nNote: The second most alkaline secretion in the GI tract is the pancreatic juice.",
+      "structuredExplanation": {
+        "text": "The most alkaline secretion is Brunner’s gland secretion with a pH of 8.0-8.9.\n\nBrunner’s gland is located in the first few centimeters of the duodenal wall. It secretes large amounts of alkaline mucus in response to tactile stimuli on the duodenal mucosa, vagal stimulation, and GI hormones, especially secretin. It is inhibited by sympathetic stimulation.\n\nThe function of the mucus secreted by Brunner’s glands is to protect the duodenal wall from digestion by the highly acidic gastric juice emptying from the stomach.\n\nNote: The second most alkaline secretion in the GI tract is the pancreatic juice.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The most alkaline secretion is Brunner’s gland secretion with a pH of 8.0-8.9."
+          },
+          {
+            "type": "paragraph",
+            "text": "Brunner’s gland is located in the first few centimeters of the duodenal wall. It secretes large amounts of alkaline mucus in response to tactile stimuli on the duodenal mucosa, vagal stimulation, and GI hormones, especially secretin. It is inhibited by sympathetic stimulation."
+          },
+          {
+            "type": "paragraph",
+            "text": "The function of the mucus secreted by Brunner’s glands is to protect the duodenal wall from digestion by the highly acidic gastric juice emptying from the stomach."
+          },
+          {
+            "type": "paragraph",
+            "text": "Note: The second most alkaline secretion in the GI tract is the pancreatic juice."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          560
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          571,
+          572
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 560,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q018",
+      "sourceQuestionId": "PHYSIO_CH31_Q018",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 18,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is the most potent choleretic?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "CCK"
+        },
+        {
+          "letter": "B",
+          "text": "Fatty acids"
+        },
+        {
+          "letter": "C",
+          "text": "Bile salts"
+        },
+        {
+          "letter": "D",
+          "text": "Pancreatic juices"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Bile salts",
+      "explanation": "Bile salts (chemical choleretic) are the most potent choleretics.\n\nAny substance that increases bile secretion is called a choleretic. Bile secretion may be increased by chemical (bile salts), hormonal (Secretin), and neural (vagal stimulation) mechanisms.\n\nNote: Cholagogues cause contraction of the gallbladder. Eg. CCK.",
+      "structuredExplanation": {
+        "text": "Bile salts (chemical choleretic) are the most potent choleretics.\n\nAny substance that increases bile secretion is called a choleretic. Bile secretion may be increased by chemical (bile salts), hormonal (Secretin), and neural (vagal stimulation) mechanisms.\n\nNote: Cholagogues cause contraction of the gallbladder. Eg. CCK.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Bile salts (chemical choleretic) are the most potent choleretics."
+          },
+          {
+            "type": "paragraph",
+            "text": "Any substance that increases bile secretion is called a choleretic. Bile secretion may be increased by chemical (bile salts), hormonal (Secretin), and neural (vagal stimulation) mechanisms."
+          },
+          {
+            "type": "paragraph",
+            "text": "Note: Cholagogues cause contraction of the gallbladder. Eg. CCK."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          560
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          572
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 560,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q019",
+      "sourceQuestionId": "PHYSIO_CH31_Q019",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 19,
+      "questionType": "single_best_answer",
+      "question": "Primary bile acids are synthesized from _____",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cholesterol"
+        },
+        {
+          "letter": "B",
+          "text": "Amino acids"
+        },
+        {
+          "letter": "C",
+          "text": "Bilirubin"
+        },
+        {
+          "letter": "D",
+          "text": "Fatty acids"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Cholesterol",
+      "explanation": "Primary bile acids are synthesized from cholesterol by hepatocytes.\n\nBile contains bile acids, bile salts, bile pigments, phospholipids, water, and electrolytes. It is secreted by the liver and concentrated in the gall bladder.\n\nTwo primary bile acids (cholic acid and chenodeoxycholic acid) are synthesized from cholesterol by hepatocytes. When these primary bile acids are secreted into the lumen of the intestine, a portion of each is converted to secondary bile acids (deoxycholic acid and lithocholic acid) by bacteria.\n\nThe liver conjugates primary and secondary bile acids with glycine or taurine to their respective bile salts. Examples: Glycocholic acid, Taurodeoxycholic acid.\n\nRate of bile secretion is 30-60 mL/hour (500-1000 mL/day).\n\nNote: Bile has no digestive enzymes.",
+      "structuredExplanation": {
+        "text": "Primary bile acids are synthesized from cholesterol by hepatocytes.\n\nBile contains bile acids, bile salts, bile pigments, phospholipids, water, and electrolytes. It is secreted by the liver and concentrated in the gall bladder.\n\nTwo primary bile acids (cholic acid and chenodeoxycholic acid) are synthesized from cholesterol by hepatocytes. When these primary bile acids are secreted into the lumen of the intestine, a portion of each is converted to secondary bile acids (deoxycholic acid and lithocholic acid) by bacteria.\n\nThe liver conjugates primary and secondary bile acids with glycine or taurine to their respective bile salts. Examples: Glycocholic acid, Taurodeoxycholic acid.\n\nRate of bile secretion is 30-60 mL/hour (500-1000 mL/day).\n\nNote: Bile has no digestive enzymes.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Primary bile acids are synthesized from cholesterol by hepatocytes."
+          },
+          {
+            "type": "paragraph",
+            "text": "Bile contains bile acids, bile salts, bile pigments, phospholipids, water, and electrolytes. It is secreted by the liver and concentrated in the gall bladder."
+          },
+          {
+            "type": "paragraph",
+            "text": "Two primary bile acids (cholic acid and chenodeoxycholic acid) are synthesized from cholesterol by hepatocytes. When these primary bile acids are secreted into the lumen of the intestine, a portion of each is converted to secondary bile acids (deoxycholic acid and lithocholic acid) by bacteria."
+          },
+          {
+            "type": "paragraph",
+            "text": "The liver conjugates primary and secondary bile acids with glycine or taurine to their respective bile salts. Examples: Glycocholic acid, Taurodeoxycholic acid."
+          },
+          {
+            "type": "paragraph",
+            "text": "Rate of bile secretion is 30-60 mL/hour (500-1000 mL/day)."
+          },
+          {
+            "type": "paragraph",
+            "text": "Note: Bile has no digestive enzymes."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          560
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          572
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 560,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q020",
+      "sourceQuestionId": "PHYSIO_CH31_Q020",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 20,
+      "questionType": "single_best_answer",
+      "question": "Enterohepatic circulation is necessary for the secretion of _____",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Bile salt"
+        },
+        {
+          "letter": "B",
+          "text": "Intestinal juice"
+        },
+        {
+          "letter": "C",
+          "text": "Pancreatic juice"
+        },
+        {
+          "letter": "D",
+          "text": "Bilirubin"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Bile salt",
+      "explanation": "Enterohepatic circulation is necessary for the secretion of bile salts.\n\nThe enterohepatic circulation of bile salts is the recycling of bile salts between the small intestine (terminal ileum) and the liver by means of the portal vein. It occurs 6-8 times a day.\n\nThe recirculation of bile salts to the liver reduces the demand to synthesize new bile salts.",
+      "structuredExplanation": {
+        "text": "Enterohepatic circulation is necessary for the secretion of bile salts.\n\nThe enterohepatic circulation of bile salts is the recycling of bile salts between the small intestine (terminal ileum) and the liver by means of the portal vein. It occurs 6-8 times a day.\n\nThe recirculation of bile salts to the liver reduces the demand to synthesize new bile salts.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Enterohepatic circulation is necessary for the secretion of bile salts."
+          },
+          {
+            "type": "paragraph",
+            "text": "The enterohepatic circulation of bile salts is the recycling of bile salts between the small intestine (terminal ileum) and the liver by means of the portal vein. It occurs 6-8 times a day."
+          },
+          {
+            "type": "paragraph",
+            "text": "The recirculation of bile salts to the liver reduces the demand to synthesize new bile salts."
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH31_Q020_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          560,
+          561
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          572,
+          573
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 560,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q021",
+      "sourceQuestionId": "PHYSIO_CH31_Q021",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 21,
+      "questionType": "single_best_answer",
+      "question": "Which of the following does not belong to the secretin family?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "GIP"
+        },
+        {
+          "letter": "B",
+          "text": "Glucagon"
+        },
+        {
+          "letter": "C",
+          "text": "CCK"
+        },
+        {
+          "letter": "D",
+          "text": "VIP"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "CCK",
+      "explanation": "CCK (Cholecystokinin) belongs to the gastrin family, not the secretin family.\n\nClassification of GI hormones based on structure and function:\n• Gastrin family - Gastrin, Cholecystokinin\n• Secretin family - Secretin, Glucagon, VIP, GIP\n• Others - Motilin, Ghrelin, Somatostatin",
+      "structuredExplanation": {
+        "text": "CCK (Cholecystokinin) belongs to the gastrin family, not the secretin family.\n\nClassification of GI hormones based on structure and function:\n• Gastrin family - Gastrin, Cholecystokinin\n• Secretin family - Secretin, Glucagon, VIP, GIP\n• Others - Motilin, Ghrelin, Somatostatin",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "CCK (Cholecystokinin) belongs to the gastrin family, not the secretin family."
+          },
+          {
+            "type": "paragraph",
+            "text": "Classification of GI hormones based on structure and function: • Gastrin family - Gastrin, Cholecystokinin • Secretin family - Secretin, Glucagon, VIP, GIP • Others - Motilin, Ghrelin, Somatostatin"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          561
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          573
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 561,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q022",
+      "sourceQuestionId": "PHYSIO_CH31_Q022",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 22,
+      "questionType": "single_best_answer",
+      "question": "A patient underwent resection of the gastric antrum. A few weeks later, endoscopy revealed atrophy of the gastric mucosa. Serum levels of gastrin were found to be decreased. Which of the following is true regarding this GI hormone?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Hormone secreted by pepsinogen cells"
+        },
+        {
+          "letter": "B",
+          "text": "A polypeptide"
+        },
+        {
+          "letter": "C",
+          "text": "Primarily released in cephalic phase"
+        },
+        {
+          "letter": "D",
+          "text": "Stimulated by secretin"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "A polypeptide",
+      "explanation": "Gastrin is a peptide hormone.\n\nIt is secreted by the G cells of the gastric mucosa present in the antrum of the stomach, primarily during the gastric phase of gastric acid secretion.\n\nIt causes gastric secretion at 1000-1500 mL/day. Its primary stimulus is gastric distension.\n\nPrimary functions of Gastrin:\n• Gastric acid (HCl) secretion\n• Pepsin secretion\n• Trophic action on the gastric mucosa\n\nOther functions:\n• Stimulates gastric motility\n• Prevents gastroesophageal reflux by contraction of LES\n\nConditions associated with increased gastrin secretions (Ex: Zollinger-Ellison syndrome), will cause an increase in H+ secretion and hypertrophy of the gastric mucosa.\n\nConditions associated with reduced gastrin secretion (Ex: Resection of the gastric antrum), will cause a decrease in H+ secretion and atrophy of the gastric mucosa.",
+      "structuredExplanation": {
+        "text": "Gastrin is a peptide hormone.\n\nIt is secreted by the G cells of the gastric mucosa present in the antrum of the stomach, primarily during the gastric phase of gastric acid secretion.\n\nIt causes gastric secretion at 1000-1500 mL/day. Its primary stimulus is gastric distension.\n\nPrimary functions of Gastrin:\n• Gastric acid (HCl) secretion\n• Pepsin secretion\n• Trophic action on the gastric mucosa\n\nOther functions:\n• Stimulates gastric motility\n• Prevents gastroesophageal reflux by contraction of LES\n\nConditions associated with increased gastrin secretions (Ex: Zollinger-Ellison syndrome), will cause an increase in H+ secretion and hypertrophy of the gastric mucosa.\n\nConditions associated with reduced gastrin secretion (Ex: Resection of the gastric antrum), will cause a decrease in H+ secretion and atrophy of the gastric mucosa.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Gastrin is a peptide hormone."
+          },
+          {
+            "type": "paragraph",
+            "text": "It is secreted by the G cells of the gastric mucosa present in the antrum of the stomach, primarily during the gastric phase of gastric acid secretion."
+          },
+          {
+            "type": "paragraph",
+            "text": "It causes gastric secretion at 1000-1500 mL/day. Its primary stimulus is gastric distension."
+          },
+          {
+            "type": "paragraph",
+            "text": "Primary functions of Gastrin: • Gastric acid (HCl) secretion • Pepsin secretion • Trophic action on the gastric mucosa"
+          },
+          {
+            "type": "paragraph",
+            "text": "Other functions: • Stimulates gastric motility • Prevents gastroesophageal reflux by contraction of LES"
+          },
+          {
+            "type": "paragraph",
+            "text": "Conditions associated with increased gastrin secretions (Ex: Zollinger-Ellison syndrome), will cause an increase in H+ secretion and hypertrophy of the gastric mucosa."
+          },
+          {
+            "type": "paragraph",
+            "text": "Conditions associated with reduced gastrin secretion (Ex: Resection of the gastric antrum), will cause a decrease in H+ secretion and atrophy of the gastric mucosa."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          561
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          573,
+          574
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 561,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q023",
+      "sourceQuestionId": "PHYSIO_CH31_Q023",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 23,
+      "questionType": "single_best_answer",
+      "question": "What is the effect of cholecystokinin on GIT?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Contraction of sphincter of Oddi"
+        },
+        {
+          "letter": "B",
+          "text": "Inhibits gastric emptying"
+        },
+        {
+          "letter": "C",
+          "text": "Inhibits pancreatic enzyme secretion"
+        },
+        {
+          "letter": "D",
+          "text": "Relaxes gall bladder"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Inhibits gastric emptying",
+      "explanation": "Cholecystokinin (CCK) inhibits gastric emptying.\n\nIt is secreted by the I cells of the duodenal and jejunal mucosa in response to monoglycerides, fatty acids, and amino acids.\n\nPrimary functions:\n• Stimulation of pancreatic enzyme secretion\n• Contraction of the gallbladder\n• Relaxation of the sphincter of Oddi\n\nOther functions:\n• Augmentation of the action of Secretin in producing alkaline (bicarbonate rich) pancreatic juice\n• Inhibition of gastric emptying\n• Trophic (growth) effect on the exocrine pancreas\n• Increases the synthesis of enterokinase\n• Enhances the motility of the small intestine and colon\n• Along with secretin, augments contraction of the pyloric sphincter and thus prevents reflux of duodenal contents into the stomach\n• Promotes satiety",
+      "structuredExplanation": {
+        "text": "Cholecystokinin (CCK) inhibits gastric emptying.\n\nIt is secreted by the I cells of the duodenal and jejunal mucosa in response to monoglycerides, fatty acids, and amino acids.\n\nPrimary functions:\n• Stimulation of pancreatic enzyme secretion\n• Contraction of the gallbladder\n• Relaxation of the sphincter of Oddi\n\nOther functions:\n• Augmentation of the action of Secretin in producing alkaline (bicarbonate rich) pancreatic juice\n• Inhibition of gastric emptying\n• Trophic (growth) effect on the exocrine pancreas\n• Increases the synthesis of enterokinase\n• Enhances the motility of the small intestine and colon\n• Along with secretin, augments contraction of the pyloric sphincter and thus prevents reflux of duodenal contents into the stomach\n• Promotes satiety",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Cholecystokinin (CCK) inhibits gastric emptying."
+          },
+          {
+            "type": "paragraph",
+            "text": "It is secreted by the I cells of the duodenal and jejunal mucosa in response to monoglycerides, fatty acids, and amino acids."
+          },
+          {
+            "type": "paragraph",
+            "text": "Primary functions: • Stimulation of pancreatic enzyme secretion • Contraction of the gallbladder • Relaxation of the sphincter of Oddi"
+          },
+          {
+            "type": "paragraph",
+            "text": "Other functions: • Augmentation of the action of Secretin in producing alkaline (bicarbonate rich) pancreatic juice • Inhibition of gastric emptying • Trophic (growth) effect on the exocrine pancreas • Increases the synthesis of enterokinase • Enhances the motility of the small intestine and colon • Along with secretin, augments contraction of the pyloric sphincter and thus prevents reflux of duodenal contents into the stomach • Promotes satiety"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          561
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          574
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 561,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q024",
+      "sourceQuestionId": "PHYSIO_CH31_Q024",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 24,
+      "questionType": "single_best_answer",
+      "question": "What stimulates secretin secretion?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Epinephrine"
+        },
+        {
+          "letter": "B",
+          "text": "Acid"
+        },
+        {
+          "letter": "C",
+          "text": "Fat"
+        },
+        {
+          "letter": "D",
+          "text": "Acetylcholine"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Acid",
+      "explanation": "Secretin secretion is stimulated by acid.\n\nStimuli that increase secretin secretion:\n• Low duodenal pH (2-4.5) due to acid in the chyme\n• Products of protein digestion in the upper small intestine\n\nSecretin secretion is regulated by negative feedback.",
+      "structuredExplanation": {
+        "text": "Secretin secretion is stimulated by acid.\n\nStimuli that increase secretin secretion:\n• Low duodenal pH (2-4.5) due to acid in the chyme\n• Products of protein digestion in the upper small intestine\n\nSecretin secretion is regulated by negative feedback.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Secretin secretion is stimulated by acid."
+          },
+          {
+            "type": "paragraph",
+            "text": "Stimuli that increase secretin secretion: • Low duodenal pH (2-4.5) due to acid in the chyme • Products of protein digestion in the upper small intestine"
+          },
+          {
+            "type": "paragraph",
+            "text": "Secretin secretion is regulated by negative feedback."
+          },
+          {
+            "type": "figure",
+            "figure_id": "PHYSIO_CH31_Q024_F01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          561,
+          562
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          574,
+          575
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 561,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q025",
+      "sourceQuestionId": "PHYSIO_CH31_Q025",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 25,
+      "questionType": "single_best_answer",
+      "question": "Liver synthesizes all of the following except:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Albumin"
+        },
+        {
+          "letter": "B",
+          "text": "Coagulation factors"
+        },
+        {
+          "letter": "C",
+          "text": "Acute phase proteins"
+        },
+        {
+          "letter": "D",
+          "text": "Immunoglobulins"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Immunoglobulins",
+      "explanation": "Immunoglobulins are not synthesized by the liver. They are produced by plasma cells.\n\nPlasma proteins synthesized by the liver are:\n• Albumin\n• Coagulation/clotting factors\n• Acute-phase proteins\n• Steroid binding and other hormone-binding proteins",
+      "structuredExplanation": {
+        "text": "Immunoglobulins are not synthesized by the liver. They are produced by plasma cells.\n\nPlasma proteins synthesized by the liver are:\n• Albumin\n• Coagulation/clotting factors\n• Acute-phase proteins\n• Steroid binding and other hormone-binding proteins",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Immunoglobulins are not synthesized by the liver. They are produced by plasma cells."
+          },
+          {
+            "type": "paragraph",
+            "text": "Plasma proteins synthesized by the liver are: • Albumin • Coagulation/clotting factors • Acute-phase proteins • Steroid binding and other hormone-binding proteins"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          562
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          575
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 562,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q026",
+      "sourceQuestionId": "PHYSIO_CH31_Q026",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 26,
+      "questionType": "single_best_answer",
+      "question": "How much is the daily secretion of gastric juice?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "500-1000 ml"
+        },
+        {
+          "letter": "B",
+          "text": "1500-2000 ml"
+        },
+        {
+          "letter": "C",
+          "text": "3000-3500 ml"
+        },
+        {
+          "letter": "D",
+          "text": "3500-5000 ml"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "1500-2000 ml",
+      "explanation": "Daily secretion of gastric juice is between 1500-2000 mL.\n\nNote: This is a controversial question - Daily secretion of gastric juice is:\n• 1500 mL according to Guyton and Hall Textbook of Medical Physiology, 13th edition, Page no: 819\n• 2500 mL according to Ganong's Review Of Medical Physiology, 25th Edition, Page no: 464\n\nChoose 2500 mL if given in the options. If not, choose within the range of 1500-2500 mL.",
+      "structuredExplanation": {
+        "text": "Daily secretion of gastric juice is between 1500-2000 mL.\n\nNote: This is a controversial question - Daily secretion of gastric juice is:\n• 1500 mL according to Guyton and Hall Textbook of Medical Physiology, 13th edition, Page no: 819\n• 2500 mL according to Ganong's Review Of Medical Physiology, 25th Edition, Page no: 464\n\nChoose 2500 mL if given in the options. If not, choose within the range of 1500-2500 mL.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Daily secretion of gastric juice is between 1500-2000 mL."
+          },
+          {
+            "type": "paragraph",
+            "text": "Note: This is a controversial question - Daily secretion of gastric juice is: • 1500 mL according to Guyton and Hall Textbook of Medical Physiology, 13th edition, Page no: 819 • 2500 mL according to Ganong's Review Of Medical Physiology, 25th Edition, Page no: 464"
+          },
+          {
+            "type": "paragraph",
+            "text": "Choose 2500 mL if given in the options. If not, choose within the range of 1500-2500 mL."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          562
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          575
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 562,
+      "reviewStatus": "pass_with_normalization_note",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted.",
+          "SOURCE NOTE: the explanation itself labels the daily gastric-juice volume as controversial, citing 1500 mL from Guyton and 2500 mL from Ganong; the printed key b and option 1500-2000 mL are preserved unchanged."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q027",
+      "sourceQuestionId": "PHYSIO_CH31_Q027",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 27,
+      "questionType": "single_best_answer",
+      "question": "Which of the following statement is correct regarding secretin?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "↑ bicarbonate secretion"
+        },
+        {
+          "letter": "B",
+          "text": "Inhibit bicarbonate secretion"
+        },
+        {
+          "letter": "C",
+          "text": "↑ gastric acid secretion"
+        },
+        {
+          "letter": "D",
+          "text": "Stimulates gastrin release"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "↑ bicarbonate secretion",
+      "explanation": "Secretin increases HCO3- secretion by ductal cells of the pancreas and duodenum. It is secreted by the S cells in the upper small intestine.\n\nFunctions of secretin are:\n• Primary function\n• ↑ HCO3- secretion by ductal cells of pancreas and duodenum\n• Other functions\n• Augments the effects of CCK\n• Inhibits gastrin release\n• ↓ gastric acid secretion\n• Contraction of pyloric sphincter\n• Exerts trophic effect on the pancreas",
+      "structuredExplanation": {
+        "text": "Secretin increases HCO3- secretion by ductal cells of the pancreas and duodenum. It is secreted by the S cells in the upper small intestine.\n\nFunctions of secretin are:\n• Primary function\n• ↑ HCO3- secretion by ductal cells of pancreas and duodenum\n• Other functions\n• Augments the effects of CCK\n• Inhibits gastrin release\n• ↓ gastric acid secretion\n• Contraction of pyloric sphincter\n• Exerts trophic effect on the pancreas",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Secretin increases HCO3- secretion by ductal cells of the pancreas and duodenum. It is secreted by the S cells in the upper small intestine."
+          },
+          {
+            "type": "paragraph",
+            "text": "Functions of secretin are: • Primary function • ↑ HCO3- secretion by ductal cells of pancreas and duodenum • Other functions • Augments the effects of CCK • Inhibits gastrin release • ↓ gastric acid secretion • Contraction of pyloric sphincter • Exerts trophic effect on the pancreas"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          562
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          575,
+          576
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 562,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q028",
+      "sourceQuestionId": "PHYSIO_CH31_Q028",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 28,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is secreted by the I cells of duodenum?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Secretin"
+        },
+        {
+          "letter": "B",
+          "text": "Gastrin"
+        },
+        {
+          "letter": "C",
+          "text": "CCK"
+        },
+        {
+          "letter": "D",
+          "text": "Motilin"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "CCK",
+      "explanation": "I cells of the duodenum secrete CCK.",
+      "structuredExplanation": {
+        "text": "I cells of the duodenum secrete CCK.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "I cells of the duodenum secrete CCK."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          562,
+          563
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          576
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 562,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q029",
+      "sourceQuestionId": "PHYSIO_CH31_Q029",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 29,
+      "questionType": "single_best_answer",
+      "question": "A 40-year-old man presented with abdominal pain and diarrhea. On investigations, multiple ulcers were seen in the proximal and distal duodenum and in the jejunum. The gastric pH was found to be 1.2 with a serum gastrin concentration of 2000 pg/ml. Which of the following is the primary site for the production of GI hormone raised in this patient?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pylorus"
+        },
+        {
+          "letter": "B",
+          "text": "Antrum"
+        },
+        {
+          "letter": "C",
+          "text": "Pancreas"
+        },
+        {
+          "letter": "D",
+          "text": "Small intestine"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Antrum",
+      "explanation": "The given clinical scenario is suggestive of Zollinger-Ellison syndrome. In this condition, serum gastrin concentration is raised to around >1000 pg/ml. Gastrin is primarily secreted by G cells present in the antrum of the stomach.",
+      "structuredExplanation": {
+        "text": "The given clinical scenario is suggestive of Zollinger-Ellison syndrome. In this condition, serum gastrin concentration is raised to around >1000 pg/ml. Gastrin is primarily secreted by G cells present in the antrum of the stomach.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The given clinical scenario is suggestive of Zollinger-Ellison syndrome. In this condition, serum gastrin concentration is raised to around >1000 pg/ml. Gastrin is primarily secreted by G cells present in the antrum of the stomach."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          563
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          576
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 563,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted."
+        ]
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q030",
+      "sourceQuestionId": "PHYSIO_CH31_Q030",
+      "subject": "Physiology",
+      "bank": "Marrow",
+      "chapterId": "31",
+      "chapter": "Gastrointestinal Secretion and Gastrointestinal Hormones",
+      "questionNumber": 30,
+      "questionType": "single_best_answer",
+      "question": "Which of the following hormones do not act on the pancreas?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Secretin"
+        },
+        {
+          "letter": "B",
+          "text": "Gastrin"
+        },
+        {
+          "letter": "C",
+          "text": "Cholecystokinin"
+        },
+        {
+          "letter": "D",
+          "text": "GIP"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Gastrin",
+      "explanation": "Gastrin does not act upon the pancreas. Gastrin stimulates gastric acid secretion and gastric mucosal growth.\n\nGI hormones acting on the pancreas include CCK, Secretin and GIP.\n\nGIP is also known as Glucose-dependent insulinotropic peptide.",
+      "structuredExplanation": {
+        "text": "Gastrin does not act upon the pancreas. Gastrin stimulates gastric acid secretion and gastric mucosal growth.\n\nGI hormones acting on the pancreas include CCK, Secretin and GIP.\n\nGIP is also known as Glucose-dependent insulinotropic peptide.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Gastrin does not act upon the pancreas. Gastrin stimulates gastric acid secretion and gastric mucosal growth."
+          },
+          {
+            "type": "paragraph",
+            "text": "GI hormones acting on the pancreas include CCK, Secretin and GIP."
+          },
+          {
+            "type": "paragraph",
+            "text": "GIP is also known as Glucose-dependent insulinotropic peptide."
+          },
+          {
+            "type": "table",
+            "table_id": "PHYSIO_CH31_Q030_T01"
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "",
+        "questionPages": [
+          563
+        ],
+        "answerKeyPages": [
+          563,
+          564
+        ],
+        "explanationPages": [
+          576
+        ],
+        "sourceMetadata": {
+          "filename": "physiologyed8.pdf"
+        }
+      },
+      "sourcePage": 563,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_visually_inspected": true,
+        "answer_key_visually_verified": true,
+        "ocr_used_as_helper_only": true,
+        "normalization_notes": [
+          "Rendered PDF pages 556-576 were authoritative.",
+          "OCR was used only as a transcription helper after embedded PDF text proved corrupted, and transcription was corrected against rendered pages.",
+          "Obvious seller/watermark/footer artifacts were omitted.",
+          "The source table on page 576 has cramped/concatenated cell typography; cell items were separated structurally without silently correcting the source claims."
+        ]
+      }
+    }
+  ]
+}

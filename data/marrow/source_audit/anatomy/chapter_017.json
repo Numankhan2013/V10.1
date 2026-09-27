@@ -1,0 +1,1744 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Derived read-only audit view. Immutable source remains the sharded Marrow bundle.",
+  "subject": "Anatomy",
+  "chapterId": "17",
+  "questionCount": 21,
+  "immutableSourcePrefix": "anatomy_phase_a",
+  "sourceRawSha256": "91668e021be2ea744d8c219da8b7445108dc4cd75e1fafe89b5e48019e04ee67",
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH17_Q001",
+      "sourceQuestionId": "ANAT_CH17_Q001",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 1,
+      "questionType": "single_best_answer",
+      "question": "Which of the following cranial nerves is a pure sensory nerve?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Olfactory"
+        },
+        {
+          "letter": "B",
+          "text": "Trochlear"
+        },
+        {
+          "letter": "C",
+          "text": "Trigeminal"
+        },
+        {
+          "letter": "D",
+          "text": "Glossopharyngeal"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Olfactory",
+      "explanation": "The olfactory nerve is a pure sensory cranial nerve and carries no motor fibers. The source uses the mnemonic 'Some Say Money Matters But My Brother Says Big Brains Matter More' to classify cranial nerves as sensory, motor or mixed.",
+      "structuredExplanation": {
+        "text": "The olfactory nerve is a pure sensory cranial nerve and carries no motor fibers. The source uses the mnemonic 'Some Say Money Matters But My Brother Says Big Brains Matter More' to classify cranial nerves as sensory, motor or mixed.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The olfactory nerve is a pure sensory cranial nerve and carries no motor fibers. The source uses the mnemonic 'Some Say Money Matters But My Brother Says Big Brains Matter More' to classify cranial nerves as sensory, motor or mixed."
+          }
+        ],
+        "tables": [],
+        "figures": [],
+        "source_transcription_ocr": "—~ me) oe\nThe olfactory nerve is a pure sensarfnerve It carte no motor fibers.\nMnemonic: Some Say Money'Matters But MyBrother Says Big Brains Matter More.\nS - Purely sensory > ~\\\nM- Purely motor.) ar.\nB- Both sepsolfrond motors >\n\n“\nThe placentent of the words in the mnemonic corresponds to the cranial nerve number i.e; \"Some\"\ncorresponds to the 1st cranial nerve (olfactory), \"Say\" corresponds to the 2nd cranial nerve (optic),\n\nand so on.\n\nOlfactory (1) Oculomotor (3) Trigeminal (5)\nOptie (2) Trochlear (4) Facial (7)\nVestibulocochlear (8) | Abducent (6) Glossopharyngeal (9)\n\nSpinal Accessory (11) | Vagus (10)\n\nHypoglossal (12)",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          306
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          313
+        ]
+      },
+      "sourcePage": 306,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q002",
+      "sourceQuestionId": "ANAT_CH17_Q002",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 2,
+      "questionType": "single_best_answer",
+      "question": "Which of the following brainstem nuclei is not derived from the alar plate?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Inferior olivary nucleus"
+        },
+        {
+          "letter": "B",
+          "text": "Hypoglossal nucleus"
+        },
+        {
+          "letter": "C",
+          "text": "Dentate nucleus"
+        },
+        {
+          "letter": "D",
+          "text": "Mesencephalic nucleus"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Hypoglossal nucleus",
+      "explanation": "The hypoglossal nucleus is not derived from the alar plate; it is a motor nucleus derived from the basal plate. In the developing neural tube, the basal plate forms motor nuclei and the alar plate forms sensory nuclei. The rhombic lip gives rise to the cerebellum and its nuclei.",
+      "structuredExplanation": {
+        "text": "The hypoglossal nucleus is not derived from the alar plate; it is a motor nucleus derived from the basal plate. In the developing neural tube, the basal plate forms motor nuclei and the alar plate forms sensory nuclei. The rhombic lip gives rise to the cerebellum and its nuclei.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The hypoglossal nucleus is not derived from the alar plate; it is a motor nucleus derived from the basal plate. In the developing neural tube, the basal plate forms motor nuclei and the alar plate forms sensory nuclei. The rhombic lip gives rise to the cerebellum and its nuclei."
+          },
+          {
+            "type": "table",
+            "table_index": 0
+          }
+        ],
+        "tables": [
+          {
+            "title": "Basal vs alar plate derivatives",
+            "columns": [
+              "Basal plate",
+              "Alar plate"
+            ],
+            "rows": [
+              [
+                "Ventral thickening; gives rise to motor nuclei including GVE/SVE and somatic efferent nuclei; forms motor part of spinal cord",
+                "Dorsal thickening; gives rise to sensory nuclei including CN V, VII, VIII, IX, X, inferior olivary and mesencephalic nuclei; forms sensory part of spinal cord; rhombic lip forms cerebellum and its nuclei"
+              ]
+            ],
+            "source_pages": [
+              314,
+              315
+            ]
+          }
+        ],
+        "figures": [],
+        "source_transcription_ocr": "The hypoglossal nucleus is not derived from the alar plate. The hypoglossal nucleus is a motor\n\nnucleus derived from the basal plate.\n\nEmbryologically, the continuous addition of neuroblasts to the mantle layer of the neural tube\nproduces thickenings ventrally and dorsally - producing the basal and alar plates respectively. A\nlongitudinal groove, called sulcus limitans, marks the boundary between the two.\n\nVentralthickening\n\nDorsalthickenings\n\nGive rise tomotor nuclei-gene\nral visceral efferent nuclei, sp\necial visceral efferent of CN I\n\nGive rise tosensory nucleiCN\nV, VII, VIII, IX, X, inferior ol\nivary nucleus, and mesencep\n\nX, X, and XII; and somatic ef | halic nucleus of CN V\nferent of XII\n\nForms the motor part of the s | Forms the sensory part of the\npinal cord (ventral horns) spinal cord (dorsal horns).\n\nhe rhombic lip develops into\nthe cerebellum and its nuclei.\n\n314\n\n\nSulcus limitans - posterior view of brainstem\n\nsews\niene\ne\nf\n&\nemarrow\nSe\n©\neo",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          306
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          314,
+          315
+        ]
+      },
+      "sourcePage": 306,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q003",
+      "sourceQuestionId": "ANAT_CH17_Q003",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 3,
+      "questionType": "single_best_answer",
+      "question": "The arrangement of the functional columns of cranial nerve nuclei from ventral to dorsal aspect in the brainstem is as follows:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Visceral Efferent > Somatic Efferent > Visceral Afferent > Somatic Afferent"
+        },
+        {
+          "letter": "B",
+          "text": "Somatic Efferent > Visceral Efferent > Visceral Afferent > Somatic Afferent"
+        },
+        {
+          "letter": "C",
+          "text": "Somatic Afferent > Visceral Afferent > Visceral Efferent > Somatic Efferent"
+        },
+        {
+          "letter": "D",
+          "text": "Visceral Efferent > Visceral Afferent > Somatic Afferent > Somatic Efferent"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Somatic Efferent > Visceral Efferent > Visceral Afferent > Somatic Afferent",
+      "explanation": "From ventral to dorsal, the functional columns are Somatic Efferent > Visceral Efferent > Visceral Afferent > Somatic Afferent. Motor columns lie ventrally in the basal plate and sensory columns dorsally in the alar plate, with visceral columns nearer the sulcus limitans than somatic columns.",
+      "structuredExplanation": {
+        "text": "From ventral to dorsal, the functional columns are Somatic Efferent > Visceral Efferent > Visceral Afferent > Somatic Afferent. Motor columns lie ventrally in the basal plate and sensory columns dorsally in the alar plate, with visceral columns nearer the sulcus limitans than somatic columns.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "From ventral to dorsal, the functional columns are Somatic Efferent > Visceral Efferent > Visceral Afferent > Somatic Afferent. Motor columns lie ventrally in the basal plate and sensory columns dorsally in the alar plate, with visceral columns nearer the sulcus limitans than somatic columns."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Functional columns of cranial nerve nuclei diagram",
+            "source_page": 315,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "P & wS\nolution to Question <O , ~~\n\nThe pattern of the a 2A. net Wri from ab Rate to dorsal aspect is:\n\nSomatic Efferent &gt; ViséertEfferen aon ae &gt; Somatic Afferent\n\nThe basal and alar cranial nerve nudlei'of the Drain nt are organized into 7 columns. The\nsequence of the columns frog to dors: ae shown in the image below - 3 motor columns in\nthe ventral basal plate (green) an 4 sens lumns in the dorsal alar plate (blue). The visceral\n\nnuclei are closer to the oe limitans neg “i somatic nuclei.\n~\n\n\nSulcus limitans - posterior view of brainstem\n\n®",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          306
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          315,
+          316
+        ]
+      },
+      "sourcePage": 306,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q004",
+      "sourceQuestionId": "ANAT_CH17_Q004",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 4,
+      "questionType": "single_best_answer",
+      "question": "Which of the following cranial nerves does not contain neurons from the general somatic efferent column?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "III nerve"
+        },
+        {
+          "letter": "B",
+          "text": "IV nerve"
+        },
+        {
+          "letter": "C",
+          "text": "VI nerve"
+        },
+        {
+          "letter": "D",
+          "text": "VII nerve"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "VII nerve",
+      "explanation": "The facial nerve does not contain neurons from the general somatic efferent (GSE) column. GSE is represented by nuclei of III, IV, VI and XII. Facial nerve motor fibers belong to the special visceral efferent column, while its parasympathetic component arises from the superior salivatory nucleus in the general visceral efferent column.",
+      "structuredExplanation": {
+        "text": "The facial nerve does not contain neurons from the general somatic efferent (GSE) column. GSE is represented by nuclei of III, IV, VI and XII. Facial nerve motor fibers belong to the special visceral efferent column, while its parasympathetic component arises from the superior salivatory nucleus in the general visceral efferent column.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The facial nerve does not contain neurons from the general somatic efferent (GSE) column. GSE is represented by nuclei of III, IV, VI and XII. Facial nerve motor fibers belong to the special visceral efferent column, while its parasympathetic component arises from the superior salivatory nucleus in the general visceral efferent column."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "General somatic efferent column diagram",
+            "source_page": 316,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "© < ~~\noh gO aw\n\nThe VII nerve (facial) does sags neurons frém the some efferent column.\n\nThe general somatic efferént (GSE) i is re og ventral colin i in the basal plate. It is represented\nby the oculomotor (III), Fe (psabducens (ayn hypoglossal (XI) nuclei.\n\nGeneral somatic efferent (GSE)\n\ng\n\na @—crartoreror\n& wf moran | strc\n\n{roe\n\nIO @ es\n\nce Hypoghnsal\n\nU\n\n\nThe facial (VII) nerve contains neurons from:\n\n+ Special visceral efferent (SVE) column - supplies facial muscles derived from the second\npharyngeal arch.\n\n* General visceral efferent (GVE) column - from the superior salivatory nucleus, is\nparasympathetic to the lacrimal gland, submandibular and sublingual salivary glands.",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          306,
+          307
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          316
+        ]
+      },
+      "sourcePage": 306,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q005",
+      "sourceQuestionId": "ANAT_CH17_Q005",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 5,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is not included in the special visceral efferent column?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Motor nucleus of V nerve"
+        },
+        {
+          "letter": "B",
+          "text": "Motor nucleus of VII nerve"
+        },
+        {
+          "letter": "C",
+          "text": "Dorsal nucleus of X nerve"
+        },
+        {
+          "letter": "D",
+          "text": "Nucleus ambiguus"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Dorsal nucleus of X nerve",
+      "explanation": "The dorsal motor nucleus of the vagus is not part of the special visceral efferent (SVE) column. SVE supplies muscles derived from pharyngeal arches and includes the motor nucleus of V, motor nucleus of VII and nucleus ambiguus. The dorsal motor nucleus of X belongs to the general visceral efferent column.",
+      "structuredExplanation": {
+        "text": "The dorsal motor nucleus of the vagus is not part of the special visceral efferent (SVE) column. SVE supplies muscles derived from pharyngeal arches and includes the motor nucleus of V, motor nucleus of VII and nucleus ambiguus. The dorsal motor nucleus of X belongs to the general visceral efferent column.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The dorsal motor nucleus of the vagus is not part of the special visceral efferent (SVE) column. SVE supplies muscles derived from pharyngeal arches and includes the motor nucleus of V, motor nucleus of VII and nucleus ambiguus. The dorsal motor nucleus of X belongs to the general visceral efferent column."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Special visceral efferent column diagram",
+            "source_page": 317,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "The special visceral efferent column does not include the dorsal nucleus of the vagus.\n\nThe special visceral efferent column contains neurons innervating muscles developed from the\n\npharyngeal arches:\n\n+ Motor nucleus of V nerve - muscles of mastication\n\n+ Motor nucleus of VII nerve - muscles of fé\n\n1 expression\n\n+ Nucleus ambiguus (IX, X, XI) - stylopharyngeus, pharyngeal, external laryngeal, @Bsbphageal\nstriated muscles, muscles of the soft palate, sternocleidomastoid, and trapezius’?\n\n‘Special visceral efferent (SVE)\n\n3\n\niL»\nMisbrain\nvon = w Facial\n°\n”\n_ _\nR\\S) >\nThe dorsal*nucleus of vagus contains neurons from the general visceral efferent column and it\nsends parasympathetic fibers to the glands and smooth muscles in the pharynx, larynx, thoracic\n\nand abdominal viscera.",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          307
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          317
+        ]
+      },
+      "sourcePage": 307,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q006",
+      "sourceQuestionId": "ANAT_CH17_Q006",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 6,
+      "questionType": "single_best_answer",
+      "question": "Which of the following nuclei do not belong to the general visceral efferent column?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Dorsal nucleus of vagus"
+        },
+        {
+          "letter": "B",
+          "text": "Edinger-Westphal nucleus"
+        },
+        {
+          "letter": "C",
+          "text": "Nucleus ambiguus"
+        },
+        {
+          "letter": "D",
+          "text": "Inferior salivatory nucleus"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Nucleus ambiguus",
+      "explanation": "Nucleus ambiguus does not belong to the general visceral efferent (GVE) column; it is SVE. GVE contains parasympathetic nuclei: Edinger-Westphal (III), superior salivatory (VII), inferior salivatory (IX) and dorsal motor nucleus of vagus (X).",
+      "structuredExplanation": {
+        "text": "Nucleus ambiguus does not belong to the general visceral efferent (GVE) column; it is SVE. GVE contains parasympathetic nuclei: Edinger-Westphal (III), superior salivatory (VII), inferior salivatory (IX) and dorsal motor nucleus of vagus (X).",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Nucleus ambiguus does not belong to the general visceral efferent (GVE) column; it is SVE. GVE contains parasympathetic nuclei: Edinger-Westphal (III), superior salivatory (VII), inferior salivatory (IX) and dorsal motor nucleus of vagus (X)."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "General visceral efferent column diagram",
+            "source_page": 318,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "Nucleus ambiguus does not belong to the general visceral efferent (GVE) column.\n\nThe general visceral efferent columns contain nuclei of parasympathetic cranial nerves:\n\n+ II - Edinger-Westphal nucleus\n+ VII - Superior salivatory nucleus\n+ IX - Inferior salivatory nucleus\n\n+X - Dorsal motor nucleus of vagus.\n\n317\n\n\nGeneral visceral efferent (GVE)\n\n4\n\nmianrain —>\n\nPons»\n\nwa |\n\nie . as\nNucleus ambiguus belongs to the special viscera erent (svejtolumn. 2)\n2\n\nSuperior and inferior\nsallvatory ruc\n\nThe special visceral efferent column contain i neurons jaitervating mus@le8 developed from the\npharyngeal arches: ee ae <O RS\nb]\n\n© «4\n+ Motor nucleus of V nerve- mustles of mastication\n* Motor nucleus of VI nefie>thuseles of of Gia expression»\n\n+ Nucleus ambiguus (IX, X, X1)- shigghtiyngens: pharyngeal, external laryngeal, oesophageal\nstriated muscles, muscles of the: soft palate, stertiocleidomastoid, and trapezius.\nWats ~)",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          307
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          317,
+          318
+        ]
+      },
+      "sourcePage": 307,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q007",
+      "sourceQuestionId": "ANAT_CH17_Q007",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 7,
+      "questionType": "single_best_answer",
+      "question": "Which cranial nerve nuclei are present in both the general somatic efferent and general visceral efferent columns?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Oculomotor nerve"
+        },
+        {
+          "letter": "B",
+          "text": "Trochlear nerve"
+        },
+        {
+          "letter": "C",
+          "text": "Facial nerve"
+        },
+        {
+          "letter": "D",
+          "text": "Glossopharyngeal nerve"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Oculomotor nerve",
+      "explanation": "The oculomotor nerve has nuclei in both GSE and GVE columns: the oculomotor motor nucleus is GSE and the Edinger-Westphal nucleus is GVE.",
+      "structuredExplanation": {
+        "text": "The oculomotor nerve has nuclei in both GSE and GVE columns: the oculomotor motor nucleus is GSE and the Edinger-Westphal nucleus is GVE.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The oculomotor nerve has nuclei in both GSE and GVE columns: the oculomotor motor nucleus is GSE and the Edinger-Westphal nucleus is GVE."
+          }
+        ],
+        "tables": [],
+        "figures": [],
+        "source_transcription_ocr": "Cyr\n\n.\nOculomotfknetve nuclei resent in both general somatic efferent (GSE) and general visceral\nefferent (GVE) columns in'the brainstem.",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          307
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          318
+        ]
+      },
+      "sourcePage": 307,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q008",
+      "sourceQuestionId": "ANAT_CH17_Q008",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 8,
+      "questionType": "single_best_answer",
+      "question": "Which of the following cranial nerve nuclei is not a part of the special visceral afferent (SVA) column?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Facial nerve"
+        },
+        {
+          "letter": "B",
+          "text": "Trochlear nerve"
+        },
+        {
+          "letter": "C",
+          "text": "Vagus nerve"
+        },
+        {
+          "letter": "D",
+          "text": "Glossopharyngeal nerve"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Trochlear nerve",
+      "explanation": "The trochlear nucleus is not part of the special visceral afferent column. It is a general somatic efferent motor nucleus supplying the superior oblique muscle. SVA components are associated with taste/visceral-special sensory pathways.",
+      "structuredExplanation": {
+        "text": "The trochlear nucleus is not part of the special visceral afferent column. It is a general somatic efferent motor nucleus supplying the superior oblique muscle. SVA components are associated with taste/visceral-special sensory pathways.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The trochlear nucleus is not part of the special visceral afferent column. It is a general somatic efferent motor nucleus supplying the superior oblique muscle. SVA components are associated with taste/visceral-special sensory pathways."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "General/special visceral afferent columns diagram",
+            "source_page": 319,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "The trochlear nerve nucleus is a part of the general somatic efferent (GSE) column, not the special\nvisceral afferent column.\n\nThe trochlear nerve is a motor nerve that innervates superior oblique muscle in the orbit.\n\nThe neurons of the general somatic efferent (GSE) column innervate the extrinsic ocular muscles\nand muscles of the tongue (III, IV, VI, and XII cranial nerves).\n\n\nGeneral visceral afferent (GVA) and\nSpecial visceral afferent (SVA)\n\n:\ntwapran —> &\nos\n=\n7 @\n©@MARROW",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          307,
+          308
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          318,
+          319
+        ]
+      },
+      "sourcePage": 307,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q009",
+      "sourceQuestionId": "ANAT_CH17_Q009",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 9,
+      "questionType": "single_best_answer",
+      "question": "Which of the following nerves is not involved in olfaction?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Trigeminal nerve"
+        },
+        {
+          "letter": "B",
+          "text": "Vagus nerve"
+        },
+        {
+          "letter": "C",
+          "text": "Glossopharyngeal nerve"
+        },
+        {
+          "letter": "D",
+          "text": "Hypoglossal nerve"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Hypoglossal nerve",
+      "explanation": "The hypoglossal nerve is purely motor and is not involved in olfaction. The source notes contributions of trigeminal, glossopharyngeal and vagus nerves to olfactory-related sensation/modulation.",
+      "structuredExplanation": {
+        "text": "The hypoglossal nerve is purely motor and is not involved in olfaction. The source notes contributions of trigeminal, glossopharyngeal and vagus nerves to olfactory-related sensation/modulation.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The hypoglossal nerve is purely motor and is not involved in olfaction. The source notes contributions of trigeminal, glossopharyngeal and vagus nerves to olfactory-related sensation/modulation."
+          }
+        ],
+        "tables": [],
+        "figures": [],
+        "source_transcription_ocr": "Q ok\n\n<\n“a\nRS\n\nThe hypoglossal nerve is purely motor cranial. acne and is not intvolved in olfaction.\n\nial Ge\nThe other three cranial n > trigeminal glossopharyngei, and vagus nerves are mixed cranial\nnerves and contribute to olfaction. .O) we\n\nww\nVagal nerve stimulation modifiesithe electrical aétivity of the olfactory bulb.\nos >\nwe o°\n\noA\n\nSolution to Question) mS\n)\n\nThe fibers fromthe nucleus Ambiguus emerge through the postero-lateral sulcus of the\nbrainstem.\n\nNucleus ambiguus is made of cranial nerves IX, X, and XI.\n\nThe following table describes the components of the vagal nerve and the associated nuclei.\n\nParasympath | Dorsal vagal nucleus Autonomic ganglia of thorax\n\netic and abdomen\n\nMotor Nucleus ambiguus Pharynx, larynx, palate\n\nViscero-senso | Nucleus tractus solitarius | Pharynx, larynx, esophagus, t\n\n1 horacie and abdominal viscer\na\n\nChemosensor | Nucleus tractus solitarius _| Taste buds on epiglottis\n\ny\n\nSomatosensor | Spinal nucleus of trigeminal | Outer ear canal, pina, dura\n\ny",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          308
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          319
+        ]
+      },
+      "sourcePage": 308,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q010",
+      "sourceQuestionId": "ANAT_CH17_Q010",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 10,
+      "questionType": "single_best_answer",
+      "question": "A 72-year-old patient who suffered a stroke is unable to swallow food. On examination, the gag reflex is absent. The motor nucleus of the vagus nerve involved here emerges from ______ of the brainstem.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Postero-lateral sulcus"
+        },
+        {
+          "letter": "B",
+          "text": "Anterolateral sulcus"
+        },
+        {
+          "letter": "C",
+          "text": "Body of pons"
+        },
+        {
+          "letter": "D",
+          "text": "At the ponto-medullary junction"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Postero-lateral sulcus",
+      "explanation": "Fibers from nucleus ambiguus emerge through the posterolateral sulcus of the brainstem. Nucleus ambiguus contains motor components associated with cranial nerves IX, X and XI. The source also summarizes vagal components: dorsal vagal nucleus for parasympathetic output, nucleus ambiguus for pharynx/larynx/palate, nucleus tractus solitarius for viscero-sensory input, and spinal trigeminal nucleus for somatic sensory input from outer ear/dura.",
+      "structuredExplanation": {
+        "text": "Fibers from nucleus ambiguus emerge through the posterolateral sulcus of the brainstem. Nucleus ambiguus contains motor components associated with cranial nerves IX, X and XI. The source also summarizes vagal components: dorsal vagal nucleus for parasympathetic output, nucleus ambiguus for pharynx/larynx/palate, nucleus tractus solitarius for viscero-sensory input, and spinal trigeminal nucleus for somatic sensory input from outer ear/dura.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Fibers from nucleus ambiguus emerge through the posterolateral sulcus of the brainstem. Nucleus ambiguus contains motor components associated with cranial nerves IX, X and XI. The source also summarizes vagal components: dorsal vagal nucleus for parasympathetic output, nucleus ambiguus for pharynx/larynx/palate, nucleus tractus solitarius for viscero-sensory input, and spinal trigeminal nucleus for somatic sensory input from outer ear/dura."
+          },
+          {
+            "type": "table",
+            "table_index": 0
+          }
+        ],
+        "tables": [
+          {
+            "title": "Vagus nerve components and nuclei",
+            "columns": [
+              "Component",
+              "Nucleus",
+              "Distribution"
+            ],
+            "rows": [
+              [
+                "Parasympathetic",
+                "Dorsal vagal nucleus",
+                "Autonomic ganglia of thorax and abdomen"
+              ],
+              [
+                "Branchial motor",
+                "Nucleus ambiguus",
+                "Pharynx, larynx, palate"
+              ],
+              [
+                "Viscero-sensory",
+                "Nucleus tractus solitarius",
+                "Pharynx, larynx, esophagus, thoracic and abdominal viscera"
+              ],
+              [
+                "Somatic sensory",
+                "Spinal nucleus of trigeminal",
+                "Outer ear canal, pinna, dura"
+              ]
+            ],
+            "source_pages": [
+              319,
+              320
+            ]
+          }
+        ],
+        "figures": [],
+        "source_transcription_ocr": "Fibers from nucleus ambiguus emerge through the posterolateral sulcus of the brainstem. Nucleus ambiguus contains motor components associated with cranial nerves IX, X and XI. The source also summarizes vagal components: dorsal vagal nucleus for parasympathetic output, nucleus ambiguus for pharynx/larynx/palate, nucleus tractus solitarius for viscero-sensory input, and spinal trigeminal nucleus for somatic sensory input from outer ear/dura.",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          308
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          319,
+          320
+        ]
+      },
+      "sourcePage": 308,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q011",
+      "sourceQuestionId": "ANAT_CH17_Q011",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 11,
+      "questionType": "single_best_answer",
+      "question": "A 69-year-old male presented with diplopia. Investigations revealed an aneurysm of the right anterior inferior cerebellar artery that is directly impinging on the nerve arising at the pontomedullary junction. Which of the following extraocular muscles is likely to be paralyzed?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Superior oblique"
+        },
+        {
+          "letter": "B",
+          "text": "Inferior oblique"
+        },
+        {
+          "letter": "C",
+          "text": "Medial rectus"
+        },
+        {
+          "letter": "D",
+          "text": "Lateral rectus"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Lateral rectus",
+      "explanation": "The lateral rectus is most likely paralyzed because it is supplied by cranial nerve VI, which emerges at the pontomedullary junction. CN VI, VII and VIII arise at this junction. Superior oblique is supplied by IV; most other extraocular muscles by III.",
+      "structuredExplanation": {
+        "text": "The lateral rectus is most likely paralyzed because it is supplied by cranial nerve VI, which emerges at the pontomedullary junction. CN VI, VII and VIII arise at this junction. Superior oblique is supplied by IV; most other extraocular muscles by III.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The lateral rectus is most likely paralyzed because it is supplied by cranial nerve VI, which emerges at the pontomedullary junction. CN VI, VII and VIII arise at this junction. Superior oblique is supplied by IV; most other extraocular muscles by III."
+          }
+        ],
+        "tables": [],
+        "figures": [],
+        "source_transcription_ocr": "The lateral rectus muscle is likely to be paralyzed as it is innervated by the VI cranial nerve,\nwhich emerges from the pontomedullary junction (PMJ).\nCranial nerves VI, VII, and VIII arise at the PMJ.\n\nExtraocular muscles are innervated by the III, IV, and VI cranial nerves. The superior oblique is\ninnervated by CN IV, the lateral rectus by CN VI, and all the other muscles by CN III.\n\nos\nef",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          308
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          320
+        ]
+      },
+      "sourcePage": 308,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q012",
+      "sourceQuestionId": "ANAT_CH17_Q012",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 12,
+      "questionType": "single_best_answer",
+      "question": "A 34-year-old presents to the casualty with a history of blunt force trauma to the head. A small lesion was found on the dorsal aspect of the brainstem on imaging. Which of the following nerves could be injured at the site?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Hypoglossal nerve"
+        },
+        {
+          "letter": "B",
+          "text": "Trigeminal nerve"
+        },
+        {
+          "letter": "C",
+          "text": "Trochlear nerve"
+        },
+        {
+          "letter": "D",
+          "text": "Facial nerve"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Trochlear nerve",
+      "explanation": "The trochlear nerve is the only cranial nerve that exits the brainstem from its dorsal surface, so a dorsal brainstem lesion can injure it. The other listed cranial nerves exit ventrally.",
+      "structuredExplanation": {
+        "text": "The trochlear nerve is the only cranial nerve that exits the brainstem from its dorsal surface, so a dorsal brainstem lesion can injure it. The other listed cranial nerves exit ventrally.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The trochlear nerve is the only cranial nerve that exits the brainstem from its dorsal surface, so a dorsal brainstem lesion can injure it. The other listed cranial nerves exit ventrally."
+          }
+        ],
+        "tables": [],
+        "figures": [],
+        "source_transcription_ocr": "XO os\n\nThe trochlear nerve is the only nerve that exits ¢fSinstem AS dorsal axface and thus can\n\nbe injured in this patient. a (@)\n\n»~ S x2\nAllother cranial nerves exit the brainstessffom the vent@al aaron\n2)\nse OLD\nSF oS” gn”",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          309
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          320
+        ]
+      },
+      "sourcePage": 309,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q013",
+      "sourceQuestionId": "ANAT_CH17_Q013",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 13,
+      "questionType": "single_best_answer",
+      "question": "Which of the following nerves exits anterior to the marked structure in the image?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Glossopharyngeal"
+        },
+        {
+          "letter": "B",
+          "text": "Vagus"
+        },
+        {
+          "letter": "C",
+          "text": "Accessory nerve"
+        },
+        {
+          "letter": "D",
+          "text": "Hypoglossal nerve"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Hypoglossal nerve",
+      "explanation": "The marked structure is the olive. The hypoglossal nerve emerges anterior to the olive through the groove between the pyramid and olive (preolivary/anterolateral sulcus).",
+      "structuredExplanation": {
+        "text": "The marked structure is the olive. The hypoglossal nerve emerges anterior to the olive through the groove between the pyramid and olive (preolivary/anterolateral sulcus).",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The marked structure is the olive. The hypoglossal nerve emerges anterior to the olive through the groove between the pyramid and olive (preolivary/anterolateral sulcus)."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          },
+          {
+            "type": "figure",
+            "figure_index": 1
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Medulla image with marked olive",
+            "source_page": 309,
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          },
+          {
+            "title": "Medulla oblongata/pons diagram",
+            "source_page": 320,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "“> rg er\n\nThe structure marked is the oli prow ferve emerges anterior to the olive, from the\n\ngroove between the —_ e oliv rolateral sulcus.\n\nerebellar pathway connect the olives to the pons and\n\nThe olivary bodies are rowhdéd, oval ae on the surface of the medulla oblongata in\nthe brain. Nerve fibers ithe stig\n\n>\nCo .S\n\nMedulla oblongata, pons and\nmiddle cerebellar peduncle\n\ncerebellum.",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          309
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          320
+        ]
+      },
+      "sourcePage": 309,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q014",
+      "sourceQuestionId": "ANAT_CH17_Q014",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 14,
+      "questionType": "single_best_answer",
+      "question": "Which is the thickest cranial nerve?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Trigeminal"
+        },
+        {
+          "letter": "B",
+          "text": "Facial"
+        },
+        {
+          "letter": "C",
+          "text": "Trochlear"
+        },
+        {
+          "letter": "D",
+          "text": "Vagus"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Trigeminal",
+      "explanation": "The trigeminal nerve is the thickest cranial nerve. The trochlear nerve is the most slender cranial nerve.",
+      "structuredExplanation": {
+        "text": "The trigeminal nerve is the thickest cranial nerve. The trochlear nerve is the most slender cranial nerve.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The trigeminal nerve is the thickest cranial nerve. The trochlear nerve is the most slender cranial nerve."
+          }
+        ],
+        "tables": [],
+        "figures": [],
+        "source_transcription_ocr": "=\n‘The trigeminal nerve is the thick@st Cranial ene.\nThe trochlear nerve is the'mpst lenge dhl terye:\no 3\nLe NN\nKe Ra",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          309,
+          310
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          321
+        ]
+      },
+      "sourcePage": 309,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q015",
+      "sourceQuestionId": "ANAT_CH17_Q015",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 15,
+      "questionType": "single_best_answer",
+      "question": "Which of the following cranial nerves does not carry parasympathetic fibers?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Trochlear"
+        },
+        {
+          "letter": "B",
+          "text": "Facial"
+        },
+        {
+          "letter": "C",
+          "text": "Oculomotor"
+        },
+        {
+          "letter": "D",
+          "text": "Glossopharyngeal"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Trochlear",
+      "explanation": "The trochlear nerve does not carry parasympathetic fibers. Parasympathetic cranial outflow is carried with III, VII, IX and X.",
+      "structuredExplanation": {
+        "text": "The trochlear nerve does not carry parasympathetic fibers. Parasympathetic cranial outflow is carried with III, VII, IX and X.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The trochlear nerve does not carry parasympathetic fibers. Parasympathetic cranial outflow is carried with III, VII, IX and X."
+          },
+          {
+            "type": "table",
+            "table_index": 0
+          }
+        ],
+        "tables": [
+          {
+            "title": "Cranial parasympathetic pathways",
+            "columns": [
+              "Cranial nerve",
+              "Ganglion/target pathway noted in source"
+            ],
+            "rows": [
+              [
+                "III Oculomotor",
+                "Ciliary ganglion"
+              ],
+              [
+                "VII Facial",
+                "Pterygopalatine and submandibular ganglia"
+              ],
+              [
+                "IX Glossopharyngeal",
+                "Otic ganglion"
+              ],
+              [
+                "X Vagus",
+                "Terminal/intramural ganglia"
+              ]
+            ],
+            "source_pages": [
+              321
+            ]
+          }
+        ],
+        "figures": [],
+        "source_transcription_ocr": "<e\n\nThe trochlear nerve dogs not caigapebatympathetie fibers.\n‘The cranial ngage carrying pasasympathetic fibers are listed below:\n\n.\n\nOculomotor(III) __| Ciliary ganglion\n\nFacial(VI1) Pterygopalatine and subman\ndibular ganglion\n\nGlossopharyngeal(I | Otic ganglion\n\nx)\n\nVagus(X) Visceral ganglions",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          310
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          321
+        ]
+      },
+      "sourcePage": 310,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q016",
+      "sourceQuestionId": "ANAT_CH17_Q016",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 16,
+      "questionType": "single_best_answer",
+      "question": "Which of the following sensations is not perceived by the spinal nucleus of the trigeminal nerve?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Temperature"
+        },
+        {
+          "letter": "B",
+          "text": "Pain"
+        },
+        {
+          "letter": "C",
+          "text": "Touch"
+        },
+        {
+          "letter": "D",
+          "text": "Proprioception"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Proprioception",
+      "explanation": "Proprioception is perceived by the mesencephalic nucleus of the trigeminal nerve, not the spinal trigeminal nucleus. The source contrasts the trigeminal nuclei: mesencephalic for proprioception, principal sensory for touch/pressure, spinal nucleus for pain and temperature (plus some touch), and motor nucleus for muscles of mastication and related first-arch muscles.",
+      "structuredExplanation": {
+        "text": "Proprioception is perceived by the mesencephalic nucleus of the trigeminal nerve, not the spinal trigeminal nucleus. The source contrasts the trigeminal nuclei: mesencephalic for proprioception, principal sensory for touch/pressure, spinal nucleus for pain and temperature (plus some touch), and motor nucleus for muscles of mastication and related first-arch muscles.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Proprioception is perceived by the mesencephalic nucleus of the trigeminal nerve, not the spinal trigeminal nucleus. The source contrasts the trigeminal nuclei: mesencephalic for proprioception, principal sensory for touch/pressure, spinal nucleus for pain and temperature (plus some touch), and motor nucleus for muscles of mastication and related first-arch muscles."
+          },
+          {
+            "type": "table",
+            "table_index": 0
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [
+          {
+            "title": "Trigeminal nuclei",
+            "columns": [
+              "Nucleus",
+              "Location/extent",
+              "Main function"
+            ],
+            "rows": [
+              [
+                "Mesencephalic",
+                "Midbrain extending into pons to principal sensory nucleus",
+                "Proprioception from muscles of mastication and facial/extraocular muscles"
+              ],
+              [
+                "Principal sensory",
+                "Posterior pons lateral to motor nucleus",
+                "Touch and pressure from face"
+              ],
+              [
+                "Spinal nucleus",
+                "Continuous with principal sensory nucleus; through medulla to C2",
+                "Pain and temperature from face; some touch"
+              ],
+              [
+                "Motor nucleus",
+                "Pons medial to principal sensory nucleus",
+                "Muscles of mastication, tensor tympani, tensor veli palatini, mylohyoid, anterior belly of digastric"
+              ]
+            ],
+            "source_pages": [
+              321,
+              322
+            ]
+          }
+        ],
+        "figures": [
+          {
+            "title": "Trigeminal nuclei diagram",
+            "source_page": 322,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "Proprioception is perceived by the mesencephalic nucleus of the trigeminal nerve, not the spinal\n\nnucleus.\n\n321\n\n\nThe trigeminal nerve consists of 4 nuclei: 3 sensory (Mesencephalic, spinal, and principal sensory\n\nnucleus) and 1 motor.\n\nMesencephalic Nucleus\n\nComposed of a column ofuni\npolar nervecells situated in th\ne midbrain and extends inferi\norly into the pons as far as th\ne main sensory nucleus\n\nReceives the sensation ofpro\nprioceptionfrom the muscles\n\nof mastication and from the f\nacial and extraocular muscles\n\nPrincipal sensory nucleu\ns\n\nPosterior part of the pons lat\neral to the motor nucleus\n\nReceives the sensations oftou\nch and pressurefrom the face\n\nSpinal nucleus\n\nContinuous superiorly with t\nhe main sensory nucleus and\nextends inferiorly the whole\nof the medulla oblongatatill t\nhe andCervical Segment\n\nReceives the sensation ofpain\nand temperaturefrom the fac\ne and some fibers oftouch\n\nMotor nucleus\n\nThe pons medial to the main\nsensory nucleus\n\nSupplies the muscles of masti\ncation, the tensor tympani, t\nhe tensor veli palitini and the\nmylohyoid and the anterior\nbelly of digastric muscle",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          310
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          321,
+          322
+        ]
+      },
+      "sourcePage": 310,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q017",
+      "sourceQuestionId": "ANAT_CH17_Q017",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 17,
+      "questionType": "single_best_answer",
+      "question": "A patient with trigeminal neuralgia presents with a flare-up of the condition. The nucleus receiving the sensory afferent extends from the chief sensory nucleus in the pons up to the:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Lower end of medulla"
+        },
+        {
+          "letter": "B",
+          "text": "2nd cervical spinal segment"
+        },
+        {
+          "letter": "C",
+          "text": "5th cervical spinal segment"
+        },
+        {
+          "letter": "D",
+          "text": "Upper end of medulla"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "2nd cervical spinal segment",
+      "explanation": "In trigeminal neuralgia, pain and temperature afferents relay in the spinal nucleus of the trigeminal nerve. This nucleus continues inferiorly from the chief sensory nucleus through the medulla to approximately the second cervical spinal segment.",
+      "structuredExplanation": {
+        "text": "In trigeminal neuralgia, pain and temperature afferents relay in the spinal nucleus of the trigeminal nerve. This nucleus continues inferiorly from the chief sensory nucleus through the medulla to approximately the second cervical spinal segment.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "In trigeminal neuralgia, pain and temperature afferents relay in the spinal nucleus of the trigeminal nerve. This nucleus continues inferiorly from the chief sensory nucleus through the medulla to approximately the second cervical spinal segment."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Trigeminal nuclei diagram",
+            "source_page": 323,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "S\n\nExcruciating pain is the principal symptom of trigeminal neuralgia. The afferent fibers carrying\npain and temperature from the face relay in the spinal nucleus of the trigeminal nerve. It extends\nfrom the chief sensory nucleus in the upper part of the pons through the medulla and into the\nupper 2 segments of the spinal cord.\n\n\nThe trigeminal nerve consists of 4 nuclei: 3 sensory (mesencephalic, spinal, and principal sensory\n\nnucleus) and 1 motor.\n\nMesencephalic nucleus\n\nComposed of a column ofuni\npolar nervecells situated in th\ne midbrain and extends inferi\norly into the pons as far as th\ne main sensory nucleus\n\nReceives the sensation ofpro\nprioceptionfrom the muscles\n\nof mastication and from the f\nacial and extraocular muscles\n\nPrincipal sensory nucleu\ns\n\nPosterior part of the pons lat\neral to the motor nucleus\n\nReceives the sensations oftou\nch and pressurefrom the face\n\nSpinal nucleus\n\nContinuous superiorly with t\nhe main sensory nucleus and\nextends inferiorly the whole\nof the medulla oblongatatill t\nhe andcervical segment\n\nReceives the sensation ofpain\nand temperaturefrom the fac\ne and some fibers oftouch\n\nMotor nucleus\n\nThe pons medial to the main\nsensory nucleus\n\nSupplies the muscles of masti\ncation, tensor tympani, tenso\nr veli palitini, mylohyoid, and\nanterior belly of digastric m\n\nuscle\n\nx",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          310
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          322,
+          323
+        ]
+      },
+      "sourcePage": 310,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q018",
+      "sourceQuestionId": "ANAT_CH17_Q018",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 18,
+      "questionType": "single_best_answer",
+      "question": "Which of the following statements regarding the nerve involved in the palsy shown below is false?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "It divides into upper and lower divisions in its anterior part in the cavernous sinus."
+        },
+        {
+          "letter": "B",
+          "text": "Its divisions enter the orbit through the middle part of the superior orbital fissure."
+        },
+        {
+          "letter": "C",
+          "text": "It lies between the posterior cerebral and superior cerebellar arteries in the interpeduncular fossa."
+        },
+        {
+          "letter": "D",
+          "text": "The nerve to inferior rectus carries parasympathetic fibers to the ciliary ganglion."
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "The nerve to inferior rectus carries parasympathetic fibers to the ciliary ganglion.",
+      "explanation": "The image shows oculomotor palsy. The false statement is that the nerve to inferior rectus carries parasympathetic fibers to the ciliary ganglion; these fibers travel with the nerve to inferior oblique. The oculomotor nerve passes between the posterior cerebral and superior cerebellar arteries, runs in the lateral wall of cavernous sinus, divides into superior and inferior divisions and enters the orbit through the superior orbital fissure/common tendinous ring.",
+      "structuredExplanation": {
+        "text": "The image shows oculomotor palsy. The false statement is that the nerve to inferior rectus carries parasympathetic fibers to the ciliary ganglion; these fibers travel with the nerve to inferior oblique. The oculomotor nerve passes between the posterior cerebral and superior cerebellar arteries, runs in the lateral wall of cavernous sinus, divides into superior and inferior divisions and enters the orbit through the superior orbital fissure/common tendinous ring.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The image shows oculomotor palsy. The false statement is that the nerve to inferior rectus carries parasympathetic fibers to the ciliary ganglion; these fibers travel with the nerve to inferior oblique. The oculomotor nerve passes between the posterior cerebral and superior cerebellar arteries, runs in the lateral wall of cavernous sinus, divides into superior and inferior divisions and enters the orbit through the superior orbital fissure/common tendinous ring."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          },
+          {
+            "type": "figure",
+            "figure_index": 1
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Clinical image of oculomotor palsy",
+            "source_page": 310,
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          },
+          {
+            "title": "Oculomotor nerve course diagram",
+            "source_page": 324,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "The image shows oculomotor nerve palsy. The nerve to inferior oblique carries parasympathetic\nfibers to the ciliary ganglion, not the nerve to inferior rectus.\nCourse of the oculomotor nerve:\n\n+ The nerve lies on the anterior surface of the midbrain in between the posterior cerebral artery\nand the superior cerebellar artery in the interpeduncular fossa.\n\n\n+ It then passes to the middle cranial fossa along the lateral dural wall of the cavernous sinus and\n\ndivides into superior and inferior in its anterior part.\n\n+ It enters the superior orbital fissure through the common tendinous ring.\n\nGangiion:",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          310,
+          311
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          323,
+          324
+        ]
+      },
+      "sourcePage": 310,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q019",
+      "sourceQuestionId": "ANAT_CH17_Q019",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 19,
+      "questionType": "single_best_answer",
+      "question": "A 36-year-old male was brought to the emergency department after suffering a head injury in a road traffic accident. CT revealed a skull base fracture. The fracture line extended along the apex of the petrous bone involving Dorello's canal. Which of the following cranial nerves is susceptible to injury?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Vestibulocochlear nerve"
+        },
+        {
+          "letter": "B",
+          "text": "Abducens nerve"
+        },
+        {
+          "letter": "C",
+          "text": "Glossopharyngeal nerve"
+        },
+        {
+          "letter": "D",
+          "text": "Trochlear nerve"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Abducens nerve",
+      "explanation": "The abducens nerve traverses Dorello's canal and is therefore susceptible to injury in a fracture involving the petrous apex. Dorello's canal lies at the petrous apex beneath the petrosphenoidal (Gruber) ligament.",
+      "structuredExplanation": {
+        "text": "The abducens nerve traverses Dorello's canal and is therefore susceptible to injury in a fracture involving the petrous apex. Dorello's canal lies at the petrous apex beneath the petrosphenoidal (Gruber) ligament.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The abducens nerve traverses Dorello's canal and is therefore susceptible to injury in a fracture involving the petrous apex. Dorello's canal lies at the petrous apex beneath the petrosphenoidal (Gruber) ligament."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Dorello canal diagram",
+            "source_page": 324,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "&\nThe abducens nerve forms the egntént of Dorell6:\nrat St\n\nOculomotor nerve\n\neae\n\n‘Superior orbital fissure\n\n&\n\n‘Clliary gangtion\n\ns\n\nmMARROW\n\nSK\n\nee r ee\n0 Ov\n\n>\n\ncase. Eo: we\nDorello’s canal is locateel at the petrous\\apex of the temporal bone and is formed by the\npetrosphenoidallpetr noidGrubers ligament.\nRVs\nNS Dorello's canal - Superior view\n\n=\n\nON\nInterna!\n‘Caro artery\n\nAbevenns\newe (EN Y)\n\nPewosphenaisal\nligament\n‘anation\n\n\n\n's canal and hence is susceptible to injury in this",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          311
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          324
+        ]
+      },
+      "sourcePage": 311,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q020",
+      "sourceQuestionId": "ANAT_CH17_Q020",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 20,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is not used for the identification of the facial nerve trunk?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Retrograde dissection from distal branch"
+        },
+        {
+          "letter": "B",
+          "text": "Tragal pointer"
+        },
+        {
+          "letter": "C",
+          "text": "Inferior belly of omohyoid muscle"
+        },
+        {
+          "letter": "D",
+          "text": "Posterior belly of digastric"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Inferior belly of omohyoid muscle",
+      "explanation": "The inferior belly of omohyoid is not used to identify the facial nerve trunk. The source describes anterograde landmarks including the tragal pointer, posterior belly of digastric, squamotympanic fissure, styloid process and mastoid process, and a retrograde method tracing distal facial branches proximally.",
+      "structuredExplanation": {
+        "text": "The inferior belly of omohyoid is not used to identify the facial nerve trunk. The source describes anterograde landmarks including the tragal pointer, posterior belly of digastric, squamotympanic fissure, styloid process and mastoid process, and a retrograde method tracing distal facial branches proximally.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The inferior belly of omohyoid is not used to identify the facial nerve trunk. The source describes anterograde landmarks including the tragal pointer, posterior belly of digastric, squamotympanic fissure, styloid process and mastoid process, and a retrograde method tracing distal facial branches proximally."
+          }
+        ],
+        "tables": [],
+        "figures": [],
+        "source_transcription_ocr": "The inferior belly of the omohyoid muscle is not used as an anatomical landmark for the\nidentification of the facial nerve trunk.\nThere are two methods for localization of the facial nerve trunk:\n\n1. Anterograde method: The facial nerve trunk is identified based on the anatomical landmarks\nafter it exits from the stylomastoid foramen. This includes:\n\n+ Tragal pointer/Conley’s pointer - It is the inferior portion of the cartilaginous canal. The facial\nnerve trunk lies 1m deep and inferior to its tip.\n\n+ Posterior belly of digastric - The facial nerve lies superior to the upper border of he muscle,\n\n+ Squamotympanic fissure - It is a fissure in the temporal bone, which runs froin TMJ to the\ntympanic cavity. The facial nerve runs through this fissures 2\n\n+ Styloid process - The facial nerve lies superficial to ito os\n+ Mastoid process - Upon drilling it, the nerve is sided prox nd x\n\n2. Retrograde method: The main branches fhe facial nerve trunk are idgitifed and are then\ntraced proximally until the main tunk is identified. Some’ branches used for tracing the facial\nnerve trunk include: ‘ ok <O “\n\n& os\n\n+ Buceal branch - It lies in relate the parotid gland. ~> ‘\n+ Marginal mandibular bréngh- Tt lies Fain to theft vessels.",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          311,
+          312
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          325
+        ]
+      },
+      "sourcePage": 311,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q021",
+      "sourceQuestionId": "ANAT_CH17_Q021",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Cranial Nerves",
+      "questionNumber": 21,
+      "questionType": "single_best_answer",
+      "question": "All of the following nerves are involved in the movement of the eyeball except:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A"
+        },
+        {
+          "letter": "B",
+          "text": "B"
+        },
+        {
+          "letter": "C",
+          "text": "C"
+        },
+        {
+          "letter": "D",
+          "text": "D"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "A",
+      "explanation": "Structure A is the optic nerve (CN II), which is not involved in eyeball movement. The image labels optic (II), oculomotor (III), abducens (VI) and trochlear (IV) nerves. Extraocular movement is supplied by III, IV and VI: lateral rectus by VI, superior oblique by IV, and the remaining listed extraocular muscles by III.",
+      "structuredExplanation": {
+        "text": "Structure A is the optic nerve (CN II), which is not involved in eyeball movement. The image labels optic (II), oculomotor (III), abducens (VI) and trochlear (IV) nerves. Extraocular movement is supplied by III, IV and VI: lateral rectus by VI, superior oblique by IV, and the remaining listed extraocular muscles by III.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Structure A is the optic nerve (CN II), which is not involved in eyeball movement. The image labels optic (II), oculomotor (III), abducens (VI) and trochlear (IV) nerves. Extraocular movement is supplied by III, IV and VI: lateral rectus by VI, superior oblique by IV, and the remaining listed extraocular muscles by III."
+          },
+          {
+            "type": "figure",
+            "figure_index": 0
+          },
+          {
+            "type": "figure",
+            "figure_index": 1
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Cranial nerves exiting cranial cavity image labelled A-D",
+            "source_page": 312,
+            "role": "question",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          },
+          {
+            "title": "Cranial nerve exit diagram",
+            "source_page": 326,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ],
+        "source_transcription_ocr": "The nerve marked as ‘A’ is the optic nerve (II CN), and is not involved in the movement of the\neyeball.\n\nThe nerves marked in the image are:\n\n\n+ Optic nerve (II CN)\n+ Oculomotor nerve (III CN)\n+ Abducens nerve (VI CN)\n+ Trochlear nerve (IV CN)\n\nCraniat\n\n“©MARROW\n\nWY SS?\neae)\nExtraocular muscles involved in the mpyement of th\n+ Superior rectus, inferior rectus, médial rectus, inferior oblique, and levator palpebrae superioris\n\nmuscles - supplied by the oculomotor (M1) ne\n\n+ Lateral rectus - supplied p-4bducens (WiMMerve.\n\n+ Superior oblique - stipplied by tr (IV) nerve.\nSI &",
+        "source_transcription_note": "Audit-only OCR of the rendered source pages; normalized explanation text above was visually checked against rendered pages. OCR artifacts are not authoritative."
+      },
+      "provenance": {
+        "sourceFile": "marrow ed 8 qbank_compressed.pdf",
+        "questionPages": [
+          312
+        ],
+        "answerKeyPages": [
+          312,
+          313
+        ],
+        "explanationPages": [
+          325,
+          326
+        ]
+      },
+      "sourcePage": 312,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "embedded_text_layer_trusted": false,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page OCR used as transcription aid, then normalized against directly rendered PDF pages; source figures retained by page relationship rather than inventing labels.",
+        "notes": []
+      }
+    }
+  ]
+}

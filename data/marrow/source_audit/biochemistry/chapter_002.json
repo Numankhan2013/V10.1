@@ -1,0 +1,2237 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Derived read-only audit view. Immutable source remains the sharded Marrow bundle.",
+  "subject": "Biochemistry",
+  "chapterId": "2",
+  "questionCount": 30,
+  "immutableSourcePrefix": "biochemistry_phase_a",
+  "sourceRawSha256": "d9d89966b2733f86b6c5a413e61b0af5559becff3bc580802262deb2f3b9c1ae",
+  "questions": [
+    {
+      "id": "marrow__BIOCHEM_CH02_Q001",
+      "sourceQuestionId": "BIOCHEM_CH02_Q001",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 1,
+      "questionType": "single_best_answer",
+      "question": "Which of the following glucose transporter in the myocytes is under the influence of insulin?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "GLUT 1"
+        },
+        {
+          "letter": "B",
+          "text": "GLUT 2"
+        },
+        {
+          "letter": "C",
+          "text": "GLUT 3"
+        },
+        {
+          "letter": "D",
+          "text": "GLUT 4"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "GLUT 4",
+      "explanation": "GLUT 4 is the glucose transporter in the myocytes under the influence of insulin. Glucose transport in the body mainly occurs through sodium-independent glucose transporters, which include GLUT transporters and, to a small extent, sodium-dependent glucose transporters present in the small intestine. Insulin induces movement of intracellular GLUT 4 molecules to the cell surface and thus increases glucose uptake. In type 2 diabetes mellitus, membrane GLUT 4 is reduced, leading to insulin resistance in muscle and fat cells.",
+      "structuredExplanation": {
+        "text": "GLUT 4 is the glucose transporter in the myocytes under the influence of insulin. Glucose transport in the body mainly occurs through sodium-independent glucose transporters, which include GLUT transporters and, to a small extent, sodium-dependent glucose transporters present in the small intestine. Insulin induces movement of intracellular GLUT 4 molecules to the cell surface and thus increases glucose uptake. In type 2 diabetes mellitus, membrane GLUT 4 is reduced, leading to insulin resistance in muscle and fat cells.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "GLUT 4 is the glucose transporter in the myocytes under the influence of insulin. Glucose transport in the body mainly occurs through sodium-independent glucose transporters, which include GLUT transporters and, to a small extent, sodium-dependent glucose transporters present in the small intestine. Insulin induces movement of intracellular GLUT 4 molecules to the cell surface and thus increases glucose uptake. In type 2 diabetes mellitus, membrane GLUT 4 is reduced, leading to insulin resistance in muscle and fat cells."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          21
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          29
+        ]
+      },
+      "sourcePage": 21,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q002",
+      "sourceQuestionId": "BIOCHEM_CH02_Q002",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 2,
+      "questionType": "single_best_answer",
+      "question": "Which of the following glucose transporter is specific to the transport of fructose from the intestine to enterocytes?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "GLUT 1"
+        },
+        {
+          "letter": "B",
+          "text": "GLUT 3"
+        },
+        {
+          "letter": "C",
+          "text": "GLUT 5"
+        },
+        {
+          "letter": "D",
+          "text": "GLUT 7"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "GLUT 5",
+      "explanation": "The glucose transporter specific to transport of fructose from the intestine to enterocytes is GLUT 5. It is present in small intestine, testis, and sperm, and it primarily transports fructose.",
+      "structuredExplanation": {
+        "text": "The glucose transporter specific to transport of fructose from the intestine to enterocytes is GLUT 5. It is present in small intestine, testis, and sperm, and it primarily transports fructose.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The glucose transporter specific to transport of fructose from the intestine to enterocytes is GLUT 5. It is present in small intestine, testis, and sperm, and it primarily transports fructose."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          21
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          29
+        ]
+      },
+      "sourcePage": 21,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q003",
+      "sourceQuestionId": "BIOCHEM_CH02_Q003",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 3,
+      "questionType": "single_best_answer",
+      "question": "Insulin was administered in a patient with severe hyperglycemia. This drug will stimulate glucose uptake in all the following except:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Heart"
+        },
+        {
+          "letter": "B",
+          "text": "Skeletal muscle"
+        },
+        {
+          "letter": "C",
+          "text": "Liver"
+        },
+        {
+          "letter": "D",
+          "text": "Adipose tissue"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Liver",
+      "explanation": "In the liver, glucose transport is through GLUT 2, which is insulin-independent. Insulin-stimulated glucose uptake takes place in the heart, skeletal muscle, and adipose tissue through GLUT 4.",
+      "structuredExplanation": {
+        "text": "In the liver, glucose transport is through GLUT 2, which is insulin-independent. Insulin-stimulated glucose uptake takes place in the heart, skeletal muscle, and adipose tissue through GLUT 4.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "In the liver, glucose transport is through GLUT 2, which is insulin-independent. Insulin-stimulated glucose uptake takes place in the heart, skeletal muscle, and adipose tissue through GLUT 4."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          21
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          30
+        ]
+      },
+      "sourcePage": 21,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q004",
+      "sourceQuestionId": "BIOCHEM_CH02_Q004",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 4,
+      "questionType": "single_best_answer",
+      "question": "Which glucose transporter is present in erythrocytes?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "GLUT 1"
+        },
+        {
+          "letter": "B",
+          "text": "GLUT 2"
+        },
+        {
+          "letter": "C",
+          "text": "GLUT 3"
+        },
+        {
+          "letter": "D",
+          "text": "GLUT 4"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "GLUT 1",
+      "explanation": "GLUT 1 is the glucose transporter present in erythrocytes. It mediates basal glucose uptake. GLUT 1 is also a major glucose transporter in the brain and placenta and is widely distributed.",
+      "structuredExplanation": {
+        "text": "GLUT 1 is the glucose transporter present in erythrocytes. It mediates basal glucose uptake. GLUT 1 is also a major glucose transporter in the brain and placenta and is widely distributed.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "GLUT 1 is the glucose transporter present in erythrocytes. It mediates basal glucose uptake. GLUT 1 is also a major glucose transporter in the brain and placenta and is widely distributed."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          21,
+          22
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          30
+        ]
+      },
+      "sourcePage": 21,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q005",
+      "sourceQuestionId": "BIOCHEM_CH02_Q005",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 5,
+      "questionType": "single_best_answer",
+      "question": "In a patient after overnight fasting, which of the following will have reduced levels of glucose transporters?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Brain cells"
+        },
+        {
+          "letter": "B",
+          "text": "Adipocytes"
+        },
+        {
+          "letter": "C",
+          "text": "Hepatocytes"
+        },
+        {
+          "letter": "D",
+          "text": "RBCs"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Adipocytes",
+      "explanation": "Adipose tissue will have reduced levels of glucose transporters after overnight fasting. Passive uptake of glucose by myocytes and adipose tissue is catalyzed by the GLUT-4 transporter. Levels of insulin-sensitive receptor GLUT-4 decrease after overnight fasting. In the absence of insulin, most GLUT 4 molecules are sequestered in membrane vesicles within the cell; when blood glucose rises, release of insulin triggers GLUT 4 movement to the plasma membrane.",
+      "structuredExplanation": {
+        "text": "Adipose tissue will have reduced levels of glucose transporters after overnight fasting. Passive uptake of glucose by myocytes and adipose tissue is catalyzed by the GLUT-4 transporter. Levels of insulin-sensitive receptor GLUT-4 decrease after overnight fasting. In the absence of insulin, most GLUT 4 molecules are sequestered in membrane vesicles within the cell; when blood glucose rises, release of insulin triggers GLUT 4 movement to the plasma membrane.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Adipose tissue will have reduced levels of glucose transporters after overnight fasting. Passive uptake of glucose by myocytes and adipose tissue is catalyzed by the GLUT-4 transporter. Levels of insulin-sensitive receptor GLUT-4 decrease after overnight fasting. In the absence of insulin, most GLUT 4 molecules are sequestered in membrane vesicles within the cell; when blood glucose rises, release of insulin triggers GLUT 4 movement to the plasma membrane."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          22
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          30
+        ]
+      },
+      "sourcePage": 22,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q006",
+      "sourceQuestionId": "BIOCHEM_CH02_Q006",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 6,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is false about glycolysis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Occurs in the cytoplasm"
+        },
+        {
+          "letter": "B",
+          "text": "Conversion of glucose to 3-carbon units"
+        },
+        {
+          "letter": "C",
+          "text": "Complete breakdown of glucose"
+        },
+        {
+          "letter": "D",
+          "text": "2 ATPs are utilized in the pathway"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Complete breakdown of glucose",
+      "explanation": "The complete breakdown of glucose involves the Krebs cycle (TCA cycle), which occurs in mitochondria, and not glycolysis. Glycolysis takes place in the cytoplasm of all cells. A 6-carbon glucose is converted into 3-carbon pyruvate in a ten-step anaerobic pathway. RBCs lack mitochondria and completely rely on glucose for energy. Phosphofructokinase-1 is the rate-limiting enzyme in glycolysis and is involved in conversion of fructose-6-phosphate to fructose-1,6-bisphosphate. The irreversible steps are catalyzed by hexokinase, PFK-1, and pyruvate kinase. Two ATP are utilized in glycolysis. Net ATP from aerobic glycolysis is 7 ATP. Inhibitors noted in the source include iodoacetate for glyceraldehyde-3-phosphate dehydrogenase, fluoride for enolase, and arsenite at the 1,3-bisphosphoglycerate kinase step, causing glycolysis to produce zero net ATP.",
+      "structuredExplanation": {
+        "text": "The complete breakdown of glucose involves the Krebs cycle (TCA cycle), which occurs in mitochondria, and not glycolysis. Glycolysis takes place in the cytoplasm of all cells. A 6-carbon glucose is converted into 3-carbon pyruvate in a ten-step anaerobic pathway. RBCs lack mitochondria and completely rely on glucose for energy. Phosphofructokinase-1 is the rate-limiting enzyme in glycolysis and is involved in conversion of fructose-6-phosphate to fructose-1,6-bisphosphate. The irreversible steps are catalyzed by hexokinase, PFK-1, and pyruvate kinase. Two ATP are utilized in glycolysis. Net ATP from aerobic glycolysis is 7 ATP. Inhibitors noted in the source include iodoacetate for glyceraldehyde-3-phosphate dehydrogenase, fluoride for enolase, and arsenite at the 1,3-bisphosphoglycerate kinase step, causing glycolysis to produce zero net ATP.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The complete breakdown of glucose involves the Krebs cycle (TCA cycle), which occurs in mitochondria, and not glycolysis. Glycolysis takes place in the cytoplasm of all cells. A 6-carbon glucose is converted into 3-carbon pyruvate in a ten-step anaerobic pathway. RBCs lack mitochondria and completely rely on glucose for energy. Phosphofructokinase-1 is the rate-limiting enzyme in glycolysis and is involved in conversion of fructose-6-phosphate to fructose-1,6-bisphosphate. The irreversible steps are catalyzed by hexokinase, PFK-1, and pyruvate kinase. Two ATP are utilized in glycolysis. Net ATP from aerobic glycolysis is 7 ATP. Inhibitors noted in the source include iodoacetate for glyceraldehyde-3-phosphate dehydrogenase, fluoride for enolase, and arsenite at the 1,3-bisphosphoglycerate kinase step, causing glycolysis to produce zero net ATP."
+          },
+          {
+            "type": "figure",
+            "title": "Glycolysis pathway diagram",
+            "source_page": 31
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Glycolysis pathway diagram",
+            "source_page": 31,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          22
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          30,
+          31
+        ]
+      },
+      "sourcePage": 22,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q007",
+      "sourceQuestionId": "BIOCHEM_CH02_Q007",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 7,
+      "questionType": "single_best_answer",
+      "question": "The step involving which of the following enzyme is reversible in glycolysis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Enolase"
+        },
+        {
+          "letter": "B",
+          "text": "Phosphofructokinase"
+        },
+        {
+          "letter": "C",
+          "text": "Pyruvate kinase"
+        },
+        {
+          "letter": "D",
+          "text": "Hexokinase"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Enolase",
+      "explanation": "Enolase catalyzes the conversion of 2-phosphoglycerate to phosphoenolpyruvate, which is a reversible step of glycolysis. The irreversible steps of glycolysis are catalyzed by hexokinase, phosphofructokinase, and pyruvate kinase.",
+      "structuredExplanation": {
+        "text": "Enolase catalyzes the conversion of 2-phosphoglycerate to phosphoenolpyruvate, which is a reversible step of glycolysis. The irreversible steps of glycolysis are catalyzed by hexokinase, phosphofructokinase, and pyruvate kinase.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Enolase catalyzes the conversion of 2-phosphoglycerate to phosphoenolpyruvate, which is a reversible step of glycolysis. The irreversible steps of glycolysis are catalyzed by hexokinase, phosphofructokinase, and pyruvate kinase."
+          },
+          {
+            "type": "figure",
+            "title": "Glycolysis pathway diagram",
+            "source_page": 31
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Glycolysis pathway diagram",
+            "source_page": 31,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          22
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          31
+        ]
+      },
+      "sourcePage": 22,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q008",
+      "sourceQuestionId": "BIOCHEM_CH02_Q008",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 8,
+      "questionType": "single_best_answer",
+      "question": "Which of the following substances inhibits the rate-limiting enzyme in glycolysis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "AMP"
+        },
+        {
+          "letter": "B",
+          "text": "Glucose-6-PO4"
+        },
+        {
+          "letter": "C",
+          "text": "Citrate"
+        },
+        {
+          "letter": "D",
+          "text": "Insulin"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Citrate",
+      "explanation": "Phosphofructokinase-1 (PFK-1) is the rate-limiting enzyme in glycolysis. Citrate inhibits PFK-1. Mg2+ serves as a co-factor. In general, end products can inhibit forward reactions by product inhibition. Inhibitors of PFK-1 include ATP and citrate. Allosteric activators include ADP, AMP, and fructose-2,6-bisphosphate (the most potent activator). Hormonal regulation: insulin induces and glucagon represses.",
+      "structuredExplanation": {
+        "text": "Phosphofructokinase-1 (PFK-1) is the rate-limiting enzyme in glycolysis. Citrate inhibits PFK-1. Mg2+ serves as a co-factor. In general, end products can inhibit forward reactions by product inhibition. Inhibitors of PFK-1 include ATP and citrate. Allosteric activators include ADP, AMP, and fructose-2,6-bisphosphate (the most potent activator). Hormonal regulation: insulin induces and glucagon represses.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Phosphofructokinase-1 (PFK-1) is the rate-limiting enzyme in glycolysis. Citrate inhibits PFK-1. Mg2+ serves as a co-factor. In general, end products can inhibit forward reactions by product inhibition. Inhibitors of PFK-1 include ATP and citrate. Allosteric activators include ADP, AMP, and fructose-2,6-bisphosphate (the most potent activator). Hormonal regulation: insulin induces and glucagon represses."
+          },
+          {
+            "type": "figure",
+            "title": "Glycolysis pathway diagram",
+            "source_page": 32
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Glycolysis pathway diagram",
+            "source_page": 32,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          22,
+          23
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          32
+        ]
+      },
+      "sourcePage": 22,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q009",
+      "sourceQuestionId": "BIOCHEM_CH02_Q009",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 9,
+      "questionType": "single_best_answer",
+      "question": "All of the following statements about glucokinase are true in comparison to other hexokinases, except:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Higher Km value"
+        },
+        {
+          "letter": "B",
+          "text": "Phosphorylates multiple hexose substrates"
+        },
+        {
+          "letter": "C",
+          "text": "An inducible enzyme"
+        },
+        {
+          "letter": "D",
+          "text": "Higher Vmax value"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Phosphorylates multiple hexose substrates",
+      "explanation": "Glucose is the only cellular substrate that can be phosphorylated by glucokinase. Glucokinase has a higher Vmax and higher Km value than hexokinase, requiring a higher concentration of glucose for half saturation. Hence glucokinase functions only when intracellular glucose concentration is high, as immediately after a carbohydrate-rich meal. Compared with hexokinase: glucokinase is in liver and pancreatic beta cells, has high Km and high Vmax, is not inhibited by G6P, and is inducible. Hexokinase is in most tissues, has low Km and low Vmax, is inhibited by G6P, and is not inducible. The source notes that glucokinase can act on other hexoses such as fructose and mannose, but because its Km for these reactions is high, this is not significant; therefore the best option has been chosen as given in the source answer key.",
+      "structuredExplanation": {
+        "text": "Glucose is the only cellular substrate that can be phosphorylated by glucokinase. Glucokinase has a higher Vmax and higher Km value than hexokinase, requiring a higher concentration of glucose for half saturation. Hence glucokinase functions only when intracellular glucose concentration is high, as immediately after a carbohydrate-rich meal. Compared with hexokinase: glucokinase is in liver and pancreatic beta cells, has high Km and high Vmax, is not inhibited by G6P, and is inducible. Hexokinase is in most tissues, has low Km and low Vmax, is inhibited by G6P, and is not inducible. The source notes that glucokinase can act on other hexoses such as fructose and mannose, but because its Km for these reactions is high, this is not significant; therefore the best option has been chosen as given in the source answer key.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Glucose is the only cellular substrate that can be phosphorylated by glucokinase. Glucokinase has a higher Vmax and higher Km value than hexokinase, requiring a higher concentration of glucose for half saturation. Hence glucokinase functions only when intracellular glucose concentration is high, as immediately after a carbohydrate-rich meal. Compared with hexokinase: glucokinase is in liver and pancreatic beta cells, has high Km and high Vmax, is not inhibited by G6P, and is inducible. Hexokinase is in most tissues, has low Km and low Vmax, is inhibited by G6P, and is not inducible. The source notes that glucokinase can act on other hexoses such as fructose and mannose, but because its Km for these reactions is high, this is not significant; therefore the best option has been chosen as given in the source answer key."
+          },
+          {
+            "type": "table",
+            "title": "Hexokinase vs glucokinase comparison",
+            "source_page": 32
+          },
+          {
+            "type": "figure",
+            "title": "Hexokinase vs glucokinase enzyme-activity graph",
+            "source_page": 33
+          }
+        ],
+        "tables": [
+          {
+            "title": "Hexokinase vs glucokinase comparison",
+            "source_page": 32,
+            "columns": [
+              "Characteristic",
+              "Hexokinase",
+              "Glucokinase"
+            ],
+            "rows": [
+              [
+                "Tissue distribution",
+                "Most tissues",
+                "Liver and beta cells of pancreas"
+              ],
+              [
+                "Km",
+                "Low",
+                "High"
+              ],
+              [
+                "Vmax",
+                "Low",
+                "High"
+              ],
+              [
+                "Inhibition by G6P",
+                "Yes",
+                "No"
+              ],
+              [
+                "Inducible",
+                "No",
+                "Inducible"
+              ]
+            ]
+          }
+        ],
+        "figures": [
+          {
+            "title": "Hexokinase vs glucokinase enzyme-activity graph",
+            "source_page": 33,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          23
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          32,
+          33
+        ]
+      },
+      "sourcePage": 23,
+      "reviewStatus": "pass_with_source_note",
+      "reviewNotes": [
+        "Source answer key marks option b. Explanation notes glucokinase can act on other hexoses but says this is not significant because of high Km; preserved without silently changing the keyed answer."
+      ],
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": [
+          "Source answer key marks option b. Explanation notes glucokinase can act on other hexoses but says this is not significant because of high Km; preserved without silently changing the keyed answer."
+        ]
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q010",
+      "sourceQuestionId": "BIOCHEM_CH02_Q010",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 10,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is the first committed step of glycolysis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Glucose to glucose-6-PO4"
+        },
+        {
+          "letter": "B",
+          "text": "Fructose-6-phosphate to fructose-1,6-bisphosphate"
+        },
+        {
+          "letter": "C",
+          "text": "1,3-bisphosphoglycerate to 3-phosphoglycerate"
+        },
+        {
+          "letter": "D",
+          "text": "Phosphoenolpyruvate to pyruvate"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Fructose-6-phosphate to fructose-1,6-bisphosphate",
+      "explanation": "Fructose-6-phosphate to fructose-1,6-bisphosphate catalyzed by PFK-1 is the first committed step of glycolysis. Fructose-1,6-bisphosphate once formed cannot revert back and enter another pathway. Glucose to glucose-6-phosphate is also irreversible, catalyzed by hexokinase, but glucose-6-phosphate can still enter the HMP shunt and is therefore not a committed step of glycolysis.",
+      "structuredExplanation": {
+        "text": "Fructose-6-phosphate to fructose-1,6-bisphosphate catalyzed by PFK-1 is the first committed step of glycolysis. Fructose-1,6-bisphosphate once formed cannot revert back and enter another pathway. Glucose to glucose-6-phosphate is also irreversible, catalyzed by hexokinase, but glucose-6-phosphate can still enter the HMP shunt and is therefore not a committed step of glycolysis.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Fructose-6-phosphate to fructose-1,6-bisphosphate catalyzed by PFK-1 is the first committed step of glycolysis. Fructose-1,6-bisphosphate once formed cannot revert back and enter another pathway. Glucose to glucose-6-phosphate is also irreversible, catalyzed by hexokinase, but glucose-6-phosphate can still enter the HMP shunt and is therefore not a committed step of glycolysis."
+          },
+          {
+            "type": "figure",
+            "title": "Glycolysis pathway diagram",
+            "source_page": 33
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Glycolysis pathway diagram",
+            "source_page": 33,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          23
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          33
+        ]
+      },
+      "sourcePage": 23,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q011",
+      "sourceQuestionId": "BIOCHEM_CH02_Q011",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 11,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is a false statement regarding anaerobic glycolysis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "End product is lactic acid"
+        },
+        {
+          "letter": "B",
+          "text": "Net production of ATP is 2"
+        },
+        {
+          "letter": "C",
+          "text": "Pyruvate dehydrogenase enzyme is needed"
+        },
+        {
+          "letter": "D",
+          "text": "Occurs in places like the eye lens and RBCs"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Pyruvate dehydrogenase enzyme is needed",
+      "explanation": "Lactate dehydrogenase, not pyruvate dehydrogenase, is needed in anaerobic glycolysis. Under anaerobic conditions, pyruvate is reduced to lactate; this regenerates NAD+ so glycolysis can continue. RBCs lack mitochondria and therefore the further reactions of pyruvate in the TCA cycle cannot take place. Net ATP produced per glucose under anaerobic conditions is 2. Anaerobic glycolysis is the major source of ATP in RBCs and occurs in poorly vascularized structures such as lens, cornea, leukocytes, renal medulla, testes, and exercising muscle.",
+      "structuredExplanation": {
+        "text": "Lactate dehydrogenase, not pyruvate dehydrogenase, is needed in anaerobic glycolysis. Under anaerobic conditions, pyruvate is reduced to lactate; this regenerates NAD+ so glycolysis can continue. RBCs lack mitochondria and therefore the further reactions of pyruvate in the TCA cycle cannot take place. Net ATP produced per glucose under anaerobic conditions is 2. Anaerobic glycolysis is the major source of ATP in RBCs and occurs in poorly vascularized structures such as lens, cornea, leukocytes, renal medulla, testes, and exercising muscle.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Lactate dehydrogenase, not pyruvate dehydrogenase, is needed in anaerobic glycolysis. Under anaerobic conditions, pyruvate is reduced to lactate; this regenerates NAD+ so glycolysis can continue. RBCs lack mitochondria and therefore the further reactions of pyruvate in the TCA cycle cannot take place. Net ATP produced per glucose under anaerobic conditions is 2. Anaerobic glycolysis is the major source of ATP in RBCs and occurs in poorly vascularized structures such as lens, cornea, leukocytes, renal medulla, testes, and exercising muscle."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          23
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          34
+        ]
+      },
+      "sourcePage": 23,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q012",
+      "sourceQuestionId": "BIOCHEM_CH02_Q012",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 12,
+      "questionType": "single_best_answer",
+      "question": "Which of the following glycolytic enzymes catalyze the step where an inorganic phosphate is utilized?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Phosphoglyceromutase"
+        },
+        {
+          "letter": "B",
+          "text": "Phosphohexose isomerase"
+        },
+        {
+          "letter": "C",
+          "text": "Glyceraldehyde-3-phosphate dehydrogenase"
+        },
+        {
+          "letter": "D",
+          "text": "Phosphofructokinase"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Glyceraldehyde-3-phosphate dehydrogenase",
+      "explanation": "Conversion of glyceraldehyde-3-phosphate to 1,3-bisphosphoglycerate, catalyzed by glyceraldehyde-3-phosphate dehydrogenase, involves addition of inorganic phosphate. The step catalyzed by phosphofructokinase utilizes ATP as the phosphate donor and not inorganic phosphate.",
+      "structuredExplanation": {
+        "text": "Conversion of glyceraldehyde-3-phosphate to 1,3-bisphosphoglycerate, catalyzed by glyceraldehyde-3-phosphate dehydrogenase, involves addition of inorganic phosphate. The step catalyzed by phosphofructokinase utilizes ATP as the phosphate donor and not inorganic phosphate.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Conversion of glyceraldehyde-3-phosphate to 1,3-bisphosphoglycerate, catalyzed by glyceraldehyde-3-phosphate dehydrogenase, involves addition of inorganic phosphate. The step catalyzed by phosphofructokinase utilizes ATP as the phosphate donor and not inorganic phosphate."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          23,
+          24
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          34
+        ]
+      },
+      "sourcePage": 23,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q013",
+      "sourceQuestionId": "BIOCHEM_CH02_Q013",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 13,
+      "questionType": "single_best_answer",
+      "question": "Which of the following enzymes takes part in substrate-level phosphorylation in glycolysis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pyruvate kinase"
+        },
+        {
+          "letter": "B",
+          "text": "PFK-1"
+        },
+        {
+          "letter": "C",
+          "text": "Hexokinase"
+        },
+        {
+          "letter": "D",
+          "text": "Pyruvate dehydrogenase"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Pyruvate kinase",
+      "explanation": "The enzyme involved in substrate-level phosphorylation at this step is pyruvate kinase. In substrate-level phosphorylation, direct generation of ATP occurs. In glycolysis there are two such reactions: 1,3-bisphosphoglycerate to 3-phosphoglycerate catalyzed by phosphoglycerate kinase, and phosphoenolpyruvate to pyruvate catalyzed by pyruvate kinase.",
+      "structuredExplanation": {
+        "text": "The enzyme involved in substrate-level phosphorylation at this step is pyruvate kinase. In substrate-level phosphorylation, direct generation of ATP occurs. In glycolysis there are two such reactions: 1,3-bisphosphoglycerate to 3-phosphoglycerate catalyzed by phosphoglycerate kinase, and phosphoenolpyruvate to pyruvate catalyzed by pyruvate kinase.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The enzyme involved in substrate-level phosphorylation at this step is pyruvate kinase. In substrate-level phosphorylation, direct generation of ATP occurs. In glycolysis there are two such reactions: 1,3-bisphosphoglycerate to 3-phosphoglycerate catalyzed by phosphoglycerate kinase, and phosphoenolpyruvate to pyruvate catalyzed by pyruvate kinase."
+          },
+          {
+            "type": "figure",
+            "title": "Glycolysis pathway diagrams",
+            "source_page": 35
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Glycolysis pathway diagrams",
+            "source_page": 35,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          24
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          35
+        ]
+      },
+      "sourcePage": 24,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q014",
+      "sourceQuestionId": "BIOCHEM_CH02_Q014",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 14,
+      "questionType": "single_best_answer",
+      "question": "How many net ATPs are generated in aerobic glycolysis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "2"
+        },
+        {
+          "letter": "B",
+          "text": "7"
+        },
+        {
+          "letter": "C",
+          "text": "10"
+        },
+        {
+          "letter": "D",
+          "text": "9"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "7",
+      "explanation": "Net generation of ATP up to pyruvate in aerobic glycolysis is 7 ATP. Two ATP are utilized in the earlier steps catalyzed by hexokinase and PFK-1. ATP-producing steps include glyceraldehyde-3-phosphate to 1,3-bisphosphoglycerate (5 ATP equivalent from 2 NADH), 1,3-bisphosphoglycerate to 3-phosphoglycerate (2 ATP by substrate-level phosphorylation), and phosphoenolpyruvate to pyruvate (2 ATP by substrate-level phosphorylation), giving 9 ATP produced and 7 ATP net.",
+      "structuredExplanation": {
+        "text": "Net generation of ATP up to pyruvate in aerobic glycolysis is 7 ATP. Two ATP are utilized in the earlier steps catalyzed by hexokinase and PFK-1. ATP-producing steps include glyceraldehyde-3-phosphate to 1,3-bisphosphoglycerate (5 ATP equivalent from 2 NADH), 1,3-bisphosphoglycerate to 3-phosphoglycerate (2 ATP by substrate-level phosphorylation), and phosphoenolpyruvate to pyruvate (2 ATP by substrate-level phosphorylation), giving 9 ATP produced and 7 ATP net.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Net generation of ATP up to pyruvate in aerobic glycolysis is 7 ATP. Two ATP are utilized in the earlier steps catalyzed by hexokinase and PFK-1. ATP-producing steps include glyceraldehyde-3-phosphate to 1,3-bisphosphoglycerate (5 ATP equivalent from 2 NADH), 1,3-bisphosphoglycerate to 3-phosphoglycerate (2 ATP by substrate-level phosphorylation), and phosphoenolpyruvate to pyruvate (2 ATP by substrate-level phosphorylation), giving 9 ATP produced and 7 ATP net."
+          },
+          {
+            "type": "table",
+            "title": "ATP production in aerobic glycolysis",
+            "source_page": 36
+          }
+        ],
+        "tables": [
+          {
+            "title": "ATP production in aerobic glycolysis",
+            "source_page": 36,
+            "columns": [
+              "Reaction",
+              "Enzyme",
+              "Method of ATP produced",
+              "Net ATP produced"
+            ],
+            "rows": [
+              [
+                "Glyceraldehyde-3-phosphate to 1,3-bisphosphoglycerate",
+                "Glyceraldehyde-3-phosphate dehydrogenase",
+                "From 2 molecules of NADH via respiratory chain/ATP shuttle",
+                "5 ATP"
+              ],
+              [
+                "1,3-bisphosphoglycerate to 3-phosphoglycerate",
+                "Phosphoglycerate kinase",
+                "Substrate-level phosphorylation",
+                "2 ATP"
+              ],
+              [
+                "Phosphoenolpyruvate to pyruvate",
+                "Pyruvate kinase",
+                "Substrate-level phosphorylation",
+                "2 ATP"
+              ],
+              [
+                "Total",
+                "",
+                "",
+                "9 ATP; 7 ATP net after 2 ATP investment"
+              ]
+            ]
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          24
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          35,
+          36
+        ]
+      },
+      "sourcePage": 24,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q015",
+      "sourceQuestionId": "BIOCHEM_CH02_Q015",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 15,
+      "questionType": "single_best_answer",
+      "question": "You are collecting a blood sample from a patient for blood glucose estimation. You put the sample in a vacutainer containing sodium fluoride. Which of the following enzyme is inhibited by this compound?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Glyceraldehyde-3-PO4 dehydrogenase"
+        },
+        {
+          "letter": "B",
+          "text": "Enolase"
+        },
+        {
+          "letter": "C",
+          "text": "Pyruvate kinase"
+        },
+        {
+          "letter": "D",
+          "text": "1,3-bisphosphoglycerate kinase"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Enolase",
+      "explanation": "Sodium fluoride and potassium oxalate are added to blood samples used to estimate glucose. Fluoride is an inhibitor of enolase and inhibits glycolysis, preventing falsely low glucose estimation. The source also lists iodoacetate as an inhibitor of glyceraldehyde-3-phosphate dehydrogenase and arsenite as an inhibitor of phosphoglycerate kinase.",
+      "structuredExplanation": {
+        "text": "Sodium fluoride and potassium oxalate are added to blood samples used to estimate glucose. Fluoride is an inhibitor of enolase and inhibits glycolysis, preventing falsely low glucose estimation. The source also lists iodoacetate as an inhibitor of glyceraldehyde-3-phosphate dehydrogenase and arsenite as an inhibitor of phosphoglycerate kinase.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Sodium fluoride and potassium oxalate are added to blood samples used to estimate glucose. Fluoride is an inhibitor of enolase and inhibits glycolysis, preventing falsely low glucose estimation. The source also lists iodoacetate as an inhibitor of glyceraldehyde-3-phosphate dehydrogenase and arsenite as an inhibitor of phosphoglycerate kinase."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          24
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          36
+        ]
+      },
+      "sourcePage": 24,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q016",
+      "sourceQuestionId": "BIOCHEM_CH02_Q016",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 16,
+      "questionType": "single_best_answer",
+      "question": "What is fructose-2,6-bisphosphate?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Intermediate metabolite of glycolysis"
+        },
+        {
+          "letter": "B",
+          "text": "Positive allosteric regulator of PFK1"
+        },
+        {
+          "letter": "C",
+          "text": "Negative allosteric regulator of PFK2"
+        },
+        {
+          "letter": "D",
+          "text": "Positive allosteric regulator of PFK2"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Positive allosteric regulator of PFK1",
+      "explanation": "Fructose-2,6-bisphosphate is the most potent positive allosteric activator of phosphofructokinase-1 and an inhibitor of fructose-1,6-bisphosphatase. It is not an intermediate of glycolysis. It is formed by phosphorylation of fructose-6-phosphate by phosphofructokinase-2 and acts as an intracellular signal indicating abundant glucose, thereby increasing glycolysis during the fed state.",
+      "structuredExplanation": {
+        "text": "Fructose-2,6-bisphosphate is the most potent positive allosteric activator of phosphofructokinase-1 and an inhibitor of fructose-1,6-bisphosphatase. It is not an intermediate of glycolysis. It is formed by phosphorylation of fructose-6-phosphate by phosphofructokinase-2 and acts as an intracellular signal indicating abundant glucose, thereby increasing glycolysis during the fed state.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Fructose-2,6-bisphosphate is the most potent positive allosteric activator of phosphofructokinase-1 and an inhibitor of fructose-1,6-bisphosphatase. It is not an intermediate of glycolysis. It is formed by phosphorylation of fructose-6-phosphate by phosphofructokinase-2 and acts as an intracellular signal indicating abundant glucose, thereby increasing glycolysis during the fed state."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          24,
+          25
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          36
+        ]
+      },
+      "sourcePage": 24,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q017",
+      "sourceQuestionId": "BIOCHEM_CH02_Q017",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 17,
+      "questionType": "single_best_answer",
+      "question": "A patient with anemia and hepatosplenomegaly is diagnosed with hemolytic anemia. Deficiency of which of the following glycolytic enzymes is most likely associated with this presentation?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Enolase"
+        },
+        {
+          "letter": "B",
+          "text": "Pyruvate kinase"
+        },
+        {
+          "letter": "C",
+          "text": "Aconitase"
+        },
+        {
+          "letter": "D",
+          "text": "Phosphofructokinase-1"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Pyruvate kinase",
+      "explanation": "Deficiency of pyruvate kinase leads to hemolytic anemia. Erythrocytes lack mitochondria and generate ATP exclusively by glycolysis. A deficiency of a glycolytic enzyme reduces the ATP available to RBC membranes, decreasing deformability and causing removal by the reticuloendothelial system, leading to hemolytic anemia. The source notes pyruvate kinase as the second most common enzyme deficiency causing hemolytic anemia after glucose-6-phosphate dehydrogenase deficiency.",
+      "structuredExplanation": {
+        "text": "Deficiency of pyruvate kinase leads to hemolytic anemia. Erythrocytes lack mitochondria and generate ATP exclusively by glycolysis. A deficiency of a glycolytic enzyme reduces the ATP available to RBC membranes, decreasing deformability and causing removal by the reticuloendothelial system, leading to hemolytic anemia. The source notes pyruvate kinase as the second most common enzyme deficiency causing hemolytic anemia after glucose-6-phosphate dehydrogenase deficiency.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Deficiency of pyruvate kinase leads to hemolytic anemia. Erythrocytes lack mitochondria and generate ATP exclusively by glycolysis. A deficiency of a glycolytic enzyme reduces the ATP available to RBC membranes, decreasing deformability and causing removal by the reticuloendothelial system, leading to hemolytic anemia. The source notes pyruvate kinase as the second most common enzyme deficiency causing hemolytic anemia after glucose-6-phosphate dehydrogenase deficiency."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          25
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          36,
+          37
+        ]
+      },
+      "sourcePage": 25,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q018",
+      "sourceQuestionId": "BIOCHEM_CH02_Q018",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 18,
+      "questionType": "single_best_answer",
+      "question": "Where does the Rapoport-Luebering cycle occur?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Liver"
+        },
+        {
+          "letter": "B",
+          "text": "RBCs"
+        },
+        {
+          "letter": "C",
+          "text": "Kidney"
+        },
+        {
+          "letter": "D",
+          "text": "Brain"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "RBCs",
+      "explanation": "The Rapoport-Luebering cycle (2,3-BPG shunt) occurs in RBCs. 1,3-bisphosphoglycerate is converted to 2,3-bisphosphoglycerate by bisphosphoglycerate mutase. 2,3-BPG is present at high concentration in RBCs and decreases hemoglobin affinity for oxygen, promoting oxygen release in hypoxia. 2,3-BPG is hydrolyzed to 3-phosphoglycerate. Because the phosphoglycerate kinase step is bypassed, no ATP is generated in that step; anaerobic glycolysis through this shunt yields no net ATP.",
+      "structuredExplanation": {
+        "text": "The Rapoport-Luebering cycle (2,3-BPG shunt) occurs in RBCs. 1,3-bisphosphoglycerate is converted to 2,3-bisphosphoglycerate by bisphosphoglycerate mutase. 2,3-BPG is present at high concentration in RBCs and decreases hemoglobin affinity for oxygen, promoting oxygen release in hypoxia. 2,3-BPG is hydrolyzed to 3-phosphoglycerate. Because the phosphoglycerate kinase step is bypassed, no ATP is generated in that step; anaerobic glycolysis through this shunt yields no net ATP.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The Rapoport-Luebering cycle (2,3-BPG shunt) occurs in RBCs. 1,3-bisphosphoglycerate is converted to 2,3-bisphosphoglycerate by bisphosphoglycerate mutase. 2,3-BPG is present at high concentration in RBCs and decreases hemoglobin affinity for oxygen, promoting oxygen release in hypoxia. 2,3-BPG is hydrolyzed to 3-phosphoglycerate. Because the phosphoglycerate kinase step is bypassed, no ATP is generated in that step; anaerobic glycolysis through this shunt yields no net ATP."
+          },
+          {
+            "type": "figure",
+            "title": "Rapoport-Luebering (2,3-BPG) shunt diagram",
+            "source_page": 37
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Rapoport-Luebering (2,3-BPG) shunt diagram",
+            "source_page": 37,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          25
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          37
+        ]
+      },
+      "sourcePage": 25,
+      "reviewStatus": "pass",
+      "reviewNotes": [
+        "Explanation contains a pathway diagram and quantitative ATP consequence of bypassing phosphoglycerate kinase; visual relationship preserved in metadata."
+      ],
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": [
+          "Explanation contains a pathway diagram and quantitative ATP consequence of bypassing phosphoglycerate kinase; visual relationship preserved in metadata."
+        ]
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q019",
+      "sourceQuestionId": "BIOCHEM_CH02_Q019",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 19,
+      "questionType": "single_best_answer",
+      "question": "Which of the following pathways acts as a major energy source for cancer cells?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Glycolysis"
+        },
+        {
+          "letter": "B",
+          "text": "Oxidative phosphorylation"
+        },
+        {
+          "letter": "C",
+          "text": "Krebs cycle"
+        },
+        {
+          "letter": "D",
+          "text": "β-oxidation of fatty acids"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Glycolysis",
+      "explanation": "Cancer cells derive energy mainly from glycolysis. Cancer cells utilize large amounts of glucose and metabolize it to lactic acid even in the presence of oxygen (Warburg effect). The increased rate of glycolysis results from impaired mitochondrial electron transport and supports proliferation in reduced-oxygen conditions. Increased glucose consumption is also used as a carbon source for anabolic processes. This effect is the basis for detecting cancers by FDG-PET scanning.",
+      "structuredExplanation": {
+        "text": "Cancer cells derive energy mainly from glycolysis. Cancer cells utilize large amounts of glucose and metabolize it to lactic acid even in the presence of oxygen (Warburg effect). The increased rate of glycolysis results from impaired mitochondrial electron transport and supports proliferation in reduced-oxygen conditions. Increased glucose consumption is also used as a carbon source for anabolic processes. This effect is the basis for detecting cancers by FDG-PET scanning.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Cancer cells derive energy mainly from glycolysis. Cancer cells utilize large amounts of glucose and metabolize it to lactic acid even in the presence of oxygen (Warburg effect). The increased rate of glycolysis results from impaired mitochondrial electron transport and supports proliferation in reduced-oxygen conditions. Increased glucose consumption is also used as a carbon source for anabolic processes. This effect is the basis for detecting cancers by FDG-PET scanning."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          25
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          38
+        ]
+      },
+      "sourcePage": 25,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q020",
+      "sourceQuestionId": "BIOCHEM_CH02_Q020",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 20,
+      "questionType": "single_best_answer",
+      "question": "In which of the following tissues does gluconeogenesis take place?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Mature RBCs"
+        },
+        {
+          "letter": "B",
+          "text": "Kidney"
+        },
+        {
+          "letter": "C",
+          "text": "Adipocytes"
+        },
+        {
+          "letter": "D",
+          "text": "Myocyte"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Kidney",
+      "explanation": "The liver and kidney are the two major locations where gluconeogenesis takes place. During short periods of fasting, most gluconeogenesis occurs in the liver; with longer fasting the kidney becomes a major site. Gluconeogenesis synthesizes glucose or glycogen from non-carbohydrate precursors such as glucogenic amino acids, lactate, glycerol, and propionate. Lactate from tissues is transported to liver and reconverted to glucose in the Cori cycle. Muscle cannot participate in gluconeogenesis because it lacks glucose-6-phosphatase.",
+      "structuredExplanation": {
+        "text": "The liver and kidney are the two major locations where gluconeogenesis takes place. During short periods of fasting, most gluconeogenesis occurs in the liver; with longer fasting the kidney becomes a major site. Gluconeogenesis synthesizes glucose or glycogen from non-carbohydrate precursors such as glucogenic amino acids, lactate, glycerol, and propionate. Lactate from tissues is transported to liver and reconverted to glucose in the Cori cycle. Muscle cannot participate in gluconeogenesis because it lacks glucose-6-phosphatase.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The liver and kidney are the two major locations where gluconeogenesis takes place. During short periods of fasting, most gluconeogenesis occurs in the liver; with longer fasting the kidney becomes a major site. Gluconeogenesis synthesizes glucose or glycogen from non-carbohydrate precursors such as glucogenic amino acids, lactate, glycerol, and propionate. Lactate from tissues is transported to liver and reconverted to glucose in the Cori cycle. Muscle cannot participate in gluconeogenesis because it lacks glucose-6-phosphatase."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          25,
+          26
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          38
+        ]
+      },
+      "sourcePage": 25,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q021",
+      "sourceQuestionId": "BIOCHEM_CH02_Q021",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 21,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is not a substrate for gluconeogenesis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Glucogenic amino acids"
+        },
+        {
+          "letter": "B",
+          "text": "Propionate"
+        },
+        {
+          "letter": "C",
+          "text": "Glycerol"
+        },
+        {
+          "letter": "D",
+          "text": "Acetyl CoA"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Acetyl CoA",
+      "explanation": "Acetyl CoA is not a substrate for gluconeogenesis; instead it enters the Krebs cycle for oxidative phosphorylation. Substrates for gluconeogenesis include glucogenic amino acids (alanine is the major contributor), glucogenic amino acids that enter via pyruvate, oxaloacetate, succinyl CoA, and alpha-ketoglutarate, lactate, pyruvate, glycerol, and propionate in ruminants.",
+      "structuredExplanation": {
+        "text": "Acetyl CoA is not a substrate for gluconeogenesis; instead it enters the Krebs cycle for oxidative phosphorylation. Substrates for gluconeogenesis include glucogenic amino acids (alanine is the major contributor), glucogenic amino acids that enter via pyruvate, oxaloacetate, succinyl CoA, and alpha-ketoglutarate, lactate, pyruvate, glycerol, and propionate in ruminants.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Acetyl CoA is not a substrate for gluconeogenesis; instead it enters the Krebs cycle for oxidative phosphorylation. Substrates for gluconeogenesis include glucogenic amino acids (alanine is the major contributor), glucogenic amino acids that enter via pyruvate, oxaloacetate, succinyl CoA, and alpha-ketoglutarate, lactate, pyruvate, glycerol, and propionate in ruminants."
+          },
+          {
+            "type": "figure",
+            "title": "Glycolysis and gluconeogenesis pathway diagram",
+            "source_page": 39
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Glycolysis and gluconeogenesis pathway diagram",
+            "source_page": 39,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          26
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          39
+        ]
+      },
+      "sourcePage": 26,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q022",
+      "sourceQuestionId": "BIOCHEM_CH02_Q022",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 22,
+      "questionType": "single_best_answer",
+      "question": "What is the process of reconversion of lactate formed in the muscles and RBCs, back into glucose inside the liver called?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cahill cycle"
+        },
+        {
+          "letter": "B",
+          "text": "Cori cycle"
+        },
+        {
+          "letter": "C",
+          "text": "Krebs cycle"
+        },
+        {
+          "letter": "D",
+          "text": "Dicken-Horecker cycle"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Cori cycle",
+      "explanation": "The process of reconversion of lactate formed in muscle and RBCs back into glucose inside the liver is the Cori cycle. Lactic acid is formed from pyruvate during anaerobic glycolysis and transported to the liver, where it is reconverted to glucose; this entire process is called the Cori cycle.",
+      "structuredExplanation": {
+        "text": "The process of reconversion of lactate formed in muscle and RBCs back into glucose inside the liver is the Cori cycle. Lactic acid is formed from pyruvate during anaerobic glycolysis and transported to the liver, where it is reconverted to glucose; this entire process is called the Cori cycle.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The process of reconversion of lactate formed in muscle and RBCs back into glucose inside the liver is the Cori cycle. Lactic acid is formed from pyruvate during anaerobic glycolysis and transported to the liver, where it is reconverted to glucose; this entire process is called the Cori cycle."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          26
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          39,
+          40
+        ]
+      },
+      "sourcePage": 26,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q023",
+      "sourceQuestionId": "BIOCHEM_CH02_Q023",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 23,
+      "questionType": "single_best_answer",
+      "question": "Which of the following organ pairs is involved in the Cahill cycle?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Liver and Muscle"
+        },
+        {
+          "letter": "B",
+          "text": "Liver and Kidney"
+        },
+        {
+          "letter": "C",
+          "text": "Muscle and Kidney"
+        },
+        {
+          "letter": "D",
+          "text": "Brain and Liver"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Liver and Muscle",
+      "explanation": "The liver and muscle are involved in the Cahill cycle. During fasting, alanine is produced in skeletal muscle by transamination reactions from pyruvate, released into circulation, enters the liver, and is reconverted to pyruvate. This pyruvate serves as a substrate for gluconeogenesis. The pathway is also called the glucose-alanine cycle.",
+      "structuredExplanation": {
+        "text": "The liver and muscle are involved in the Cahill cycle. During fasting, alanine is produced in skeletal muscle by transamination reactions from pyruvate, released into circulation, enters the liver, and is reconverted to pyruvate. This pyruvate serves as a substrate for gluconeogenesis. The pathway is also called the glucose-alanine cycle.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The liver and muscle are involved in the Cahill cycle. During fasting, alanine is produced in skeletal muscle by transamination reactions from pyruvate, released into circulation, enters the liver, and is reconverted to pyruvate. This pyruvate serves as a substrate for gluconeogenesis. The pathway is also called the glucose-alanine cycle."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          26
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          40
+        ]
+      },
+      "sourcePage": 26,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q024",
+      "sourceQuestionId": "BIOCHEM_CH02_Q024",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 24,
+      "questionType": "single_best_answer",
+      "question": "Malate shuttle is important in which of the following processes?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Glycolysis only"
+        },
+        {
+          "letter": "B",
+          "text": "Gluconeogenesis and glycolysis"
+        },
+        {
+          "letter": "C",
+          "text": "Glycogenolysis"
+        },
+        {
+          "letter": "D",
+          "text": "Glycogen synthesis"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Gluconeogenesis and glycolysis",
+      "explanation": "The malate shuttle is important in both gluconeogenesis and glycolysis. It transfers reducing equivalents across the impermeable inner mitochondrial membrane. In glycolysis, NADH produced in the cytosol is transferred into mitochondria via malate. In gluconeogenesis, pyruvate in mitochondria generates oxaloacetate, which is converted to aspartate and translocated to the cytosol via the malate shuttle for synthesis of glucose.",
+      "structuredExplanation": {
+        "text": "The malate shuttle is important in both gluconeogenesis and glycolysis. It transfers reducing equivalents across the impermeable inner mitochondrial membrane. In glycolysis, NADH produced in the cytosol is transferred into mitochondria via malate. In gluconeogenesis, pyruvate in mitochondria generates oxaloacetate, which is converted to aspartate and translocated to the cytosol via the malate shuttle for synthesis of glucose.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The malate shuttle is important in both gluconeogenesis and glycolysis. It transfers reducing equivalents across the impermeable inner mitochondrial membrane. In glycolysis, NADH produced in the cytosol is transferred into mitochondria via malate. In gluconeogenesis, pyruvate in mitochondria generates oxaloacetate, which is converted to aspartate and translocated to the cytosol via the malate shuttle for synthesis of glucose."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          26,
+          27
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          40
+        ]
+      },
+      "sourcePage": 26,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q025",
+      "sourceQuestionId": "BIOCHEM_CH02_Q025",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 25,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is a repressor of the enzyme pyruvate carboxylase?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cortisol"
+        },
+        {
+          "letter": "B",
+          "text": "Glucagon"
+        },
+        {
+          "letter": "C",
+          "text": "Insulin"
+        },
+        {
+          "letter": "D",
+          "text": "Adrenaline"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Insulin",
+      "explanation": "Insulin is a repressor of the enzyme pyruvate carboxylase. Pyruvate carboxylase is a gluconeogenic enzyme whose activity increases during fasting and decreases after carbohydrate feeding. The source table lists glucocorticoids, glucagon, and epinephrine as inducers; insulin as repressor; acetyl CoA as activator; and ADP as inhibitor.",
+      "structuredExplanation": {
+        "text": "Insulin is a repressor of the enzyme pyruvate carboxylase. Pyruvate carboxylase is a gluconeogenic enzyme whose activity increases during fasting and decreases after carbohydrate feeding. The source table lists glucocorticoids, glucagon, and epinephrine as inducers; insulin as repressor; acetyl CoA as activator; and ADP as inhibitor.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Insulin is a repressor of the enzyme pyruvate carboxylase. Pyruvate carboxylase is a gluconeogenic enzyme whose activity increases during fasting and decreases after carbohydrate feeding. The source table lists glucocorticoids, glucagon, and epinephrine as inducers; insulin as repressor; acetyl CoA as activator; and ADP as inhibitor."
+          },
+          {
+            "type": "table",
+            "title": "Factors influencing pyruvate carboxylase",
+            "source_page": 40
+          }
+        ],
+        "tables": [
+          {
+            "title": "Factors influencing pyruvate carboxylase",
+            "source_page": 40,
+            "columns": [
+              "Factor class",
+              "Factors"
+            ],
+            "rows": [
+              [
+                "Inducers",
+                "Glucocorticoids; Glucagon; Epinephrine"
+              ],
+              [
+                "Repressor",
+                "Insulin"
+              ],
+              [
+                "Activator",
+                "Acetyl CoA"
+              ],
+              [
+                "Inhibitor",
+                "ADP"
+              ]
+            ]
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          27
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          40
+        ]
+      },
+      "sourcePage": 27,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q026",
+      "sourceQuestionId": "BIOCHEM_CH02_Q026",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 26,
+      "questionType": "single_best_answer",
+      "question": "All of the following enzymes are involved in gluconeogenesis except:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Phosphoglucomutase"
+        },
+        {
+          "letter": "B",
+          "text": "Fructose-1,6-bisphosphatase"
+        },
+        {
+          "letter": "C",
+          "text": "Pyruvate carboxylase"
+        },
+        {
+          "letter": "D",
+          "text": "Phosphoglycerate kinase"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Phosphoglucomutase",
+      "explanation": "Phosphoglucomutase is not involved in gluconeogenesis. It catalyzes conversion of glucose-6-phosphate to glucose-1-phosphate, which is important for glycogenesis, glycogenolysis, and the uronic acid pathway. Fructose-1,6-bisphosphatase, pyruvate carboxylase, and phosphoglycerate kinase participate in gluconeogenesis.",
+      "structuredExplanation": {
+        "text": "Phosphoglucomutase is not involved in gluconeogenesis. It catalyzes conversion of glucose-6-phosphate to glucose-1-phosphate, which is important for glycogenesis, glycogenolysis, and the uronic acid pathway. Fructose-1,6-bisphosphatase, pyruvate carboxylase, and phosphoglycerate kinase participate in gluconeogenesis.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Phosphoglucomutase is not involved in gluconeogenesis. It catalyzes conversion of glucose-6-phosphate to glucose-1-phosphate, which is important for glycogenesis, glycogenolysis, and the uronic acid pathway. Fructose-1,6-bisphosphatase, pyruvate carboxylase, and phosphoglycerate kinase participate in gluconeogenesis."
+          },
+          {
+            "type": "figure",
+            "title": "Pyruvate-to-oxaloacetate reaction and glycolysis/gluconeogenesis pathway",
+            "source_page": 41
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Pyruvate-to-oxaloacetate reaction and glycolysis/gluconeogenesis pathway",
+            "source_page": 41,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          27
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          41
+        ]
+      },
+      "sourcePage": 27,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q027",
+      "sourceQuestionId": "BIOCHEM_CH02_Q027",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 27,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is a step in the gluconeogenic pathway?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pyruvate to lactate"
+        },
+        {
+          "letter": "B",
+          "text": "Glucose-6-PO4 to fructose-6-PO4"
+        },
+        {
+          "letter": "C",
+          "text": "Pyruvate to acetyl CoA"
+        },
+        {
+          "letter": "D",
+          "text": "Oxaloacetate to phosphoenolpyruvate"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Oxaloacetate to phosphoenolpyruvate",
+      "explanation": "Oxaloacetate to phosphoenolpyruvate is an important irreversible step in gluconeogenesis. GTP is utilized and CO2 is liberated. The reaction occurs in the cytoplasm and is catalyzed by PEP carboxykinase. Pyruvate to lactate is an anaerobic glycolytic reaction; glucose-6-phosphate to fructose-6-phosphate is a glycolytic step; pyruvate to acetyl CoA is an anaerobic step in oxidation of glucose as stated in the source.",
+      "structuredExplanation": {
+        "text": "Oxaloacetate to phosphoenolpyruvate is an important irreversible step in gluconeogenesis. GTP is utilized and CO2 is liberated. The reaction occurs in the cytoplasm and is catalyzed by PEP carboxykinase. Pyruvate to lactate is an anaerobic glycolytic reaction; glucose-6-phosphate to fructose-6-phosphate is a glycolytic step; pyruvate to acetyl CoA is an anaerobic step in oxidation of glucose as stated in the source.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Oxaloacetate to phosphoenolpyruvate is an important irreversible step in gluconeogenesis. GTP is utilized and CO2 is liberated. The reaction occurs in the cytoplasm and is catalyzed by PEP carboxykinase. Pyruvate to lactate is an anaerobic glycolytic reaction; glucose-6-phosphate to fructose-6-phosphate is a glycolytic step; pyruvate to acetyl CoA is an anaerobic step in oxidation of glucose as stated in the source."
+          },
+          {
+            "type": "figure",
+            "title": "Glycolysis and gluconeogenesis pathway diagram",
+            "source_page": 42
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Glycolysis and gluconeogenesis pathway diagram",
+            "source_page": 42,
+            "role": "explanation",
+            "asset": null,
+            "crop": null,
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          27
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          42
+        ]
+      },
+      "sourcePage": 27,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q028",
+      "sourceQuestionId": "BIOCHEM_CH02_Q028",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 28,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is not seen in low insulin:glucagon ratio?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Glycogen breakdown"
+        },
+        {
+          "letter": "B",
+          "text": "Ketogenesis"
+        },
+        {
+          "letter": "C",
+          "text": "Glycogen storage"
+        },
+        {
+          "letter": "D",
+          "text": "Gluconeogenesis"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Glycogen storage",
+      "explanation": "A low insulin:glucagon ratio indicates low insulin and high glucagon, as in fasting. In fasting, glycogen breakdown, ketogenesis, and gluconeogenesis increase, while glycogen storage decreases. The source table contrasts fasting/low insulin:glucagon ratio with fed/high insulin:glucagon ratio: gluconeogenesis increased vs decreased, and glycogen storage decreased vs increased.",
+      "structuredExplanation": {
+        "text": "A low insulin:glucagon ratio indicates low insulin and high glucagon, as in fasting. In fasting, glycogen breakdown, ketogenesis, and gluconeogenesis increase, while glycogen storage decreases. The source table contrasts fasting/low insulin:glucagon ratio with fed/high insulin:glucagon ratio: gluconeogenesis increased vs decreased, and glycogen storage decreased vs increased.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "A low insulin:glucagon ratio indicates low insulin and high glucagon, as in fasting. In fasting, glycogen breakdown, ketogenesis, and gluconeogenesis increase, while glycogen storage decreases. The source table contrasts fasting/low insulin:glucagon ratio with fed/high insulin:glucagon ratio: gluconeogenesis increased vs decreased, and glycogen storage decreased vs increased."
+          },
+          {
+            "type": "table",
+            "title": "Metabolic state comparison",
+            "source_page": 42
+          }
+        ],
+        "tables": [
+          {
+            "title": "Metabolic state comparison",
+            "source_page": 42,
+            "columns": [
+              "Metabolic process",
+              "Fasting state/low insulin:glucagon ratio",
+              "Fed state/high insulin:glucagon ratio"
+            ],
+            "rows": [
+              [
+                "Gluconeogenesis",
+                "Increased",
+                "Decreased"
+              ],
+              [
+                "Glycogen storage",
+                "Decreased",
+                "Increased"
+              ]
+            ]
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          27,
+          28
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          42,
+          43
+        ]
+      },
+      "sourcePage": 27,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q029",
+      "sourceQuestionId": "BIOCHEM_CH02_Q029",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 29,
+      "questionType": "single_best_answer",
+      "question": "Which of the following enzyme activity decreases in fasting?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Hormone-sensitive lipase"
+        },
+        {
+          "letter": "B",
+          "text": "Glycogen phosphorylase"
+        },
+        {
+          "letter": "C",
+          "text": "Pyruvate carboxylase"
+        },
+        {
+          "letter": "D",
+          "text": "Phosphofructokinase 1"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Phosphofructokinase 1",
+      "explanation": "During fasting, because insulin is low, phosphofructokinase-1 activity is inhibited. PFK-1 is a glycolytic enzyme induced by insulin in the well-fed state. Hormone-sensitive lipase mobilizes stored fats and is active in fasting. Glycogen phosphorylase is active in fasting to produce glucose from glycogen. Pyruvate carboxylase is a gluconeogenic enzyme activated during fasting; its activity rises as hepatic acetyl CoA increases from fatty acid oxidation.",
+      "structuredExplanation": {
+        "text": "During fasting, because insulin is low, phosphofructokinase-1 activity is inhibited. PFK-1 is a glycolytic enzyme induced by insulin in the well-fed state. Hormone-sensitive lipase mobilizes stored fats and is active in fasting. Glycogen phosphorylase is active in fasting to produce glucose from glycogen. Pyruvate carboxylase is a gluconeogenic enzyme activated during fasting; its activity rises as hepatic acetyl CoA increases from fatty acid oxidation.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "During fasting, because insulin is low, phosphofructokinase-1 activity is inhibited. PFK-1 is a glycolytic enzyme induced by insulin in the well-fed state. Hormone-sensitive lipase mobilizes stored fats and is active in fasting. Glycogen phosphorylase is active in fasting to produce glucose from glycogen. Pyruvate carboxylase is a gluconeogenic enzyme activated during fasting; its activity rises as hepatic acetyl CoA increases from fatty acid oxidation."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          28
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          43
+        ]
+      },
+      "sourcePage": 28,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH02_Q030",
+      "sourceQuestionId": "BIOCHEM_CH02_Q030",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "2",
+      "chapter": "Glycolysis and gluconeogenesis",
+      "questionNumber": 30,
+      "questionType": "single_best_answer",
+      "question": "Enzyme activated by a decrease in insulin:glucagon ratio is:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Glucokinase"
+        },
+        {
+          "letter": "B",
+          "text": "Hexokinase"
+        },
+        {
+          "letter": "C",
+          "text": "Phosphofructokinase"
+        },
+        {
+          "letter": "D",
+          "text": "Glucose-6-phosphatase"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Glucose-6-phosphatase",
+      "explanation": "The enzyme activated by a decrease in the insulin:glucagon ratio is glucose-6-phosphatase. A decrease in this ratio is seen in fasting, when gluconeogenesis and inhibition of glycolysis occur. Glucose-6-phosphatase is a gluconeogenic enzyme and is activated; glucokinase, hexokinase, and phosphofructokinase are glycolytic enzymes and are inhibited in the fasting state.",
+      "structuredExplanation": {
+        "text": "The enzyme activated by a decrease in the insulin:glucagon ratio is glucose-6-phosphatase. A decrease in this ratio is seen in fasting, when gluconeogenesis and inhibition of glycolysis occur. Glucose-6-phosphatase is a gluconeogenic enzyme and is activated; glucokinase, hexokinase, and phosphofructokinase are glycolytic enzymes and are inhibited in the fasting state.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The enzyme activated by a decrease in the insulin:glucagon ratio is glucose-6-phosphatase. A decrease in this ratio is seen in fasting, when gluconeogenesis and inhibition of glycolysis occur. Glucose-6-phosphatase is a gluconeogenic enzyme and is activated; glucokinase, hexokinase, and phosphofructokinase are glycolytic enzymes and are inhibited in the fasting state."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          28
+        ],
+        "answerKeyPages": [
+          28,
+          29
+        ],
+        "explanationPages": [
+          43
+        ]
+      },
+      "sourcePage": 28,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "rendered-page visual transcription with light normalization; source rendered pages retained as authority",
+        "notes": []
+      }
+    }
+  ]
+}

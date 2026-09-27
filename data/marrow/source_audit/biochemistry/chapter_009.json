@@ -1,0 +1,2183 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Derived read-only audit view. Immutable source remains the sharded Marrow bundle.",
+  "subject": "Biochemistry",
+  "chapterId": "9",
+  "questionCount": 28,
+  "immutableSourcePrefix": "biochemistry_phase_a",
+  "sourceRawSha256": "d9d89966b2733f86b6c5a413e61b0af5559becff3bc580802262deb2f3b9c1ae",
+  "questions": [
+    {
+      "id": "marrow__BIOCHEM_CH09_Q001",
+      "sourceQuestionId": "BIOCHEM_CH09_Q001",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 1,
+      "questionType": "single_best_answer",
+      "question": "An infant is brought with a history of vomiting and poor feeding. A musty odour is noted in the baby. Guthrie test was done and it was found to be positive. All are true regarding this disease except",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Phenylalanine hydroxylase enzyme defect"
+        },
+        {
+          "letter": "B",
+          "text": "White patch of hair due to tryptophan deficiency"
+        },
+        {
+          "letter": "C",
+          "text": "Phenylacetate positive in urine"
+        },
+        {
+          "letter": "D",
+          "text": "Mental retardation is present"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "White patch of hair due to tryptophan deficiency",
+      "explanation": "The given scenario of an infant with a history of vomiting and poor feeding with a musty odour is suggestive of phenylketonuria (PKU). Tryptophan deficiency is not a feature of this disorder. The deficiency of the enzyme phenylalanine hydroxylase causes PKU.\nCharacteristic clinical findings in phenylketonuria:\n• Mental retardation\n• Failure to walk or talk\n• Seizures\n• Hyperactivity\n• Tremor\n• Microcephaly\n• Failure to grow\n• Deficiency of pigmentation (fair hair, light skin color, and blue eyes)\nThe Guthrie bacterial inhibition test is a screening test for phenylketonuria. This test uses a phenylalanine-requiring strain of Bacillus subtilis. The ferric chloride test is also used as a screening test for PKU. Tandem mass spectrometry is the gold standard investigation.",
+      "structuredExplanation": {
+        "text": "The given scenario of an infant with a history of vomiting and poor feeding with a musty odour is suggestive of phenylketonuria (PKU). Tryptophan deficiency is not a feature of this disorder. The deficiency of the enzyme phenylalanine hydroxylase causes PKU.\nCharacteristic clinical findings in phenylketonuria:\n• Mental retardation\n• Failure to walk or talk\n• Seizures\n• Hyperactivity\n• Tremor\n• Microcephaly\n• Failure to grow\n• Deficiency of pigmentation (fair hair, light skin color, and blue eyes)\nThe Guthrie bacterial inhibition test is a screening test for phenylketonuria. This test uses a phenylalanine-requiring strain of Bacillus subtilis. The ferric chloride test is also used as a screening test for PKU. Tandem mass spectrometry is the gold standard investigation.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The given scenario of an infant with a history of vomiting and poor feeding with a musty odour is suggestive of phenylketonuria (PKU). Tryptophan deficiency is not a feature of this disorder. The deficiency of the enzyme phenylalanine hydroxylase causes PKU."
+          },
+          {
+            "type": "paragraph",
+            "text": "Characteristic clinical findings in phenylketonuria:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Mental retardation",
+              "Failure to walk or talk",
+              "Seizures",
+              "Hyperactivity",
+              "Tremor",
+              "Microcephaly",
+              "Failure to grow",
+              "Deficiency of pigmentation (fair hair, light skin color, and blue eyes)"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "The Guthrie bacterial inhibition test is a screening test for phenylketonuria. This test uses a phenylalanine-requiring strain of Bacillus subtilis. The ferric chloride test is also used as a screening test for PKU. Tandem mass spectrometry is the gold standard investigation."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          133
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          143
+        ]
+      },
+      "sourcePage": 133,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q002",
+      "sourceQuestionId": "BIOCHEM_CH09_Q002",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 2,
+      "questionType": "single_best_answer",
+      "question": "A 3-month-old infant born to consanguineous parents presented with global developmental delay and seizures. Plasma amino acid analysis revealed elevated phenylalanine levels. A urine FeCl3 test done was positive. What is detected in this test?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Phenylacetate"
+        },
+        {
+          "letter": "B",
+          "text": "Phenyllactate"
+        },
+        {
+          "letter": "C",
+          "text": "Phenylpyruvate"
+        },
+        {
+          "letter": "D",
+          "text": "Phenylalanine"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Phenylpyruvate",
+      "explanation": "The infant with developmental delays and seizures with elevated phenylalanine levels is most likely suffering from phenylketonuria. The FeCl3 test is used to detect urinary phenylpyruvate. In this test, a test tube with 1 ml of fresh urine is treated with ferric chloride. A positive test reveals a transient green color due to formation of a ferric phenol complex. Phenylpyruvate, phenyllactate, phenylacetate and phenyl acetyl glutamate are products of alternative pathways of phenylalanine catabolism.\nSpecificity of FeCl3 test is shown in the source table: substances reacting with FeCl3 include phenylpyruvate; substances not reacting include phenylacetate, phenylalanine, pyruvic acid and tyrosine.",
+      "structuredExplanation": {
+        "text": "The infant with developmental delays and seizures with elevated phenylalanine levels is most likely suffering from phenylketonuria. The FeCl3 test is used to detect urinary phenylpyruvate. In this test, a test tube with 1 ml of fresh urine is treated with ferric chloride. A positive test reveals a transient green color due to formation of a ferric phenol complex. Phenylpyruvate, phenyllactate, phenylacetate and phenyl acetyl glutamate are products of alternative pathways of phenylalanine catabolism.\nSpecificity of FeCl3 test is shown in the source table: substances reacting with FeCl3 include phenylpyruvate; substances not reacting include phenylacetate, phenylalanine, pyruvic acid and tyrosine.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The infant with developmental delays and seizures with elevated phenylalanine levels is most likely suffering from phenylketonuria. The FeCl3 test is used to detect urinary phenylpyruvate. In this test, a test tube with 1 ml of fresh urine is treated with ferric chloride. A positive test reveals a transient green color due to formation of a ferric phenol complex. Phenylpyruvate, phenyllactate, phenylacetate and phenyl acetyl glutamate are products of alternative pathways of phenylalanine catabolism."
+          },
+          {
+            "type": "paragraph",
+            "text": "Specificity of FeCl3 test is shown in the source table: substances reacting with FeCl3 include phenylpyruvate; substances not reacting include phenylacetate, phenylalanine, pyruvic acid and tyrosine."
+          },
+          {
+            "type": "table",
+            "title": "Specificity of FeCl3 test",
+            "source_page": 144
+          }
+        ],
+        "tables": [
+          {
+            "title": "Specificity of FeCl3 test",
+            "source_page": 144,
+            "columns": [
+              "Reacts with FeCl3",
+              "Does not react with FeCl3"
+            ],
+            "rows": [
+              [
+                "Phenylpyruvate",
+                "Phenylacetate"
+              ],
+              [
+                "",
+                "Phenylalanine"
+              ],
+              [
+                "",
+                "Pyruvic acid"
+              ],
+              [
+                "",
+                "Tyrosine"
+              ]
+            ]
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          133
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          143,
+          144
+        ]
+      },
+      "sourcePage": 133,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q003",
+      "sourceQuestionId": "BIOCHEM_CH09_Q003",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 3,
+      "questionType": "single_best_answer",
+      "question": "Defective fumarylacetoacetate hydrolase enzyme is associated with _____.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Type 1 Tyrosinemia"
+        },
+        {
+          "letter": "B",
+          "text": "Type 2 Tyrosinemia"
+        },
+        {
+          "letter": "C",
+          "text": "Type 3 Tyrosinemia"
+        },
+        {
+          "letter": "D",
+          "text": "Type 4 Tyrosinemia"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Type 1 Tyrosinemia",
+      "explanation": "Defective fumarylacetoacetate hydrolase enzyme is associated with type 1 tyrosinemia (tyrosinosis). It is the most common type of tyrosinemia.\nThere are three types of tyrosinemias:\n• Type 1 (Hepatorenal tyrosinemia): fumaryl acetoacetate hydrolase deficiency\n• Type 2 (Oculocutaneous tyrosinemia/Richner-Hanhart syndrome): tyrosine transaminase deficiency\n• Type 3 (Neonatal tyrosinemia)",
+      "structuredExplanation": {
+        "text": "Defective fumarylacetoacetate hydrolase enzyme is associated with type 1 tyrosinemia (tyrosinosis). It is the most common type of tyrosinemia.\nThere are three types of tyrosinemias:\n• Type 1 (Hepatorenal tyrosinemia): fumaryl acetoacetate hydrolase deficiency\n• Type 2 (Oculocutaneous tyrosinemia/Richner-Hanhart syndrome): tyrosine transaminase deficiency\n• Type 3 (Neonatal tyrosinemia)",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Defective fumarylacetoacetate hydrolase enzyme is associated with type 1 tyrosinemia (tyrosinosis). It is the most common type of tyrosinemia."
+          },
+          {
+            "type": "paragraph",
+            "text": "There are three types of tyrosinemias:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Type 1 (Hepatorenal tyrosinemia): fumaryl acetoacetate hydrolase deficiency",
+              "Type 2 (Oculocutaneous tyrosinemia/Richner-Hanhart syndrome): tyrosine transaminase deficiency",
+              "Type 3 (Neonatal tyrosinemia)"
+            ]
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          133
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          144
+        ]
+      },
+      "sourcePage": 133,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q004",
+      "sourceQuestionId": "BIOCHEM_CH09_Q004",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 4,
+      "questionType": "single_best_answer",
+      "question": "An infant is brought with abdominal distension and increased irritability for 10 days. Physical examination showed jaundice, hepatomegaly, and a boiled cabbage odor. Investigations showed elevated transaminases and succinylacetone. What is the treatment of choice for this condition?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Dietary restriction of phenylalanine"
+        },
+        {
+          "letter": "B",
+          "text": "Dietary restriction of tyrosine"
+        },
+        {
+          "letter": "C",
+          "text": "Nitisinone (NTBC)"
+        },
+        {
+          "letter": "D",
+          "text": "All of the above"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "All of the above",
+      "explanation": "The given clinical scenario of a child with abdominal distension, jaundice, hepatomegaly, and a boiled cabbage odor is suggestive of type 1 tyrosinemia (tyrosinosis). It is treated by a combination of nitisinone and dietary restriction of phenylalanine and tyrosine.\nType 1 tyrosinemia is the most common form of tyrosinemia caused by defective fumarylacetoacetate hydrolase enzyme. They usually present between 2–6 months of age with acute liver failure. They may also present with peripheral neuropathy resembling acute porphyria. Renal involvement is manifested as a Fanconi-like syndrome with hypophosphaturia, hypophosphatemia, and vitamin D-resistant rickets.\nAn odor resembling boiled cabbage resulting from increased methionine metabolites can be noted. Elevated levels of succinylacetone in blood or urine is diagnostic of type 1 tyrosinemia.\nNote: A boiled cabbage odor can also occur in hypermethioninemia.",
+      "structuredExplanation": {
+        "text": "The given clinical scenario of a child with abdominal distension, jaundice, hepatomegaly, and a boiled cabbage odor is suggestive of type 1 tyrosinemia (tyrosinosis). It is treated by a combination of nitisinone and dietary restriction of phenylalanine and tyrosine.\nType 1 tyrosinemia is the most common form of tyrosinemia caused by defective fumarylacetoacetate hydrolase enzyme. They usually present between 2–6 months of age with acute liver failure. They may also present with peripheral neuropathy resembling acute porphyria. Renal involvement is manifested as a Fanconi-like syndrome with hypophosphaturia, hypophosphatemia, and vitamin D-resistant rickets.\nAn odor resembling boiled cabbage resulting from increased methionine metabolites can be noted. Elevated levels of succinylacetone in blood or urine is diagnostic of type 1 tyrosinemia.\nNote: A boiled cabbage odor can also occur in hypermethioninemia.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The given clinical scenario of a child with abdominal distension, jaundice, hepatomegaly, and a boiled cabbage odor is suggestive of type 1 tyrosinemia (tyrosinosis). It is treated by a combination of nitisinone and dietary restriction of phenylalanine and tyrosine."
+          },
+          {
+            "type": "paragraph",
+            "text": "Type 1 tyrosinemia is the most common form of tyrosinemia caused by defective fumarylacetoacetate hydrolase enzyme. They usually present between 2–6 months of age with acute liver failure. They may also present with peripheral neuropathy resembling acute porphyria. Renal involvement is manifested as a Fanconi-like syndrome with hypophosphaturia, hypophosphatemia, and vitamin D-resistant rickets."
+          },
+          {
+            "type": "paragraph",
+            "text": "An odor resembling boiled cabbage resulting from increased methionine metabolites can be noted. Elevated levels of succinylacetone in blood or urine is diagnostic of type 1 tyrosinemia."
+          },
+          {
+            "type": "paragraph",
+            "text": "Note: A boiled cabbage odor can also occur in hypermethioninemia."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          133,
+          134
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          144
+        ]
+      },
+      "sourcePage": 133,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q005",
+      "sourceQuestionId": "BIOCHEM_CH09_Q005",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 5,
+      "questionType": "single_best_answer",
+      "question": "Richner-Hanhart syndrome is associated with a defect in which of the following?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Fumarylacetoacetate hydrolase"
+        },
+        {
+          "letter": "B",
+          "text": "Tyrosine aminotransferase"
+        },
+        {
+          "letter": "C",
+          "text": "p-Hydroxyphenylpyruvate hydroxylase"
+        },
+        {
+          "letter": "D",
+          "text": "Homogentisate oxidase"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Tyrosine aminotransferase",
+      "explanation": "Richner-Hanhart syndrome (Tyrosinemia type II) is associated with a defect in tyrosine aminotransferase. It is also called oculocutaneous tyrosinemia. Alternate metabolites of tyrosine are excreted in type II tyrosinemia. It is an autosomal recessive condition with onset between ages 2 and 4 years, when painful circumscribed calluses develop on the pressure points of the palms and soles.",
+      "structuredExplanation": {
+        "text": "Richner-Hanhart syndrome (Tyrosinemia type II) is associated with a defect in tyrosine aminotransferase. It is also called oculocutaneous tyrosinemia. Alternate metabolites of tyrosine are excreted in type II tyrosinemia. It is an autosomal recessive condition with onset between ages 2 and 4 years, when painful circumscribed calluses develop on the pressure points of the palms and soles.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Richner-Hanhart syndrome (Tyrosinemia type II) is associated with a defect in tyrosine aminotransferase. It is also called oculocutaneous tyrosinemia. Alternate metabolites of tyrosine are excreted in type II tyrosinemia. It is an autosomal recessive condition with onset between ages 2 and 4 years, when painful circumscribed calluses develop on the pressure points of the palms and soles."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          134
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          144,
+          145
+        ]
+      },
+      "sourcePage": 134,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q006",
+      "sourceQuestionId": "BIOCHEM_CH09_Q006",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 6,
+      "questionType": "single_best_answer",
+      "question": "Neonatal tyrosinemia is due to the deficiency of which of the following enzymes?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Fumaryl acetoacetate hydrolase"
+        },
+        {
+          "letter": "B",
+          "text": "Tyrosine transaminase"
+        },
+        {
+          "letter": "C",
+          "text": "Tyrosinase"
+        },
+        {
+          "letter": "D",
+          "text": "4-hydroxyphenylpyruvate dioxygenase"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "4-hydroxyphenylpyruvate dioxygenase",
+      "explanation": "Neonatal tyrosinemia is due to the deficiency of 4-hydroxyphenylpyruvate dioxygenase.\nThere are three types of tyrosinemias:\n• Type 1 (Hepatorenal tyrosinemia): fumaryl acetoacetate hydrolase deficiency\n• Type 2 (Oculocutaneous tyrosinemia/Richner-Hanhart syndrome): tyrosine transaminase deficiency\n• Type 3 (Neonatal tyrosinemia)",
+      "structuredExplanation": {
+        "text": "Neonatal tyrosinemia is due to the deficiency of 4-hydroxyphenylpyruvate dioxygenase.\nThere are three types of tyrosinemias:\n• Type 1 (Hepatorenal tyrosinemia): fumaryl acetoacetate hydrolase deficiency\n• Type 2 (Oculocutaneous tyrosinemia/Richner-Hanhart syndrome): tyrosine transaminase deficiency\n• Type 3 (Neonatal tyrosinemia)",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Neonatal tyrosinemia is due to the deficiency of 4-hydroxyphenylpyruvate dioxygenase."
+          },
+          {
+            "type": "paragraph",
+            "text": "There are three types of tyrosinemias:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Type 1 (Hepatorenal tyrosinemia): fumaryl acetoacetate hydrolase deficiency",
+              "Type 2 (Oculocutaneous tyrosinemia/Richner-Hanhart syndrome): tyrosine transaminase deficiency",
+              "Type 3 (Neonatal tyrosinemia)"
+            ]
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          134
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          145
+        ]
+      },
+      "sourcePage": 134,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q007",
+      "sourceQuestionId": "BIOCHEM_CH09_Q007",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 7,
+      "questionType": "single_best_answer",
+      "question": "Which of the following enzyme deficiency most commonly causes the disease shown in the image below?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Tyrosinase"
+        },
+        {
+          "letter": "B",
+          "text": "Tyrosine hydroxylase"
+        },
+        {
+          "letter": "C",
+          "text": "Phenylalanine hydroxylase"
+        },
+        {
+          "letter": "D",
+          "text": "Tyrosine transaminase"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Tyrosinase",
+      "explanation": "The image shows a child with albinism and is due to a deficiency of copper-containing enzyme tyrosinase causing a defect in melanin production. The affected child has milky white hair and milky white skin.\nIn untreated phenylketonuria, the baby looks normal at birth, with a skin and hair color lighter than other members of the family. Later, the child has blonde hair, skin with a light complexion, and blue irides. Manifestations are not as severe as in OCA. The image shows an infant with white hair, so albinism is the best choice.\nNote: Tyrosine hydroxylase is the rate-limiting enzyme in the biosynthesis of catecholamines. Tyrosine is first hydroxylated to form 3,4-dihydroxyphenylalanine (DOPA) by tyrosine hydroxylase. This enzyme is abundant in the central nervous system, the sympathetic ganglia, and the adrenal medulla.",
+      "structuredExplanation": {
+        "text": "The image shows a child with albinism and is due to a deficiency of copper-containing enzyme tyrosinase causing a defect in melanin production. The affected child has milky white hair and milky white skin.\nIn untreated phenylketonuria, the baby looks normal at birth, with a skin and hair color lighter than other members of the family. Later, the child has blonde hair, skin with a light complexion, and blue irides. Manifestations are not as severe as in OCA. The image shows an infant with white hair, so albinism is the best choice.\nNote: Tyrosine hydroxylase is the rate-limiting enzyme in the biosynthesis of catecholamines. Tyrosine is first hydroxylated to form 3,4-dihydroxyphenylalanine (DOPA) by tyrosine hydroxylase. This enzyme is abundant in the central nervous system, the sympathetic ganglia, and the adrenal medulla.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The image shows a child with albinism and is due to a deficiency of copper-containing enzyme tyrosinase causing a defect in melanin production. The affected child has milky white hair and milky white skin."
+          },
+          {
+            "type": "paragraph",
+            "text": "In untreated phenylketonuria, the baby looks normal at birth, with a skin and hair color lighter than other members of the family. Later, the child has blonde hair, skin with a light complexion, and blue irides. Manifestations are not as severe as in OCA. The image shows an infant with white hair, so albinism is the best choice."
+          },
+          {
+            "type": "paragraph",
+            "text": "Note: Tyrosine hydroxylase is the rate-limiting enzyme in the biosynthesis of catecholamines. Tyrosine is first hydroxylated to form 3,4-dihydroxyphenylalanine (DOPA) by tyrosine hydroxylase. This enzyme is abundant in the central nervous system, the sympathetic ganglia, and the adrenal medulla."
+          },
+          {
+            "type": "figure",
+            "title": "Clinical photograph: infant with albinism",
+            "source_page": 135,
+            "role": "question"
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Clinical photograph: infant with albinism",
+            "source_page": 135,
+            "role": "question",
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          134,
+          135
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          145
+        ]
+      },
+      "sourcePage": 134,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q008",
+      "sourceQuestionId": "BIOCHEM_CH09_Q008",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 8,
+      "questionType": "single_best_answer",
+      "question": "A man complains of bluish-black discoloration of the sclera and pinna for the last 6 months. Since childhood, his urine has turned black on standing, as shown in the image below. What is the most probable diagnosis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Phenylketonuria"
+        },
+        {
+          "letter": "B",
+          "text": "Alkaptonuria"
+        },
+        {
+          "letter": "C",
+          "text": "Tyrosinemia"
+        },
+        {
+          "letter": "D",
+          "text": "Maple syrup urine disease"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Alkaptonuria",
+      "explanation": "The given scenario of a patient with urine that turns black on standing and blackish discoloration of soft tissues (ochronosis) is characteristic of alkaptonuria. It occurs due to the excretion of homogentisic acid in the urine.\nAlkaptonuria is an autosomal-recessive condition due to the deficiency of homogentisate oxidase (also called homogentisate 1,2-dioxygenase). The homogentisic acid in these patients is oxidized to benzoquinone acetate and polymerized to form black-colored alkapton bodies, which deposit in soft tissues like cartilage, and this phenomenon is called ochronosis.\nThe source additionally shows a comparison image in which A is normal urine and B is urine from patients with alkaptonuria.",
+      "structuredExplanation": {
+        "text": "The given scenario of a patient with urine that turns black on standing and blackish discoloration of soft tissues (ochronosis) is characteristic of alkaptonuria. It occurs due to the excretion of homogentisic acid in the urine.\nAlkaptonuria is an autosomal-recessive condition due to the deficiency of homogentisate oxidase (also called homogentisate 1,2-dioxygenase). The homogentisic acid in these patients is oxidized to benzoquinone acetate and polymerized to form black-colored alkapton bodies, which deposit in soft tissues like cartilage, and this phenomenon is called ochronosis.\nThe source additionally shows a comparison image in which A is normal urine and B is urine from patients with alkaptonuria.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The given scenario of a patient with urine that turns black on standing and blackish discoloration of soft tissues (ochronosis) is characteristic of alkaptonuria. It occurs due to the excretion of homogentisic acid in the urine."
+          },
+          {
+            "type": "paragraph",
+            "text": "Alkaptonuria is an autosomal-recessive condition due to the deficiency of homogentisate oxidase (also called homogentisate 1,2-dioxygenase). The homogentisic acid in these patients is oxidized to benzoquinone acetate and polymerized to form black-colored alkapton bodies, which deposit in soft tissues like cartilage, and this phenomenon is called ochronosis."
+          },
+          {
+            "type": "paragraph",
+            "text": "The source additionally shows a comparison image in which A is normal urine and B is urine from patients with alkaptonuria."
+          },
+          {
+            "type": "figure",
+            "title": "Question image: black urine specimen",
+            "source_page": 135,
+            "role": "question"
+          },
+          {
+            "type": "figure",
+            "title": "Normal urine versus alkaptonuria urine comparison",
+            "source_page": 146,
+            "role": "explanation"
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Question image: black urine specimen",
+            "source_page": 135,
+            "role": "question",
+            "visual_reviewed": true
+          },
+          {
+            "title": "Normal urine versus alkaptonuria urine comparison",
+            "source_page": 146,
+            "role": "explanation",
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          135,
+          136
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          145,
+          146
+        ]
+      },
+      "sourcePage": 135,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q009",
+      "sourceQuestionId": "BIOCHEM_CH09_Q009",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 9,
+      "questionType": "single_best_answer",
+      "question": "The patient presents with pigmentation of the face as shown in the image below and gradually increasing backache and stiffness. The X-ray image of the spine is shown. What is the most probable diagnosis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Phenylketonuria"
+        },
+        {
+          "letter": "B",
+          "text": "Alkaptonuria"
+        },
+        {
+          "letter": "C",
+          "text": "Maple syrup urine disease"
+        },
+        {
+          "letter": "D",
+          "text": "Tyrosinemia"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Alkaptonuria",
+      "explanation": "The given clinical images show accumulation of blackish discoloration on the face and the X-ray shows calcification of the intervertebral discs. These findings are associated with alkaptonuria.\nAlkaptonuria is a condition caused due to the deficiency of homogentisic acid oxidase. This results in accumulation of homogentisic acid.\nThis condition is associated with the following symptoms:\n• Black ochronotic pigmentation (alkapton bodies) of cartilage and collagenous tissue\n• Homogentisic aciduria: patient’s urine contains elevated levels of homogentisic acid, which is oxidized to a dark quinone on standing\n• Large joint arthritis\n• Calcification of intervertebral discs known as ochronotic spondyloarthropathy",
+      "structuredExplanation": {
+        "text": "The given clinical images show accumulation of blackish discoloration on the face and the X-ray shows calcification of the intervertebral discs. These findings are associated with alkaptonuria.\nAlkaptonuria is a condition caused due to the deficiency of homogentisic acid oxidase. This results in accumulation of homogentisic acid.\nThis condition is associated with the following symptoms:\n• Black ochronotic pigmentation (alkapton bodies) of cartilage and collagenous tissue\n• Homogentisic aciduria: patient’s urine contains elevated levels of homogentisic acid, which is oxidized to a dark quinone on standing\n• Large joint arthritis\n• Calcification of intervertebral discs known as ochronotic spondyloarthropathy",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The given clinical images show accumulation of blackish discoloration on the face and the X-ray shows calcification of the intervertebral discs. These findings are associated with alkaptonuria."
+          },
+          {
+            "type": "paragraph",
+            "text": "Alkaptonuria is a condition caused due to the deficiency of homogentisic acid oxidase. This results in accumulation of homogentisic acid."
+          },
+          {
+            "type": "paragraph",
+            "text": "This condition is associated with the following symptoms:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Black ochronotic pigmentation (alkapton bodies) of cartilage and collagenous tissue",
+              "Homogentisic aciduria: patient’s urine contains elevated levels of homogentisic acid, which is oxidized to a dark quinone on standing",
+              "Large joint arthritis",
+              "Calcification of intervertebral discs known as ochronotic spondyloarthropathy"
+            ]
+          },
+          {
+            "type": "figure",
+            "title": "Question images: facial ochronosis and spine radiograph",
+            "source_page": 136,
+            "role": "question"
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Question images: facial ochronosis and spine radiograph",
+            "source_page": 136,
+            "role": "question",
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          136
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          146
+        ]
+      },
+      "sourcePage": 136,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q010",
+      "sourceQuestionId": "BIOCHEM_CH09_Q010",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 10,
+      "questionType": "single_best_answer",
+      "question": "A child is brought with complaints of diarrhea, skin eruptions, and delayed mental development. She is found to have neutral aminoaciduria and a positive Obermeyer test. The impaired renal and intestinal transport of which amino acid must be suspected in this child?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Tyrosine"
+        },
+        {
+          "letter": "B",
+          "text": "Tryptophan"
+        },
+        {
+          "letter": "C",
+          "text": "Phenylalanine"
+        },
+        {
+          "letter": "D",
+          "text": "Threonine"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Tryptophan",
+      "explanation": "This child presents with diarrhea, dermatitis, and delayed mental development. This combined with neutral aminoaciduria and a positive Obermeyer test should raise suspicions of Hartnup’s disease. This is due to impaired renal and intestinal absorption of tryptophan and other neutral amino acids.\nHartnup’s disease is characterized by a varied clinical presentation including ataxia (lack of muscle control), delayed mental development, diarrhea, and dermatitis. Patients can also develop symptoms similar to pellagra as tryptophan is a precursor of niacin.\nDiagnosis is based on aminoaciduria and increased excretion of indole compounds detected by Obermeyer test.",
+      "structuredExplanation": {
+        "text": "This child presents with diarrhea, dermatitis, and delayed mental development. This combined with neutral aminoaciduria and a positive Obermeyer test should raise suspicions of Hartnup’s disease. This is due to impaired renal and intestinal absorption of tryptophan and other neutral amino acids.\nHartnup’s disease is characterized by a varied clinical presentation including ataxia (lack of muscle control), delayed mental development, diarrhea, and dermatitis. Patients can also develop symptoms similar to pellagra as tryptophan is a precursor of niacin.\nDiagnosis is based on aminoaciduria and increased excretion of indole compounds detected by Obermeyer test.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "This child presents with diarrhea, dermatitis, and delayed mental development. This combined with neutral aminoaciduria and a positive Obermeyer test should raise suspicions of Hartnup’s disease. This is due to impaired renal and intestinal absorption of tryptophan and other neutral amino acids."
+          },
+          {
+            "type": "paragraph",
+            "text": "Hartnup’s disease is characterized by a varied clinical presentation including ataxia (lack of muscle control), delayed mental development, diarrhea, and dermatitis. Patients can also develop symptoms similar to pellagra as tryptophan is a precursor of niacin."
+          },
+          {
+            "type": "paragraph",
+            "text": "Diagnosis is based on aminoaciduria and increased excretion of indole compounds detected by Obermeyer test."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          136
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          146,
+          147
+        ]
+      },
+      "sourcePage": 136,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q011",
+      "sourceQuestionId": "BIOCHEM_CH09_Q011",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 11,
+      "questionType": "single_best_answer",
+      "question": "Xanthurenic aciduria is seen in which of the following vitamin deficiency?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Vitamin B2"
+        },
+        {
+          "letter": "B",
+          "text": "Vitamin B3"
+        },
+        {
+          "letter": "C",
+          "text": "Vitamin B5"
+        },
+        {
+          "letter": "D",
+          "text": "Vitamin B6"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Vitamin B6",
+      "explanation": "Xanthurenic aciduria is seen in deficiency of vitamin B6 (pyridoxal phosphate), a coenzyme required by kynureninase enzyme to convert 3-OH kynurenine to 3-OH anthranilic acid during tryptophan metabolism.",
+      "structuredExplanation": {
+        "text": "Xanthurenic aciduria is seen in deficiency of vitamin B6 (pyridoxal phosphate), a coenzyme required by kynureninase enzyme to convert 3-OH kynurenine to 3-OH anthranilic acid during tryptophan metabolism.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Xanthurenic aciduria is seen in deficiency of vitamin B6 (pyridoxal phosphate), a coenzyme required by kynureninase enzyme to convert 3-OH kynurenine to 3-OH anthranilic acid during tryptophan metabolism."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          137
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          147
+        ]
+      },
+      "sourcePage": 137,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q012",
+      "sourceQuestionId": "BIOCHEM_CH09_Q012",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 12,
+      "questionType": "single_best_answer",
+      "question": "In which condition is excessive urinary excretion of 5-hydroxy indole acetic acid seen?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Alkaptonuria"
+        },
+        {
+          "letter": "B",
+          "text": "Albinism"
+        },
+        {
+          "letter": "C",
+          "text": "Carcinoid syndrome"
+        },
+        {
+          "letter": "D",
+          "text": "Phenylketonuria"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Carcinoid syndrome",
+      "explanation": "Excessive urinary excretion of 5-hydroxy indole acetic acid (5-HIAA) is seen in carcinoid syndrome.\nCarcinoid syndrome is marked by symptoms of bronchospasm, cutaneous flushing, abdominal cramps, and diarrhea. It occurs due to excessive production of serotonin, a specialized product of tryptophan metabolism by tumors commonly in the small intestine, liver and lungs. It is then metabolized and excreted in urine as 5-HIAA.",
+      "structuredExplanation": {
+        "text": "Excessive urinary excretion of 5-hydroxy indole acetic acid (5-HIAA) is seen in carcinoid syndrome.\nCarcinoid syndrome is marked by symptoms of bronchospasm, cutaneous flushing, abdominal cramps, and diarrhea. It occurs due to excessive production of serotonin, a specialized product of tryptophan metabolism by tumors commonly in the small intestine, liver and lungs. It is then metabolized and excreted in urine as 5-HIAA.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Excessive urinary excretion of 5-hydroxy indole acetic acid (5-HIAA) is seen in carcinoid syndrome."
+          },
+          {
+            "type": "paragraph",
+            "text": "Carcinoid syndrome is marked by symptoms of bronchospasm, cutaneous flushing, abdominal cramps, and diarrhea. It occurs due to excessive production of serotonin, a specialized product of tryptophan metabolism by tumors commonly in the small intestine, liver and lungs. It is then metabolized and excreted in urine as 5-HIAA."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          137
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          147
+        ]
+      },
+      "sourcePage": 137,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q013",
+      "sourceQuestionId": "BIOCHEM_CH09_Q013",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 13,
+      "questionType": "single_best_answer",
+      "question": "A patient presents with recurrent kidney stones. Microscopic examination finding of the urine specimen is shown below. Which of the following is not seen in the urine of this patient?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ornithine"
+        },
+        {
+          "letter": "B",
+          "text": "Lysine"
+        },
+        {
+          "letter": "C",
+          "text": "Arginine"
+        },
+        {
+          "letter": "D",
+          "text": "Histidine"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Histidine",
+      "explanation": "The image shows hexagonal, translucent, white crystals suggestive of cystinuria. Histidine is not seen in the urine of this patient.\nCystinuria is an autosomal-recessive disease due to a defect in renal PCT and intestinal amino acid transport that is essential for reabsorptive transport of cystine and the dibasic amino acids Ornithine, Lysine, and Arginine (COLA).\nDiagnosis of cystinuria is by the cyanide-nitroprusside test. Initial treatment is with adequate hydration, alkalization of the urine with citrate supplementation or acetazolamide, and dietary modification to reduce salt and protein intake. If this fails then patients are usually started on chelation therapy with penicillamine.",
+      "structuredExplanation": {
+        "text": "The image shows hexagonal, translucent, white crystals suggestive of cystinuria. Histidine is not seen in the urine of this patient.\nCystinuria is an autosomal-recessive disease due to a defect in renal PCT and intestinal amino acid transport that is essential for reabsorptive transport of cystine and the dibasic amino acids Ornithine, Lysine, and Arginine (COLA).\nDiagnosis of cystinuria is by the cyanide-nitroprusside test. Initial treatment is with adequate hydration, alkalization of the urine with citrate supplementation or acetazolamide, and dietary modification to reduce salt and protein intake. If this fails then patients are usually started on chelation therapy with penicillamine.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The image shows hexagonal, translucent, white crystals suggestive of cystinuria. Histidine is not seen in the urine of this patient."
+          },
+          {
+            "type": "paragraph",
+            "text": "Cystinuria is an autosomal-recessive disease due to a defect in renal PCT and intestinal amino acid transport that is essential for reabsorptive transport of cystine and the dibasic amino acids Ornithine, Lysine, and Arginine (COLA)."
+          },
+          {
+            "type": "paragraph",
+            "text": "Diagnosis of cystinuria is by the cyanide-nitroprusside test. Initial treatment is with adequate hydration, alkalization of the urine with citrate supplementation or acetazolamide, and dietary modification to reduce salt and protein intake. If this fails then patients are usually started on chelation therapy with penicillamine."
+          },
+          {
+            "type": "figure",
+            "title": "Urine microscopy: hexagonal cystine crystals",
+            "source_page": 137,
+            "role": "question"
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Urine microscopy: hexagonal cystine crystals",
+            "source_page": 137,
+            "role": "question",
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          137,
+          138
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          147
+        ]
+      },
+      "sourcePage": 137,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q014",
+      "sourceQuestionId": "BIOCHEM_CH09_Q014",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 14,
+      "questionType": "single_best_answer",
+      "question": "Defect in the metabolism of which of the following is associated with increased cardiovascular risk?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Branched amino acids"
+        },
+        {
+          "letter": "B",
+          "text": "Aromatic amino acids"
+        },
+        {
+          "letter": "C",
+          "text": "Sulfur-containing amino acids"
+        },
+        {
+          "letter": "D",
+          "text": "Imino acids"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Sulfur-containing amino acids",
+      "explanation": "Defect in the metabolism of sulfur-containing amino acids (homocysteine) due to the deficiency of cystathionine-β-synthase leads to homocystinuria and increases cardiovascular risk. Homocysteine is highly cytotoxic and elevated levels within the bloodstream are believed to damage the endothelial lining of arterial vessels, leading to intravascular coagulation.",
+      "structuredExplanation": {
+        "text": "Defect in the metabolism of sulfur-containing amino acids (homocysteine) due to the deficiency of cystathionine-β-synthase leads to homocystinuria and increases cardiovascular risk. Homocysteine is highly cytotoxic and elevated levels within the bloodstream are believed to damage the endothelial lining of arterial vessels, leading to intravascular coagulation.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Defect in the metabolism of sulfur-containing amino acids (homocysteine) due to the deficiency of cystathionine-β-synthase leads to homocystinuria and increases cardiovascular risk. Homocysteine is highly cytotoxic and elevated levels within the bloodstream are believed to damage the endothelial lining of arterial vessels, leading to intravascular coagulation."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          138
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          147
+        ]
+      },
+      "sourcePage": 138,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q015",
+      "sourceQuestionId": "BIOCHEM_CH09_Q015",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 15,
+      "questionType": "single_best_answer",
+      "question": "A 4-year-old child developed a sudden onset weakness of the left side of the body with facial deviation to the right side. On examination, he is tall and thin with elongated limbs. Ocular findings are shown in the image below. What is the most likely inborn error of metabolism in this child?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cystinuria"
+        },
+        {
+          "letter": "B",
+          "text": "Homocystinuria"
+        },
+        {
+          "letter": "C",
+          "text": "Cystinosis"
+        },
+        {
+          "letter": "D",
+          "text": "Alkaptonuria"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Homocystinuria",
+      "explanation": "This child presented with an acute stroke. This in addition to elongated limbs and a tall body habitus with ocular examination showing downward subluxation of the lens is suggestive of homocystinuria.\nHomocystinuria is an important cause of pediatric stroke. It is most commonly caused by a defect in cystathionine β synthase enzyme leading to homocysteine accumulation in the urine and blood. They are generally normal at birth; the first sign usually is subluxation of the lens (ectopia lentis) seen after 3 years of age.\nManifestations of homocystinuria:\n• Ectopia lentis\n• Intellectual disability and psychiatric and behavioral disorders\n• Thromboembolic episodes\n• Skeletal abnormalities resembling those of Marfan syndrome: they are tall and thin with elongated limbs and arachnodactyly\nElevations of both methionine and homocysteine in body fluids are the diagnostic lab findings.\nNote: Marfan syndrome is the other cause of heritable ectopia lentis. However, in Marfan’s, the lens is dislocated in an upward and temporal direction whereas in homocystinuria the lens is dislocated in a downward and nasal direction.",
+      "structuredExplanation": {
+        "text": "This child presented with an acute stroke. This in addition to elongated limbs and a tall body habitus with ocular examination showing downward subluxation of the lens is suggestive of homocystinuria.\nHomocystinuria is an important cause of pediatric stroke. It is most commonly caused by a defect in cystathionine β synthase enzyme leading to homocysteine accumulation in the urine and blood. They are generally normal at birth; the first sign usually is subluxation of the lens (ectopia lentis) seen after 3 years of age.\nManifestations of homocystinuria:\n• Ectopia lentis\n• Intellectual disability and psychiatric and behavioral disorders\n• Thromboembolic episodes\n• Skeletal abnormalities resembling those of Marfan syndrome: they are tall and thin with elongated limbs and arachnodactyly\nElevations of both methionine and homocysteine in body fluids are the diagnostic lab findings.\nNote: Marfan syndrome is the other cause of heritable ectopia lentis. However, in Marfan’s, the lens is dislocated in an upward and temporal direction whereas in homocystinuria the lens is dislocated in a downward and nasal direction.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "This child presented with an acute stroke. This in addition to elongated limbs and a tall body habitus with ocular examination showing downward subluxation of the lens is suggestive of homocystinuria."
+          },
+          {
+            "type": "paragraph",
+            "text": "Homocystinuria is an important cause of pediatric stroke. It is most commonly caused by a defect in cystathionine β synthase enzyme leading to homocysteine accumulation in the urine and blood. They are generally normal at birth; the first sign usually is subluxation of the lens (ectopia lentis) seen after 3 years of age."
+          },
+          {
+            "type": "paragraph",
+            "text": "Manifestations of homocystinuria:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Ectopia lentis",
+              "Intellectual disability and psychiatric and behavioral disorders",
+              "Thromboembolic episodes",
+              "Skeletal abnormalities resembling those of Marfan syndrome: they are tall and thin with elongated limbs and arachnodactyly"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Elevations of both methionine and homocysteine in body fluids are the diagnostic lab findings."
+          },
+          {
+            "type": "paragraph",
+            "text": "Note: Marfan syndrome is the other cause of heritable ectopia lentis. However, in Marfan’s, the lens is dislocated in an upward and temporal direction whereas in homocystinuria the lens is dislocated in a downward and nasal direction."
+          },
+          {
+            "type": "figure",
+            "title": "Ocular photograph: ectopia lentis",
+            "source_page": 138,
+            "role": "question"
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Ocular photograph: ectopia lentis",
+            "source_page": 138,
+            "role": "question",
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          138
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          148
+        ]
+      },
+      "sourcePage": 138,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q016",
+      "sourceQuestionId": "BIOCHEM_CH09_Q016",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 16,
+      "questionType": "single_best_answer",
+      "question": "Garrod's tetrad includes all of the following, except ____.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Alkaptonuria"
+        },
+        {
+          "letter": "B",
+          "text": "Cystinuria"
+        },
+        {
+          "letter": "C",
+          "text": "Pentosuria"
+        },
+        {
+          "letter": "D",
+          "text": "Phenylketonuria"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Phenylketonuria",
+      "explanation": "Phenylketonuria is not a component of Garrod’s tetrad.\nGarrod’s tetrad includes the following:\n• Alkaptonuria: due to homogentisate oxidase deficiency\n• Albinism: due to tyrosinase deficiency\n• Cystinuria: a type of aminoaciduria that prevents proper reabsorption of basic or positively charged amino acids that includes cystine, ornithine, lysine and arginine (COLA)\n• Pentosuria: due to deficiency of L-xylulose reductase or xylitol dehydrogenase, which are necessary for xylitol metabolism",
+      "structuredExplanation": {
+        "text": "Phenylketonuria is not a component of Garrod’s tetrad.\nGarrod’s tetrad includes the following:\n• Alkaptonuria: due to homogentisate oxidase deficiency\n• Albinism: due to tyrosinase deficiency\n• Cystinuria: a type of aminoaciduria that prevents proper reabsorption of basic or positively charged amino acids that includes cystine, ornithine, lysine and arginine (COLA)\n• Pentosuria: due to deficiency of L-xylulose reductase or xylitol dehydrogenase, which are necessary for xylitol metabolism",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Phenylketonuria is not a component of Garrod’s tetrad."
+          },
+          {
+            "type": "paragraph",
+            "text": "Garrod’s tetrad includes the following:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Alkaptonuria: due to homogentisate oxidase deficiency",
+              "Albinism: due to tyrosinase deficiency",
+              "Cystinuria: a type of aminoaciduria that prevents proper reabsorption of basic or positively charged amino acids that includes cystine, ornithine, lysine and arginine (COLA)",
+              "Pentosuria: due to deficiency of L-xylulose reductase or xylitol dehydrogenase, which are necessary for xylitol metabolism"
+            ]
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          139
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          148
+        ]
+      },
+      "sourcePage": 139,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q017",
+      "sourceQuestionId": "BIOCHEM_CH09_Q017",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 17,
+      "questionType": "single_best_answer",
+      "question": "Primary hyperoxaluria is due to the defect in the metabolism of _____.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Threonine"
+        },
+        {
+          "letter": "B",
+          "text": "Serine"
+        },
+        {
+          "letter": "C",
+          "text": "Glycine"
+        },
+        {
+          "letter": "D",
+          "text": "Alanine"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Glycine",
+      "explanation": "Primary hyperoxaluria is a defect in the metabolism of glycine.\nThe main defect in primary hyperoxaluria type I is the deficiency of the alanine glyoxylate aminotransferase in liver peroxisomes causing failure to catabolize glyoxylate formed by the deamination of glycine. This leads to a gross overproduction of oxalate, leading to the formation of oxalate stones and subsequent kidney damage.",
+      "structuredExplanation": {
+        "text": "Primary hyperoxaluria is a defect in the metabolism of glycine.\nThe main defect in primary hyperoxaluria type I is the deficiency of the alanine glyoxylate aminotransferase in liver peroxisomes causing failure to catabolize glyoxylate formed by the deamination of glycine. This leads to a gross overproduction of oxalate, leading to the formation of oxalate stones and subsequent kidney damage.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Primary hyperoxaluria is a defect in the metabolism of glycine."
+          },
+          {
+            "type": "paragraph",
+            "text": "The main defect in primary hyperoxaluria type I is the deficiency of the alanine glyoxylate aminotransferase in liver peroxisomes causing failure to catabolize glyoxylate formed by the deamination of glycine. This leads to a gross overproduction of oxalate, leading to the formation of oxalate stones and subsequent kidney damage."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          139
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          148
+        ]
+      },
+      "sourcePage": 139,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q018",
+      "sourceQuestionId": "BIOCHEM_CH09_Q018",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 18,
+      "questionType": "single_best_answer",
+      "question": "The histidine load test is done to identify the deficiency of which of the following?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Iron"
+        },
+        {
+          "letter": "B",
+          "text": "Folic acid"
+        },
+        {
+          "letter": "C",
+          "text": "Pyridoxine"
+        },
+        {
+          "letter": "D",
+          "text": "Vitamin B12"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Folic acid",
+      "explanation": "The histidine load test is done to identify folic acid deficiency. Formiminoglutamic acid (FIGLU) is excreted in urine, which is measured by the histidine load test. The source includes a metabolism-of-histidine pathway diagram showing the folate-dependent step.",
+      "structuredExplanation": {
+        "text": "The histidine load test is done to identify folic acid deficiency. Formiminoglutamic acid (FIGLU) is excreted in urine, which is measured by the histidine load test. The source includes a metabolism-of-histidine pathway diagram showing the folate-dependent step.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The histidine load test is done to identify folic acid deficiency. Formiminoglutamic acid (FIGLU) is excreted in urine, which is measured by the histidine load test. The source includes a metabolism-of-histidine pathway diagram showing the folate-dependent step."
+          },
+          {
+            "type": "figure",
+            "title": "Metabolism of histidine / FIGLU diagram",
+            "source_page": 149,
+            "role": "explanation"
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Metabolism of histidine / FIGLU diagram",
+            "source_page": 149,
+            "role": "explanation",
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          139
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          149
+        ]
+      },
+      "sourcePage": 139,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q019",
+      "sourceQuestionId": "BIOCHEM_CH09_Q019",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 19,
+      "questionType": "single_best_answer",
+      "question": "Deficiency of aspartoacylase leads to:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Canavan disease"
+        },
+        {
+          "letter": "B",
+          "text": "Oasthouse syndrome"
+        },
+        {
+          "letter": "C",
+          "text": "Hawkinsinuria"
+        },
+        {
+          "letter": "D",
+          "text": "Hartnup disease"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Canavan disease",
+      "explanation": "Deficiency of aspartoacylase leads to Canavan disease. It is an autosomal-recessive disorder, which leads to excessive excretion of N-acetylaspartic acid in the urine. It is characterized by leukodystrophy. The source includes a Canavan-disease pathway diagram.",
+      "structuredExplanation": {
+        "text": "Deficiency of aspartoacylase leads to Canavan disease. It is an autosomal-recessive disorder, which leads to excessive excretion of N-acetylaspartic acid in the urine. It is characterized by leukodystrophy. The source includes a Canavan-disease pathway diagram.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Deficiency of aspartoacylase leads to Canavan disease. It is an autosomal-recessive disorder, which leads to excessive excretion of N-acetylaspartic acid in the urine. It is characterized by leukodystrophy. The source includes a Canavan-disease pathway diagram."
+          },
+          {
+            "type": "figure",
+            "title": "Canavan disease pathway diagram",
+            "source_page": 149,
+            "role": "explanation"
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Canavan disease pathway diagram",
+            "source_page": 149,
+            "role": "explanation",
+            "visual_reviewed": true
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          139
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          149
+        ]
+      },
+      "sourcePage": 139,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q020",
+      "sourceQuestionId": "BIOCHEM_CH09_Q020",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 20,
+      "questionType": "single_best_answer",
+      "question": "Maple syrup urine disease type I is due to a defect in _____.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Decarboxylation"
+        },
+        {
+          "letter": "B",
+          "text": "Oxidation"
+        },
+        {
+          "letter": "C",
+          "text": "Carboxylation"
+        },
+        {
+          "letter": "D",
+          "text": "Deamination"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Decarboxylation",
+      "explanation": "Maple syrup urine disease (MSUD) type I is due to impaired alpha-ketoacid decarboxylase component of BCKAD (branched chain alpha keto acid dehydrogenase) complex, leading to defective decarboxylation reaction and the formation of branched-chain amino acids (leucine, isoleucine, and valine) and their toxic byproducts (keto-acids) in blood and urine. A peculiar odor (burnt sugar) is found in urine, sweat, and cerumen.\nNote: Amino acids and disorders of their metabolism are invariably being asked in NEET as well as in AIIMS examinations.",
+      "structuredExplanation": {
+        "text": "Maple syrup urine disease (MSUD) type I is due to impaired alpha-ketoacid decarboxylase component of BCKAD (branched chain alpha keto acid dehydrogenase) complex, leading to defective decarboxylation reaction and the formation of branched-chain amino acids (leucine, isoleucine, and valine) and their toxic byproducts (keto-acids) in blood and urine. A peculiar odor (burnt sugar) is found in urine, sweat, and cerumen.\nNote: Amino acids and disorders of their metabolism are invariably being asked in NEET as well as in AIIMS examinations.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Maple syrup urine disease (MSUD) type I is due to impaired alpha-ketoacid decarboxylase component of BCKAD (branched chain alpha keto acid dehydrogenase) complex, leading to defective decarboxylation reaction and the formation of branched-chain amino acids (leucine, isoleucine, and valine) and their toxic byproducts (keto-acids) in blood and urine. A peculiar odor (burnt sugar) is found in urine, sweat, and cerumen."
+          },
+          {
+            "type": "paragraph",
+            "text": "Note: Amino acids and disorders of their metabolism are invariably being asked in NEET as well as in AIIMS examinations."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          140
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          150
+        ]
+      },
+      "sourcePage": 140,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q021",
+      "sourceQuestionId": "BIOCHEM_CH09_Q021",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 21,
+      "questionType": "single_best_answer",
+      "question": "Type II MSUD results from the mutation in the genes encoding",
+      "options": [
+        {
+          "letter": "A",
+          "text": "α-ketoacid decarboxylase"
+        },
+        {
+          "letter": "B",
+          "text": "Dihydrolipoyl transacetylase"
+        },
+        {
+          "letter": "C",
+          "text": "Dihydrolipoamide dehydrogenase"
+        },
+        {
+          "letter": "D",
+          "text": "None of the above"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Dihydrolipoyl transacetylase",
+      "explanation": "Type II maple syrup urine disease (MSUD) results from a mutation in the genes encoding dihydrolipoyl transacetylase.\nThere are 4 known types of Maple Syrup Urine Disease:\n• Type IA and IB MSUD arise from mutations in the E1α and E1β genes, which encode the enzyme alpha-ketoacid decarboxylase\n• Type II arises from mutations in the E2 gene, which encodes dihydrolipoyl transacetylase\n• Type III arises from mutation in the E3 gene, which encodes dihydrolipoamide dehydrogenase",
+      "structuredExplanation": {
+        "text": "Type II maple syrup urine disease (MSUD) results from a mutation in the genes encoding dihydrolipoyl transacetylase.\nThere are 4 known types of Maple Syrup Urine Disease:\n• Type IA and IB MSUD arise from mutations in the E1α and E1β genes, which encode the enzyme alpha-ketoacid decarboxylase\n• Type II arises from mutations in the E2 gene, which encodes dihydrolipoyl transacetylase\n• Type III arises from mutation in the E3 gene, which encodes dihydrolipoamide dehydrogenase",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Type II maple syrup urine disease (MSUD) results from a mutation in the genes encoding dihydrolipoyl transacetylase."
+          },
+          {
+            "type": "paragraph",
+            "text": "There are 4 known types of Maple Syrup Urine Disease:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Type IA and IB MSUD arise from mutations in the E1α and E1β genes, which encode the enzyme alpha-ketoacid decarboxylase",
+              "Type II arises from mutations in the E2 gene, which encodes dihydrolipoyl transacetylase",
+              "Type III arises from mutation in the E3 gene, which encodes dihydrolipoamide dehydrogenase"
+            ]
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          140
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          150
+        ]
+      },
+      "sourcePage": 140,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q022",
+      "sourceQuestionId": "BIOCHEM_CH09_Q022",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 22,
+      "questionType": "single_best_answer",
+      "question": "A neonate with poor feeding, vomiting, and lethargy was found to have increased isovaleric acid in urine. This is due to a defect in the metabolism of _____.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Isoleucine"
+        },
+        {
+          "letter": "B",
+          "text": "Valine"
+        },
+        {
+          "letter": "C",
+          "text": "Leucine"
+        },
+        {
+          "letter": "D",
+          "text": "Lysine"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Leucine",
+      "explanation": "This infant with poor feeding and increased isovaleric acid in the urine likely has isovaleric aciduria. This condition is caused due to a defect in the metabolism of leucine. Isovaleric aciduria is a condition characterized by vomiting, refusal to eat, listlessness, and a characteristic sweaty foot odor. The enzyme defect in this condition is isovaleryl Co-A dehydrogenase.",
+      "structuredExplanation": {
+        "text": "This infant with poor feeding and increased isovaleric acid in the urine likely has isovaleric aciduria. This condition is caused due to a defect in the metabolism of leucine. Isovaleric aciduria is a condition characterized by vomiting, refusal to eat, listlessness, and a characteristic sweaty foot odor. The enzyme defect in this condition is isovaleryl Co-A dehydrogenase.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "This infant with poor feeding and increased isovaleric acid in the urine likely has isovaleric aciduria. This condition is caused due to a defect in the metabolism of leucine. Isovaleric aciduria is a condition characterized by vomiting, refusal to eat, listlessness, and a characteristic sweaty foot odor. The enzyme defect in this condition is isovaleryl Co-A dehydrogenase."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          140
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          150
+        ]
+      },
+      "sourcePage": 140,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q023",
+      "sourceQuestionId": "BIOCHEM_CH09_Q023",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 23,
+      "questionType": "single_best_answer",
+      "question": "A 16-year-old boy with progressive myopia and night blindness was found to have gyrate atrophy of the retina and choroid. Which of the following will be elevated in plasma?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cystine"
+        },
+        {
+          "letter": "B",
+          "text": "Ornithine"
+        },
+        {
+          "letter": "C",
+          "text": "Lysine"
+        },
+        {
+          "letter": "D",
+          "text": "Alanine"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Ornithine",
+      "explanation": "Plasma levels of ornithine are elevated in gyrate atrophy of the retina and choroid.\nThe initial reactions in arginine catabolism are the conversion of arginine to ornithine followed by the transamination of ornithine. Any mutation in ornithine aminotransferase leads to elevated plasma and urinary concentrations of ornithine. This is associated with a condition known as gyrate atrophy of the choroid and retina. It presents with myopia and night blindness in adolescence which progresses to legal blindness by 50 years. The condition is treated with dietary restriction of arginine.",
+      "structuredExplanation": {
+        "text": "Plasma levels of ornithine are elevated in gyrate atrophy of the retina and choroid.\nThe initial reactions in arginine catabolism are the conversion of arginine to ornithine followed by the transamination of ornithine. Any mutation in ornithine aminotransferase leads to elevated plasma and urinary concentrations of ornithine. This is associated with a condition known as gyrate atrophy of the choroid and retina. It presents with myopia and night blindness in adolescence which progresses to legal blindness by 50 years. The condition is treated with dietary restriction of arginine.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Plasma levels of ornithine are elevated in gyrate atrophy of the retina and choroid."
+          },
+          {
+            "type": "paragraph",
+            "text": "The initial reactions in arginine catabolism are the conversion of arginine to ornithine followed by the transamination of ornithine. Any mutation in ornithine aminotransferase leads to elevated plasma and urinary concentrations of ornithine. This is associated with a condition known as gyrate atrophy of the choroid and retina. It presents with myopia and night blindness in adolescence which progresses to legal blindness by 50 years. The condition is treated with dietary restriction of arginine."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          140
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          150
+        ]
+      },
+      "sourcePage": 140,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q024",
+      "sourceQuestionId": "BIOCHEM_CH09_Q024",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 24,
+      "questionType": "single_best_answer",
+      "question": "Segawa syndrome is due to the deficiency of which of the following?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Tetrahydrobiopterin"
+        },
+        {
+          "letter": "B",
+          "text": "Pantothenic acid"
+        },
+        {
+          "letter": "C",
+          "text": "Biotin"
+        },
+        {
+          "letter": "D",
+          "text": "Tetrahydrofolic acid"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Tetrahydrobiopterin",
+      "explanation": "Segawa syndrome is a hereditary progressive dystonia due to the deficiency of tetrahydrobiopterin (BH4).\nSegawa syndrome, also known as dopamine-responsive dystonia, occurs due to a defect in the GTP cyclohydrolase I enzyme required for BH4 synthesis.\nThis condition is characterised by increased muscle tone and Parkinsonian features, typically absent in the morning or after rest but worsening during the day and with exertion. Treatment for this condition is with Levodopa.",
+      "structuredExplanation": {
+        "text": "Segawa syndrome is a hereditary progressive dystonia due to the deficiency of tetrahydrobiopterin (BH4).\nSegawa syndrome, also known as dopamine-responsive dystonia, occurs due to a defect in the GTP cyclohydrolase I enzyme required for BH4 synthesis.\nThis condition is characterised by increased muscle tone and Parkinsonian features, typically absent in the morning or after rest but worsening during the day and with exertion. Treatment for this condition is with Levodopa.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Segawa syndrome is a hereditary progressive dystonia due to the deficiency of tetrahydrobiopterin (BH4)."
+          },
+          {
+            "type": "paragraph",
+            "text": "Segawa syndrome, also known as dopamine-responsive dystonia, occurs due to a defect in the GTP cyclohydrolase I enzyme required for BH4 synthesis."
+          },
+          {
+            "type": "paragraph",
+            "text": "This condition is characterised by increased muscle tone and Parkinsonian features, typically absent in the morning or after rest but worsening during the day and with exertion. Treatment for this condition is with Levodopa."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          141
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          151
+        ]
+      },
+      "sourcePage": 141,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q025",
+      "sourceQuestionId": "BIOCHEM_CH09_Q025",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 25,
+      "questionType": "single_best_answer",
+      "question": "During the routine follow-up of a 9-month-old child, you notice a peculiar boiled cabbage odor. What is the most likely diagnosis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Hypermethioninemia"
+        },
+        {
+          "letter": "B",
+          "text": "Isovaleric aciduria"
+        },
+        {
+          "letter": "C",
+          "text": "Multiple carboxylase deficiency"
+        },
+        {
+          "letter": "D",
+          "text": "Trimethylaminuria"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Hypermethioninemia",
+      "explanation": "Boiled cabbage odor in urine, sweat, and breath occurs in hypermethioninemia. Dimethylsulphide, a metabolite of methionine, causes the characteristic boiled cabbage smell.\nPeople with a genetic deficiency of α/β-methionine adenosyltransferase present with hypermethioninemia and neural demyelination. However, they’re usually asymptomatic until early adulthood.\nMethionine adenosyltransferase converts methionine to S-adenosyl Methionine (SAM), a principal methyl donor. Hence the enzyme deficiency causes excess accumulation of methionine and its breakdown metabolites.",
+      "structuredExplanation": {
+        "text": "Boiled cabbage odor in urine, sweat, and breath occurs in hypermethioninemia. Dimethylsulphide, a metabolite of methionine, causes the characteristic boiled cabbage smell.\nPeople with a genetic deficiency of α/β-methionine adenosyltransferase present with hypermethioninemia and neural demyelination. However, they’re usually asymptomatic until early adulthood.\nMethionine adenosyltransferase converts methionine to S-adenosyl Methionine (SAM), a principal methyl donor. Hence the enzyme deficiency causes excess accumulation of methionine and its breakdown metabolites.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Boiled cabbage odor in urine, sweat, and breath occurs in hypermethioninemia. Dimethylsulphide, a metabolite of methionine, causes the characteristic boiled cabbage smell."
+          },
+          {
+            "type": "paragraph",
+            "text": "People with a genetic deficiency of α/β-methionine adenosyltransferase present with hypermethioninemia and neural demyelination. However, they’re usually asymptomatic until early adulthood."
+          },
+          {
+            "type": "paragraph",
+            "text": "Methionine adenosyltransferase converts methionine to S-adenosyl Methionine (SAM), a principal methyl donor. Hence the enzyme deficiency causes excess accumulation of methionine and its breakdown metabolites."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          141
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          151
+        ]
+      },
+      "sourcePage": 141,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q026",
+      "sourceQuestionId": "BIOCHEM_CH09_Q026",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 26,
+      "questionType": "single_best_answer",
+      "question": "Which of the following should be avoided by a patient of fish odour syndrome?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Biotin"
+        },
+        {
+          "letter": "B",
+          "text": "Choline"
+        },
+        {
+          "letter": "C",
+          "text": "Niacin"
+        },
+        {
+          "letter": "D",
+          "text": "Pantothenic acid"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Choline",
+      "explanation": "A fishy odor is seen in trimethylaminuria. Consumption of food products with choline should be avoided in fish odor syndrome.\nFish odor syndrome (trimethylaminuria) is an autosomal recessive disease where TMA (trimethylamine) is not converted to the non-odorous TMAO (TMA-N-oxide) in the liver. This is due to the deficiency of flavin-containing mono oxygenase 3 (FMO3). TMA then builds up in the body and is released in sweat, urine, and breath, giving off a strong odor of rotting fish from the body.\nCholine, lecithin, and TMAO are precursors of trimethylamine which are found in food products. These food products are eggs, liver, peanuts, meat, poultry, fish, dairy foods, pasta, and rice.",
+      "structuredExplanation": {
+        "text": "A fishy odor is seen in trimethylaminuria. Consumption of food products with choline should be avoided in fish odor syndrome.\nFish odor syndrome (trimethylaminuria) is an autosomal recessive disease where TMA (trimethylamine) is not converted to the non-odorous TMAO (TMA-N-oxide) in the liver. This is due to the deficiency of flavin-containing mono oxygenase 3 (FMO3). TMA then builds up in the body and is released in sweat, urine, and breath, giving off a strong odor of rotting fish from the body.\nCholine, lecithin, and TMAO are precursors of trimethylamine which are found in food products. These food products are eggs, liver, peanuts, meat, poultry, fish, dairy foods, pasta, and rice.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "A fishy odor is seen in trimethylaminuria. Consumption of food products with choline should be avoided in fish odor syndrome."
+          },
+          {
+            "type": "paragraph",
+            "text": "Fish odor syndrome (trimethylaminuria) is an autosomal recessive disease where TMA (trimethylamine) is not converted to the non-odorous TMAO (TMA-N-oxide) in the liver. This is due to the deficiency of flavin-containing mono oxygenase 3 (FMO3). TMA then builds up in the body and is released in sweat, urine, and breath, giving off a strong odor of rotting fish from the body."
+          },
+          {
+            "type": "paragraph",
+            "text": "Choline, lecithin, and TMAO are precursors of trimethylamine which are found in food products. These food products are eggs, liver, peanuts, meat, poultry, fish, dairy foods, pasta, and rice."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          141
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          151
+        ]
+      },
+      "sourcePage": 141,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q027",
+      "sourceQuestionId": "BIOCHEM_CH09_Q027",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 27,
+      "questionType": "single_best_answer",
+      "question": "In a patient with Wilson's disease which of the following is decreased in urine?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Tyrosine"
+        },
+        {
+          "letter": "B",
+          "text": "Phosphorus"
+        },
+        {
+          "letter": "C",
+          "text": "Serine"
+        },
+        {
+          "letter": "D",
+          "text": "3-methylhistidine"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "3-methylhistidine",
+      "explanation": "Urinary levels of 3-methylhistidine are decreased in patients with Wilson disease.\nAmino acids in urine exist either in conjugated form (most) or in free form. In Wilson's disease the amount of conjugated amino acids far exceeds the amount of free amino acids. Methyl histidine largely exists in free form and does not increase in amount on hydrolysis of acids in urine. Hence low amounts is seen in Wilson's disease.\nWilson disease is an autosomal-recessive disorder caused by mutation of the ATP7B gene located on chromosome 13. The ATP7B gene encodes a transmembrane copper-transporting ATPase expressed on the hepatocyte canalicular membrane.\nDeficiency in the ATP7B protein causes a decrease in copper excretion into the bile, impairs its incorporation into ceruloplasmin, and inhibits ceruloplasmin secretion into the blood, leading to the accumulation of toxic levels of copper in the liver, brain, and eye.",
+      "structuredExplanation": {
+        "text": "Urinary levels of 3-methylhistidine are decreased in patients with Wilson disease.\nAmino acids in urine exist either in conjugated form (most) or in free form. In Wilson's disease the amount of conjugated amino acids far exceeds the amount of free amino acids. Methyl histidine largely exists in free form and does not increase in amount on hydrolysis of acids in urine. Hence low amounts is seen in Wilson's disease.\nWilson disease is an autosomal-recessive disorder caused by mutation of the ATP7B gene located on chromosome 13. The ATP7B gene encodes a transmembrane copper-transporting ATPase expressed on the hepatocyte canalicular membrane.\nDeficiency in the ATP7B protein causes a decrease in copper excretion into the bile, impairs its incorporation into ceruloplasmin, and inhibits ceruloplasmin secretion into the blood, leading to the accumulation of toxic levels of copper in the liver, brain, and eye.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Urinary levels of 3-methylhistidine are decreased in patients with Wilson disease."
+          },
+          {
+            "type": "paragraph",
+            "text": "Amino acids in urine exist either in conjugated form (most) or in free form. In Wilson's disease the amount of conjugated amino acids far exceeds the amount of free amino acids. Methyl histidine largely exists in free form and does not increase in amount on hydrolysis of acids in urine. Hence low amounts is seen in Wilson's disease."
+          },
+          {
+            "type": "paragraph",
+            "text": "Wilson disease is an autosomal-recessive disorder caused by mutation of the ATP7B gene located on chromosome 13. The ATP7B gene encodes a transmembrane copper-transporting ATPase expressed on the hepatocyte canalicular membrane."
+          },
+          {
+            "type": "paragraph",
+            "text": "Deficiency in the ATP7B protein causes a decrease in copper excretion into the bile, impairs its incorporation into ceruloplasmin, and inhibits ceruloplasmin secretion into the blood, leading to the accumulation of toxic levels of copper in the liver, brain, and eye."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          141
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          151,
+          152
+        ]
+      },
+      "sourcePage": 141,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH09_Q028",
+      "sourceQuestionId": "BIOCHEM_CH09_Q028",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "9",
+      "chapter": "Amino acid: Metabolic disorder",
+      "questionNumber": 28,
+      "questionType": "single_best_answer",
+      "question": "A patient came to the hospital with complaint of abdominal pain. Routine investigations were unremarkable. On observation, the urine turned black on standing. Which of the following enzymes is likely to be defective in this patient?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Homogentisate oxidase"
+        },
+        {
+          "letter": "B",
+          "text": "Xanthine oxidase"
+        },
+        {
+          "letter": "C",
+          "text": "Phenylalanine hydroxylase"
+        },
+        {
+          "letter": "D",
+          "text": "Dihydro orotate dehydrogenase"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Homogentisate oxidase",
+      "explanation": "Urine turning black on exposure to air is suggestive of alkaptonuria which occurs due to the defect in homogentisate oxidase enzyme.\nAlkaptonuria is a disorder of tyrosine metabolism, that develops due to the defect in homogentisate oxidase, which oxidizes homogentisate to maleylacetoacetate. The defect in this enzyme leads to the accumulation of homogentisate, which is then excreted in the urine. The excreted homogentisate gets oxidized when exposed to air and causes the urine to turn black.\nIn some cases, the excessive homogentisate may get oxidized to benzoquinone acetate, which binds to the connective tissue. This leads to arthritis and pigmentation of the connective tissue, a condition called ochronosis.\nOther options:\nOption B: Xanthine oxidase deficiency results in hypouricemia, xanthinuria, and xanthine lithiasis.\nOption C: Defects in phenylalanine hydroxylase can lead to phenylketonuria characterised by hyperreflexia, seizures, hypopigmentation, low IQ, hyperactivity, and tremors.\nOption D: Defects in dihydroorotate dehydrogenase are rarely seen in clinical practice. Miller syndrome is associated with this defect.",
+      "structuredExplanation": {
+        "text": "Urine turning black on exposure to air is suggestive of alkaptonuria which occurs due to the defect in homogentisate oxidase enzyme.\nAlkaptonuria is a disorder of tyrosine metabolism, that develops due to the defect in homogentisate oxidase, which oxidizes homogentisate to maleylacetoacetate. The defect in this enzyme leads to the accumulation of homogentisate, which is then excreted in the urine. The excreted homogentisate gets oxidized when exposed to air and causes the urine to turn black.\nIn some cases, the excessive homogentisate may get oxidized to benzoquinone acetate, which binds to the connective tissue. This leads to arthritis and pigmentation of the connective tissue, a condition called ochronosis.\nOther options:\nOption B: Xanthine oxidase deficiency results in hypouricemia, xanthinuria, and xanthine lithiasis.\nOption C: Defects in phenylalanine hydroxylase can lead to phenylketonuria characterised by hyperreflexia, seizures, hypopigmentation, low IQ, hyperactivity, and tremors.\nOption D: Defects in dihydroorotate dehydrogenase are rarely seen in clinical practice. Miller syndrome is associated with this defect.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Urine turning black on exposure to air is suggestive of alkaptonuria which occurs due to the defect in homogentisate oxidase enzyme."
+          },
+          {
+            "type": "paragraph",
+            "text": "Alkaptonuria is a disorder of tyrosine metabolism, that develops due to the defect in homogentisate oxidase, which oxidizes homogentisate to maleylacetoacetate. The defect in this enzyme leads to the accumulation of homogentisate, which is then excreted in the urine. The excreted homogentisate gets oxidized when exposed to air and causes the urine to turn black."
+          },
+          {
+            "type": "paragraph",
+            "text": "In some cases, the excessive homogentisate may get oxidized to benzoquinone acetate, which binds to the connective tissue. This leads to arthritis and pigmentation of the connective tissue, a condition called ochronosis."
+          },
+          {
+            "type": "paragraph",
+            "text": "Other options:"
+          },
+          {
+            "type": "paragraph",
+            "text": "Option B: Xanthine oxidase deficiency results in hypouricemia, xanthinuria, and xanthine lithiasis."
+          },
+          {
+            "type": "paragraph",
+            "text": "Option C: Defects in phenylalanine hydroxylase can lead to phenylketonuria characterised by hyperreflexia, seizures, hypopigmentation, low IQ, hyperactivity, and tremors."
+          },
+          {
+            "type": "paragraph",
+            "text": "Option D: Defects in dihydroorotate dehydrogenase are rarely seen in clinical practice. Miller syndrome is associated with this defect."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          142
+        ],
+        "answerKeyPages": [
+          142,
+          143
+        ],
+        "explanationPages": [
+          152
+        ]
+      },
+      "sourcePage": 142,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_option_answer_explanation_visually_reviewed": true,
+        "embedded_pdf_text_layer_reliable": false,
+        "notes": []
+      }
+    }
+  ]
+}

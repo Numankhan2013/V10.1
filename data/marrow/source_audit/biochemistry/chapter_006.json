@@ -1,0 +1,1678 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Derived read-only audit view. Immutable source remains the sharded Marrow bundle.",
+  "subject": "Biochemistry",
+  "chapterId": "6",
+  "questionCount": 20,
+  "immutableSourcePrefix": "biochemistry_phase_a",
+  "sourceRawSha256": "d9d89966b2733f86b6c5a413e61b0af5559becff3bc580802262deb2f3b9c1ae",
+  "questions": [
+    {
+      "id": "marrow__BIOCHEM_CH06_Q001",
+      "sourceQuestionId": "BIOCHEM_CH06_Q001",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 1,
+      "questionType": "single_best_answer",
+      "question": "What is the site of the TCA cycle?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cytosol"
+        },
+        {
+          "letter": "B",
+          "text": "Endoplasmic reticulum"
+        },
+        {
+          "letter": "C",
+          "text": "Mitochondria"
+        },
+        {
+          "letter": "D",
+          "text": "Lysosomes"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Mitochondria",
+      "explanation": "The TCA cycle (Krebs cycle) takes place in the mitochondria. It occurs in all organs of the body.",
+      "structuredExplanation": {
+        "text": "The TCA cycle (Krebs cycle) takes place in the mitochondria. It occurs in all organs of the body.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The TCA cycle (Krebs cycle) takes place in the mitochondria. It occurs in all organs of the body."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          84
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          89
+        ]
+      },
+      "sourcePage": 84,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q002",
+      "sourceQuestionId": "BIOCHEM_CH06_Q002",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 2,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is true about Krebs cycle?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "It is the final common pathway for the oxidation of carbohydrates, lipids and proteins"
+        },
+        {
+          "letter": "B",
+          "text": "Pyruvate condenses with oxaloacetate to form citrate"
+        },
+        {
+          "letter": "C",
+          "text": "Oxidative phosphorylation occurs in the cytoplasm"
+        },
+        {
+          "letter": "D",
+          "text": "Alpha keto glutarate is a 4 carbon compound"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "It is the final common pathway for the oxidation of carbohydrates, lipids and proteins",
+      "explanation": "The Krebs cycle is the final common pathway for the oxidation of carbohydrates, lipids, and proteins, as glucose, fatty acids, and most amino acids are metabolized to acetyl-CoA or intermediates of the cycle.\n\nOther options:\n• Acetyl CoA condenses with oxaloacetate to form citrate.\n• Oxidative phosphorylation occurs in mitochondria by the electron transport chain.\n• Alpha-ketoglutarate is a 5-carbon compound.",
+      "structuredExplanation": {
+        "text": "The Krebs cycle is the final common pathway for the oxidation of carbohydrates, lipids, and proteins, as glucose, fatty acids, and most amino acids are metabolized to acetyl-CoA or intermediates of the cycle.\n\nOther options:\n• Acetyl CoA condenses with oxaloacetate to form citrate.\n• Oxidative phosphorylation occurs in mitochondria by the electron transport chain.\n• Alpha-ketoglutarate is a 5-carbon compound.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The Krebs cycle is the final common pathway for the oxidation of carbohydrates, lipids, and proteins, as glucose, fatty acids, and most amino acids are metabolized to acetyl-CoA or intermediates of the cycle."
+          },
+          {
+            "type": "paragraph",
+            "text": "Other options:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Acetyl CoA condenses with oxaloacetate to form citrate.",
+              "Oxidative phosphorylation occurs in mitochondria by the electron transport chain.",
+              "Alpha-ketoglutarate is a 5-carbon compound."
+            ]
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          84
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          90
+        ]
+      },
+      "sourcePage": 84,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q003",
+      "sourceQuestionId": "BIOCHEM_CH06_Q003",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 3,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is not an intermediate of the TCA cycle?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Citrate"
+        },
+        {
+          "letter": "B",
+          "text": "Acetyl CoA"
+        },
+        {
+          "letter": "C",
+          "text": "Succinyl CoA"
+        },
+        {
+          "letter": "D",
+          "text": "Fumarate"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Acetyl CoA",
+      "explanation": "Acetyl CoA is not an intermediate formed in the TCA cycle, but rather it is a starting substrate.\n\nThere are three sources of acetyl-CoA:\n• From glucose: pyruvate → acetyl-CoA\n• Fatty acid oxidation → acetyl CoA\n• Ketogenic amino acid oxidation → acetyl CoA\n\nThe starting materials of Krebs cycle are acetyl CoA and oxaloacetic acid. All the other options are intermediates in the TCA cycle, and oxaloacetic acid is released in the end.\n\nThe source also depicts the Krebs cycle in a pathway diagram.",
+      "structuredExplanation": {
+        "text": "Acetyl CoA is not an intermediate formed in the TCA cycle, but rather it is a starting substrate.\n\nThere are three sources of acetyl-CoA:\n• From glucose: pyruvate → acetyl-CoA\n• Fatty acid oxidation → acetyl CoA\n• Ketogenic amino acid oxidation → acetyl CoA\n\nThe starting materials of Krebs cycle are acetyl CoA and oxaloacetic acid. All the other options are intermediates in the TCA cycle, and oxaloacetic acid is released in the end.\n\nThe source also depicts the Krebs cycle in a pathway diagram.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Acetyl CoA is not an intermediate formed in the TCA cycle, but rather it is a starting substrate."
+          },
+          {
+            "type": "paragraph",
+            "text": "There are three sources of acetyl-CoA:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "From glucose: pyruvate → acetyl-CoA",
+              "Fatty acid oxidation → acetyl CoA",
+              "Ketogenic amino acid oxidation → acetyl CoA"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "The starting materials of Krebs cycle are acetyl CoA and oxaloacetic acid. All the other options are intermediates in the TCA cycle, and oxaloacetic acid is released in the end."
+          },
+          {
+            "type": "paragraph",
+            "text": "The source also depicts the Krebs cycle in a pathway diagram."
+          },
+          {
+            "type": "figure",
+            "title": "Krebs cycle pathway diagram",
+            "source_page": 90,
+            "role": "explanation"
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Krebs cycle pathway diagram",
+            "source_page": 90,
+            "role": "explanation"
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          84
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          90
+        ]
+      },
+      "sourcePage": 84,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q004",
+      "sourceQuestionId": "BIOCHEM_CH06_Q004",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 4,
+      "questionType": "single_best_answer",
+      "question": "Hyperammonemia inhibits the TCA cycle, by depleting levels of which of the following substances?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Oxaloacetate"
+        },
+        {
+          "letter": "B",
+          "text": "Alpha ketoglutarate"
+        },
+        {
+          "letter": "C",
+          "text": "Succinyl CoA"
+        },
+        {
+          "letter": "D",
+          "text": "Fumarate"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Alpha ketoglutarate",
+      "explanation": "Hyperammonemia results in depletion of alpha-ketoglutarate.\n\nThis happens in two steps:\n• Excess free ammonia binds to glutamate and forms glutamine.\n• To compensate for reduced glutamate, alpha-ketoglutarate is aminated to glutamate.\n\nThus, hyperammonemia eventually depletes alpha-ketoglutarate, leading to stoppage of the TCA cycle.",
+      "structuredExplanation": {
+        "text": "Hyperammonemia results in depletion of alpha-ketoglutarate.\n\nThis happens in two steps:\n• Excess free ammonia binds to glutamate and forms glutamine.\n• To compensate for reduced glutamate, alpha-ketoglutarate is aminated to glutamate.\n\nThus, hyperammonemia eventually depletes alpha-ketoglutarate, leading to stoppage of the TCA cycle.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Hyperammonemia results in depletion of alpha-ketoglutarate."
+          },
+          {
+            "type": "paragraph",
+            "text": "This happens in two steps:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Excess free ammonia binds to glutamate and forms glutamine.",
+              "To compensate for reduced glutamate, alpha-ketoglutarate is aminated to glutamate."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Thus, hyperammonemia eventually depletes alpha-ketoglutarate, leading to stoppage of the TCA cycle."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          84,
+          85
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          90,
+          91
+        ]
+      },
+      "sourcePage": 84,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q005",
+      "sourceQuestionId": "BIOCHEM_CH06_Q005",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 5,
+      "questionType": "single_best_answer",
+      "question": "Aconitase contains which of the following?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ca"
+        },
+        {
+          "letter": "B",
+          "text": "Mg"
+        },
+        {
+          "letter": "C",
+          "text": "Fe"
+        },
+        {
+          "letter": "D",
+          "text": "Mn"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Fe",
+      "explanation": "Aconitase is a Fe-containing enzyme. It is involved in conversion of citrate to isocitrate.\n\nThe process occurs as a two-step reaction catalyzed by aconitase:\n• Initial dehydration removes a molecule of water from citrate to form cis-aconitate.\n• Rehydration adds a molecule of water to cis-aconitate, thereby forming isocitrate.\n\nNote: Aconitase is involved in iron homeostasis. The source includes a reaction diagram.",
+      "structuredExplanation": {
+        "text": "Aconitase is a Fe-containing enzyme. It is involved in conversion of citrate to isocitrate.\n\nThe process occurs as a two-step reaction catalyzed by aconitase:\n• Initial dehydration removes a molecule of water from citrate to form cis-aconitate.\n• Rehydration adds a molecule of water to cis-aconitate, thereby forming isocitrate.\n\nNote: Aconitase is involved in iron homeostasis. The source includes a reaction diagram.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Aconitase is a Fe-containing enzyme. It is involved in conversion of citrate to isocitrate."
+          },
+          {
+            "type": "paragraph",
+            "text": "The process occurs as a two-step reaction catalyzed by aconitase:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Initial dehydration removes a molecule of water from citrate to form cis-aconitate.",
+              "Rehydration adds a molecule of water to cis-aconitate, thereby forming isocitrate."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Note: Aconitase is involved in iron homeostasis. The source includes a reaction diagram."
+          },
+          {
+            "type": "figure",
+            "title": "Aconitase citrate-to-isocitrate reaction diagram",
+            "source_page": 91,
+            "role": "explanation"
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Aconitase citrate-to-isocitrate reaction diagram",
+            "source_page": 91,
+            "role": "explanation"
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          85
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          91
+        ]
+      },
+      "sourcePage": 85,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q006",
+      "sourceQuestionId": "BIOCHEM_CH06_Q006",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 6,
+      "questionType": "single_best_answer",
+      "question": "Which of the following substances inhibits aconitase enzyme?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Arsenite"
+        },
+        {
+          "letter": "B",
+          "text": "Malonate"
+        },
+        {
+          "letter": "C",
+          "text": "Fluoroacetate"
+        },
+        {
+          "letter": "D",
+          "text": "Iodoacetate"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Fluoroacetate",
+      "explanation": "Fluoroacetate is an inhibitor of the aconitase enzyme.\n\nFluoroacetate combines with Co-A to form fluoroacetyl-CoA. Fluoroacetyl-CoA then condenses with oxaloacetate to form fluorocitrate. Fluorocitrate then inhibits aconitase.",
+      "structuredExplanation": {
+        "text": "Fluoroacetate is an inhibitor of the aconitase enzyme.\n\nFluoroacetate combines with Co-A to form fluoroacetyl-CoA. Fluoroacetyl-CoA then condenses with oxaloacetate to form fluorocitrate. Fluorocitrate then inhibits aconitase.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Fluoroacetate is an inhibitor of the aconitase enzyme."
+          },
+          {
+            "type": "paragraph",
+            "text": "Fluoroacetate combines with Co-A to form fluoroacetyl-CoA. Fluoroacetyl-CoA then condenses with oxaloacetate to form fluorocitrate. Fluorocitrate then inhibits aconitase."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          85
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          91
+        ]
+      },
+      "sourcePage": 85,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q007",
+      "sourceQuestionId": "BIOCHEM_CH06_Q007",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 7,
+      "questionType": "single_best_answer",
+      "question": "At which level does valine enter the TCA cycle?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Alpha ketoglutarate"
+        },
+        {
+          "letter": "B",
+          "text": "Fumarate"
+        },
+        {
+          "letter": "C",
+          "text": "Succinyl CoA"
+        },
+        {
+          "letter": "D",
+          "text": "Acetyl CoA"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Succinyl CoA",
+      "explanation": "Valine enters the tricarboxylic acid cycle at the succinyl CoA level.\n\nThe source table also maps amino acids to TCA entry points: alpha-ketoglutarate, succinyl CoA, fumarate, oxaloacetate, pyruvate, and acetyl CoA.",
+      "structuredExplanation": {
+        "text": "Valine enters the tricarboxylic acid cycle at the succinyl CoA level.\n\nThe source table also maps amino acids to TCA entry points: alpha-ketoglutarate, succinyl CoA, fumarate, oxaloacetate, pyruvate, and acetyl CoA.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Valine enters the tricarboxylic acid cycle at the succinyl CoA level."
+          },
+          {
+            "type": "paragraph",
+            "text": "The source table also maps amino acids to TCA entry points: alpha-ketoglutarate, succinyl CoA, fumarate, oxaloacetate, pyruvate, and acetyl CoA."
+          },
+          {
+            "type": "table",
+            "title": "Amino-acid entry points into the TCA cycle",
+            "source_page": 92
+          }
+        ],
+        "tables": [
+          {
+            "title": "Amino-acid entry points into the TCA cycle",
+            "source_page": 92,
+            "columns": [
+              "TCA entry point",
+              "Amino acids shown in source"
+            ],
+            "rows": [
+              [
+                "Alpha-ketoglutarate",
+                "Arginine; Histidine; Glutamine; Proline; Glutamate"
+              ],
+              [
+                "Succinyl CoA",
+                "Valine; Isoleucine; Methionine"
+              ],
+              [
+                "Fumarate",
+                "Phenylalanine; Tyrosine"
+              ],
+              [
+                "Oxaloacetate",
+                "Aspartate; Asparagine"
+              ],
+              [
+                "Pyruvate",
+                "Serine; Alanine; Cysteine; Glycine; Hydroxyproline"
+              ],
+              [
+                "Acetyl CoA",
+                "Leucine; Isoleucine; Lysine; Tryptophan"
+              ]
+            ]
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          85
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          91,
+          92
+        ]
+      },
+      "sourcePage": 85,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q008",
+      "sourceQuestionId": "BIOCHEM_CH06_Q008",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 8,
+      "questionType": "single_best_answer",
+      "question": "In the Krebs cycle, which of the following catalyses the step in which the first CO2 is released?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Aconitase"
+        },
+        {
+          "letter": "B",
+          "text": "Isocitrate dehydrogenase"
+        },
+        {
+          "letter": "C",
+          "text": "Succinate thiokinase"
+        },
+        {
+          "letter": "D",
+          "text": "Succinate dehydrogenase"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Isocitrate dehydrogenase",
+      "explanation": "Isocitrate dehydrogenase catalyses the step in which the first CO2 is released. CO2 is released and NAD+ is reduced to NADH in this reaction.\n\nThere are two oxidative decarboxylation steps in the TCA cycle:\n• Isocitrate → alpha-ketoglutarate, catalyzed by isocitrate dehydrogenase.\n• Alpha-ketoglutarate → succinyl CoA, catalyzed by alpha-ketoglutarate dehydrogenase.\n\nThe source includes a Krebs-cycle pathway diagram.",
+      "structuredExplanation": {
+        "text": "Isocitrate dehydrogenase catalyses the step in which the first CO2 is released. CO2 is released and NAD+ is reduced to NADH in this reaction.\n\nThere are two oxidative decarboxylation steps in the TCA cycle:\n• Isocitrate → alpha-ketoglutarate, catalyzed by isocitrate dehydrogenase.\n• Alpha-ketoglutarate → succinyl CoA, catalyzed by alpha-ketoglutarate dehydrogenase.\n\nThe source includes a Krebs-cycle pathway diagram.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Isocitrate dehydrogenase catalyses the step in which the first CO2 is released. CO2 is released and NAD+ is reduced to NADH in this reaction."
+          },
+          {
+            "type": "paragraph",
+            "text": "There are two oxidative decarboxylation steps in the TCA cycle:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Isocitrate → alpha-ketoglutarate, catalyzed by isocitrate dehydrogenase.",
+              "Alpha-ketoglutarate → succinyl CoA, catalyzed by alpha-ketoglutarate dehydrogenase."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "The source includes a Krebs-cycle pathway diagram."
+          },
+          {
+            "type": "figure",
+            "title": "Krebs cycle pathway diagram highlighting oxidative decarboxylation",
+            "source_page": 92,
+            "role": "explanation"
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Krebs cycle pathway diagram highlighting oxidative decarboxylation",
+            "source_page": 92,
+            "role": "explanation"
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          85,
+          86
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          92
+        ]
+      },
+      "sourcePage": 85,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q009",
+      "sourceQuestionId": "BIOCHEM_CH06_Q009",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 9,
+      "questionType": "single_best_answer",
+      "question": "What is the co-factor needed for the isocitrate dehydrogenase enzyme for decarboxylation?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cu2+"
+        },
+        {
+          "letter": "B",
+          "text": "Mn2+"
+        },
+        {
+          "letter": "C",
+          "text": "Fe2+"
+        },
+        {
+          "letter": "D",
+          "text": "Ca2+"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Mn2+",
+      "explanation": "Isocitrate dehydrogenase catalyzes decarboxylation of isocitrate to form alpha-ketoglutarate. This decarboxylation reaction requires Mg2+ or Mn2+ ions.",
+      "structuredExplanation": {
+        "text": "Isocitrate dehydrogenase catalyzes decarboxylation of isocitrate to form alpha-ketoglutarate. This decarboxylation reaction requires Mg2+ or Mn2+ ions.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Isocitrate dehydrogenase catalyzes decarboxylation of isocitrate to form alpha-ketoglutarate. This decarboxylation reaction requires Mg2+ or Mn2+ ions."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          86
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          92,
+          93
+        ]
+      },
+      "sourcePage": 86,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q010",
+      "sourceQuestionId": "BIOCHEM_CH06_Q010",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 10,
+      "questionType": "single_best_answer",
+      "question": "Substrate level phosphorylation occurs in which of the following steps of the TCA cycle?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Isocitrate to alpha keto glutarate"
+        },
+        {
+          "letter": "B",
+          "text": "Alpha keto glutarate to succinyl CoA"
+        },
+        {
+          "letter": "C",
+          "text": "Succinyl CoA to Succinate"
+        },
+        {
+          "letter": "D",
+          "text": "Succinate to fumarate"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Succinyl CoA to Succinate",
+      "explanation": "Substrate-level phosphorylation occurs when succinyl CoA is converted to succinate in the TCA cycle.\n\nSuccinyl-CoA is converted to succinate by succinate thiokinase, also called succinyl-CoA synthetase. GTP formation takes place in this step; this is the one and only example of substrate-level phosphorylation in the TCA cycle.\n\nThe GTP formed is used for decarboxylation of oxaloacetate to phosphoenolpyruvate catalyzed by PEPCK in gluconeogenesis. The source includes a Krebs-cycle pathway diagram.",
+      "structuredExplanation": {
+        "text": "Substrate-level phosphorylation occurs when succinyl CoA is converted to succinate in the TCA cycle.\n\nSuccinyl-CoA is converted to succinate by succinate thiokinase, also called succinyl-CoA synthetase. GTP formation takes place in this step; this is the one and only example of substrate-level phosphorylation in the TCA cycle.\n\nThe GTP formed is used for decarboxylation of oxaloacetate to phosphoenolpyruvate catalyzed by PEPCK in gluconeogenesis. The source includes a Krebs-cycle pathway diagram.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Substrate-level phosphorylation occurs when succinyl CoA is converted to succinate in the TCA cycle."
+          },
+          {
+            "type": "paragraph",
+            "text": "Succinyl-CoA is converted to succinate by succinate thiokinase, also called succinyl-CoA synthetase. GTP formation takes place in this step; this is the one and only example of substrate-level phosphorylation in the TCA cycle."
+          },
+          {
+            "type": "paragraph",
+            "text": "The GTP formed is used for decarboxylation of oxaloacetate to phosphoenolpyruvate catalyzed by PEPCK in gluconeogenesis. The source includes a Krebs-cycle pathway diagram."
+          },
+          {
+            "type": "figure",
+            "title": "Krebs cycle pathway diagram highlighting succinyl-CoA to succinate",
+            "source_page": 93,
+            "role": "explanation"
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Krebs cycle pathway diagram highlighting succinyl-CoA to succinate",
+            "source_page": 93,
+            "role": "explanation"
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          86
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          93
+        ]
+      },
+      "sourcePage": 86,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q011",
+      "sourceQuestionId": "BIOCHEM_CH06_Q011",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 11,
+      "questionType": "single_best_answer",
+      "question": "How many ATPs are generated per turn of the TCA cycle?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "10"
+        },
+        {
+          "letter": "B",
+          "text": "20"
+        },
+        {
+          "letter": "C",
+          "text": "25"
+        },
+        {
+          "letter": "D",
+          "text": "30"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "10",
+      "explanation": "Total ATP generated per turn of the TCA cycle is 10.\n\nATP-yielding steps:\n• Isocitrate → alpha-ketoglutarate: 1 NADH per turn.\n• Alpha-ketoglutarate → succinyl CoA: 1 NADH per turn.\n• Succinyl CoA → succinate: 1 GTP by substrate-level phosphorylation.\n• Succinate → fumarate: 1 FADH2.\n• Malate → oxaloacetate: 1 NADH.\n\nEquivalent ATP:\n• 3 × NADH = 7.5 ATP\n• 1 × FADH2 = 1.5 ATP\n• 1 × GTP = 1 ATP\n• Total = 10 ATP per turn.",
+      "structuredExplanation": {
+        "text": "Total ATP generated per turn of the TCA cycle is 10.\n\nATP-yielding steps:\n• Isocitrate → alpha-ketoglutarate: 1 NADH per turn.\n• Alpha-ketoglutarate → succinyl CoA: 1 NADH per turn.\n• Succinyl CoA → succinate: 1 GTP by substrate-level phosphorylation.\n• Succinate → fumarate: 1 FADH2.\n• Malate → oxaloacetate: 1 NADH.\n\nEquivalent ATP:\n• 3 × NADH = 7.5 ATP\n• 1 × FADH2 = 1.5 ATP\n• 1 × GTP = 1 ATP\n• Total = 10 ATP per turn.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Total ATP generated per turn of the TCA cycle is 10."
+          },
+          {
+            "type": "paragraph",
+            "text": "ATP-yielding steps:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Isocitrate → alpha-ketoglutarate: 1 NADH per turn.",
+              "Alpha-ketoglutarate → succinyl CoA: 1 NADH per turn.",
+              "Succinyl CoA → succinate: 1 GTP by substrate-level phosphorylation.",
+              "Succinate → fumarate: 1 FADH2.",
+              "Malate → oxaloacetate: 1 NADH."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Equivalent ATP:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "3 × NADH = 7.5 ATP",
+              "1 × FADH2 = 1.5 ATP",
+              "1 × GTP = 1 ATP",
+              "Total = 10 ATP per turn."
+            ]
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          86
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          93,
+          94
+        ]
+      },
+      "sourcePage": 86,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q012",
+      "sourceQuestionId": "BIOCHEM_CH06_Q012",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 12,
+      "questionType": "single_best_answer",
+      "question": "All of the following serve as cofactors for the enzymes of the TCA cycle, except:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Biotin"
+        },
+        {
+          "letter": "B",
+          "text": "Pantothenic acid"
+        },
+        {
+          "letter": "C",
+          "text": "Riboflavin"
+        },
+        {
+          "letter": "D",
+          "text": "Niacin"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Biotin",
+      "explanation": "Biotin (B7) is not a cofactor for TCA-cycle enzymes.\n\nVitamins that serve as cofactors for TCA-cycle enzymes:\n• Riboflavin (B2): active form FAD; cofactor for succinate dehydrogenase.\n• Niacin (B3): active form NAD+; cofactor for isocitrate dehydrogenase, alpha-ketoglutarate dehydrogenase, and malate dehydrogenase.\n• Thiamine (B1): active form thiamine diphosphate; cofactor for the decarboxylation step of alpha-ketoglutarate dehydrogenase complex.\n• Pantothenic acid (B5): active as part of coenzyme A; participates in esterified carboxylic-acid residues such as acetyl-CoA and succinyl-CoA.",
+      "structuredExplanation": {
+        "text": "Biotin (B7) is not a cofactor for TCA-cycle enzymes.\n\nVitamins that serve as cofactors for TCA-cycle enzymes:\n• Riboflavin (B2): active form FAD; cofactor for succinate dehydrogenase.\n• Niacin (B3): active form NAD+; cofactor for isocitrate dehydrogenase, alpha-ketoglutarate dehydrogenase, and malate dehydrogenase.\n• Thiamine (B1): active form thiamine diphosphate; cofactor for the decarboxylation step of alpha-ketoglutarate dehydrogenase complex.\n• Pantothenic acid (B5): active as part of coenzyme A; participates in esterified carboxylic-acid residues such as acetyl-CoA and succinyl-CoA.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Biotin (B7) is not a cofactor for TCA-cycle enzymes."
+          },
+          {
+            "type": "paragraph",
+            "text": "Vitamins that serve as cofactors for TCA-cycle enzymes:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Riboflavin (B2): active form FAD; cofactor for succinate dehydrogenase.",
+              "Niacin (B3): active form NAD+; cofactor for isocitrate dehydrogenase, alpha-ketoglutarate dehydrogenase, and malate dehydrogenase.",
+              "Thiamine (B1): active form thiamine diphosphate; cofactor for the decarboxylation step of alpha-ketoglutarate dehydrogenase complex.",
+              "Pantothenic acid (B5): active as part of coenzyme A; participates in esterified carboxylic-acid residues such as acetyl-CoA and succinyl-CoA."
+            ]
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          86,
+          87
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          94
+        ]
+      },
+      "sourcePage": 86,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q013",
+      "sourceQuestionId": "BIOCHEM_CH06_Q013",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 13,
+      "questionType": "single_best_answer",
+      "question": "Why is the TCA cycle called as an amphibolic pathway?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Both oxidative and synthetic reactions take place"
+        },
+        {
+          "letter": "B",
+          "text": "Metabolites are utilized in other pathways"
+        },
+        {
+          "letter": "C",
+          "text": "It can proceed both in forward and backward direction"
+        },
+        {
+          "letter": "D",
+          "text": "Same enzymes can be used in reverse direction"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Both oxidative and synthetic reactions take place",
+      "explanation": "In the TCA cycle, both oxidative and synthetic reactions take place.\n\nThe TCA cycle is not only a pathway for oxidation but also for interconversion of metabolites arising from transamination and deamination of amino acids. It provides substrates for amino-acid synthesis by transamination as well as for gluconeogenesis and fatty-acid synthesis.",
+      "structuredExplanation": {
+        "text": "In the TCA cycle, both oxidative and synthetic reactions take place.\n\nThe TCA cycle is not only a pathway for oxidation but also for interconversion of metabolites arising from transamination and deamination of amino acids. It provides substrates for amino-acid synthesis by transamination as well as for gluconeogenesis and fatty-acid synthesis.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "In the TCA cycle, both oxidative and synthetic reactions take place."
+          },
+          {
+            "type": "paragraph",
+            "text": "The TCA cycle is not only a pathway for oxidation but also for interconversion of metabolites arising from transamination and deamination of amino acids. It provides substrates for amino-acid synthesis by transamination as well as for gluconeogenesis and fatty-acid synthesis."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          87
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          94
+        ]
+      },
+      "sourcePage": 87,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q014",
+      "sourceQuestionId": "BIOCHEM_CH06_Q014",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 14,
+      "questionType": "single_best_answer",
+      "question": "Which of the following substances inhibit the enzyme alpha-ketoglutarate dehydrogenase in the TCA cycle?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Iodoacetate"
+        },
+        {
+          "letter": "B",
+          "text": "Fluoroacetate"
+        },
+        {
+          "letter": "C",
+          "text": "Arsenite"
+        },
+        {
+          "letter": "D",
+          "text": "Malonate"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Arsenite",
+      "explanation": "Arsenite inhibits alpha-ketoglutarate dehydrogenase.\n\nThe source gives the following TCA-cycle inhibitor relationships:\n• Aconitase — fluoroacetate\n• Alpha-ketoglutarate dehydrogenase — arsenite\n• Succinate dehydrogenase — malonate",
+      "structuredExplanation": {
+        "text": "Arsenite inhibits alpha-ketoglutarate dehydrogenase.\n\nThe source gives the following TCA-cycle inhibitor relationships:\n• Aconitase — fluoroacetate\n• Alpha-ketoglutarate dehydrogenase — arsenite\n• Succinate dehydrogenase — malonate",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Arsenite inhibits alpha-ketoglutarate dehydrogenase."
+          },
+          {
+            "type": "paragraph",
+            "text": "The source gives the following TCA-cycle inhibitor relationships:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Aconitase — fluoroacetate",
+              "Alpha-ketoglutarate dehydrogenase — arsenite",
+              "Succinate dehydrogenase — malonate"
+            ]
+          },
+          {
+            "type": "table",
+            "title": "Inhibitors of TCA-cycle enzymes",
+            "source_page": 95
+          }
+        ],
+        "tables": [
+          {
+            "title": "Inhibitors of TCA-cycle enzymes",
+            "source_page": 95,
+            "columns": [
+              "Enzyme",
+              "Inhibitor"
+            ],
+            "rows": [
+              [
+                "Aconitase",
+                "Fluoroacetate"
+              ],
+              [
+                "Alpha-ketoglutarate dehydrogenase",
+                "Arsenite"
+              ],
+              [
+                "Succinate dehydrogenase",
+                "Malonate"
+              ]
+            ]
+          }
+        ],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          87
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          94,
+          95
+        ]
+      },
+      "sourcePage": 87,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q015",
+      "sourceQuestionId": "BIOCHEM_CH06_Q015",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 15,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is not a cofactor of the enzyme alpha-ketoglutarate dehydrogenase?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Lipoate"
+        },
+        {
+          "letter": "B",
+          "text": "Thiamine pyrophosphate"
+        },
+        {
+          "letter": "C",
+          "text": "FAD"
+        },
+        {
+          "letter": "D",
+          "text": "Pyridoxal phosphate"
+        }
+      ],
+      "correctOption": 4,
+      "correctAnswerText": "Pyridoxal phosphate",
+      "explanation": "Pyridoxal phosphate is not a cofactor of alpha-ketoglutarate dehydrogenase.\n\nThe alpha-ketoglutarate dehydrogenase enzyme complex has five coenzymes:\n• Lipoate\n• Thiamine pyrophosphate\n• NAD+\n• FAD\n• Coenzyme A\n\nThe source notes that enzymes carrying out oxidative decarboxylation require these five coenzymes, including pyruvate dehydrogenase, alpha-ketoglutarate dehydrogenase, and branched-chain keto acid dehydrogenase.",
+      "structuredExplanation": {
+        "text": "Pyridoxal phosphate is not a cofactor of alpha-ketoglutarate dehydrogenase.\n\nThe alpha-ketoglutarate dehydrogenase enzyme complex has five coenzymes:\n• Lipoate\n• Thiamine pyrophosphate\n• NAD+\n• FAD\n• Coenzyme A\n\nThe source notes that enzymes carrying out oxidative decarboxylation require these five coenzymes, including pyruvate dehydrogenase, alpha-ketoglutarate dehydrogenase, and branched-chain keto acid dehydrogenase.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Pyridoxal phosphate is not a cofactor of alpha-ketoglutarate dehydrogenase."
+          },
+          {
+            "type": "paragraph",
+            "text": "The alpha-ketoglutarate dehydrogenase enzyme complex has five coenzymes:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Lipoate",
+              "Thiamine pyrophosphate",
+              "NAD+",
+              "FAD",
+              "Coenzyme A"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "The source notes that enzymes carrying out oxidative decarboxylation require these five coenzymes, including pyruvate dehydrogenase, alpha-ketoglutarate dehydrogenase, and branched-chain keto acid dehydrogenase."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          87
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          95
+        ]
+      },
+      "sourcePage": 87,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q016",
+      "sourceQuestionId": "BIOCHEM_CH06_Q016",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 16,
+      "questionType": "single_best_answer",
+      "question": "All of the following enzymes are components of the pyruvate dehydrogenase enzyme complex, except",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pyruvate dehydrogenase"
+        },
+        {
+          "letter": "B",
+          "text": "Dihydrolipoyl transacetylase"
+        },
+        {
+          "letter": "C",
+          "text": "Pyruvate kinase"
+        },
+        {
+          "letter": "D",
+          "text": "Dihydrolipoyl dehydrogenase"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Pyruvate kinase",
+      "explanation": "Pyruvate kinase is not a component of the pyruvate dehydrogenase (PDH) enzyme complex.\n\nPDH is a multienzyme complex associated with the inner mitochondrial membrane and catalyzes oxidative decarboxylation of pyruvate to acetyl-CoA.\n\nThe three enzyme components are:\n• Pyruvate dehydrogenase\n• Dihydrolipoyl transacetylase\n• Dihydrolipoyl dehydrogenase\n\nThe cofactors are:\n• Thiamine pyrophosphate (TPP)\n• Lipoic acid\n• Coenzyme A\n• FAD\n• NAD+\n\nOverall reaction: Pyruvate + NAD+ + CoA → Acetyl-CoA + NADH + H+ + CO2.\n\nClinical aspects:\n• Arsenite and mercuric ions react with -SH groups of lipoic acid and inhibit pyruvate dehydrogenase.\n• Dietary thiamine deficiency inhibits PDH; chronic alcoholics may develop potentially fatal pyruvic and lactic acidosis.\n• Inherited pyruvate dehydrogenase deficiency presents with lactic acidosis, particularly after a glucose load, and neurological disturbances.\n\nNote: Pyruvate kinase catalyzes the last step of glycolysis, transferring phosphate from phosphoenolpyruvate to ADP to form pyruvate and ATP.",
+      "structuredExplanation": {
+        "text": "Pyruvate kinase is not a component of the pyruvate dehydrogenase (PDH) enzyme complex.\n\nPDH is a multienzyme complex associated with the inner mitochondrial membrane and catalyzes oxidative decarboxylation of pyruvate to acetyl-CoA.\n\nThe three enzyme components are:\n• Pyruvate dehydrogenase\n• Dihydrolipoyl transacetylase\n• Dihydrolipoyl dehydrogenase\n\nThe cofactors are:\n• Thiamine pyrophosphate (TPP)\n• Lipoic acid\n• Coenzyme A\n• FAD\n• NAD+\n\nOverall reaction: Pyruvate + NAD+ + CoA → Acetyl-CoA + NADH + H+ + CO2.\n\nClinical aspects:\n• Arsenite and mercuric ions react with -SH groups of lipoic acid and inhibit pyruvate dehydrogenase.\n• Dietary thiamine deficiency inhibits PDH; chronic alcoholics may develop potentially fatal pyruvic and lactic acidosis.\n• Inherited pyruvate dehydrogenase deficiency presents with lactic acidosis, particularly after a glucose load, and neurological disturbances.\n\nNote: Pyruvate kinase catalyzes the last step of glycolysis, transferring phosphate from phosphoenolpyruvate to ADP to form pyruvate and ATP.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Pyruvate kinase is not a component of the pyruvate dehydrogenase (PDH) enzyme complex."
+          },
+          {
+            "type": "paragraph",
+            "text": "PDH is a multienzyme complex associated with the inner mitochondrial membrane and catalyzes oxidative decarboxylation of pyruvate to acetyl-CoA."
+          },
+          {
+            "type": "paragraph",
+            "text": "The three enzyme components are:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Pyruvate dehydrogenase",
+              "Dihydrolipoyl transacetylase",
+              "Dihydrolipoyl dehydrogenase"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "The cofactors are:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Thiamine pyrophosphate (TPP)",
+              "Lipoic acid",
+              "Coenzyme A",
+              "FAD",
+              "NAD+"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Overall reaction: Pyruvate + NAD+ + CoA → Acetyl-CoA + NADH + H+ + CO2."
+          },
+          {
+            "type": "paragraph",
+            "text": "Clinical aspects:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Arsenite and mercuric ions react with -SH groups of lipoic acid and inhibit pyruvate dehydrogenase.",
+              "Dietary thiamine deficiency inhibits PDH; chronic alcoholics may develop potentially fatal pyruvic and lactic acidosis.",
+              "Inherited pyruvate dehydrogenase deficiency presents with lactic acidosis, particularly after a glucose load, and neurological disturbances."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Note: Pyruvate kinase catalyzes the last step of glycolysis, transferring phosphate from phosphoenolpyruvate to ADP to form pyruvate and ATP."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          87,
+          88
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          95,
+          96
+        ]
+      },
+      "sourcePage": 87,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q017",
+      "sourceQuestionId": "BIOCHEM_CH06_Q017",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 17,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is inhibited in thiamine deficiency?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Isocitrate to alpha-ketoglutarate"
+        },
+        {
+          "letter": "B",
+          "text": "Succinate to fumarate"
+        },
+        {
+          "letter": "C",
+          "text": "Pyruvate to acetyl-CoA"
+        },
+        {
+          "letter": "D",
+          "text": "Fumarate to malate"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Pyruvate to acetyl-CoA",
+      "explanation": "In thiamine deficiency, conversion of pyruvate to acetyl CoA is inhibited.\n\nThiamine is a cofactor of the pyruvate dehydrogenase component of the PDH complex. In thiamine deficiency, pyruvate dehydrogenase is inhibited; hence pyruvate is not converted to acetyl CoA.\n\nOther options:\n• Isocitrate → alpha-ketoglutarate is catalyzed by isocitrate dehydrogenase, which uses Mn2+ or Mg2+ as cofactor.\n• Riboflavin-derived FAD is the cofactor for succinate dehydrogenase, which converts succinate to fumarate.\n\nThe source includes a pathway diagram.",
+      "structuredExplanation": {
+        "text": "In thiamine deficiency, conversion of pyruvate to acetyl CoA is inhibited.\n\nThiamine is a cofactor of the pyruvate dehydrogenase component of the PDH complex. In thiamine deficiency, pyruvate dehydrogenase is inhibited; hence pyruvate is not converted to acetyl CoA.\n\nOther options:\n• Isocitrate → alpha-ketoglutarate is catalyzed by isocitrate dehydrogenase, which uses Mn2+ or Mg2+ as cofactor.\n• Riboflavin-derived FAD is the cofactor for succinate dehydrogenase, which converts succinate to fumarate.\n\nThe source includes a pathway diagram.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "In thiamine deficiency, conversion of pyruvate to acetyl CoA is inhibited."
+          },
+          {
+            "type": "paragraph",
+            "text": "Thiamine is a cofactor of the pyruvate dehydrogenase component of the PDH complex. In thiamine deficiency, pyruvate dehydrogenase is inhibited; hence pyruvate is not converted to acetyl CoA."
+          },
+          {
+            "type": "paragraph",
+            "text": "Other options:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Isocitrate → alpha-ketoglutarate is catalyzed by isocitrate dehydrogenase, which uses Mn2+ or Mg2+ as cofactor.",
+              "Riboflavin-derived FAD is the cofactor for succinate dehydrogenase, which converts succinate to fumarate."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "The source includes a pathway diagram."
+          },
+          {
+            "type": "figure",
+            "title": "Krebs cycle / pyruvate dehydrogenase pathway diagram",
+            "source_page": 96,
+            "role": "explanation"
+          }
+        ],
+        "tables": [],
+        "figures": [
+          {
+            "title": "Krebs cycle / pyruvate dehydrogenase pathway diagram",
+            "source_page": 96,
+            "role": "explanation"
+          }
+        ]
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          88
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          96
+        ]
+      },
+      "sourcePage": 88,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q018",
+      "sourceQuestionId": "BIOCHEM_CH06_Q018",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 18,
+      "questionType": "single_best_answer",
+      "question": "Which of the following is an allosteric inhibitor of pyruvate dehydrogenase?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "AMP"
+        },
+        {
+          "letter": "B",
+          "text": "ADP"
+        },
+        {
+          "letter": "C",
+          "text": "Acetyl CoA"
+        },
+        {
+          "letter": "D",
+          "text": "Citrate"
+        }
+      ],
+      "correctOption": 3,
+      "correctAnswerText": "Acetyl CoA",
+      "explanation": "Allosteric inhibitors of the PDH enzyme complex are NADH, acetyl CoA, and ATP.",
+      "structuredExplanation": {
+        "text": "Allosteric inhibitors of the PDH enzyme complex are NADH, acetyl CoA, and ATP.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Allosteric inhibitors of the PDH enzyme complex are NADH, acetyl CoA, and ATP."
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          88
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          97
+        ]
+      },
+      "sourcePage": 88,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q019",
+      "sourceQuestionId": "BIOCHEM_CH06_Q019",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 19,
+      "questionType": "single_best_answer",
+      "question": "Which of the following enzyme deficiencies is likely to cause congenital lactic acidosis in a patient?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pyruvate dehydrogenase enzyme complex"
+        },
+        {
+          "letter": "B",
+          "text": "Pyruvate kinase"
+        },
+        {
+          "letter": "C",
+          "text": "Pyruvate decarboxylase"
+        },
+        {
+          "letter": "D",
+          "text": "Transketolase"
+        }
+      ],
+      "correctOption": 1,
+      "correctAnswerText": "Pyruvate dehydrogenase enzyme complex",
+      "explanation": "Inherited pyruvate dehydrogenase deficiency can be due to a defect in one or more components of the PDH enzyme complex and presents with lactic acidosis.\n\nThe source lists causes of lactic acidosis:\n• Tissue hypoxia\n• Mitochondrial disorders\n• Deficiency of PDH enzyme\n• Deficiency of TCA-cycle enzymes\n• Vitamin B1 deficiency\n• Poisoning by cyanide, mercury, or arsenite",
+      "structuredExplanation": {
+        "text": "Inherited pyruvate dehydrogenase deficiency can be due to a defect in one or more components of the PDH enzyme complex and presents with lactic acidosis.\n\nThe source lists causes of lactic acidosis:\n• Tissue hypoxia\n• Mitochondrial disorders\n• Deficiency of PDH enzyme\n• Deficiency of TCA-cycle enzymes\n• Vitamin B1 deficiency\n• Poisoning by cyanide, mercury, or arsenite",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Inherited pyruvate dehydrogenase deficiency can be due to a defect in one or more components of the PDH enzyme complex and presents with lactic acidosis."
+          },
+          {
+            "type": "paragraph",
+            "text": "The source lists causes of lactic acidosis:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Tissue hypoxia",
+              "Mitochondrial disorders",
+              "Deficiency of PDH enzyme",
+              "Deficiency of TCA-cycle enzymes",
+              "Vitamin B1 deficiency",
+              "Poisoning by cyanide, mercury, or arsenite"
+            ]
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          88
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          97
+        ]
+      },
+      "sourcePage": 88,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH06_Q020",
+      "sourceQuestionId": "BIOCHEM_CH06_Q020",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "6",
+      "chapter": "Krebs Cycle",
+      "questionNumber": 20,
+      "questionType": "single_best_answer",
+      "question": "Identify the anaplerotic reaction among the following?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Conversion of pyruvate to Acetyl CoA"
+        },
+        {
+          "letter": "B",
+          "text": "Conversion of pyruvate to Oxaloacetate"
+        },
+        {
+          "letter": "C",
+          "text": "Conversion of pyruvate to Acetaldehyde"
+        },
+        {
+          "letter": "D",
+          "text": "Conversion of pyruvate to Lactic acid"
+        }
+      ],
+      "correctOption": 2,
+      "correctAnswerText": "Conversion of pyruvate to Oxaloacetate",
+      "explanation": "Conversion of pyruvate to oxaloacetate is an anaplerotic reaction, catalyzed by pyruvate carboxylase.\n\nAnaplerotic reactions form intermediates of a metabolic pathway. This reaction is important in maintaining an adequate concentration of oxaloacetate for condensation with acetyl-CoA. If acetyl-CoA accumulates, it activates pyruvate carboxylase and inhibits pyruvate dehydrogenase, ensuring an adequate supply of oxaloacetate.\n\nOther anaplerotic reactions:\n• Compounds yielding propionyl CoA can be carboxylated and isomerized to succinyl CoA.\n• Glutamate and glutamine yield alpha-ketoglutarate via glutaminase and glutamate dehydrogenase reactions.\n• Transamination of aspartate leads directly to formation of oxaloacetate.",
+      "structuredExplanation": {
+        "text": "Conversion of pyruvate to oxaloacetate is an anaplerotic reaction, catalyzed by pyruvate carboxylase.\n\nAnaplerotic reactions form intermediates of a metabolic pathway. This reaction is important in maintaining an adequate concentration of oxaloacetate for condensation with acetyl-CoA. If acetyl-CoA accumulates, it activates pyruvate carboxylase and inhibits pyruvate dehydrogenase, ensuring an adequate supply of oxaloacetate.\n\nOther anaplerotic reactions:\n• Compounds yielding propionyl CoA can be carboxylated and isomerized to succinyl CoA.\n• Glutamate and glutamine yield alpha-ketoglutarate via glutaminase and glutamate dehydrogenase reactions.\n• Transamination of aspartate leads directly to formation of oxaloacetate.",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Conversion of pyruvate to oxaloacetate is an anaplerotic reaction, catalyzed by pyruvate carboxylase."
+          },
+          {
+            "type": "paragraph",
+            "text": "Anaplerotic reactions form intermediates of a metabolic pathway. This reaction is important in maintaining an adequate concentration of oxaloacetate for condensation with acetyl-CoA. If acetyl-CoA accumulates, it activates pyruvate carboxylase and inhibits pyruvate dehydrogenase, ensuring an adequate supply of oxaloacetate."
+          },
+          {
+            "type": "paragraph",
+            "text": "Other anaplerotic reactions:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Compounds yielding propionyl CoA can be carboxylated and isomerized to succinyl CoA.",
+              "Glutamate and glutamine yield alpha-ketoglutarate via glutaminase and glutamate dehydrogenase reactions.",
+              "Transamination of aspartate leads directly to formation of oxaloacetate."
+            ]
+          }
+        ],
+        "tables": [],
+        "figures": []
+      },
+      "provenance": {
+        "sourceFile": "biochemistryed8.pdf",
+        "questionPages": [
+          88,
+          89
+        ],
+        "answerKeyPages": [
+          89
+        ],
+        "explanationPages": [
+          97,
+          98
+        ]
+      },
+      "sourcePage": 88,
+      "reviewStatus": "pass",
+      "sourceFidelity": {
+        "rendered_pages_authoritative": true,
+        "question_and_answer_key_visually_reviewed": true,
+        "explanation_transcription_method": "Rendered-page visual transcription, with English OCR used only as a transcription aid because the embedded PDF text layer is corrupted; rendered pages remain authoritative.",
+        "notes": []
+      }
+    }
+  ]
+}
