@@ -222,6 +222,20 @@ def main():
                 page.wait_for_timeout(100)
                 assert page.evaluate('location.hash') == '#exam'
                 assert session(page)['id'] == cbt['id']
+                page.evaluate("window.QB.nav('dashboard')")
+                page.wait_for_url('**/#dashboard')
+                assert page.locator('.nk-timed-resume.is-home').is_visible()
+                assert 'timer keeps running' in page.locator('.nk-timed-resume.is-home').inner_text()
+                page.locator('.nk-timed-resume.is-home button').click()
+                page.wait_for_url('**/#exam')
+                assert session(page)['id'] == cbt['id']
+                assert session(page)['markedForReview'][cbt_qid] is True
+                page.evaluate("window.QB.nav('tests')")
+                page.wait_for_url('**/#tests')
+                assert page.locator('.nk-timed-resume.is-tests').is_visible()
+                page.locator('.nk-timed-resume.is-tests button').click()
+                page.wait_for_url('**/#exam')
+                assert session(page)['id'] == cbt['id']
                 baseline = page.evaluate('JSON.stringify([window.QB.getState().attempts,window.QB.getState().reviews])')
                 page.locator('.option-list button').nth(0).click()
                 page.locator('.option-list button').nth(1).click()
