@@ -40,6 +40,10 @@ Prefer building over narrating.
   their timer keeps running after exit.
 - **Browser/PWA Back during a question:** show the same warning in the web
   preview. Stay keeps the live question; Exit follows browser history.
+- **Timed-test recovery after Exit:** Home, Tests, and the CBT builder show the
+  same saved active test with answered and marked counts. Resume returns to
+  that session while its timer continues; expiry uses the established
+  submission path.
 - **Timed CBT:** 60 sec/question, answers changeable, correctness only after
   submit; final-question boundary opens the session-review navigator
   (answered/unanswered + jumping), never a persistent toast; singleton

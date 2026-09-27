@@ -36,7 +36,13 @@ Check off only when build-verified **and** device-verified where UI is involved.
       saved history, then Practice exactly the marked IDs after submission.
       Product `31ac38a` passed Engineering `36293641439` and full browser/PWA/
       packaged APK/Android phone+tablet emulator `36293641549`; preview
-      `https://da6eaa24.nk-qbank.pages.dev`. Physical review is pending.
+      `https://da6eaa24.nk-qbank.pages.dev`. The user confirmed it works.
+- [ ] Visible timed-test recovery after Exit: show an in-progress card on Home,
+      Tests, and the CBT builder with answered/marked counts, then resume the
+      same timed session or finish safely if time expired. Product `78e391f`
+      passed local 68 checks, Engineering `36298273342`, and full browser/PWA/
+      packaged APK/Android phone+tablet emulator run `36298273539`; preview
+      `https://edd8fb9f.nk-qbank.pages.dev`. Physical review is pending.
 - [ ] All-bank QBank coverage tracker in Insights: source-exact answer-based
       progress for each of the six current subject/bank combinations, one
       bank's searchable/filterable topics at a time, and direct topic entry.

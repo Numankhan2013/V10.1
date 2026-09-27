@@ -1568,3 +1568,22 @@ Implemented approved recovery in existing transform owners: Topics separate path
   mark persistence, grids, saved history and follow-up. Cloudflare preview
   `https://da6eaa24.nk-qbank.pages.dev` returned HTTP 200 with the new code.
   User physical review is pending; production was not promoted.
+
+## 2026-09-27 — Visible timed-test recovery after Exit
+
+- The user confirmed the marked-question test flow works and asked to continue
+  with another useful learner-facing phase. The earlier Android/browser Back
+  warning retained timed-test state after Exit, but did not make that state
+  discoverable. Added one Resume timed test card to Home, Tests, and the CBT
+  builder, where Back from a newly started CBT actually lands.
+  It shows exact answered and marked counts, reminds the learner that the timer
+  continues, and returns to the same session. If time expired, the action uses
+  the existing global submit or strict per-question expiry path.
+- Product `78e391f` passed local 68 checks. The first packaged emulator run
+  revealed that Android Back lands on `#test-builder`, beyond the initial Home
+  and Tests card placements. The final transform adds the same card to the
+  builder, and browser and Android checks now assert it there. Engineering
+  `36298273342` and full browser/PWA/packaged APK/Android phone+tablet emulator
+  run `36298273539` passed. Cloudflare preview
+  `https://edd8fb9f.nk-qbank.pages.dev` returned HTTP 200 and served the
+  builder card. User physical review remains pending; production was not promoted.
