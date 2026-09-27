@@ -33,6 +33,7 @@ def main() -> None:
       ".nk-v114-session button.option:hover{transform:none!important}",
       "dna:`<svg ${common}>",
       "renderExplanationText(q.explanation,q)",
+      ".source-pdf-page>img,.source-pdf-page>canvas,.source-pdf-zoomimg{filter:contrast(1.16) saturate(1.12)}",
       "&scale=4",
     ]
     missing=[x for x in required if x not in source]
