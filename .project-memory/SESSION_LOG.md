@@ -1712,3 +1712,22 @@ Implemented approved recovery in existing transform owners: Topics separate path
   SHA-256 of the generated app response. The remembered spelling
   `nkqbanks.pages.dev` does not resolve; the configured canonical domain is
   `nk-qbank.pages.dev`. Physical Android in-place upgrade remains separate.
+
+## 2026-09-27 — Account-wide progress reset and staged sign-in candidate
+
+- More now uses a single email/password sign-in view; account creation advances
+  from email to password plus confirmation and returns to the sign-in screen.
+  Touch targets and active button feedback were improved.
+- Signed-in Reset progress now confirms an account-wide reset. A Firestore
+  control marker and fresh generation are written before progress collections
+  are swept with owner-authorized tombstones; local learning state, sync queues,
+  and the pre-cloud backup are cleared after remote completion. Updated clients
+  check the generation before local capture or merge and resume partial resets.
+- Firestore's current rules forbid hard deletes, so remote progress payloads are
+  removed while minimal tombstone and reset-marker metadata remains. Google
+  sign-in is not exposed because the current Firebase client configuration only
+  supports the existing email/password REST flow and has no OAuth client setup.
+- Targeted sync/auth tests and `verify_local.py` pass (70 local checks); inline
+  app JavaScript parses, and source contract/build pipeline checks pass. Termux
+  skips PDF generation and generated app/browser/APK verification; CI/preview and
+  physical Android review remain pending.

@@ -7,9 +7,11 @@
   const NK_SYNC_META_PENDING_KEY='qbank_sync_pending_v2';
   const NK_AUTH_KEY='qbank_firebase_auth_v1';
   const NK_PRE_CLOUD_BACKUP='qbank_state_pre_cloud_v1';
+  const NK_RESET_PENDING_KEY='qbank_account_reset_pending_v1';
   const NK_SYNC_KINDS=['attempts','bookmarks','notes','tests','modules','practiceSessions','sessions','preferences'];
   let nkCloudApplying=false,nkCloudRevision=0,nkCloudMergeChanged=false;
-  let nkCloudBusy=false,nkCloudReady=false,nkCloudTimer=null,nkCloudInterval=null,nkResolvedProjectId='';
+  let nkCloudBusy=false,nkCloudReady=false,nkCloudResetting=false,nkCloudTimer=null,nkCloudInterval=null,nkResolvedProjectId='';
+  let nkAuthView='signin',nkPendingCreateEmail='',nkSignInEmail='';
 
   function nkJson(value,fallback){try{return JSON.parse(value);}catch(_){return fallback;}}
   function nkStable(value){
@@ -80,20 +82,33 @@
     nkAuth={...nkAuth,uid:String(data.user_id),idToken:String(data.id_token),refreshToken:String(data.refresh_token||nkAuth.refreshToken),expiresAt:Date.now()+Number(data.expires_in||3600)*1000};nkSaveAuth();return nkAuth.idToken;
   }
   function nkAuthMessage(code){return ({EMAIL_EXISTS:'That email already has an account.',EMAIL_NOT_FOUND:'No account was found for that email.',INVALID_PASSWORD:'The password is incorrect.',INVALID_LOGIN_CREDENTIALS:'The email or password is incorrect.',WEAK_PASSWORD:'Use a password with at least 6 characters.',TOO_MANY_ATTEMPTS_TRY_LATER:'Too many attempts. Please try again later.'})[String(code).split(' : ')[0]]||String(code).replaceAll('_',' ').toLowerCase();}
+  function nkFocusAuthInput(id){setTimeout(()=>document.getElementById(id)?.focus?.(),40);}
+  function nkCloudAuthNext(){
+    const input=document.getElementById('nk-cloud-create-email'),email=String(input?.value||'').trim();
+    if(!email||input?.checkValidity?.()===false){input?.reportValidity?.();return;}
+    nkPendingCreateEmail=email;nkAuthView='create-password';render();nkFocusAuthInput('nk-cloud-create-password');
+  }
+  function nkCloudAuthStartCreate(){nkAuthView='create-email';nkPendingCreateEmail='';render();nkFocusAuthInput('nk-cloud-create-email');}
+  function nkCloudAuthBack(){nkAuthView='signin';nkPendingCreateEmail='';render();nkFocusAuthInput('nk-cloud-email');}
   async function nkCloudAuthenticate(mode){
     if(!nkCloudConfigured()){showToast('Firebase is not configured for this build.','bad');return;}
-    const email=String(document.getElementById('nk-cloud-email')?.value||'').trim(),password=String(document.getElementById('nk-cloud-password')?.value||'');
-    if(!email||password.length<6){showToast('Enter your email and a password of at least 6 characters.','bad');return;}
+    const creating=mode==='create',email=creating?nkPendingCreateEmail:String(document.getElementById('nk-cloud-email')?.value||'').trim(),password=String(document.getElementById(creating?'nk-cloud-create-password':'nk-cloud-password')?.value||''),confirmPassword=String(document.getElementById('nk-cloud-confirm-password')?.value||'');
+    if(!email){showToast('Enter a valid email address.','bad');return;}
+    if(password.length<6){showToast('Use a password with at least 6 characters.','bad');return;}
+    if(creating&&password!==confirmPassword){showToast('The passwords do not match.','bad');document.getElementById('nk-cloud-confirm-password')?.focus?.();return;}
+    let activeButton=null;
     try{
-      const c=nkFirebaseConfig(),action=mode==='create'?'signUp':'signInWithPassword';
+      const c=nkFirebaseConfig(),action=creating?'signUp':'signInWithPassword';activeButton=document.querySelector('.nk-auth-submit');if(activeButton){activeButton.disabled=true;activeButton.textContent=creating?'Creating account…':'Signing in…';}
       const data=await nkFetchJson(`https://identitytoolkit.googleapis.com/v1/accounts:${action}?key=${encodeURIComponent(c.apiKey)}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password,returnSecureToken:true})});
+      if(creating){nkAuthView='signin';nkSignInEmail=String(data.email||email);nkPendingCreateEmail='';showToast('Account created. Sign in to start syncing.','good');render();nkFocusAuthInput('nk-cloud-password');return;}
       if(nkSyncMeta.boundUid&&nkSyncMeta.boundUid!==String(data.localId))throw new Error('This installation is already linked to a different QBank account.');
       nkAuth={uid:String(data.localId),email:String(data.email||email),idToken:String(data.idToken),refreshToken:String(data.refreshToken),expiresAt:Date.now()+Number(data.expiresIn||3600)*1000};nkSaveAuth();
       nkSyncMeta.boundUid=nkAuth.uid;nkSaveSyncMeta();
       await nkInitialCloudSync();showToast(mode==='create'?'Account created and progress synchronized.':'Signed in and synchronized.','good');render();
     }catch(error){showToast(nkAuthMessage(error.message),'bad');}
+    finally{if(activeButton){activeButton.disabled=false;activeButton.textContent=creating?'Create account':'Sign in';}}
   }
-  function nkCloudSignOut(){nkAuth=null;nkCloudReady=false;nkSaveAuth();showToast('Signed out. Your synchronized progress remains on this device.');render();}
+  function nkCloudSignOut(){if(nkCloudResetting){showToast('Wait for the account reset to finish before signing out.','bad');return;}nkAuth=null;nkCloudReady=false;nkSaveAuth();showToast('Signed out. Your synchronized progress remains on this device.');render();}
 
   function nkEnvelope(kind,entityId,payload,updatedAt,deleted=false){return {kind,entityId:String(entityId),ownerDevice:nkSyncMeta.deviceId,updatedAt:Math.max(1,Number(updatedAt||Date.now())),deleted:Boolean(deleted),payload:deleted?'':JSON.stringify(payload),schemaVersion:1};}
   function nkQueueEnvelope(envelope){
@@ -139,11 +154,79 @@
   function nkDecodeDocument(doc){const f=doc?.fields||{},read=k=>f[k]?.stringValue??f[k]?.integerValue??f[k]?.booleanValue;return {kind:String(read('kind')||''),entityId:String(read('entityId')||''),ownerDevice:String(read('ownerDevice')||''),updatedAt:Number(read('updatedAt')||0),deleted:Boolean(read('deleted')),payload:String(read('payload')||''),schemaVersion:Number(read('schemaVersion')||0)};}
   function nkFirestoreProjectId(){return String(nkResolvedProjectId||nkFirebaseConfig().projectId||'');}
   function nkFirestoreRoot(){return `https://firestore.googleapis.com/v1/projects/${encodeURIComponent(nkFirestoreProjectId())}/databases/(default)/documents`;}
+  function nkAccountResetUrl(){return `${nkFirestoreRoot()}/users/${encodeURIComponent(nkAuth.uid)}/control/accountReset`;}
+  function nkResetMarkerEnvelope(generation,phase){return {kind:'control',entityId:'accountReset',ownerDevice:nkSyncMeta.deviceId,updatedAt:Date.now(),deleted:false,payload:JSON.stringify({generation,phase}),schemaVersion:1};}
+  async function nkWriteResetMarker(token,generation,phase){const url=nkAccountResetUrl(),envelope=nkResetMarkerEnvelope(generation,phase),name=url.split('/v1/')[1];await nkFetchJson(url,{method:'PATCH',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify(nkFirestoreDocument(envelope,name))});}
+  async function nkReadResetMarker(token){try{const doc=await nkFetchJson(nkAccountResetUrl(),{headers:{Authorization:`Bearer ${token}`}}),envelope=nkDecodeDocument(doc);if(envelope.kind!=='control'||envelope.entityId!=='accountReset')return null;const payload=nkJson(envelope.payload,{});return {generation:String(payload.generation||''),phase:String(payload.phase||'')};}catch(error){if(error.status===404||/NOT_FOUND/.test(error.message))return null;throw error;}}
+  async function nkTombstoneAccountCollections(token){
+    const tombstonePass=async()=>{
+      let cleared=0;
+      for(const kind of NK_SYNC_KINDS){
+        let pageToken='';
+        do{
+          const query=new URLSearchParams({pageSize:'1000'});if(pageToken)query.set('pageToken',pageToken);
+          const result=await nkFetchJson(`${nkFirestoreRoot()}/users/${encodeURIComponent(nkAuth.uid)}/${encodeURIComponent(kind)}?${query}`,{headers:{Authorization:`Bearer ${token}`}}),docs=Array.isArray(result.documents)?result.documents:[];
+          for(let i=0;i<docs.length;i+=20){
+            const batch=docs.slice(i,i+20).filter(doc=>{const e=nkDecodeDocument(doc);return e.schemaVersion===1&&e.kind===kind&&(!e.deleted||e.payload);});
+            const results=await Promise.allSettled(batch.map(async doc=>{const old=nkDecodeDocument(doc),envelope={...old,updatedAt:Math.max(Date.now(),old.updatedAt+1),deleted:true,payload:''},name=String(doc.name||'');await nkFetchJson(`https://firestore.googleapis.com/v1/${name}`,{method:'PATCH',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify(nkFirestoreDocument(envelope,name))});cleared++;}));
+            const failed=results.find(item=>item.status==='rejected');if(failed)throw new Error(`${kind} reset: ${failed.reason?.message||failed.reason}`);
+          }
+          pageToken=String(result.nextPageToken||'');
+        }while(pageToken);
+      }
+      return cleared;
+    };
+    // The second sweep catches any request already in flight when the reset marker was written.
+    await tombstonePass();await tombstonePass();
+  }
+  function nkClearLocalProgress(generation){
+    const previous=nkCloudResetting;nkCloudResetting=true;
+    try{
+      state=defaultState();if(saveState()===false)throw new Error('Local progress could not be saved as cleared.');
+      nkSyncMeta.outbox={};nkSyncMeta.localHashes={};nkSyncMeta.known={};nkSyncMeta.winners={};nkSyncMeta.cursors={};nkSyncMeta.accountGeneration=String(generation||nkSyncMeta.accountGeneration||'legacy');nkSyncMeta.lastSyncAt=null;nkSyncMeta.status='synced';nkSyncMeta.lastError='';nkCloudRevision++;
+      if(!nkSaveSyncMeta())throw new Error('Local sync metadata could not be saved as cleared.');
+      localStorage.removeItem(NK_PRE_CLOUD_BACKUP);localStorage.removeItem(NK_RESET_PENDING_KEY);
+    }finally{nkCloudResetting=previous;}
+  }
+  async function nkCompleteRemoteReset(token,generation){
+    const previous=nkCloudResetting;nkCloudResetting=true;
+    try{await nkWriteResetMarker(token,generation,'resetting');await nkTombstoneAccountCollections(token);await nkWriteResetMarker(token,generation,'complete');nkClearLocalProgress(generation);}
+    finally{nkCloudResetting=previous;}
+  }
+  async function nkEnsureAccountGeneration(token){
+    const pending=String(localStorage.getItem(NK_RESET_PENDING_KEY)||'');let marker=await nkReadResetMarker(token);
+    if(pending){await nkCompleteRemoteReset(token,pending);return;}
+    if(marker?.phase==='resetting'&&marker.generation){await nkCompleteRemoteReset(token,marker.generation);return;}
+    if(marker?.phase==='complete'&&marker.generation){
+      const local=String(nkSyncMeta.accountGeneration||'');
+      if(local&&local!==marker.generation)nkClearLocalProgress(marker.generation);
+      else if(!local){nkSyncMeta.accountGeneration=marker.generation;nkSaveSyncMeta();}
+      return;
+    }
+    if(!nkSyncMeta.accountGeneration){nkSyncMeta.accountGeneration='legacy';nkSaveSyncMeta();}
+  }
+  async function nkResetProgress(){
+    const account=Boolean(nkAuth),message=account?'Reset all progress for this QBank account on this device and every synced device? This cannot be undone. Your sign-in will remain active.':'Reset progress on this device? Any saved cloud account will remain unchanged.';
+    if(!confirm(message))return;
+    if(account&&!confirm('Confirm account-wide reset. All synchronized attempts, tests, bookmarks, notes, modules, and sessions will be cleared.'))return;
+    if(!account){
+      try{nkClearLocalProgress(nkSyncMeta.accountGeneration||'legacy');showToast('Progress on this device has been reset. Cloud progress was not changed.','good');render();}
+      catch(error){showToast(String(error.message||error),'bad');}return;
+    }
+    const generation=`reset_${Date.now().toString(36)}_${Math.random().toString(36).slice(2,10)}`;nkCloudResetting=true;localStorage.setItem(NK_RESET_PENDING_KEY,generation);clearTimeout(nkCloudTimer);
+    try{
+      while(nkCloudBusy)await new Promise(resolve=>setTimeout(resolve,40));
+      clearTimeout(nkCloudTimer);const token=await nkRefreshAuth();await nkResolveFirebaseProjectId();await nkCompleteRemoteReset(token,generation);
+      showToast('Account progress has been reset on this device and in sync.','good');render();
+    }catch(error){nkSyncMeta.status='error';nkSyncMeta.lastError=`Account reset: ${String(error.message||error)}`;nkSaveSyncMeta();showToast('Reset is incomplete. Keep this account signed in and retry Reset progress when online.','bad');render();}
+    finally{nkCloudResetting=false;nkCloudRenderStatus();}
+  }
   function nkDocId(envelope){return encodeURIComponent(`${envelope.ownerDevice}--${envelope.entityId}`);}
   async function nkPushOutbox(token){
     const entries=Object.entries(nkSyncMeta.outbox||{});if(!entries.length)return 0;
     let sent=0;
     for(let i=0;i<entries.length;i+=20){
+      if(nkCloudResetting||localStorage.getItem(NK_RESET_PENDING_KEY))throw new Error('Account reset is in progress.');
       const batch=entries.slice(i,i+20);
       const results=await Promise.allSettled(batch.map(async ([key,envelope])=>{
         try{await nkFetchJson(`${nkFirestoreRoot()}/users/${encodeURIComponent(nkAuth.uid)}/${encodeURIComponent(envelope.kind)}/${nkDocId(envelope)}`,{method:'PATCH',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify(nkFirestoreDocument(envelope))});}
@@ -297,14 +380,17 @@
     nkCloudReady=true;nkCaptureCloudChanges();
   }
   async function nkCloudSync(initial=false,silent=false){
-    if(nkCloudBusy||!nkAuth||!nkCloudConfigured())return false;
-    nkCaptureCloudChanges();clearTimeout(nkCloudTimer);nkCloudBusy=true;nkSyncMeta.status='syncing';nkCloudRenderStatus();
+    if(nkCloudBusy||nkCloudResetting||!nkAuth||!nkCloudConfigured())return false;
+    clearTimeout(nkCloudTimer);nkCloudBusy=true;nkSyncMeta.status='syncing';nkCloudRenderStatus();
     let stage='authentication';
     try{
       const token=await nkRefreshAuth();
       stage='Firebase project';
       const projectId=await nkResolveFirebaseProjectId();
       if(!projectId)throw new Error('Firebase project ID is unavailable.');
+      stage='account reset check';
+      await nkEnsureAccountGeneration(token);
+      nkCaptureCloudChanges();
       stage='download';
       const pulled=await nkPullCloud(token);
       const changed=nkCloudMergeChanged;
@@ -325,16 +411,21 @@
     }
     finally{nkCloudBusy=false;nkSaveSyncMeta();nkCloudRenderStatus();if(nkSyncMeta.status==='synced'&&Object.keys(nkSyncMeta.outbox).length)nkScheduleCloudFlush();}
   }
-  async function nkCloudSyncNow(){if(!nkAuth){showToast('Sign in to synchronize.','bad');return;}nkCaptureCloudChanges();await nkCloudSync(false);if(nkSyncMeta.status==='synced')showToast('Progress is up to date.','good');}
+  async function nkCloudSyncNow(){if(!nkAuth){showToast('Sign in to synchronize.','bad');return;}await nkCloudSync(false);if(nkSyncMeta.status==='synced')showToast('Progress is up to date.','good');}
   function nkCloudStatusCopy(){if(state.normalPracticeConflict)return 'Practice conflict · resume or discard on this device';if(!navigator.onLine)return 'Offline · changes stay on this device';if(nkCloudBusy||nkSyncMeta.status==='syncing')return 'Synchronizing…';if(nkSyncMeta.status==='error')return `Sync paused · ${String(nkSyncMeta.lastError||'tap Sync now').slice(0,140)}`;if(nkSyncMeta.lastSyncAt)return `Synced ${fmtDate(nkSyncMeta.lastSyncAt)}`;return 'Ready to synchronize';}
   function nkCloudAccountCard(){
     const pwa=location.hostname==='qbank.local'?'Android app':'Install from Safari with Share → Add to Home Screen.';
     if(!nkCloudConfigured())return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="section-title"><span>QBank Sync</span><span class="sub">Not configured</span></div><p class="small-muted">This build keeps all progress locally. Add the Firebase public configuration to enable secure account sync.</p><div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
-    if(!nkAuth)return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="section-title"><span>QBank Sync</span><span class="sub">Firebase</span></div><p class="small-muted">Use the same private account on Android and iPad. Existing progress is backed up before its first merge.</p><label>Email<input id="nk-cloud-email" type="email" autocomplete="username" inputmode="email"></label><label>Password<input id="nk-cloud-password" type="password" autocomplete="current-password" minlength="6"></label><div class="nk-cloud-actions"><button onclick="window.QB.nkCloudAuthenticate('signin')">Sign in</button><button class="primary-btn" onclick="window.QB.nkCloudAuthenticate('create')">Create account</button></div><div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
-    return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="nk-cloud-user"><span class="nk-cloud-dot ${nkSyncMeta.status==='error'?'is-error':navigator.onLine?'is-online':''}"></span><div><strong>${esc(nkAuth.email||'QBank account')}</strong><small data-nk-cloud-status>${esc(nkCloudStatusCopy())}</small></div></div><details class="nk-cloud-error" ${nkSyncMeta.lastError?'':'hidden'}><summary>Sync error details</summary><p>${esc(nkSyncMeta.lastError||'')}</p></details><p class="small-muted">Attempts, bookmarks, tests, modules, active sessions, review eligibility and study preferences merge without replacing newer device data.</p><div class="nk-cloud-actions"><button class="primary-btn" onclick="window.QB.nkCloudSyncNow()">Sync now</button><button onclick="window.QB.nkCloudSignOut()">Sign out</button></div><div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
+    if(!nkAuth){
+      const form=nkAuthView==='create-email'?`<form class="nk-auth-step" onsubmit="window.QB.nkCloudAuthNext();return false"><div class="nk-auth-step-label">CREATE ACCOUNT · 1 OF 2</div><h3>Start with your email</h3><p class="small-muted">We’ll use this address for your private cross-device sync account.</p><label>Email<input id="nk-cloud-create-email" type="email" autocomplete="email" inputmode="email" value="${esc(nkPendingCreateEmail)}" placeholder="you@example.com" required></label><button class="primary-btn nk-auth-submit" type="submit">Next</button><button class="nk-auth-link" type="button" onclick="window.QB.nkCloudAuthBack()">Back to sign in</button></form>`:
+        nkAuthView==='create-password'?`<form class="nk-auth-step" onsubmit="window.QB.nkCloudAuthenticate('create');return false"><div class="nk-auth-step-label">CREATE ACCOUNT · 2 OF 2</div><h3>Create a password</h3><p class="small-muted nk-auth-email">${esc(nkPendingCreateEmail)}</p><label>Password<input id="nk-cloud-create-password" type="password" autocomplete="new-password" minlength="6" placeholder="At least 6 characters" required></label><label>Confirm password<input id="nk-cloud-confirm-password" type="password" autocomplete="new-password" minlength="6" placeholder="Type your password again" required></label><button class="primary-btn nk-auth-submit" type="submit">Create account</button><button class="nk-auth-link" type="button" onclick="window.QB.nkCloudAuthBack()">Back</button></form>`:
+        `<form class="nk-auth-step" onsubmit="window.QB.nkCloudAuthenticate('signin');return false"><div class="nk-auth-step-label">CROSS-DEVICE SYNC</div><h3>Sign in to QBank</h3><p class="small-muted">Use the same account on Android and iPad. Your existing progress is backed up before its first merge.</p><label>Email<input id="nk-cloud-email" type="email" autocomplete="username" inputmode="email" value="${esc(nkSignInEmail)}" placeholder="you@example.com" required></label><label>Password<input id="nk-cloud-password" type="password" autocomplete="current-password" minlength="6" placeholder="Your password" required></label><button class="primary-btn nk-auth-submit" type="submit">Sign in</button><div class="nk-auth-create-prompt"><span>New to QBank Sync?</span><button class="nk-auth-link" type="button" onclick="window.QB.nkCloudAuthStartCreate()">Create account</button></div></form>`;
+      return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="section-title"><span>QBank Sync</span><span class="sub">Private account</span></div>${form}<div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
+    }
+    return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="nk-cloud-user"><span class="nk-cloud-dot ${nkSyncMeta.status==='error'?'is-error':navigator.onLine?'is-online':''}"></span><div><strong>${esc(nkAuth.email||'QBank account')}</strong><small data-nk-cloud-status>${esc(nkCloudStatusCopy())}</small></div></div><details class="nk-cloud-error" ${nkSyncMeta.lastError?'':'hidden'}><summary>Sync error details</summary><p>${esc(nkSyncMeta.lastError||'')}</p></details><p class="small-muted">Attempts, bookmarks, tests, modules, active sessions, review eligibility and study preferences merge without replacing newer device data.</p><div class="nk-cloud-actions"><button class="primary-btn" onclick="window.QB.nkCloudSyncNow()">Sync now</button><button onclick="window.QB.nkCloudSignOut()">Sign out</button><button class="nk-reset-account-btn" onclick="window.QB.resetProgress()">Reset account progress</button></div><div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
   }
   function nkCloudAutoSync(){
-    if(!nkAuth||!nkCloudConfigured()||!navigator.onLine||nkCloudBusy)return;
+    if(!nkAuth||!nkCloudConfigured()||!navigator.onLine||nkCloudBusy||nkCloudResetting)return;
     nkCloudSync(false,true);
   }
   function nkStartCloudAutoSync(){

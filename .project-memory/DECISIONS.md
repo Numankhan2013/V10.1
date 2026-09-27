@@ -367,3 +367,16 @@ topic completion or imply a mastery score. One bank's topics appear at a time,
 and the tracker replaces the old active-bank chapter list in Insights. This
 offers a readable study map without a new Home action, duplicate topic list,
 or second progress persistence model.
+
+## 27. Account reset is fenced before progress merge (2026-09-27)
+
+Reset while signed in is an account-wide progress reset, not account deletion.
+Because deployed Firestore rules deny hard deletes, the client clears each
+progress document's payload using owner-authorized tombstones and leaves a
+control marker with a fresh account generation. Sync checks that marker before
+capturing or merging local state; devices on the updated client clear an older
+local generation first. An interrupted reset remains pending and retries after
+reconnect. This prevents normal updated clients from resurrecting their prior
+progress while retaining the authenticated Firebase account. Authentication UI
+uses one sign-in form and a distinct email → password/confirmation → create
+flow; account creation returns to sign-in rather than silently entering the app.

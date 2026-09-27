@@ -370,6 +370,14 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   Saves trigger debounced upload; signed-in clients also retry silently every five
   minutes and on foreground. Security ownership is enforced by `firestore.rules`.
   See `docs/CROSS_DEVICE_PWA.md`.
+- Account UI uses a single email/password sign-in surface and staged account
+  creation. Account reset writes a user-scoped reset marker, clears each sync
+  collection with owner-authorized tombstones (current rules prohibit hard
+  delete), then clears local learner state and pending/outbox metadata. The
+  marker carries a new generation; updated clients compare it before capturing
+  or merging progress and clear stale local state first. A partial reset remains
+  marked for retry on reconnect. Tombstone metadata stays in Firestore to fence
+  older local copies from returning.
 
 <!-- V11.7_DEPLOYMENT_HANDOFF_2026-09-07 -->
 ## V11.7 deployment handoff — 2026-09-07

@@ -121,6 +121,10 @@ Prefer building over narrating.
   resume via Practice engine with snapshot sync; finish creates Practice
   Analysis linked to module; restart clears progress but preserves frozen set
   and global history; missing IDs skipped safely.
+- **Cross-device account controls:** More presents one Sign in action and a
+  separate two-step Create account flow (email, then password + confirmation).
+  Reset progress while signed in clears local learning state and synchronized
+  progress for the account; the Firebase sign-in remains active.
 - **Source faithfulness:** original PDFs are truth; exact normalized
   stem matching, subject-specific PDFs only, no fuzzy cross-subject images,
   no `Question N has image` heuristics; aspect preserved; fullscreen viewer

@@ -4,6 +4,14 @@
 
 ## Baseline and active work
 
+- Current candidate (2026-09-27): More now presents one Sign in form and a
+  staged Create account flow (email → password + confirmation → return to
+  sign-in). Reset progress works signed in and clears local state plus synced
+  progress payloads across the account using a generation marker and Firestore
+  tombstones. Targeted sync/auth behavior tests and all 70 local checks pass;
+  generated-app/PWA/APK CI and preview are pending. This is not production or
+  physical-device verified.
+
 - Repo: `Numankhan2013/V10.1`. Accepted product commit: `125d68b` (V11.6 accepted baseline and rollback point). The user explicitly authorized integrating the accepted study candidate and UI changes into `main` and promoting production on 2026-09-27; release only the exact SHA after full CI passes. Physical Android acceptance remains distinct.
 - Sole Marrow/product integration trunk: `feature/marrow-canonical-full-current`. Its last recorded verified canonical checkpoint was `356cce4`; Engineering `35453226391` and full Android/PWA/browser/APK `35453226292` passed. Recheck the live head before any integration.
 - Integrated production release: `main` product SHA `d43da3dbdaa639214d676b333152654568fe5ba9` combines the accepted study build, two reviewed UI updates, and current `main` source-audit files. Full main CI `36324929838` and production release `36325843382` passed. The release set Cloudflare Pages Direct Upload production branch to `main`; root `https://nk-qbank.pages.dev`, alias `https://main.nk-qbank.pages.dev`, and preview `https://37799f47.nk-qbank.pages.dev` return HTTP 200 and serve byte-identical builds.
