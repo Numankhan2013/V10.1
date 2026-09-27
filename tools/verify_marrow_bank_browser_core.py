@@ -392,6 +392,7 @@ def main():
                 segment.scroll_into_view_if_needed()
                 page.wait_for_function("['true','error'].includes(document.querySelector('.nk-web-pdf-segment')?.dataset.rendered)",timeout=90000)
                 assert segment.get_attribute('data-rendered')=='true',segment.inner_text()
+                assert segment.locator('canvas').evaluate('(n)=>getComputedStyle(n).filter')=='contrast(1.16) saturate(1.12)'
                 metrics=segment.evaluate('(n)=>({width:n.clientWidth,pixels:n.querySelector(\'canvas\').width,height:n.querySelector(\'canvas\').height})')
                 assert metrics['pixels']>=metrics['width']*1.95,metrics
                 segment.screenshot(path=str(OUT/f'09-{subject}-pdf-inline.png'))
@@ -399,6 +400,7 @@ def main():
                 zoom=page.locator('.source-pdf-zoomimg')
                 zoom.wait_for(state='visible',timeout=90000)
                 page.wait_for_function("document.querySelector('.source-pdf-zoomimg')?.naturalWidth>0")
+                assert zoom.evaluate('(n)=>getComputedStyle(n).filter')=='contrast(1.16) saturate(1.12)'
                 assert zoom.evaluate('(n)=>n.naturalWidth')>metrics['pixels']
                 page.locator('#spz-plus').click();page.locator('#spz-plus').click()
                 page.screenshot(path=str(OUT/f'10-{subject}-pdf-zoom.png'))

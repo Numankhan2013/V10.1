@@ -252,6 +252,11 @@ async function main(){
       await page.getByRole('button',{name:'Review Solutions',exact:true}).click();
       await page.waitForFunction(()=>window.QB.getState().activeSession?.mode==='review');
       await device.screenshot({path:`${output}/${label}-pyq-review.png`});
+      const sourcePdf=page.locator('.source-pdf-page img').first();
+      await sourcePdf.scrollIntoViewIfNeeded();
+      await page.waitForFunction(()=>document.querySelector('.source-pdf-page img')?.naturalWidth>0);
+      assert.equal(await sourcePdf.evaluate(node=>getComputedStyle(node).filter),'contrast(1.16) saturate(1.12)');
+      await sourcePdf.screenshot({path:`${output}/${label}-source-pdf-contrast.png`});
       report.push({device:label,size,density,viewport:await page.evaluate(()=>({width:innerWidth,height:innerHeight})),nativeBackConfirmation:'PASS',forceStopResume:'PASS',practiceReviewFsrs:'PASS',pyqCbtReview:'PASS'});
       console.log('ANDROID_INTERACTION_VIEWPORT_OK '+JSON.stringify(report.at(-1)));
     }
