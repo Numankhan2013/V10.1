@@ -61,8 +61,7 @@
     if(nkDurablePersist(state,'account switch')===false)throw new Error('Account progress could not be saved on this device.');
     nkSyncMeta=nextMeta;
     if(!nkSaveSyncMeta())throw new Error('Account sync history could not be saved on this device.');
-    activeSubject=SUBJECT_BY_NAME[snapshot.activeSubject]?snapshot.activeSubject:'Biochemistry';
-    localStorage.setItem('qbank_active_subject_v1',activeSubject);
+    applySubject(SUBJECT_BY_NAME[snapshot.activeSubject]?snapshot.activeSubject:'Biochemistry');
     localStorage.removeItem(NK_PRE_CLOUD_BACKUP);
     nkCloudRevision++;
   }
