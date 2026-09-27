@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Surface the saved active timed test on Home and Tests after Exit."""
+"""Surface the saved active timed test on Home, Tests, and the builder after Exit."""
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -30,9 +30,12 @@ def transform(source):
         '${nkTimedResumeCard(\'home\')}<section class="nk-home-focus-card">','Home card position')
     source=replace_once(source,'<section class="nk-v3-section nk-test-main-action">',
         '${nkTimedResumeCard(\'tests\')}<section class="nk-v3-section nk-test-main-action">','Tests card position')
+    source=replace_once(source,'titles[step-1],description)}<div class="nk-module-stepper">${[1,2,3]',
+        'titles[step-1],description)}${nkTimedResumeCard(\'builder\')}<div class="nk-module-stepper">${[1,2,3]',
+        'CBT builder card position')
     source=replace_once(source,'  window.QB={',CORE.read_text(encoding='utf-8').rstrip()+'\n\n  window.QB={nkResumeTimedTest,','resume action')
     return source
 
 if __name__=='__main__':
     HTML.write_text(transform(HTML.read_text(encoding='utf-8')),encoding='utf-8')
-    print('TIMED_RESUME_CARD_INSTALLED: Home and Tests reveal the active timed test')
+    print('TIMED_RESUME_CARD_INSTALLED: Home, Tests, and CBT builder reveal the active timed test')

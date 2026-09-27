@@ -236,6 +236,12 @@ def main():
                 page.locator('.nk-timed-resume.is-tests button').click()
                 page.wait_for_url('**/#exam')
                 assert session(page)['id'] == cbt['id']
+                page.evaluate("window.QB.nav('test-builder')")
+                page.wait_for_url('**/#test-builder')
+                assert page.locator('.nk-timed-resume.is-builder').is_visible()
+                page.locator('.nk-timed-resume.is-builder button').click()
+                page.wait_for_url('**/#exam')
+                assert session(page)['id'] == cbt['id']
                 baseline = page.evaluate('JSON.stringify([window.QB.getState().attempts,window.QB.getState().reviews])')
                 page.locator('.option-list button').nth(0).click()
                 page.locator('.option-list button').nth(1).click()

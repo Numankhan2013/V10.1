@@ -218,7 +218,7 @@ async function main(){
       await tapNativeExitDialog('Exit','Your timed test will keep running if you exit now.');
       await page.waitForFunction(()=>location.hash!=='#exam');
       assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),examId,'Exit must retain the timed test');
-      await page.locator('.nk-timed-resume').waitFor({state:'visible',timeout:10000}).catch(async error=>{
+      await page.locator('.nk-timed-resume.is-builder').waitFor({state:'visible',timeout:10000}).catch(async error=>{
         console.log('ANDROID_TIMED_EXIT_STATE '+JSON.stringify(await page.evaluate(()=>({
           hash:location.hash,
           activeSession:window.QB.getState().activeSession?.id,
@@ -228,7 +228,7 @@ async function main(){
         throw error;
       });
       await device.screenshot({path:`${output}/${label}-timed-test-resume.png`});
-      await page.locator('.nk-timed-resume button').click();
+      await page.locator('.nk-timed-resume.is-builder button').click();
       await waitForHash(page,'#exam');
       assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),examId,'Timed test must reopen at the same session');
       await page.evaluate(()=>window.QB.submitExam(false));

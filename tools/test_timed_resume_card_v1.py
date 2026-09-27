@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check saved-test recovery on Home and Tests without restarting the session."""
+"""Check saved-test recovery on Home, Tests, and builder without restarting."""
 from pathlib import Path
 import json
 import subprocess
@@ -14,12 +14,13 @@ def main():
 /* NK_EXAM_REVIEW_FLAGS_V1_START */
 function dashboard(){return `<section class="nk-home-focus-card"></section>`;}
 function testsPage(){return `<section class="nk-v3-section nk-test-main-action"></section>`;}
+function nkCbtBuilderPage(){const step=1,titles=['Banks'],description='Build';return `<main>${nkAppPageHead(titles[step-1],description)}<div class="nk-module-stepper">${[1,2,3].join('')}</div></main>`;}
   window.QB={nav:()=>{}};
 </script></html>'''
     generated=transform(fixture)
     assert transform(generated)==generated
     for marker in ('NK_TIMED_RESUME_CARD_V1_START',"nkTimedResumeCard('home')",
-                   "nkTimedResumeCard('tests')",'nkResumeTimedTest,','nk-timed-resume-card-v1'):
+                   "nkTimedResumeCard('tests')","nkTimedResumeCard('builder')",'nkResumeTimedTest,','nk-timed-resume-card-v1'):
         assert marker in generated,marker
     subprocess.run(['node','--check'],input=generated.split('<script>',1)[1].split('</script>',1)[0],text=True,check=True)
 
