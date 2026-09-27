@@ -50,6 +50,9 @@ Prefer building over narrating.
   only when every selected question has the source-backed `pyq` facet.
   Dedicated chapter Topic Tests accumulate each question’s 60-second limit
   across navigation and reload, lock on expiry, and advance or submit safely.
+  Timed tests let learners mark uncertain questions for review without changing
+  their answer. Marks survive reload, appear in both question grids, and the
+  saved result offers Practice on the marked IDs, including correct guesses.
 - **Analysis / Review Solutions:** score + distribution + timing + completion;
   canonical Review Solutions entry (`data-v102-review-cta`, `__QB_OPEN_REVIEW`),
   question-first surface, fixed Previous/Next footer, grid/navigator + End

@@ -1552,3 +1552,19 @@ Implemented approved recovery in existing transform owners: Topics separate path
   phone/tablet emulator checks, then deployed the Cloudflare preview. Preview
   `https://8552f47f.nk-qbank.pages.dev` returned HTTP 200 and served the
   new Back warning code. Production was not promoted.
+
+## 2026-09-27 — Timed CBT marked-question follow-up candidate
+
+- The user confirmed the Browser/PWA Back preview works and directed explanation
+  fine-tuning and image integration to their separate automations. For the next
+  learner-facing phase, added a two-way Mark for review control to timed CBT and
+  strict topic tests. Marks are independent of answers, saved through reload,
+  visible in the question navigator and final review grid, and snapshotted into
+  the saved test. A result action starts Practice on exactly the saved marked
+  IDs, including questions answered correctly by guess.
+- Product `31ac38a` preserves the shared CBT/Practice engines and source IDs.
+  Local 66 checks, Engineering `36293641439`, and full generated browser/PWA/
+  packaged APK/Android phone+tablet emulator run `36293641549` passed. Phone/tablet browser checks cover
+  mark persistence, grids, saved history and follow-up. Cloudflare preview
+  `https://da6eaa24.nk-qbank.pages.dev` returned HTTP 200 with the new code.
+  User physical review is pending; production was not promoted.

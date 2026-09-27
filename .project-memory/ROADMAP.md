@@ -28,7 +28,15 @@ Check off only when build-verified **and** device-verified where UI is involved.
       installed-app review remains pending.
 - [ ] Browser/PWA Back warning during Practice and timed tests: restore the
       active question on Stay, follow history on Exit, and verify both phone
-      and tablet browser paths. Source checks pass; full preview build pending.
+      and tablet browser paths. Product `f450ab7` passed Engineering
+      `36248903088` and full browser/PWA/APK/Android emulator `36248903102`;
+      preview `https://8552f47f.nk-qbank.pages.dev`. The user confirmed it works.
+- [ ] Timed CBT mark for review and follow-up: toggle an uncertain question,
+      retain marks through reload and both question grids, snapshot them in
+      saved history, then Practice exactly the marked IDs after submission.
+      Product `31ac38a` passed Engineering `36293641439` and full browser/PWA/
+      packaged APK/Android phone+tablet emulator `36293641549`; preview
+      `https://da6eaa24.nk-qbank.pages.dev`. Physical review is pending.
 - [ ] All-bank QBank coverage tracker in Insights: source-exact answer-based
       progress for each of the six current subject/bank combinations, one
       bank's searchable/filterable topics at a time, and direct topic entry.
