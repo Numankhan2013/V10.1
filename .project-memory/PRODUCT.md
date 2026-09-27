@@ -85,6 +85,10 @@ Prefer building over narrating.
   candidate result section groups saved CBT answers by exact subject, bank,
   and topic, distinguishes incorrect from unattempted, and launches Practice
   on that test's missed IDs. It is test-specific evidence, not a mastery score.
+  A completed global-timer CBT can be retaken with the same saved questions,
+  empty answers, and a fresh timer. Its result compares initial versus retake
+  score, accuracy, attempts, time, and missed topics using saved answer
+  snapshots. Existing analysis and Review Solutions remain available.
 - **Insights:** Accuracy, Avg time, Due, Completion + chapter coverage +
   recent sessions; distinguish no-evidence from poor performance. A candidate
   cross-bank “Topics to revisit” section uses each question’s latest answer,

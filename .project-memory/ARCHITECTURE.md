@@ -115,6 +115,9 @@ checked deterministic rollout ledger.
   through the shared bank registry. Keys combine subject, bank, and topic ID.
   It changes the result view only; targeted follow-up enters the existing
   Practice engine. No new test or question persistence schema is introduced.
+  Exact CBT retakes reuse `startSession` with a context carrying the initial
+  saved test ID; `submitExam` copies that ID to the saved result's `retakeOf`.
+  The result view compares the two saved answer snapshots and topic keys.
 - Continue Practice (`tools/continue_practice_resume_core.js`,
   NK_CONTINUE_PRACTICE_RESUME_V1): regular topic Practice owns explicit
   activeSession.lifecycle, immutable original-order sessionQuestionIds, and a

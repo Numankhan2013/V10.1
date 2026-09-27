@@ -1641,3 +1641,24 @@ Implemented approved recovery in existing transform owners: Topics separate path
   `https://22a83cd1.nk-qbank.pages.dev` returned HTTP 200 and served the new
   action. The user checked the preview and said it works. Production was not
   promoted.
+
+## 2026-09-27 — Exact CBT retake and initial/final comparison
+
+- The user requested a higher-value exam feature after the grid Abandon fix.
+  Tests already had timed wrong/bookmarked sets, so a proposed Quick Revision
+  timed action would have duplicated that. Instead, completed global-timer CBT
+  results now offer a one-tap exact-question retake with a fresh timer and blank
+  answers. The single-active-test conflict guard remains in charge.
+- The retake session carries the initial saved test ID in its context; the
+  durable submission path writes `retakeOf` on the new saved result. Its result
+  compares correct, accuracy, attempted, incorrect, unattempted, time,
+  previously missed questions corrected, new misses, and source-exact topics
+  missed in either attempt. Initial analysis can be opened directly; existing
+  final-result overview, topic breakdown, Review Solutions, and missed-ID
+  Practice remain available. Missing questions block an exact retake.
+- Product `4a2d5af` with browser-check fix `108dfe3` passed local 70 checks,
+  Engineering `36315690909`, and full browser/PWA/packaged APK/Android phone
+  and tablet emulator `36315823769`. The Android comparison captures were
+  inspected. Preview `https://726640e4.nk-qbank.pages.dev` returned HTTP 200
+  and served the comparison; the user checked it and said it works. Production
+  was not promoted.

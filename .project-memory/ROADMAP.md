@@ -6,6 +6,15 @@ Check off only when build-verified **and** device-verified where UI is involved.
 
 ## Immediate (next 1–2 sessions)
 
+- [ ] Exact completed-CBT retake with initial-versus-final saved-result
+      comparison: score, accuracy, attempts, time, recovered/new misses, and
+      source-exact missed topics. Product `4a2d5af` with browser-check fix
+      `108dfe3` passed local 70 checks, Engineering `36315690909`, and full
+      browser/PWA/packaged APK/Android phone+tablet emulator `36315823769`.
+      Preview `https://726640e4.nk-qbank.pages.dev` was checked by the user
+      and works. In-place physical APK acceptance remains separate. Tests
+      already offers wrong/bookmarked timed tests.
+
 - [ ] Restore PrepLadder source PDF explanation contrast on phone/tablet in
       inline and zoom views, with unchanged source PDFs and mappings. Product
       `70794a2` passed local 68 checks, Engineering `36303853277`, and full
