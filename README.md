@@ -7,7 +7,7 @@ NK QBank is a private, offline-first Android medical question bank for personal 
 - Physically accepted build: V11.6 Content Quality
 - Accepted product commit: `125d68b`
 - Accepted APK run: `34050921180`
-- Current build-verified candidate: `v11.7-cross-device-pwa-sync` at `1b1fc9f`
+- Current integration candidate: `integration/ui-canonical-main-20260927` (full CI and release verification pending)
 
 The compact V10.3.11 question-first architecture remains the behavioral foundation. V11 adds accepted Home, review, and source-visual improvements without replacing that architecture.
 
@@ -58,7 +58,7 @@ Run **Build V11.7 Android + PWA** in GitHub Actions. A successful candidate prod
 - the debug APK
 - \`NK-QBank-build-manifest.json\` containing the commit, file sizes, and SHA-256 fingerprints
 
-CI success means **build-verified**, not device-verified. Install the candidate APK on the physical Android device before promoting it to the accepted baseline.
+CI success means **build-verified**, not device-verified. The user authorized production PWA promotion after full CI for the current integration candidate; Android physical-device acceptance and in-place data-preservation checks remain separate and pending.
 
 ## Engineering rules
 

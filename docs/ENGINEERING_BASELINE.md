@@ -6,9 +6,9 @@
 - Physically accepted product: V11.5 Custom Study Modules
 - Accepted product commit: `125d68b`
 - Accepted lineage: `v11.5-custom-study-modules`
-- Current build-verified candidate: `v11.6-content-quality` (`125d68b`)
+- Current integration candidate: `integration/ui-canonical-main-20260927` (full CI and release verification pending)
 
-V11.6 is the behavioral and accepted product baseline. Passing CI means a candidate is build-verified; only a successful physical-device test and explicit user approval can promote it to the accepted baseline.
+V11.6 remains the recorded physically accepted Android baseline. Passing CI means a candidate is build-verified. PWA production publication can proceed after full CI and explicit user authorization; that does not change the physically accepted Android baseline, which still requires device testing.
 
 ## Protected product contract
 
@@ -36,7 +36,7 @@ The following must not regress during unrelated work:
 7. Validate JavaScript after the final transformation.
 8. Build and inspect the packaged APK.
 9. Publish the APK together with its SHA-256 build manifest.
-10. Promote a build only after physical-device acceptance.
+10. Promote the PWA only after full CI and explicit user authorization. Promote the accepted Android baseline only after physical-device acceptance.
 
 ## Candidate states
 

@@ -1662,3 +1662,23 @@ Implemented approved recovery in existing transform owners: Topics separate path
   inspected. Preview `https://726640e4.nk-qbank.pages.dev` returned HTTP 200
   and served the comparison; the user checked it and said it works. Production
   was not promoted.
+
+## 2026-09-27 — UI integration and main production release
+
+- The user authorized integrating the secondary model's accepted UI updates into
+  the accepted QBank study build, reconciling with current `main`, and promoting
+  the whole production. The two code changes add per-destination identity to
+  More/Quick Revision lists and metric-specific identity to completed test
+  analysis tiles; they do not change question behavior or the home flow.
+- Cherry-picked code commits `5e239fa` and `26b0a42`; merged `origin/main` to
+  retain its current source-audit projections and runbooks. Integration branch:
+  `integration/ui-canonical-main-20260927`.
+- Local verification: `verify_project_memory.py` passed; `verify_local.py` passed
+  70 checks; revision desk unit behavior/install passed. The whole-app vision
+  unit check requires the CI generated-app transform position and is not a
+  standalone local pass. Full generated browser/PWA/APK/emulator CI and exact
+  main production promotion are the remaining release gates.
+- Previous UI branch full run `36316825304` passed on its product code. A later
+  doc-only commit run failed in an Android screenshot after interaction checks
+  because the browser context closed; rerun the exact integration through the
+  main full-CI gate before release.
