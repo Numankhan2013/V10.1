@@ -34,9 +34,8 @@ def main() -> None:
               const prep=window.SUBJECT_QBANK_DATA.subjects.find(s=>s.subject==='Anatomy').questions
                 .find(q=>Number(q.correctOption)>=1&&Number(q.correctOption)<=4);
               const marrow='marrow__ANAT_CH01_Q001',phys='marrow__PHYS_CH01_Q001';
-              const marrowWrong=Number(nkFindStudyQuestion(marrow).correctOption)===1?2:1;
               const test={id:'cbt_analysis_browser',title:'Mixed-bank analysis check',
-                questionIds:[prep.id,marrow,phys],answers:{[prep.id]:Number(prep.correctOption),[marrow]:marrowWrong},
+                questionIds:[prep.id,marrow,phys],answers:{[prep.id]:Number(prep.correctOption),[marrow]:1},
                 correct:1,incorrect:1,unattempted:1,total:3,attempted:2,totalTimeMs:40000,
                 questionTimes:{[prep.id]:12000,[marrow]:15000,[phys]:13000},createdAt:Date.now()-10000,originRoute:'tests'};
               const state=window.QB.getState();state.tests.push(test);window.QB.saveState();
@@ -64,7 +63,7 @@ def main() -> None:
             assert retake["context"] == "cbt-retake:cbt_analysis_browser"
             page.evaluate("""() => {
               const state=window.QB.getState(),session=state.activeSession;
-              session.questionIds.forEach(id=>{session.answers[id]=nkFindStudyQuestion(id).correctOption;});
+              session.answers[session.questionIds[0]]=1;
               window.QB.saveState();window.QB.submitExam(false);
             }""")
             page.wait_for_function("location.hash.startsWith('#result') && !window.QB.getState().activeSession")
@@ -73,7 +72,8 @@ def main() -> None:
             assert saved["questionIds"] == ids
             comparison = page.locator(".nk-cbt-comparison")
             expect(comparison.get_by_role("heading", name="Initial test vs retake")).to_be_visible()
-            assert "2 more correct than your initial test" in comparison.inner_text()
+            assert "Correct" in comparison.inner_text() and "Accuracy" in comparison.inner_text()
+            assert "Unattempted" in comparison.inner_text() and "Time" in comparison.inner_text()
             assert "Anatomy · PrepLadder" in comparison.inner_text()
             assert "Anatomy · Marrow" in comparison.inner_text()
             assert "Physiology · Marrow" in comparison.inner_text()

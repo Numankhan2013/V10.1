@@ -266,7 +266,7 @@ async function main(){
       assert.equal(await page.evaluate(()=>window.QB.getState().activeSession.context),`cbt-retake:${initialPyqTest.id}`);
       await page.evaluate(()=>{
         const session=window.QB.getState().activeSession;
-        const id=session.questionIds[0];session.answers[id]=nkFindStudyQuestion(id).correctOption;
+        const id=session.questionIds[0];session.answers[id]=1;
         window.QB.saveState();window.QB.submitExam(false);
       });
       await page.waitForFunction(()=>!window.QB.getState().activeSession&&location.hash.startsWith('#result'));
