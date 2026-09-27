@@ -210,6 +210,21 @@ async function main(){
       await page.waitForFunction(()=>window.QB.getState().activeSession?.mode==='exam');
       assert.equal(await page.evaluate(()=>window.QB.getState().activeSession.title),'PYQ CBT');
       const examId=await page.evaluate(()=>window.QB.getState().activeSession.id);
+      await page.evaluate(()=>{
+        const state=window.QB.getState(),id=state.activeSession.questionIds[0];
+        state.studyModules.push({id:'timed-module-guard',name:'Saved review set',questionIds:[id],createdAt:Date.now(),lastOpenedAt:Date.now()});
+        window.QB.startStudyModule('timed-module-guard');
+      });
+      const conflict=page.locator('#nk-timed-session-conflict');
+      await conflict.waitFor({state:'visible'});
+      assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),examId,'module launch must retain the timed test');
+      await device.screenshot({path:`${output}/${label}-timed-module-conflict.png`});
+      await conflict.getByRole('button',{name:'Cancel',exact:true}).click();
+      assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),examId);
+      await page.evaluate(()=>window.QB.startStudyModule('timed-module-guard'));
+      await page.locator('#nk-timed-session-conflict').getByRole('button',{name:'Resume test',exact:true}).click();
+      await waitForHash(page,'#exam');
+      assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),examId);
       await device.shell('input keyevent KEYCODE_BACK');
       await tapNativeExitDialog('Stay','Your timed test will keep running if you exit now.',`${output}/${label}-test-exit-confirmation.png`);
       assert.equal(await page.evaluate(()=>location.hash),'#exam','Stay must keep the timed test open');
