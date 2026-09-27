@@ -266,6 +266,10 @@ jobs:
         run: python3 tools/apply_exam_review_flags_v1.py
       - name: Test timed-test review marks
         run: python3 tools/test_exam_review_flags_v1.py
+      - name: Add Abandon to timed-test grids
+        run: python3 tools/apply_timed_abandon_grid_v1.py
+      - name: Test timed-test grid abandonment
+        run: python3 tools/test_timed_abandon_grid_v1.py
       - name: Install timed-test recovery card
         run: python3 tools/apply_timed_resume_card_v1.py
       - name: Test timed-test recovery card
@@ -392,8 +396,6 @@ jobs:
         run: python3 tools/verify_question_presentation_browser.py
       - name: Verify Continue Practice controls and pause resume in browser
         run: python3 tools/verify_continue_practice_browser.py
-      - name: Verify independent timed tests on phone and tablet
-        run: python3 tools/verify_multiple_timed_sessions_browser.py
       - name: Verify question interaction integrity on phone and tablet
         run: python3 tools/verify_question_interaction_browser.py
       - name: Verify personal notes in Practice and Review

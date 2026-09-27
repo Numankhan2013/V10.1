@@ -211,9 +211,17 @@ def main():
                 assert page.locator('.nk-exam-review-toggle').get_attribute('aria-pressed') == 'true'
                 page.evaluate('window.QB.openQuestionNavigator()')
                 assert page.locator('#qb-question-navigator .qb-nav-q.is-marked').count() == 1
+                assert page.locator('#qb-question-navigator').get_by_role('button', name='Abandon test').count() == 1
+                assert page.locator('.nk-v114-session.is-exam').get_by_role('button', name='Abandon test').count() == 0
+                with page.expect_event('dialog') as abandon_warning:
+                    page.locator('#qb-question-navigator').get_by_role('button', name='Abandon test').click()
+                assert 'no test result will be saved' in abandon_warning.value.message
+                abandon_warning.value.dismiss()
+                assert session(page)['id'] == cbt['id'], 'canceling Abandon must keep the timed test'
                 page.evaluate('window.QB.closeQuestionNavigator()')
                 page.evaluate('window.QB.openSessionReview()')
                 assert page.locator('#nk-session-review .nk-session-review-q.is-marked').count() == 1
+                assert page.locator('#nk-session-review').get_by_role('button', name='Abandon test').count() == 1
                 page.evaluate('window.QB.__sessionReviewClose()')
                 with page.expect_event('dialog') as warning:
                     page.evaluate('history.back()')
@@ -226,20 +234,20 @@ def main():
                 page.wait_for_url('**/#dashboard')
                 assert page.locator('.nk-timed-resume.is-home').is_visible()
                 assert 'timer keeps running' in page.locator('.nk-timed-resume.is-home').inner_text()
-                page.locator('.nk-timed-resume.is-home .nk-timed-resume-actions button:first-child').click()
+                page.locator('.nk-timed-resume.is-home button').click()
                 page.wait_for_url('**/#exam')
                 assert session(page)['id'] == cbt['id']
                 assert session(page)['markedForReview'][cbt_qid] is True
                 page.evaluate("window.QB.nav('tests')")
                 page.wait_for_url('**/#tests')
                 assert page.locator('.nk-timed-resume.is-tests').is_visible()
-                page.locator('.nk-timed-resume.is-tests .nk-timed-resume-actions button:first-child').click()
+                page.locator('.nk-timed-resume.is-tests button').click()
                 page.wait_for_url('**/#exam')
                 assert session(page)['id'] == cbt['id']
                 page.evaluate("window.QB.nav('test-builder')")
                 page.wait_for_url('**/#test-builder')
                 assert page.locator('.nk-timed-resume.is-builder').is_visible()
-                page.locator('.nk-timed-resume.is-builder .nk-timed-resume-actions button:first-child').click()
+                page.locator('.nk-timed-resume.is-builder button').click()
                 page.wait_for_url('**/#exam')
                 assert session(page)['id'] == cbt['id']
                 page.evaluate('''() => {
@@ -291,6 +299,23 @@ def main():
                 assert not errors, errors
                 reports.append({'viewport': f'{width}x{height}', 'touch': True, 'practice': 'PASS', 'mode_isolation': 'PASS', 'back': 'PASS', 'durability': 'PASS'})
                 context.close()
+                abandon_context = browser.new_context(viewport={'width': width, 'height': height}, is_mobile=True, has_touch=True, service_workers='block')
+                abandon_page = abandon_context.new_page()
+                abandon_page.route('**/*', lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
+                abandon_page.goto(origin + '/#tests', wait_until='domcontentloaded')
+                abandon_page.wait_for_function('window.QB?.getState')
+                abandon_page.evaluate('window.QB.openSessionBuilder(null,"exam")')
+                abandon_page.locator('#modal').get_by_role('button', name='Start Exam', exact=True).click()
+                abandon_page.wait_for_function("window.QB.getState().activeSession?.mode==='exam'")
+                abandon_page.evaluate('window.QB.openSessionReview()')
+                with abandon_page.expect_event('dialog') as abandon_confirmation:
+                    abandon_page.locator('#nk-session-review').get_by_role('button', name='Abandon test').click()
+                abandon_confirmation.value.accept()
+                abandon_page.wait_for_function("!window.QB.getState().activeSession && location.hash==='#tests'")
+                assert abandon_page.evaluate('window.QB.getState().tests.length') == 0, 'abandoned test created a result'
+                assert abandon_page.evaluate('Object.values(window.QB.getState().attempts).flat().length') == 0, 'abandoned test recorded attempts'
+                assert abandon_page.locator('.nk-timed-resume.is-tests').count() == 0, 'abandoned test remains resumable'
+                abandon_context.close()
             browser.close()
     finally:
         server.shutdown()
