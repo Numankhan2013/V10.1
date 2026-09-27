@@ -1626,3 +1626,56 @@ Implemented approved recovery in existing transform owners: Topics separate path
   after captures showed darker text and stronger blue with fine table lines
   visible. Preview `https://ce13d233.nk-qbank.pages.dev` returned HTTP 200
   and served the rule. Physical review is pending; production was not promoted.
+
+## 2026-09-27 — More / Quick Revision list identity (branch `feature/home-question-ui-v1`)
+
+- The user reviewed the current preview and set the visual priority order: the
+  question screen is already the strongest surface and was explicitly excluded;
+  Home is compact and must not change content, padding, text, or format — only
+  the effects already on screen; the More / missed-question area is the top
+  priority because "all those options, all those tabs are all the same in
+  colour, grading, text"; test analysis is a secondary pass.
+- Auditing the CI captures of full run `36303853023` (`study-ui-audit` and
+  `android-question-interaction`, phone 393x699 and tablet 800x960) reproduced
+  the complaint exactly. The earlier source-only reading was wrong twice: the
+  audit had been run against `main`, which is a guarded release branch and does
+  not even contain `apply_home_command_center_v1.py`, and the apparent
+  `!important` typography conflict does not manifest in rendered output. Two
+  further suspected defects were capture artifacts, not bugs: a `position:fixed`
+  footer appearing to overlap a full-page explanation screenshot, and a
+  washed-out tablet Home frame caught mid launch animation.
+- Root cause of the flat lists. `tools/apply_revision_desk_v1.py` replaced three
+  More rows — each with a real count and an `is-red` / `is-violet` tone — with
+  two rows that pass no `tone` argument at all, so the five `is-*` tone rules
+  still shipped by `apply_whole_app_vision_v1.py` had no consumer. The same file
+  also gave all four `nkRevisionCard` queues one identical template, so
+  mistakes, bookmarks, unseen and due review rendered as the same white card
+  with the same lavender icon tile. The app contains exactly two `row()` calls
+  and neither passed a tone, so the tone mechanism was entirely dead code.
+- The fix edits the existing owners rather than adding a layer, which is the
+  route the primary agent required. `tools/revision_desk_core.js` derives a
+  tone from `kind` (wrong red, bookmarks violet, unseen blue, due green) and
+  `tools/apply_revision_desk_v1.py` passes `is-blue` / `is-violet` to the two
+  More rows and adds one scoped style block giving toned cards and rows a
+  tinted surface, tone-coloured icon tile, title and count, a hairline
+  elevation, a hover lift, and a `prefers-reduced-motion` override. Base row and
+  card geometry, the `row()` signature, and every label, count, question ID,
+  answer, and route are untouched, so the revision-queue behaviour contract is
+  unaffected.
+- Local verification, explicitly not build-verified. `tools/test_revision_desk_v1.py`
+  reports `REVISION_DESK_BEHAVIOR_OK` and `REVISION_DESK_INSTALL_OK`, which also
+  proves the transform stays idempotent and the inline script passes
+  `node --check`; all 10 inline scripts in the generated app pass `node --check`.
+  Two transforms fail locally — `improve_source_visual_assets_v1.py` and
+  `apply_cross_device_pwa_v1.py` — and `verify_product_contract.py --stage
+  generated` then reports 5 missing protected markers. Both are environmental:
+  PyMuPDF cannot be installed in this environment, and the identical failures
+  and identical missing markers were reproduced on an unmodified baseline
+  checkout with these edits stashed. PyPI, apt package indexes, and large npm
+  tarballs all stall here, so local Playwright/Chromium rendering was not
+  possible; before-images came from the CI artifacts instead.
+- Next: push the branch. The push filter covers `feature/home-*`, so CI builds
+  and deploys a Cloudflare preview automatically. Then inspect the new
+  `study-ui-audit` captures and ask the user to compare More and Quick Revision
+  against the current build. Test analysis, then Home effects-only, remain
+  queued behind the user's own priority order.
