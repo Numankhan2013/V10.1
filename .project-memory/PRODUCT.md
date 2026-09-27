@@ -124,7 +124,10 @@ Prefer building over narrating.
 - **Cross-device account controls:** More presents one Sign in action and a
   separate two-step Create account flow (email, then password + confirmation).
   Reset progress while signed in clears local learning state and synchronized
-  progress for the account; the Firebase sign-in remains active.
+  progress for the account; the Firebase sign-in remains active. After sign-out,
+  a different account may be opened on the same installation. Each account's
+  local progress and pending sync changes remain separate and return when that
+  account signs in again.
 - **Source faithfulness:** original PDFs are truth; exact normalized
   stem matching, subject-specific PDFs only, no fuzzy cross-subject images,
   no `Question N has image` heuristics; aspect preserved; fullscreen viewer

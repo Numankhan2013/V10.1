@@ -1734,3 +1734,18 @@ Implemented approved recovery in existing transform owners: Topics separate path
   interactions. Preview `https://9ab4f6ec.nk-qbank.pages.dev` and branch alias
   both returned HTTP 200 with the new auth/reset code. Production was untouched;
   physical-device review remains pending.
+
+## 2026-09-27 — Account switching after progress reset
+
+- The previous one-account installation lock prevented a signed-out learner
+  from opening a second QBank account after reset. Removing the lock alone
+  would have mixed the first account's local state and outbox into the second.
+- Added UID-scoped local snapshots and an interrupted-switch journal. Sign-in
+  now loads only the selected account's state and sync metadata; returning to
+  an earlier account restores its unsent edits. Storage failure leaves the
+  previous owner intact. A fresh account pulls remote progress before sending
+  empty active-session or preference updates; a pending reset stays with its
+  original account.
+- Targeted account-switch, remote-active-test, reset-fence, recovery, and
+  storage-failure behavior tests pass. Full local verification and CI preview
+  remain to be completed; production and physical Android are unchanged.

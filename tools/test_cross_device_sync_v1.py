@@ -262,6 +262,55 @@ async function testRequests(){
   nkSyncMeta.accountGeneration='legacy';state.attempts={q1:[{id:'stale',at:1}]};
   await nkEnsureAccountGeneration('test-token');
   assert(nkSyncMeta.accountGeneration==='generation-test'&&!Object.keys(state.attempts).length,'a returning older device must clear stale progress before syncing');
+  // A signed-out account must keep its own local work, including queued edits.
+  state={...defaultState(),bookmarks:{accountA:{addedAt:1}}};
+  nkSyncMeta=nkNormalizeSyncMeta({deviceId:'android',boundUid:'account-a',outbox:{'bookmarks/accountA':nkEnvelope('bookmarks','accountA',{active:true},1)},accountGeneration:'generation-a'});
+  nkAuth=null;activeSubject='Anatomy';
+  const loginFields={'nk-cloud-email':{value:'second@example.com'},'nk-cloud-password':{value:'password123'}};
+  document.getElementById=id=>loginFields[id]||null;document.querySelector=()=>null;
+  let loginUid='account-b';
+  globalThis.fetch=async()=>({ok:true,text:async()=>JSON.stringify({localId:loginUid,email:'second@example.com',idToken:'token',refreshToken:'refresh',expiresIn:'3600'})});
+  nkInitialCloudSync=async()=>{};
+  await nkCloudAuthenticate('signin');
+  assert(nkAuth?.uid==='account-b'&&!state.bookmarks.accountA&&!nkSyncMeta.outbox['bookmarks/accountA']&&activeSubject==='Biochemistry','second-account sign-in must start with isolated local progress and preferences');
+  assert(nkSyncMeta.needsInitialPull,'a newly opened account must download before sending empty singleton state');
+  const remoteExam=nkEnvelope('sessions','active',{id:'account-b-exam',mode:'exam',questionIds:['q1'],startedAt:100},100);
+  remoteExam.ownerDevice='ipad';let emptySessionSent=false;
+  globalThis.fetch=async(url,options={})=>{
+    if(String(url).includes('/control/accountReset'))return {ok:false,status:404,text:async()=>JSON.stringify({error:{message:'NOT_FOUND'}})};
+    if(options.method==='POST'){
+      const kind=JSON.parse(options.body).structuredQuery.from[0].collectionId;
+      if(kind==='sessions')emptySessionSent=Boolean(nkSyncMeta.outbox['sessions/active']?.deleted);
+      return {ok:true,text:async()=>JSON.stringify(kind==='sessions'?[{document:nkFirestoreDocument(remoteExam,'remote-exam')}]:[])};
+    }
+    return {ok:true,text:async()=>'{}'};
+  };
+  await nkCloudSync(true,true);
+  assert(!emptySessionSent&&state.activeSession?.id==='account-b-exam'&&!nkSyncMeta.needsInitialPull,'opening the second account must preserve its remote active test');
+  globalThis.fetch=async()=>({ok:true,text:async()=>JSON.stringify({localId:loginUid,email:'second@example.com',idToken:'token',refreshToken:'refresh',expiresIn:'3600'})});
+  state.bookmarks.accountB={addedAt:2};nkSyncMeta.outbox['bookmarks/accountB']=nkEnvelope('bookmarks','accountB',{active:true},2);
+  await nkCloudSignOut();
+  loginUid='account-a';await nkCloudAuthenticate('signin');
+  assert(nkAuth?.uid==='account-a'&&state.bookmarks.accountA&&!state.bookmarks.accountB&&nkSyncMeta.outbox['bookmarks/accountA']&&!nkSyncMeta.outbox['bookmarks/accountB']&&activeSubject==='Anatomy',`returning to the first account must restore its own local state and unsynced outbox: ${JSON.stringify({uid:nkAuth?.uid,bookmarks:state.bookmarks,outbox:Object.keys(nkSyncMeta.outbox),subject:activeSubject})}`);
+  await nkCloudSignOut();loginUid='account-b';await nkCloudAuthenticate('signin');
+  assert(nkAuth?.uid==='account-b'&&state.bookmarks.accountB&&!state.bookmarks.accountA&&nkSyncMeta.outbox['bookmarks/accountB'],'returning to the second account must restore only its progress');
+  await nkCloudSignOut();
+  const originalSetItem=localStorage.setItem;
+  localStorage.setItem=(key,value)=>{if(key===nkAccountSnapshotKey('account-b'))throw new Error('quota');return originalSetItem(key,value);};
+  loginUid='account-a';await nkCloudAuthenticate('signin');
+  assert(!nkAuth&&nkSyncMeta.boundUid==='account-b'&&state.bookmarks.accountB,'snapshot storage failure must leave the signed-out account intact');
+  localStorage.setItem=originalSetItem;
+  localStorage.setItem(NK_RESET_PENDING_KEY,'unfinished');
+  loginUid='account-a';await nkCloudAuthenticate('signin');
+  assert(!nkAuth&&nkSyncMeta.boundUid==='account-b'&&state.bookmarks.accountB,'an unfinished account reset must block switching without changing local state');
+  loginUid='account-b';await nkCloudAuthenticate('signin');
+  assert(nkAuth?.uid==='account-b','the original account must be allowed to sign in and finish an interrupted reset');
+  await nkCloudSignOut();
+  localStorage.removeItem(NK_RESET_PENDING_KEY);
+  localStorage.setItem(NK_ACCOUNT_SWITCH_PENDING_KEY,JSON.stringify({fromUid:'account-b',toUid:'account-a'}));
+  state=defaultState();nkSyncMeta=nkNormalizeSyncMeta({deviceId:'android',boundUid:'account-a'});
+  nkRecoverAccountSwitch();
+  assert(state.bookmarks.accountB&&nkSyncMeta.boundUid==='account-b'&&!localStorage.getItem(NK_ACCOUNT_SWITCH_PENDING_KEY),'interrupted switch must recover the previous account before sign-in');
   nkAuth=null;nkAuthView='signin';window.NK_QBANK_FIREBASE_CONFIG={apiKey:'public-test-key',projectId:'test-project'};
   const signedOutCard=nkCloudAccountCard();
   assert(signedOutCard.includes('Sign in to QBank')&&signedOutCard.includes('Create account')&&!signedOutCard.includes("nkCloudAuthenticate('create')"),'auth card must present one sign-in action and a separate create-account entry');
@@ -286,6 +335,8 @@ let state={};let activeSubject='Biochemistry';
 const SUBJECT_BY_NAME={Biochemistry:{}};
 function render(){} function showToast(){} function saveState(){return true} function fmtDate(v){return String(v)} function esc(v){return String(v)} function defaultState(){return {attempts:{},bookmarks:{},reviews:{},tests:[],studyModules:[],activeSession:null,questionNotes:{},fsrsReviewEligible:{}}}
 function applySubject(v){activeSubject=v}
+function nkNormalizeState(v){if(!v||typeof v!=='object'||Array.isArray(v))throw new Error('invalid state');return v}
+function nkDurablePersist(v){localStorage.setItem(LS_KEY,JSON.stringify(v));return true}
 '''
     with tempfile.TemporaryDirectory() as directory:
         script = Path(directory) / "sync-test.js"

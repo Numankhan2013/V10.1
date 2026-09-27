@@ -4,16 +4,17 @@
 
 ## Baseline and active work
 
-- Current candidate (2026-09-27): More now presents one Sign in form and a
-  staged Create account flow (email → password + confirmation → return to
-  sign-in). Reset progress works signed in and clears local state plus synced
-  progress payloads across the account using a generation marker and Firestore
-  tombstones. Targeted sync/auth behavior tests and all 70 local checks pass;
-  Engineering `36328868558` and full generated browser/PWA/APK/Android
-  phone+tablet run `36328865681` passed. Preview
-  `https://9ab4f6ec.nk-qbank.pages.dev` and branch alias both return HTTP 200
-  and contain the new flows. Production was not changed; physical-device review
-  remains pending.
+- Current candidate (2026-09-27): Fix the account-switch failure after reset
+  and sign-out. The one-account installation lock is replaced by per-account
+  local snapshots of progress, sync queues, and subject preference. A switch
+  journal recovers interrupted writes; a newly opened account downloads before
+  sending empty active-session or preference state. A pending remote reset may
+  be resumed only by its original account. Account isolation, return-to-account,
+  interrupted-switch, storage-failure, and remote-active-test behavior tests
+  pass locally. Full CI and preview verification are pending. The prior reset
+  and staged sign-in preview `https://9ab4f6ec.nk-qbank.pages.dev` passed
+  Engineering `36328868558` and full run `36328865681`, but contains the
+  account-switch lock. Production was not changed; physical review is pending.
 
 - Repo: `Numankhan2013/V10.1`. Accepted product commit: `125d68b` (V11.6 accepted baseline and rollback point). The user explicitly authorized integrating the accepted study candidate and UI changes into `main` and promoting production on 2026-09-27; release only the exact SHA after full CI passes. Physical Android acceptance remains distinct.
 - Sole Marrow/product integration trunk: `feature/marrow-canonical-full-current`. Its last recorded verified canonical checkpoint was `356cce4`; Engineering `35453226391` and full Android/PWA/browser/APK `35453226292` passed. Recheck the live head before any integration.

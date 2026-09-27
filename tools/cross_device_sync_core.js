@@ -8,6 +8,8 @@
   const NK_AUTH_KEY='qbank_firebase_auth_v1';
   const NK_PRE_CLOUD_BACKUP='qbank_state_pre_cloud_v1';
   const NK_RESET_PENDING_KEY='qbank_account_reset_pending_v1';
+  const NK_ACCOUNT_SNAPSHOT_PREFIX='qbank_account_snapshot_v1_';
+  const NK_ACCOUNT_SWITCH_PENDING_KEY='qbank_account_switch_pending_v1';
   const NK_SYNC_KINDS=['attempts','bookmarks','notes','tests','modules','practiceSessions','sessions','preferences'];
   let nkCloudApplying=false,nkCloudRevision=0,nkCloudMergeChanged=false;
   let nkCloudBusy=false,nkCloudReady=false,nkCloudResetting=false,nkCloudTimer=null,nkCloudInterval=null,nkResolvedProjectId='';
@@ -20,9 +22,8 @@
     return JSON.stringify(value);
   }
   function nkHash(value){let h=2166136261,s=nkStable(value);for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return (h>>>0).toString(36);}
-  function nkLoadSyncMeta(){
-    const candidates=[NK_SYNC_META_KEY,NK_SYNC_META_PENDING_KEY,NK_SYNC_META_LKG_KEY].map(key=>nkJson(localStorage.getItem(key),null)).filter(value=>value&&typeof value==='object').sort((a,b)=>Number(b.metaRevision||0)-Number(a.metaRevision||0));
-    const value=candidates[0]||{};
+  function nkNormalizeSyncMeta(value){
+    value=value&&typeof value==='object'&&!Array.isArray(value)?value:{};
     value.deviceId=value.deviceId||`device_${Date.now().toString(36)}_${Math.random().toString(36).slice(2,10)}`;
     value.outbox=value.outbox&&typeof value.outbox==='object'?value.outbox:{};
     value.localHashes=value.localHashes&&typeof value.localHashes==='object'?value.localHashes:{};
@@ -30,6 +31,10 @@
     value.winners=value.winners&&typeof value.winners==='object'?value.winners:{};
     value.cursors=value.cursors&&typeof value.cursors==='object'?value.cursors:{};
     return value;
+  }
+  function nkLoadSyncMeta(){
+    const candidates=[NK_SYNC_META_KEY,NK_SYNC_META_PENDING_KEY,NK_SYNC_META_LKG_KEY].map(key=>nkJson(localStorage.getItem(key),null)).filter(value=>value&&typeof value==='object').sort((a,b)=>Number(b.metaRevision||0)-Number(a.metaRevision||0));
+    return nkNormalizeSyncMeta(candidates[0]||{});
   }
   let nkSyncMeta=nkLoadSyncMeta();
   function nkSaveSyncMeta(){try{nkSyncMeta.metaRevision=Math.max(0,Number(nkSyncMeta.metaRevision||0))+1;const raw=JSON.stringify(nkSyncMeta);localStorage.setItem(NK_SYNC_META_PENDING_KEY,raw);localStorage.setItem(NK_SYNC_META_KEY,raw);localStorage.setItem(NK_SYNC_META_LKG_KEY,raw);localStorage.removeItem(NK_SYNC_META_PENDING_KEY);return true;}catch(error){if(typeof nkStorageError==='function')nkStorageError('Cloud changes are queued in memory but their outbox could not be saved',error);return false;}}
@@ -41,6 +46,53 @@
   var nkAuth=nkLoadAuth();
   function nkSaveAuth(){if(nkAuth)localStorage.setItem(NK_AUTH_KEY,JSON.stringify(nkAuth));else localStorage.removeItem(NK_AUTH_KEY);}
   function nkAuthValid(){return Boolean(nkAuth?.idToken&&Number(nkAuth.expiresAt||0)>Date.now()+60000);}
+
+  function nkAccountSnapshotKey(uid){return NK_ACCOUNT_SNAPSHOT_PREFIX+encodeURIComponent(uid);}
+  function nkReadAccountSnapshot(uid){
+    const raw=localStorage.getItem(nkAccountSnapshotKey(uid));
+    if(!raw)return null;
+    const snapshot=nkJson(raw,null);
+    if(!snapshot||snapshot.uid!==uid||!snapshot.state||!snapshot.syncMeta||snapshot.syncMeta.boundUid!==uid)throw new Error('Saved account progress could not be read. No accounts were changed.');
+    return {...snapshot,state:nkNormalizeState(snapshot.state),syncMeta:nkNormalizeSyncMeta(snapshot.syncMeta)};
+  }
+  function nkRestoreAccountSnapshot(snapshot){
+    const nextState=nkNormalizeState(snapshot.state),nextMeta=nkNormalizeSyncMeta(snapshot.syncMeta);
+    state=nextState;
+    if(nkDurablePersist(state,'account switch')===false)throw new Error('Account progress could not be saved on this device.');
+    nkSyncMeta=nextMeta;
+    if(!nkSaveSyncMeta())throw new Error('Account sync history could not be saved on this device.');
+    activeSubject=SUBJECT_BY_NAME[snapshot.activeSubject]?snapshot.activeSubject:'Biochemistry';
+    localStorage.setItem('qbank_active_subject_v1',activeSubject);
+    localStorage.removeItem(NK_PRE_CLOUD_BACKUP);
+    nkCloudRevision++;
+  }
+  function nkRecoverAccountSwitch(){
+    const pending=nkJson(localStorage.getItem(NK_ACCOUNT_SWITCH_PENDING_KEY),null);
+    if(!pending)return;
+    // A crash before the new login commits must restore the previous owner.
+    nkAuth=null;nkSaveAuth();
+    const prior=nkReadAccountSnapshot(String(pending.fromUid||''));
+    if(!prior)throw new Error('Previous account snapshot is missing. Sign-in is paused to protect local progress.');
+    nkRestoreAccountSnapshot(prior);
+    localStorage.removeItem(NK_ACCOUNT_SWITCH_PENDING_KEY);
+  }
+  let nkAccountRecoveryError='';
+  try{nkRecoverAccountSwitch();}catch(error){nkAccountRecoveryError=String(error.message||error);nkAuth=null;try{nkSaveAuth();}catch(_){}}
+  function nkSwitchLocalAccount(uid){
+    if(nkAuth)throw new Error('Sign out before opening another account.');
+    if(localStorage.getItem(NK_ACCOUNT_SWITCH_PENDING_KEY))throw new Error('An interrupted account switch must be recovered before signing in.');
+    const fromUid=String(nkSyncMeta.boundUid||'');
+    if(localStorage.getItem(NK_RESET_PENDING_KEY)&&fromUid!==uid)throw new Error('Finish the pending account reset in the original account before switching accounts.');
+    if(!fromUid||fromUid===uid){nkSyncMeta.boundUid=uid;if(!nkSaveSyncMeta())throw new Error('Account sync history could not be saved.');return false;}
+    const target=nkReadAccountSnapshot(uid)||{uid,state:defaultState(),syncMeta:{deviceId:nkSyncMeta.deviceId,boundUid:uid,needsInitialPull:true},activeSubject:'Biochemistry'};
+    const prior={uid:fromUid,state,syncMeta:{...nkSyncMeta,boundUid:fromUid},activeSubject};
+    // Write the source snapshot first. The journal lets startup roll back a
+    // process death between the durable state and auth writes.
+    localStorage.setItem(nkAccountSnapshotKey(fromUid),JSON.stringify(prior));
+    localStorage.setItem(NK_ACCOUNT_SWITCH_PENDING_KEY,JSON.stringify({fromUid,toUid:uid}));
+    try{nkRestoreAccountSnapshot(target);return true;}
+    catch(error){try{nkRecoverAccountSwitch();}catch(_){ }throw error;}
+  }
 
   function nkProjectIdFromToken(token){
     try{
@@ -101,14 +153,35 @@
       const c=nkFirebaseConfig(),action=creating?'signUp':'signInWithPassword';activeButton=document.querySelector('.nk-auth-submit');if(activeButton){activeButton.disabled=true;activeButton.textContent=creating?'Creating account…':'Signing in…';}
       const data=await nkFetchJson(`https://identitytoolkit.googleapis.com/v1/accounts:${action}?key=${encodeURIComponent(c.apiKey)}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password,returnSecureToken:true})});
       if(creating){nkAuthView='signin';nkSignInEmail=String(data.email||email);nkPendingCreateEmail='';showToast('Account created. Sign in to start syncing.','good');render();nkFocusAuthInput('nk-cloud-password');return;}
-      if(nkSyncMeta.boundUid&&nkSyncMeta.boundUid!==String(data.localId))throw new Error('This installation is already linked to a different QBank account.');
-      nkAuth={uid:String(data.localId),email:String(data.email||email),idToken:String(data.idToken),refreshToken:String(data.refreshToken),expiresAt:Date.now()+Number(data.expiresIn||3600)*1000};nkSaveAuth();
-      nkSyncMeta.boundUid=nkAuth.uid;nkSaveSyncMeta();
+      if(nkAccountRecoveryError)throw new Error(nkAccountRecoveryError);
+      const nextAuth={uid:String(data.localId),email:String(data.email||email),idToken:String(data.idToken),refreshToken:String(data.refreshToken),expiresAt:Date.now()+Number(data.expiresIn||3600)*1000};
+      let switched=false;
+      try{
+        switched=nkSwitchLocalAccount(nextAuth.uid);
+        nkAuth=nextAuth;nkSaveAuth();
+        if(switched)localStorage.removeItem(NK_ACCOUNT_SWITCH_PENDING_KEY);
+      }catch(error){
+        nkAuth=null;try{nkSaveAuth();}catch(_){}
+        if(switched||localStorage.getItem(NK_ACCOUNT_SWITCH_PENDING_KEY))try{nkRecoverAccountSwitch();}catch(recovery){nkAccountRecoveryError=String(recovery.message||recovery);}
+        throw error;
+      }
       await nkInitialCloudSync();showToast(mode==='create'?'Account created and progress synchronized.':'Signed in and synchronized.','good');render();
-    }catch(error){showToast(nkAuthMessage(error.message),'bad');}
+    }catch(error){
+      if(nkAuth){nkCloudReady=true;showToast(`Signed in, but sync is paused: ${String(error.message||error)}`,'bad');render();}
+      else showToast(nkAuthMessage(error.message),'bad');
+    }
     finally{if(activeButton){activeButton.disabled=false;activeButton.textContent=creating?'Create account':'Sign in';}}
   }
-  function nkCloudSignOut(){if(nkCloudResetting){showToast('Wait for the account reset to finish before signing out.','bad');return;}nkAuth=null;nkCloudReady=false;nkSaveAuth();showToast('Signed out. Your synchronized progress remains on this device.');render();}
+  async function nkCloudSignOut(){
+    if(nkCloudResetting){showToast('Wait for the account reset to finish before signing out.','bad');return;}
+    nkCloudResetting=true;clearTimeout(nkCloudTimer);
+    try{
+      if(nkCloudBusy)showToast('Finishing the current sync before signing out.');
+      while(nkCloudBusy)await new Promise(resolve=>setTimeout(resolve,40));
+      nkAuth=null;nkCloudReady=false;nkSaveAuth();
+      showToast('Signed out. Your progress stays on this device and will be kept separate when you open another account.');render();
+    }finally{nkCloudResetting=false;}
+  }
 
   function nkEnvelope(kind,entityId,payload,updatedAt,deleted=false){return {kind,entityId:String(entityId),ownerDevice:nkSyncMeta.deviceId,updatedAt:Math.max(1,Number(updatedAt||Date.now())),deleted:Boolean(deleted),payload:deleted?'':JSON.stringify(payload),schemaVersion:1};}
   function nkQueueEnvelope(envelope){
@@ -118,7 +191,7 @@
   }
   function nkEntityTimestamp(value,fallback=0){return Math.max(Number(value?.updatedAt||0),Number(value?.lastOpenedAt||0),Number(value?.completedAt||0),Number(value?.createdAt||0),Number(value?.questionEnteredAt||0),Number(value?.lastTick||0),Number(value?.startedAt||0),Number(fallback||0));}
   function nkCaptureCloudChanges(){
-    if(!nkAuth||nkCloudApplying)return;
+    if(!nkAuth||nkCloudApplying||nkCloudResetting)return;
     const revision=nkCloudRevision;
     const current={bookmarks:new Set(),modules:new Set()};
     Object.entries(state.attempts||{}).forEach(([qid,list])=>(Array.isArray(list)?list:[]).forEach(attempt=>{if(attempt?.id)nkQueueEnvelope(nkEnvelope('attempts',attempt.id,{qid:String(qid),attempt},Number(attempt.at||0)));}));
@@ -136,10 +209,10 @@
     const latest=state.normalPracticeCheckpoint||checkpoints.slice().sort((a,b)=>Number(b.updatedAt||0)-Number(a.updatedAt||0))[0];
     if(latest)nkQueueEnvelope(nkEnvelope('practiceSessions','normal',latest,Number(latest.updatedAt||Date.now()),false));
     const special=state.activeSession&&!(typeof nkNormalPracticeSession==='function'&&nkNormalPracticeSession(state.activeSession))?state.activeSession:null;
-    nkQueueEnvelope(nkEnvelope('sessions','active',special,nkEntityTimestamp(special,Date.now()),!special));
+    if(special||!nkSyncMeta.needsInitialPull)nkQueueEnvelope(nkEnvelope('sessions','active',special,nkEntityTimestamp(special,Date.now()),!special));
     const fsrsReviewEligible=state.fsrsReviewEligible&&Object.keys(state.fsrsReviewEligible).length?state.fsrsReviewEligible:null;
     const preferencesPayload={activeSubject,studyStartedAt:state.studyStartedAt||null,fsrsPreferences:state.fsrsPreferences||null,...(fsrsReviewEligible?{fsrsReviewEligible}:{})};
-    nkQueueEnvelope(nkEnvelope('preferences','main',preferencesPayload,Date.now()));
+    if(!nkSyncMeta.needsInitialPull)nkQueueEnvelope(nkEnvelope('preferences','main',preferencesPayload,Date.now()));
     nkSaveSyncMeta();if(nkCloudRevision!==revision&&!nkCloudBusy)nkScheduleCloudFlush();
   }
   function nkScheduleCloudSync(){if(!nkAuth)return;nkCaptureCloudChanges();}
@@ -186,6 +259,7 @@
       nkSyncMeta.outbox={};nkSyncMeta.localHashes={};nkSyncMeta.known={};nkSyncMeta.winners={};nkSyncMeta.cursors={};nkSyncMeta.accountGeneration=String(generation||nkSyncMeta.accountGeneration||'legacy');nkSyncMeta.lastSyncAt=null;nkSyncMeta.status='synced';nkSyncMeta.lastError='';nkCloudRevision++;
       if(!nkSaveSyncMeta())throw new Error('Local sync metadata could not be saved as cleared.');
       localStorage.removeItem(NK_PRE_CLOUD_BACKUP);localStorage.removeItem(NK_RESET_PENDING_KEY);
+      if(nkSyncMeta.boundUid)localStorage.removeItem(nkAccountSnapshotKey(nkSyncMeta.boundUid));
     }finally{nkCloudResetting=previous;}
   }
   async function nkCompleteRemoteReset(token,generation){
@@ -206,6 +280,7 @@
     if(!nkSyncMeta.accountGeneration){nkSyncMeta.accountGeneration='legacy';nkSaveSyncMeta();}
   }
   async function nkResetProgress(){
+    if(nkCloudResetting){showToast('Wait for the current account operation to finish.','bad');return;}
     const account=Boolean(nkAuth),message=account?'Reset all progress for this QBank account on this device and every synced device? This cannot be undone. Your sign-in will remain active.':'Reset progress on this device? Any saved cloud account will remain unchanged.';
     if(!confirm(message))return;
     if(account&&!confirm('Confirm account-wide reset. All synchronized attempts, tests, bookmarks, notes, modules, and sessions will be cleared.'))return;
@@ -395,7 +470,10 @@
       const pulled=await nkPullCloud(token);
       const changed=nkCloudMergeChanged;
       if(saveState()===false)throw new Error('merged state could not be saved locally');
-      if(initial){nkCloudReady=true;nkCaptureCloudChanges();}
+      if(initial)nkCloudReady=true;
+      const firstPull=Boolean(nkSyncMeta.needsInitialPull);
+      if(firstPull)nkSyncMeta.needsInitialPull=false;
+      if(initial||firstPull)nkCaptureCloudChanges();
       stage='upload';
       const pushed=await nkPushOutbox(token);
       nkSyncMeta.lastSyncAt=Date.now();nkSyncMeta.status='synced';nkSyncMeta.lastError='';nkSaveSyncMeta();if(changed)render();return {pulled,pushed};
@@ -438,6 +516,7 @@
     window.addEventListener('focus',nkCloudAutoSync);
     document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')nkCloudAutoSync();});
     nkStartCloudAutoSync();
+    if(nkAccountRecoveryError){showToast(nkAccountRecoveryError,'bad');return;}
     if(!nkAuth||!nkCloudConfigured())return;
     try{await nkInitialCloudSync();}catch(_){nkCloudReady=true;}
   }

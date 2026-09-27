@@ -378,6 +378,13 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   or merging progress and clear stale local state first. A partial reset remains
   marked for retry on reconnect. Tombstone metadata stays in Firestore to fence
   older local copies from returning.
+- Account switching stores the outgoing owner's state and sync metadata under
+  a UID-scoped local snapshot, then loads the incoming owner's snapshot or a
+  clean state. A pending-switch journal restores the old owner after an
+  interrupted local write; storage failure leaves sign-in blocked rather than
+  crossing account data. The first pull for a fresh owner omits empty session
+  tombstones and default preferences so it cannot clear a remote active test.
+  An unfinished account reset blocks switching away from its owner.
 
 <!-- V11.7_DEPLOYMENT_HANDOFF_2026-09-07 -->
 ## V11.7 deployment handoff — 2026-09-07
