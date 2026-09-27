@@ -213,10 +213,10 @@ def main():
                 assert page.locator('#qb-question-navigator .qb-nav-q.is-marked').count() == 1
                 assert page.locator('#qb-question-navigator').get_by_role('button', name='Abandon test').count() == 1
                 assert page.locator('.nk-v114-session.is-exam').get_by_role('button', name='Abandon test').count() == 0
-                with page.expect_event('dialog') as abandon_warning:
-                    page.locator('#qb-question-navigator').get_by_role('button', name='Abandon test').click()
-                assert 'no test result will be saved' in abandon_warning.value.message
-                abandon_warning.value.dismiss()
+                abandon_messages = []
+                page.once('dialog', lambda dialog: (abandon_messages.append(dialog.message), dialog.dismiss()))
+                page.locator('#qb-question-navigator').get_by_role('button', name='Abandon test').click()
+                assert abandon_messages and 'no test result will be saved' in abandon_messages[0]
                 assert session(page)['id'] == cbt['id'], 'canceling Abandon must keep the timed test'
                 page.evaluate('window.QB.closeQuestionNavigator()')
                 page.evaluate('window.QB.openSessionReview()')
@@ -308,9 +308,8 @@ def main():
                 abandon_page.locator('#modal').get_by_role('button', name='Start Exam', exact=True).click()
                 abandon_page.wait_for_function("window.QB.getState().activeSession?.mode==='exam'")
                 abandon_page.evaluate('window.QB.openSessionReview()')
-                with abandon_page.expect_event('dialog') as abandon_confirmation:
-                    abandon_page.locator('#nk-session-review').get_by_role('button', name='Abandon test').click()
-                abandon_confirmation.value.accept()
+                abandon_page.once('dialog', lambda dialog: dialog.accept())
+                abandon_page.locator('#nk-session-review').get_by_role('button', name='Abandon test').click()
                 abandon_page.wait_for_function("!window.QB.getState().activeSession && location.hash==='#tests'")
                 assert abandon_page.evaluate('window.QB.getState().tests.length') == 0, 'abandoned test created a result'
                 assert abandon_page.evaluate('Object.values(window.QB.getState().attempts).flat().length') == 0, 'abandoned test recorded attempts'
