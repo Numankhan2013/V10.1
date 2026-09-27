@@ -1663,7 +1663,7 @@ Implemented approved recovery in existing transform owners: Topics separate path
   and served the comparison; the user checked it and said it works. Production
   was not promoted.
 
-## 2026-09-27 — UI integration and main production release
+## 2026-09-27 — UI integration and main deployment
 
 - The user authorized integrating the secondary model's accepted UI updates into
   the accepted QBank study build, reconciling with current `main`, and promoting
@@ -1680,14 +1680,28 @@ Implemented approved recovery in existing transform owners: Topics separate path
   browser/PWA/APK/Android phone+tablet CI in run `36320714980`. The user-authorized
   exact-SHA release run `36321611129` passed its explicit SHA guard, regenerated
   and verified the app, built/verified the APK, and deployed production. Wrangler
-  reported preview `https://ae11d530.nk-qbank.pages.dev` and production alias
-  `https://main.nk-qbank.pages.dev`; `https://nk-qbank.pages.dev` and the preview
-  both returned HTTP 200, and the deployed bundle contains the two UI changes.
+  reported preview `https://ae11d530.nk-qbank.pages.dev` and alias
+  `https://main.nk-qbank.pages.dev`; both aliases returned HTTP 200 and the
+  deployed bundle contains the two UI changes. Later content comparison found
+  the project root still serves its older deployment despite returning HTTP 200.
 - The release run’s emulator job passed Android interaction assertions on phone
   and tablet (`ANDROID_INTERACTION_VIEWPORT_OK`, including native Back, force-stop
   resume, Practice/review/FSRS, PYQ CBT, timed-grid abandon, and CBT retake), but
   its final screenshot capture failed because the browser context closed. The
   preceding full exact-SHA run completed green on both devices. A second attempt
   hit the same post-interaction screenshot capture failure. Physical in-place APK
-  upgrade/data preservation remains unverified; the production PWA release is
-  complete.
+  upgrade/data preservation remains unverified; the `main` branch alias has
+  the new PWA build, but the Pages root still needs its production branch fixed.
+
+## 2026-09-27 — Correct the Cloudflare Pages root alias
+
+- The user reported that the remembered root Pages domain still showed the old
+  build. Content checks confirmed `https://nk-qbank.pages.dev` differs from
+  both the current `main.nk-qbank.pages.dev` and `https://ae11d530.nk-qbank.pages.dev`
+  deployment aliases. The similar hostname `nkqbanks.pages.dev` does not resolve.
+- Cloudflare's Pages Direct Upload project had a production branch setting that
+  the previous deploy did not update. The official Pages API requires updating
+  `production_branch` for Direct Upload projects. The production workflow now
+  PATCHes that field to `main` before uploading the exact approved release.
+- Follow-up: run full main CI, dispatch the exact-SHA production promotion, and
+  confirm the root and `main` aliases serve byte-identical generated app content.

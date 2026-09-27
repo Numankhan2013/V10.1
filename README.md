@@ -7,7 +7,7 @@ NK QBank is a private, offline-first Android medical question bank for personal 
 - Physically accepted build: V11.6 Content Quality
 - Accepted product commit: `125d68b`
 - Accepted APK run: `34050921180`
-- Production PWA release: `d4cf2edf4b1e4de29c0d5035c6047c684bac5fbf` (main run `36320714980`, production deploy `36321611129`)
+- Current PWA code: `d4cf2edf4b1e4de29c0d5035c6047c684bac5fbf` is live on the `main` alias; root alias correction to the Pages production branch is pending a follow-up release.
 
 The compact V10.3.11 question-first architecture remains the behavioral foundation. V11 adds accepted Home, review, and source-visual improvements without replacing that architecture.
 

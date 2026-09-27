@@ -6,7 +6,7 @@
 - Physically accepted product: V11.5 Custom Study Modules
 - Accepted product commit: `125d68b`
 - Accepted lineage: `v11.5-custom-study-modules`
-- Production PWA release: `d4cf2edf4b1e4de29c0d5035c6047c684bac5fbf` (main run `36320714980`, production deploy `36321611129`)
+- Current PWA code: `d4cf2edf4b1e4de29c0d5035c6047c684bac5fbf` is live on the `main` alias; root alias correction to the Pages production branch is pending a follow-up release.
 
 V11.6 remains the recorded physically accepted Android baseline. Passing CI means a candidate is build-verified. PWA production publication can proceed after full CI and explicit user authorization; that does not change the physically accepted Android baseline, which still requires device testing.
 

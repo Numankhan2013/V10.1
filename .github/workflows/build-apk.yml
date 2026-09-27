@@ -551,8 +551,34 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
-      # Direct Upload: omitting --branch targets the configured production
-      # environment. Automatic pushes stay previews; manual dispatch promotes.
+      # Direct Upload projects otherwise keep using their previously configured
+      # production branch. Make main the Pages production branch before upload
+      # so both the main alias and the project root serve the canonical build.
+      - name: Set Cloudflare Pages production branch to main
+        if: ${{ github.event_name == 'workflow_dispatch' && github.ref_name == 'main' && inputs.promote_production && inputs.release_sha == github.sha && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT || 'nk-qbank' }}
+        run: |
+          set -eu
+          response="$(curl --fail-with-body --silent --show-error --request PATCH \
+            "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/${CLOUDFLARE_PAGES_PROJECT}" \
+            --header "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+            --header 'Content-Type: application/json' \
+            --data '{"production_branch":"main"}')"
+          printf '%s' "$response" | python3 -c '
+          import json, sys
+          payload = json.load(sys.stdin)
+          if not payload.get("success"):
+              raise SystemExit("Cloudflare rejected the Pages production-branch update")
+          result = payload.get("result") or {}
+          if result.get("production_branch") != "main":
+              raise SystemExit("Cloudflare did not set Pages production_branch to main")
+          print("Cloudflare Pages production branch set to main")
+          '
+
+      # Automatic pushes stay previews; this exact-SHA dispatch promotes main.
       - name: Promote PWA to Cloudflare Pages production
         if: ${{ github.event_name == 'workflow_dispatch' && github.ref_name == 'main' && inputs.promote_production && inputs.release_sha == github.sha && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}
         uses: cloudflare/wrangler-action@v3
