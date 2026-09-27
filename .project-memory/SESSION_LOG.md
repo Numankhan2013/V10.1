@@ -1747,5 +1747,10 @@ Implemented approved recovery in existing transform owners: Topics separate path
   empty active-session or preference updates; a pending reset stays with its
   original account.
 - Targeted account-switch, remote-active-test, reset-fence, recovery, and
-  storage-failure behavior tests pass. Full local verification and CI preview
-  remain to be completed; production and physical Android are unchanged.
+  storage-failure behavior tests pass; all 70 local checks pass. Product
+  `9ba9f3d` passed Engineering `36332561596` and full generated
+  browser/PWA/APK/Android phone+tablet run `36332561262`. The APK emulator
+  reported all interaction assertions passed on both form factors. Preview
+  `https://5f95a96b.nk-qbank.pages.dev` returned HTTP 200 and served the
+  switch code without the old lock. Production and physical Android are
+  unchanged; user review of two-account switching is pending.

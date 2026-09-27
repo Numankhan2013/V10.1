@@ -11,10 +11,12 @@
   sending empty active-session or preference state. A pending remote reset may
   be resumed only by its original account. Account isolation, return-to-account,
   interrupted-switch, storage-failure, and remote-active-test behavior tests
-  pass locally. Full CI and preview verification are pending. The prior reset
-  and staged sign-in preview `https://9ab4f6ec.nk-qbank.pages.dev` passed
-  Engineering `36328868558` and full run `36328865681`, but contains the
-  account-switch lock. Production was not changed; physical review is pending.
+  pass locally. Product `9ba9f3d` passed Engineering `36332561596` and full
+  generated browser/PWA/APK/Android phone+tablet run `36332561262`. Preview
+  `https://5f95a96b.nk-qbank.pages.dev` returned HTTP 200 with the switch
+  code and without the old lock. The prior reset/sign-in preview
+  `https://9ab4f6ec.nk-qbank.pages.dev` still contains the lock. Production
+  was not changed; physical account-switch review is pending.
 
 - Repo: `Numankhan2013/V10.1`. Accepted product commit: `125d68b` (V11.6 accepted baseline and rollback point). The user explicitly authorized integrating the accepted study candidate and UI changes into `main` and promoting production on 2026-09-27; release only the exact SHA after full CI passes. Physical Android acceptance remains distinct.
 - Sole Marrow/product integration trunk: `feature/marrow-canonical-full-current`. Its last recorded verified canonical checkpoint was `356cce4`; Engineering `35453226391` and full Android/PWA/browser/APK `35453226292` passed. Recheck the live head before any integration.
