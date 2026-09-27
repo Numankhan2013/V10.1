@@ -1605,3 +1605,24 @@ Implemented approved recovery in existing transform owners: Topics separate path
   `https://e17cbb6d.nk-qbank.pages.dev` returned HTTP 200 and served the
   updated conflict dialog. User physical review is pending; production was
   not promoted.
+
+## 2026-09-27 — PrepLadder source PDF contrast
+
+- The user reported long-standing bleached PrepLadder explanation pages on
+  Android. `docs/PDF_RENDERING_CONTRAST_INVESTIGATION.md` had previously found
+  no app opacity/filter and deferred a correction pending device evidence. The
+  earlier sharp fullscreen zoom repair remained intact. Baseline captures from
+  full run `36300815905` showed pale text and blue at inline phone width.
+- Applied a scoped display filter, `contrast(1.16) saturate(1.12)`, to source
+  PDF page images/canvases and fullscreen source zoom. The first placement in
+  `apply_question_experience_v1.py` was removed by a later style transform;
+  generated browser run `36303495208` caught this. Product `70794a2` places
+  it in the final `apply_session_experience_v2.py` style and checks the
+  transform order. Original PDFs, rendered assets, and Marrow visuals are
+  unchanged.
+- Local 68 checks, Engineering `36303853277`, and full browser/PWA/APK/Android
+  phone+tablet emulator `36303853023` passed. Browser assertions covered all
+  three subjects, inline and zoom; Android checked Review Solutions. Before/
+  after captures showed darker text and stronger blue with fine table lines
+  visible. Preview `https://ce13d233.nk-qbank.pages.dev` returned HTTP 200
+  and served the rule. Physical review is pending; production was not promoted.

@@ -6,6 +6,13 @@ Check off only when build-verified **and** device-verified where UI is involved.
 
 ## Immediate (next 1–2 sessions)
 
+- [ ] Restore PrepLadder source PDF explanation contrast on phone/tablet in
+      inline and zoom views, with unchanged source PDFs and mappings. Product
+      `70794a2` passed local 68 checks, Engineering `36303853277`, and full
+      browser/PWA/APK/Android phone+tablet emulator `36303853023`; preview
+      `https://ce13d233.nk-qbank.pages.dev`. Physical review remains pending.
+      After that, examine simultaneous Practice/test sessions with explicit
+      resume selection and no overwrite of saved work.
 - [ ] Exam practice candidate: one verified-PYQ action inside the bank-aware
       CBT Topics step, cumulative 60-second chapter Topic Test timing, and a
       complete PYQ/mixed result-to-review-to-missed-Practice journey. Source

@@ -136,6 +136,11 @@ checked deterministic rollout ledger.
   restores the question history entry before hashchange renders another route;
   accepted exit keeps the existing history and persistence path. `qbank.local`
   uses the native Android dialog, so the two warnings do not stack.
+- PrepLadder source-PDF explanation tone is adjusted only at display time:
+  `apply_session_experience_v2.py` owns the final shared CSS filter on inline
+  source page images/canvases and fullscreen source zoom. Earlier question
+  style is replaced by this transform; PDF bytes, generated visual assets,
+  mapping coordinates, and Marrow visuals are unaffected.
 - Source visuals contract: per-question `visual {type:"source-pdf",
   source, page, crop{left,top,right,bottom} (PDF points, optional),
   fit: contain|width|native}`; renderer consumes metadata only.

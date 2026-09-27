@@ -63,7 +63,9 @@ Prefer building over narrating.
   canonical Review Solutions entry (`data-v102-review-cta`, `__QB_OPEN_REVIEW`),
   question-first surface, fixed Previous/Next footer, grid/navigator + End
   Review returning to originating analysis; source-PDF explanations where
-  applicable.
+  applicable. PrepLadder source-PDF explanation pages receive a scoped display
+  contrast/color adjustment in inline and zoom views for legible dark text and
+  colored source details; source files and visual mappings remain unchanged.
 - **Home:** one cohesive surface; greeting + Home-only streak (rectangular/
   chiseled, integrated axis, restrained motion) + week strip; Today’s Focus
   (Continue Practice, Review-Due-when-due, permanent Practice-20-Random,
