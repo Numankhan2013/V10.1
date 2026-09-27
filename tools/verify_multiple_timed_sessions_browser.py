@@ -33,8 +33,10 @@ def main() -> None:
                 page.goto(origin + "/#tests", wait_until="domcontentloaded")
                 page.wait_for_function("window.QB?.getState")
 
-                page.evaluate("window.QB.openMultiSubjectTestBuilder()")
-                page.locator("#modal").get_by_role("button", name="Start Exam").click()
+                page.get_by_role("button", name="Choose subjects and topics").click()
+                page.get_by_role("button", name="Continue to topics").click()
+                page.get_by_role("button", name="Continue to questions").click()
+                page.get_by_role("button", name="Start timed CBT").click()
                 page.wait_for_function("window.QB.getState().activeSession?.mode==='exam'")
                 first = page.evaluate("""() => {
                   const s=window.QB.getState().activeSession;
