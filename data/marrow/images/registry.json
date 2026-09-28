@@ -530,7 +530,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Formation of neural crest and neural tube",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 40,
@@ -543,8 +543,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+            "sourceCompared": true,
+            "notes": "The diagram follows the melanoma explanation and is displayed in explanation-only timing; it cannot reveal the answer in the unanswered stem.",
+            "evidence": "GitHub Actions source-region artifact from run 36432679371; page 40, xref 3463."
           }
         }
       ],
@@ -564,8 +565,8 @@
       "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Neural tube formation: three numbered panels, arrows, tissue labels and explanatory text are readable at native size. Production is the exact native JPEG; no crop or processing applied.",
-        "evidence": "Agent visual inspection of immutable native PDF image on 2026-09-09; source page/xref and original hash recorded in this entry.",
+        "notes": "Neural crest/neural tube sequence, numbered steps, neural fold/groove/crest/tube labels and explanatory text remain intact and readable. This explanatory flowchart is separate from the question-only clinical image.",
+        "evidence": "GitHub Actions source-region artifact from run 36432679371; Anatomy_ed8.pdf page 40, xref 3463, region [162.0, 313.0, 450.0, 529.0].",
         "originalSha256": "d51736484d580d39746d90bc8bf883291e3195c06c5a38aacf896b396df4659b",
         "productionSha256": "d51736484d580d39746d90bc8bf883291e3195c06c5a38aacf896b396df4659b"
       }
@@ -20371,6 +20372,1195 @@
       "qa": {
         "sourceCompared": false,
         "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+      }
+    },
+    {
+      "id": "anatomy-65039723302a7b63",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 13,
+        "xref": 3442,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH01_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Spermatogenesis flowchart",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 13,
+            "xref": 3442,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The figure follows this question’s solution content on the cited source page. It is explanation-only and cannot expose the answer during an unanswered question. Native source pixels and all labels remain intact.",
+            "evidence": "Anatomy_ed8.pdf page 13, xref 3442, region [162.0, 56.0, 450.0, 272.0]; render reviewed in GitHub Actions run 36432679371."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH01_Q009",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Spermatogenesis flowchart",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 13,
+            "xref": 3442,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The figure follows this question’s solution content on the cited source page. It is explanation-only and cannot expose the answer during an unanswered question. Native source pixels and all labels remain intact.",
+            "evidence": "Anatomy_ed8.pdf page 13, xref 3442, region [162.0, 56.0, 450.0, 272.0]; render reviewed in GitHub Actions run 36432679371."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH01_Q010",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Spermatogenesis flowchart",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 14,
+            "xref": 3442,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The figure follows this question’s solution content on the cited source page. It is explanation-only and cannot expose the answer during an unanswered question. Native source pixels and all labels remain intact.",
+            "evidence": "Anatomy_ed8.pdf page 14, xref 3442, region [162.0, 56.0, 450.0, 272.0]; render reviewed in GitHub Actions run 36432679371."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/65039723302a7b637ccfdf13db76a41edd7042c058be4316d33232109b838f35.jpg",
+        "sha256": "65039723302a7b637ccfdf13db76a41edd7042c058be4316d33232109b838f35",
+        "width": 576,
+        "height": 1151
+      },
+      "production": {
+        "path": "data/marrow/images/originals/65039723302a7b637ccfdf13db76a41edd7042c058be4316d33232109b838f35.jpg",
+        "sha256": "65039723302a7b637ccfdf13db76a41edd7042c058be4316d33232109b838f35",
+        "width": 576,
+        "height": 1151
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Spermatogenesis flowchart: all stage names, chromosome-count labels, arrows, before/after puberty divider, and stage boxes are present and legible. The complete diagram is visible; faint source watermark crosses the background without obscuring labels.",
+        "evidence": "Source-region render and native image inspected at full size in GitHub Actions run 36432679371; source SHA-256=7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f; page=13, xref=3442, region=[162.0, 56.0, 450.0, 272.0]. Original JPEG pixels retained; question image remains explanation-only.",
+        "originalSha256": "65039723302a7b637ccfdf13db76a41edd7042c058be4316d33232109b838f35",
+        "productionSha256": "65039723302a7b637ccfdf13db76a41edd7042c058be4316d33232109b838f35"
+      }
+    },
+    {
+      "id": "anatomy-f8b1e79f260c448f",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 16,
+        "xref": 3444,
+        "region": [
+          162.0,
+          443.0,
+          450.0,
+          659.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH01_Q016",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Oogenesis flowchart",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 16,
+            "xref": 3444,
+            "region": [
+              162.0,
+              443.0,
+              450.0,
+              659.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The figure follows this question’s solution content on the cited source page. It is explanation-only and cannot expose the answer during an unanswered question. Native source pixels and all labels remain intact.",
+            "evidence": "Anatomy_ed8.pdf page 16, xref 3444, region [162.0, 443.0, 450.0, 659.0]; render reviewed in GitHub Actions run 36432679371."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH01_Q017",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Oogenesis flowchart",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 17,
+            "xref": 3444,
+            "region": [
+              162.0,
+              110.0,
+              450.0,
+              326.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The figure follows this question’s solution content on the cited source page. It is explanation-only and cannot expose the answer during an unanswered question. Native source pixels and all labels remain intact.",
+            "evidence": "Anatomy_ed8.pdf page 17, xref 3444, region [162.0, 110.0, 450.0, 326.0]; render reviewed in GitHub Actions run 36432679371."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/f8b1e79f260c448fe3224bd27f948e0614d39921efb92cbf6647f174f22b4866.jpg",
+        "sha256": "f8b1e79f260c448fe3224bd27f948e0614d39921efb92cbf6647f174f22b4866",
+        "width": 576,
+        "height": 1382
+      },
+      "production": {
+        "path": "data/marrow/images/originals/f8b1e79f260c448fe3224bd27f948e0614d39921efb92cbf6647f174f22b4866.jpg",
+        "sha256": "f8b1e79f260c448fe3224bd27f948e0614d39921efb92cbf6647f174f22b4866",
+        "width": 576,
+        "height": 1382
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Oogenesis flowchart: meiotic arrest stages, pre/post-puberty divider, polar body, ovulation, fertilization and final cell labels are visible and legible. The source watermark crosses the background without obscuring labels.",
+        "evidence": "Source-region render and native image inspected at full size in GitHub Actions run 36432679371; source SHA-256=7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f; page=16, xref=3444, region=[162.0, 443.0, 450.0, 659.0]. Original JPEG pixels retained; question image remains explanation-only.",
+        "originalSha256": "f8b1e79f260c448fe3224bd27f948e0614d39921efb92cbf6647f174f22b4866",
+        "productionSha256": "f8b1e79f260c448fe3224bd27f948e0614d39921efb92cbf6647f174f22b4866"
+      }
+    },
+    {
+      "id": "anatomy-baceb48698625083",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 29,
+        "xref": 58,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH02_Q012",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Formation of Heuser's membrane",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 29,
+            "xref": 58,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "This is the matching figure placed below its owning explanation on page 29. The separate neighboring diagram is excluded. Explanation-only placement is answer-safe; source labels remain visible.",
+            "evidence": "Anatomy_ed8.pdf page 29 xref 58, region [162.0, 56.0, 450.0, 272.0]; source-region crop and question explanation inspected in GitHub Actions run 36432679371."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/baceb4869862508332d3310d0d5ee9ac80c4947fafc4733f9cf427b798e0f18d.jpg",
+        "sha256": "baceb4869862508332d3310d0d5ee9ac80c4947fafc4733f9cf427b798e0f18d",
+        "width": 576,
+        "height": 715
+      },
+      "production": {
+        "path": "data/marrow/images/originals/baceb4869862508332d3310d0d5ee9ac80c4947fafc4733f9cf427b798e0f18d.jpg",
+        "sha256": "baceb4869862508332d3310d0d5ee9ac80c4947fafc4733f9cf427b798e0f18d",
+        "width": 576,
+        "height": 715
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Formation of Heuser's membrane diagram: the syncytiotrophoblast/cytotrophoblast boundary, Heuser's membrane, hypoblast, epiblast, amnion, blastocyst cavity and uterine cavity labels are present and legible. No source labels are obscured; original pixels retained.",
+        "evidence": "Source render from GitHub Actions run 36432679371; Anatomy_ed8.pdf SHA-256=7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f, page 29 xref 58 region [162.0, 56.0, 450.0, 272.0]. Compared image with labeled source crop and owning explanation; pixels unchanged.",
+        "originalSha256": "baceb4869862508332d3310d0d5ee9ac80c4947fafc4733f9cf427b798e0f18d",
+        "productionSha256": "baceb4869862508332d3310d0d5ee9ac80c4947fafc4733f9cf427b798e0f18d"
+      }
+    },
+    {
+      "id": "anatomy-8e0047bff3b8f116",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 29,
+        "xref": 59,
+        "region": [
+          162.0,
+          487.0,
+          450.0,
+          703.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH02_Q013",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Extraembryonic mesoderm",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 29,
+            "xref": 59,
+            "region": [
+              162.0,
+              487.0,
+              450.0,
+              703.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "This is the matching figure placed below its owning explanation on page 29. The separate neighboring diagram is excluded. Explanation-only placement is answer-safe; source labels remain visible.",
+            "evidence": "Anatomy_ed8.pdf page 29 xref 59, region [162.0, 487.0, 450.0, 703.0]; source-region crop and question explanation inspected in GitHub Actions run 36432679371."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/8e0047bff3b8f11657834e97af4828ce682a5b4fe13891df539b87c27b7658f4.jpg",
+        "sha256": "8e0047bff3b8f11657834e97af4828ce682a5b4fe13891df539b87c27b7658f4",
+        "width": 576,
+        "height": 459
+      },
+      "production": {
+        "path": "data/marrow/images/originals/8e0047bff3b8f11657834e97af4828ce682a5b4fe13891df539b87c27b7658f4.jpg",
+        "sha256": "8e0047bff3b8f11657834e97af4828ce682a5b4fe13891df539b87c27b7658f4",
+        "width": 576,
+        "height": 459
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Extraembryonic mesoderm diagram: somatic and splanchnic mesoderm, cytotrophoblast, syncytiotrophoblast, amnionic and yolk-sac cavities, and extraembryonic coelom labels are present and legible. No source labels are obscured; original pixels retained.",
+        "evidence": "Source render from GitHub Actions run 36432679371; Anatomy_ed8.pdf SHA-256=7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f, page 29 xref 59 region [162.0, 487.0, 450.0, 703.0]. Compared image with labeled source crop and owning explanation; pixels unchanged.",
+        "originalSha256": "8e0047bff3b8f11657834e97af4828ce682a5b4fe13891df539b87c27b7658f4",
+        "productionSha256": "8e0047bff3b8f11657834e97af4828ce682a5b4fe13891df539b87c27b7658f4"
+      }
+    },
+    {
+      "id": "anatomy-b3b1ab461440f77b",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 37,
+        "xref": 82,
+        "region": [
+          162.0,
+          76.0,
+          450.0,
+          292.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH03_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Gastrulation (formation of germ layers)",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 37,
+            "xref": 82,
+            "region": [
+              162.0,
+              76.0,
+              450.0,
+              292.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The selected source diagram matches the figure described in the owning explanation; the other page figure/candidate is not included. It is rendered explanation-only.",
+            "evidence": "GitHub Actions source-region artifact from run 36432679371; page 37, xref 82, region [162.0, 76.0, 450.0, 292.0]."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b3b1ab461440f77b895df5b400178a493802ef70c70e046888b7a9677e976656.jpg",
+        "sha256": "b3b1ab461440f77b895df5b400178a493802ef70c70e046888b7a9677e976656",
+        "width": 600,
+        "height": 671
+      },
+      "production": {
+        "path": "data/marrow/images/originals/b3b1ab461440f77b895df5b400178a493802ef70c70e046888b7a9677e976656.jpg",
+        "sha256": "b3b1ab461440f77b895df5b400178a493802ef70c70e046888b7a9677e976656",
+        "width": 600,
+        "height": 671
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Gastrulation diagram: primitive streak, epiblast, amnioblasts, extraembryonic/intraembryonic mesoderm, endoderm and displaced hypoblast labels remain visible and legible.",
+        "evidence": "GitHub Actions source-region artifact from run 36432679371; Anatomy_ed8.pdf page 37, xref 82, region [162.0, 76.0, 450.0, 292.0]; exact rendered source and owning explanation compared. Native JPEG bytes retained.",
+        "originalSha256": "b3b1ab461440f77b895df5b400178a493802ef70c70e046888b7a9677e976656",
+        "productionSha256": "b3b1ab461440f77b895df5b400178a493802ef70c70e046888b7a9677e976656"
+      }
+    },
+    {
+      "id": "anatomy-f4585dad86a2edbd",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 37,
+        "xref": 83,
+        "region": [
+          162.0,
+          433.0,
+          450.0,
+          649.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH03_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Gastrulation (formation of germ layers)",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 37,
+            "xref": 83,
+            "region": [
+              162.0,
+              433.0,
+              450.0,
+              649.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The selected source diagram matches the figure described in the owning explanation; the other page figure/candidate is not included. It is rendered explanation-only.",
+            "evidence": "GitHub Actions source-region artifact from run 36432679371; page 37, xref 83, region [162.0, 433.0, 450.0, 649.0]."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/f4585dad86a2edbd3a769d2de87ac0db706eb4944419dc65252d3e086d6ff18d.jpg",
+        "sha256": "f4585dad86a2edbd3a769d2de87ac0db706eb4944419dc65252d3e086d6ff18d",
+        "width": 600,
+        "height": 671
+      },
+      "production": {
+        "path": "data/marrow/images/originals/f4585dad86a2edbd3a769d2de87ac0db706eb4944419dc65252d3e086d6ff18d.jpg",
+        "sha256": "f4585dad86a2edbd3a769d2de87ac0db706eb4944419dc65252d3e086d6ff18d",
+        "width": 600,
+        "height": 671
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Repeated gastrulation diagram for direct ectoderm/endoderm contact: the primitive streak, epiblast, mesoderm, endoderm and hypoblast labels remain intact and legible.",
+        "evidence": "GitHub Actions source-region artifact from run 36432679371; Anatomy_ed8.pdf page 37, xref 83, region [162.0, 433.0, 450.0, 649.0]; exact rendered source and owning explanation compared. Native JPEG bytes retained.",
+        "originalSha256": "f4585dad86a2edbd3a769d2de87ac0db706eb4944419dc65252d3e086d6ff18d",
+        "productionSha256": "f4585dad86a2edbd3a769d2de87ac0db706eb4944419dc65252d3e086d6ff18d"
+      }
+    },
+    {
+      "id": "anatomy-c973e6b4818838a3",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 32,
+        "xref": 66,
+        "compositeXrefs": [
+          66,
+          67,
+          68
+        ],
+        "region": [
+          161.52,
+          55.639,
+          450.48,
+          272.361
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH03_Q007",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question image",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 32,
+            "xref": 66,
+            "region": [
+              161.52,
+              55.639,
+              450.48,
+              272.361
+            ],
+            "compositeXrefs": [
+              66,
+              67,
+              68
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The crop contains only the clinical lesion image from the unanswered stem; no explanation, label, or answer text is included. The composite retains source color appearance and all lesion detail.",
+            "evidence": "GitHub Actions source-region artifact from run 36432679371; source page 32, region [161.52, 55.639, 450.48, 272.361]; exact figure crop compared with question stem."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b4dee7c23b528c9740b88fefe8ebafcb95539e02493f285c595fb052a1a6a539.png",
+        "sha256": "b4dee7c23b528c9740b88fefe8ebafcb95539e02493f285c595fb052a1a6a539",
+        "width": 1404,
+        "height": 1304
+      },
+      "production": {
+        "path": "data/marrow/images/production/c973e6b4818838a35354c1be186d60ffbfbfb5092d1610a31d01f0c79a71a18b.png",
+        "sha256": "c973e6b4818838a35354c1be186d60ffbfbfb5092d1610a31d01f0c79a71a18b",
+        "width": 1204,
+        "height": 903
+      },
+      "method": "region-render",
+      "status": "SOURCE_LIMITED",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "The question image is a three-object ICC-profiled composite. The displayed figure was cropped from the authoritative 300 DPI Ubuntu source-page render to its exact PDF-point bounds. The original source crop is preserved alongside the production crop; no sharpening, recoloring, or diagnostic detail synthesis was applied. The source image itself is compressed, but the asymmetric pigmented network and lesion border remain visible.",
+        "evidence": "GitHub Actions source-region artifact from run 36432679371; Anatomy_ed8.pdf SHA-256=7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f; page 32 xrefs [66,67,68], region [161.52, 55.639, 450.48, 272.361]; production is an exact pixel crop from the rendered source region.",
+        "originalSha256": "b4dee7c23b528c9740b88fefe8ebafcb95539e02493f285c595fb052a1a6a539",
+        "productionSha256": "c973e6b4818838a35354c1be186d60ffbfbfb5092d1610a31d01f0c79a71a18b"
+      }
+    },
+    {
+      "id": "anatomy-15e120bfa0a4f35d",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 56,
+        "xref": 141,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Chorionic villi: primary, secondary and tertiary villi",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 56,
+            "xref": 141,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The selected source image matches the figure title and exact page position; question versus explanation timing was verified from the owning source text.",
+            "evidence": "GitHub Actions source-region artifact from run 36432679371; page 56, xref 141, region [162.0, 56.0, 450.0, 272.0]."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/15e120bfa0a4f35d5a08ddd5a83fd5d7f055d95d8dd38e1ae57d52f3ebb9d9cf.jpg",
+        "sha256": "15e120bfa0a4f35d5a08ddd5a83fd5d7f055d95d8dd38e1ae57d52f3ebb9d9cf",
+        "width": 576,
+        "height": 1035
+      },
+      "production": {
+        "path": "data/marrow/images/originals/15e120bfa0a4f35d5a08ddd5a83fd5d7f055d95d8dd38e1ae57d52f3ebb9d9cf.jpg",
+        "sha256": "15e120bfa0a4f35d5a08ddd5a83fd5d7f055d95d8dd38e1ae57d52f3ebb9d9cf",
+        "width": 576,
+        "height": 1035
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Chorionic villi: primary/secondary/tertiary stages, villous cores and fetal-capillary differences remain legible.",
+        "evidence": "GitHub Actions source-region artifact from run 36432679371; Anatomy_ed8.pdf page 56, xref 141, region [162.0, 56.0, 450.0, 272.0]; source crop and original JPEG compared; native image bytes retained.",
+        "originalSha256": "15e120bfa0a4f35d5a08ddd5a83fd5d7f055d95d8dd38e1ae57d52f3ebb9d9cf",
+        "productionSha256": "15e120bfa0a4f35d5a08ddd5a83fd5d7f055d95d8dd38e1ae57d52f3ebb9d9cf"
+      }
+    },
+    {
+      "id": "anatomy-a81fc996460d832d",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 56,
+        "xref": 142,
+        "region": [
+          162.0,
+          445.0,
+          450.0,
+          661.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q004",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Definitive chorion",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 56,
+            "xref": 142,
+            "region": [
+              162.0,
+              445.0,
+              450.0,
+              661.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The selected source image matches the figure title and exact page position; question versus explanation timing was verified from the owning source text.",
+            "evidence": "GitHub Actions source-region artifact from run 36432679371; page 56, xref 142, region [162.0, 445.0, 450.0, 661.0]."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/a81fc996460d832d281844d4a1aee9b16096f98e0e84c032b5b4b3f1740f049b.jpg",
+        "sha256": "a81fc996460d832d281844d4a1aee9b16096f98e0e84c032b5b4b3f1740f049b",
+        "width": 575,
+        "height": 470
+      },
+      "production": {
+        "path": "data/marrow/images/originals/a81fc996460d832d281844d4a1aee9b16096f98e0e84c032b5b4b3f1740f049b.jpg",
+        "sha256": "a81fc996460d832d281844d4a1aee9b16096f98e0e84c032b5b4b3f1740f049b",
+        "width": 575,
+        "height": 470
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Definitive chorion diagram: extraembryonic somatic mesoderm, cytotrophoblast and syncytiotrophoblast labels are legible.",
+        "evidence": "GitHub Actions source-region artifact from run 36432679371; Anatomy_ed8.pdf page 56, xref 142, region [162.0, 445.0, 450.0, 661.0]; source crop and original JPEG compared; native image bytes retained.",
+        "originalSha256": "a81fc996460d832d281844d4a1aee9b16096f98e0e84c032b5b4b3f1740f049b",
+        "productionSha256": "a81fc996460d832d281844d4a1aee9b16096f98e0e84c032b5b4b3f1740f049b"
+      }
+    },
+    {
+      "id": "anatomy-29d82e7349a0460e",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 57,
+        "xref": 145,
+        "region": [
+          162.0,
+          144.0,
+          450.0,
+          360.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q005",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Definitive placenta",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 57,
+            "xref": 145,
+            "region": [
+              162.0,
+              144.0,
+              450.0,
+              360.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The selected source image matches the figure title and exact page position; question versus explanation timing was verified from the owning source text.",
+            "evidence": "GitHub Actions source-region artifact from run 36432679371; page 57, xref 145, region [162.0, 144.0, 450.0, 360.0]."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/29d82e7349a0460e9ef74113548e6b6646a58c3c305010f012d23f41e3ae0c93.jpg",
+        "sha256": "29d82e7349a0460e9ef74113548e6b6646a58c3c305010f012d23f41e3ae0c93",
+        "width": 576,
+        "height": 823
+      },
+      "production": {
+        "path": "data/marrow/images/originals/29d82e7349a0460e9ef74113548e6b6646a58c3c305010f012d23f41e3ae0c93.jpg",
+        "sha256": "29d82e7349a0460e9ef74113548e6b6646a58c3c305010f012d23f41e3ae0c93",
+        "width": 576,
+        "height": 823
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Definitive placenta diagram: basal/chorionic plates, intervillous space, Langhans layer, Rohr fibrinoid stria and Nitabuch layer remain intact.",
+        "evidence": "GitHub Actions source-region artifact from run 36432679371; Anatomy_ed8.pdf page 57, xref 145, region [162.0, 144.0, 450.0, 360.0]; source crop and original JPEG compared; native image bytes retained.",
+        "originalSha256": "29d82e7349a0460e9ef74113548e6b6646a58c3c305010f012d23f41e3ae0c93",
+        "productionSha256": "29d82e7349a0460e9ef74113548e6b6646a58c3c305010f012d23f41e3ae0c93"
+      }
+    },
+    {
+      "id": "anatomy-a3bfc125fb9eb6a3",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 57,
+        "xref": 146,
+        "region": [
+          162.0,
+          467.0,
+          450.0,
+          683.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q006",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Definitive placenta (chorionic plate)",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 57,
+            "xref": 146,
+            "region": [
+              162.0,
+              467.0,
+              450.0,
+              683.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The selected source image matches the figure title and exact page position; question versus explanation timing was verified from the owning source text.",
+            "evidence": "GitHub Actions source-region artifact from run 36432679371; page 57, xref 146, region [162.0, 467.0, 450.0, 683.0]."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/a3bfc125fb9eb6a36588bfc95164827d8c26b975983ee434c130adb0049e6f3c.jpg",
+        "sha256": "a3bfc125fb9eb6a36588bfc95164827d8c26b975983ee434c130adb0049e6f3c",
+        "width": 576,
+        "height": 823
+      },
+      "production": {
+        "path": "data/marrow/images/originals/a3bfc125fb9eb6a36588bfc95164827d8c26b975983ee434c130adb0049e6f3c.jpg",
+        "sha256": "a3bfc125fb9eb6a36588bfc95164827d8c26b975983ee434c130adb0049e6f3c",
+        "width": 576,
+        "height": 823
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Repeated definitive-placenta diagram after Q6 explanation: chorionic plate layers and numbered labels remain visible.",
+        "evidence": "GitHub Actions source-region artifact from run 36432679371; Anatomy_ed8.pdf page 57, xref 146, region [162.0, 467.0, 450.0, 683.0]; source crop and original JPEG compared; native image bytes retained.",
+        "originalSha256": "a3bfc125fb9eb6a36588bfc95164827d8c26b975983ee434c130adb0049e6f3c",
+        "productionSha256": "a3bfc125fb9eb6a36588bfc95164827d8c26b975983ee434c130adb0049e6f3c"
+      }
+    },
+    {
+      "id": "anatomy-9bf5429f3038e792",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 50,
+        "xref": 117,
+        "compositeXrefs": [
+          117,
+          118,
+          119
+        ],
+        "region": [
+          161.571,
+          112.52,
+          450.429,
+          329.48
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q009",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question image",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 50,
+            "xref": 117,
+            "region": [
+              161.571,
+              112.52,
+              450.429,
+              329.48
+            ],
+            "compositeXrefs": [
+              117,
+              118,
+              119
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The source figure is confined to this exact crop and matches the owning question visual. Its role and answer-safe timing were checked against the source page.",
+            "evidence": "GitHub Actions source-region artifact from run 36432679371; page 50, xrefs [117, 118, 119], region [161.571, 112.52, 450.429, 329.48]."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/4beccc424a0de1bdf532715ba7dd1ea24a4227903fe127ea34cac211fad411b2.png",
+        "sha256": "4beccc424a0de1bdf532715ba7dd1ea24a4227903fe127ea34cac211fad411b2",
+        "width": 1404,
+        "height": 1305
+      },
+      "production": {
+        "path": "data/marrow/images/production/9bf5429f3038e792fb367bfb16fc46099f4ca26d114e1c474e109c1dab047095.png",
+        "sha256": "9bf5429f3038e792fb367bfb16fc46099f4ca26d114e1c474e109c1dab047095",
+        "width": 1204,
+        "height": 904
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "The two separate ova and two-sperm fertilization paths and resulting embryos are visible. The crop contains the question figure only, without explanation text.",
+        "evidence": "GitHub Actions source-region artifact from run 36432679371; Anatomy_ed8.pdf SHA-256=7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f; page 50, xrefs [117, 118, 119], exact region [161.571, 112.52, 450.429, 329.48]. Production is a lossless crop of the 300 DPI Ubuntu source-region render; no educational detail reconstructed.",
+        "originalSha256": "4beccc424a0de1bdf532715ba7dd1ea24a4227903fe127ea34cac211fad411b2",
+        "productionSha256": "9bf5429f3038e792fb367bfb16fc46099f4ca26d114e1c474e109c1dab047095"
+      }
+    },
+    {
+      "id": "anatomy-00d5515fd8c9ccaa",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 51,
+        "xref": 122,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q010",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question image",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 51,
+            "xref": 122,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The selected source image matches the figure title and exact page position; question versus explanation timing was verified from the owning source text.",
+            "evidence": "GitHub Actions source-region artifact from run 36432679371; page 51, xref 122, region [162.0, 56.0, 450.0, 272.0]."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/00d5515fd8c9ccaa821206f7c82a8122116f2b32f20e8e44a2e5280ec444de86.jpg",
+        "sha256": "00d5515fd8c9ccaa821206f7c82a8122116f2b32f20e8e44a2e5280ec444de86",
+        "width": 545,
+        "height": 432
+      },
+      "production": {
+        "path": "data/marrow/images/originals/00d5515fd8c9ccaa821206f7c82a8122116f2b32f20e8e44a2e5280ec444de86.jpg",
+        "sha256": "00d5515fd8c9ccaa821206f7c82a8122116f2b32f20e8e44a2e5280ec444de86",
+        "width": 545,
+        "height": 432
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "The twin-pregnancy ultrasound retains both fetal heads and the inter-fetal membrane appearance. Original grayscale pixels are unchanged.",
+        "evidence": "GitHub Actions source-region artifact from run 36432679371; Anatomy_ed8.pdf page 51, xref 122, region [162.0, 56.0, 450.0, 272.0]; source crop and original JPEG compared; native image bytes retained.",
+        "originalSha256": "00d5515fd8c9ccaa821206f7c82a8122116f2b32f20e8e44a2e5280ec444de86",
+        "productionSha256": "00d5515fd8c9ccaa821206f7c82a8122116f2b32f20e8e44a2e5280ec444de86"
+      }
+    },
+    {
+      "id": "anatomy-2de67f0557675940",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 51,
+        "xref": 123,
+        "region": [
+          162.0,
+          470.0,
+          450.0,
+          686.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q011",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question image",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 51,
+            "xref": 123,
+            "region": [
+              162.0,
+              470.0,
+              450.0,
+              686.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The selected source image matches the figure title and exact page position; question versus explanation timing was verified from the owning source text.",
+            "evidence": "GitHub Actions source-region artifact from run 36432679371; page 51, xref 123, region [162.0, 470.0, 450.0, 686.0]."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/2de67f0557675940cc755636a77b91904bbf39c831bd29a2aafa5d4e5b95ecb4.jpg",
+        "sha256": "2de67f0557675940cc755636a77b91904bbf39c831bd29a2aafa5d4e5b95ecb4",
+        "width": 720,
+        "height": 1004
+      },
+      "production": {
+        "path": "data/marrow/images/originals/2de67f0557675940cc755636a77b91904bbf39c831bd29a2aafa5d4e5b95ecb4.jpg",
+        "sha256": "2de67f0557675940cc755636a77b91904bbf39c831bd29a2aafa5d4e5b95ecb4",
+        "width": 720,
+        "height": 1004
+      },
+      "method": "native-jpeg-stream",
+      "status": "SOURCE_LIMITED",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "The paired historical clinical photographs remain intact and show sacral fusion; source JPEG is retained without processing.",
+        "evidence": "GitHub Actions source-region artifact from run 36432679371; Anatomy_ed8.pdf page 51, xref 123, region [162.0, 470.0, 450.0, 686.0]; source crop and original JPEG compared; native image bytes retained.",
+        "originalSha256": "2de67f0557675940cc755636a77b91904bbf39c831bd29a2aafa5d4e5b95ecb4",
+        "productionSha256": "2de67f0557675940cc755636a77b91904bbf39c831bd29a2aafa5d4e5b95ecb4"
+      }
+    },
+    {
+      "id": "anatomy-26901c74d3cf1d6e",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 60,
+        "xref": 155,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q010",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Placentation and timing of monozygotic separation",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 60,
+            "xref": 155,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The selected source image matches the figure title and exact page position; question versus explanation timing was verified from the owning source text.",
+            "evidence": "GitHub Actions source-region artifact from run 36432679371; page 60, xref 155, region [162.0, 56.0, 450.0, 272.0]."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/26901c74d3cf1d6ee40f29aea4c23465a54d7103efdd968b878a7dde1cb78077.jpg",
+        "sha256": "26901c74d3cf1d6ee40f29aea4c23465a54d7103efdd968b878a7dde1cb78077",
+        "width": 576,
+        "height": 889
+      },
+      "production": {
+        "path": "data/marrow/images/originals/26901c74d3cf1d6ee40f29aea4c23465a54d7103efdd968b878a7dde1cb78077.jpg",
+        "sha256": "26901c74d3cf1d6ee40f29aea4c23465a54d7103efdd968b878a7dde1cb78077",
+        "width": 576,
+        "height": 889
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Placentation/timing diagram: separation windows and corresponding chorion/amniotic-sac arrangements are legible.",
+        "evidence": "GitHub Actions source-region artifact from run 36432679371; Anatomy_ed8.pdf page 60, xref 155, region [162.0, 56.0, 450.0, 272.0]; source crop and original JPEG compared; native image bytes retained.",
+        "originalSha256": "26901c74d3cf1d6ee40f29aea4c23465a54d7103efdd968b878a7dde1cb78077",
+        "productionSha256": "26901c74d3cf1d6ee40f29aea4c23465a54d7103efdd968b878a7dde1cb78077"
+      }
+    },
+    {
+      "id": "anatomy-fda66947370eafe3",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 60,
+        "xref": 156,
+        "region": [
+          162.0,
+          461.0,
+          450.0,
+          677.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q011",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Types of conjoined twins",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 60,
+            "xref": 156,
+            "region": [
+              162.0,
+              461.0,
+              450.0,
+              677.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The selected source image matches the figure title and exact page position; question versus explanation timing was verified from the owning source text.",
+            "evidence": "GitHub Actions source-region artifact from run 36432679371; page 60, xref 156, region [162.0, 461.0, 450.0, 677.0]."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/fda66947370eafe3f727fd74983a8cdcd0592e685f2406b764009c7294427873.jpg",
+        "sha256": "fda66947370eafe3f727fd74983a8cdcd0592e685f2406b764009c7294427873",
+        "width": 576,
+        "height": 1467
+      },
+      "production": {
+        "path": "data/marrow/images/originals/fda66947370eafe3f727fd74983a8cdcd0592e685f2406b764009c7294427873.jpg",
+        "sha256": "fda66947370eafe3f727fd74983a8cdcd0592e685f2406b764009c7294427873",
+        "width": 576,
+        "height": 1467
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Conjoined-twin type diagram: anatomic fusion locations and named types remain legible.",
+        "evidence": "GitHub Actions source-region artifact from run 36432679371; Anatomy_ed8.pdf page 60, xref 156, region [162.0, 461.0, 450.0, 677.0]; source crop and original JPEG compared; native image bytes retained.",
+        "originalSha256": "fda66947370eafe3f727fd74983a8cdcd0592e685f2406b764009c7294427873",
+        "productionSha256": "fda66947370eafe3f727fd74983a8cdcd0592e685f2406b764009c7294427873"
+      }
+    },
+    {
+      "id": "anatomy-3a3990c8977ccd0f",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 53,
+        "xref": 129,
+        "compositeXrefs": [
+          129,
+          130,
+          131,
+          132
+        ],
+        "region": [
+          161.78,
+          139.52,
+          450.22,
+          356.48
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH04_Q014",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question image",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 53,
+            "xref": 129,
+            "region": [
+              161.78,
+              139.52,
+              450.22,
+              356.48
+            ],
+            "compositeXrefs": [
+              129,
+              130,
+              131,
+              132
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The source figure is confined to this exact crop and matches the owning question visual. Its role and answer-safe timing were checked against the source page.",
+            "evidence": "GitHub Actions source-region artifact from run 36432679371; page 53, xrefs [129, 130, 131, 132], region [161.78, 139.52, 450.22, 356.48]."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/2e9154e9f627b8e3e70a392e33921e1a98435e68e0517f30475b626023bb6e3b.png",
+        "sha256": "2e9154e9f627b8e3e70a392e33921e1a98435e68e0517f30475b626023bb6e3b",
+        "width": 1402,
+        "height": 1305
+      },
+      "production": {
+        "path": "data/marrow/images/production/3a3990c8977ccd0f669dbc058dfa4c3d40b119e5e592d97bcb56a7a66cc47773.png",
+        "sha256": "3a3990c8977ccd0f669dbc058dfa4c3d40b119e5e592d97bcb56a7a66cc47773",
+        "width": 1202,
+        "height": 904
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "The figure shows implantation, cleavage during days 8–13, and two fetuses within one shared sac. It is placed in the question stem without explanation text.",
+        "evidence": "GitHub Actions source-region artifact from run 36432679371; Anatomy_ed8.pdf SHA-256=7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f; page 53, xrefs [129, 130, 131, 132], exact region [161.78, 139.52, 450.22, 356.48]. Production is a lossless crop of the 300 DPI Ubuntu source-region render; no educational detail reconstructed.",
+        "originalSha256": "2e9154e9f627b8e3e70a392e33921e1a98435e68e0517f30475b626023bb6e3b",
+        "productionSha256": "3a3990c8977ccd0f669dbc058dfa4c3d40b119e5e592d97bcb56a7a66cc47773"
       }
     }
   ]
