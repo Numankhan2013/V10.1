@@ -8333,11 +8333,26 @@
       "candidateIndex": 1,
       "candidateCount": 1,
       "reviewPurpose": "exact native candidate region with 8-point context padding; compare ownership, crop and labels against the source figure"
+    },
+    {
+      "referenceId": "marrow__ANAT_CH29_Q011:figure:1",
+      "questionId": "marrow__ANAT_CH29_Q011",
+      "role": "question",
+      "page": 504,
+      "region": [
+        161.52,
+        457.551,
+        450.48,
+        674.449
+      ],
+      "method": "region-render",
+      "reviewPurpose": "complete source figure assembled from three overlapping native image xrefs (1412, 1413, 1414); render the owned figure as it appears in the authoritative page, preserving the yellow triangle highlight and question mark"
     }
   ],
   "summary": {
     "ownedReferences": 321,
     "nativeCandidateRegions": 489,
-    "zeroCandidatePageFallbacks": 1
+    "zeroCandidatePageFallbacks": 1,
+    "exactSourceRegionItems": 1
   }
 }
