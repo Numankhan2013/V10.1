@@ -1,44 +1,44 @@
 {
   "schemaVersion": 1,
   "assets": {
-    "total": 185,
+    "total": 208,
     "byStatus": {
-      "PASS": 175,
+      "PASS": 197,
       "REJECTED": 2,
-      "REVIEW_REQUIRED": 1,
+      "REVIEW_REQUIRED": 2,
       "SOURCE_LIMITED": 7
     },
     "byKind": {
-      "diagram": 151,
+      "diagram": 171,
       "hybrid": 3,
-      "medical": 30,
+      "medical": 33,
       "table": 1
     },
     "byMethod": {
-      "native-jpeg-stream": 170,
-      "region-render": 11,
+      "native-jpeg-stream": 189,
+      "region-render": 15,
       "svg-reconstruction": 4
     }
   },
   "bindings": {
-    "total": 232,
+    "total": 262,
     "byStatus": {
-      "PASS": 205,
+      "PASS": 233,
       "REJECTED": 25,
-      "REVIEW_REQUIRED": 1,
+      "REVIEW_REQUIRED": 3,
       "SOURCE_LIMITED": 1
     },
     "releasedByRole": {
-      "explanation": 166,
-      "question": 40
+      "explanation": 190,
+      "question": 44
     },
-    "releasedQuestionCount": 190
+    "releasedQuestionCount": 217
   },
   "subjects": {
     "Anatomy": {
-      "approvedAssets": 63,
-      "assets": 63,
-      "releasedQuestions": 64
+      "approvedAssets": 85,
+      "assets": 86,
+      "releasedQuestions": 91
     },
     "Biochemistry": {
       "approvedAssets": 83,
@@ -88,9 +88,14 @@
       "bindings": 20,
       "releasedBindings": 20
     },
+    "manual-wave2-anatomy-ch45-63": {
+      "bindings": 1,
+      "pendingBindings": 1
+    },
     "pilot": {
-      "bindings": 18,
-      "releasedBindings": 18
+      "bindings": 47,
+      "pendingBindings": 1,
+      "releasedBindings": 46
     },
     "rollout-01": {
       "bindings": 18,

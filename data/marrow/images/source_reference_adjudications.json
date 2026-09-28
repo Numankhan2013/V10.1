@@ -96,6 +96,22 @@
       },
       "reason": "The canonical metadata names a lac-operon figure on page 426, but the full authoritative page contains the Q5 solution text and no Q5 visual. The similar figure on page 425 belongs to Q3 and cannot be substituted.",
       "evidence": "data/marrow/images/recovery_checkpoints/manual_biochem_ch25_28_20260928.json; rendered biochemistryed8.pdf pages 425 and 426 compared with Q3, Q5 and Q7 solution boundaries on 2026-09-28; page 426 has no figure."
+    },
+    {
+      "id": "marrow__ANAT_CH45_Q023:figure:1",
+      "questionId": "marrow__ANAT_CH45_Q023",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        822
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "Canonical metadata assigns a right atrial triangle of Koch image to page 822, but the authoritative full-page rendering of page 822 contains question text and answer choices only, with no visual. No neighboring image is substituted.",
+      "evidence": "Ubuntu GitHub Actions run 36431980518; full-page render [0,0,612,792] at 300 dpi, SHA-256 66a17e6f605d0a06f2a7f7bf896f9af2203b566651f2570a8230daf1a57e309a; compared against the exact Anatomy PDF hash and Q23 source metadata."
     }
   ]
 }
