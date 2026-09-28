@@ -23,17 +23,19 @@ def main():
             browser = pw.chromium.launch()
             for width, height in ((390, 844), (820, 1180)):
                 context = browser.new_context(viewport={'width': width, 'height': height}, is_mobile=True, has_touch=True, service_workers='block')
-                context.add_init_script("""window.__vibrations=[];Object.defineProperty(Navigator.prototype,'vibrate',{configurable:true,value:function(pattern){window.__vibrations.push(pattern);return true;}});""")
                 page = context.new_page()
                 errors = []
                 page.on('pageerror', lambda error: errors.append(str(error)))
-                page.goto(origin + '/#dashboard', wait_until='domcontentloaded')
-                page.wait_for_function('window.QB?.nkCbtSetStep')
-                page.evaluate("""() => {
-                  window.QB.openTestBuilder();window.QB.nkCbtSetStep(2);
-                  window.QB.nkCbtSelectVerifiedPyqs();window.QB.nkCbtSetStep(3);
-                  window.QB.nkCbtSetCount(10);window.QB.nkCbtStart();
-                }""")
+                page.route('**/*', lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
+                page.goto(origin + '/#tests', wait_until='domcontentloaded')
+                page.wait_for_function('window.QB?.getState')
+                page.evaluate("""() => {window.__vibrations=[];Object.defineProperty(Navigator.prototype,'vibrate',{configurable:true,value:function(pattern){window.__vibrations.push(pattern);return true;}});}""")
+                page.get_by_role('button', name='Choose subjects and topics').click()
+                page.get_by_role('button', name='Continue to topics').click()
+                page.locator('#nk-cbt-pyq-toggle').click()
+                page.get_by_role('button', name='Continue to questions').click()
+                page.locator('#nk-cbt-custom-count').fill('10')
+                page.get_by_role('button', name='Start timed CBT').click()
                 page.wait_for_function("window.QB.getState().activeSession?.mode==='exam'")
                 page.wait_for_selector('.nk-v114-session.is-exam .option-list button.option')
                 page.evaluate("window.__questionNode=document.querySelector('.nk-v114-session .question-text')")
