@@ -18301,6 +18301,28 @@
             "sourceCompared": true,
             "notes": "Source region confirms figure identity, crop, and role for the cited question or explanation."
           }
+        },
+        {
+          "questionId": "marrow__ANAT_CH19_Q013",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Arachnoid villi",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 358,
+            "xref": 3636,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Arachnoid villi figure and explanation role."
+          }
         }
       ],
       "original": {
@@ -27241,6 +27263,564 @@
         "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH18_Q005:figure:1; visual and metadata match.",
         "originalSha256": "31d0dcea9fb796e85abc44caa65dba07b0335cb3c48b9264e68aa39f253b3c27",
         "productionSha256": "31d0dcea9fb796e85abc44caa65dba07b0335cb3c48b9264e68aa39f253b3c27"
+      }
+    },
+    {
+      "id": "anatomy-ee1e3ff4f1296904",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 349,
+        "xref": 968,
+        "region": [
+          162.0,
+          90.0,
+          450.0,
+          306.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH19_Q001",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Ependyma histology showing ependymocytes",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 349,
+            "xref": 968,
+            "region": [
+              162.0,
+              90.0,
+              450.0,
+              306.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Ependyma histology showing ependymocytes figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/ee1e3ff4f1296904853fbaa7943a43444000ac67c9589561af29b938c1f44602.jpg",
+        "sha256": "ee1e3ff4f1296904853fbaa7943a43444000ac67c9589561af29b938c1f44602",
+        "width": 575,
+        "height": 476
+      },
+      "production": {
+        "path": "data/marrow/images/originals/ee1e3ff4f1296904853fbaa7943a43444000ac67c9589561af29b938c1f44602.jpg",
+        "sha256": "ee1e3ff4f1296904853fbaa7943a43444000ac67c9589561af29b938c1f44602",
+        "width": 575,
+        "height": 476
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH19_Q001:figure:2; visual and metadata match.",
+        "originalSha256": "ee1e3ff4f1296904853fbaa7943a43444000ac67c9589561af29b938c1f44602",
+        "productionSha256": "ee1e3ff4f1296904853fbaa7943a43444000ac67c9589561af29b938c1f44602"
+      }
+    },
+    {
+      "id": "anatomy-37df5e868e6fa002",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 349,
+        "xref": 969,
+        "region": [
+          162.0,
+          513.0,
+          450.0,
+          729.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH19_Q002",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Parts of the lateral ventricle",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 349,
+            "xref": 969,
+            "region": [
+              162.0,
+              513.0,
+              450.0,
+              729.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Parts of the lateral ventricle figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/37df5e868e6fa002381b3cf8792e225a5e10fe37293e03bfae4d8002328d384c.jpg",
+        "sha256": "37df5e868e6fa002381b3cf8792e225a5e10fe37293e03bfae4d8002328d384c",
+        "width": 600,
+        "height": 678
+      },
+      "production": {
+        "path": "data/marrow/images/originals/37df5e868e6fa002381b3cf8792e225a5e10fe37293e03bfae4d8002328d384c.jpg",
+        "sha256": "37df5e868e6fa002381b3cf8792e225a5e10fe37293e03bfae4d8002328d384c",
+        "width": 600,
+        "height": 678
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH19_Q002:figure:2; visual and metadata match.",
+        "originalSha256": "37df5e868e6fa002381b3cf8792e225a5e10fe37293e03bfae4d8002328d384c",
+        "productionSha256": "37df5e868e6fa002381b3cf8792e225a5e10fe37293e03bfae4d8002328d384c"
+      }
+    },
+    {
+      "id": "anatomy-85deaa06fd4ac7ba",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 353,
+        "xref": 982,
+        "region": [
+          162.0,
+          474.0,
+          450.0,
+          690.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH19_Q006",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Cranial nerve nuclei in the floor of the 4th ventricle",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 353,
+            "xref": 982,
+            "region": [
+              162.0,
+              474.0,
+              450.0,
+              690.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Cranial nerve nuclei in the floor of the 4th ventricle figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/85deaa06fd4ac7ba62da97caa7ca30bf446a3ca7e76985900feca51149a9c922.jpg",
+        "sha256": "85deaa06fd4ac7ba62da97caa7ca30bf446a3ca7e76985900feca51149a9c922",
+        "width": 575,
+        "height": 872
+      },
+      "production": {
+        "path": "data/marrow/images/originals/85deaa06fd4ac7ba62da97caa7ca30bf446a3ca7e76985900feca51149a9c922.jpg",
+        "sha256": "85deaa06fd4ac7ba62da97caa7ca30bf446a3ca7e76985900feca51149a9c922",
+        "width": 575,
+        "height": 872
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH19_Q006:figure:1; visual and metadata match.",
+        "originalSha256": "85deaa06fd4ac7ba62da97caa7ca30bf446a3ca7e76985900feca51149a9c922",
+        "productionSha256": "85deaa06fd4ac7ba62da97caa7ca30bf446a3ca7e76985900feca51149a9c922"
+      }
+    },
+    {
+      "id": "anatomy-9b4996c2cf9b69aa",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 353,
+        "xref": 981,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH19_Q006",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Floor of the fourth ventricle",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 353,
+            "xref": 981,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Floor of the fourth ventricle figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/9b4996c2cf9b69aa8cce45fb8e1c20957d701b4836ca15a9e66f7800e0056f75.jpg",
+        "sha256": "9b4996c2cf9b69aa8cce45fb8e1c20957d701b4836ca15a9e66f7800e0056f75",
+        "width": 576,
+        "height": 739
+      },
+      "production": {
+        "path": "data/marrow/images/originals/9b4996c2cf9b69aa8cce45fb8e1c20957d701b4836ca15a9e66f7800e0056f75.jpg",
+        "sha256": "9b4996c2cf9b69aa8cce45fb8e1c20957d701b4836ca15a9e66f7800e0056f75",
+        "width": 576,
+        "height": 739
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH19_Q006:figure:2; visual and metadata match.",
+        "originalSha256": "9b4996c2cf9b69aa8cce45fb8e1c20957d701b4836ca15a9e66f7800e0056f75",
+        "productionSha256": "9b4996c2cf9b69aa8cce45fb8e1c20957d701b4836ca15a9e66f7800e0056f75"
+      }
+    },
+    {
+      "id": "anatomy-a4856e6f5870a163",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 358,
+        "xref": 997,
+        "region": [
+          162.0,
+          426.0,
+          450.0,
+          642.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH19_Q013",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Hydrocephalus with CSF pulsations",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 358,
+            "xref": 997,
+            "region": [
+              162.0,
+              426.0,
+              450.0,
+              642.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Hydrocephalus with CSF pulsations figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/a4856e6f5870a1632dda39e418f0668e3c91ef9021ef41ae03ff5db3d8a38475.jpg",
+        "sha256": "a4856e6f5870a1632dda39e418f0668e3c91ef9021ef41ae03ff5db3d8a38475",
+        "width": 510,
+        "height": 554
+      },
+      "production": {
+        "path": "data/marrow/images/originals/a4856e6f5870a1632dda39e418f0668e3c91ef9021ef41ae03ff5db3d8a38475.jpg",
+        "sha256": "a4856e6f5870a1632dda39e418f0668e3c91ef9021ef41ae03ff5db3d8a38475",
+        "width": 510,
+        "height": 554
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH19_Q013:figure:2; visual and metadata match.",
+        "originalSha256": "a4856e6f5870a1632dda39e418f0668e3c91ef9021ef41ae03ff5db3d8a38475",
+        "productionSha256": "a4856e6f5870a1632dda39e418f0668e3c91ef9021ef41ae03ff5db3d8a38475"
+      }
+    },
+    {
+      "id": "anatomy-cf1770f44b0822bd",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 365,
+        "xref": 1016,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH20_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Sulcus impressions on the lateral ventricle / calcar avis",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 365,
+            "xref": 1016,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Sulcus impressions on the lateral ventricle / calcar avis figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/cf1770f44b0822bd1df943d14a2e3081eaf417d892e6606dcf5cbe513e41a7e5.jpg",
+        "sha256": "cf1770f44b0822bd1df943d14a2e3081eaf417d892e6606dcf5cbe513e41a7e5",
+        "width": 576,
+        "height": 549
+      },
+      "production": {
+        "path": "data/marrow/images/originals/cf1770f44b0822bd1df943d14a2e3081eaf417d892e6606dcf5cbe513e41a7e5.jpg",
+        "sha256": "cf1770f44b0822bd1df943d14a2e3081eaf417d892e6606dcf5cbe513e41a7e5",
+        "width": 576,
+        "height": 549
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH20_Q002:figure:1; visual and metadata match.",
+        "originalSha256": "cf1770f44b0822bd1df943d14a2e3081eaf417d892e6606dcf5cbe513e41a7e5",
+        "productionSha256": "cf1770f44b0822bd1df943d14a2e3081eaf417d892e6606dcf5cbe513e41a7e5"
+      }
+    },
+    {
+      "id": "anatomy-04fa35321be318a1",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 365,
+        "xref": 1017,
+        "region": [
+          162.0,
+          365.0,
+          450.0,
+          581.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH20_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Heschl's gyrus",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 365,
+            "xref": 1017,
+            "region": [
+              162.0,
+              365.0,
+              450.0,
+              581.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Heschl's gyrus figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/04fa35321be318a1acc12812ad097f908db361f00e847c1838a4db8db512de6b.jpg",
+        "sha256": "04fa35321be318a1acc12812ad097f908db361f00e847c1838a4db8db512de6b",
+        "width": 596,
+        "height": 432
+      },
+      "production": {
+        "path": "data/marrow/images/originals/04fa35321be318a1acc12812ad097f908db361f00e847c1838a4db8db512de6b.jpg",
+        "sha256": "04fa35321be318a1acc12812ad097f908db361f00e847c1838a4db8db512de6b",
+        "width": 596,
+        "height": 432
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH20_Q003:figure:1; visual and metadata match.",
+        "originalSha256": "04fa35321be318a1acc12812ad097f908db361f00e847c1838a4db8db512de6b",
+        "productionSha256": "04fa35321be318a1acc12812ad097f908db361f00e847c1838a4db8db512de6b"
+      }
+    },
+    {
+      "id": "anatomy-2ffb51dc6d8e769f",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 367,
+        "xref": 1022,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH20_Q006",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Insular cortex",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 367,
+            "xref": 1022,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Insular cortex figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/2ffb51dc6d8e769f022f8b70787f99a9d0c0d788167650a49a6c364f4eacd969.jpg",
+        "sha256": "2ffb51dc6d8e769f022f8b70787f99a9d0c0d788167650a49a6c364f4eacd969",
+        "width": 600,
+        "height": 523
+      },
+      "production": {
+        "path": "data/marrow/images/originals/2ffb51dc6d8e769f022f8b70787f99a9d0c0d788167650a49a6c364f4eacd969.jpg",
+        "sha256": "2ffb51dc6d8e769f022f8b70787f99a9d0c0d788167650a49a6c364f4eacd969",
+        "width": 600,
+        "height": 523
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH20_Q006:figure:1; visual and metadata match.",
+        "originalSha256": "2ffb51dc6d8e769f022f8b70787f99a9d0c0d788167650a49a6c364f4eacd969",
+        "productionSha256": "2ffb51dc6d8e769f022f8b70787f99a9d0c0d788167650a49a6c364f4eacd969"
+      }
+    },
+    {
+      "id": "anatomy-5420d877b2751d0e",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 363,
+        "xref": 1011,
+        "region": [
+          162.0,
+          486.0,
+          450.0,
+          702.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH20_Q007",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 363,
+            "xref": 1011,
+            "region": [
+              162.0,
+              486.0,
+              450.0,
+              702.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Divisions of cerebral hemispheres with numbered language areas figure and question role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/5420d877b2751d0e02b7a1bc3d75a33b91984e6e718e9b87a587cae427233a1d.jpg",
+        "sha256": "5420d877b2751d0e02b7a1bc3d75a33b91984e6e718e9b87a587cae427233a1d",
+        "width": 720,
+        "height": 587
+      },
+      "production": {
+        "path": "data/marrow/images/originals/5420d877b2751d0e02b7a1bc3d75a33b91984e6e718e9b87a587cae427233a1d.jpg",
+        "sha256": "5420d877b2751d0e02b7a1bc3d75a33b91984e6e718e9b87a587cae427233a1d",
+        "width": 720,
+        "height": 587
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH20_Q007:figure:1; visual and metadata match.",
+        "originalSha256": "5420d877b2751d0e02b7a1bc3d75a33b91984e6e718e9b87a587cae427233a1d",
+        "productionSha256": "5420d877b2751d0e02b7a1bc3d75a33b91984e6e718e9b87a587cae427233a1d"
       }
     }
   ]
