@@ -6,6 +6,7 @@ import argparse
 import json
 import re
 from pathlib import Path
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data/marrow'
@@ -27,6 +28,9 @@ def main() -> None:
     pdf_path = DATA / 'source_pdfs' / source['file']
     source_hash = source['sha256']
     binding_by_id = {row['id']: row for row in audit['bindings']}
+    sys.path.insert(0, str(ROOT / 'tools'))
+    from marrow_images import questions
+    qmap = questions()
     items = []
     for ref in coverage['sourceVisuals']:
         if ref['subject'] != args.subject or ref['released']:
@@ -40,14 +44,34 @@ def main() -> None:
         if not audited:
             raise AssertionError(f"Missing source audit row for {ref['id']}")
         candidates = audited.get('candidateImages') or []
+        q = qmap[ref['questionId']]
+        metadata = audited.get('metadata') or {}
         if candidates:
-            for index, candidate in enumerate(candidates, 1):
+            # Candidate XObjects are often tiles of one source figure. Render
+            # their union on each cited page so review sees intact source layout.
+            by_page = {}
+            for candidate in candidates:
+                by_page.setdefault(candidate['page'], []).append(candidate)
+            for index, (page_number, page_candidates) in enumerate(sorted(by_page.items()), 1):
+                regions = [candidate['region'] for candidate in page_candidates]
+                region = [min(r[0] for r in regions), min(r[1] for r in regions),
+                          max(r[2] for r in regions), max(r[3] for r in regions)]
+                import fitz
+                with fitz.open(pdf_path) as document:
+                    page_rect = document[page_number - 1].rect
+                region = [max(float(page_rect.x0), region[0] - 12),
+                          max(float(page_rect.y0), region[1] - 28),
+                          min(float(page_rect.x1), region[2] + 12),
+                          min(float(page_rect.y1), region[3] + 28)]
                 items.append({
                     'referenceId': ref['id'], 'questionId': ref['questionId'],
-                    'role': audited.get('metadata', {}).get('role'),
-                    'page': candidate['page'], 'xref': candidate.get('xref'),
-                    'region': candidate['region'], 'candidateIndex': index,
-                    'candidateCount': len(candidates), 'method': 'region-render',
+                    'role': metadata.get('role'), 'metadataTitle': metadata.get('title'),
+                    'questionText': q.get('question'), 'explanationText': q.get('explanation'),
+                    'page': page_number,
+                    'xrefs': [candidate.get('xref') for candidate in page_candidates],
+                    'region': region, 'candidateIndex': index,
+                    'candidateCount': len(by_page), 'candidateObjectCount': len(page_candidates),
+                    'method': 'region-render',
                     'coverageStatus': ref['coverageStatus'],
                 })
         else:
@@ -59,7 +83,8 @@ def main() -> None:
                 rect = page.rect
             items.append({
                 'referenceId': ref['id'], 'questionId': ref['questionId'],
-                'role': audited.get('metadata', {}).get('role'),
+                'role': metadata.get('role'), 'metadataTitle': metadata.get('title'),
+                'questionText': q.get('question'), 'explanationText': q.get('explanation'),
                 'page': ref['sourcePages'][0], 'xref': None,
                 'region': [float(rect.x0), float(rect.y0), float(rect.x1), float(rect.y1)],
                 'candidateIndex': 1, 'candidateCount': 0,
