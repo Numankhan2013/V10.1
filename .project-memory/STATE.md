@@ -11,8 +11,12 @@
   time without a full-bank denominator. Result score and accuracy name their
   denominators; zero answered shows an em dash. The result action 900 ms gate
   is removed while double Submit/repeated tap guards remain. Text, focus, and
-  touch targets are enlarged. Local 75 checks pass; full generated browser,
-  PWA, packaged APK, and Android interaction verification is pending. Production
+  touch targets are enlarged. Product `0891dea` passed local 75 checks,
+  Engineering `36408461599`, and full generated browser/PWA/APK/packaged
+  Android phone+tablet run `36408465858`. Browser captures at 320, 390,
+  enlarged-text phone, and 820 px were inspected, as were Android Home/result
+  captures. Preview `https://61681d64.nk-qbank.pages.dev` returns HTTP 200
+  and serves the change. User physical review remains pending; production
   promotion remains deferred.
 - Current candidate (2026-09-28): Reduced tap latency in CBT by indexing bank
   questions by topic, avoiding an extra full-state clone/re-normalization during
@@ -108,4 +112,4 @@
 ## Known problems and next step
 
 - Canonical physical in-place APK/data-preservation check remains pending. PWA production root `https://nk-qbank.pages.dev` is current. Physical Android acceptance and in-place APK/data-preservation checks remain pending.
-- Complete full CI/browser/PWA/APK/Android verification of the study journey candidate and inspect its four-width Home/result captures, then share its preview. Get user review of the PrepLadder source PDF contrast preview on a real device. Multiple simultaneous timed tests are deprioritized. Marrow explanation and image work remain with their existing automations. Do not claim physical APK acceptance from CI. The next step after preview review is the user’s physical APK upgrade/data-preservation check and real-device sync review.
+- Share the verified study journey preview for user review. Get user review of the PrepLadder source PDF contrast preview on a real device. Multiple simultaneous timed tests are deprioritized. Marrow explanation and image work remain with their existing automations. Do not claim physical APK acceptance from CI. The next step after preview review is the user’s physical APK upgrade/data-preservation check and real-device sync review.

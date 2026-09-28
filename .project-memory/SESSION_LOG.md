@@ -1847,4 +1847,12 @@ Implemented approved recovery in existing transform owners: Topics separate path
   view sizes, but its Android interaction script referenced a Node variable
   inside browser evaluation without passing it as an argument. That check and
   the mid-transition screenshot capture were corrected. Exact-head full
-  verification and preview review remain pending; production remains unchanged.
+  verification was still pending at that point; production remained unchanged.
+- Product `0891dea` then passed Engineering `36408461599` and full generated
+  browser/PWA/APK/packaged Android phone+tablet run `36408465858`. The browser
+  captured empty and timed Home plus partial/unanswered results at 320 px,
+  390 px, 125% text-zoom phone, and 820 px tablet; settled frames were
+  inspected. Android Home/zero-answer result captures and the interaction
+  report were inspected. Preview `https://61681d64.nk-qbank.pages.dev`
+  returned HTTP 200 and served the Focus and result labels. No production
+  promotion or physical device acceptance occurred.
