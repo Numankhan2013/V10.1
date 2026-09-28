@@ -1,38 +1,38 @@
 {
   "schemaVersion": 1,
   "assets": {
-    "total": 166,
+    "total": 169,
     "byStatus": {
-      "PASS": 160,
+      "PASS": 164,
       "REJECTED": 2,
-      "REVIEW_REQUIRED": 2,
+      "REVIEW_REQUIRED": 1,
       "SOURCE_LIMITED": 2
     },
     "byKind": {
-      "diagram": 134,
+      "diagram": 137,
       "hybrid": 3,
       "medical": 28,
       "table": 1
     },
     "byMethod": {
-      "native-jpeg-stream": 159,
+      "native-jpeg-stream": 162,
       "region-render": 3,
       "svg-reconstruction": 4
     }
   },
   "bindings": {
-    "total": 212,
+    "total": 215,
     "byStatus": {
-      "PASS": 184,
+      "PASS": 188,
       "REJECTED": 25,
-      "REVIEW_REQUIRED": 2,
+      "REVIEW_REQUIRED": 1,
       "SOURCE_LIMITED": 1
     },
     "releasedByRole": {
-      "explanation": 146,
+      "explanation": 150,
       "question": 39
     },
-    "releasedQuestionCount": 170
+    "releasedQuestionCount": 172
   },
   "subjects": {
     "Anatomy": {
@@ -46,9 +46,9 @@
       "releasedQuestions": 66
     },
     "Physiology": {
-      "approvedAssets": 36,
-      "assets": 38,
-      "releasedQuestions": 40
+      "approvedAssets": 40,
+      "assets": 41,
+      "releasedQuestions": 42
     }
   },
   "batches": {
@@ -85,6 +85,10 @@
       "bindings": 1,
       "releasedBindings": 1
     },
+    "manual-physiology-ch03-07-20260928-ch07-tail": {
+      "bindings": 3,
+      "releasedBindings": 3
+    },
     "pilot": {
       "bindings": 18,
       "releasedBindings": 18
@@ -115,9 +119,8 @@
     },
     "rollout-06-native": {
       "bindings": 30,
-      "pendingBindings": 1,
       "rejectedBindings": 6,
-      "releasedBindings": 23
+      "releasedBindings": 24
     },
     "rollout-07-native": {
       "bindings": 30,

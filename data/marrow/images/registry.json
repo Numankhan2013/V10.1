@@ -7678,7 +7678,7 @@
       "id": "physiology-7cc42f81bd612520",
       "subject": "Physiology",
       "kind": "diagram",
-      "reviewBatch": "rollout-06-native",
+      "reviewBatch": "manual-physiology-ch03-07-20260928-ch07-tail",
       "source": {
         "file": "physiologyed8.pdf",
         "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
@@ -7697,7 +7697,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Source explanation diagram/image on PDF page 157",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "rollout-06-native",
           "source": {
             "page": 157,
@@ -7711,8 +7711,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Correct Q33 figure, but native label readability is below the approved baseline; reconstruction required before release.",
-            "evidence": "Held after visual inspection of page 157/xref 424."
+            "notes": "The page-157 muscle-spindle/Golgi-tendon-organ reflex sequence continues Solution 33. The exact native asset is already tracked and only requires source-review promotion.",
+            "evidence": "Manual authoritative source review manual-physiology-ch03-07-20260928-ch07-tail: physiologyed8.pdf page 157, xref 424, existing immutable stream 7cc42f81bd61252098a5dd29e73e88597124b45779bf6b370ba3d8140c034f6e."
           }
         },
         {
@@ -7752,11 +7752,13 @@
         "height": 451
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "The native Golgi-tendon-organ sequence is semantically correct but its dense labels are below the approved readability baseline. Hold for source-faithful reconstruction.",
-        "evidence": "Compared Physiology page 157/xref 424 and Q33 metadata; not released as SOURCE_LIMITED."
+        "notes": "The page-157 muscle-spindle/Golgi-tendon-organ reflex sequence continues Solution 33. The exact native asset is already tracked and only requires source-review promotion.",
+        "evidence": "Manual authoritative source review manual-physiology-ch03-07-20260928-ch07-tail: physiologyed8.pdf page 157, xref 424, existing immutable stream 7cc42f81bd61252098a5dd29e73e88597124b45779bf6b370ba3d8140c034f6e.",
+        "originalSha256": "7cc42f81bd61252098a5dd29e73e88597124b45779bf6b370ba3d8140c034f6e",
+        "productionSha256": "7cc42f81bd61252098a5dd29e73e88597124b45779bf6b370ba3d8140c034f6e"
       }
     },
     {
@@ -10696,6 +10698,147 @@
         "evidence": "Manual source review workflow 34698354509, artifact manual-physiology-image-batch01-source-review; physiologyed8.pdf sha256=03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe page=25 composite_xrefs=[54,55,56,57] region=[161.52,55.775,450.48,272.225] dpi=300 output_sha256=f675135b3bc1c3817fe0523dbef4f4d64d1c6e5463ab4358e19515d7eda1e8f9.",
         "originalSha256": "f675135b3bc1c3817fe0523dbef4f4d64d1c6e5463ab4358e19515d7eda1e8f9",
         "productionSha256": "f675135b3bc1c3817fe0523dbef4f4d64d1c6e5463ab4358e19515d7eda1e8f9"
+      }
+    },
+    {
+      "id": "physiology-9874a6f6f603c65c",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "manual-physiology-ch03-07-20260928-ch07-tail",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 152,
+        "xref": 410,
+        "region": [
+          162.0,
+          414.0,
+          450.0,
+          630.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH07_Q024",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Velocity of contraction versus muscle load graph"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/9874a6f6f603c65c646c15264092b8799b4d1a185c50cf736c9c157f4b04b0f4.jpg",
+        "sha256": "9874a6f6f603c65c646c15264092b8799b4d1a185c50cf736c9c157f4b04b0f4",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/9874a6f6f603c65c646c15264092b8799b4d1a185c50cf736c9c157f4b04b0f4.jpg",
+        "sha256": "9874a6f6f603c65c646c15264092b8799b4d1a185c50cf736c9c157f4b04b0f4",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authoritative page 152 places the velocity-versus-load graph before Solution 25; it is the second Q24 explanation figure and is a clean native JPEG stream.",
+        "evidence": "Manual authoritative source review manual-physiology-ch03-07-20260928-ch07-tail: physiologyed8.pdf page 152, xref 410, immutable stream SHA-256 9874a6f6f603c65c646c15264092b8799b4d1a185c50cf736c9c157f4b04b0f4.",
+        "originalSha256": "9874a6f6f603c65c646c15264092b8799b4d1a185c50cf736c9c157f4b04b0f4",
+        "productionSha256": "9874a6f6f603c65c646c15264092b8799b4d1a185c50cf736c9c157f4b04b0f4"
+      }
+    },
+    {
+      "id": "physiology-23b5d6330e80a0e7",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "manual-physiology-ch03-07-20260928-ch07-tail",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 156,
+        "xref": 420,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH07_Q032",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Wave summation and tetanus tension-time graphs"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/23b5d6330e80a0e76319977317b57e406c4fc65755fadd7132253f5f8e3840ce.jpg",
+        "sha256": "23b5d6330e80a0e76319977317b57e406c4fc65755fadd7132253f5f8e3840ce",
+        "width": 763,
+        "height": 314
+      },
+      "production": {
+        "path": "data/marrow/images/originals/23b5d6330e80a0e76319977317b57e406c4fc65755fadd7132253f5f8e3840ce.jpg",
+        "sha256": "23b5d6330e80a0e76319977317b57e406c4fc65755fadd7132253f5f8e3840ce",
+        "width": 763,
+        "height": 314
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Authoritative page 156 contains the wave-summation/tetanus graph before Solution 33; it belongs to Q32 and is a clean native JPEG stream.",
+        "evidence": "Manual authoritative source review manual-physiology-ch03-07-20260928-ch07-tail: physiologyed8.pdf page 156, xref 420, immutable stream SHA-256 23b5d6330e80a0e76319977317b57e406c4fc65755fadd7132253f5f8e3840ce.",
+        "originalSha256": "23b5d6330e80a0e76319977317b57e406c4fc65755fadd7132253f5f8e3840ce",
+        "productionSha256": "23b5d6330e80a0e76319977317b57e406c4fc65755fadd7132253f5f8e3840ce"
+      }
+    },
+    {
+      "id": "physiology-e3f640afc4b48afa",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "manual-physiology-ch03-07-20260928-ch07-tail",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 156,
+        "xref": 421,
+        "region": [
+          162.0,
+          501.0,
+          450.0,
+          717.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH07_Q033",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Stretch reflex and inverse stretch reflex neural pathway diagram"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/e3f640afc4b48afa703e99d492f313946dc2f39e54374fe1fe44a17bbfc2b05b.jpg",
+        "sha256": "e3f640afc4b48afa703e99d492f313946dc2f39e54374fe1fe44a17bbfc2b05b",
+        "width": 600,
+        "height": 450
+      },
+      "production": {
+        "path": "data/marrow/images/originals/e3f640afc4b48afa703e99d492f313946dc2f39e54374fe1fe44a17bbfc2b05b.jpg",
+        "sha256": "e3f640afc4b48afa703e99d492f313946dc2f39e54374fe1fe44a17bbfc2b05b",
+        "width": 600,
+        "height": 450
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "The lower page-156 stretch/inverse-stretch reflex schematic is inside Solution 33 and is a clean native JPEG stream.",
+        "evidence": "Manual authoritative source review manual-physiology-ch03-07-20260928-ch07-tail: physiologyed8.pdf page 156, xref 421, immutable stream SHA-256 e3f640afc4b48afa703e99d492f313946dc2f39e54374fe1fe44a17bbfc2b05b.",
+        "originalSha256": "e3f640afc4b48afa703e99d492f313946dc2f39e54374fe1fe44a17bbfc2b05b",
+        "productionSha256": "e3f640afc4b48afa703e99d492f313946dc2f39e54374fe1fe44a17bbfc2b05b"
       }
     }
   ]

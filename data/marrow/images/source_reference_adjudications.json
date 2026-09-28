@@ -80,6 +80,86 @@
       },
       "reason": "The canonical figure metadata duplicates the continuation of the Q21 text/vector cytoskeletal table and does not identify a raster image.",
       "evidence": "Manual source review workflow 34698354509, artifact manual-physiology-image-batch01-source-review: full rendered Physiology ED8 page 19 inspected against PHYS_CH01_Q021. The continuation rows are already preserved in the same structured table; the image audit reports zero native candidates."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q025:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q025",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        152
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The canonical figure metadata points Q25 to page 152, but the authoritative rendered page shows the referenced graph before Solution 25 as continuation of Q24. Reusing it for Q25 would create a false source association.",
+      "evidence": "Manual authoritative source review manual-physiology-ch03-07-20260928-ch07-tail: rendered page(s) 152 inspected against solution ownership. Page 152 visuals occur before Solution 25 and belong to Q24; Q25 has no owned figure at this source page."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q029:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q029",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        154
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The authoritative rendered page 154 places the motor-unit figure before Solution 29. The same asset is already released for Q28, so the Q29 metadata association is invalid.",
+      "evidence": "Manual authoritative source review manual-physiology-ch03-07-20260928-ch07-tail: rendered page(s) 154 inspected against solution ownership. The page-154 motor-unit visual precedes Solution 29 and belongs to Q28, not Q29."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q030:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q030",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        154
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "Direct inspection of authoritative page 154 shows no Q30-owned figure; the only native candidate is the motor-unit visual already released for Q28. Reusing it for Q30 would be a provenance mismatch.",
+      "evidence": "Manual authoritative source review manual-physiology-ch03-07-20260928-ch07-tail: rendered page(s) 154 inspected against solution ownership. The only page-154 native visual is the Q28 motor-unit figure and does not belong to Q30."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q034:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q034",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        157
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The authoritative rendered page 157 places this native figure before Solution 34 as continuation of Q33. The existing Q34 binding is already rejected, so the source metadata association should be adjudicated invalid.",
+      "evidence": "Manual authoritative source review manual-physiology-ch03-07-20260928-ch07-tail: rendered page(s) 157 inspected against solution ownership. The page-157 reflex sequence precedes Solution 34 and continues Q33; it is not a Q34-owned figure."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q035:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q035",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        158
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "Direct inspection of authoritative page 158 shows the native visual before Solution 35, owned by Q34. The same asset is already released as Q34 figure 2, so binding it to Q35 would be a provenance mismatch.",
+      "evidence": "Manual authoritative source review manual-physiology-ch03-07-20260928-ch07-tail: rendered page(s) 158 inspected against solution ownership. The page-158 action-potential/muscle visual occurs before Solution 35 and is already released as Q34 figure 2."
     }
   ]
 }
