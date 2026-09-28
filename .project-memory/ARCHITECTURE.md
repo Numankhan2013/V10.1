@@ -275,6 +275,11 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   `MARROW_RECORDS` → `MARROW_BY_SUBJECT` → `BANKS_BY_SUBJECT`.
   `nkBankRecords`, `nkBankRecord`, `nkAllBankQuestions` and global
   namespaced IDs let the existing engines resolve all bank questions safely.
+- `tools/apply_question_search_v1.py` runs after the bank, revision, and
+  Insights transforms. Its read-only in-memory index uses the shared bank
+  registry; filters read persisted attempts and bookmarks. Exact matches enter
+  the existing Practice session engine, so no second answer or review path is
+  created. Search state is transient and does not change the sync schema.
 - Current Marrow records:
   - Anatomy: 1,115 questions / 63 topics.
   - Biochemistry: 582 / 28.

@@ -113,6 +113,12 @@ Prefer building over narrating.
   question ID, available after an answer and in Review Solutions; durable
   locally and account-synced. Saved notes are read-only cards with Edit/Delete;
   More has a searchable cross-bank note index. No extra Home action.
+- **Find a question (candidate):** More opens one searchable question index
+  across Anatomy, Physiology, Biochemistry, PrepLadder, and Marrow. Search uses
+  exact IDs, wording, options, and source topics; subject, bank, and learner
+  progress filters narrow results. Each result opens exact-ID Practice, and
+  the first 20 matches can be practiced together. An active timed test stays
+  intact. Results never reveal the answer before Practice submission.
 - **Custom Study Modules (V11.5 plus bank-aware candidate):** reusable sets from
   explicit subject/bank/topic scope + All/Unattempted/Wrong/Bookmarked/Mixed
   (seeded shuffle, Mixed weighted Wrong-heavy); source-labelled PYQ topics

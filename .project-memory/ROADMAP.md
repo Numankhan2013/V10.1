@@ -6,6 +6,12 @@ Check off only when build-verified **and** device-verified where UI is involved.
 
 ## Immediate (next 1–2 sessions)
 
+- [ ] All-bank Find a question: search exact IDs, wording, options, and source
+      topics across six subject/bank combinations; filter by subject, bank,
+      unattempted, missed-before, or bookmarked; open exact Practice or a
+      bounded 20-question matching set. Preserve timed-test state and verify
+      phone/tablet browser, packaged Android, and preview before user review.
+
 - [ ] Exact completed-CBT retake with initial-versus-final saved-result
       comparison: score, accuracy, attempts, time, recovered/new misses, and
       source-exact missed topics. Product `4a2d5af` with browser-check fix

@@ -4,7 +4,16 @@
 
 ## Baseline and active work
 
-- Current candidate (2026-09-27): Fix the account-switch failure after reset
+- Current candidate (2026-09-28): Add a full-page Find a question flow under
+  More. It searches the exact ID, wording, options, and source topic across
+  all six subject/bank combinations; filters use real subject, bank, attempts,
+  and bookmarks. Results are bounded, and a result or the first 20 matches
+  launch the existing Practice engine while protecting an active timed test.
+  Targeted behavior and transform tests plus all 72 local checks pass; full
+  generated browser/APK/Android CI and preview are pending. Keep this phase on
+  the preview branch; the user explicitly deferred production promotion until
+  later phases are reviewed.
+- Previous candidate (2026-09-27): Fix the account-switch failure after reset
   and sign-out. The one-account installation lock is replaced by per-account
   local snapshots of progress, sync queues, and subject preference. A switch
   journal recovers interrupted writes; a newly opened account downloads before

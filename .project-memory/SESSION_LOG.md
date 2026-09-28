@@ -1754,3 +1754,15 @@ Implemented approved recovery in existing transform owners: Topics separate path
   `https://5f95a96b.nk-qbank.pages.dev` returned HTTP 200 and served the
   switch code without the old lock. Production and physical Android are
   unchanged; user review of two-account switching is pending.
+
+## 2026-09-28 — All-bank question finder candidate
+
+- The user deferred production promotion and requested another substantial
+  learner feature. More gains Find a question across all three subjects and
+  both banks. It searches exact question IDs, wording, options, and source
+  topics, with subject/bank and actual attempt/bookmark filters. Learners can
+  open one result or Practice the first 20 matches through the existing engine.
+  An active timed test is protected and search results do not reveal answers.
+- Added deterministic transform, behavior test, phone/tablet browser journey,
+  and Engineering/full-build gates. Targeted behavior and transform tests plus
+  all 72 local checks pass; CI and preview remain pending. Production unchanged.
