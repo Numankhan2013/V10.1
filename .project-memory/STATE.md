@@ -4,6 +4,17 @@
 
 ## Baseline and active work
 
+- Current candidate (2026-09-28): Reduced tap latency in CBT by indexing bank
+  questions by topic, avoiding an extra full-state clone/re-normalization during
+  durable saves, and updating selected answers in place after a successful save.
+  Added distinct touch feedback for answer selection, navigation, marks, primary
+  actions, and committed correct/incorrect answers. Packaged Android uses the
+  system-respecting haptic feedback API; PWA uses `navigator.vibrate` when
+  supported. Local 75 checks pass. Engineering `36379690116` and full build,
+  phone/tablet browser, APK, and Android WebView interaction run `36379671049`
+  pass. The 12-answer browser sequence measured 1.5 ms median on both viewports.
+  Preview `https://4c70a5cc.nk-qbank.pages.dev` returns HTTP 200 and serves the
+  changes. Physical haptic feel review is pending. Production remains unchanged.
 - Current candidate (2026-09-28): A saved Practice result can start a correction
   pass of its exact incorrect/unattempted IDs with blank answers. The first
   result stays immutable; each correction saves separately and compares

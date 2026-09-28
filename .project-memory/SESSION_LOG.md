@@ -1801,3 +1801,28 @@ Implemented approved recovery in existing transform owners: Topics separate path
   HTTP 200 and serves the new code. Phone/tablet result captures were inspected;
   packaged Android phone/tablet interaction assertions also passed. User
   physical review remains pending. Production remains unchanged.
+
+## 2026-09-28 — Tap latency and action haptics
+
+- Reduced timed-CBT answer work by updating selected option classes in place
+  after the durable state commit. Failed writes leave the DOM and answer state
+  unchanged; a missing expected DOM uses the existing full render. The durable
+  writer no longer makes an extra full-state clone or normalizes the already
+  saved snapshot while checking its revision. Bank-aware CBT now indexes
+  immutable question membership by topic instead of rescanning each topic for
+  its count.
+- Touch-down feedback is immediate and varies by action. Practice outcome
+  feedback still waits until the save commits. The browser/PWA uses vibration
+  patterns when available; Android calls the allowlisted native bridge with
+  action constants and respects system touch-feedback settings. The native
+  bridge transform runs after Android Activity generation, which rewrites its
+  source. The phone/tablet browser test checks in-place updates, persistence,
+  failed-write behavior, and records a 1.5 ms median over 12 rapid answer
+  changes on both viewport sizes.
+- `python3 tools/verify_local.py`: 75 checks passed (PDF/generated-app checks
+  are CI-only in Termux). Engineering `36379690116` and full run
+  `36379671049` passed, including generated browser checks, APK packaging, and
+  Android WebView phone/tablet interaction. Cloudflare preview
+  `https://4c70a5cc.nk-qbank.pages.dev` returned HTTP 200 and served the change.
+  User should review touch feel on an Android device; this is not physical
+  device acceptance. Production remains unchanged.
