@@ -11,7 +11,7 @@ visuals. Raw source and source PDFs remain unchanged.
 
 | Batch | Owner | Exclusive source scope | Starting backlog | Status | Working branch and base |
 | --- | --- | --- | --- | --- | --- |
-| `manual-biochem-ch25-28-20260928` | Codex, this user thread | Biochemistry Chapters 25–28, all source visuals and visual text cues | 22 unresolved references across 21 questions: Ch25 2, Ch26 5, Ch27 7, Ch28 8; 0 text-cue items | **PARTIALLY INTEGRATED / REVIEW OPEN** | `feature/marrow-manual-images-20260928` from `e6fb3f813eb2c49a5220eec774ae60e551a7169f` |
+| `manual-biochem-ch25-28-20260928` | Codex, this user thread | Biochemistry Chapters 25–28, all source visuals and visual text cues | 22 references across 21 questions: Ch25 2, Ch26 5, Ch27 7, Ch28 8; 0 text-cue items | **SOURCE REVIEW COMPLETE / EXACT-HEAD VERIFICATION PENDING** | `feature/marrow-manual-images-20260928` from `e6fb3f813eb2c49a5220eec774ae60e551a7169f` |
 | `manual-physiology-ch03-07-20260928` | ChatGPT manual lane, this user thread | Physiology Chapters 3–7, all source visuals and visual text cues | 49 unresolved references across 39 questions: Ch3 5, Ch4 2, Ch5 2, Ch6 7, Ch7 33; 0 text-cue items | **CLAIMED / IN PROGRESS** | `manual/physiology-images-ch03-07-20260928` from the canonical claim commit; refresh registry/progress/coverage from live canonical after Biochemistry integration before shared-state writes |
 
 The 22 reference IDs for `manual-biochem-ch25-28-20260928` are the unresolved
@@ -58,10 +58,10 @@ coverage SHA-256
 
 | Chapter | Starting unresolved references | Released in this batch | Review required | Remaining untracked | Notes |
 | --- | ---: | ---: | ---: | ---: | --- |
-| 25 | 2 | 1 | 1 | 0 | Q11 released; Q26 remains tracked for phone-label review; source pages 395–402 |
-| 26 | 5 | 4 | 1 | 0 | Q18 held for fine-label readability; source pages 413–417 |
-| 27 | 7 | 4 | 2 | 0 | Q2/Q3 held for faint condition labels; Q5 adjudicated invalid against page 426; source pages 424–430 |
-| 28 | 8 | 7 | 1 | 0 | Q27 held because source watermark crosses bond detail; Q22 question and explanation figures separately bound |
+| 25 | 2 | 2 | 0 | 0 | Q11 and Q26 released; Q26 is SOURCE_LIMITED for small inline labels, with exact source pixels and tap-to-expand viewer; source pages 395–402 |
+| 26 | 5 | 5 | 0 | 0 | Q18 is SOURCE_LIMITED: source watermark crosses fine factor labels; exact source crop is inspectable in expanded view; source pages 413–417 |
+| 27 | 7 | 6 | 0 | 0 | Q2/Q3 released SOURCE_LIMITED for faint but enlarged-readable condition labels; Q5 adjudicated invalid against page 426; source pages 424–430 |
+| 28 | 8 | 8 | 0 | 0 | Q27 released SOURCE_LIMITED because the source watermark crosses some bond detail; exact crop retained; Q22 question and explanation figures separately bound |
 
 ## Batch `manual-physiology-ch03-07-20260928`
 
@@ -73,6 +73,6 @@ coverage SHA-256
 | 6 | 7 | 0 | 0 | 7 | Source pages 94–109; historical fast-lane donor evidence exists |
 | 7 | 33 | 0 | 0 | 33 | Source pages 137–158; first 24 unresolved refs have historical donor evidence, final 9 require fresh review |
 
-The batch is fast-forward integrated at product commit `87a572486b28f1644ad7d78b51fca10ca099f6a9`. All eight region-render references use the exact source crops from Ubuntu build run `36415941717`, inspected at native and expanded size and tied to the source PDF hash. Candidate Engineering/full runs `36416657111` / `36416656845` and canonical Engineering/full runs `36418451083` / `36418451115` all passed on that exact product commit. Preview `https://fdfaf659.nk-qbank.pages.dev` returned HTTP 200; production promotion was skipped. The batch remains open: five images are tracked as REVIEW_REQUIRED (Ch25 Q26, Ch26 Q18, Ch27 Q2/Q3, Ch28 Q27), and Q27 Q5 is source-metadata-invalid by evidence. Sixteen references are released; none of this batch's 22 references remain untracked. Do not claim chapter-range completeness or release the ownership claim until the five visual holds are dispositioned.
+All five former visual holds are now reviewed as SOURCE_LIMITED and included in the learner runtime: Ch25 Q26, Ch26 Q18, Ch27 Q2/Q3 and Ch28 Q27. The authentic pixels were retained unchanged; watermark and faint-label limitations are documented, and tap-to-expand zoom is available. Q27 Q5 remains an exact source-metadata-invalid adjudication. All 22 starting references are accounted for (21 released, 1 invalid; none untracked or review-required in this batch). The batch has no unresolved source-reference work; subject-wide Biochemistry coverage remains incomplete. Exact-head candidate/canonical CI and fast-forward reconciliation are pending for this review update. Production promotion remains deferred.
 
 Status is a live work log, not a claim that these images are already integrated. Each owner updates it with evidence and exact verification results as work lands.

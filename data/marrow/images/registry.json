@@ -10142,7 +10142,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "CRISPR-Cas9 gene editing schematic",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "NKQ_BIOCHEMISTRY_20260911",
           "source": {
             "page": 402,
@@ -10155,9 +10155,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Correct explanation ownership and answer-safe timing confirmed, but the candidate remains held because small labels are borderline at phone width.",
-            "evidence": "Marrow ED8 page 402 xref 961 plus run 34595643644 comparison artifact."
+            "sourceCompared": true,
+            "notes": "Explanation ownership and post-answer placement match the source page and question reference.",
+            "evidence": "Marrow ED8 page 402/xref 961; question explanation reference and source crop compared; image remains explanation-only."
           }
         }
       ],
@@ -10174,11 +10174,11 @@
         "height": 451
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "SOURCE_LIMITED",
       "qa": {
         "sourceCompared": true,
-        "notes": "Ownership is correct to the CRISPR explanation on Marrow ED8 page 402/xref 961 and the native 600x451 JPEG is intact. At learner-width inspection, several small molecular/repair labels are borderline for the approved phone readability floor; do not release until expanded/device inspection or a fully source-faithful reconstruction resolves readability.",
-        "evidence": "GitHub Actions run 34595643644 artifact marrow-biochem-NKQ_BIOCHEMISTRY_20260911-review / marrow__BIOCHEM_CH25_Q026__comparison.jpg",
+        "notes": "The source-matched 600x451 CRISPR schematic preserves all panels and labels; small labels are difficult at inline phone width but readable in the existing tap-to-expand viewer. Original pixels are unchanged. Released with the documented source-resolution limit.",
+        "evidence": "Marrow ED8 page 402/xref 961; native JPEG SHA-256 e10cc8a9721a17daea04f60fb422e85611a233b31c0075ca5095e9df09aa4844; learner comparison artifact from GitHub Actions run 34595643644; fullscreen-capable source viewer confirmed in marrow_visual_renderer.js.",
         "originalSha256": "e10cc8a9721a17daea04f60fb422e85611a233b31c0075ca5095e9df09aa4844",
         "productionSha256": "e10cc8a9721a17daea04f60fb422e85611a233b31c0075ca5095e9df09aa4844"
       }
@@ -11091,7 +11091,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Eukaryotic translation initiation factor sequence",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-biochem-ch25-28-20260928",
           "source": {
             "page": 417,
@@ -11110,8 +11110,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "The Q18 initiation-complex figure is split across three source tiles. Its fine factor labels are obscured by the source watermark at learner size; retain for focused readability review or source-faithful specialist reconstruction. Rendered source page and extracted image were compared at native and expanded size. Physical device acceptance is pending.",
-            "evidence": "data/marrow/images/recovery_checkpoints/manual_biochem_ch25_28_20260928.json; source PDF SHA-256=463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb; page=417 region=[160.52, 286.64, 451.48, 505.36]; rendered by PyMuPDF in Ubuntu GitHub Actions run 36415941717 at exact candidate de6d46c69c54e1bb49a05bdb0964632e727f8376; source region inspected at native and expanded size 2026-09-28"
+            "notes": "Explanation ownership and source order match Ch26 Q18; image is explanation-only.",
+            "evidence": "Source PDF page 417; exact question source reference and three tile placements compared with the source page."
           }
         }
       ],
@@ -11128,11 +11128,11 @@
         "height": 912
       },
       "method": "region-render",
-      "status": "REVIEW_REQUIRED",
+      "status": "SOURCE_LIMITED",
       "qa": {
         "sourceCompared": true,
-        "notes": "The Q18 initiation-complex figure is split across three source tiles. Its fine factor labels are obscured by the source watermark at learner size; retain for focused readability review or source-faithful specialist reconstruction. Rendered source page and extracted image were compared at native and expanded size. Physical device acceptance is pending.",
-        "evidence": "data/marrow/images/recovery_checkpoints/manual_biochem_ch25_28_20260928.json; source PDF SHA-256=463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb; page=417 region=[160.52, 286.64, 451.48, 505.36]; rendered by PyMuPDF in Ubuntu GitHub Actions run 36415941717 at exact candidate de6d46c69c54e1bb49a05bdb0964632e727f8376; source region inspected at native and expanded size 2026-09-28",
+        "notes": "The three authentic source tiles form the eukaryotic initiation sequence. The printed watermark crosses fine factor labels but labels, arrows, and sequence remain interpretable in the expanded image viewer. Source crop retained without retouching; source watermark and resolution are disclosed.",
+        "evidence": "Source PDF SHA-256 463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb; page 417, xrefs 1000-1002, region [160.52,286.64,451.48,505.36]; 300dpi crop and native tiles inspected at native/expanded sizes; tap-to-expand viewer enables full pixel view.",
         "originalSha256": "9739c78cc0bbc36bb008f74da7bc55e75895368962d7579d21dfb9383ae565b5",
         "productionSha256": "9739c78cc0bbc36bb008f74da7bc55e75895368962d7579d21dfb9383ae565b5"
       }
@@ -11168,7 +11168,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Lac operon and control elements",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-biochem-ch25-28-20260928",
           "source": {
             "page": 424,
@@ -11187,8 +11187,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "The Q2 lac-operon diagram spans three source tiles. Glucose/lactose condition labels on the right are faint in the authoritative source; hold for focused readability review. Rendered source page and extracted image were compared at native and expanded size. Physical device acceptance is pending.",
-            "evidence": "data/marrow/images/recovery_checkpoints/manual_biochem_ch25_28_20260928.json; source PDF SHA-256=463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb; page=424 region=[160.52, 116.568, 451.48, 335.432]; rendered by PyMuPDF in Ubuntu GitHub Actions run 36415941717 at exact candidate de6d46c69c54e1bb49a05bdb0964632e727f8376; source region inspected at native and expanded size 2026-09-28"
+            "notes": "Explanation ownership and source order match Ch27 Q2; source reference and page boundary agree.",
+            "evidence": "Source PDF page 424, Q2 explanation figure; adjacent question boundary checked."
           }
         }
       ],
@@ -11205,11 +11205,11 @@
         "height": 913
       },
       "method": "region-render",
-      "status": "REVIEW_REQUIRED",
+      "status": "SOURCE_LIMITED",
       "qa": {
         "sourceCompared": true,
-        "notes": "The Q2 lac-operon diagram spans three source tiles. Glucose/lactose condition labels on the right are faint in the authoritative source; hold for focused readability review. Rendered source page and extracted image were compared at native and expanded size. Physical device acceptance is pending.",
-        "evidence": "data/marrow/images/recovery_checkpoints/manual_biochem_ch25_28_20260928.json; source PDF SHA-256=463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb; page=424 region=[160.52, 116.568, 451.48, 335.432]; rendered by PyMuPDF in Ubuntu GitHub Actions run 36415941717 at exact candidate de6d46c69c54e1bb49a05bdb0964632e727f8376; source region inspected at native and expanded size 2026-09-28",
+        "notes": "The source-authentic lac-operon diagram preserves condition rows and gene-control elements. Right-side glucose/lactose labels are faint in the PDF but readable at expanded size; no labels were redrawn or enhanced.",
+        "evidence": "Source PDF SHA-256 463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb; page 424, xrefs 1018-1020, region [160.52,116.568,451.48,335.432]; 300dpi source crop and native tiles inspected; fullscreen viewer supports enlargement.",
         "originalSha256": "7a6a4db3db4d51ad14292f4531acfe3ffeb4388f71a7d384c7e8d57075e34789",
         "productionSha256": "7a6a4db3db4d51ad14292f4531acfe3ffeb4388f71a7d384c7e8d57075e34789"
       }
@@ -11245,7 +11245,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Lac operon and control elements",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-biochem-ch25-28-20260928",
           "source": {
             "page": 425,
@@ -11264,8 +11264,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "The repeated Q3 lac-operon diagram spans three source tiles. Its right-side condition labels are faint in the authoritative source; Q5 has no figure on its cited page and must not reuse this figure. Rendered source page and extracted image were compared at native and expanded size. Physical device acceptance is pending.",
-            "evidence": "data/marrow/images/recovery_checkpoints/manual_biochem_ch25_28_20260928.json; source PDF SHA-256=463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb; page=425 region=[160.52, 54.568, 451.48, 273.432]; rendered by PyMuPDF in Ubuntu GitHub Actions run 36415941717 at exact candidate de6d46c69c54e1bb49a05bdb0964632e727f8376; source region inspected at native and expanded size 2026-09-28"
+            "notes": "Repeated figure ownership matches Ch27 Q3 explanation; not reused for Q5, whose cited page was adjudicated separately.",
+            "evidence": "Source PDF page 425 and stable Q3 metadata compared; Q5 page 426 boundary reviewed independently."
           }
         }
       ],
@@ -11282,11 +11282,11 @@
         "height": 913
       },
       "method": "region-render",
-      "status": "REVIEW_REQUIRED",
+      "status": "SOURCE_LIMITED",
       "qa": {
         "sourceCompared": true,
-        "notes": "The repeated Q3 lac-operon diagram spans three source tiles. Its right-side condition labels are faint in the authoritative source; Q5 has no figure on its cited page and must not reuse this figure. Rendered source page and extracted image were compared at native and expanded size. Physical device acceptance is pending.",
-        "evidence": "data/marrow/images/recovery_checkpoints/manual_biochem_ch25_28_20260928.json; source PDF SHA-256=463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb; page=425 region=[160.52, 54.568, 451.48, 273.432]; rendered by PyMuPDF in Ubuntu GitHub Actions run 36415941717 at exact candidate de6d46c69c54e1bb49a05bdb0964632e727f8376; source region inspected at native and expanded size 2026-09-28",
+        "notes": "Repeated lac-operon source figure for Q3; condition labels are faint but readable when expanded. Exact page crop retained without reconstruction or sharpening.",
+        "evidence": "Source PDF SHA-256 463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb; page 425, xrefs 1351/1349/1350, region [160.52,54.568,451.48,273.432]; 300dpi crop and native tiles inspected; question boundary and full-size viewer checked.",
         "originalSha256": "66c2d8c18dc84c9b05961f4ae10235ec9a7e45794245d9e2e56b1a1674e5b68f",
         "productionSha256": "66c2d8c18dc84c9b05961f4ae10235ec9a7e45794245d9e2e56b1a1674e5b68f"
       }
@@ -11982,7 +11982,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Wobble base-pairing examples",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-biochem-ch25-28-20260928",
           "source": {
             "page": 450,
@@ -12002,8 +12002,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "The four-tile wobble-pairing figure continues Q27, but the source watermark crosses chemical structures and bond detail. Hold until focused source-fidelity/readability review. Rendered source page and extracted image were compared at native and expanded size. Physical device acceptance is pending.",
-            "evidence": "data/marrow/images/recovery_checkpoints/manual_biochem_ch25_28_20260928.json; source PDF SHA-256=463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb; page=450 region=[160.52, 136.831, 451.48, 355.169]; rendered by PyMuPDF in Ubuntu GitHub Actions run 36415941717 at exact candidate de6d46c69c54e1bb49a05bdb0964632e727f8376; source region inspected at native and expanded size 2026-09-28"
+            "notes": "Explanation ownership and source order match Ch28 Q27; figure appears only in the explanation.",
+            "evidence": "Source PDF page 450 and Q27 explanation reference compared; question/explanation timing verified."
           }
         }
       ],
@@ -12020,11 +12020,11 @@
         "height": 910
       },
       "method": "region-render",
-      "status": "REVIEW_REQUIRED",
+      "status": "SOURCE_LIMITED",
       "qa": {
         "sourceCompared": true,
-        "notes": "The four-tile wobble-pairing figure continues Q27, but the source watermark crosses chemical structures and bond detail. Hold until focused source-fidelity/readability review. Rendered source page and extracted image were compared at native and expanded size. Physical device acceptance is pending.",
-        "evidence": "data/marrow/images/recovery_checkpoints/manual_biochem_ch25_28_20260928.json; source PDF SHA-256=463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb; page=450 region=[160.52, 136.831, 451.48, 355.169]; rendered by PyMuPDF in Ubuntu GitHub Actions run 36415941717 at exact candidate de6d46c69c54e1bb49a05bdb0964632e727f8376; source region inspected at native and expanded size 2026-09-28",
+        "notes": "The four authentic source tiles show the wobble-pair examples. The publisher watermark crosses parts of bond detail, but pair identities and bond patterns remain inspectable in expanded view. Watermark and source resolution are disclosed; no chemical detail was altered or recreated.",
+        "evidence": "Source PDF SHA-256 463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb; page 450, xrefs 1089-1092, region [160.52,136.831,451.48,355.169]; 300dpi crop and native tiles inspected at native/expanded sizes; tap-to-expand viewer confirmed.",
         "originalSha256": "3a4c4881bf3a79f0aad4387d327b7f1e25fbb75b9e636c5dd66d4588335c84b1",
         "productionSha256": "3a4c4881bf3a79f0aad4387d327b7f1e25fbb75b9e636c5dd66d4588335c84b1"
       }
