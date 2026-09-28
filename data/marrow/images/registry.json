@@ -13551,7 +13551,7 @@
     {
       "id": "anatomy-141aa9b048a788ff",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch01-26",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -13571,7 +13571,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Osteoid osteoma micrograph",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 222,
@@ -13584,8 +13584,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+            "sourceCompared": true,
+            "notes": "Reviewed native JPEG xref 592 on source page 222 against the CI region crop from run 36432679371 and the figure title/labels. Visual content matches the referenced question or explanation, with clear source detail; native pixels retained unchanged. Role=explanation."
           }
         }
       ],
@@ -13602,16 +13602,18 @@
         "height": 626
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+        "sourceCompared": true,
+        "notes": "Reviewed native JPEG xref 592 on source page 222 against the CI region crop from run 36432679371 and the figure title/labels. Visual content matches the referenced question or explanation, with clear source detail; native pixels retained unchanged. Role=explanation.",
+        "originalSha256": "141aa9b048a788ff52a84b7fce8620c82039c38f87873fb92c5c285487e938af",
+        "productionSha256": "141aa9b048a788ff52a84b7fce8620c82039c38f87873fb92c5c285487e938af"
       }
     },
     {
       "id": "anatomy-ce79ae83765d7d5e",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch01-26",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -13631,7 +13633,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 214,
@@ -13644,8 +13646,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+            "sourceCompared": true,
+            "notes": "Reviewed native JPEG xref 567 on source page 214 against the CI region crop from run 36432679371 and the figure title/labels. Visual content matches the referenced question or explanation, with clear source detail; native pixels retained unchanged. Role=question."
           }
         },
         {
@@ -13666,8 +13668,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+            "sourceCompared": true,
+            "notes": "Held after comparing question stem with source image on page 214/xref 567: the visual is a bone osteon/lamellar bone image, while Q7 asks about cartilage. Source binding appears mismatched; no replacement selected."
           }
         }
       ],
@@ -13684,16 +13686,18 @@
         "height": 628
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+        "sourceCompared": true,
+        "notes": "Reviewed native JPEG xref 567 on source page 214 against the CI region crop from run 36432679371 and the figure title/labels. Visual content matches the referenced question or explanation, with clear source detail; native pixels retained unchanged. Role=question.",
+        "originalSha256": "ce79ae83765d7d5e7a9489db13795962eab1c900fc32150ac7b0780251bf01e1",
+        "productionSha256": "ce79ae83765d7d5e7a9489db13795962eab1c900fc32150ac7b0780251bf01e1"
       }
     },
     {
       "id": "anatomy-4bb4513eee6f9b2e",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch01-26",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -13713,7 +13717,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Histology of bone / osteon",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 223,
@@ -13726,8 +13730,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+            "sourceCompared": true,
+            "notes": "Reviewed native JPEG xref 595 on source page 223 against the CI region crop from run 36432679371 and the figure title/labels. Visual content matches the referenced question or explanation, with clear source detail; native pixels retained unchanged. Role=explanation."
           }
         }
       ],
@@ -13744,16 +13748,18 @@
         "height": 790
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+        "sourceCompared": true,
+        "notes": "Reviewed native JPEG xref 595 on source page 223 against the CI region crop from run 36432679371 and the figure title/labels. Visual content matches the referenced question or explanation, with clear source detail; native pixels retained unchanged. Role=explanation.",
+        "originalSha256": "4bb4513eee6f9b2e9076afdc5efb371d31a5e684704ad9f0a133ff5e5c4a2677",
+        "productionSha256": "4bb4513eee6f9b2e9076afdc5efb371d31a5e684704ad9f0a133ff5e5c4a2677"
       }
     },
     {
       "id": "anatomy-a62072e2cc3bfe3b",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch01-26",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -13773,7 +13779,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 215,
@@ -13786,8 +13792,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+            "sourceCompared": true,
+            "notes": "Reviewed native JPEG xref 570 on source page 215 against the CI region crop from run 36432679371 and the figure title/labels. Visual content matches the referenced question or explanation, with clear source detail; native pixels retained unchanged. Role=question."
           }
         }
       ],
@@ -13804,16 +13810,18 @@
         "height": 406
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+        "sourceCompared": true,
+        "notes": "Reviewed native JPEG xref 570 on source page 215 against the CI region crop from run 36432679371 and the figure title/labels. Visual content matches the referenced question or explanation, with clear source detail; native pixels retained unchanged. Role=question.",
+        "originalSha256": "a62072e2cc3bfe3b398512343600b4dde75b35d6b423761c1060109860d27397",
+        "productionSha256": "a62072e2cc3bfe3b398512343600b4dde75b35d6b423761c1060109860d27397"
       }
     },
     {
       "id": "anatomy-863efab53b5ee436",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch01-26",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -13833,7 +13841,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Elastic cartilage stained with Verhoeff's stain",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 226,
@@ -13846,8 +13854,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+            "sourceCompared": true,
+            "notes": "Reviewed native JPEG xref 604 on source page 226 against the CI region crop from run 36432679371 and the figure title/labels. Visual content matches the referenced question or explanation, with clear source detail; native pixels retained unchanged. Role=explanation."
           }
         }
       ],
@@ -13864,16 +13872,18 @@
         "height": 605
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+        "sourceCompared": true,
+        "notes": "Reviewed native JPEG xref 604 on source page 226 against the CI region crop from run 36432679371 and the figure title/labels. Visual content matches the referenced question or explanation, with clear source detail; native pixels retained unchanged. Role=explanation.",
+        "originalSha256": "863efab53b5ee436844435c4657630b7be1f406130452712b69eb3cfa3406916",
+        "productionSha256": "863efab53b5ee436844435c4657630b7be1f406130452712b69eb3cfa3406916"
       }
     },
     {
       "id": "anatomy-e5e3caec43aefa49",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch01-26",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -13893,7 +13903,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 217,
@@ -13906,8 +13916,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+            "sourceCompared": true,
+            "notes": "Reviewed native JPEG xref 576 on source page 217 against the CI region crop from run 36432679371 and the figure title/labels. Visual content matches the referenced question or explanation, with clear source detail; native pixels retained unchanged. Role=question."
           }
         },
         {
@@ -13928,8 +13938,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+            "sourceCompared": true,
+            "notes": "Held after comparing question stem with source image on page 217/xref 576: the visual is cartilage histology, while Q14 asks to identify muscle tissue. Source binding appears mismatched; no replacement selected."
           }
         }
       ],
@@ -13946,16 +13956,18 @@
         "height": 406
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+        "sourceCompared": true,
+        "notes": "Reviewed native JPEG xref 576 on source page 217 against the CI region crop from run 36432679371 and the figure title/labels. Visual content matches the referenced question or explanation, with clear source detail; native pixels retained unchanged. Role=question.",
+        "originalSha256": "e5e3caec43aefa49e29b4f160afdfe8a301f3b9201434232334b27bc190d4264",
+        "productionSha256": "e5e3caec43aefa49e29b4f160afdfe8a301f3b9201434232334b27bc190d4264"
       }
     },
     {
       "id": "anatomy-f09225ddd3962323",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch01-26",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -13975,7 +13987,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Fibrocartilage",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 227,
@@ -13988,8 +14000,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+            "sourceCompared": true,
+            "notes": "Reviewed native JPEG xref 607 on source page 227 against the CI region crop from run 36432679371 and the figure title/labels. Visual content matches the referenced question or explanation, with clear source detail; native pixels retained unchanged. Role=explanation."
           }
         }
       ],
@@ -14006,16 +14018,18 @@
         "height": 615
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+        "sourceCompared": true,
+        "notes": "Reviewed native JPEG xref 607 on source page 227 against the CI region crop from run 36432679371 and the figure title/labels. Visual content matches the referenced question or explanation, with clear source detail; native pixels retained unchanged. Role=explanation.",
+        "originalSha256": "f09225ddd3962323c1f6fa8118c549b2889568c8ef7564f39cef309ff3df82ac",
+        "productionSha256": "f09225ddd3962323c1f6fa8118c549b2889568c8ef7564f39cef309ff3df82ac"
       }
     },
     {
       "id": "anatomy-8cc4bac363323948",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch01-26",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -14035,7 +14049,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Cardiac muscle",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 229,
@@ -14048,8 +14062,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+            "sourceCompared": true,
+            "notes": "Reviewed native JPEG xref 613 on source page 229 against the CI region crop from run 36432679371 and the figure title/labels. Visual content matches the referenced question or explanation, with clear source detail; native pixels retained unchanged. Role=explanation."
           }
         }
       ],
@@ -14066,10 +14080,12 @@
         "height": 592
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+        "sourceCompared": true,
+        "notes": "Reviewed native JPEG xref 613 on source page 229 against the CI region crop from run 36432679371 and the figure title/labels. Visual content matches the referenced question or explanation, with clear source detail; native pixels retained unchanged. Role=explanation.",
+        "originalSha256": "8cc4bac363323948c4e9d787631dc0970d520459baf501e7acec98567e7e241c",
+        "productionSha256": "8cc4bac363323948c4e9d787631dc0970d520459baf501e7acec98567e7e241c"
       }
     },
     {
