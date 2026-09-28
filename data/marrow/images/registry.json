@@ -14446,6 +14446,28 @@
             "notes": "Exact source figure ownership and role verified. Original stream and all source pixels/labels are retained unchanged.",
             "evidence": "Source page 889, xref 3924, region [162.0, 461.0, 450.0, 677.0] visually matched to the exact Ubuntu source crop in CI run 36431980518; original native JPEG SHA-256 7b919013b88be68fd389c52289917d3c807a51eabde3af3f41cf8a2f192aaca1."
           }
+        },
+        {
+          "questionId": "marrow__ANAT_CH50_Q008",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 928,
+            "xref": 3924,
+            "region": [
+              162.0,
+              364.0,
+              450.0,
+              580.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Specific figure identity, placement and explanation role confirmed against rendered source and native stream; original pixels and labels retained.",
+            "evidence": "Page 928, xref 3924, region [162.0, 364.0, 450.0, 580.0] compared with source render from CI run 36431980518 and original JPEG SHA-256 7b919013b88be68fd389c52289917d3c807a51eabde3af3f41cf8a2f192aaca1."
+          }
         }
       ],
       "original": {
@@ -16850,6 +16872,316 @@
         "originalSha256": "8101ee762f0b9dccfb96c593012a86a8127fd32762b341484875c158c5675461",
         "productionSha256": "8101ee762f0b9dccfb96c593012a86a8127fd32762b341484875c158c5675461",
         "evidence": "Page 922, xref 2573, region [162.0, 56.0, 450.0, 272.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 8101ee762f0b9dccfb96c593012a86a8127fd32762b341484875c158c5675461."
+      }
+    },
+    {
+      "id": "anatomy-ch50-bf9bc71b4452de02",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 928,
+        "xref": 2591,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 928,
+            "xref": 2591,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Specific figure identity, placement and explanation role confirmed against rendered source and native stream; original pixels and labels retained.",
+            "evidence": "Page 928, xref 2591, region [162.0, 56.0, 450.0, 272.0] compared with source render from CI run 36431980518 and original JPEG SHA-256 bf9bc71b4452de0203cdee527a5b17abe4024f80780b93bf1ad4e5d9bc0808d0."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/bf9bc71b4452de0203cdee527a5b17abe4024f80780b93bf1ad4e5d9bc0808d0.jpg",
+        "sha256": "bf9bc71b4452de0203cdee527a5b17abe4024f80780b93bf1ad4e5d9bc0808d0",
+        "width": 600,
+        "height": 839
+      },
+      "production": {
+        "path": "data/marrow/images/originals/bf9bc71b4452de0203cdee527a5b17abe4024f80780b93bf1ad4e5d9bc0808d0.jpg",
+        "sha256": "bf9bc71b4452de0203cdee527a5b17abe4024f80780b93bf1ad4e5d9bc0808d0",
+        "width": 600,
+        "height": 839
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native image stream exactly matches source region.",
+        "originalSha256": "bf9bc71b4452de0203cdee527a5b17abe4024f80780b93bf1ad4e5d9bc0808d0",
+        "productionSha256": "bf9bc71b4452de0203cdee527a5b17abe4024f80780b93bf1ad4e5d9bc0808d0",
+        "evidence": "Page 928, xref 2591, region [162.0, 56.0, 450.0, 272.0] compared with source render from CI run 36431980518 and original JPEG SHA-256 bf9bc71b4452de0203cdee527a5b17abe4024f80780b93bf1ad4e5d9bc0808d0."
+      }
+    },
+    {
+      "id": "anatomy-ch50-bfe8e0c65e9b22bc",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 932,
+        "xref": 2605,
+        "region": [
+          162.0,
+          453.0,
+          450.0,
+          669.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q015",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 932,
+            "xref": 2605,
+            "region": [
+              162.0,
+              453.0,
+              450.0,
+              669.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Specific figure identity, placement and explanation role confirmed against rendered source and native stream; original pixels and labels retained.",
+            "evidence": "Page 932, xref 2605, region [162.0, 453.0, 450.0, 669.0] compared with source render from CI run 36431980518 and original JPEG SHA-256 bfe8e0c65e9b22bc85cfea2fb40496d374306998eccadcc54907e992a9bf1648."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/bfe8e0c65e9b22bc85cfea2fb40496d374306998eccadcc54907e992a9bf1648.jpg",
+        "sha256": "bfe8e0c65e9b22bc85cfea2fb40496d374306998eccadcc54907e992a9bf1648",
+        "width": 600,
+        "height": 666
+      },
+      "production": {
+        "path": "data/marrow/images/originals/bfe8e0c65e9b22bc85cfea2fb40496d374306998eccadcc54907e992a9bf1648.jpg",
+        "sha256": "bfe8e0c65e9b22bc85cfea2fb40496d374306998eccadcc54907e992a9bf1648",
+        "width": 600,
+        "height": 666
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native image stream exactly matches source region.",
+        "originalSha256": "bfe8e0c65e9b22bc85cfea2fb40496d374306998eccadcc54907e992a9bf1648",
+        "productionSha256": "bfe8e0c65e9b22bc85cfea2fb40496d374306998eccadcc54907e992a9bf1648",
+        "evidence": "Page 932, xref 2605, region [162.0, 453.0, 450.0, 669.0] compared with source render from CI run 36431980518 and original JPEG SHA-256 bfe8e0c65e9b22bc85cfea2fb40496d374306998eccadcc54907e992a9bf1648."
+      }
+    },
+    {
+      "id": "anatomy-ch50-67fffde70b49f4b5",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 935,
+        "xref": 2614,
+        "region": [
+          162.0,
+          130.0,
+          450.0,
+          346.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q018",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 935,
+            "xref": 2614,
+            "region": [
+              162.0,
+              130.0,
+              450.0,
+              346.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Specific figure identity, placement and explanation role confirmed against rendered source and native stream; original pixels and labels retained.",
+            "evidence": "Page 935, xref 2614, region [162.0, 130.0, 450.0, 346.0] compared with source render from CI run 36431980518 and original JPEG SHA-256 67fffde70b49f4b52f70bcf14b708b884daa68faf826583fb8b2cd278cb3c177."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/67fffde70b49f4b52f70bcf14b708b884daa68faf826583fb8b2cd278cb3c177.jpg",
+        "sha256": "67fffde70b49f4b52f70bcf14b708b884daa68faf826583fb8b2cd278cb3c177",
+        "width": 600,
+        "height": 685
+      },
+      "production": {
+        "path": "data/marrow/images/originals/67fffde70b49f4b52f70bcf14b708b884daa68faf826583fb8b2cd278cb3c177.jpg",
+        "sha256": "67fffde70b49f4b52f70bcf14b708b884daa68faf826583fb8b2cd278cb3c177",
+        "width": 600,
+        "height": 685
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native image stream exactly matches source region.",
+        "originalSha256": "67fffde70b49f4b52f70bcf14b708b884daa68faf826583fb8b2cd278cb3c177",
+        "productionSha256": "67fffde70b49f4b52f70bcf14b708b884daa68faf826583fb8b2cd278cb3c177",
+        "evidence": "Page 935, xref 2614, region [162.0, 130.0, 450.0, 346.0] compared with source render from CI run 36431980518 and original JPEG SHA-256 67fffde70b49f4b52f70bcf14b708b884daa68faf826583fb8b2cd278cb3c177."
+      }
+    },
+    {
+      "id": "anatomy-ch50-022d0667e40c1bae",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 935,
+        "xref": 2615,
+        "region": [
+          162.0,
+          507.0,
+          450.0,
+          723.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q019",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 935,
+            "xref": 2615,
+            "region": [
+              162.0,
+              507.0,
+              450.0,
+              723.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Specific figure identity, placement and explanation role confirmed against rendered source and native stream; original pixels and labels retained.",
+            "evidence": "Page 935, xref 2615, region [162.0, 507.0, 450.0, 723.0] compared with source render from CI run 36431980518 and original JPEG SHA-256 022d0667e40c1baed764eaca9d228eb14d834104035f43ad6e7d24cb06745d71."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/022d0667e40c1baed764eaca9d228eb14d834104035f43ad6e7d24cb06745d71.jpg",
+        "sha256": "022d0667e40c1baed764eaca9d228eb14d834104035f43ad6e7d24cb06745d71",
+        "width": 575,
+        "height": 521
+      },
+      "production": {
+        "path": "data/marrow/images/originals/022d0667e40c1baed764eaca9d228eb14d834104035f43ad6e7d24cb06745d71.jpg",
+        "sha256": "022d0667e40c1baed764eaca9d228eb14d834104035f43ad6e7d24cb06745d71",
+        "width": 575,
+        "height": 521
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native image stream exactly matches source region.",
+        "originalSha256": "022d0667e40c1baed764eaca9d228eb14d834104035f43ad6e7d24cb06745d71",
+        "productionSha256": "022d0667e40c1baed764eaca9d228eb14d834104035f43ad6e7d24cb06745d71",
+        "evidence": "Page 935, xref 2615, region [162.0, 507.0, 450.0, 723.0] compared with source render from CI run 36431980518 and original JPEG SHA-256 022d0667e40c1baed764eaca9d228eb14d834104035f43ad6e7d24cb06745d71."
+      }
+    },
+    {
+      "id": "anatomy-ch50-5b9981758dcb1aab",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 939,
+        "xref": 2626,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q022",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 939,
+            "xref": 2626,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Specific figure identity, placement and explanation role confirmed against rendered source and native stream; original pixels and labels retained.",
+            "evidence": "Page 939, xref 2626, region [162.0, 56.0, 450.0, 272.0] compared with source render from CI run 36431980518 and original JPEG SHA-256 5b9981758dcb1aab40e68ab3dee3e5f837220ca2f0e6c8971aa0f5e4ac5af025."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/5b9981758dcb1aab40e68ab3dee3e5f837220ca2f0e6c8971aa0f5e4ac5af025.jpg",
+        "sha256": "5b9981758dcb1aab40e68ab3dee3e5f837220ca2f0e6c8971aa0f5e4ac5af025",
+        "width": 600,
+        "height": 685
+      },
+      "production": {
+        "path": "data/marrow/images/originals/5b9981758dcb1aab40e68ab3dee3e5f837220ca2f0e6c8971aa0f5e4ac5af025.jpg",
+        "sha256": "5b9981758dcb1aab40e68ab3dee3e5f837220ca2f0e6c8971aa0f5e4ac5af025",
+        "width": 600,
+        "height": 685
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native image stream exactly matches source region.",
+        "originalSha256": "5b9981758dcb1aab40e68ab3dee3e5f837220ca2f0e6c8971aa0f5e4ac5af025",
+        "productionSha256": "5b9981758dcb1aab40e68ab3dee3e5f837220ca2f0e6c8971aa0f5e4ac5af025",
+        "evidence": "Page 939, xref 2626, region [162.0, 56.0, 450.0, 272.0] compared with source render from CI run 36431980518 and original JPEG SHA-256 5b9981758dcb1aab40e68ab3dee3e5f837220ca2f0e6c8971aa0f5e4ac5af025."
       }
     }
   ]
