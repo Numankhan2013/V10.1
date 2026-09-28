@@ -117,33 +117,23 @@ jobs:
           name: marrow-manual-biochem-ch25-28-regions
           path: build/marrow-manual-region-review/
           retention-days: 14
-      - name: Audit and render Worker 4 claimed source ranges on Ubuntu
+      - name: Render claimed Wave 2 source regions on Ubuntu
+        shell: bash
         run: |
-          python3 -m pip install --disable-pip-version-check pypdf==6.18.0
-          python3 tools/marrow_images.py audit
-          python3 tools/marrow_image_coverage.py --subject Anatomy
-          python3 tools/marrow_image_coverage.py --subject Biochemistry
-          python3 tools/marrow_image_coverage.py --subject Physiology
-          python3 tools/prepare_marrow_manual_region_batch.py \
-            --subject Biochemistry --start-chapter 1 --end-chapter 24 \
-            --batch-id manual-wave2-biochem-ch01-24 \
-            --output build/marrow-manual-wave2/biochem/checkpoint.json
-          python3 tools/render_marrow_manual_batch_regions.py \
-            --checkpoint build/marrow-manual-wave2/biochem/checkpoint.json \
-            --output build/marrow-manual-wave2/biochem/regions
-          python3 tools/prepare_marrow_manual_region_batch.py \
-            --subject Physiology --start-chapter 8 --end-chapter 43 \
-            --batch-id manual-wave2-phys-ch08-43 \
-            --output build/marrow-manual-wave2/physiology/checkpoint.json
-          python3 tools/render_marrow_manual_batch_regions.py \
-            --checkpoint build/marrow-manual-wave2/physiology/checkpoint.json \
-            --output build/marrow-manual-wave2/physiology/regions
-      - name: Upload Worker 4 source-region evidence
-        if: ${{ always() && hashFiles('build/marrow-manual-wave2/**/manifest.json') != '' }}
+          shopt -s nullglob
+          checkpoints=(data/marrow/images/recovery_checkpoints/manual_wave2_*.json)
+          for checkpoint in "${checkpoints[@]}"; do
+            batch="$(basename "$checkpoint" .json)"
+            python3 tools/render_marrow_manual_batch_regions.py \
+              --checkpoint "$checkpoint" \
+              --output "build/marrow-wave2-region-review/$batch"
+          done
+      - name: Upload claimed Wave 2 source-region review
+        if: ${{ always() && hashFiles('data/marrow/images/recovery_checkpoints/manual_wave2_*.json') != '' }}
         uses: actions/upload-artifact@v4
         with:
-          name: marrow-manual-wave2-source-regions
-          path: build/marrow-manual-wave2/
+          name: marrow-wave2-regions
+          path: build/marrow-wave2-region-review/
           retention-days: 14
       - name: Require Linux PDF dependencies (never skip in CI)
         run: python3 tools/verification_preflight.py --require-pdf
