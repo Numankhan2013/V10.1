@@ -17183,6 +17183,254 @@
         "productionSha256": "5b9981758dcb1aab40e68ab3dee3e5f837220ca2f0e6c8971aa0f5e4ac5af025",
         "evidence": "Page 939, xref 2626, region [162.0, 56.0, 450.0, 272.0] compared with source render from CI run 36431980518 and original JPEG SHA-256 5b9981758dcb1aab40e68ab3dee3e5f837220ca2f0e6c8971aa0f5e4ac5af025."
       }
+    },
+    {
+      "id": "anatomy-ch51-df4f6903f7e3d2cb",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 940,
+        "xref": 2629,
+        "region": [
+          162.0,
+          356.0,
+          450.0,
+          572.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH51_Q002",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "source": {
+            "page": 940,
+            "xref": 2629,
+            "region": [
+              162.0,
+              356.0,
+              450.0,
+              572.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact kidney figure and role confirmed against source; original pixels, marks and labels remain intact.",
+            "evidence": "Page 940, xref 2629, region [162.0, 356.0, 450.0, 572.0] matched the source crop in CI run 36431980518 and the native JPEG stream SHA-256 df4f6903f7e3d2cbc1cb41f41821ad97480c7a695af28141058af5d38e7ac288."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/df4f6903f7e3d2cbc1cb41f41821ad97480c7a695af28141058af5d38e7ac288.jpg",
+        "sha256": "df4f6903f7e3d2cbc1cb41f41821ad97480c7a695af28141058af5d38e7ac288",
+        "width": 720,
+        "height": 839
+      },
+      "production": {
+        "path": "data/marrow/images/originals/df4f6903f7e3d2cbc1cb41f41821ad97480c7a695af28141058af5d38e7ac288.jpg",
+        "sha256": "df4f6903f7e3d2cbc1cb41f41821ad97480c7a695af28141058af5d38e7ac288",
+        "width": 720,
+        "height": 839
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source stream directly matches rendered figure.",
+        "originalSha256": "df4f6903f7e3d2cbc1cb41f41821ad97480c7a695af28141058af5d38e7ac288",
+        "productionSha256": "df4f6903f7e3d2cbc1cb41f41821ad97480c7a695af28141058af5d38e7ac288",
+        "evidence": "Page 940, xref 2629, region [162.0, 356.0, 450.0, 572.0] matched the source crop in CI run 36431980518 and the native JPEG stream SHA-256 df4f6903f7e3d2cbc1cb41f41821ad97480c7a695af28141058af5d38e7ac288."
+      }
+    },
+    {
+      "id": "anatomy-ch51-2a27526af8b7039c",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 952,
+        "xref": 3952,
+        "region": [
+          162.0,
+          257.0,
+          450.0,
+          473.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH51_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 952,
+            "xref": 3952,
+            "region": [
+              162.0,
+              257.0,
+              450.0,
+              473.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact kidney figure and role confirmed against source; original pixels, marks and labels remain intact.",
+            "evidence": "Page 952, xref 3952, region [162.0, 257.0, 450.0, 473.0] matched the source crop in CI run 36431980518 and the native JPEG stream SHA-256 2a27526af8b7039ccf6b7c67735d80326874f07e8b29591cd632989d2338da56."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/2a27526af8b7039ccf6b7c67735d80326874f07e8b29591cd632989d2338da56.jpg",
+        "sha256": "2a27526af8b7039ccf6b7c67735d80326874f07e8b29591cd632989d2338da56",
+        "width": 600,
+        "height": 484
+      },
+      "production": {
+        "path": "data/marrow/images/originals/2a27526af8b7039ccf6b7c67735d80326874f07e8b29591cd632989d2338da56.jpg",
+        "sha256": "2a27526af8b7039ccf6b7c67735d80326874f07e8b29591cd632989d2338da56",
+        "width": 600,
+        "height": 484
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source stream directly matches rendered figure.",
+        "originalSha256": "2a27526af8b7039ccf6b7c67735d80326874f07e8b29591cd632989d2338da56",
+        "productionSha256": "2a27526af8b7039ccf6b7c67735d80326874f07e8b29591cd632989d2338da56",
+        "evidence": "Page 952, xref 3952, region [162.0, 257.0, 450.0, 473.0] matched the source crop in CI run 36431980518 and the native JPEG stream SHA-256 2a27526af8b7039ccf6b7c67735d80326874f07e8b29591cd632989d2338da56."
+      }
+    },
+    {
+      "id": "anatomy-ch51-1ca108b564381ef3",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 941,
+        "xref": 2632,
+        "region": [
+          162.0,
+          426.0,
+          450.0,
+          642.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH51_Q005",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "source": {
+            "page": 941,
+            "xref": 2632,
+            "region": [
+              162.0,
+              426.0,
+              450.0,
+              642.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact kidney figure and role confirmed against source; original pixels, marks and labels remain intact.",
+            "evidence": "Page 941, xref 2632, region [162.0, 426.0, 450.0, 642.0] matched the source crop in CI run 36431980518 and the native JPEG stream SHA-256 1ca108b564381ef38f4b9029cffebcc48c910d20368c42f671cf0bd40c5d4c78."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/1ca108b564381ef38f4b9029cffebcc48c910d20368c42f671cf0bd40c5d4c78.jpg",
+        "sha256": "1ca108b564381ef38f4b9029cffebcc48c910d20368c42f671cf0bd40c5d4c78",
+        "width": 720,
+        "height": 622
+      },
+      "production": {
+        "path": "data/marrow/images/originals/1ca108b564381ef38f4b9029cffebcc48c910d20368c42f671cf0bd40c5d4c78.jpg",
+        "sha256": "1ca108b564381ef38f4b9029cffebcc48c910d20368c42f671cf0bd40c5d4c78",
+        "width": 720,
+        "height": 622
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source stream directly matches rendered figure.",
+        "originalSha256": "1ca108b564381ef38f4b9029cffebcc48c910d20368c42f671cf0bd40c5d4c78",
+        "productionSha256": "1ca108b564381ef38f4b9029cffebcc48c910d20368c42f671cf0bd40c5d4c78",
+        "evidence": "Page 941, xref 2632, region [162.0, 426.0, 450.0, 642.0] matched the source crop in CI run 36431980518 and the native JPEG stream SHA-256 1ca108b564381ef38f4b9029cffebcc48c910d20368c42f671cf0bd40c5d4c78."
+      }
+    },
+    {
+      "id": "anatomy-ch51-4a86e9467d10c9a1",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 942,
+        "xref": 2635,
+        "region": [
+          162.0,
+          156.0,
+          450.0,
+          372.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH51_Q006",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "source": {
+            "page": 942,
+            "xref": 2635,
+            "region": [
+              162.0,
+              156.0,
+              450.0,
+              372.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact kidney figure and role confirmed against source; original pixels, marks and labels remain intact.",
+            "evidence": "Page 942, xref 2635, region [162.0, 156.0, 450.0, 372.0] matched the source crop in CI run 36431980518 and the native JPEG stream SHA-256 4a86e9467d10c9a1851219fdf60235abeff091885e4f8638bdd992462e38260f."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/4a86e9467d10c9a1851219fdf60235abeff091885e4f8638bdd992462e38260f.jpg",
+        "sha256": "4a86e9467d10c9a1851219fdf60235abeff091885e4f8638bdd992462e38260f",
+        "width": 720,
+        "height": 623
+      },
+      "production": {
+        "path": "data/marrow/images/originals/4a86e9467d10c9a1851219fdf60235abeff091885e4f8638bdd992462e38260f.jpg",
+        "sha256": "4a86e9467d10c9a1851219fdf60235abeff091885e4f8638bdd992462e38260f",
+        "width": 720,
+        "height": 623
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source stream directly matches rendered figure.",
+        "originalSha256": "4a86e9467d10c9a1851219fdf60235abeff091885e4f8638bdd992462e38260f",
+        "productionSha256": "4a86e9467d10c9a1851219fdf60235abeff091885e4f8638bdd992462e38260f",
+        "evidence": "Page 942, xref 2635, region [162.0, 156.0, 450.0, 372.0] matched the source crop in CI run 36431980518 and the native JPEG stream SHA-256 4a86e9467d10c9a1851219fdf60235abeff091885e4f8638bdd992462e38260f."
+      }
     }
   ]
 }
