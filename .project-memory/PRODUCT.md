@@ -72,11 +72,11 @@ Prefer building over narrating.
   applicable. PrepLadder source-PDF explanation pages receive a scoped display
   contrast/color adjustment in inline and zoom views for legible dark text and
   colored source details; source files and visual mappings remain unchanged.
-- **Home:** one cohesive surface; greeting + Home-only streak (rectangular/
-  chiseled, integrated axis, restrained motion) + week strip; Today’s Focus
-  (Continue Practice, Review-Due-when-due, permanent Practice-20-Random,
-  Timed CBT); Subjects library with accurate counts/progress; progress
-  snapshot; Quick Access; Performance/Recent; clear next action.
+- **Home:** one cohesive surface; greeting, streak and week strip; Today's
+  Focus prioritizes the active timed test, then paused Practice, a saved module,
+  the recent topic, or subject choice. Tests and the CBT builder also recover
+  an active timed test. Period progress shows unique questions answered, answer
+  accuracy, and study time; full-bank coverage lives in Insights.
 - **Topics:** compact subject selector, search/filter, accurate completion
   (attempted/total, not accuracy-gated), progress %, direct chapter entry,
   reliable same-route scroll reset.
@@ -93,6 +93,9 @@ Prefer building over narrating.
   empty answers, and a fresh timer. Its result compares initial versus retake
   score, accuracy, attempts, time, and missed topics using saved answer
   snapshots. Existing analysis and Review Solutions remain available.
+  Result score uses all questions; accuracy uses answered questions and shows
+  an em dash when none were answered. First intentional result actions respond
+  immediately while carried-over repeated Submit taps remain guarded.
 - **Insights:** Accuracy, Avg time, Due, Completion + chapter coverage +
   recent sessions; distinguish no-evidence from poor performance. A candidate
   cross-bank “Topics to revisit” section uses each question’s latest answer,

@@ -17,7 +17,7 @@ CSS = '''<style id="nk-practice-correction-v1">
 .nk-correction-action{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px;border:1px solid #d5def2;border-radius:12px;background:#fff}
 .nk-correction-action>div{min-width:0}.nk-correction-action strong,.nk-correction-action small{display:block}
 .nk-correction-action strong{font-size:14px;color:#23356b}.nk-correction-action small{margin-top:5px;font-size:11px;line-height:1.45;color:#62718d}
-.nk-correction-action button{display:inline-flex;align-items:center;justify-content:center;gap:5px;flex:none;min-height:46px;padding:0 14px;border:0;border-radius:10px;background:#475db5;color:#fff;font:inherit;font-size:12px;font-weight:800;cursor:pointer}
+.nk-correction-action button{display:inline-flex;align-items:center;justify-content:center;gap:5px;flex:none;min-height:48px;padding:9px 14px;border:0;border-radius:10px;background:#475db5;color:#fff;font:inherit;font-size:14px;font-weight:800;cursor:pointer}
 .nk-correction-parent{display:inline-block;min-height:44px;margin:5px 8px 0 0;padding:0 4px;border:0;background:transparent;color:#3f59a6;font:inherit;font-size:11px;font-weight:800;text-decoration:underline;cursor:pointer}
 .nk-correction-section button:focus-visible{outline:3px solid #a3b5ec;outline-offset:2px}
 @media(max-width:560px){.nk-correction-action{align-items:stretch;flex-direction:column}.nk-correction-action button{width:100%}}

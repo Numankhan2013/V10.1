@@ -4,6 +4,16 @@
 
 ## Baseline and active work
 
+- Study journey fine-tuning candidate on `feature/study-journey-fine-tuning-20260928`:
+  active or expired timed tests now occupy Today's Focus with title, answered
+  and marked counts, and Resume/Finish; Tests and builder recovery remain.
+  Home period metrics now use unique answered IDs, answer accuracy, and study
+  time without a full-bank denominator. Result score and accuracy name their
+  denominators; zero answered shows an em dash. The result action 900 ms gate
+  is removed while double Submit/repeated tap guards remain. Text, focus, and
+  touch targets are enlarged. Local 75 checks pass; full generated browser,
+  PWA, packaged APK, and Android interaction verification is pending. Production
+  promotion remains deferred.
 - Current candidate (2026-09-28): Reduced tap latency in CBT by indexing bank
   questions by topic, avoiding an extra full-state clone/re-normalization during
   durable saves, and updating selected answers in place after a successful save.
@@ -98,4 +108,4 @@
 ## Known problems and next step
 
 - Canonical physical in-place APK/data-preservation check remains pending. PWA production root `https://nk-qbank.pages.dev` is current. Physical Android acceptance and in-place APK/data-preservation checks remain pending.
-- Choose the next learner-facing study feature from an actual workflow gap. Tests already offers timed CBT from wrong and bookmarked questions; do not duplicate it in Quick Revision. Get user review of the PrepLadder source PDF contrast preview on a real device. Multiple simultaneous timed tests are deprioritized by the user. Today's Focus integration remains deferred under the user's one-minute constraint. Marrow explanation and image work remain with their existing automations. Do not claim physical APK acceptance from CI. The next step is the user’s physical APK upgrade/data-preservation check and real-device sync review.
+- Complete full CI/browser/PWA/APK/Android verification of the study journey candidate and inspect its four-width Home/result captures, then share its preview. Get user review of the PrepLadder source PDF contrast preview on a real device. Multiple simultaneous timed tests are deprioritized. Marrow explanation and image work remain with their existing automations. Do not claim physical APK acceptance from CI. The next step after preview review is the user’s physical APK upgrade/data-preservation check and real-device sync review.

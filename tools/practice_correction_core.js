@@ -38,7 +38,7 @@
     const test=(state.tests||[]).find(item=>item?.kind==='practice'&&String(item.id)===String(testId));
     if(!test){showToast('This saved Practice result is unavailable.','bad');return false;}
     // Ignore the carried-over second tap from the Submit action on a new page.
-    if(Number(clickEvent?.detail)>1||Date.now()-Number(test.createdAt||0)<900)return false;
+    if(Number(clickEvent?.detail)>1)return false;
     const questions=nkCorrectionQuestionMap(),{ids,missing}=nkCorrectionMisses(test,questions);
     if(missing.length){showToast('Some saved questions are unavailable. This exact pass cannot start.','bad');return false;}
     if(!ids.length){showToast('This result has no missed questions.');return false;}

@@ -96,6 +96,7 @@ for marker in ("runs-on: ubuntu-latest", "actions/setup-python@", "PyMuPDF Pillo
                "tools/verify_bank_aware_cbt_builder_browser.py",
                "tools/verify_pyq_exam_journey_browser.py",
                "tools/verify_cbt_result_analysis_browser.py",
+               "tools/verify_study_journey_browser.py",
                "tools/verify_qbank_coverage_browser.py",
                "tools/verify_marrow_content_hygiene_browser.py",
                "NK_MARROW_STRUCTURED_TABLE_RENDERER_V1",

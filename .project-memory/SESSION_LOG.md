@@ -1826,3 +1826,20 @@ Implemented approved recovery in existing transform owners: Topics separate path
   `https://4c70a5cc.nk-qbank.pages.dev` returned HTTP 200 and served the change.
   User should review touch feel on an Android device; this is not physical
   device acceptance. Production remains unchanged.
+
+## 2026-09-28 — Study journey fine-tuning candidate
+
+- Moved active and expired timed-test recovery into Today's Focus while keeping
+  Tests and builder recovery. Existing paused Practice, module, recent-topic,
+  and subject-choice precedence follows it. Home period metrics now show
+  unique answered question IDs, answer accuracy, and study time without a
+  full-bank attempted/total bar; Insights retains coverage.
+- Result score and accuracy now name all-question and answered-question
+  denominators, with an em dash for zero answered. Removed the 900 ms
+  post-submit gate from correction, missed, marked, and retake actions while
+  retaining repeated-tap and durable double-Submit protection. Increased Home
+  and result control text, focus outlines, and touch heights.
+- Added browser captures and journey assertions at 320, 390, text-zoom phone,
+  and 820 px, and extended packaged Android interaction checks. Local 75 checks
+  pass. Full CI/PWA/APK/Android verification and preview review remain pending;
+  production remains unchanged.

@@ -40,6 +40,7 @@ vm.createContext(context);vm.runInContext(SOURCE,context);
 const run=code=>vm.runInContext(code,context);
 assert.deepEqual(Array.from(run('nkCorrectionMisses(state.tests[0]).ids')),['marrow__ANAT_CH01_Q001','physiology-9-6']);
 assert.match(run('nkCorrectionResultSection(state.tests[0])'),/2 questions need another pass/);
+initial.createdAt=Date.now();
 assert.equal(run("nkCorrectionStart('first')"),true);
 assert.deepEqual(Array.from(started.ids),['marrow__ANAT_CH01_Q001','physiology-9-6']);
 assert.equal(started.context,'correction:first');

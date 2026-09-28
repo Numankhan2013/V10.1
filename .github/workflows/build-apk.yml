@@ -428,6 +428,15 @@ jobs:
         run: python3 tools/verify_pyq_exam_journey_browser.py
       - name: Verify saved-test CBT topic analysis and follow-up
         run: python3 tools/verify_cbt_result_analysis_browser.py
+      - name: Verify study journey and capture device-size views
+        run: python3 tools/verify_study_journey_browser.py
+      - name: Upload study journey views
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: study-journey-views
+          path: build/study-journey/
+          retention-days: 3
       - name: Verify all-bank QBank coverage tracker
         run: python3 tools/verify_qbank_coverage_browser.py
       - name: Capture study UI audit across screen sizes

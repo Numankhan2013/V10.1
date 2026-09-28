@@ -54,10 +54,10 @@
     const newMisses=[...finalMissed].filter(id=>!initialMissed.has(id)).length;
     const delta=Number(test.correct||0)-Number(initial.correct||0);
     const total=(test.questionIds||[]).length;
-    const percent=item=>Math.round(Number(item.correct||0)/total*100);
+    const accuracy=item=>{const answered=Number(item.attempted??(Number(item.correct||0)+Number(item.incorrect||0)));return answered?`${Math.round(Number(item.correct||0)/answered*100)}%`:'—';};
     const metrics=[
       ['Correct',`${Number(initial.correct||0)}/${total}`,`${Number(test.correct||0)}/${total}`],
-      ['Accuracy',`${percent(initial)}%`,`${percent(test)}%`],
+      ['Accuracy: answered questions',accuracy(initial),accuracy(test)],
       ['Attempted',String(Number(initial.attempted??(Number(initial.correct||0)+Number(initial.incorrect||0)))),String(Number(test.attempted??(Number(test.correct||0)+Number(test.incorrect||0))))],
       ['Incorrect',String(Number(initial.incorrect||0)),String(Number(test.incorrect||0))],
       ['Unattempted',String(Number(initial.unattempted||0)),String(Number(test.unattempted||0))],
@@ -85,7 +85,7 @@
     if(!test||test.kind==='practice'||test.timerMode==='per-question'||!Array.isArray(test.questionIds)||!test.questionIds.length){
       showToast('This timed CBT is unavailable for a retake.','bad');return false;
     }
-    if(Number(clickEvent?.detail)>1||Date.now()-Number(test.createdAt||0)<900)return false;
+    if(Number(clickEvent?.detail)>1)return false;
     const questions=new Map(nkAllStudyQuestions().map(q=>[String(q.id),q]));
     const ids=test.questionIds.map(String);
     if(new Set(ids).size!==ids.length||ids.some(id=>!questions.has(id))){
@@ -108,8 +108,8 @@
     const test=(state.tests||[]).find(item=>String(item.id)===String(testId));
     if(!test||test.kind==='practice'){showToast('This completed test is unavailable.','bad');return false;}
     // A repeated Submit tap can land on this newly rendered button at the same
-    // screen position. Ignore that carried-over tap without delaying later taps.
-    if(Number(clickEvent?.detail)>1||Date.now()-Number(test.createdAt||0)<900)return false;
+    // screen position. Event detail distinguishes it from a first intentional tap.
+    if(Number(clickEvent?.detail)>1)return false;
     const ids=nkCbtResultAnalysis(test).missedIds;
     if(!ids.length){showToast('There are no missed questions in this test.');return false;}
     const questions=new Map(nkAllStudyQuestions().map(q=>[String(q.id),q]));

@@ -17,7 +17,7 @@ CSS='''<style id="nk-exam-review-flags-v1">
 .qb-nav-q.is-marked{border-color:#bf8122!important;box-shadow:inset 0 0 0 2px #dfad4c!important}.qb-nav-q.is-marked.active{outline:2px solid var(--primary);outline-offset:1px}
 .nk-cbt-marked{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px;border:1px solid #ebd6aa;border-radius:14px;background:#fff9ec}
 .nk-cbt-marked strong,.nk-cbt-marked small{display:block}.nk-cbt-marked strong{color:#6e4a18;font-size:14px}.nk-cbt-marked small{margin-top:4px;color:#756d60;font-size:11px;line-height:1.4}
-.nk-cbt-marked button{min-height:44px;padding:0 13px;border:0;border-radius:10px;background:#7c531d;color:#fff;font:inherit;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap}
+.nk-cbt-marked button{min-height:48px;padding:9px 14px;border:0;border-radius:10px;background:#7c531d;color:#fff;font:inherit;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:5px;white-space:normal;text-align:center;cursor:pointer}
 @media(max-width:560px){.nk-cbt-marked{align-items:stretch;flex-direction:column}.nk-cbt-marked button{width:100%;min-height:46px}}
 </style>'''
 
