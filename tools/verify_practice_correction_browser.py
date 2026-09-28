@@ -10,7 +10,7 @@ from playwright.sync_api import sync_playwright
 
 
 ROOT = Path(__file__).resolve().parents[1]
-QUESTION_ID = "biochemistry-1-1"  # Source answer B; first pass deliberately chooses A.
+QUESTION_ID = "1-1"  # PrepLadder Biochemistry source answer B; first pass chooses A.
 
 
 def main() -> None:
@@ -35,8 +35,10 @@ def main() -> None:
                 page.wait_for_function("window.QB && window.QB.getState")
                 page.get_by_role("button", name="Find a question").click()
                 page.get_by_role("searchbox", name="Search all questions").fill(QUESTION_ID)
-                page.wait_for_function("document.querySelectorAll('.nk-question-search-item').length===1")
-                page.locator(".nk-question-search-item button").click()
+                page.wait_for_function("document.querySelectorAll('.nk-question-search-item').length>0")
+                item = page.locator(".nk-question-search-item").first
+                assert item.locator(".nk-question-search-id").inner_text().startswith(QUESTION_ID + " · ")
+                item.get_by_role("button", name="Practice").click()
                 page.wait_for_function("id => location.hash==='#practice' && window.QB.getState().activeSession?.questionIds?.[0]===id", arg=QUESTION_ID)
                 page.locator("button.option").nth(0).click()
                 page.get_by_text("Incorrect", exact=True).first.wait_for(state="visible")

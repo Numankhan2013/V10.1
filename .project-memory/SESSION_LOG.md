@@ -1788,5 +1788,8 @@ Implemented approved recovery in existing transform owners: Topics separate path
   explanation. The link persists through normal Practice checkpoints and sync.
   Targeted behavior, transform, and Pause/resume tests pass. Engineering
   `36373922363` passed, while full run `36373922295` exposed an outdated
-  result-template anchor before packaging. That anchor has been corrected;
-  rerun, preview, and physical review are pending. Production remains unchanged.
+  result-template anchor before packaging. That anchor was corrected. Engineering
+  `36374459956` passed; full run `36374459939` reached browser verification
+  but its new journey assumed a nonexistent prefixed Biochemistry ID. The
+  source ID is `1-1`; the browser check now uses it. A fresh full run,
+  preview, and physical review are pending. Production remains unchanged.
