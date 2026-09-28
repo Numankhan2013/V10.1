@@ -232,9 +232,12 @@ def main():
                 assert session(page)['id'] == cbt['id']
                 page.evaluate("window.QB.nav('dashboard')")
                 page.wait_for_url('**/#dashboard')
-                assert page.locator('.nk-timed-resume.is-home').is_visible()
-                assert 'timer keeps running' in page.locator('.nk-timed-resume.is-home').inner_text()
-                page.locator('.nk-timed-resume.is-home button').click()
+                assert page.locator('.nk-timed-resume.is-home').count() == 0
+                focus = page.locator('.nk-home-focus-card')
+                assert focus.count() == 1
+                assert 'timer keeps running' in focus.inner_text()
+                assert 'marked for review' in focus.inner_text()
+                focus.get_by_role('button', name='Resume timed test').click()
                 page.wait_for_url('**/#exam')
                 assert session(page)['id'] == cbt['id']
                 assert session(page)['markedForReview'][cbt_qid] is True
