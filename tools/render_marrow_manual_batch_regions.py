@@ -36,13 +36,16 @@ def main() -> None:
     assert rows, 'checkpoint has no region-render items'
     manifest = []
     output.mkdir(parents=True, exist_ok=True)
-    for item in rows:
+    for index, item in enumerate(rows):
         assert item['referenceId'].startswith({
             'Anatomy': 'marrow__ANAT_',
             'Biochemistry': 'marrow__BIOCHEM_',
             'Physiology': 'marrow__PHYS_',
         }[subject])
-        target = output / item['referenceId'].replace(':', '_')
+        # A reference can cite multiple source pages or regions. Keep its stable
+        # ID in the manifest while giving every render its own artifact folder.
+        target = output / (item['referenceId'].replace(':', '_') +
+                           f"__p{item['page']}__r{index}")
         target.mkdir(parents=True, exist_ok=True)
         command = [sys.executable, str(ROOT / 'tools/marrow_images.py'), 'render-region',
                    '--subject', subject, '--page', str(item['page']),
