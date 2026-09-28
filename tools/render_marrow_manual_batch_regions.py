@@ -24,16 +24,22 @@ def main() -> None:
     checkpoint = args.checkpoint if args.checkpoint.is_absolute() else ROOT / args.checkpoint
     output = args.output if args.output.is_absolute() else ROOT / args.output
     data = json.loads(checkpoint.read_text())
-    assert data.get('sourceFile') == 'biochemistryed8.pdf'
+    subject = data.get('subject')
+    if not subject:
+        subject = {'biochemistryed8.pdf': 'Biochemistry',
+                   'physiologyed8.pdf': 'Physiology'}.get(data.get('sourceFile'))
+    if subject not in {'Biochemistry', 'Physiology'}:
+        raise AssertionError(f"Unsupported Marrow source subject: {subject!r}")
     rows = [item for item in data['items'] if item.get('method') == 'region-render']
     assert rows, 'checkpoint has no region-render items'
     manifest = []
     output.mkdir(parents=True, exist_ok=True)
     for item in rows:
-        target = output / item['referenceId'].replace(':', '_')
+        suffix = f"_candidate_{item.get('candidateIndex', 1)}"
+        target = output / (item['referenceId'].replace(':', '_') + suffix)
         target.mkdir(parents=True, exist_ok=True)
         command = [sys.executable, str(ROOT / 'tools/marrow_images.py'), 'render-region',
-                   '--subject', 'Biochemistry', '--page', str(item['page']),
+                   '--subject', subject, '--page', str(item['page']),
                    '--region', *(str(v) for v in item['region']), '--dpi', '300',
                    '--output', str(target)]
         rendered = subprocess.run(command, check=True, text=True, capture_output=True)
@@ -46,7 +52,10 @@ def main() -> None:
         evidence = json.loads(metadata.read_text())
         assert evidence['sourceSha256'] == data['sourceSha256']
         assert evidence['page'] == item['page'] and evidence['region'] == item['region']
-        manifest.append({'referenceId': item['referenceId'], 'page': item['page'],
+        manifest.append({'referenceId': item['referenceId'], 'questionId': item['questionId'],
+                         'role': item.get('role'), 'candidateIndex': item.get('candidateIndex'),
+                         'candidateCount': item.get('candidateCount'), 'subject': subject,
+                         'page': item['page'], 'xref': item.get('xref'),
                          'region': item['region'], 'sourceSha256': evidence['sourceSha256'],
                          'sha256': evidence['sha256'],
                          'file': image.relative_to(output).as_posix(),
