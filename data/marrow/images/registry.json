@@ -8172,6 +8172,50 @@
             "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
             "evidence": "Compared question metadata and source placement at page 138/xref 3515."
           }
+        },
+        {
+          "questionId": "marrow__ANAT_CH08_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Development of upper lip and nasal prominences",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 139,
+            "xref": 3515,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed CI source crop from run 36432679371, page 139, xref 3515. The source render and metadata crop_hint identify the upper placement; the original native image is the same labelled development sequence and is retained without edits. Role=explanation."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH08_Q004",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Development of upper lip",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 139,
+            "xref": 3515,
+            "region": [
+              162.0,
+              379.0,
+              450.0,
+              595.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed CI source crop from run 36432679371, page 139, xref 3515. The source render and metadata crop_hint identify the lower placement; the original native image is the same labelled development sequence and is retained without edits. Role=explanation."
+          }
         }
       ],
       "original": {
@@ -12141,7 +12185,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Fourth ventricle of the brain - mid-sagittal section",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 160,
@@ -12154,8 +12198,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+            "sourceCompared": true,
+            "notes": "Reviewed native xref 423 against source page 160 CI region crop run 36432679371. Labels and diagram sequence are clear and match the source question’s explanatory figure; original pixels retained unchanged. Role=explanation."
           }
         }
       ],
@@ -12172,10 +12216,12 @@
         "height": 629
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+        "sourceCompared": true,
+        "notes": "Reviewed native xref 423 against source page 160 CI region crop run 36432679371. Labels and diagram sequence are clear and match the source question’s explanatory figure; original pixels retained unchanged. Role=explanation.",
+        "originalSha256": "2613f3f953235a91648eec15cb4a43fe3fc2a01de88035a7100a5471cef8afa0",
+        "productionSha256": "2613f3f953235a91648eec15cb4a43fe3fc2a01de88035a7100a5471cef8afa0"
       }
     },
     {
@@ -12201,7 +12247,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Development of pituitary gland",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 161,
@@ -12214,8 +12260,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+            "sourceCompared": true,
+            "notes": "Reviewed native xref 426 against source page 161 CI region crop run 36432679371. Labels and diagram sequence are clear and match the source question’s explanatory figure; original pixels retained unchanged. Role=explanation."
           }
         }
       ],
@@ -12232,10 +12278,12 @@
         "height": 974
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Native JPEG candidate only. Verify source ownership, crop, role, answer safety and readability against the Ubuntu-rendered cited source region."
+        "sourceCompared": true,
+        "notes": "Reviewed native xref 426 against source page 161 CI region crop run 36432679371. Labels and diagram sequence are clear and match the source question’s explanatory figure; original pixels retained unchanged. Role=explanation.",
+        "originalSha256": "611628e81685be37891d833e5a60a505aa9e88756689c05ee8b3f6c472f6af30",
+        "productionSha256": "611628e81685be37891d833e5a60a505aa9e88756689c05ee8b3f6c472f6af30"
       }
     },
     {
@@ -22597,6 +22645,378 @@
         "notes": "Reviewed source page 127 CI crop from run 36432679371; native JPEG xref 335 matches the figure title and placement. Metadata crop_hint and source context identify this specific illustration; all source labels and original pixels retained without edits. Role=explanation.",
         "originalSha256": "6c17764a2cc3ecad2f89046eb5943cfb2bcb79b4e47d433499019fe24e27279d",
         "productionSha256": "6c17764a2cc3ecad2f89046eb5943cfb2bcb79b4e47d433499019fe24e27279d"
+      }
+    },
+    {
+      "id": "anatomy-f61a4a4376f4a4c6",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 155,
+        "xref": 408,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH09_Q006",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Development of spinal cord",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 155,
+            "xref": 408,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Source reviewed against CI region crop run 36432679371 on page 155. The native xref 408 and metadata labels/title align with the upper figure placement; original pixels and source lettering are retained unchanged. Role=explanation."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/f61a4a4376f4a4c6ee90b2b37aeb113866a99aad3ba40cf2b1896865d6a10ff1.jpg",
+        "sha256": "f61a4a4376f4a4c6ee90b2b37aeb113866a99aad3ba40cf2b1896865d6a10ff1",
+        "width": 575,
+        "height": 573
+      },
+      "production": {
+        "path": "data/marrow/images/originals/f61a4a4376f4a4c6ee90b2b37aeb113866a99aad3ba40cf2b1896865d6a10ff1.jpg",
+        "sha256": "f61a4a4376f4a4c6ee90b2b37aeb113866a99aad3ba40cf2b1896865d6a10ff1",
+        "width": 575,
+        "height": 573
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Source reviewed against CI region crop run 36432679371 on page 155. The native xref 408 and metadata labels/title align with the upper figure placement; original pixels and source lettering are retained unchanged. Role=explanation.",
+        "originalSha256": "f61a4a4376f4a4c6ee90b2b37aeb113866a99aad3ba40cf2b1896865d6a10ff1",
+        "productionSha256": "f61a4a4376f4a4c6ee90b2b37aeb113866a99aad3ba40cf2b1896865d6a10ff1"
+      }
+    },
+    {
+      "id": "anatomy-57253b034116d15c",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 155,
+        "xref": 3532,
+        "region": [
+          162.0,
+          284.0,
+          450.0,
+          500.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH09_Q006",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Sulcus limitans - posterior view of brainstem",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 155,
+            "xref": 3532,
+            "region": [
+              162.0,
+              284.0,
+              450.0,
+              500.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Source reviewed against CI region crop run 36432679371 on page 155. The native xref 3532 and metadata labels/title align with the lower figure placement; original pixels and source lettering are retained unchanged. Role=explanation."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/57253b034116d15caee28f27ef9087ae0f23dfa137551fcb7bf36938f9b0373c.jpg",
+        "sha256": "57253b034116d15caee28f27ef9087ae0f23dfa137551fcb7bf36938f9b0373c",
+        "width": 576,
+        "height": 521
+      },
+      "production": {
+        "path": "data/marrow/images/originals/57253b034116d15caee28f27ef9087ae0f23dfa137551fcb7bf36938f9b0373c.jpg",
+        "sha256": "57253b034116d15caee28f27ef9087ae0f23dfa137551fcb7bf36938f9b0373c",
+        "width": 576,
+        "height": 521
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Source reviewed against CI region crop run 36432679371 on page 155. The native xref 3532 and metadata labels/title align with the lower figure placement; original pixels and source lettering are retained unchanged. Role=explanation.",
+        "originalSha256": "57253b034116d15caee28f27ef9087ae0f23dfa137551fcb7bf36938f9b0373c",
+        "productionSha256": "57253b034116d15caee28f27ef9087ae0f23dfa137551fcb7bf36938f9b0373c"
+      }
+    },
+    {
+      "id": "anatomy-26839d3b731c8c49",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 158,
+        "xref": 416,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH09_Q011",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Spina bifida",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 158,
+            "xref": 416,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Source reviewed against CI region crop run 36432679371 on page 158. The native xref 416 and metadata labels/title align with the upper figure placement; original pixels and source lettering are retained unchanged. Role=explanation."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/26839d3b731c8c49e721b629d1a55cb4949cc6f02c53a7144fd0a90bbe274996.jpg",
+        "sha256": "26839d3b731c8c49e721b629d1a55cb4949cc6f02c53a7144fd0a90bbe274996",
+        "width": 575,
+        "height": 502
+      },
+      "production": {
+        "path": "data/marrow/images/originals/26839d3b731c8c49e721b629d1a55cb4949cc6f02c53a7144fd0a90bbe274996.jpg",
+        "sha256": "26839d3b731c8c49e721b629d1a55cb4949cc6f02c53a7144fd0a90bbe274996",
+        "width": 575,
+        "height": 502
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Source reviewed against CI region crop run 36432679371 on page 158. The native xref 416 and metadata labels/title align with the upper figure placement; original pixels and source lettering are retained unchanged. Role=explanation.",
+        "originalSha256": "26839d3b731c8c49e721b629d1a55cb4949cc6f02c53a7144fd0a90bbe274996",
+        "productionSha256": "26839d3b731c8c49e721b629d1a55cb4949cc6f02c53a7144fd0a90bbe274996"
+      }
+    },
+    {
+      "id": "anatomy-43d373ccc37fa43a",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 158,
+        "xref": 417,
+        "region": [
+          162.0,
+          310.0,
+          450.0,
+          526.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH09_Q011",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Types of spina bifida",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 158,
+            "xref": 417,
+            "region": [
+              162.0,
+              310.0,
+              450.0,
+              526.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Source reviewed against CI region crop run 36432679371 on page 158. The native xref 417 and metadata labels/title align with the lower figure placement; original pixels and source lettering are retained unchanged. Role=explanation."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/43d373ccc37fa43a40dfb3e3aff0e5cffec607f449c166951df31fe4f4af4a61.jpg",
+        "sha256": "43d373ccc37fa43a40dfb3e3aff0e5cffec607f449c166951df31fe4f4af4a61",
+        "width": 576,
+        "height": 922
+      },
+      "production": {
+        "path": "data/marrow/images/originals/43d373ccc37fa43a40dfb3e3aff0e5cffec607f449c166951df31fe4f4af4a61.jpg",
+        "sha256": "43d373ccc37fa43a40dfb3e3aff0e5cffec607f449c166951df31fe4f4af4a61",
+        "width": 576,
+        "height": 922
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Source reviewed against CI region crop run 36432679371 on page 158. The native xref 417 and metadata labels/title align with the lower figure placement; original pixels and source lettering are retained unchanged. Role=explanation.",
+        "originalSha256": "43d373ccc37fa43a40dfb3e3aff0e5cffec607f449c166951df31fe4f4af4a61",
+        "productionSha256": "43d373ccc37fa43a40dfb3e3aff0e5cffec607f449c166951df31fe4f4af4a61"
+      }
+    },
+    {
+      "id": "anatomy-8a7087e7fa897d53",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 162,
+        "xref": 429,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH09_Q016",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Pineal gland (anterior view)",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 162,
+            "xref": 429,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Source reviewed against CI region crop run 36432679371 on page 162. The native xref 429 and metadata labels/title align with the upper figure placement; original pixels and source lettering are retained unchanged. Role=explanation."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/8a7087e7fa897d5313d5c1ab2477b7116a7630f23de5c033987429c6d027429e.jpg",
+        "sha256": "8a7087e7fa897d5313d5c1ab2477b7116a7630f23de5c033987429c6d027429e",
+        "width": 576,
+        "height": 498
+      },
+      "production": {
+        "path": "data/marrow/images/originals/8a7087e7fa897d5313d5c1ab2477b7116a7630f23de5c033987429c6d027429e.jpg",
+        "sha256": "8a7087e7fa897d5313d5c1ab2477b7116a7630f23de5c033987429c6d027429e",
+        "width": 576,
+        "height": 498
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Source reviewed against CI region crop run 36432679371 on page 162. The native xref 429 and metadata labels/title align with the upper figure placement; original pixels and source lettering are retained unchanged. Role=explanation.",
+        "originalSha256": "8a7087e7fa897d5313d5c1ab2477b7116a7630f23de5c033987429c6d027429e",
+        "productionSha256": "8a7087e7fa897d5313d5c1ab2477b7116a7630f23de5c033987429c6d027429e"
+      }
+    },
+    {
+      "id": "anatomy-71839c6bfc4e5fb2",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 162,
+        "xref": 430,
+        "region": [
+          162.0,
+          284.0,
+          450.0,
+          500.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH09_Q016",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Pineal gland (posterior view)",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 162,
+            "xref": 430,
+            "region": [
+              162.0,
+              284.0,
+              450.0,
+              500.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Source reviewed against CI region crop run 36432679371 on page 162. The native xref 430 and metadata labels/title align with the lower figure placement; original pixels and source lettering are retained unchanged. Role=explanation."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/71839c6bfc4e5fb211c2dc0bd55bccc25b3285103d6d8be26f3195bdfaf94b74.jpg",
+        "sha256": "71839c6bfc4e5fb211c2dc0bd55bccc25b3285103d6d8be26f3195bdfaf94b74",
+        "width": 576,
+        "height": 498
+      },
+      "production": {
+        "path": "data/marrow/images/originals/71839c6bfc4e5fb211c2dc0bd55bccc25b3285103d6d8be26f3195bdfaf94b74.jpg",
+        "sha256": "71839c6bfc4e5fb211c2dc0bd55bccc25b3285103d6d8be26f3195bdfaf94b74",
+        "width": 576,
+        "height": 498
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Source reviewed against CI region crop run 36432679371 on page 162. The native xref 430 and metadata labels/title align with the lower figure placement; original pixels and source lettering are retained unchanged. Role=explanation.",
+        "originalSha256": "71839c6bfc4e5fb211c2dc0bd55bccc25b3285103d6d8be26f3195bdfaf94b74",
+        "productionSha256": "71839c6bfc4e5fb211c2dc0bd55bccc25b3285103d6d8be26f3195bdfaf94b74"
       }
     }
   ]
