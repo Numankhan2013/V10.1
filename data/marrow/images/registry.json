@@ -14097,6 +14097,502 @@
         "productionSha256": "a2ce2d6f432321af09f2d36aba6a8a94439386455477e581e347b698ee9aea03",
         "evidence": "Question-owned source figure on page 867, xref 2419, region [162.0, 56.0, 450.0, 272.0], visually matched to the exact Ubuntu source crop from CI run 36431980518; native JPEG hash matches stream a2ce2d6f432321af09f2d36aba6a8a94439386455477e581e347b698ee9aea03."
       }
+    },
+    {
+      "id": "anatomy-ch48-26d56fe1ce3fbf3a",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 878,
+        "xref": 2453,
+        "region": [
+          162.0,
+          192.0,
+          450.0,
+          408.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH48_Q001",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "source": {
+            "page": 878,
+            "xref": 2453,
+            "region": [
+              162.0,
+              192.0,
+              450.0,
+              408.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership and role verified. Original stream and all source pixels/labels are retained unchanged.",
+            "evidence": "Source page 878, xref 2453, region [162.0, 192.0, 450.0, 408.0] visually matched to the exact Ubuntu source crop in CI run 36431980518; original native JPEG SHA-256 26d56fe1ce3fbf3a4a244f8e250b4229ee834e42d649250068306f20f7c6d644."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/26d56fe1ce3fbf3a4a244f8e250b4229ee834e42d649250068306f20f7c6d644.jpg",
+        "sha256": "26d56fe1ce3fbf3a4a244f8e250b4229ee834e42d649250068306f20f7c6d644",
+        "width": 720,
+        "height": 720
+      },
+      "production": {
+        "path": "data/marrow/images/originals/26d56fe1ce3fbf3a4a244f8e250b4229ee834e42d649250068306f20f7c6d644.jpg",
+        "sha256": "26d56fe1ce3fbf3a4a244f8e250b4229ee834e42d649250068306f20f7c6d644",
+        "width": 720,
+        "height": 720
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG stream byte-matched against the source-rendered figure; no alteration.",
+        "originalSha256": "26d56fe1ce3fbf3a4a244f8e250b4229ee834e42d649250068306f20f7c6d644",
+        "productionSha256": "26d56fe1ce3fbf3a4a244f8e250b4229ee834e42d649250068306f20f7c6d644",
+        "evidence": "Source page 878, xref 2453, region [162.0, 192.0, 450.0, 408.0] visually matched to the exact Ubuntu source crop in CI run 36431980518; original native JPEG SHA-256 26d56fe1ce3fbf3a4a244f8e250b4229ee834e42d649250068306f20f7c6d644."
+      }
+    },
+    {
+      "id": "anatomy-ch48-5942225c955b8922",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 879,
+        "xref": 2456,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH48_Q002",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "source": {
+            "page": 879,
+            "xref": 2456,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership and role verified. Original stream and all source pixels/labels are retained unchanged.",
+            "evidence": "Source page 879, xref 2456, region [162.0, 56.0, 450.0, 272.0] visually matched to the exact Ubuntu source crop in CI run 36431980518; original native JPEG SHA-256 5942225c955b892269a14d058ac133f23e8ae88e1f0bdf5f5c15286baf18cdb9."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/5942225c955b892269a14d058ac133f23e8ae88e1f0bdf5f5c15286baf18cdb9.jpg",
+        "sha256": "5942225c955b892269a14d058ac133f23e8ae88e1f0bdf5f5c15286baf18cdb9",
+        "width": 720,
+        "height": 1015
+      },
+      "production": {
+        "path": "data/marrow/images/originals/5942225c955b892269a14d058ac133f23e8ae88e1f0bdf5f5c15286baf18cdb9.jpg",
+        "sha256": "5942225c955b892269a14d058ac133f23e8ae88e1f0bdf5f5c15286baf18cdb9",
+        "width": 720,
+        "height": 1015
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG stream byte-matched against the source-rendered figure; no alteration.",
+        "originalSha256": "5942225c955b892269a14d058ac133f23e8ae88e1f0bdf5f5c15286baf18cdb9",
+        "productionSha256": "5942225c955b892269a14d058ac133f23e8ae88e1f0bdf5f5c15286baf18cdb9",
+        "evidence": "Source page 879, xref 2456, region [162.0, 56.0, 450.0, 272.0] visually matched to the exact Ubuntu source crop in CI run 36431980518; original native JPEG SHA-256 5942225c955b892269a14d058ac133f23e8ae88e1f0bdf5f5c15286baf18cdb9."
+      }
+    },
+    {
+      "id": "anatomy-ch48-64f6323340c5b34b",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 879,
+        "xref": 2457,
+        "region": [
+          162.0,
+          454.0,
+          450.0,
+          670.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH48_Q003",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "source": {
+            "page": 879,
+            "xref": 2457,
+            "region": [
+              162.0,
+              454.0,
+              450.0,
+              670.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership and role verified. Original stream and all source pixels/labels are retained unchanged.",
+            "evidence": "Source page 879, xref 2457, region [162.0, 454.0, 450.0, 670.0] visually matched to the exact Ubuntu source crop in CI run 36431980518; original native JPEG SHA-256 64f6323340c5b34bd5bb1e020d4a0a020efdada0a8ba203c07fafcbb72e0bca7."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/64f6323340c5b34bd5bb1e020d4a0a020efdada0a8ba203c07fafcbb72e0bca7.jpg",
+        "sha256": "64f6323340c5b34bd5bb1e020d4a0a020efdada0a8ba203c07fafcbb72e0bca7",
+        "width": 720,
+        "height": 828
+      },
+      "production": {
+        "path": "data/marrow/images/originals/64f6323340c5b34bd5bb1e020d4a0a020efdada0a8ba203c07fafcbb72e0bca7.jpg",
+        "sha256": "64f6323340c5b34bd5bb1e020d4a0a020efdada0a8ba203c07fafcbb72e0bca7",
+        "width": 720,
+        "height": 828
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG stream byte-matched against the source-rendered figure; no alteration.",
+        "originalSha256": "64f6323340c5b34bd5bb1e020d4a0a020efdada0a8ba203c07fafcbb72e0bca7",
+        "productionSha256": "64f6323340c5b34bd5bb1e020d4a0a020efdada0a8ba203c07fafcbb72e0bca7",
+        "evidence": "Source page 879, xref 2457, region [162.0, 454.0, 450.0, 670.0] visually matched to the exact Ubuntu source crop in CI run 36431980518; original native JPEG SHA-256 64f6323340c5b34bd5bb1e020d4a0a020efdada0a8ba203c07fafcbb72e0bca7."
+      }
+    },
+    {
+      "id": "anatomy-ch48-bf05ec08f85c2137",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 881,
+        "xref": 2462,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH48_Q006",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "source": {
+            "page": 881,
+            "xref": 2462,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership and role verified. Original stream and all source pixels/labels are retained unchanged.",
+            "evidence": "Source page 881, xref 2462, region [162.0, 56.0, 450.0, 272.0] visually matched to the exact Ubuntu source crop in CI run 36431980518; original native JPEG SHA-256 bf05ec08f85c2137a3d0e8f8606185a2b667cf9bd5a6a58226f2830e57bacc06."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/bf05ec08f85c2137a3d0e8f8606185a2b667cf9bd5a6a58226f2830e57bacc06.jpg",
+        "sha256": "bf05ec08f85c2137a3d0e8f8606185a2b667cf9bd5a6a58226f2830e57bacc06",
+        "width": 720,
+        "height": 710
+      },
+      "production": {
+        "path": "data/marrow/images/originals/bf05ec08f85c2137a3d0e8f8606185a2b667cf9bd5a6a58226f2830e57bacc06.jpg",
+        "sha256": "bf05ec08f85c2137a3d0e8f8606185a2b667cf9bd5a6a58226f2830e57bacc06",
+        "width": 720,
+        "height": 710
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG stream byte-matched against the source-rendered figure; no alteration.",
+        "originalSha256": "bf05ec08f85c2137a3d0e8f8606185a2b667cf9bd5a6a58226f2830e57bacc06",
+        "productionSha256": "bf05ec08f85c2137a3d0e8f8606185a2b667cf9bd5a6a58226f2830e57bacc06",
+        "evidence": "Source page 881, xref 2462, region [162.0, 56.0, 450.0, 272.0] visually matched to the exact Ubuntu source crop in CI run 36431980518; original native JPEG SHA-256 bf05ec08f85c2137a3d0e8f8606185a2b667cf9bd5a6a58226f2830e57bacc06."
+      }
+    },
+    {
+      "id": "anatomy-ch48-b103de50e7824a65",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 882,
+        "xref": 2465,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH48_Q008",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "source": {
+            "page": 882,
+            "xref": 2465,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership and role verified. Original stream and all source pixels/labels are retained unchanged.",
+            "evidence": "Source page 882, xref 2465, region [162.0, 56.0, 450.0, 272.0] visually matched to the exact Ubuntu source crop in CI run 36431980518; original native JPEG SHA-256 b103de50e7824a65bff26a2c67ba5ec1779a953498132d3c056d1c60696af4dc."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b103de50e7824a65bff26a2c67ba5ec1779a953498132d3c056d1c60696af4dc.jpg",
+        "sha256": "b103de50e7824a65bff26a2c67ba5ec1779a953498132d3c056d1c60696af4dc",
+        "width": 720,
+        "height": 552
+      },
+      "production": {
+        "path": "data/marrow/images/originals/b103de50e7824a65bff26a2c67ba5ec1779a953498132d3c056d1c60696af4dc.jpg",
+        "sha256": "b103de50e7824a65bff26a2c67ba5ec1779a953498132d3c056d1c60696af4dc",
+        "width": 720,
+        "height": 552
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG stream byte-matched against the source-rendered figure; no alteration.",
+        "originalSha256": "b103de50e7824a65bff26a2c67ba5ec1779a953498132d3c056d1c60696af4dc",
+        "productionSha256": "b103de50e7824a65bff26a2c67ba5ec1779a953498132d3c056d1c60696af4dc",
+        "evidence": "Source page 882, xref 2465, region [162.0, 56.0, 450.0, 272.0] visually matched to the exact Ubuntu source crop in CI run 36431980518; original native JPEG SHA-256 b103de50e7824a65bff26a2c67ba5ec1779a953498132d3c056d1c60696af4dc."
+      }
+    },
+    {
+      "id": "anatomy-ch48-7b919013b88be68f",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 889,
+        "xref": 3924,
+        "region": [
+          162.0,
+          461.0,
+          450.0,
+          677.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH48_Q009",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 889,
+            "xref": 3924,
+            "region": [
+              162.0,
+              461.0,
+              450.0,
+              677.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership and role verified. Original stream and all source pixels/labels are retained unchanged.",
+            "evidence": "Source page 889, xref 3924, region [162.0, 461.0, 450.0, 677.0] visually matched to the exact Ubuntu source crop in CI run 36431980518; original native JPEG SHA-256 7b919013b88be68fd389c52289917d3c807a51eabde3af3f41cf8a2f192aaca1."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/7b919013b88be68fd389c52289917d3c807a51eabde3af3f41cf8a2f192aaca1.jpg",
+        "sha256": "7b919013b88be68fd389c52289917d3c807a51eabde3af3f41cf8a2f192aaca1",
+        "width": 720,
+        "height": 569
+      },
+      "production": {
+        "path": "data/marrow/images/originals/7b919013b88be68fd389c52289917d3c807a51eabde3af3f41cf8a2f192aaca1.jpg",
+        "sha256": "7b919013b88be68fd389c52289917d3c807a51eabde3af3f41cf8a2f192aaca1",
+        "width": 720,
+        "height": 569
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG stream byte-matched against the source-rendered figure; no alteration.",
+        "originalSha256": "7b919013b88be68fd389c52289917d3c807a51eabde3af3f41cf8a2f192aaca1",
+        "productionSha256": "7b919013b88be68fd389c52289917d3c807a51eabde3af3f41cf8a2f192aaca1",
+        "evidence": "Source page 889, xref 3924, region [162.0, 461.0, 450.0, 677.0] visually matched to the exact Ubuntu source crop in CI run 36431980518; original native JPEG SHA-256 7b919013b88be68fd389c52289917d3c807a51eabde3af3f41cf8a2f192aaca1."
+      }
+    },
+    {
+      "id": "anatomy-ch48-dbf6def308aa0703",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 890,
+        "xref": 2486,
+        "region": [
+          162.0,
+          476.0,
+          450.0,
+          692.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH48_Q010",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 890,
+            "xref": 2486,
+            "region": [
+              162.0,
+              476.0,
+              450.0,
+              692.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership and role verified. Original stream and all source pixels/labels are retained unchanged.",
+            "evidence": "Source page 890, xref 2486, region [162.0, 476.0, 450.0, 692.0] visually matched to the exact Ubuntu source crop in CI run 36431980518; original native JPEG SHA-256 dbf6def308aa07037c2428d69fc7b3c63dd13e70d4515f2969846182ff22d971."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/dbf6def308aa07037c2428d69fc7b3c63dd13e70d4515f2969846182ff22d971.jpg",
+        "sha256": "dbf6def308aa07037c2428d69fc7b3c63dd13e70d4515f2969846182ff22d971",
+        "width": 576,
+        "height": 644
+      },
+      "production": {
+        "path": "data/marrow/images/originals/dbf6def308aa07037c2428d69fc7b3c63dd13e70d4515f2969846182ff22d971.jpg",
+        "sha256": "dbf6def308aa07037c2428d69fc7b3c63dd13e70d4515f2969846182ff22d971",
+        "width": 576,
+        "height": 644
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG stream byte-matched against the source-rendered figure; no alteration.",
+        "originalSha256": "dbf6def308aa07037c2428d69fc7b3c63dd13e70d4515f2969846182ff22d971",
+        "productionSha256": "dbf6def308aa07037c2428d69fc7b3c63dd13e70d4515f2969846182ff22d971",
+        "evidence": "Source page 890, xref 2486, region [162.0, 476.0, 450.0, 692.0] visually matched to the exact Ubuntu source crop in CI run 36431980518; original native JPEG SHA-256 dbf6def308aa07037c2428d69fc7b3c63dd13e70d4515f2969846182ff22d971."
+      }
+    },
+    {
+      "id": "anatomy-ch48-adf34686caadc315",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 891,
+        "xref": 2489,
+        "region": [
+          162.0,
+          338.0,
+          450.0,
+          554.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH48_Q011",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 891,
+            "xref": 2489,
+            "region": [
+              162.0,
+              338.0,
+              450.0,
+              554.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source figure ownership and role verified. Original stream and all source pixels/labels are retained unchanged.",
+            "evidence": "Source page 891, xref 2489, region [162.0, 338.0, 450.0, 554.0] visually matched to the exact Ubuntu source crop in CI run 36431980518; original native JPEG SHA-256 adf34686caadc3158b059e107dc4efd8db1d104e7fb99abaf01c4362ac2dc8b7."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/adf34686caadc3158b059e107dc4efd8db1d104e7fb99abaf01c4362ac2dc8b7.jpg",
+        "sha256": "adf34686caadc3158b059e107dc4efd8db1d104e7fb99abaf01c4362ac2dc8b7",
+        "width": 600,
+        "height": 790
+      },
+      "production": {
+        "path": "data/marrow/images/originals/adf34686caadc3158b059e107dc4efd8db1d104e7fb99abaf01c4362ac2dc8b7.jpg",
+        "sha256": "adf34686caadc3158b059e107dc4efd8db1d104e7fb99abaf01c4362ac2dc8b7",
+        "width": 600,
+        "height": 790
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG stream byte-matched against the source-rendered figure; no alteration.",
+        "originalSha256": "adf34686caadc3158b059e107dc4efd8db1d104e7fb99abaf01c4362ac2dc8b7",
+        "productionSha256": "adf34686caadc3158b059e107dc4efd8db1d104e7fb99abaf01c4362ac2dc8b7",
+        "evidence": "Source page 891, xref 2489, region [162.0, 338.0, 450.0, 554.0] visually matched to the exact Ubuntu source crop in CI run 36431980518; original native JPEG SHA-256 adf34686caadc3158b059e107dc4efd8db1d104e7fb99abaf01c4362ac2dc8b7."
+      }
     }
   ]
 }
