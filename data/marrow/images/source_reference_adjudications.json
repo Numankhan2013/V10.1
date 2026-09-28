@@ -96,6 +96,38 @@
       },
       "reason": "The canonical metadata names a lac-operon figure on page 426, but the full authoritative page contains the Q5 solution text and no Q5 visual. The similar figure on page 425 belongs to Q3 and cannot be substituted.",
       "evidence": "data/marrow/images/recovery_checkpoints/manual_biochem_ch25_28_20260928.json; rendered biochemistryed8.pdf pages 425 and 426 compared with Q3, Q5 and Q7 solution boundaries on 2026-09-28; page 426 has no figure."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q014:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q014",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        163
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The imported Q14 figure reference cites source page 163, but the exact full-page rendering shows the question text with no tetanization tracing or visual. No neighboring-page image is owned by Q14.",
+      "evidence": "Ubuntu artifact `marrow-wave2-regions` for exact source PDF SHA; full-page page-163 render checked against the Q14 source question text on 2026-09-28."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH04_Q011:figure:1",
+      "questionId": "marrow__BIOCHEM_CH04_Q011",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "sourcePages": [
+        69
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "reason": "Canonical metadata associates this galactose question with a fructose-metabolism pathway on explanation page 69 (xref 1146). The rendered source figure is titled “Metabolism of Fructose” and does not match the question content; it must not be released as the galactose visual.",
+      "evidence": "Ubuntu artifact run 36437795978, marrow-wave2-regions candidate for BIOCHEM_CH04_Q011:figure:1; source SHA verified, candidate xref 1146/page 69 inspected against question and explanation text."
     }
   ]
 }

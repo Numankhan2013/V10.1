@@ -37,19 +37,21 @@ def main() -> None:
     manifest = []
     output.mkdir(parents=True, exist_ok=True)
     for index, item in enumerate(rows):
-        assert item['referenceId'].startswith({
-            'Anatomy': 'marrow__ANAT_',
-            'Biochemistry': 'marrow__BIOCHEM_',
-            'Physiology': 'marrow__PHYS_',
-        }[subject])
-        # A reference can cite multiple source pages or regions. Keep its stable
-        # ID in the manifest while giving every render its own artifact folder.
+        expected_prefixes = {
+            'Anatomy': ('marrow__ANAT_',),
+            'Biochemistry': ('marrow__BIOCHEM_',),
+            'Physiology': ('marrow__PHYS_', 'marrow__PHYSIO_'),
+        }[subject]
+        assert (item['referenceId'].startswith(expected_prefixes)
+                or item['referenceId'].startswith(f'source-context:{subject}:page:'))
+        # Keep each row distinct when one reference cites several source pages,
+        # regions, or candidate objects.
         target = output / (item['referenceId'].replace(':', '_') +
                            f"__p{item['page']}__r{index}")
         target.mkdir(parents=True, exist_ok=True)
         command = [sys.executable, str(ROOT / 'tools/marrow_images.py'), 'render-region',
                    '--subject', subject, '--page', str(item['page']),
-                   '--region', *(str(v) for v in item['region']), '--dpi', '300',
+                   '--region', *(str(v) for v in item['region']), '--dpi', str(item.get('dpi', 300)),
                    '--output', str(target)]
         rendered = subprocess.run(command, check=True, text=True, capture_output=True)
         images = sorted(target.glob('*.png'))
@@ -61,7 +63,15 @@ def main() -> None:
         evidence = json.loads(metadata.read_text())
         assert evidence['sourceSha256'] == data['sourceSha256']
         assert evidence['page'] == item['page'] and evidence['region'] == item['region']
-        manifest.append({'referenceId': item['referenceId'], 'page': item['page'],
+        manifest.append({'referenceId': item['referenceId'], 'questionId': item.get('questionId'),
+                         'role': item.get('role'), 'candidateIndex': item.get('candidateIndex'),
+                         'candidateCount': item.get('candidateCount'), 'subject': subject,
+                         'metadataTitle': item.get('metadataTitle'),
+                         'page': item['page'], 'xref': item.get('xref'),
+                         'xrefs': item.get('xrefs'),
+                         'candidateObjectCount': item.get('candidateObjectCount'),
+                         'questionIds': item.get('questionIds'), 'cueIds': item.get('cueIds'),
+                         'dpi': item.get('dpi', 300),
                          'region': item['region'], 'sourceSha256': evidence['sourceSha256'],
                          'sha256': evidence['sha256'],
                          'file': image.relative_to(output).as_posix(),
