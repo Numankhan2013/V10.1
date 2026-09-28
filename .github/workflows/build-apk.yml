@@ -117,6 +117,24 @@ jobs:
           name: marrow-manual-biochem-ch25-28-regions
           path: build/marrow-manual-region-review/
           retention-days: 14
+      - name: Render claimed Wave 2 source regions on Ubuntu
+        shell: bash
+        run: |
+          shopt -s nullglob
+          checkpoints=(data/marrow/images/recovery_checkpoints/manual_wave2_*.json)
+          for checkpoint in "${checkpoints[@]}"; do
+            batch="$(basename "$checkpoint" .json)"
+            python3 tools/render_marrow_manual_batch_regions.py \
+              --checkpoint "$checkpoint" \
+              --output "build/marrow-wave2-region-review/$batch"
+          done
+      - name: Upload claimed Wave 2 source-region review
+        if: ${{ always() && hashFiles('data/marrow/images/recovery_checkpoints/manual_wave2_*.json') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: marrow-wave2-regions
+          path: build/marrow-wave2-region-review/
+          retention-days: 14
       - name: Require Linux PDF dependencies (never skip in CI)
         run: python3 tools/verification_preflight.py --require-pdf
       - name: Build exact Biochemistry solution map

@@ -7,11 +7,13 @@ The artifact provides source-faithful, source-fingerprinted crops for review.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import subprocess
 import sys
 from PIL import Image
+from marrow_images import SOURCES
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -24,16 +26,26 @@ def main() -> None:
     checkpoint = args.checkpoint if args.checkpoint.is_absolute() else ROOT / args.checkpoint
     output = args.output if args.output.is_absolute() else ROOT / args.output
     data = json.loads(checkpoint.read_text())
-    assert data.get('sourceFile') == 'biochemistryed8.pdf'
+    subjects = {filename: subject for subject, (_, filename) in SOURCES.items()}
+    source_file = data.get('sourceFile')
+    assert source_file in subjects, f'Unsupported Marrow source: {source_file!r}'
+    subject = subjects[source_file]
+    source = ROOT / 'data/marrow/source_pdfs' / source_file
+    assert hashlib.sha256(source.read_bytes()).hexdigest() == data['sourceSha256']
     rows = [item for item in data['items'] if item.get('method') == 'region-render']
     assert rows, 'checkpoint has no region-render items'
     manifest = []
     output.mkdir(parents=True, exist_ok=True)
     for item in rows:
+        assert item['referenceId'].startswith({
+            'Anatomy': 'marrow__ANAT_',
+            'Biochemistry': 'marrow__BIOCHEM_',
+            'Physiology': 'marrow__PHYS_',
+        }[subject])
         target = output / item['referenceId'].replace(':', '_')
         target.mkdir(parents=True, exist_ok=True)
         command = [sys.executable, str(ROOT / 'tools/marrow_images.py'), 'render-region',
-                   '--subject', 'Biochemistry', '--page', str(item['page']),
+                   '--subject', subject, '--page', str(item['page']),
                    '--region', *(str(v) for v in item['region']), '--dpi', '300',
                    '--output', str(target)]
         rendered = subprocess.run(command, check=True, text=True, capture_output=True)
