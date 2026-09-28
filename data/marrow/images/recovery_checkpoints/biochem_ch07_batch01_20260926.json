@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "canonicalBaseSha": "e6fb3f813eb2c49a5220eec774ae60e551a7169f",
+  "subject": "Biochemistry",
+  "batch": "CH07_Q004_Q005_Q006_Q007_Q017_Q027",
+  "source": {
+    "file": "biochemistryed8.pdf",
+    "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+  },
+  "coverageBefore": {
+    "sourceVisualReferences": 110,
+    "effectiveLearnerVisualReferences": 109,
+    "releasedSourceVisualReferences": 71,
+    "invalidSourceMetadataReferences": 1,
+    "trackedButUnreleasedReferences": 4,
+    "untrackedSourceVisualReferences": 34,
+    "textCueReviewItems": 31,
+    "coverageFingerprint": "4b10375b9bf360f7f0c99ce8b0f5421ec3a3c2f3",
+    "registryFingerprint": "3baeb00f524da00e18483ccfb5c12d3a3969199d",
+    "progressFingerprint": "384332aa39e72bb5f6f77d76fe97937caeecfecd"
+  },
+  "items": [
+    {"referenceId":"marrow__BIOCHEM_CH07_Q004:figure:1","questionId":"marrow__BIOCHEM_CH07_Q004","role":"explanation","page":108,"method":"region-render","region":[161.52,230.6156,450.48,447.3943],"dpi":300,"anchorXref":247,"renderSha256":"fa45a59de0b42585a9b810d619a00dc5bf70992ba3034d6d9f380ca4accfd29e","width":1204,"height":905,"sourceCompared":true,"evidence":"Rendered page 108: proline cyclic/imino structure is wholly inside Solution to Question 4; Solution to Question 5 begins below it. Three native components require composited region render."},
+    {"referenceId":"marrow__BIOCHEM_CH07_Q005:figure:1","questionId":"marrow__BIOCHEM_CH07_Q005","role":"explanation","page":109,"method":"region-render","region":[162,56,450,272],"dpi":300,"anchorXref":254,"renderSha256":"c414dd73a84cc1cc58649fa3fa621b7cf248d2397ac93de4778f95c0c1cc6c01","width":1200,"height":901,"sourceCompared":true,"evidence":"Rendered page 109 top: tryptophan structure with marked indole group continues Solution to Question 5 and ends before Solution to Question 6."},
+    {"referenceId":"marrow__BIOCHEM_CH07_Q006:figure:1","questionId":"marrow__BIOCHEM_CH07_Q006","role":"explanation","page":109,"method":"region-render","region":[161.52,384.579,450.48,601.3577],"dpi":300,"anchorXref":255,"renderSha256":"527546f46658fe58e8ed0e97520253131edff2ac34b151baad7020f857a48f07","width":1204,"height":904,"sourceCompared":true,"evidence":"Rendered page 109: tyrosine structure follows 'Structure of tyrosine' inside Solution to Question 6 and ends before Solution to Question 7. Three native components require composited region render."},
+    {"referenceId":"marrow__BIOCHEM_CH07_Q007:figure:1","questionId":"marrow__BIOCHEM_CH07_Q007","role":"explanation","page":110,"method":"region-render","region":[162,56,450,272],"dpi":300,"anchorXref":260,"renderSha256":"bc913717e49635a59809d8b37139a24766b2082f235edd3cf0bc2fcb53b0b655","width":1200,"height":901,"sourceCompared":true,"evidence":"Rendered page 110 top: arginine structure with guanidino group marked is the continuation of Solution to Question 7 and ends before Solution to Question 8."},
+    {"referenceId":"marrow__BIOCHEM_CH07_Q017:figure:1","questionId":"marrow__BIOCHEM_CH07_Q017","role":"explanation","page":113,"method":"region-render","region":[161.52,55.7025,450.48,272.2975],"dpi":300,"anchorXref":268,"renderSha256":"dc7ccfdce7ef16fb7f43cd66cc818b88ddc2f46b80e8a69d542b818d76fbe9f7","width":1204,"height":903,"sourceCompared":true,"evidence":"Rendered page 112 starts Solution to Question 17 and explains glycine; rendered page 113 top is the glycine structure continuing that solution, ending before Solution to Question 18. Three native components require composited region render."},
+    {"referenceId":"marrow__BIOCHEM_CH07_Q027:figure:1","questionId":"marrow__BIOCHEM_CH07_Q027","role":"explanation","page":116,"method":"region-render","region":[161.6425,170.52,450.3575,387.48],"dpi":300,"anchorXref":278,"renderSha256":"1c27feabd8f11e456acae0e382cc8a007d9ce87d40604d64f3797c7132ffd8c8","width":1204,"height":905,"sourceCompared":true,"evidence":"Rendered page 116: arginine to citrulline + NO reaction, NADPH/NADP+, O2, Ca2+ and NO synthase labels are wholly inside Solution to Question 27. Three native components require composited region render."}
+  ],
+  "reviewRequiredChanges": [],
+  "candidateState": "SOURCE_VERIFIED_RENDERED_LOCALLY_BINARY_UPLOAD_PENDING",
+  "nextAction": "Upload the six hash-verified PNGs to originals/production on this same branch, add PASS bindings with these exact regions/xrefs, run release/progress/coverage and browser/PWA/APK/package/reproducibility gates, then reconcile only if canonical HEAD/fingerprints remain compatible."
+}
