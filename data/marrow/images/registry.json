@@ -16045,6 +16045,812 @@
         "productionSha256": "67fc717e2ce32e6f53b43172f96da66ae6456e848545afde5f4e0e09853916c8",
         "evidence": "Page 925, xref 2582, region [162.0, 389.0, 450.0, 605.0] visually matched with the exact source crop and native JPEG stream in CI run 36431980518; SHA-256 67fc717e2ce32e6f53b43172f96da66ae6456e848545afde5f4e0e09853916c8."
       }
+    },
+    {
+      "id": "anatomy-ch50-98a9d498ccd865fa",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 916,
+        "xref": 2557,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q007",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "source": {
+            "page": 916,
+            "xref": 2557,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Figure content and source ownership match the reference and question context. Original medical pixels, labels, and marks are preserved.",
+            "evidence": "Page 916, xref 2557, region [162.0, 56.0, 450.0, 272.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 98a9d498ccd865faadc31dd226e118bbcfae2a28bf3b412c71eb0548f09c5e3c."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/98a9d498ccd865faadc31dd226e118bbcfae2a28bf3b412c71eb0548f09c5e3c.jpg",
+        "sha256": "98a9d498ccd865faadc31dd226e118bbcfae2a28bf3b412c71eb0548f09c5e3c",
+        "width": 720,
+        "height": 557
+      },
+      "production": {
+        "path": "data/marrow/images/originals/98a9d498ccd865faadc31dd226e118bbcfae2a28bf3b412c71eb0548f09c5e3c.jpg",
+        "sha256": "98a9d498ccd865faadc31dd226e118bbcfae2a28bf3b412c71eb0548f09c5e3c",
+        "width": 720,
+        "height": 557
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source image stream exactly matches the source-rendered figure.",
+        "originalSha256": "98a9d498ccd865faadc31dd226e118bbcfae2a28bf3b412c71eb0548f09c5e3c",
+        "productionSha256": "98a9d498ccd865faadc31dd226e118bbcfae2a28bf3b412c71eb0548f09c5e3c",
+        "evidence": "Page 916, xref 2557, region [162.0, 56.0, 450.0, 272.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 98a9d498ccd865faadc31dd226e118bbcfae2a28bf3b412c71eb0548f09c5e3c."
+      }
+    },
+    {
+      "id": "anatomy-ch50-0c905cdf7e7749e5",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 927,
+        "xref": 2588,
+        "region": [
+          162.0,
+          164.0,
+          450.0,
+          380.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q007",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 927,
+            "xref": 2588,
+            "region": [
+              162.0,
+              164.0,
+              450.0,
+              380.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Figure content and source ownership match the reference and question context. Original medical pixels, labels, and marks are preserved.",
+            "evidence": "Page 927, xref 2588, region [162.0, 164.0, 450.0, 380.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 0c905cdf7e7749e575504ee1d8fb4833970f09b42445925505130505d277761e."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/0c905cdf7e7749e575504ee1d8fb4833970f09b42445925505130505d277761e.jpg",
+        "sha256": "0c905cdf7e7749e575504ee1d8fb4833970f09b42445925505130505d277761e",
+        "width": 600,
+        "height": 464
+      },
+      "production": {
+        "path": "data/marrow/images/originals/0c905cdf7e7749e575504ee1d8fb4833970f09b42445925505130505d277761e.jpg",
+        "sha256": "0c905cdf7e7749e575504ee1d8fb4833970f09b42445925505130505d277761e",
+        "width": 600,
+        "height": 464
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source image stream exactly matches the source-rendered figure.",
+        "originalSha256": "0c905cdf7e7749e575504ee1d8fb4833970f09b42445925505130505d277761e",
+        "productionSha256": "0c905cdf7e7749e575504ee1d8fb4833970f09b42445925505130505d277761e",
+        "evidence": "Page 927, xref 2588, region [162.0, 164.0, 450.0, 380.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 0c905cdf7e7749e575504ee1d8fb4833970f09b42445925505130505d277761e."
+      }
+    },
+    {
+      "id": "anatomy-ch50-74e4c1c052c70fa4",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 929,
+        "xref": 2594,
+        "region": [
+          162.0,
+          287.0,
+          450.0,
+          503.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q010",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 929,
+            "xref": 2594,
+            "region": [
+              162.0,
+              287.0,
+              450.0,
+              503.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Figure content and source ownership match the reference and question context. Original medical pixels, labels, and marks are preserved.",
+            "evidence": "Page 929, xref 2594, region [162.0, 287.0, 450.0, 503.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 74e4c1c052c70fa4c041d81fdb42dcece943b24aaab9c15740b469b53a94bbc9."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/74e4c1c052c70fa4c041d81fdb42dcece943b24aaab9c15740b469b53a94bbc9.jpg",
+        "sha256": "74e4c1c052c70fa4c041d81fdb42dcece943b24aaab9c15740b469b53a94bbc9",
+        "width": 576,
+        "height": 661
+      },
+      "production": {
+        "path": "data/marrow/images/originals/74e4c1c052c70fa4c041d81fdb42dcece943b24aaab9c15740b469b53a94bbc9.jpg",
+        "sha256": "74e4c1c052c70fa4c041d81fdb42dcece943b24aaab9c15740b469b53a94bbc9",
+        "width": 576,
+        "height": 661
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source image stream exactly matches the source-rendered figure.",
+        "originalSha256": "74e4c1c052c70fa4c041d81fdb42dcece943b24aaab9c15740b469b53a94bbc9",
+        "productionSha256": "74e4c1c052c70fa4c041d81fdb42dcece943b24aaab9c15740b469b53a94bbc9",
+        "evidence": "Page 929, xref 2594, region [162.0, 287.0, 450.0, 503.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 74e4c1c052c70fa4c041d81fdb42dcece943b24aaab9c15740b469b53a94bbc9."
+      }
+    },
+    {
+      "id": "anatomy-ch50-e3db80816c3717e1",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 917,
+        "xref": 2560,
+        "region": [
+          162.0,
+          336.0,
+          450.0,
+          552.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q011",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "source": {
+            "page": 917,
+            "xref": 2560,
+            "region": [
+              162.0,
+              336.0,
+              450.0,
+              552.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Figure content and source ownership match the reference and question context. Original medical pixels, labels, and marks are preserved.",
+            "evidence": "Page 917, xref 2560, region [162.0, 336.0, 450.0, 552.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 e3db80816c3717e1b509fd2db266fe037a4389a113dabb191c09505e54bac8ac."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/e3db80816c3717e1b509fd2db266fe037a4389a113dabb191c09505e54bac8ac.jpg",
+        "sha256": "e3db80816c3717e1b509fd2db266fe037a4389a113dabb191c09505e54bac8ac",
+        "width": 720,
+        "height": 568
+      },
+      "production": {
+        "path": "data/marrow/images/originals/e3db80816c3717e1b509fd2db266fe037a4389a113dabb191c09505e54bac8ac.jpg",
+        "sha256": "e3db80816c3717e1b509fd2db266fe037a4389a113dabb191c09505e54bac8ac",
+        "width": 720,
+        "height": 568
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source image stream exactly matches the source-rendered figure.",
+        "originalSha256": "e3db80816c3717e1b509fd2db266fe037a4389a113dabb191c09505e54bac8ac",
+        "productionSha256": "e3db80816c3717e1b509fd2db266fe037a4389a113dabb191c09505e54bac8ac",
+        "evidence": "Page 917, xref 2560, region [162.0, 336.0, 450.0, 552.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 e3db80816c3717e1b509fd2db266fe037a4389a113dabb191c09505e54bac8ac."
+      }
+    },
+    {
+      "id": "anatomy-ch50-7645664d428bc850",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 931,
+        "xref": 2601,
+        "region": [
+          162.0,
+          76.0,
+          450.0,
+          292.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q012",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 931,
+            "xref": 2601,
+            "region": [
+              162.0,
+              76.0,
+              450.0,
+              292.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Figure content and source ownership match the reference and question context. Original medical pixels, labels, and marks are preserved.",
+            "evidence": "Page 931, xref 2601, region [162.0, 76.0, 450.0, 292.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 7645664d428bc8502bc5c6da6d45d73a692d29ebec299bebd876761e4cf577b0."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/7645664d428bc8502bc5c6da6d45d73a692d29ebec299bebd876761e4cf577b0.jpg",
+        "sha256": "7645664d428bc8502bc5c6da6d45d73a692d29ebec299bebd876761e4cf577b0",
+        "width": 576,
+        "height": 661
+      },
+      "production": {
+        "path": "data/marrow/images/originals/7645664d428bc8502bc5c6da6d45d73a692d29ebec299bebd876761e4cf577b0.jpg",
+        "sha256": "7645664d428bc8502bc5c6da6d45d73a692d29ebec299bebd876761e4cf577b0",
+        "width": 576,
+        "height": 661
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source image stream exactly matches the source-rendered figure.",
+        "originalSha256": "7645664d428bc8502bc5c6da6d45d73a692d29ebec299bebd876761e4cf577b0",
+        "productionSha256": "7645664d428bc8502bc5c6da6d45d73a692d29ebec299bebd876761e4cf577b0",
+        "evidence": "Page 931, xref 2601, region [162.0, 76.0, 450.0, 292.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 7645664d428bc8502bc5c6da6d45d73a692d29ebec299bebd876761e4cf577b0."
+      }
+    },
+    {
+      "id": "anatomy-ch50-656043f6b2795882",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 919,
+        "xref": 2565,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q015",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "source": {
+            "page": 919,
+            "xref": 2565,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Figure content and source ownership match the reference and question context. Original medical pixels, labels, and marks are preserved.",
+            "evidence": "Page 919, xref 2565, region [162.0, 56.0, 450.0, 272.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 656043f6b27958827d558ab137a8f4335111d9f0ecb679e1cc86342bd55e6817."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/656043f6b27958827d558ab137a8f4335111d9f0ecb679e1cc86342bd55e6817.jpg",
+        "sha256": "656043f6b27958827d558ab137a8f4335111d9f0ecb679e1cc86342bd55e6817",
+        "width": 720,
+        "height": 671
+      },
+      "production": {
+        "path": "data/marrow/images/originals/656043f6b27958827d558ab137a8f4335111d9f0ecb679e1cc86342bd55e6817.jpg",
+        "sha256": "656043f6b27958827d558ab137a8f4335111d9f0ecb679e1cc86342bd55e6817",
+        "width": 720,
+        "height": 671
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source image stream exactly matches the source-rendered figure.",
+        "originalSha256": "656043f6b27958827d558ab137a8f4335111d9f0ecb679e1cc86342bd55e6817",
+        "productionSha256": "656043f6b27958827d558ab137a8f4335111d9f0ecb679e1cc86342bd55e6817",
+        "evidence": "Page 919, xref 2565, region [162.0, 56.0, 450.0, 272.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 656043f6b27958827d558ab137a8f4335111d9f0ecb679e1cc86342bd55e6817."
+      }
+    },
+    {
+      "id": "anatomy-ch50-7cdb2a8d2dac40b2",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 933,
+        "xref": 2608,
+        "region": [
+          162.0,
+          90.0,
+          450.0,
+          306.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q016",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 933,
+            "xref": 2608,
+            "region": [
+              162.0,
+              90.0,
+              450.0,
+              306.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Figure content and source ownership match the reference and question context. Original medical pixels, labels, and marks are preserved.",
+            "evidence": "Page 933, xref 2608, region [162.0, 90.0, 450.0, 306.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 7cdb2a8d2dac40b2105cbce59908785e305c101933600e436dc0d7c7e11f1e83."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/7cdb2a8d2dac40b2105cbce59908785e305c101933600e436dc0d7c7e11f1e83.jpg",
+        "sha256": "7cdb2a8d2dac40b2105cbce59908785e305c101933600e436dc0d7c7e11f1e83",
+        "width": 575,
+        "height": 697
+      },
+      "production": {
+        "path": "data/marrow/images/originals/7cdb2a8d2dac40b2105cbce59908785e305c101933600e436dc0d7c7e11f1e83.jpg",
+        "sha256": "7cdb2a8d2dac40b2105cbce59908785e305c101933600e436dc0d7c7e11f1e83",
+        "width": 575,
+        "height": 697
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source image stream exactly matches the source-rendered figure.",
+        "originalSha256": "7cdb2a8d2dac40b2105cbce59908785e305c101933600e436dc0d7c7e11f1e83",
+        "productionSha256": "7cdb2a8d2dac40b2105cbce59908785e305c101933600e436dc0d7c7e11f1e83",
+        "evidence": "Page 933, xref 2608, region [162.0, 90.0, 450.0, 306.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 7cdb2a8d2dac40b2105cbce59908785e305c101933600e436dc0d7c7e11f1e83."
+      }
+    },
+    {
+      "id": "anatomy-ch50-a34854f6c4c8d2b5",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 934,
+        "xref": 2611,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q017",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 934,
+            "xref": 2611,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Figure content and source ownership match the reference and question context. Original medical pixels, labels, and marks are preserved.",
+            "evidence": "Page 934, xref 2611, region [162.0, 56.0, 450.0, 272.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 a34854f6c4c8d2b5aca9805d08335f42eaf2c0f9b4bf708d9b9e6a1cdcd270f1."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/a34854f6c4c8d2b5aca9805d08335f42eaf2c0f9b4bf708d9b9e6a1cdcd270f1.jpg",
+        "sha256": "a34854f6c4c8d2b5aca9805d08335f42eaf2c0f9b4bf708d9b9e6a1cdcd270f1",
+        "width": 575,
+        "height": 768
+      },
+      "production": {
+        "path": "data/marrow/images/originals/a34854f6c4c8d2b5aca9805d08335f42eaf2c0f9b4bf708d9b9e6a1cdcd270f1.jpg",
+        "sha256": "a34854f6c4c8d2b5aca9805d08335f42eaf2c0f9b4bf708d9b9e6a1cdcd270f1",
+        "width": 575,
+        "height": 768
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source image stream exactly matches the source-rendered figure.",
+        "originalSha256": "a34854f6c4c8d2b5aca9805d08335f42eaf2c0f9b4bf708d9b9e6a1cdcd270f1",
+        "productionSha256": "a34854f6c4c8d2b5aca9805d08335f42eaf2c0f9b4bf708d9b9e6a1cdcd270f1",
+        "evidence": "Page 934, xref 2611, region [162.0, 56.0, 450.0, 272.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 a34854f6c4c8d2b5aca9805d08335f42eaf2c0f9b4bf708d9b9e6a1cdcd270f1."
+      }
+    },
+    {
+      "id": "anatomy-ch50-0b1397d9de70452a",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 920,
+        "xref": 2568,
+        "region": [
+          162.0,
+          340.0,
+          450.0,
+          556.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q019",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "source": {
+            "page": 920,
+            "xref": 2568,
+            "region": [
+              162.0,
+              340.0,
+              450.0,
+              556.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Figure content and source ownership match the reference and question context. Original medical pixels, labels, and marks are preserved.",
+            "evidence": "Page 920, xref 2568, region [162.0, 340.0, 450.0, 556.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 0b1397d9de70452aebee6367192aeb862e128066c1f19ccad920764066781dd8."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/0b1397d9de70452aebee6367192aeb862e128066c1f19ccad920764066781dd8.jpg",
+        "sha256": "0b1397d9de70452aebee6367192aeb862e128066c1f19ccad920764066781dd8",
+        "width": 720,
+        "height": 558
+      },
+      "production": {
+        "path": "data/marrow/images/originals/0b1397d9de70452aebee6367192aeb862e128066c1f19ccad920764066781dd8.jpg",
+        "sha256": "0b1397d9de70452aebee6367192aeb862e128066c1f19ccad920764066781dd8",
+        "width": 720,
+        "height": 558
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source image stream exactly matches the source-rendered figure.",
+        "originalSha256": "0b1397d9de70452aebee6367192aeb862e128066c1f19ccad920764066781dd8",
+        "productionSha256": "0b1397d9de70452aebee6367192aeb862e128066c1f19ccad920764066781dd8",
+        "evidence": "Page 920, xref 2568, region [162.0, 340.0, 450.0, 556.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 0b1397d9de70452aebee6367192aeb862e128066c1f19ccad920764066781dd8."
+      }
+    },
+    {
+      "id": "anatomy-ch50-23be6bd9c368fc9c",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 936,
+        "xref": 3923,
+        "region": [
+          162.0,
+          375.0,
+          450.0,
+          591.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q020",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 936,
+            "xref": 3923,
+            "region": [
+              162.0,
+              375.0,
+              450.0,
+              591.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Figure content and source ownership match the reference and question context. Original medical pixels, labels, and marks are preserved.",
+            "evidence": "Page 936, xref 3923, region [162.0, 375.0, 450.0, 591.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 23be6bd9c368fc9c52e6377818cda2c32eb6209b9e93f36d57c9a6246f0fb119."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/23be6bd9c368fc9c52e6377818cda2c32eb6209b9e93f36d57c9a6246f0fb119.jpg",
+        "sha256": "23be6bd9c368fc9c52e6377818cda2c32eb6209b9e93f36d57c9a6246f0fb119",
+        "width": 600,
+        "height": 721
+      },
+      "production": {
+        "path": "data/marrow/images/originals/23be6bd9c368fc9c52e6377818cda2c32eb6209b9e93f36d57c9a6246f0fb119.jpg",
+        "sha256": "23be6bd9c368fc9c52e6377818cda2c32eb6209b9e93f36d57c9a6246f0fb119",
+        "width": 600,
+        "height": 721
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source image stream exactly matches the source-rendered figure.",
+        "originalSha256": "23be6bd9c368fc9c52e6377818cda2c32eb6209b9e93f36d57c9a6246f0fb119",
+        "productionSha256": "23be6bd9c368fc9c52e6377818cda2c32eb6209b9e93f36d57c9a6246f0fb119",
+        "evidence": "Page 936, xref 3923, region [162.0, 375.0, 450.0, 591.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 23be6bd9c368fc9c52e6377818cda2c32eb6209b9e93f36d57c9a6246f0fb119."
+      }
+    },
+    {
+      "id": "anatomy-ch50-74ff07a2bf2af405",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 937,
+        "xref": 2620,
+        "region": [
+          162.0,
+          292.0,
+          450.0,
+          508.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q021",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 937,
+            "xref": 2620,
+            "region": [
+              162.0,
+              292.0,
+              450.0,
+              508.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Figure content and source ownership match the reference and question context. Original medical pixels, labels, and marks are preserved.",
+            "evidence": "Page 937, xref 2620, region [162.0, 292.0, 450.0, 508.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 74ff07a2bf2af4053b03925633cc54d0d0801d8750a8cb5a129d871273aa4ab7."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/74ff07a2bf2af4053b03925633cc54d0d0801d8750a8cb5a129d871273aa4ab7.jpg",
+        "sha256": "74ff07a2bf2af4053b03925633cc54d0d0801d8750a8cb5a129d871273aa4ab7",
+        "width": 600,
+        "height": 586
+      },
+      "production": {
+        "path": "data/marrow/images/originals/74ff07a2bf2af4053b03925633cc54d0d0801d8750a8cb5a129d871273aa4ab7.jpg",
+        "sha256": "74ff07a2bf2af4053b03925633cc54d0d0801d8750a8cb5a129d871273aa4ab7",
+        "width": 600,
+        "height": 586
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source image stream exactly matches the source-rendered figure.",
+        "originalSha256": "74ff07a2bf2af4053b03925633cc54d0d0801d8750a8cb5a129d871273aa4ab7",
+        "productionSha256": "74ff07a2bf2af4053b03925633cc54d0d0801d8750a8cb5a129d871273aa4ab7",
+        "evidence": "Page 937, xref 2620, region [162.0, 292.0, 450.0, 508.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 74ff07a2bf2af4053b03925633cc54d0d0801d8750a8cb5a129d871273aa4ab7."
+      }
+    },
+    {
+      "id": "anatomy-ch50-57f99a4cc5642b38",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 938,
+        "xref": 2623,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q022",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anatomy explanation figure",
+          "source": {
+            "page": 938,
+            "xref": 2623,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Figure content and source ownership match the reference and question context. Original medical pixels, labels, and marks are preserved.",
+            "evidence": "Page 938, xref 2623, region [162.0, 56.0, 450.0, 272.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 57f99a4cc5642b381866d1e9f50cba3412fa2eb5be06a5a4466603087fde5c55."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/57f99a4cc5642b381866d1e9f50cba3412fa2eb5be06a5a4466603087fde5c55.jpg",
+        "sha256": "57f99a4cc5642b381866d1e9f50cba3412fa2eb5be06a5a4466603087fde5c55",
+        "width": 576,
+        "height": 553
+      },
+      "production": {
+        "path": "data/marrow/images/originals/57f99a4cc5642b381866d1e9f50cba3412fa2eb5be06a5a4466603087fde5c55.jpg",
+        "sha256": "57f99a4cc5642b381866d1e9f50cba3412fa2eb5be06a5a4466603087fde5c55",
+        "width": 576,
+        "height": 553
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source image stream exactly matches the source-rendered figure.",
+        "originalSha256": "57f99a4cc5642b381866d1e9f50cba3412fa2eb5be06a5a4466603087fde5c55",
+        "productionSha256": "57f99a4cc5642b381866d1e9f50cba3412fa2eb5be06a5a4466603087fde5c55",
+        "evidence": "Page 938, xref 2623, region [162.0, 56.0, 450.0, 272.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 57f99a4cc5642b381866d1e9f50cba3412fa2eb5be06a5a4466603087fde5c55."
+      }
+    },
+    {
+      "id": "anatomy-ch50-8101ee762f0b9dcc",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 922,
+        "xref": 2573,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH50_Q023",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "source": {
+            "page": 922,
+            "xref": 2573,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "status": "PASS",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Figure content and source ownership match the reference and question context. Original medical pixels, labels, and marks are preserved.",
+            "evidence": "Page 922, xref 2573, region [162.0, 56.0, 450.0, 272.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 8101ee762f0b9dccfb96c593012a86a8127fd32762b341484875c158c5675461."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/8101ee762f0b9dccfb96c593012a86a8127fd32762b341484875c158c5675461.jpg",
+        "sha256": "8101ee762f0b9dccfb96c593012a86a8127fd32762b341484875c158c5675461",
+        "width": 720,
+        "height": 2021
+      },
+      "production": {
+        "path": "data/marrow/images/originals/8101ee762f0b9dccfb96c593012a86a8127fd32762b341484875c158c5675461.jpg",
+        "sha256": "8101ee762f0b9dccfb96c593012a86a8127fd32762b341484875c158c5675461",
+        "width": 720,
+        "height": 2021
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native source image stream exactly matches the source-rendered figure.",
+        "originalSha256": "8101ee762f0b9dccfb96c593012a86a8127fd32762b341484875c158c5675461",
+        "productionSha256": "8101ee762f0b9dccfb96c593012a86a8127fd32762b341484875c158c5675461",
+        "evidence": "Page 922, xref 2573, region [162.0, 56.0, 450.0, 272.0] matched to the exact source render in CI run 36431980518 and original JPEG stream SHA-256 8101ee762f0b9dccfb96c593012a86a8127fd32762b341484875c158c5675461."
+      }
     }
   ]
 }
