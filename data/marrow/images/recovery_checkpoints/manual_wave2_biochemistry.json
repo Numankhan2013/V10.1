@@ -31,7 +31,13 @@
       "candidateObjectCount": 1,
       "method": "region-render",
       "dpi": 300,
-      "coverageStatus": "UNRELEASED_TRACKED"
+      "coverageStatus": "UNRELEASED_TRACKED",
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Page 69 xref 1146 renders a fructose-metabolism pathway, while the question and source explanation concern galactose. This is a false page/figure association and remains unreleased pending exact source-reference adjudication.",
+        "evidence": "Compared the question text, source xref/page candidate, and available Ubuntu joined/per-xref artifact from run 36437795978; no unsupported binding entered runtime."
+      }
     },
     {
       "referenceId": "marrow__BIOCHEM_CH07_Q004:figure:1",
@@ -84,7 +90,13 @@
       "candidateObjectCount": 4,
       "method": "region-render",
       "dpi": 300,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL"
+      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Tiled tryptophan/tyrosine source figure: xref 254 crop is clipped at the edge; the joined union includes neighboring tyrosine. Need narrowed Ubuntu crop before binding.",
+        "evidence": "Compared the question text, source xref/page candidate, and available Ubuntu joined/per-xref artifact from run 36437795978; no unsupported binding entered runtime."
+      }
     },
     {
       "referenceId": "marrow__BIOCHEM_CH07_Q006:figure:1",
@@ -111,7 +123,13 @@
       "candidateObjectCount": 4,
       "method": "region-render",
       "dpi": 300,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL"
+      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Tyrosine structure is tiled across xrefs 255–257, but the joined candidate includes neighboring tryptophan. Need xref-filtered union crop before binding.",
+        "evidence": "Compared the question text, source xref/page candidate, and available Ubuntu joined/per-xref artifact from run 36437795978; no unsupported binding entered runtime."
+      }
     },
     {
       "referenceId": "marrow__BIOCHEM_CH07_Q007:figure:1",
@@ -169,7 +187,7 @@
       "role": "explanation",
       "metadataTitle": "Nitric oxide synthesis from arginine reaction",
       "questionText": "Nitric oxide is synthesized from:",
-      "explanationText": "Nitric oxide is synthesized from arginine by a calcium-dependent reaction catalyzed by NO synthase. The co-enzymes of NO synthase include FMN, FAD, heme, and tetrahydrobiopterin (BH4). The source includes the arginine \u2192 citrulline + NO reaction diagram.",
+      "explanationText": "Nitric oxide is synthesized from arginine by a calcium-dependent reaction catalyzed by NO synthase. The co-enzymes of NO synthase include FMN, FAD, heme, and tetrahydrobiopterin (BH4). The source includes the arginine → citrulline + NO reaction diagram.",
       "page": 116,
       "xrefs": [
         278,
@@ -195,7 +213,7 @@
       "role": "explanation",
       "metadataTitle": "Transamination reaction diagram",
       "questionText": "Tetrahydrobiopterin is a coenzyme for all of the following except:",
-      "explanationText": "Tetrahydrobiopterin (BH4) is a coenzyme for the following enzymes:\n\u2022 Phenylalanine hydroxylase\n\u2022 Tyrosine hydroxylase\n\u2022 Tryptophan hydroxylase\n\u2022 Nitric oxide synthase\nTetrahydrobiopterin (BH4) resembles folic acid, but it is not a vitamin. It is derived from GTP.",
+      "explanationText": "Tetrahydrobiopterin (BH4) is a coenzyme for the following enzymes:\n• Phenylalanine hydroxylase\n• Tyrosine hydroxylase\n• Tryptophan hydroxylase\n• Nitric oxide synthase\nTetrahydrobiopterin (BH4) resembles folic acid, but it is not a vitamin. It is derived from GTP.",
       "page": 125,
       "xrefs": [
         1183
@@ -211,7 +229,13 @@
       "candidateObjectCount": 1,
       "method": "region-render",
       "dpi": 300,
-      "coverageStatus": "UNRELEASED_TRACKED"
+      "coverageStatus": "UNRELEASED_TRACKED",
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Page 125 xref 1183 shows a transamination reaction and PLP, not the BH4-dependent hydroxylation coenzyme asked about. Existing rejection retained.",
+        "evidence": "Compared the question text, source xref/page candidate, and available Ubuntu joined/per-xref artifact from run 36437795978; no unsupported binding entered runtime."
+      }
     },
     {
       "referenceId": "marrow__BIOCHEM_CH10_Q001:figure:1",
@@ -219,7 +243,7 @@
       "role": "explanation",
       "metadataTitle": "Primary protein structure / amino-acid schematic",
       "questionText": "The primary structure of a protein refers to _____.",
-      "explanationText": "The primary structure of a protein refers to the linear structure and order of the amino acids present. There are four known levels of protein structure: Primary \u2014 a linear sequence of amino acids in the polypeptide chain; Secondary \u2014 folded and geometrically ordered units of short segments of polypeptides, e.g. alpha helix, beta-pleated sheets, loops, and bends; Tertiary \u2014 secondary structures arranged into larger functional units; Quaternary \u2014 different types of polypeptides arranged in a spatial manner.",
+      "explanationText": "The primary structure of a protein refers to the linear structure and order of the amino acids present. There are four known levels of protein structure: Primary — a linear sequence of amino acids in the polypeptide chain; Secondary — folded and geometrically ordered units of short segments of polypeptides, e.g. alpha helix, beta-pleated sheets, loops, and bends; Tertiary — secondary structures arranged into larger functional units; Quaternary — different types of polypeptides arranged in a spatial manner.",
       "page": 163,
       "xrefs": [
         385,
@@ -311,7 +335,13 @@
       "candidateObjectCount": 1,
       "method": "region-render",
       "dpi": 300,
-      "coverageStatus": "UNRELEASED_TRACKED"
+      "coverageStatus": "UNRELEASED_TRACKED",
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Page 168 xref 399 depicts aminoacyl-tRNA-synthetase structural classes, not an LDH-associated NADH-binding Rossmann domain. Prior exact review rejection retained.",
+        "evidence": "Compared the question text, source xref/page candidate, and available Ubuntu joined/per-xref artifact from run 36437795978; no unsupported binding entered runtime."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:47",
@@ -334,7 +364,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH03_Q012:unmapped on source page 47 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:48",
@@ -357,7 +393,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH03_Q014:unmapped on source page 48 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:55",
@@ -380,7 +422,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH03_Q012:unmapped on source page 55 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:56",
@@ -405,7 +453,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH03_Q012:unmapped, marrow__BIOCHEM_CH03_Q014:unmapped on source page 56 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:57",
@@ -430,7 +484,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH03_Q012:unmapped, marrow__BIOCHEM_CH03_Q014:unmapped on source page 57 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:58",
@@ -455,7 +515,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH03_Q012:unmapped, marrow__BIOCHEM_CH03_Q014:unmapped on source page 58 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:59",
@@ -480,7 +546,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH03_Q012:unmapped, marrow__BIOCHEM_CH03_Q014:unmapped on source page 59 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:187",
@@ -503,7 +575,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH12_Q005:unmapped on source page 187 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:191",
@@ -526,7 +604,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH12_Q005:unmapped on source page 191 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:192",
@@ -549,7 +633,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH12_Q005:unmapped on source page 192 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:230",
@@ -572,7 +662,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH15_Q006:unmapped on source page 230 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:233",
@@ -595,7 +691,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH15_Q019:unmapped on source page 233 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:234",
@@ -620,7 +722,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH15_Q019:unmapped, marrow__BIOCHEM_CH15_Q020:unmapped on source page 234 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:235",
@@ -643,7 +751,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH15_Q020:unmapped on source page 235 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:239",
@@ -666,7 +780,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH15_Q006:unmapped on source page 239 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:244",
@@ -691,7 +811,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH15_Q019:unmapped, marrow__BIOCHEM_CH15_Q020:unmapped on source page 244 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:262",
@@ -716,7 +842,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH17_Q003:unmapped, marrow__BIOCHEM_CH17_Q004:unmapped on source page 262 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:265",
@@ -739,7 +871,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH17_Q014:unmapped on source page 265 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:270",
@@ -762,7 +900,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH17_Q003:unmapped on source page 270 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:271",
@@ -785,7 +929,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH17_Q004:unmapped on source page 271 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:277",
@@ -808,7 +958,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH17_Q014:unmapped on source page 277 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:286",
@@ -831,7 +987,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH18_Q015:unmapped on source page 286 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:287",
@@ -854,7 +1016,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH18_Q015:unmapped on source page 287 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:295",
@@ -877,7 +1045,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH18_Q015:unmapped on source page 295 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:301",
@@ -902,7 +1076,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH19_Q011:unmapped, marrow__BIOCHEM_CH19_Q012:unmapped on source page 301 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:302",
@@ -925,7 +1105,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH19_Q012:unmapped on source page 302 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:304",
@@ -948,7 +1134,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH19_Q019:unmapped on source page 304 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:310",
@@ -971,7 +1163,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH19_Q011:unmapped on source page 310 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:311",
@@ -996,7 +1194,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH19_Q011:unmapped, marrow__BIOCHEM_CH19_Q012:unmapped on source page 311 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:312",
@@ -1019,7 +1223,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH19_Q012:unmapped on source page 312 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:315",
@@ -1042,7 +1252,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH19_Q019:unmapped on source page 315 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:316",
@@ -1065,7 +1281,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH19_Q019:unmapped on source page 316 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:317",
@@ -1088,7 +1310,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH19_Q019:unmapped on source page 317 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:319",
@@ -1111,7 +1339,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH20_Q006:unmapped on source page 319 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:324",
@@ -1134,7 +1368,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH20_Q006:unmapped on source page 324 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:325",
@@ -1157,7 +1397,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH20_Q006:unmapped on source page 325 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:332",
@@ -1180,7 +1426,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH21_Q008:unmapped on source page 332 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:333",
@@ -1205,7 +1457,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH21_Q009:unmapped, marrow__BIOCHEM_CH21_Q010:unmapped on source page 333 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:334",
@@ -1228,7 +1486,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH21_Q012:unmapped on source page 334 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:340",
@@ -1251,7 +1515,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH21_Q008:unmapped on source page 340 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:341",
@@ -1278,7 +1548,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH21_Q008:unmapped, marrow__BIOCHEM_CH21_Q009:unmapped, marrow__BIOCHEM_CH21_Q010:unmapped on source page 341 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:342",
@@ -1301,7 +1577,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH21_Q012:unmapped on source page 342 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:346",
@@ -1326,7 +1608,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH22_Q002:unmapped, marrow__BIOCHEM_CH22_Q004:unmapped on source page 346 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:347",
@@ -1353,7 +1641,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH22_Q005:unmapped, marrow__BIOCHEM_CH22_Q006:unmapped, marrow__BIOCHEM_CH22_Q007:unmapped on source page 347 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:348",
@@ -1378,7 +1672,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH22_Q008:unmapped, marrow__BIOCHEM_CH22_Q010:unmapped on source page 348 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:350",
@@ -1401,7 +1701,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH22_Q002:unmapped on source page 350 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:351",
@@ -1426,7 +1732,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH22_Q002:unmapped, marrow__BIOCHEM_CH22_Q004:unmapped on source page 351 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:352",
@@ -1451,7 +1763,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH22_Q004:unmapped, marrow__BIOCHEM_CH22_Q005:unmapped on source page 352 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:353",
@@ -1476,7 +1794,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH22_Q005:unmapped, marrow__BIOCHEM_CH22_Q006:unmapped on source page 353 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:354",
@@ -1501,7 +1825,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH22_Q006:unmapped, marrow__BIOCHEM_CH22_Q007:unmapped on source page 354 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:355",
@@ -1524,7 +1854,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH22_Q008:unmapped on source page 355 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:356",
@@ -1547,7 +1883,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH22_Q010:unmapped on source page 356 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:360",
@@ -1570,7 +1912,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH23_Q009:unmapped on source page 360 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:365",
@@ -1593,7 +1941,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH23_Q009:unmapped on source page 365 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:368",
@@ -1618,7 +1972,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH24_Q001:unmapped, marrow__BIOCHEM_CH24_Q003:unmapped on source page 368 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:370",
@@ -1643,7 +2003,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH24_Q010:unmapped, marrow__BIOCHEM_CH24_Q012:unmapped on source page 370 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:371",
@@ -1666,7 +2032,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH24_Q016:unmapped on source page 371 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:373",
@@ -1689,7 +2061,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH24_Q001:unmapped on source page 373 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:374",
@@ -1712,7 +2090,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH24_Q003:unmapped on source page 374 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:376",
@@ -1735,7 +2119,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH24_Q010:unmapped on source page 376 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:377",
@@ -1760,7 +2150,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH24_Q010:unmapped, marrow__BIOCHEM_CH24_Q012:unmapped on source page 377 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:378",
@@ -1783,7 +2179,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH24_Q012:unmapped on source page 378 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     },
     {
       "referenceId": "source-context:Biochemistry:page:379",
@@ -1806,7 +2208,13 @@
       "candidateIndex": 1,
       "candidateCount": 0,
       "method": "region-render",
-      "dpi": 144
+      "dpi": 144,
+      "manualReviewDecision": {
+        "status": "REVIEW_REQUIRED",
+        "reviewed": true,
+        "reason": "Cue marrow__BIOCHEM_CH24_Q016:unmapped on source page 379 is represented only by a full-page context render. The available context includes adjacent question/solution prose and has no dedicated source visual xref/region; it cannot be released as a learner image without a narrowly rendered figure region.",
+        "evidence": "Inspected the Ubuntu-rendered page-context image and recovery manifest from run 36437795978; no source figure pixels were altered or inferred."
+      }
     }
   ]
 }

@@ -16,24 +16,24 @@
     },
     "Biochemistry": {
       "sourceVisualReferences": 110,
-      "effectiveLearnerVisualReferences": 108,
-      "releasedSourceVisualReferences": 96,
-      "invalidSourceMetadataReferences": 2,
-      "resolvedSourceVisualReferences": 98,
-      "trackedButUnreleasedReferences": 3,
-      "untrackedSourceVisualReferences": 9,
+      "effectiveLearnerVisualReferences": 107,
+      "releasedSourceVisualReferences": 103,
+      "invalidSourceMetadataReferences": 3,
+      "resolvedSourceVisualReferences": 106,
+      "trackedButUnreleasedReferences": 2,
+      "untrackedSourceVisualReferences": 2,
       "textCueReviewItems": 31,
       "sourceVisualCoverageComplete": false,
       "humanCompletenessClaimAllowed": false
     },
     "Physiology": {
       "sourceVisualReferences": 294,
-      "effectiveLearnerVisualReferences": 290,
-      "releasedSourceVisualReferences": 44,
-      "invalidSourceMetadataReferences": 4,
-      "resolvedSourceVisualReferences": 48,
+      "effectiveLearnerVisualReferences": 289,
+      "releasedSourceVisualReferences": 186,
+      "invalidSourceMetadataReferences": 5,
+      "resolvedSourceVisualReferences": 191,
       "trackedButUnreleasedReferences": 21,
-      "untrackedSourceVisualReferences": 225,
+      "untrackedSourceVisualReferences": 82,
       "textCueReviewItems": 28,
       "sourceVisualCoverageComplete": false,
       "humanCompletenessClaimAllowed": false
@@ -14170,12 +14170,10 @@
         69
       ],
       "nativeCandidateCount": 1,
-      "assetId": "biochemistry-bb781d8346ed1c36",
-      "bindingStatus": "REJECTED",
-      "assetStatus": "PASS",
+      "coverageStatus": "SOURCE_METADATA_INVALID",
       "released": false,
-      "registryPage": 69,
-      "coverageStatus": "UNRELEASED_TRACKED"
+      "adjudicationReason": "Canonical metadata associates this galactose question with a fructose-metabolism pathway on explanation page 69 (xref 1146). The rendered source figure is titled \u201cMetabolism of Fructose\u201d and does not match the question content; it must not be released as the galactose visual.",
+      "adjudicationEvidence": "Ubuntu artifact run 36437795978, marrow-wave2-regions candidate for BIOCHEM_CH04_Q011:figure:1; source SHA verified, candidate xref 1146/page 69 inspected against question and explanation text."
     },
     {
       "id": "marrow__BIOCHEM_CH05_Q002:figure:1",
@@ -14340,8 +14338,12 @@
         108
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "biochemistry-region-b50b23dd617051ef",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 108,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__BIOCHEM_CH07_Q005:figure:1",
@@ -14379,8 +14381,12 @@
         110
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "biochemistry-region-ea1066f0ef44cc2b",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 110,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__BIOCHEM_CH07_Q017:figure:1",
@@ -14392,8 +14398,12 @@
         113
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "biochemistry-region-15ac9572a8852b1d",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 113,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__BIOCHEM_CH07_Q025:figure:1",
@@ -14439,8 +14449,12 @@
         116
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "biochemistry-region-9c1aa3977c4fef0c",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 116,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__BIOCHEM_CH08_Q002:figure:1",
@@ -14673,8 +14687,12 @@
         163
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "biochemistry-region-bf43ddc6385eb445",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 163,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__BIOCHEM_CH10_Q003:figure:1",
@@ -14686,8 +14704,12 @@
         164
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "biochemistry-region-f06aae8cb59fcf95",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 164,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__BIOCHEM_CH10_Q004:figure:1",
@@ -14699,8 +14721,12 @@
         164
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "biochemistry-region-875313f7a9eb718a",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 164,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__BIOCHEM_CH10_Q005:figure:1",
@@ -16955,8 +16981,12 @@
         165
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-6b853f20de5c4bf6",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 165,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH08_Q003:figure:1",
@@ -17168,8 +17198,10 @@
         163
       ],
       "nativeCandidateCount": 0,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "coverageStatus": "SOURCE_METADATA_INVALID",
+      "released": false,
+      "adjudicationReason": "The imported Q14 figure reference cites source page 163, but the exact full-page rendering shows the question text with no tetanization tracing or visual. No neighboring-page image is owned by Q14.",
+      "adjudicationEvidence": "Ubuntu artifact `marrow-wave2-regions` for exact source PDF SHA; full-page page-163 render checked against the Q14 source question text on 2026-09-28."
     },
     {
       "id": "marrow__PHYS_CH08_Q014:figure:2",
@@ -17483,8 +17515,12 @@
         193
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-8e24b2c82b8e526a",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 193,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH09_Q020:figure:1",
@@ -17548,8 +17584,12 @@
         195
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-10ab635b14177364",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 195,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH09_Q025:figure:2",
@@ -17587,8 +17627,12 @@
         196
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-cf8ec9c6ee05a8af",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 196,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH10_Q005:figure:1",
@@ -17600,8 +17644,12 @@
         204
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-c1c8d3819c8bdf44",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 204,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH10_Q006:figure:1",
@@ -17626,8 +17674,12 @@
         205
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-2f7a14434e2a0b7d",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 205,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH10_Q007:figure:1",
@@ -17652,8 +17704,12 @@
         207
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-62c0ab1d761f2b40",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 207,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH10_Q017:figure:1",
@@ -17704,8 +17760,12 @@
         216
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-7d68f9441fb1b8d2",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 216,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH11_Q002:figure:1",
@@ -17717,8 +17777,12 @@
         217
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-f21bfabaccf0b8ff",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 217,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH11_Q005:figure:1",
@@ -17730,8 +17794,12 @@
         211
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-6b43cf3b4607a354",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 211,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH11_Q007:figure:1",
@@ -17821,8 +17889,12 @@
         223
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-00a4111dbceb5df5",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 223,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH11_Q019:figure:1",
@@ -17847,8 +17919,12 @@
         232
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-12ef2f3ead88bf5c",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 232,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH12_Q003:figure:1",
@@ -17873,8 +17949,12 @@
         233
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-69952938aaabd12e",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 233,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH12_Q004:figure:1",
@@ -17886,8 +17966,12 @@
         233
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-69952938aaabd12e",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 233,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH12_Q006:figure:1",
@@ -17912,8 +17996,12 @@
         234
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-c1271be222028c10",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 234,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH12_Q008:figure:1",
@@ -17925,8 +18013,12 @@
         235
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-4cdb44548cc6d724",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 235,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH12_Q009:figure:1",
@@ -17938,8 +18030,12 @@
         235
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-4cdb44548cc6d724",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 235,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH12_Q010:figure:1",
@@ -17977,8 +18073,12 @@
         247
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-ac8149b91bcd8ceb",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 247,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH13_Q004:figure:1",
@@ -17990,8 +18090,12 @@
         248
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-1e61d7d323da1830",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 248,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH13_Q004:figure:2",
@@ -18016,8 +18120,12 @@
         249
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-f036c43278ac58ec",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 249,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH13_Q010:figure:1",
@@ -18029,8 +18137,12 @@
         251
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-1139010ad21f6d25",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 251,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH13_Q011:figure:1",
@@ -18042,8 +18154,12 @@
         251
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-1139010ad21f6d25",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 251,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH13_Q012:figure:1",
@@ -18055,8 +18171,12 @@
         252
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-054d98b4919f8c4a",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 252,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH13_Q018:figure:1",
@@ -18068,8 +18188,12 @@
         254
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-bd656a88b2087fa1",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 254,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH14_Q003:figure:1",
@@ -18081,8 +18205,12 @@
         257
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-5d220fd61939833e",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 257,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH14_Q003:figure:2",
@@ -18094,8 +18222,12 @@
         269
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-d951d31d6cf3c842",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 269,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH14_Q004:figure:1",
@@ -18107,8 +18239,12 @@
         271
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-01386b1325d42eb3",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 271,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH14_Q005:figure:1",
@@ -18120,8 +18256,12 @@
         271
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-01386b1325d42eb3",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 271,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH14_Q007:figure:1",
@@ -18133,8 +18273,12 @@
         272
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-abab17de91bb2b6d",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 272,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH14_Q010:figure:1",
@@ -18146,8 +18290,12 @@
         274
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-36900d27214e2e77",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 274,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH14_Q011:figure:1",
@@ -18172,8 +18320,12 @@
         276
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-17290bb45a8d350a",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 276,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH14_Q019:figure:1",
@@ -18185,8 +18337,12 @@
         279
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-2e98899dc17043d5",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 279,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH14_Q022:figure:1",
@@ -18198,8 +18354,12 @@
         281
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-a4aa23d66dcef716",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 281,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH14_Q029:figure:1",
@@ -18211,8 +18371,12 @@
         283
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-a7e1c66381fdf326",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 283,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH14_Q032:figure:1",
@@ -18224,8 +18388,12 @@
         285
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-1abd87243faee29d",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 285,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH14_Q033:figure:1",
@@ -18237,8 +18405,12 @@
         286
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-e18ae6d2395577f2",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 286,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH14_Q034:figure:1",
@@ -18250,8 +18422,12 @@
         287
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-571c736a7d3a0332",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 287,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH14_Q035:figure:1",
@@ -18263,8 +18439,12 @@
         287
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-571c736a7d3a0332",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 287,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH14_Q037:figure:1",
@@ -18289,8 +18469,12 @@
         290
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-a1c76745cb9c8a29",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 290,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH15_Q002:figure:2",
@@ -18302,8 +18486,12 @@
         297
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-22a2b864a1951dd2",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 297,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH15_Q006:figure:1",
@@ -18315,8 +18503,12 @@
         299
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-74d379f0c171305c",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 299,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH15_Q017:figure:1",
@@ -18328,8 +18520,12 @@
         304
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-8feef4992e9fbf66",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 304,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH16_Q004:figure:1",
@@ -18341,8 +18537,12 @@
         315
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-4a3c375c6fa57acf",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 315,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH16_Q005:figure:1",
@@ -18354,8 +18554,12 @@
         316
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-386a836b5d5f7bd9",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 316,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH16_Q007:figure:1",
@@ -18367,8 +18571,12 @@
         317
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-fdc14b73ce23d831",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 317,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH16_Q018:figure:1",
@@ -18380,8 +18588,12 @@
         311
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-c6270b37ac014016",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 311,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH17_Q004:figure:1",
@@ -18393,8 +18605,12 @@
         327
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-3d4d087cbd5879dc",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 327,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH17_Q012:figure:1",
@@ -18406,8 +18622,12 @@
         324
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-8a2d7eadf63df361",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 324,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH18_Q004:figure:1",
@@ -18419,8 +18639,12 @@
         340
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-a17cf16380b7e4bc",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 340,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH18_Q011:figure:1",
@@ -18432,8 +18656,12 @@
         342
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-cfe68c7b02fba8a9",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 342,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH18_Q016:figure:1",
@@ -18445,8 +18673,12 @@
         344
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-0ec90cc91a53adc4",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 344,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH18_Q018:figure:1",
@@ -18458,8 +18690,12 @@
         345
       ],
       "nativeCandidateCount": 6,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-55842754e8e2819a",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 345,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH18_Q021:figure:1",
@@ -18471,8 +18707,12 @@
         335
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-085150f64e0f5566",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 335,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH18_Q021:figure:2",
@@ -18484,8 +18724,12 @@
         347
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-424a77f2cbdcd2fe",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 347,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYS_CH18_Q029:figure:1",
@@ -18497,8 +18741,12 @@
         351
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-5c0e26cdc2a7f305",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 351,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH29_Q005:figure:1",
@@ -18510,8 +18758,12 @@
         527
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-10d3439fd5408e8f",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 527,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH29_Q006:figure:1",
@@ -18523,8 +18775,12 @@
         527
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-10d3439fd5408e8f",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 527,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH29_Q007:figure:1",
@@ -18536,8 +18792,12 @@
         520
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-ec699af13b6dcbc8",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 520,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH29_Q007:figure:2",
@@ -18549,8 +18809,12 @@
         528
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-8d6752ff49a44428",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 528,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH29_Q008:figure:1",
@@ -18562,8 +18826,12 @@
         529
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-e5b2235bd6e45e20",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 529,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH29_Q010:figure:1",
@@ -18575,8 +18843,12 @@
         530
       ],
       "nativeCandidateCount": 4,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-392bf0679d125727",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 530,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH29_Q011:figure:1",
@@ -18588,8 +18860,12 @@
         530
       ],
       "nativeCandidateCount": 4,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-392bf0679d125727",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 530,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH29_Q012:figure:1",
@@ -18601,8 +18877,12 @@
         531
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-f95cb2000a2a6575",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 531,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH29_Q015:figure:1",
@@ -18614,8 +18894,12 @@
         532
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-43144884a31cb23d",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 532,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH29_Q016:figure:1",
@@ -18627,8 +18911,12 @@
         533
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-adf593bf1b633597",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 533,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH29_Q017:figure:1",
@@ -18640,8 +18928,12 @@
         533
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-adf593bf1b633597",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 533,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH29_Q018:figure:1",
@@ -18653,8 +18945,12 @@
         534
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-25420f48ab76eba9",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 534,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH29_Q022:figure:1",
@@ -18666,8 +18962,12 @@
         535
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-5cc318ed321a21b6",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 535,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH34_Q001:figure:1",
@@ -18679,8 +18979,12 @@
         633
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-8807018f81c6e550",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 633,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH34_Q003:figure:1",
@@ -18692,8 +18996,12 @@
         634
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-fa99ddfbd8d956cc",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 634,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH34_Q004:figure:1",
@@ -18718,8 +19026,12 @@
         635
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-8160b03cabd57f9c",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 635,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH34_Q007:figure:1",
@@ -18731,8 +19043,12 @@
         636
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-5bf306220b4cc6b2",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 636,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH34_Q008:figure:1",
@@ -18744,8 +19060,12 @@
         637
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-2cfcb750f6f8b81f",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 637,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH34_Q011:figure:1",
@@ -18757,8 +19077,12 @@
         638
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-7df951ebed1f9330",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 638,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH34_Q018:figure:1",
@@ -18770,8 +19094,12 @@
         643
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-fd7421e7c88c7294",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 643,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH34_Q035:figure:1",
@@ -18783,8 +19111,12 @@
         631
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-d45b42154ace866f",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 631,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q004:figure:1",
@@ -18796,8 +19128,12 @@
         663
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-e81448b536826b32",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 663,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q005:figure:1",
@@ -18809,8 +19145,12 @@
         664
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-94d484b36693aac4",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 664,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q006:figure:1",
@@ -18822,8 +19162,12 @@
         665
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-ff89bf32339f7b83",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 665,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q007:figure:1",
@@ -18835,8 +19179,12 @@
         666
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-44d82b0b81f082e6",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 666,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q008:figure:1",
@@ -18848,8 +19196,12 @@
         666
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-44d82b0b81f082e6",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 666,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q009:figure:1",
@@ -18861,8 +19213,12 @@
         667
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-7999f1da44cebd09",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 667,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q010:figure:1",
@@ -18874,8 +19230,12 @@
         668
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-a86307656e31d3f7",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 668,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q011:figure:1",
@@ -18887,8 +19247,12 @@
         669
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-6c2772fc795beead",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 669,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q012:figure:1",
@@ -18900,8 +19264,12 @@
         655
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-a9b081f1a7319c20",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 655,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q013:figure:1",
@@ -18913,8 +19281,12 @@
         670
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-cbe695f1b599ccce",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 670,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q014:figure:1",
@@ -18926,8 +19298,12 @@
         656
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-48981f5d3f48c73f",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 656,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q015:figure:1",
@@ -18939,8 +19315,12 @@
         671
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-99a7f2a674ea26a1",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 671,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q018:figure:1",
@@ -18952,8 +19332,12 @@
         672
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-862d1c9bae875736",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 672,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q020:figure:1",
@@ -18965,8 +19349,12 @@
         658
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-ff76eff3b68bd593",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 658,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q025:figure:1",
@@ -18978,8 +19366,12 @@
         674
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-0a7597f43ae8e08c",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 674,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q026:figure:1",
@@ -18991,8 +19383,12 @@
         675
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-17890e2db7f461ed",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 675,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH35_Q032:figure:1",
@@ -19004,8 +19400,12 @@
         677
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-f91e4cae6e5db5bf",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 677,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH36_Q010:figure:1",
@@ -19017,8 +19417,12 @@
         688
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-a16bb3f88bdb0bdf",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 688,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH36_Q019:figure:1",
@@ -19030,8 +19434,12 @@
         692
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-b82520c5a878733a",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 692,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH36_Q020:figure:1",
@@ -19043,8 +19451,12 @@
         693
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-edd8f5713c55a418",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 693,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH37_Q009:figure:1",
@@ -19056,8 +19468,12 @@
         697
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-dabc1ea500dd691e",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 697,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH37_Q012:figure:1",
@@ -19069,8 +19485,12 @@
         705
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-aafb09a6c23e7ed9",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 705,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH37_Q016:figure:1",
@@ -19082,8 +19502,12 @@
         707
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-6d33d8a9f5270440",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 707,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH37_Q024:figure:1",
@@ -19108,8 +19532,12 @@
         719
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-2a231590ad5c0c7b",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 719,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH38_Q005:figure:1",
@@ -19121,8 +19549,12 @@
         720
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-3d1d4cde02214251",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 720,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH38_Q016:figure:1",
@@ -19134,8 +19566,12 @@
         724
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-99d2e6fae668748d",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 724,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH38_Q023:figure:1",
@@ -19147,8 +19583,12 @@
         727
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-afcfd7538e30c4fa",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 727,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH38_Q024:figure:1",
@@ -19160,8 +19600,12 @@
         727
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-12f0bf31ff878a93",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 727,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH39_Q002:figure:1",
@@ -19173,8 +19617,12 @@
         735
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-97d7c9b5a02e080e",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 735,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH39_Q005:figure:1",
@@ -19186,8 +19634,12 @@
         737
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-618ab118fec6240c",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 737,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH39_Q009:figure:1",
@@ -19199,8 +19651,12 @@
         738
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-47e7dde63c941e00",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 738,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH39_Q010:figure:1",
@@ -19212,8 +19668,12 @@
         739
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-2de903b91e9eb284",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 739,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH39_Q012:figure:1",
@@ -19225,8 +19685,12 @@
         740
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-4493ad1a4fa8c3f5",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 740,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH39_Q013:figure:1",
@@ -19238,8 +19702,12 @@
         740
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-eda5c3fe68135f71",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 740,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH39_Q015:figure:1",
@@ -19251,8 +19719,12 @@
         742
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-f5c705526617a7fe",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 742,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH39_Q016:figure:1",
@@ -19264,8 +19736,12 @@
         742
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-f5c705526617a7fe",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 742,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH39_Q018:figure:1",
@@ -19277,8 +19753,12 @@
         743
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-686d641d67f73c2e",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 743,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH40_Q004:figure:1",
@@ -19290,8 +19770,12 @@
         753
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-2cfc84caf6f5dd21",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 753,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH40_Q006:figure:1",
@@ -19303,8 +19787,12 @@
         754
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-c69a28080265adc7",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 754,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH40_Q007:figure:1",
@@ -19316,8 +19804,12 @@
         754
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-c69a28080265adc7",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 754,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH40_Q008:figure:1",
@@ -19329,8 +19821,12 @@
         755
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-37ed9590ffa3add5",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 755,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH40_Q008:figure:2",
@@ -19342,8 +19838,12 @@
         755
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-37ed9590ffa3add5",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 755,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH40_Q013:figure:1",
@@ -19355,8 +19855,12 @@
         757
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-1349915eff0102cf",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 757,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH40_Q014:figure:1",
@@ -19368,8 +19872,12 @@
         757
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-1349915eff0102cf",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 757,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH40_Q018:figure:1",
@@ -19381,8 +19889,12 @@
         759
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-a98d3680a5488915",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 759,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH40_Q018:figure:2",
@@ -19394,8 +19906,12 @@
         760
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-e8ad9313b80e4c8b",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 760,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH40_Q019:figure:1",
@@ -19407,8 +19923,12 @@
         761
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-574f4cf947a97b78",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 761,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH40_Q020:figure:1",
@@ -19420,8 +19940,12 @@
         761
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-574f4cf947a97b78",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 761,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH41_Q003:figure:1",
@@ -19433,8 +19957,12 @@
         773
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-63f752cc74e3d4e9",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 773,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH41_Q004:figure:1",
@@ -19446,8 +19974,12 @@
         773
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-63f752cc74e3d4e9",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 773,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH41_Q008:figure:1",
@@ -19459,8 +19991,12 @@
         775
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-d9ba7a3f847922ce",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 775,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH41_Q009:figure:1",
@@ -19472,8 +20008,12 @@
         776
       ],
       "nativeCandidateCount": 4,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-ea007c0d7416791b",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 776,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH41_Q013:figure:1",
@@ -19485,8 +20025,12 @@
         778
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-cb9cf5af6fae6b72",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 778,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH42_Q003:figure:1",
@@ -19498,8 +20042,12 @@
         792
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-8312fa1f683d8454",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 792,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH42_Q005:figure:1",
@@ -19511,8 +20059,12 @@
         793
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-831e700ef5937b7c",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 793,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH42_Q005:figure:2",
@@ -19524,8 +20076,12 @@
         794
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-0912f93ffcb89997",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 794,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH42_Q005:figure:3",
@@ -19537,8 +20093,12 @@
         795
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-61da7ae4dd0e82de",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 795,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH42_Q006:figure:1",
@@ -19550,8 +20110,12 @@
         795
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-61da7ae4dd0e82de",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 795,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH42_Q014:figure:1",
@@ -19563,8 +20127,12 @@
         798
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-fc3ea596cad5a433",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 798,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH42_Q028:figure:1",
@@ -19576,8 +20144,12 @@
         803
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-a21f615fab18b0f6",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 803,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH42_Q028:figure:2",
@@ -19589,8 +20161,12 @@
         803
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-a21f615fab18b0f6",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 803,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH42_Q029:figure:1",
@@ -19602,8 +20178,12 @@
         803
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-a21f615fab18b0f6",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 803,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH42_Q029:figure:2",
@@ -19615,8 +20195,12 @@
         803
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-a21f615fab18b0f6",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 803,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH43_Q005:figure:1",
@@ -19628,8 +20212,12 @@
         812
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-b61f9b80d9a5480f",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 812,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH43_Q013:figure:1",
@@ -19641,8 +20229,12 @@
         816
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-40320fa0a7303e83",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 816,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH43_Q013:figure:2",
@@ -19654,8 +20246,12 @@
         816
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-40320fa0a7303e83",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 816,
+      "coverageStatus": "RELEASED"
     }
   ],
   "textCueReview": [
