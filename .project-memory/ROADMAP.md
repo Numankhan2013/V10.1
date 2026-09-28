@@ -9,8 +9,11 @@ Check off only when build-verified **and** device-verified where UI is involved.
 - [ ] Practice correction pass: use a saved Practice result's exact misses for
       a fresh answer pass, preserve the first result, compare corrected versus
       remaining misses, and retain the link through Pause/resume and sync.
-      Source, phone/tablet browser, packaged Android, and preview review are
-      required before acceptance. No new main navigation destination.
+      Product `96e5ec2` with verification fixes through `50a8f5d` passed local
+      74 checks, Engineering `36375712152`, and full generated browser/PWA/APK/
+      Android phone+tablet run `36375712395`. Preview
+      `https://c8920d8e.nk-qbank.pages.dev` is live; physical user review is
+      pending. No new main navigation destination.
 
 - [ ] All-bank Find a question: search exact IDs, wording, options, and source
       topics across six subject/bank combinations; filter by subject, bank,

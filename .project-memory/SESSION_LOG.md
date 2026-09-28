@@ -1791,9 +1791,13 @@ Implemented approved recovery in existing transform owners: Topics separate path
   result-template anchor before packaging. That anchor was corrected. Engineering
   `36374459956` passed; full run `36374459939` reached browser verification
   but its new journey assumed a nonexistent prefixed Biochemistry ID. The
-  source ID is `1-1`; the browser check now uses it. A fresh full run,
-  `36375043772` then reached Practice but used a removed visible "Incorrect"
+  source ID is `1-1`; the browser check now uses it. Full run `36375043772`
+  then reached Practice but used a removed visible "Incorrect"
   label as its assertion; the current question UI marks wrong/correct options
   and saves the answer without that label. The browser assertion now checks
-  the submitted answer and option state. Another full run, preview, and
-  physical review are pending. Production remains unchanged.
+  the submitted answer and option state. Engineering `36375712152` passed, and full run
+  `36375712395` passed generated app, phone/tablet browser correction journey,
+  and APK packaging. Preview `https://c8920d8e.nk-qbank.pages.dev` returned
+  HTTP 200 and serves the new code. Phone/tablet result captures were inspected;
+  packaged Android phone/tablet interaction assertions also passed. User
+  physical review remains pending. Production remains unchanged.

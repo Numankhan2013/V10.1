@@ -9,8 +9,11 @@
   result stays immutable; each correction saves separately and compares
   corrected versus still-missed questions. The parent link survives Pause,
   reload, account sync, and resume through the existing Practice checkpoint.
-  Targeted tests pass; full generated browser/APK/Android CI and preview are
-  pending. Production promotion remains deferred by the user.
+  Targeted tests and Engineering `36375712152` pass. Full run `36375712395`
+  passed generated app, phone/tablet browser correction journey, APK packaging,
+  and packaged Android phone/tablet interaction checks.
+  Preview `https://c8920d8e.nk-qbank.pages.dev` serves the action. Physical
+  review is pending. Production promotion remains deferred by the user.
 - User-reviewed candidate (2026-09-28): Find a question under
   More. It searches the exact ID, wording, options, and source topic across
   all six subject/bank combinations; filters use real subject, bank, attempts,
