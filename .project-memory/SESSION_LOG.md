@@ -1841,5 +1841,10 @@ Implemented approved recovery in existing transform owners: Topics separate path
   and result control text, focus outlines, and touch heights.
 - Added browser captures and journey assertions at 320, 390, text-zoom phone,
   and 820 px, and extended packaged Android interaction checks. Local 75 checks
-  pass. Full CI/PWA/APK/Android verification and preview review remain pending;
-  production remains unchanged.
+  pass. Initial full run `36406175866` found a stale browser assertion for the
+  removed duplicate Home card; it was updated. The next full run
+  `36406804965` passed generated browser/PWA/APK checks and produced all four
+  view sizes, but its Android interaction script referenced a Node variable
+  inside browser evaluation without passing it as an argument. That check and
+  the mid-transition screenshot capture were corrected. Exact-head full
+  verification and preview review remain pending; production remains unchanged.

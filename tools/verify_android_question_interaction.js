@@ -258,7 +258,7 @@ async function main(){
       assert.deepEqual(submitResult,[true,false],'double Submit must save only once');
       await page.waitForFunction(()=>!window.QB.getState().activeSession&&location.hash.startsWith('#result'));
       assert.equal(await page.evaluate(()=>window.QB.getState().tests.at(-1).title),'PYQ CBT');
-      assert.equal(await page.evaluate(()=>window.QB.getState().tests.filter(t=>t.id===`exam_${examId}`).length),1);
+      assert.equal(await page.evaluate(id=>window.QB.getState().tests.filter(t=>t.id===`exam_${id}`).length,examId),1);
       assert.match(await page.locator('.nk-result-percentages').innerText(),/Score: all questions[\s\S]*Accuracy: answered questions[\s\S]*—/);
       await device.screenshot({path:`${output}/${label}-result-unanswered.png`});
       await page.getByRole('button',{name:'Review Solutions',exact:true}).click();

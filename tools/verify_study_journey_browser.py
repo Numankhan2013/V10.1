@@ -42,7 +42,7 @@ def main():
                 assert "Unique questions answered" in page.locator(".nk-home-progress-card").inner_text()
                 assert "Answer accuracy" in page.locator(".nk-home-progress-card").inner_text()
                 assert " / " not in page.locator(".nk-home-progress-card").inner_text()
-                page.screenshot(path=str(output / f"{label}-home-empty.png"), full_page=True)
+                page.screenshot(path=str(output / f"{label}-home-empty.png"), full_page=True, animations="disabled")
 
                 ids = page.evaluate("""() => {
                   const questions=window.SUBJECT_QBANK_DATA.subjects[0].questions;
@@ -57,7 +57,7 @@ def main():
                 assert "Study journey CBT" in focus.inner_text()
                 assert "1 of 3 answered · 1 marked for review" in focus.inner_text()
                 assert page.locator(".nk-timed-resume.is-home").count() == 0
-                page.screenshot(path=str(output / f"{label}-home-timed.png"), full_page=True)
+                page.screenshot(path=str(output / f"{label}-home-timed.png"), full_page=True, animations="disabled")
                 focus.get_by_role("button", name="Resume timed test").click()
                 page.wait_for_function("location.hash==='#exam' && window.QB.getState().activeSession?.id==='journey_exam'")
                 page.evaluate("() => window.QB.nav('dashboard')")
@@ -70,7 +70,7 @@ def main():
                 result = page.locator(".nk-result-v114")
                 assert "Score: all questions" in result.inner_text()
                 assert "Accuracy: answered questions" in result.inner_text()
-                page.screenshot(path=str(output / f"{label}-result-partial.png"), full_page=True)
+                page.screenshot(path=str(output / f"{label}-result-partial.png"), full_page=True, animations="disabled")
                 assert page.evaluate("document.documentElement.scrollWidth <= document.documentElement.clientWidth + 2"), label
                 if label == "phone-390":
                     page.get_by_role("button", name="Review Solutions").click()
@@ -92,7 +92,7 @@ def main():
               window.QB.saveState();window.QB.nav('result','empty-result');}""")
             expect(page.locator(".nk-result-percentages")).to_contain_text("Accuracy: answered questions")
             assert "—" in page.locator(".nk-result-percentages").inner_text()
-            page.screenshot(path=str(output / "phone-390-result-unanswered.png"), full_page=True)
+            page.screenshot(path=str(output / "phone-390-result-unanswered.png"), full_page=True, animations="disabled")
             page.get_by_role("button", name="Retake timed CBT").click()
             page.wait_for_function("window.QB.getState().activeSession?.mode==='exam'")
             context.close()
