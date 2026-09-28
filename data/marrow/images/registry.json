@@ -12032,7 +12032,7 @@
     {
       "id": "anatomy-f97d68a0de01ac00",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -12052,7 +12052,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 459,
@@ -12065,8 +12065,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact page crop shows the lumbar puncture illustration with the question stem and choices outside the asset. The extracted production JPEG matches the source xref unchanged; all anatomy is visible at native size and readable with the source viewer at phone size.",
+            "evidence": "GitHub Actions build 36434707991, marrow-wave2-regions exact candidate crop artifact; source PDF Anatomy_ed8.pdf SHA-256 7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f; stable reference marrow__ANAT_CH27_Q002:Q2 figure 1, page 459, xref 3706, region [162, 356, 450, 572] points."
           }
         }
       ],
@@ -12083,16 +12084,19 @@
         "height": 960
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "f97d68a0de01ac00763eb93aa68dde14c921f154d92a25ff2427cf4bf00b324d",
+        "productionSha256": "f97d68a0de01ac00763eb93aa68dde14c921f154d92a25ff2427cf4bf00b324d"
       }
     },
     {
       "id": "anatomy-e17ae50a4134a232",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -12112,7 +12116,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Sympathetic chain ganglia diagram with white and grey rami communicantes",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 466,
@@ -12125,8 +12129,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact page crop shows the sympathetic chain ganglia diagram beside the source explanation material. Its grey and white rami labels and arrows match the extracted source xref; the native production JPEG is unchanged and the labels remain readable.",
+            "evidence": "GitHub Actions build 36434707991, marrow-wave2-regions exact candidate crop artifact; source PDF Anatomy_ed8.pdf SHA-256 7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f; stable reference marrow__ANAT_CH27_Q005:Q5 figure 1, page 466, xref 1301, region [162, 176, 450, 392] points."
           }
         }
       ],
@@ -12143,16 +12148,19 @@
         "height": 656
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "e17ae50a4134a232c292f2df3cd35844123d2e554fa16faf0711bbf80c77b8c9",
+        "productionSha256": "e17ae50a4134a232c292f2df3cd35844123d2e554fa16faf0711bbf80c77b8c9"
       }
     },
     {
       "id": "anatomy-4fcd4152095c3b08",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "hybrid",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -12172,7 +12180,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 461,
@@ -12185,8 +12193,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact question crop matches the marked gross spinal cord specimen and orange pointers. The unknown marker remains a question mark; the answer is not exposed. Original source pixels are preserved without processing.",
+            "evidence": "GitHub Actions build 36434707991, marrow-wave2-regions exact candidate crop artifact; source PDF Anatomy_ed8.pdf SHA-256 7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f; stable reference marrow__ANAT_CH27_Q007:Q7 figure 1, page 461, xref 1289, region [162, 98, 450, 314] points."
           }
         }
       ],
@@ -12203,16 +12212,19 @@
         "height": 504
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "4fcd4152095c3b08a0148e27eb05ed4d81099881b0dec65ddb4d60bab3096e1e",
+        "productionSha256": "4fcd4152095c3b08a0148e27eb05ed4d81099881b0dec65ddb4d60bab3096e1e"
       }
     },
     {
       "id": "anatomy-20bed7f2ed65bb3f",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -12232,7 +12244,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Artery of Adamkiewicz / spinal vascular supply diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 469,
@@ -12245,8 +12257,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact explanation crop matches the artery of Adamkiewicz and spinal vascular supply diagram. Labels remain readable despite the faint source watermark. Original source pixels are preserved unchanged.",
+            "evidence": "GitHub Actions build 36434707991, marrow-wave2-regions exact candidate crop artifact; source PDF Anatomy_ed8.pdf SHA-256 7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f; stable reference marrow__ANAT_CH27_Q010:Q10 figure 1, page 469, xref 1308, region [162, 327, 450, 543] points."
           }
         }
       ],
@@ -12263,16 +12276,19 @@
         "height": 718
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "20bed7f2ed65bb3f7f086af86d45464af462999b6cf5c48873f7064e67f26b72",
+        "productionSha256": "20bed7f2ed65bb3f7f086af86d45464af462999b6cf5c48873f7064e67f26b72"
       }
     },
     {
       "id": "anatomy-2c53ee4735b94e0b",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -12292,7 +12308,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 462,
@@ -12305,8 +12321,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact question crop matches the spinal cord tract map. Label A is retained as printed and does not disclose the tract name; the source JPEG is unchanged.",
+            "evidence": "GitHub Actions build 36434707991, marrow-wave2-regions exact candidate crop artifact; source PDF Anatomy_ed8.pdf SHA-256 7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f; stable reference marrow__ANAT_CH27_Q011:Q11 figure 1, page 462, xref 1292, region [162, 372, 450, 588] points."
           }
         }
       ],
@@ -12323,16 +12340,19 @@
         "height": 565
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "2c53ee4735b94e0bfbb2c6629c2bd12351fdb2a0ef71f4cd201c643da1d1dde2",
+        "productionSha256": "2c53ee4735b94e0bfbb2c6629c2bd12351fdb2a0ef71f4cd201c643da1d1dde2"
       }
     },
     {
       "id": "anatomy-0540f83be20e682f",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -12352,7 +12372,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Inca/interparietal bone labelled skull image",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 483,
@@ -12365,8 +12385,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q002_figure_1__p483__r7/0d6e50daa88e2284e165d46969738eb1a46c623e217d0bf531978cdf00b846e2.png; page 483, xref 1349, source region [162.0, 464.0, 450.0, 680.0]; native stream SHA-256 0540f83be20e682f4d7b0228fd7b3e01984bf3166d1596dd6ae6a1b95ee2a13c."
           }
         }
       ],
@@ -12383,16 +12404,19 @@
         "height": 525
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "0540f83be20e682f4d7b0228fd7b3e01984bf3166d1596dd6ae6a1b95ee2a13c",
+        "productionSha256": "0540f83be20e682f4d7b0228fd7b3e01984bf3166d1596dd6ae6a1b95ee2a13c"
       }
     },
     {
       "id": "anatomy-2836f58faee7761c",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -12412,7 +12436,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 473,
@@ -12425,8 +12449,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q006_figure_1__p473__r15/b47968a1c24e6c37670ded0054e2b7530ea1172f422cf2bc369a22bc0e463e62.png; page 473, xref 1319, source region [162.0, 200.0, 450.0, 416.0]; native stream SHA-256 2836f58faee7761cc59f8f50265ff312bfb54d1feee6d5da7c9f835e158b6c5a."
           }
         }
       ],
@@ -12443,16 +12468,19 @@
         "height": 624
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "2836f58faee7761cc59f8f50265ff312bfb54d1feee6d5da7c9f835e158b6c5a",
+        "productionSha256": "2836f58faee7761cc59f8f50265ff312bfb54d1feee6d5da7c9f835e158b6c5a"
       }
     },
     {
       "id": "anatomy-4ac9fff292c16218",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -12472,7 +12500,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Sphenoid bone labelled diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 485,
@@ -12485,8 +12513,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q006_figure_2__p485__r16/fe42cb3220f573919cab97a4e105536ddc53795646ff28c68676618efc292ca6.png; page 485, xref 1356, source region [162.0, 446.0, 450.0, 662.0]; native stream SHA-256 4ac9fff292c16218e2f1d3f31d015a6a2747b1183c83a37a35262fffb230909f."
           }
         }
       ],
@@ -12503,10 +12532,13 @@
         "height": 622
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "4ac9fff292c16218e2f1d3f31d015a6a2747b1183c83a37a35262fffb230909f",
+        "productionSha256": "4ac9fff292c16218e2f1d3f31d015a6a2747b1183c83a37a35262fffb230909f"
       }
     },
     {
@@ -12532,7 +12564,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 474,
@@ -12545,8 +12577,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q009_figure_1__p474__r21/f53570dde1d77ce64597938a2629529022d049ae478b95207364980f57f7dc98.png; page 474, xref 3721, source region [162.0, 293.0, 450.0, 509.0]; native stream SHA-256 b12fa32bf376b78a8d17e790bdca1eb34979dd5f67127752bd8a83f5cbd5a380."
           }
         },
         {
@@ -12594,7 +12627,7 @@
     {
       "id": "anatomy-d5b2383fd498ee44",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -12614,7 +12647,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 476,
@@ -12627,8 +12660,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q012_figure_1__p476__r31/b6246cc8603a7fc8fee45e622b2fd337c386e44d4ff3d6934f43f22443c1a18d.png; page 476, xref 1328, source region [162.0, 212.0, 450.0, 428.0]; native stream SHA-256 d5b2383fd498ee44d3c11bf51d66950abf5d36bb7720064fcc170ca39f0ad298."
           }
         }
       ],
@@ -12645,16 +12679,19 @@
         "height": 772
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "d5b2383fd498ee44d3c11bf51d66950abf5d36bb7720064fcc170ca39f0ad298",
+        "productionSha256": "d5b2383fd498ee44d3c11bf51d66950abf5d36bb7720064fcc170ca39f0ad298"
       }
     },
     {
       "id": "anatomy-4b511b331dab0f7b",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -12674,7 +12711,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Bones forming the orbit diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 489,
@@ -12687,8 +12724,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q012_figure_2__p489__r32/9ed5942b7e28a5ce0663327873923913382ca2e21a933eed341c1f32fb5b1fed.png; page 489, xref 1370, source region [162.0, 430.0, 450.0, 646.0]; native stream SHA-256 4b511b331dab0f7b162f3cf05c01257fe1766516b43a4ba39c7ed85e8309cc78."
           }
         }
       ],
@@ -12705,16 +12743,19 @@
         "height": 568
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "4b511b331dab0f7b162f3cf05c01257fe1766516b43a4ba39c7ed85e8309cc78",
+        "productionSha256": "4b511b331dab0f7b162f3cf05c01257fe1766516b43a4ba39c7ed85e8309cc78"
       }
     },
     {
       "id": "anatomy-9c30f42681ef7c59",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -12734,7 +12775,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Pterion with middle meningeal artery diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 492,
@@ -12747,8 +12788,32 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q015_figure_1__p492__r45/1b25830c61a9dd4a3848cfa08c1e344110652a550a2e9589909bc8506b38a749.png; page 492, xref 3722, source region [162.0, 224.0, 450.0, 440.0]; native stream SHA-256 9c30f42681ef7c5991ab83a884b6f0eec7dbe49fd19497c5ed02b96373ec3a78."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH28_Q014",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Pterion and skull fontanelle relation diagrams",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 491,
+            "xref": 3722,
+            "region": [
+              162.0,
+              116.0,
+              450.0,
+              332.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q014_figure_2__p491__r43/eb903b9772bf973be283f67951f9f600343e06ee6004a328a7acb3ccb906522c.png; page 491, xref 3722, source region [162.0, 116.0, 450.0, 332.0]; native stream SHA-256 9c30f42681ef7c5991ab83a884b6f0eec7dbe49fd19497c5ed02b96373ec3a78."
           }
         }
       ],
@@ -12765,16 +12830,19 @@
         "height": 686
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "9c30f42681ef7c5991ab83a884b6f0eec7dbe49fd19497c5ed02b96373ec3a78",
+        "productionSha256": "9c30f42681ef7c5991ab83a884b6f0eec7dbe49fd19497c5ed02b96373ec3a78"
       }
     },
     {
       "id": "anatomy-9e4eb3602165126f",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -12794,7 +12862,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Fontanelles of skull lateral view",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 493,
@@ -12807,8 +12875,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q016_figure_1__p493__r46/d8fa29dfc6c46552817830a94091ce4d3cd63606a33838f8677b5b4c4fff644e.png; page 493, xref 1382, source region [162.0, 56.0, 450.0, 272.0]; native stream SHA-256 9e4eb3602165126fbcc3c57058314f05fc7ebc8018554a31ad34b6721476f10c."
           }
         }
       ],
@@ -12825,16 +12894,19 @@
         "height": 666
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "9e4eb3602165126fbcc3c57058314f05fc7ebc8018554a31ad34b6721476f10c",
+        "productionSha256": "9e4eb3602165126fbcc3c57058314f05fc7ebc8018554a31ad34b6721476f10c"
       }
     },
     {
       "id": "anatomy-60245a6ce066d8de",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -12854,7 +12926,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 479,
@@ -12867,8 +12939,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q018_figure_1__p479__r49/e9eb33a9aace2918d18c98101c1ab72db7649222dd881332b2ef72df5cf9fc4e.png; page 479, xref 1339, source region [162.0, 98.0, 450.0, 314.0]; native stream SHA-256 60245a6ce066d8deae65586c4c66fcf92c2f40ec82d7747da1ef1abe3d338453."
           }
         }
       ],
@@ -12885,16 +12958,19 @@
         "height": 604
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "60245a6ce066d8deae65586c4c66fcf92c2f40ec82d7747da1ef1abe3d338453",
+        "productionSha256": "60245a6ce066d8deae65586c4c66fcf92c2f40ec82d7747da1ef1abe3d338453"
       }
     },
     {
       "id": "anatomy-6e4d51752eb2f634",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -12914,7 +12990,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Layers of scalp diagram with emissary vein relationship",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 496,
@@ -12927,8 +13003,32 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q020_figure_1__p496__r54/3c5f0d8c3cce2babf7a44bd780f0db08fe9276057345a9b804b1e9f44ea4e636.png; page 496, xref 3723, source region [162.0, 198.0, 450.0, 414.0]; native stream SHA-256 6e4d51752eb2f634a71c683730c3e628a4d3682064b85747859a1bd195f28113."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH28_Q021",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Layers of scalp diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 497,
+            "xref": 3723,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q021_figure_1__p497__r55/fd399b124c5caf8c295f66e77dbe5e40e0811f4cfe2dddfacdc042107d7d6e1b.png; page 497, xref 3723, source region [162.0, 56.0, 450.0, 272.0]; native stream SHA-256 6e4d51752eb2f634a71c683730c3e628a4d3682064b85747859a1bd195f28113."
           }
         }
       ],
@@ -12945,16 +13045,19 @@
         "height": 685
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "6e4d51752eb2f634a71c683730c3e628a4d3682064b85747859a1bd195f28113",
+        "productionSha256": "6e4d51752eb2f634a71c683730c3e628a4d3682064b85747859a1bd195f28113"
       }
     },
     {
       "id": "anatomy-ca92d961a6056c67",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -12974,7 +13077,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 481,
@@ -12987,8 +13090,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q025_figure_1__p481__r64/6bd046a448e0e55cccd3d527a947840082c38b42dd1d57db2e9a1a91443aa47e.png; page 481, xref 1344, source region [162.0, 176.0, 450.0, 392.0]; native stream SHA-256 ca92d961a6056c67bf66389da7418be9be26854f14ae28c0f286e50fee693da4."
           }
         }
       ],
@@ -13005,16 +13109,19 @@
         "height": 843
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "ca92d961a6056c67bf66389da7418be9be26854f14ae28c0f286e50fee693da4",
+        "productionSha256": "ca92d961a6056c67bf66389da7418be9be26854f14ae28c0f286e50fee693da4"
       }
     },
     {
       "id": "anatomy-52e3eed20db69be0",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -13034,7 +13141,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Dorello's canal superior-view diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 500,
@@ -13047,8 +13154,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q027_figure_1__p500__r67/f35696ac2de6c070e092e0b6c2c0e1cc15598cde3bb684ccb436f2f62263a4ab.png; page 500, xref 3617, source region [162.0, 347.0, 450.0, 563.0]; native stream SHA-256 52e3eed20db69be0a8527599c086cce839b8a136a516d36fb761f346e25200fc."
           }
         }
       ],
@@ -13065,10 +13173,13 @@
         "height": 545
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "52e3eed20db69be0a8527599c086cce839b8a136a516d36fb761f346e25200fc",
+        "productionSha256": "52e3eed20db69be0a8527599c086cce839b8a136a516d36fb761f346e25200fc"
       }
     },
     {
@@ -13094,7 +13205,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Suprasternal space of Burns diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 509,
@@ -13107,8 +13218,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r68; page 509, xref 1428, region [162.0, 520.0, 450.0, 736.0]; native stream SHA-256 bc4e8269c46e1708b8b1280a2ae22c223a109cb46f7357ed5635cfaff0eb4081."
           }
         }
       ],
@@ -13125,10 +13237,13 @@
         "height": 806
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "bc4e8269c46e1708b8b1280a2ae22c223a109cb46f7357ed5635cfaff0eb4081",
+        "productionSha256": "bc4e8269c46e1708b8b1280a2ae22c223a109cb46f7357ed5635cfaff0eb4081"
       }
     },
     {
@@ -13169,6 +13284,29 @@
           "qa": {
             "sourceCompared": false,
             "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH29_Q005",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 502,
+            "xref": 1406,
+            "region": [
+              162.0,
+              252.0,
+              450.0,
+              468.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop shows the unhighlighted 1–4 triangle labels needed by this question; neither correct label nor answer text is indicated.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r69; native stream SHA-256 e86a3312a29b6f8428647b61c771d972765ace6d7f6b1971cc6e6152b3c81d71."
           }
         }
       ],
@@ -13214,7 +13352,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Carotid triangle labelled diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 511,
@@ -13227,8 +13365,32 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r70; page 511, xref 3734, region [162.0, 56.0, 450.0, 272.0]; native stream SHA-256 52629968e26cccd12a0b713516535cda75b0975bd70adc825935a3a48bee6846."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH29_Q006",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Carotid triangle and external carotid artery branches diagrams",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 512,
+            "xref": 3734,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r71; page 512, xref 3734, region [162.0, 56.0, 450.0, 272.0]; native stream SHA-256 52629968e26cccd12a0b713516535cda75b0975bd70adc825935a3a48bee6846."
           }
         }
       ],
@@ -13245,10 +13407,13 @@
         "height": 546
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "52629968e26cccd12a0b713516535cda75b0975bd70adc825935a3a48bee6846",
+        "productionSha256": "52629968e26cccd12a0b713516535cda75b0975bd70adc825935a3a48bee6846"
       }
     },
     {
@@ -13274,7 +13439,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Carotid triangle boundaries/floor diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 513,
@@ -13287,8 +13452,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r73; page 513, xref 1437, region [162.0, 276.0, 450.0, 492.0]; native stream SHA-256 d37b0c5292a87241a32840b3f13cedf116b4c088fe2deea680613b7fc40db859."
           }
         }
       ],
@@ -13305,10 +13471,13 @@
         "height": 531
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "d37b0c5292a87241a32840b3f13cedf116b4c088fe2deea680613b7fc40db859",
+        "productionSha256": "d37b0c5292a87241a32840b3f13cedf116b4c088fe2deea680613b7fc40db859"
       }
     },
     {
@@ -13334,7 +13503,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 503,
@@ -13347,8 +13516,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r74; page 503, xref 1409, region [162.0, 356.0, 450.0, 572.0]; native stream SHA-256 473429de140e61213fa1f6e5ed2eddb0812888d2a2d53ed6ab1e1216e389555f."
           }
         }
       ],
@@ -13365,10 +13535,13 @@
         "height": 674
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "473429de140e61213fa1f6e5ed2eddb0812888d2a2d53ed6ab1e1216e389555f",
+        "productionSha256": "473429de140e61213fa1f6e5ed2eddb0812888d2a2d53ed6ab1e1216e389555f"
       }
     },
     {
@@ -13394,7 +13567,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Ansa cervicalis labelled cadaveric image",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 514,
@@ -13407,8 +13580,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r75; page 514, xref 1440, region [162.0, 110.0, 450.0, 326.0]; native stream SHA-256 1e9f76b9ee9ae127d6859ec1728a1c65c5001031434b5dbf582c45398c637c9b."
           }
         }
       ],
@@ -13425,10 +13599,13 @@
         "height": 653
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "1e9f76b9ee9ae127d6859ec1728a1c65c5001031434b5dbf582c45398c637c9b",
+        "productionSha256": "1e9f76b9ee9ae127d6859ec1728a1c65c5001031434b5dbf582c45398c637c9b"
       }
     },
     {
@@ -13454,7 +13631,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Nerves of posterior triangle / spinal accessory nerve diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 516,
@@ -13467,8 +13644,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r78; page 516, xref 1447, region [162.0, 308.0, 450.0, 524.0]; native stream SHA-256 70d48d26e9cfcea1fd653988fe7266813279b4803def3da14eeb4a1f0551e2b0."
           }
         }
       ],
@@ -13485,10 +13663,13 @@
         "height": 749
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "70d48d26e9cfcea1fd653988fe7266813279b4803def3da14eeb4a1f0551e2b0",
+        "productionSha256": "70d48d26e9cfcea1fd653988fe7266813279b4803def3da14eeb4a1f0551e2b0"
       }
     },
     {
@@ -13514,7 +13695,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Contents of subclavian triangle diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 517,
@@ -13527,8 +13708,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r82; page 517, xref 1450, region [162.0, 76.0, 450.0, 292.0]; native stream SHA-256 6afcbbcb082d7d2ed09ece019c6aa36d6c7c259fecb18158906879dcbdcfa23e."
           }
         }
       ],
@@ -13545,10 +13727,13 @@
         "height": 701
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "6afcbbcb082d7d2ed09ece019c6aa36d6c7c259fecb18158906879dcbdcfa23e",
+        "productionSha256": "6afcbbcb082d7d2ed09ece019c6aa36d6c7c259fecb18158906879dcbdcfa23e"
       }
     },
     {
@@ -13574,7 +13759,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 505,
@@ -13587,8 +13772,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r83; page 505, xref 1417, region [162.0, 196.0, 450.0, 412.0]; native stream SHA-256 f067020e0b6c7824cf4ebafc487759f84bed2d0b598470e328b516af47c8d09c."
           }
         }
       ],
@@ -13605,10 +13791,13 @@
         "height": 777
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "f067020e0b6c7824cf4ebafc487759f84bed2d0b598470e328b516af47c8d09c",
+        "productionSha256": "f067020e0b6c7824cf4ebafc487759f84bed2d0b598470e328b516af47c8d09c"
       }
     },
     {
@@ -13634,7 +13823,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Nerves of posterior triangle diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 518,
@@ -13647,8 +13836,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r84; page 518, xref 1453, region [162.0, 56.0, 450.0, 272.0]; native stream SHA-256 148283c40481979abf661c7cb1aeda212530c01f7c5456eea874a0287a3720e7."
           }
         }
       ],
@@ -13665,10 +13855,13 @@
         "height": 749
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "148283c40481979abf661c7cb1aeda212530c01f7c5456eea874a0287a3720e7",
+        "productionSha256": "148283c40481979abf661c7cb1aeda212530c01f7c5456eea874a0287a3720e7"
       }
     },
     {
@@ -13694,7 +13887,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Contents of occipital triangle diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 519,
@@ -13707,8 +13900,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r88; page 519, xref 1456, region [162.0, 56.0, 450.0, 272.0]; native stream SHA-256 c910729ba4ce55cab194c78d6c6cb329283db463c1373b8cf14517a6c622a6a9."
           }
         }
       ],
@@ -13725,10 +13919,13 @@
         "height": 704
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "c910729ba4ce55cab194c78d6c6cb329283db463c1373b8cf14517a6c622a6a9",
+        "productionSha256": "c910729ba4ce55cab194c78d6c6cb329283db463c1373b8cf14517a6c622a6a9"
       }
     },
     {
@@ -13753,8 +13950,8 @@
           "questionId": "marrow__ANAT_CH29_Q014",
           "role": "explanation",
           "order": 2,
-          "alt": "Suboccipital triangle labelled diagram",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Source question figure",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 520,
@@ -13767,8 +13964,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r91; page 520, xref 3733, region [162.0, 56.0, 450.0, 272.0]; native stream SHA-256 3cf0ea607a744514e203f7d8abd0b7a41093f12b6703b44119b38bb250a7df27."
           }
         }
       ],
@@ -13785,10 +13983,13 @@
         "height": 432
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "3cf0ea607a744514e203f7d8abd0b7a41093f12b6703b44119b38bb250a7df27",
+        "productionSha256": "3cf0ea607a744514e203f7d8abd0b7a41093f12b6703b44119b38bb250a7df27"
       }
     },
     {
@@ -13814,7 +14015,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 507,
@@ -13827,8 +14028,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r92; page 507, xref 1423, region [162.0, 196.0, 450.0, 412.0]; native stream SHA-256 e993e81890126e86dfd10b403e50b0d221b3e74f29a5376e06f31be74c0727a5."
           }
         }
       ],
@@ -13845,10 +14047,13 @@
         "height": 740
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "e993e81890126e86dfd10b403e50b0d221b3e74f29a5376e06f31be74c0727a5",
+        "productionSha256": "e993e81890126e86dfd10b403e50b0d221b3e74f29a5376e06f31be74c0727a5"
       }
     },
     {
@@ -14369,6 +14574,29 @@
           "qa": {
             "sourceCompared": false,
             "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH29_Q006",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Carotid triangle and external carotid artery branches diagrams",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 512,
+            "xref": 3735,
+            "region": [
+              162.0,
+              284.0,
+              450.0,
+              500.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r72; page 512, xref 3735, region [162.0, 284.0, 450.0, 500.0]; native stream SHA-256 09c39cd8d605fc00e3d6847adef31c50762278d0f0f3dcd337acd61dfca34ac6."
           }
         }
       ],
@@ -21979,6 +22207,1716 @@
       "qa": {
         "sourceCompared": false,
         "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+      }
+    },
+    {
+      "id": "anatomy-2ba51643716683c5",
+      "subject": "Anatomy",
+      "kind": "hybrid",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 467,
+        "xref": 3712,
+        "region": [
+          162.0,
+          151.0,
+          450.0,
+          367.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH27_Q007",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Source explanation figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 467,
+            "xref": 3712,
+            "region": [
+              162.0,
+              151.0,
+              450.0,
+              367.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The exact source crops on pages 467 and 468 show the same labelled anterior spinal cord figure; both use native xref 3712 and identical JPEG bytes. Bound once to page 467 to prevent duplicate display. The labels match the explanation metadata and the question-mark version remains separate for question time. Original gross-specimen pixels and source annotations are unchanged.",
+            "evidence": "GitHub Actions build 36434707991, marrow-wave2-regions exact candidate crop artifact; source PDF Anatomy_ed8.pdf SHA-256 7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f; stable reference marrow__ANAT_CH27_Q007:figure:2, page 467 (repeated on 468), xref 3712, region [162,151,450,367] points; both exact crops and native JPEG inspected."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/2ba51643716683c5bb30ad186265a58b1b4ec278fa6c1d8440b4b171d85172d0.jpg",
+        "sha256": "2ba51643716683c5bb30ad186265a58b1b4ec278fa6c1d8440b4b171d85172d0",
+        "width": 576,
+        "height": 482
+      },
+      "production": {
+        "path": "data/marrow/images/originals/2ba51643716683c5bb30ad186265a58b1b4ec278fa6c1d8440b4b171d85172d0.jpg",
+        "sha256": "2ba51643716683c5bb30ad186265a58b1b4ec278fa6c1d8440b4b171d85172d0",
+        "width": 576,
+        "height": 482
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "2ba51643716683c5bb30ad186265a58b1b4ec278fa6c1d8440b4b171d85172d0",
+        "productionSha256": "2ba51643716683c5bb30ad186265a58b1b4ec278fa6c1d8440b4b171d85172d0"
+      }
+    },
+    {
+      "id": "anatomy-20082f15682e2d5d",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 484,
+        "xref": 1352,
+        "region": [
+          162.0,
+          196.0,
+          450.0,
+          412.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Cranial sutures and craniosynostosis diagrams",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 484,
+            "xref": 1352,
+            "region": [
+              162.0,
+              196.0,
+              450.0,
+              412.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q003_figure_1__p484__r8/18efd129ff983b5c83fdd026730522c7770ca0d3c4e1bb5c10602bdffd3d1e6b.png; page 484, xref 1352, source region [162.0, 196.0, 450.0, 412.0]; native stream SHA-256 20082f15682e2d5d1456b9de71dd826773962ce15a65726aa8c869e2e97b9ca7."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/20082f15682e2d5d1456b9de71dd826773962ce15a65726aa8c869e2e97b9ca7.jpg",
+        "sha256": "20082f15682e2d5d1456b9de71dd826773962ce15a65726aa8c869e2e97b9ca7",
+        "width": 600,
+        "height": 723
+      },
+      "production": {
+        "path": "data/marrow/images/originals/20082f15682e2d5d1456b9de71dd826773962ce15a65726aa8c869e2e97b9ca7.jpg",
+        "sha256": "20082f15682e2d5d1456b9de71dd826773962ce15a65726aa8c869e2e97b9ca7",
+        "width": 600,
+        "height": 723
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "20082f15682e2d5d1456b9de71dd826773962ce15a65726aa8c869e2e97b9ca7",
+        "productionSha256": "20082f15682e2d5d1456b9de71dd826773962ce15a65726aa8c869e2e97b9ca7"
+      }
+    },
+    {
+      "id": "anatomy-76f9498cf0c92460",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 484,
+        "xref": 1353,
+        "region": [
+          162.0,
+          464.0,
+          450.0,
+          680.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q003",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Cranial sutures and craniosynostosis diagrams",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 484,
+            "xref": 1353,
+            "region": [
+              162.0,
+              464.0,
+              450.0,
+              680.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q003_figure_1__p484__r9/ecc58ab539b364cbfa932316510155a57e27391da47da23a19b6f8e49226b763.png; page 484, xref 1353, source region [162.0, 464.0, 450.0, 680.0]; native stream SHA-256 76f9498cf0c92460407de8436bbfb212704fadb8de18e9f94b899c9eda701258."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/76f9498cf0c92460407de8436bbfb212704fadb8de18e9f94b899c9eda701258.jpg",
+        "sha256": "76f9498cf0c92460407de8436bbfb212704fadb8de18e9f94b899c9eda701258",
+        "width": 576,
+        "height": 1029
+      },
+      "production": {
+        "path": "data/marrow/images/originals/76f9498cf0c92460407de8436bbfb212704fadb8de18e9f94b899c9eda701258.jpg",
+        "sha256": "76f9498cf0c92460407de8436bbfb212704fadb8de18e9f94b899c9eda701258",
+        "width": 576,
+        "height": 1029
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "76f9498cf0c92460407de8436bbfb212704fadb8de18e9f94b899c9eda701258",
+        "productionSha256": "76f9498cf0c92460407de8436bbfb212704fadb8de18e9f94b899c9eda701258"
+      }
+    },
+    {
+      "id": "anatomy-93f7c91fe46f4c5b",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 472,
+        "xref": 1315,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q004",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 472,
+            "xref": 1315,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q004_figure_1__p472__r10/65bb9c4da80e408597f678a1e2f872972d1c718b60b6ff9fcde4556a05ffc963.png; page 472, xref 1315, source region [162.0, 56.0, 450.0, 272.0]; native stream SHA-256 93f7c91fe46f4c5bab46403789552b28531a72b2cbe89013c676b26bdbe6e123."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/93f7c91fe46f4c5bab46403789552b28531a72b2cbe89013c676b26bdbe6e123.jpg",
+        "sha256": "93f7c91fe46f4c5bab46403789552b28531a72b2cbe89013c676b26bdbe6e123",
+        "width": 720,
+        "height": 855
+      },
+      "production": {
+        "path": "data/marrow/images/originals/93f7c91fe46f4c5bab46403789552b28531a72b2cbe89013c676b26bdbe6e123.jpg",
+        "sha256": "93f7c91fe46f4c5bab46403789552b28531a72b2cbe89013c676b26bdbe6e123",
+        "width": 720,
+        "height": 855
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "93f7c91fe46f4c5bab46403789552b28531a72b2cbe89013c676b26bdbe6e123",
+        "productionSha256": "93f7c91fe46f4c5bab46403789552b28531a72b2cbe89013c676b26bdbe6e123"
+      }
+    },
+    {
+      "id": "anatomy-ae7c952edaf64e8d",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 472,
+        "xref": 1316,
+        "region": [
+          162.0,
+          470.0,
+          450.0,
+          686.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q005",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 472,
+            "xref": 1316,
+            "region": [
+              162.0,
+              470.0,
+              450.0,
+              686.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q005_figure_1__p472__r13/5273ffe947a259b59324b7d07ebd6a65568698b69502a991200ae583906921fa.png; page 472, xref 1316, source region [162.0, 470.0, 450.0, 686.0]; native stream SHA-256 ae7c952edaf64e8def643f9c1a10813cbf28aaefb5f54a34e506113de4eff253."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/ae7c952edaf64e8def643f9c1a10813cbf28aaefb5f54a34e506113de4eff253.jpg",
+        "sha256": "ae7c952edaf64e8def643f9c1a10813cbf28aaefb5f54a34e506113de4eff253",
+        "width": 720,
+        "height": 930
+      },
+      "production": {
+        "path": "data/marrow/images/originals/ae7c952edaf64e8def643f9c1a10813cbf28aaefb5f54a34e506113de4eff253.jpg",
+        "sha256": "ae7c952edaf64e8def643f9c1a10813cbf28aaefb5f54a34e506113de4eff253",
+        "width": 720,
+        "height": 930
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "ae7c952edaf64e8def643f9c1a10813cbf28aaefb5f54a34e506113de4eff253",
+        "productionSha256": "ae7c952edaf64e8def643f9c1a10813cbf28aaefb5f54a34e506113de4eff253"
+      }
+    },
+    {
+      "id": "anatomy-58fd1839950d1050",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 486,
+        "xref": 1359,
+        "region": [
+          162.0,
+          218.0,
+          450.0,
+          434.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q007",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Base of skull foramina and jugular foramen compartment diagrams",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 486,
+            "xref": 1359,
+            "region": [
+              162.0,
+              218.0,
+              450.0,
+              434.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q007_figure_1__p486__r17/0ab24484744d291f360b24352ed6aa4cbab51a18e033ee65a3b8263e694b14de.png; page 486, xref 1359, source region [162.0, 218.0, 450.0, 434.0]; native stream SHA-256 58fd1839950d1050643028db293676c171d59b7462a7661869c52d24af81c4d0."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/58fd1839950d1050643028db293676c171d59b7462a7661869c52d24af81c4d0.jpg",
+        "sha256": "58fd1839950d1050643028db293676c171d59b7462a7661869c52d24af81c4d0",
+        "width": 575,
+        "height": 468
+      },
+      "production": {
+        "path": "data/marrow/images/originals/58fd1839950d1050643028db293676c171d59b7462a7661869c52d24af81c4d0.jpg",
+        "sha256": "58fd1839950d1050643028db293676c171d59b7462a7661869c52d24af81c4d0",
+        "width": 575,
+        "height": 468
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "58fd1839950d1050643028db293676c171d59b7462a7661869c52d24af81c4d0",
+        "productionSha256": "58fd1839950d1050643028db293676c171d59b7462a7661869c52d24af81c4d0"
+      }
+    },
+    {
+      "id": "anatomy-77abf5908adb1902",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 486,
+        "xref": 1360,
+        "region": [
+          162.0,
+          446.0,
+          450.0,
+          662.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q007",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Base of skull foramina and jugular foramen compartment diagrams",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 486,
+            "xref": 1360,
+            "region": [
+              162.0,
+              446.0,
+              450.0,
+              662.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q007_figure_1__p486__r18/987096961c356f73c13a2e9adfcfbd51491265409aecde31a1d139478005a45e.png; page 486, xref 1360, source region [162.0, 446.0, 450.0, 662.0]; native stream SHA-256 77abf5908adb190215232e8ec48f8bc8878bb1434d47f95ff397f693f97c77c7."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/77abf5908adb190215232e8ec48f8bc8878bb1434d47f95ff397f693f97c77c7.jpg",
+        "sha256": "77abf5908adb190215232e8ec48f8bc8878bb1434d47f95ff397f693f97c77c7",
+        "width": 600,
+        "height": 787
+      },
+      "production": {
+        "path": "data/marrow/images/originals/77abf5908adb190215232e8ec48f8bc8878bb1434d47f95ff397f693f97c77c7.jpg",
+        "sha256": "77abf5908adb190215232e8ec48f8bc8878bb1434d47f95ff397f693f97c77c7",
+        "width": 600,
+        "height": 787
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "77abf5908adb190215232e8ec48f8bc8878bb1434d47f95ff397f693f97c77c7",
+        "productionSha256": "77abf5908adb190215232e8ec48f8bc8878bb1434d47f95ff397f693f97c77c7"
+      }
+    },
+    {
+      "id": "anatomy-6fd16aac6b9f7192",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 487,
+        "xref": 1363,
+        "region": [
+          162.0,
+          124.0,
+          450.0,
+          340.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Foramen magnum compartment/contents diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 487,
+            "xref": 1363,
+            "region": [
+              162.0,
+              124.0,
+              450.0,
+              340.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q008_figure_1__p487__r19/4bac293775794c41486aec7950beabdaebd2c7b644bc2b6bf0befc9e43aaa6b9.png; page 487, xref 1363, source region [162.0, 124.0, 450.0, 340.0]; native stream SHA-256 6fd16aac6b9f7192c92ca0bba36f4036d45e2130d02ad6978b936239c589835b."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/6fd16aac6b9f7192c92ca0bba36f4036d45e2130d02ad6978b936239c589835b.jpg",
+        "sha256": "6fd16aac6b9f7192c92ca0bba36f4036d45e2130d02ad6978b936239c589835b",
+        "width": 600,
+        "height": 744
+      },
+      "production": {
+        "path": "data/marrow/images/originals/6fd16aac6b9f7192c92ca0bba36f4036d45e2130d02ad6978b936239c589835b.jpg",
+        "sha256": "6fd16aac6b9f7192c92ca0bba36f4036d45e2130d02ad6978b936239c589835b",
+        "width": 600,
+        "height": 744
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "6fd16aac6b9f7192c92ca0bba36f4036d45e2130d02ad6978b936239c589835b",
+        "productionSha256": "6fd16aac6b9f7192c92ca0bba36f4036d45e2130d02ad6978b936239c589835b"
+      }
+    },
+    {
+      "id": "anatomy-7a9c360e8dde5a78",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 487,
+        "xref": 1364,
+        "region": [
+          162.0,
+          447.0,
+          450.0,
+          663.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q009",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Mandible landmarks and inferior alveolar nerve block photograph",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 487,
+            "xref": 1364,
+            "region": [
+              162.0,
+              447.0,
+              450.0,
+              663.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q009_figure_2__p487__r23/34aff57687d72345eae52d3ff763c3b3986d881ec7c717c3f6e79de93ca17c76.png; page 487, xref 1364, source region [162.0, 447.0, 450.0, 663.0]; native stream SHA-256 7a9c360e8dde5a786065d6e5389808eda19eae0aa7ae0115077af8bc2592792f."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/7a9c360e8dde5a786065d6e5389808eda19eae0aa7ae0115077af8bc2592792f.jpg",
+        "sha256": "7a9c360e8dde5a786065d6e5389808eda19eae0aa7ae0115077af8bc2592792f",
+        "width": 575,
+        "height": 445
+      },
+      "production": {
+        "path": "data/marrow/images/originals/7a9c360e8dde5a786065d6e5389808eda19eae0aa7ae0115077af8bc2592792f.jpg",
+        "sha256": "7a9c360e8dde5a786065d6e5389808eda19eae0aa7ae0115077af8bc2592792f",
+        "width": 575,
+        "height": 445
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "7a9c360e8dde5a786065d6e5389808eda19eae0aa7ae0115077af8bc2592792f",
+        "productionSha256": "7a9c360e8dde5a786065d6e5389808eda19eae0aa7ae0115077af8bc2592792f"
+      }
+    },
+    {
+      "id": "anatomy-eafed2facb1a05eb",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 488,
+        "xref": 1367,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q009",
+          "role": "explanation",
+          "order": 3,
+          "alt": "Mandible landmarks and inferior alveolar nerve block photograph",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 488,
+            "xref": 1367,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q009_figure_2__p488__r24/05c0c193fb61573b11988580ec69b3b41f228d3f904384eb1b25d0e74fb7d137.png; page 488, xref 1367, source region [162.0, 56.0, 450.0, 272.0]; native stream SHA-256 eafed2facb1a05eb57b83cf0af4b7a259b5c58b69693d2daf436cc3223aee211."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/eafed2facb1a05eb57b83cf0af4b7a259b5c58b69693d2daf436cc3223aee211.jpg",
+        "sha256": "eafed2facb1a05eb57b83cf0af4b7a259b5c58b69693d2daf436cc3223aee211",
+        "width": 590,
+        "height": 431
+      },
+      "production": {
+        "path": "data/marrow/images/originals/eafed2facb1a05eb57b83cf0af4b7a259b5c58b69693d2daf436cc3223aee211.jpg",
+        "sha256": "eafed2facb1a05eb57b83cf0af4b7a259b5c58b69693d2daf436cc3223aee211",
+        "width": 590,
+        "height": 431
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "eafed2facb1a05eb57b83cf0af4b7a259b5c58b69693d2daf436cc3223aee211",
+        "productionSha256": "eafed2facb1a05eb57b83cf0af4b7a259b5c58b69693d2daf436cc3223aee211"
+      }
+    },
+    {
+      "id": "anatomy-020a2d73922cf677",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 477,
+        "xref": 1331,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q013",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 477,
+            "xref": 1331,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q013_figure_1__p477__r33/9430e4c13868463a490f2ecaf2ac274e9c6576a79554faaa9cb6e6c826796050.png; page 477, xref 1331, source region [162.0, 56.0, 450.0, 272.0]; native stream SHA-256 020a2d73922cf677b9e60ed50bb41f3bfda76f8135d066d24e7314e5985fbd3d."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/020a2d73922cf677b9e60ed50bb41f3bfda76f8135d066d24e7314e5985fbd3d.jpg",
+        "sha256": "020a2d73922cf677b9e60ed50bb41f3bfda76f8135d066d24e7314e5985fbd3d",
+        "width": 720,
+        "height": 780
+      },
+      "production": {
+        "path": "data/marrow/images/originals/020a2d73922cf677b9e60ed50bb41f3bfda76f8135d066d24e7314e5985fbd3d.jpg",
+        "sha256": "020a2d73922cf677b9e60ed50bb41f3bfda76f8135d066d24e7314e5985fbd3d",
+        "width": 720,
+        "height": 780
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "020a2d73922cf677b9e60ed50bb41f3bfda76f8135d066d24e7314e5985fbd3d",
+        "productionSha256": "020a2d73922cf677b9e60ed50bb41f3bfda76f8135d066d24e7314e5985fbd3d"
+      }
+    },
+    {
+      "id": "anatomy-88e84117c3dbb2a9",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 490,
+        "xref": 1373,
+        "region": [
+          162.0,
+          144.0,
+          450.0,
+          360.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q013",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Supraorbital ridge/notch diagrams",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 490,
+            "xref": 1373,
+            "region": [
+              162.0,
+              144.0,
+              450.0,
+              360.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q013_figure_2__p490__r37/f2f728ad4769a5948703102ffb525955e915f24992e17fc6ec4aeb1f450f4a73.png; page 490, xref 1373, source region [162.0, 144.0, 450.0, 360.0]; native stream SHA-256 88e84117c3dbb2a913a07b9027b5864e2f49dd22aa34959836b4018974f140e0."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/88e84117c3dbb2a913a07b9027b5864e2f49dd22aa34959836b4018974f140e0.jpg",
+        "sha256": "88e84117c3dbb2a913a07b9027b5864e2f49dd22aa34959836b4018974f140e0",
+        "width": 600,
+        "height": 729
+      },
+      "production": {
+        "path": "data/marrow/images/originals/88e84117c3dbb2a913a07b9027b5864e2f49dd22aa34959836b4018974f140e0.jpg",
+        "sha256": "88e84117c3dbb2a913a07b9027b5864e2f49dd22aa34959836b4018974f140e0",
+        "width": 600,
+        "height": 729
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "88e84117c3dbb2a913a07b9027b5864e2f49dd22aa34959836b4018974f140e0",
+        "productionSha256": "88e84117c3dbb2a913a07b9027b5864e2f49dd22aa34959836b4018974f140e0"
+      }
+    },
+    {
+      "id": "anatomy-cc59ef20cfd744c1",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 490,
+        "xref": 1374,
+        "region": [
+          162.0,
+          372.0,
+          450.0,
+          588.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q013",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Supraorbital ridge/notch diagrams",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 490,
+            "xref": 1374,
+            "region": [
+              162.0,
+              372.0,
+              450.0,
+              588.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q013_figure_2__p490__r38/3bc78559c9256ebe54e56018b9bba806a7f1a8e3ed5e4d20f7c6b505790fc94b.png; page 490, xref 1374, source region [162.0, 372.0, 450.0, 588.0]; native stream SHA-256 cc59ef20cfd744c15fd3e114a0985274980d7d0e1dc083e2625df02445f54b6e."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/cc59ef20cfd744c15fd3e114a0985274980d7d0e1dc083e2625df02445f54b6e.jpg",
+        "sha256": "cc59ef20cfd744c15fd3e114a0985274980d7d0e1dc083e2625df02445f54b6e",
+        "width": 576,
+        "height": 624
+      },
+      "production": {
+        "path": "data/marrow/images/originals/cc59ef20cfd744c15fd3e114a0985274980d7d0e1dc083e2625df02445f54b6e.jpg",
+        "sha256": "cc59ef20cfd744c15fd3e114a0985274980d7d0e1dc083e2625df02445f54b6e",
+        "width": 576,
+        "height": 624
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "cc59ef20cfd744c15fd3e114a0985274980d7d0e1dc083e2625df02445f54b6e",
+        "productionSha256": "cc59ef20cfd744c15fd3e114a0985274980d7d0e1dc083e2625df02445f54b6e"
+      }
+    },
+    {
+      "id": "anatomy-d45e2cec46635fc7",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 477,
+        "xref": 1332,
+        "region": [
+          161.52,
+          453.627,
+          386.4,
+          616.28
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q014",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 477,
+            "xref": 1332,
+            "region": [
+              161.52,
+              453.627,
+              386.4,
+              616.28
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q014_figure_1__p477__r40/3b932943d8df00a9c775e0b5d61bb4fcd598222740942e4e5c97f436bb498104.png; page 477, xref 1332, source region [161.52, 453.627, 386.4, 616.28]; native stream SHA-256 d45e2cec46635fc715a76d3a42715d93e1b72985ac0d72df697e25826afd134c."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/d45e2cec46635fc715a76d3a42715d93e1b72985ac0d72df697e25826afd134c.jpg",
+        "sha256": "d45e2cec46635fc715a76d3a42715d93e1b72985ac0d72df697e25826afd134c",
+        "width": 469,
+        "height": 339
+      },
+      "production": {
+        "path": "data/marrow/images/originals/d45e2cec46635fc715a76d3a42715d93e1b72985ac0d72df697e25826afd134c.jpg",
+        "sha256": "d45e2cec46635fc715a76d3a42715d93e1b72985ac0d72df697e25826afd134c",
+        "width": 469,
+        "height": 339
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "d45e2cec46635fc715a76d3a42715d93e1b72985ac0d72df697e25826afd134c",
+        "productionSha256": "d45e2cec46635fc715a76d3a42715d93e1b72985ac0d72df697e25826afd134c"
+      }
+    },
+    {
+      "id": "anatomy-0ff1468170f324a4",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 491,
+        "xref": 1377,
+        "region": [
+          162.0,
+          432.0,
+          450.0,
+          648.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q014",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Pterion and skull fontanelle relation diagrams",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 491,
+            "xref": 1377,
+            "region": [
+              162.0,
+              432.0,
+              450.0,
+              648.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q014_figure_2__p491__r44/5bd8286d7253006b8ff3add935c024c1d0c245a98ed330c938d77198fad5e0ba.png; page 491, xref 1377, source region [162.0, 432.0, 450.0, 648.0]; native stream SHA-256 0ff1468170f324a456345829190d453dcdbd505d053b5a4b6ec1385aa09b4409."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/0ff1468170f324a456345829190d453dcdbd505d053b5a4b6ec1385aa09b4409.jpg",
+        "sha256": "0ff1468170f324a456345829190d453dcdbd505d053b5a4b6ec1385aa09b4409",
+        "width": 600,
+        "height": 666
+      },
+      "production": {
+        "path": "data/marrow/images/originals/0ff1468170f324a456345829190d453dcdbd505d053b5a4b6ec1385aa09b4409.jpg",
+        "sha256": "0ff1468170f324a456345829190d453dcdbd505d053b5a4b6ec1385aa09b4409",
+        "width": 600,
+        "height": 666
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "0ff1468170f324a456345829190d453dcdbd505d053b5a4b6ec1385aa09b4409",
+        "productionSha256": "0ff1468170f324a456345829190d453dcdbd505d053b5a4b6ec1385aa09b4409"
+      }
+    },
+    {
+      "id": "anatomy-f08433f49fe834a6",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 494,
+        "xref": 1385,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q017",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Parts of temporal bone and medial temporal-bone diagrams",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 494,
+            "xref": 1385,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q017_figure_1__p494__r47/a9c55386466b30880d87554ddf7260ebb30710313c0e204eff03a5160fe9efb7.png; page 494, xref 1385, source region [162.0, 56.0, 450.0, 272.0]; native stream SHA-256 f08433f49fe834a601ad8fafa2b6f2e1082def36b7e1abe8a5af2047c364b47a."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/f08433f49fe834a601ad8fafa2b6f2e1082def36b7e1abe8a5af2047c364b47a.jpg",
+        "sha256": "f08433f49fe834a601ad8fafa2b6f2e1082def36b7e1abe8a5af2047c364b47a",
+        "width": 600,
+        "height": 517
+      },
+      "production": {
+        "path": "data/marrow/images/originals/f08433f49fe834a601ad8fafa2b6f2e1082def36b7e1abe8a5af2047c364b47a.jpg",
+        "sha256": "f08433f49fe834a601ad8fafa2b6f2e1082def36b7e1abe8a5af2047c364b47a",
+        "width": 600,
+        "height": 517
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "f08433f49fe834a601ad8fafa2b6f2e1082def36b7e1abe8a5af2047c364b47a",
+        "productionSha256": "f08433f49fe834a601ad8fafa2b6f2e1082def36b7e1abe8a5af2047c364b47a"
+      }
+    },
+    {
+      "id": "anatomy-2d5e71560ffae24d",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 494,
+        "xref": 1386,
+        "region": [
+          162.0,
+          370.0,
+          450.0,
+          586.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q017",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Parts of temporal bone and medial temporal-bone diagrams",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 494,
+            "xref": 1386,
+            "region": [
+              162.0,
+              370.0,
+              450.0,
+              586.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q017_figure_1__p494__r48/c6dce8e29c5a68b92b78487a78aa2827c09922d778d65727b1a90bcbb966b175.png; page 494, xref 1386, source region [162.0, 370.0, 450.0, 586.0]; native stream SHA-256 2d5e71560ffae24d94d7b645ae625aad38f551cb0f225f76658d2b9f3d966fd7."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/2d5e71560ffae24d94d7b645ae625aad38f551cb0f225f76658d2b9f3d966fd7.jpg",
+        "sha256": "2d5e71560ffae24d94d7b645ae625aad38f551cb0f225f76658d2b9f3d966fd7",
+        "width": 575,
+        "height": 617
+      },
+      "production": {
+        "path": "data/marrow/images/originals/2d5e71560ffae24d94d7b645ae625aad38f551cb0f225f76658d2b9f3d966fd7.jpg",
+        "sha256": "2d5e71560ffae24d94d7b645ae625aad38f551cb0f225f76658d2b9f3d966fd7",
+        "width": 575,
+        "height": 617
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "2d5e71560ffae24d94d7b645ae625aad38f551cb0f225f76658d2b9f3d966fd7",
+        "productionSha256": "2d5e71560ffae24d94d7b645ae625aad38f551cb0f225f76658d2b9f3d966fd7"
+      }
+    },
+    {
+      "id": "anatomy-99d8f667ed224b06",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 495,
+        "xref": 1389,
+        "region": [
+          162.0,
+          76.0,
+          450.0,
+          292.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q018",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Zygomatic arch diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 495,
+            "xref": 1389,
+            "region": [
+              162.0,
+              76.0,
+              450.0,
+              292.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q018_figure_2__p495__r50/470d875aa6a88938ddbd200b4ec0f2a815a48f0a4caf99b0419dcdca643e4f83.png; page 495, xref 1389, source region [162.0, 76.0, 450.0, 292.0]; native stream SHA-256 99d8f667ed224b06a5d28a75d76c36f4f94d6285ce22d9bcf6b54c12bd43c087."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/99d8f667ed224b06a5d28a75d76c36f4f94d6285ce22d9bcf6b54c12bd43c087.jpg",
+        "sha256": "99d8f667ed224b06a5d28a75d76c36f4f94d6285ce22d9bcf6b54c12bd43c087",
+        "width": 576,
+        "height": 686
+      },
+      "production": {
+        "path": "data/marrow/images/originals/99d8f667ed224b06a5d28a75d76c36f4f94d6285ce22d9bcf6b54c12bd43c087.jpg",
+        "sha256": "99d8f667ed224b06a5d28a75d76c36f4f94d6285ce22d9bcf6b54c12bd43c087",
+        "width": 576,
+        "height": 686
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "99d8f667ed224b06a5d28a75d76c36f4f94d6285ce22d9bcf6b54c12bd43c087",
+        "productionSha256": "99d8f667ed224b06a5d28a75d76c36f4f94d6285ce22d9bcf6b54c12bd43c087"
+      }
+    },
+    {
+      "id": "anatomy-9395ef22b51eb7da",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 495,
+        "xref": 1390,
+        "region": [
+          162.0,
+          445.0,
+          450.0,
+          661.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q019",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Innervation of scalp diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 495,
+            "xref": 1390,
+            "region": [
+              162.0,
+              445.0,
+              450.0,
+              661.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q019_figure_1__p495__r53/282ab6bd0110e3f169ef492093cb10b021c01b3f7940a79c13d86c7c6f949b6a.png; page 495, xref 1390, source region [162.0, 445.0, 450.0, 661.0]; native stream SHA-256 9395ef22b51eb7da66a20d4e4013656940362d69f972d92395dc10e80d61c207."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/9395ef22b51eb7da66a20d4e4013656940362d69f972d92395dc10e80d61c207.jpg",
+        "sha256": "9395ef22b51eb7da66a20d4e4013656940362d69f972d92395dc10e80d61c207",
+        "width": 600,
+        "height": 683
+      },
+      "production": {
+        "path": "data/marrow/images/originals/9395ef22b51eb7da66a20d4e4013656940362d69f972d92395dc10e80d61c207.jpg",
+        "sha256": "9395ef22b51eb7da66a20d4e4013656940362d69f972d92395dc10e80d61c207",
+        "width": 600,
+        "height": 683
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "9395ef22b51eb7da66a20d4e4013656940362d69f972d92395dc10e80d61c207",
+        "productionSha256": "9395ef22b51eb7da66a20d4e4013656940362d69f972d92395dc10e80d61c207"
+      }
+    },
+    {
+      "id": "anatomy-819dca97e88bdba3",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 497,
+        "xref": 3724,
+        "region": [
+          162.0,
+          427.0,
+          450.0,
+          643.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q022",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Muscles of facial expression diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 497,
+            "xref": 3724,
+            "region": [
+              162.0,
+              427.0,
+              450.0,
+              643.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q022_figure_1__p497__r58/a9d51d9dea1d833a07d1d9e16ddf88127f0157285b28f43cf79023d2bcec933b.png; page 497, xref 3724, source region [162.0, 427.0, 450.0, 643.0]; native stream SHA-256 819dca97e88bdba397fba6c482dbad8e93e8b3bc17696cf0763cce3a1b68c478."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH28_Q023",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Muscles of facial expression diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 498,
+            "xref": 3724,
+            "region": [
+              162.0,
+              276.0,
+              450.0,
+              492.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q023_figure_1__p498__r61/6692960466cda3d19bd01338967589e3269f95ab431adf3250b04cd8feed8b34.png; page 498, xref 3724, source region [162.0, 276.0, 450.0, 492.0]; native stream SHA-256 819dca97e88bdba397fba6c482dbad8e93e8b3bc17696cf0763cce3a1b68c478."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH28_Q024",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Muscles of facial expression diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 499,
+            "xref": 3724,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q024_figure_1__p499__r62/03037b341e5def3a4c9b7a680ab398db0eb7892c59deb61de9d78a3da0090cc0.png; page 499, xref 3724, source region [162.0, 56.0, 450.0, 272.0]; native stream SHA-256 819dca97e88bdba397fba6c482dbad8e93e8b3bc17696cf0763cce3a1b68c478."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/819dca97e88bdba397fba6c482dbad8e93e8b3bc17696cf0763cce3a1b68c478.jpg",
+        "sha256": "819dca97e88bdba397fba6c482dbad8e93e8b3bc17696cf0763cce3a1b68c478",
+        "width": 600,
+        "height": 721
+      },
+      "production": {
+        "path": "data/marrow/images/originals/819dca97e88bdba397fba6c482dbad8e93e8b3bc17696cf0763cce3a1b68c478.jpg",
+        "sha256": "819dca97e88bdba397fba6c482dbad8e93e8b3bc17696cf0763cce3a1b68c478",
+        "width": 600,
+        "height": 721
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "819dca97e88bdba397fba6c482dbad8e93e8b3bc17696cf0763cce3a1b68c478",
+        "productionSha256": "819dca97e88bdba397fba6c482dbad8e93e8b3bc17696cf0763cce3a1b68c478"
+      }
+    },
+    {
+      "id": "anatomy-6608ccbccda9516d",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 499,
+        "xref": 1399,
+        "region": [
+          162.0,
+          413.0,
+          450.0,
+          629.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q025",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Innervation of scalp/face diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 499,
+            "xref": 1399,
+            "region": [
+              162.0,
+              413.0,
+              450.0,
+              629.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the figure description and assigned question/explanation role. Question figures preserve the source marks and labels without adding answers; native JPEG pixels are unchanged.",
+            "evidence": "Ubuntu CI run 36434707991, marrow-wave2-regions exact-candidate crop marrow__ANAT_CH28_Q025_figure_2__p499__r66/b48bcb507f44d1719d062b2288f9790e01b605a1dd084b9890568f1047b84a47.png; page 499, xref 1399, source region [162.0, 413.0, 450.0, 629.0]; native stream SHA-256 6608ccbccda9516df8bc5fdeb17fa4ba50f469b2a715301aca062265f555c04b."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/6608ccbccda9516df8bc5fdeb17fa4ba50f469b2a715301aca062265f555c04b.jpg",
+        "sha256": "6608ccbccda9516df8bc5fdeb17fa4ba50f469b2a715301aca062265f555c04b",
+        "width": 600,
+        "height": 683
+      },
+      "production": {
+        "path": "data/marrow/images/originals/6608ccbccda9516df8bc5fdeb17fa4ba50f469b2a715301aca062265f555c04b.jpg",
+        "sha256": "6608ccbccda9516df8bc5fdeb17fa4ba50f469b2a715301aca062265f555c04b",
+        "width": 600,
+        "height": 683
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "6608ccbccda9516df8bc5fdeb17fa4ba50f469b2a715301aca062265f555c04b",
+        "productionSha256": "6608ccbccda9516df8bc5fdeb17fa4ba50f469b2a715301aca062265f555c04b"
+      }
+    },
+    {
+      "id": "anatomy-f04a2d67856bdeab",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 475,
+        "xref": 1324,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q010",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 475,
+            "xref": 1324,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the question illustration positioned with this question on page 475; question mark preserved with no answer exposed.",
+            "evidence": "Ubuntu CI run 36434707991 exact crop item r26; native stream SHA-256 f04a2d67856bdeab03c825178b45f021d6278a8111f0602c2711c736fed1aab3."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/f04a2d67856bdeab03c825178b45f021d6278a8111f0602c2711c736fed1aab3.jpg",
+        "sha256": "f04a2d67856bdeab03c825178b45f021d6278a8111f0602c2711c736fed1aab3",
+        "width": 720,
+        "height": 645
+      },
+      "production": {
+        "path": "data/marrow/images/originals/f04a2d67856bdeab03c825178b45f021d6278a8111f0602c2711c736fed1aab3.jpg",
+        "sha256": "f04a2d67856bdeab03c825178b45f021d6278a8111f0602c2711c736fed1aab3",
+        "width": 720,
+        "height": 645
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "f04a2d67856bdeab03c825178b45f021d6278a8111f0602c2711c736fed1aab3",
+        "productionSha256": "f04a2d67856bdeab03c825178b45f021d6278a8111f0602c2711c736fed1aab3"
+      }
+    },
+    {
+      "id": "anatomy-ada3a1d093c688b0",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 475,
+        "xref": 1325,
+        "region": [
+          162.0,
+          454.0,
+          450.0,
+          670.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH28_Q011",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 475,
+            "xref": 1325,
+            "region": [
+              162.0,
+              454.0,
+              450.0,
+              670.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the question illustration positioned with this question on page 475; question mark preserved with no answer exposed.",
+            "evidence": "Ubuntu CI run 36434707991 exact crop item r29; native stream SHA-256 ada3a1d093c688b0f59625ed3e0ab134930f5a8d80babe291416bf0efc545777."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/ada3a1d093c688b0f59625ed3e0ab134930f5a8d80babe291416bf0efc545777.jpg",
+        "sha256": "ada3a1d093c688b0f59625ed3e0ab134930f5a8d80babe291416bf0efc545777",
+        "width": 720,
+        "height": 646
+      },
+      "production": {
+        "path": "data/marrow/images/originals/ada3a1d093c688b0f59625ed3e0ab134930f5a8d80babe291416bf0efc545777.jpg",
+        "sha256": "ada3a1d093c688b0f59625ed3e0ab134930f5a8d80babe291416bf0efc545777",
+        "width": 720,
+        "height": 646
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "ada3a1d093c688b0f59625ed3e0ab134930f5a8d80babe291416bf0efc545777",
+        "productionSha256": "ada3a1d093c688b0f59625ed3e0ab134930f5a8d80babe291416bf0efc545777"
+      }
+    },
+    {
+      "id": "anatomy-1a8dcb96a7a8b394",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 515,
+        "xref": 1443,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH29_Q009",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Superficial and deep relations of hyoglossus diagrams",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 515,
+            "xref": 1443,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r76; page 515, xref 1443, region [162.0, 56.0, 450.0, 272.0]; native stream SHA-256 1a8dcb96a7a8b3944fd22b763e908fd13e911829b9871f0ab673622b7b30c398."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/1a8dcb96a7a8b3944fd22b763e908fd13e911829b9871f0ab673622b7b30c398.jpg",
+        "sha256": "1a8dcb96a7a8b3944fd22b763e908fd13e911829b9871f0ab673622b7b30c398",
+        "width": 600,
+        "height": 564
+      },
+      "production": {
+        "path": "data/marrow/images/originals/1a8dcb96a7a8b3944fd22b763e908fd13e911829b9871f0ab673622b7b30c398.jpg",
+        "sha256": "1a8dcb96a7a8b3944fd22b763e908fd13e911829b9871f0ab673622b7b30c398",
+        "width": 600,
+        "height": 564
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "1a8dcb96a7a8b3944fd22b763e908fd13e911829b9871f0ab673622b7b30c398",
+        "productionSha256": "1a8dcb96a7a8b3944fd22b763e908fd13e911829b9871f0ab673622b7b30c398"
+      }
+    },
+    {
+      "id": "anatomy-77c886718539dd32",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 515,
+        "xref": 1444,
+        "region": [
+          162.0,
+          430.0,
+          450.0,
+          646.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH29_Q009",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Superficial and deep relations of hyoglossus diagrams",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 515,
+            "xref": 1444,
+            "region": [
+              162.0,
+              430.0,
+              450.0,
+              646.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r77; page 515, xref 1444, region [162.0, 430.0, 450.0, 646.0]; native stream SHA-256 77c886718539dd322a2a16e426384f066c4fc7441e2423845038ac75eb90d67c."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/77c886718539dd322a2a16e426384f066c4fc7441e2423845038ac75eb90d67c.jpg",
+        "sha256": "77c886718539dd322a2a16e426384f066c4fc7441e2423845038ac75eb90d67c",
+        "width": 600,
+        "height": 564
+      },
+      "production": {
+        "path": "data/marrow/images/originals/77c886718539dd322a2a16e426384f066c4fc7441e2423845038ac75eb90d67c.jpg",
+        "sha256": "77c886718539dd322a2a16e426384f066c4fc7441e2423845038ac75eb90d67c",
+        "width": 600,
+        "height": 564
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "77c886718539dd322a2a16e426384f066c4fc7441e2423845038ac75eb90d67c",
+        "productionSha256": "77c886718539dd322a2a16e426384f066c4fc7441e2423845038ac75eb90d67c"
+      }
+    },
+    {
+      "id": "anatomy-a3177c8b61dd2ff0",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 506,
+        "xref": 1420,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH29_Q013",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 506,
+            "xref": 1420,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
+            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r86; page 506, xref 1420, region [162.0, 56.0, 450.0, 272.0]; native stream SHA-256 a3177c8b61dd2ff02f170cefbf85b2c04d073be7b58782afae037ec91cf08644."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/a3177c8b61dd2ff02f170cefbf85b2c04d073be7b58782afae037ec91cf08644.jpg",
+        "sha256": "a3177c8b61dd2ff02f170cefbf85b2c04d073be7b58782afae037ec91cf08644",
+        "width": 720,
+        "height": 733
+      },
+      "production": {
+        "path": "data/marrow/images/originals/a3177c8b61dd2ff02f170cefbf85b2c04d073be7b58782afae037ec91cf08644.jpg",
+        "sha256": "a3177c8b61dd2ff02f170cefbf85b2c04d073be7b58782afae037ec91cf08644",
+        "width": 720,
+        "height": 733
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Original native image stream verified against the exact source crop for visual match, labels, framing and answer safety; no pixel alterations.",
+        "evidence": "Ubuntu CI run 36434707991 marrow-wave2-regions exact candidate crop; SHA-256 matches extracted source stream.",
+        "originalSha256": "a3177c8b61dd2ff02f170cefbf85b2c04d073be7b58782afae037ec91cf08644",
+        "productionSha256": "a3177c8b61dd2ff02f170cefbf85b2c04d073be7b58782afae037ec91cf08644"
       }
     }
   ]
