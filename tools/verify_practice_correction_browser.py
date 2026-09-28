@@ -41,7 +41,8 @@ def main() -> None:
                 item.get_by_role("button", name="Practice").click()
                 page.wait_for_function("id => location.hash==='#practice' && window.QB.getState().activeSession?.questionIds?.[0]===id", arg=QUESTION_ID)
                 page.locator("button.option").nth(0).click()
-                page.get_by_text("Incorrect", exact=True).first.wait_for(state="visible")
+                page.wait_for_function("id => {const s=window.QB.getState().activeSession;return s?.submitted?.[id]===true && Number(s.answers?.[id])===1}", arg=QUESTION_ID)
+                assert page.locator(".option-list .wrong").count() == 1
                 page.evaluate("window.QB.nkSubmitPracticeSession()")
                 page.wait_for_function("location.hash.startsWith('#result/') && !window.QB.getState().activeSession")
                 first_id = page.evaluate("window.QB.getState().tests.at(-1).id")
@@ -54,7 +55,9 @@ def main() -> None:
                 page.reload(wait_until="domcontentloaded")
                 page.wait_for_function("id => window.QB?.getState().activeSession?.questionIds?.[0]===id", arg=QUESTION_ID)
                 page.locator("button.option").nth(1).click()
-                page.get_by_text("Correct", exact=True).first.wait_for(state="visible")
+                page.wait_for_function("id => {const s=window.QB.getState().activeSession;return s?.submitted?.[id]===true && Number(s.answers?.[id])===2}", arg=QUESTION_ID)
+                assert page.locator(".option-list .wrong").count() == 0
+                assert page.locator(".option-list .correct").count() == 1
                 page.evaluate("window.QB.nkSubmitPracticeSession()")
                 page.wait_for_function("location.hash.startsWith('#result/') && !window.QB.getState().activeSession")
                 result = page.evaluate("window.QB.getState().tests.at(-1)")
