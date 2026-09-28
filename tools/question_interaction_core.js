@@ -4,7 +4,38 @@
   let nkInteractionTransaction=null;
   function nkAfterQuestionCommit(effect){if(nkInteractionTransaction)nkInteractionTransaction.effects.push([effect,[]]);else effect();}
   const nkInteractionSave=saveState,nkInteractionRender=render,nkInteractionNavigate=navigate;
-  const nkInteractionToast=showToast,nkInteractionHaptic=haptic;
+  const nkInteractionToast=showToast;
+  const nkFeedbackPatterns={choice:7,navigate:5,toggle:10,mark:[8,24,8],primary:12,success:[12,28,18],error:[22,32,9]};
+  let nkLastPressFeedback=null;
+  function nkPlayFeedback(kind){
+    if(!Object.prototype.hasOwnProperty.call(nkFeedbackPatterns,kind))return;
+    try{
+      if(location.hostname==='qbank.local'&&window.QBankHaptics?.play){window.QBankHaptics.play(kind);return;}
+      if(typeof navigator!=='undefined'&&typeof navigator.vibrate==='function')navigator.vibrate(nkFeedbackPatterns[kind]);
+    }catch(_){}
+  }
+  function nkFeedbackForButton(button){
+    if(!button?.matches||button.disabled||button.getAttribute?.('aria-disabled')==='true')return '';
+    if(button.matches('.option')){
+      const s=state.activeSession,id=s?.questionIds?.[s.index];
+      if(!s||!['practice','exam'].includes(s.mode)||s.submitted?.[id]||s.strictExpired?.[id])return '';
+      if(s.timerMode==='per-question'&&typeof nkStrictSpent==='function'&&nkStrictSpent(s,String(id))>=60000)return '';
+      return 'choice';
+    }
+    if(button.matches('.bookmark-toggle,.nk-exam-review-toggle'))return 'mark';
+    if(button.matches('.nk-cbt-topic,.nk-cbt-pyq-toggle,.nk-cbt-topic-group,.nk-module-topic,[aria-pressed]'))return 'toggle';
+    if(button.matches('.nk-session-footer button,.nk-session-back,.nk-grid-trigger,.qb-nav-q,.nav-q,.bottom-nav button,.nav-item'))return 'navigate';
+    if(button.matches('.primary-btn,.nk-auth-submit,.nk-home-focus-action'))return 'primary';
+    return '';
+  }
+  document.addEventListener('pointerdown',event=>{
+    if(event.pointerType==='mouse')return;
+    const button=event.target?.closest?.('button,.nav-item');
+    const kind=nkFeedbackForButton(button);
+    if(!kind)return;
+    nkLastPressFeedback={kind,at:Date.now()};
+    nkPlayFeedback(kind);
+  },true);
   let nkAppNavigationTarget=null;
   function nkMarkAppNavigation(args){
     const target='#'+args[0]+(args[1]?'/'+encodeURIComponent(args[1]):'');
@@ -29,8 +60,22 @@
     return result;
   };
   showToast=function(){if(nkInteractionTransaction){nkInteractionTransaction.effects.push([nkInteractionToast,[...arguments]]);return;}return nkInteractionToast.apply(this,arguments);};
-  haptic=function(){if(nkInteractionTransaction){nkInteractionTransaction.effects.push([nkInteractionHaptic,[...arguments]]);return;}return nkInteractionHaptic.apply(this,arguments);};
-  function nkQuestionTransaction(action){
+  haptic=function(pattern){
+    const kind=Array.isArray(pattern)?(pattern[0]>=16?'success':'error'):'choice';
+    if(kind==='choice'&&nkLastPressFeedback?.kind==='choice'&&Date.now()-nkLastPressFeedback.at<500)return;
+    if(nkInteractionTransaction){nkInteractionTransaction.effects.push([nkPlayFeedback,[kind]]);return;}
+    nkPlayFeedback(kind);
+  };
+  function nkPatchExamChoice(){
+    const s=state.activeSession,id=s?.questionIds?.[s.index],q=BY_ID[id];
+    if(route.page!=='exam'||s?.mode!=='exam'||!q)return false;
+    const root=document.querySelector('.nk-v114-session.is-exam');
+    const buttons=root?.querySelectorAll('.option-list button.option');
+    if(!buttons||buttons.length!==q.options.length)return false;
+    buttons.forEach((button,index)=>button.classList.toggle('selected',Number(s.answers?.[id])===String(q.options[index].letter).toUpperCase().charCodeAt(0)-64));
+    return true;
+  }
+  function nkQuestionTransaction(action,paintAfterCommit){
     if(nkInteractionTransaction)return action();
     const before=nkStateClone(state),tx={dirty:false,render:false,navigation:null,effects:[]};nkInteractionTransaction=tx;
     let result;
@@ -48,11 +93,11 @@
       nkFsrsOriginalNavigate.apply(null,tx.navigation);
       if(route.page===tx.navigation[0]&&location.hash===nkAppNavigationTarget)nkAppNavigationTarget=null;
     }
-    if(tx.render)nkInteractionRender();
+    if(tx.render&&!(paintAfterCommit&&paintAfterCommit()))nkInteractionRender();
     tx.effects.forEach(([fn,args])=>fn.apply(null,args));
     return result;
   }
-  function nkQuestionAction(handler,guard=()=>true){return function(){const args=[...arguments];if(!guard(...args))return false;return nkQuestionTransaction(()=>handler.apply(this,args));};}
+  function nkQuestionAction(handler,guard=()=>true,paintAfterCommit=null){return function(){const args=[...arguments];if(!guard(...args))return false;return nkQuestionTransaction(()=>handler.apply(this,args),paintAfterCommit);};}
   function nkCurrentQuestion(){const s=state.activeSession;return s?nkPracticeResumeQuestion(s.questionIds?.[s.index]):null;}
   function nkValidQuestionOption(q,n){return Boolean(q)&&Number.isInteger(Number(n))&&(q.options||[]).some(o=>String(o.letter).toUpperCase().charCodeAt(0)-64===Number(n));}
   const nkIntegritySelectPractice=selectPractice;
@@ -63,7 +108,7 @@
   selectExam=nkQuestionAction(selectExam,(n,id,owner)=>{
     const s=state.activeSession,q=nkCurrentQuestion();
     return s?.mode==='exam'&&(id==null||String(q?.id)===String(id))&&(owner==null||String(s.id)===String(owner))&&!s.strictExpired?.[q?.id]&&(s.timerMode!=='per-question'||typeof nkStrictSpent!=='function'||nkStrictSpent(s,String(q?.id))<60000)&&nkValidQuestionOption(q,n);
-  });
+  },nkPatchExamChoice);
   submitPractice=nkQuestionAction(submitPractice,()=>{const s=state.activeSession,q=nkCurrentQuestion();return s?.mode==='practice'&&q&&!s.submitted?.[q.id]&&nkValidQuestionOption(q,s.answers?.[q.id]);});
   // A submitted question is immutable. Starting another session is the existing
   // way to practise again; Review cannot clear answers through a legacy callback.

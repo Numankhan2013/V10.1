@@ -18,6 +18,7 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.view.HapticFeedbackConstants;
 import android.view.Window;
 
 import org.json.JSONObject;
@@ -67,8 +68,10 @@ public class MainActivity extends Activity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
 
         webView.setBackgroundColor(Color.WHITE);
+        webView.setHapticFeedbackEnabled(true);
         webView.setWebChromeClient(new WebChromeClient());
         webView.addJavascriptInterface(new MigrationBridge(), "QBankMigration");
+        webView.addJavascriptInterface(new HapticsBridge(), "QBankHaptics");
         webView.setWebViewClient(new WebViewClient() {
             @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) { return !request.getUrl().toString().startsWith(APP_ORIGIN); }
             @Override public void onPageFinished(WebView view, String url) {
@@ -96,6 +99,24 @@ public class MainActivity extends Activity {
             migrationPrefs.edit().putBoolean("complete", true).remove("state").remove("subject")
                     .remove("sync").remove("auth").remove("backup").apply();
             runOnUiThread(() -> { if (webView != null) webView.removeJavascriptInterface("QBankMigration"); });
+        }
+    }
+
+    private final class HapticsBridge {
+        @JavascriptInterface public void play(String kind) {
+            if (kind == null) return;
+            final int effect;
+            switch (kind) {
+                case "choice": effect = HapticFeedbackConstants.CLOCK_TICK; break;
+                case "navigate": effect = HapticFeedbackConstants.VIRTUAL_KEY; break;
+                case "toggle": effect = HapticFeedbackConstants.CONTEXT_CLICK; break;
+                case "mark": effect = HapticFeedbackConstants.LONG_PRESS; break;
+                case "primary": effect = HapticFeedbackConstants.KEYBOARD_TAP; break;
+                case "success": effect = Build.VERSION.SDK_INT >= 30 ? HapticFeedbackConstants.CONFIRM : HapticFeedbackConstants.VIRTUAL_KEY; break;
+                case "error": effect = Build.VERSION.SDK_INT >= 30 ? HapticFeedbackConstants.REJECT : HapticFeedbackConstants.LONG_PRESS; break;
+                default: return;
+            }
+            runOnUiThread(() -> { if (webView != null) webView.performHapticFeedback(effect); });
         }
     }
 

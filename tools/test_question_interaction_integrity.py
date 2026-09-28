@@ -16,8 +16,9 @@ def main():
     integrity = ROOT / 'tools/question_interaction_core.js'
     runtime = r'''
 const assert=require('assert');global.window=globalThis;
+const vibrations=[];Object.defineProperty(global,'navigator',{value:{vibrate:pattern=>vibrations.push(pattern)},configurable:true});
 const events={},windowEvents={};window.FSRS=require(process.argv[2]);window.addEventListener=(name,fn)=>{windowEvents[name]=fn};
-global.document={addEventListener:(name,fn)=>{events[name]=fn},getElementById:()=>null,querySelector:()=>null,querySelectorAll:()=>[],body:{insertAdjacentHTML:()=>{}}};
+global.document={addEventListener:(name,fn)=>{const old=events[name];events[name]=old?(event=>{old(event);fn(event)}):fn},getElementById:()=>null,querySelector:()=>null,querySelectorAll:()=>[],body:{insertAdjacentHTML:()=>{}}};
 let historyTarget='',confirmed=false,lastPrompt='';global.location={hostname:'preview.example',hash:'#dashboard'};
 global.history={replaceState:(a,b,target)=>{historyTarget=target;location.hash=target},pushState:(a,b,target)=>{historyTarget=target;location.hash=target}};
 global.confirm=message=>{lastPrompt=message;return confirmed};
@@ -37,6 +38,7 @@ function reset(mode='practice'){
  state={attempts:{},reviews:{},bookmarks:{},tests:[],fsrsPreferences:null,activeSession:{id:'session',mode,context:'normal',questionIds:['q1','q2','q3'],index:0,answers:{},submitted:{},questionTimes:{},pendingRating:{}}};
  failed=false;writes=0;renders=0;saveState();
  route.page=mode==='exam'?'exam':'practice';location.hash='#dashboard';location.hostname='preview.example';confirmed=false;lastPrompt='';historyTarget='';
+ document.querySelector=()=>null;vibrations.length=0;
 }
 ''' + handlers + '\n' + fsrs + '\n' + (integrity.read_text() if integrity.exists() else '') + r'''
 let failures=[];function check(name,test){reset();try{test();console.log('PASS '+name)}catch(e){failures.push(name+': '+e.message);}}
@@ -55,6 +57,27 @@ check('FSRS context remains FSRS for the daily cap',()=>{state.activeSession.con
 check('legacy FSRS origin does not hide its context',()=>{state.activeSession.context='fsrs';state.activeSession.originRoute='topics';assert.equal(nkFsrsSessionAttemptSource(state.activeSession),'fsrs-review');});
 check('double submission and rating produce one attempt',()=>{selectPractice('q1',1);selectPractice('q1',2);submitPractice();nkRateCurrent(3);nkRateCurrent(3);assert.equal(state.attempts.q1.length,1);assert.equal(state.attempts.q1[0].selected,1);assert.equal(state.reviews.q1.repetitions,1);});
 check('CBT selection changes before submission without FSRS',()=>{reset('exam');selectExam(1);selectExam(2);assert.equal(state.activeSession.answers.q1,2);assert.deepEqual(state.attempts,{});assert.deepEqual(state.reviews,{});});
+check('CBT answer paints in place only after a durable save',()=>{
+ reset('exam');
+ const buttons=questions[0].options.map(()=>({selected:false,classList:{toggle(name,value){assert.equal(name,'selected');this.owner.selected=value}}}));
+ buttons.forEach(button=>button.classList.owner=button);
+ document.querySelector=selector=>selector==='.nk-v114-session.is-exam'?{querySelectorAll:()=>buttons}:null;
+ writes=0;selectExam(2,'q1','session');
+ assert.equal(writes,1);assert.equal(renders,0);assert.deepEqual(buttons.map(button=>button.selected),[false,true,false,false]);
+ const before=JSON.stringify(state);failed=true;selectExam(3,'q1','session');
+ assert.equal(JSON.stringify(state),before);assert.deepEqual(buttons.map(button=>button.selected),[false,true,false,false]);
+});
+check('touch gives immediate action-specific feedback and answer outcome follows commit',()=>{
+ const button={disabled:false,getAttribute:()=>null,matches:selector=>selector==='.option'};
+ events.pointerdown({pointerType:'touch',target:{closest:()=>button}});
+ assert.deepEqual(vibrations,[7]);
+ selectPractice('q1',1);
+ assert.deepEqual(vibrations,[7,[12,28,18]],'choice press and correct outcome are distinct without a duplicate choice pulse');
+});
+check('failed answer never plays outcome feedback',()=>{
+ failed=true;selectPractice('q1',2);
+ assert.deepEqual(vibrations,[]);
+});
 check('one wrong-answer action has one durable commit',()=>{writes=0;selectPractice('q1',2);assert.equal(writes,1);assert.equal(state.attempts.q1.length,1);});
 check('final submission commits a legacy selected answer to FSRS',()=>{state.activeSession.answers.q2=1;finishPracticeSession();assert.equal(state.attempts.q2?.length,1);assert.equal(state.reviews.q2.repetitions,1);});
 check('history Back commits pending FSRS exactly once',()=>{selectPractice('q1',1);windowEvents.hashchange();assert.equal(state.attempts.q1.length,1);windowEvents.hashchange();assert.equal(state.attempts.q1.length,1);});
@@ -77,6 +100,12 @@ console.log('QUESTION_INTERACTION_INTEGRITY_OK');
         test = Path(tmp) / 'interaction.js'
         test.write_text(runtime)
         subprocess.run(['node', str(test), str(ROOT / 'app/src/main/assets/vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js')], check=True)
+    native = (ROOT / 'app/src/main/java/com/qbank/biochemistry/MainActivity.java').read_text()
+    for contract in ('addJavascriptInterface(new HapticsBridge(), "QBankHaptics")',
+                     'webView.performHapticFeedback(effect)', 'HapticFeedbackConstants.CONFIRM',
+                     'HapticFeedbackConstants.REJECT'):
+        assert contract in native, contract
+    assert 'FLAG_IGNORE_GLOBAL_SETTING' not in native
 
 
 if __name__ == '__main__':
