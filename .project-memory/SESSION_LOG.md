@@ -1765,4 +1765,9 @@ Implemented approved recovery in existing transform owners: Topics separate path
   An active timed test is protected and search results do not reveal answers.
 - Added deterministic transform, behavior test, phone/tablet browser journey,
   and Engineering/full-build gates. Targeted behavior and transform tests plus
-  all 72 local checks pass; CI and preview remain pending. Production unchanged.
+  all 72 local checks pass. Engineering `36369902329` and full run
+  `36369902634` pass, including exact-ID, bank-isolation, Practice, and
+  timed-test guard browser assertions and packaged Android interaction
+  assertions on phone/tablet. Preview
+  `https://3e007c68.nk-qbank.pages.dev` returns HTTP 200 and serves the
+  finder. Physical review remains pending. Production unchanged.
