@@ -3634,6 +3634,50 @@
             "notes": "Repeated pouch map directly supports ultimobranchial-body/C-cell development.",
             "evidence": "Anatomy page 81/xref 3483 matched to Q15 metadata."
           }
+        },
+        {
+          "questionId": "marrow__ANAT_CH05_Q016",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Pharyngeal pouch derivatives",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 82,
+            "xref": 3483,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Pharyngeal pouch derivatives figure and explanation role."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH05_Q017",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Pharyngeal pouch derivatives",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 82,
+            "xref": 3483,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Pharyngeal pouch derivatives figure and explanation role."
+          }
         }
       ],
       "original": {
@@ -12324,6 +12368,28 @@
           "qa": {
             "sourceCompared": true,
             "notes": "Reviewed exact native JPEG source xref 3542 on page 171 against the CI region crop from run 36432679371 and the figure title/labels. Diagram content and labels are clear; source pixels retained unchanged. Role=explanation."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH10_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Development of the renal system",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 170,
+            "xref": 3542,
+            "region": [
+              162.0,
+              487.0,
+              450.0,
+              703.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Development of the renal system figure and explanation role."
           }
         }
       ],
@@ -23275,6 +23341,648 @@
         "notes": "Source reviewed against CI region crop run 36432679371 on page 162. The native xref 430 and metadata labels/title align with the lower figure placement; original pixels and source lettering are retained unchanged. Role=explanation.",
         "originalSha256": "71839c6bfc4e5fb211c2dc0bd55bccc25b3285103d6d8be26f3195bdfaf94b74",
         "productionSha256": "71839c6bfc4e5fb211c2dc0bd55bccc25b3285103d6d8be26f3195bdfaf94b74"
+      }
+    },
+    {
+      "id": "anatomy-28e9b9760d2b653d",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 72,
+        "xref": 184,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH05_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Pharyngeal arches",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 72,
+            "xref": 184,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Pharyngeal arches figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/28e9b9760d2b653da936a262ac04cbc278912600b45e239af85b12b2d877816f.jpg",
+        "sha256": "28e9b9760d2b653da936a262ac04cbc278912600b45e239af85b12b2d877816f",
+        "width": 576,
+        "height": 504
+      },
+      "production": {
+        "path": "data/marrow/images/originals/28e9b9760d2b653da936a262ac04cbc278912600b45e239af85b12b2d877816f.jpg",
+        "sha256": "28e9b9760d2b653da936a262ac04cbc278912600b45e239af85b12b2d877816f",
+        "width": 576,
+        "height": 504
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH05_Q002:figure:1; visual and metadata match.",
+        "originalSha256": "28e9b9760d2b653da936a262ac04cbc278912600b45e239af85b12b2d877816f",
+        "productionSha256": "28e9b9760d2b653da936a262ac04cbc278912600b45e239af85b12b2d877816f"
+      }
+    },
+    {
+      "id": "anatomy-d32bf045254eebfd",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 72,
+        "xref": 3482,
+        "region": [
+          162.0,
+          487.0,
+          450.0,
+          703.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH05_Q002",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Pharyngeal apparatus",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 72,
+            "xref": 3482,
+            "region": [
+              162.0,
+              487.0,
+              450.0,
+              703.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Pharyngeal apparatus figure and explanation role."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH05_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Pharyngeal apparatus",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 73,
+            "xref": 3482,
+            "region": [
+              162.0,
+              240.0,
+              450.0,
+              456.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Pharyngeal apparatus figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/d32bf045254eebfd9d44467b4aec0247e33ab9101633e4f450ca34594535ac77.jpg",
+        "sha256": "d32bf045254eebfd9d44467b4aec0247e33ab9101633e4f450ca34594535ac77",
+        "width": 576,
+        "height": 504
+      },
+      "production": {
+        "path": "data/marrow/images/originals/d32bf045254eebfd9d44467b4aec0247e33ab9101633e4f450ca34594535ac77.jpg",
+        "sha256": "d32bf045254eebfd9d44467b4aec0247e33ab9101633e4f450ca34594535ac77",
+        "width": 576,
+        "height": 504
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH05_Q002:figure:2; visual and metadata match.",
+        "originalSha256": "d32bf045254eebfd9d44467b4aec0247e33ab9101633e4f450ca34594535ac77",
+        "productionSha256": "d32bf045254eebfd9d44467b4aec0247e33ab9101633e4f450ca34594535ac77"
+      }
+    },
+    {
+      "id": "anatomy-917e7434fa401829",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 73,
+        "xref": 187,
+        "region": [
+          162.0,
+          468.0,
+          450.0,
+          684.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH05_Q003",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Pharyngeal membrane",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 73,
+            "xref": 187,
+            "region": [
+              162.0,
+              468.0,
+              450.0,
+              684.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Pharyngeal membrane figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/917e7434fa40182928b9d99d276f3646e5732ea02e213b62866a4bb9add58ef2.jpg",
+        "sha256": "917e7434fa40182928b9d99d276f3646e5732ea02e213b62866a4bb9add58ef2",
+        "width": 576,
+        "height": 451
+      },
+      "production": {
+        "path": "data/marrow/images/originals/917e7434fa40182928b9d99d276f3646e5732ea02e213b62866a4bb9add58ef2.jpg",
+        "sha256": "917e7434fa40182928b9d99d276f3646e5732ea02e213b62866a4bb9add58ef2",
+        "width": 576,
+        "height": 451
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH05_Q003:figure:2; visual and metadata match.",
+        "originalSha256": "917e7434fa40182928b9d99d276f3646e5732ea02e213b62866a4bb9add58ef2",
+        "productionSha256": "917e7434fa40182928b9d99d276f3646e5732ea02e213b62866a4bb9add58ef2"
+      }
+    },
+    {
+      "id": "anatomy-4b2129d4333e2a7e",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 75,
+        "xref": 192,
+        "region": [
+          162.0,
+          252.0,
+          450.0,
+          468.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH05_Q005",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Treacher Collins syndrome",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 75,
+            "xref": 192,
+            "region": [
+              162.0,
+              252.0,
+              450.0,
+              468.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Treacher Collins syndrome figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/4b2129d4333e2a7e6a062611771fec219f5ffe7aa139f0d9133a7f593db80888.jpg",
+        "sha256": "4b2129d4333e2a7e6a062611771fec219f5ffe7aa139f0d9133a7f593db80888",
+        "width": 576,
+        "height": 1022
+      },
+      "production": {
+        "path": "data/marrow/images/originals/4b2129d4333e2a7e6a062611771fec219f5ffe7aa139f0d9133a7f593db80888.jpg",
+        "sha256": "4b2129d4333e2a7e6a062611771fec219f5ffe7aa139f0d9133a7f593db80888",
+        "width": 576,
+        "height": 1022
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH05_Q005:figure:1; visual and metadata match.",
+        "originalSha256": "4b2129d4333e2a7e6a062611771fec219f5ffe7aa139f0d9133a7f593db80888",
+        "productionSha256": "4b2129d4333e2a7e6a062611771fec219f5ffe7aa139f0d9133a7f593db80888"
+      }
+    },
+    {
+      "id": "anatomy-f2cc52e5e77b4d87",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 75,
+        "xref": 193,
+        "region": [
+          162.0,
+          480.0,
+          450.0,
+          696.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH05_Q005",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Pierre Robin sequence",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 75,
+            "xref": 193,
+            "region": [
+              162.0,
+              480.0,
+              450.0,
+              696.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Pierre Robin sequence figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/f2cc52e5e77b4d875d947d910b4e41ba7be6afc0e4f7d72e2feae316eb2876bc.jpg",
+        "sha256": "f2cc52e5e77b4d875d947d910b4e41ba7be6afc0e4f7d72e2feae316eb2876bc",
+        "width": 576,
+        "height": 1024
+      },
+      "production": {
+        "path": "data/marrow/images/originals/f2cc52e5e77b4d875d947d910b4e41ba7be6afc0e4f7d72e2feae316eb2876bc.jpg",
+        "sha256": "f2cc52e5e77b4d875d947d910b4e41ba7be6afc0e4f7d72e2feae316eb2876bc",
+        "width": 576,
+        "height": 1024
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH05_Q005:figure:2; visual and metadata match.",
+        "originalSha256": "f2cc52e5e77b4d875d947d910b4e41ba7be6afc0e4f7d72e2feae316eb2876bc",
+        "productionSha256": "f2cc52e5e77b4d875d947d910b4e41ba7be6afc0e4f7d72e2feae316eb2876bc"
+      }
+    },
+    {
+      "id": "anatomy-71012848266d928d",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 85,
+        "xref": 219,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH05_Q020",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Development of tongue",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 85,
+            "xref": 219,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Development of tongue figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/71012848266d928dc73e34efc964041e55f4c50842ddd155f98bff3d35206454.jpg",
+        "sha256": "71012848266d928dc73e34efc964041e55f4c50842ddd155f98bff3d35206454",
+        "width": 600,
+        "height": 934
+      },
+      "production": {
+        "path": "data/marrow/images/originals/71012848266d928dc73e34efc964041e55f4c50842ddd155f98bff3d35206454.jpg",
+        "sha256": "71012848266d928dc73e34efc964041e55f4c50842ddd155f98bff3d35206454",
+        "width": 600,
+        "height": 934
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH05_Q020:figure:1; visual and metadata match.",
+        "originalSha256": "71012848266d928dc73e34efc964041e55f4c50842ddd155f98bff3d35206454",
+        "productionSha256": "71012848266d928dc73e34efc964041e55f4c50842ddd155f98bff3d35206454"
+      }
+    },
+    {
+      "id": "anatomy-1df49e3d640430f9",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 85,
+        "xref": 220,
+        "region": [
+          162.0,
+          503.0,
+          450.0,
+          719.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH05_Q021",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Pharyngeal clefts and cervical sinus",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 85,
+            "xref": 220,
+            "region": [
+              162.0,
+              503.0,
+              450.0,
+              719.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Pharyngeal clefts and cervical sinus figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/1df49e3d640430f98ba7348d319df15a7616fc1ecf0bb31fc2d1f72dd9ed1222.jpg",
+        "sha256": "1df49e3d640430f98ba7348d319df15a7616fc1ecf0bb31fc2d1f72dd9ed1222",
+        "width": 600,
+        "height": 523
+      },
+      "production": {
+        "path": "data/marrow/images/originals/1df49e3d640430f98ba7348d319df15a7616fc1ecf0bb31fc2d1f72dd9ed1222.jpg",
+        "sha256": "1df49e3d640430f98ba7348d319df15a7616fc1ecf0bb31fc2d1f72dd9ed1222",
+        "width": 600,
+        "height": 523
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH05_Q021:figure:1; visual and metadata match.",
+        "originalSha256": "1df49e3d640430f98ba7348d319df15a7616fc1ecf0bb31fc2d1f72dd9ed1222",
+        "productionSha256": "1df49e3d640430f98ba7348d319df15a7616fc1ecf0bb31fc2d1f72dd9ed1222"
+      }
+    },
+    {
+      "id": "anatomy-79877e44adf53330",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 170,
+        "xref": 447,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH10_Q001",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Urogenital ridge",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 170,
+            "xref": 447,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Urogenital ridge figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/79877e44adf53330f314b00cae47e1f401cc4d9765a7be22168159bcf72c99b2.jpg",
+        "sha256": "79877e44adf53330f314b00cae47e1f401cc4d9765a7be22168159bcf72c99b2",
+        "width": 600,
+        "height": 519
+      },
+      "production": {
+        "path": "data/marrow/images/originals/79877e44adf53330f314b00cae47e1f401cc4d9765a7be22168159bcf72c99b2.jpg",
+        "sha256": "79877e44adf53330f314b00cae47e1f401cc4d9765a7be22168159bcf72c99b2",
+        "width": 600,
+        "height": 519
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH10_Q001:figure:1; visual and metadata match.",
+        "originalSha256": "79877e44adf53330f314b00cae47e1f401cc4d9765a7be22168159bcf72c99b2",
+        "productionSha256": "79877e44adf53330f314b00cae47e1f401cc4d9765a7be22168159bcf72c99b2"
+      }
+    },
+    {
+      "id": "anatomy-2f585831a7f7bea1",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 172,
+        "xref": 452,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH10_Q004",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Formation of the nephron",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 172,
+            "xref": 452,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Formation of the nephron figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/2f585831a7f7bea1856c5f533c4fc0742373ad54062d2c9074ce262e2250f95d.jpg",
+        "sha256": "2f585831a7f7bea1856c5f533c4fc0742373ad54062d2c9074ce262e2250f95d",
+        "width": 576,
+        "height": 1560
+      },
+      "production": {
+        "path": "data/marrow/images/originals/2f585831a7f7bea1856c5f533c4fc0742373ad54062d2c9074ce262e2250f95d.jpg",
+        "sha256": "2f585831a7f7bea1856c5f533c4fc0742373ad54062d2c9074ce262e2250f95d",
+        "width": 576,
+        "height": 1560
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH10_Q004:figure:1; visual and metadata match.",
+        "originalSha256": "2f585831a7f7bea1856c5f533c4fc0742373ad54062d2c9074ce262e2250f95d",
+        "productionSha256": "2f585831a7f7bea1856c5f533c4fc0742373ad54062d2c9074ce262e2250f95d"
+      }
+    },
+    {
+      "id": "anatomy-781b6c021ce45bd9",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 172,
+        "xref": 453,
+        "region": [
+          162.0,
+          427.0,
+          450.0,
+          643.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH10_Q005",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Horseshoe kidney",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 172,
+            "xref": 453,
+            "region": [
+              162.0,
+              427.0,
+              450.0,
+              643.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Horseshoe kidney figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/781b6c021ce45bd9b05492e84954f46c4bb61d669f7a6d3647e1443d94ef735b.jpg",
+        "sha256": "781b6c021ce45bd9b05492e84954f46c4bb61d669f7a6d3647e1443d94ef735b",
+        "width": 600,
+        "height": 598
+      },
+      "production": {
+        "path": "data/marrow/images/originals/781b6c021ce45bd9b05492e84954f46c4bb61d669f7a6d3647e1443d94ef735b.jpg",
+        "sha256": "781b6c021ce45bd9b05492e84954f46c4bb61d669f7a6d3647e1443d94ef735b",
+        "width": 600,
+        "height": 598
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH10_Q005:figure:1; visual and metadata match.",
+        "originalSha256": "781b6c021ce45bd9b05492e84954f46c4bb61d669f7a6d3647e1443d94ef735b",
+        "productionSha256": "781b6c021ce45bd9b05492e84954f46c4bb61d669f7a6d3647e1443d94ef735b"
       }
     }
   ]
