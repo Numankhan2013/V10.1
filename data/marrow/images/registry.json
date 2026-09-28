@@ -4297,6 +4297,29 @@
             "notes": "FIGLU/histidine pathway directly supports the metabolite-origin question.",
             "evidence": "Biochemistry page 129/xref 1184 matched to Q16 metadata."
           }
+        },
+        {
+          "questionId": "marrow__BIOCHEM_CH09_Q018",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Metabolism of histidine / FIGLU diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-biochem-physiology",
+          "source": {
+            "page": 149,
+            "xref": 1184,
+            "region": [
+              162.0,
+              151.0,
+              450.0,
+              367.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The complete histidine-to-FIGLU pathway is visible, including glutamate-formimino transferase block, glutamate, alpha-ketoglutarate, and urinary FIGLU branch. Explanation-only placement is answer-safe.",
+            "evidence": "GitHub Actions 36432430465 / marrow-manual-wave2-source-regions; Biochemistry page 149 xref 1184 exact source region."
+          }
         }
       ],
       "original": {
@@ -12027,6 +12050,198 @@
         "evidence": "Source PDF SHA-256 463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb; page 450, xrefs 1089-1092, region [160.52,136.831,451.48,355.169]; 300dpi crop and native tiles inspected at native/expanded sizes; tap-to-expand viewer confirmed.",
         "originalSha256": "3a4c4881bf3a79f0aad4387d327b7f1e25fbb75b9e636c5dd66d4588335c84b1",
         "productionSha256": "3a4c4881bf3a79f0aad4387d327b7f1e25fbb75b9e636c5dd66d4588335c84b1"
+      }
+    },
+    {
+      "id": "biochemistry-11f9a9ad43530066",
+      "subject": "Biochemistry",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-biochem-physiology",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 135,
+        "xref": 321,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH09_Q007",
+          "role": "question",
+          "order": 1,
+          "alt": "Source clinical image",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-biochem-physiology",
+          "source": {
+            "page": 135,
+            "xref": 321,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Source infant photograph; appearance matches the question and is shown before answering. Original source pixels, full image, and embedded source attribution are preserved.",
+            "evidence": "GitHub Actions 36432430465 / marrow-manual-wave2-source-regions; Biochemistry page 135 xref 321 exact source region."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/11f9a9ad43530066f7ecefe96d9b33dcea2dab57a003db04ede4b759f530d618.jpg",
+        "sha256": "11f9a9ad43530066f7ecefe96d9b33dcea2dab57a003db04ede4b759f530d618",
+        "width": 720,
+        "height": 478
+      },
+      "production": {
+        "path": "data/marrow/images/originals/11f9a9ad43530066f7ecefe96d9b33dcea2dab57a003db04ede4b759f530d618.jpg",
+        "sha256": "11f9a9ad43530066f7ecefe96d9b33dcea2dab57a003db04ede4b759f530d618",
+        "width": 720,
+        "height": 478
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Source infant photograph; appearance matches the question and is shown before answering. Original source pixels, full image, and embedded source attribution are preserved.",
+        "evidence": "GitHub Actions 36432430465 / marrow-manual-wave2-source-regions; Biochemistry page 135 xref 321 exact source region.",
+        "originalSha256": "11f9a9ad43530066f7ecefe96d9b33dcea2dab57a003db04ede4b759f530d618",
+        "productionSha256": "11f9a9ad43530066f7ecefe96d9b33dcea2dab57a003db04ede4b759f530d618"
+      }
+    },
+    {
+      "id": "biochemistry-042e51c3c496a3de",
+      "subject": "Biochemistry",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-biochem-physiology",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 135,
+        "xref": 322,
+        "region": [
+          162.0,
+          486.0,
+          450.0,
+          702.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH09_Q008",
+          "role": "question",
+          "order": 1,
+          "alt": "Source clinical image",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-biochem-physiology",
+          "source": {
+            "page": 135,
+            "xref": 322,
+            "region": [
+              162.0,
+              486.0,
+              450.0,
+              702.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Source urine specimen photograph matches the black-urine question and is shown before answering. The authoritative source image is visibly soft/low-resolution; dark specimen remains identifiable. Original pixels retained without sharpening or reconstruction.",
+            "evidence": "GitHub Actions 36432430465 / marrow-manual-wave2-source-regions; Biochemistry page 135 xref 322 exact source region."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/042e51c3c496a3def63a70c543138b189aea4130b56cf315a6ee1e78922eb785.jpg",
+        "sha256": "042e51c3c496a3def63a70c543138b189aea4130b56cf315a6ee1e78922eb785",
+        "width": 720,
+        "height": 997
+      },
+      "production": {
+        "path": "data/marrow/images/originals/042e51c3c496a3def63a70c543138b189aea4130b56cf315a6ee1e78922eb785.jpg",
+        "sha256": "042e51c3c496a3def63a70c543138b189aea4130b56cf315a6ee1e78922eb785",
+        "width": 720,
+        "height": 997
+      },
+      "method": "native-jpeg-stream",
+      "status": "SOURCE_LIMITED",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Source urine specimen photograph matches the black-urine question and is shown before answering. The authoritative source image is visibly soft/low-resolution; dark specimen remains identifiable. Original pixels retained without sharpening or reconstruction.",
+        "evidence": "GitHub Actions 36432430465 / marrow-manual-wave2-source-regions; Biochemistry page 135 xref 322 exact source region.",
+        "originalSha256": "042e51c3c496a3def63a70c543138b189aea4130b56cf315a6ee1e78922eb785",
+        "productionSha256": "042e51c3c496a3def63a70c543138b189aea4130b56cf315a6ee1e78922eb785"
+      }
+    },
+    {
+      "id": "biochemistry-6a6ca62ccfd20054",
+      "subject": "Biochemistry",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-biochem-physiology",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "page": 149,
+        "xref": 355,
+        "region": [
+          162.0,
+          494.0,
+          450.0,
+          710.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__BIOCHEM_CH09_Q019",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Canavan disease pathway diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-biochem-physiology",
+          "source": {
+            "page": 149,
+            "xref": 355,
+            "region": [
+              162.0,
+              494.0,
+              450.0,
+              710.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The complete Canavan disease pathway is visible, including neuronal and oligodendrocyte sides, N-acetyl-aspartate transfer, aspartoacylase deficiency, and urinary excretion. Explanation-only placement is answer-safe.",
+            "evidence": "GitHub Actions 36432430465 / marrow-manual-wave2-source-regions; Biochemistry page 149 xref 355 exact source region."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/6a6ca62ccfd200543448de8eb8671d1cae99b10189cecc50b2793642f49bf00d.jpg",
+        "sha256": "6a6ca62ccfd200543448de8eb8671d1cae99b10189cecc50b2793642f49bf00d",
+        "width": 600,
+        "height": 451
+      },
+      "production": {
+        "path": "data/marrow/images/originals/6a6ca62ccfd200543448de8eb8671d1cae99b10189cecc50b2793642f49bf00d.jpg",
+        "sha256": "6a6ca62ccfd200543448de8eb8671d1cae99b10189cecc50b2793642f49bf00d",
+        "width": 600,
+        "height": 451
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "The complete Canavan disease pathway is visible, including neuronal and oligodendrocyte sides, N-acetyl-aspartate transfer, aspartoacylase deficiency, and urinary excretion. Explanation-only placement is answer-safe.",
+        "evidence": "GitHub Actions 36432430465 / marrow-manual-wave2-source-regions; Biochemistry page 149 xref 355 exact source region.",
+        "originalSha256": "6a6ca62ccfd200543448de8eb8671d1cae99b10189cecc50b2793642f49bf00d",
+        "productionSha256": "6a6ca62ccfd200543448de8eb8671d1cae99b10189cecc50b2793642f49bf00d"
       }
     }
   ]

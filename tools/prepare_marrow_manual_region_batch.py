@@ -71,7 +71,7 @@ def main() -> None:
                     'xrefs': [candidate.get('xref') for candidate in page_candidates],
                     'region': region, 'candidateIndex': index,
                     'candidateCount': len(by_page), 'candidateObjectCount': len(page_candidates),
-                    'method': 'region-render',
+                    'method': 'region-render', 'dpi': 300,
                     'coverageStatus': ref['coverageStatus'],
                 })
         else:
@@ -88,8 +88,39 @@ def main() -> None:
                 'page': ref['sourcePages'][0], 'xref': None,
                 'region': [float(rect.x0), float(rect.y0), float(rect.x1), float(rect.y1)],
                 'candidateIndex': 1, 'candidateCount': 0,
-                'method': 'region-render', 'coverageStatus': ref['coverageStatus'],
+                'method': 'region-render', 'dpi': 300, 'coverageStatus': ref['coverageStatus'],
             })
+    cue_contexts = {}
+    for cue in coverage['textCueReview']:
+        if cue['subject'] != args.subject:
+            continue
+        match = re.search(r'_CH(\d+)_', cue['questionId'])
+        if not match or not args.start_chapter <= int(match.group(1)) <= args.end_chapter:
+            continue
+        q = qmap[cue['questionId']]
+        provenance = q.get('provenance') or {}
+        pages = sorted(set((provenance.get('questionPages') or []) +
+                           (provenance.get('explanationPages') or [])))
+        for page_number in pages:
+            key = (args.subject, page_number)
+            item = cue_contexts.get(key)
+            if item is None:
+                page_data = source['pages'][page_number - 1]
+                item = {
+                    'referenceId': f"source-context:{args.subject}:page:{page_number}",
+                    'questionId': cue['questionId'], 'questionIds': [],
+                    'cueIds': [], 'role': 'text-cue-review',
+                    'page': page_number, 'xref': None,
+                    'region': [0.0, 0.0, page_data['width'], page_data['height']],
+                    'candidateIndex': 1, 'candidateCount': 0,
+                    'method': 'region-render', 'dpi': 144,
+                }
+                cue_contexts[key] = item
+            if cue['questionId'] not in item['questionIds']:
+                item['questionIds'].append(cue['questionId'])
+            if cue['id'] not in item['cueIds']:
+                item['cueIds'].append(cue['id'])
+    items.extend(cue_contexts[key] for key in sorted(cue_contexts))
     checkpoint = {
         'schemaVersion': 1, 'batchId': args.batch_id,
         'subject': args.subject, 'sourceFile': source['file'],
@@ -100,7 +131,7 @@ def main() -> None:
     output = args.output if args.output.is_absolute() else ROOT / args.output
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(checkpoint, indent=2) + '\n')
-    print(f"MARROW_MANUAL_CHECKPOINT_OK refs={len({x['referenceId'] for x in items})} renders={len(items)} output={output}")
+    print(f"MARROW_MANUAL_CHECKPOINT_OK refs={len({x['referenceId'] for x in items})} renders={len(items)} textCuePages={len(cue_contexts)} output={output}")
 
 
 if __name__ == '__main__':

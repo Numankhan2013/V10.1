@@ -40,7 +40,7 @@ def main() -> None:
         target.mkdir(parents=True, exist_ok=True)
         command = [sys.executable, str(ROOT / 'tools/marrow_images.py'), 'render-region',
                    '--subject', subject, '--page', str(item['page']),
-                   '--region', *(str(v) for v in item['region']), '--dpi', '300',
+                   '--region', *(str(v) for v in item['region']), '--dpi', str(item.get('dpi', 300)),
                    '--output', str(target)]
         rendered = subprocess.run(command, check=True, text=True, capture_output=True)
         images = sorted(target.glob('*.png'))
@@ -59,6 +59,8 @@ def main() -> None:
                          'page': item['page'], 'xref': item.get('xref'),
                          'xrefs': item.get('xrefs'),
                          'candidateObjectCount': item.get('candidateObjectCount'),
+                         'questionIds': item.get('questionIds'), 'cueIds': item.get('cueIds'),
+                         'dpi': item.get('dpi', 300),
                          'region': item['region'], 'sourceSha256': evidence['sourceSha256'],
                          'sha256': evidence['sha256'],
                          'file': image.relative_to(output).as_posix(),
