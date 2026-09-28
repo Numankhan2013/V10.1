@@ -13,6 +13,10 @@ visuals. Raw source and source PDFs remain unchanged.
 | --- | --- | --- | --- | --- | --- |
 | `manual-biochem-ch25-28-20260928` | Codex, this user thread | Biochemistry Chapters 25–28, all source visuals and visual text cues | 22 references across 21 questions: Ch25 2, Ch26 5, Ch27 7, Ch28 8; 0 text-cue items | **COMPLETE / CANONICAL VERIFIED** | `feature/marrow-manual-images-20260928` from `e6fb3f813eb2c49a5220eec774ae60e551a7169f` |
 | `manual-physiology-ch03-07-20260928` | ChatGPT manual lane, this user thread | Physiology Chapters 3–7, all source visuals and visual text cues | 49 unresolved references across 39 questions: Ch3 5, Ch4 2, Ch5 2, Ch6 7, Ch7 33; 0 text-cue items | **CLAIMED / IN PROGRESS** | `manual/physiology-images-ch03-07-20260928` from the canonical claim commit; refresh registry/progress/coverage from live canonical after Biochemistry integration before shared-state writes |
+| `manual-wave2-anatomy-ch01-26` | Worker 1, Luna 6 medium | Anatomy Chapters 1–26, every source visual and visual text cue | 332 unresolved source references; 0 text cues | **CLAIMED / IN PROGRESS** | `manual/wave2-anatomy-ch01-26` from the live canonical claim commit |
+| `manual-wave2-anatomy-ch27-44` | Worker 2, Luna 6 medium | Anatomy Chapters 27–44, every source visual and visual text cue | 321 unresolved source references; 0 text cues | **CLAIMED / IN PROGRESS** | `manual/wave2-anatomy-ch27-44` from the live canonical claim commit |
+| `manual-wave2-anatomy-ch45-63` | Worker 3, Luna 6 medium | Anatomy Chapters 45–63, every source visual and visual text cue | 306 unresolved source references; 0 text cues | **CLAIMED / IN PROGRESS** | `manual/wave2-anatomy-ch45-63` from the live canonical claim commit |
+| `manual-wave2-biochem-physiology` | Worker 4, Luna 6 medium | Biochemistry Chapters 1–24 and Physiology Chapters 8–43, every source visual and visual text cue | 16 Biochemistry + 197 Physiology unresolved source references; 31 Biochemistry + 27 Physiology text cues | **CLAIMED / IN PROGRESS** | `manual/wave2-biochem-physiology` from the live canonical claim commit |
 
 The 22 reference IDs for `manual-biochem-ch25-28-20260928` are the unresolved
 `Biochemistry` / `CH25`–`CH28` rows of the canonical coverage file at claim time.
@@ -26,6 +30,18 @@ fast-lane evidence `MANUAL_FASTLANE_34700776495`; that evidence is donor/history
 only and must be revalidated against live ownership before release. The remaining
 nine unresolved Ch7-tail references (after Q21) require fresh authoritative source
 review. No historical registry/progress mutation is transplanted wholesale.
+
+The four Wave 2 claims partition every currently unclaimed unresolved Marrow
+source reference and text cue. The earlier Physiology Ch3–7 claim remains with
+its existing owner, including the one live Ch5 text cue; no Wave 2 worker may
+edit it. Worker branches use separate worktrees. Each worker owns newly
+discovered visual references inside its chapter ranges as well as the listed
+coverage rows. The shared registry, progress and coverage files are reconciled
+serially into canonical after each independent branch passes its own checks.
+Wave 2 starting state: canonical `78f1ae00b25f4df3ad9f4515e5b3c8f31d0e5b59`;
+registry SHA-256 `8e92e25daec03c566fdb34b66cadd28a85a8367c3081891a0e29b1c70ab5544a`;
+progress SHA-256 `281549a33e54235d8d3938617952976c50dc875cc3ff5fe4a2087b57ee02b1a2`;
+coverage SHA-256 `750d13c0590fadb3af158885ff605efbba9f7bfe37afaa83c74958027b74456`.
 
 Starting fingerprints for both claims: registry SHA-256
 `799f0c3ae5753f9321f46803871032f255a0548798c4884681f297a5eaa729a2`,
