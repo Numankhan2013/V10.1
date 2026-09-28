@@ -28,14 +28,19 @@ def main() -> None:
     rows = [item for item in data['items'] if item.get('method') == 'region-render']
     assert rows, 'checkpoint has no region-render items'
     manifest = []
+    output.mkdir(parents=True, exist_ok=True)
     for item in rows:
         target = output / item['referenceId'].replace(':', '_')
+        target.mkdir(parents=True, exist_ok=True)
         command = [sys.executable, str(ROOT / 'tools/marrow_images.py'), 'render-region',
                    '--subject', 'Biochemistry', '--page', str(item['page']),
                    '--region', *(str(v) for v in item['region']), '--dpi', '300',
                    '--output', str(target)]
-        rendered = subprocess.run(command, check=True, text=True, capture_output=True).stdout.strip()
-        image = Path(rendered)
+        rendered = subprocess.run(command, check=True, text=True, capture_output=True)
+        images = sorted(target.glob('*.png'))
+        if len(images) != 1:
+            raise AssertionError(f"Expected one render in {target}; stdout={rendered.stdout!r}; stderr={rendered.stderr!r}; files={list(target.iterdir())!r}")
+        image = images[0]
         metadata = image.with_suffix('.json')
         assert image.is_file() and metadata.is_file()
         evidence = json.loads(metadata.read_text())
@@ -48,7 +53,6 @@ def main() -> None:
                          'metadata': metadata.relative_to(output).as_posix(),
                          'width': Image.open(image).width,
                          'height': Image.open(image).height})
-    output.mkdir(parents=True, exist_ok=True)
     (output / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     print(f"MARROW_REGION_RENDERS_OK={len(manifest)} output={output}")
 
