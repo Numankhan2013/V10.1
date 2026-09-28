@@ -28,7 +28,8 @@ const assert=require('node:assert/strict'),vm=require('node:vm');
 const questions=[
  {id:'marrow__ANAT_CH01_Q001',correctOption:2,question:'Anatomy',subject:'Anatomy',bank:'Marrow'},
  {id:'biochemistry-1-1',correctOption:3,question:'Biochemistry',subject:'Biochemistry',bank:'PrepLadder'},
- {id:'physiology-9-6',correctOption:1,question:'Physiology',subject:'Physiology',bank:'PrepLadder'}
+ {id:'physiology-9-6',correctOption:1,question:'Physiology',subject:'Physiology',bank:'PrepLadder'},
+ {id:'physiology-23-38',correctOption:null,question:'Source answer unavailable',subject:'Physiology',bank:'PrepLadder'}
 ];
 const initial={id:'first',kind:'practice',questionIds:questions.map(q=>q.id),answers:{'marrow__ANAT_CH01_Q001':1,'biochemistry-1-1':3},createdAt:1};
 const state={tests:[initial],activeSession:null},BY_ID={};let started=null,toasts=[];
@@ -58,6 +59,11 @@ assert.equal(run("nkCorrectionStart('first')"),false);
 assert.equal(started.context,'correction:first','missing source must not launch a partial pass');
 assert(toasts.some(value=>value.includes('unavailable')));
 assert.equal(run("nkCorrectionStart('unknown')"),false);
+initial.questionIds.pop();
+assert.deepEqual(Array.from(run('nkCorrectionMisses(state.tests[0]).unanswerable')),['physiology-23-38']);
+assert.match(run('nkCorrectionResultSection(state.tests[0])'),/lacks a reliable answer key/);
+assert.equal(run("nkCorrectionStart('first')"),true);
+assert.deepEqual(Array.from(started.ids),['marrow__ANAT_CH01_Q001','physiology-9-6'],'no-answer-key question is excluded');
 console.log('PRACTICE_CORRECTION_BEHAVIOR_OK exact=true linked=true repeat=true missingGuard=true');
 '''.replace('SOURCE', source, 1)
     subprocess.run(['node', '-e', script], cwd=ROOT, check=True)

@@ -281,8 +281,8 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   the existing Practice session engine, so no second answer or review path is
   created. Search state is transient and does not change the sync schema.
 - `tools/apply_practice_correction_v1.py` adds one action to saved Practice
-  results after the question-search transform. It derives incorrect and
-  unattempted IDs from immutable saved answers and the current bank registry,
+  results after the question-search transform. It derives answerable incorrect
+  and unattempted IDs from immutable saved answers and the current bank registry,
   then starts a normal Practice session. `correction:<parent test ID>` is
   retained in `practiceContext.correctionOf` through checkpoints and copied to
   the new saved result. Existing test and checkpoint sync envelopes carry the

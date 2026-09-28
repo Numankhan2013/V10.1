@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "app/src/main/assets/index.html"
 CORE = ROOT / "tools/practice_correction_core.js"
 MARKER = "NK_PRACTICE_CORRECTION_V1_START"
-REVIEW_ANCHOR = '      <div class="card pad" style="margin-top:14px"><div class="section-title"><span>Question Review'
+REVIEW_ANCHOR = '      <section class="nk-section"><div class="nk-section-head"><div><div class="nk-kicker">QUESTION REVIEW</div>'
 
 CSS = '''<style id="nk-practice-correction-v1">
 .nk-correction-section{margin-top:16px;padding:18px;border:1px solid #dce5f5;border-radius:16px;background:#f7f9ff;color:#243464}

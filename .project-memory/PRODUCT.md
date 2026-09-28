@@ -120,7 +120,8 @@ Prefer building over narrating.
   the first 20 matches can be practiced together. An active timed test stays
   intact. Results never reveal the answer before Practice submission.
 - **Practice correction (candidate):** A saved Practice result with incorrect
-  or unattempted questions offers a fresh pass on those exact IDs. The original
+  or unattempted questions offers a fresh pass on those answerable exact IDs.
+  Source questions without a reliable answer key are disclosed and excluded. The original
   result and answers stay intact; the correction saves as its own Practice
   result with a parent link and shows corrected versus still-missed counts.
   Pause, reload, resume, review, FSRS scheduling, and account sync use the

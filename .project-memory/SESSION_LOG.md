@@ -1784,6 +1784,9 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Added a result-level **Correct my misses** action using exact incorrect and
   unattempted IDs; fresh answers, linked saved result, corrected/still-missed
   comparison, and repeat pass for remaining misses. Original results remain
-  immutable. The link persists through normal Practice checkpoints and sync.
-  Targeted behavior, transform, and Pause/resume tests pass. Full CI, preview,
-  and physical review are pending; production remains unchanged.
+  immutable. Source questions with no reliable answer key are excluded with an
+  explanation. The link persists through normal Practice checkpoints and sync.
+  Targeted behavior, transform, and Pause/resume tests pass. Engineering
+  `36373922363` passed, while full run `36373922295` exposed an outdated
+  result-template anchor before packaging. That anchor has been corrected;
+  rerun, preview, and physical review are pending. Production remains unchanged.
