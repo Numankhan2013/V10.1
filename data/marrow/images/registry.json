@@ -6862,6 +6862,28 @@
             "notes": "Exact source figure ownership, role, readability, and answer-safety verified for this question.",
             "evidence": "Compared question metadata and source placement at page 123/xref 3502."
           }
+        },
+        {
+          "questionId": "marrow__ANAT_CH07_Q011",
+          "role": "explanation",
+          "order": 3,
+          "alt": "Omphalocele",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 125,
+            "xref": 3502,
+            "region": [
+              162.0,
+              344.0,
+              450.0,
+              560.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 125 CI crop from run 36432679371; native JPEG xref 3502 matches the figure title and placement. Metadata crop_hint and source context identify this specific illustration; all source labels and original pixels retained without edits. Role=explanation."
+          }
         }
       ],
       "original": {
@@ -21561,6 +21583,1020 @@
         "evidence": "GitHub Actions source-region artifact from run 36432679371; Anatomy_ed8.pdf SHA-256=7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f; page 53, xrefs [129, 130, 131, 132], exact region [161.78, 139.52, 450.22, 356.48]. Production is a lossless crop of the 300 DPI Ubuntu source-region render; no educational detail reconstructed.",
         "originalSha256": "2e9154e9f627b8e3e70a392e33921e1a98435e68e0517f30475b626023bb6e3b",
         "productionSha256": "3a3990c8977ccd0f669dbc058dfa4c3d40b119e5e592d97bcb56a7a66cc47773"
+      }
+    },
+    {
+      "id": "anatomy-c23b1b30fa0d531e",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 96,
+        "xref": 246,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH06_Q001",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Embryonic development of heart (at 18 days) - Cardiogenic area",
+          "status": "PASS",
+          "source": {
+            "page": 96,
+            "xref": 246,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 96 CI crop from run 36432679371 with native JPEG xref 246. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation."
+          },
+          "reviewBatch": "manual-wave2-anatomy-ch01-26"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/c23b1b30fa0d531eefd4c54d1d4de6ee41ddb3a206bfce20ddce0e7ac56a8938.jpg",
+        "sha256": "c23b1b30fa0d531eefd4c54d1d4de6ee41ddb3a206bfce20ddce0e7ac56a8938",
+        "width": 576,
+        "height": 646
+      },
+      "production": {
+        "path": "data/marrow/images/originals/c23b1b30fa0d531eefd4c54d1d4de6ee41ddb3a206bfce20ddce0e7ac56a8938.jpg",
+        "sha256": "c23b1b30fa0d531eefd4c54d1d4de6ee41ddb3a206bfce20ddce0e7ac56a8938",
+        "width": 576,
+        "height": 646
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Reviewed source page 96 CI crop from run 36432679371 with native JPEG xref 246. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation.",
+        "originalSha256": "c23b1b30fa0d531eefd4c54d1d4de6ee41ddb3a206bfce20ddce0e7ac56a8938",
+        "productionSha256": "c23b1b30fa0d531eefd4c54d1d4de6ee41ddb3a206bfce20ddce0e7ac56a8938"
+      },
+      "reviewBatch": "manual-wave2-anatomy-ch01-26"
+    },
+    {
+      "id": "anatomy-917f85625a405ae6",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 96,
+        "xref": 247,
+        "region": [
+          162.0,
+          379.0,
+          450.0,
+          595.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH06_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Heart tube structures at 23 days",
+          "status": "PASS",
+          "source": {
+            "page": 96,
+            "xref": 247,
+            "region": [
+              162.0,
+              379.0,
+              450.0,
+              595.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 96 CI crop from run 36432679371 with native JPEG xref 247. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation."
+          },
+          "reviewBatch": "manual-wave2-anatomy-ch01-26"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/917f85625a405ae6651be341fa17898e82be7afe9dfa6ff8afdaf1429015c1d6.jpg",
+        "sha256": "917f85625a405ae6651be341fa17898e82be7afe9dfa6ff8afdaf1429015c1d6",
+        "width": 575,
+        "height": 546
+      },
+      "production": {
+        "path": "data/marrow/images/originals/917f85625a405ae6651be341fa17898e82be7afe9dfa6ff8afdaf1429015c1d6.jpg",
+        "sha256": "917f85625a405ae6651be341fa17898e82be7afe9dfa6ff8afdaf1429015c1d6",
+        "width": 575,
+        "height": 546
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Reviewed source page 96 CI crop from run 36432679371 with native JPEG xref 247. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation.",
+        "originalSha256": "917f85625a405ae6651be341fa17898e82be7afe9dfa6ff8afdaf1429015c1d6",
+        "productionSha256": "917f85625a405ae6651be341fa17898e82be7afe9dfa6ff8afdaf1429015c1d6"
+      },
+      "reviewBatch": "manual-wave2-anatomy-ch01-26"
+    },
+    {
+      "id": "anatomy-8e1d22387f316404",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 97,
+        "xref": 250,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH06_Q002",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Embryonic development of heart at 20, 21 and 22 days",
+          "status": "PASS",
+          "source": {
+            "page": 97,
+            "xref": 250,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 97 CI crop from run 36432679371 with native JPEG xref 250. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation."
+          },
+          "reviewBatch": "manual-wave2-anatomy-ch01-26"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/8e1d22387f31640401c86fbfd5100857678616dcf17473d989c30be294b67328.jpg",
+        "sha256": "8e1d22387f31640401c86fbfd5100857678616dcf17473d989c30be294b67328",
+        "width": 733,
+        "height": 432
+      },
+      "production": {
+        "path": "data/marrow/images/originals/8e1d22387f31640401c86fbfd5100857678616dcf17473d989c30be294b67328.jpg",
+        "sha256": "8e1d22387f31640401c86fbfd5100857678616dcf17473d989c30be294b67328",
+        "width": 733,
+        "height": 432
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Reviewed source page 97 CI crop from run 36432679371 with native JPEG xref 250. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation.",
+        "originalSha256": "8e1d22387f31640401c86fbfd5100857678616dcf17473d989c30be294b67328",
+        "productionSha256": "8e1d22387f31640401c86fbfd5100857678616dcf17473d989c30be294b67328"
+      },
+      "reviewBatch": "manual-wave2-anatomy-ch01-26"
+    },
+    {
+      "id": "anatomy-941871bc517a8d3a",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 97,
+        "xref": 251,
+        "region": [
+          162.0,
+          399.0,
+          450.0,
+          615.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH06_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Embryonic development of heart at 23, 24 and 25 days",
+          "status": "PASS",
+          "source": {
+            "page": 97,
+            "xref": 251,
+            "region": [
+              162.0,
+              399.0,
+              450.0,
+              615.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 97 CI crop from run 36432679371 with native JPEG xref 251. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation."
+          },
+          "reviewBatch": "manual-wave2-anatomy-ch01-26"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/941871bc517a8d3adcf027007008030d4f5b746f5ecd33c86aab713afa5f6e11.jpg",
+        "sha256": "941871bc517a8d3adcf027007008030d4f5b746f5ecd33c86aab713afa5f6e11",
+        "width": 745,
+        "height": 432
+      },
+      "production": {
+        "path": "data/marrow/images/originals/941871bc517a8d3adcf027007008030d4f5b746f5ecd33c86aab713afa5f6e11.jpg",
+        "sha256": "941871bc517a8d3adcf027007008030d4f5b746f5ecd33c86aab713afa5f6e11",
+        "width": 745,
+        "height": 432
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Reviewed source page 97 CI crop from run 36432679371 with native JPEG xref 251. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation.",
+        "originalSha256": "941871bc517a8d3adcf027007008030d4f5b746f5ecd33c86aab713afa5f6e11",
+        "productionSha256": "941871bc517a8d3adcf027007008030d4f5b746f5ecd33c86aab713afa5f6e11"
+      },
+      "reviewBatch": "manual-wave2-anatomy-ch01-26"
+    },
+    {
+      "id": "anatomy-98afc627dffcba85",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 101,
+        "xref": 263,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH06_Q007",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Venous system embryology - 8th week",
+          "status": "PASS",
+          "source": {
+            "page": 101,
+            "xref": 263,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 101 CI crop from run 36432679371 with native JPEG xref 263. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation."
+          },
+          "reviewBatch": "manual-wave2-anatomy-ch01-26"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/98afc627dffcba85f990957924c245f257e31b0e5fa5973cb1e36770be773cb0.jpg",
+        "sha256": "98afc627dffcba85f990957924c245f257e31b0e5fa5973cb1e36770be773cb0",
+        "width": 600,
+        "height": 1025
+      },
+      "production": {
+        "path": "data/marrow/images/originals/98afc627dffcba85f990957924c245f257e31b0e5fa5973cb1e36770be773cb0.jpg",
+        "sha256": "98afc627dffcba85f990957924c245f257e31b0e5fa5973cb1e36770be773cb0",
+        "width": 600,
+        "height": 1025
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Reviewed source page 101 CI crop from run 36432679371 with native JPEG xref 263. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation.",
+        "originalSha256": "98afc627dffcba85f990957924c245f257e31b0e5fa5973cb1e36770be773cb0",
+        "productionSha256": "98afc627dffcba85f990957924c245f257e31b0e5fa5973cb1e36770be773cb0"
+      },
+      "reviewBatch": "manual-wave2-anatomy-ch01-26"
+    },
+    {
+      "id": "anatomy-ff535b8e4fd40ae5",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 101,
+        "xref": 264,
+        "region": [
+          162.0,
+          284.0,
+          450.0,
+          500.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH06_Q007",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Venous system embryology - Adult form",
+          "status": "PASS",
+          "source": {
+            "page": 101,
+            "xref": 264,
+            "region": [
+              162.0,
+              284.0,
+              450.0,
+              500.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 101 CI crop from run 36432679371 with native JPEG xref 264. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation."
+          },
+          "reviewBatch": "manual-wave2-anatomy-ch01-26"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/ff535b8e4fd40ae58929f9fecb973424c67c5e94c0658884480ab94bd44d9060.jpg",
+        "sha256": "ff535b8e4fd40ae58929f9fecb973424c67c5e94c0658884480ab94bd44d9060",
+        "width": 600,
+        "height": 1025
+      },
+      "production": {
+        "path": "data/marrow/images/originals/ff535b8e4fd40ae58929f9fecb973424c67c5e94c0658884480ab94bd44d9060.jpg",
+        "sha256": "ff535b8e4fd40ae58929f9fecb973424c67c5e94c0658884480ab94bd44d9060",
+        "width": 600,
+        "height": 1025
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Reviewed source page 101 CI crop from run 36432679371 with native JPEG xref 264. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation.",
+        "originalSha256": "ff535b8e4fd40ae58929f9fecb973424c67c5e94c0658884480ab94bd44d9060",
+        "productionSha256": "ff535b8e4fd40ae58929f9fecb973424c67c5e94c0658884480ab94bd44d9060"
+      },
+      "reviewBatch": "manual-wave2-anatomy-ch01-26"
+    },
+    {
+      "id": "anatomy-fde4d7baab7455f0",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 105,
+        "xref": 273,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH06_Q016",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Truncus arteriosus",
+          "status": "PASS",
+          "source": {
+            "page": 105,
+            "xref": 273,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 105 CI crop from run 36432679371 with native JPEG xref 273. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation."
+          },
+          "reviewBatch": "manual-wave2-anatomy-ch01-26"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/fde4d7baab7455f0bb0f12dd985057430e07e124e898400c783dd3f49e70b750.jpg",
+        "sha256": "fde4d7baab7455f0bb0f12dd985057430e07e124e898400c783dd3f49e70b750",
+        "width": 576,
+        "height": 873
+      },
+      "production": {
+        "path": "data/marrow/images/originals/fde4d7baab7455f0bb0f12dd985057430e07e124e898400c783dd3f49e70b750.jpg",
+        "sha256": "fde4d7baab7455f0bb0f12dd985057430e07e124e898400c783dd3f49e70b750",
+        "width": 576,
+        "height": 873
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Reviewed source page 105 CI crop from run 36432679371 with native JPEG xref 273. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation.",
+        "originalSha256": "fde4d7baab7455f0bb0f12dd985057430e07e124e898400c783dd3f49e70b750",
+        "productionSha256": "fde4d7baab7455f0bb0f12dd985057430e07e124e898400c783dd3f49e70b750"
+      },
+      "reviewBatch": "manual-wave2-anatomy-ch01-26"
+    },
+    {
+      "id": "anatomy-d53c0842334b6cca",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 105,
+        "xref": 274,
+        "region": [
+          162.0,
+          475.0,
+          450.0,
+          691.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH06_Q017",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Transposition of the great vessels",
+          "status": "PASS",
+          "source": {
+            "page": 105,
+            "xref": 274,
+            "region": [
+              162.0,
+              475.0,
+              450.0,
+              691.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 105 CI crop from run 36432679371 with native JPEG xref 274. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation."
+          },
+          "reviewBatch": "manual-wave2-anatomy-ch01-26"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/d53c0842334b6ccad0866f3e2a633a9b8128c4cee4f21642fe2768616ad7a7dc.jpg",
+        "sha256": "d53c0842334b6ccad0866f3e2a633a9b8128c4cee4f21642fe2768616ad7a7dc",
+        "width": 575,
+        "height": 908
+      },
+      "production": {
+        "path": "data/marrow/images/originals/d53c0842334b6ccad0866f3e2a633a9b8128c4cee4f21642fe2768616ad7a7dc.jpg",
+        "sha256": "d53c0842334b6ccad0866f3e2a633a9b8128c4cee4f21642fe2768616ad7a7dc",
+        "width": 575,
+        "height": 908
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Reviewed source page 105 CI crop from run 36432679371 with native JPEG xref 274. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation.",
+        "originalSha256": "d53c0842334b6ccad0866f3e2a633a9b8128c4cee4f21642fe2768616ad7a7dc",
+        "productionSha256": "d53c0842334b6ccad0866f3e2a633a9b8128c4cee4f21642fe2768616ad7a7dc"
+      },
+      "reviewBatch": "manual-wave2-anatomy-ch01-26"
+    },
+    {
+      "id": "anatomy-fed3a0e21071d751",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 109,
+        "xref": 285,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH06_Q024",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Phases of lung development",
+          "status": "PASS",
+          "source": {
+            "page": 109,
+            "xref": 285,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 109 CI crop from run 36432679371 with native JPEG xref 285. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation."
+          },
+          "reviewBatch": "manual-wave2-anatomy-ch01-26"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/fed3a0e21071d7519b04bc350c542f85d44600e46d09b410970c03bf3da1db28.jpg",
+        "sha256": "fed3a0e21071d7519b04bc350c542f85d44600e46d09b410970c03bf3da1db28",
+        "width": 575,
+        "height": 512
+      },
+      "production": {
+        "path": "data/marrow/images/originals/fed3a0e21071d7519b04bc350c542f85d44600e46d09b410970c03bf3da1db28.jpg",
+        "sha256": "fed3a0e21071d7519b04bc350c542f85d44600e46d09b410970c03bf3da1db28",
+        "width": 575,
+        "height": 512
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Reviewed source page 109 CI crop from run 36432679371 with native JPEG xref 285. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation.",
+        "originalSha256": "fed3a0e21071d7519b04bc350c542f85d44600e46d09b410970c03bf3da1db28",
+        "productionSha256": "fed3a0e21071d7519b04bc350c542f85d44600e46d09b410970c03bf3da1db28"
+      },
+      "reviewBatch": "manual-wave2-anatomy-ch01-26"
+    },
+    {
+      "id": "anatomy-b2663406c4bd143e",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 109,
+        "xref": 286,
+        "region": [
+          162.0,
+          507.0,
+          450.0,
+          723.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH06_Q025",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Development of diaphragm",
+          "status": "PASS",
+          "source": {
+            "page": 109,
+            "xref": 286,
+            "region": [
+              162.0,
+              507.0,
+              450.0,
+              723.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 109 CI crop from run 36432679371 with native JPEG xref 286. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation."
+          },
+          "reviewBatch": "manual-wave2-anatomy-ch01-26"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b2663406c4bd143efc447e7e4655740e55457b97cbd3ff016a8766578cab2d27.jpg",
+        "sha256": "b2663406c4bd143efc447e7e4655740e55457b97cbd3ff016a8766578cab2d27",
+        "width": 600,
+        "height": 501
+      },
+      "production": {
+        "path": "data/marrow/images/originals/b2663406c4bd143efc447e7e4655740e55457b97cbd3ff016a8766578cab2d27.jpg",
+        "sha256": "b2663406c4bd143efc447e7e4655740e55457b97cbd3ff016a8766578cab2d27",
+        "width": 600,
+        "height": 501
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Reviewed source page 109 CI crop from run 36432679371 with native JPEG xref 286. Exact illustration selected by metadata title/labels and crop_hint placement; CI full-page context and source placement agree. Native source JPEG bytes retained unchanged; labels and original watermark preserved. Role=explanation.",
+        "originalSha256": "b2663406c4bd143efc447e7e4655740e55457b97cbd3ff016a8766578cab2d27",
+        "productionSha256": "b2663406c4bd143efc447e7e4655740e55457b97cbd3ff016a8766578cab2d27"
+      },
+      "reviewBatch": "manual-wave2-anatomy-ch01-26"
+    },
+    {
+      "id": "anatomy-09d87e14ecbff249",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 124,
+        "xref": 326,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH07_Q010",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Omphalocele clinical photograph",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 124,
+            "xref": 326,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 124 CI crop from run 36432679371; native JPEG xref 326 matches the figure title and placement. Metadata crop_hint and source context identify this specific illustration; all source labels and original pixels retained without edits. Role=explanation."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/09d87e14ecbff24916be7d00eeb2d9ffd136dbf84d49d086c4500a7eada3ef06.jpg",
+        "sha256": "09d87e14ecbff24916be7d00eeb2d9ffd136dbf84d49d086c4500a7eada3ef06",
+        "width": 576,
+        "height": 778
+      },
+      "production": {
+        "path": "data/marrow/images/originals/09d87e14ecbff24916be7d00eeb2d9ffd136dbf84d49d086c4500a7eada3ef06.jpg",
+        "sha256": "09d87e14ecbff24916be7d00eeb2d9ffd136dbf84d49d086c4500a7eada3ef06",
+        "width": 576,
+        "height": 778
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Reviewed source page 124 CI crop from run 36432679371; native JPEG xref 326 matches the figure title and placement. Metadata crop_hint and source context identify this specific illustration; all source labels and original pixels retained without edits. Role=explanation.",
+        "originalSha256": "09d87e14ecbff24916be7d00eeb2d9ffd136dbf84d49d086c4500a7eada3ef06",
+        "productionSha256": "09d87e14ecbff24916be7d00eeb2d9ffd136dbf84d49d086c4500a7eada3ef06"
+      }
+    },
+    {
+      "id": "anatomy-f0a69f6edc59dfdd",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 124,
+        "xref": 3506,
+        "region": [
+          162.0,
+          338.0,
+          450.0,
+          554.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH07_Q010",
+          "role": "explanation",
+          "order": 3,
+          "alt": "Gastroschisis",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 124,
+            "xref": 3506,
+            "region": [
+              162.0,
+              338.0,
+              450.0,
+              554.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 124 CI crop from run 36432679371; native JPEG xref 3506 matches the figure title and placement. Metadata crop_hint and source context identify this specific illustration; all source labels and original pixels retained without edits. Role=explanation."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH07_Q011",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Gastroschisis",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 125,
+            "xref": 3506,
+            "region": [
+              162.0,
+              76.0,
+              450.0,
+              292.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 125 CI crop from run 36432679371; native JPEG xref 3506 matches the figure title and placement. Metadata crop_hint and source context identify this specific illustration; all source labels and original pixels retained without edits. Role=explanation."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/f0a69f6edc59dfdddd3f3fc5309557f320c99af4cd7f5120f93971db74cc5383.jpg",
+        "sha256": "f0a69f6edc59dfdddd3f3fc5309557f320c99af4cd7f5120f93971db74cc5383",
+        "width": 575,
+        "height": 558
+      },
+      "production": {
+        "path": "data/marrow/images/originals/f0a69f6edc59dfdddd3f3fc5309557f320c99af4cd7f5120f93971db74cc5383.jpg",
+        "sha256": "f0a69f6edc59dfdddd3f3fc5309557f320c99af4cd7f5120f93971db74cc5383",
+        "width": 575,
+        "height": 558
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Reviewed source page 125 CI crop from run 36432679371; native JPEG xref 3506 matches the figure title and placement. Metadata crop_hint and source context identify this specific illustration; all source labels and original pixels retained without edits. Role=explanation.",
+        "originalSha256": "f0a69f6edc59dfdddd3f3fc5309557f320c99af4cd7f5120f93971db74cc5383",
+        "productionSha256": "f0a69f6edc59dfdddd3f3fc5309557f320c99af4cd7f5120f93971db74cc5383"
+      }
+    },
+    {
+      "id": "anatomy-3c49bcccbbffe5a8",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 114,
+        "xref": 297,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH07_Q011",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 114,
+            "xref": 297,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 114 CI crop from run 36432679371; native JPEG xref 297 matches the figure title and placement. Metadata crop_hint and source context identify this specific illustration; all source labels and original pixels retained without edits. Role=question."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/3c49bcccbbffe5a89ae8361035e70e14dbbcc5df9b0dec57c8fc00b7bf8fbc8d.jpg",
+        "sha256": "3c49bcccbbffe5a89ae8361035e70e14dbbcc5df9b0dec57c8fc00b7bf8fbc8d",
+        "width": 720,
+        "height": 591
+      },
+      "production": {
+        "path": "data/marrow/images/originals/3c49bcccbbffe5a89ae8361035e70e14dbbcc5df9b0dec57c8fc00b7bf8fbc8d.jpg",
+        "sha256": "3c49bcccbbffe5a89ae8361035e70e14dbbcc5df9b0dec57c8fc00b7bf8fbc8d",
+        "width": 720,
+        "height": 591
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Reviewed source page 114 CI crop from run 36432679371; native JPEG xref 297 matches the figure title and placement. Metadata crop_hint and source context identify this specific illustration; all source labels and original pixels retained without edits. Role=question.",
+        "originalSha256": "3c49bcccbbffe5a89ae8361035e70e14dbbcc5df9b0dec57c8fc00b7bf8fbc8d",
+        "productionSha256": "3c49bcccbbffe5a89ae8361035e70e14dbbcc5df9b0dec57c8fc00b7bf8fbc8d"
+      }
+    },
+    {
+      "id": "anatomy-2bf1d88d45d3a52f",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 114,
+        "xref": 298,
+        "region": [
+          162.0,
+          470.0,
+          450.0,
+          686.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH07_Q012",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 114,
+            "xref": 298,
+            "region": [
+              162.0,
+              470.0,
+              450.0,
+              686.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 114 CI crop from run 36432679371; native JPEG xref 298 matches the figure title and placement. Metadata crop_hint and source context identify this specific illustration; all source labels and original pixels retained without edits. Role=question."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/2bf1d88d45d3a52f050a039d646f9fbb20a019e9ec8bb903c4fae10ba800373c.jpg",
+        "sha256": "2bf1d88d45d3a52f050a039d646f9fbb20a019e9ec8bb903c4fae10ba800373c",
+        "width": 720,
+        "height": 762
+      },
+      "production": {
+        "path": "data/marrow/images/originals/2bf1d88d45d3a52f050a039d646f9fbb20a019e9ec8bb903c4fae10ba800373c.jpg",
+        "sha256": "2bf1d88d45d3a52f050a039d646f9fbb20a019e9ec8bb903c4fae10ba800373c",
+        "width": 720,
+        "height": 762
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Reviewed source page 114 CI crop from run 36432679371; native JPEG xref 298 matches the figure title and placement. Metadata crop_hint and source context identify this specific illustration; all source labels and original pixels retained without edits. Role=question.",
+        "originalSha256": "2bf1d88d45d3a52f050a039d646f9fbb20a019e9ec8bb903c4fae10ba800373c",
+        "productionSha256": "2bf1d88d45d3a52f050a039d646f9fbb20a019e9ec8bb903c4fae10ba800373c"
+      }
+    },
+    {
+      "id": "anatomy-b6eb636b60692dc5",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 127,
+        "xref": 334,
+        "region": [
+          162.0,
+          152.0,
+          450.0,
+          368.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH07_Q013",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Mesenteries and derivatives",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 127,
+            "xref": 334,
+            "region": [
+              162.0,
+              152.0,
+              450.0,
+              368.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 127 CI crop from run 36432679371; native JPEG xref 334 matches the figure title and placement. Metadata crop_hint and source context identify this specific illustration; all source labels and original pixels retained without edits. Role=explanation."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b6eb636b60692dc58deca8286f08c80bd715fda6b5a4a1c0d7c8fc077e626d9b.jpg",
+        "sha256": "b6eb636b60692dc58deca8286f08c80bd715fda6b5a4a1c0d7c8fc077e626d9b",
+        "width": 576,
+        "height": 1151
+      },
+      "production": {
+        "path": "data/marrow/images/originals/b6eb636b60692dc58deca8286f08c80bd715fda6b5a4a1c0d7c8fc077e626d9b.jpg",
+        "sha256": "b6eb636b60692dc58deca8286f08c80bd715fda6b5a4a1c0d7c8fc077e626d9b",
+        "width": 576,
+        "height": 1151
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Reviewed source page 127 CI crop from run 36432679371; native JPEG xref 334 matches the figure title and placement. Metadata crop_hint and source context identify this specific illustration; all source labels and original pixels retained without edits. Role=explanation.",
+        "originalSha256": "b6eb636b60692dc58deca8286f08c80bd715fda6b5a4a1c0d7c8fc077e626d9b",
+        "productionSha256": "b6eb636b60692dc58deca8286f08c80bd715fda6b5a4a1c0d7c8fc077e626d9b"
+      }
+    },
+    {
+      "id": "anatomy-6c17764a2cc3ecad",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 127,
+        "xref": 335,
+        "region": [
+          162.0,
+          380.0,
+          450.0,
+          596.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH07_Q013",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Primitive mesentery",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 127,
+            "xref": 335,
+            "region": [
+              162.0,
+              380.0,
+              450.0,
+              596.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed source page 127 CI crop from run 36432679371; native JPEG xref 335 matches the figure title and placement. Metadata crop_hint and source context identify this specific illustration; all source labels and original pixels retained without edits. Role=explanation."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/6c17764a2cc3ecad2f89046eb5943cfb2bcb79b4e47d433499019fe24e27279d.jpg",
+        "sha256": "6c17764a2cc3ecad2f89046eb5943cfb2bcb79b4e47d433499019fe24e27279d",
+        "width": 600,
+        "height": 653
+      },
+      "production": {
+        "path": "data/marrow/images/originals/6c17764a2cc3ecad2f89046eb5943cfb2bcb79b4e47d433499019fe24e27279d.jpg",
+        "sha256": "6c17764a2cc3ecad2f89046eb5943cfb2bcb79b4e47d433499019fe24e27279d",
+        "width": 600,
+        "height": 653
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Reviewed source page 127 CI crop from run 36432679371; native JPEG xref 335 matches the figure title and placement. Metadata crop_hint and source context identify this specific illustration; all source labels and original pixels retained without edits. Role=explanation.",
+        "originalSha256": "6c17764a2cc3ecad2f89046eb5943cfb2bcb79b4e47d433499019fe24e27279d",
+        "productionSha256": "6c17764a2cc3ecad2f89046eb5943cfb2bcb79b4e47d433499019fe24e27279d"
       }
     }
   ]
