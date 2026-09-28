@@ -34,6 +34,10 @@ Prefer building over narrating.
   frictionless; unfinished-session recovery works.
 - **Practice:** immediate feedback, source explanations, free navigation,
   bookmarks, Wrong/Due queues feed revision.
+- **Touch response:** major navigation, selection, mark, and primary actions
+  have distinct, restrained tactile feedback on supported Android devices.
+  Correct/incorrect answer feedback follows a saved Practice answer. Rapid
+  timed-test answer changes should preserve the question view and saved state.
 - **Android Back during a question:** show a native "Do you want to exit?"
   warning for active Practice and timed tests. Stay keeps the same question and
   session; Exit follows the saved-session navigation. Timed tests disclose that

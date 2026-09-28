@@ -49,6 +49,8 @@ checked deterministic rollout ledger.
   `qbank_active_subject_v1` for subject. State writes use the durable pending →
   primary → last-known-good transaction in `tools/durable_persistence_core.js`;
   callers receive success/failure and malformed primary state recovers visibly.
+  The writer normalizes a new root without an extra full-state clone and parses
+  the existing primary snapshot for its revision without re-normalizing it.
   `studyModules` (max 100, normalized; see `docs/CUSTOM_STUDY_MODULES.md`).
   Question notes use `tools/question_notes_core.js` and one independent cloud
   envelope per question; see `docs/QUESTION_NOTES.md`.
@@ -229,6 +231,16 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   same transaction. Explicit final submission records legacy pending selections;
   Pause retains them. Special-mode origin/context never replaces the normal
   Practice checkpoint. Content and option rendering styles are unchanged.
+  A committed CBT answer updates selected option classes in place; if the
+  expected exam DOM is absent, it falls back to the full renderer. Touch-down
+  provides immediate light feedback by action type, while answer outcome
+  feedback waits for a successful save. The PWA uses `navigator.vibrate` when
+  available; the packaged app uses the allowlisted `QBankHaptics` WebView bridge
+  and Android `performHapticFeedback`, which follows system touch settings.
+  `apply_android_haptics_v1.py` installs that bridge after the PDF-owned
+  `MainActivity.java` regeneration and secure-origin/Back transforms.
+  `bank_aware_cbt_builder_core.js` indexes immutable bank questions by topic
+  once so selection counts do not repeatedly scan every question.
 
 - `tools/apply_fsrs_v1.py` installs `tools/fsrs_scheduler_core.js` after the
   cross-device layer and loads vendored `ts-fsrs` 5.4.2 UMD plus its MIT license
