@@ -37,12 +37,12 @@ def main() -> None:
     manifest = []
     output.mkdir(parents=True, exist_ok=True)
     for item in rows:
-        expected_prefix = {
-            'Anatomy': 'marrow__ANAT_',
-            'Biochemistry': 'marrow__BIOCHEM_',
-            'Physiology': 'marrow__PHYS_',
+        expected_prefixes = {
+            'Anatomy': ('marrow__ANAT_',),
+            'Biochemistry': ('marrow__BIOCHEM_',),
+            'Physiology': ('marrow__PHYS_', 'marrow__PHYSIO_'),
         }[subject]
-        assert (item['referenceId'].startswith(expected_prefix)
+        assert (item['referenceId'].startswith(expected_prefixes)
                 or item['referenceId'].startswith(f'source-context:{subject}:page:'))
         suffix = f"_candidate_{item.get('candidateIndex', 1)}"
         target = output / (item['referenceId'].replace(':', '_') + suffix)
