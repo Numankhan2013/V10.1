@@ -61,13 +61,14 @@ def main() -> None:
                 'notes': ''
             }
         })
+    source = audit['sources']['Physiology']
     value = {
         'schemaVersion': 1,
         'kind': 'MARROW_IMAGE_FOCUSED_AMBIGUOUS_REVIEW_PLAN',
         'batchId': 'MANUAL_PHYS_AMBIGUOUS_14_20260928',
         'subject': 'Physiology',
         'referenceCount': len(entries),
-        'source': audit['sources']['Physiology'],
+        'source': {'file': source['file'], 'sha256': source['sha256']},
         'entries': entries,
     }
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
