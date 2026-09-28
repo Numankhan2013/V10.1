@@ -1,0 +1,69 @@
+name: Physiology Ch7 Tail Image Integration
+
+on:
+  push:
+    branches:
+      - 'manual/physiology-images-ch03-07-20260928'
+    paths:
+      - '.github/workflows/physiology-ch07-tail-image-integration.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: physiology-ch07-tail-image-integration-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  integrate-reviewed-tail:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact reviewed branch head
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deterministic image dependencies
+        run: python3 -m pip install --disable-pip-version-check pypdf==6.18.0 PyMuPDF Pillow
+
+      - name: Apply reviewed Ch7 tail decisions
+        run: python3 tools/apply_phys_ch07_tail_image_batch.py
+
+      - name: Rebuild and validate image state
+        run: |
+          python3 tools/marrow_images.py audit
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_image_progress.py
+          python3 tools/marrow_image_coverage.py --subject Physiology
+          python3 tools/marrow_images.py release
+          python3 tools/marrow_images.py validate
+          python3 tools/marrow_image_progress.py --check
+          python3 tools/marrow_image_coverage.py --subject Physiology --check
+          git diff --check
+
+      - name: Commit deterministic integration output
+        env:
+          BRANCH_NAME: ${{ github.ref_name }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            data/marrow/images/registry.json \
+            data/marrow/images/source_reference_adjudications.json \
+            data/marrow/images/originals \
+            data/marrow/images/progress.json \
+            data/marrow/images/coverage.json \
+            app/src/main/assets/marrow_visuals \
+            app/src/main/assets/marrow_visual_metadata.js
+          if git diff --cached --quiet; then
+            echo 'No generated integration changes to commit.'
+            exit 0
+          fi
+          git commit -m 'images: integrate reviewed physiology ch7 tail'
+          git push origin "HEAD:${BRANCH_NAME}"
