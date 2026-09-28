@@ -12,11 +12,22 @@ visuals. Raw source and source PDFs remain unchanged.
 | Batch | Owner | Exclusive source scope | Starting backlog | Status | Working branch and base |
 | --- | --- | --- | --- | --- | --- |
 | `manual-biochem-ch25-28-20260928` | Codex, this user thread | Biochemistry Chapters 25–28, all source visuals and visual text cues | 22 unresolved references across 21 questions: Ch25 2, Ch26 5, Ch27 7, Ch28 8; 0 text-cue items | **CLAIMED / IN PROGRESS** | `feature/marrow-manual-images-20260928` from `e6fb3f813eb2c49a5220eec774ae60e551a7169f` |
+| `manual-physiology-ch03-07-20260928` | ChatGPT manual lane, this user thread | Physiology Chapters 3–7, all source visuals and visual text cues | 49 unresolved references across 39 questions: Ch3 5, Ch4 2, Ch5 2, Ch6 7, Ch7 33; 0 text-cue items | **CLAIMED / IN PROGRESS** | `manual/physiology-images-ch03-07-20260928` from the canonical claim commit |
 
-The 22 reference IDs are the unresolved `Biochemistry` / `CH25`–`CH28` rows of
-the canonical coverage file at claim time. They include both roles of
-`marrow__BIOCHEM_CH28_Q022`; its question figure must be safe before answering.
-Starting fingerprints: registry SHA-256
+The 22 reference IDs for `manual-biochem-ch25-28-20260928` are the unresolved
+`Biochemistry` / `CH25`–`CH28` rows of the canonical coverage file at claim time.
+They include both roles of `marrow__BIOCHEM_CH28_Q022`; its question figure must
+be safe before answering.
+
+The 49 reference IDs for `manual-physiology-ch03-07-20260928` are every unresolved
+`Physiology` / `CH03`–`CH07` source-visual row in the same canonical coverage
+state. Forty of those references were already source-audited in historical
+fast-lane evidence `MANUAL_FASTLANE_34700776495`; that evidence is donor/history
+only and must be revalidated against live ownership before release. The remaining
+nine unresolved Ch7-tail references (after Q21) require fresh authoritative source
+review. No historical registry/progress mutation is transplanted wholesale.
+
+Starting fingerprints for both claims: registry SHA-256
 `799f0c3ae5753f9321f46803871032f255a0548798c4884681f297a5eaa729a2`,
 progress SHA-256
 `c2ecb00176b4edfd946006cd650ffb513c855b065a73af53abdbcf25b332366d`,
@@ -52,5 +63,15 @@ coverage SHA-256
 | 27 | 7 | 0 | 0 | 7 | Source pages 424–430 |
 | 28 | 8 | 0 | 0 | 8 | Source pages 436–450; Q22 has question and explanation figures |
 
+## Batch `manual-physiology-ch03-07-20260928`
+
+| Chapter | Starting unresolved references | Released in this batch | Review required | Remaining untracked | Notes |
+| --- | ---: | ---: | ---: | ---: | --- |
+| 3 | 5 | 0 | 0 | 5 | Source pages 44–53; historical fast-lane donor evidence exists |
+| 4 | 2 | 0 | 0 | 2 | Source pages 62–66; historical fast-lane donor evidence exists |
+| 5 | 2 | 0 | 0 | 2 | Source pages 73–74; historical fast-lane donor evidence exists |
+| 6 | 7 | 0 | 0 | 7 | Source pages 94–109; historical fast-lane donor evidence exists |
+| 7 | 33 | 0 | 0 | 33 | Source pages 137–158; first 24 unresolved refs have historical donor evidence, final 9 require fresh review |
+
 Status is a live work log, not a claim that these images are already integrated.
-The owner updates it with evidence and exact verification results as work lands.
+Each owner updates it with evidence and exact verification results as work lands.
