@@ -11,7 +11,7 @@ visuals. Raw source and source PDFs remain unchanged.
 
 | Batch | Owner | Exclusive source scope | Starting backlog | Status | Working branch and base |
 | --- | --- | --- | --- | --- | --- |
-| `manual-biochem-ch25-28-20260928` | Codex, this user thread | Biochemistry Chapters 25–28, all source visuals and visual text cues | 22 unresolved references across 21 questions: Ch25 2, Ch26 5, Ch27 7, Ch28 8; 0 text-cue items | **CANDIDATE STAGED / CI PENDING** | `feature/marrow-manual-images-20260928` from `e6fb3f813eb2c49a5220eec774ae60e551a7169f` |
+| `manual-biochem-ch25-28-20260928` | Codex, this user thread | Biochemistry Chapters 25–28, all source visuals and visual text cues | 22 unresolved references across 21 questions: Ch25 2, Ch26 5, Ch27 7, Ch28 8; 0 text-cue items | **CI CROPS ADOPTED / FINAL CI PENDING** | `feature/marrow-manual-images-20260928` from `e6fb3f813eb2c49a5220eec774ae60e551a7169f` |
 | `manual-physiology-ch03-07-20260928` | ChatGPT manual lane, this user thread | Physiology Chapters 3–7, all source visuals and visual text cues | 49 unresolved references across 39 questions: Ch3 5, Ch4 2, Ch5 2, Ch6 7, Ch7 33; 0 text-cue items | **CLAIMED / IN PROGRESS** | `manual/physiology-images-ch03-07-20260928` from the canonical claim commit |
 
 The 22 reference IDs for `manual-biochem-ch25-28-20260928` are the unresolved
@@ -73,6 +73,6 @@ coverage SHA-256
 | 6 | 7 | 0 | 0 | 7 | Source pages 94–109; historical fast-lane donor evidence exists |
 | 7 | 33 | 0 | 0 | 33 | Source pages 137–158; first 24 unresolved refs have historical donor evidence, final 9 require fresh review |
 
-Batch candidate currently stages 16 PASS references, 5 REVIEW_REQUIRED references and 1 evidence-backed SOURCE_METADATA_INVALID reference; all 22 starting references are tracked. Static local image/progress/coverage checks passed. The candidate is not complete until Ubuntu source-region render artifacts and exact-head Engineering plus full Android/PWA/browser/APK/package CI pass, after which the batch must be reconciled to canonical.
+Batch candidate currently stages 16 PASS references, 5 REVIEW_REQUIRED references and 1 evidence-backed SOURCE_METADATA_INVALID reference; all 22 starting references are tracked. Static local image/progress/coverage checks passed. All eight region-render references now use the exact source crops from Ubuntu build run `36415941717`, inspected at native and expanded size and tied to the source PDF hash. The candidate is not complete until Engineering and full Android/PWA/browser/APK/package CI pass on the resulting exact commit, after which the batch must be reconciled to canonical.
 
 Status is a live work log, not a claim that these images are already integrated. Each owner updates it with evidence and exact verification results as work lands.
