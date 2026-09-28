@@ -18113,6 +18113,636 @@
         "productionSha256": "9ab2065806c9a2ec583c089cdad7cd58ccbbe4521af0090d30b0e46d44b889f0",
         "evidence": "Source page 971, xref 2721, region [162.0, 56.0, 450.0, 272.0] matched to source render and original stream SHA-256 9ab2065806c9a2ec583c089cdad7cd58ccbbe4521af0090d30b0e46d44b889f0 in CI run 36431980518."
       }
+    },
+    {
+      "id": "anatomy-ch52-b66780b34be7bbea",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 972,
+        "xref": 2724,
+        "region": [
+          162.0,
+          176.0,
+          450.0,
+          392.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH52_Q001",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "wave2-anatomy-ch45-63",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 972, xref 2724; figure content and labels match the assigned question reference. Original JPEG bytes are retained without pixel edits.",
+            "evidence": "Source Anatomy_ed8.pdf page 972, xref 2724, region [162.0, 176.0, 450.0, 392.0]; CI region render from run 36431980518; native JPEG SHA-256 b66780b34be7bbea4fb757dce434e9426393307f543cab532fa0d6dd96e686e4."
+          },
+          "source": {
+            "page": 972,
+            "xref": 2724,
+            "region": [
+              162.0,
+              176.0,
+              450.0,
+              392.0
+            ]
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b66780b34be7bbea4fb757dce434e9426393307f543cab532fa0d6dd96e686e4.jpg",
+        "sha256": "b66780b34be7bbea4fb757dce434e9426393307f543cab532fa0d6dd96e686e4",
+        "width": 720,
+        "height": 791
+      },
+      "production": {
+        "path": "data/marrow/images/originals/b66780b34be7bbea4fb757dce434e9426393307f543cab532fa0d6dd96e686e4.jpg",
+        "sha256": "b66780b34be7bbea4fb757dce434e9426393307f543cab532fa0d6dd96e686e4",
+        "width": 720,
+        "height": 791
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 972, xref 2724; figure content and labels match the assigned question reference. Original JPEG bytes are retained without pixel edits.",
+        "evidence": "Source Anatomy_ed8.pdf page 972, xref 2724, region [162.0, 176.0, 450.0, 392.0]; CI region render from run 36431980518; native JPEG SHA-256 b66780b34be7bbea4fb757dce434e9426393307f543cab532fa0d6dd96e686e4.",
+        "originalSha256": "b66780b34be7bbea4fb757dce434e9426393307f543cab532fa0d6dd96e686e4",
+        "productionSha256": "b66780b34be7bbea4fb757dce434e9426393307f543cab532fa0d6dd96e686e4"
+      }
+    },
+    {
+      "id": "anatomy-ch52-b22bbb385b7979ea",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 973,
+        "xref": 2727,
+        "region": [
+          162.0,
+          278.0,
+          450.0,
+          494.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH52_Q004",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "wave2-anatomy-ch45-63",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 973, xref 2727; figure content and labels match the assigned question reference. Original JPEG bytes are retained without pixel edits.",
+            "evidence": "Source Anatomy_ed8.pdf page 973, xref 2727, region [162.0, 278.0, 450.0, 494.0]; CI region render from run 36431980518; native JPEG SHA-256 b22bbb385b7979ea1851fae8907c8e80960d92d7804a1e0f9b75452d387ac475."
+          },
+          "source": {
+            "page": 973,
+            "xref": 2727,
+            "region": [
+              162.0,
+              278.0,
+              450.0,
+              494.0
+            ]
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b22bbb385b7979ea1851fae8907c8e80960d92d7804a1e0f9b75452d387ac475.jpg",
+        "sha256": "b22bbb385b7979ea1851fae8907c8e80960d92d7804a1e0f9b75452d387ac475",
+        "width": 720,
+        "height": 730
+      },
+      "production": {
+        "path": "data/marrow/images/originals/b22bbb385b7979ea1851fae8907c8e80960d92d7804a1e0f9b75452d387ac475.jpg",
+        "sha256": "b22bbb385b7979ea1851fae8907c8e80960d92d7804a1e0f9b75452d387ac475",
+        "width": 720,
+        "height": 730
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 973, xref 2727; figure content and labels match the assigned question reference. Original JPEG bytes are retained without pixel edits.",
+        "evidence": "Source Anatomy_ed8.pdf page 973, xref 2727, region [162.0, 278.0, 450.0, 494.0]; CI region render from run 36431980518; native JPEG SHA-256 b22bbb385b7979ea1851fae8907c8e80960d92d7804a1e0f9b75452d387ac475.",
+        "originalSha256": "b22bbb385b7979ea1851fae8907c8e80960d92d7804a1e0f9b75452d387ac475",
+        "productionSha256": "b22bbb385b7979ea1851fae8907c8e80960d92d7804a1e0f9b75452d387ac475"
+      }
+    },
+    {
+      "id": "anatomy-ch52-1a0ade1ab6cec4fc",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 982,
+        "xref": 2749,
+        "region": [
+          162.0,
+          320.0,
+          450.0,
+          536.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH52_Q004",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Anatomy explanation figure",
+          "status": "PASS",
+          "reviewBatch": "wave2-anatomy-ch45-63",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 982, xref 2749; figure content and labels match the assigned explanation reference. Original JPEG bytes are retained without pixel edits.",
+            "evidence": "Source Anatomy_ed8.pdf page 982, xref 2749, region [162.0, 320.0, 450.0, 536.0]; CI region render from run 36431980518; native JPEG SHA-256 1a0ade1ab6cec4fca28be15e8cbd232961c183ecb231a35d118cc73c54f0ae55."
+          },
+          "source": {
+            "page": 982,
+            "xref": 2749,
+            "region": [
+              162.0,
+              320.0,
+              450.0,
+              536.0
+            ]
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/1a0ade1ab6cec4fca28be15e8cbd232961c183ecb231a35d118cc73c54f0ae55.jpg",
+        "sha256": "1a0ade1ab6cec4fca28be15e8cbd232961c183ecb231a35d118cc73c54f0ae55",
+        "width": 576,
+        "height": 589
+      },
+      "production": {
+        "path": "data/marrow/images/originals/1a0ade1ab6cec4fca28be15e8cbd232961c183ecb231a35d118cc73c54f0ae55.jpg",
+        "sha256": "1a0ade1ab6cec4fca28be15e8cbd232961c183ecb231a35d118cc73c54f0ae55",
+        "width": 576,
+        "height": 589
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 982, xref 2749; figure content and labels match the assigned explanation reference. Original JPEG bytes are retained without pixel edits.",
+        "evidence": "Source Anatomy_ed8.pdf page 982, xref 2749, region [162.0, 320.0, 450.0, 536.0]; CI region render from run 36431980518; native JPEG SHA-256 1a0ade1ab6cec4fca28be15e8cbd232961c183ecb231a35d118cc73c54f0ae55.",
+        "originalSha256": "1a0ade1ab6cec4fca28be15e8cbd232961c183ecb231a35d118cc73c54f0ae55",
+        "productionSha256": "1a0ade1ab6cec4fca28be15e8cbd232961c183ecb231a35d118cc73c54f0ae55"
+      }
+    },
+    {
+      "id": "anatomy-ch52-204dfa36930f419f",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 974,
+        "xref": 2730,
+        "region": [
+          162.0,
+          236.0,
+          450.0,
+          452.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH52_Q006",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "wave2-anatomy-ch45-63",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 974, xref 2730; figure content and labels match the assigned question reference. Original JPEG bytes are retained without pixel edits.",
+            "evidence": "Source Anatomy_ed8.pdf page 974, xref 2730, region [162.0, 236.0, 450.0, 452.0]; CI region render from run 36431980518; native JPEG SHA-256 204dfa36930f419f0713f9d51e3d584c7d3420943a76110b2bbef102d4a134f0."
+          },
+          "source": {
+            "page": 974,
+            "xref": 2730,
+            "region": [
+              162.0,
+              236.0,
+              450.0,
+              452.0
+            ]
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/204dfa36930f419f0713f9d51e3d584c7d3420943a76110b2bbef102d4a134f0.jpg",
+        "sha256": "204dfa36930f419f0713f9d51e3d584c7d3420943a76110b2bbef102d4a134f0",
+        "width": 720,
+        "height": 785
+      },
+      "production": {
+        "path": "data/marrow/images/originals/204dfa36930f419f0713f9d51e3d584c7d3420943a76110b2bbef102d4a134f0.jpg",
+        "sha256": "204dfa36930f419f0713f9d51e3d584c7d3420943a76110b2bbef102d4a134f0",
+        "width": 720,
+        "height": 785
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 974, xref 2730; figure content and labels match the assigned question reference. Original JPEG bytes are retained without pixel edits.",
+        "evidence": "Source Anatomy_ed8.pdf page 974, xref 2730, region [162.0, 236.0, 450.0, 452.0]; CI region render from run 36431980518; native JPEG SHA-256 204dfa36930f419f0713f9d51e3d584c7d3420943a76110b2bbef102d4a134f0.",
+        "originalSha256": "204dfa36930f419f0713f9d51e3d584c7d3420943a76110b2bbef102d4a134f0",
+        "productionSha256": "204dfa36930f419f0713f9d51e3d584c7d3420943a76110b2bbef102d4a134f0"
+      }
+    },
+    {
+      "id": "anatomy-ch52-60d0ac1cadd9f721",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 984,
+        "xref": 2754,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH52_Q006",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Anatomy explanation figure",
+          "status": "PASS",
+          "reviewBatch": "wave2-anatomy-ch45-63",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 984, xref 2754; figure content and labels match the assigned explanation reference. Original JPEG bytes are retained without pixel edits.",
+            "evidence": "Source Anatomy_ed8.pdf page 984, xref 2754, region [162.0, 56.0, 450.0, 272.0]; CI region render from run 36431980518; native JPEG SHA-256 60d0ac1cadd9f7219802a220493f5785d50a4bb377528b0ba22b63f39e9cf6c4."
+          },
+          "source": {
+            "page": 984,
+            "xref": 2754,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/60d0ac1cadd9f7219802a220493f5785d50a4bb377528b0ba22b63f39e9cf6c4.jpg",
+        "sha256": "60d0ac1cadd9f7219802a220493f5785d50a4bb377528b0ba22b63f39e9cf6c4",
+        "width": 576,
+        "height": 658
+      },
+      "production": {
+        "path": "data/marrow/images/originals/60d0ac1cadd9f7219802a220493f5785d50a4bb377528b0ba22b63f39e9cf6c4.jpg",
+        "sha256": "60d0ac1cadd9f7219802a220493f5785d50a4bb377528b0ba22b63f39e9cf6c4",
+        "width": 576,
+        "height": 658
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 984, xref 2754; figure content and labels match the assigned explanation reference. Original JPEG bytes are retained without pixel edits.",
+        "evidence": "Source Anatomy_ed8.pdf page 984, xref 2754, region [162.0, 56.0, 450.0, 272.0]; CI region render from run 36431980518; native JPEG SHA-256 60d0ac1cadd9f7219802a220493f5785d50a4bb377528b0ba22b63f39e9cf6c4.",
+        "originalSha256": "60d0ac1cadd9f7219802a220493f5785d50a4bb377528b0ba22b63f39e9cf6c4",
+        "productionSha256": "60d0ac1cadd9f7219802a220493f5785d50a4bb377528b0ba22b63f39e9cf6c4"
+      }
+    },
+    {
+      "id": "anatomy-ch52-5ee9850a41f52f67",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 986,
+        "xref": 2760,
+        "region": [
+          162.0,
+          335.0,
+          450.0,
+          551.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH52_Q009",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anatomy explanation figure",
+          "status": "PASS",
+          "reviewBatch": "wave2-anatomy-ch45-63",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 986, xref 2760; figure content and labels match the assigned explanation reference. Original JPEG bytes are retained without pixel edits.",
+            "evidence": "Source Anatomy_ed8.pdf page 986, xref 2760, region [162.0, 335.0, 450.0, 551.0]; CI region render from run 36431980518; native JPEG SHA-256 5ee9850a41f52f6708f7ae0364b816e02e85827f0d306d36de930dd73795801c."
+          },
+          "source": {
+            "page": 986,
+            "xref": 2760,
+            "region": [
+              162.0,
+              335.0,
+              450.0,
+              551.0
+            ]
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/5ee9850a41f52f6708f7ae0364b816e02e85827f0d306d36de930dd73795801c.jpg",
+        "sha256": "5ee9850a41f52f6708f7ae0364b816e02e85827f0d306d36de930dd73795801c",
+        "width": 600,
+        "height": 574
+      },
+      "production": {
+        "path": "data/marrow/images/originals/5ee9850a41f52f6708f7ae0364b816e02e85827f0d306d36de930dd73795801c.jpg",
+        "sha256": "5ee9850a41f52f6708f7ae0364b816e02e85827f0d306d36de930dd73795801c",
+        "width": 600,
+        "height": 574
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 986, xref 2760; figure content and labels match the assigned explanation reference. Original JPEG bytes are retained without pixel edits.",
+        "evidence": "Source Anatomy_ed8.pdf page 986, xref 2760, region [162.0, 335.0, 450.0, 551.0]; CI region render from run 36431980518; native JPEG SHA-256 5ee9850a41f52f6708f7ae0364b816e02e85827f0d306d36de930dd73795801c.",
+        "originalSha256": "5ee9850a41f52f6708f7ae0364b816e02e85827f0d306d36de930dd73795801c",
+        "productionSha256": "5ee9850a41f52f6708f7ae0364b816e02e85827f0d306d36de930dd73795801c"
+      }
+    },
+    {
+      "id": "anatomy-ch52-102cfa7eea1b9908",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 976,
+        "xref": 2735,
+        "region": [
+          162.0,
+          140.0,
+          450.0,
+          356.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH52_Q012",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "wave2-anatomy-ch45-63",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 976, xref 2735; figure content and labels match the assigned question reference. Original JPEG bytes are retained without pixel edits.",
+            "evidence": "Source Anatomy_ed8.pdf page 976, xref 2735, region [162.0, 140.0, 450.0, 356.0]; CI region render from run 36431980518; native JPEG SHA-256 102cfa7eea1b9908ef6c9f8ed4532ca32ad280c33b30fd022c1a11a66cba2752."
+          },
+          "source": {
+            "page": 976,
+            "xref": 2735,
+            "region": [
+              162.0,
+              140.0,
+              450.0,
+              356.0
+            ]
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/102cfa7eea1b9908ef6c9f8ed4532ca32ad280c33b30fd022c1a11a66cba2752.jpg",
+        "sha256": "102cfa7eea1b9908ef6c9f8ed4532ca32ad280c33b30fd022c1a11a66cba2752",
+        "width": 720,
+        "height": 886
+      },
+      "production": {
+        "path": "data/marrow/images/originals/102cfa7eea1b9908ef6c9f8ed4532ca32ad280c33b30fd022c1a11a66cba2752.jpg",
+        "sha256": "102cfa7eea1b9908ef6c9f8ed4532ca32ad280c33b30fd022c1a11a66cba2752",
+        "width": 720,
+        "height": 886
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 976, xref 2735; figure content and labels match the assigned question reference. Original JPEG bytes are retained without pixel edits.",
+        "evidence": "Source Anatomy_ed8.pdf page 976, xref 2735, region [162.0, 140.0, 450.0, 356.0]; CI region render from run 36431980518; native JPEG SHA-256 102cfa7eea1b9908ef6c9f8ed4532ca32ad280c33b30fd022c1a11a66cba2752.",
+        "originalSha256": "102cfa7eea1b9908ef6c9f8ed4532ca32ad280c33b30fd022c1a11a66cba2752",
+        "productionSha256": "102cfa7eea1b9908ef6c9f8ed4532ca32ad280c33b30fd022c1a11a66cba2752"
+      }
+    },
+    {
+      "id": "anatomy-ch52-b32748a7683c18c5",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 989,
+        "xref": 2769,
+        "region": [
+          162.0,
+          152.0,
+          450.0,
+          368.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH52_Q012",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Anatomy explanation figure",
+          "status": "PASS",
+          "reviewBatch": "wave2-anatomy-ch45-63",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 989, xref 2769; figure content and labels match the assigned explanation reference. Original JPEG bytes are retained without pixel edits.",
+            "evidence": "Source Anatomy_ed8.pdf page 989, xref 2769, region [162.0, 152.0, 450.0, 368.0]; CI region render from run 36431980518; native JPEG SHA-256 b32748a7683c18c5120fb4ed9598c36ec81f89bc4ab34e2482bcf94fe05cad82."
+          },
+          "source": {
+            "page": 989,
+            "xref": 2769,
+            "region": [
+              162.0,
+              152.0,
+              450.0,
+              368.0
+            ]
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b32748a7683c18c5120fb4ed9598c36ec81f89bc4ab34e2482bcf94fe05cad82.jpg",
+        "sha256": "b32748a7683c18c5120fb4ed9598c36ec81f89bc4ab34e2482bcf94fe05cad82",
+        "width": 575,
+        "height": 707
+      },
+      "production": {
+        "path": "data/marrow/images/originals/b32748a7683c18c5120fb4ed9598c36ec81f89bc4ab34e2482bcf94fe05cad82.jpg",
+        "sha256": "b32748a7683c18c5120fb4ed9598c36ec81f89bc4ab34e2482bcf94fe05cad82",
+        "width": 575,
+        "height": 707
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 989, xref 2769; figure content and labels match the assigned explanation reference. Original JPEG bytes are retained without pixel edits.",
+        "evidence": "Source Anatomy_ed8.pdf page 989, xref 2769, region [162.0, 152.0, 450.0, 368.0]; CI region render from run 36431980518; native JPEG SHA-256 b32748a7683c18c5120fb4ed9598c36ec81f89bc4ab34e2482bcf94fe05cad82.",
+        "originalSha256": "b32748a7683c18c5120fb4ed9598c36ec81f89bc4ab34e2482bcf94fe05cad82",
+        "productionSha256": "b32748a7683c18c5120fb4ed9598c36ec81f89bc4ab34e2482bcf94fe05cad82"
+      }
+    },
+    {
+      "id": "anatomy-ch52-31d5a96cf76df463",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 991,
+        "xref": 2776,
+        "region": [
+          162.0,
+          245.0,
+          450.0,
+          461.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH52_Q015",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anatomy explanation figure",
+          "status": "PASS",
+          "reviewBatch": "wave2-anatomy-ch45-63",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 991, xref 2776; figure content and labels match the assigned explanation reference. Original JPEG bytes are retained without pixel edits.",
+            "evidence": "Source Anatomy_ed8.pdf page 991, xref 2776, region [162.0, 245.0, 450.0, 461.0]; CI region render from run 36431980518; native JPEG SHA-256 31d5a96cf76df4630e48ed4a1c736cfbeb17b618ae81ef6bfdddc3471ef9e2ea."
+          },
+          "source": {
+            "page": 991,
+            "xref": 2776,
+            "region": [
+              162.0,
+              245.0,
+              450.0,
+              461.0
+            ]
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/31d5a96cf76df4630e48ed4a1c736cfbeb17b618ae81ef6bfdddc3471ef9e2ea.jpg",
+        "sha256": "31d5a96cf76df4630e48ed4a1c736cfbeb17b618ae81ef6bfdddc3471ef9e2ea",
+        "width": 576,
+        "height": 629
+      },
+      "production": {
+        "path": "data/marrow/images/originals/31d5a96cf76df4630e48ed4a1c736cfbeb17b618ae81ef6bfdddc3471ef9e2ea.jpg",
+        "sha256": "31d5a96cf76df4630e48ed4a1c736cfbeb17b618ae81ef6bfdddc3471ef9e2ea",
+        "width": 576,
+        "height": 629
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 991, xref 2776; figure content and labels match the assigned explanation reference. Original JPEG bytes are retained without pixel edits.",
+        "evidence": "Source Anatomy_ed8.pdf page 991, xref 2776, region [162.0, 245.0, 450.0, 461.0]; CI region render from run 36431980518; native JPEG SHA-256 31d5a96cf76df4630e48ed4a1c736cfbeb17b618ae81ef6bfdddc3471ef9e2ea.",
+        "originalSha256": "31d5a96cf76df4630e48ed4a1c736cfbeb17b618ae81ef6bfdddc3471ef9e2ea",
+        "productionSha256": "31d5a96cf76df4630e48ed4a1c736cfbeb17b618ae81ef6bfdddc3471ef9e2ea"
+      }
+    },
+    {
+      "id": "anatomy-ch52-69a5800f611381d3",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 994,
+        "xref": 2785,
+        "region": [
+          162.0,
+          260.0,
+          450.0,
+          476.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH52_Q020",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anatomy explanation figure",
+          "status": "PASS",
+          "reviewBatch": "wave2-anatomy-ch45-63",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 994, xref 2785; figure content and labels match the assigned explanation reference. Original JPEG bytes are retained without pixel edits.",
+            "evidence": "Source Anatomy_ed8.pdf page 994, xref 2785, region [162.0, 260.0, 450.0, 476.0]; CI region render from run 36431980518; native JPEG SHA-256 69a5800f611381d3fd843b3a99f3dba53ef00dc18add7e60c022488ef2762fa6."
+          },
+          "source": {
+            "page": 994,
+            "xref": 2785,
+            "region": [
+              162.0,
+              260.0,
+              450.0,
+              476.0
+            ]
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/69a5800f611381d3fd843b3a99f3dba53ef00dc18add7e60c022488ef2762fa6.jpg",
+        "sha256": "69a5800f611381d3fd843b3a99f3dba53ef00dc18add7e60c022488ef2762fa6",
+        "width": 600,
+        "height": 791
+      },
+      "production": {
+        "path": "data/marrow/images/originals/69a5800f611381d3fd843b3a99f3dba53ef00dc18add7e60c022488ef2762fa6.jpg",
+        "sha256": "69a5800f611381d3fd843b3a99f3dba53ef00dc18add7e60c022488ef2762fa6",
+        "width": 600,
+        "height": 791
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Manually compared the Ubuntu CI source-region render and immutable native JPEG for Anatomy page 994, xref 2785; figure content and labels match the assigned explanation reference. Original JPEG bytes are retained without pixel edits.",
+        "evidence": "Source Anatomy_ed8.pdf page 994, xref 2785, region [162.0, 260.0, 450.0, 476.0]; CI region render from run 36431980518; native JPEG SHA-256 69a5800f611381d3fd843b3a99f3dba53ef00dc18add7e60c022488ef2762fa6.",
+        "originalSha256": "69a5800f611381d3fd843b3a99f3dba53ef00dc18add7e60c022488ef2762fa6",
+        "productionSha256": "69a5800f611381d3fd843b3a99f3dba53ef00dc18add7e60c022488ef2762fa6"
+      }
     }
   ]
 }
