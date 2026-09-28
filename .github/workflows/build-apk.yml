@@ -104,6 +104,19 @@ jobs:
         run: python3 tools/enable_both_pdf_renderers.py
       - name: Install PDF mapping dependency
         run: python3 -m pip install --disable-pip-version-check PyMuPDF Pillow
+      - name: Render claimed Biochemistry batch regions on Ubuntu
+        if: ${{ hashFiles('data/marrow/images/recovery_checkpoints/manual_biochem_ch25_28_20260928.json') != '' }}
+        run: >-
+          python3 tools/render_marrow_manual_batch_regions.py
+          --checkpoint data/marrow/images/recovery_checkpoints/manual_biochem_ch25_28_20260928.json
+          --output build/marrow-manual-region-review
+      - name: Upload claimed Marrow source-region review
+        if: ${{ always() && hashFiles('build/marrow-manual-region-review/manifest.json') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: marrow-manual-biochem-ch25-28-regions
+          path: build/marrow-manual-region-review/
+          retention-days: 14
       - name: Require Linux PDF dependencies (never skip in CI)
         run: python3 tools/verification_preflight.py --require-pdf
       - name: Build exact Biochemistry solution map

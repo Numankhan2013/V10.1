@@ -80,6 +80,22 @@
       },
       "reason": "The canonical figure metadata duplicates the continuation of the Q21 text/vector cytoskeletal table and does not identify a raster image.",
       "evidence": "Manual source review workflow 34698354509, artifact manual-physiology-image-batch01-source-review: full rendered Physiology ED8 page 19 inspected against PHYS_CH01_Q021. The continuation rows are already preserved in the same structured table; the image audit reports zero native candidates."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH27_Q005:figure:1",
+      "questionId": "marrow__BIOCHEM_CH27_Q005",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "sourcePages": [
+        426
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "reason": "The canonical metadata names a lac-operon figure on page 426, but the full authoritative page contains the Q5 solution text and no Q5 visual. The similar figure on page 425 belongs to Q3 and cannot be substituted.",
+      "evidence": "data/marrow/images/recovery_checkpoints/manual_biochem_ch25_28_20260928.json; rendered biochemistryed8.pdf pages 425 and 426 compared with Q3, Q5 and Q7 solution boundaries on 2026-09-28; page 426 has no figure."
     }
   ]
 }

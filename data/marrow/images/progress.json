@@ -1,38 +1,38 @@
 {
   "schemaVersion": 1,
   "assets": {
-    "total": 166,
+    "total": 185,
     "byStatus": {
-      "PASS": 160,
+      "PASS": 175,
       "REJECTED": 2,
-      "REVIEW_REQUIRED": 2,
+      "REVIEW_REQUIRED": 6,
       "SOURCE_LIMITED": 2
     },
     "byKind": {
-      "diagram": 134,
+      "diagram": 151,
       "hybrid": 3,
-      "medical": 28,
+      "medical": 30,
       "table": 1
     },
     "byMethod": {
-      "native-jpeg-stream": 159,
-      "region-render": 3,
+      "native-jpeg-stream": 170,
+      "region-render": 11,
       "svg-reconstruction": 4
     }
   },
   "bindings": {
-    "total": 212,
+    "total": 232,
     "byStatus": {
-      "PASS": 184,
+      "PASS": 200,
       "REJECTED": 25,
-      "REVIEW_REQUIRED": 2,
+      "REVIEW_REQUIRED": 6,
       "SOURCE_LIMITED": 1
     },
     "releasedByRole": {
-      "explanation": 146,
-      "question": 39
+      "explanation": 161,
+      "question": 40
     },
-    "releasedQuestionCount": 170
+    "releasedQuestionCount": 185
   },
   "subjects": {
     "Anatomy": {
@@ -41,9 +41,9 @@
       "releasedQuestions": 64
     },
     "Biochemistry": {
-      "approvedAssets": 63,
-      "assets": 65,
-      "releasedQuestions": 66
+      "approvedAssets": 78,
+      "assets": 84,
+      "releasedQuestions": 81
     },
     "Physiology": {
       "approvedAssets": 36,
@@ -84,6 +84,11 @@
     "NKQ_BIOCHEM_COVERAGE_Q4_20260911": {
       "bindings": 1,
       "releasedBindings": 1
+    },
+    "manual-biochem-ch25-28-20260928": {
+      "bindings": 20,
+      "pendingBindings": 4,
+      "releasedBindings": 16
     },
     "pilot": {
       "bindings": 18,

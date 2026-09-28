@@ -1124,3 +1124,10 @@ Implemented approved recovery in existing transform owners: Topics separate path
 ## 2026-09-24 — User acceptance and canonical promotion
 
 - The user confirmed the repaired preview works and explicitly requested promotion. Promote the clean audit branch by fast-forward from canonical `13f5b7f`, keeping production untouched. Product checkpoint `b6dd246` passed Engineering `35967933879` and full Android/PWA/browser/APK run `35967933880`; subsequent audit commits changed only memory. Recheck the live canonical head before push and require canonical-head CI after push. Physical in-place APK/data-preservation and real-device sync remain separate.
+
+
+## 2026-09-28 — Manual Marrow Biochemistry image batch staged
+
+- Resumed the claimed `manual-biochem-ch25-28-20260928` batch from live canonical `14e455e`; kept the separate Physiology Ch3–7 ledger claim intact. Integrated stable source references across Ch25–28: 16 PASS, 5 held for focused review, and one Q27 Q5 source-metadata invalid adjudication; all 22 references are tracked. Coverage now reports Biochemistry 110 raw / 108 effective / 87 released / 2 invalid / 8 tracked-unreleased / 13 untracked / 31 visual text cues.
+- Local image validator/release, progress and coverage checks, image tests and `verify_local.py` passed before this continuation. Exact-head CI and canonical reconciliation remain pending.
+- Discovered the first staging helper had produced region crops with Poppler on Termux, contrary to the repository's Ubuntu-only `marrow_images.py render-region` rule. Added an Ubuntu build step that renders the eight exact checkpoint regions and uploads a manifest plus source crops for review. Do not call this batch complete until the bytes are replaced/adopted from that CI artifact and the full exact-head build passes. Production remains untouched.
