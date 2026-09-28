@@ -4,7 +4,14 @@
 
 ## Baseline and active work
 
-- Current candidate (2026-09-28): Add a full-page Find a question flow under
+- Current candidate (2026-09-28): A saved Practice result can start a correction
+  pass of its exact incorrect/unattempted IDs with blank answers. The first
+  result stays immutable; each correction saves separately and compares
+  corrected versus still-missed questions. The parent link survives Pause,
+  reload, account sync, and resume through the existing Practice checkpoint.
+  Targeted tests pass; full generated browser/APK/Android CI and preview are
+  pending. Production promotion remains deferred by the user.
+- User-reviewed candidate (2026-09-28): Find a question under
   More. It searches the exact ID, wording, options, and source topic across
   all six subject/bank combinations; filters use real subject, bank, attempts,
   and bookmarks. Results are bounded, and a result or the first 20 matches
@@ -13,8 +20,7 @@
   Engineering `36369902329` and full generated browser/PWA/APK/Android
   phone/tablet run `36369902634` pass. Preview
   `https://3e007c68.nk-qbank.pages.dev` serves the finder; physical review is
-  pending. Keep this phase on the preview branch; the user explicitly deferred
-  production promotion until later phases are reviewed.
+  pending. The user called it decent and requested the next learning phase.
 - Previous candidate (2026-09-27): Fix the account-switch failure after reset
   and sign-out. The one-account installation lock is replaced by per-account
   local snapshots of progress, sync queues, and subject preference. A switch

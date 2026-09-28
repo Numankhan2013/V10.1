@@ -71,6 +71,8 @@ required_order = [
     "tools/test_qbank_coverage_v1.py",
     "tools/apply_question_search_v1.py",
     "tools/test_question_search_v1.py",
+    "tools/apply_practice_correction_v1.py",
+    "tools/test_practice_correction_v1.py",
     "tools/verify_product_contract.py --stage generated",
     "tools/verify_cbt_invariants.py",
 ]
@@ -87,6 +89,7 @@ for marker in ("runs-on: ubuntu-latest", "actions/setup-python@", "PyMuPDF Pillo
                "tools/verify_question_presentation_browser.py",
                "tools/verify_revision_desk_browser.py",
                "tools/verify_question_search_browser.py",
+               "tools/verify_practice_correction_browser.py",
                "tools/verify_insights_focus_browser.py",
                "tools/verify_bank_aware_cbt_builder_browser.py",
                "tools/verify_pyq_exam_journey_browser.py",

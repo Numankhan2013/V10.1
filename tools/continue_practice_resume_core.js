@@ -68,11 +68,15 @@
     const sameTopic=Boolean(topicId)&&questions.every(q=>String(q.subject||subject)===subject&&String(q.bank||bank)===bank&&String(q.chapterId||'')===topicId);
     return {subject,bank,topicId:sameTopic?topicId:'',title:sameTopic?(nkTopicTitleForQuestion(first)||first.chapter||s?.title||'Practice'):String(s?.title||'Practice'),questionIds:ids};
   }
+  function nkPracticeCorrectionParent(s){
+    const saved=String(s?.practiceContext?.correctionOf||'');if(saved)return saved;
+    const context=String(s?.context||'');return context.startsWith('correction:')?context.slice('correction:'.length):'';
+  }
   function nkPracticePrepareSession(s){
     if(!nkPracticeResumeEligible(s))return null;
     if(!Array.isArray(s.sessionQuestionIds)||!s.sessionQuestionIds.length)s.sessionQuestionIds=[...(s.questionIds||[])].map(String);
     const identity=nkPracticeIdentity(s);
-    if(identity)s.practiceContext={subject:identity.subject,bank:identity.bank,topicId:identity.topicId,title:identity.title,questionIds:[...identity.questionIds]};
+    if(identity){const correctionOf=nkPracticeCorrectionParent(s);s.practiceContext={subject:identity.subject,bank:identity.bank,topicId:identity.topicId,title:identity.title,questionIds:[...identity.questionIds],...(correctionOf?{correctionOf}:{})};}
     return identity;
   }
   function nkPracticeRemainingIds(s){
@@ -165,7 +169,7 @@
     const mappedIndex=base.indexOf(current),savedIndex=Math.max(0,Math.min(base.length-1,Number(s.pausedIndex)||0));
     const targetIndex=mappedIndex>=0?mappedIndex:savedIndex;
     s.questionIds=[...base];s.index=targetIndex;s.lifecycle='active';s.resumedAt=Date.now();s.questionEnteredAt=Date.now();
-    if(identity)s.practiceContext={subject:identity.subject,bank:identity.bank,topicId:identity.topicId,title:identity.title,questionIds:[...base]};
+    if(identity)s.practiceContext={...s.practiceContext,subject:identity.subject,bank:identity.bank,topicId:identity.topicId,title:identity.title,questionIds:[...base]};
     nkPracticeStoreCheckpoint(nkPracticeBuildCheckpoint(s,'active'));
     if(saveState()===false){state=before;return false;}navigate('practice');
     if(!nkPracticeRemainingIds(s).length)setTimeout(()=>window.QB.openSessionReview?.(),0);
@@ -328,6 +332,7 @@
       let test=(state.tests||[]).find(item=>String(item.id)===testId);
       if(!test){test={id:testId,title:s.title,kind:'practice',questionIds:[...allIds],answers,questionTimes:qt,correct,incorrect,unattempted:Math.max(0,allIds.length-attempted),total:allIds.length,attempted,totalTimeMs:Object.values(qt).reduce((sum,value)=>sum+Number(value||0),0),createdAt:now,autoSubmitted:false};state.tests.push(test);state.tests=state.tests.slice(-100);}
       if(identity)test.practiceContext={subject:identity.subject,bank:identity.bank,topicId:identity.topicId,title:identity.title,questionIds:[...allIds],completed:complete};
+      const correctionOf=nkPracticeCorrectionParent(s);if(correctionOf)test.correctionOf=correctionOf;
       const checkpoint=nkPracticeBuildCheckpoint(s,'submitted');checkpoint.terminalAt=now;
       nkPracticeStoreCheckpoint(checkpoint);state.activeSession=null;
       if(saveState()===false){state=before;return false;}

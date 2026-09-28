@@ -254,6 +254,18 @@ assert.equal(submitExam(true),true);
 assert.equal(state.tests.at(-1).questionTimes.q1,60000);
 assert.equal(state.tests.at(-1).totalTimeMs,60000);
 
+// A correction pass keeps its parent link through a durable Pause and resume.
+assert.equal(startSession(['q1','q2'],'practice','Correction pass · 2 questions','correction:original-practice'),true);
+const correctionId=state.activeSession.id;
+assert.equal(state.activeSession.practiceContext.correctionOf,'original-practice');
+assert.equal(nkPausePractice(),true);
+assert.equal(state.normalPracticeCheckpoints.find(cp=>cp.sessionId===correctionId).context.correctionOf,'original-practice');
+state.activeSession=null;
+assert.equal(nkResumePracticeById(correctionId),true);
+assert.equal(state.activeSession.practiceContext.correctionOf,'original-practice');
+assert.equal(nkSubmitPracticeSession(),true);
+assert.equal(state.tests.at(-1).correctionOf,'original-practice');
+
 // Non-normal Practice modes keep their existing behavior.
 state.activeSession={mode:'practice',studyModuleId:'module-1',questionIds:['q1'],index:0,answers:{},submitted:{}};
 assert.equal(nkPausePractice(),false);

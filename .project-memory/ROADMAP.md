@@ -6,6 +6,12 @@ Check off only when build-verified **and** device-verified where UI is involved.
 
 ## Immediate (next 1–2 sessions)
 
+- [ ] Practice correction pass: use a saved Practice result's exact misses for
+      a fresh answer pass, preserve the first result, compare corrected versus
+      remaining misses, and retain the link through Pause/resume and sync.
+      Source, phone/tablet browser, packaged Android, and preview review are
+      required before acceptance. No new main navigation destination.
+
 - [ ] All-bank Find a question: search exact IDs, wording, options, and source
       topics across six subject/bank combinations; filter by subject, bank,
       unattempted, missed-before, or bookmarked; open exact Practice or a

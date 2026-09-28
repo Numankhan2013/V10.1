@@ -1771,3 +1771,19 @@ Implemented approved recovery in existing transform owners: Topics separate path
   assertions on phone/tablet. Preview
   `https://3e007c68.nk-qbank.pages.dev` returns HTTP 200 and serves the
   finder. Physical review remains pending. Production unchanged.
+
+## 2026-09-28 — Practice correction pass candidate
+
+- The user called the question finder decent and asked for a substantial
+  learning improvement without adding feature clutter. Research favored a
+  retrieval/feedback loop: a health-professions review found benefits for
+  distributed and retrieval practice in 43 of 63 experiments, and an anatomy
+  education guide describes repeated retrieval with feedback and later spaced
+  review. Existing FSRS handles later spacing; the missing step was a clear
+  correction path from a saved Practice result. See `DECISIONS.md`.
+- Added a result-level **Correct my misses** action using exact incorrect and
+  unattempted IDs; fresh answers, linked saved result, corrected/still-missed
+  comparison, and repeat pass for remaining misses. Original results remain
+  immutable. The link persists through normal Practice checkpoints and sync.
+  Targeted behavior, transform, and Pause/resume tests pass. Full CI, preview,
+  and physical review are pending; production remains unchanged.

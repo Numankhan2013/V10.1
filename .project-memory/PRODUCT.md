@@ -119,6 +119,12 @@ Prefer building over narrating.
   progress filters narrow results. Each result opens exact-ID Practice, and
   the first 20 matches can be practiced together. An active timed test stays
   intact. Results never reveal the answer before Practice submission.
+- **Practice correction (candidate):** A saved Practice result with incorrect
+  or unattempted questions offers a fresh pass on those exact IDs. The original
+  result and answers stay intact; the correction saves as its own Practice
+  result with a parent link and shows corrected versus still-missed counts.
+  Pause, reload, resume, review, FSRS scheduling, and account sync use the
+  existing engines. Correct this pass is not labelled permanent mastery.
 - **Custom Study Modules (V11.5 plus bank-aware candidate):** reusable sets from
   explicit subject/bank/topic scope + All/Unattempted/Wrong/Bookmarked/Mixed
   (seeded shuffle, Mixed weighted Wrong-heavy); source-labelled PYQ topics

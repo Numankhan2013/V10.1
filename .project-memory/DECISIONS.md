@@ -380,3 +380,16 @@ reconnect. This prevents normal updated clients from resurrecting their prior
 progress while retaining the authenticated Firebase account. Authentication UI
 uses one sign-in form and a distinct email → password/confirmation → create
 flow; account creation returns to sign-in rather than silently entering the app.
+
+## 28. Close Practice gaps through saved correction passes (2026-09-28)
+
+Use the existing saved Practice result as the evidence boundary: derive its
+incorrect and unattempted IDs, offer one fresh Practice pass, and keep the
+first result unchanged. Link the new result to its parent for a literal
+corrected/still-missed comparison. FSRS already schedules later retrieval;
+the correction pass addresses the missing immediate path from feedback to a
+new answer attempt. Do not call a correct correction-pass answer mastery or
+infer concept tags from source questions. Keep the action on Practice analysis,
+without a new navigation destination. The choice is supported by the
+[health-professions review of retrieval/distributed practice](https://pubmed.ncbi.nlm.nih.gov/37615780/)
+and the [clinical-anatomy education guide's successive-relearning model](https://pmc.ncbi.nlm.nih.gov/articles/PMC7379743/).
