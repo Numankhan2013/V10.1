@@ -43,6 +43,26 @@ registry SHA-256 `8e92e25daec03c566fdb34b66cadd28a85a8367c3081891a0e29b1c70ab554
 progress SHA-256 `281549a33e54235d8d3938617952976c50dc875cc3ff5fe4a2087b57ee02b1a2`;
 coverage SHA-256 `750d13c0590fadb3af158885ff605efbba9f7bfe37afaa83c74958027b74456`.
 
+### Wave 2 resume checkpoint (2026-09-29)
+
+Canonical `3a7420af` contains Worker 4's completed Biochemistry Ch1–24 and
+Physiology Ch8–43 batch. Its exact-head build and Android interaction run
+`36449078612` passed. The three Anatomy branches below remain separate and
+are still exclusively owned by their original workers; none is merged yet.
+
+| Batch | Pushed branch head at pause | Released refs | Tracked pending or invalid refs | Untracked refs | Next source work |
+| --- | --- | ---: | ---: | ---: | --- |
+| Anatomy Ch1–26 | `39d9a350` | 273 | 9 held | 50 | Native-candidate selection plus exact Ubuntu regions for composite/vector figures; source artifact from `36432679371` is in this worker's ignored cache. |
+| Anatomy Ch27–44 | `0291137d` | 125 | 112 held | 84 | Review Ch33–44 and the final Ch29 Q11 union crop; run `36448416847` passed and its artifact is available. |
+| Anatomy Ch45–63 | `a194e234` | 114 | 1 held, 1 invalid | 190 | Continue Ch52–63 and unresolved grouped figures from earlier chapters; source render/upload run `36431980518` passed. |
+
+These counts partition the 959 Anatomy references claimed by Wave 2 at the
+start: 512 released, 123 tracked pending or invalid, and 324 untracked at the pause.
+They are branch-local counts; do not add their shared registry/progress/coverage
+files together by copying one over another. Reconcile by stable reference and
+asset IDs into the live canonical branch, then regenerate derived files and run
+the repository checks. Production promotion remains deferred.
+
 Starting fingerprints for both claims: registry SHA-256
 `799f0c3ae5753f9321f46803871032f255a0548798c4884681f297a5eaa729a2`,
 progress SHA-256
