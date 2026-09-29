@@ -3770,7 +3770,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 248,
@@ -3784,7 +3784,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Held after source-page review: page 248/xref 3481 is a Hassall corpuscle histology image, but Q7 asks for a small-intestine structure marked X. Candidate does not match stem; no replacement selected."
+            "notes": "Rendered source question shows the prompt and its thymus histology image with Hassall corpuscle. Native xref 3481 matches the complete figure; question timing remains correct.",
+            "evidence": "Exact Anatomy source page 67, xref 3481, and rendered crop reviewed."
           }
         }
       ],
@@ -13831,7 +13832,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 214,
@@ -13845,7 +13846,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Held after comparing question stem with source image on page 214/xref 567: the visual is a bone osteon/lamellar bone image, while Q7 asks about cartilage. Source binding appears mismatched; no replacement selected."
+            "notes": "Rendered question context asks about lamellar bone and presents the matching lamellar-bone micrograph with the arrowed structure. Native xref 567 matches.",
+            "evidence": "Exact Anatomy source page 214, xref 567, and rendered crop reviewed."
           }
         }
       ],
@@ -14101,7 +14103,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 217,
@@ -14115,7 +14117,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Held after comparing question stem with source image on page 217/xref 576: the visual is cartilage histology, while Q14 asks to identify muscle tissue. Source binding appears mismatched; no replacement selected."
+            "notes": "Rendered question asks about the cartilage type shown; source xref 576 is the corresponding cartilage micrograph and remains in the question role.",
+            "evidence": "Exact Anatomy source page 217, xref 576, and rendered crop reviewed."
           }
         }
       ],
@@ -16275,7 +16278,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 291,
@@ -16289,7 +16292,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Held after source comparison: the question metadata expects corneal histology marked X and Y, but page 291/xref 803 is the apocrine secretion schematic also used for Q13. Candidate does not match the question; no substitute selected."
+            "notes": "Rendered question asks for the gland type shown; the image presents exocrine gland secretion patterns, matching the prompt. Native xref 803 matches.",
+            "evidence": "Exact Anatomy source page 291, xref 803, and rendered crop reviewed."
           }
         }
       ],
@@ -16482,8 +16486,8 @@
           "questionId": "marrow__ANAT_CH16_Q017",
           "role": "explanation",
           "order": 1,
-          "alt": "Semicircular canal ampulla/crista diagram",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Cochlear cross-section showing the organ of Corti",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 304,
@@ -16497,7 +16501,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Held after source comparison: the explanation metadata expects a semicircular canal ampulla/crista diagram, but page 304/xref 846 is a cochlear compartments illustration already associated with Q16. Candidate does not match the figure title; no substitute selected."
+            "notes": "Rendered explanation identifies the cochlear cross-section and organ of Corti; native xref 846 confirms this is cochlea, not a semicircular canal.",
+            "evidence": "Exact Anatomy source page 304, xref 846, and rendered crop reviewed."
           }
         }
       ],
@@ -18661,7 +18666,7 @@
           "role": "question",
           "order": 1,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 370,
@@ -18675,7 +18680,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Held: cited source p370/xref1033 is the same sagittal corpus-callosum specimen with rostrum marker used for Q4; it does not depict the infantile-spasms clinical image claimed by this binding."
+            "notes": "Rendered question context presents the sagittal brain section with region A marked, matching the question prompt. Native xref 1033 matches.",
+            "evidence": "Exact Anatomy source page 370, xref 1033, and rendered crop reviewed."
           }
         }
       ],
@@ -19278,6 +19284,28 @@
           "qa": {
             "sourceCompared": true,
             "notes": "Rendered source context and native JPEG confirm the figure identity, crop, and explanation/question role."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH26_Q016",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Coronal brain section with putamen labeled",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 454,
+            "xref": 3664,
+            "region": [
+              162.0,
+              272.0,
+              450.0,
+              488.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Compared native JPEG with Ubuntu-rendered source context for reference marrow__ANAT_CH26_Q016:figure:1; figure boundaries, identity, and explanation role are consistent."
           }
         }
       ],
@@ -19948,8 +19976,8 @@
           "questionId": "marrow__ANAT_CH25_Q003",
           "role": "explanation",
           "order": 1,
-          "alt": "Normal versus cerebellar atrophy MRI",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Cerebellar nuclei diagram",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 429,
@@ -19963,7 +19991,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Held: p429/xref1198 shows the cerebellar nuclei diagram, matching Q2; it does not show the normal-versus-atrophy MRI described by Q3."
+            "notes": "Rendered explanation shows the cerebellar nuclei ordered lateral to medial; native xref 1198 matches the adjacent explanation text.",
+            "evidence": "Exact Anatomy source page 429, xref 1198, and rendered crop reviewed."
           }
         }
       ],
@@ -20449,7 +20478,7 @@
           "role": "question",
           "order": 2,
           "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 437,
@@ -20463,7 +20492,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Held: p437/xref1220 native image is the visual-field defect diagram for Q8, not the marked posterior cerebral artery visual described by Q10."
+            "notes": "Rendered question asks about the visual-field defect marked in the paired plots; native xref 1220 matches the question image.",
+            "evidence": "Exact Anatomy source page 437, xref 1220, and rendered crop reviewed."
           }
         }
       ],
@@ -20610,6 +20640,28 @@
           "qa": {
             "sourceCompared": true,
             "notes": "Rendered source context and native JPEG confirm the figure identity, crop, and explanation/question role."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH26_Q004",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Circle of Willis diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 445,
+            "xref": 3700,
+            "region": [
+              162.0,
+              413.0,
+              450.0,
+              629.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Compared extracted native JPEG with the exact second Circle of Willis occurrence on the Ubuntu-rendered page; the duplicated image placement directly accompanies this explanation."
           }
         }
       ],
@@ -25534,7 +25586,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Source explanation figure",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch01-26",
           "source": {
             "page": 220,
@@ -25548,7 +25600,8 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Held because source image content does not match the descriptive cue for Q2 figure 1."
+            "notes": "Rendered explanation connects osteogenic cells with bone-cell types; native xref 585 matches the lineage figure.",
+            "evidence": "Exact Anatomy source page 220, xref 585, and rendered crop reviewed."
           }
         }
       ],
@@ -25565,10 +25618,10 @@
         "height": 476
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
         "sourceCompared": true,
-        "notes": "Held: cited source candidates on p220 show bone marrow/bone cell diagrams, not the osteoprogenitor and osteoblast light micrographs stated by this visual metadata.",
+        "notes": "Native original pixels were compared with the cited Ubuntu page region and explanation/question sequence.",
         "originalSha256": "425b246769d6ebb4ca44b0b182bfbdc174d71859c8629c557cfead48187ccf0b",
         "productionSha256": "425b246769d6ebb4ca44b0b182bfbdc174d71859c8629c557cfead48187ccf0b"
       }
@@ -28486,6 +28539,28 @@
             "sourceCompared": true,
             "notes": "Native source figure and explanation role confirmed for Circle of Willis posterior communicating arteries."
           }
+        },
+        {
+          "questionId": "marrow__ANAT_CH26_Q014",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Circle of Willis diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 453,
+            "xref": 3701,
+            "region": [
+              162.0,
+              218.0,
+              450.0,
+              434.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Compared native JPEG with Ubuntu-rendered source context for reference marrow__ANAT_CH26_Q014:figure:1; figure boundaries, identity, and explanation role are consistent."
+          }
         }
       ],
       "original": {
@@ -29065,6 +29140,1060 @@
         "notes": "Native JPEG compared with the cited source image for marrow__ANAT_CH25_Q008:figure:2; content matches the figure description.",
         "originalSha256": "4b31786bbfc2b027449492b77008ca820ec58e8cbdb77e678098aaa83381fd85",
         "productionSha256": "4b31786bbfc2b027449492b77008ca820ec58e8cbdb77e678098aaa83381fd85"
+      }
+    },
+    {
+      "id": "anatomy-cc15872830dc1fe3",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 231,
+        "xref": 618,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH13_Q003",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 231,
+            "xref": 618,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Page 231, xref 618 follows the question prompt and shows Peripheral nerve biopsy histology; role is question."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/cc15872830dc1fe3be51e75d264819142b699bdddaecae374d48aa7a8bb22d53.jpg",
+        "sha256": "cc15872830dc1fe3be51e75d264819142b699bdddaecae374d48aa7a8bb22d53",
+        "width": 720,
+        "height": 706
+      },
+      "production": {
+        "path": "data/marrow/images/originals/cc15872830dc1fe3be51e75d264819142b699bdddaecae374d48aa7a8bb22d53.jpg",
+        "sha256": "cc15872830dc1fe3be51e75d264819142b699bdddaecae374d48aa7a8bb22d53",
+        "width": 720,
+        "height": 706
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact native medical JPEG at page 231, xref 618; visual content matches Peripheral nerve biopsy histology.",
+        "originalSha256": "cc15872830dc1fe3be51e75d264819142b699bdddaecae374d48aa7a8bb22d53",
+        "productionSha256": "cc15872830dc1fe3be51e75d264819142b699bdddaecae374d48aa7a8bb22d53"
+      }
+    },
+    {
+      "id": "anatomy-9879b520aadadbc5",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 234,
+        "xref": 627,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH13_Q010",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 234,
+            "xref": 627,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Page 234, xref 627 follows the question prompt and shows Thyroid histology marked X; role is question."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/9879b520aadadbc5f71b469e14b1e94042a3b4fe63df074cbb3c026e79469c93.jpg",
+        "sha256": "9879b520aadadbc5f71b469e14b1e94042a3b4fe63df074cbb3c026e79469c93",
+        "width": 720,
+        "height": 628
+      },
+      "production": {
+        "path": "data/marrow/images/originals/9879b520aadadbc5f71b469e14b1e94042a3b4fe63df074cbb3c026e79469c93.jpg",
+        "sha256": "9879b520aadadbc5f71b469e14b1e94042a3b4fe63df074cbb3c026e79469c93",
+        "width": 720,
+        "height": 628
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact native medical JPEG at page 234, xref 627; visual content matches Thyroid histology marked X.",
+        "originalSha256": "9879b520aadadbc5f71b469e14b1e94042a3b4fe63df074cbb3c026e79469c93",
+        "productionSha256": "9879b520aadadbc5f71b469e14b1e94042a3b4fe63df074cbb3c026e79469c93"
+      }
+    },
+    {
+      "id": "anatomy-2e629c1e08fcdb49",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 311,
+        "xref": 3610,
+        "region": [
+          162.0,
+          520.0,
+          450.0,
+          736.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH17_Q018",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 311,
+            "xref": 3610,
+            "region": [
+              162.0,
+              520.0,
+              450.0,
+              736.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Page 311, xref 3610 follows the question prompt and shows Clinical image of oculomotor palsy; role is question."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/2e629c1e08fcdb49c5293a3ce1bf35f7e051e47f25dfa5d8c6230df95951ec77.jpg",
+        "sha256": "2e629c1e08fcdb49c5293a3ce1bf35f7e051e47f25dfa5d8c6230df95951ec77",
+        "width": 720,
+        "height": 430
+      },
+      "production": {
+        "path": "data/marrow/images/originals/2e629c1e08fcdb49c5293a3ce1bf35f7e051e47f25dfa5d8c6230df95951ec77.jpg",
+        "sha256": "2e629c1e08fcdb49c5293a3ce1bf35f7e051e47f25dfa5d8c6230df95951ec77",
+        "width": 720,
+        "height": 430
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact native medical JPEG at page 311, xref 3610; visual content matches Clinical image of oculomotor palsy.",
+        "originalSha256": "2e629c1e08fcdb49c5293a3ce1bf35f7e051e47f25dfa5d8c6230df95951ec77",
+        "productionSha256": "2e629c1e08fcdb49c5293a3ce1bf35f7e051e47f25dfa5d8c6230df95951ec77"
+      }
+    },
+    {
+      "id": "anatomy-46e4bca219a1759f",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 297,
+        "xref": 824,
+        "region": [
+          162.0,
+          447.0,
+          450.0,
+          663.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH16_Q006",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 297,
+            "xref": 824,
+            "region": [
+              162.0,
+              447.0,
+              450.0,
+              663.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Compared native JPEG with Ubuntu-rendered source context for reference marrow__ANAT_CH16_Q006:figure:1; figure boundaries, identity, and explanation role are consistent."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/46e4bca219a1759fe1440aa501bfa375c064acd821471306b27bb23b77183da4.jpg",
+        "sha256": "46e4bca219a1759fe1440aa501bfa375c064acd821471306b27bb23b77183da4",
+        "width": 576,
+        "height": 456
+      },
+      "production": {
+        "path": "data/marrow/images/originals/46e4bca219a1759fe1440aa501bfa375c064acd821471306b27bb23b77183da4.jpg",
+        "sha256": "46e4bca219a1759fe1440aa501bfa375c064acd821471306b27bb23b77183da4",
+        "width": 576,
+        "height": 456
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Compared native JPEG bytes with exact Ubuntu source page crop and verified ownership, visual identity, boundaries, and role.",
+        "originalSha256": "46e4bca219a1759fe1440aa501bfa375c064acd821471306b27bb23b77183da4",
+        "productionSha256": "46e4bca219a1759fe1440aa501bfa375c064acd821471306b27bb23b77183da4"
+      }
+    },
+    {
+      "id": "anatomy-e86674b659da4404",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 407,
+        "xref": 1135,
+        "region": [
+          162.0,
+          520.0,
+          450.0,
+          736.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH24_Q010",
+          "role": "question",
+          "order": 2,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 407,
+            "xref": 1135,
+            "region": [
+              162.0,
+              520.0,
+              450.0,
+              736.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Compared native JPEG with Ubuntu-rendered source context for reference marrow__ANAT_CH24_Q010:figure:2; figure boundaries, identity, and question role are consistent."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/e86674b659da44043981279362e2b94a67da295b25e5449bbeb66c9f8a11b8ea.jpg",
+        "sha256": "e86674b659da44043981279362e2b94a67da295b25e5449bbeb66c9f8a11b8ea",
+        "width": 720,
+        "height": 587
+      },
+      "production": {
+        "path": "data/marrow/images/originals/e86674b659da44043981279362e2b94a67da295b25e5449bbeb66c9f8a11b8ea.jpg",
+        "sha256": "e86674b659da44043981279362e2b94a67da295b25e5449bbeb66c9f8a11b8ea",
+        "width": 720,
+        "height": 587
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Compared native JPEG bytes with exact Ubuntu source page crop and verified ownership, visual identity, boundaries, and role.",
+        "originalSha256": "e86674b659da44043981279362e2b94a67da295b25e5449bbeb66c9f8a11b8ea",
+        "productionSha256": "e86674b659da44043981279362e2b94a67da295b25e5449bbeb66c9f8a11b8ea"
+      }
+    },
+    {
+      "id": "anatomy-ebe2f2e2b611ce4a",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 453,
+        "xref": 1267,
+        "region": [
+          162.0,
+          472.0,
+          450.0,
+          688.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH26_Q015",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Charcot-Bouchard aneurysm diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 453,
+            "xref": 1267,
+            "region": [
+              162.0,
+              472.0,
+              450.0,
+              688.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Compared native JPEG with Ubuntu-rendered source context for reference marrow__ANAT_CH26_Q015:figure:1; figure boundaries, identity, and explanation role are consistent."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/ebe2f2e2b611ce4aa8fc11cf6cbbb7e4782b979ee1da83777bcbcb8c2c6bc3f2.jpg",
+        "sha256": "ebe2f2e2b611ce4aa8fc11cf6cbbb7e4782b979ee1da83777bcbcb8c2c6bc3f2",
+        "width": 576,
+        "height": 572
+      },
+      "production": {
+        "path": "data/marrow/images/originals/ebe2f2e2b611ce4aa8fc11cf6cbbb7e4782b979ee1da83777bcbcb8c2c6bc3f2.jpg",
+        "sha256": "ebe2f2e2b611ce4aa8fc11cf6cbbb7e4782b979ee1da83777bcbcb8c2c6bc3f2",
+        "width": 576,
+        "height": 572
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Compared native JPEG bytes with exact Ubuntu source page crop and verified ownership, visual identity, boundaries, and role.",
+        "originalSha256": "ebe2f2e2b611ce4aa8fc11cf6cbbb7e4782b979ee1da83777bcbcb8c2c6bc3f2",
+        "productionSha256": "ebe2f2e2b611ce4aa8fc11cf6cbbb7e4782b979ee1da83777bcbcb8c2c6bc3f2"
+      }
+    },
+    {
+      "id": "anatomy-39cc599f4fa959e7",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 237,
+        "region": [
+          162.0,
+          76.0,
+          450.0,
+          622.0
+        ],
+        "xref": 635
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH13_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Neuron and Nissl bodies figures",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 237,
+            "region": [
+              162.0,
+              76.0,
+              450.0,
+              622.0
+            ],
+            "xref": 635
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Compared exact source region rendered in Ubuntu workflow 36510098780 with page context; crop boundaries, all intended visual panels, identity, and explanation role reviewed."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/39cc599f4fa959e7146fc0b533c454d0de98951570a8c794ee0915d1eac0cad3.png",
+        "sha256": "39cc599f4fa959e7146fc0b533c454d0de98951570a8c794ee0915d1eac0cad3",
+        "width": 1200,
+        "height": 2276
+      },
+      "production": {
+        "path": "data/marrow/images/originals/39cc599f4fa959e7146fc0b533c454d0de98951570a8c794ee0915d1eac0cad3.png",
+        "sha256": "39cc599f4fa959e7146fc0b533c454d0de98951570a8c794ee0915d1eac0cad3",
+        "width": 1200,
+        "height": 2276
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact Ubuntu source-region rendering compared with authoritative page context; all intended visual content and crop bounds are verified. Original rendered pixels are preserved unchanged.",
+        "originalSha256": "39cc599f4fa959e7146fc0b533c454d0de98951570a8c794ee0915d1eac0cad3",
+        "productionSha256": "39cc599f4fa959e7146fc0b533c454d0de98951570a8c794ee0915d1eac0cad3"
+      }
+    },
+    {
+      "id": "anatomy-a07ea05bfdd96df9",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 244,
+        "region": [
+          162.0,
+          172.0,
+          450.0,
+          616.0
+        ],
+        "xref": 657
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH13_Q012",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Adrenal gland histology panels",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 244,
+            "region": [
+              162.0,
+              172.0,
+              450.0,
+              616.0
+            ],
+            "xref": 657
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Compared exact source region rendered in Ubuntu workflow 36510098780 with page context; crop boundaries, all intended visual panels, identity, and explanation role reviewed."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/a07ea05bfdd96df9b0906b073a07efbf9176e2862068e356dd14168dccc246ce.png",
+        "sha256": "a07ea05bfdd96df9b0906b073a07efbf9176e2862068e356dd14168dccc246ce",
+        "width": 1200,
+        "height": 1851
+      },
+      "production": {
+        "path": "data/marrow/images/originals/a07ea05bfdd96df9b0906b073a07efbf9176e2862068e356dd14168dccc246ce.png",
+        "sha256": "a07ea05bfdd96df9b0906b073a07efbf9176e2862068e356dd14168dccc246ce",
+        "width": 1200,
+        "height": 1851
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact Ubuntu source-region rendering compared with authoritative page context; all intended visual content and crop bounds are verified. Original rendered pixels are preserved unchanged.",
+        "originalSha256": "a07ea05bfdd96df9b0906b073a07efbf9176e2862068e356dd14168dccc246ce",
+        "productionSha256": "a07ea05bfdd96df9b0906b073a07efbf9176e2862068e356dd14168dccc246ce"
+      }
+    },
+    {
+      "id": "anatomy-2f085c54b6853026",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 247,
+        "region": [
+          161.549,
+          245.52,
+          450.451,
+          462.48
+        ],
+        "xref": 666
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH14_Q004",
+          "role": "question",
+          "order": 1,
+          "alt": "Lymph node histology image",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 247,
+            "region": [
+              161.549,
+              245.52,
+              450.451,
+              462.48
+            ],
+            "xref": 666
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Compared exact source region rendered in Ubuntu workflow 36510098780 with page context; crop boundaries, all intended visual panels, identity, and question role reviewed."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/2f085c54b6853026b4bdbab5e3e24aacab1b548ba1acb3ada828d3e014a6dc53.png",
+        "sha256": "2f085c54b6853026b4bdbab5e3e24aacab1b548ba1acb3ada828d3e014a6dc53",
+        "width": 1204,
+        "height": 904
+      },
+      "production": {
+        "path": "data/marrow/images/originals/2f085c54b6853026b4bdbab5e3e24aacab1b548ba1acb3ada828d3e014a6dc53.png",
+        "sha256": "2f085c54b6853026b4bdbab5e3e24aacab1b548ba1acb3ada828d3e014a6dc53",
+        "width": 1204,
+        "height": 904
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact Ubuntu source-region rendering compared with authoritative page context; all intended visual content and crop bounds are verified. Original rendered pixels are preserved unchanged.",
+        "originalSha256": "2f085c54b6853026b4bdbab5e3e24aacab1b548ba1acb3ada828d3e014a6dc53",
+        "productionSha256": "2f085c54b6853026b4bdbab5e3e24aacab1b548ba1acb3ada828d3e014a6dc53"
+      }
+    },
+    {
+      "id": "anatomy-9c311aef217db462",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 269,
+        "region": [
+          161.668,
+          195.52,
+          450.332,
+          412.48
+        ],
+        "xref": 733
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH15_Q022",
+          "role": "question",
+          "order": 1,
+          "alt": "Ciliated epithelium image",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 269,
+            "region": [
+              161.668,
+              195.52,
+              450.332,
+              412.48
+            ],
+            "xref": 733
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Compared exact source region rendered in Ubuntu workflow 36510098780 with page context; crop boundaries, all intended visual panels, identity, and question role reviewed."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/9c311aef217db462a92cc69047be45fb790784d8a895be96b2c4da53dedb83e1.png",
+        "sha256": "9c311aef217db462a92cc69047be45fb790784d8a895be96b2c4da53dedb83e1",
+        "width": 1204,
+        "height": 905
+      },
+      "production": {
+        "path": "data/marrow/images/originals/9c311aef217db462a92cc69047be45fb790784d8a895be96b2c4da53dedb83e1.png",
+        "sha256": "9c311aef217db462a92cc69047be45fb790784d8a895be96b2c4da53dedb83e1",
+        "width": 1204,
+        "height": 905
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact Ubuntu source-region rendering compared with authoritative page context; all intended visual content and crop bounds are verified. Original rendered pixels are preserved unchanged.",
+        "originalSha256": "9c311aef217db462a92cc69047be45fb790784d8a895be96b2c4da53dedb83e1",
+        "productionSha256": "9c311aef217db462a92cc69047be45fb790784d8a895be96b2c4da53dedb83e1"
+      }
+    },
+    {
+      "id": "anatomy-9da23f6cc8682473",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 378,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          500.0
+        ],
+        "xref": 1056
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH21_Q003",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 378,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              500.0
+            ],
+            "xref": 1056
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Compared exact source region rendered in Ubuntu workflow 36510098780 with page context; crop boundaries, all intended visual panels, identity, and explanation role reviewed."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/9da23f6cc868247339eb058445bb8c3fa636c3ef7a84a7507dba96703ed9191e.png",
+        "sha256": "9da23f6cc868247339eb058445bb8c3fa636c3ef7a84a7507dba96703ed9191e",
+        "width": 1200,
+        "height": 1851
+      },
+      "production": {
+        "path": "data/marrow/images/originals/9da23f6cc868247339eb058445bb8c3fa636c3ef7a84a7507dba96703ed9191e.png",
+        "sha256": "9da23f6cc868247339eb058445bb8c3fa636c3ef7a84a7507dba96703ed9191e",
+        "width": 1200,
+        "height": 1851
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact Ubuntu source-region rendering compared with authoritative page context; all intended visual content and crop bounds are verified. Original rendered pixels are preserved unchanged.",
+        "originalSha256": "9da23f6cc868247339eb058445bb8c3fa636c3ef7a84a7507dba96703ed9191e",
+        "productionSha256": "9da23f6cc868247339eb058445bb8c3fa636c3ef7a84a7507dba96703ed9191e"
+      }
+    },
+    {
+      "id": "anatomy-4c08669363e646b3",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 382,
+        "region": [
+          162.0,
+          238.0,
+          450.0,
+          682.0
+        ],
+        "xref": 1068
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH21_Q013",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Commissural fibres and fornix figures",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 382,
+            "region": [
+              162.0,
+              238.0,
+              450.0,
+              682.0
+            ],
+            "xref": 1068
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Compared exact source region rendered in Ubuntu workflow 36510098780 with page context; crop boundaries, all intended visual panels, identity, and explanation role reviewed."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/4c08669363e646b3acc691fd70d903a865e95b40c7bd3a8b289876d23b02ddfa.png",
+        "sha256": "4c08669363e646b3acc691fd70d903a865e95b40c7bd3a8b289876d23b02ddfa",
+        "width": 1200,
+        "height": 1851
+      },
+      "production": {
+        "path": "data/marrow/images/originals/4c08669363e646b3acc691fd70d903a865e95b40c7bd3a8b289876d23b02ddfa.png",
+        "sha256": "4c08669363e646b3acc691fd70d903a865e95b40c7bd3a8b289876d23b02ddfa",
+        "width": 1200,
+        "height": 1851
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact Ubuntu source-region rendering compared with authoritative page context; all intended visual content and crop bounds are verified. Original rendered pixels are preserved unchanged.",
+        "originalSha256": "4c08669363e646b3acc691fd70d903a865e95b40c7bd3a8b289876d23b02ddfa",
+        "productionSha256": "4c08669363e646b3acc691fd70d903a865e95b40c7bd3a8b289876d23b02ddfa"
+      }
+    },
+    {
+      "id": "anatomy-0c24e5e531e5a1e1",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 387,
+        "region": [
+          162.0,
+          185.0,
+          450.0,
+          401.0
+        ],
+        "xref": 1081
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH22_Q001",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 387,
+            "region": [
+              162.0,
+              185.0,
+              450.0,
+              401.0
+            ],
+            "xref": 1081
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Compared exact source region rendered in Ubuntu workflow 36510098780 with page context; crop boundaries, all intended visual panels, identity, and explanation role reviewed."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/0c24e5e531e5a1e12cc8f2b1c838124ced977a5724250417d914304e4fd74e21.png",
+        "sha256": "0c24e5e531e5a1e12cc8f2b1c838124ced977a5724250417d914304e4fd74e21",
+        "width": 1200,
+        "height": 901
+      },
+      "production": {
+        "path": "data/marrow/images/originals/0c24e5e531e5a1e12cc8f2b1c838124ced977a5724250417d914304e4fd74e21.png",
+        "sha256": "0c24e5e531e5a1e12cc8f2b1c838124ced977a5724250417d914304e4fd74e21",
+        "width": 1200,
+        "height": 901
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact Ubuntu source-region rendering compared with authoritative page context; all intended visual content and crop bounds are verified. Original rendered pixels are preserved unchanged.",
+        "originalSha256": "0c24e5e531e5a1e12cc8f2b1c838124ced977a5724250417d914304e4fd74e21",
+        "productionSha256": "0c24e5e531e5a1e12cc8f2b1c838124ced977a5724250417d914304e4fd74e21"
+      }
+    },
+    {
+      "id": "anatomy-f6a94a0b25a214bd",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 410,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          500.0
+        ],
+        "xref": 1143
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH24_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 410,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              500.0
+            ],
+            "xref": 1143
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Compared exact source region rendered in Ubuntu workflow 36510098780 with page context; crop boundaries, all intended visual panels, identity, and explanation role reviewed."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/f6a94a0b25a214bda36586073429b90c9fb46405bf23759e7924e6dfe96df0ec.png",
+        "sha256": "f6a94a0b25a214bda36586073429b90c9fb46405bf23759e7924e6dfe96df0ec",
+        "width": 1200,
+        "height": 1851
+      },
+      "production": {
+        "path": "data/marrow/images/originals/f6a94a0b25a214bda36586073429b90c9fb46405bf23759e7924e6dfe96df0ec.png",
+        "sha256": "f6a94a0b25a214bda36586073429b90c9fb46405bf23759e7924e6dfe96df0ec",
+        "width": 1200,
+        "height": 1851
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact Ubuntu source-region rendering compared with authoritative page context; all intended visual content and crop bounds are verified. Original rendered pixels are preserved unchanged.",
+        "originalSha256": "f6a94a0b25a214bda36586073429b90c9fb46405bf23759e7924e6dfe96df0ec",
+        "productionSha256": "f6a94a0b25a214bda36586073429b90c9fb46405bf23759e7924e6dfe96df0ec"
+      }
+    },
+    {
+      "id": "anatomy-5ce772fd385db061",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 412,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          500.0
+        ],
+        "xref": 3681
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH24_Q004",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 412,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              500.0
+            ],
+            "xref": 3681
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Compared exact source region rendered in Ubuntu workflow 36510098780 with page context; crop boundaries, all intended visual panels, identity, and explanation role reviewed."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/5ce772fd385db0614aa4a020e093edac30c5a94378caa5a9bd064dccbf5f36dc.png",
+        "sha256": "5ce772fd385db0614aa4a020e093edac30c5a94378caa5a9bd064dccbf5f36dc",
+        "width": 1200,
+        "height": 1851
+      },
+      "production": {
+        "path": "data/marrow/images/originals/5ce772fd385db0614aa4a020e093edac30c5a94378caa5a9bd064dccbf5f36dc.png",
+        "sha256": "5ce772fd385db0614aa4a020e093edac30c5a94378caa5a9bd064dccbf5f36dc",
+        "width": 1200,
+        "height": 1851
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact Ubuntu source-region rendering compared with authoritative page context; all intended visual content and crop bounds are verified. Original rendered pixels are preserved unchanged.",
+        "originalSha256": "5ce772fd385db0614aa4a020e093edac30c5a94378caa5a9bd064dccbf5f36dc",
+        "productionSha256": "5ce772fd385db0614aa4a020e093edac30c5a94378caa5a9bd064dccbf5f36dc"
+      }
+    },
+    {
+      "id": "anatomy-837478a88a74a492",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 257,
+        "xref": 698,
+        "region": [
+          138.0,
+          118.0,
+          474.0,
+          430.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH14_Q006",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Thymus histology showing Hassall corpuscle",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 257,
+            "xref": 698,
+            "region": [
+              138.0,
+              118.0,
+              474.0,
+              430.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The Ubuntu exact-region page render shows a complete thymus histology figure with Hassall corpuscle and epithelial cells; source xref 698 agrees with the displayed figure and explanation context."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/837478a88a74a4927608c5ca346e967106393d78f91350529526aab5e605c918.png",
+        "sha256": "837478a88a74a4927608c5ca346e967106393d78f91350529526aab5e605c918",
+        "width": 1400,
+        "height": 1301
+      },
+      "production": {
+        "path": "data/marrow/images/originals/837478a88a74a4927608c5ca346e967106393d78f91350529526aab5e605c918.png",
+        "sha256": "837478a88a74a4927608c5ca346e967106393d78f91350529526aab5e605c918",
+        "width": 1400,
+        "height": 1301
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact source-region rendering compared to the page context; the intact thymus histology is preserved pixel-for-pixel.",
+        "originalSha256": "837478a88a74a4927608c5ca346e967106393d78f91350529526aab5e605c918",
+        "productionSha256": "837478a88a74a4927608c5ca346e967106393d78f91350529526aab5e605c918"
+      }
+    },
+    {
+      "id": "anatomy-e797f364812ddeed",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 302,
+        "xref": 840,
+        "region": [
+          138.0,
+          8.0,
+          474.0,
+          588.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH16_Q014",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Skin and exocrine gland diagrams",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 302,
+            "xref": 840,
+            "region": [
+              138.0,
+              8.0,
+              474.0,
+              588.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact Ubuntu source render shows anatomy of skin and exocrine gland secretion diagrams in the Q14 explanation; both visuals match the gland-type prompt context."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/e797f364812ddeedf4dd1011abd967088b13644c83d4a070aba3b1127b0bb382.png",
+        "sha256": "e797f364812ddeedf4dd1011abd967088b13644c83d4a070aba3b1127b0bb382",
+        "width": 1400,
+        "height": 2417
+      },
+      "production": {
+        "path": "data/marrow/images/originals/e797f364812ddeedf4dd1011abd967088b13644c83d4a070aba3b1127b0bb382.png",
+        "sha256": "e797f364812ddeedf4dd1011abd967088b13644c83d4a070aba3b1127b0bb382",
+        "width": 1400,
+        "height": 2417
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Both source panels are preserved unchanged from the exact page crop and match the explanation context.",
+        "originalSha256": "e797f364812ddeedf4dd1011abd967088b13644c83d4a070aba3b1127b0bb382",
+        "productionSha256": "e797f364812ddeedf4dd1011abd967088b13644c83d4a070aba3b1127b0bb382"
       }
     }
   ]
