@@ -15,7 +15,8 @@ visuals. Raw source and source PDFs remain unchanged.
 | `manual-physiology-ch03-07-20260928` | ChatGPT manual lane, this user thread | Physiology Chapters 3–7, all source visuals and visual text cues | 49 unresolved references across 39 questions: Ch3 5, Ch4 2, Ch5 2, Ch6 7, Ch7 33; 0 text-cue items | **CLAIMED / IN PROGRESS** | `manual/physiology-images-ch03-07-20260928` from the canonical claim commit; refresh registry/progress/coverage from live canonical after Biochemistry integration before shared-state writes |
 | `manual-wave2-anatomy-ch01-26` | Worker 1, Luna 6 medium | Anatomy Chapters 1–26, every source visual and visual text cue | 332 unresolved source references; 0 text cues | **CLAIMED / IN PROGRESS** | `manual/wave2-anatomy-ch01-26` from the live canonical claim commit |
 | `manual-wave2-anatomy-ch27-44` | Worker 2, Luna 6 medium | Anatomy Chapters 27–44, every source visual and visual text cue | 321 unresolved source references; 0 text cues | **CLAIMED / IN PROGRESS** | `manual/wave2-anatomy-ch27-44` from the live canonical claim commit |
-| `manual-wave2-anatomy-ch45-63` | Worker 3, Luna 6 medium | Anatomy Chapters 45–63, every source visual and visual text cue | 306 unresolved source references; 0 text cues | **CLAIMED / IN PROGRESS** | `manual/wave2-anatomy-ch45-63` from the live canonical claim commit |
+| `manual-wave2-anatomy-ch45-55` | Worker 3, Luna 6 medium | Anatomy Chapters 45–55, every source visual and visual text cue | Original Ch45–63 claim narrowed after Ch52 checkpoint; 196 references in Ch45–55, 0 text cues | **CLAIMED / IN PROGRESS** | Existing `manual/wave2-anatomy-ch45-63` branch; no Ch56–63 work or edits before transfer |
+| `manual-wave2-anatomy-ch56-63` | Worker 5, Luna 6 medium | Anatomy Chapters 56–63, every source visual and visual text cue | 110 untracked source references in Ch56–63; 0 text cues at transfer | **CLAIMED / IN PROGRESS** | New `manual/wave2-anatomy-ch56-63` branch from canonical after this boundary record; may read Worker 3's ignored Ubuntu crop artifact without editing it |
 | `manual-wave2-biochem-physiology` | Worker 4, Luna 6 medium | Biochemistry Chapters 1–24 and Physiology Chapters 8–43, every source visual and visual text cue | 16 Biochemistry + 197 Physiology unresolved source references; 31 Biochemistry + 27 Physiology text cues | **COMPLETED / INTEGRATED** | `manual/wave2-biochem-physiology` at `502b7a4`; 217 released and 61 held or invalid across 278 in-scope visual references (including previously released references); 58 owned text cues documented as review required; exact-head CI `36446066984` passed |
 
 The 22 reference IDs for `manual-biochem-ch25-28-20260928` are the unresolved
@@ -62,6 +63,15 @@ They are branch-local counts; do not add their shared registry/progress/coverage
 files together by copying one over another. Reconcile by stable reference and
 asset IDs into the live canonical branch, then regenerate derived files and run
 the repository checks. Production promotion remains deferred.
+
+On resume, the user authorized one additional worker. Worker 3 confirmed it had
+made no edits or source decisions in Ch56–63. Its original Ch45–63 range was
+therefore divided at the chapter boundary: Worker 3 exclusively owns Ch45–55
+(196 total references, with 80 still unresolved at the Ch52 checkpoint), and
+Worker 5 exclusively owns Ch56–63 (110 untracked references at transfer).
+The table above retains the original paused Ch45–63 checkpoint for audit; the
+two new claims replace its ownership boundary. Do not assign either chapter
+range to another worker while these claims are active.
 
 Starting fingerprints for both claims: registry SHA-256
 `799f0c3ae5753f9321f46803871032f255a0548798c4884681f297a5eaa729a2`,
