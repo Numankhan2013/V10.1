@@ -35970,32 +35970,12 @@
           "questionId": "marrow__ANAT_CH29_Q005",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
-          "reviewBatch": "manual-wave2-anatomy-ch27-44",
-          "source": {
-            "page": 502,
-            "xref": 1406,
-            "region": [
-              162.0,
-              252.0,
-              450.0,
-              468.0
-            ]
-          },
-          "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
-          }
-        },
-        {
-          "questionId": "marrow__ANAT_CH29_Q005",
-          "role": "question",
-          "order": 1,
-          "alt": "Source question figure",
+          "alt": "Lateral neck muscle diagram with four numbered regions",
           "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
             "page": 502,
             "xref": 1406,
             "region": [
@@ -36007,8 +35987,33 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Exact source crop shows the unhighlighted 1–4 triangle labels needed by this question; neither correct label nor answer text is indicated.",
-            "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r69; native stream SHA-256 e86a3312a29b6f8428647b61c771d972765ace6d7f6b1971cc6e6152b3c81d71."
+            "notes": "The p502 question crop shows the complete source diagram with numbered regions 1–4. None is highlighted as correct, and answer text is not present.",
+            "evidence": "Exact candidate crop r69 inspected from Ubuntu CI artifact; native xref 1406 retained byte-for-byte."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH29_Q005",
+          "role": "question",
+          "order": 1,
+          "alt": "Lateral neck muscle diagram with four numbered regions",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 502,
+            "xref": 1406,
+            "region": [
+              162.0,
+              252.0,
+              450.0,
+              468.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The p502 question crop shows the complete source diagram with numbered regions 1–4. None is highlighted as correct, and answer text is not present.",
+            "evidence": "Exact candidate crop r69 inspected from Ubuntu CI artifact; native xref 1406 retained byte-for-byte."
           }
         }
       ],
@@ -36025,10 +36030,13 @@
         "height": 674
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p502 question crop shows the complete source diagram with numbered regions 1–4. None is highlighted as correct, and answer text is not present.",
+        "evidence": "Exact candidate crop r69 inspected from Ubuntu CI artifact; native xref 1406 retained byte-for-byte.",
+        "originalSha256": "e86a3312a29b6f8428647b61c771d972765ace6d7f6b1971cc6e6152b3c81d71",
+        "productionSha256": "e86a3312a29b6f8428647b61c771d972765ace6d7f6b1971cc6e6152b3c81d71"
       }
     },
     {
@@ -36669,6 +36677,31 @@
             "sourceCompared": true,
             "notes": "Exact source crop matches the described anatomy and assigned question/explanation role; question marks and labels are preserved without answer text. Source pixels are unmodified.",
             "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r91; page 520, xref 3733, region [162.0, 56.0, 450.0, 272.0]; native stream SHA-256 3cf0ea607a744514e203f7d8abd0b7a41093f12b6703b44119b38bb250a7df27."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH29_Q014",
+          "role": "question",
+          "order": 1,
+          "alt": "Suboccipital triangle diagram with a blue-marked region",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 506,
+            "xref": 3733,
+            "region": [
+              162.0,
+              454.0,
+              450.0,
+              670.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The p506 candidate r90 shows the source suboccipital triangle image with blue-marked regions, matching Q14; p506 candidate r89 is an adjacent posterior-triangle view.",
+            "evidence": "Exact crop and native xref 3733 compared in Ubuntu CI artifact."
           }
         }
       ],
@@ -41483,28 +41516,6 @@
           }
         },
         {
-          "questionId": "marrow__ANAT_CH40_Q016",
-          "role": "explanation",
-          "order": 1,
-          "alt": "Lymphatic drainage of the axilla",
-          "status": "REVIEW_REQUIRED",
-          "reviewBatch": "manual-wave2-anatomy-ch27-44",
-          "source": {
-            "page": 751,
-            "xref": 3809,
-            "region": [
-              162.0,
-              244.0,
-              450.0,
-              460.0
-            ]
-          },
-          "qa": {
-            "sourceCompared": false,
-            "notes": "Staged from the sole unmasked native JPEG candidate on the cited source page; ownership, precise crop, role, question safety and readability still require visual review."
-          }
-        },
-        {
           "questionId": "marrow__ANAT_CH40_Q015",
           "role": "explanation",
           "order": 1,
@@ -45541,8 +45552,8 @@
           "questionId": "marrow__ANAT_CH44_Q005",
           "role": "explanation",
           "order": 1,
-          "alt": "Anatomic constrictions of the esophagus",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Inferior view of the diaphragm showing the esophageal opening",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 812,
@@ -45555,8 +45566,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Staged from the sole unmasked native JPEG candidate on the cited source page; ownership, precise crop, role, question safety and readability still require visual review."
+            "sourceCompared": true,
+            "notes": "The exact p812 source crop is an inferior diaphragm diagram and labels the esophageal opening. The question asks for the diaphragmatic constriction of the esophagus; the depicted esophageal hiatus is relevant, although the structured figure caption calls it “Anatomic constrictions of the esophagus.”",
+            "evidence": "Exact p812 region crop r486 inspected from Ubuntu CI artifact run 36511687262; source page and native xref 3885 match. Original medical pixels are unchanged."
           }
         },
         {
@@ -46898,11 +46910,13 @@
         {
           "questionId": "marrow__ANAT_CH28_Q018",
           "role": "explanation",
-          "order": 1,
+          "order": 2,
           "alt": "Zygomatic arch diagram",
           "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
             "page": 495,
             "xref": 1389,
             "region": [
