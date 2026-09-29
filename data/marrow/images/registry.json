@@ -73194,6 +73194,131 @@
         "originalSha256": "c6ca4d749b13fa8bc8800d1a2977161cb2d72056904715ed808bb9d99b293051",
         "productionSha256": "c6ca4d749b13fa8bc8800d1a2977161cb2d72056904715ed808bb9d99b293051"
       }
+    },
+    {
+      "id": "anatomy-ch46-q008-8411d4883b79aa99",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 855,
+        "xref": 2381,
+        "region": [
+          162.0,
+          172.0,
+          450.0,
+          388.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH46_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Thoracic lung fissure surface-marking image",
+          "reviewBatch": "wave2-anatomy-ch45-63",
+          "source": {
+            "page": 855,
+            "xref": 2381,
+            "region": [
+              162.0,
+              172.0,
+              450.0,
+              388.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The posterior surface-marking image shows the oblique fissure and its landmarks. The complete fifth-rib label and all source pixels are present.",
+            "evidence": "Authoritative Anatomy_ed8.pdf page 855, xref 2381 (panel 2 also includes adjacent xrefs 2383 and 2384), exact region [162.0, 172.0, 450.0, 388.0]; 300-DPI Ubuntu CI full-page render run 36515862617 compared to the retained pixels. Source PDF SHA-256 7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f; asset SHA-256 8411d4883b79aa99d539b75aa589d45fbc84d598d7a2867dcdeddfc8e3922cce."
+          },
+          "status": "PASS"
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/8411d4883b79aa99d539b75aa589d45fbc84d598d7a2867dcdeddfc8e3922cce.png",
+        "sha256": "8411d4883b79aa99d539b75aa589d45fbc84d598d7a2867dcdeddfc8e3922cce",
+        "width": 1200,
+        "height": 900
+      },
+      "production": {
+        "path": "data/marrow/images/originals/8411d4883b79aa99d539b75aa589d45fbc84d598d7a2867dcdeddfc8e3922cce.png",
+        "sha256": "8411d4883b79aa99d539b75aa589d45fbc84d598d7a2867dcdeddfc8e3922cce",
+        "width": 1200,
+        "height": 900
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "The posterior surface-marking image shows the oblique fissure and its landmarks. The complete fifth-rib label and all source pixels are present.",
+        "evidence": "Authoritative Anatomy_ed8.pdf page 855, xref 2381 (panel 2 also includes adjacent xrefs 2383 and 2384), exact region [162.0, 172.0, 450.0, 388.0]; 300-DPI Ubuntu CI full-page render run 36515862617 compared to the retained pixels. Source PDF SHA-256 7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f; asset SHA-256 8411d4883b79aa99d539b75aa589d45fbc84d598d7a2867dcdeddfc8e3922cce.",
+        "originalSha256": "8411d4883b79aa99d539b75aa589d45fbc84d598d7a2867dcdeddfc8e3922cce",
+        "productionSha256": "8411d4883b79aa99d539b75aa589d45fbc84d598d7a2867dcdeddfc8e3922cce"
+      }
+    },
+    {
+      "id": "anatomy-ch46-q008-176ff10436df0e29",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 855,
+        "xref": 2382,
+        "region": [
+          161.52,
+          399.615,
+          450.48,
+          616.385
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH46_Q008",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Thoracic lung fissure surface-marking image",
+          "reviewBatch": "wave2-anatomy-ch45-63",
+          "source": {
+            "page": 855,
+            "xref": 2382,
+            "region": [
+              161.52,
+              399.615,
+              450.48,
+              616.385
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The lateral surface-marking image shows the horizontal and oblique fissures. The full-page 300-DPI source render confirms that the source raster itself clips the end of the “4th costochondral” label at its right edge; “junction” and the fissure markings remain visible. No wider source content restores the missing letters, and no pixels were reconstructed.",
+            "evidence": "Authoritative Anatomy_ed8.pdf page 855, xref 2382 (panel 2 also includes adjacent xrefs 2383 and 2384), exact region [161.52, 399.615, 450.48, 616.385]; 300-DPI Ubuntu CI full-page render run 36515862617 compared to the retained pixels. Source PDF SHA-256 7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f; asset SHA-256 176ff10436df0e294acc496b82df7bb4d1a3517203333d53e14f874b37de6398."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/176ff10436df0e294acc496b82df7bb4d1a3517203333d53e14f874b37de6398.png",
+        "sha256": "176ff10436df0e294acc496b82df7bb4d1a3517203333d53e14f874b37de6398",
+        "width": 1204,
+        "height": 903
+      },
+      "production": {
+        "path": "data/marrow/images/originals/176ff10436df0e294acc496b82df7bb4d1a3517203333d53e14f874b37de6398.png",
+        "sha256": "176ff10436df0e294acc496b82df7bb4d1a3517203333d53e14f874b37de6398",
+        "width": 1204,
+        "height": 903
+      },
+      "method": "region-render",
+      "status": "SOURCE_LIMITED",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "The lateral surface-marking image shows the horizontal and oblique fissures. The full-page 300-DPI source render confirms that the source raster itself clips the end of the “4th costochondral” label at its right edge; “junction” and the fissure markings remain visible. No wider source content restores the missing letters, and no pixels were reconstructed.",
+        "evidence": "Authoritative Anatomy_ed8.pdf page 855, xref 2382 (panel 2 also includes adjacent xrefs 2383 and 2384), exact region [161.52, 399.615, 450.48, 616.385]; 300-DPI Ubuntu CI full-page render run 36515862617 compared to the retained pixels. Source PDF SHA-256 7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f; asset SHA-256 176ff10436df0e294acc496b82df7bb4d1a3517203333d53e14f874b37de6398.",
+        "originalSha256": "176ff10436df0e294acc496b82df7bb4d1a3517203333d53e14f874b37de6398",
+        "productionSha256": "176ff10436df0e294acc496b82df7bb4d1a3517203333d53e14f874b37de6398"
+      }
     }
   ]
 }
