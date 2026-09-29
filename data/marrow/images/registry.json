@@ -18531,7 +18531,7 @@
     {
       "id": "anatomy-17da7787a7cce1b6",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -18551,7 +18551,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Anatomy of the breast cross-section",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 663,
@@ -18564,8 +18564,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Anatomy of the breast cross-section: p663 region r288 visually matches the structured explanation and source labels; the same figure is explicitly reused by Q4, with explanation-only placement.",
+            "evidence": "Exact source region visually checked in Ubuntu CI run 36448416847; placement agrees with the referenced structured figure."
           }
         },
         {
@@ -18573,7 +18574,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Anatomy of the breast cross-section",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 663,
@@ -18586,8 +18587,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Staged from the sole unmasked native JPEG candidate on the cited source page; ownership, precise crop, role, question safety and readability still require visual review."
+            "sourceCompared": true,
+            "notes": "Anatomy of the breast cross-section: p663 region r288 visually matches the structured explanation and source labels; the same figure is explicitly reused by Q4, with explanation-only placement.",
+            "evidence": "Exact source region visually checked in Ubuntu CI run 36448416847; placement agrees with the referenced structured figure."
           }
         }
       ],
@@ -18604,16 +18606,19 @@
         "height": 674
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Anatomy of the breast cross-section: p663 region r288 visually matches the structured explanation and source labels; the same figure is explicitly reused by Q4, with explanation-only placement.",
+        "evidence": "Compared with exact source-region render from Ubuntu CI run 36448416847 and stable chapter/figure metadata; native JPEG pixels remain unaltered.",
+        "originalSha256": "17da7787a7cce1b6fbd92d70eb76b03de8d868d3a8fb541dbcfb3e6de5787d8f",
+        "productionSha256": "17da7787a7cce1b6fbd92d70eb76b03de8d868d3a8fb541dbcfb3e6de5787d8f"
       }
     },
     {
       "id": "anatomy-677edb527b443e23",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -18633,7 +18638,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Foramen of Langer and axillary tail of Spence diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 661,
@@ -18646,8 +18651,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Foramen of Langer and axillary tail diagram: exact p661 region r289 matches Q2 structured explanation and visible labels.",
+            "evidence": "Exact source region visually checked in Ubuntu CI run 36448416847; placement agrees with the referenced structured figure."
           }
         }
       ],
@@ -18664,16 +18670,19 @@
         "height": 575
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Foramen of Langer and axillary tail diagram: exact p661 region r289 matches Q2 structured explanation and visible labels.",
+        "evidence": "Compared with exact source-region render from Ubuntu CI run 36448416847 and stable chapter/figure metadata; native JPEG pixels remain unaltered.",
+        "originalSha256": "677edb527b443e2370311c0f9a5f33be493972104b78de65eb5c4289953fedee",
+        "productionSha256": "677edb527b443e2370311c0f9a5f33be493972104b78de65eb5c4289953fedee"
       }
     },
     {
       "id": "anatomy-ff251ac0be984560",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -18693,7 +18702,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Blood supply of the breast diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 662,
@@ -18706,8 +18715,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Breast blood-supply diagram: exact p662 region r290 matches Q3 structured explanation and visible arterial labels.",
+            "evidence": "Exact source region visually checked in Ubuntu CI run 36448416847; placement agrees with the referenced structured figure."
           }
         }
       ],
@@ -18724,16 +18734,19 @@
         "height": 719
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Breast blood-supply diagram: exact p662 region r290 matches Q3 structured explanation and visible arterial labels.",
+        "evidence": "Compared with exact source-region render from Ubuntu CI run 36448416847 and stable chapter/figure metadata; native JPEG pixels remain unaltered.",
+        "originalSha256": "ff251ac0be984560d495518cfa6e73d29626cebce59e6c4a6482fb58f45a0a6c",
+        "productionSha256": "ff251ac0be984560d495518cfa6e73d29626cebce59e6c4a6482fb58f45a0a6c"
       }
     },
     {
       "id": "anatomy-01fc83fe67462a4e",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -18753,7 +18766,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Lymphatic drainage of axilla / axillary node groups diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 665,
@@ -18766,8 +18779,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Axillary lymph-node groups diagram: exact p665 region r296 matches Q6 second explanation figure and is complete.",
+            "evidence": "Exact source region visually checked in Ubuntu CI run 36448416847; placement agrees with the referenced structured figure."
           }
         },
         {
@@ -18806,16 +18820,19 @@
         "height": 672
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Axillary lymph-node groups diagram: exact p665 region r296 matches Q6 second explanation figure and is complete.",
+        "evidence": "Compared with exact source-region render from Ubuntu CI run 36448416847 and stable chapter/figure metadata; native JPEG pixels remain unaltered.",
+        "originalSha256": "01fc83fe67462a4e27472ed2dc8cf5110abf8e3f3a32104ecee16ac281b626b9",
+        "productionSha256": "01fc83fe67462a4e27472ed2dc8cf5110abf8e3f3a32104ecee16ac281b626b9"
       }
     },
     {
       "id": "anatomy-f424635f2f8787f0",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -18834,8 +18851,8 @@
           "questionId": "marrow__ANAT_CH37_Q007",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Clinical photograph of right breast skin with an orange-peel texture",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 660,
@@ -18848,8 +18865,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p660 clinical photograph r297 matches Q7’s described right breast finding; question placement is supported and the alt describes visible skin texture without stating a cause.",
+            "evidence": "Exact source region visually checked in Ubuntu CI run 36448416847; placement agrees with the referenced structured figure."
           }
         }
       ],
@@ -18866,16 +18884,19 @@
         "height": 960
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p660 clinical photograph r297 matches Q7’s described right breast finding; question placement is supported and the alt describes visible skin texture without stating a cause.",
+        "evidence": "Compared with exact source-region render from Ubuntu CI run 36448416847 and stable chapter/figure metadata; native JPEG pixels remain unaltered.",
+        "originalSha256": "f424635f2f8787f0902ba08aacb0c441b5a295e094335af51d03eb01a24e8ad7",
+        "productionSha256": "f424635f2f8787f0902ba08aacb0c441b5a295e094335af51d03eb01a24e8ad7"
       }
     },
     {
       "id": "anatomy-3c217eab4f1631c3",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -18894,8 +18915,8 @@
           "questionId": "marrow__ANAT_CH38_Q001",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Clinical photograph of a person’s eyes with visible pupil and eyelid asymmetry",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 666,
@@ -18908,8 +18929,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p666 clinical eye crop r298 matches the Horner findings described in Q1; question placement is correct.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -18926,16 +18948,19 @@
         "height": 370
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p666 clinical eye crop r298 matches the Horner findings described in Q1; question placement is correct.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "3c217eab4f1631c3df18a796348edc9f8c8083cd088c933da1fe4a0ab51cfe11",
+        "productionSha256": "3c217eab4f1631c3df18a796348edc9f8c8083cd088c933da1fe4a0ab51cfe11"
       }
     },
     {
       "id": "anatomy-e37ea90ff9f27421",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -18955,7 +18980,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Spinal nerve diagram illustrating white ramus involvement in Horner syndrome",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 678,
@@ -18968,8 +18993,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p678 spinal-nerve diagram r299 includes the white ramus pathway described by Q1 and is explanation-only.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -18986,16 +19012,19 @@
         "height": 450
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p678 spinal-nerve diagram r299 includes the white ramus pathway described by Q1 and is explanation-only.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "e37ea90ff9f274219caf16d4b46188a9cfbd94c35d1180c95ac84ea7e9aa1acb",
+        "productionSha256": "e37ea90ff9f274219caf16d4b46188a9cfbd94c35d1180c95ac84ea7e9aa1acb"
       }
     },
     {
       "id": "anatomy-d07584354a0f6d69",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -19015,7 +19044,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Infraclavicular nerve block illustration",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 679,
@@ -19028,8 +19057,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p679 crop r300 shows the infraclavicular nerve-block approach and matching labels, consistent with Q4 explanation.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -19046,16 +19076,19 @@
         "height": 431
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p679 crop r300 shows the infraclavicular nerve-block approach and matching labels, consistent with Q4 explanation.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "d07584354a0f6d694edacf57e0ce55c72cd7b4991d549cd6b8bbbc35a244b367",
+        "productionSha256": "d07584354a0f6d694edacf57e0ce55c72cd7b4991d549cd6b8bbbc35a244b367"
       }
     },
     {
       "id": "anatomy-2b732fdfa28242af",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -19075,7 +19108,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Clinical image of classic Erb palsy posture",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 680,
@@ -19088,8 +19121,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p680 crop r301 depicts the described Erb-palsy posture and matches Q5 explanation.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -19106,16 +19140,19 @@
         "height": 581
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p680 crop r301 depicts the described Erb-palsy posture and matches Q5 explanation.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "2b732fdfa28242afee6e2782654d577bd757d447306faccc268e72edaa502c29",
+        "productionSha256": "2b732fdfa28242afee6e2782654d577bd757d447306faccc268e72edaa502c29"
       }
     },
     {
       "id": "anatomy-04c8e57a186b0b82",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -19135,7 +19172,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Axillary nerve course and distribution diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 681,
@@ -19148,8 +19185,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p681 crop r302 is the axillary-nerve course/distribution diagram matched to Q6 explanation.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -19166,16 +19204,19 @@
         "height": 926
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p681 crop r302 is the axillary-nerve course/distribution diagram matched to Q6 explanation.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "04c8e57a186b0b82db3c0f1f381d7bcc935f862fa69123e8b4ab81aae2fc7516",
+        "productionSha256": "04c8e57a186b0b82db3c0f1f381d7bcc935f862fa69123e8b4ab81aae2fc7516"
       }
     },
     {
       "id": "anatomy-d40170a5c9834a4e",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -19195,7 +19236,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Median nerve course/distribution diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 682,
@@ -19208,8 +19249,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p682 crop r303 is the median-nerve course/distribution diagram matched to Q7 explanation.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -19226,16 +19268,19 @@
         "height": 1322
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p682 crop r303 is the median-nerve course/distribution diagram matched to Q7 explanation.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "d40170a5c9834a4e54c66de72747ccfb43dde48fc3fa4748507069346e25520c",
+        "productionSha256": "d40170a5c9834a4e54c66de72747ccfb43dde48fc3fa4748507069346e25520c"
       }
     },
     {
       "id": "anatomy-c6df0d583eda4fd4",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -19255,7 +19300,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Ape-thumb deformity photograph",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 684,
@@ -19268,8 +19313,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p684 crop r311 is an ape-thumb deformity hand photograph matching Q9 explanation figure 2.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -19286,16 +19332,19 @@
         "height": 499
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p684 crop r311 is an ape-thumb deformity hand photograph matching Q9 explanation figure 2.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "c6df0d583eda4fd407420c8074d7ac2da0253d12690ba7889e402694eb470533",
+        "productionSha256": "c6df0d583eda4fd407420c8074d7ac2da0253d12690ba7889e402694eb470533"
       }
     },
     {
       "id": "anatomy-68e4be78933cabe4",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -19314,8 +19363,8 @@
           "questionId": "marrow__ANAT_CH38_Q010",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Cadaveric view of the cubital fossa with structure A marked",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 669,
@@ -19328,8 +19377,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p669 crop r314 is a cubital-fossa dissection with structure A marked, matching Q10 question placement.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -19346,16 +19396,19 @@
         "height": 578
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p669 crop r314 is a cubital-fossa dissection with structure A marked, matching Q10 question placement.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "68e4be78933cabe49d33fee5b42e767440c0c70ebe5a5cf808197b88a1723f8e",
+        "productionSha256": "68e4be78933cabe49d33fee5b42e767440c0c70ebe5a5cf808197b88a1723f8e"
       }
     },
     {
       "id": "anatomy-f0b9fe0a44edf96f",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -19375,7 +19428,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Ulnar nerve course/distribution diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 687,
@@ -19388,8 +19441,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p687 crop r317 shows the ulnar nerve course/distribution and is reused on p691 with the same native stream, matching Q11/Q14 explanation.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         },
         {
@@ -19397,7 +19451,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Ulnar nerve course/distribution diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 691,
@@ -19410,8 +19464,32 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Staged from the sole unmasked native JPEG candidate on the cited source page; ownership, precise crop, role, question safety and readability still require visual review."
+            "sourceCompared": true,
+            "notes": "The p687 crop r317 shows the ulnar nerve course/distribution and is reused on p691 with the same native stream, matching Q11/Q14 explanation.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH38_Q013",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Ulnar nerve course and distribution diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 690,
+            "xref": 3820,
+            "region": [
+              162.0,
+              472.0,
+              450.0,
+              688.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The p690 crop r322 is the ulnar nerve course/distribution diagram, the second explanation figure for Q13; its source xref is the same native stream used on Q11/Q14.",
+            "evidence": "Visual source-region check from CI run 36511687262."
           }
         }
       ],
@@ -19428,16 +19506,19 @@
         "height": 1066
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p687 crop r317 shows the ulnar nerve course/distribution and is reused on p691 with the same native stream, matching Q11/Q14 explanation.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "f0b9fe0a44edf96f556de02adfa5b3b37146eb5a72d85bec0db022cb2bacf65d",
+        "productionSha256": "f0b9fe0a44edf96f556de02adfa5b3b37146eb5a72d85bec0db022cb2bacf65d"
       }
     },
     {
       "id": "anatomy-835fa4b75a5281b4",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -19457,7 +19538,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Ulnar nerve cutaneous innervation diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 688,
@@ -19470,8 +19551,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p688 crop r318 shows ulnar cutaneous innervation and matches Q11 explanation figure 2.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -19488,16 +19570,19 @@
         "height": 492
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p688 crop r318 shows ulnar cutaneous innervation and matches Q11 explanation figure 2.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "835fa4b75a5281b4579ecd8e5debde87a2212361f9b6ea02d05bbc60284ee878",
+        "productionSha256": "835fa4b75a5281b4579ecd8e5debde87a2212361f9b6ea02d05bbc60284ee878"
       }
     },
     {
       "id": "anatomy-c3c2d4785cb91d72",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -19516,8 +19601,8 @@
           "questionId": "marrow__ANAT_CH38_Q012",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Humerus diagram marked at four sites",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 670,
@@ -19530,8 +19615,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p670 crop r319 is the humerus landmark diagram with sites A-D, matching Q12 question placement.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -19548,16 +19634,19 @@
         "height": 1011
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p670 crop r319 is the humerus landmark diagram with sites A-D, matching Q12 question placement.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "c3c2d4785cb91d723a7208bab9c8396ae3ba22148f240f192972d9c762b3bfae",
+        "productionSha256": "c3c2d4785cb91d723a7208bab9c8396ae3ba22148f240f192972d9c762b3bfae"
       }
     },
     {
       "id": "anatomy-8c595c7d13a98cc3",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -19577,7 +19666,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Positive card test illustration",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 689,
@@ -19590,8 +19679,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p689 crop r320 depicts a positive card test and matches Q12 explanation.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -19608,16 +19698,19 @@
         "height": 611
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p689 crop r320 depicts a positive card test and matches Q12 explanation.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "8c595c7d13a98cc379f91162bcacfd113043bee4a87d0b998245daa372753ce4",
+        "productionSha256": "8c595c7d13a98cc379f91162bcacfd113043bee4a87d0b998245daa372753ce4"
       }
     },
     {
       "id": "anatomy-f695f12de9f2a413",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -19637,7 +19730,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Radial nerve course/distribution diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 693,
@@ -19650,8 +19743,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p693/p695 crops r326/r328 show the same radial-nerve course/distribution native stream; the p693 instance matches Q17, p695 matches Q21 explanations.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         },
         {
@@ -19659,7 +19753,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Radial nerve course/distribution diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 695,
@@ -19672,8 +19766,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Staged from the sole unmasked native JPEG candidate on the cited source page; ownership, precise crop, role, question safety and readability still require visual review."
+            "sourceCompared": true,
+            "notes": "The p693/p695 crops r326/r328 show the same radial-nerve course/distribution native stream; the p693 instance matches Q17, p695 matches Q21 explanations.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -19690,16 +19785,19 @@
         "height": 1336
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p693/p695 crops r326/r328 show the same radial-nerve course/distribution native stream; the p693 instance matches Q17, p695 matches Q21 explanations.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "f695f12de9f2a41387dacec47d296c7db23f4891aacaf12ccf6fcc90b380c402",
+        "productionSha256": "f695f12de9f2a41387dacec47d296c7db23f4891aacaf12ccf6fcc90b380c402"
       }
     },
     {
       "id": "anatomy-be0b827db9706467",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -19719,7 +19817,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Placement of nerves around elbow diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 694,
@@ -19732,8 +19830,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p694 crop r327 maps nerve positions around the elbow and matches Q18 explanation.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -19750,16 +19849,19 @@
         "height": 927
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p694 crop r327 maps nerve positions around the elbow and matches Q18 explanation.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "be0b827db9706467dd730886da9d69ca487711bb72ba7db0aafa47ae9bdea4bb",
+        "productionSha256": "be0b827db9706467dd730886da9d69ca487711bb72ba7db0aafa47ae9bdea4bb"
       }
     },
     {
       "id": "anatomy-671bf009b9eabb72",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -19779,7 +19881,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Carpal tunnel anatomy diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 696,
@@ -19792,8 +19894,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p696 crop r329/r330 is the labelled ulnar tunnel and anterior carpal region diagram, supporting separate Q22 carpal-tunnel and Q23 wrist-cut explanation bindings.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         },
         {
@@ -19801,7 +19904,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Ulnar tunnel/anterior carpal region anatomy diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 696,
@@ -19814,8 +19917,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Staged from the sole unmasked native JPEG candidate on the cited source page; ownership, precise crop, role, question safety and readability still require visual review."
+            "sourceCompared": true,
+            "notes": "The p696 crop r329/r330 is the labelled ulnar tunnel and anterior carpal region diagram, supporting separate Q22 carpal-tunnel and Q23 wrist-cut explanation bindings.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -19832,16 +19936,19 @@
         "height": 1151
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p696 crop r329/r330 is the labelled ulnar tunnel and anterior carpal region diagram, supporting separate Q22 carpal-tunnel and Q23 wrist-cut explanation bindings.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "671bf009b9eabb721dec6350d57f7a221e79611dd3ab37133fef014f349080b7",
+        "productionSha256": "671bf009b9eabb721dec6350d57f7a221e79611dd3ab37133fef014f349080b7"
       }
     },
     {
       "id": "anatomy-207de2300a69b951",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -19860,8 +19967,8 @@
           "questionId": "marrow__ANAT_CH38_Q024",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Cadaveric view of the ulnar side of the wrist",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 673,
@@ -19874,8 +19981,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p673 crop r331 shows the cadaveric Guyon's canal view named in Q24 question metadata.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -19892,16 +20000,19 @@
         "height": 561
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p673 crop r331 shows the cadaveric Guyon's canal view named in Q24 question metadata.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "207de2300a69b951e601279aeec3e89f477dcb960b3ae91316009b9ea69bf115",
+        "productionSha256": "207de2300a69b951e601279aeec3e89f477dcb960b3ae91316009b9ea69bf115"
       }
     },
     {
       "id": "anatomy-ca0f79d0cb531e6c",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -19921,7 +20032,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Guyon's canal boundaries/contents diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 698,
@@ -19934,8 +20045,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p698 crop r332 labels Guyon's canal boundaries and contents, matching Q24 explanation.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -19952,16 +20064,19 @@
         "height": 556
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p698 crop r332 labels Guyon's canal boundaries and contents, matching Q24 explanation.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "ca0f79d0cb531e6cb0186127b428aa940ac598b4bea50142b26f71f90bfa5256",
+        "productionSha256": "ca0f79d0cb531e6cb0186127b428aa940ac598b4bea50142b26f71f90bfa5256"
       }
     },
     {
       "id": "anatomy-8b271aad0861a3aa",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -19980,8 +20095,8 @@
           "questionId": "marrow__ANAT_CH38_Q029",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Hand illustration showing colored cutaneous regions",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 675,
@@ -19994,8 +20109,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p675 crop r337 is the upper-limb cutaneous-nerve diagram matching Q29 question; neutral alt describes the colored hand regions only.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -20012,16 +20128,19 @@
         "height": 1440
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p675 crop r337 is the upper-limb cutaneous-nerve diagram matching Q29 question; neutral alt describes the colored hand regions only.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "8b271aad0861a3aa69d68b724eacd520b7d2eb7a07715a38b7966df680a68c2a",
+        "productionSha256": "8b271aad0861a3aa69d68b724eacd520b7d2eb7a07715a38b7966df680a68c2a"
       }
     },
     {
       "id": "anatomy-c0b02d1ab62e0204",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -20040,8 +20159,8 @@
           "questionId": "marrow__ANAT_CH38_Q030",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Dissection photograph of the cubital fossa with a structure marked by an arrow",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 676,
@@ -20054,8 +20173,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The p676 crop r338 is the cubital-fossa dissection with the question arrow, matching Q30 question placement.",
+            "evidence": "Matched exact source page/xref/region to the structured figure role using CI source crops."
           }
         }
       ],
@@ -20072,10 +20192,13 @@
         "height": 578
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The p676 crop r338 is the cubital-fossa dissection with the question arrow, matching Q30 question placement.",
+        "evidence": "Exact source-region crop compared with chapter figure metadata in CI run 36511687262; immutable native JPEG stream remains unchanged.",
+        "originalSha256": "c0b02d1ab62e0204347d75587cb64ab38fda990b4c586fd95a6c7bf158c1e990",
+        "productionSha256": "c0b02d1ab62e0204347d75587cb64ab38fda990b4c586fd95a6c7bf158c1e990"
       }
     },
     {
@@ -27418,7 +27541,7 @@
       }
     },
     {
-      "id": "anatomy-q20-hand-union-pending",
+      "id": "anatomy-region-474280b715522e06",
       "subject": "Anatomy",
       "kind": "medical",
       "source": {
@@ -27443,8 +27566,8 @@
           "questionId": "marrow__ANAT_CH35_Q020",
           "role": "question",
           "order": 1,
-          "alt": "Hand with a marked area",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Palmar photograph of a hand with a yellow circled area",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 624,
@@ -27457,14 +27580,34 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Three native image xrefs overlap; exact union crop has been requested and this binding remains held until full hand and yellow circle are checked."
+            "sourceCompared": true,
+            "notes": "Exact full p624 union render r493 retains the entire source hand and yellow circled area, with all overlapping image pieces aligned. It matches Q20’s hand region question. Source pixels remain unaltered; no image reconstruction.",
+            "evidence": "Inspected full union source-region render r493 in CI run 36511687262."
           }
         }
       ],
       "method": "region-render",
-      "status": "REVIEW_REQUIRED",
-      "reviewBatch": "manual-wave2-anatomy-ch27-44"
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "original": {
+        "path": "data/marrow/images/originals/474280b715522e0694285bf764b09d97934adba34c0eb0c0de0e41c6aff5e32a.png",
+        "sha256": "474280b715522e0694285bf764b09d97934adba34c0eb0c0de0e41c6aff5e32a",
+        "width": 1272,
+        "height": 971
+      },
+      "production": {
+        "path": "data/marrow/images/originals/474280b715522e0694285bf764b09d97934adba34c0eb0c0de0e41c6aff5e32a.png",
+        "sha256": "474280b715522e0694285bf764b09d97934adba34c0eb0c0de0e41c6aff5e32a",
+        "width": 1272,
+        "height": 971
+      },
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact full p624 union render r493 retains the entire source hand and yellow circled area, with all overlapping image pieces aligned. It matches Q20’s hand region question. Source pixels remain unaltered; no image reconstruction.",
+        "evidence": "Exact p624 union source-region render inspected in Ubuntu CI run 36511687262; captured directly from source PDF at 300 DPI, without pixel processing.",
+        "originalSha256": "474280b715522e0694285bf764b09d97934adba34c0eb0c0de0e41c6aff5e32a",
+        "productionSha256": "474280b715522e0694285bf764b09d97934adba34c0eb0c0de0e41c6aff5e32a"
+      }
     },
     {
       "id": "anatomy-region-b708ebbce16d9876",
@@ -27963,7 +28106,7 @@
       }
     },
     {
-      "id": "anatomy-q2-clavipectoral-union-pending",
+      "id": "anatomy-region-f458fc2c3703ec06",
       "subject": "Anatomy",
       "kind": "diagram",
       "source": {
@@ -27988,8 +28131,8 @@
           "questionId": "marrow__ANAT_CH36_Q002",
           "role": "question",
           "order": 1,
-          "alt": "Clavipectoral fascia diagram with a marked vessel",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Clavipectoral fascia and neighboring structures with a vessel marker",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 641,
@@ -28002,14 +28145,34 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Three native image xrefs form a composite; exact union crop requested and binding remains held pending full-image review."
+            "sourceCompared": true,
+            "notes": "Exact full p641 union render r494 retains the full clavipectoral fascia illustration, handwritten marker, and labels across the composite. Question placement matches the source description; original source pixels remain unaltered.",
+            "evidence": "Inspected full union source-region render r494 in CI run 36511687262."
           }
         }
       ],
       "method": "region-render",
-      "status": "REVIEW_REQUIRED",
-      "reviewBatch": "manual-wave2-anatomy-ch27-44"
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "original": {
+        "path": "data/marrow/images/originals/f458fc2c3703ec0691422dc50bfb5fabebbc1e17d7ffc679b9742c42c846bbbb.png",
+        "sha256": "f458fc2c3703ec0691422dc50bfb5fabebbc1e17d7ffc679b9742c42c846bbbb",
+        "width": 1272,
+        "height": 971
+      },
+      "production": {
+        "path": "data/marrow/images/originals/f458fc2c3703ec0691422dc50bfb5fabebbc1e17d7ffc679b9742c42c846bbbb.png",
+        "sha256": "f458fc2c3703ec0691422dc50bfb5fabebbc1e17d7ffc679b9742c42c846bbbb",
+        "width": 1272,
+        "height": 971
+      },
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact full p641 union render r494 retains the full clavipectoral fascia illustration, handwritten marker, and labels across the composite. Question placement matches the source description; original source pixels remain unaltered.",
+        "evidence": "Exact p641 union source-region render inspected in Ubuntu CI run 36511687262; captured directly from source PDF at 300 DPI, without pixel processing.",
+        "originalSha256": "f458fc2c3703ec0691422dc50bfb5fabebbc1e17d7ffc679b9742c42c846bbbb",
+        "productionSha256": "f458fc2c3703ec0691422dc50bfb5fabebbc1e17d7ffc679b9742c42c846bbbb"
+      }
     },
     {
       "id": "anatomy-region-bafb3dc0df5f07b2",
@@ -28195,6 +28358,770 @@
         "notes": "Inspected exact source-region crop r284, page 655, from Ubuntu CI run 36448416847. The diagram labels the hand spaces involved in spread from a middle-finger infection. Deterministic rendering of the source PDF only; no image processing or reconstruction.",
         "originalSha256": "33a4015d83f3a4bdf28c51cd0aa1ce0ac5c365dd8a179f565c6cf9ac760886bd",
         "productionSha256": "33a4015d83f3a4bdf28c51cd0aa1ce0ac5c365dd8a179f565c6cf9ac760886bd"
+      }
+    },
+    {
+      "id": "anatomy-9c7de5bcae71897c",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 664,
+        "xref": 3601,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH37_Q005",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Types of exocrine-gland secretion diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 664,
+            "xref": 3601,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The p664 region r292 is the types-of-exocrine-gland-secretion diagram named by Q5 structured explanation; visually distinct from adjacent breast-lymphatics figure.",
+            "evidence": "Compared the exact p664 source-region render in Ubuntu CI run 36448416847; original JPEG extracted byte-for-byte from the immutable PDF stream; no image edits."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/9c7de5bcae71897cf7e400b41f5d56303e99e95a739b79fafe9f0776e5e310f8.jpg",
+        "sha256": "9c7de5bcae71897cf7e400b41f5d56303e99e95a739b79fafe9f0776e5e310f8",
+        "width": 576,
+        "height": 655
+      },
+      "production": {
+        "path": "data/marrow/images/originals/9c7de5bcae71897cf7e400b41f5d56303e99e95a739b79fafe9f0776e5e310f8.jpg",
+        "sha256": "9c7de5bcae71897cf7e400b41f5d56303e99e95a739b79fafe9f0776e5e310f8",
+        "width": 576,
+        "height": 655
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "The p664 region r292 is the types-of-exocrine-gland-secretion diagram named by Q5 structured explanation; visually distinct from adjacent breast-lymphatics figure.",
+        "evidence": "Exact p664 source-region crop inspected from CI run 36448416847; extracted original native JPEG stream without pixel changes.",
+        "originalSha256": "9c7de5bcae71897cf7e400b41f5d56303e99e95a739b79fafe9f0776e5e310f8",
+        "productionSha256": "9c7de5bcae71897cf7e400b41f5d56303e99e95a739b79fafe9f0776e5e310f8"
+      }
+    },
+    {
+      "id": "anatomy-70fd2aedf29a49c0",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 664,
+        "xref": 1877,
+        "region": [
+          162.0,
+          487.0,
+          450.0,
+          703.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH37_Q006",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Lymphatic drainage of the breast diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 664,
+            "xref": 1877,
+            "region": [
+              162.0,
+              487.0,
+              450.0,
+              703.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The p664 region r295 is the breast lymphatic-drainage figure named as Q6 explanation figure 1; Q6 explanation figure 2 is the separate axillary-node groups diagram on p665.",
+            "evidence": "Compared the exact p664 source-region render in Ubuntu CI run 36448416847; original JPEG extracted byte-for-byte from the immutable PDF stream; no image edits."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/70fd2aedf29a49c00d71740a2604a725f047ff8f49cc6e670dfd90082f99dfe3.jpg",
+        "sha256": "70fd2aedf29a49c00d71740a2604a725f047ff8f49cc6e670dfd90082f99dfe3",
+        "width": 600,
+        "height": 872
+      },
+      "production": {
+        "path": "data/marrow/images/originals/70fd2aedf29a49c00d71740a2604a725f047ff8f49cc6e670dfd90082f99dfe3.jpg",
+        "sha256": "70fd2aedf29a49c00d71740a2604a725f047ff8f49cc6e670dfd90082f99dfe3",
+        "width": 600,
+        "height": 872
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "The p664 region r295 is the breast lymphatic-drainage figure named as Q6 explanation figure 1; Q6 explanation figure 2 is the separate axillary-node groups diagram on p665.",
+        "evidence": "Exact p664 source-region crop inspected from CI run 36448416847; extracted original native JPEG stream without pixel changes.",
+        "originalSha256": "70fd2aedf29a49c00d71740a2604a725f047ff8f49cc6e670dfd90082f99dfe3",
+        "productionSha256": "70fd2aedf29a49c00d71740a2604a725f047ff8f49cc6e670dfd90082f99dfe3"
+      }
+    },
+    {
+      "id": "anatomy-q009-cutaneous-union-pending",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 668,
+        "region": [
+          153.619,
+          495.52,
+          458.381,
+          728.48
+        ],
+        "xref": 1887,
+        "compositeXrefs": [
+          1887,
+          1888,
+          1889
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH38_Q009",
+          "role": "question",
+          "order": 1,
+          "alt": "Source figure under review",
+          "status": "REVIEW_REQUIRED",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 668,
+            "region": [
+              153.619,
+              495.52,
+              458.381,
+              728.48
+            ],
+            "xref": 1887,
+            "compositeXrefs": [
+              1887,
+              1888,
+              1889
+            ]
+          },
+          "qa": {
+            "sourceCompared": false,
+            "notes": "Exact source crop requested after reviewing the candidate figures; keep out of learner runtime until full visual evidence is compared."
+          }
+        }
+      ],
+      "method": "region-render",
+      "status": "REVIEW_REQUIRED",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": false,
+        "notes": "Exact region-render requested; prior broad crop is discovery evidence only.",
+        "originalSha256": "70d343b4f87819b570c3ab1a2baf8e40ca8422f8f141c2601c1fe6c9b51ed999",
+        "productionSha256": "70d343b4f87819b570c3ab1a2baf8e40ca8422f8f141c2601c1fe6c9b51ed999",
+        "evidence": "Native primary JPEG stream retained only as source-side comparison input; this image is not the complete union and does not clear the held binding."
+      },
+      "original": {
+        "path": "data/marrow/images/originals/70d343b4f87819b570c3ab1a2baf8e40ca8422f8f141c2601c1fe6c9b51ed999.jpg",
+        "sha256": "70d343b4f87819b570c3ab1a2baf8e40ca8422f8f141c2601c1fe6c9b51ed999",
+        "width": 384,
+        "height": 388
+      },
+      "production": {
+        "path": "data/marrow/images/originals/70d343b4f87819b570c3ab1a2baf8e40ca8422f8f141c2601c1fe6c9b51ed999.jpg",
+        "sha256": "70d343b4f87819b570c3ab1a2baf8e40ca8422f8f141c2601c1fe6c9b51ed999",
+        "width": 384,
+        "height": 388
+      }
+    },
+    {
+      "id": "anatomy-q027-dermatome-union-pending",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 699,
+        "region": [
+          154.0,
+          176.0,
+          458.0,
+          636.0
+        ],
+        "xref": 1970,
+        "compositeXrefs": [
+          1970,
+          1971
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH38_Q027",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source figure under review",
+          "status": "REVIEW_REQUIRED",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 699,
+            "region": [
+              154.0,
+              176.0,
+              458.0,
+              636.0
+            ],
+            "xref": 1970,
+            "compositeXrefs": [
+              1970,
+              1971
+            ]
+          },
+          "qa": {
+            "sourceCompared": false,
+            "notes": "Exact source crop requested after reviewing the candidate figures; keep out of learner runtime until full visual evidence is compared."
+          }
+        }
+      ],
+      "method": "region-render",
+      "status": "REVIEW_REQUIRED",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": false,
+        "notes": "Exact region-render requested; prior broad crop is discovery evidence only.",
+        "originalSha256": "ce90592584b93932c442fe9db53e2b611707a985ea1490e194746b615c622980",
+        "productionSha256": "ce90592584b93932c442fe9db53e2b611707a985ea1490e194746b615c622980",
+        "evidence": "Native primary JPEG stream retained only as source-side comparison input; this image is not the complete union and does not clear the held binding."
+      },
+      "original": {
+        "path": "data/marrow/images/originals/ce90592584b93932c442fe9db53e2b611707a985ea1490e194746b615c622980.jpg",
+        "sha256": "ce90592584b93932c442fe9db53e2b611707a985ea1490e194746b615c622980",
+        "width": 576,
+        "height": 1151
+      },
+      "production": {
+        "path": "data/marrow/images/originals/ce90592584b93932c442fe9db53e2b611707a985ea1490e194746b615c622980.jpg",
+        "sha256": "ce90592584b93932c442fe9db53e2b611707a985ea1490e194746b615c622980",
+        "width": 576,
+        "height": 1151
+      }
+    },
+    {
+      "id": "anatomy-q031-lesion-table-pending",
+      "subject": "Anatomy",
+      "kind": "table",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 702,
+        "region": [
+          46.0,
+          66.0,
+          284.0,
+          196.0
+        ],
+        "xref": 1979
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH38_Q031",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Source figure under review",
+          "status": "REVIEW_REQUIRED",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 702,
+            "region": [
+              46.0,
+              66.0,
+              284.0,
+              196.0
+            ],
+            "xref": 1979
+          },
+          "qa": {
+            "sourceCompared": false,
+            "notes": "Exact source crop requested after reviewing the candidate figures; keep out of learner runtime until full visual evidence is compared."
+          }
+        }
+      ],
+      "method": "region-render",
+      "status": "REVIEW_REQUIRED",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": false,
+        "notes": "Exact region-render requested; prior broad crop is discovery evidence only.",
+        "originalSha256": "9edd9cd5d86a96e42f4b2e5027b862f610f79a0ec31704301fbba3fb7c78106e",
+        "productionSha256": "9edd9cd5d86a96e42f4b2e5027b862f610f79a0ec31704301fbba3fb7c78106e",
+        "evidence": "The full-page CI render is stored only as discovery/source comparison evidence; the table-only region remains unrendered and binding stays held."
+      },
+      "original": {
+        "path": "data/marrow/images/originals/9edd9cd5d86a96e42f4b2e5027b862f610f79a0ec31704301fbba3fb7c78106e.png",
+        "sha256": "9edd9cd5d86a96e42f4b2e5027b862f610f79a0ec31704301fbba3fb7c78106e",
+        "width": 2550,
+        "height": 3300
+      },
+      "production": {
+        "path": "data/marrow/images/originals/9edd9cd5d86a96e42f4b2e5027b862f610f79a0ec31704301fbba3fb7c78106e.png",
+        "sha256": "9edd9cd5d86a96e42f4b2e5027b862f610f79a0ec31704301fbba3fb7c78106e",
+        "width": 2550,
+        "height": 3300
+      }
+    },
+    {
+      "id": "anatomy-2b1b9ac72b48afe2",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 683,
+        "xref": 1930,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH38_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Hand photograph demonstrating the Benediction sign",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 683,
+            "xref": 1930,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p683 region r304 is the Benediction hand sign photograph, matching Q8 explanation figure 1.",
+            "evidence": "Exact source region crop inspected in Ubuntu CI run 36511687262; source JPEG was extracted byte-for-byte from the cited PDF xref."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/2b1b9ac72b48afe2694132a4ef2d115bd555a66e55d250f180024d5095e7ab9f.jpg",
+        "sha256": "2b1b9ac72b48afe2694132a4ef2d115bd555a66e55d250f180024d5095e7ab9f",
+        "width": 575,
+        "height": 648
+      },
+      "production": {
+        "path": "data/marrow/images/originals/2b1b9ac72b48afe2694132a4ef2d115bd555a66e55d250f180024d5095e7ab9f.jpg",
+        "sha256": "2b1b9ac72b48afe2694132a4ef2d115bd555a66e55d250f180024d5095e7ab9f",
+        "width": 575,
+        "height": 648
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p683 region r304 is the Benediction hand sign photograph, matching Q8 explanation figure 1.",
+        "evidence": "Exact source region crop inspected in CI run 36511687262; immutable extracted JPEG stream used as-is.",
+        "originalSha256": "2b1b9ac72b48afe2694132a4ef2d115bd555a66e55d250f180024d5095e7ab9f",
+        "productionSha256": "2b1b9ac72b48afe2694132a4ef2d115bd555a66e55d250f180024d5095e7ab9f"
+      }
+    },
+    {
+      "id": "anatomy-aca63029556e15f9",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 683,
+        "xref": 1931,
+        "region": [
+          162.0,
+          284.0,
+          450.0,
+          500.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH38_Q008",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Hand photograph demonstrating the Ochsner clasping test",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 683,
+            "xref": 1931,
+            "region": [
+              162.0,
+              284.0,
+              450.0,
+              500.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p683 region r305 is the Ochsner clasping test photograph, matching Q8 explanation figure 2.",
+            "evidence": "Exact source region crop inspected in Ubuntu CI run 36511687262; source JPEG was extracted byte-for-byte from the cited PDF xref."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/aca63029556e15f96d040b10c1800fa9271e5db2b4803c68287c48c884a0bea2.jpg",
+        "sha256": "aca63029556e15f96d040b10c1800fa9271e5db2b4803c68287c48c884a0bea2",
+        "width": 575,
+        "height": 550
+      },
+      "production": {
+        "path": "data/marrow/images/originals/aca63029556e15f96d040b10c1800fa9271e5db2b4803c68287c48c884a0bea2.jpg",
+        "sha256": "aca63029556e15f96d040b10c1800fa9271e5db2b4803c68287c48c884a0bea2",
+        "width": 575,
+        "height": 550
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p683 region r305 is the Ochsner clasping test photograph, matching Q8 explanation figure 2.",
+        "evidence": "Exact source region crop inspected in CI run 36511687262; immutable extracted JPEG stream used as-is.",
+        "originalSha256": "aca63029556e15f96d040b10c1800fa9271e5db2b4803c68287c48c884a0bea2",
+        "productionSha256": "aca63029556e15f96d040b10c1800fa9271e5db2b4803c68287c48c884a0bea2"
+      }
+    },
+    {
+      "id": "anatomy-f9425f9c5948826e",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 690,
+        "xref": 1949,
+        "region": [
+          162.0,
+          218.0,
+          450.0,
+          434.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH38_Q013",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Photographs showing the Froment test",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 690,
+            "xref": 1949,
+            "region": [
+              162.0,
+              218.0,
+              450.0,
+              434.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p690 region r321 shows the positive and negative Froment test photographs; this is Q13 explanation figure 1.",
+            "evidence": "Exact source region crop inspected in Ubuntu CI run 36511687262; source JPEG was extracted byte-for-byte from the cited PDF xref."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/f9425f9c5948826e002a3655712b1a10682a134af05ebd84b222a53f0e597f99.jpg",
+        "sha256": "f9425f9c5948826e002a3655712b1a10682a134af05ebd84b222a53f0e597f99",
+        "width": 576,
+        "height": 926
+      },
+      "production": {
+        "path": "data/marrow/images/originals/f9425f9c5948826e002a3655712b1a10682a134af05ebd84b222a53f0e597f99.jpg",
+        "sha256": "f9425f9c5948826e002a3655712b1a10682a134af05ebd84b222a53f0e597f99",
+        "width": 576,
+        "height": 926
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p690 region r321 shows the positive and negative Froment test photographs; this is Q13 explanation figure 1.",
+        "evidence": "Exact source region crop inspected in CI run 36511687262; immutable extracted JPEG stream used as-is.",
+        "originalSha256": "f9425f9c5948826e002a3655712b1a10682a134af05ebd84b222a53f0e597f99",
+        "productionSha256": "f9425f9c5948826e002a3655712b1a10682a134af05ebd84b222a53f0e597f99"
+      }
+    },
+    {
+      "id": "anatomy-583cdfae9d27e01e",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 685,
+        "xref": 3819,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH38_Q009",
+          "role": "explanation",
+          "order": 3,
+          "alt": "Median nerve cutaneous innervation diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 685,
+            "xref": 3819,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p685 region r312 is the median-nerve cutaneous distribution diagram, matching Q9 explanation figure 3.",
+            "evidence": "Exact source region crop inspected in Ubuntu CI run 36511687262; source JPEG was extracted byte-for-byte from the cited PDF xref."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/583cdfae9d27e01e47035a55a341939accf9faa2f19132981a6a784d77c5dd12.jpg",
+        "sha256": "583cdfae9d27e01e47035a55a341939accf9faa2f19132981a6a784d77c5dd12",
+        "width": 602,
+        "height": 422
+      },
+      "production": {
+        "path": "data/marrow/images/originals/583cdfae9d27e01e47035a55a341939accf9faa2f19132981a6a784d77c5dd12.jpg",
+        "sha256": "583cdfae9d27e01e47035a55a341939accf9faa2f19132981a6a784d77c5dd12",
+        "width": 602,
+        "height": 422
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p685 region r312 is the median-nerve cutaneous distribution diagram, matching Q9 explanation figure 3.",
+        "evidence": "Exact source region crop inspected in CI run 36511687262; immutable extracted JPEG stream used as-is.",
+        "originalSha256": "583cdfae9d27e01e47035a55a341939accf9faa2f19132981a6a784d77c5dd12",
+        "productionSha256": "583cdfae9d27e01e47035a55a341939accf9faa2f19132981a6a784d77c5dd12"
+      }
+    },
+    {
+      "id": "anatomy-3a99a8bb52bd2fdd",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 685,
+        "xref": 3818,
+        "region": [
+          162.0,
+          507.0,
+          450.0,
+          723.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH38_Q010",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Labelled cadaveric view of the cubital fossa",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 685,
+            "xref": 3818,
+            "region": [
+              162.0,
+              507.0,
+              450.0,
+              723.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p685 region r316 is the labelled cubital-fossa dissection identifying the median nerve, matching Q10 explanation figure 2.",
+            "evidence": "Exact source region crop inspected in Ubuntu CI run 36511687262; source JPEG was extracted byte-for-byte from the cited PDF xref."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH38_Q030",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Cubital-fossa dissection with the radial nerve identified",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 701,
+            "xref": 3818,
+            "region": [
+              162.0,
+              151.0,
+              450.0,
+              367.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p701 region r339 shows the cubital-fossa dissection with radial-nerve label/structure context, matching Q30 explanation figure 2.",
+            "evidence": "Exact page 701 source crop r339 compared with the explanation figure description."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/3a99a8bb52bd2fdd4f39d44c7e68de84989bc6af33a780cdb0a65b32bb47bade.jpg",
+        "sha256": "3a99a8bb52bd2fdd4f39d44c7e68de84989bc6af33a780cdb0a65b32bb47bade",
+        "width": 576,
+        "height": 513
+      },
+      "production": {
+        "path": "data/marrow/images/originals/3a99a8bb52bd2fdd4f39d44c7e68de84989bc6af33a780cdb0a65b32bb47bade.jpg",
+        "sha256": "3a99a8bb52bd2fdd4f39d44c7e68de84989bc6af33a780cdb0a65b32bb47bade",
+        "width": 576,
+        "height": 513
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p685 region r316 is the labelled cubital-fossa dissection identifying the median nerve, matching Q10 explanation figure 2.",
+        "evidence": "Exact source region crop inspected in CI run 36511687262; immutable extracted JPEG stream used as-is.",
+        "originalSha256": "3a99a8bb52bd2fdd4f39d44c7e68de84989bc6af33a780cdb0a65b32bb47bade",
+        "productionSha256": "3a99a8bb52bd2fdd4f39d44c7e68de84989bc6af33a780cdb0a65b32bb47bade"
+      }
+    },
+    {
+      "id": "anatomy-0923068588ac6661",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 700,
+        "xref": 1974,
+        "region": [
+          162.0,
+          200.0,
+          450.0,
+          416.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH38_Q028",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Hand illustration showing ulnar claw posture",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 700,
+            "xref": 1974,
+            "region": [
+              162.0,
+              200.0,
+              450.0,
+              416.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p700 region r335 illustrates the hand posture described by Q28’s main-en-griffe explanation.",
+            "evidence": "Exact source region crop inspected in Ubuntu CI run 36511687262; source JPEG was extracted byte-for-byte from the cited PDF xref."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/0923068588ac6661e4bde83449911f38f8e298c77d50e92479ad4a00915055fe.jpg",
+        "sha256": "0923068588ac6661e4bde83449911f38f8e298c77d50e92479ad4a00915055fe",
+        "width": 720,
+        "height": 583
+      },
+      "production": {
+        "path": "data/marrow/images/originals/0923068588ac6661e4bde83449911f38f8e298c77d50e92479ad4a00915055fe.jpg",
+        "sha256": "0923068588ac6661e4bde83449911f38f8e298c77d50e92479ad4a00915055fe",
+        "width": 720,
+        "height": 583
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p700 region r335 illustrates the hand posture described by Q28’s main-en-griffe explanation.",
+        "evidence": "Exact source region crop inspected in CI run 36511687262; immutable extracted JPEG stream used as-is.",
+        "originalSha256": "0923068588ac6661e4bde83449911f38f8e298c77d50e92479ad4a00915055fe",
+        "productionSha256": "0923068588ac6661e4bde83449911f38f8e298c77d50e92479ad4a00915055fe"
       }
     }
   ]
