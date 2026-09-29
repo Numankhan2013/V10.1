@@ -144,6 +144,150 @@
       },
       "reason": "Canonical metadata assigns a right atrial triangle of Koch image to page 822, but the authoritative full-page rendering of page 822 contains question text and answer choices only, with no visual. No neighboring image is substituted.",
       "evidence": "Ubuntu GitHub Actions run 36431980518; full-page render [0,0,612,792] at 300 dpi, SHA-256 66a17e6f605d0a06f2a7f7bf896f9af2203b566651f2570a8230daf1a57e309a; compared against the exact Anatomy PDF hash and Q23 source metadata."
+    },
+    {
+      "id": "marrow__ANAT_CH13_Q003:figure:1",
+      "questionId": "marrow__ANAT_CH13_Q003",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        230
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "The expected cue points to page 230, which contains the question prompt but no image. The matching peripheral nerve histology is placed at the top of page 231 (xref 618); its page field is wrong.",
+      "evidence": "Ubuntu CI full-page renders in run 36432679371 show page 230 ends at the question prompt and page 231 begins with the nerve histology (xref 618), visually matching the prompt. The native stream SHA256 is cc15872830dc1fe3be51e75d264819142b699bdddaecae374d48aa7a8bb22d53; corrected PASS binding records page 231, xref 618."
+    },
+    {
+      "id": "marrow__ANAT_CH13_Q010:figure:1",
+      "questionId": "marrow__ANAT_CH13_Q010",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        233
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "The expected cue points to page 233, which ends after the thyroid histology prompt. The exact marked thyroid section is on page 234 (xref 627); its page field is wrong.",
+      "evidence": "Ubuntu CI full-page renders in run 36432679371 show page 233 ending at the Q10 prompt and page 234 beginning with the thyroid histology marked X (xref 627), matching the question. The native stream SHA256 is 9879b520aadadbc5f71b469e14b1e94042a3b4fe63df074cbb3c026e79469c93; corrected PASS binding records page 234, xref 627."
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q018:figure:1",
+      "questionId": "marrow__ANAT_CH17_Q018",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        310
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "The expected cue points to page 310, where the Q18 prompt ends without its clinical image. The oculomotor palsy eye collage appears on page 311 (xref 3610); its page field is wrong.",
+      "evidence": "PDF source page 311 contains the clinical eye collage (xref 3610; native stream SHA256 2e629c1e08fcdb49c5293a3ce1bf35f7e051e47f25dfa5d8c6230df95951ec77) after the Q18 prompt on page 310. Direct native image review confirms an eye movement/palsy montage matching the question; corrected PASS binding records page 311, xref 3610 and region [162,520,450,736]."
+    },
+    {
+      "id": "marrow__ANAT_CH24_Q010:figure:2",
+      "questionId": "marrow__ANAT_CH24_Q010",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        406
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "The canonical source page assignment [406] has no owned visual; the matching figure appears on page 407 in the same explanation sequence. The registry binding records the verified physical page, xref, and image bounds.",
+      "evidence": "Anatomy source review: exact source page 407, xref 1135, and placement region [162.0, 520.0, 450.0, 736.0] compared against Ubuntu-rendered page context; question/answer sequence confirms ownership."
+    },
+    {
+      "id": "marrow__ANAT_CH26_Q014:figure:1",
+      "questionId": "marrow__ANAT_CH26_Q014",
+      "subject": "Anatomy",
+      "role": "explanation",
+      "sourcePages": [
+        452
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "The canonical source page assignment [452] has no owned visual; the matching figure appears on page 453 in the same explanation sequence. The registry binding records the verified physical page, xref, and image bounds.",
+      "evidence": "Anatomy source review: exact source page 453, xref 3701, and placement region [162.0, 218.0, 450.0, 434.0] compared against Ubuntu-rendered page context; question/answer sequence confirms ownership."
+    },
+    {
+      "id": "marrow__ANAT_CH24_Q001:figure:1",
+      "questionId": "marrow__ANAT_CH24_Q001",
+      "subject": "Anatomy",
+      "role": "explanation",
+      "sourcePages": [
+        409
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "Page 409 contains the chapter answer key table and prose only, not a Q1-owned medical visual. The answer-key table cannot serve as an explanation image.",
+      "evidence": "Anatomy manual source review: Ubuntu-rendered page(s) [409] inspected against exact reference; no matching figure is present, or the only page visual is explicitly unrelated as described."
+    },
+    {
+      "id": "marrow__ANAT_CH24_Q007:figure:2",
+      "questionId": "marrow__ANAT_CH24_Q007",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        406
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "The complete question page 406 has text-only Questions 7–10; Q7 asks an anatomy fact and has no attached visual. No Q7-owned figure appears on the cited page.",
+      "evidence": "Anatomy manual source review: Ubuntu-rendered page(s) [406] inspected against exact reference; no matching figure is present, or the only page visual is explicitly unrelated as described."
+    },
+    {
+      "id": "marrow__ANAT_CH24_Q012:figure:1",
+      "questionId": "marrow__ANAT_CH24_Q012",
+      "subject": "Anatomy",
+      "role": "explanation",
+      "sourcePages": [
+        418
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "The cited page figure is a gross brainstem specimen and skull rendering, not the listed medulla cross-section levels table. Exact source image cue does not match the only visual on this page.",
+      "evidence": "Anatomy manual source review: Ubuntu-rendered page(s) [418] inspected against exact reference; no matching figure is present, or the only page visual is explicitly unrelated as described."
+    },
+    {
+      "id": "marrow__ANAT_CH23_Q003:figure:1",
+      "questionId": "marrow__ANAT_CH23_Q003",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        392
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "The complete source question page 392 ends with Question 3 prompt text and contains no brain section image or image object; the cited question visual is absent from the authoritative source page.",
+      "evidence": "Ubuntu-rendered full source page 392 inspected: Questions 1–3 are visible; Q3 requests a brain section, but no section image appears anywhere on the cited page."
     }
   ]
 }
