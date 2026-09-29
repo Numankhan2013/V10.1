@@ -128,6 +128,22 @@
       },
       "reason": "Canonical metadata associates this galactose question with a fructose-metabolism pathway on explanation page 69 (xref 1146). The rendered source figure is titled “Metabolism of Fructose” and does not match the question content; it must not be released as the galactose visual.",
       "evidence": "Ubuntu artifact run 36437795978, marrow-wave2-regions candidate for BIOCHEM_CH04_Q011:figure:1; source SHA verified, candidate xref 1146/page 69 inspected against question and explanation text."
+    },
+    {
+      "id": "marrow__ANAT_CH45_Q023:figure:1",
+      "questionId": "marrow__ANAT_CH45_Q023",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        822
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "Canonical metadata assigns a right atrial triangle of Koch image to page 822, but the authoritative full-page rendering of page 822 contains question text and answer choices only, with no visual. No neighboring image is substituted.",
+      "evidence": "Ubuntu GitHub Actions run 36431980518; full-page render [0,0,612,792] at 300 dpi, SHA-256 66a17e6f605d0a06f2a7f7bf896f9af2203b566651f2570a8230daf1a57e309a; compared against the exact Anatomy PDF hash and Q23 source metadata."
     }
   ]
 }

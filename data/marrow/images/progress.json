@@ -1,44 +1,44 @@
 {
   "schemaVersion": 1,
   "assets": {
-    "total": 317,
+    "total": 511,
     "byStatus": {
-      "PASS": 188,
+      "PASS": 380,
       "REJECTED": 2,
-      "REVIEW_REQUIRED": 1,
-      "SOURCE_LIMITED": 126
+      "REVIEW_REQUIRED": 2,
+      "SOURCE_LIMITED": 127
     },
     "byKind": {
-      "diagram": 281,
+      "diagram": 460,
       "hybrid": 3,
-      "medical": 32,
+      "medical": 47,
       "table": 1
     },
     "byMethod": {
-      "native-jpeg-stream": 173,
-      "region-render": 140,
+      "native-jpeg-stream": 357,
+      "region-render": 150,
       "svg-reconstruction": 4
     }
   },
   "bindings": {
-    "total": 385,
+    "total": 600,
     "byStatus": {
-      "PASS": 358,
+      "PASS": 570,
       "REJECTED": 25,
-      "REVIEW_REQUIRED": 1,
-      "SOURCE_LIMITED": 1
+      "REVIEW_REQUIRED": 3,
+      "SOURCE_LIMITED": 2
     },
     "releasedByRole": {
-      "explanation": 291,
-      "question": 68
+      "explanation": 454,
+      "question": 118
     },
-    "releasedQuestionCount": 331
+    "releasedQuestionCount": 491
   },
   "subjects": {
     "Anatomy": {
-      "approvedAssets": 63,
-      "assets": 63,
-      "releasedQuestions": 64
+      "approvedAssets": 256,
+      "assets": 257,
+      "releasedQuestions": 224
     },
     "Biochemistry": {
       "approvedAssets": 93,
@@ -88,13 +88,18 @@
       "bindings": 20,
       "releasedBindings": 20
     },
+    "manual-wave2-anatomy-ch45-63": {
+      "bindings": 1,
+      "pendingBindings": 1
+    },
     "manual-wave2-biochem-physiology": {
       "bindings": 153,
       "releasedBindings": 153
     },
     "pilot": {
-      "bindings": 18,
-      "releasedBindings": 18
+      "bindings": 123,
+      "pendingBindings": 1,
+      "releasedBindings": 122
     },
     "rollout-01": {
       "bindings": 18,
@@ -130,6 +135,10 @@
       "bindings": 30,
       "rejectedBindings": 4,
       "releasedBindings": 26
+    },
+    "wave2-anatomy-ch45-63": {
+      "bindings": 109,
+      "releasedBindings": 109
     }
   }
 }
