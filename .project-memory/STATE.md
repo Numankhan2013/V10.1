@@ -134,9 +134,8 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Current priorities / Next step
 
-1. Resolve or explicitly hand off the five Biochemistry readability holds before releasing the Ch25–28 ownership claim; keep Q27 Q5 as an evidence-backed source metadata adjudication unless source metadata is corrected.
-2. Preserve the separate Physiology Ch3–7 claim. Its owner must refresh shared image state from live canonical `87a5724` before any registry/progress/coverage write; continue serializing shared-state integration.
-3. Keep accepted learner flows and production guard intact; no production promotion is authorized. Physical APK/data-preservation review remains outstanding.
+1. Reconcile open manual Wave 2 branches serially by stable reference IDs after refreshing shared state from live canonical; Worker 5's Ch56–63 branch currently has 64/110 released and 46 held (ledger has details). Require exact-head CI before reconciliation.
+2. Keep accepted learner flows and production guard intact; no production promotion is authorized. Physical APK/data-preservation review remains outstanding.
 
 ## Memory pointers
 

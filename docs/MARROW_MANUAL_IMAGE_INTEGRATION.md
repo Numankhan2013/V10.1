@@ -16,7 +16,7 @@ visuals. Raw source and source PDFs remain unchanged.
 | `manual-wave2-anatomy-ch01-26` | Worker 1, Luna 6 medium | Anatomy Chapters 1–26, every source visual and visual text cue | 332 unresolved source references; 0 text cues | **CLAIMED / IN PROGRESS** | `manual/wave2-anatomy-ch01-26` from the live canonical claim commit |
 | `manual-wave2-anatomy-ch27-44` | Worker 2, Luna 6 medium | Anatomy Chapters 27–44, every source visual and visual text cue | 321 unresolved source references; 0 text cues | **CLAIMED / IN PROGRESS** | `manual/wave2-anatomy-ch27-44` from the live canonical claim commit |
 | `manual-wave2-anatomy-ch45-55` | Worker 3, Luna 6 medium | Anatomy Chapters 45–55, every source visual and visual text cue | Original Ch45–63 claim narrowed after Ch52 checkpoint; 196 references in Ch45–55, 0 text cues | **CLAIMED / IN PROGRESS** | Existing `manual/wave2-anatomy-ch45-63` branch; no Ch56–63 work or edits before transfer |
-| `manual-wave2-anatomy-ch56-63` | Worker 5, Luna 6 medium | Anatomy Chapters 56–63, every source visual and visual text cue | 110 untracked source references in Ch56–63; 0 text cues at transfer | **CLAIMED / IN PROGRESS** | New `manual/wave2-anatomy-ch56-63` branch from canonical after this boundary record; may read Worker 3's ignored Ubuntu crop artifact without editing it |
+| `manual-wave2-anatomy-ch56-63` | Worker 5, Luna 6 medium | Anatomy Chapters 56–63, every source visual and visual text cue | 110 untracked source references in Ch56–63; 0 text cues at transfer | **IN PROGRESS: 64 released, 46 held, 0 invalid, 0 untracked** | `manual/wave2-anatomy-ch56-63` from `89b3eec0`; may read Worker 3's ignored Ubuntu crop artifact without editing it |
 | `manual-wave2-biochem-physiology` | Worker 4, Luna 6 medium | Biochemistry Chapters 1–24 and Physiology Chapters 8–43, every source visual and visual text cue | 16 Biochemistry + 197 Physiology unresolved source references; 31 Biochemistry + 27 Physiology text cues | **COMPLETED / INTEGRATED** | `manual/wave2-biochem-physiology` at `502b7a4`; 217 released and 61 held or invalid across 278 in-scope visual references (including previously released references); 58 owned text cues documented as review required; exact-head CI `36446066984` passed |
 
 The 22 reference IDs for `manual-biochem-ch25-28-20260928` are the unresolved
@@ -72,6 +72,25 @@ Worker 5 exclusively owns Ch56–63 (110 untracked references at transfer).
 The table above retains the original paused Ch45–63 checkpoint for audit; the
 two new claims replace its ownership boundary. Do not assign either chapter
 range to another worker while these claims are active.
+
+### Worker 5 checkpoint (2026-09-29)
+
+The Ch56–63 batch now accounts for all 110 owned source references: 64 released,
+46 tracked as `REVIEW_REQUIRED`, zero source-metadata invalid adjudications, and
+zero untracked references. There are no text cues in the owned range. The first
+Ubuntu candidate run `36509658592` passed build/package checks; the Android
+interaction job failed at WebView attachment timeout after emulator launch. The
+second run `36511319560` rendered the six union regions and passed the build job;
+its Android interaction job failed at the same WebView attachment timeout. The
+six union crops were rendered but have not yet been integrated. The 46 holds
+cover multi-object/multi-page ownership or panel-completeness ambiguity, plus
+the two direct mismatches: Ch61 Q5 figure 2 shows “Parallel muscle fibers” while
+metadata describes oblique/pennate arrangements; Ch62 Q8 figure 1's candidate
+is the venous-valve histology reused from Q7, not the described sinusoidal
+channels. Do not release those holds without resolving source ownership. The
+Ch58 Q15/Q16 duplicate XObject was resolved using the exact Ubuntu page crop
+(p1123, xref 3165); the common medial-arch figure supports both explanations.
+The batch still needs review of remaining holds, exact-head CI and reconciliation.
 
 Starting fingerprints for both claims: registry SHA-256
 `799f0c3ae5753f9321f46803871032f255a0548798c4884681f297a5eaa729a2`,

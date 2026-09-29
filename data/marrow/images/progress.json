@@ -1,44 +1,44 @@
 {
   "schemaVersion": 1,
   "assets": {
-    "total": 317,
+    "total": 423,
     "byStatus": {
-      "PASS": 188,
+      "PASS": 249,
       "REJECTED": 2,
-      "REVIEW_REQUIRED": 1,
+      "REVIEW_REQUIRED": 46,
       "SOURCE_LIMITED": 126
     },
     "byKind": {
-      "diagram": 281,
+      "diagram": 375,
       "hybrid": 3,
-      "medical": 32,
+      "medical": 44,
       "table": 1
     },
     "byMethod": {
-      "native-jpeg-stream": 173,
-      "region-render": 140,
+      "native-jpeg-stream": 277,
+      "region-render": 142,
       "svg-reconstruction": 4
     }
   },
   "bindings": {
-    "total": 385,
+    "total": 495,
     "byStatus": {
-      "PASS": 358,
+      "PASS": 422,
       "REJECTED": 25,
-      "REVIEW_REQUIRED": 1,
+      "REVIEW_REQUIRED": 47,
       "SOURCE_LIMITED": 1
     },
     "releasedByRole": {
-      "explanation": 291,
-      "question": 68
+      "explanation": 340,
+      "question": 83
     },
-    "releasedQuestionCount": 331
+    "releasedQuestionCount": 388
   },
   "subjects": {
     "Anatomy": {
-      "approvedAssets": 63,
-      "assets": 63,
-      "releasedQuestions": 64
+      "approvedAssets": 124,
+      "assets": 169,
+      "releasedQuestions": 121
     },
     "Biochemistry": {
       "approvedAssets": 93,
@@ -87,6 +87,11 @@
     "manual-biochem-ch25-28-20260928": {
       "bindings": 20,
       "releasedBindings": 20
+    },
+    "manual-wave2-anatomy-ch56-63": {
+      "bindings": 110,
+      "pendingBindings": 46,
+      "releasedBindings": 64
     },
     "manual-wave2-biochem-physiology": {
       "bindings": 153,
