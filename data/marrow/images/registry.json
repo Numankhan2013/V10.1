@@ -18805,6 +18805,52 @@
             "sourceCompared": false,
             "notes": "Staged from the sole unmasked native JPEG candidate on the cited source page; ownership, precise crop, role, question safety and readability still require visual review."
           }
+        },
+        {
+          "questionId": "marrow__ANAT_CH40_Q015",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Lymphatic drainage of the axilla",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 750,
+            "xref": 3809,
+            "region": [
+              162,
+              439,
+              450,
+              655
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The p750 crop r409 is the axillary lymphatic drainage diagram matching Q15 explanation.",
+            "evidence": "Compared exact source crop in CI run 36511687262."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH40_Q016",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Lymphatic drainage of the axilla",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 751,
+            "xref": 3809,
+            "region": [
+              162,
+              244,
+              450,
+              460
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The p751 crop is the same axillary lymphatic drainage native stream, matching Q16 explanation.",
+            "evidence": "Compared exact source crop in CI run 36511687262."
+          }
         }
       ],
       "original": {
@@ -20204,7 +20250,7 @@
     {
       "id": "anatomy-f08ed47538dd94b1",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -20224,7 +20270,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Superficial muscles of the back / trapezius innervation",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 714,
@@ -20237,8 +20283,32 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact p714 crop r342 is the superficial back/trapezius innervation diagram named in Q1 explanation.",
+            "evidence": "Exact page/xref/region visually compared against the source figure in CI run 36511687262."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH39_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Superficial muscles of the back with innervation",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 715,
+            "xref": 3831,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p715 crop r343 shows the superficial back muscles/innervation diagram matched to Q2; this native stream is repeated from p714/Q1.",
+            "evidence": "Compared exact p715 crop r343 in CI run 36511687262."
           }
         }
       ],
@@ -20255,16 +20325,19 @@
         "height": 813
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Exact p714 crop r342 is the superficial back/trapezius innervation diagram named in Q1 explanation.",
+        "evidence": "Matched exact source crop to the stable question figure description and role; review crop generated from immutable source in Ubuntu CI run 36511687262.",
+        "originalSha256": "f08ed47538dd94b140f46ece5227686df4d4272c26f458677e17fc71e6a9de75",
+        "productionSha256": "f08ed47538dd94b140f46ece5227686df4d4272c26f458677e17fc71e6a9de75"
       }
     },
     {
       "id": "anatomy-276b0b7fccdec082",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -20283,8 +20356,8 @@
           "questionId": "marrow__ANAT_CH39_Q005",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Shoulder muscles with a marked muscle",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 704,
@@ -20297,8 +20370,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact p704 crop r346 shows shoulder/upper-limb muscles with teres major marked, matching Q5 question.",
+            "evidence": "Exact page/xref/region visually compared against the source figure in CI run 36511687262."
           }
         }
       ],
@@ -20315,16 +20389,19 @@
         "height": 561
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Exact p704 crop r346 shows shoulder/upper-limb muscles with teres major marked, matching Q5 question.",
+        "evidence": "Matched exact source crop to the stable question figure description and role; review crop generated from immutable source in Ubuntu CI run 36511687262.",
+        "originalSha256": "276b0b7fccdec08245376a02a2d70760a56af990375a4c8ff5a41dbb0eb25496",
+        "productionSha256": "276b0b7fccdec08245376a02a2d70760a56af990375a4c8ff5a41dbb0eb25496"
       }
     },
     {
       "id": "anatomy-6e64a8be5ff3935a",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -20343,8 +20420,8 @@
           "questionId": "marrow__ANAT_CH39_Q010",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Upper arm muscle diagram with a marked structure",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 706,
@@ -20357,8 +20434,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact p706 crop r352 shows musculocutaneous nerve piercing coracobrachialis, matching Q10 question.",
+            "evidence": "Exact page/xref/region visually compared against the source figure in CI run 36511687262."
           }
         }
       ],
@@ -20375,16 +20453,19 @@
         "height": 753
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Exact p706 crop r352 shows musculocutaneous nerve piercing coracobrachialis, matching Q10 question.",
+        "evidence": "Matched exact source crop to the stable question figure description and role; review crop generated from immutable source in Ubuntu CI run 36511687262.",
+        "originalSha256": "6e64a8be5ff3935afef1ce30bc1dff567125fe61c850abf569328ef688be0a16",
+        "productionSha256": "6e64a8be5ff3935afef1ce30bc1dff567125fe61c850abf569328ef688be0a16"
       }
     },
     {
       "id": "anatomy-cea7cd6fe9777638",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -20403,8 +20484,8 @@
           "questionId": "marrow__ANAT_CH39_Q015",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Forearm image with an extensor muscle marked",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 708,
@@ -20417,8 +20498,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact p708 crop r360 shows extensor carpi radialis longus marked, matching Q15 question.",
+            "evidence": "Exact page/xref/region visually compared against the source figure in CI run 36511687262."
           }
         }
       ],
@@ -20435,16 +20517,19 @@
         "height": 628
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Exact p708 crop r360 shows extensor carpi radialis longus marked, matching Q15 question.",
+        "evidence": "Matched exact source crop to the stable question figure description and role; review crop generated from immutable source in Ubuntu CI run 36511687262.",
+        "originalSha256": "cea7cd6fe9777638e3af8579cbfd15d277a376d47221e5d091604996f8b7dff5",
+        "productionSha256": "cea7cd6fe9777638e3af8579cbfd15d277a376d47221e5d091604996f8b7dff5"
       }
     },
     {
       "id": "anatomy-2e4a5a85c2c22880",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "medical",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -20463,8 +20548,8 @@
           "questionId": "marrow__ANAT_CH39_Q017",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Hand with a card held between the fingers",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 709,
@@ -20477,8 +20562,32 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact p709 crop r366 shows the card-test hand posture in Q17 question.",
+            "evidence": "Exact page/xref/region visually compared against the source figure in CI run 36511687262."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH39_Q017",
+          "role": "question",
+          "order": 1,
+          "alt": "Hand with a card held between the fingers",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 709,
+            "xref": 2001,
+            "region": [
+              162,
+              196,
+              450,
+              412
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p709 crop r366 shows the hand-and-card evaluation described in Q17 question.",
+            "evidence": "Exact source-region crop checked against structured figure metadata in Ubuntu CI run 36511687262."
           }
         }
       ],
@@ -20495,16 +20604,19 @@
         "height": 507
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Exact p709 crop r366 shows the card-test hand posture in Q17 question.",
+        "evidence": "Matched exact source crop to the stable question figure description and role; review crop generated from immutable source in Ubuntu CI run 36511687262.",
+        "originalSha256": "2e4a5a85c2c2288023f50f7f54756ff182ad0642be94f9ccc104c437bd1d3a84",
+        "productionSha256": "2e4a5a85c2c2288023f50f7f54756ff182ad0642be94f9ccc104c437bd1d3a84"
       }
     },
     {
       "id": "anatomy-1f9b06a1aef70151",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -20523,8 +20635,8 @@
           "questionId": "marrow__ANAT_CH39_Q021",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "First-metacarpal diagram with a highlighted palmar region",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 711,
@@ -20537,8 +20649,32 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact p711 crop r379 shows the first metacarpal and marked palmar insertion region, matching Q21 question.",
+            "evidence": "Exact page/xref/region visually compared against the source figure in CI run 36511687262."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH39_Q021",
+          "role": "question",
+          "order": 1,
+          "alt": "First-metacarpal diagram with a highlighted palmar region",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 711,
+            "xref": 2008,
+            "region": [
+              162,
+              360,
+              450,
+              576
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p711 crop r379 marks the palmar aspect of the first metacarpal, matching Q21 question.",
+            "evidence": "Exact source-region crop checked against structured figure metadata in Ubuntu CI run 36511687262."
           }
         }
       ],
@@ -20555,16 +20691,19 @@
         "height": 761
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Exact p711 crop r379 shows the first metacarpal and marked palmar insertion region, matching Q21 question.",
+        "evidence": "Matched exact source crop to the stable question figure description and role; review crop generated from immutable source in Ubuntu CI run 36511687262.",
+        "originalSha256": "1f9b06a1aef701516d3fad53dcfc9be6cdbe689cbb370fcbcad487898e108ef5",
+        "productionSha256": "1f9b06a1aef701516d3fad53dcfc9be6cdbe689cbb370fcbcad487898e108ef5"
       }
     },
     {
       "id": "anatomy-b67b846ed1db0806",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -20583,8 +20722,8 @@
           "questionId": "marrow__ANAT_CH39_Q023",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Palmar hand diagram with a muscle marked",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 712,
@@ -20597,8 +20736,32 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact p712 crop r384 shows a lumbrical marked in the palmar hand, matching Q23 question.",
+            "evidence": "Exact page/xref/region visually compared against the source figure in CI run 36511687262."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH39_Q023",
+          "role": "question",
+          "order": 1,
+          "alt": "Palmar hand diagram with a muscle marked",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 712,
+            "xref": 2011,
+            "region": [
+              162,
+              246,
+              450,
+              462
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p712 crop r384 identifies the marked palmar lumbrical, matching Q23 question.",
+            "evidence": "Exact source-region crop checked against structured figure metadata in Ubuntu CI run 36511687262."
           }
         }
       ],
@@ -20615,16 +20778,19 @@
         "height": 760
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Exact p712 crop r384 shows a lumbrical marked in the palmar hand, matching Q23 question.",
+        "evidence": "Matched exact source crop to the stable question figure description and role; review crop generated from immutable source in Ubuntu CI run 36511687262.",
+        "originalSha256": "b67b846ed1db0806bf23aad0976f071a615bfefd7a83b8f22aaef652335365d1",
+        "productionSha256": "b67b846ed1db0806bf23aad0976f071a615bfefd7a83b8f22aaef652335365d1"
       }
     },
     {
       "id": "anatomy-c47c155ac285a6dd",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -20644,7 +20810,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Superficial muscles of the hand",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 732,
@@ -20657,8 +20823,32 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact p732 crop r385 shows the superficial hand muscles diagram named by Q23 explanation.",
+            "evidence": "Exact page/xref/region visually compared against the source figure in CI run 36511687262."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH39_Q021",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Superficial palmar muscles of the hand",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 730,
+            "xref": 3835,
+            "region": [
+              162.0,
+              365.0,
+              450.0,
+              581.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p730 crop r380 labels superficial palmar hand muscles, including opponens pollicis, and matches Q21 explanation. The same native stream is reused in Q23 on p732.",
+            "evidence": "Compared exact p730 crop r380 in CI run 36511687262."
           }
         }
       ],
@@ -20675,16 +20865,19 @@
         "height": 603
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Exact p732 crop r385 shows the superficial hand muscles diagram named by Q23 explanation.",
+        "evidence": "Matched exact source crop to the stable question figure description and role; review crop generated from immutable source in Ubuntu CI run 36511687262.",
+        "originalSha256": "c47c155ac285a6dd12f6ce7e5658475c11db87361d073907d61aee8bd6f741d1",
+        "productionSha256": "c47c155ac285a6dd12f6ce7e5658475c11db87361d073907d61aee8bd6f741d1"
       }
     },
     {
       "id": "anatomy-79b3d4d740c9f480",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -20704,7 +20897,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Branches of the brachial artery",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 742,
@@ -20717,8 +20910,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact p742 crop r390 is the brachial-artery branch diagram, matching Q5 explanation.",
+            "evidence": "Exact region checked against source figure metadata."
           }
         }
       ],
@@ -20735,16 +20929,19 @@
         "height": 1038
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Exact p742 crop r390 is the brachial-artery branch diagram, matching Q5 explanation.",
+        "evidence": "Compared exact source region in CI run 36511687262 against the stable structured figure description.",
+        "originalSha256": "79b3d4d740c9f480e9059ad00bb52043e068801578ab6850cacbc382e778fa77",
+        "productionSha256": "79b3d4d740c9f480e9059ad00bb52043e068801578ab6850cacbc382e778fa77"
       }
     },
     {
       "id": "anatomy-4e1e0d91ea7b6ee0",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -20764,7 +20961,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Modified Allen's test sequence",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 745,
@@ -20777,8 +20974,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact p745 crop r401 shows the Modified Allen's test sequence, matching Q9 explanation.",
+            "evidence": "Exact region checked against source figure metadata."
           }
         }
       ],
@@ -20795,16 +20993,19 @@
         "height": 1436
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Exact p745 crop r401 shows the Modified Allen's test sequence, matching Q9 explanation.",
+        "evidence": "Compared exact source region in CI run 36511687262 against the stable structured figure description.",
+        "originalSha256": "4e1e0d91ea7b6ee0c50c0ce61fb8972b84bbfa07dea817324a532611bc9821c9",
+        "productionSha256": "4e1e0d91ea7b6ee0c50c0ce61fb8972b84bbfa07dea817324a532611bc9821c9"
       }
     },
     {
       "id": "anatomy-c754f0a1a0061012",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -20824,7 +21025,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Superficial veins of the forearm and median cubital vein",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 748,
@@ -20837,8 +21038,32 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact p748 crop r406 shows superficial forearm veins and the median cubital vein, matching Q12 explanation.",
+            "evidence": "Exact region checked against source figure metadata."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH40_Q011",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Superficial veins of the forearm",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 747,
+            "xref": 3844,
+            "region": [
+              162,
+              56,
+              450,
+              272
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p747 crop r402 shows superficial forearm veins, matching Q11 explanation figure 1; this xref stream is repeated on p748 for Q12.",
+            "evidence": "Exact source region visually checked in CI run 36511687262."
           }
         }
       ],
@@ -20855,16 +21080,19 @@
         "height": 1068
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Exact p748 crop r406 shows superficial forearm veins and the median cubital vein, matching Q12 explanation.",
+        "evidence": "Compared exact source region in CI run 36511687262 against the stable structured figure description.",
+        "originalSha256": "c754f0a1a0061012cf6e674e34a8d058e40c7f67135eaa2e87d4a69a62d6413d",
+        "productionSha256": "c754f0a1a0061012cf6e674e34a8d058e40c7f67135eaa2e87d4a69a62d6413d"
       }
     },
     {
       "id": "anatomy-bfafa9508b71da0a",
       "subject": "Anatomy",
-      "kind": "unknown",
+      "kind": "diagram",
       "reviewBatch": "manual-wave2-anatomy-ch27-44",
       "source": {
         "file": "Anatomy_ed8.pdf",
@@ -20884,7 +21112,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Veins of the upper limb",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 749,
@@ -20897,8 +21125,9 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact p749 crop r407 shows veins of the upper limb, matching Q13 explanation.",
+            "evidence": "Exact region checked against source figure metadata."
           }
         }
       ],
@@ -20915,10 +21144,13 @@
         "height": 814
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Exact p749 crop r407 shows veins of the upper limb, matching Q13 explanation.",
+        "evidence": "Compared exact source region in CI run 36511687262 against the stable structured figure description.",
+        "originalSha256": "bfafa9508b71da0a64373cf24d48ddf0d26c46e4f613fc62909d2ffde1da3bf5",
+        "productionSha256": "bfafa9508b71da0a64373cf24d48ddf0d26c46e4f613fc62909d2ffde1da3bf5"
       }
     },
     {
@@ -29122,6 +29354,1559 @@
         "evidence": "Exact source region crop inspected in CI run 36511687262; immutable extracted JPEG stream used as-is.",
         "originalSha256": "0923068588ac6661e4bde83449911f38f8e298c77d50e92479ad4a00915055fe",
         "productionSha256": "0923068588ac6661e4bde83449911f38f8e298c77d50e92479ad4a00915055fe"
+      }
+    },
+    {
+      "id": "anatomy-1e2bdb81a545a6a8",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 717,
+        "xref": 3832,
+        "region": [
+          162,
+          284,
+          450,
+          500
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH39_Q005",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Muscles around the shoulder diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 717,
+            "xref": 3832,
+            "region": [
+              162,
+              284,
+              450,
+              500
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The p717 crop r348 is the muscles-around-shoulder diagram named by Q5 explanation figure 2.",
+            "evidence": "Exact candidate source crop inspected in Ubuntu CI run 36511687262; native JPEG stream extracted byte-for-byte from cited PDF xref."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/1e2bdb81a545a6a805b99b370bcb7784186907f4354d7f8c51e746ea022c5bec.jpg",
+        "sha256": "1e2bdb81a545a6a805b99b370bcb7784186907f4354d7f8c51e746ea022c5bec",
+        "width": 575,
+        "height": 673
+      },
+      "production": {
+        "path": "data/marrow/images/originals/1e2bdb81a545a6a805b99b370bcb7784186907f4354d7f8c51e746ea022c5bec.jpg",
+        "sha256": "1e2bdb81a545a6a805b99b370bcb7784186907f4354d7f8c51e746ea022c5bec",
+        "width": 575,
+        "height": 673
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "The p717 crop r348 is the muscles-around-shoulder diagram named by Q5 explanation figure 2.",
+        "evidence": "Exact candidate source region compared in Ubuntu CI run 36511687262; immutable native JPEG used as-is.",
+        "originalSha256": "1e2bdb81a545a6a805b99b370bcb7784186907f4354d7f8c51e746ea022c5bec",
+        "productionSha256": "1e2bdb81a545a6a805b99b370bcb7784186907f4354d7f8c51e746ea022c5bec"
+      }
+    },
+    {
+      "id": "anatomy-60285961facb2393",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 707,
+        "xref": 1995,
+        "region": [
+          162,
+          56,
+          450,
+          272
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH39_Q011",
+          "role": "question",
+          "order": 1,
+          "alt": "Elbow radiograph with a marked region",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 707,
+            "xref": 1995,
+            "region": [
+              162,
+              56,
+              450,
+              272
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The p707 crop r354 is the elbow radiograph with a marked region, matching Q11 question description; the p706 shoulder nerve diagram is the adjacent Q10 figure.",
+            "evidence": "Exact candidate source crop inspected in Ubuntu CI run 36511687262; native JPEG stream extracted byte-for-byte from cited PDF xref."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/60285961facb23936f3f206de84ad4a4f22e511a171a1f1ae84291f745defb4d.jpg",
+        "sha256": "60285961facb23936f3f206de84ad4a4f22e511a171a1f1ae84291f745defb4d",
+        "width": 720,
+        "height": 387
+      },
+      "production": {
+        "path": "data/marrow/images/originals/60285961facb23936f3f206de84ad4a4f22e511a171a1f1ae84291f745defb4d.jpg",
+        "sha256": "60285961facb23936f3f206de84ad4a4f22e511a171a1f1ae84291f745defb4d",
+        "width": 720,
+        "height": 387
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "The p707 crop r354 is the elbow radiograph with a marked region, matching Q11 question description; the p706 shoulder nerve diagram is the adjacent Q10 figure.",
+        "evidence": "Exact candidate source region compared in Ubuntu CI run 36511687262; immutable native JPEG used as-is.",
+        "originalSha256": "60285961facb23936f3f206de84ad4a4f22e511a171a1f1ae84291f745defb4d",
+        "productionSha256": "60285961facb23936f3f206de84ad4a4f22e511a171a1f1ae84291f745defb4d"
+      }
+    },
+    {
+      "id": "anatomy-4f5d8fcca0c4a8df",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 723,
+        "xref": 2037,
+        "region": [
+          162,
+          56,
+          450,
+          272
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH39_Q014",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Superficial palmar forearm muscles",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 723,
+            "xref": 2037,
+            "region": [
+              162,
+              56,
+              450,
+              272
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Q14 source text explicitly calls for superficial/deep palmar and dorsal views; p723 r355 is the superficial palmar view.",
+            "evidence": "Exact candidate source crop inspected in Ubuntu CI run 36511687262; native JPEG stream extracted byte-for-byte from cited PDF xref."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/4f5d8fcca0c4a8df9489a1a2ebcaff5c5114639d4540defc06494e363d042b35.jpg",
+        "sha256": "4f5d8fcca0c4a8df9489a1a2ebcaff5c5114639d4540defc06494e363d042b35",
+        "width": 575,
+        "height": 530
+      },
+      "production": {
+        "path": "data/marrow/images/originals/4f5d8fcca0c4a8df9489a1a2ebcaff5c5114639d4540defc06494e363d042b35.jpg",
+        "sha256": "4f5d8fcca0c4a8df9489a1a2ebcaff5c5114639d4540defc06494e363d042b35",
+        "width": 575,
+        "height": 530
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Q14 source text explicitly calls for superficial/deep palmar and dorsal views; p723 r355 is the superficial palmar view.",
+        "evidence": "Exact candidate source region compared in Ubuntu CI run 36511687262; immutable native JPEG used as-is.",
+        "originalSha256": "4f5d8fcca0c4a8df9489a1a2ebcaff5c5114639d4540defc06494e363d042b35",
+        "productionSha256": "4f5d8fcca0c4a8df9489a1a2ebcaff5c5114639d4540defc06494e363d042b35"
+      }
+    },
+    {
+      "id": "anatomy-796ea04129305eef",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 723,
+        "xref": 2038,
+        "region": [
+          162,
+          284,
+          450,
+          500
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH39_Q014",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Deep palmar forearm muscles",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 723,
+            "xref": 2038,
+            "region": [
+              162,
+              284,
+              450,
+              500
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Q14 source text explicitly calls for superficial/deep palmar and dorsal views; p723 r356 is the deep palmar view.",
+            "evidence": "Exact candidate source crop inspected in Ubuntu CI run 36511687262; native JPEG stream extracted byte-for-byte from cited PDF xref."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/796ea04129305eef6005082ad7209829782404700ceea8e031906c6a96678e20.jpg",
+        "sha256": "796ea04129305eef6005082ad7209829782404700ceea8e031906c6a96678e20",
+        "width": 575,
+        "height": 508
+      },
+      "production": {
+        "path": "data/marrow/images/originals/796ea04129305eef6005082ad7209829782404700ceea8e031906c6a96678e20.jpg",
+        "sha256": "796ea04129305eef6005082ad7209829782404700ceea8e031906c6a96678e20",
+        "width": 575,
+        "height": 508
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Q14 source text explicitly calls for superficial/deep palmar and dorsal views; p723 r356 is the deep palmar view.",
+        "evidence": "Exact candidate source region compared in Ubuntu CI run 36511687262; immutable native JPEG used as-is.",
+        "originalSha256": "796ea04129305eef6005082ad7209829782404700ceea8e031906c6a96678e20",
+        "productionSha256": "796ea04129305eef6005082ad7209829782404700ceea8e031906c6a96678e20"
+      }
+    },
+    {
+      "id": "anatomy-ebac5d3ea1440769",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 723,
+        "xref": 2039,
+        "region": [
+          162,
+          512,
+          450,
+          728
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH39_Q014",
+          "role": "explanation",
+          "order": 3,
+          "alt": "Superficial dorsal forearm muscles",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 723,
+            "xref": 2039,
+            "region": [
+              162,
+              512,
+              450,
+              728
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Q14 source text explicitly calls for superficial/deep palmar and dorsal views; p723 r357 is the superficial dorsal view.",
+            "evidence": "Exact candidate source crop inspected in Ubuntu CI run 36511687262; native JPEG stream extracted byte-for-byte from cited PDF xref."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/ebac5d3ea14407697c47b9f892e3528b44954316c0b532cb0049acace7c48de3.jpg",
+        "sha256": "ebac5d3ea14407697c47b9f892e3528b44954316c0b532cb0049acace7c48de3",
+        "width": 576,
+        "height": 516
+      },
+      "production": {
+        "path": "data/marrow/images/originals/ebac5d3ea14407697c47b9f892e3528b44954316c0b532cb0049acace7c48de3.jpg",
+        "sha256": "ebac5d3ea14407697c47b9f892e3528b44954316c0b532cb0049acace7c48de3",
+        "width": 576,
+        "height": 516
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Q14 source text explicitly calls for superficial/deep palmar and dorsal views; p723 r357 is the superficial dorsal view.",
+        "evidence": "Exact candidate source region compared in Ubuntu CI run 36511687262; immutable native JPEG used as-is.",
+        "originalSha256": "ebac5d3ea14407697c47b9f892e3528b44954316c0b532cb0049acace7c48de3",
+        "productionSha256": "ebac5d3ea14407697c47b9f892e3528b44954316c0b532cb0049acace7c48de3"
+      }
+    },
+    {
+      "id": "anatomy-fae141bba1302a79",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 724,
+        "xref": 2042,
+        "region": [
+          162,
+          68,
+          450,
+          284
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH39_Q014",
+          "role": "explanation",
+          "order": 4,
+          "alt": "Deep dorsal forearm muscles",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 724,
+            "xref": 2042,
+            "region": [
+              162,
+              68,
+              450,
+              284
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Q14 source text explicitly calls for superficial/deep palmar and dorsal views; p724 r358 is the deep dorsal view.",
+            "evidence": "Exact candidate source crop inspected in Ubuntu CI run 36511687262; native JPEG stream extracted byte-for-byte from cited PDF xref."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/fae141bba1302a7972322df0399a7d90cb25d3bb44379f61cb1d49711dfcfafc.jpg",
+        "sha256": "fae141bba1302a7972322df0399a7d90cb25d3bb44379f61cb1d49711dfcfafc",
+        "width": 575,
+        "height": 509
+      },
+      "production": {
+        "path": "data/marrow/images/originals/fae141bba1302a7972322df0399a7d90cb25d3bb44379f61cb1d49711dfcfafc.jpg",
+        "sha256": "fae141bba1302a7972322df0399a7d90cb25d3bb44379f61cb1d49711dfcfafc",
+        "width": 575,
+        "height": 509
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Q14 source text explicitly calls for superficial/deep palmar and dorsal views; p724 r358 is the deep dorsal view.",
+        "evidence": "Exact candidate source region compared in Ubuntu CI run 36511687262; immutable native JPEG used as-is.",
+        "originalSha256": "fae141bba1302a7972322df0399a7d90cb25d3bb44379f61cb1d49711dfcfafc",
+        "productionSha256": "fae141bba1302a7972322df0399a7d90cb25d3bb44379f61cb1d49711dfcfafc"
+      }
+    },
+    {
+      "id": "anatomy-06d4c36aceccf5da",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 724,
+        "xref": 2043,
+        "region": [
+          162,
+          445,
+          450,
+          661
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH39_Q015",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Extensor muscles of the forearm",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 724,
+            "xref": 2043,
+            "region": [
+              162,
+              445,
+              450,
+              661
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p724 crop r362 is the extensor-forearm diagram named by Q15 explanation figure 2.",
+            "evidence": "Exact candidate source crop inspected in Ubuntu CI run 36511687262; native JPEG stream extracted byte-for-byte from cited PDF xref."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/06d4c36aceccf5da69bc771999625f0f4fe267904cf68d02739fc8be04597a05.jpg",
+        "sha256": "06d4c36aceccf5da69bc771999625f0f4fe267904cf68d02739fc8be04597a05",
+        "width": 600,
+        "height": 580
+      },
+      "production": {
+        "path": "data/marrow/images/originals/06d4c36aceccf5da69bc771999625f0f4fe267904cf68d02739fc8be04597a05.jpg",
+        "sha256": "06d4c36aceccf5da69bc771999625f0f4fe267904cf68d02739fc8be04597a05",
+        "width": 600,
+        "height": 580
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p724 crop r362 is the extensor-forearm diagram named by Q15 explanation figure 2.",
+        "evidence": "Exact candidate source region compared in Ubuntu CI run 36511687262; immutable native JPEG used as-is.",
+        "originalSha256": "06d4c36aceccf5da69bc771999625f0f4fe267904cf68d02739fc8be04597a05",
+        "productionSha256": "06d4c36aceccf5da69bc771999625f0f4fe267904cf68d02739fc8be04597a05"
+      }
+    },
+    {
+      "id": "anatomy-efb9a122710fc614",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 725,
+        "xref": 3833,
+        "region": [
+          162,
+          364,
+          450,
+          580
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH39_Q016",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Palmar interossei of the hand",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 725,
+            "xref": 3833,
+            "region": [
+              162,
+              364,
+              450,
+              580
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p725 crop r363 is the palmar interossei diagram; paired with the dorsal interossei image to match Q16 source metadata.",
+            "evidence": "Exact candidate source crop inspected in Ubuntu CI run 36511687262; native JPEG stream extracted byte-for-byte from cited PDF xref."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH39_Q017",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Palmar interossei of the hand",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 726,
+            "xref": 3833,
+            "region": [
+              162,
+              479,
+              450,
+              695
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p726 crop r365 is the palmar-interossei view; paired with the dorsal image in Q17’s figure 2.",
+            "evidence": "Exact source-region crop checked against structured figure metadata in Ubuntu CI run 36511687262."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH39_Q021",
+          "role": "explanation",
+          "order": 4,
+          "alt": "Palmar interossei of the hand",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 731,
+            "xref": 3833,
+            "region": [
+              162,
+              284,
+              450,
+              500
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p731 crop r382 labels the palmar interossei as one of the intrinsic hand muscle diagrams in Q21 explanation.",
+            "evidence": "Exact source-region crop checked against structured figure metadata in Ubuntu CI run 36511687262."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/efb9a122710fc614bb2206acafce2f18b5f4d2506aed5ef70c47f81b8668a385.jpg",
+        "sha256": "efb9a122710fc614bb2206acafce2f18b5f4d2506aed5ef70c47f81b8668a385",
+        "width": 576,
+        "height": 603
+      },
+      "production": {
+        "path": "data/marrow/images/originals/efb9a122710fc614bb2206acafce2f18b5f4d2506aed5ef70c47f81b8668a385.jpg",
+        "sha256": "efb9a122710fc614bb2206acafce2f18b5f4d2506aed5ef70c47f81b8668a385",
+        "width": 576,
+        "height": 603
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p725 crop r363 is the palmar interossei diagram; paired with the dorsal interossei image to match Q16 source metadata.",
+        "evidence": "Exact candidate source region compared in Ubuntu CI run 36511687262; immutable native JPEG used as-is.",
+        "originalSha256": "efb9a122710fc614bb2206acafce2f18b5f4d2506aed5ef70c47f81b8668a385",
+        "productionSha256": "efb9a122710fc614bb2206acafce2f18b5f4d2506aed5ef70c47f81b8668a385"
+      }
+    },
+    {
+      "id": "anatomy-f8b28be463a838c6",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 726,
+        "xref": 3834,
+        "region": [
+          162,
+          56,
+          450,
+          272
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH39_Q016",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Dorsal interossei of the hand",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 726,
+            "xref": 3834,
+            "region": [
+              162,
+              56,
+              450,
+              272
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p726 crop r364 is the dorsal interossei diagram; paired with the palmar interossei image to match Q16 source metadata.",
+            "evidence": "Exact candidate source crop inspected in Ubuntu CI run 36511687262; native JPEG stream extracted byte-for-byte from cited PDF xref."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH39_Q017",
+          "role": "explanation",
+          "order": 3,
+          "alt": "Dorsal interossei of the hand",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 726,
+            "xref": 3834,
+            "region": [
+              162,
+              56,
+              450,
+              272
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p726 crop r364 is the dorsal-interossei view; paired with the palmar image in Q17’s figure 2.",
+            "evidence": "Exact source-region crop checked against structured figure metadata in Ubuntu CI run 36511687262."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH39_Q021",
+          "role": "explanation",
+          "order": 5,
+          "alt": "Dorsal interossei of the hand",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 731,
+            "xref": 3834,
+            "region": [
+              162,
+              512,
+              450,
+              728
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p731 crop r383 labels dorsal interossei as one of the intrinsic hand muscle diagrams in Q21 explanation.",
+            "evidence": "Exact source-region crop checked against structured figure metadata in Ubuntu CI run 36511687262."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/f8b28be463a838c666dad984a6b7f4fa56e29728d60aafc4fe189ebabdfccfe7.jpg",
+        "sha256": "f8b28be463a838c666dad984a6b7f4fa56e29728d60aafc4fe189ebabdfccfe7",
+        "width": 576,
+        "height": 678
+      },
+      "production": {
+        "path": "data/marrow/images/originals/f8b28be463a838c666dad984a6b7f4fa56e29728d60aafc4fe189ebabdfccfe7.jpg",
+        "sha256": "f8b28be463a838c666dad984a6b7f4fa56e29728d60aafc4fe189ebabdfccfe7",
+        "width": 576,
+        "height": 678
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p726 crop r364 is the dorsal interossei diagram; paired with the palmar interossei image to match Q16 source metadata.",
+        "evidence": "Exact candidate source region compared in Ubuntu CI run 36511687262; immutable native JPEG used as-is.",
+        "originalSha256": "f8b28be463a838c666dad984a6b7f4fa56e29728d60aafc4fe189ebabdfccfe7",
+        "productionSha256": "f8b28be463a838c666dad984a6b7f4fa56e29728d60aafc4fe189ebabdfccfe7"
+      }
+    },
+    {
+      "id": "anatomy-d1c54a3286789d93",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 710,
+        "xref": 2004,
+        "region": [
+          162,
+          56,
+          450,
+          272
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH39_Q018",
+          "role": "question",
+          "order": 1,
+          "alt": "Hand dissection with site A marked",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 710,
+            "xref": 2004,
+            "region": [
+              162,
+              56,
+              450,
+              272
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p710 crop r371 shows site A on the dissection, matching Q18’s marked lumbrical question.",
+            "evidence": "Exact candidate source crop inspected in Ubuntu CI run 36511687262; native JPEG stream extracted byte-for-byte from cited PDF xref."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/d1c54a3286789d9309b3c8df804f9fe1a43428770ffcf5066b95839e412c3957.jpg",
+        "sha256": "d1c54a3286789d9309b3c8df804f9fe1a43428770ffcf5066b95839e412c3957",
+        "width": 720,
+        "height": 540
+      },
+      "production": {
+        "path": "data/marrow/images/originals/d1c54a3286789d9309b3c8df804f9fe1a43428770ffcf5066b95839e412c3957.jpg",
+        "sha256": "d1c54a3286789d9309b3c8df804f9fe1a43428770ffcf5066b95839e412c3957",
+        "width": 720,
+        "height": 540
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p710 crop r371 shows site A on the dissection, matching Q18’s marked lumbrical question.",
+        "evidence": "Exact candidate source region compared in Ubuntu CI run 36511687262; immutable native JPEG used as-is.",
+        "originalSha256": "d1c54a3286789d9309b3c8df804f9fe1a43428770ffcf5066b95839e412c3957",
+        "productionSha256": "d1c54a3286789d9309b3c8df804f9fe1a43428770ffcf5066b95839e412c3957"
+      }
+    },
+    {
+      "id": "anatomy-1aa09a04e68905ce",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 727,
+        "xref": 2050,
+        "region": [
+          162,
+          459,
+          450,
+          675
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH39_Q018",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Superficial intrinsic muscles of the hand",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 727,
+            "xref": 2050,
+            "region": [
+              162,
+              459,
+              450,
+              675
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p727 crop r370 is the superficial intrinsic hand dissection named in Q18 explanation figure 2.",
+            "evidence": "Exact candidate source crop inspected in Ubuntu CI run 36511687262; native JPEG stream extracted byte-for-byte from cited PDF xref."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/1aa09a04e68905ce66c94bd6951bfb32964c47ae937ef394c9e5867d906d99c0.jpg",
+        "sha256": "1aa09a04e68905ce66c94bd6951bfb32964c47ae937ef394c9e5867d906d99c0",
+        "width": 575,
+        "height": 518
+      },
+      "production": {
+        "path": "data/marrow/images/originals/1aa09a04e68905ce66c94bd6951bfb32964c47ae937ef394c9e5867d906d99c0.jpg",
+        "sha256": "1aa09a04e68905ce66c94bd6951bfb32964c47ae937ef394c9e5867d906d99c0",
+        "width": 575,
+        "height": 518
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p727 crop r370 is the superficial intrinsic hand dissection named in Q18 explanation figure 2.",
+        "evidence": "Exact candidate source region compared in Ubuntu CI run 36511687262; immutable native JPEG used as-is.",
+        "originalSha256": "1aa09a04e68905ce66c94bd6951bfb32964c47ae937ef394c9e5867d906d99c0",
+        "productionSha256": "1aa09a04e68905ce66c94bd6951bfb32964c47ae937ef394c9e5867d906d99c0"
+      }
+    },
+    {
+      "id": "anatomy-a7464a4e88b731fb",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 710,
+        "xref": 2005,
+        "region": [
+          162,
+          454,
+          450,
+          670
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH39_Q019",
+          "role": "question",
+          "order": 1,
+          "alt": "Hand dissection with a marked tendon expansion",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 710,
+            "xref": 2005,
+            "region": [
+              162,
+              454,
+              450,
+              670
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p710 crop r372 marks the dorsal digital expansion with a question arrow, matching Q19 question.",
+            "evidence": "Exact candidate source crop inspected in Ubuntu CI run 36511687262; native JPEG stream extracted byte-for-byte from cited PDF xref."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/a7464a4e88b731fb520a9d25dbe2a510f1dd4c73181646bc10463441c8a5b535.jpg",
+        "sha256": "a7464a4e88b731fb520a9d25dbe2a510f1dd4c73181646bc10463441c8a5b535",
+        "width": 720,
+        "height": 664
+      },
+      "production": {
+        "path": "data/marrow/images/originals/a7464a4e88b731fb520a9d25dbe2a510f1dd4c73181646bc10463441c8a5b535.jpg",
+        "sha256": "a7464a4e88b731fb520a9d25dbe2a510f1dd4c73181646bc10463441c8a5b535",
+        "width": 720,
+        "height": 664
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p710 crop r372 marks the dorsal digital expansion with a question arrow, matching Q19 question.",
+        "evidence": "Exact candidate source region compared in Ubuntu CI run 36511687262; immutable native JPEG used as-is.",
+        "originalSha256": "a7464a4e88b731fb520a9d25dbe2a510f1dd4c73181646bc10463441c8a5b535",
+        "productionSha256": "a7464a4e88b731fb520a9d25dbe2a510f1dd4c73181646bc10463441c8a5b535"
+      }
+    },
+    {
+      "id": "anatomy-1df7c493bc40251f",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 731,
+        "xref": 2059,
+        "region": [
+          162,
+          56,
+          450,
+          272
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH39_Q021",
+          "role": "explanation",
+          "order": 3,
+          "alt": "Deep muscles of the hand (palmar view)",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 731,
+            "xref": 2059,
+            "region": [
+              162,
+              56,
+              450,
+              272
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p731 crop r381 identifies deep hand muscles, including opponens pollicis; it supports Q21 explanation of the marked first-metacarpal insertion.",
+            "evidence": "Exact candidate source crop inspected in Ubuntu CI run 36511687262; native JPEG stream extracted byte-for-byte from cited PDF xref."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/1df7c493bc40251f564e1bbcefaaa67cd1bfcc84888e44c9eecd07ab09de5f04.jpg",
+        "sha256": "1df7c493bc40251f564e1bbcefaaa67cd1bfcc84888e44c9eecd07ab09de5f04",
+        "width": 575,
+        "height": 556
+      },
+      "production": {
+        "path": "data/marrow/images/originals/1df7c493bc40251f564e1bbcefaaa67cd1bfcc84888e44c9eecd07ab09de5f04.jpg",
+        "sha256": "1df7c493bc40251f564e1bbcefaaa67cd1bfcc84888e44c9eecd07ab09de5f04",
+        "width": 575,
+        "height": 556
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p731 crop r381 identifies deep hand muscles, including opponens pollicis; it supports Q21 explanation of the marked first-metacarpal insertion.",
+        "evidence": "Exact candidate source region compared in Ubuntu CI run 36511687262; immutable native JPEG used as-is.",
+        "originalSha256": "1df7c493bc40251f564e1bbcefaaa67cd1bfcc84888e44c9eecd07ab09de5f04",
+        "productionSha256": "1df7c493bc40251f564e1bbcefaaa67cd1bfcc84888e44c9eecd07ab09de5f04"
+      }
+    },
+    {
+      "id": "anatomy-q008-popeye-union-pending",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 705,
+        "xref": 1987,
+        "compositeXrefs": [
+          1987,
+          1988,
+          1989
+        ],
+        "region": [
+          153.537,
+          363.52,
+          458.463,
+          596.48
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH39_Q008",
+          "role": "question",
+          "order": 1,
+          "alt": "Clinical photograph of an upper arm with a visible muscle bulge",
+          "status": "REVIEW_REQUIRED",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 705,
+            "xref": 1987,
+            "compositeXrefs": [
+              1987,
+              1988,
+              1989
+            ],
+            "region": [
+              153.537,
+              363.52,
+              458.463,
+              596.48
+            ]
+          },
+          "qa": {
+            "sourceCompared": false,
+            "notes": "The p705 candidates r349-r351 are partial crops of the clinical upper-arm image. Keep the full composite pending the requested union render; the primary native stream is comparison material only."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/a14bb2abaf19e23f2422e98e3232b3a54f7f5cf69ba36ffbc18ae6d6dd54492c.jpg",
+        "sha256": "a14bb2abaf19e23f2422e98e3232b3a54f7f5cf69ba36ffbc18ae6d6dd54492c",
+        "width": 469,
+        "height": 388
+      },
+      "production": {
+        "path": "data/marrow/images/originals/a14bb2abaf19e23f2422e98e3232b3a54f7f5cf69ba36ffbc18ae6d6dd54492c.jpg",
+        "sha256": "a14bb2abaf19e23f2422e98e3232b3a54f7f5cf69ba36ffbc18ae6d6dd54492c",
+        "width": 469,
+        "height": 388
+      },
+      "method": "region-render",
+      "status": "REVIEW_REQUIRED",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": false,
+        "notes": "The p705 candidates r349-r351 are partial crops of the clinical upper-arm image. Keep the full composite pending the requested union render; the primary native stream is comparison material only.",
+        "evidence": "Primary native JPEG retained only as source-side comparison input; it is not the complete union and does not clear the held binding.",
+        "originalSha256": "a14bb2abaf19e23f2422e98e3232b3a54f7f5cf69ba36ffbc18ae6d6dd54492c",
+        "productionSha256": "a14bb2abaf19e23f2422e98e3232b3a54f7f5cf69ba36ffbc18ae6d6dd54492c"
+      }
+    },
+    {
+      "id": "anatomy-0f162c9807639cc1",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 741,
+        "xref": 2083,
+        "region": [
+          162,
+          56,
+          450,
+          272
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH40_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Scapular anastomosis diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 741,
+            "xref": 2083,
+            "region": [
+              162,
+              56,
+              450,
+              272
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p741 crop r386 is the scapular anastomosis diagram named by Q3 explanation; the second nearby image is shoulder-joint arteries.",
+            "evidence": "Exact candidate region inspected in Ubuntu CI run 36511687262; original native JPEG stream extracted unchanged."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/0f162c9807639cc1db75d94948d4bc05d6adf2f0f4747feb91271bac16796b39.jpg",
+        "sha256": "0f162c9807639cc1db75d94948d4bc05d6adf2f0f4747feb91271bac16796b39",
+        "width": 600,
+        "height": 846
+      },
+      "production": {
+        "path": "data/marrow/images/originals/0f162c9807639cc1db75d94948d4bc05d6adf2f0f4747feb91271bac16796b39.jpg",
+        "sha256": "0f162c9807639cc1db75d94948d4bc05d6adf2f0f4747feb91271bac16796b39",
+        "width": 600,
+        "height": 846
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p741 crop r386 is the scapular anastomosis diagram named by Q3 explanation; the second nearby image is shoulder-joint arteries.",
+        "evidence": "Matched exact candidate crop with structured figure role in Ubuntu CI run 36511687262; immutable native JPEG source used as-is.",
+        "originalSha256": "0f162c9807639cc1db75d94948d4bc05d6adf2f0f4747feb91271bac16796b39",
+        "productionSha256": "0f162c9807639cc1db75d94948d4bc05d6adf2f0f4747feb91271bac16796b39"
+      }
+    },
+    {
+      "id": "anatomy-7688405b6e40482d",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 741,
+        "xref": 2084,
+        "region": [
+          162,
+          473,
+          450,
+          689
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH40_Q004",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Arteries around the shoulder joint diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 741,
+            "xref": 2084,
+            "region": [
+              162,
+              473,
+              450,
+              689
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p741 crop r387 labels arteries around the shoulder joint and matches Q4 explanation.",
+            "evidence": "Exact candidate region inspected in Ubuntu CI run 36511687262; original native JPEG stream extracted unchanged."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/7688405b6e40482dda34032f3e85827c8b520727f4d88dd9c2d0094306687f6e.jpg",
+        "sha256": "7688405b6e40482dda34032f3e85827c8b520727f4d88dd9c2d0094306687f6e",
+        "width": 600,
+        "height": 592
+      },
+      "production": {
+        "path": "data/marrow/images/originals/7688405b6e40482dda34032f3e85827c8b520727f4d88dd9c2d0094306687f6e.jpg",
+        "sha256": "7688405b6e40482dda34032f3e85827c8b520727f4d88dd9c2d0094306687f6e",
+        "width": 600,
+        "height": 592
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p741 crop r387 labels arteries around the shoulder joint and matches Q4 explanation.",
+        "evidence": "Matched exact candidate crop with structured figure role in Ubuntu CI run 36511687262; immutable native JPEG source used as-is.",
+        "originalSha256": "7688405b6e40482dda34032f3e85827c8b520727f4d88dd9c2d0094306687f6e",
+        "productionSha256": "7688405b6e40482dda34032f3e85827c8b520727f4d88dd9c2d0094306687f6e"
+      }
+    },
+    {
+      "id": "anatomy-750f310b6b62d58f",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 743,
+        "xref": 2090,
+        "region": [
+          162,
+          104,
+          450,
+          320
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH40_Q006",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Arteries of the forearm diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 743,
+            "xref": 2090,
+            "region": [
+              162,
+              104,
+              450,
+              320
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p743 crop r391 is the forearm arterial diagram named by Q6 explanation; the neighboring interosseous membrane image belongs to Q7.",
+            "evidence": "Exact candidate region inspected in Ubuntu CI run 36511687262; original native JPEG stream extracted unchanged."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/750f310b6b62d58f01ddec86ac96a512721108a15a8fb81660c91a2f21e617bc.jpg",
+        "sha256": "750f310b6b62d58f01ddec86ac96a512721108a15a8fb81660c91a2f21e617bc",
+        "width": 576,
+        "height": 994
+      },
+      "production": {
+        "path": "data/marrow/images/originals/750f310b6b62d58f01ddec86ac96a512721108a15a8fb81660c91a2f21e617bc.jpg",
+        "sha256": "750f310b6b62d58f01ddec86ac96a512721108a15a8fb81660c91a2f21e617bc",
+        "width": 576,
+        "height": 994
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p743 crop r391 is the forearm arterial diagram named by Q6 explanation; the neighboring interosseous membrane image belongs to Q7.",
+        "evidence": "Matched exact candidate crop with structured figure role in Ubuntu CI run 36511687262; immutable native JPEG source used as-is.",
+        "originalSha256": "750f310b6b62d58f01ddec86ac96a512721108a15a8fb81660c91a2f21e617bc",
+        "productionSha256": "750f310b6b62d58f01ddec86ac96a512721108a15a8fb81660c91a2f21e617bc"
+      }
+    },
+    {
+      "id": "anatomy-84965d763502da6c",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 735,
+        "xref": 2068,
+        "region": [
+          162,
+          56,
+          450,
+          272
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH40_Q007",
+          "role": "question",
+          "order": 1,
+          "alt": "Interosseous membrane with an opening marked",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 735,
+            "xref": 2068,
+            "region": [
+              162,
+              56,
+              450,
+              272
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p735 crop r393 shows the interosseous membrane and marked opening, matching Q7 question.",
+            "evidence": "Exact candidate region inspected in Ubuntu CI run 36511687262; original native JPEG stream extracted unchanged."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/84965d763502da6c270e198489f2af049c68d8567c77ff49c3f3e2466f9fc888.jpg",
+        "sha256": "84965d763502da6c270e198489f2af049c68d8567c77ff49c3f3e2466f9fc888",
+        "width": 720,
+        "height": 837
+      },
+      "production": {
+        "path": "data/marrow/images/originals/84965d763502da6c270e198489f2af049c68d8567c77ff49c3f3e2466f9fc888.jpg",
+        "sha256": "84965d763502da6c270e198489f2af049c68d8567c77ff49c3f3e2466f9fc888",
+        "width": 720,
+        "height": 837
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p735 crop r393 shows the interosseous membrane and marked opening, matching Q7 question.",
+        "evidence": "Matched exact candidate crop with structured figure role in Ubuntu CI run 36511687262; immutable native JPEG source used as-is.",
+        "originalSha256": "84965d763502da6c270e198489f2af049c68d8567c77ff49c3f3e2466f9fc888",
+        "productionSha256": "84965d763502da6c270e198489f2af049c68d8567c77ff49c3f3e2466f9fc888"
+      }
+    },
+    {
+      "id": "anatomy-8f8b313b097a09b8",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 743,
+        "xref": 2091,
+        "region": [
+          162,
+          501,
+          450,
+          717
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH40_Q007",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Anterior interosseous artery passing through the membrane",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 743,
+            "xref": 2091,
+            "region": [
+              162,
+              501,
+              450,
+              717
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p743 crop r392 shows the anterior interosseous artery passing through the membrane, matching Q7 explanation.",
+            "evidence": "Exact candidate region inspected in Ubuntu CI run 36511687262; original native JPEG stream extracted unchanged."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/8f8b313b097a09b8890e29ff5fdd9a0abd55522ebb1ef45cfb57a4922f6822e4.jpg",
+        "sha256": "8f8b313b097a09b8890e29ff5fdd9a0abd55522ebb1ef45cfb57a4922f6822e4",
+        "width": 575,
+        "height": 760
+      },
+      "production": {
+        "path": "data/marrow/images/originals/8f8b313b097a09b8890e29ff5fdd9a0abd55522ebb1ef45cfb57a4922f6822e4.jpg",
+        "sha256": "8f8b313b097a09b8890e29ff5fdd9a0abd55522ebb1ef45cfb57a4922f6822e4",
+        "width": 575,
+        "height": 760
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p743 crop r392 shows the anterior interosseous artery passing through the membrane, matching Q7 explanation.",
+        "evidence": "Matched exact candidate crop with structured figure role in Ubuntu CI run 36511687262; immutable native JPEG source used as-is.",
+        "originalSha256": "8f8b313b097a09b8890e29ff5fdd9a0abd55522ebb1ef45cfb57a4922f6822e4",
+        "productionSha256": "8f8b313b097a09b8890e29ff5fdd9a0abd55522ebb1ef45cfb57a4922f6822e4"
+      }
+    },
+    {
+      "id": "anatomy-09278fb1eabc3f2c",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 735,
+        "xref": 2069,
+        "region": [
+          162,
+          454,
+          450,
+          670
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH40_Q008",
+          "role": "question",
+          "order": 1,
+          "alt": "Palmar dissection with the ulnar artery marked",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 735,
+            "xref": 2069,
+            "region": [
+              162,
+              454,
+              450,
+              670
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p735 crop r394 shows the palmar dissection with the ulnar artery marked, matching Q8 question.",
+            "evidence": "Exact candidate region inspected in Ubuntu CI run 36511687262; original native JPEG stream extracted unchanged."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/09278fb1eabc3f2cf93ea36ea23fd6199bde814111e29fe0f4bd5409d6fc8423.jpg",
+        "sha256": "09278fb1eabc3f2cf93ea36ea23fd6199bde814111e29fe0f4bd5409d6fc8423",
+        "width": 720,
+        "height": 664
+      },
+      "production": {
+        "path": "data/marrow/images/originals/09278fb1eabc3f2cf93ea36ea23fd6199bde814111e29fe0f4bd5409d6fc8423.jpg",
+        "sha256": "09278fb1eabc3f2cf93ea36ea23fd6199bde814111e29fe0f4bd5409d6fc8423",
+        "width": 720,
+        "height": 664
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p735 crop r394 shows the palmar dissection with the ulnar artery marked, matching Q8 question.",
+        "evidence": "Matched exact candidate crop with structured figure role in Ubuntu CI run 36511687262; immutable native JPEG source used as-is.",
+        "originalSha256": "09278fb1eabc3f2cf93ea36ea23fd6199bde814111e29fe0f4bd5409d6fc8423",
+        "productionSha256": "09278fb1eabc3f2cf93ea36ea23fd6199bde814111e29fe0f4bd5409d6fc8423"
+      }
+    },
+    {
+      "id": "anatomy-7a5268642192ff5f",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 744,
+        "xref": 2095,
+        "region": [
+          162,
+          413,
+          450,
+          629
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH40_Q008",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Blood supply of the hand and palmar arches",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 744,
+            "xref": 2095,
+            "region": [
+              162,
+              413,
+              450,
+              629
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p744 crop r400 diagrams the ulnar artery and palmar arches, matching Q8 explanation; adjacent r399 is a separate dissection.",
+            "evidence": "Exact candidate region inspected in Ubuntu CI run 36511687262; original native JPEG stream extracted unchanged."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/7a5268642192ff5fd4bb25262b88323f75059d50e4d9fd7846103052f69f489d.jpg",
+        "sha256": "7a5268642192ff5fd4bb25262b88323f75059d50e4d9fd7846103052f69f489d",
+        "width": 575,
+        "height": 791
+      },
+      "production": {
+        "path": "data/marrow/images/originals/7a5268642192ff5fd4bb25262b88323f75059d50e4d9fd7846103052f69f489d.jpg",
+        "sha256": "7a5268642192ff5fd4bb25262b88323f75059d50e4d9fd7846103052f69f489d",
+        "width": 575,
+        "height": 791
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p744 crop r400 diagrams the ulnar artery and palmar arches, matching Q8 explanation; adjacent r399 is a separate dissection.",
+        "evidence": "Matched exact candidate crop with structured figure role in Ubuntu CI run 36511687262; immutable native JPEG source used as-is.",
+        "originalSha256": "7a5268642192ff5fd4bb25262b88323f75059d50e4d9fd7846103052f69f489d",
+        "productionSha256": "7a5268642192ff5fd4bb25262b88323f75059d50e4d9fd7846103052f69f489d"
+      }
+    },
+    {
+      "id": "anatomy-61433c82f8cba42a",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 747,
+        "xref": 2105,
+        "region": [
+          162,
+          372,
+          450,
+          588
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH40_Q011",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Venous supply of the dorsum of the hand",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 747,
+            "xref": 2105,
+            "region": [
+              162,
+              372,
+              450,
+              588
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p747 crop r403 shows the venous supply of the dorsum of the hand, matching Q11 explanation figure 2.",
+            "evidence": "Exact candidate region inspected in Ubuntu CI run 36511687262; original native JPEG stream extracted unchanged."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/61433c82f8cba42a2255ca90e27e85ec74ba66a1e74484a1f319fdc70d6c2eeb.jpg",
+        "sha256": "61433c82f8cba42a2255ca90e27e85ec74ba66a1e74484a1f319fdc70d6c2eeb",
+        "width": 600,
+        "height": 859
+      },
+      "production": {
+        "path": "data/marrow/images/originals/61433c82f8cba42a2255ca90e27e85ec74ba66a1e74484a1f319fdc70d6c2eeb.jpg",
+        "sha256": "61433c82f8cba42a2255ca90e27e85ec74ba66a1e74484a1f319fdc70d6c2eeb",
+        "width": 600,
+        "height": 859
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Exact p747 crop r403 shows the venous supply of the dorsum of the hand, matching Q11 explanation figure 2.",
+        "evidence": "Matched exact candidate crop with structured figure role in Ubuntu CI run 36511687262; immutable native JPEG source used as-is.",
+        "originalSha256": "61433c82f8cba42a2255ca90e27e85ec74ba66a1e74484a1f319fdc70d6c2eeb",
+        "productionSha256": "61433c82f8cba42a2255ca90e27e85ec74ba66a1e74484a1f319fdc70d6c2eeb"
       }
     }
   ]
