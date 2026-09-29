@@ -18779,6 +18779,28 @@
             "sourceCompared": true,
             "notes": "Source region confirms figure identity, crop, and role for the cited question or explanation."
           }
+        },
+        {
+          "questionId": "marrow__ANAT_CH21_Q002",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Internal capsule labelled on horizontal section",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 377,
+            "xref": 3653,
+            "region": [
+              162.0,
+              365.0,
+              450.0,
+              581.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Internal capsule labelled on horizontal section figure and explanation role."
+          }
         }
       ],
       "original": {
@@ -19358,6 +19380,28 @@
           "qa": {
             "sourceCompared": true,
             "notes": "Rendered source context and native JPEG confirm the figure identity, crop, and explanation/question role."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH21_Q001",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Coronal section of brain: white matter tracts",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 377,
+            "xref": 3654,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Coronal section of brain: white matter tracts figure and explanation role."
           }
         }
       ],
@@ -27821,6 +27865,936 @@
         "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH20_Q007:figure:1; visual and metadata match.",
         "originalSha256": "5420d877b2751d0e02b7a1bc3d75a33b91984e6e718e9b87a587cae427233a1d",
         "productionSha256": "5420d877b2751d0e02b7a1bc3d75a33b91984e6e718e9b87a587cae427233a1d"
+      }
+    },
+    {
+      "id": "anatomy-ef788c50aee24f5e",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 369,
+        "xref": 1029,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH21_Q002",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 369,
+            "xref": 1029,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Horizontal section of cerebral hemispheres figure and question role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/ef788c50aee24f5e04864adcced4ea38611c235234d56ad4826b14cd3f7ac2a2.jpg",
+        "sha256": "ef788c50aee24f5e04864adcced4ea38611c235234d56ad4826b14cd3f7ac2a2",
+        "width": 720,
+        "height": 802
+      },
+      "production": {
+        "path": "data/marrow/images/originals/ef788c50aee24f5e04864adcced4ea38611c235234d56ad4826b14cd3f7ac2a2.jpg",
+        "sha256": "ef788c50aee24f5e04864adcced4ea38611c235234d56ad4826b14cd3f7ac2a2",
+        "width": 720,
+        "height": 802
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH21_Q002:figure:1; visual and metadata match.",
+        "originalSha256": "ef788c50aee24f5e04864adcced4ea38611c235234d56ad4826b14cd3f7ac2a2",
+        "productionSha256": "ef788c50aee24f5e04864adcced4ea38611c235234d56ad4826b14cd3f7ac2a2"
+      }
+    },
+    {
+      "id": "anatomy-3db63362475f40f1",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 369,
+        "xref": 1030,
+        "region": [
+          162.0,
+          470.0,
+          450.0,
+          686.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH21_Q003",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 369,
+            "xref": 1030,
+            "region": [
+              162.0,
+              470.0,
+              450.0,
+              686.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the MRI showing corpus callosum agenesis figure and question role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/3db63362475f40f1b07395967d7eaaad6b74e5b3b42199036496bb3ff9abd24b.jpg",
+        "sha256": "3db63362475f40f1b07395967d7eaaad6b74e5b3b42199036496bb3ff9abd24b",
+        "width": 720,
+        "height": 946
+      },
+      "production": {
+        "path": "data/marrow/images/originals/3db63362475f40f1b07395967d7eaaad6b74e5b3b42199036496bb3ff9abd24b.jpg",
+        "sha256": "3db63362475f40f1b07395967d7eaaad6b74e5b3b42199036496bb3ff9abd24b",
+        "width": 720,
+        "height": 946
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH21_Q003:figure:1; visual and metadata match.",
+        "originalSha256": "3db63362475f40f1b07395967d7eaaad6b74e5b3b42199036496bb3ff9abd24b",
+        "productionSha256": "3db63362475f40f1b07395967d7eaaad6b74e5b3b42199036496bb3ff9abd24b"
+      }
+    },
+    {
+      "id": "anatomy-371fb4c9dd5d6f71",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 371,
+        "xref": 1037,
+        "region": [
+          162.0,
+          454.0,
+          450.0,
+          670.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH21_Q006",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 371,
+            "xref": 1037,
+            "region": [
+              162.0,
+              454.0,
+              450.0,
+              670.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Corpus callosum marked A figure and question role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/371fb4c9dd5d6f7133d2bf48712bbce514d6f9b4eb909d0a394e8d8ecad99762.jpg",
+        "sha256": "371fb4c9dd5d6f7133d2bf48712bbce514d6f9b4eb909d0a394e8d8ecad99762",
+        "width": 720,
+        "height": 391
+      },
+      "production": {
+        "path": "data/marrow/images/originals/371fb4c9dd5d6f7133d2bf48712bbce514d6f9b4eb909d0a394e8d8ecad99762.jpg",
+        "sha256": "371fb4c9dd5d6f7133d2bf48712bbce514d6f9b4eb909d0a394e8d8ecad99762",
+        "width": 720,
+        "height": 391
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH21_Q006:figure:1; visual and metadata match.",
+        "originalSha256": "371fb4c9dd5d6f7133d2bf48712bbce514d6f9b4eb909d0a394e8d8ecad99762",
+        "productionSha256": "371fb4c9dd5d6f7133d2bf48712bbce514d6f9b4eb909d0a394e8d8ecad99762"
+      }
+    },
+    {
+      "id": "anatomy-a853396c9cf8894e",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 375,
+        "xref": 1048,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH21_Q015",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 375,
+            "xref": 1048,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Fornix indicated by arrow figure and question role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/a853396c9cf8894ed8c220431c69fc04a5fc4864705826e8b4f9575d2b2a8459.jpg",
+        "sha256": "a853396c9cf8894ed8c220431c69fc04a5fc4864705826e8b4f9575d2b2a8459",
+        "width": 720,
+        "height": 501
+      },
+      "production": {
+        "path": "data/marrow/images/originals/a853396c9cf8894ed8c220431c69fc04a5fc4864705826e8b4f9575d2b2a8459.jpg",
+        "sha256": "a853396c9cf8894ed8c220431c69fc04a5fc4864705826e8b4f9575d2b2a8459",
+        "width": 720,
+        "height": 501
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH21_Q015:figure:1; visual and metadata match.",
+        "originalSha256": "a853396c9cf8894ed8c220431c69fc04a5fc4864705826e8b4f9575d2b2a8459",
+        "productionSha256": "a853396c9cf8894ed8c220431c69fc04a5fc4864705826e8b4f9575d2b2a8459"
+      }
+    },
+    {
+      "id": "anatomy-680aa9963657338e",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 375,
+        "xref": 1049,
+        "region": [
+          162.0,
+          470.0,
+          450.0,
+          686.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH21_Q016",
+          "role": "question",
+          "order": 1,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 375,
+            "xref": 1049,
+            "region": [
+              162.0,
+              470.0,
+              450.0,
+              686.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Midline brain structures labelled A-D figure and question role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/680aa9963657338e1bd1d4b6f0df748420b1a6fcd0f4aa9c46ff349deceaff9c.jpg",
+        "sha256": "680aa9963657338e1bd1d4b6f0df748420b1a6fcd0f4aa9c46ff349deceaff9c",
+        "width": 720,
+        "height": 503
+      },
+      "production": {
+        "path": "data/marrow/images/originals/680aa9963657338e1bd1d4b6f0df748420b1a6fcd0f4aa9c46ff349deceaff9c.jpg",
+        "sha256": "680aa9963657338e1bd1d4b6f0df748420b1a6fcd0f4aa9c46ff349deceaff9c",
+        "width": 720,
+        "height": 503
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH21_Q016:figure:1; visual and metadata match.",
+        "originalSha256": "680aa9963657338e1bd1d4b6f0df748420b1a6fcd0f4aa9c46ff349deceaff9c",
+        "productionSha256": "680aa9963657338e1bd1d4b6f0df748420b1a6fcd0f4aa9c46ff349deceaff9c"
+      }
+    },
+    {
+      "id": "anatomy-bb83e52c19612cac",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 387,
+        "xref": 1082,
+        "region": [
+          162.0,
+          499.0,
+          450.0,
+          715.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH22_Q001",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Anatomy and nomenclature of basal ganglia",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 387,
+            "xref": 1082,
+            "region": [
+              162.0,
+              499.0,
+              450.0,
+              715.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Anatomy and nomenclature of basal ganglia figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/bb83e52c19612caca92fa0a733ba3bbb2fdc75d3bfb4d88b352ec057c8a1c4f7.jpg",
+        "sha256": "bb83e52c19612caca92fa0a733ba3bbb2fdc75d3bfb4d88b352ec057c8a1c4f7",
+        "width": 600,
+        "height": 525
+      },
+      "production": {
+        "path": "data/marrow/images/originals/bb83e52c19612caca92fa0a733ba3bbb2fdc75d3bfb4d88b352ec057c8a1c4f7.jpg",
+        "sha256": "bb83e52c19612caca92fa0a733ba3bbb2fdc75d3bfb4d88b352ec057c8a1c4f7",
+        "width": 600,
+        "height": 525
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH22_Q001:figure:2; visual and metadata match.",
+        "originalSha256": "bb83e52c19612caca92fa0a733ba3bbb2fdc75d3bfb4d88b352ec057c8a1c4f7",
+        "productionSha256": "bb83e52c19612caca92fa0a733ba3bbb2fdc75d3bfb4d88b352ec057c8a1c4f7"
+      }
+    },
+    {
+      "id": "anatomy-3a23b83a23b8693c",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 389,
+        "xref": 1087,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH22_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anatomy of basal ganglia",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 389,
+            "xref": 1087,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Anatomy of basal ganglia figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/3a23b83a23b8693cb31e08c6b84cbe6f580dfa66161ef625a5c5a93c02f65f2d.jpg",
+        "sha256": "3a23b83a23b8693cb31e08c6b84cbe6f580dfa66161ef625a5c5a93c02f65f2d",
+        "width": 600,
+        "height": 525
+      },
+      "production": {
+        "path": "data/marrow/images/originals/3a23b83a23b8693cb31e08c6b84cbe6f580dfa66161ef625a5c5a93c02f65f2d.jpg",
+        "sha256": "3a23b83a23b8693cb31e08c6b84cbe6f580dfa66161ef625a5c5a93c02f65f2d",
+        "width": 600,
+        "height": 525
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH22_Q002:figure:1; visual and metadata match.",
+        "originalSha256": "3a23b83a23b8693cb31e08c6b84cbe6f580dfa66161ef625a5c5a93c02f65f2d",
+        "productionSha256": "3a23b83a23b8693cb31e08c6b84cbe6f580dfa66161ef625a5c5a93c02f65f2d"
+      }
+    },
+    {
+      "id": "anatomy-5583853481ffa7af",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 398,
+        "xref": 1113,
+        "region": [
+          162.0,
+          184.0,
+          450.0,
+          400.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH23_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Relations of thalamus - posterior view of brainstem",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 398,
+            "xref": 1113,
+            "region": [
+              162.0,
+              184.0,
+              450.0,
+              400.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Relations of thalamus - posterior view of brainstem figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/5583853481ffa7af8148f468b6c070e16a1ffc7b7b2eca95ae6cbc5ac3f22833.jpg",
+        "sha256": "5583853481ffa7af8148f468b6c070e16a1ffc7b7b2eca95ae6cbc5ac3f22833",
+        "width": 600,
+        "height": 677
+      },
+      "production": {
+        "path": "data/marrow/images/originals/5583853481ffa7af8148f468b6c070e16a1ffc7b7b2eca95ae6cbc5ac3f22833.jpg",
+        "sha256": "5583853481ffa7af8148f468b6c070e16a1ffc7b7b2eca95ae6cbc5ac3f22833",
+        "width": 600,
+        "height": 677
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH23_Q002:figure:1; visual and metadata match.",
+        "originalSha256": "5583853481ffa7af8148f468b6c070e16a1ffc7b7b2eca95ae6cbc5ac3f22833",
+        "productionSha256": "5583853481ffa7af8148f468b6c070e16a1ffc7b7b2eca95ae6cbc5ac3f22833"
+      }
+    },
+    {
+      "id": "anatomy-b14db8b9ed18ab10",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 398,
+        "xref": 1114,
+        "region": [
+          162.0,
+          478.0,
+          450.0,
+          694.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH23_Q002",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Relations of thalamus - horizontal section",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 398,
+            "xref": 1114,
+            "region": [
+              162.0,
+              478.0,
+              450.0,
+              694.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "CI-rendered source context confirms the Relations of thalamus - horizontal section figure and explanation role."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b14db8b9ed18ab10e01ba7efbff7b12c0f90a3b274b6e8e05e88ca1079c0cc2a.jpg",
+        "sha256": "b14db8b9ed18ab10e01ba7efbff7b12c0f90a3b274b6e8e05e88ca1079c0cc2a",
+        "width": 575,
+        "height": 584
+      },
+      "production": {
+        "path": "data/marrow/images/originals/b14db8b9ed18ab10e01ba7efbff7b12c0f90a3b274b6e8e05e88ca1079c0cc2a.jpg",
+        "sha256": "b14db8b9ed18ab10e01ba7efbff7b12c0f90a3b274b6e8e05e88ca1079c0cc2a",
+        "width": 575,
+        "height": 584
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited Ubuntu-rendered source region for marrow__ANAT_CH23_Q002:figure:2; visual and metadata match.",
+        "originalSha256": "b14db8b9ed18ab10e01ba7efbff7b12c0f90a3b274b6e8e05e88ca1079c0cc2a",
+        "productionSha256": "b14db8b9ed18ab10e01ba7efbff7b12c0f90a3b274b6e8e05e88ca1079c0cc2a"
+      }
+    },
+    {
+      "id": "anatomy-9d0f196f2864b587",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 445,
+        "xref": 3701,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH26_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Circle of Willis posterior communicating arteries",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 445,
+            "xref": 3701,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Native source figure and explanation role confirmed for Circle of Willis posterior communicating arteries."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/9d0f196f2864b58784b1fe930f9c71c80af36c452cca7a0d29a20248d98a38a1.jpg",
+        "sha256": "9d0f196f2864b58784b1fe930f9c71c80af36c452cca7a0d29a20248d98a38a1",
+        "width": 576,
+        "height": 504
+      },
+      "production": {
+        "path": "data/marrow/images/originals/9d0f196f2864b58784b1fe930f9c71c80af36c452cca7a0d29a20248d98a38a1.jpg",
+        "sha256": "9d0f196f2864b58784b1fe930f9c71c80af36c452cca7a0d29a20248d98a38a1",
+        "width": 576,
+        "height": 504
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited source image for marrow__ANAT_CH26_Q003:figure:1; content matches the figure description.",
+        "originalSha256": "9d0f196f2864b58784b1fe930f9c71c80af36c452cca7a0d29a20248d98a38a1",
+        "productionSha256": "9d0f196f2864b58784b1fe930f9c71c80af36c452cca7a0d29a20248d98a38a1"
+      }
+    },
+    {
+      "id": "anatomy-b9df5ac77154f81f",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 448,
+        "xref": 1253,
+        "region": [
+          162.0,
+          503.0,
+          450.0,
+          719.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH26_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Visual cortex arterial territory / macular sparing diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 448,
+            "xref": 1253,
+            "region": [
+              162.0,
+              503.0,
+              450.0,
+              719.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Native source figure and explanation role confirmed for Visual cortex arterial territory / macular sparing diagram."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b9df5ac77154f81fd0eca7245bf83cb87af44f27620d7ae08416495bde35bcd2.jpg",
+        "sha256": "b9df5ac77154f81fd0eca7245bf83cb87af44f27620d7ae08416495bde35bcd2",
+        "width": 600,
+        "height": 586
+      },
+      "production": {
+        "path": "data/marrow/images/originals/b9df5ac77154f81fd0eca7245bf83cb87af44f27620d7ae08416495bde35bcd2.jpg",
+        "sha256": "b9df5ac77154f81fd0eca7245bf83cb87af44f27620d7ae08416495bde35bcd2",
+        "width": 600,
+        "height": 586
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited source image for marrow__ANAT_CH26_Q008:figure:1; content matches the figure description.",
+        "originalSha256": "b9df5ac77154f81fd0eca7245bf83cb87af44f27620d7ae08416495bde35bcd2",
+        "productionSha256": "b9df5ac77154f81fd0eca7245bf83cb87af44f27620d7ae08416495bde35bcd2"
+      }
+    },
+    {
+      "id": "anatomy-b9c02666fe8c1ed7",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 438,
+        "xref": 1223,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH26_Q011",
+          "role": "question",
+          "order": 2,
+          "alt": "Source question figure",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 438,
+            "xref": 1223,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Native source figure and question role confirmed for Question-critical source visual."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b9c02666fe8c1ed72c76300e6f59a7425f8872158465c2a592819a4beeb0ca5f.jpg",
+        "sha256": "b9c02666fe8c1ed72c76300e6f59a7425f8872158465c2a592819a4beeb0ca5f",
+        "width": 720,
+        "height": 568
+      },
+      "production": {
+        "path": "data/marrow/images/originals/b9c02666fe8c1ed72c76300e6f59a7425f8872158465c2a592819a4beeb0ca5f.jpg",
+        "sha256": "b9c02666fe8c1ed72c76300e6f59a7425f8872158465c2a592819a4beeb0ca5f",
+        "width": 720,
+        "height": 568
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited source image for marrow__ANAT_CH26_Q011:figure:2; content matches the figure description.",
+        "originalSha256": "b9c02666fe8c1ed72c76300e6f59a7425f8872158465c2a592819a4beeb0ca5f",
+        "productionSha256": "b9c02666fe8c1ed72c76300e6f59a7425f8872158465c2a592819a4beeb0ca5f"
+      }
+    },
+    {
+      "id": "anatomy-6ab6bd14002296f2",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 451,
+        "xref": 1260,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH26_Q012",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Medulla blood-supply diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 451,
+            "xref": 1260,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Native source figure and explanation role confirmed for Medulla blood-supply diagram."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/6ab6bd14002296f2577bb74864ce973a00af58318c007b3a57e94a31db3d5163.jpg",
+        "sha256": "6ab6bd14002296f2577bb74864ce973a00af58318c007b3a57e94a31db3d5163",
+        "width": 575,
+        "height": 487
+      },
+      "production": {
+        "path": "data/marrow/images/originals/6ab6bd14002296f2577bb74864ce973a00af58318c007b3a57e94a31db3d5163.jpg",
+        "sha256": "6ab6bd14002296f2577bb74864ce973a00af58318c007b3a57e94a31db3d5163",
+        "width": 575,
+        "height": 487
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited source image for marrow__ANAT_CH26_Q012:figure:1; content matches the figure description.",
+        "originalSha256": "6ab6bd14002296f2577bb74864ce973a00af58318c007b3a57e94a31db3d5163",
+        "productionSha256": "6ab6bd14002296f2577bb74864ce973a00af58318c007b3a57e94a31db3d5163"
+      }
+    },
+    {
+      "id": "anatomy-138d08f51a19f607",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 452,
+        "xref": 1264,
+        "region": [
+          162.0,
+          399.0,
+          450.0,
+          615.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH26_Q013",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Fornix diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 452,
+            "xref": 1264,
+            "region": [
+              162.0,
+              399.0,
+              450.0,
+              615.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Native source figure and explanation role confirmed for Fornix diagram."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/138d08f51a19f607262b479042a319ba050f1b61b6d77cffed487f34aab14738.jpg",
+        "sha256": "138d08f51a19f607262b479042a319ba050f1b61b6d77cffed487f34aab14738",
+        "width": 575,
+        "height": 475
+      },
+      "production": {
+        "path": "data/marrow/images/originals/138d08f51a19f607262b479042a319ba050f1b61b6d77cffed487f34aab14738.jpg",
+        "sha256": "138d08f51a19f607262b479042a319ba050f1b61b6d77cffed487f34aab14738",
+        "width": 575,
+        "height": 475
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited source image for marrow__ANAT_CH26_Q013:figure:1; content matches the figure description.",
+        "originalSha256": "138d08f51a19f607262b479042a319ba050f1b61b6d77cffed487f34aab14738",
+        "productionSha256": "138d08f51a19f607262b479042a319ba050f1b61b6d77cffed487f34aab14738"
+      }
+    },
+    {
+      "id": "anatomy-3b273f1b722a3906",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "reviewBatch": "manual-wave2-anatomy-ch01-26",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 456,
+        "xref": 1276,
+        "region": [
+          162.0,
+          392.0,
+          450.0,
+          608.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH26_Q018",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Superficial middle cerebral vein diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch01-26",
+          "source": {
+            "page": 456,
+            "xref": 1276,
+            "region": [
+              162.0,
+              392.0,
+              450.0,
+              608.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Native source figure and explanation role confirmed for Superficial middle cerebral vein diagram."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/3b273f1b722a3906394fbd07b315811e894366d0d12f501345c82dd988b497cd.jpg",
+        "sha256": "3b273f1b722a3906394fbd07b315811e894366d0d12f501345c82dd988b497cd",
+        "width": 576,
+        "height": 557
+      },
+      "production": {
+        "path": "data/marrow/images/originals/3b273f1b722a3906394fbd07b315811e894366d0d12f501345c82dd988b497cd.jpg",
+        "sha256": "3b273f1b722a3906394fbd07b315811e894366d0d12f501345c82dd988b497cd",
+        "width": 576,
+        "height": 557
+      },
+      "method": "native-jpeg-stream",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Native JPEG compared with the cited source image for marrow__ANAT_CH26_Q018:figure:1; content matches the figure description.",
+        "originalSha256": "3b273f1b722a3906394fbd07b315811e894366d0d12f501345c82dd988b497cd",
+        "productionSha256": "3b273f1b722a3906394fbd07b315811e894366d0d12f501345c82dd988b497cd"
       }
     }
   ]
