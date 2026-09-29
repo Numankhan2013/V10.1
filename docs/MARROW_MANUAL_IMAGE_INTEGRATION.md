@@ -17,7 +17,7 @@ visuals. Raw source and source PDFs remain unchanged.
 | `manual-wave2-anatomy-ch27-44` | Worker 2, Luna 6 medium | Anatomy Chapters 27–44, every source visual and visual text cue | 321 unresolved source references; 0 text cues | **PAUSED AT USAGE LIMIT / VALIDATED CHECKPOINT IN CANONICAL** | `manual/wave2-anatomy-ch27-44` at `1ae26e10`; four union crops and one ambiguous duplicate remain |
 | `manual-wave2-anatomy-ch45-55` | Worker 3, Luna 6 medium | Anatomy Chapters 45–55, every source visual and visual text cue | Original Ch45–63 claim narrowed after Ch52 checkpoint; 196 references in Ch45–55, 0 text cues | **COMPLETED / INTEGRATED** | `manual/wave2-anatomy-ch45-63` at `05fc781f`; 194 released, one held, one invalid |
 | `manual-wave2-anatomy-ch56-63` | Worker 5, Luna 6 medium | Anatomy Chapters 56–63, every source visual and visual text cue | 110 untracked source references in Ch56–63; 0 text cues at transfer | **PAUSED AT USAGE LIMIT / NOT YET IN CANONICAL** | `manual/wave2-anatomy-ch56-63` has uncommitted source originals and registry work; preserve the worktree and finish validation before integration |
-| `manual-wave2-biochem-physiology` | Worker 4, Luna 6 medium | Biochemistry Chapters 1–24 and Physiology Chapters 8–43, every source visual and visual text cue | 16 Biochemistry + 197 Physiology unresolved source references; 31 Biochemistry + 27 Physiology text cues | **COMPLETED / INTEGRATED** | `manual/wave2-biochem-physiology` at `502b7a4`; 217 released and 61 held or invalid across 278 in-scope visual references (including previously released references); 58 owned text cues documented as review required; exact-head CI `36446066984` passed |
+| `manual-wave2-biochem-physiology` | Worker 4, Luna 6 medium | Biochemistry Chapters 1–24 and Physiology Chapters 8–43, every source visual and visual text cue | 16 Biochemistry + 197 Physiology unresolved source references; 31 Biochemistry + 27 Physiology text cues | **CHECKPOINT INTEGRATED / COVERAGE REOPEN REQUIRED** | `manual/wave2-biochem-physiology` at `502b7a4`; its prior 217 released and 61 held or invalid tally did not close subject coverage; exact-head CI `36446066984` passed |
 
 The 22 reference IDs for `manual-biochem-ch25-28-20260928` are the unresolved
 `Biochemistry` / `CH25`–`CH28` rows of the canonical coverage file at claim time.
@@ -60,8 +60,20 @@ The Cloudflare feature preview was independently fetched after exact-head run
 `36518849149`: its `marrow_visual_metadata.js` bytes match canonical
 `43d3ecbb`, with 896 Anatomy source references released at that deployed SHA;
 a sampled Anatomy image URL returned bytes matching its SHA-256 filename.
-`ce195a3f` adds one validated Ch46 reference and is awaiting its own preview
-deployment at this checkpoint. Production remains unpromoted.
+`ce195a3f` adds one validated Ch46 reference. Its preview build
+`36540145496` deployed successfully, and the served metadata bytes match that
+commit: 897 Anatomy source references are released in the live feature preview.
+Production remains unpromoted.
+
+The Biochemistry/Physiology batch above is a merged checkpoint, not a completed
+subject. Current canonical coverage is Biochemistry **103 released / 3 invalid /
+2 tracked pending / 2 untracked of 110** and Physiology **186 released / 5
+invalid / 21 tracked pending / 82 untracked of 294**. In Worker 4's assigned
+range, Physiology Ch8–43 still has 47 untracked references and 7 tracked
+pending; Biochemistry Ch1–24 has 2 untracked and 2 tracked pending. The separate
+Physiology Ch3–7 claim has 35 untracked and 14 tracked pending. Reopen these
+owned ranges with their original owners or explicitly transfer them before a
+new worker edits the same chapters; source-fidelity review remains required.
 
 ### Wave 2 resume checkpoint (2026-09-29)
 
