@@ -15618,6 +15618,28 @@
             "notes": "Exact source crop shows the labelled anterior thyroid and laryngeal-nerve diagram described for this explanation; all labels are legible and the source pixels are unchanged.",
             "evidence": "Ubuntu CI run 36434707991 exact candidate crop item r226; page 615 xref 3755 region [162,212,450,428]; SHA-256 matches native image stream."
           }
+        },
+        {
+          "questionId": "marrow__ANAT_CH34_Q015",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Anterior view of the thyroid gland and laryngeal nerves",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 616,
+            "xref": 3755,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p616 crop r228 shows the same source thyroid-and-laryngeal-nerve diagram used for Q14, repeated as native stream xref 3755. It is correctly owned by the Q15 explanation and supports the recurrent laryngeal nerve discussion; native JPEG bytes remain unchanged."
+          }
         }
       ],
       "original": {
@@ -16226,8 +16248,8 @@
           "questionId": "marrow__ANAT_CH33_Q005",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Intraoral photograph of the oropharynx",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 594,
@@ -16240,8 +16262,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact p594 question crop shows the tonsillar examination photograph and matches the purulent-tonsil clinical stem. Source region inspected from Ubuntu CI run 36448416847; original native JPEG retained byte-for-byte, no pixel processing."
           }
         }
       ],
@@ -16258,10 +16280,12 @@
         "height": 452
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Exact p594 question crop shows the tonsillar examination photograph and matches the purulent-tonsil clinical stem. Source region inspected from Ubuntu CI run 36448416847; original native JPEG retained byte-for-byte, no pixel processing.",
+        "originalSha256": "5876b9798bf4f642192be1f90f742957997d5dab790da41ba82601bf3393596f",
+        "productionSha256": "5876b9798bf4f642192be1f90f742957997d5dab790da41ba82601bf3393596f"
       }
     },
     {
@@ -16287,7 +16311,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Oropharyngeal structures",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 598,
@@ -16300,8 +16324,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact p598 explanation crop shows the labeled oropharynx structures relevant to the stem. Source region inspected from Ubuntu CI run 36448416847; original native JPEG retained byte-for-byte, no pixel processing."
           }
         }
       ],
@@ -16318,10 +16342,12 @@
         "height": 503
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Exact p598 explanation crop shows the labeled oropharynx structures relevant to the stem. Source region inspected from Ubuntu CI run 36448416847; original native JPEG retained byte-for-byte, no pixel processing.",
+        "originalSha256": "8d161b0d21a9196292ba1e792928fcd87bf20acf37b457be3c9ed1a3635de7f7",
+        "productionSha256": "8d161b0d21a9196292ba1e792928fcd87bf20acf37b457be3c9ed1a3635de7f7"
       }
     },
     {
@@ -16347,7 +16373,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Laryngopharynx / piriform fossa",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 599,
@@ -16360,8 +16386,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "Exact p599 explanation crop shows the labeled hypopharynx landmarks relevant to the laryngoscopy stem. Source region inspected from Ubuntu CI run 36448416847; original native JPEG retained byte-for-byte, no pixel processing."
           }
         }
       ],
@@ -16378,10 +16404,12 @@
         "height": 637
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "Exact p599 explanation crop shows the labeled hypopharynx landmarks relevant to the laryngoscopy stem. Source region inspected from Ubuntu CI run 36448416847; original native JPEG retained byte-for-byte, no pixel processing.",
+        "originalSha256": "7ccb0b29bd4358648a6b44b0c4bed9fcc3f8bc30e2661780e2edc75267a73669",
+        "productionSha256": "7ccb0b29bd4358648a6b44b0c4bed9fcc3f8bc30e2661780e2edc75267a73669"
       }
     },
     {
@@ -16406,8 +16434,8 @@
           "questionId": "marrow__ANAT_CH34_Q001",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Laryngeal skeleton diagram with marked structures",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 601,
@@ -16420,8 +16448,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p601 crop shows the question’s numbered laryngeal skeleton; the marked anatomy matches the stem."
           }
         }
       ],
@@ -16438,10 +16466,12 @@
         "height": 692
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p601 crop shows the question’s numbered laryngeal skeleton; the marked anatomy matches the stem. Source region was inspected from Ubuntu CI run 36448416847. The original native JPEG is retained byte-for-byte; no pixel processing or reconstruction was applied.",
+        "originalSha256": "f0b09fe51807b465794330abffe555f840efdeb79d7cd02ffafef293b0b8347a",
+        "productionSha256": "f0b09fe51807b465794330abffe555f840efdeb79d7cd02ffafef293b0b8347a"
       }
     },
     {
@@ -16466,8 +16496,8 @@
           "questionId": "marrow__ANAT_CH34_Q004",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Histologic view of cartilage",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 602,
@@ -16480,8 +16510,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p602 crop shows the referenced cartilage histology and matches the prompt about cartilage type."
           }
         }
       ],
@@ -16498,10 +16528,12 @@
         "height": 406
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p602 crop shows the referenced cartilage histology and matches the prompt about cartilage type. Source region was inspected from Ubuntu CI run 36448416847. The original native JPEG is retained byte-for-byte; no pixel processing or reconstruction was applied.",
+        "originalSha256": "7e69ecee3afe6bfbd31e12280d67b9040ef584cff131772cf62595ac7f6cf09e",
+        "productionSha256": "7e69ecee3afe6bfbd31e12280d67b9040ef584cff131772cf62595ac7f6cf09e"
       }
     },
     {
@@ -16527,7 +16559,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Coronal posterior view of laryngeal ligaments and membranes",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 609,
@@ -16540,8 +16572,74 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p609 crop shows the laryngeal membrane and ligament labels relevant to the external versus intrinsic membrane question."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH34_Q006",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Coronal diagram of the laryngeal cavity with labeled folds and ligaments",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 610,
+            "xref": 3780,
+            "region": [
+              162.0,
+              130.0,
+              450.0,
+              346.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Q6 explanation crop r216 on p610 repeats native diagram stream 3780 and directly shows the laryngeal cavity, vestibular folds and vocal folds. Compared with the source page from Ubuntu CI run 36448416847; native stream is reused without pixel changes."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH34_Q008",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Coronal diagram labeling vestibular and vocal ligaments",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 612,
+            "xref": 3780,
+            "region": [
+              162.0,
+              192.0,
+              450.0,
+              408.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Q8 explanation crop r220 on p612 repeats native diagram stream 3780 and labels the vestibular ligament enclosed by the false vocal cord. Compared with the source page from Ubuntu CI run 36448416847; native stream is reused without pixel changes."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH34_Q016",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Coronal diagram of laryngeal folds and cavity",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 617,
+            "xref": 3780,
+            "region": [
+              162.0,
+              410.0,
+              450.0,
+              626.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Q16 second explanation crop r232 on p617 repeats native diagram stream 3780, paired with the adjacent pre-epiglottic-space diagram. Compared with the source page from Ubuntu CI run 36448416847; native stream is reused without pixel changes."
           }
         }
       ],
@@ -16558,10 +16656,12 @@
         "height": 730
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p609 crop shows the laryngeal membrane and ligament labels relevant to the external versus intrinsic membrane question. Source region was inspected from Ubuntu CI run 36448416847. The original native JPEG is retained byte-for-byte; no pixel processing or reconstruction was applied.",
+        "originalSha256": "09f722d4e4791ae42bdbd39cc0f1b62889eecc2eb4534dae21af9d63df58adce",
+        "productionSha256": "09f722d4e4791ae42bdbd39cc0f1b62889eecc2eb4534dae21af9d63df58adce"
       }
     },
     {
@@ -16586,8 +16686,8 @@
           "questionId": "marrow__ANAT_CH34_Q007",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Laryngeal diagram with marked structures",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 603,
@@ -16600,8 +16700,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p603 question crop shows the marked laryngeal structures used by the laryngocele stem."
           }
         }
       ],
@@ -16618,10 +16718,12 @@
         "height": 785
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p603 question crop shows the marked laryngeal structures used by the laryngocele stem. Source region was inspected from Ubuntu CI run 36448416847. The original native JPEG is retained byte-for-byte; no pixel processing or reconstruction was applied.",
+        "originalSha256": "a586e6264557a9560f3cdbb1d32655386f14b377dedc7cf913307406bc2dd244",
+        "productionSha256": "a586e6264557a9560f3cdbb1d32655386f14b377dedc7cf913307406bc2dd244"
       }
     },
     {
@@ -16646,8 +16748,8 @@
           "questionId": "marrow__ANAT_CH34_Q010",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Endoscopic view of the larynx",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 604,
@@ -16660,8 +16762,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p604 crop shows an endoscopic laryngeal view, matching the question stem."
           }
         }
       ],
@@ -16678,10 +16780,12 @@
         "height": 540
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p604 crop shows an endoscopic laryngeal view, matching the question stem. Source region was inspected from Ubuntu CI run 36448416847. The original native JPEG is retained byte-for-byte; no pixel processing or reconstruction was applied.",
+        "originalSha256": "2be75e491094ef0abbfbf60034ca22c4a4cb525c0f3633efc092709248144143",
+        "productionSha256": "2be75e491094ef0abbfbf60034ca22c4a4cb525c0f3633efc092709248144143"
       }
     },
     {
@@ -16707,7 +16811,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Vocal-cord endoscopy",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 613,
@@ -16720,8 +16824,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p613 explanation crop shows the labeled vocal-cord endoscopy image."
           }
         }
       ],
@@ -16738,10 +16842,12 @@
         "height": 457
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p613 explanation crop shows the labeled vocal-cord endoscopy image. Source region was inspected from Ubuntu CI run 36448416847. The original native JPEG is retained byte-for-byte; no pixel processing or reconstruction was applied.",
+        "originalSha256": "331a406be90fc6f109d50c7ed446d1927dec4377f5edb2ae77f42ab68eb2f1ff",
+        "productionSha256": "331a406be90fc6f109d50c7ed446d1927dec4377f5edb2ae77f42ab68eb2f1ff"
       }
     },
     {
@@ -16766,8 +16872,8 @@
           "questionId": "marrow__ANAT_CH34_Q011",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Laryngeal muscle diagram with numbered markers",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 605,
@@ -16780,8 +16886,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p605 crop shows the numbered laryngeal-muscle diagram in the question."
           }
         }
       ],
@@ -16798,10 +16904,12 @@
         "height": 586
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p605 crop shows the numbered laryngeal-muscle diagram in the question. Source region was inspected from Ubuntu CI run 36448416847. The original native JPEG is retained byte-for-byte; no pixel processing or reconstruction was applied.",
+        "originalSha256": "8d3b1628f932c0cbd687c1dffff61a96557ed464f079246c4eaa8264173da2aa",
+        "productionSha256": "8d3b1628f932c0cbd687c1dffff61a96557ed464f079246c4eaa8264173da2aa"
       }
     },
     {
@@ -16827,7 +16935,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Intrinsic muscles of the larynx diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 614,
@@ -16840,8 +16948,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p614 explanation crop shows the intrinsic laryngeal muscles and labels."
           }
         }
       ],
@@ -16858,10 +16966,12 @@
         "height": 564
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p614 explanation crop shows the intrinsic laryngeal muscles and labels. Source region was inspected from Ubuntu CI run 36448416847. The original native JPEG is retained byte-for-byte; no pixel processing or reconstruction was applied.",
+        "originalSha256": "b2a1659bde075a64eb11ce6bd35196fda43d92aaa76ebfb4c9a6455f575e630e",
+        "productionSha256": "b2a1659bde075a64eb11ce6bd35196fda43d92aaa76ebfb4c9a6455f575e630e"
       }
     },
     {
@@ -16886,8 +16996,8 @@
           "questionId": "marrow__ANAT_CH34_Q017",
           "role": "explanation",
           "order": 1,
-          "alt": "Structures piercing thyrohyoid membrane",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Diagram of structures piercing the thyrohyoid membrane",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 618,
@@ -16900,8 +17010,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p618 explanation crop shows the structures piercing the thyrohyoid membrane."
           }
         }
       ],
@@ -16918,10 +17028,12 @@
         "height": 475
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p618 explanation crop shows the structures piercing the thyrohyoid membrane. Source region was inspected from Ubuntu CI run 36448416847. The original native JPEG is retained byte-for-byte; no pixel processing or reconstruction was applied.",
+        "originalSha256": "2403a1df25b042686dd5377a51cd271672126f47b28066c2036d97d9cdccbb98",
+        "productionSha256": "2403a1df25b042686dd5377a51cd271672126f47b28066c2036d97d9cdccbb98"
       }
     },
     {
@@ -16947,7 +17059,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Coracoid process attachments diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 628,
@@ -16960,8 +17072,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p628 crop shows the labeled coracoid process attachments and matches the fracture question’s muscle-attachment discussion."
           }
         }
       ],
@@ -16978,10 +17090,12 @@
         "height": 627
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p628 crop shows the labeled coracoid process attachments and matches the fracture question’s muscle-attachment discussion. Compared with the exact region from Ubuntu CI run 36448416847. Native JPEG bytes remain unchanged; no processing or reconstruction.",
+        "originalSha256": "49073000b6450e1804a519e756652188d0b2e1dfc56361d08ac4d4559eed5650",
+        "productionSha256": "49073000b6450e1804a519e756652188d0b2e1dfc56361d08ac4d4559eed5650"
       }
     },
     {
@@ -17007,6 +17121,50 @@
           "role": "explanation",
           "order": 1,
           "alt": "Rotator cuff muscles and insertions diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 629,
+            "xref": 3790,
+            "region": [
+              162.0,
+              274.0,
+              450.0,
+              490.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The exact p629 crop shows the labeled rotator-cuff muscles and insertions relevant to the lesser-tubercle avulsion explanation."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH39_Q004",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Rotator cuff muscles diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 716,
+            "xref": 3790,
+            "region": [
+              162.0,
+              313.0,
+              450.0,
+              529.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "The exact p629 crop shows the labeled rotator-cuff muscles and insertions relevant to the lesser-tubercle avulsion explanation."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH35_Q005",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Rotator cuff lateral-view diagram",
           "status": "REVIEW_REQUIRED",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
@@ -17020,30 +17178,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
-          }
-        },
-        {
-          "questionId": "marrow__ANAT_CH39_Q004",
-          "role": "explanation",
-          "order": 1,
-          "alt": "Rotator cuff muscles diagram",
-          "status": "REVIEW_REQUIRED",
-          "reviewBatch": "manual-wave2-anatomy-ch27-44",
-          "source": {
-            "page": 716,
-            "xref": 3790,
-            "region": [
-              162.0,
-              313.0,
-              450.0,
-              529.0
-            ]
-          },
-          "qa": {
-            "sourceCompared": false,
-            "notes": "Staged from the sole unmasked native JPEG candidate on the cited source page; ownership, precise crop, role, question safety and readability still require visual review."
+            "sourceCompared": true,
+            "notes": "Exact p629 region shows one source image titled Rotator cuff muscles with all four cuff insertions and a Right shoulder – Lateral view caption. The second structured figure description may refer to the same single raster figure; kept held to avoid duplicate runtime display pending metadata adjudication."
           }
         }
       ],
@@ -17060,10 +17196,12 @@
         "height": 639
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p629 crop shows the labeled rotator-cuff muscles and insertions relevant to the lesser-tubercle avulsion explanation. Compared with the exact region from Ubuntu CI run 36448416847. Native JPEG bytes remain unchanged; no processing or reconstruction.",
+        "originalSha256": "2b8d6400f7b12172373329053551a65ad3cf17b139d23af73bb9566f61d1a77e",
+        "productionSha256": "2b8d6400f7b12172373329053551a65ad3cf17b139d23af73bb9566f61d1a77e"
       }
     },
     {
@@ -17088,8 +17226,8 @@
           "questionId": "marrow__ANAT_CH35_Q006",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Humerus image with a marked structure",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 620,
@@ -17102,8 +17240,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p620 crop shows the bone with structure A marked, matching the question about the floor of the intertubercular sulcus."
           }
         }
       ],
@@ -17120,10 +17258,12 @@
         "height": 846
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p620 crop shows the bone with structure A marked, matching the question about the floor of the intertubercular sulcus. Compared with the exact region from Ubuntu CI run 36448416847. Native JPEG bytes remain unchanged; no processing or reconstruction.",
+        "originalSha256": "9deb05e565284a80838305ff62c83794e4b6a3e4b19dce4d9619efed916ee905",
+        "productionSha256": "9deb05e565284a80838305ff62c83794e4b6a3e4b19dce4d9619efed916ee905"
       }
     },
     {
@@ -17148,8 +17288,8 @@
           "questionId": "marrow__ANAT_CH35_Q006",
           "role": "explanation",
           "order": 2,
-          "alt": "Humerus attachment diagram around the bicipital groove",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Humerus image with a marked structure",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 630,
@@ -17162,8 +17302,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p630 crop labels the humeral attachments around the bicipital groove relevant to the explanation."
           }
         }
       ],
@@ -17180,10 +17320,12 @@
         "height": 495
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p630 crop labels the humeral attachments around the bicipital groove relevant to the explanation. Compared with the exact region from Ubuntu CI run 36448416847. Native JPEG bytes remain unchanged; no processing or reconstruction.",
+        "originalSha256": "812fddb967f9111c89e2d7d648247b99a63067e8c07270cf02db5c2be30ce18a",
+        "productionSha256": "812fddb967f9111c89e2d7d648247b99a63067e8c07270cf02db5c2be30ce18a"
       }
     },
     {
@@ -17209,7 +17351,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Types of synovial joints diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 631,
@@ -17222,8 +17364,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p631 crop shows examples of synovial joint types and supports the sternoclavicular-joint explanation."
           }
         }
       ],
@@ -17240,10 +17382,12 @@
         "height": 714
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p631 crop shows examples of synovial joint types and supports the sternoclavicular-joint explanation. Compared with the exact region from Ubuntu CI run 36448416847. Native JPEG bytes remain unchanged; no processing or reconstruction.",
+        "originalSha256": "e5600e3ca6693f85cf113d98df1d4e2cb6a6fd2941f1a991d8ebe2a8f0fccffa",
+        "productionSha256": "e5600e3ca6693f85cf113d98df1d4e2cb6a6fd2941f1a991d8ebe2a8f0fccffa"
       }
     },
     {
@@ -17269,7 +17413,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Long head of biceps intracapsular relationship diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 633,
@@ -17282,8 +17426,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p633 crop shows the long head of biceps and its relationship to the shoulder capsule."
           }
         }
       ],
@@ -17300,10 +17444,12 @@
         "height": 586
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p633 crop shows the long head of biceps and its relationship to the shoulder capsule. Compared with the exact region from Ubuntu CI run 36448416847. Native JPEG bytes remain unchanged; no processing or reconstruction.",
+        "originalSha256": "989d697dba4f9fe30a4d65619bae7dbac351fda6ed9d949fc483e221f5221e0a",
+        "productionSha256": "989d697dba4f9fe30a4d65619bae7dbac351fda6ed9d949fc483e221f5221e0a"
       }
     },
     {
@@ -17328,8 +17474,8 @@
           "questionId": "marrow__ANAT_CH35_Q015",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Scapula diagram with marked structures",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 623,
@@ -17342,8 +17488,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p623 crop shows the scapula with A–D markers used by the question."
           }
         }
       ],
@@ -17360,10 +17506,12 @@
         "height": 720
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p623 crop shows the scapula with A–D markers used by the question. Compared with the exact region from Ubuntu CI run 36448416847. Native JPEG bytes remain unchanged; no processing or reconstruction.",
+        "originalSha256": "94a42e0652a1d1a5e3392c13093caab6c9825084f75b8eeb3cae4b4b493e21bf",
+        "productionSha256": "94a42e0652a1d1a5e3392c13093caab6c9825084f75b8eeb3cae4b4b493e21bf"
       }
     },
     {
@@ -17389,7 +17537,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Elbow joint lateral view/capsule attachment diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 635,
@@ -17402,8 +17550,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p635 crop shows the lateral elbow joint and its capsule attachment relevant to arthroscopy."
           }
         }
       ],
@@ -17420,10 +17568,12 @@
         "height": 457
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p635 crop shows the lateral elbow joint and its capsule attachment relevant to arthroscopy. Compared with the exact region from Ubuntu CI run 36448416847. Native JPEG bytes remain unchanged; no processing or reconstruction.",
+        "originalSha256": "6578ab2cd6b390f26a18e522095c60d0d5b102753087ea5d2d3466a8aab139fd",
+        "productionSha256": "6578ab2cd6b390f26a18e522095c60d0d5b102753087ea5d2d3466a8aab139fd"
       }
     },
     {
@@ -17449,7 +17599,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Types of fibrous joints diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 637,
@@ -17462,8 +17612,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p637 crop shows the types of fibrous joints and matches the middle radioulnar syndesmosis explanation."
           }
         }
       ],
@@ -17480,10 +17630,12 @@
         "height": 431
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p637 crop shows the types of fibrous joints and matches the middle radioulnar syndesmosis explanation. Compared with the exact region from Ubuntu CI run 36448416847. Native JPEG bytes remain unchanged; no processing or reconstruction.",
+        "originalSha256": "08fefbcc6df0cce49779b33a8e5dbb4cac20c1d0330a2b297fe6f6f6e3c50c7f",
+        "productionSha256": "08fefbcc6df0cce49779b33a8e5dbb4cac20c1d0330a2b297fe6f6f6e3c50c7f"
       }
     },
     {
@@ -17509,7 +17661,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Hand radiograph at 2.5 years showing ossification centres",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 639,
@@ -17522,8 +17674,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p639 crop shows hand radiographs with developmental bone centers relevant to the first metacarpal epiphysis."
           }
         }
       ],
@@ -17540,10 +17692,12 @@
         "height": 432
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p639 crop shows hand radiographs with developmental bone centers relevant to the first metacarpal epiphysis. Compared with the exact region from Ubuntu CI run 36448416847. Native JPEG bytes remain unchanged; no processing or reconstruction.",
+        "originalSha256": "95f07766c2ffb0cec403db9b3d135197666a856a98d843819da8fc6a4cf39ba4",
+        "productionSha256": "95f07766c2ffb0cec403db9b3d135197666a856a98d843819da8fc6a4cf39ba4"
       }
     },
     {
@@ -17569,7 +17723,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Wrist joint anatomy diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 640,
@@ -17582,8 +17736,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p640 crop shows the labeled wrist joint anatomy."
           }
         }
       ],
@@ -17600,10 +17754,12 @@
         "height": 553
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p640 crop shows the labeled wrist joint anatomy. Compared with the exact region from Ubuntu CI run 36448416847. Native JPEG bytes remain unchanged; no processing or reconstruction.",
+        "originalSha256": "399843e519d98cd8895ccbbc74d055ca53e92ba5c18b60c256f60b51fe8eb65f",
+        "productionSha256": "399843e519d98cd8895ccbbc74d055ca53e92ba5c18b60c256f60b51fe8eb65f"
       }
     },
     {
@@ -17629,7 +17785,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Cross-section diagram of modifications of deep cervical fascia / axillary sheath",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 647,
@@ -17642,8 +17798,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p647 crop shows the deep cervical fascia layers around the axillary sheath and matches the explanation."
           }
         }
       ],
@@ -17660,10 +17816,12 @@
         "height": 602
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p647 crop shows the deep cervical fascia layers around the axillary sheath and matches the explanation. Compared against the exact region from Ubuntu CI run 36448416847; native JPEG bytes remain unchanged.",
+        "originalSha256": "f427d7fc6497ede28cb6379d882e12f4d4abcadbbd96246be91e528bd846e0a0",
+        "productionSha256": "f427d7fc6497ede28cb6379d882e12f4d4abcadbbd96246be91e528bd846e0a0"
       }
     },
     {
@@ -17689,7 +17847,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Clavipectoral fascia labelled anatomy",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 648,
@@ -17702,8 +17860,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p648 crop shows the labeled clavipectoral fascia and its contents, matching the explanation of the marked artery."
           }
         }
       ],
@@ -17720,10 +17878,12 @@
         "height": 581
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p648 crop shows the labeled clavipectoral fascia and its contents, matching the explanation of the marked artery. Compared against the exact region from Ubuntu CI run 36448416847; native JPEG bytes remain unchanged.",
+        "originalSha256": "a659d156e74760bcccc30986faf8320f38661a3e6cf81873df24b4f89cb411bf",
+        "productionSha256": "a659d156e74760bcccc30986faf8320f38661a3e6cf81873df24b4f89cb411bf"
       }
     },
     {
@@ -17749,7 +17909,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Cubital fossa anatomy and contents diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 649,
@@ -17762,8 +17922,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p649 crop shows the labeled cubital fossa and its contents/roof."
           }
         }
       ],
@@ -17780,10 +17940,12 @@
         "height": 1151
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p649 crop shows the labeled cubital fossa and its contents/roof. Compared against the exact region from Ubuntu CI run 36448416847; native JPEG bytes remain unchanged.",
+        "originalSha256": "6f3e52a3f272903395ec8c31c1c866e0bdbade1a767ed8a86efea01cb488c230",
+        "productionSha256": "6f3e52a3f272903395ec8c31c1c866e0bdbade1a767ed8a86efea01cb488c230"
       }
     },
     {
@@ -17808,8 +17970,8 @@
           "questionId": "marrow__ANAT_CH36_Q006",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Hand with a highlighted wrist area",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 643,
@@ -17822,8 +17984,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p643 clinical photograph contains the yellow marked wrist region described in the question."
           }
         }
       ],
@@ -17840,10 +18002,12 @@
         "height": 733
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p643 clinical photograph contains the yellow marked wrist region described in the question. Compared against the exact region from Ubuntu CI run 36448416847; native JPEG bytes remain unchanged.",
+        "originalSha256": "f27102501b64e65c97f004db528c7267cd722f9aa7e1d4da416327dc9454d548",
+        "productionSha256": "f27102501b64e65c97f004db528c7267cd722f9aa7e1d4da416327dc9454d548"
       }
     },
     {
@@ -17869,7 +18033,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Anatomical snuffbox tendon diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 651,
@@ -17882,8 +18046,30 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p651 crop shows the labeled tendons and boundaries of the anatomical snuffbox."
+          }
+        },
+        {
+          "questionId": "marrow__ANAT_CH36_Q006",
+          "role": "explanation",
+          "order": 3,
+          "alt": "Anatomical snuffbox tendon diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 650,
+            "xref": 3800,
+            "region": [
+              162.0,
+              284.0,
+              450.0,
+              500.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Exact p650 crop r273 shows the same native snuffbox tendon diagram stream xref 3800 used for Q7; this is Q6’s third explanation figure and follows the separately selected labeled clinical photograph."
           }
         }
       ],
@@ -17900,10 +18086,12 @@
         "height": 735
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p651 crop shows the labeled tendons and boundaries of the anatomical snuffbox. Compared against the exact region from Ubuntu CI run 36448416847; native JPEG bytes remain unchanged.",
+        "originalSha256": "3a4018b90af4323ff7c464cb2e700733104a979b049620e03216e7cc87efdb22",
+        "productionSha256": "3a4018b90af4323ff7c464cb2e700733104a979b049620e03216e7cc87efdb22"
       }
     },
     {
@@ -17929,7 +18117,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Carpal tunnel cross-section",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 652,
@@ -17942,8 +18130,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p652 cross-section labels the carpal tunnel and its contents."
           }
         }
       ],
@@ -17960,10 +18148,12 @@
         "height": 553
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p652 cross-section labels the carpal tunnel and its contents. Compared against the exact region from Ubuntu CI run 36448416847; native JPEG bytes remain unchanged.",
+        "originalSha256": "d7964d24a0d81a18bcfc643a1cb4cceb8752a61720ab66dae51c9b011c690e89",
+        "productionSha256": "d7964d24a0d81a18bcfc643a1cb4cceb8752a61720ab66dae51c9b011c690e89"
       }
     },
     {
@@ -17989,7 +18179,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Guyon's canal / flexor retinaculum cross-section",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 653,
@@ -18002,8 +18192,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p653 cross-section shows Guyon’s canal and the flexor retinaculum slips."
           }
         }
       ],
@@ -18020,10 +18210,12 @@
         "height": 533
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p653 cross-section shows Guyon’s canal and the flexor retinaculum slips. Compared against the exact region from Ubuntu CI run 36448416847; native JPEG bytes remain unchanged.",
+        "originalSha256": "6eaf2a2841159fc54587075cfc53d8930f18e7020e422423996218773dd42c8c",
+        "productionSha256": "6eaf2a2841159fc54587075cfc53d8930f18e7020e422423996218773dd42c8c"
       }
     },
     {
@@ -18049,7 +18241,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Dorsal digital (extensor) expansion labelled side-view diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 654,
@@ -18062,8 +18254,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p654 crop shows the labeled dorsal digital expansion from the side."
           }
         }
       ],
@@ -18080,10 +18272,12 @@
         "height": 736
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p654 crop shows the labeled dorsal digital expansion from the side. Compared against the exact region from Ubuntu CI run 36448416847; native JPEG bytes remain unchanged.",
+        "originalSha256": "aaea027aa4363a003cd5d88443e264dc8a8e693d68ffe0e1f78242990ba2f067",
+        "productionSha256": "aaea027aa4363a003cd5d88443e264dc8a8e693d68ffe0e1f78242990ba2f067"
       }
     },
     {
@@ -18108,8 +18302,8 @@
           "questionId": "marrow__ANAT_CH36_Q013",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Clinical photograph of a finger with nail-fold inflammation",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 645,
@@ -18122,8 +18316,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p645 crop shows the clinical finger photograph referenced by the paronychia question."
           }
         }
       ],
@@ -18140,10 +18334,12 @@
         "height": 720
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p645 crop shows the clinical finger photograph referenced by the paronychia question. Compared against the exact region from Ubuntu CI run 36448416847; native JPEG bytes remain unchanged.",
+        "originalSha256": "3cc5897ff06c8944c6b96f30f7dd5e12d872786f9413919b98321064386451f3",
+        "productionSha256": "3cc5897ff06c8944c6b96f30f7dd5e12d872786f9413919b98321064386451f3"
       }
     },
     {
@@ -18169,7 +18365,7 @@
           "role": "explanation",
           "order": 1,
           "alt": "Spaces of hand diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 656,
@@ -18182,8 +18378,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p656 crop labels the hand spaces relevant to the mid-palmar space explanation."
           }
         }
       ],
@@ -18200,10 +18396,12 @@
         "height": 674
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p656 crop labels the hand spaces relevant to the mid-palmar space explanation. Compared against the exact region from Ubuntu CI run 36448416847; native JPEG bytes remain unchanged.",
+        "originalSha256": "b8456b21fefef9b27aaf47fc7c59a37a9c0f12fa021531493851b6b55c9f4954",
+        "productionSha256": "b8456b21fefef9b27aaf47fc7c59a37a9c0f12fa021531493851b6b55c9f4954"
       }
     },
     {
@@ -18228,8 +18426,8 @@
           "questionId": "marrow__ANAT_CH36_Q015",
           "role": "question",
           "order": 1,
-          "alt": "Source question figure",
-          "status": "REVIEW_REQUIRED",
+          "alt": "Close-up photograph of a fingertip with a visible lesion",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 646,
@@ -18242,8 +18440,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p646 crop shows the clinical fingertip infection photograph referenced by the question."
           }
         }
       ],
@@ -18260,10 +18458,12 @@
         "height": 577
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p646 crop shows the clinical fingertip infection photograph referenced by the question. Compared against the exact region from Ubuntu CI run 36448416847; native JPEG bytes remain unchanged.",
+        "originalSha256": "d8dc256db51efc89271429a56d01432eb32ca2ec6bdfb8e4478186ce4a560f01",
+        "productionSha256": "d8dc256db51efc89271429a56d01432eb32ca2ec6bdfb8e4478186ce4a560f01"
       }
     },
     {
@@ -18289,7 +18489,7 @@
           "role": "explanation",
           "order": 2,
           "alt": "Digital pulp spaces anatomy diagram",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reviewBatch": "manual-wave2-anatomy-ch27-44",
           "source": {
             "page": 657,
@@ -18302,8 +18502,8 @@
             ]
           },
           "qa": {
-            "sourceCompared": false,
-            "notes": "Sole unmasked native JPEG candidate only; verify exact source ownership, role, crop, answer safety and readability against the cited authoritative page."
+            "sourceCompared": true,
+            "notes": "The exact p657 diagram shows the digital pulp spaces and their anatomy."
           }
         }
       ],
@@ -18320,10 +18520,12 @@
         "height": 593
       },
       "method": "native-jpeg-stream",
-      "status": "REVIEW_REQUIRED",
+      "status": "PASS",
       "qa": {
-        "sourceCompared": false,
-        "notes": "Sole unmasked native JPEG candidate only; exact source ownership, role, crop, medical/diagram classification, and readability remain unreviewed."
+        "sourceCompared": true,
+        "notes": "The exact p657 diagram shows the digital pulp spaces and their anatomy. Compared against the exact region from Ubuntu CI run 36448416847; native JPEG bytes remain unchanged.",
+        "originalSha256": "1b39be7ff94a19542b887a0565b9baeb1791f1a27a33cf92ca2add492afba2c8",
+        "productionSha256": "1b39be7ff94a19542b887a0565b9baeb1791f1a27a33cf92ca2add492afba2c8"
       }
     },
     {
@@ -26898,6 +27100,1101 @@
         "notes": "Inspected exact 300-DPI source-region crop from Ubuntu workflow run 36446152912 against Anatomy_ed8.pdf page 585. This source photograph shows the oral structure referenced by the OPV sensory-supply stem. The complete candidate region is present, with only the source PDF rendering and crop; no pixels were altered, generated, or reconstructed.",
         "originalSha256": "9032f8dc46beafe2a8356ba25528ae0d6da8bbdc0a138d6aa67255c322503cd0",
         "productionSha256": "9032f8dc46beafe2a8356ba25528ae0d6da8bbdc0a138d6aa67255c322503cd0"
+      }
+    },
+    {
+      "id": "anatomy-region-0866a7f3343be69b",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 504,
+        "xref": 1412,
+        "compositeXrefs": [
+          1412,
+          1413,
+          1414
+        ],
+        "region": [
+          153.52,
+          449.551,
+          458.48,
+          682.449
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH29_Q011",
+          "role": "question",
+          "order": 1,
+          "alt": "Cadaveric neck dissection with a yellow highlighted region and a Clavicle label",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 504,
+            "xref": 1412,
+            "region": [
+              153.52,
+              449.551,
+              458.48,
+              682.449
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Inspected the complete p504 region-render from Ubuntu CI run 36448416847, item r492, against the authoritative source. The crop includes the entire cadaver image, yellow triangle, and full Clavicle label across overlapping native xrefs 1412, 1413, and 1414. The yellow edge sliver in earlier crops was the clipped initial C of Clavicle; no separate question mark appears in the source figure. Source pixels are preserved by deterministic PDF rendering only; no generation, reconstruction, or image processing was applied."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/0866a7f3343be69b047498cc916df59ccc69dccdf6ed20f035f6c99b93ad5bb5.png",
+        "sha256": "0866a7f3343be69b047498cc916df59ccc69dccdf6ed20f035f6c99b93ad5bb5",
+        "width": 1272,
+        "height": 971
+      },
+      "production": {
+        "path": "data/marrow/images/originals/0866a7f3343be69b047498cc916df59ccc69dccdf6ed20f035f6c99b93ad5bb5.png",
+        "sha256": "0866a7f3343be69b047498cc916df59ccc69dccdf6ed20f035f6c99b93ad5bb5",
+        "width": 1272,
+        "height": 971
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected the complete p504 region-render from Ubuntu CI run 36448416847, item r492, against the authoritative source. The crop includes the entire cadaver image, yellow triangle, and full Clavicle label across overlapping native xrefs 1412, 1413, and 1414. The yellow edge sliver in earlier crops was the clipped initial C of Clavicle; no separate question mark appears in the source figure. Source pixels are preserved by deterministic PDF rendering only; no generation, reconstruction, or image processing was applied.",
+        "originalSha256": "0866a7f3343be69b047498cc916df59ccc69dccdf6ed20f035f6c99b93ad5bb5",
+        "productionSha256": "0866a7f3343be69b047498cc916df59ccc69dccdf6ed20f035f6c99b93ad5bb5"
+      }
+    },
+    {
+      "id": "anatomy-region-5bc17ddc540c82fb",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 597,
+        "xref": 1690,
+        "region": [
+          154.0,
+          122.0,
+          458.0,
+          354.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH33_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Diagram of structures in the nasopharynx",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 597,
+            "xref": 1690,
+            "region": [
+              154.0,
+              122.0,
+              458.0,
+              354.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Inspected exact region-render crop from Ubuntu CI run 36448416847, item r205, page 597. Matches the Q2 endoscopy stem and shows nasopharyngeal landmarks. The source page and local figure labels are preserved by deterministic rendering only."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/5bc17ddc540c82fbb26299a5994bb917ba145fb7309f34edc239b6a42e2964e2.png",
+        "sha256": "5bc17ddc540c82fbb26299a5994bb917ba145fb7309f34edc239b6a42e2964e2",
+        "width": 1268,
+        "height": 967
+      },
+      "production": {
+        "path": "data/marrow/images/originals/5bc17ddc540c82fbb26299a5994bb917ba145fb7309f34edc239b6a42e2964e2.png",
+        "sha256": "5bc17ddc540c82fbb26299a5994bb917ba145fb7309f34edc239b6a42e2964e2",
+        "width": 1268,
+        "height": 967
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected exact region-render crop from Ubuntu CI run 36448416847, item r205, page 597. Matches the Q2 endoscopy stem and shows nasopharyngeal landmarks. The source page and local figure labels are preserved by deterministic rendering only.",
+        "originalSha256": "5bc17ddc540c82fbb26299a5994bb917ba145fb7309f34edc239b6a42e2964e2",
+        "productionSha256": "5bc17ddc540c82fbb26299a5994bb917ba145fb7309f34edc239b6a42e2964e2"
+      }
+    },
+    {
+      "id": "anatomy-region-2e1d9066289b190c",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 597,
+        "xref": 1690,
+        "region": [
+          154.0,
+          479.0,
+          458.0,
+          711.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH33_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Diagram of Passavant’s ridge",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 597,
+            "xref": 1690,
+            "region": [
+              154.0,
+              479.0,
+              458.0,
+              711.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Inspected exact region-render crop from Ubuntu CI run 36448416847, item r208, page 597. Matches the Q3 anatomy prompt on the muscles forming Passavant’s ridge. The source page and local figure labels are preserved by deterministic rendering only."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/2e1d9066289b190c2a49476e49f9008e8d163fce3c6c4169b0c3d87405585848.png",
+        "sha256": "2e1d9066289b190c2a49476e49f9008e8d163fce3c6c4169b0c3d87405585848",
+        "width": 1268,
+        "height": 968
+      },
+      "production": {
+        "path": "data/marrow/images/originals/2e1d9066289b190c2a49476e49f9008e8d163fce3c6c4169b0c3d87405585848.png",
+        "sha256": "2e1d9066289b190c2a49476e49f9008e8d163fce3c6c4169b0c3d87405585848",
+        "width": 1268,
+        "height": 968
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected exact region-render crop from Ubuntu CI run 36448416847, item r208, page 597. Matches the Q3 anatomy prompt on the muscles forming Passavant’s ridge. The source page and local figure labels are preserved by deterministic rendering only.",
+        "originalSha256": "2e1d9066289b190c2a49476e49f9008e8d163fce3c6c4169b0c3d87405585848",
+        "productionSha256": "2e1d9066289b190c2a49476e49f9008e8d163fce3c6c4169b0c3d87405585848"
+      }
+    },
+    {
+      "id": "anatomy-region-b8773b7bd30fcd5e",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 611,
+        "xref": 1727,
+        "region": [
+          154.0,
+          418.0,
+          458.0,
+          650.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH34_Q007",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Diagram of the laryngocele with internal and external components",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 611,
+            "xref": 1727,
+            "region": [
+              154.0,
+              418.0,
+              458.0,
+              650.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Inspected exact source-region crop from Ubuntu CI run 36448416847, item r219, page 611. The source illustration directly depicts the laryngocele, matching the explanation of the Valsalva-associated swelling. Deterministic source-PDF rendering only; no pixels were generated, reconstructed, or processed."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b8773b7bd30fcd5e460cdc4df4b4e0536f43a151ff295a1099cb3971fd0a2f2a.png",
+        "sha256": "b8773b7bd30fcd5e460cdc4df4b4e0536f43a151ff295a1099cb3971fd0a2f2a",
+        "width": 1268,
+        "height": 968
+      },
+      "production": {
+        "path": "data/marrow/images/originals/b8773b7bd30fcd5e460cdc4df4b4e0536f43a151ff295a1099cb3971fd0a2f2a.png",
+        "sha256": "b8773b7bd30fcd5e460cdc4df4b4e0536f43a151ff295a1099cb3971fd0a2f2a",
+        "width": 1268,
+        "height": 968
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected exact source-region crop from Ubuntu CI run 36448416847, item r219, page 611. The source illustration directly depicts the laryngocele, matching the explanation of the Valsalva-associated swelling. Deterministic source-PDF rendering only; no pixels were generated, reconstructed, or processed.",
+        "originalSha256": "b8773b7bd30fcd5e460cdc4df4b4e0536f43a151ff295a1099cb3971fd0a2f2a",
+        "productionSha256": "b8773b7bd30fcd5e460cdc4df4b4e0536f43a151ff295a1099cb3971fd0a2f2a"
+      }
+    },
+    {
+      "id": "anatomy-region-232c3a63b7559f53",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 617,
+        "xref": 1741,
+        "region": [
+          154.0,
+          48.0,
+          458.0,
+          280.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH34_Q016",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Sagittal diagram of the pre-epiglottic space",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 617,
+            "xref": 1741,
+            "region": [
+              154.0,
+              48.0,
+              458.0,
+              280.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Inspected exact source-region crop from Ubuntu CI run 36448416847, item r229, page 617. The source illustration labels the pre-epiglottic space and its boundaries, matching the explanation of supraglottic spread. Deterministic source-PDF rendering only; no pixels were generated, reconstructed, or processed."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/232c3a63b7559f530f4ab8872668eba5ff50eb6d8ffecaaa786e1d962ebdca22.png",
+        "sha256": "232c3a63b7559f530f4ab8872668eba5ff50eb6d8ffecaaa786e1d962ebdca22",
+        "width": 1268,
+        "height": 967
+      },
+      "production": {
+        "path": "data/marrow/images/originals/232c3a63b7559f530f4ab8872668eba5ff50eb6d8ffecaaa786e1d962ebdca22.png",
+        "sha256": "232c3a63b7559f530f4ab8872668eba5ff50eb6d8ffecaaa786e1d962ebdca22",
+        "width": 1268,
+        "height": 967
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected exact source-region crop from Ubuntu CI run 36448416847, item r229, page 617. The source illustration labels the pre-epiglottic space and its boundaries, matching the explanation of supraglottic spread. Deterministic source-PDF rendering only; no pixels were generated, reconstructed, or processed.",
+        "originalSha256": "232c3a63b7559f530f4ab8872668eba5ff50eb6d8ffecaaa786e1d962ebdca22",
+        "productionSha256": "232c3a63b7559f530f4ab8872668eba5ff50eb6d8ffecaaa786e1d962ebdca22"
+      }
+    },
+    {
+      "id": "anatomy-q20-hand-union-pending",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 624,
+        "xref": 1759,
+        "compositeXrefs": [
+          1759,
+          1760,
+          1761
+        ],
+        "region": [
+          153.52,
+          511.575,
+          458.48,
+          744.425
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH35_Q020",
+          "role": "question",
+          "order": 1,
+          "alt": "Hand with a marked area",
+          "status": "REVIEW_REQUIRED",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 624,
+            "xref": 1759,
+            "region": [
+              153.52,
+              511.575,
+              458.48,
+              744.425
+            ]
+          },
+          "qa": {
+            "sourceCompared": false,
+            "notes": "Three native image xrefs overlap; exact union crop has been requested and this binding remains held until full hand and yellow circle are checked."
+          }
+        }
+      ],
+      "method": "region-render",
+      "status": "REVIEW_REQUIRED",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44"
+    },
+    {
+      "id": "anatomy-region-b708ebbce16d9876",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 627,
+        "xref": 1768,
+        "region": [
+          154.0,
+          48.0,
+          458.0,
+          280.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH35_Q002",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Clavicle diagram showing the fracture regions",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 627,
+            "xref": 1768,
+            "region": [
+              154.0,
+              48.0,
+              458.0,
+              280.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Inspected exact crop r234, page 627, from Ubuntu CI run 36448416847. Matches the explanation of the common midshaft fracture site. The full candidate visual is retained as the deterministic source-PDF region render with no pixel processing or reconstruction."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b708ebbce16d987655653d1ddcc749e73ba1abdff511f8ce5acbd7d4844526b0.png",
+        "sha256": "b708ebbce16d987655653d1ddcc749e73ba1abdff511f8ce5acbd7d4844526b0",
+        "width": 1268,
+        "height": 967
+      },
+      "production": {
+        "path": "data/marrow/images/originals/b708ebbce16d987655653d1ddcc749e73ba1abdff511f8ce5acbd7d4844526b0.png",
+        "sha256": "b708ebbce16d987655653d1ddcc749e73ba1abdff511f8ce5acbd7d4844526b0",
+        "width": 1268,
+        "height": 967
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected exact crop r234, page 627, from Ubuntu CI run 36448416847. Matches the explanation of the common midshaft fracture site. The full candidate visual is retained as the deterministic source-PDF region render with no pixel processing or reconstruction.",
+        "originalSha256": "b708ebbce16d987655653d1ddcc749e73ba1abdff511f8ce5acbd7d4844526b0",
+        "productionSha256": "b708ebbce16d987655653d1ddcc749e73ba1abdff511f8ce5acbd7d4844526b0"
+      }
+    },
+    {
+      "id": "anatomy-region-1686c4240c9f2e13",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 627,
+        "xref": 1769,
+        "region": [
+          154.0,
+          499.0,
+          458.0,
+          731.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH35_Q003",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Diagram of the pectoral girdle and its ligaments",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 627,
+            "xref": 1769,
+            "region": [
+              154.0,
+              499.0,
+              458.0,
+              731.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Inspected exact crop r237, page 627, from Ubuntu CI run 36448416847. Shows the ligament route transmitting upper-limb weight to the axial skeleton. The full candidate visual is retained as the deterministic source-PDF region render with no pixel processing or reconstruction."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/1686c4240c9f2e130ac3df689010addff0f775c2a31904ddf808490808a192fe.png",
+        "sha256": "1686c4240c9f2e130ac3df689010addff0f775c2a31904ddf808490808a192fe",
+        "width": 1268,
+        "height": 967
+      },
+      "production": {
+        "path": "data/marrow/images/originals/1686c4240c9f2e130ac3df689010addff0f775c2a31904ddf808490808a192fe.png",
+        "sha256": "1686c4240c9f2e130ac3df689010addff0f775c2a31904ddf808490808a192fe",
+        "width": 1268,
+        "height": 967
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected exact crop r237, page 627, from Ubuntu CI run 36448416847. Shows the ligament route transmitting upper-limb weight to the axial skeleton. The full candidate visual is retained as the deterministic source-PDF region render with no pixel processing or reconstruction.",
+        "originalSha256": "1686c4240c9f2e130ac3df689010addff0f775c2a31904ddf808490808a192fe",
+        "productionSha256": "1686c4240c9f2e130ac3df689010addff0f775c2a31904ddf808490808a192fe"
+      }
+    },
+    {
+      "id": "anatomy-region-1545a99e19d8231f",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 634,
+        "xref": 1787,
+        "region": [
+          154.0,
+          48.0,
+          458.0,
+          280.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH35_Q014",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Rotator interval diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 634,
+            "xref": 1787,
+            "region": [
+              154.0,
+              48.0,
+              458.0,
+              280.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Inspected exact crop r245, page 634, from Ubuntu CI run 36448416847. Matches the structures that form the borders of the rotator interval. The full candidate visual is retained as the deterministic source-PDF region render with no pixel processing or reconstruction."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/1545a99e19d8231f2def2cc4ac7071d93d88ad360a584d7ffbd4bf9db96776b5.png",
+        "sha256": "1545a99e19d8231f2def2cc4ac7071d93d88ad360a584d7ffbd4bf9db96776b5",
+        "width": 1268,
+        "height": 967
+      },
+      "production": {
+        "path": "data/marrow/images/originals/1545a99e19d8231f2def2cc4ac7071d93d88ad360a584d7ffbd4bf9db96776b5.png",
+        "sha256": "1545a99e19d8231f2def2cc4ac7071d93d88ad360a584d7ffbd4bf9db96776b5",
+        "width": 1268,
+        "height": 967
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected exact crop r245, page 634, from Ubuntu CI run 36448416847. Matches the structures that form the borders of the rotator interval. The full candidate visual is retained as the deterministic source-PDF region render with no pixel processing or reconstruction.",
+        "originalSha256": "1545a99e19d8231f2def2cc4ac7071d93d88ad360a584d7ffbd4bf9db96776b5",
+        "productionSha256": "1545a99e19d8231f2def2cc4ac7071d93d88ad360a584d7ffbd4bf9db96776b5"
+      }
+    },
+    {
+      "id": "anatomy-region-70a719df6936469b",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 634,
+        "xref": 1788,
+        "region": [
+          154.0,
+          473.0,
+          458.0,
+          705.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH35_Q015",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Posterior scapula diagram",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 634,
+            "xref": 1788,
+            "region": [
+              154.0,
+              473.0,
+              458.0,
+              705.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Inspected exact crop r249, page 634, from Ubuntu CI run 36448416847. Matches the explanation of the palpable coracoid process. The full candidate visual is retained as the deterministic source-PDF region render with no pixel processing or reconstruction."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/70a719df6936469ba195e64fe9c4df1762c22b458bd88756fa7385e413701976.png",
+        "sha256": "70a719df6936469ba195e64fe9c4df1762c22b458bd88756fa7385e413701976",
+        "width": 1268,
+        "height": 968
+      },
+      "production": {
+        "path": "data/marrow/images/originals/70a719df6936469ba195e64fe9c4df1762c22b458bd88756fa7385e413701976.png",
+        "sha256": "70a719df6936469ba195e64fe9c4df1762c22b458bd88756fa7385e413701976",
+        "width": 1268,
+        "height": 968
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected exact crop r249, page 634, from Ubuntu CI run 36448416847. Matches the explanation of the palpable coracoid process. The full candidate visual is retained as the deterministic source-PDF region render with no pixel processing or reconstruction.",
+        "originalSha256": "70a719df6936469ba195e64fe9c4df1762c22b458bd88756fa7385e413701976",
+        "productionSha256": "70a719df6936469ba195e64fe9c4df1762c22b458bd88756fa7385e413701976"
+      }
+    },
+    {
+      "id": "anatomy-region-22c7a935d914cf37",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 636,
+        "xref": 1794,
+        "region": [
+          154.0,
+          110.0,
+          458.0,
+          342.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH35_Q018",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Carrying-angle radiograph",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 636,
+            "xref": 1794,
+            "region": [
+              154.0,
+              110.0,
+              458.0,
+              342.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Inspected exact crop r251, page 636, from Ubuntu CI run 36448416847. Illustrates the carrying angle discussed in the explanation. The full candidate visual is retained as the deterministic source-PDF region render with no pixel processing or reconstruction."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/22c7a935d914cf37181fb0ba13aebf8400bc78b31d7a501c8a38134e75165360.png",
+        "sha256": "22c7a935d914cf37181fb0ba13aebf8400bc78b31d7a501c8a38134e75165360",
+        "width": 1268,
+        "height": 967
+      },
+      "production": {
+        "path": "data/marrow/images/originals/22c7a935d914cf37181fb0ba13aebf8400bc78b31d7a501c8a38134e75165360.png",
+        "sha256": "22c7a935d914cf37181fb0ba13aebf8400bc78b31d7a501c8a38134e75165360",
+        "width": 1268,
+        "height": 967
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected exact crop r251, page 636, from Ubuntu CI run 36448416847. Illustrates the carrying angle discussed in the explanation. The full candidate visual is retained as the deterministic source-PDF region render with no pixel processing or reconstruction.",
+        "originalSha256": "22c7a935d914cf37181fb0ba13aebf8400bc78b31d7a501c8a38134e75165360",
+        "productionSha256": "22c7a935d914cf37181fb0ba13aebf8400bc78b31d7a501c8a38134e75165360"
+      }
+    },
+    {
+      "id": "anatomy-region-ab9e53b25b0b6a81",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 636,
+        "xref": 1795,
+        "region": [
+          154.0,
+          338.0,
+          458.0,
+          570.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH35_Q018",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Clinical comparison of cubitus varus, normal, and cubitus valgus",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 636,
+            "xref": 1795,
+            "region": [
+              154.0,
+              338.0,
+              458.0,
+              570.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Inspected exact crop r254, page 636, from Ubuntu CI run 36448416847. Shows the three carrying-angle presentations in the explanation. The full candidate visual is retained as the deterministic source-PDF region render with no pixel processing or reconstruction."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/ab9e53b25b0b6a816769cd99261fba99086330dd147942a0c57a9b37603b19bc.png",
+        "sha256": "ab9e53b25b0b6a816769cd99261fba99086330dd147942a0c57a9b37603b19bc",
+        "width": 1268,
+        "height": 967
+      },
+      "production": {
+        "path": "data/marrow/images/originals/ab9e53b25b0b6a816769cd99261fba99086330dd147942a0c57a9b37603b19bc.png",
+        "sha256": "ab9e53b25b0b6a816769cd99261fba99086330dd147942a0c57a9b37603b19bc",
+        "width": 1268,
+        "height": 967
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected exact crop r254, page 636, from Ubuntu CI run 36448416847. Shows the three carrying-angle presentations in the explanation. The full candidate visual is retained as the deterministic source-PDF region render with no pixel processing or reconstruction.",
+        "originalSha256": "ab9e53b25b0b6a816769cd99261fba99086330dd147942a0c57a9b37603b19bc",
+        "productionSha256": "ab9e53b25b0b6a816769cd99261fba99086330dd147942a0c57a9b37603b19bc"
+      }
+    },
+    {
+      "id": "anatomy-region-399b92eda1792b50",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 638,
+        "xref": 3791,
+        "region": [
+          154.0,
+          60.0,
+          458.0,
+          292.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH35_Q019",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Diagram of synovial joint types",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 638,
+            "xref": 3791,
+            "region": [
+              154.0,
+              60.0,
+              458.0,
+              292.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Inspected exact crop r256, page 638, from Ubuntu CI run 36448416847. Matches the explanation comparing radioulnar joint types. The full candidate visual is retained as the deterministic source-PDF region render with no pixel processing or reconstruction."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/399b92eda1792b50301819dff56634d813f48ba49d469935c2558a375791157c.png",
+        "sha256": "399b92eda1792b50301819dff56634d813f48ba49d469935c2558a375791157c",
+        "width": 1268,
+        "height": 967
+      },
+      "production": {
+        "path": "data/marrow/images/originals/399b92eda1792b50301819dff56634d813f48ba49d469935c2558a375791157c.png",
+        "sha256": "399b92eda1792b50301819dff56634d813f48ba49d469935c2558a375791157c",
+        "width": 1268,
+        "height": 967
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected exact crop r256, page 638, from Ubuntu CI run 36448416847. Matches the explanation comparing radioulnar joint types. The full candidate visual is retained as the deterministic source-PDF region render with no pixel processing or reconstruction.",
+        "originalSha256": "399b92eda1792b50301819dff56634d813f48ba49d469935c2558a375791157c",
+        "productionSha256": "399b92eda1792b50301819dff56634d813f48ba49d469935c2558a375791157c"
+      }
+    },
+    {
+      "id": "anatomy-region-ebc9bea845a3017a",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 638,
+        "xref": 1801,
+        "region": [
+          154.0,
+          431.0,
+          458.0,
+          663.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH35_Q020",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Anterior and posterior carpal bone radiographs",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 638,
+            "xref": 1801,
+            "region": [
+              154.0,
+              431.0,
+              458.0,
+              663.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Inspected exact crop r262, page 638, from Ubuntu CI run 36448416847. Matches the explanation of hook-of-hamate fracture and adjacent carpal anatomy. The full candidate visual is retained as the deterministic source-PDF region render with no pixel processing or reconstruction."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/ebc9bea845a3017a5fbf6300d8fa9264a8527cae0f85bcb5a2f3c933067d5b1e.png",
+        "sha256": "ebc9bea845a3017a5fbf6300d8fa9264a8527cae0f85bcb5a2f3c933067d5b1e",
+        "width": 1268,
+        "height": 968
+      },
+      "production": {
+        "path": "data/marrow/images/originals/ebc9bea845a3017a5fbf6300d8fa9264a8527cae0f85bcb5a2f3c933067d5b1e.png",
+        "sha256": "ebc9bea845a3017a5fbf6300d8fa9264a8527cae0f85bcb5a2f3c933067d5b1e",
+        "width": 1268,
+        "height": 968
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected exact crop r262, page 638, from Ubuntu CI run 36448416847. Matches the explanation of hook-of-hamate fracture and adjacent carpal anatomy. The full candidate visual is retained as the deterministic source-PDF region render with no pixel processing or reconstruction.",
+        "originalSha256": "ebc9bea845a3017a5fbf6300d8fa9264a8527cae0f85bcb5a2f3c933067d5b1e",
+        "productionSha256": "ebc9bea845a3017a5fbf6300d8fa9264a8527cae0f85bcb5a2f3c933067d5b1e"
+      }
+    },
+    {
+      "id": "anatomy-q2-clavipectoral-union-pending",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 641,
+        "xref": 1810,
+        "compositeXrefs": [
+          1810,
+          1811,
+          1812
+        ],
+        "region": [
+          153.52,
+          347.601,
+          458.48,
+          580.399
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH36_Q002",
+          "role": "question",
+          "order": 1,
+          "alt": "Clavipectoral fascia diagram with a marked vessel",
+          "status": "REVIEW_REQUIRED",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 641,
+            "xref": 1810,
+            "region": [
+              153.52,
+              347.601,
+              458.48,
+              580.399
+            ]
+          },
+          "qa": {
+            "sourceCompared": false,
+            "notes": "Three native image xrefs form a composite; exact union crop requested and binding remains held pending full-image review."
+          }
+        }
+      ],
+      "method": "region-render",
+      "status": "REVIEW_REQUIRED",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44"
+    },
+    {
+      "id": "anatomy-region-bafb3dc0df5f07b2",
+      "subject": "Anatomy",
+      "kind": "medical",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 650,
+        "xref": 1837,
+        "region": [
+          154.0,
+          48.0,
+          458.0,
+          280.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH36_Q006",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Labeled clinical view of the anatomical snuffbox",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 650,
+            "xref": 1837,
+            "region": [
+              154.0,
+              48.0,
+              458.0,
+              280.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Inspected exact source-region crop r272, page 650, from Ubuntu CI run 36448416847. The photo labels the anatomical snuffbox structures and complements the marked question photograph. Deterministic rendering of the source PDF only; no image processing or reconstruction."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/bafb3dc0df5f07b2704bbd8db850efdfce565700dfcf4b1b662035fbb89d5b8c.png",
+        "sha256": "bafb3dc0df5f07b2704bbd8db850efdfce565700dfcf4b1b662035fbb89d5b8c",
+        "width": 1268,
+        "height": 967
+      },
+      "production": {
+        "path": "data/marrow/images/originals/bafb3dc0df5f07b2704bbd8db850efdfce565700dfcf4b1b662035fbb89d5b8c.png",
+        "sha256": "bafb3dc0df5f07b2704bbd8db850efdfce565700dfcf4b1b662035fbb89d5b8c",
+        "width": 1268,
+        "height": 967
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected exact source-region crop r272, page 650, from Ubuntu CI run 36448416847. The photo labels the anatomical snuffbox structures and complements the marked question photograph. Deterministic rendering of the source PDF only; no image processing or reconstruction.",
+        "originalSha256": "bafb3dc0df5f07b2704bbd8db850efdfce565700dfcf4b1b662035fbb89d5b8c",
+        "productionSha256": "bafb3dc0df5f07b2704bbd8db850efdfce565700dfcf4b1b662035fbb89d5b8c"
+      }
+    },
+    {
+      "id": "anatomy-region-f14a7d77fbd3965b",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 655,
+        "xref": 1851,
+        "region": [
+          154.0,
+          48.0,
+          458.0,
+          280.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH36_Q012",
+          "role": "explanation",
+          "order": 1,
+          "alt": "Diagram of Kanavel’s signs",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 655,
+            "xref": 1851,
+            "region": [
+              154.0,
+              48.0,
+              458.0,
+              280.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Inspected exact source-region crop r280, page 655, from Ubuntu CI run 36448416847. The source diagram illustrates tendon-sheath tenderness, fusiform swelling, and pain with extension. Deterministic rendering of the source PDF only; no image processing or reconstruction."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/f14a7d77fbd3965bce6199da2b13563496fa593a2a7d4470d6a1197d0576eb58.png",
+        "sha256": "f14a7d77fbd3965bce6199da2b13563496fa593a2a7d4470d6a1197d0576eb58",
+        "width": 1268,
+        "height": 967
+      },
+      "production": {
+        "path": "data/marrow/images/originals/f14a7d77fbd3965bce6199da2b13563496fa593a2a7d4470d6a1197d0576eb58.png",
+        "sha256": "f14a7d77fbd3965bce6199da2b13563496fa593a2a7d4470d6a1197d0576eb58",
+        "width": 1268,
+        "height": 967
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected exact source-region crop r280, page 655, from Ubuntu CI run 36448416847. The source diagram illustrates tendon-sheath tenderness, fusiform swelling, and pain with extension. Deterministic rendering of the source PDF only; no image processing or reconstruction.",
+        "originalSha256": "f14a7d77fbd3965bce6199da2b13563496fa593a2a7d4470d6a1197d0576eb58",
+        "productionSha256": "f14a7d77fbd3965bce6199da2b13563496fa593a2a7d4470d6a1197d0576eb58"
+      }
+    },
+    {
+      "id": "anatomy-region-33a4015d83f3a4bd",
+      "subject": "Anatomy",
+      "kind": "diagram",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "page": 655,
+        "xref": 1852,
+        "region": [
+          154.0,
+          451.0,
+          458.0,
+          683.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__ANAT_CH36_Q013",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Diagram of the spaces of the hand",
+          "status": "PASS",
+          "reviewBatch": "manual-wave2-anatomy-ch27-44",
+          "source": {
+            "page": 655,
+            "xref": 1852,
+            "region": [
+              154.0,
+              451.0,
+              458.0,
+              683.0
+            ]
+          },
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Inspected exact source-region crop r284, page 655, from Ubuntu CI run 36448416847. The diagram labels the hand spaces involved in spread from a middle-finger infection. Deterministic rendering of the source PDF only; no image processing or reconstruction."
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/33a4015d83f3a4bdf28c51cd0aa1ce0ac5c365dd8a179f565c6cf9ac760886bd.png",
+        "sha256": "33a4015d83f3a4bdf28c51cd0aa1ce0ac5c365dd8a179f565c6cf9ac760886bd",
+        "width": 1268,
+        "height": 967
+      },
+      "production": {
+        "path": "data/marrow/images/originals/33a4015d83f3a4bdf28c51cd0aa1ce0ac5c365dd8a179f565c6cf9ac760886bd.png",
+        "sha256": "33a4015d83f3a4bdf28c51cd0aa1ce0ac5c365dd8a179f565c6cf9ac760886bd",
+        "width": 1268,
+        "height": 967
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "reviewBatch": "manual-wave2-anatomy-ch27-44",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Inspected exact source-region crop r284, page 655, from Ubuntu CI run 36448416847. The diagram labels the hand spaces involved in spread from a middle-finger infection. Deterministic rendering of the source PDF only; no image processing or reconstruction.",
+        "originalSha256": "33a4015d83f3a4bdf28c51cd0aa1ce0ac5c365dd8a179f565c6cf9ac760886bd",
+        "productionSha256": "33a4015d83f3a4bdf28c51cd0aa1ce0ac5c365dd8a179f565c6cf9ac760886bd"
       }
     }
   ]
