@@ -212,3 +212,21 @@ completed Ch8–14 batch. No question belongs to both workers.
 D owns the minimal shared coverage support for source-reviewed cue decisions.
 C records source evidence/assets in existing conventions and coordinates that
 format directly with D; root reconciles only their disjoint stable IDs.
+
+### Biochemistry cue transfer to completed worker B — 2026-09-30
+
+D confirmed only Ch3 Q12/Q14 were source-reviewed and all other 29 Biochemistry
+cues are unmodified. D retains those two cue questions, Biochemistry Ch7 Q5/Q6,
+Ch8 Q3, Ch10 Q14, and Physiology Ch34 Q4 / Ch37 Q24, plus shared cue coverage
+support. Worker B resumes the remaining 29 Biochemistry cue questions below
+after a concurrency slot opens, on a new branch in its preserved worktree;
+its completed Anatomy Ch60–63 commit remains unchanged. B owns all visuals
+and cues for these exact questions; D excludes every one of them.
+
+- Biochemistry Ch12 Q5; Ch15 Q6/Q19/Q20; Ch17 Q3/Q4/Q14; Ch18 Q15.
+- Biochemistry Ch19 Q11/Q12/Q19; Ch20 Q6; Ch21 Q8/Q9/Q10/Q12.
+- Biochemistry Ch22 Q2/Q4/Q5/Q6/Q7/Q8/Q10; Ch23 Q9.
+- Biochemistry Ch24 Q1/Q3/Q10/Q12/Q16.
+
+This transfer keeps four worker agents total and preserves disjoint question
+ownership. No source review is duplicated; root integrates committed deltas.
