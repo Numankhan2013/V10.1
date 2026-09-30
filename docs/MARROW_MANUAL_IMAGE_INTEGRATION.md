@@ -21,10 +21,10 @@ these four resume batches partition all other 237 outstanding items exactly.
 
 | Batch | Exclusive source ownership | Starting unresolved refs | Starting text cues | Owner/status | Working branch |
 | --- | --- | ---: | ---: | --- | --- |
-| `manual-resume-anatomy-ch01-59-20260930` | Anatomy Ch1–59, all remaining refs/cues and newly discovered visuals | 69 | 0 | Luna 6 medium worker A / VALIDATED; merge underway | `manual/resume-anatomy-ch01-59-20260930` |
-| `manual-resume-anatomy-ch60-63-20260930` | Anatomy Ch60–63 completed; 29 exact Biochemistry cue questions below reserved | 52 | 29 transferred | Luna 6 medium worker B / first batch live; cue batch RUNNING | `manual/resume-anatomy-ch60-63-20260930` |
-| `manual-resume-physiology-ch08-14-20260930` | Physiology Ch8–14 completed; 27 exact tail cue questions below | 52 | 27 transferred | Luna 6 medium worker C / first batch merged; tail RUNNING | `manual/resume-physiology-ch08-14-20260930` |
-| `manual-resume-biochem-physiology-tail-20260930` | Six source questions plus Biochemistry Ch3 Q12/Q14; coverage support; see transfers below | 6 | 2 retained | Luna 6 medium worker D / RUNNING | `manual/resume-biochem-physiology-tail-20260930` |
+| `manual-resume-anatomy-ch01-59-20260930` | Anatomy Ch1–59, all remaining refs/cues and newly discovered visuals | 69 | 0 | Luna 6 medium worker A / MERGED; canonical dual-green | `manual/resume-anatomy-ch01-59-20260930` |
+| `manual-resume-anatomy-ch60-63-20260930` | Anatomy Ch60–63 completed; 29 exact Biochemistry cue questions below reserved | 52 | 29 transferred | Luna 6 medium worker B / both batches MERGED; final CI pending | `manual/resume-anatomy-ch60-63-20260930` |
+| `manual-resume-physiology-ch08-14-20260930` | Physiology Ch8–14 completed; 27 exact tail cue questions below | 52 | 27 transferred | Luna 6 medium worker C / both batches MERGED; final CI pending | `manual/resume-physiology-ch08-14-20260930` |
+| `manual-resume-biochem-physiology-tail-20260930` | Six source questions plus Biochemistry Ch3 Q12/Q14; coverage support; see transfers below | 6 | 2 retained | Luna 6 medium worker D / MERGED; final CI pending | `manual/resume-biochem-physiology-tail-20260930` |
 
 Workers use fresh separate worktrees from the claim commit. The old dirty
 `V10.1-wave2-anatomy-ch56-63` worktree is preserved as a read-only donor: A may
@@ -248,3 +248,64 @@ that failure and its targeted retry passed. Root merges stable-ID deltas and
 regenerates combined derived files; canonical CI/preview verification follows.
 B/C canonical checkpoint `a656edd1` passed Engineering `36670768116` and full browser/PWA/APK/Android phone/tablet run `36670768102`; live metadata and sampled image bytes match. Worker B now resumes its 29 reserved Biochemistry cues in a new branch in
 the preserved Anatomy Ch60–63 worktree.
+
+### Worker D final integration checkpoint — 2026-09-30
+
+Worker D completed six source refs and two retained cues at `997f0c1f`:
+Biochemistry Ch7 Q5/Q6 and Physiology Ch34 Q4 / Ch37 Q24 are released;
+Biochemistry Ch8 Q3 / Ch10 Q14 have exact invalid-metadata adjudications;
+Ch3 Q12/Q14 have pinned-source no-visual evidence. Its source cue coverage
+support is committed through `e0502485` (earlier `db17e740`, `13bea5f6`).
+Release, progress/coverage checks, cue tests, memory and diff checks passed.
+The one local-suite failure was stale derived progress before regeneration;
+the targeted image test passed after regeneration. Root merged the four
+asset IDs, two adjudications and two cue reviews without conflicts. Combined
+derived output/CI will be refreshed with the B/C cue checkpoints.
+
+Anatomy canonical checkpoint `e3cef56d` is dual-green: Engineering
+`36673442104`, full browser/PWA/APK/Android `36673441905`. Live preview
+metadata bytes match its committed release exactly (1,051 visual-owning
+questions across the bank). Production remains unpromoted.
+
+### Worker C tail cue integration checkpoint — 2026-09-30
+
+C committed `6fbbcdda` / `34b893fd`: 32 cue-derived source refs across 24
+Physiology cue questions, backed by 31 exact native JPEG assets. All linked
+refs are released; Ch23 Q8 / Ch25 Q9 / Ch38 Q1 are source-reviewed no-visual
+cases. All 27 assigned cues are closed. Explicit continuation pages and global
+figure ordering were corrected after coverage caught them. Image release,
+progress/coverage generation and checks, all 51 local checks, and memory
+verification passed. Root merged the disjoint stable IDs without conflicts.
+B’s 29 Biochemistry cue questions are the last checkpoint pending checks.
+
+### Worker B cue integration / combined final checkpoint — 2026-09-30
+
+B committed `20cc85bb`: all 29 Biochemistry cue questions are reviewed, with
+28 released cue-derived refs (11 question / 17 explanation). Ch17 Q14 is a
+confirmed source omission: its prompt refers to a teeth image absent from
+source pages 265/277. It is explicitly not visually complete; no replacement
+was invented. Release, progress/coverage checks, all 51 local checks, memory
+and diff checks passed. Its two prior Anatomy candidate JPGs remain untouched.
+
+Root merged D `997f0c1f`, C tail `34b893fd` and B tail `20cc85bb` by disjoint
+stable IDs with no registry/asset conflicts. Original resume workload: 179
+source refs + 58 cues = 237 items. Workers resolved 178 source refs and all
+58 cues; Anatomy Ch45 Q4 remains held for absent source marker. The separate
+Physiology Ch3–7 claim remains reserved (49 refs + one cue). Cue reviews added
+60 source-derived refs (Biochemistry 28, Physiology 32); immutable raw audits
+and source bundles were retained. Combined full CI/preview verification follows.
+
+Combined release caught a portability issue in D’s four region assets: eight
+original/production path fields referenced the worker’s absolute worktree.
+Root normalized only these paths to repository-relative paths, verified
+unchanged SHA-256 against copied files, and retained the strict containment
+validator. Pixel content, source citations and QA evidence remain unchanged.
+
+Combined regeneration confirmed: Anatomy 1,012 released / 15 invalid / one
+held of 1,028; Biochemistry 133 released / five invalid / none unresolved of
+138; Physiology 239 released / 38 invalid / 49 unresolved of 326. Across
+1,492 source refs, 1,384 are released, 58 invalid and 50 unresolved. Sixty
+refs were discovered through cue review; one reserved Physiology cue remains.
+Runtime contains 1,107 visual-owning questions and 1,445 released bindings
+(356 question / 1,089 explanation). These are distinct denominators. Root’s
+lightweight integration sanity passed; canonical full CI/preview is pending.

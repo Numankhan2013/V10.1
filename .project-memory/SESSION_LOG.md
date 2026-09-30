@@ -1182,3 +1182,12 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Worker A `0243a614` resolved 68 of 69 assigned refs: 64 released, four source-invalid; Ch45 Q4 is held because source marker is absent. Two corrected-page question assets are released with truthful citations.
 - All local checks passed after restoring existing registry ordering and retrying the sole failed image test. Root integrates stable-ID deltas; full canonical CI pending.
 - First image checkpoint `a656edd1` is live: metadata bytes matched canonical and a sampled new image matched its SHA-256; build/browser/APK packaging passed, full Android interaction run 36670768102 subsequently passed. Worker B resumes 29 unmodified Biochemistry cue questions after A frees the slot; C handles Physiology tail cues, D handles six known refs and cue architecture. Production remains deferred.
+
+- Anatomy checkpoint `e3cef56d` passed Engineering `36673442104` and full browser/PWA/APK/Android `36673441905`; canonical preview metadata matched exactly (1,051 distinct visual-owning questions).
+- D final `997f0c1f` passed normal release/progress/coverage and the targeted stale-progress retry; root merged four images, two invalid adjudications and two no-visual cue records. Combined regeneration waits for B/C cue commits. C source coverage closes 32 cue-derived refs; B reviewed 28 real cue questions plus Ch17 Q14 source omission.
+
+## 2026-09-30 — Four-worker image phase final integration
+
+- Integrated C tail `34b893fd` (32 source refs / 27 closed cues) and B tail `20cc85bb` (28 source refs / 29 closed cues), preserving D’s six-ref/two-cue checkpoint and all earlier text/source work. Both tail workers passed all 51 local checks; no source review was repeated by root.
+- All 237 assigned items are accounted: 236 resolved, one held (Anatomy Ch45 Q4 lacks required source marker). B documents Biochemistry Ch17 Q14’s absent source teeth image as an omission. External Physiology Ch3–7 still owns 49 unresolved refs plus one cue.
+- Exact source cue reviews add 60 source-derived reference rows with pinned PDF hashes/provenance; actual continuation pages remain explicit, and wrong roles/orders/pages or unreleased bindings fail closed. Root regenerates combined outputs and pushes mandatory canonical preview CI; production remains deferred.

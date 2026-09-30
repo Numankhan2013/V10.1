@@ -16,28 +16,28 @@
       "humanCompletenessClaimAllowed": false
     },
     "Biochemistry": {
-      "sourceVisualReferences": 110,
-      "effectiveLearnerVisualReferences": 107,
-      "additionalCueDerivedVisualReferences": 0,
-      "releasedSourceVisualReferences": 103,
-      "invalidSourceMetadataReferences": 3,
-      "resolvedSourceVisualReferences": 106,
-      "trackedButUnreleasedReferences": 2,
-      "untrackedSourceVisualReferences": 2,
-      "textCueReviewItems": 31,
-      "sourceVisualCoverageComplete": false,
-      "humanCompletenessClaimAllowed": false
+      "sourceVisualReferences": 138,
+      "effectiveLearnerVisualReferences": 133,
+      "additionalCueDerivedVisualReferences": 28,
+      "releasedSourceVisualReferences": 133,
+      "invalidSourceMetadataReferences": 5,
+      "resolvedSourceVisualReferences": 138,
+      "trackedButUnreleasedReferences": 0,
+      "untrackedSourceVisualReferences": 0,
+      "textCueReviewItems": 0,
+      "sourceVisualCoverageComplete": true,
+      "humanCompletenessClaimAllowed": true
     },
     "Physiology": {
-      "sourceVisualReferences": 294,
-      "effectiveLearnerVisualReferences": 256,
-      "additionalCueDerivedVisualReferences": 0,
-      "releasedSourceVisualReferences": 205,
+      "sourceVisualReferences": 326,
+      "effectiveLearnerVisualReferences": 288,
+      "additionalCueDerivedVisualReferences": 32,
+      "releasedSourceVisualReferences": 239,
       "invalidSourceMetadataReferences": 38,
-      "resolvedSourceVisualReferences": 243,
+      "resolvedSourceVisualReferences": 277,
       "trackedButUnreleasedReferences": 14,
-      "untrackedSourceVisualReferences": 37,
-      "textCueReviewItems": 28,
+      "untrackedSourceVisualReferences": 35,
+      "textCueReviewItems": 1,
       "sourceVisualCoverageComplete": false,
       "humanCompletenessClaimAllowed": false
     }
@@ -18164,8 +18164,12 @@
         109
       ],
       "nativeCandidateCount": 4,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "biochemistry-region-1a89a5ffa4e59119",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 109,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__BIOCHEM_CH07_Q006:figure:1",
@@ -18177,8 +18181,12 @@
         109
       ],
       "nativeCandidateCount": 4,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "biochemistry-region-cef08c488705dbb0",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 109,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__BIOCHEM_CH07_Q007:figure:1",
@@ -18292,12 +18300,10 @@
         125
       ],
       "nativeCandidateCount": 1,
-      "assetId": "biochemistry-cc0e227944809f2d",
-      "bindingStatus": "REJECTED",
-      "assetStatus": "PASS",
+      "coverageStatus": "SOURCE_METADATA_INVALID",
       "released": false,
-      "registryPage": 125,
-      "coverageStatus": "UNRELEASED_TRACKED"
+      "adjudicationReason": "The declared transamination diagram is not the visual on the cited explanation page; the page figure is unrelated to this BH4 enzyme question.",
+      "adjudicationEvidence": "Inspected full source page 125. Its visible transamination/PLP material does not match the BH4 enzyme prompt; no source visual owned by Q3 was present."
     },
     {
       "id": "marrow__BIOCHEM_CH08_Q016:figure:1",
@@ -18564,12 +18570,10 @@
         168
       ],
       "nativeCandidateCount": 1,
-      "assetId": "biochemistry-e4bbbdf0dff65dd9",
-      "bindingStatus": "REJECTED",
-      "assetStatus": "REJECTED",
+      "coverageStatus": "SOURCE_METADATA_INVALID",
       "released": false,
-      "registryPage": 168,
-      "coverageStatus": "UNRELEASED_TRACKED"
+      "adjudicationReason": "The cited Rossmann fold figure is unrelated to the LDH-domain question.",
+      "adjudicationEvidence": "Inspected full source page 168. The page contains aminoacyl-tRNA synthetase / Rossmann-class material, not the LDH Rossmann-fold visual claimed for Q14."
     },
     {
       "id": "marrow__BIOCHEM_CH10_Q016:figure:1",
@@ -22936,8 +22940,12 @@
         634
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-ac2c2e4a6824efc4",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 634,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH34_Q006:figure:1",
@@ -23442,8 +23450,12 @@
         709
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "physiology-region-6c65afb533333717",
+      "bindingStatus": "PASS",
+      "assetStatus": "SOURCE_LIMITED",
+      "released": true,
+      "registryPage": 709,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__PHYSIO_CH38_Q003:figure:1",
@@ -24175,6 +24187,1086 @@
       "released": true,
       "registryPage": 816,
       "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH20_Q011:figure:1",
+      "questionId": "marrow__PHYSIO_CH20_Q011",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        368
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-2ff8d1481cf3a083",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 368,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH20_Q012:figure:1",
+      "questionId": "marrow__PHYSIO_CH20_Q012",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        368
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-6a63b33dcfe60857",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 368,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH20_Q016:figure:1",
+      "questionId": "marrow__PHYSIO_CH20_Q016",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        381
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-1b3715c0cb127daa",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 381,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH20_Q018:figure:1",
+      "questionId": "marrow__PHYSIO_CH20_Q018",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        371
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-63f835c9fecd2e4b",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 371,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH20_Q018:figure:2",
+      "questionId": "marrow__PHYSIO_CH20_Q018",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 2,
+      "sourcePages": [
+        382
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-95e5b78aa3fa7be3",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 382,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH21_Q006:figure:1",
+      "questionId": "marrow__PHYSIO_CH21_Q006",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        391
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-42751eefdef12b1e",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 391,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH21_Q009:figure:1",
+      "questionId": "marrow__PHYSIO_CH21_Q009",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        394
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-6de9f2d18b333951",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 394,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH21_Q012:figure:1",
+      "questionId": "marrow__PHYSIO_CH21_Q012",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        386
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-56ce062211946264",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 386,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH21_Q012:figure:2",
+      "questionId": "marrow__PHYSIO_CH21_Q012",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 2,
+      "sourcePages": [
+        396
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-6de9f2d18b333951",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 396,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q008:figure:1",
+      "questionId": "marrow__PHYSIO_CH22_Q008",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        408
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-e6e3b458e36d48eb",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 408,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q010:figure:1",
+      "questionId": "marrow__PHYSIO_CH22_Q010",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        409
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-743befde07abd8c7",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 409,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q013:figure:1",
+      "questionId": "marrow__PHYSIO_CH22_Q013",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        411
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-8693b7b75cbeeca0",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 411,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH23_Q003:figure:1",
+      "questionId": "marrow__PHYSIO_CH23_Q003",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        417
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-5791611f9a2e1010",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 417,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH23_Q004:figure:1",
+      "questionId": "marrow__PHYSIO_CH23_Q004",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        417
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-999571a869a1d155",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 417,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH23_Q012:figure:1",
+      "questionId": "marrow__PHYSIO_CH23_Q012",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        420
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-e1e30fac7b2f659a",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 420,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH23_Q014:figure:1",
+      "questionId": "marrow__PHYSIO_CH23_Q014",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        421
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-1b60ef652842b766",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 421,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH23_Q015:figure:1",
+      "questionId": "marrow__PHYSIO_CH23_Q015",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        421
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-42e8665470f20cfe",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 421,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH23_Q016:figure:1",
+      "questionId": "marrow__PHYSIO_CH23_Q016",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        422
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-cd2967e4eba8c9ad",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 422,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH25_Q005:figure:1",
+      "questionId": "marrow__PHYSIO_CH25_Q005",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        457
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-e6fd5b2c9c525a08",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 457,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH26_Q016:figure:1",
+      "questionId": "marrow__PHYSIO_CH26_Q016",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        472
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-7ad15faa0b68e0f3",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 472,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH26_Q016:figure:2",
+      "questionId": "marrow__PHYSIO_CH26_Q016",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 2,
+      "sourcePages": [
+        481
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-ee6ed9f9e9957137",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 481,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH27_Q013:figure:1",
+      "questionId": "marrow__PHYSIO_CH27_Q013",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        486
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-b04566fed0b10c5e",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 486,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH27_Q013:figure:2",
+      "questionId": "marrow__PHYSIO_CH27_Q013",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 2,
+      "sourcePages": [
+        494
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-7d115b0dcfc930e7",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 494,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH28_Q010:figure:1",
+      "questionId": "marrow__PHYSIO_CH28_Q010",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        500
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-4c415b311c1b9f67",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 500,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH28_Q010:figure:2",
+      "questionId": "marrow__PHYSIO_CH28_Q010",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 2,
+      "sourcePages": [
+        508
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-351294323c90ed42",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 508,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH28_Q026:figure:1",
+      "questionId": "marrow__PHYSIO_CH28_Q026",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        517
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-97ee5ef01854807c",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 517,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q001:figure:1",
+      "questionId": "marrow__PHYSIO_CH31_Q001",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        565
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-91c625cd9c9455a6",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 565,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH32_Q004:figure:1",
+      "questionId": "marrow__PHYSIO_CH32_Q004",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        587
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-f5d7d277c81b9361",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 587,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH33_Q017:figure:1",
+      "questionId": "marrow__PHYSIO_CH33_Q017",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        603
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-9a19119e1b095198",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 603,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH33_Q017:figure:2",
+      "questionId": "marrow__PHYSIO_CH33_Q017",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 2,
+      "sourcePages": [
+        616
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-239a6c809d07dc00",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 616,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH33_Q017:figure:3",
+      "questionId": "marrow__PHYSIO_CH33_Q017",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 3,
+      "sourcePages": [
+        616
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-bbe90e794ebc7b45",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 616,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH33_Q017:figure:4",
+      "questionId": "marrow__PHYSIO_CH33_Q017",
+      "subject": "Physiology",
+      "role": "explanation",
+      "order": 4,
+      "sourcePages": [
+        617
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "physiology-c52b67da19c8b45b",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 617,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH12_Q005:figure:1",
+      "questionId": "marrow__BIOCHEM_CH12_Q005",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        192
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p192-x454",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 192,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH15_Q006:figure:1",
+      "questionId": "marrow__BIOCHEM_CH15_Q006",
+      "subject": "Biochemistry",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        230
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p230-x540",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 230,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH15_Q019:figure:1",
+      "questionId": "marrow__BIOCHEM_CH15_Q019",
+      "subject": "Biochemistry",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        234
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p234-x549",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 234,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH15_Q020:figure:1",
+      "questionId": "marrow__BIOCHEM_CH15_Q020",
+      "subject": "Biochemistry",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        235
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p235-x552",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 235,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH17_Q003:figure:1",
+      "questionId": "marrow__BIOCHEM_CH17_Q003",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        271
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p271-x1262",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 271,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH17_Q004:figure:1",
+      "questionId": "marrow__BIOCHEM_CH17_Q004",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        272
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p272-x1262",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 272,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH18_Q015:figure:1",
+      "questionId": "marrow__BIOCHEM_CH18_Q015",
+      "subject": "Biochemistry",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        287
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p287-x674",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 287,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH19_Q011:figure:1",
+      "questionId": "marrow__BIOCHEM_CH19_Q011",
+      "subject": "Biochemistry",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        301
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p301-x704",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 301,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH19_Q012:figure:1",
+      "questionId": "marrow__BIOCHEM_CH19_Q012",
+      "subject": "Biochemistry",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        302
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p302-x707",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 302,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH19_Q019:figure:1",
+      "questionId": "marrow__BIOCHEM_CH19_Q019",
+      "subject": "Biochemistry",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        304
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p304-x712",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 304,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH20_Q006:figure:1",
+      "questionId": "marrow__BIOCHEM_CH20_Q006",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        325
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p325-x768",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 325,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH21_Q008:figure:1",
+      "questionId": "marrow__BIOCHEM_CH21_Q008",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        341
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p341-x807",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 341,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH21_Q009:figure:1",
+      "questionId": "marrow__BIOCHEM_CH21_Q009",
+      "subject": "Biochemistry",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        333
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p333-x788",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 333,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH21_Q010:figure:1",
+      "questionId": "marrow__BIOCHEM_CH21_Q010",
+      "subject": "Biochemistry",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        334
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p334-x791",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 334,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH21_Q012:figure:1",
+      "questionId": "marrow__BIOCHEM_CH21_Q012",
+      "subject": "Biochemistry",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        335
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p335-x794",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 335,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q002:figure:1",
+      "questionId": "marrow__BIOCHEM_CH22_Q002",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        351
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p351-x828",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 351,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q004:figure:1",
+      "questionId": "marrow__BIOCHEM_CH22_Q004",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        352
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p352-x831",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 352,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q005:figure:1",
+      "questionId": "marrow__BIOCHEM_CH22_Q005",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        353
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p353-x834",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 353,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q006:figure:1",
+      "questionId": "marrow__BIOCHEM_CH22_Q006",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        354
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p354-x837",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 354,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q007:figure:1",
+      "questionId": "marrow__BIOCHEM_CH22_Q007",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        354
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p354-x838",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 354,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q008:figure:1",
+      "questionId": "marrow__BIOCHEM_CH22_Q008",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        355
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p355-x841",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 355,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q010:figure:1",
+      "questionId": "marrow__BIOCHEM_CH22_Q010",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        356
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p356-x844",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 356,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH24_Q001:figure:1",
+      "questionId": "marrow__BIOCHEM_CH24_Q001",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        373
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p373-x883",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 373,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH24_Q003:figure:1",
+      "questionId": "marrow__BIOCHEM_CH24_Q003",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        374
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p374-x886",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 374,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH24_Q010:figure:1",
+      "questionId": "marrow__BIOCHEM_CH24_Q010",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        377
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p377-x893",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 377,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH24_Q012:figure:1",
+      "questionId": "marrow__BIOCHEM_CH24_Q012",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        378
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p378-x896",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 378,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH23_Q009:figure:1",
+      "questionId": "marrow__BIOCHEM_CH23_Q009",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "order": 1,
+      "sourcePages": [
+        365
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-ch23-q009-p365-union",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 365,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__BIOCHEM_CH24_Q016:figure:1",
+      "questionId": "marrow__BIOCHEM_CH24_Q016",
+      "subject": "Biochemistry",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        372
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "TEXT_CUE_REVIEW",
+      "assetId": "biochem-cue-p372-x880",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 372,
+      "coverageStatus": "RELEASED"
     }
   ],
   "textCueReview": [
@@ -24182,218 +25274,512 @@
       "id": "marrow__BIOCHEM_CH03_Q012:unmapped",
       "questionId": "marrow__BIOCHEM_CH03_Q012",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_REVIEWED_NO_VISUAL",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        47,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewReason": "The cited source pages contain no visual owned by the debranching-enzyme question.",
+      "reviewEvidence": "Inspected source PDF pages 47\u201348 and 55\u201359. Page 47 contains the question; page 55 shows glycogen phosphorylase regulation, unrelated to the debranching-enzyme prompt; pages 56\u201359 show later glycolysis and muscle-storage-disease material. No Q12-owned visual appears."
     },
     {
       "id": "marrow__BIOCHEM_CH03_Q014:unmapped",
       "questionId": "marrow__BIOCHEM_CH03_Q014",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_REVIEWED_NO_VISUAL",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        48,
+        56,
+        57,
+        58,
+        59
+      ],
+      "reviewReason": "The Scheie disease question has no source visual on its question or explanation pages.",
+      "reviewEvidence": "Inspected source PDF pages 48 and 55\u201359. Page 56 contains the glycolysis ATP flowchart associated with Q13; it is unrelated to Scheie disease Q14. No Q14-owned visual appears."
     },
     {
       "id": "marrow__BIOCHEM_CH12_Q005:unmapped",
       "questionId": "marrow__BIOCHEM_CH12_Q005",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        187,
+        191,
+        192
+      ],
+      "reviewReason": "The labeled arachidonic-acid structure is printed in the explanation on page 192.",
+      "reviewEvidence": "The labeled arachidonic-acid structure is printed in the explanation on page 192. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH12_Q005:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH15_Q006:unmapped",
       "questionId": "marrow__BIOCHEM_CH15_Q006",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        230,
+        239
+      ],
+      "reviewReason": "The question text introduces a chest radiograph; the radiograph immediately follows it on page 230.",
+      "reviewEvidence": "The question text introduces a chest radiograph; the radiograph immediately follows it on page 230. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH15_Q006:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH15_Q019:unmapped",
       "questionId": "marrow__BIOCHEM_CH15_Q019",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        233,
+        234,
+        244
+      ],
+      "reviewReason": "The fundoscopy prompt is followed by the fundus photograph on page 234.",
+      "reviewEvidence": "The fundoscopy prompt is followed by the fundus photograph on page 234. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH15_Q019:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH15_Q020:unmapped",
       "questionId": "marrow__BIOCHEM_CH15_Q020",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        234,
+        235,
+        244
+      ],
+      "reviewReason": "The fundus-examination prompt continues onto page 235 and the photograph precedes its answer choices.",
+      "reviewEvidence": "The fundus-examination prompt continues onto page 235 and the photograph precedes its answer choices. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH15_Q020:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH17_Q003:unmapped",
       "questionId": "marrow__BIOCHEM_CH17_Q003",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        262,
+        270
+      ],
+      "reviewReason": "The heme-biosynthesis pathway is printed above Solution to Question 4 on page 271, following the Question 3 explanation; source ownership is Question 3.",
+      "reviewEvidence": "The heme-biosynthesis pathway is printed above Solution to Question 4 on page 271, following the Question 3 explanation; source ownership is Question 3. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH17_Q003:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH17_Q004:unmapped",
       "questionId": "marrow__BIOCHEM_CH17_Q004",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        262,
+        271
+      ],
+      "reviewReason": "The same native pathway stream is printed at the top of page 272 after the Question 4 explanation says the image is below; source ownership is Question 4.",
+      "reviewEvidence": "The same native pathway stream is printed at the top of page 272 after the Question 4 explanation says the image is below; source ownership is Question 4. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH17_Q004:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH17_Q014:unmapped",
       "questionId": "marrow__BIOCHEM_CH17_Q014",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_REVIEWED_NO_VISUAL",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        265,
+        277
+      ],
+      "reviewReason": "Confirmed source omission: no teeth image appears on the cited question or explanation pages.",
+      "reviewEvidence": "The question text says an image of the teeth is shown, but authoritative page 265 contains the question text without a teeth image and explanation page 277 contains prose only. No teeth image is printed on the cited pages; the missing source figure cannot be supplied or inferred from the diagnosis."
     },
     {
       "id": "marrow__BIOCHEM_CH18_Q015:unmapped",
       "questionId": "marrow__BIOCHEM_CH18_Q015",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        286,
+        287,
+        295
+      ],
+      "reviewReason": "The ECG is printed with Question 15 on page 287 before its answer choices.",
+      "reviewEvidence": "The ECG is printed with Question 15 on page 287 before its answer choices. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH18_Q015:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH19_Q011:unmapped",
       "questionId": "marrow__BIOCHEM_CH19_Q011",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        301,
+        310,
+        311
+      ],
+      "reviewReason": "The red-curve enzyme graph is printed directly after Question 11 on page 301.",
+      "reviewEvidence": "The red-curve enzyme graph is printed directly after Question 11 on page 301. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH19_Q011:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH19_Q012:unmapped",
       "questionId": "marrow__BIOCHEM_CH19_Q012",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        301,
+        302,
+        311,
+        312
+      ],
+      "reviewReason": "The inhibitor/no-inhibitor graph continues with Question 12 at the top of page 302.",
+      "reviewEvidence": "The inhibitor/no-inhibitor graph continues with Question 12 at the top of page 302. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH19_Q012:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH19_Q019:unmapped",
       "questionId": "marrow__BIOCHEM_CH19_Q019",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        304,
+        315,
+        316,
+        317
+      ],
+      "reviewReason": "The labeled Gibbs free-energy curves follow Question 19 on page 304.",
+      "reviewEvidence": "The labeled Gibbs free-energy curves follow Question 19 on page 304. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH19_Q019:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH20_Q006:unmapped",
       "questionId": "marrow__BIOCHEM_CH20_Q006",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        319,
+        324,
+        325
+      ],
+      "reviewReason": "The visual-cycle diagram is printed above Solution to Question 7 on page 325, after the Question 6 explanation; source ownership is Question 6.",
+      "reviewEvidence": "The visual-cycle diagram is printed above Solution to Question 7 on page 325, after the Question 6 explanation; source ownership is Question 6. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH20_Q006:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH21_Q008:unmapped",
       "questionId": "marrow__BIOCHEM_CH21_Q008",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        332,
+        340,
+        341
+      ],
+      "reviewReason": "The oral photograph is printed above Solution to Question 9 on page 341, following Question 8 explanation; the cited source pages establish its ownership.",
+      "reviewEvidence": "The oral photograph is printed above Solution to Question 9 on page 341, following Question 8 explanation; the cited source pages establish its ownership. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH21_Q008:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH21_Q009:unmapped",
       "questionId": "marrow__BIOCHEM_CH21_Q009",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        333,
+        341
+      ],
+      "reviewReason": "The rash photograph follows Question 9 on page 333.",
+      "reviewEvidence": "The rash photograph follows Question 9 on page 333. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH21_Q009:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH21_Q010:unmapped",
       "questionId": "marrow__BIOCHEM_CH21_Q010",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        333,
+        341
+      ],
+      "reviewReason": "Question 10 starts on page 333; its continuation photograph is printed at the top of page 334 before Question 10 answer choices.",
+      "reviewEvidence": "Question 10 starts on page 333; its continuation photograph is printed at the top of page 334 before Question 10 answer choices. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH21_Q010:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH21_Q012:unmapped",
       "questionId": "marrow__BIOCHEM_CH21_Q012",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        334,
+        342
+      ],
+      "reviewReason": "Question 12 starts at the foot of page 334; its photograph and answer choices continue on page 335.",
+      "reviewEvidence": "Question 12 starts at the foot of page 334; its photograph and answer choices continue on page 335. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH21_Q012:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH22_Q002:unmapped",
       "questionId": "marrow__BIOCHEM_CH22_Q002",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        346,
+        350,
+        351
+      ],
+      "reviewReason": "The absorption pathway is printed above Solution to Question 3 on page 351, following Solution to Question 2.",
+      "reviewEvidence": "The absorption pathway is printed above Solution to Question 3 on page 351, following Solution to Question 2. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH22_Q002:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH22_Q004:unmapped",
       "questionId": "marrow__BIOCHEM_CH22_Q004",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        346,
+        351,
+        352
+      ],
+      "reviewReason": "The folate-cycle diagram on page 352 precedes Solution to Question 5 and follows the Question 4 explanation.",
+      "reviewEvidence": "The folate-cycle diagram on page 352 precedes Solution to Question 5 and follows the Question 4 explanation. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH22_Q004:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH22_Q005:unmapped",
       "questionId": "marrow__BIOCHEM_CH22_Q005",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        347,
+        352,
+        353
+      ],
+      "reviewReason": "The cycle diagram on page 353 precedes Solution to Question 6, following the Question 5 explanation.",
+      "reviewEvidence": "The cycle diagram on page 353 precedes Solution to Question 6, following the Question 5 explanation. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH22_Q005:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH22_Q006:unmapped",
       "questionId": "marrow__BIOCHEM_CH22_Q006",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        347,
+        353,
+        354
+      ],
+      "reviewReason": "The cycle diagram at the top of page 354 follows the Question 6 explanation text on page 353 and precedes Solution to Question 7.",
+      "reviewEvidence": "The cycle diagram at the top of page 354 follows the Question 6 explanation text on page 353 and precedes Solution to Question 7. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH22_Q006:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH22_Q007:unmapped",
       "questionId": "marrow__BIOCHEM_CH22_Q007",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        347,
+        354
+      ],
+      "reviewReason": "The pathway diagram is printed within Solution to Question 7 on page 354.",
+      "reviewEvidence": "The pathway diagram is printed within Solution to Question 7 on page 354. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH22_Q007:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH22_Q008:unmapped",
       "questionId": "marrow__BIOCHEM_CH22_Q008",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        348,
+        355
+      ],
+      "reviewReason": "The one-carbon source/utilization diagram is printed within Solution to Question 8 on page 355.",
+      "reviewEvidence": "The one-carbon source/utilization diagram is printed within Solution to Question 8 on page 355. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH22_Q008:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH22_Q010:unmapped",
       "questionId": "marrow__BIOCHEM_CH22_Q010",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        348,
+        356
+      ],
+      "reviewReason": "The TCA cycle cofactor diagram follows Solution to Question 10 text on page 356.",
+      "reviewEvidence": "The TCA cycle cofactor diagram follows Solution to Question 10 text on page 356. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH22_Q010:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH23_Q009:unmapped",
       "questionId": "marrow__BIOCHEM_CH23_Q009",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        360,
+        365
+      ],
+      "reviewReason": "The explanation on page 365 labels the single clinical figure \u201cBefore treatment\u201d and \u201cAfter zinc treatment\u201d; its three native image objects form a split two-column, three-row panel, preserved as the exact union crop [161.5, 246.7, 450.5, 463.3] rendered at 300 dpi.",
+      "reviewEvidence": "The explanation on page 365 labels the single clinical figure \u201cBefore treatment\u201d and \u201cAfter zinc treatment\u201d; its three native image objects form a split two-column, three-row panel, preserved as the exact union crop [161.5, 246.7, 450.5, 463.3] rendered at 300 dpi.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH23_Q009:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH24_Q001:unmapped",
       "questionId": "marrow__BIOCHEM_CH24_Q001",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        368,
+        373
+      ],
+      "reviewReason": "The nitrogenous-base structure is printed on page 373 within the explanation for Question 1.",
+      "reviewEvidence": "The nitrogenous-base structure is printed on page 373 within the explanation for Question 1. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH24_Q001:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH24_Q003:unmapped",
       "questionId": "marrow__BIOCHEM_CH24_Q003",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        368,
+        374
+      ],
+      "reviewReason": "The purine-ring synthesis diagram is printed on page 374 within the explanation for Question 3.",
+      "reviewEvidence": "The purine-ring synthesis diagram is printed on page 374 within the explanation for Question 3. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH24_Q003:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH24_Q010:unmapped",
       "questionId": "marrow__BIOCHEM_CH24_Q010",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        370,
+        376,
+        377
+      ],
+      "reviewReason": "The pyrimidine-synthesis diagram is printed on page 377 within the explanation for Question 10.",
+      "reviewEvidence": "The pyrimidine-synthesis diagram is printed on page 377 within the explanation for Question 10. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH24_Q010:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH24_Q012:unmapped",
       "questionId": "marrow__BIOCHEM_CH24_Q012",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        370,
+        377,
+        378
+      ],
+      "reviewReason": "The pyrimidine-synthesis diagram is printed on page 378 within the explanation for Question 12.",
+      "reviewEvidence": "The pyrimidine-synthesis diagram is printed on page 378 within the explanation for Question 12. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH24_Q012:figure:1"
+      ]
     },
     {
       "id": "marrow__BIOCHEM_CH24_Q016:unmapped",
       "questionId": "marrow__BIOCHEM_CH24_Q016",
       "subject": "Biochemistry",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        371,
+        379
+      ],
+      "reviewReason": "The Question 16 text continues from page 371; the compound drawing is printed at the top of continuation page 372, before the answer choices. This exact native source image is bound to the question role.",
+      "reviewEvidence": "The Question 16 text continues from page 371; the compound drawing is printed at the top of continuation page 372, before the answer choices. This exact native source image is bound to the question role. Confirmed on the authoritative immutable source PDF page 372; page is the direct continuation of the question on page 371.",
+      "linkedReferenceIds": [
+        "marrow__BIOCHEM_CH24_Q016:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYS_CH05_Q006:unmapped",
@@ -24406,190 +25792,456 @@
       "id": "marrow__PHYSIO_CH20_Q011:unmapped",
       "questionId": "marrow__PHYSIO_CH20_Q011",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        367,
+        378,
+        379
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved. Page 368 immediately continues the Q11 question content from page 367 and contains its source pressure\u2013volume graph (the neighboring second pressure\u2013volume plot is separately Q12). This adjacent continuation page is recorded explicitly while cue sourcePages preserves provenance [367,378,379].",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH20_Q011:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH20_Q012:unmapped",
       "questionId": "marrow__PHYSIO_CH20_Q012",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        368,
+        379,
+        380
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH20_Q012:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH20_Q016:unmapped",
       "questionId": "marrow__PHYSIO_CH20_Q016",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        369,
+        381,
+        382
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH20_Q016:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH20_Q018:unmapped",
       "questionId": "marrow__PHYSIO_CH20_Q018",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        370,
+        382
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved. Adjacent page 371 continues the Q18 question prompt with its Cheyne\u2013Stokes graph; the graph is not in the raw questionPages [370], but answer key is on page 371 and the prompt continuation immediately precedes it. Explanation visual separately on page 382.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH20_Q018:figure:1",
+        "marrow__PHYSIO_CH20_Q018:figure:2"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH21_Q006:unmapped",
       "questionId": "marrow__PHYSIO_CH21_Q006",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        384,
+        391
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH21_Q006:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH21_Q009:unmapped",
       "questionId": "marrow__PHYSIO_CH21_Q009",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        385,
+        393,
+        394
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH21_Q009:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH21_Q012:unmapped",
       "questionId": "marrow__PHYSIO_CH21_Q012",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        385,
+        386,
+        395,
+        396
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH21_Q012:figure:1",
+        "marrow__PHYSIO_CH21_Q012:figure:2"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH22_Q008:unmapped",
       "questionId": "marrow__PHYSIO_CH22_Q008",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        400,
+        401,
+        408
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH22_Q008:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH22_Q010:unmapped",
       "questionId": "marrow__PHYSIO_CH22_Q010",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        401,
+        409
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH22_Q010:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH22_Q013:unmapped",
       "questionId": "marrow__PHYSIO_CH22_Q013",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        402,
+        411
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH22_Q013:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH23_Q003:unmapped",
       "questionId": "marrow__PHYSIO_CH23_Q003",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        416,
+        417,
+        424,
+        425
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH23_Q003:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH23_Q004:unmapped",
       "questionId": "marrow__PHYSIO_CH23_Q004",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        417,
+        418,
+        425
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH23_Q004:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH23_Q008:unmapped",
       "questionId": "marrow__PHYSIO_CH23_Q008",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_REVIEWED_NO_VISUAL",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        418,
+        419,
+        427
+      ],
+      "reviewReason": "No source visual for this metadata-free cue",
+      "reviewEvidence": "Page 418\u2013419 contains the question text only and page 427 contains text explanation only. Page 426 Fowler graph is owned by Q6; it is not part of Q8."
     },
     {
       "id": "marrow__PHYSIO_CH23_Q012:unmapped",
       "questionId": "marrow__PHYSIO_CH23_Q012",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        419,
+        420,
+        428,
+        429,
+        430
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH23_Q012:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH23_Q014:unmapped",
       "questionId": "marrow__PHYSIO_CH23_Q014",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        420,
+        421,
+        430,
+        431
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH23_Q014:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH23_Q015:unmapped",
       "questionId": "marrow__PHYSIO_CH23_Q015",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        421,
+        422,
+        431
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH23_Q015:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH23_Q016:unmapped",
       "questionId": "marrow__PHYSIO_CH23_Q016",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        422,
+        431,
+        432
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH23_Q016:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH25_Q005:unmapped",
       "questionId": "marrow__PHYSIO_CH25_Q005",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        447,
+        457
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH25_Q005:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH25_Q009:unmapped",
       "questionId": "marrow__PHYSIO_CH25_Q009",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_REVIEWED_NO_VISUAL",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        448,
+        459,
+        460
+      ],
+      "reviewReason": "No source visual for this metadata-free cue",
+      "reviewEvidence": "Pages 448 and 459\u2013460 contain no figure for Q9; neighboring page 459 neural control figure belongs to Q5/Q7. Text describes a graph but the authoritative pages provide no source visual."
     },
     {
       "id": "marrow__PHYSIO_CH26_Q016:unmapped",
       "questionId": "marrow__PHYSIO_CH26_Q016",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        471,
+        472,
+        480,
+        481
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH26_Q016:figure:1",
+        "marrow__PHYSIO_CH26_Q016:figure:2"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH27_Q013:unmapped",
       "questionId": "marrow__PHYSIO_CH27_Q013",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        486,
+        494
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH27_Q013:figure:1",
+        "marrow__PHYSIO_CH27_Q013:figure:2"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH28_Q010:unmapped",
       "questionId": "marrow__PHYSIO_CH28_Q010",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        500,
+        508,
+        509
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH28_Q010:figure:1",
+        "marrow__PHYSIO_CH28_Q010:figure:2"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH28_Q026:unmapped",
       "questionId": "marrow__PHYSIO_CH28_Q026",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        504,
+        517,
+        518
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH28_Q026:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH31_Q001:unmapped",
       "questionId": "marrow__PHYSIO_CH31_Q001",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        556,
+        564,
+        565
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH31_Q001:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH32_Q004:unmapped",
       "questionId": "marrow__PHYSIO_CH32_Q004",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        577,
+        578,
+        587
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH32_Q004:figure:1"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH33_Q017:unmapped",
       "questionId": "marrow__PHYSIO_CH33_Q017",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_VISUALS_RELEASED",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [
+        603,
+        615,
+        616,
+        617
+      ],
+      "reviewReason": "Source visual located and explicitly linked to native source reference",
+      "reviewEvidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "linkedReferenceIds": [
+        "marrow__PHYSIO_CH33_Q017:figure:1",
+        "marrow__PHYSIO_CH33_Q017:figure:2",
+        "marrow__PHYSIO_CH33_Q017:figure:3",
+        "marrow__PHYSIO_CH33_Q017:figure:4"
+      ]
     },
     {
       "id": "marrow__PHYSIO_CH38_Q001:unmapped",
       "questionId": "marrow__PHYSIO_CH38_Q001",
       "subject": "Physiology",
-      "status": "TEXT_CUE_REVIEW_REQUIRED",
-      "reason": "Text cue without figure metadata"
+      "status": "SOURCE_REVIEWED_NO_VISUAL",
+      "reason": "Text cue without figure metadata",
+      "sourcePages": [],
+      "reviewReason": "No source visual for this metadata-free cue",
+      "reviewEvidence": "Question page 711 and explanation start page 718 were inspected; both are text-only and contain no source figure."
     }
   ]
 }

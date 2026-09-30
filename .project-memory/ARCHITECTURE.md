@@ -12,6 +12,17 @@ hooks and exposes the existing fullscreen zoom/pan viewer. PWA builds precache o
 released content-hash image URLs. `tools/marrow_image_progress.py` produces the
 checked deterministic rollout ledger.
 
+`tools/marrow_image_coverage.py` keeps the immutable source audit denominator
+and exact source-reference adjudications. Metadata-free cues use
+`data/marrow/images/source_text_cue_reviews.json`: stable cue/question IDs,
+exact provenance-page union, pinned PDF file/hash, and source evidence.
+Confirmed source omissions remain explicit `NO_SOURCE_VISUAL` decisions.
+True visuals declare role/page references; these add source-derived denominator
+rows and clear a cue only when every linked binding is released. Source-reviewed
+continuation pages must be listed explicitly in `reviewedVisualPages`. Orphan
+reviews, changed source/provenance, unlisted pages and unreleased bindings fail
+closed. Raw question bundles and audit metadata remain unchanged.
+
 - Android wrapper (`app/src/main/java/com/qbank/biochemistry/MainActivity.java`,
   `AndroidManifest.xml`) + **WebView** + monolithic
   `app/src/main/assets/index.html` (~6 MB on V11 branches; 1.9 MB on stale

@@ -896,6 +896,38 @@
       },
       "reason": "Canonical order-2 metadata describes a separate rotator-cuff lateral-view image, but p629 contains only one rotator-cuff figure, already bound as order 1. The figure is not duplicated as a second runtime image; order-2 metadata is invalid.",
       "evidence": "2026-09-30 authoritative source review at canonical Anatomy PDF SHA; Compared the source question/explanation and full p629 source render. The single source figure already bound at order1 shows the rotator cuff and insertions; there is no separate second image for order2. Duplicate display would falsely assert a second source visual."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH08_Q003:figure:1",
+      "questionId": "marrow__BIOCHEM_CH08_Q003",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "sourcePages": [
+        125
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "reason": "The declared transamination diagram is not the visual on the cited explanation page; the page figure is unrelated to this BH4 enzyme question.",
+      "evidence": "Inspected full source page 125. Its visible transamination/PLP material does not match the BH4 enzyme prompt; no source visual owned by Q3 was present."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH10_Q014:figure:1",
+      "questionId": "marrow__BIOCHEM_CH10_Q014",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "sourcePages": [
+        168
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "reason": "The cited Rossmann fold figure is unrelated to the LDH-domain question.",
+      "evidence": "Inspected full source page 168. The page contains aminoacyl-tRNA synthetase / Rossmann-class material, not the LDH Rossmann-fold visual claimed for Q14."
     }
   ]
 }

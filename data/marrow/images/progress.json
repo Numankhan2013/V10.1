@@ -1,39 +1,39 @@
 {
   "schemaVersion": 1,
   "assets": {
-    "total": 1210,
+    "total": 1273,
     "byStatus": {
-      "PASS": 1074,
+      "PASS": 1133,
       "REJECTED": 2,
       "REVIEW_REQUIRED": 2,
-      "SOURCE_LIMITED": 132
+      "SOURCE_LIMITED": 136
     },
     "byKind": {
-      "diagram": 857,
+      "diagram": 909,
       "hybrid": 31,
-      "medical": 227,
-      "table": 3,
+      "medical": 237,
+      "table": 4,
       "unknown": 92
     },
     "byMethod": {
-      "native-jpeg-stream": 968,
-      "region-render": 238,
+      "native-jpeg-stream": 1026,
+      "region-render": 243,
       "svg-reconstruction": 4
     }
   },
   "bindings": {
-    "total": 1415,
+    "total": 1479,
     "byStatus": {
-      "PASS": 1382,
+      "PASS": 1446,
       "REJECTED": 25,
       "REVIEW_REQUIRED": 5,
       "SOURCE_LIMITED": 3
     },
     "releasedByRole": {
-      "explanation": 1063,
-      "question": 322
+      "explanation": 1102,
+      "question": 347
     },
-    "releasedQuestionCount": 1051
+    "releasedQuestionCount": 1107
   },
   "subjects": {
     "Anatomy": {
@@ -42,14 +42,14 @@
       "releasedQuestions": 770
     },
     "Biochemistry": {
-      "approvedAssets": 93,
-      "assets": 94,
-      "releasedQuestions": 96
+      "approvedAssets": 123,
+      "assets": 124,
+      "releasedQuestions": 126
     },
     "Physiology": {
-      "approvedAssets": 167,
-      "assets": 169,
-      "releasedQuestions": 185
+      "approvedAssets": 200,
+      "assets": 202,
+      "releasedQuestions": 211
     }
   },
   "batches": {
@@ -94,6 +94,10 @@
       "pendingBindings": 1,
       "releasedBindings": 51
     },
+    "manual-resume-biochem-physiology-tail-20260930": {
+      "bindings": 4,
+      "releasedBindings": 4
+    },
     "manual-resume-physiology-ch08-14-20260930": {
       "bindings": 19,
       "releasedBindings": 19
@@ -120,9 +124,9 @@
       "releasedBindings": 153
     },
     "pilot": {
-      "bindings": 131,
+      "bindings": 191,
       "pendingBindings": 1,
-      "releasedBindings": 130
+      "releasedBindings": 190
     },
     "rollout-01": {
       "bindings": 18,
