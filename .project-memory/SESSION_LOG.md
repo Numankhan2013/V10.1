@@ -1170,3 +1170,9 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Ch6 full run `36662743308` completed successfully, including packaged Android interactions and preview deployment. A fresh HTTP 200 fetch of the canonical feature alias matched all 34 reviewed Ch6 stems/options in its 2,711-question Marrow envelope.
 - Ch9–12 Engineering `36663959324` passed. Full run `36663959370` stopped at the browser verifier on Ch9 Q12: reviewed source option `Cl-` renders as `Cl−` through the existing shared scientific formatter. The source content is correct; the verifier now computes its expected text through that same formatter rather than requiring the unformatted charge glyph. This is a targeted response to the reported CI failure; full retry remains required.
 - Retry product `232f0182f26c891bbe459e9c9472816db7fa796f` passed Engineering `36665702451` and full generated browser/PWA/APK/package/Android phone+tablet run `36665702481`. A fresh canonical preview HTTP 200 fetch matched all 186 reviewed stems/options in its complete 2,711-question Marrow envelope. Text cleanup is build-verified and deployed to preview; production promotion and physical acceptance remain separate.
+
+## 2026-09-30 — Resume image workers B/C integration
+
+- Reconciled worker B `dc488f12` (Anatomy Ch60–63: 51 released / 1 invalid) and worker C `18766fd8` (Physiology Ch8–14: 19 released / 33 invalid) by stable-ID deltas; preserved unrelated text cleanup and images.
+- Both workers passed release/progress/coverage and 51 local checks. Root found no conflicting registry/asset changes and regenerates shared derived files; source review was not repeated.
+- Worker D started its exclusive Biochemistry Ch1–24 / Physiology Ch15–43 range after B freed a slot. A continues Anatomy Ch1–59; external Physiology Ch3–7 claim remains reserved. Canonical CI/preview verification pending; production deferred.

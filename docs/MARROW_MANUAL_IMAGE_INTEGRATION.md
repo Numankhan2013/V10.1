@@ -22,9 +22,9 @@ these four resume batches partition all other 237 outstanding items exactly.
 | Batch | Exclusive source ownership | Starting unresolved refs | Starting text cues | Owner/status | Working branch |
 | --- | --- | ---: | ---: | --- | --- |
 | `manual-resume-anatomy-ch01-59-20260930` | Anatomy Ch1–59, all remaining refs/cues and newly discovered visuals | 69 | 0 | Luna 6 medium worker A / CLAIMED | `manual/resume-anatomy-ch01-59-20260930` |
-| `manual-resume-anatomy-ch60-63-20260930` | Anatomy Ch60–63, all remaining refs/cues and newly discovered visuals | 52 | 0 | Luna 6 medium worker B / CLAIMED | `manual/resume-anatomy-ch60-63-20260930` |
-| `manual-resume-physiology-ch08-14-20260930` | Physiology Ch8–14, all remaining refs/cues and newly discovered visuals | 52 | 0 | Luna 6 medium worker C / CLAIMED | `manual/resume-physiology-ch08-14-20260930` |
-| `manual-resume-biochem-physiology-tail-20260930` | Biochemistry Ch1–24 and Physiology Ch15–43, all remaining refs/cues and newly discovered visuals | 6 | 58 | Luna 6 medium worker D / QUEUED until a slot opens | `manual/resume-biochem-physiology-tail-20260930` |
+| `manual-resume-anatomy-ch60-63-20260930` | Anatomy Ch60–63, all remaining refs/cues and newly discovered visuals | 52 | 0 | Luna 6 medium worker B / MERGED; canonical CI pending | `manual/resume-anatomy-ch60-63-20260930` |
+| `manual-resume-physiology-ch08-14-20260930` | Physiology Ch8–14, all remaining refs/cues and newly discovered visuals | 52 | 0 | Luna 6 medium worker C / MERGED; canonical CI pending | `manual/resume-physiology-ch08-14-20260930` |
+| `manual-resume-biochem-physiology-tail-20260930` | Biochemistry Ch1–24 and Physiology Ch15–43, all remaining refs/cues and newly discovered visuals | 6 | 58 | Luna 6 medium worker D / RUNNING | `manual/resume-biochem-physiology-tail-20260930` |
 
 Workers use fresh separate worktrees from the claim commit. The old dirty
 `V10.1-wave2-anatomy-ch56-63` worktree is preserved as a read-only donor: A may
@@ -179,3 +179,17 @@ coverage SHA-256
 All five former visual holds are reviewed as SOURCE_LIMITED and included in the learner runtime: Ch25 Q26, Ch26 Q18, Ch27 Q2/Q3 and Ch28 Q27. The authentic pixels were retained unchanged; watermark and faint-label limitations are documented, and tap-to-expand zoom is available. Q27 Q5 remains an exact source-metadata-invalid adjudication. All 22 starting references are accounted for (21 released, 1 invalid; none untracked or review-required in this batch). The batch has no unresolved source-reference work; subject-wide Biochemistry coverage remains incomplete. Candidate commit `ef969540171b3cb19d724a28f3adbf0fba42f5f7` passed Engineering `36425459384` and full browser/PWA/APK/package/emulator run `36425386902`. It was fast-forward integrated at canonical product commit `ef969540171b3cb19d724a28f3adbf0fba42f5f7`; canonical Engineering `36427679654` and full run `36427679667` passed on that exact SHA. Preview `https://27f74250.nk-qbank.pages.dev` and canonical feature alias `https://feature-marrow-canonical-ful.nk-qbank.pages.dev` returned HTTP 200. Production promotion was skipped.
 
 Status is a live work log, not a claim that these images are already integrated. Each owner updates it with evidence and exact verification results as work lands.
+
+### Resume B/C canonical integration — 2026-09-30
+
+Root reconciled source-validated worker commits `dc488f12` (Anatomy Ch60–63)
+and `18766fd8` (Physiology Ch8–14) by stable registry/adjudication IDs. No
+conflicting asset edits were found. Worker B completed 51 released references
+and one source-metadata-invalid reference of 52; Worker C completed 19
+released and 33 source-metadata-invalid references of 52. Both workers passed
+release/progress/coverage checks and all 51 local checks. Exact evidence is in
+the source-reference adjudications; root did not repeat source review. Shared
+runtime metadata, progress and coverage are regenerated from the combined
+registry. Canonical CI/preview verification is pending for this checkpoint.
+Worker A continues Anatomy Ch1–59; worker D now owns the reserved Biochemistry
+Ch1–24 / Physiology Ch15–43 range. Separate Physiology Ch3–7 ownership remains.

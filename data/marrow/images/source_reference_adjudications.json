@@ -288,6 +288,550 @@
       },
       "reason": "The complete source question page 392 ends with Question 3 prompt text and contains no brain section image or image object; the cited question visual is absent from the authoritative source page.",
       "evidence": "Ubuntu-rendered full source page 392 inspected: Questions 1–3 are visible; Q3 requests a brain section, but no section image appears anywhere on the cited page."
+    },
+    {
+      "id": "marrow__ANAT_CH62_Q008:figure:1",
+      "questionId": "marrow__ANAT_CH62_Q008",
+      "subject": "Anatomy",
+      "role": "explanation",
+      "sourcePages": [
+        1197
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "The Q8 metadata assigns an explanation figure on page 1197, but the only image on that page appears before the “Solution to Question 8” heading and is explicitly introduced by the Q7 explanation ending on page 1196 as the histological section showing a vein valve. Q8’s printed explanation contains text and no Q8-owned figure. Do not bind the neighboring Q7 image to Q8.",
+      "evidence": "Compared authoritative Anatomy_ed8.pdf pages 1196–1197 (SHA-256 7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f), rendered directly with pdftoppm. Page 1196 ends Q7 with “The following image is a histological section showing the valve within a vein”; page 1197 begins with that image, then starts “Solution to Question 8”. The same native xref 3369 matches the printed Q7 image; no distinct Q8 figure occurs on p1197."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q001:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q001",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        165
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-165 cardiac-muscle illustration labels muscle cells, mitochondria, myofibrils, and intercalated discs, but has no myosin heavy-chain alpha/beta isoform labels. Its page position and content belong with the adjacent intercalated-disc explanation, not this isoform question.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-165 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 6b853f20de5c4bf618b891ba6d11a61043c82726ffb77ba7311e9729d3d650ab). PDF points region [149.52, 453.64, 462.48, 726.36]; source candidates: 443, 444, 445."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q003:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q003",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        165
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-165 cardiac-muscle illustration shows general muscle anatomy and intercalated discs; it contains no phospholamban, SERCA, or phosphorylation content required by this positive-inotropy explanation.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-165 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 6b853f20de5c4bf618b891ba6d11a61043c82726ffb77ba7311e9729d3d650ab). PDF points region [149.52, 453.64, 462.48, 726.36]; source candidates: 443, 444, 445."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q004:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q004",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        161
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-161 image is the Starling length-tension graph, owned by Q6. It does not depict phospholamban or SERCA, which Q4 asks about.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-161 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 94366cd6968d3f2892135c93d9e395056a8ed5401561a63a9bc1bfa1f723de83). PDF points region [150.0, 316.0, 462.0, 588.0]; source candidates: 433."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q005:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q005",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        161
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-161 image is the Starling length-tension graph, owned by Q6. It does not show the long cardiac refractory period that explains Q5.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-161 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 94366cd6968d3f2892135c93d9e395056a8ed5401561a63a9bc1bfa1f723de83). PDF points region [150.0, 316.0, 462.0, 588.0]; source candidates: 433."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q006:figure:2",
+      "questionId": "marrow__PHYS_CH08_Q006",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        167
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-167 image compares skeletal and cardiac action potentials and contraction timing; it belongs to the long-refractory-period explanation for Q5 and does not depict the Starling length-tension relationship asked in Q6.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-167 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 28dbd448abd581c60f2e3148d3a4eccc14122c9f9ca8df37dc0235a96c324fc3). PDF points region [150.0, 372.0, 462.0, 644.0]; source candidates: 450."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q007:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q007",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        161
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-161 Starling graph belongs to Q6 and does not depict single-unit smooth muscle in hollow viscera.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-161 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 94366cd6968d3f2892135c93d9e395056a8ed5401561a63a9bc1bfa1f723de83). PDF points region [150.0, 316.0, 462.0, 588.0]; source candidates: 433."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q008:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q008",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        168
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-168 image is a continuation of the page-161 Starling graph for Q6, not a smooth-muscle excitation-contraction coupling figure for Q8.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-168 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 8ae13656295bdab44931269572c8c96e7e963dfbfcca64e977afe086f5d00ad0). PDF points region [150.0, 144.0, 462.0, 416.0]; source candidates: 453."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q009:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q009",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        169
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-169 smooth-muscle contraction flowchart is positioned with Q8 and does not compare calmodulin with troponin C as required by Q9.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-169 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 39b530627fb09f1b7ce1fb0a3ddda694ef15aadcb71a29664f4fe6c9d79ef594). PDF points region [150.0, 28.0, 462.0, 300.0]; source candidates: 456."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q010:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q010",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        169
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-169 smooth-muscle contraction flowchart is positioned with Q8 and does not depict the latch mechanism asked about in Q10.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-169 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 39b530627fb09f1b7ce1fb0a3ddda694ef15aadcb71a29664f4fe6c9d79ef594). PDF points region [150.0, 28.0, 462.0, 300.0]; source candidates: 456."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q003:figure:1",
+      "questionId": "marrow__PHYS_CH09_Q003",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        182
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-182 synapse diagrams do not label the chemical synaptic-cleft distance. The exact page-183 figure for this question labels a 200–300 Å cleft; page-182 imagery is not the requested measurement figure.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-182 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 aef8dd40d4547c988af254bdc3f772fe967728cc37b8d16e64c136149930a526). PDF points region [149.52, 28.0, 462.48, 739.386]; source candidates: 485, 486, 487, 488."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q012:figure:1",
+      "questionId": "marrow__PHYS_CH09_Q012",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        176
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-176 motor-neuron/interneuron response graph is the stimulus for Q14 and does not show sodium influx or the excitatory postsynaptic potential asked in Q12.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-176 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 16e0d99afa7be18678e01535c9845b31946efc73ef69064670c95ebff13bdedd). PDF points region [150.0, 296.0, 462.0, 568.0]; source candidates: 471."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q013:figure:1",
+      "questionId": "marrow__PHYS_CH09_Q013",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        176
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-176 motor-neuron/interneuron response graph is the stimulus for Q14 and does not show chloride influx or an inhibitory postsynaptic potential for Q13.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-176 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 16e0d99afa7be18678e01535c9845b31946efc73ef69064670c95ebff13bdedd). PDF points region [150.0, 296.0, 462.0, 568.0]; source candidates: 471."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q013:figure:2",
+      "questionId": "marrow__PHYS_CH09_Q013",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        189
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-189 trace depicts a depolarizing response, not chloride-mediated inhibitory postsynaptic hyperpolarization asked in Q13.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-189 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 11790c8ab617e075fe016b8db986f367b50432fb9f0f3ebbbd8aed8e1e1db762). PDF points region [150.0, 28.0, 462.0, 300.0]; source candidates: 506."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q014:figure:2",
+      "questionId": "marrow__PHYS_CH09_Q014",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        189
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-189 single depolarizing trace does not show the motor-neuron/interneuron effect asked in Q14; that question stimulus is the page-176 graph recorded as figure 1.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-189 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 11790c8ab617e075fe016b8db986f367b50432fb9f0f3ebbbd8aed8e1e1db762). PDF points region [150.0, 28.0, 462.0, 300.0]; source candidates: 506."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q015:figure:1",
+      "questionId": "marrow__PHYS_CH09_Q015",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        176
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-176 motor-neuron/interneuron response graph belongs to Q14 and does not show the multiple sources of slow IPSPs asked in Q15.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-176 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 16e0d99afa7be18678e01535c9845b31946efc73ef69064670c95ebff13bdedd). PDF points region [150.0, 296.0, 462.0, 568.0]; source candidates: 471."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q019:figure:1",
+      "questionId": "marrow__PHYS_CH09_Q019",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        192
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-192 image shows Renshaw-cell and cerebellar feed-forward inhibition, not presynaptic facilitation or prolonged presynaptic calcium-channel opening asked in Q19.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-192 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 f67137094b68df58d0118185d8f5a1bd11ec994d9a9b31ce01410f5fb6a6cc26). PDF points region [150.0, 28.0, 462.0, 677.0]; source candidates: 514, 515."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q020:figure:1",
+      "questionId": "marrow__PHYS_CH09_Q020",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        193
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-193 image depicts presynaptic facilitation. It does not show acetylcholinesterase inhibition at the neuromuscular junction, which explains Q20.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-193 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 8e24b2c82b8e526ab36393fac0b35e6ec055bd73cfb8525ddbd704a978eadffb). PDF points region [150.0, 157.0, 462.0, 429.0]; source candidates: 518."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q021:figure:1",
+      "questionId": "marrow__PHYS_CH09_Q021",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        193
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-193 image depicts presynaptic facilitation and does not show denervation supersensitivity of the pupillary dilator muscle asked in Q21.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-193 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 8e24b2c82b8e526ab36393fac0b35e6ec055bd73cfb8525ddbd704a978eadffb). PDF points region [150.0, 157.0, 462.0, 429.0]; source candidates: 518."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q024:figure:1",
+      "questionId": "marrow__PHYS_CH09_Q024",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        195
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-195 image is a neuromuscular-junction/ACh diagram and does not show endogenous opioid ligands or their receptor potency asked in Q24.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-195 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 10ab635b14177364c9a123190f84b909e233bc115b9ffecc58d09dea6550bd6d). PDF points region [150.0, 467.0, 462.0, 739.0]; source candidates: 523."
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q006:figure:1",
+      "questionId": "marrow__PHYS_CH10_Q006",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        204
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-204 catecholamine-synthesis chart does not show dopaminergic pathways. The page-205 basal-ganglia pathway diagram is the relevant question figure already recorded separately.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-204 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 c1c8d3819c8bdf44442f7fa8abf04c07e13415da6dbfec8a95526f124eb4fc7d). PDF points region [150.0, 171.0, 462.0, 443.0]; source candidates: 543."
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q017:figure:1",
+      "questionId": "marrow__PHYS_CH10_Q017",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        208
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-208 source page has no native visual candidate for this question; its page crop is question text/answer material, not a learner-safe source figure for serotonin concentration.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-208 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 067502b041c43e5ae22c6d312420cae314206f49c43812634d84339fb23ee721). PDF points region [0.0, 0.0, 612.0, 792.0]; source candidates: no native image xref."
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q017:figure:2",
+      "questionId": "marrow__PHYS_CH10_Q017",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        209
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-209 image is a serotonin-metabolism pathway and does not show the highest serotonin concentrations in platelets and the gastrointestinal tract asked in Q17.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-209 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 a90deeca8f21ca925be58061f3a6bfd22aa83339915e664a3f0e6e42b664e0f7). PDF points region [149.52, 27.521, 462.48, 300.479]; source candidates: 558, 559, 560."
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q018:figure:1",
+      "questionId": "marrow__PHYS_CH10_Q018",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        209
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-209 image is a serotonin-metabolism pathway, not an NMDA-receptor/channel figure as required by Q18.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-209 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 a90deeca8f21ca925be58061f3a6bfd22aa83339915e664a3f0e6e42b664e0f7). PDF points region [149.52, 27.521, 462.48, 300.479]; source candidates: 558, 559, 560."
+    },
+    {
+      "id": "marrow__PHYS_CH11_Q007:figure:1",
+      "questionId": "marrow__PHYS_CH11_Q007",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        219
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The cited page-219 crop is a full source question/answer page, not a discrete Q7-owned visual; the image audit reports no native visual candidate. It includes answer material and cannot be displayed as a question figure.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-219 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 22f56dd631a9f04311fe7b4fbcb1a319d7ba90b1864940d3a150ec0ffcbdf882). PDF points region [0.0, 0.0, 612.0, 792.0]; source candidates: no native image xref."
+    },
+    {
+      "id": "marrow__PHYS_CH11_Q008:figure:1",
+      "questionId": "marrow__PHYS_CH11_Q008",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        219
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The cited page-219 crop is a full source question/answer page, not a discrete Q8-owned visual; the image audit reports no native visual candidate. It includes answer material and cannot be displayed as a question figure.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-219 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 22f56dd631a9f04311fe7b4fbcb1a319d7ba90b1864940d3a150ec0ffcbdf882). PDF points region [0.0, 0.0, 612.0, 792.0]; source candidates: no native image xref."
+    },
+    {
+      "id": "marrow__PHYS_CH11_Q009:figure:1",
+      "questionId": "marrow__PHYS_CH11_Q009",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        220
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The cited page-220 crop is a full source question/answer page, not a discrete Q9-owned visual; the image audit reports no native visual candidate and the page includes answer material.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-220 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 81e8fcd8fbf7b00cc50eeaa2d120a8b97e56cb9de2b662eef28289d2a58e5f20). PDF points region [0.0, 0.0, 612.0, 792.0]; source candidates: no native image xref."
+    },
+    {
+      "id": "marrow__PHYS_CH11_Q010:figure:1",
+      "questionId": "marrow__PHYS_CH11_Q010",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        220
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The cited page-220 crop is a full source question/answer page, not a discrete Q10-owned visual; the image audit reports no native visual candidate and the page includes answer material.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-220 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 81e8fcd8fbf7b00cc50eeaa2d120a8b97e56cb9de2b662eef28289d2a58e5f20). PDF points region [0.0, 0.0, 612.0, 792.0]; source candidates: no native image xref."
+    },
+    {
+      "id": "marrow__PHYS_CH11_Q011:figure:1",
+      "questionId": "marrow__PHYS_CH11_Q011",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        220
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The cited page-220 crop is a full source question/answer page, not a discrete Q11-owned visual; the image audit reports no native visual candidate and the page includes answer material.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-220 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 81e8fcd8fbf7b00cc50eeaa2d120a8b97e56cb9de2b662eef28289d2a58e5f20). PDF points region [0.0, 0.0, 612.0, 792.0]; source candidates: no native image xref."
+    },
+    {
+      "id": "marrow__PHYS_CH11_Q016:figure:1",
+      "questionId": "marrow__PHYS_CH11_Q016",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        222
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The cited page-222 crop is a full source question/answer page, not a discrete Q16-owned visual; the image audit reports no native visual candidate and the page includes answer material.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-222 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 ee53512df8830231dc88dc3dfa76704f2f253267970a47dab3147ecdeb8df97d). PDF points region [0.0, 0.0, 612.0, 792.0]; source candidates: no native image xref."
+    },
+    {
+      "id": "marrow__PHYS_CH11_Q019:figure:1",
+      "questionId": "marrow__PHYS_CH11_Q019",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        223
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-223 image is a gate-control pain-modulation diagram, not a figure of primary cutaneous hyperalgesia as asked in Q19.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-223 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 00a4111dbceb5df56a9624674d58d0d650e0be4f26885d84b0801882bb1c129b). PDF points region [150.0, 158.0, 462.0, 430.0]; source candidates: 596."
+    },
+    {
+      "id": "marrow__PHYS_CH12_Q020:figure:1",
+      "questionId": "marrow__PHYS_CH12_Q020",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        239
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-239 image shows thalamic divisions; the ventrolateral cordotomy question asks which pain-conducting spinal tract is cut, and the image does not show that tract.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-239 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 8bca09149b7d0066558d3f3465c0ef03b7d36d793ae9a7541d84fdcce581187a). PDF points region [150.0, 130.0, 462.0, 402.0]; source candidates: 632."
+    },
+    {
+      "id": "marrow__PHYS_CH13_Q004:figure:2",
+      "questionId": "marrow__PHYS_CH13_Q004",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        249
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-249 image shows dark/light rod-receptor sodium flow, not the regional distribution of rods and cones asked in Q4. The distribution diagram belongs to the released page-248 figure 1.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-249 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 f036c43278ac58ec7ad2e594098570b0ded58fdd04eac064c3e78ba75f0c16c7). PDF points region [150.0, 491.0, 462.0, 763.0]; source candidates: 656."
+    },
+    {
+      "id": "marrow__PHYS_CH14_Q037:figure:1",
+      "questionId": "marrow__PHYS_CH14_Q037",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        288
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-288 image is a motor/somatosensory homunculus; it does not depict premotor cortex posture-setting before a planned movement as asked in Q37.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-288 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 ea6525f098461c3dfb611a76f78f6d94626ac1012cbf8f88cd6e07a962fef474). PDF points region [149.674, 362.52, 462.326, 635.48]; source candidates: 754, 755, 756."
     }
   ]
 }
