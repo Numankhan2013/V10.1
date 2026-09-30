@@ -1723,6 +1723,13 @@ Implemented approved recovery in existing transform owners: Topics separate path
   tap/haptic feedback: included account reset/switching, Practice correction,
   and Home/result refinements. Excluded the bundled haptic/latency candidate
   and all content/image changes.
-- Full promotion verification and main reconciliation are pending at this
-  checkpoint; production deployment is separate. Audit details are in
-  `docs/APPROVED_STUDY_TWEAK_PROMOTION_2026-09-30.md`.
+- Product `f9b0d0145f49aaffab7fcca6d9da78b507905048` passed all 74 local
+  checks, Engineering `36733960874`, and full browser/PWA/APK/Android
+  phone+tablet run `36733869611`. Notes, Continue Practice, exact-ID search,
+  correction, Home/result, and packaged regressions passed. Preview:
+  `https://9629afb2.nk-qbank.pages.dev`.
+- Promoted through PR #78 by fast-forwarding main from `971bd55` to the
+  verified product plus a documentation-only `[skip ci]` handoff. No runtime
+  code changes occur after the certified product. No production dispatch,
+  existing branch deletion/update, or other agent workflow cancellation.
+  Physical APK upgrade/data-preservation acceptance remains separate.

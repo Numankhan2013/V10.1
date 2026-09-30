@@ -4,15 +4,20 @@
 
 ## Baseline and active work
 
-- Approved study-tweak promotion (2026-09-30): the user explicitly approved
-  account reset/switching, Practice correction passes, question search, and the
-  Home/result refinements. These are recovered on an isolated main-based branch
-  from their reviewed donor commits. Tap/haptic feedback remains unapproved and
-  is excluded, including its bundled latency optimizations. Notes and earlier
-  accepted study features are already in main and preserved. See
-  `docs/APPROVED_STUDY_TWEAK_PROMOTION_2026-09-30.md`; full candidate CI is
-  required before main promotion. Image/explanation branches remain untouched.
-  Production deployment is separate from main promotion.
+- Approved study-tweak promotion (2026-09-30): `main` includes account
+  reset/switching, all-bank question search, Practice correction passes, and
+  Home/result refinements from the user-reviewed donor commits (PR #78).
+  Exact product `f9b0d0145f49aaffab7fcca6d9da78b507905048` passed 74 local
+  checks, Engineering `36733960874`, and full browser/PWA/APK/Android phone
+  and tablet run `36733869611`. Preview: `https://9629afb2.nk-qbank.pages.dev`.
+  Notes passed Practice/reload/Review/deletion browser checks and remain in
+  main. Tap/haptic feedback and its bundled latency changes are unapproved and
+  excluded; image/explanation agents and donor branches remain untouched.
+  A later documentation-only `[skip ci]` handoff does not change the certified
+  product. Production PWA remains the September 27 release. After explicit
+  user acceptance, promote verified tweaks to main without bundling unapproved
+  work; production deployment remains separate. See
+  `docs/APPROVED_STUDY_TWEAK_PROMOTION_2026-09-30.md`.
 - Repo: `Numankhan2013/V10.1`. Accepted product commit: `125d68b` (V11.6 accepted baseline and rollback point). The user explicitly authorized integrating the accepted study candidate and UI changes into `main` and promoting production on 2026-09-27; release only the exact SHA after full CI passes. Physical Android acceptance remains distinct.
 - Sole Marrow/product integration trunk: `feature/marrow-canonical-full-current`. Its last recorded verified canonical checkpoint was `356cce4`; Engineering `35453226391` and full Android/PWA/browser/APK `35453226292` passed. Recheck the live head before any integration.
 - Integrated production release: `main` product SHA `d43da3dbdaa639214d676b333152654568fe5ba9` combines the accepted study build, two reviewed UI updates, and current `main` source-audit files. Full main CI `36324929838` and production release `36325843382` passed. The release set Cloudflare Pages Direct Upload production branch to `main`; root `https://nk-qbank.pages.dev`, alias `https://main.nk-qbank.pages.dev`, and preview `https://37799f47.nk-qbank.pages.dev` return HTTP 200 and serve byte-identical builds.

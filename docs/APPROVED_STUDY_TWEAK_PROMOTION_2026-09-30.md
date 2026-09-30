@@ -43,3 +43,23 @@ latency/haptic candidate (`b143242` and follow-up commits) is excluded.
 Historical full donor runs: account switching `36332561262`, question finder
 `36369902634`, correction `36375712395`, and study journey `36408465858`.
 The combined main-based candidate requires fresh full verification.
+
+## Verification and promotion
+
+Certified product: `f9b0d0145f49aaffab7fcca6d9da78b507905048`.
+
+- Local source, behavior, and syntax suite: 74 checks passed.
+- Engineering: [36733960874](https://github.com/Numankhan2013/V10.1/actions/runs/36733960874), success on that product SHA.
+- Full browser/PWA/APK/Android phone and tablet: [36733869611](https://github.com/Numankhan2013/V10.1/actions/runs/36733869611), success on the same product SHA.
+- Notes: Practice, reload, Review, and deletion passed.
+- Continue Practice: full-session resume and progress regression passed.
+- Search/correction: exact IDs, bank isolation, reload, comparison, original-result preservation, and active-test protection passed.
+- Study journey: timed Focus/expiry, metrics, result labels, and immediate actions passed at four view sizes.
+- APK: packaged product/image contracts and Android interaction checks passed.
+- Preview: <https://9629afb2.nk-qbank.pages.dev>.
+
+PR: [#78](https://github.com/Numankhan2013/V10.1/pull/78). Main is promoted
+by fast-forward, preserving the certified product SHA in its ancestry. The
+subsequent documentation-only `[skip ci]` handoff changes no runtime or build
+files and retains product certification at the SHA above. Production is not
+redeployed, and physical APK upgrade/data-preservation review remains separate.

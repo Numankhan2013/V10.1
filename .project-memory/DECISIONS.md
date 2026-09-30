@@ -367,3 +367,15 @@ topic completion or imply a mastery score. One bank's topics appear at a time,
 and the tracker replaces the old active-bank chapter list in Insights. This
 offers a readable study map without a new Home action, duplicate topic list,
 or second progress persistence model.
+
+## 2026-09-30 — Promote approved tweaks without disturbing active integration
+
+The user wants tweaks they explicitly confirm work promoted to main after
+verification rather than left only on feature branches. Recover only approved
+runtime deltas onto current main in an isolated checkout; validate their
+combined product with Engineering and the full browser/PWA/APK/Android checks.
+Preserve active integration branches and their workflows. Do not bundle an
+unapproved candidate because it shares donor history. In this session the user
+approved account reset/switching, search, Practice correction, and Home/result
+refinements but explicitly excluded tap/haptic feedback. Main promotion and
+production deployment remain separate actions.
