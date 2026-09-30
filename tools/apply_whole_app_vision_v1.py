@@ -332,10 +332,10 @@ MULTI_SUBJECT_WORKFLOWS = r'''
 
 RESULT = r'''function resultPage(testId) {
     const t=state.tests.find(x=>x.id===testId);if(!t)return testsPage();
-    const isPractice=t.kind==='practice',score=t.total?t.correct/t.total*100:0,attempted=t.correct+t.incorrect;
+    const isPractice=t.kind==='practice',score=t.total?t.correct/t.total*100:0,attempted=t.correct+t.incorrect,accuracy=attempted?fmtPct(t.correct/attempted*100):'—';
     const totalQuestionTime=Object.values(t.questionTimes||{}).reduce((a,b)=>a+(b||0),0),attemptedQuestionTime=Object.keys(t.answers||{}).reduce((a,id)=>a+((t.questionTimes||{})[id]||0),0);
     return shell(`<div class="nk-app-v114 nk-result-v114"><button class="nk-back-link" onclick="window.QB.nav('${t.originRoute||(isPractice?'topics':'tests')}')">${navIcon('back',18)} ${{topics:'Topics',tests:'Tests',dashboard:'Home',bookmarks:'Bookmarks',wrong:'Wrong questions',review:'Review',modules:'Modules'}[t.originRoute]||(isPractice?'Topics':'Tests')}</button>${nkAppPageHead(`${isPractice?'Practice':'Timed CBT'} · ${fmtDate(t.createdAt)}`,isPractice?'Practice analysis':'Test analysis',t.title,`<button class="nk-head-action v102-review-action" type="button" data-v102-review-cta="1" data-review-test-id="${esc(t.id)}" onclick="return window.__QB_OPEN_REVIEW(this.getAttribute('data-review-test-id'))">Review Solutions ${navIcon('chevron',16)}</button>`)}
-      <section class="nk-result-overview"><div><div class="nk-kicker">YOU SCORED</div><b>${fmtPct(score)}</b><strong>${t.correct} / ${t.total} correct</strong><p>${score>=75?'Strong retrieval. Review the misses and keep the pattern.':score>=50?'A useful baseline. Review the incorrect answers while they are fresh.':'This set has identified exactly what needs another pass.'}</p></div>${donut(score,142)}</section>
+      <section class="nk-result-overview"><div><div class="nk-result-percentages"><div><span>Score: all questions</span><b>${fmtPct(score)}</b><small>${t.correct} / ${t.total} correct</small></div><div><span>Accuracy: answered questions</span><b>${accuracy}</b><small>${attempted} answered</small></div></div><p>${score>=75?'Strong retrieval. Review the misses and keep the pattern.':score>=50?'A useful baseline. Review the incorrect answers while they are fresh.':'This set has identified exactly what needs another pass.'}</p></div>${donut(score,142)}</section>
       <div class="nk-result-counts"><div class="is-correct"><b>${t.correct}</b><span>Correct</span></div><div class="is-wrong"><b>${t.incorrect}</b><span>Incorrect</span></div><div class="is-missed"><b>${t.unattempted}</b><span>Unattempted</span></div></div>
       <div class="nk-insight-grid nk-result-stats"><article class="is-blue"><span>${navIcon('clock',18)}</span><small>Time taken</small><b>${formatDuration(t.totalTimeMs)}</b><p>${fmtNum(t.questionIds.length)} question${t.questionIds.length===1?'':'s'}</p></article><article class="is-violet"><span>${navIcon('chart',18)}</span><small>Avg. time / attempted</small><b>${formatDuration(t.attempted?attemptedQuestionTime/t.attempted:0)}</b><p>selected answers only</p></article><article class="is-amber"><span>${navIcon('book',18)}</span><small>Avg. time / question</small><b>${formatDuration(t.total?totalQuestionTime/t.total:0)}</b><p>includes skips</p></article><article class="is-green"><span>${navIcon('check',18)}</span><small>Completion</small><b>${fmtPct(t.total?attempted/t.total*100:0)}</b><p>${attempted} attempted</p></article></div>
       <section class="nk-section"><div class="nk-section-head"><div><div class="nk-kicker">QUESTION REVIEW</div><h2>Every answer</h2></div></div><div class="nk-result-questions">${t.questionIds.map((id,i)=>{const q=BY_ID[id],sel=t.answers[id],corr=Number(q.correctOption)===Number(sel);return `<div><span class="nk-question-index">${i+1}</span><span><strong>${esc(q.question.slice(0,125))}${q.question.length>125?'…':''}</strong><small><i class="nk-status ${sel?(corr?'is-correct':'is-wrong'):'is-unattempted'}">${sel?(corr?'Correct':'Incorrect'):'Unattempted'}</i>${esc(q.chapter)}</small></span></div>`}).join('')}</div></section>
@@ -420,6 +420,17 @@ body:has(.nk-topics-v114) .page{padding-top:22px!important;padding-bottom:210px!
 @media(min-width:768px) and (min-height:600px){.nk-continue-learning{left:104px;right:16px;bottom:22px}}
 @media(max-width:480px){.nk-result-v114 .nk-page-head{flex-direction:column;align-items:stretch;gap:12px}.nk-result-v114 .nk-page-head>div{min-width:0}.nk-result-v114 .nk-head-action{align-self:flex-start;min-height:44px}}
 .nk-insights-show-all{width:100%;min-height:44px;margin-top:9px;border:1px solid var(--nk114-line);border-radius:10px;background:#fff;color:var(--nk114-indigo);font-size:11px;font-weight:800}
+
+/* Result percentages name their denominators and retain readable touch controls. */
+.nk-result-percentages{display:flex;flex-wrap:wrap;gap:14px 24px}
+.nk-result-percentages>div{display:grid;gap:3px;min-width:135px}
+.nk-result-percentages span{font-size:14px;line-height:1.35;font-weight:850;color:#27315b}
+.nk-result-percentages b{font-size:clamp(30px,7vw,40px);line-height:1.1;font-variant-numeric:tabular-nums}
+.nk-result-percentages small{font-size:13px;line-height:1.35;color:#5b6580}
+.nk-result-overview p{font-size:14px;line-height:1.5}
+.nk-result-v114 .nk-head-action,.nk-result-v114 .nk-back-link{min-height:48px;font-size:14px;line-height:1.35}
+.nk-result-v114 button:focus-visible,.nk-result-v114 summary:focus-visible{outline:3px solid #4266d5;outline-offset:3px}
+@media(max-width:560px){.nk-result-overview{align-items:flex-start;flex-wrap:wrap}.nk-result-overview>div:first-child{min-width:0;flex:1 1 220px}.nk-result-overview>svg{max-width:110px;max-height:110px}}
 </style>'''
 
 

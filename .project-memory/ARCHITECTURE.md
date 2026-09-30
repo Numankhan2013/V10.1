@@ -23,6 +23,26 @@ checked deterministic rollout ledger.
 
 ## Runtime data and assets
 
+- Account reset/switching is owned by `tools/cross_device_sync_core.js`:
+  reset generation fences remote progress before sweeping payloads with
+  tombstones; per-UID local snapshots and a switch journal isolate accounts
+  and recover interrupted writes. New accounts pull before sending empty
+  active-session/preferences state. Sign-in UI is owned by the existing
+  cross-device PWA transformer.
+- `tools/apply_practice_correction_v1.py` installs
+  `practice_correction_core.js`: exact missed IDs start a fresh Practice pass,
+  save a separate linked result, and preserve the parent through the existing
+  checkpoint/sync model. Original results are immutable.
+- Timed-test recovery occupies Home Today's Focus through the existing
+  timed-resume core. Home period counts use unique answered IDs, answer
+  accuracy, and study time; result score/accuracy expose their denominators.
+  Result actions retain repeated-tap guards without the 900 ms delay.
+- All-bank question finder: `tools/apply_question_search_v1.py` installs
+  `question_search_core.js` after the coverage and revision transforms. More →
+  Find a question searches existing bank records and starts the shared Practice
+  engine with exact IDs; it protects an active timed test. No new persisted
+  question or progress model is introduced.
+
 - `app/src/main/assets/subjects_qbank_data.js`, `qbank_data.js`,
   `pako_inflate.min.js`, `physiology_image_pages.js`
 - `data/subjects_qbank_lzma.b64.part*` — source subject data parts.

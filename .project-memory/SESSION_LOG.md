@@ -1712,3 +1712,17 @@ Implemented approved recovery in existing transform owners: Topics separate path
   SHA-256 of the generated app response. The remembered spelling
   `nkqbanks.pages.dev` does not resolve; the configured canonical domain is
   `nk-qbank.pages.dev`. Physical Android in-place upgrade remains separate.
+# 2026-09-30 — Approved study-tweak promotion audit
+
+- User authorized promoting tweaks they confirmed work to main while keeping
+  current image/explanation agents undisturbed. Used a separate clone and a
+  new promotion branch based on main; no donor/canonical branch was changed.
+- Notes and earlier accepted study features already exist in main. Recovered
+  the all-bank question-finder runtime and validation delta from
+  `20cd811`. The user then explicitly confirmed all later candidates except
+  tap/haptic feedback: included account reset/switching, Practice correction,
+  and Home/result refinements. Excluded the bundled haptic/latency candidate
+  and all content/image changes.
+- Full promotion verification and main reconciliation are pending at this
+  checkpoint; production deployment is separate. Audit details are in
+  `docs/APPROVED_STUDY_TWEAK_PROMOTION_2026-09-30.md`.

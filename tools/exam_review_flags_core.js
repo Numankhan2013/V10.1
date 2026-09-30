@@ -59,7 +59,7 @@
   function nkCbtPracticeMarked(testId,clickEvent){
     const test=(state.tests||[]).find(item=>String(item.id)===String(testId));
     if(!test||test.kind==='practice'){showToast('This completed test is unavailable.','bad');return false;}
-    if(Number(clickEvent?.detail)>1||Date.now()-Number(test.createdAt||0)<900)return false;
+    if(Number(clickEvent?.detail)>1)return false;
     const questions=new Map(nkAllStudyQuestions().map(q=>[String(q.id),q]));
     const ids=nkMarkedTestIds(test).filter(id=>questions.has(id)||BY_ID[id]);
     if(!ids.length){showToast('Marked questions are unavailable in the current banks.','bad');return false;}

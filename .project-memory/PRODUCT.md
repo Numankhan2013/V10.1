@@ -30,6 +30,16 @@ Prefer building over narrating.
 
 ## Intended behavior (protected)
 
+- **Approved refinements (2026-09-30):** account-wide reset clears progress
+  across devices using the existing sync boundary; switching accounts isolates
+  each account's local progress. More uses staged email/password sign-in.
+  Practice results offer Correct my misses with exact missed/unattempted IDs,
+  fresh answers, a separate linked result, and corrected/still-missed comparison.
+  Active/expired timed tests take precedence in Today's Focus; Home period
+  metrics show answered IDs, accuracy, and study time. Result score and answer
+  accuracy name their denominators; zero answers show an em dash. Larger
+  text/focus/touch targets and immediate result actions retain durable-submit
+  and repeated-tap guards. Tap/haptic feedback is excluded from this promotion.
 - **Daily loop:** Home → Continue/Practice → Review → Return Home stays
   frictionless; unfinished-session recovery works.
 - **Practice:** immediate feedback, source explanations, free navigation,
@@ -113,6 +123,10 @@ Prefer building over narrating.
   question ID, available after an answer and in Review Solutions; durable
   locally and account-synced. Saved notes are read-only cards with Edit/Delete;
   More has a searchable cross-bank note index. No extra Home action.
+- **Find a question (accepted preview):** More searches exact IDs, wording,
+  options, and source topics across every subject/bank, with subject, bank,
+  attempts, and bookmark filters. A result or the first 20 matches starts the
+  shared Practice engine; an active timed test remains protected.
 - **Custom Study Modules (V11.5 plus bank-aware candidate):** reusable sets from
   explicit subject/bank/topic scope + All/Unattempted/Wrong/Bookmarked/Mixed
   (seeded shuffle, Mixed weighted Wrong-heavy); source-labelled PYQ topics

@@ -26,8 +26,8 @@ def transform(source):
     if 'NK_EXAM_REVIEW_FLAGS_V1_START' not in source:
         raise SystemExit('Timed resume card must follow saved CBT and review marks')
     source=replace_once(source,'</head>',CSS+'\n</head>','resume card styles')
-    source=replace_once(source,'<section class="nk-home-focus-card">',
-        '${nkTimedResumeCard(\'home\')}<section class="nk-home-focus-card">','Home card position')
+    if "nkHomeFocusSection(focus,focusModule)" not in source:
+        raise SystemExit('Timed focus requires the Home command center')
     source=replace_once(source,'<section class="nk-v3-section nk-test-main-action">',
         '${nkTimedResumeCard(\'tests\')}<section class="nk-v3-section nk-test-main-action">','Tests card position')
     source=replace_once(source,'titles[step-1],description)}<div class="nk-module-stepper">${[1,2,3]',

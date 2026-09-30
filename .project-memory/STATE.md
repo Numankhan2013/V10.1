@@ -4,6 +4,15 @@
 
 ## Baseline and active work
 
+- Approved study-tweak promotion (2026-09-30): the user explicitly approved
+  account reset/switching, Practice correction passes, question search, and the
+  Home/result refinements. These are recovered on an isolated main-based branch
+  from their reviewed donor commits. Tap/haptic feedback remains unapproved and
+  is excluded, including its bundled latency optimizations. Notes and earlier
+  accepted study features are already in main and preserved. See
+  `docs/APPROVED_STUDY_TWEAK_PROMOTION_2026-09-30.md`; full candidate CI is
+  required before main promotion. Image/explanation branches remain untouched.
+  Production deployment is separate from main promotion.
 - Repo: `Numankhan2013/V10.1`. Accepted product commit: `125d68b` (V11.6 accepted baseline and rollback point). The user explicitly authorized integrating the accepted study candidate and UI changes into `main` and promoting production on 2026-09-27; release only the exact SHA after full CI passes. Physical Android acceptance remains distinct.
 - Sole Marrow/product integration trunk: `feature/marrow-canonical-full-current`. Its last recorded verified canonical checkpoint was `356cce4`; Engineering `35453226391` and full Android/PWA/browser/APK `35453226292` passed. Recheck the live head before any integration.
 - Integrated production release: `main` product SHA `d43da3dbdaa639214d676b333152654568fe5ba9` combines the accepted study build, two reviewed UI updates, and current `main` source-audit files. Full main CI `36324929838` and production release `36325843382` passed. The release set Cloudflare Pages Direct Upload production branch to `main`; root `https://nk-qbank.pages.dev`, alias `https://main.nk-qbank.pages.dev`, and preview `https://37799f47.nk-qbank.pages.dev` return HTTP 200 and serve byte-identical builds.
@@ -12,7 +21,7 @@
 
 ## Current study experience and verification
 
-- Bank-aware Custom Modules, PYQ topic selection, restored Home focus, full-page topic picker, saved read-only notes with More → My notes, Quick Revision, and cross-bank Insights are implemented on the isolated branch. The user physically reviewed their feature previews and accepted the working flows; the Quick Revision topic-filter visibility was deferred, and the Insights addition was judged adequate but not compelling.
+- Bank-aware Custom Modules, PYQ topic selection, restored Home focus, full-page topic picker, saved read-only notes with More → My notes, Quick Revision, and cross-bank Insights are already integrated into `main`. The user physically reviewed their feature previews and accepted the working flows; the Quick Revision topic-filter visibility was deferred, and the Insights addition was judged adequate but not compelling.
 - Full-page Tests → bank → topics → question count builder uses exact subject/bank/topic IDs and the shared exam engine. Product `5d585de` passed Engineering `36213112458` and full browser/PWA/APK/Android emulator `36158438170`; preview `https://2752f581.nk-qbank.pages.dev`. The user checked it and said it works. The dedicated strict per-question chapter test remains.
 - Completed timed CBT results show source-exact subject/bank/topic analysis and targeted missed-ID follow-up Practice; repeated-Submit taps are guarded. Product `b65ad21` passed Engineering `36216951965` and full browser/PWA/APK/Android emulator `36216944458`; preview `https://c22cbdd0.nk-qbank.pages.dev`. The user checked it and said it works.
 - Current candidate: Insights QBank tracker for all six subject/bank combinations, showing answered-once coverage and latest misses by source topic. Bank selection, search, progress filters, and topic entry reuse the existing bank registry/routes; old active-bank chapter list is replaced. Product `220f954` passed Engineering `36218442172` and full generated browser/PWA/APK/Android phone+tablet emulator `36218442273`; full-page phone/tablet Insights captures were inspected and preview `https://697c1da1.nk-qbank.pages.dev` returned HTTP 200. User review pending.

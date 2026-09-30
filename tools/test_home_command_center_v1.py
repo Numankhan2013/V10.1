@@ -3,6 +3,7 @@
 
 from pathlib import Path
 import subprocess
+import json
 from apply_home_command_center_v1 import FLOW_MARKER, STYLE_ID, transform
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -74,11 +75,34 @@ window.QB={openStudyModuleBuilder};
     if not home.index('nk-home-streak-card') < home.index('${nkHomeFocusSection(focus,focusModule)}') < home.index('${nkStudySetsSection(focusModule?.id)}') < home.index('nk-home-subjects'):
         raise SystemExit('Home lost its streak, Today focus, study sets, subjects hierarchy')
     if 'nk-test-mode-tabs' in tests or 'Custom Module' in tests or 'Full Question Bank' in tests:raise SystemExit('Tests retained duplicate setup paths')
+    if 'Questions Attempted' in home or ' / ${fmtNum(total)}' in home or 'nk-home-progress-track' in home:
+        raise SystemExit('Home period metrics still imply full-bank coverage or a target')
+    for label in ('Unique questions answered','Answer accuracy','Study Time'):
+        if label not in home:raise SystemExit(f'Home period metric missing: {label}')
     for fn in ('dashboard','bottomNav','testsPage','examPage','startExamTicker','submitExam'):
         if updated.count(f'function {fn}(')!=1:raise SystemExit(f'{fn} duplicated or missing')
     if "function untouchedQuestionEngine(){return 'protected';}" not in updated:raise SystemExit('Protected question engine mutated')
     for bad in ('Membership','Premium Member','Rank'):
         if bad in updated:raise SystemExit(f'Personal QBank introduced prohibited UI: {bad}')
+
+    helpers=updated.split('function nkHomeRangeStart(',1)[1].split('function nkSetHomeProgressRange(',1)[0]
+    stats_js='function nkHomeRangeStart('+helpers
+    behavior=r'''
+const assert=require('node:assert/strict'),vm=require('node:vm');
+const now=Date.now(),state={attempts:{a:[{at:now-1000,correct:true,timeSpent:30000,source:'practice'},
+  {at:now-900,correct:false,timeSpent:10000,source:'practice'}],
+  b:[{at:now-800,correct:false,timeSpent:20000,source:'exam'}],
+  c:[{at:now-700,correct:true,timeSpent:5000,source:'practice',isUndo:true}]},
+  tests:[{kind:'exam',createdAt:now-100,totalTimeMs:30000}]};
+const context={state,Date,Math,Number,Object,Set};vm.createContext(context);vm.runInContext(SOURCE,context);
+let stats=vm.runInContext('nkHomeProgressStats("today")',context);
+assert.equal(stats.attempted,2);assert.equal(Math.round(stats.accuracy),33);
+assert.equal(stats.studyMs,70000,'Practice attempt time plus one completed test, without exam double count');
+state.attempts={};state.tests=[];stats=vm.runInContext('nkHomeProgressStats("today")',context);
+assert.equal(stats.attempted,0);assert.equal(stats.accuracy,null);assert.equal(stats.studyMs,0);
+console.log('HOME_PERIOD_METRICS_OK unique=true denominator=answered time=true empty=true');
+'''.replace('SOURCE',json.dumps(stats_js),1)
+    subprocess.run(['node','-e',behavior],check=True)
 
     if HTML.exists():
         html=HTML.read_text(encoding='utf-8')

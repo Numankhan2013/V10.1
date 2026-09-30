@@ -3,6 +3,7 @@
 
 from pathlib import Path
 import ast
+import importlib.util
 import json
 import subprocess
 import tempfile
@@ -215,7 +216,8 @@ async function testRequests(){
   applySubject=value=>{activeSubject=value;nkScheduleCloudSync();};
   const remote=nkEnvelope('preferences','main',{activeSubject:'Anatomy',studyStartedAt:null,fsrsPreferences:null},Date.now()+10000);
   remote.ownerDevice='remote';
-  globalThis.fetch=async(url,options)=>{
+  globalThis.fetch=async(url,options={})=>{
+    if(String(url).includes('/control/accountReset'))return {ok:false,status:404,text:async()=>JSON.stringify({error:{message:'NOT_FOUND'}})};
     if(options.method==='PATCH'){writes++;return {ok:true,text:async()=>'{}'};}
     const kind=JSON.parse(options.body).structuredQuery.from[0].collectionId;
     return {ok:true,text:async()=>JSON.stringify(kind==='preferences'?[{document:nkFirestoreDocument(remote)}]:[])};
@@ -232,6 +234,91 @@ async function testRequests(){
   state.normalPracticeCheckpoints=[];state.normalPracticeCheckpoint=null;nkSyncMeta.outbox={};nkSyncMeta.localHashes={};nkCloudRevision=0;scheduled=0;
   state.bookmarks.q9={addedAt:Date.now()};nkCaptureCloudChanges();
   assert(scheduled===1&&nkSyncMeta.outbox['bookmarks/q9'],'real local edits must still schedule upload');
+  const resetUser='reset-user',resetDocName=`projects/test-project/databases/(default)/documents/users/${resetUser}/attempts/android--old-attempt`;
+  let resetMarker=null,remoteAttempt=nkFirestoreDocument(nkEnvelope('attempts','old-attempt',{qid:'q1',attempt:{id:'old-attempt'}},10),resetDocName),resetLists=[];
+  nkAuth={uid:resetUser,idToken:'token',refreshToken:'refresh',expiresAt:Date.now()+3600000};nkSyncMeta={deviceId:'android',boundUid:resetUser,accountGeneration:'legacy',outbox:{'attempts/local':nkEnvelope('attempts','local',{qid:'q1'},20)},localHashes:{x:'y'},known:{bookmarks:['q1']},winners:{x:{}},cursors:{attempts:10}};
+  state={attempts:{q1:[{id:'old-attempt',at:10}]},bookmarks:{q1:{addedAt:1}},reviews:{q1:{attempts:1}},tests:[{id:'test'}],studyModules:[{id:'module'}],activeSession:{id:'session'}};
+  localStorage.setItem('qbank_state_pre_cloud_v1','backup');
+  globalThis.fetch=async(url,options={})=>{
+    if(String(url).includes('/control/accountReset')){
+      if(options.method==='PATCH'){resetMarker=nkDecodeDocument(JSON.parse(options.body));return {ok:true,text:async()=>'{}'};}
+      if(!resetMarker)return {ok:false,status:404,text:async()=>JSON.stringify({error:{message:'NOT_FOUND'}})};
+      return {ok:true,text:async()=>JSON.stringify(nkFirestoreDocument(resetMarker,`projects/test-project/databases/(default)/documents/users/${resetUser}/control/accountReset`))};
+    }
+    if(options.method==='PATCH'){
+      assert(String(url).includes('/attempts/android--old-attempt'),'reset must patch the existing document path');
+      remoteAttempt=JSON.parse(options.body);return {ok:true,text:async()=>'{}'};
+    }
+    if(String(url).includes('/users/reset-user/')){const kind=String(url).split('/users/reset-user/')[1].split('?')[0];resetLists.push(kind);return {ok:true,text:async()=>JSON.stringify(kind==='attempts'?{documents:[remoteAttempt]}:{})};}
+    throw new Error(`unexpected reset request ${url}`);
+  };
+  await nkCompleteRemoteReset('test-token','generation-test');
+  assert(JSON.parse(resetMarker.payload).phase==='complete'&&JSON.parse(resetMarker.payload).generation==='generation-test','account reset marker must be finalized with the new generation');
+  assert(remoteAttempt.fields.deleted.booleanValue===true&&remoteAttempt.fields.payload.stringValue===''&&remoteAttempt.fields.entityId.stringValue==='old-attempt','reset must clear the remote progress payload while retaining its tombstone');
+  assert(NK_SYNC_KINDS.every(kind=>resetLists.includes(kind)),'reset must inspect every synchronized progress collection');
+  assert(Object.keys(state.attempts).length===0&&state.tests.length===0&&state.studyModules.length===0&&!state.activeSession,'account reset must clear local learning state');
+  assert(nkSyncMeta.accountGeneration==='generation-test'&&!Object.keys(nkSyncMeta.outbox).length&&!Object.keys(nkSyncMeta.localHashes).length,'account reset must clear queued local revisions and advance the generation');
+  assert(!localStorage.getItem('qbank_state_pre_cloud_v1')&&!localStorage.getItem('qbank_account_reset_pending_v1'),'account reset must clear its local backup and pending flag');
+  nkSyncMeta.accountGeneration='legacy';state.attempts={q1:[{id:'stale',at:1}]};
+  await nkEnsureAccountGeneration('test-token');
+  assert(nkSyncMeta.accountGeneration==='generation-test'&&!Object.keys(state.attempts).length,'a returning older device must clear stale progress before syncing');
+  // A signed-out account must keep its own local work, including queued edits.
+  state={...defaultState(),bookmarks:{accountA:{addedAt:1}}};
+  nkSyncMeta=nkNormalizeSyncMeta({deviceId:'android',boundUid:'account-a',outbox:{'bookmarks/accountA':nkEnvelope('bookmarks','accountA',{active:true},1)},accountGeneration:'generation-a'});
+  nkAuth=null;activeSubject='Anatomy';
+  const loginFields={'nk-cloud-email':{value:'second@example.com'},'nk-cloud-password':{value:'password123'}};
+  document.getElementById=id=>loginFields[id]||null;document.querySelector=()=>null;
+  let loginUid='account-b';
+  globalThis.fetch=async()=>({ok:true,text:async()=>JSON.stringify({localId:loginUid,email:'second@example.com',idToken:'token',refreshToken:'refresh',expiresIn:'3600'})});
+  nkInitialCloudSync=async()=>{};
+  await nkCloudAuthenticate('signin');
+  assert(nkAuth?.uid==='account-b'&&!state.bookmarks.accountA&&!nkSyncMeta.outbox['bookmarks/accountA']&&activeSubject==='Biochemistry','second-account sign-in must start with isolated local progress and preferences');
+  assert(nkSyncMeta.needsInitialPull,'a newly opened account must download before sending empty singleton state');
+  const remoteExam=nkEnvelope('sessions','active',{id:'account-b-exam',mode:'exam',questionIds:['q1'],startedAt:100},100);
+  remoteExam.ownerDevice='ipad';let emptySessionSent=false;
+  globalThis.fetch=async(url,options={})=>{
+    if(String(url).includes('/control/accountReset'))return {ok:false,status:404,text:async()=>JSON.stringify({error:{message:'NOT_FOUND'}})};
+    if(options.method==='POST'){
+      const kind=JSON.parse(options.body).structuredQuery.from[0].collectionId;
+      if(kind==='sessions')emptySessionSent=Boolean(nkSyncMeta.outbox['sessions/active']?.deleted);
+      return {ok:true,text:async()=>JSON.stringify(kind==='sessions'?[{document:nkFirestoreDocument(remoteExam,'remote-exam')}]:[])};
+    }
+    return {ok:true,text:async()=>'{}'};
+  };
+  await nkCloudSync(true,true);
+  assert(!emptySessionSent&&state.activeSession?.id==='account-b-exam'&&!nkSyncMeta.needsInitialPull,'opening the second account must preserve its remote active test');
+  globalThis.fetch=async()=>({ok:true,text:async()=>JSON.stringify({localId:loginUid,email:'second@example.com',idToken:'token',refreshToken:'refresh',expiresIn:'3600'})});
+  state.bookmarks.accountB={addedAt:2};nkSyncMeta.outbox['bookmarks/accountB']=nkEnvelope('bookmarks','accountB',{active:true},2);
+  await nkCloudSignOut();
+  loginUid='account-a';await nkCloudAuthenticate('signin');
+  assert(nkAuth?.uid==='account-a'&&state.bookmarks.accountA&&!state.bookmarks.accountB&&nkSyncMeta.outbox['bookmarks/accountA']&&!nkSyncMeta.outbox['bookmarks/accountB']&&activeSubject==='Anatomy',`returning to the first account must restore its own local state and unsynced outbox: ${JSON.stringify({uid:nkAuth?.uid,bookmarks:state.bookmarks,outbox:Object.keys(nkSyncMeta.outbox),subject:activeSubject})}`);
+  await nkCloudSignOut();loginUid='account-b';await nkCloudAuthenticate('signin');
+  assert(nkAuth?.uid==='account-b'&&state.bookmarks.accountB&&!state.bookmarks.accountA&&nkSyncMeta.outbox['bookmarks/accountB'],'returning to the second account must restore only its progress');
+  await nkCloudSignOut();
+  const originalSetItem=localStorage.setItem;
+  localStorage.setItem=(key,value)=>{if(key===nkAccountSnapshotKey('account-b'))throw new Error('quota');return originalSetItem(key,value);};
+  loginUid='account-a';await nkCloudAuthenticate('signin');
+  assert(!nkAuth&&nkSyncMeta.boundUid==='account-b'&&state.bookmarks.accountB,'snapshot storage failure must leave the signed-out account intact');
+  localStorage.setItem=originalSetItem;
+  localStorage.setItem(NK_RESET_PENDING_KEY,'unfinished');
+  loginUid='account-a';await nkCloudAuthenticate('signin');
+  assert(!nkAuth&&nkSyncMeta.boundUid==='account-b'&&state.bookmarks.accountB,'an unfinished account reset must block switching without changing local state');
+  loginUid='account-b';await nkCloudAuthenticate('signin');
+  assert(nkAuth?.uid==='account-b','the original account must be allowed to sign in and finish an interrupted reset');
+  await nkCloudSignOut();
+  localStorage.removeItem(NK_RESET_PENDING_KEY);
+  localStorage.setItem(NK_ACCOUNT_SWITCH_PENDING_KEY,JSON.stringify({fromUid:'account-b',toUid:'account-a'}));
+  state=defaultState();nkSyncMeta=nkNormalizeSyncMeta({deviceId:'android',boundUid:'account-a'});
+  nkRecoverAccountSwitch();
+  assert(state.bookmarks.accountB&&nkSyncMeta.boundUid==='account-b'&&!localStorage.getItem(NK_ACCOUNT_SWITCH_PENDING_KEY),'interrupted switch must recover the previous account before sign-in');
+  nkAuth=null;nkAuthView='signin';window.NK_QBANK_FIREBASE_CONFIG={apiKey:'public-test-key',projectId:'test-project'};
+  const signedOutCard=nkCloudAccountCard();
+  assert(signedOutCard.includes('Sign in to QBank')&&signedOutCard.includes('Create account')&&!signedOutCard.includes("nkCloudAuthenticate('create')"),'auth card must present one sign-in action and a separate create-account entry');
+  const authFields={'nk-cloud-create-email':{value:'new@example.com',checkValidity:()=>true,focus(){}},'nk-cloud-create-password':{value:'strong-password',focus(){}},'nk-cloud-confirm-password':{value:'strong-password',focus(){}}};document.getElementById=id=>authFields[id]||null;document.querySelector=()=>null;
+  nkCloudAuthStartCreate();nkCloudAuthNext();assert(nkAuthView==='create-password'&&nkPendingCreateEmail==='new@example.com','create-account flow must advance from email to password');
+  globalThis.fetch=async(url,options)=>({ok:true,text:async()=>JSON.stringify({localId:'new-user',email:'new@example.com',idToken:'not-saved',refreshToken:'not-saved',expiresIn:'3600'})});
+  await nkCloudAuthenticate('create');
+  assert(nkAuthView==='signin'&&nkSignInEmail==='new@example.com'&&!nkAuth&&!localStorage.getItem('qbank_firebase_auth_v1'),'creating an account must return to the sign-in step without auto-signing in');
   console.log('CROSS_DEVICE_SYNC_BEHAVIOR_OK');
 }
 testRequests().catch(error=>{console.error(error);process.exitCode=1;});
@@ -242,12 +329,14 @@ const localStorage={getItem:k=>Object.prototype.hasOwnProperty.call(storage,k)?s
 const window={NK_QBANK_FIREBASE_CONFIG:{}};
 const navigator={onLine:true};
 const location={hostname:'qbank.local'};
-const document={querySelector:()=>null};
+const document={querySelector:()=>null,getElementById:()=>null};
 const LS_KEY='qbank_state_v1';
 let state={};let activeSubject='Biochemistry';
 const SUBJECT_BY_NAME={Biochemistry:{}};
-function render(){} function showToast(){} function fmtDate(v){return String(v)} function esc(v){return String(v)}
+function render(){} function showToast(){} function saveState(){return true} function fmtDate(v){return String(v)} function esc(v){return String(v)} function defaultState(){return {attempts:{},bookmarks:{},reviews:{},tests:[],studyModules:[],activeSession:null,questionNotes:{},fsrsReviewEligible:{}}}
 function applySubject(v){activeSubject=v}
+function nkNormalizeState(v){if(!v||typeof v!=='object'||Array.isArray(v))throw new Error('invalid state');return v}
+function nkDurablePersist(v){localStorage.setItem(LS_KEY,JSON.stringify(v));return true}
 '''
     with tempfile.TemporaryDirectory() as directory:
         script = Path(directory) / "sync-test.js"
@@ -301,7 +390,7 @@ const document={querySelector:()=>null,createElement:()=>({querySelector:()=>({s
         raise SystemExit("Synchronization must pull/merge before uploading local revisions")
     if "function nkScheduleCloudSync(){if(!nkAuth)return;nkCaptureCloudChanges();}" not in sync_core:
         raise SystemExit("Local outbox capture must be synchronous with state saves")
-    for marker in ("nkResolveFirebaseProjectId", "nkProjectIdFromToken", "stage='download'", "HTTP ${response.status}", "method:'PATCH'", "setInterval(nkCloudAutoSync,300000)", "visibilitychange", "fsrsReviewEligible", "nkMergeFsrsReviewEligible", "practiceSessions", "nkMergePracticeCheckpoint", "NK_SYNC_META_LKG_KEY"):
+    for marker in ("nkResolveFirebaseProjectId", "nkProjectIdFromToken", "nkEnsureAccountGeneration", "nkTombstoneAccountCollections", "nkResetProgress", "NK_RESET_PENDING_KEY", "nkCloudAuthNext", "CREATE ACCOUNT · 2 OF 2", "stage='download'", "HTTP ${response.status}", "method:'PATCH'", "setInterval(nkCloudAutoSync,300000)", "visibilitychange", "fsrsReviewEligible", "nkMergeFsrsReviewEligible", "practiceSessions", "nkMergePracticeCheckpoint", "NK_SYNC_META_LKG_KEY"):
         if marker not in sync_core:
             raise SystemExit(f"Cross-device sync diagnostic/project-resolution/review-eligibility contract missing: {marker}")
     if ":batchWrite" in sync_core:
@@ -311,6 +400,14 @@ const document={querySelector:()=>null,createElement:()=>({querySelector:()=>({s
         if marker not in transform:
             raise SystemExit(f"Responsive/update transform contract missing: {marker}")
     generated = (ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8")
+    transform_path = ROOT / "tools/apply_cross_device_pwa_v1.py"
+    spec = importlib.util.spec_from_file_location("cross_device_transform", transform_path)
+    transform_module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(transform_module)
+    installed = transform_module.transform(generated)
+    for marker in ("nkCloudAuthStartCreate", "nkResetProgress", "Reset account progress", "NK_CROSS_DEVICE_SYNC_V1_START"):
+        if marker not in installed:
+            raise SystemExit(f"Cross-device transform did not install account UI/reset integration: {marker}")
     if "NK_DURABLE_PERSISTENCE_V2_START" in generated:
         forbidden = ("localStorage.setItem(LS_KEY, JSON.stringify(state))", "localStorage.setItem(LS_KEY,JSON.stringify(state))", "localStorage.setItem(STORAGE_KEY,JSON.stringify(state))", "localStorage.setItem('qbank_state_v1',JSON.stringify(st))")
         hits = [item for item in forbidden if item in generated]

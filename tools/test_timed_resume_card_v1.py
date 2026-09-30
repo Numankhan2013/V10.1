@@ -12,16 +12,18 @@ CORE=ROOT/'tools/timed_resume_card_core.js'
 def main():
     fixture='''<html><head></head><script>
 /* NK_EXAM_REVIEW_FLAGS_V1_START */
-function dashboard(){return `<section class="nk-home-focus-card"></section>`;}
+function nkHomeFocusSection(focus,focusModule){return `<section class="nk-home-focus-card"></section>`;}
+function dashboard(){return nkHomeFocusSection(null,null);}
 function testsPage(){return `<section class="nk-v3-section nk-test-main-action"></section>`;}
 function nkCbtBuilderPage(){const step=1,titles=['Banks'],description='Build';return `<main>${nkAppPageHead(titles[step-1],description)}<div class="nk-module-stepper">${[1,2,3].join('')}</div></main>`;}
   window.QB={nav:()=>{}};
 </script></html>'''
     generated=transform(fixture)
     assert transform(generated)==generated
-    for marker in ('NK_TIMED_RESUME_CARD_V1_START',"nkTimedResumeCard('home')",
+    for marker in ('NK_TIMED_RESUME_CARD_V1_START','function nkTimedFocusCard()',
                    "nkTimedResumeCard('tests')","nkTimedResumeCard('builder')",'nkResumeTimedTest,','nk-timed-resume-card-v1'):
         assert marker in generated,marker
+    assert "nkTimedResumeCard('home')" not in generated
     subprocess.run(['node','--check'],input=generated.split('<script>',1)[1].split('</script>',1)[0],text=True,check=True)
 
     script='''
@@ -37,8 +39,12 @@ const active={id:'exam-1',mode:'exam',title:'PYQ CBT',questionIds:['a','b','c'],
 state.activeSession=active;
 const home=vm.runInContext('nkTimedResumeCard("home")',context);
 assert(home.includes('1 of 3 answered')&&home.includes('1 marked for review')&&home.includes('timer keeps running'));
+const focus=vm.runInContext('nkTimedFocusCard()',context);
+assert(focus.includes("TODAY'S FOCUS")&&focus.includes('PYQ CBT')&&focus.includes('1 of 3 answered · 1 marked for review'));
+assert(focus.includes('Resume timed test')&&!focus.includes('nk-timed-resume is-home'));
 assert.equal(vm.runInContext('nkResumeTimedTest()',context),true);assert.equal(route,'exam');assert.equal(state.activeSession,active);
 active.expired=true;route='';
+assert(vm.runInContext('nkTimedFocusCard()',context).includes('Finish timed test'));
 assert.equal(vm.runInContext('nkResumeTimedTest()',context),true);assert.equal(submitted,1);assert.equal(route,'');
 state.activeSession={...active,id:'topic-1',timerMode:'per-question',expired:true};
 assert.equal(vm.runInContext('nkResumeTimedTest()',context),true);assert.equal(strictExpired,1);assert.equal(route,'exam');

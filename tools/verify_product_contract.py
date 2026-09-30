@@ -101,6 +101,8 @@ def main() -> None:
             "nkCloudAccountCard", "manifest.webmanifest", "web_pdf_renderer.mjs",
             "NK_MARROW_BANK_PILOT_V1_START", "function nkRenderMarrowExplanation(q)",
             "qbank_active_bank_v1", "marrow__ANAT_CH01_Q001",
+            "NK_QUESTION_SEARCH_V1_START", "route.page==='question-search'",
+            "NK_PRACTICE_CORRECTION_V1_START", "nkCorrectionResultSection(t)",
         ], f"{args.stage} contract")
 
     checked = check_javascript(html)

@@ -52,6 +52,7 @@ state.tests.push(test);
 assert.deepEqual(Array.from(vm.runInContext('nkMarkedTestIds(state.tests[0])',context)),['a']);
 assert(vm.runInContext('nkCbtResultSection(state.tests[0])',context).includes('Practise marked questions'));
 assert.equal(vm.runInContext('nkCbtPracticeMarked("saved1",{detail:2})',context),false,'carried-over double tap cannot launch Practice');
+test.createdAt=Date.now();
 assert.equal(vm.runInContext('nkCbtPracticeMarked("saved1",{detail:1})',context),true);
 assert.deepEqual(started.ids,['a']);assert.equal(started.mode,'practice');assert.equal(started.kind,'cbt-marked-followup');
 assert.equal(state.activeSession.answers.a,undefined,'marking cannot submit or change an answer');

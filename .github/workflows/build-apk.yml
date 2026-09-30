@@ -278,6 +278,14 @@ jobs:
         run: python3 tools/apply_qbank_coverage_v1.py
       - name: Test all-bank QBank coverage tracker
         run: python3 tools/test_qbank_coverage_v1.py
+      - name: Install all-bank question finder
+        run: python3 tools/apply_question_search_v1.py
+      - name: Test all-bank question finder
+        run: python3 tools/test_question_search_v1.py
+      - name: Install Practice correction pass
+        run: python3 tools/apply_practice_correction_v1.py
+      - name: Test Practice correction pass
+        run: python3 tools/test_practice_correction_v1.py
       - name: Verify final JavaScript syntax after all transformations
         run: |
           python3 - <<'PY'
@@ -402,6 +410,10 @@ jobs:
         run: python3 tools/verify_question_notes_browser.py
       - name: Verify all-bank Quick Revision queues
         run: python3 tools/verify_revision_desk_browser.py
+      - name: Verify all-bank question search on phone and tablet
+        run: python3 tools/verify_question_search_browser.py
+      - name: Verify Practice correction journey on phone and tablet
+        run: python3 tools/verify_practice_correction_browser.py
       - name: Verify actionable Insights across banks
         run: python3 tools/verify_insights_focus_browser.py
       - name: Verify bank-aware timed CBT selection and exam launch
@@ -410,6 +422,15 @@ jobs:
         run: python3 tools/verify_pyq_exam_journey_browser.py
       - name: Verify saved-test CBT topic analysis and follow-up
         run: python3 tools/verify_cbt_result_analysis_browser.py
+      - name: Verify study journey and capture device-size views
+        run: python3 tools/verify_study_journey_browser.py
+      - name: Upload study journey views
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: study-journey-views
+          path: build/study-journey/
+          retention-days: 3
       - name: Verify all-bank QBank coverage tracker
         run: python3 tools/verify_qbank_coverage_browser.py
       - name: Capture study UI audit across screen sizes
