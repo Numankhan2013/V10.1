@@ -193,3 +193,22 @@ runtime metadata, progress and coverage are regenerated from the combined
 registry. Canonical CI/preview verification is pending for this checkpoint.
 Worker A continues Anatomy Ch1–59; worker D now owns the reserved Biochemistry
 Ch1–24 / Physiology Ch15–43 range. Separate Physiology Ch3–7 ownership remains.
+
+### Tail source-review ownership transfer — 2026-09-30
+
+Worker D confirmed no cue decisions or edits before this transfer. To keep
+source reviews parallel, completed worker C resumes the 27 Physiology
+metadata-free cue questions below in branch
+`manual/resume-physiology-tail-cues-20260930`, based on canonical `a656edd1`.
+D now owns Biochemistry Ch1–24 (four source refs and 31 cues), plus Physiology
+Ch34 Q4 and Ch37 Q24 (two source refs). C exclusively owns every source visual
+and cue for the following questions; D excludes them. C also retains its
+completed Ch8–14 batch. No question belongs to both workers.
+
+- Physiology Ch20 Q11/Q12/Q16/Q18; Ch21 Q6/Q9/Q12; Ch22 Q8/Q10/Q13.
+- Physiology Ch23 Q3/Q4/Q8/Q12/Q14/Q15/Q16; Ch25 Q5/Q9; Ch26 Q16.
+- Physiology Ch27 Q13; Ch28 Q10/Q26; Ch31 Q1; Ch32 Q4; Ch33 Q17; Ch38 Q1.
+
+D owns the minimal shared coverage support for source-reviewed cue decisions.
+C records source evidence/assets in existing conventions and coordinates that
+format directly with D; root reconciles only their disjoint stable IDs.
