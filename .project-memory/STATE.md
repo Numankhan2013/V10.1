@@ -83,7 +83,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 - Whole-corpus serialized JSON/code sanitizer candidate `45f6539fff535fadc6aaa6970894f9ff123422fa` passed Engineering `34738522874` and full run `34738530102` over **2,711 questions / 27,898 learner-facing fields**; raw ED8 source is unchanged.
 - User preview review found residual OCR debris in Physiology Ch5/Ch7; verified follow-up `55d7ac8a89c2bbf6a01db5d305b8c975c344c1f3` added source-fingerprinted stable-ID display overrides for those two chapters. Engineering `34740460617` and full run `34740465004` passed; production skipped.
-- Ch6 Q1–Q34 cleanup is canonical at `20b12fcc`; Engineering `36662743310` passed, full run `36662743308` pending. Follow-up adds source-reviewed Ch9 Q1–27, Ch10 Q1–18, Ch11 Q1–21, Ch12 Q1–23 (186 reviewed overrides total). Raw ED8/answer indices stay unchanged; other chapters remain unreviewed. Do not strip OCR symbols globally.
+- Ch6 Q1–Q34 cleanup is canonical at `20b12fcc`; Engineering `36662743310` passed, full run `36662743308` awaits Android interactions. Follow-up `a6f2bca1` adds Ch9 Q1–27, Ch10 Q1–18, Ch11 Q1–21, Ch12 Q1–23 (186 reviewed overrides total); Engineering `36663959324` and full run `36663959370` pending. Other chapters remain unreviewed; raw ED8/answer indices stay unchanged.
 
 ## Explanation lane
 
@@ -103,7 +103,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 - Dedicated handoff: `.project-memory/PREPLADDER_VISUAL_VERIFICATION_2026-09-16.md`.
 - Marrow image batch `manual-biochem-ch25-28-20260928` is complete under `docs/MARROW_MANUAL_IMAGE_INTEGRATION.md`; the separate Physiology Ch3–7 claim remains assigned to the other agent and should refresh shared state from canonical `ef96954` before writing. All five former image holds (Ch25 Q26, Ch26 Q18, Ch27 Q2/Q3, Ch28 Q27) are SOURCE_LIMITED and released with exact source pixels retained and tap-to-expand availability documented. Q27 Q5 is an evidence-backed invalid metadata adjudication. The full 22-reference range is accounted for (21 released, 1 invalid; 0 untracked or review-required in the batch). Subject-wide Biochemistry coverage is still incomplete: 110 raw / 108 effective / 92 released / 2 invalid / 3 tracked-unreleased / 13 untracked / 31 text-cue items. Registry, progress, coverage, and product package checks pass. Candidate commit `ef969540171b3cb19d724a28f3adbf0fba42f5f7` passed Engineering `36425459384` and full browser/PWA/APK/package/emulator run `36425386902`; the same SHA was fast-forward integrated to canonical and passed Engineering `36427679654` plus full run `36427679667`. Preview `https://27f74250.nk-qbank.pages.dev` and feature alias returned HTTP 200. Production promotion was skipped.
 - Batch 02 on historical branch `manual/marrow-physiology-fastlane-20260912-b02` is unverified evidence only: 40 refs audited, 14 metadata-invalid, 12 new assets, 14 specialist deferrals; targeted run `34704088880` failed canonical wiring and was never reconciled.
-- Canonical Physiology coverage remains 294 raw / 290 effective / 44 released / 4 invalid metadata / 48 resolved / 21 tracked-unreleased / 225 untracked / 28 text-cue. Next canonical reference: `marrow__PHYS_CH03_Q007:figure:1`.
+- Current canonical source-reference coverage: Anatomy 897 released / 10 invalid / 121 unresolved of 1,028; Biochemistry 103 released / 3 invalid / 4 unresolved of 110; Physiology 186 released / 5 invalid / 103 unresolved of 294. There are 59 text-cue checks. Active 2026-09-30 ledger transfers paused Wave 2 ownership into four nonoverlapping resume batches (69, 52, 52, 64 items); Physiology Ch3–7 remains separately reserved.
 
 ## BC3 and BC4 canonical interaction hardening
 
@@ -134,8 +134,8 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Current priorities / Next step
 
-1. Resolve or explicitly hand off the five Biochemistry readability holds before releasing the Ch25–28 ownership claim; keep Q27 Q5 as an evidence-backed source metadata adjudication unless source metadata is corrected.
-2. Preserve the separate Physiology Ch3–7 claim. Its owner must refresh shared image state from live canonical `87a5724` before any registry/progress/coverage write; continue serializing shared-state integration.
+1. Complete the four active image resume batches in `docs/MARROW_MANUAL_IMAGE_INTEGRATION.md`; preserve old dirty Ch56–63 worktree as read-only donor. Serialize registry/asset integration by stable IDs; do not overwrite shared derived files from worker branches.
+2. Preserve separate Physiology Ch3–7 ownership (49 unresolved references + one cue). Finish monitoring the two Physiology text-cleanup full CI runs and verify deployed preview data before marking those changes complete.
 3. Keep accepted learner flows and production guard intact; no production promotion is authorized. Physical APK/data-preservation review remains outstanding.
 
 ## Memory pointers

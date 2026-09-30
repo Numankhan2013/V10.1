@@ -9,6 +9,32 @@ visuals. Raw source and source PDFs remain unchanged.
 
 ## Claims
 
+### Active resume ownership — 2026-09-30
+
+This table supersedes the paused Wave 2 ownership rows below for unfinished
+items. The existing Physiology Ch3–7 claim remains reserved to its separate
+owner and is excluded from this resume. Canonical starting product is
+`a6f2bca10228c62c8ef8fa9b837f8ccfb7d3c9fa`. Its coverage contains 1,186 released,
+18 metadata-invalid, 228 unresolved source references and 59 text-cue checks.
+The separate Ch3–7 claim contains 49 unresolved references and one text cue;
+these four resume batches partition all other 237 outstanding items exactly.
+
+| Batch | Exclusive source ownership | Starting unresolved refs | Starting text cues | Owner/status | Working branch |
+| --- | --- | ---: | ---: | --- | --- |
+| `manual-resume-anatomy-ch01-59-20260930` | Anatomy Ch1–59, all remaining refs/cues and newly discovered visuals | 69 | 0 | Luna 6 medium worker A / CLAIMED | `manual/resume-anatomy-ch01-59-20260930` |
+| `manual-resume-anatomy-ch60-63-20260930` | Anatomy Ch60–63, all remaining refs/cues and newly discovered visuals | 52 | 0 | Luna 6 medium worker B / CLAIMED | `manual/resume-anatomy-ch60-63-20260930` |
+| `manual-resume-physiology-ch08-14-20260930` | Physiology Ch8–14, all remaining refs/cues and newly discovered visuals | 52 | 0 | Luna 6 medium worker C / CLAIMED | `manual/resume-physiology-ch08-14-20260930` |
+| `manual-resume-biochem-physiology-tail-20260930` | Biochemistry Ch1–24 and Physiology Ch15–43, all remaining refs/cues and newly discovered visuals | 6 | 58 | Luna 6 medium worker D / QUEUED until a slot opens | `manual/resume-biochem-physiology-tail-20260930` |
+
+Workers use fresh separate worktrees from the claim commit. The old dirty
+`V10.1-wave2-anatomy-ch56-63` worktree is preserved as a read-only donor: A may
+reuse its Ch56–59 candidates; B may reuse its Ch60–63 candidates after source
+comparison and validation. Never overwrite or clean that donor. Existing
+Anatomy Ch1–26 and Ch27–44 ignored source artifacts are also reusable evidence.
+No worker edits shared learner-text manifests or another worker's branch.
+Root serializes stable-ID registry/asset integration; passing branch checks do
+not establish canonical preview deployment. Production remains deferred.
+
 | Batch | Owner | Exclusive source scope | Starting backlog | Status | Working branch and base |
 | --- | --- | --- | --- | --- | --- |
 | `manual-biochem-ch25-28-20260928` | Codex, this user thread | Biochemistry Chapters 25–28, all source visuals and visual text cues | 22 references across 21 questions: Ch25 2, Ch26 5, Ch27 7, Ch28 8; 0 text-cue items | **COMPLETE / CANONICAL VERIFIED** | `feature/marrow-manual-images-20260928` from `e6fb3f813eb2c49a5220eec774ae60e551a7169f` |
