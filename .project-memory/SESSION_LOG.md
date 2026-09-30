@@ -1197,3 +1197,19 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Product `d0e76fcc` is dual-green: Engineering `36678220234`, full browser/PWA/APK/package/Android phone+tablet `36678220258`. Canonical preview metadata equals committed release bytes; new Biochemistry Ch23 Q9 union image bytes match the content-hash filename.
 - Final source coverage: Anatomy 1,012 released / 15 invalid / 1 held of 1,028; Biochemistry 133 released / 5 invalid / 0 pending of 138; Physiology 239 released / 38 invalid / 49 pending of 326. Global 1,384 released / 58 invalid / 50 pending of 1,492, including 60 cue-derived refs. 58 of 59 cues reviewed; remaining cue belongs reserved Physiology Ch3–7.
 - 1,107 questions carry 1,449 released bindings (347 question / 1,102 explanation). Owned 237-item phase resolved 236; source gaps remain explicit (Anatomy Ch45 Q4 marker, Biochemistry Ch17 Q14 teeth image). No additional source review, physical acceptance or production promotion.
+
+## 2026-09-30 — User-directed full remaining image reconciliation
+
+The cloned checkout was main with an outdated coverage ledger; the initial
+1,243 outstanding-reference report was corrected after fetching canonical.
+Canonical af7e0dff has 1,384 released, 58 invalid and 50 unresolved references,
+plus one Physiology cue. The user explicitly directed the primary agent to
+integrate all validated images and begin the unreviewed remainder without
+per-batch full preview builds. Physiology Ch3–7 ownership is transferred.
+34 donor references were exact-ID/hash/provenance reconciled; the Q20/page-149
+proposal was excluded after direct source review found it belongs to Q19.
+Fourteen ambiguous references and Q5 Q6's cue were source-reviewed; six
+continuation-page corrections remain outside immutable imported source.
+Q6 Q10's numbered question image is missing from source and remains held.
+Ubuntu source extraction and the combined full preview/package build are
+pending; no canonical or production release is claimed at this checkpoint.

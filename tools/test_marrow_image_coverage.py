@@ -290,6 +290,42 @@ def main():
     else:
         raise AssertionError('Mismatched adjudication incorrectly suppressed a source reference')
 
+    # A real continuation image is not resolved against the wrong imported page.
+    from copy import deepcopy
+    continuation_audit = deepcopy(invalid_audit)
+    continuation_audit['sources'] = {'Biochemistry': {
+        'file': 'biochemistryed8.pdf', 'sha256': 'a' * 64,
+        'pages': [{}] * 40,
+    }}
+    expected = continuation_audit['bindings'][0]
+    continuation_registry = {'assets': [{
+        'id': 'continuation', 'status': 'PASS', 'source': {'page': 34},
+        'bindings': [{'questionId': expected['questionId'], 'role': 'explanation', 'order': 1}],
+    }]}
+    assert build_coverage(continuation_audit, continuation_registry)['sourceVisuals'][0]['released'] is False
+    page_review = {'schemaVersion': 1, 'entries': [{
+        'id': expected['id'], 'questionId': expected['questionId'], 'subject': 'Biochemistry',
+        'role': 'explanation', 'originalSourcePages': [33], 'reviewedSourcePages': [34],
+        'source': {'file': 'biochemistryed8.pdf', 'sha256': 'a' * 64},
+        'reason': 'The visual continues on the following source page.',
+        'evidence': 'Both authoritative pages inspected; visual occurs before the next solution.',
+    }]}
+    corrected = build_coverage(continuation_audit, continuation_registry, page_reviews=page_review)
+    row = corrected['sourceVisuals'][0]
+    assert row['released'] and row['sourcePages'] == [33] and row['reviewedSourcePages'] == [34]
+    assert continuation_audit['bindings'][0] == expected
+    for field, bad_value in [('questionId', 'wrong-owner'), ('role', 'question'),
+                             ('originalSourcePages', [32]), ('reviewedSourcePages', [41]),
+                             ('source', {'file': 'biochemistryed8.pdf', 'sha256': 'b' * 64})]:
+        wrong_review = deepcopy(page_review)
+        wrong_review['entries'][0][field] = bad_value
+        try:
+            build_coverage(continuation_audit, continuation_registry, page_reviews=wrong_review)
+        except AssertionError:
+            pass
+        else:
+            raise AssertionError(f'Unsafe continuation review accepted: {field}')
+
     print('MARROW_IMAGE_COVERAGE_TEST_OK')
 
 

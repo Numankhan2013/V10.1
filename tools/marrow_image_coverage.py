@@ -21,6 +21,7 @@ from marrow_images import DATA, ROOT, binding_is_released, validate
 AUDIT_PATH = ROOT / 'build/marrow-images/audit.json'
 DEFAULT_OUTPUT = DATA / 'images/coverage.json'
 DEFAULT_ADJUDICATIONS = DATA / 'images/source_reference_adjudications.json'
+DEFAULT_PAGE_REVIEWS = DATA / 'images/source_reference_page_reviews.json'
 DEFAULT_CUE_REVIEWS = DATA / 'images/source_text_cue_reviews.json'
 SUBJECTS = ('Anatomy', 'Biochemistry', 'Physiology')
 ADJUDICATION_STATUS = 'SOURCE_METADATA_INVALID'
@@ -155,9 +156,40 @@ def adjudication_for(expected, adjudications):
     return matches[0] if matches else None
 
 
-def build_coverage(audit, registry, adjudications=None, cue_reviews=None):
+def load_page_reviews(path):
+    if not path.exists():
+        return {'schemaVersion': 1, 'entries': []}
+    value = json.loads(path.read_text())
+    assert value.get('schemaVersion') == 1
+    return value
+
+
+def reviewed_reference(expected, audit, page_reviews):
+    """Correct a cited page only after exact, source-fingerprinted ownership review."""
+    entries = [entry for entry in page_reviews.get('entries', [])
+               if entry.get('id') == expected.get('id')]
+    assert len(entries) <= 1, f'Duplicate source-page review: {expected.get("id")}'
+    if not entries:
+        return expected
+    entry = entries[0]
+    assert entry.get('questionId') == expected.get('questionId')
+    assert entry.get('subject') == expected.get('subject')
+    assert entry.get('role') == expected_role(expected)
+    assert entry.get('originalSourcePages') == list(expected_pages(expected))
+    assert entry.get('reason') and entry.get('evidence')
+    source = audit.get('sources', {}).get(entry['subject'], {})
+    assert source.get('file') == entry.get('source', {}).get('file')
+    assert source.get('sha256') == entry.get('source', {}).get('sha256')
+    pages = entry.get('reviewedSourcePages')
+    assert isinstance(pages, list) and pages and pages == sorted(set(pages))
+    assert all(isinstance(page, int) and 0 < page <= len(source.get('pages', [])) for page in pages)
+    return {**expected, 'metadata': {**expected['metadata'], 'source_pages': pages}}
+
+
+def build_coverage(audit, registry, adjudications=None, cue_reviews=None, page_reviews=None):
     adjudications = adjudications or {'schemaVersion': 1, 'entries': []}
     cue_reviews = cue_reviews or {'schemaVersion': 1, 'entries': []}
+    page_reviews = page_reviews or {'schemaVersion': 1, 'entries': []}
     actual_by_question = defaultdict(list)
     for asset in registry['assets']:
         for binding in asset.get('bindings', []):
@@ -258,11 +290,14 @@ def build_coverage(audit, registry, adjudications=None, cue_reviews=None):
             continue
 
         candidates = []
+        reviewed_expected = reviewed_reference(expected, audit, page_reviews)
+        if reviewed_expected is not expected:
+            row['reviewedSourcePages'] = list(expected_pages(reviewed_expected))
         for asset, binding in actual_by_question.get(expected.get('questionId'), []):
             key = (asset.get('id'), binding.get('questionId'), binding.get('role'), binding.get('order'), actual_page(asset, binding))
             if key in used:
                 continue
-            score = match_score(expected, asset, binding)
+            score = match_score(reviewed_expected, asset, binding)
             if score is not None:
                 candidates.append((score, key, asset, binding))
         candidates.sort(key=lambda candidate: (-candidate[0], str(candidate[2].get('id'))))
@@ -286,6 +321,10 @@ def build_coverage(audit, registry, adjudications=None, cue_reviews=None):
         rows.append(row)
 
     declared_adjudications = {entry['id'] for entry in adjudications.get('entries', [])}
+    reviewed_ids = [entry['id'] for entry in page_reviews.get('entries', [])]
+    assert len(reviewed_ids) == len(set(reviewed_ids)), 'Duplicate source-page review'
+    assert set(reviewed_ids).issubset({row['id'] for row in rows}), 'Orphan source-page review'
+    assert not set(reviewed_ids) & declared_adjudications, 'Conflicting page review and invalid metadata'
     unmatched_adjudications = sorted(declared_adjudications - matched_adjudications)
     if unmatched_adjudications:
         raise AssertionError('Source-reference adjudication no longer matches audit: ' + ', '.join(unmatched_adjudications))
@@ -353,7 +392,8 @@ def main():
     registry = validate(args.registry)
     adjudications = load_adjudications(args.adjudications)
     cue_reviews = load_cue_reviews(args.cue_reviews)
-    coverage = build_coverage(audit, registry, adjudications, cue_reviews)
+    coverage = build_coverage(audit, registry, adjudications, cue_reviews,
+                              load_page_reviews(DEFAULT_PAGE_REVIEWS))
     rendered = json.dumps(coverage, indent=2, sort_keys=False) + '\n'
 
     if args.check:

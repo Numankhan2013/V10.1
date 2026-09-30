@@ -332,3 +332,26 @@ source-ref work: Anatomy Ch45 Q4’s absent marker, plus the separate reserved
 Physiology Ch3–7 batch (49 refs and one cue). Biochemistry Ch17 Q14’s promised
 teeth image is absent in the source and explicitly documented as an omission.
 Physical acceptance and production promotion remain deferred.
+
+### Final Physiology reconciliation — 2026-09-30
+
+The user explicitly requested this primary agent to integrate all remaining
+validated images and begin remaining source review in the current session.
+This transfers the reserved Physiology Ch3–7 manual claim to the serial writer
+on `integration/remaining-source-images-20260930`, based on canonical
+`af7e0dff`. The historical branch is read-only donor evidence. No other
+chapter owner or shared-registry writer is started.
+
+34 donor references were reconciled by stable reference, role/order, cited page,
+PDF hash and immutable image hash. The old Q20/page-149 proposal was excluded:
+direct source review shows the lower relaxation flowchart belongs to Q19.
+The 14 previously ambiguous references and the Q5 Q6 text cue were directly
+reviewed against authoritative rendered source pages. Six exact page corrections
+are recorded separately; raw imported metadata remains immutable. Composite and
+masked source regions are rendered once on Ubuntu CI. Q6 Q10's numbered
+question figure is absent from the source and stays REVIEW_REQUIRED.
+
+The batch has not yet passed full preview/package CI; canonical integration
+and preview certification are pending. One combined full build is intended
+after source extraction and local checks, rather than a build per image batch.
+Production is not part of this task.
