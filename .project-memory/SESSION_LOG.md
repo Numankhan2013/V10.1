@@ -1903,3 +1903,19 @@ these residual additions; final combined CI remains pending. No production claim
   is required before main promotion. Existing branches remain unchanged.
 - Details: `docs/COMPLETED_IMAGE_MAIN_PROMOTION_2026-09-30.md`. Production
   deployment and physical APK acceptance remain separate.
+
+## 2026-09-30 — Completed images verified and promoted to main
+
+- Exact combined product `a7f1be5176538cecda350511dd1d2a74b1ec9955` passed
+  75 local checks, Engineering `36738373712`, and full browser/PWA/APK/Android
+  phone/tablet run `36738347129`. Image metadata matches final canonical
+  exactly; approved main study owners remain unchanged. All 114 completeness
+  contracts passed 228 runtime cases, final Physiology imagery passed 26
+  viewport cases, and notes/search/correction/Continue Practice passed.
+- Preview: `https://001e687e.nk-qbank.pages.dev`. PR #79 promotes main from
+  `f0073c4` by fast-forward to this verified product plus a documentation-only
+  `[skip ci]` handoff. No runtime change follows the certified product.
+- Independent Biochemistry Ch14 Q1–Q8 explanation rollout and tap/haptic work
+  remain excluded. No worker branch was changed/deleted or run cancelled.
+  Production deployment and physical APK/data-preservation acceptance remain
+  separate. Future content work must preserve the combined main runtime.

@@ -4,18 +4,23 @@
 
 ## Baseline and active work
 
-- Completed image promotion (2026-09-30): the user explicitly authorized
-  promoting the finished image integrations to main. Isolated candidate merges
-  canonical `81822e4` (verified product `de9c415`) with main `f0073c4`, preserving
-  every approved account/study feature and excluding tap/haptic changes.
-  Coverage: 1,502 references, 1,421 released, 79 invalid, two archival source
-  gaps, zero unresolved cues; runtime 1,486 bindings / 1,306 assets / 1,128
-  owners. Includes the verified source-completeness recovery and omission gates
-  needed by the final imagery. The independent Biochemistry Ch14 Q1–Q8
-  explanation batch is excluded; main remains 662 enhanced / 2,049 pending.
-  All 75 local checks pass; full combined candidate CI must pass before main
-  promotion. Source PDFs/imports and existing worker branches are unchanged.
-  See `docs/COMPLETED_IMAGE_MAIN_PROMOTION_2026-09-30.md`.
+- Completed image promotion (2026-09-30): main combines the finished image
+  integration with every approved account/study feature (PR #79). Certified
+  product `a7f1be5176538cecda350511dd1d2a74b1ec9955` passed all 75 local
+  checks, Engineering `36738373712`, and full browser/PWA/APK/Android phone
+  and tablet `36738347129`. Preview: `https://001e687e.nk-qbank.pages.dev`.
+  Coverage: 1,502 references / 1,421 released / 79 invalid / two archival
+  source gaps / zero unresolved cues. Runtime: 1,486 bindings / 1,306 assets /
+  1,128 owners. All 114 source-completeness contracts passed 228 runtime
+  checks; final Physiology images passed 26 viewport cases. Notes, Continue
+  Practice, search, correction, Home/result, packaged bytes and Android passed.
+  The independent Biochemistry Ch14 Q1–Q8 explanation batch and tap/haptic
+  changes remain excluded; main inventory is 662 enhanced / 2,049 pending.
+  Source imports/PDFs and worker branches are unchanged. A later `[skip ci]`
+  handoff changes documentation only; certification stays at the product SHA.
+  Production remains the September 27 deployment. Future content integration
+  must preserve this combined main runtime. See
+  `docs/COMPLETED_IMAGE_MAIN_PROMOTION_2026-09-30.md`.
 - Approved study-tweak promotion (2026-09-30): `main` includes account
   reset/switching, all-bank question search, Practice correction passes, and
   Home/result refinements from the user-reviewed donor commits (PR #78).
@@ -71,7 +76,7 @@
 ## Content and presentation limits
 
 - Structured explanation tables must retain nonempty source cells in order, never `[object Object]`; user physically verified the repair. Matching/list reform and scientific notation are build-verified but later residual presentation still needs source-backed physical review. See `MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`.
-- OCR cleanup must use rendered authoritative source and stable-ID/fingerprinted overrides. Seven ambiguous question records and 56 explanation records retain `■` loss; do not guess missing content.
+- OCR cleanup must use rendered authoritative source and stable-ID/fingerprinted overrides. The final source-completeness ledger records recoverable source repairs and 33 underdetermined source omissions; explanation-wide cleanup remains separate and source-grounded.
 - The source-completeness pass restores two source-confirmed PrepLadder keys
   (`physiology-23-38`, `physiology-33-33`). Thirty-three demonstrated source
   omissions remain gated against scored answers through the pinned ledger;
@@ -84,5 +89,14 @@
 
 ## Known problems and next step
 
-- Canonical physical in-place APK/data-preservation check remains pending. PWA production root `https://nk-qbank.pages.dev` is current. Physical Android acceptance and in-place APK/data-preservation checks remain pending.
-- Choose the next learner-facing study feature from an actual workflow gap. Tests already offers timed CBT from wrong and bookmarked questions; do not duplicate it in Quick Revision. Get user review of the PrepLadder source PDF contrast preview on a real device. Multiple simultaneous timed tests are deprioritized by the user. Today's Focus integration remains deferred under the user's one-minute constraint. Marrow explanation and image work remain with their existing automations. Do not claim physical APK acceptance from CI. The next step is the user’s physical APK upgrade/data-preservation check and real-device sync review.
+- Main now contains completed image integration and the approved study/account
+  refinements. Production has not been redeployed. Physical in-place APK,
+  data-preservation, and real-device sync checks remain separate.
+- Preserve the two archival source-image gaps and 33 incomplete-source gates;
+  recovery is deferred pending authoritative source material. The independent
+  Biochemistry explanation batch needs its own promotion approval. PrepLadder's
+  separate 422-item manual visual audit is not certified by this image release.
+- Before another content batch, its owner should reconcile the accepted main
+  runtime into the canonical integration trunk so future work retains notes,
+  account isolation, search, correction, and Home/result behavior. Existing
+  worker branches were left intact. Tap/haptic changes remain unapproved.
