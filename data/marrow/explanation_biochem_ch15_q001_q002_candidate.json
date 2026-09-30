@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Candidate learner-facing Marrow ED8 Biochemistry Chapter 15 Q1-Q2 explanation refinement. Raw imported source remains immutable.",
+  "scope": {"subject":"Biochemistry","bank":"Marrow","chapterId":"15","questionStart":1,"questionEnd":2,"questions":2,"status":"candidate-rollout","workloadScore":2,"canonicalBaseSha":"d4abce86068b4221e61e541c34dd29258de61cca","sourceRawSha256":"919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"},
+  "questions": {
+    "marrow__BIOCHEM_CH15_Q001": {
+      "takeaway":"Triacylglycerol is a glycerolipid: three fatty acids are esterified to glycerol.",
+      "displayText":"Glycerolipids are esters of glycerol with fatty acids. Monoacylglycerols, diacylglycerols, and triacylglycerols differ by the number of fatty-acid residues esterified to glycerol. A triacylglycerol therefore consists of glycerol esterified with three fatty acids and belongs to the glycerolipid class.",
+      "emphasis":["glycerolipid","glycerol esterified with three fatty acids"],
+      "rationales":{"b":"Glycerophospholipids contain phosphate in addition to a glycerol backbone; triacylglycerol has no phosphate head group.","c":"Glycolipids contain a carbohydrate moiety and are not the class to which triacylglycerol belongs.","d":"Sterol lipids are based on the steroid ring system rather than a glycerol triester."},
+      "sourceNotes":["ED8 Biochemistry question p.229; explanation p.237."]
+    },
+    "marrow__BIOCHEM_CH15_Q002": {
+      "takeaway":"Triacylglycerol catabolism begins with lipase-mediated hydrolysis, releasing free fatty acids and glycerol before further metabolism.",
+      "displayText":"Stored triacylglycerol cannot enter oxidative pathways intact. Lipases first hydrolyze its ester bonds, producing free fatty acids and glycerol. In adipose tissue this lipolysis releases fatty acids into plasma, where they travel bound to albumin and can then be oxidized by other tissues or re-esterified.",
+      "emphasis":["lipase-mediated hydrolysis","free fatty acids and glycerol","bound to albumin"],
+      "rationales":{"a":"Decarboxylation is not the initiating reaction that mobilizes fatty acids from stored triacylglycerol.","c":"Fatty-acid oxidation occurs only after lipolysis has released fatty acids from triacylglycerol.","d":"Dehydrogenation occurs within oxidative pathways; it does not release the fatty-acid chains from glycerol."},
+      "sourceNotes":["ED8 Biochemistry question p.229; explanation pp.237-238."]
+    }
+  }
+}
