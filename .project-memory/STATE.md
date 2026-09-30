@@ -128,7 +128,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 - New axonal-transport and source-backed residual structured presentations are build-verified but still need user physical preview review before acceptance.
 - Future flattened table/list questions may exist outside literal `match` wording; treat them as structured-presentation defects, not ordinary prose cleanup.
 - Seven remaining ambiguous question records and 56 explanation records retain `■` OCR loss after safe scientific rendering; resolve them from rendered authoritative source with stable-ID/fingerprinted cleanup rather than guessing globally.
-- Physiology images remain incomplete outside merged Ch8–14. Biochemistry source visuals are integrated; Ch17 Q14’s promised teeth image is absent from source. Anatomy Ch45 Q4 lacks its source marker.
+- Physiology image backlog is limited to the separately reserved Ch3–7 references and cue. Biochemistry source visuals are integrated; Ch17 Q14’s promised teeth image is absent from source. Anatomy Ch45 Q4 lacks its source marker.
 - Four PrepLadder source records remain intentionally non-answerable rather than recording corrupt attempts: `anatomy-22-4`, `physiology-23-38`, `physiology-24-6`, `physiology-33-33`.
 - Production promotion remains prohibited unless explicitly requested.
 
