@@ -111,7 +111,7 @@ If defining list items, table cells, labels, or image-dependent facts are absent
 Current canonical deterministic inventory:
 - `data/marrow/explanation_inventory_v1.json` accounts for all 2,711 IDs;
 - `tools/inventory_marrow_explanations.py` regenerates it from canonical source bundles and verified augmentation;
-- current canonical checkpoint: 576 enhanced-reference questions and 2,135 pending, subject to live regeneration after each verified batch.
+- Resolve current counts from the deterministic inventory and actual preview runtime map; historical checkpoint counts are not current status.
 
 1. **Inventory first**
    - enumerate all 2,711 IDs and review statuses;

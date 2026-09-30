@@ -774,3 +774,7 @@ two-paused-chapter submit, Review Solutions, and Home Continue sequence. Canonic
 handoff and promotion status are maintained in `.project-memory/STATE.md` and
 `.project-memory/SESSION_LOG.md`; production and physical in-place upgrade remain
 separate.
+
+### Explanation refinement candidate — 2026-09-30
+
+User-directed parallel Luna wave: 83 new explanations plus nine existing emphasis repairs, source inventory 753 enhanced / 1,958 pending. Latest released preview remains 670 until exact-head combined CI passes. Primary owns shared integration; immutable sources/omission gates are preserved. See canonical STATE.md, wave manifest and docs/question-explanations/ audits. Production is not promoted.

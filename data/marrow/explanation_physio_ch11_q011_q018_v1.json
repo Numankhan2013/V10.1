@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Marrow ED8 Physiology Chapter 11 Sensory Receptors explanation refinement, source-order Q11–Q18. Raw source is immutable; this file contains learner-facing candidate augmentation only.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "11",
+    "chapterTitle": "Sensory Receptors",
+    "questionStart": 11,
+    "questionEnd": 18,
+    "questions": 8,
+    "status": "approved-rollout",
+    "canonicalBaseSha": "81822e44753f5c3af7c2f2b0719d12230eed4478"
+  },
+  "workload": {
+    "target": 16,
+    "max": 20,
+    "score": 17.0,
+    "notes": "Eight contiguous source-order questions. Q11: base 1 + native source table 0.5 + OCR/table cleanup 1 = 2.5. Q12: clean SBA base 1. Q13: base 1 + OCR cleanup 1 = 2. Q14: clean SBA base 1. Q15: base 1 + resolved source-phrase reconstruction 2 + primary literature check of endocannabinoid signaling in PAG 1 = 4. Q16: base 1 + native comparison table 0.5 + OCR cleanup 1 = 2.5. Q17: clean SBA base 1. Q18: base 1 + source figure 1 + OCR/symbol cleanup 1 = 3. Total 17. No question-completeness gate is recorded for these IDs."
+  },
+  "questions": {
+    "marrow__PHYS_CH11_Q011": {
+      "takeaway": "Heat nociceptors begin responding at about 45 °C, the source-keyed threshold among the options.",
+      "displayText": "The source-keyed answer is approximately 45 °C for heat-pain fibers. The source table distinguishes ordinary temperature-receptor peaks from nociceptor activation thresholds: the cold-receptor peak is about 24 °C and the warm-receptor peak about 45 °C; cold nociceptors are stimulated around 5 °C, while heat nociceptors begin responding around 45 °C.\n\nThe source also lists cold-receptor afferents as Aδ and C fibers and warm-receptor afferents as unmyelinated C fibers. These are separate temperature-receptor categories; the question asks specifically for the heat-pain threshold.",
+      "emphasis": [
+        "approximately 45 °C",
+        "heat-pain fibers",
+        "cold nociceptors are stimulated around 5 °C",
+        "warm-receptor afferents as unmyelinated C fibers"
+      ],
+      "displayTables": [
+        {
+          "title": "Thermal receptor ranges in the source",
+          "source_page": 220,
+          "columns": [
+            "Cold receptor",
+            "Warm receptor"
+          ],
+          "rows": [
+            [
+              "Peak: 24 °C",
+              "Peak: 45 °C"
+            ],
+            [
+              "Cold nociceptor: around 5 °C",
+              "Heat nociceptor: around 45 °C"
+            ],
+            [
+              "Cold receptor fibers: Aδ and C fibers",
+              "Warm receptor fibers: unmyelinated C fibers"
+            ]
+          ]
+        }
+      ],
+      "rationales": {
+        "a": "30 °C is within the non-noxious warm range, below the source's approximate heat-pain threshold.",
+        "b": "49 °C is above the approximate onset; the keyed threshold is around 45 °C, not 49 °C.",
+        "d": "35 °C is below the approximate temperature at which heat-pain fibers begin responding."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source table's temperature symbols and several words are damaged by OCR in the imported explanation.",
+        "reconstructedContent": "The source page image confirms the temperature entries (24 °C, 45 °C, about 5 °C, and about 45 °C) and the listed fiber groups. The keyed heat-pain onset remains approximately 45 °C.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology Chapter 11, printed source page 212 (question/options), page 215 (answer key), and page 220 (solution/table); source PDF SHA-256 recorded in the accompanying batch report.",
+          "Canonical source question PHYS_CH11_Q011 and answer-key page 215: option C."
+        ],
+        "reviewNote": "Values and receptor labels are transcribed from the scanned source table; the source item and answer key remain unchanged.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          220
+        ]
+      }
+    },
+    "marrow__PHYS_CH11_Q012": {
+      "takeaway": "The Weber–Fechner law relates perceived sensation magnitude to the logarithm of stimulus intensity.",
+      "displayText": "The Weber–Fechner law relates the magnitude of a perceived sensation to the logarithm of stimulus intensity, so the source-keyed choice is “Log of intensity of stimulus.”\n\nThe source also distinguishes two other sensory principles. The doctrine of specific nerve energies says that activating a sensory pathway produces the modality for which that pathway is specialized, regardless of where along it the activation begins. The law of projection says that stimulation anywhere along a sensory pathway is perceived as arising from the pathway's receptor location.",
+      "emphasis": [
+        "Weber–Fechner law",
+        "logarithm of stimulus intensity",
+        "doctrine of specific nerve energies",
+        "law of projection"
+      ],
+      "rationales": {
+        "a": "Muscle-contraction strength is not the variable in the Weber–Fechner relationship.",
+        "c": "Action-potential amplitude is largely all-or-none; stimulus intensity is reflected by firing frequency and recruitment, not spike amplitude.",
+        "d": "Stimulus duration is not the quantity related to sensation magnitude by the Weber–Fechner law."
+      }
+    },
+    "marrow__PHYS_CH11_Q013": {
+      "takeaway": "Phantom-limb pain after amputation is the source-keyed example of cortical plasticity.",
+      "displayText": "This patient has phantom-limb pain: pain perceived in the missing limb after amputation. Among the listed mechanisms, the source keys cortical plasticity. After loss of a body part, cortical representations can reorganize, and neighboring representations may extend into the cortical region formerly associated with the amputated part.\n\nThis reorganization is one recognized contributor to phantom-limb phenomena; the source's exam distinction is cortical plasticity rather than a change in the limb's peripheral sensory receptor.",
+      "emphasis": [
+        "phantom-limb pain",
+        "cortical plasticity",
+        "cortical representations can reorganize",
+        "neighboring representations may extend"
+      ],
+      "rationales": {
+        "a": "Müller's law of specific nerve energies explains sensory modality by the pathway activated, not cortical remapping after amputation.",
+        "b": "The labeled-line principle describes modality-specific pathways; the source asks for the post-amputation cortical reorganization associated with phantom pain.",
+        "d": "Weber–Fechner relates sensation magnitude to stimulus intensity and does not explain phantom-limb pain."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation is heavily corrupted by OCR, obscuring the source's sentence about cortical reorganization and neighboring representations.",
+        "reconstructedContent": "The scanned source solution clearly identifies phantom-limb pain and cortical plasticity, then explains that neighboring cortical representations spread into the region formerly representing the amputated part.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology Chapter 11, printed source page 213 (question/options), page 215 (answer key), and page 221 (solution); source PDF SHA-256 recorded in the accompanying batch report.",
+          "Canonical source question PHYS_CH11_Q013 and answer-key page 215: option C."
+        ],
+        "reviewNote": "Only the learner-facing explanation is cleaned. The source stem, options, key, and underlying uncertainty about multifactorial phantom pain are not altered."
+      }
+    },
+    "marrow__PHYS_CH11_Q014": {
+      "takeaway": "Allodynia is pain caused by a normally innocuous sensory stimulus.",
+      "displayText": "Allodynia is pain produced by a stimulus that normally does not provoke pain. Hyperalgesia is an exaggerated response to a noxious stimulus; for example, sunburned skin becomes unusually sensitive as local inflammatory mediators, including histamine and prostaglandins, sensitize pain endings.\n\nCausalgia is a neuropathic pain syndrome, classically burning pain after nerve injury. Analgesia means reduced or absent pain. Therefore allodynia is the source-keyed term for painful perception of normal sensory input.",
+      "emphasis": [
+        "Allodynia",
+        "normally does not provoke pain",
+        "Hyperalgesia",
+        "Causalgia"
+      ],
+      "rationales": {
+        "b": "Hyperalgesia is an exaggerated response to a stimulus that is already noxious, rather than pain from an innocuous stimulus.",
+        "c": "Analgesia is a reduction or absence of pain, the opposite of painful perception.",
+        "d": "Causalgia is neuropathic pain associated with nerve injury, not the general definition of pain from normal sensory input."
+      }
+    },
+    "marrow__PHYS_CH11_Q015": {
+      "takeaway": "Anandamide signaling is present in the periaqueductal gray pain-modulation system, making the source-keyed statement the best answer.",
+      "displayText": "Anandamide (AEA) is an endogenous cannabinoid, alongside 2-arachidonoylglycerol (2-AG). These lipid mediators act at cannabinoid receptors CB1 and CB2. CB1 signaling is prominent in central pain circuits, while CB2 receptors are especially associated with immune and peripheral signaling; endocannabinoid action can produce antinociceptive effects in the appropriate circuit.\n\nThe source-keyed statement is that anandamide signaling occurs in the periaqueductal gray (PAG) and other pain-related regions. The wording “anandamide-containing neurons” is imprecise: primary experiments show stimulus-associated release of anandamide in the PAG, including after painful stimulation, rather than describing it as a conventional transmitter stored in a dedicated class of vesicle-filled neurons.\n\nPAG endocannabinoid signaling and the descending opioid pathway are related pain-modulation systems but are not identical. PAG output recruits ventromedial medullary/raphe circuitry that can inhibit spinal nociceptive transmission, including through endogenous opioid signaling in downstream medullary pathways. The source's shorthand that the PAG itself releases endogenous opiates should not be read as a precise account of the full circuit; anandamide itself binds cannabinoid, not opioid, receptors.",
+      "emphasis": [
+        "Anandamide (AEA) is an endogenous cannabinoid",
+        "source-keyed statement",
+        "stimulus-associated release of anandamide in the PAG",
+        "anandamide itself binds cannabinoid"
+      ],
+      "rationales": {
+        "a": "Anandamide is produced endogenously; it is one of the endogenous cannabinoid ligands.",
+        "b": "The source describes endocannabinoids as antinociceptive in this context, not as the nociceptive agent being contrasted here.",
+        "d": "Anandamide acts through cannabinoid signaling, particularly CB1 in central pain pathways, rather than binding opioid receptors."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The phrase “anandamide-containing neurons” may imply that this lipid mediator is stored like a conventional vesicular neurotransmitter. The source explanation also risks conflating PAG endocannabinoid modulation with the distinct descending opioid pathway.",
+        "reconstructedContent": "The option remains the source-keyed best answer because anandamide is released and acts in PAG pain-modulatory circuits. The explanation describes stimulus-associated PAG release and distinguishes cannabinoid signaling from the opioid component of descending modulation.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology Chapter 11, printed source page 213 (question/options), page 215 (answer key), and pages 221–222 (solution); source PDF SHA-256 recorded in the accompanying batch report.",
+          "Walker JM, et al. Pain modulation by release of the endogenous cannabinoid anandamide. Science. 1999;283(5409):401–404. PMCID: PMC18435. Rat PAG microdialysis demonstrated stimulus-associated anandamide release and CB1-mediated antinociception.",
+          "Hohmann AG, et al. An endocannabinoid mechanism for stress-induced analgesia. Nature. 2005;435:1108–1112. DOI: 10.1038/nature03658. Reports coordinated 2-AG and anandamide signaling in PAG-associated stress analgesia."
+        ],
+        "reviewNote": "Resolved as a wording/mechanism clarification; option C and the source key remain unchanged. The source is not rewritten to claim a distinct population of anandamide-storing neurons."
+      }
+    },
+    "marrow__PHYS_CH11_Q016": {
+      "takeaway": "Visceral pain is typically poorly localized and carried predominantly by small C fibers.",
+      "displayText": "Visceral pain is commonly diffuse or poorly localized, unpleasant, and accompanied by autonomic symptoms such as nausea. It often arises from thoracic or abdominal organs and is transmitted mainly by small C fibers.\n\nVisceral pain may be referred to a somatic region. A leading explanation is convergence of visceral and somatic afferents onto shared second-order neurons in the spinal dorsal horn; these neurons ascend to the thalamus and then the primary somatosensory cortex. The brain may attribute the signal to the more familiar somatic territory. Referred pain often follows shared segmental/dermatomal organization; the source gives the heart and arm as an example.\n\nThe source comparison below contrasts the fast Aδ component with the slow C-fiber component; it supports why visceral pain is associated with slow, poorly localized pain rather than fast pain. The source pairs Aδ fibers with glutamate and C fibers with substance P; these transmitter associations are retained here even though the table focuses on its four comparison rows.",
+      "emphasis": [
+        "poorly localized",
+        "small C fibers",
+        "convergence of visceral and somatic afferents",
+        "heart and arm"
+      ],
+      "displayTables": [
+        {
+          "title": "Source comparison of Aδ and C pain fibers",
+          "source_page": 222,
+          "columns": [
+            "Feature",
+            "Aδ fiber",
+            "C fiber"
+          ],
+          "rows": [
+            [
+              "Stimuli",
+              "Mechanical and thermal",
+              "Polymodal"
+            ],
+            [
+              "Myelination and tract",
+              "Myelinated; neospinothalamic tract",
+              "Unmyelinated; paleospinothalamic tract"
+            ],
+            [
+              "Conduction velocity",
+              "12–30 m/s",
+              "0.5–2 m/s"
+            ],
+            [
+              "Impulse conduction",
+              "Fast component of pain",
+              "Slow component of pain"
+            ],
+            [
+              "Neurotransmitter",
+              "Glutamate",
+              "Substance P"
+            ]
+          ]
+        }
+      ],
+      "rationales": {
+        "b": "Visceral pain is not characteristically rapidly adapting; the source emphasizes persistent, poorly localized pain and autonomic features.",
+        "c": "The source describes visceral pain as carried mainly by small C fibers, not B fibers.",
+        "d": "Visceral pain is typically slow and diffuse, not the fast, sharply localized Aδ component."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation has OCR corruption in the convergence statement and fiber-comparison table.",
+        "reconstructedContent": "The scanned source page confirms visceral/somatic afferent convergence on shared dorsal-horn second-order neurons, segmental referred-pain explanation, heart/arm example, and the Aδ-versus-C comparison table. The table values are preserved in the structured display table.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology Chapter 11, printed source page 214 (question/options), page 215 (answer key), and page 222 (solution and comparison table); source PDF SHA-256 recorded in the accompanying batch report.",
+          "Canonical source question PHYS_CH11_Q016 and answer-key page 215: option A."
+        ],
+        "reviewNote": "The table is rendered from the inspected source rows; raw question data and native figure/table metadata are unchanged.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          222
+        ]
+      }
+    },
+    "marrow__PHYS_CH11_Q017": {
+      "takeaway": "Pulmonary alveoli are largely insensitive to pain, unlike the parietal pleura and stretched liver capsule.",
+      "displayText": "Pulmonary alveoli and liver parenchyma are largely insensitive to pain. In contrast, the liver capsule is sensitive to direct trauma and stretch. Bile ducts, bronchi, arterial walls, and the parietal pleura are pain-sensitive.\n\nThus alveoli are the source-keyed pain-insensitive structure among these choices.",
+      "emphasis": [
+        "Pulmonary alveoli",
+        "are largely insensitive to pain",
+        "liver capsule is sensitive to direct trauma and stretch",
+        "parietal pleura"
+      ],
+      "rationales": {
+        "b": "The liver capsule is sensitive to stretch and direct trauma, so it is not the pain-insensitive choice.",
+        "c": "The parietal pleura is pain-sensitive, unlike the largely insensitive alveolar parenchyma.",
+        "d": "Arterial walls contain pain-sensitive afferents and are not the source-keyed insensitive structure."
+      }
+    },
+    "marrow__PHYS_CH11_Q018": {
+      "takeaway": "TENS can reduce pain by activating large-diameter Aβ touch afferents that engage inhibitory gating in the dorsal horn.",
+      "displayText": "Transcutaneous electrical nerve stimulation (TENS) can activate large-diameter, non-nociceptive Aβ touch-pressure afferents near the painful area. Their activity recruits inhibitory circuitry in the substantia gelatinosa of the dorsal horn, reducing transmission from nociceptive Aδ and C fibers: the gate-control model of pain modulation.\n\nThe source diagram traces nociceptive Aδ/C input toward ascending pathways and shows Aβ input acting through an inhibitory interneuron at the spinal gate. The same principle helps explain why rubbing or shaking an injured area, local vibration, and some counterirritants such as a mustard plaster may temporarily reduce pain. The source-keyed mechanism is gate theory, not referred pain, allodynia, or nonspecific analgesic action.",
+      "emphasis": [
+        "large-diameter, non-nociceptive Aβ touch-pressure afferents",
+        "inhibitory circuitry in the substantia gelatinosa",
+        "nociceptive Aδ and C fibers",
+        "gate-control model of pain modulation"
+      ],
+      "rationales": {
+        "a": "Referred pain is pain perceived at a site distant from its visceral or somatic source; it does not explain TENS analgesia.",
+        "c": "Allodynia is pain caused by a normally innocuous stimulus, not the inhibitory mechanism by which TENS can relieve pain.",
+        "d": "Analgesics may relieve pain pharmacologically, but the question asks for TENS's sensory-gating mechanism."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution has OCR-corrupted Aδ/Aβ notation and describes an explanation figure whose labels must remain connected to the mechanism.",
+        "reconstructedContent": "The scanned solution identifies TENS as gate-control analgesia at the dorsal-horn substantia gelatinosa: large Aβ touch-pressure input inhibits transmission from Aδ/C nociceptive afferents. The source also explicitly links touch, shaking, vibration, and counterirritants to this model.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology Chapter 11, printed source page 214 (question/options), page 215 (answer key), and pages 222–223 (solution and gate-control diagram); source PDF SHA-256 recorded in the accompanying batch report.",
+          "Canonical source question PHYS_CH11_Q018 and answer-key page 215: option B."
+        ],
+        "reviewNote": "The diagram remains source-owned. The learner-facing explanation restores fiber notation from the scanned labels without changing source image metadata."
+      }
+    }
+  }
+}

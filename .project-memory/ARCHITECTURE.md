@@ -247,7 +247,7 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   structured source text/tables. The enhanced runtime layer includes only
   `approved-reference` and `approved-rollout` batches; `candidate-rollout`
   files retain validated identity/count but are excluded from packaging and
-  inventory enhancement counts. The current approved subset is 646 of 2,711.
+  inventory enhancement counts. Resolve the current approved subset from the deterministic inventory; historical counts are not release status.
 - `data/marrow/explanation_inventory_v1.json` is deterministic, text-free review
   metadata for all 2,711 IDs. It is regenerated from source hashes and never
   changes imported records or learner-facing explanations.
@@ -389,3 +389,15 @@ queue report is retained as an artifact. Current compilation contains 114 bounde
 display entries. Native source pixels may replace a previously released region crop
 for QUESTION ownership when that crop includes neighboring prose; existing
 explanation ownership remains intact (Physiology37Q9 is the concrete example).
+
+## Reviewed explanation refinements — 2026-09-30
+
+User-directed parallel content workers own disjoint chapter files; one integrator
+owns shared state and a combined verification build. The refinement-wave manifest
+pins exact reviewed augmentation/source hashes, prior approved IDs, raw bundle
+hashes and the complete source-omission ledger. Source checks reject duplicate
+IDs, invalid emphasis and source-key/rationale drift. The wave browser checks
+every new runtime config on phone/tablet and real representative answer surfaces.
+`displayTables` is an approved-explanation-only display override for source-page-
+reviewed table reconstructions with provenance, leaving imported metadata intact.
+The shared compatibility renderer owns both native and reviewed display tables.

@@ -1126,3 +1126,36 @@ It is successful when each run leaves the repository in one of two states:
 
 Never trade traceability for throughput.
 
+## User-directed parallel refinement waves — 2026-09-30
+
+When the user explicitly requests parallel authoring and a combined preview build,
+assign disjoint, bounded chapter batches to workers. Workers may edit only their
+assigned augmentation files and audit reports. One integrator owns inventory,
+runtime, verification, memory, commits and release. The user-directed wave may
+combine reviewed chapter batches into one full verification build; the scheduled
+single-batch restrictions above do not prohibit this explicitly authorized mode.
+
+Use the canonical integration trunk and complete 2,711-question corpus defined
+in `MARROW_CANONICAL_AUTOMATION_POLICY.md`; historical lineage/count instructions
+above are superseded by that policy. Resolve pending work from actual approved
+stable IDs before treating an open PR as unfinished: PR76 remained open even
+though its Biochemistry Ch14 Q1–8 content was already canonical and live.
+
+Source review must compare the full original explanation, not just its answer
+sentence. Preserve unique mechanisms, enzymes/cofactors, derivatives, definitions,
+lists and classifications. Readability does not justify replacing the source
+with a generic summary. Correct medical source limitations with explicit evidence
+and provenance rather than silently omitting difficult statements.
+
+Verbatim emphasis must be checked case-sensitively. Source-PDF table placeholders
+with null columns/rows are not completed tables. Recoverable tables may use
+reviewed `displayTables` augmentation with exact source-page ownership and
+reconstruction evidence; the raw imported table remains immutable. Existing
+populated native tables remain owned by the shared compatibility renderer.
+
+The first wave is pinned by `explanation_refinement_wave_20260930.json` and
+validated by `test_marrow_explanation_refinement_wave.py`. Its browser verifier
+checks every new ID's compiled augmentation on phone/tablet and real answer,
+distractor, emphasis, FSRS and populated-table surfaces for each batch and all
+table owners. Passing source checks or setting `approved-rollout` is not a claim
+of full build verification; exact-head Engineering and full CI remain required.

@@ -541,7 +541,7 @@ if "const NK_MARROW_EXPLANATION_GOLD_V1=" not in source:
   function nkRenderMarrowExplanation(q){
     const cfg=NK_MARROW_EXPLANATION_GOLD_V1[String(q.id)];
     if(!cfg)return nkRenderMarrowExplanationBase(q);
-    const data=q.structuredExplanation||{},text=data.text||q.explanation||'',tables=Array.isArray(data.tables)?data.tables:[];
+    const data=q.structuredExplanation||{},text=data.text||q.explanation||'',tables=Array.isArray(cfg?.displayTables)?cfg.displayTables:(Array.isArray(data.tables)?data.tables:[]);
     const displayText=String(cfg?.displayText||'').trim();
     const conciseText=displayText||nkGoldConciseText(text,q);
     const trace=q.provenance||{},pages=Array.isArray(trace.explanationPages)?trace.explanationPages:[];

@@ -97,6 +97,8 @@ def validate_augmented_question(qid: str, cfg: dict, source_q: dict, origin: str
         fail(f"{origin}: invalid emphasis count for {qid}")
     if any(not str(p).strip() for p in emphasis):
         fail(f"{origin}: blank emphasis anchor for {qid}")
+    if any(str(p) not in display for p in emphasis):
+        fail(f"{origin}: emphasis anchor absent from display text for {qid}")
     if "sourceText" in cfg:
         fail(f"{origin}: learner augmentation embeds forbidden sourceText for {qid}")
     options = source_q.get("options", [])
@@ -113,6 +115,28 @@ def validate_augmented_question(qid: str, cfg: dict, source_q: dict, origin: str
         fail(f"{origin}: distractor rationale mapping mismatch for {qid}")
     if any(not str(reason).strip() for reason in rationales.values()):
         fail(f"{origin}: blank distractor rationale for {qid}")
+    if 'displayTables' in cfg:
+        reconstruction = cfg.get('reconstruction', {})
+        if reconstruction.get('status') != 'resolved_reconstruction' or not all(
+            reconstruction.get(key) for key in ('sourceProblem', 'reconstructedContent', 'evidenceBasis', 'reviewNote')
+        ):
+            fail(f"{origin}: display tables require resolved source reconstruction for {qid}")
+        native = (source_q.get('structuredExplanation') or {}).get('tables') or []
+        reviewed = cfg['displayTables']
+        if not isinstance(reviewed, list) or len(reviewed) != len(native):
+            fail(f"{origin}: display table ownership/count mismatch for {qid}")
+        for table, source_table in zip(reviewed, native):
+            if table.get('source_page') != source_table.get('source_page'):
+                fail(f"{origin}: display table source page mismatch for {qid}")
+            columns, rows = table.get('columns'), table.get('rows')
+            if not isinstance(columns, list) or not columns or not isinstance(rows, list) or not rows:
+                fail(f"{origin}: empty reviewed display table for {qid}")
+            if any(not isinstance(label, str) or not label.strip() for label in columns):
+                fail(f"{origin}: invalid reviewed table header for {qid}")
+            if any(not isinstance(row, list) or len(row) != len(columns) or any(
+                not isinstance(cell, str) or not cell.strip() for cell in row
+            ) for row in rows):
+                fail(f"{origin}: invalid reviewed table cells for {qid}")
 
 
 def approved_batch(record: dict, path: Path, expected_subject: str) -> bool:

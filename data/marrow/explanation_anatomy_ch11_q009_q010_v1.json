@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Extension of the bounded Marrow ED8 Anatomy Chapter 11 learner-facing explanation augmentation; raw source remains immutable.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "11",
+    "chapterTitle": "Cell Structure, Epithelia, Glands & Connective Tissue",
+    "questionStart": 9,
+    "questionEnd": 10,
+    "questions": 2,
+    "status": "approved-rollout",
+    "workloadScore": 3,
+    "canonicalBaseSha": "81822e44753f5c3af7c2f2b0719d12230eed4478"
+  },
+  "questions": {
+    "marrow__ANAT_CH11_Q009": {
+      "takeaway": "Parietal peritoneum is mesothelium: a simple squamous epithelial lining of a serous body cavity.",
+      "displayText": "The parietal peritoneum is lined by simple squamous epithelium. Simple squamous epithelium is seen in alveoli of lungs, the thin segment of the loop of Henle, blood and lymphatic vessels (endothelium), body cavities such as pleura, peritoneum and pericardium (mesothelium), and the inside of the heart (endocardium).",
+      "emphasis": [
+        "simple squamous epithelium",
+        "peritoneum",
+        "mesothelium",
+        "endocardium"
+      ],
+      "rationales": {
+        "b": "Stratified squamous epithelium is multilayered and is not the serosal lining of the peritoneum.",
+        "c": "Cuboidal epithelium is typical of sites such as thyroid follicles and many renal tubules, not parietal peritoneum.",
+        "d": "Columnar epithelium is not the epithelial type forming the mesothelial lining of the peritoneal cavity."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          196,
+          197
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and shared renderer."
+      }
+    },
+    "marrow__ANAT_CH11_Q010": {
+      "takeaway": "Thyroid follicles are lined by simple cuboidal epithelium.",
+      "displayText": "Thyroid follicles are lined by cuboidal epithelium. Cuboidal epithelium consists of a single layer of cells in which cell height is approximately equal to cell width, with usually rounded nuclei. Cuboidal cells are seen in thyroid follicles, the surface of the ovary (germinal epithelium), choroid plexuses, the inner surface of the lens, the pigment cell layer of the retina, and proximal convoluted tubules of the kidneys (brush-border cuboidal epithelium).\n\nFollicular cell height varies with activity; active follicles may have a taller, columnar lining.",
+      "emphasis": [
+        "cuboidal epithelium",
+        "single layer of cells",
+        "Thyroid follicles",
+        "rounded nuclei"
+      ],
+      "rationales": {
+        "a": "Stratified cuboidal epithelium has multiple cell layers; thyroid follicles normally have a single cuboidal layer.",
+        "c": "Stratified columnar epithelium is multilayered and does not form the usual thyroid follicular lining.",
+        "d": "Active thyroid follicles can have taller, columnar cells, but simple cuboidal epithelium is the usual baseline lining asked here."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The columnar distractor requires an activity-dependent qualification rather than an absolute exclusion.",
+        "reconstructedContent": "Simple cuboidal is the baseline source-keyed answer; active follicles may be columnar.",
+        "evidenceBasis": "Source explanation and Endotext, Ontogeny, Anatomy, Metabolism and Physiology of the Thyroid: https://www.ncbi.nlm.nih.gov/books/NBK285554/",
+        "reviewNote": "Preserves source key and all original anatomical examples."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          197,
+          198
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and shared renderer."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "donorCommit": "69d04962186d0f8c6754e7a7efa8602a0e3bafd3"
+  }
+}

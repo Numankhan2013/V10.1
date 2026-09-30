@@ -206,3 +206,10 @@ Priority 0: reproduce and restore user-reported unreadable PDF explanations. The
 ### Biochemistry image coverage recovery — Q26
 - Q26 native page-41 explanation figure released on the bounded specialist batch; Biochemistry remains incomplete at 72/110 raw references resolved, with 31 text-cue review items.
 - Continue strictly from `marrow__BIOCHEM_CH04_Q011:figure:1 (explanation, source pages [69], UNRELEASED_TRACKED)` after this batch is exact-head verified and reconciled into canonical.
+
+## Parallel explanation refinement wave — 2026-09-30
+
+- Current combined source-validated candidate adds 83 explanations and fixes nine existing emphasis arrays; exact-head full CI/preview remains the release boundary.
+- After certification, continue bounded pending source-order authoring at Anatomy Ch11 Q11, Biochemistry Ch14 Q24 and Physiology Ch11 Q19. Recompute actual approved IDs and source-limited dispositions before choosing a range.
+- User explicitly deferred incomplete-source recovery. Known gated numbered-list items remain pending but must not repeatedly block all later actionable explanation work; preserve their gates and list them separately.
+- Keep parallel workers on disjoint content/audit files, one shared-state writer, and combine reviewed results into fewer full builds. Preserve full unique source detail and actual populated table cells.
