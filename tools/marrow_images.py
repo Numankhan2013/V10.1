@@ -213,6 +213,8 @@ def validate(registry):
     qs = questions()
     value = json.loads(registry.read_text())
     assert value['schemaVersion']==1
+    source_hashes = {subject: sha((DATA/'source_pdfs'/filename).read_bytes())
+                     for subject, (_, filename) in SOURCES.items()}
     ids = set()
     for asset in value['assets']:
         assert asset['id'] not in ids
@@ -222,7 +224,7 @@ def validate(registry):
         assert asset['kind'] in {'diagram','medical','hybrid','table','unknown'}
         src = asset['source']
         source_path = DATA/'source_pdfs'/SOURCES[asset['subject']][1]
-        assert src['file']==source_path.name and src['sha256']==sha(source_path.read_bytes())
+        assert src['file']==source_path.name and src['sha256']==source_hashes[asset['subject']]
         assert isinstance(src['page'],int) and src['page']>0
         assert len(src['region'])==4 and src['region'][0]<src['region'][2] and src['region'][1]<src['region'][3]
         assert all(isinstance(n,(float,int)) and __import__('math').isfinite(n) for n in src['region'])

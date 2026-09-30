@@ -1,54 +1,55 @@
 {
   "schemaVersion": 1,
   "assets": {
-    "total": 166,
+    "total": 1308,
     "byStatus": {
-      "PASS": 160,
-      "REJECTED": 2,
-      "REVIEW_REQUIRED": 2,
-      "SOURCE_LIMITED": 2
+      "PASS": 1166,
+      "REJECTED": 1,
+      "REVIEW_REQUIRED": 1,
+      "SOURCE_LIMITED": 140
     },
     "byKind": {
-      "diagram": 134,
-      "hybrid": 3,
-      "medical": 28,
-      "table": 1
+      "diagram": 939,
+      "hybrid": 32,
+      "medical": 241,
+      "table": 4,
+      "unknown": 92
     },
     "byMethod": {
-      "native-jpeg-stream": 159,
-      "region-render": 3,
+      "native-jpeg-stream": 1047,
+      "region-render": 257,
       "svg-reconstruction": 4
     }
   },
   "bindings": {
-    "total": 212,
+    "total": 1516,
     "byStatus": {
-      "PASS": 184,
-      "REJECTED": 25,
-      "REVIEW_REQUIRED": 2,
-      "SOURCE_LIMITED": 1
+      "PASS": 1483,
+      "REJECTED": 26,
+      "REVIEW_REQUIRED": 4,
+      "SOURCE_LIMITED": 3
     },
     "releasedByRole": {
-      "explanation": 146,
-      "question": 39
+      "explanation": 1126,
+      "question": 360
     },
-    "releasedQuestionCount": 170
+    "releasedQuestionCount": 1128
   },
   "subjects": {
     "Anatomy": {
-      "approvedAssets": 63,
-      "assets": 63,
-      "releasedQuestions": 64
+      "approvedAssets": 950,
+      "assets": 951,
+      "releasedQuestions": 771
     },
     "Biochemistry": {
-      "approvedAssets": 63,
-      "assets": 65,
-      "releasedQuestions": 66
+      "approvedAssets": 123,
+      "assets": 124,
+      "releasedQuestions": 126
     },
     "Physiology": {
-      "approvedAssets": 36,
-      "assets": 38,
-      "releasedQuestions": 40
+      "approvedAssets": 233,
+      "assets": 233,
+      "releasedQuestions": 231
     }
   },
   "batches": {
@@ -62,8 +63,7 @@
     },
     "NKQ_BIOCHEMISTRY_20260911": {
       "bindings": 6,
-      "pendingBindings": 1,
-      "releasedBindings": 5
+      "releasedBindings": 6
     },
     "NKQ_BIOCHEM_COVERAGE_Q06_Q07_20260912_V3": {
       "bindings": 2,
@@ -85,9 +85,65 @@
       "bindings": 1,
       "releasedBindings": 1
     },
+    "QUESTION_COMPLETENESS_20260930": {
+      "bindings": 8,
+      "releasedBindings": 8
+    },
+    "manual-biochem-ch25-28-20260928": {
+      "bindings": 20,
+      "releasedBindings": 20
+    },
+    "manual-physiology-ch03-07-20260928-ch07-tail": {
+      "bindings": 3,
+      "releasedBindings": 3
+    },
+    "manual-physiology-ch03-07-20260928-safe-donor": {
+      "bindings": 11,
+      "releasedBindings": 11
+    },
+    "manual-physiology-final-source-review-20260930": {
+      "bindings": 15,
+      "rejectedBindings": 1,
+      "releasedBindings": 14
+    },
+    "manual-resume-anatomy-ch60-63-20260930": {
+      "bindings": 52,
+      "pendingBindings": 1,
+      "releasedBindings": 51
+    },
+    "manual-resume-biochem-physiology-tail-20260930": {
+      "bindings": 4,
+      "releasedBindings": 4
+    },
+    "manual-resume-physiology-ch08-14-20260930": {
+      "bindings": 19,
+      "releasedBindings": 19
+    },
+    "manual-wave2-anatomy-ch01-26": {
+      "bindings": 324,
+      "releasedBindings": 324
+    },
+    "manual-wave2-anatomy-ch27-44": {
+      "bindings": 352,
+      "pendingBindings": 1,
+      "releasedBindings": 351
+    },
+    "manual-wave2-anatomy-ch45-63": {
+      "bindings": 1,
+      "pendingBindings": 1
+    },
+    "manual-wave2-anatomy-ch56-63": {
+      "bindings": 58,
+      "releasedBindings": 58
+    },
+    "manual-wave2-biochem-physiology": {
+      "bindings": 153,
+      "releasedBindings": 153
+    },
     "pilot": {
-      "bindings": 18,
-      "releasedBindings": 18
+      "bindings": 191,
+      "pendingBindings": 1,
+      "releasedBindings": 190
     },
     "rollout-01": {
       "bindings": 18,
@@ -115,14 +171,17 @@
     },
     "rollout-06-native": {
       "bindings": 30,
-      "pendingBindings": 1,
       "rejectedBindings": 6,
-      "releasedBindings": 23
+      "releasedBindings": 24
     },
     "rollout-07-native": {
       "bindings": 30,
       "rejectedBindings": 4,
       "releasedBindings": 26
+    },
+    "wave2-anatomy-ch45-63": {
+      "bindings": 111,
+      "releasedBindings": 111
     }
   }
 }

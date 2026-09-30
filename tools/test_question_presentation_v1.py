@@ -118,7 +118,7 @@ const rawById=Object.fromEntries(SUBJECTS.flatMap(record=>record.questions||[]).
 let repaired=0,repairedIds=[],invalid=[];for(const q of SUBJECTS.flatMap(record=>record.questions||[])){delete q.__nkQuestionPresentation;const p=nkQuestionPresentationFor(q);if(p.repaired){repaired++;repairedIds.push(q.id);}if(!p.valid)invalid.push(q.id);}
 assert.equal(repaired,8,'all extraction-shaped option arrays should normalize generically');
 assert.deepEqual(repairedIds.sort(),['anatomy-10-1','anatomy-29-1','anatomy-46-12','physiology-1-13','physiology-19-12','physiology-24-10','physiology-4-8','physiology-6-2']);
-assert.deepEqual(invalid.sort(),['anatomy-14-5','anatomy-22-4','anatomy-40-10','anatomy-47-2','anatomy-9-1','physiology-23-38','physiology-24-6','physiology-33-33']);
+assert.deepEqual(invalid.sort(),['anatomy-14-5','anatomy-22-4','anatomy-40-10','physiology-24-6']);
 const byId=Object.fromEntries(SUBJECTS.flatMap(record=>record.questions||[]).map(q=>[q.id,q]));
 const completeSources={
   '10-10':{correct:1,rows:[
@@ -312,9 +312,10 @@ for(const cleaned of [false,true]){
   vm.createContext(startup);
   vm.runInContext(fs.readFileSync('tools/question_presentation_core.js','utf8'),startup);
   const p=q.__nkQuestionPresentation,markup=startup.nkQuestionStemMarkup(q);
-  assert(p.valid);assert(!p.repaired);assert.equal(p.stem,glycogenPrompt);assert.equal(p.table,null);
-  assert.equal(p.stem,q.question.replace('■','α'));assert.equal(p.stem.length,q.question.length);
-  assert.equal(markup,'<span class="nk-question-prompt">'+glycogenPrompt+'</span>');assert(!markup.includes('\u25a0'));
+  assert(p.valid);assert(!p.repaired);assert.equal(startup.nkQuestionStemOverride(q).prompt,glycogenPrompt);
+  assert.deepEqual(p.table.groups[0].map(cell=>[cell.label,cell.value]),[
+    ['1','Arranged in 12 concentric layers'],['2','Glucose residues are connected by α-1,4 linkage'],['3','Branching points formed by α-1,6 linkage']]);
+  assert(markup.includes('nk-match-table'));assert(!markup.includes('\u25a0'));
   assert.deepEqual(p.options,glycogenOptions);assert.deepEqual(p.supporting,[]);
   assert.strictEqual(q.options,options);assert.equal(q.correctOption,3);assert.equal(p.options[q.correctOption-1].text,'1,2,3');
   assert.equal(q.id,'5-10');assert.equal(q.sourcePage,101);assert.equal(q.sourcePageEnd,101);
@@ -521,7 +522,7 @@ const missingCoronary=JSON.parse(JSON.stringify(byId['anatomy-27-23']));missingC
 assert(!nkQuestionPresentationFor(missingCoronary).valid);assert(nkQuestionStemMarkup(missingCoronary).includes('answering is disabled'));
 for(const id of ['physiology-36-7','anatomy-29-16'])assert(nkQuestionPresentationFor(byId[id]).valid,id+' established unequal override');
 assert.equal(byId['physiology-1-13'].options.length,4);
-for(const id of ['anatomy-14-5','anatomy-40-10','anatomy-47-2','anatomy-9-1']){
+for(const id of ['anatomy-14-5','anatomy-40-10']){
   const p=nkQuestionPresentationFor(byId[id]);
   assert(!p.valid,id+' with incomplete or conflicting source structure must fail closed');assert.equal(p.table,null,id+' with incomplete or conflicting source structure must not render a fabricated table');
   const markup=nkQuestionStemMarkup(byId[id]);assert(markup.includes('answering is disabled'),id+' must hide choices when source structure is incomplete');assert(!markup.includes('<table'),id+' must not render a table when source structure is incomplete');

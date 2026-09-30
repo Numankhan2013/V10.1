@@ -4,6 +4,18 @@
 
 ## Baseline and active work
 
+- Completed image promotion (2026-09-30): the user explicitly authorized
+  promoting the finished image integrations to main. Isolated candidate merges
+  canonical `81822e4` (verified product `de9c415`) with main `f0073c4`, preserving
+  every approved account/study feature and excluding tap/haptic changes.
+  Coverage: 1,502 references, 1,421 released, 79 invalid, two archival source
+  gaps, zero unresolved cues; runtime 1,486 bindings / 1,306 assets / 1,128
+  owners. Includes the verified source-completeness recovery and omission gates
+  needed by the final imagery. The independent Biochemistry Ch14 Q1–Q8
+  explanation batch is excluded; main remains 662 enhanced / 2,049 pending.
+  All 75 local checks pass; full combined candidate CI must pass before main
+  promotion. Source PDFs/imports and existing worker branches are unchanged.
+  See `docs/COMPLETED_IMAGE_MAIN_PROMOTION_2026-09-30.md`.
 - Approved study-tweak promotion (2026-09-30): `main` includes account
   reset/switching, all-bank question search, Practice correction passes, and
   Home/result refinements from the user-reviewed donor commits (PR #78).
@@ -60,9 +72,15 @@
 
 - Structured explanation tables must retain nonempty source cells in order, never `[object Object]`; user physically verified the repair. Matching/list reform and scientific notation are build-verified but later residual presentation still needs source-backed physical review. See `MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`.
 - OCR cleanup must use rendered authoritative source and stable-ID/fingerprinted overrides. Seven ambiguous question records and 56 explanation records retain `■` loss; do not guess missing content.
-- Four PrepLadder records remain intentionally non-answerable: `anatomy-22-4`, `physiology-23-38`, `physiology-24-6`, `physiology-33-33`.
+- The source-completeness pass restores two source-confirmed PrepLadder keys
+  (`physiology-23-38`, `physiology-33-33`). Thirty-three demonstrated source
+  omissions remain gated against scored answers through the pinned ledger;
+  original imports remain immutable.
 - Explanation inventory last recorded **662 enhanced-reference / 2,049 pending / 2,711 total**. Anatomy Ch7 Q11–Q21 is build-verified with physical review pending. Next batch must reacquire ownership from live canonical state; see `AUTOMATION_HANDOFF_ANATOMY_EXPLANATION_CH07_Q011_Q021_2026-09-23.md`.
-- PrepLadder visuals have 422 manual source-comparison items pending. Marrow Physiology image coverage is incomplete; Biochemistry Q11 remains `REVIEW_REQUIRED` due to source corruption. See `PREPLADDER_VISUAL_VERIFICATION_2026-09-16.md` and `IMAGE_AUTOMATION_READY_2026-09-20.md`.
+- PrepLadder visuals still have a separate 422-item manual source-comparison
+  audit. All recoverable Marrow images are integrated; two archival source
+  gaps remain documented, with no unresolved visual text cues. This does not
+  establish physical APK/data-preservation acceptance.
 
 ## Known problems and next step
 

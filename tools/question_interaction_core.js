@@ -54,7 +54,7 @@
   }
   function nkQuestionAction(handler,guard=()=>true){return function(){const args=[...arguments];if(!guard(...args))return false;return nkQuestionTransaction(()=>handler.apply(this,args));};}
   function nkCurrentQuestion(){const s=state.activeSession;return s?nkPracticeResumeQuestion(s.questionIds?.[s.index]):null;}
-  function nkValidQuestionOption(q,n){return Boolean(q)&&Number.isInteger(Number(n))&&(q.options||[]).some(o=>String(o.letter).toUpperCase().charCodeAt(0)-64===Number(n));}
+  function nkValidQuestionOption(q,n){return Boolean(q)&&nkQuestionPresentationFor(q).valid&&Number.isInteger(Number(n))&&(q.options||[]).some(o=>String(o.letter).toUpperCase().charCodeAt(0)-64===Number(n));}
   const nkIntegritySelectPractice=selectPractice;
   selectPractice=nkQuestionAction(nkIntegritySelectPractice,(id,n,owner)=>{
     const s=state.activeSession,q=nkCurrentQuestion();

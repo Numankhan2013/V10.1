@@ -280,7 +280,10 @@ def main() -> None:
             glycogen_raw = ("Which of the following statements is true on the structure of glycogen?\n"
                             "Arranged in 12 concentric layers Glucose residues are connected by ■-1,4 linkage\n"
                             "Branching points formed by α-1,6 linkage")
-            glycogen_prompt = glycogen_raw.replace("■", "α")
+            glycogen_prompt = "Which of the following statements is true on the structure of glycogen?"
+            glycogen_rows = [["1", "Arranged in 12 concentric layers"],
+                             ["2", "Glucose residues are connected by α-1,4 linkage"],
+                             ["3", "Branching points formed by α-1,6 linkage"]]
             glycogen_choices = ["1,2", "2,3", "1,2,3", "1,3"]
             glycogen_canonical = page.evaluate("""() => {
                 const s = window.QB.getState().activeSession;
@@ -295,12 +298,19 @@ def main() -> None:
                 raise SystemExit(f"Biochemistry 5-10 canonical record changed: {glycogen_canonical!r}")
             glycogen_stem = page.locator(".question-text .nk-question-prompt")
             glycogen_stem.wait_for(state="visible")
-            if glycogen_stem.count() != 1 or glycogen_stem.text_content() != glycogen_prompt or "\u25a0" in glycogen_stem.inner_text():
+            if glycogen_stem.count() != 1 or glycogen_stem.text_content() != glycogen_prompt:
                 raise SystemExit(f"Biochemistry 5-10 linkage repair missing: {glycogen_stem.all_text_contents()!r}")
-            if "Glucose residues are connected by α-1,4 linkage" not in glycogen_stem.inner_text():
+            glycogen_table = page.locator(".question-text table.nk-match-table")
+            glycogen_table.wait_for(state="visible")
+            glycogen_actual_rows = glycogen_table.locator("tbody tr").evaluate_all("""rows => rows.map(row =>
+                [...row.querySelectorAll('td')].flatMap(cell =>
+                    [cell.querySelector('b')?.innerText || '', cell.querySelector('span')?.innerText || '']))""")
+            if glycogen_table.count() != 1 or glycogen_actual_rows != glycogen_rows:
+                raise SystemExit(f"Biochemistry 5-10 reconstructed numbered table changed: {glycogen_actual_rows!r}")
+            if "Glucose residues are connected by α-1,4 linkage" not in glycogen_table.inner_text() or "\u25a0" in glycogen_table.inner_text():
                 raise SystemExit("Biochemistry 5-10 restored linkage is not learner-visible")
-            if page.locator(".question-text table, .question-text .nk-question-unavailable").count():
-                raise SystemExit("Biochemistry 5-10 invented a table or disabled valid choices")
+            if page.locator(".question-text .nk-question-unavailable").count():
+                raise SystemExit("Biochemistry 5-10 disabled valid choices")
             glycogen_options = page.locator(".option-list button")
             if glycogen_options.count() != 4 or glycogen_options.locator(".option-text").all_inner_texts() != glycogen_choices or glycogen_options.locator(".option-letter").all_inner_texts() != ["A", "B", "C", "D"]:
                 raise SystemExit("Biochemistry 5-10 lost its four ordered canonical choices")
@@ -320,10 +330,10 @@ def main() -> None:
                 raise SystemExit(f"Biochemistry 5-10 answer contract changed: {glycogen_answer!r}")
             correct_indices = page.locator(".option-list .option").evaluate_all(
                 "nodes => nodes.flatMap((node, index) => node.classList.contains('correct') ? [index + 1] : [])")
-            if correct_indices != [3] or page.locator(".option-list .wrong").count() or page.locator(".option-list .option-text").all_inner_texts() != glycogen_choices or glycogen_stem.text_content() != glycogen_prompt or "\u25a0" in glycogen_stem.inner_text():
+            if correct_indices != [3] or page.locator(".option-list .wrong").count() or page.locator(".option-list .option-text").all_inner_texts() != glycogen_choices or glycogen_stem.text_content() != glycogen_prompt or "\u25a0" in glycogen_table.inner_text() or glycogen_table.locator("tbody tr").evaluate_all("rows => rows.map(row => [...row.querySelectorAll('td')].flatMap(cell => [cell.querySelector('b')?.innerText || '', cell.querySelector('span')?.innerText || '']))") != glycogen_rows:
                 raise SystemExit("Biochemistry 5-10 post-answer presentation changed")
             page.screenshot(path=str(output / "prepladder-biochemistry-5-10-stem.png"), full_page=True)
-            print("BIOCHEM_5_10_BROWSER_OK exact_prompt=true no_square=true choices=4 canonical_answer=3")
+            print("BIOCHEM_5_10_BROWSER_OK exact_prompt=true numbered_items=3 no_square=true choices=4 canonical_answer=3")
 
             open_practice("5-14")
             phosphorylase_raw = "Glycogen phosphorylase cleaves ■-1,4 linkages"

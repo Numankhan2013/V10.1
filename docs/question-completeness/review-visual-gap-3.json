@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "completeness_batch_3",
+  "scope": "Two supplemental question-role visual gap candidates; source-supported textual recovery only.",
+  "counts": {
+    "CONTEXTUAL_RECONSTRUCTION": 2
+  },
+  "items": [
+    {
+      "id": "marrow__ANAT_CH45_Q004",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "repairType": "SOURCE_SUPPORTED_TEXT_REPLACEMENT_OF_ABSENT_QUESTION_VISUAL",
+      "canonicalSourceFingerprint": "5faa5bcc68140ac10e1f0cd9ab9c5ee09a5079b1fb636e40f7599b7f4f806947",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePages": [
+        815,
+        816,
+        827,
+        828
+      ],
+      "reviewMethod": "Poppler rendered source-page visual inspection; compare immutable raw question/options/key with source explanation. Question-page original visual remains missing or unmarked.",
+      "evidence": "The source question image on page 816 depicts an unmarked anterior chest. The source solution on pages 827–828 explicitly describes the omitted examiner line as laterally convex, from the third to sixth right costal cartilages and 1–2 cm lateral to the sternal edge. The replacement verbalizes that source-described location; it does not reconstruct a marker or name the answer.",
+      "proposedOverride": {
+        "question": "A laterally convex line extends from the third to the sixth right costal cartilage, approximately 1–2 cm lateral to the sternal edge. This surface marking corresponds to which of the following structures?"
+      },
+      "answerConsistency": {
+        "correctOption": 2,
+        "optionsUnchanged": true,
+        "correctOptionUnchanged": true,
+        "rationale": "Source solution explicitly establishes the original intended answer; recovered observation/location retains the diagnostic or anatomical clue without inserting the answer text."
+      },
+      "constraints": [
+        "Raw source remains immutable.",
+        "This is a contextual textual reconstruction from source solution, not exact original question-image transcription.",
+        "Do not fabricate or release a substitute image. Preserve archival missing-visual/marker evidence."
+      ],
+      "alternativesRejected": [
+        "Retaining the original reference to an absent image/marker leaves an essential question clue unavailable.",
+        "Naming the diagnosis or anatomical answer directly would reveal the scored answer."
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH17_Q014",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "repairType": "SOURCE_SUPPORTED_TEXT_REPLACEMENT_OF_ABSENT_QUESTION_VISUAL",
+      "canonicalSourceFingerprint": "ad8bc45a3da25050823d4c2d4e4357b95a92f19d69c175cadeb6b0627a20737d",
+      "sourcePdf": "data/marrow/source_pdfs/biochemistryed8.pdf",
+      "sourcePdfSha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+      "sourcePages": [
+        265,
+        277
+      ],
+      "reviewMethod": "Poppler rendered source-page visual inspection; compare immutable raw question/options/key with source explanation. Question-page original visual remains missing or unmarked.",
+      "evidence": "The source question on page 265 promises a teeth image but supplies none. Solution 14 on page 277 describes reddish discoloration of teeth in its first paragraph and reddish-brown teeth in the infant presentation paragraph. The proposed replacement uses that explicitly described qualitative observation without naming erythrodontia or the diagnosis. No photograph or additional clinical values are invented.",
+      "proposedOverride": {
+        "question": "An infant presented with delayed eruption of her teeth. Her teeth show reddish-brown discoloration. She also has history of blisters over the face, hands and feet on exposure to sunlight since the first week of birth. What is the most likely diagnosis?"
+      },
+      "answerConsistency": {
+        "correctOption": 1,
+        "optionsUnchanged": true,
+        "correctOptionUnchanged": true,
+        "rationale": "Source solution explicitly establishes the original intended answer; recovered observation/location retains the diagnostic or anatomical clue without inserting the answer text."
+      },
+      "constraints": [
+        "Raw source remains immutable.",
+        "This is a contextual textual reconstruction from source solution, not exact original question-image transcription.",
+        "Do not fabricate or release a substitute image. Preserve archival missing-visual/marker evidence."
+      ],
+      "alternativesRejected": [
+        "Retaining the original reference to an absent image/marker leaves an essential question clue unavailable.",
+        "Naming the diagnosis or anatomical answer directly would reveal the scored answer."
+      ]
+    }
+  ]
+}

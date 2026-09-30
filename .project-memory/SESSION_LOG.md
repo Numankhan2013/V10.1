@@ -1733,3 +1733,173 @@ Implemented approved recovery in existing transform owners: Topics separate path
   code changes occur after the certified product. No production dispatch,
   existing branch deletion/update, or other agent workflow cancellation.
   Physical APK upgrade/data-preservation acceptance remains separate.
+
+## Canonical integration history retained from image trunk
+
+## 2026-09-28 — Manual Marrow Biochemistry image batch staged
+
+- Resumed the claimed `manual-biochem-ch25-28-20260928` batch from live canonical `14e455e`; kept the separate Physiology Ch3–7 ledger claim intact. Integrated stable source references across Ch25–28: 16 PASS, 5 held for focused review, and one Q27 Q5 source-metadata invalid adjudication; all 22 references are tracked. Coverage now reports Biochemistry 110 raw / 108 effective / 87 released / 2 invalid / 8 tracked-unreleased / 13 untracked / 31 visual text cues.
+- Local image validator/release, progress and coverage checks, image tests and `verify_local.py` passed before this continuation. Exact-head CI and canonical reconciliation remain pending.
+- Discovered the first staging helper had produced region crops with Poppler on Termux, contrary to the repository's Ubuntu-only `marrow_images.py render-region` rule. Added an Ubuntu build step that renders the eight exact checkpoint regions and uploads a manifest plus source crops for review. Do not call this batch complete until the bytes are replaced/adopted from that CI artifact and the full exact-head build passes. Production remains untouched.
+
+- Follow-up: the first full run `36415735858` stopped in the new artifact wrapper due to a path-discovery assertion (no app packaging or preview). Fixed the wrapper; the exact-head Engineering run `36415941547` passed. Full build `36415941717` rendered and uploaded all eight Ubuntu crops. Inspected each crop, replaced every non-JPEG local render's original/production bytes and content-addressed ID from that artifact, and regenerated runtime metadata/progress/coverage. Exact candidate CI on the adopted image bytes is still required.
+
+
+## 2026-09-28 — Biochemistry Ch25–28 image batch partially integrated
+
+- Exact product commit `87a572486b28f1644ad7d78b51fca10ca099f6a9` passed candidate Engineering `36416657111` and full Android/PWA/browser/APK/package/emulator run `36416656845`; the exact same SHA fast-forwarded to canonical and passed canonical Engineering `36418451083` plus full run `36418451115`. The packaged phone/tablet emulator interaction regression passed. Fresh 320px, standard phone, 150% text, and tablet UI captures were inspected; Android screenshots and the eight source-region render artifact are retained in CI artifacts. Preview `https://fdfaf659.nk-qbank.pages.dev` and the feature alias returned HTTP 200. Production promotion was skipped.
+- The range remains **open**: 16/22 source refs released, five tracked readability/source-fidelity holds, and one exact Q27 Q5 invalid-metadata adjudication. There are no untracked references remaining within this claimed Ch25–28 range. The separate Physiology Ch3–7 batch remains claimed and must refresh shared image state from the new canonical head before writes.
+
+## 2026-09-28 — Resolve and release five Biochemistry image holds
+
+- Reviewed the five former Ch25–28 holds against exact source pages, source crops, and native image tiles. All five retain original pixels and are SOURCE_LIMITED: Q25.26 has small inline labels; Q26.18's watermark crosses fine factor labels; Q27.2/Q27.3 have faint but readable expanded condition labels; Q28.27's watermark crosses some bond detail. The existing image viewer supports tap-to-expand and zoom. No source pixels or scientific labels were reconstructed or sharpened.
+- Integrated product commit `ef969540171b3cb19d724a28f3adbf0fba42f5f7`. Full batch accounting: 21 source references released, Q27.5 explicitly invalid by exact metadata adjudication, no untracked or review-required references in Ch25–28. Biochemistry overall remains incomplete at 110 raw / 108 effective / 92 released / 2 invalid / 3 tracked-unreleased / 13 untracked / 31 text-cue items.
+- Candidate exact-head Engineering `36425459384` and full Android/PWA/browser/APK/package/emulator run `36425386902` passed. The product SHA fast-forwarded to canonical, then canonical Engineering `36427679654` and full run `36427679667` passed on that exact SHA; packaged Android phone/tablet interactions and Marrow browser checks passed. Preview `https://27f74250.nk-qbank.pages.dev` and canonical alias returned HTTP 200. Production promotion was skipped.
+
+## 2026-09-30 — Source-check Marrow Physiology nerve learner text
+
+- User reported severe question/option "JSON leak" in Marrow Physiology of Nerve. Inspection of the deployed Marrow bundle and ED8 PDF pages 93–103 showed OCR debris in the stored Ch6 learner text, while the shared JSON-wrapper sanitizer and bank registration were active. The raw compressed ED8 source remains unchanged.
+- Two nonoverlapping source-review passes authored fingerprinted display overrides for all Ch6 Q1–34 stems and four options. Q20 option C is corrected from imported `I` to source `II`; answer indices remain unchanged. Ch6 Q10's printed source itself has numbered choices without a matching table, which the override preserves.
+- The Marrow importer now accepts the existing Ch5/Ch7 manifest and two Ch6 manifests with exact ID ranges, bundle fingerprints, and ED8 PDF hash checks. Static content tests pass over 2,711 questions / 27,898 learner fields; `verify_local.py` passed 51 checks. Full generated browser/PWA/APK and preview checks remain pending at this entry.
+- A conservative symbol heuristic found residual source-review candidates concentrated in Physiology Ch9–12. Do not strip those characters globally or claim those chapters cleaned without PDF comparison.
+
+## 2026-09-30 — Extend Physiology stem/option source cleanup to Ch9–12
+
+- While the Ch6 canonical build ran, two workers took exclusive Ch9–10 (45 questions) and Ch11–12 (44 questions) ranges. They checked rendered ED8 pages 173–180, 198–202, 210–215 and 225–230 and produced separate fingerprint/PDF-pinned manifests, preserving source wording, choice order, and answer indices.
+- Combined reviewed display coverage is now 186 questions across Ch5–7 and Ch9–12. Ch9 Q14's diagram remains image-owned; no diagram content was inferred. Workers reported no unresolved stem/option transcription ambiguity. This coverage does not establish cleanliness of the other Physiology chapters or explanation text.
+- The importer, corpus test, browser verifier, and structure-audit input list explicitly include both new manifests with exact stable-ID scopes. Canonical Ch6 product `20b12fcc` passed Engineering `36662743310`; full run `36662743308` was still running while this follow-up was prepared. Full verification of the follow-up remains pending.
+
+## 2026-09-30 — Resume source-image integration during text CI
+
+- User asked to resume image integration while learner-text CI runs. Live canonical coverage is 1,186 released / 18 metadata-invalid / 228 unresolved source references of 1,432, plus 59 text-cue checks. These are source-reference counts, not question counts or a claim that every learner question should show an image.
+- Preserved the separate Physiology Ch3–7 reservation (49 unresolved references + one cue). Explicitly transferred the remaining paused Wave 2 scopes into four exclusive ledger batches: Anatomy Ch1–59 (69 refs), Anatomy Ch60–63 (52 refs), Physiology Ch8–14 (52 refs), and Biochemistry Ch1–24 plus Physiology Ch15–43 (6 refs + 58 cues). Three worker slots are available concurrently; the fourth starts when a slot opens. No extra reviewer is assigned.
+- The dirty old Ch56–63 worktree remains a read-only donor of unfinished source work. Workers use fresh worktrees and validate their own scope; root serializes stable-ID registry/asset reconciliation and monitors the pending text CI. Ch6 browser text checks and build/deployment job passed; packaged Android interaction job was queued. Ch9–12 follow-up remains in full CI at `a6f2bca1`.
+
+### Text CI integration follow-up
+
+- Ch6 full run `36662743308` completed successfully, including packaged Android interactions and preview deployment. A fresh HTTP 200 fetch of the canonical feature alias matched all 34 reviewed Ch6 stems/options in its 2,711-question Marrow envelope.
+- Ch9–12 Engineering `36663959324` passed. Full run `36663959370` stopped at the browser verifier on Ch9 Q12: reviewed source option `Cl-` renders as `Cl−` through the existing shared scientific formatter. The source content is correct; the verifier now computes its expected text through that same formatter rather than requiring the unformatted charge glyph. This is a targeted response to the reported CI failure; full retry remains required.
+- Retry product `232f0182f26c891bbe459e9c9472816db7fa796f` passed Engineering `36665702451` and full generated browser/PWA/APK/package/Android phone+tablet run `36665702481`. A fresh canonical preview HTTP 200 fetch matched all 186 reviewed stems/options in its complete 2,711-question Marrow envelope. Text cleanup is build-verified and deployed to preview; production promotion and physical acceptance remain separate.
+
+## 2026-09-30 — Resume image workers B/C integration
+
+- Reconciled worker B `dc488f12` (Anatomy Ch60–63: 51 released / 1 invalid) and worker C `18766fd8` (Physiology Ch8–14: 19 released / 33 invalid) by stable-ID deltas; preserved unrelated text cleanup and images.
+- Both workers passed release/progress/coverage and 51 local checks. Root found no conflicting registry/asset changes and regenerates shared derived files; source review was not repeated.
+- Worker D started its exclusive Biochemistry Ch1–24 / Physiology Ch15–43 range after B freed a slot. A continues Anatomy Ch1–59; external Physiology Ch3–7 claim remains reserved. Canonical CI/preview verification pending; production deferred.
+
+## 2026-09-30 — Anatomy Ch1–59 source checkpoint
+
+- Worker A `0243a614` resolved 68 of 69 assigned refs: 64 released, four source-invalid; Ch45 Q4 is held because source marker is absent. Two corrected-page question assets are released with truthful citations.
+- All local checks passed after restoring existing registry ordering and retrying the sole failed image test. Root integrates stable-ID deltas; full canonical CI pending.
+- First image checkpoint `a656edd1` is live: metadata bytes matched canonical and a sampled new image matched its SHA-256; build/browser/APK packaging passed, full Android interaction run 36670768102 subsequently passed. Worker B resumes 29 unmodified Biochemistry cue questions after A frees the slot; C handles Physiology tail cues, D handles six known refs and cue architecture. Production remains deferred.
+
+- Anatomy checkpoint `e3cef56d` passed Engineering `36673442104` and full browser/PWA/APK/Android `36673441905`; canonical preview metadata matched exactly (1,051 distinct visual-owning questions).
+- D final `997f0c1f` passed normal release/progress/coverage and the targeted stale-progress retry; root merged four images, two invalid adjudications and two no-visual cue records. Combined regeneration waits for B/C cue commits. C source coverage closes 32 cue-derived refs; B reviewed 28 real cue questions plus Ch17 Q14 source omission.
+
+## 2026-09-30 — Four-worker image phase final integration
+
+- Integrated C tail `34b893fd` (32 source refs / 27 closed cues) and B tail `20cc85bb` (28 source refs / 29 closed cues), preserving D’s six-ref/two-cue checkpoint and all earlier text/source work. Both tail workers passed all 51 local checks; no source review was repeated by root.
+- All 237 assigned items are accounted: 236 resolved, one held (Anatomy Ch45 Q4 lacks required source marker). B documents Biochemistry Ch17 Q14’s absent source teeth image as an omission. External Physiology Ch3–7 still owns 49 unresolved refs plus one cue.
+- Exact source cue reviews add 60 source-derived reference rows with pinned PDF hashes/provenance; actual continuation pages remain explicit, and wrong roles/orders/pages or unreleased bindings fail closed. Root regenerates combined outputs and pushes mandatory canonical preview CI; production remains deferred.
+
+## 2026-09-30 — Final image checkpoint verified and live
+
+- Product `d0e76fcc` is dual-green: Engineering `36678220234`, full browser/PWA/APK/package/Android phone+tablet `36678220258`. Canonical preview metadata equals committed release bytes; new Biochemistry Ch23 Q9 union image bytes match the content-hash filename.
+- Final source coverage: Anatomy 1,012 released / 15 invalid / 1 held of 1,028; Biochemistry 133 released / 5 invalid / 0 pending of 138; Physiology 239 released / 38 invalid / 49 pending of 326. Global 1,384 released / 58 invalid / 50 pending of 1,492, including 60 cue-derived refs. 58 of 59 cues reviewed; remaining cue belongs reserved Physiology Ch3–7.
+- 1,107 questions carry 1,449 released bindings (347 question / 1,102 explanation). Owned 237-item phase resolved 236; source gaps remain explicit (Anatomy Ch45 Q4 marker, Biochemistry Ch17 Q14 teeth image). No additional source review, physical acceptance or production promotion.
+
+## 2026-09-30 — User-directed full remaining image reconciliation
+
+The cloned checkout was main with an outdated coverage ledger; the initial
+1,243 outstanding-reference report was corrected after fetching canonical.
+Canonical af7e0dff has 1,384 released, 58 invalid and 50 unresolved references,
+plus one Physiology cue. The user explicitly directed the primary agent to
+integrate all validated images and begin the unreviewed remainder without
+per-batch full preview builds. Physiology Ch3–7 ownership is transferred.
+34 donor references were exact-ID/hash/provenance reconciled; the Q20/page-149
+proposal was excluded after direct source review found it belongs to Q19.
+Fourteen ambiguous references and Q5 Q6's cue were source-reviewed; six
+continuation-page corrections remain outside immutable imported source.
+Q6 Q10's numbered question image is missing from source and remains held.
+Ubuntu source extraction and the combined full preview/package build are
+pending; no canonical or production release is claimed at this checkpoint.
+
+Final source reconciliation: 34 historical references were accepted with exact
+identity/provenance/stream checks; the excluded Q20 proposal was corrected by
+direct source ownership review. Twelve of fourteen ambiguous references are
+released, one duplicates an already released Q11 image, and Q6 Q10 is missing
+its source question diagram and remains held. Q5 Q6 adds two exact native
+source panels. Six metadata page errors have exact reviewed correction entries.
+Source extraction runs 36693009335 and 36694166456 passed. All seven generated
+composite/masked/Flate crops were inspected; Q3 Q13 was widened for its heading.
+Totals: 1,413 released / 79 invalid / 2 held of 1,494; unresolved cues=0.
+All 51 local checks passed, with the single stale-progress failure corrected
+and the image invariant test rerun successfully. New phone/tablet learner
+checks cover every freshly reviewed question and question/explanation timing.
+Full combined canonical CI/preview remains pending; no production promotion.
+
+## 2026-09-30 — Final bounded question-completeness pass
+
+Parallel source review disposed of 238 unique IDs from the 5,397-question structural
+scan (226 initial plus 12 supplements): 66 contextual reconstructions, 13 exact source
+repairs, 126 already complete (52 ordinary/74 owned visual), and 33 underdetermined
+source omissions. Integrated 79 repairs: 73 text/table/key contracts and six native
+question images. Omission gates include ANAT62Q6. Source-backed text replacements
+recover missing visual clues without fabricated pictures or diagnosis/answer leakage.
+The accepted pinned ledger/compiler targets the shared presentation core; raw imports
+remain immutable. Final missing-question-visual screening supplements the structural
+queue. Gold explanation disclaimers were aligned with supported reconstructions.
+
+Image ledger: 1,500 references / 1,419 released / 79 invalid / two archival holds /
+zero unresolved cues; runtime 1,486 bindings / 1,306 assets / 1,128 questions.
+Ordinary builds now skip optional archival source-region sheets (roughly 1 GB),
+with explicit workflow input retaining regeneration. Prior checkpoint 7f326e61 full
+run 36695040994 failed an ambiguous Muscle Physiology I locator matching II; exact
+chapter selection is fixed. Final combined CI/preview remains pending; no production
+promotion or new physical-device/user acceptance is claimed.
+
+### Final residual review supplement — 2026-09-30
+
+Eight additional visual-cue source checks and eight notation/glyph source checks
+bring the bounded pass to 254 source-reviewed questions: 74 contextual/15 exact
+repairs (89 total: 81 display contracts and eight native question images), 132
+already complete (53 ordinary/79 visual), and 33 source-omission gates. The 114
+compiled display entries pass source checks across four variants. Current CI queue
+combines structure/glyph/runtime-question-visual scans and requires reviewed
+dispositions; all 197 remaining heuristic candidates have review evidence, zero
+unreviewed. Anatomy45Q23 and Physiology37Q9 add native question owners; the latter
+uses complete graph JPEG object1775 instead of the explanation crop containing
+clipped neighboring prose. Existing explanation PNG is preserved. Expected image
+coverage becomes 1,502 references/1,421 released/79 invalid/two archival holds/zero
+cues, subject to final regeneration confirmation. Prior local52checks passed before
+these residual additions; final combined CI remains pending. No production claim.
+
+### 2026-09-30 — Combined completeness browser follow-up
+
+- Product commit `abf68b0607ee78667621a049ef557df5d55b0ad4`: Engineering Gate `36727678337` passed. Full run `36727677940` passed source/generation checks, then failed the older final-image browser verifier because it attempted to answer now-gated Physiology Ch6 Q10.
+- Adapted that verifier to assert the exact source-omission notice, absence of answer buttons, retained released bindings, and package checks for gated owners. Ordinary image owners retain before/after-answer and viewer checks. Added new completeness browser evidence directory to artifact collection. Rerun required before preview/build verification claims.
+
+- Follow-up run `36729022407` on `2909a9f8bb7443817dc5d14911a44c0cf866e3c9` passed Engineering `36729022391` and all 26 final Physiology image viewport cases. It then found an old Anatomy Ch6 Q2 browser assertion expecting dotted plain-text labels; the new semantic table correctly separates labels and cell values. Updated that assertion to verify the exact four table labels/values, and fixed a pre-initialization table-variable reference in the updated glycogen browser test. Browser checks now all run independently once dependencies succeed; the Marrow entrypoint aggregates all seven regressions. Any failure still blocks packaging/deployment. Final combined run remains required.
+
+- Run `36730588131` on `a43e13fae313ca580ac767dcf5de3bc214a6b1eb` collected the independent browser checks: all seven Marrow browser regressions, populated table, matching/glycogen, Continue Practice, interaction integrity and PrepLadder visual/fullscreen checks passed. Two assertion incompatibilities remained: hygiene expected ordinary options on four exact approved omission gates, and the new completeness verifier queried buttons after answer feedback had replaced them with static option rows. Adapted both to assert the intended semantic gate/result rows. Content repairs are unchanged; full rerun required. Confirmed regenerated source/image counts and final 52-check local pass in state/strategy; corrected historical inventory/ownership drift.
+
+### 2026-09-30 — Final completeness release certified
+
+- Product checkpoint `de9c415cef4915d5b20a42abc9f2299a8595b173` passed Engineering `36732893469` and full run `36732893814`, including both build and Android phone/tablet emulator jobs. Preview `https://74f04894.nk-qbank.pages.dev` deployed; production promotion skipped.
+- New completeness browser: 114 accepted contracts / 228 phone-tablet runtime checks / eight recovered source images; all gates, representative tables/text/keys and real answer interactions pass. Hygiene and all seven Marrow regressions pass; final-image browser 26 cases pass; Practice/interaction/PrepLadder fullscreen, APK syntax, offline bytes and packaged product contracts pass.
+- Live preview independently verified: exact released visual metadata, all 114 compiled contracts, 33 deliberate gates, and exact source SHA-256 for eight recovered native image URLs. No reviewed/recoverable images await integration. Runtime: 1,306 released assets / 1,486 bindings / 1,128 owners; source inventory: 1,502 refs / 1,421 released / 79 invalid / two archival gaps / zero unresolved cues.
+- User reports substantial improvement in a Physiology chapter, accepts disabling incomplete source questions and explicitly defers recovery to later. This is scoped preview feedback, not a complete physical/source audit of every question. Bounded 254-case pass is complete: 89 repairs / 132 already complete / 33 documented underdetermined omissions.
+
+## 2026-09-30 — Completed image promotion preparation
+
+- User authorized promoting all completed image integrations to main. Merged
+  canonical `81822e4` (verified product `de9c415`) into isolated main-based
+  `feature/marrow-image-main-promotion-20260930` from main `f0073c4`.
+- Preserved approved account/study features and all their regression gates.
+  Excluded the independent Biochemistry Ch14 Q1–Q8 explanation batch and
+  regenerated main inventory at 662 enhanced / 2,049 pending / 2,711 total.
+- Completed image registry/coverage and attached source-completeness recovery
+  are retained exactly. All 75 local checks passed. Fresh combined full CI
+  is required before main promotion. Existing branches remain unchanged.
+- Details: `docs/COMPLETED_IMAGE_MAIN_PROMOTION_2026-09-30.md`. Production
+  deployment and physical APK acceptance remain separate.

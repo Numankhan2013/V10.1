@@ -1,0 +1,2347 @@
+{
+  "schemaVersion": 1,
+  "batch": 1,
+  "inputHead": "7f326e611dea794a89411b68e27250f9725c448c",
+  "scope": "76 assigned targeted candidates plus2 parent-requested notation cases; source-completeness review, not whole-bank correctness audit",
+  "summary": {
+    "CONTEXTUAL_RECONSTRUCTION": 19,
+    "SOURCE_OMISSION": 10,
+    "COMPLETE/FALSE_POSITIVE": 20,
+    "VISUAL_OWNED_COMPLETE": 27,
+    "EXACT_SOURCE_REPAIR": 2
+  },
+  "integrationNotes": [
+    "Raw canonical records immutable; apply reviewed display/content overrides by stableID and source fingerprint.",
+    "CONTEXTUAL_RECONSTRUCTION must carry provenance label; not falsely certified exact source question text.",
+    "Preserve choices/correctOption; no inferred list ordering beyond constrained source evidence.",
+    "PrepLadder historical asset ownership/bytes manually verified against checkpoint356cce4; current combined build browser certification still required."
+  ],
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH06_Q002",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        87,
+        94,
+        96
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "98f55a67fbf93430c78bec5ac147688605b82f989219ce3ac80f360c9bde7cec",
+      "normalizedQuestionReviewed": "Arrange the following structures of the primitive heart tube in cranial to caudal order.",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "p87 omits numbered structures; p94 key D selects1-4-3-2. Visually reviewed p96 explanation gives bulbus cordis→primitive ventricle→primitive atrium→sinus venosus. Inverting permutation uniquely assigns1 bulbus,4 ventricle,3 atrium,2 sinus. Same constrained inverse-sequence method as existing accepted CH02Q010 reconstruction."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "Arrange the following structures of the primitive heart tube in cranial to caudal order.\n\n1. Bulbus cordis\n2. Sinus venosus\n3. Primitive atrium\n4. Primitive ventricle"
+      },
+      "alternatives": "Unique conditional on printed keyed answer and source explanation; marked contextual reconstruction rather than original question-page transcription."
+    },
+    {
+      "id": "marrow__ANAT_CH10_Q004",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        164,
+        169,
+        171,
+        172
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "991808c22d55587e0c805dde682bd4c4567cc56e492c1e23c90c40a1bd2dd9d1",
+      "normalizedQuestionReviewed": "Arrange the following stages of nephron development in order from the earlier stage to the later stage.",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "p164 omits numbered stages; p169 key C selects1-4-2-3. Actual p171 printed explanation states blastema→vesicle→comma C→S-shaped. Inverse assigns1 blastema,4 vesicle,2 comma C,3 S-shaped. Canonical explanation erroneously replaces comma C with S-shaped and fourth stage with nephron; repair that paragraph too."
+      ],
+      "affectedFields": [
+        "question",
+        "explanation.firstParagraph"
+      ],
+      "proposedOverride": {
+        "question": "Arrange the following stages of nephron development in order from the earlier stage to the later stage.\n\n1. Blastema stage\n2. Comma-shaped (C-shaped) stage\n3. S-shaped stage\n4. Vesicle stage",
+        "explanationFirstParagraph": "The correct order of the stages of development of the nephron from earlier to later is blastema stage → vesicle stage → comma-shaped (C-shaped) stage → S-shaped stage."
+      },
+      "alternatives": "Unique conditional on printed keyed answer and source explanation; marked contextual reconstruction rather than original question-page transcription."
+    },
+    {
+      "id": "marrow__ANAT_CH15_Q014",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        265
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": null,
+      "normalizedQuestionReviewed": "Sinusoids are present in",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered owning question page contains numeric combination choices but omits corresponding numbered item definitions. Existing reviewNotes/explanation confirm omission. Explanation names correct concepts but does not identify every original distractor or numeral mapping."
+      ],
+      "affectedFields": [
+        "question.requiredList"
+      ],
+      "proposedOverride": null,
+      "alternatives": "Multiple different numbered lists and distractors fit the printed key; no unique full reconstruction without inventing distractors."
+    },
+    {
+      "id": "marrow__ANAT_CH35_Q003",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        619
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "a3be11fb2f49aaccc2cde58b5ec8245db56fb2c5ccd3311080a9d9ec7cb71481",
+      "normalizedQuestionReviewed": "Which ligament transmits the weight of the upper limb to the axial skeleton?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered owning question page contains numeric combination choices but omits corresponding numbered item definitions. Existing reviewNotes/explanation confirm omission. Explanation names correct concepts but does not identify every original distractor or numeral mapping."
+      ],
+      "affectedFields": [
+        "question.requiredList"
+      ],
+      "proposedOverride": null,
+      "alternatives": "Multiple different numbered lists and distractors fit the printed key; no unique full reconstruction without inventing distractors."
+    },
+    {
+      "id": "marrow__ANAT_CH48_Q005",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        880
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": null,
+      "normalizedQuestionReviewed": "Which of the following statements regarding the root of the mesentery is false?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered owning question page contains numeric combination choices but omits corresponding numbered item definitions. Existing reviewNotes/explanation confirm omission. Explanation names correct concepts but does not identify every original distractor or numeral mapping."
+      ],
+      "affectedFields": [
+        "question.requiredList"
+      ],
+      "proposedOverride": null,
+      "alternatives": "Multiple different numbered lists and distractors fit the printed key; no unique full reconstruction without inventing distractors."
+    },
+    {
+      "id": "marrow__ANAT_CH52_Q009",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        975
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "ea54f3b495d0ed84f2841b8ef09e5fc39bb2f0cfa209306d3525a9d9b60c8f52",
+      "normalizedQuestionReviewed": "Which of the following statements is false about the prostate?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered owning question page contains numeric combination choices but omits corresponding numbered item definitions. Existing reviewNotes/explanation confirm omission. Explanation names correct concepts but does not identify every original distractor or numeral mapping."
+      ],
+      "affectedFields": [
+        "question.requiredList"
+      ],
+      "proposedOverride": null,
+      "alternatives": "Multiple different numbered lists and distractors fit the printed key; no unique full reconstruction without inventing distractors."
+    },
+    {
+      "id": "marrow__ANAT_CH62_Q010",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        1189
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "d0c0380077c98b57ccac7918903ded227dafc33b58a6de36556173733debd251",
+      "normalizedQuestionReviewed": "Which of the following vessels belong to the circulatory system referred to as the drainage system of coarse type?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered owning question page contains numeric combination choices but omits corresponding numbered item definitions. Existing reviewNotes/explanation confirm omission. Explanation names correct concepts but does not identify every original distractor or numeral mapping."
+      ],
+      "affectedFields": [
+        "question.requiredList"
+      ],
+      "proposedOverride": null,
+      "alternatives": "Multiple different numbered lists and distractors fit the printed key; no unique full reconstruction without inventing distractors."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH13_Q020",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/biochemistryed8.pdf",
+      "sourcePdfSha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+      "sourcePagesReviewed": [
+        201
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "5591a1a4825280bdd79c329509b684e68c1ac52bfd81207c54e11130059c6b64",
+      "normalizedQuestionReviewed": "Ketosis is common in type 1 DM due to:",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered owning question page contains numeric combination choices but omits corresponding numbered item definitions. Existing reviewNotes/explanation confirm omission. Explanation names correct concepts but does not identify every original distractor or numeral mapping."
+      ],
+      "affectedFields": [
+        "question.requiredList"
+      ],
+      "proposedOverride": null,
+      "alternatives": "Multiple different numbered lists and distractors fit the printed key; no unique full reconstruction without inventing distractors."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH14_Q018",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/biochemistryed8.pdf",
+      "sourcePdfSha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+      "sourcePagesReviewed": [
+        215
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "c70d3b22e51f5da2e1deef8ade2db23d63087f5e87439658f2bcee6ebcbe089a",
+      "normalizedQuestionReviewed": "Which of the following are unstable intermediate products of the cyclooxygenase pathway?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered owning question page contains numeric combination choices but omits corresponding numbered item definitions. Existing reviewNotes/explanation confirm omission. Explanation names correct concepts but does not identify every original distractor or numeral mapping."
+      ],
+      "affectedFields": [
+        "question.requiredList"
+      ],
+      "proposedOverride": null,
+      "alternatives": "Multiple different numbered lists and distractors fit the printed key; no unique full reconstruction without inventing distractors."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH17_Q011",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "data/marrow/source_pdfs/biochemistryed8.pdf",
+      "sourcePdfSha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+      "sourcePagesReviewed": [
+        264,
+        276
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": null,
+      "normalizedQuestionReviewed": "A 50-year-old man presents with a history of fatigue, dark-coloured urine and photosensitivity. He consumes alcohol regularly. On examination, hyperpigmentation and scarring are present on the face and dorsum of the hand. Lab findings are given below. Which of the following is the most likely diagnosis?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered p264 refers to lab findings but no lab panel is printed. Canonical source explanation explicitly describes elevated urine uroporphyrin for this question. Recover qualitative finding only; do not invent numeric concentrations.",
+        "Visually inspected original solution p276: explicitly elevated urine uroporphyrin for Solution to Question11. Qualitative restoration source grounded."
+      ],
+      "affectedFields": [
+        "question.requiredLaboratoryFinding"
+      ],
+      "proposedOverride": {
+        "question": "A 50-year-old man presents with a history of fatigue, dark-coloured urine and photosensitivity. He consumes alcohol regularly. On examination, hyperpigmentation and scarring are present on the face and dorsum of the hand. Laboratory finding: elevated urinary uroporphyrin. Which of the following is the most likely diagnosis?"
+      },
+      "alternatives": "Numeric original laboratory panel cannot be recovered; qualitative source-explanation finding provides the specified diagnostic context."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q006",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/biochemistryed8.pdf",
+      "sourcePdfSha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+      "sourcePagesReviewed": [
+        347
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "d0d6e3b4960a381b3f85eccb678c691c0b6a72a98b1f9a9ab2e3dbced41478a3",
+      "normalizedQuestionReviewed": "Which of the following are vitamin-B12 dependent enzymes?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered owning question page contains numeric combination choices but omits corresponding numbered item definitions. Existing reviewNotes/explanation confirm omission. Explanation names correct concepts but does not identify every original distractor or numeral mapping."
+      ],
+      "affectedFields": [
+        "question.requiredList"
+      ],
+      "proposedOverride": null,
+      "alternatives": "Multiple different numbered lists and distractors fit the printed key; no unique full reconstruction without inventing distractors."
+    },
+    {
+      "id": "marrow__PHYS_CH15_Q016",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePagesReviewed": [
+        294
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "08e07f42250aad5bedef32359f8e73737fc6e5740913a9e56cf1e43245cae8d1",
+      "normalizedQuestionReviewed": "The efferent fibres of the basal ganglia include which of the following?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered owning question page contains numeric combination choices but omits corresponding numbered item definitions. Existing reviewNotes/explanation confirm omission. Explanation names correct concepts but does not identify every original distractor or numeral mapping."
+      ],
+      "affectedFields": [
+        "question.requiredList"
+      ],
+      "proposedOverride": null,
+      "alternatives": "Multiple different numbered lists and distractors fit the printed key; no unique full reconstruction without inventing distractors."
+    },
+    {
+      "id": "marrow__ANAT_CH02_Q010",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        21
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "eaf91f92d2c5108c7c02178df94e9b56db0cd498f580e644da3486247b13e035",
+      "normalizedQuestionReviewed": "Arrange the following events of pre-embryonic development in order, from the earlier stage to the later stage.\n\n1. Cavitation\n2. Compaction\n3. Implantation\n4. Cleavage",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Numbered list absent original question page, but existing accepted reconstruction supplies all referenced items in canonical stem. No new repair needed."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "reconstructionAlreadyPresent": true
+    },
+    {
+      "id": "marrow__ANAT_CH04_Q013",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        52
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "a84f0b7b604537042c8864d38f6987b897733bccc963241e7cefda3b3cc2062e",
+      "normalizedQuestionReviewed": "A 37-year-old man is diagnosed with renal failure and is advised to undergo renal transplantation. The patient has a twin brother who is willing to donate his kidney. Which of the following types of twins are HLA identical, hence the recipient twin does not require immunosuppression?\n\n1. Dichorionic diamniotic monozygotic twins\n2. Monochorionic diamniotic monozygotic twins\n3. Monochorionic monoamniotic monozygotic twins",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Numbered list absent original question page, but existing accepted reconstruction supplies all referenced items in canonical stem. No new repair needed."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "reconstructionAlreadyPresent": true
+    },
+    {
+      "id": "marrow__ANAT_CH13_Q005",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        232,
+        235,
+        238,
+        239
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "0a9ebabcce8c45e865fb6339f1abde046f056c1e1f512ad33f04672d1f42485a",
+      "normalizedQuestionReviewed": "Match the marked structures to the correct layers of the cerebellar cortex.",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "p232 histology markersA-D present but numbered1-4 layer list absent. p235 key B selects A2 B3 C4 D1. p238 explicitly identifies A molecular,B Purkinje,C granular,D white matter; p239 histology repeats named layers. Inverse mapping uniquely reconstructs number legend while preserving released question histology."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "Match the marked structures to the correct layers of the cerebellar cortex.\n\n1. White matter\n2. Molecular layer\n3. Purkinje layer\n4. Granular layer"
+      },
+      "alternatives": "Unique conditional on printed keyed answer and source explanation; marked contextual reconstruction rather than original question-page transcription."
+    },
+    {
+      "id": "marrow__ANAT_CH16_Q015",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        292
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "35359a7ad5d140b44d0905f9857ff9f9f18c25538794e3414b6786644faebcd0",
+      "normalizedQuestionReviewed": "Arrange from outer to inner the layers of the retina given below: A-Retinal pigment epithelium; B-Inner plexiform layer; C-Nerve fiber layer; D-Inner nuclear layer; E-External limiting membrane.",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question stem and choices are present. A semantic table is unnecessary for this ordinary prose/numeric-answer question."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "marrow__ANAT_CH21_Q013",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        374
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "e1b995c6688b34d2d873ce3191a14d84ca0afaa7b8ec436bac3a6395bf051b2d",
+      "normalizedQuestionReviewed": "Identify the structures which consist of commissural fibres:",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question requires markers/curves in its source image, not an additional text table. Rendered source image inspected and canonical coverage records question-owned RELEASED image."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH21_Q013:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            374
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH21_Q013:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            382
+          ],
+          "reviewedSourcePages": null
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH28_Q001",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        471
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "fd9cfa929e67a8a354163782746485eb8ced497573387838ef7ac5bcbe04514f",
+      "normalizedQuestionReviewed": "How many pairs of synovial articulations are associated with the exterior of the skull?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Source and normalized stem/options contain the requisite facts/list labels. Numeric/combination choices or Brodmann-area pairs are meaningful without a semantic table."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "marrow__ANAT_CH29_Q005",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        502
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "a0151a8d87fffcae97bea791b19ae43b507e0492e88be70e972e60397724dc8a",
+      "normalizedQuestionReviewed": "A 21-year-old student presents with a single episode of loss of consciousness. He was about to give a speech at his graduation ceremony when he suddenly turned pale and collapsed to the ground. Which of the following areas contain the nerve responsible for it?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question requires markers/curves in its source image, not an additional text table. Rendered source image inspected and canonical coverage records question-owned RELEASED image."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH29_Q005:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            502
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH29_Q005:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            511
+          ],
+          "reviewedSourcePages": null
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH30_Q007",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        524,
+        525
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "0ccbfd1ccfd8142274f69839435217c14d244d828a28ca450bba3d45b3958a56",
+      "normalizedQuestionReviewed": "A patient with past history of parotidectomy now presents with sweating and flushing of skin over the cheek during mastication. Which of the following nerves is involved in this case?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question requires markers/curves in its source image, not an additional text table. Rendered source image inspected and canonical coverage records question-owned RELEASED image."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH30_Q007:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            525
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH30_Q007:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            539,
+            540
+          ],
+          "reviewedSourcePages": null
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH34_Q007",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        603
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "e20b453a4b6c472142dc13f0b2dde89d3f5f8b2ca3848557a8e8c6ffcec881f6",
+      "normalizedQuestionReviewed": "A trumpet player presented with hoarseness of voice, cough, and a reducible neck swelling. The neck swelling increases in size on performing the Valsalva maneuver. Which of the following regions would you expect to find a defect in?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question requires markers/curves in its source image, not an additional text table. Rendered source image inspected and canonical coverage records question-owned RELEASED image."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH34_Q007:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            603
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH34_Q007:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            611
+          ],
+          "reviewedSourcePages": null
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH38_Q012",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        670
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "8af1f0be9c4dfa49d6eb5e770604f76abcbd444d78d703c4b4957d32600fc0fd",
+      "normalizedQuestionReviewed": "A patient came with complaints of inability to move his 4th and 5th digit, cannot hold a pen and he was not able to hold a paper between fingers. Which of the following sites given below is the probable cause of injury to the nerve in question?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question requires markers/curves in its source image, not an additional text table. Rendered source image inspected and canonical coverage records question-owned RELEASED image."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH38_Q012:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            670
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH38_Q012:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            689
+          ],
+          "reviewedSourcePages": null
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH43_Q005",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "EXACT_SOURCE_REPAIR",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        793,
+        798
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "26721c03293653c97ae9c9dbe85d9a91d200dee5e650cf1bc616a6e718e747c8",
+      "normalizedQuestionReviewed": "Match the following structures and their locations.",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "p793 question lacks lists. Visually inspected p798 explanation table explicitly gives A left subclavian artery↔2 superior,B hemiazygos↔3 posterior,C phrenic↔4 middle,D sternopericardial ligaments↔1 anterior. Promote independently presented label lists, NOT correctly paired table, into pre-answer stem. Key B A2 B3 C4 D1 preserved."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "Match the following structures and their locations.\n\nStructures:\nA. Left subclavian artery\nB. Hemiazygos vein\nC. Phrenic nerve\nD. Sternopericardial ligaments\n\nLocations:\n1. Anterior mediastinum\n2. Superior mediastinum\n3. Posterior mediastinum\n4. Middle mediastinum"
+      },
+      "alternatives": "Exact labelled lists are explicitly printed in source explanation; separate lists avoid exposing the correct pairing before answer."
+    },
+    {
+      "id": "marrow__ANAT_CH47_Q012",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        866,
+        867
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "fa4af529fc936899c66047f4ca855327d7012537c39650fced44a0aebc6fb476",
+      "normalizedQuestionReviewed": "The image below shows the insertion of the transversus abdominis muscle. Identify the conjoint tendon.",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question requires markers/curves in its source image, not an additional text table. Rendered source image inspected and canonical coverage records question-owned RELEASED image."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH47_Q012:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            867
+          ],
+          "reviewedSourcePages": null
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH50_Q005",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        914,
+        915
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "8dd8931a2c45a8e35ac5055983eacb621392c0db1a07232d76c5ff754f79fc6a",
+      "normalizedQuestionReviewed": "Which of the cells marked in the image stores vitamin A in the liver?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question requires markers/curves in its source image, not an additional text table. Rendered source image inspected and canonical coverage records question-owned RELEASED image."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH50_Q005:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            915
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH50_Q005:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            925
+          ],
+          "reviewedSourcePages": null
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH51_Q006",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        942
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "3762b2992d9bc2d99e576eea927a67b767445b2bd105fc42313675d457863bc7",
+      "normalizedQuestionReviewed": "Which of the following areas of the left kidney is separated from its relation by a peritoneal layer?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question requires markers/curves in its source image, not an additional text table. Rendered source image inspected and canonical coverage records question-owned RELEASED image."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH51_Q006:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            942
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH51_Q006:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            954,
+            955
+          ],
+          "reviewedSourcePages": null
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH52_Q004",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        973
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "f174bb12c83e583b33d04d238dd8c5332d052a0123dbedd14ba8c93e79375ea0",
+      "normalizedQuestionReviewed": "A middle-aged man presents with right scrotal swelling and pain. On examination, transillumination is positive, and cough impulse is absent. His condition is due to the accumulation of fluid in which layer of the testis?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question requires markers/curves in its source image, not an additional text table. Rendered source image inspected and canonical coverage records question-owned RELEASED image."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH52_Q004:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            973
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH52_Q004:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            982
+          ],
+          "reviewedSourcePages": null
+        }
+      ]
+    },
+    {
+      "id": "marrow__ANAT_CH54_Q007",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        1023
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "fda24f6b0d0b675b6373cde7572ef5bf1287366fc71f4c1b2cbce9cf570d2e7c",
+      "normalizedQuestionReviewed": "A patient came to the casualty after a road traffic accident with a fracture of the femur. The upper end of this fractured bone ossifies from how many ossification centers?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Source and normalized stem/options contain the requisite facts/list labels. Numeric/combination choices or Brodmann-area pairs are meaningful without a semantic table."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "marrow__ANAT_CH59_Q004",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        1127,
+        1128
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "8e0154868ed319f59fb74ab6908d777628f208977650899841a8462bb80564a2",
+      "normalizedQuestionReviewed": "Which statement regarding normal vertebral column curvature is false?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question stem and choices are present. A semantic table is unnecessary for this ordinary prose/numeric-answer question."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "marrow__BIOCHEM_CH19_Q019",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/biochemistryed8.pdf",
+      "sourcePdfSha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+      "sourcePagesReviewed": [
+        304
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "ae58d4cba1cd13729713666dd52ec2c7ed14b4256c26e098c165f40b529245ec",
+      "normalizedQuestionReviewed": "Gibbs free energy curve of an enzyme-catalyzed reaction is given by",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question requires markers/curves in its source image, not an additional text table. Rendered source image inspected and canonical coverage records question-owned RELEASED image."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "visualCoverage": [
+        {
+          "id": "marrow__BIOCHEM_CH19_Q019:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            304
+          ],
+          "reviewedSourcePages": null
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH06_Q008",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePagesReviewed": [
+        95,
+        96
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "9e610737bf575c250dae8afdbdb253b48a702785e474842e5caa2000b5d36f2f",
+      "normalizedQuestionReviewed": "The membrane conductance for potassium is maximum at which of the following points in a nerve action potential?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question requires markers/curves in its source image, not an additional text table. Rendered source image inspected and canonical coverage records question-owned RELEASED image."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "visualCoverage": [
+        {
+          "id": "marrow__PHYS_CH06_Q008:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            95
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__PHYS_CH06_Q008:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            108
+          ],
+          "reviewedSourcePages": null
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q034",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePagesReviewed": [
+        134,
+        135
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "fa140124332e84c794e967adf491791f967caa4bfddef0ce77ce8006788773e8",
+      "normalizedQuestionReviewed": "Which statements are correct regarding mechanisms of depolarization, repolarization and hyperpolarization in a skeletal-muscle action potential?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered p134 shows stem and p135 shows combination options, with no numbered statements 1–5 on either page. Explanation describes action-potential mechanisms but does not uniquely map five statements/distractors. Existing explanation-owned graph cannot replace the absent numbered statement list."
+      ],
+      "affectedFields": [
+        "question.requiredList"
+      ],
+      "proposedOverride": null,
+      "alternatives": "Assignments among labels1,3,5 and wording of incorrect statements2,4 are underdetermined."
+    },
+    {
+      "id": "marrow__PHYS_CH12_Q006",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePagesReviewed": [
+        226
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "73f0197a0c98eb89138edf3b320ec96dc38d30b62960618d20f23c657144abe2",
+      "normalizedQuestionReviewed": "A patient comes to you for his annual health checkup. He lost his vision due to an accident a few years ago. He now experiences the world through touch. Which of the following Brodmann’s areas processes this tactile stimulation?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Source and normalized stem/options contain the requisite facts/list labels. Numeric/combination choices or Brodmann-area pairs are meaningful without a semantic table."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "marrow__PHYSIO_CH24_Q007",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePagesReviewed": [
+        435,
+        436
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "2825031e29846c483a91c7976eae59b0668009336d7ad3af54a295d2a656b94b",
+      "normalizedQuestionReviewed": "Which of the points on the following figures represent arterial blood in a severely anemic person?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question requires markers/curves in its source image, not an additional text table. Rendered source image inspected and canonical coverage records question-owned RELEASED image."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "visualCoverage": []
+    },
+    {
+      "id": "marrow__PHYSIO_CH29_Q014",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePagesReviewed": [
+        522
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "22fc3ee6cfb8f617b258eca2fe3a71ff803d3f5df060d1bfdd30b3b74b8a2183",
+      "normalizedQuestionReviewed": "In Einthoven's triangle, what is the value of lead III when lead I = 1mV and lead II = 2mV ?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Source and normalized stem/options contain the requisite facts/list labels. Numeric/combination choices or Brodmann-area pairs are meaningful without a semantic table."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "marrow__PHYSIO_CH38_Q015",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePagesReviewed": [
+        714
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "7de5bc2a8d48261a22614997c749a6a865e440043959dca5a502e30b0233a67f",
+      "normalizedQuestionReviewed": "In fetus, the insulin secretion begins by _____ (months)",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Source and normalized stem/options contain the requisite facts/list labels. Numeric/combination choices or Brodmann-area pairs are meaningful without a semantic table."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "anatomy-6-12",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        186
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "56cc8105cc27aa4bdec57e66ab676788a8f5abdf8410c3d41494be14fe016a8e",
+      "normalizedQuestionReviewed": "An absent gag reflex can result from injury to which cranial nerve?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Source and normalized stem/options contain the requisite facts/list labels. Numeric/combination choices or Brodmann-area pairs are meaningful without a semantic table."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "anatomy-6-43",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        204,
+        250,
+        251
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "2b21e0c597956c3e1d82fb90a7a507a6178cde81719130ba3c749f91f9e1361b",
+      "normalizedQuestionReviewed": "Arrange the neural columns in medial-to-lateral order in the floor of fourth ventricle 1. Special somatic afferent 2. Special visceral afferent 3. General somatic afferent 4. General somatic afferent",
+      "answerConsistency": "Printed/canonical optionA GVA,SVA,GSA,SSA retained.",
+      "evidence": [
+        "p204 prints duplicate General somatic afferent at3 and4. Source solution p250 explicitly gives GVA,SVA,GSA,SSA; p251 prints full neural-column sequence with all4 afferent categories. GVA is the only missing afferent category. Retain existing3 GSA and minimally replace repeated4 with GVA.",
+        "This repairs the source typo contextually; no literal-reading claim. Choices use abbreviations rather than numerical mappings, so duplicate-label position does not change the keyed optionA."
+      ],
+      "affectedFields": [
+        "question.listItem4"
+      ],
+      "proposedOverride": {
+        "question": "Arrange the neural columns in medial-to-lateral order in the floor of fourth ventricle 1. Special somatic afferent 2. Special visceral afferent 3. General somatic afferent 4. General visceral afferent"
+      },
+      "alternatives": "An equivalent numbering could replace3 instead of4, but choices do not reference these numerals. Minimal edit retains first existing GSA and repairs duplicated second occurrence."
+    },
+    {
+      "id": "anatomy-6-56",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        212,
+        213
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "e90e4608f132a562004a3cf6a8364522b66fb9c8e1613114c0cf503961669115",
+      "normalizedQuestionReviewed": "A young child with absent thymus is brought to the OPD with features of hypoparathyroidism and tetany. Which of the following marked area in the picture is defective in this condition? **Visual / Image Reference:** The source question references an image/diagram/histology visual. The extracted text was preserved as-is; where the source exposes only `{{caption_text}}`, the placeholder is retained rather than inventing visual details.",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question-owned source pixels present in PDF. Historical generated metadata from build-verified checkpoint356cce4 has exact stable-ID owner and correct source page/region. Downloaded every mapped asset from historical preview, checked production SHA256, visually compared assets to rendered PDF. Required markers/graph axes preserved.",
+        "Historical mapping evidence only: current combined build must regenerate and browser certify mounting."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "requiredFollowup": "Current combined generated browser certification; source completeness adjudication closed.",
+      "historicalGeneratedVisualEvidence": {
+        "checkpoint": "356cce4",
+        "preview": "https://1b9fe4f4.nk-qbank.pages.dev",
+        "metadataSha256": "4c3ccc003a5bc647a4155764b96cd82bd6c5d647233e6c30f1a7421726bf1801",
+        "visuals": [
+          {
+            "source": "source_visuals/anatomy/71703ca45e9ee7f2647e0738.png",
+            "sourcePage": 213,
+            "productionSha256": "71703ca45e9ee7f2647e0738fbffae31a4a69c3692ad4cdafff4bcfa19324386",
+            "sourceComparisonCrop": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "anatomy-7-8",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        266
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "ea4612ab10fc8fee44012239707016498e06f62bbc67b20e61a5b0bb0a72e81b",
+      "normalizedQuestionReviewed": "Match the following pharyngeal arch to its corresponding nerve and artery derivatives. Arch Nerve of arch Artery of arch 1) Fourth a) Superior laryngeal nerve (Vagus) i) Arch of aorta ii) Subclavian artery 2) Sixth b) Recurrent laryngeal nerve (vagus) iii) Ductus arteriosus iv) Pulmonary artery Arch Nerve of arch Artery of arch 1) Fourth a) Superior laryngeal nerve (Vagus) i) Arch of aorta ii) Subclavian artery 2) Sixth b) Recurrent laryngeal nerve (vagus) iii) Ductus arteriosus iv) Pulmonary artery **Type:** Match the Following",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question stem and choices are present. A semantic table is unnecessary for this ordinary prose/numeric-answer question."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "anatomy-9-5",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        308,
+        309
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "abf7159a471e268424c45df34349c34ce6cb808ba74dfe823a6be5f7ca432e95",
+      "normalizedQuestionReviewed": "A 30-year-old man presents with numbness in his upper lip and cheek, along with difficulty sensing temperature changes, following a dental procedure. Through which of the following marked structures does the affected nerve pass? **Visual / Image Reference:** The source question references an image/diagram/histology visual. The extracted text was preserved as-is; where the source exposes only `{{caption_text}}`, the placeholder is retained rather than inventing visual details.",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question-owned source pixels present in PDF. Historical generated metadata from build-verified checkpoint356cce4 has exact stable-ID owner and correct source page/region. Downloaded every mapped asset from historical preview, checked production SHA256, visually compared assets to rendered PDF. Required markers/graph axes preserved.",
+        "Historical mapping evidence only: current combined build must regenerate and browser certify mounting."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "requiredFollowup": "Current combined generated browser certification; source completeness adjudication closed.",
+      "historicalGeneratedVisualEvidence": {
+        "checkpoint": "356cce4",
+        "preview": "https://1b9fe4f4.nk-qbank.pages.dev",
+        "metadataSha256": "4c3ccc003a5bc647a4155764b96cd82bd6c5d647233e6c30f1a7421726bf1801",
+        "visuals": [
+          {
+            "source": "source_visuals/anatomy/386272749c2c868a7781a8df.jpg",
+            "sourcePage": 309,
+            "productionSha256": "386272749c2c868a7781a8dfb2258f115a324c3cecd27f99c72f6c88c42b610f",
+            "sourceComparisonCrop": {
+              "left": 180,
+              "top": 74.4,
+              "right": 432,
+              "bottom": 326.4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "anatomy-13-3",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        486
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "5d439ae48e3dc3e8c8fbfe35938f34d4c5f42116a358acd2836922ab8fbf2355",
+      "normalizedQuestionReviewed": "Which of the following structures of the larynx have seromucous glands? False vocal cord True vocal cord Ventricle Saccule",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered source and normalized stem contain every substantive item but omit explicit ordinal labels referred to by combination/sequence choices. Add1..N in the unchanged source item order; no new distractors or semantic reordering. Answer choices/key preserved."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "Which of the following structures of the larynx have seromucous glands?\n\n1. False vocal cord\n2. True vocal cord\n3. Ventricle\n4. Saccule"
+      },
+      "alternatives": "Assumes numeric references follow printed item order, the standard implied order of this source. This is a labelled reconstruction, not literal printed numbering."
+    },
+    {
+      "id": "anatomy-15-13",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        560,
+        561
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "e2239c0795f48b73aa7d922f3e961dc8c8896decbe18b9c7cbb4e0a5519cde17",
+      "normalizedQuestionReviewed": "All of the following nerves are involved in the movement of the eyeball except:",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question-owned source pixels present in PDF. Historical generated metadata from build-verified checkpoint356cce4 has exact stable-ID owner and correct source page/region. Downloaded every mapped asset from historical preview, checked production SHA256, visually compared assets to rendered PDF. Required markers/graph axes preserved.",
+        "Historical mapping evidence only: current combined build must regenerate and browser certify mounting."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "requiredFollowup": "Current combined generated browser certification; source completeness adjudication closed.",
+      "historicalGeneratedVisualEvidence": {
+        "checkpoint": "356cce4",
+        "preview": "https://1b9fe4f4.nk-qbank.pages.dev",
+        "metadataSha256": "4c3ccc003a5bc647a4155764b96cd82bd6c5d647233e6c30f1a7421726bf1801",
+        "visuals": [
+          {
+            "source": "source_visuals/anatomy/8b4a96e1eddc7ac077bfe862.png",
+            "sourcePage": 560,
+            "productionSha256": "8b4a96e1eddc7ac077bfe8621d0afddcc975a8e3a11c1249f0d5a36ef1a5b7c9",
+            "sourceComparisonCrop": {
+              "left": 198,
+              "top": 438.2,
+              "right": 414,
+              "bottom": 654.2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "anatomy-15-61",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        583
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "fd861ba8a0aa9340753a23a328ead9c26211eb693060318f8ae26cb4eb62730e",
+      "normalizedQuestionReviewed": "A patient presents with a unilateral throbbing headache, photophobia, and excessive lacrimation. He also complains of hemifacial pain on the clenching of teeth. On examination, pupillary reaction, light reflex, and accommodation reflex are normal. Which of the following marked nerves is involved in the above scenario? **Visual / Image Reference:** The source question references an image/diagram/histology visual. The extracted text was preserved as-is; where the source exposes only `{{caption_text}}`, the placeholder is retained rather than inventing visual details.",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question-owned source pixels present in PDF. Historical generated metadata from build-verified checkpoint356cce4 has exact stable-ID owner and correct source page/region. Downloaded every mapped asset from historical preview, checked production SHA256, visually compared assets to rendered PDF. Required markers/graph axes preserved.",
+        "Historical mapping evidence only: current combined build must regenerate and browser certify mounting."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "requiredFollowup": "Current combined generated browser certification; source completeness adjudication closed.",
+      "historicalGeneratedVisualEvidence": {
+        "checkpoint": "356cce4",
+        "preview": "https://1b9fe4f4.nk-qbank.pages.dev",
+        "metadataSha256": "4c3ccc003a5bc647a4155764b96cd82bd6c5d647233e6c30f1a7421726bf1801",
+        "visuals": [
+          {
+            "source": "source_visuals/anatomy/1ffb9b1810f4815ea016b9cb.png",
+            "sourcePage": 583,
+            "productionSha256": "1ffb9b1810f4815ea016b9cb161ff3e11382800803f091526c3a70f576d789d4",
+            "sourceComparisonCrop": {
+              "left": 198,
+              "top": 279.3,
+              "right": 414,
+              "bottom": 495.3
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "anatomy-17-14",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        669,
+        670
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "ea693a719c50b8c6a2218e398ce053887c29387c1b13696c6497d070fd358dd8",
+      "normalizedQuestionReviewed": "Patient following RTA was brought to ED, where he was told that his ulnar nerve is injured. Which of the following muscles would be affected in this patient?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question-owned source pixels present in PDF. Historical generated metadata from build-verified checkpoint356cce4 has exact stable-ID owner and correct source page/region. Downloaded every mapped asset from historical preview, checked production SHA256, visually compared assets to rendered PDF. Required markers/graph axes preserved.",
+        "Historical mapping evidence only: current combined build must regenerate and browser certify mounting."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "requiredFollowup": "Current combined generated browser certification; source completeness adjudication closed.",
+      "historicalGeneratedVisualEvidence": {
+        "checkpoint": "356cce4",
+        "preview": "https://1b9fe4f4.nk-qbank.pages.dev",
+        "metadataSha256": "4c3ccc003a5bc647a4155764b96cd82bd6c5d647233e6c30f1a7421726bf1801",
+        "visuals": [
+          {
+            "source": "source_visuals/anatomy/d4c628ee75f4f5bde4d362d2.jpg",
+            "sourcePage": 670,
+            "productionSha256": "d4c628ee75f4f5bde4d362d266076210eec394ce1ae275be063934454520e2af",
+            "sourceComparisonCrop": {
+              "left": 180,
+              "top": 74.4,
+              "right": 432,
+              "bottom": 326.4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "anatomy-21-55",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        835,
+        836
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "a82858d401e0f977a615e4f3b2f2f4cc8245e7f25e9d62f58f58a243c6405cdf",
+      "normalizedQuestionReviewed": "Which part of this bone is palpable in the infraclavicular fossa?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question-owned source pixels present in PDF. Historical generated metadata from build-verified checkpoint356cce4 has exact stable-ID owner and correct source page/region. Downloaded every mapped asset from historical preview, checked production SHA256, visually compared assets to rendered PDF. Required markers/graph axes preserved.",
+        "Historical mapping evidence only: current combined build must regenerate and browser certify mounting."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "requiredFollowup": "Current combined generated browser certification; source completeness adjudication closed.",
+      "historicalGeneratedVisualEvidence": {
+        "checkpoint": "356cce4",
+        "preview": "https://1b9fe4f4.nk-qbank.pages.dev",
+        "metadataSha256": "4c3ccc003a5bc647a4155764b96cd82bd6c5d647233e6c30f1a7421726bf1801",
+        "visuals": [
+          {
+            "source": "source_visuals/anatomy/697982a54015083ae6314451.png",
+            "sourcePage": 836,
+            "productionSha256": "697982a54015083ae6314451f28f84c14dd2b1549f9788d8109fcdaaa2cdb11a",
+            "sourceComparisonCrop": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "anatomy-23-8",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        945
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "d0c6fb1bdbbffea6d8cf5c7c6ae92b2f0754daeded169b290a8986ceaaa7fd71",
+      "normalizedQuestionReviewed": "Which of the following is the correct statement regarding the ligaments of the hip joint. The fibrous capsule is made up of outer fibres which are longitudinal and inner circular fibres which are called zona orbicularis. Ligamentum teres femoris transmits the arteries to the head of femur. IIiofemoral ligament is inverted Y shaped ligament. The acetabular labrum helps in holding the femur in position.",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered source and normalized stem contain every substantive item but omit explicit ordinal labels referred to by combination/sequence choices. Add1..N in the unchanged source item order; no new distractors or semantic reordering. Answer choices/key preserved."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "Which of the following is the correct statement regarding the ligaments of the hip joint?\n\n1. The fibrous capsule is made up of outer fibres which are longitudinal and inner circular fibres which are called zona orbicularis.\n2. Ligamentum teres femoris transmits the arteries to the head of femur.\n3. Iliofemoral ligament is an inverted Y-shaped ligament.\n4. The acetabular labrum helps in holding the femur in position."
+      },
+      "alternatives": "Assumes numeric references follow printed item order, the standard implied order of this source. This is a labelled reconstruction, not literal printed numbering."
+    },
+    {
+      "id": "anatomy-25-35",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1044,
+        1045
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "50668afc0ccea84bbaa3ce9b6f692288d88bb26cbd07632357f2219b1fb0fffd",
+      "normalizedQuestionReviewed": "Identify the pelvic diaphragm in the picture given below: -",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question-owned source pixels present in PDF. Historical generated metadata from build-verified checkpoint356cce4 has exact stable-ID owner and correct source page/region. Downloaded every mapped asset from historical preview, checked production SHA256, visually compared assets to rendered PDF. Required markers/graph axes preserved.",
+        "Historical mapping evidence only: current combined build must regenerate and browser certify mounting."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "requiredFollowup": "Current combined generated browser certification; source completeness adjudication closed.",
+      "historicalGeneratedVisualEvidence": {
+        "checkpoint": "356cce4",
+        "preview": "https://1b9fe4f4.nk-qbank.pages.dev",
+        "metadataSha256": "4c3ccc003a5bc647a4155764b96cd82bd6c5d647233e6c30f1a7421726bf1801",
+        "visuals": [
+          {
+            "source": "source_visuals/anatomy/6ec2e737130d4552cab6c563.png",
+            "sourcePage": 1045,
+            "productionSha256": "6ec2e737130d4552cab6c563aeaaa98e76f6bb588647a6d883e3ac6dfaeac3da",
+            "sourceComparisonCrop": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "anatomy-29-11",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1216
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "b0beced1ab53f15975e42c87d229d7919aed185d5785983f9205ed932f6a4138",
+      "normalizedQuestionReviewed": "Mediastinal surface of the right lung is related to? A. The Azygos vein B. The Right Lymphatic Duct C. The Aorta D. The Trachea",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Source and normalized stem/options contain the requisite facts/list labels. Numeric/combination choices or Brodmann-area pairs are meaningful without a semantic table."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "anatomy-29-34",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1230,
+        1231
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "8b427e5ec6b9b4aabffec82159f2c1c79c33ae39d88a82104cd507c32d7043bb",
+      "normalizedQuestionReviewed": "Third part of the vertebral artery is related to which of the following ?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question-owned source pixels present in PDF. Historical generated metadata from build-verified checkpoint356cce4 has exact stable-ID owner and correct source page/region. Downloaded every mapped asset from historical preview, checked production SHA256, visually compared assets to rendered PDF. Required markers/graph axes preserved.",
+        "Historical mapping evidence only: current combined build must regenerate and browser certify mounting."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "requiredFollowup": "Current combined generated browser certification; source completeness adjudication closed.",
+      "historicalGeneratedVisualEvidence": {
+        "checkpoint": "356cce4",
+        "preview": "https://1b9fe4f4.nk-qbank.pages.dev",
+        "metadataSha256": "4c3ccc003a5bc647a4155764b96cd82bd6c5d647233e6c30f1a7421726bf1801",
+        "visuals": [
+          {
+            "source": "source_visuals/anatomy/6f56cb901fd6c99304b7cf0a.png",
+            "sourcePage": 1231,
+            "productionSha256": "6f56cb901fd6c99304b7cf0a11aee7f47e3f547e7898edf6730635acf91ed42c",
+            "sourceComparisonCrop": {
+              "left": 180,
+              "top": 74.4,
+              "right": 432,
+              "bottom": 326.4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "anatomy-36-28",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1472,
+        1473
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "98e811e49d1b2316814fc878ebe1a35553dc378d0b5ff4822faa3191ccbf5704",
+      "normalizedQuestionReviewed": "Which of the following structures marked in the image contains the splenic artery? **Visual / Image Reference:** The source question references an image/diagram/histology visual. The extracted text was preserved as-is; where the source exposes only `{{caption_text}}`, the placeholder is retained rather than inventing visual details.",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question-owned source pixels present in PDF. Historical generated metadata from build-verified checkpoint356cce4 has exact stable-ID owner and correct source page/region. Downloaded every mapped asset from historical preview, checked production SHA256, visually compared assets to rendered PDF. Required markers/graph axes preserved.",
+        "Historical mapping evidence only: current combined build must regenerate and browser certify mounting."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "requiredFollowup": "Current combined generated browser certification; source completeness adjudication closed.",
+      "historicalGeneratedVisualEvidence": {
+        "checkpoint": "356cce4",
+        "preview": "https://1b9fe4f4.nk-qbank.pages.dev",
+        "metadataSha256": "4c3ccc003a5bc647a4155764b96cd82bd6c5d647233e6c30f1a7421726bf1801",
+        "visuals": [
+          {
+            "source": "source_visuals/anatomy/b4c280b4f31bac8ecfdfdce9.png",
+            "sourcePage": 1473,
+            "productionSha256": "b4c280b4f31bac8ecfdfdce926065640898651e656b95207517abe05814a4159",
+            "sourceComparisonCrop": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "anatomy-40-2",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1590
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "fbd557c227379994b81c672e707d99b38b2911a8a8f0b91f56fffaa3abbe17a3",
+      "normalizedQuestionReviewed": "From the muscles given below, choose the muscles forming the pelvic diaphragm. Levator ani Coccygeus Bulbospongiosus Ischiocavernosus Superficial transverse perineal muscle Deep transverse perineal muscle",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered source and normalized stem contain every substantive item but omit explicit ordinal labels referred to by combination/sequence choices. Add1..N in the unchanged source item order; no new distractors or semantic reordering. Answer choices/key preserved."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "From the muscles given below, choose the muscles forming the pelvic diaphragm.\n\n1. Levator ani\n2. Coccygeus\n3. Bulbospongiosus\n4. Ischiocavernosus\n5. Superficial transverse perineal muscle\n6. Deep transverse perineal muscle"
+      },
+      "alternatives": "Assumes numeric references follow printed item order, the standard implied order of this source. This is a labelled reconstruction, not literal printed numbering."
+    },
+    {
+      "id": "anatomy-42-9",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1643
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "cd503c0e4051017c307f4d10a80675fb7aa21df15536fbf0c18842541f8882cc",
+      "normalizedQuestionReviewed": "Which of the following statements is most accurate regarding the relationship between the luteinizing hormone (LH) surge and ovulation? A) The LH surge typically begins 24 hours before ovulation. B) The LH surge stimulates the release of the second polar body from the oocyte. C) The LH surge is initiated by a rise in progesterone levels from the corpus luteum. D) The peak of the LH surge occurs approximately 10-12 hours before ovulation. E) A smaller follicle size is always associated with a higher LH peak.",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Source and normalized stem/options contain the requisite facts/list labels. Numeric/combination choices or Brodmann-area pairs are meaningful without a semantic table."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "anatomy-44-23",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1692,
+        1693
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "86357052ed1cac217a7921ead173bf72c63659e5a32aebf7b1ece26db927f062",
+      "normalizedQuestionReviewed": "Which of the following components is responsible for the formation of sensory ganglia during embryonic development in the given figure? **Visual / Image Reference:** The source question references an image/diagram/histology visual. The extracted text was preserved as-is; where the source exposes only `{{caption_text}}`, the placeholder is retained rather than inventing visual details.",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question-owned source pixels present in PDF. Historical generated metadata from build-verified checkpoint356cce4 has exact stable-ID owner and correct source page/region. Downloaded every mapped asset from historical preview, checked production SHA256, visually compared assets to rendered PDF. Required markers/graph axes preserved.",
+        "Historical mapping evidence only: current combined build must regenerate and browser certify mounting."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "requiredFollowup": "Current combined generated browser certification; source completeness adjudication closed.",
+      "historicalGeneratedVisualEvidence": {
+        "checkpoint": "356cce4",
+        "preview": "https://1b9fe4f4.nk-qbank.pages.dev",
+        "metadataSha256": "4c3ccc003a5bc647a4155764b96cd82bd6c5d647233e6c30f1a7421726bf1801",
+        "visuals": [
+          {
+            "source": "source_visuals/anatomy/8ff3612e15f72c34527d517f.jpg",
+            "sourcePage": 1693,
+            "productionSha256": "8ff3612e15f72c34527d517fe621788f9c05316ed17f8576b56bfe8de9c23873",
+            "sourceComparisonCrop": {
+              "left": 180,
+              "top": 74.4,
+              "right": 432,
+              "bottom": 326.4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "anatomy-45-28",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1747
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "e6a6520decf201c1791d1e4712d778e3de768aca85762469893996a648063a68",
+      "normalizedQuestionReviewed": "Arrange the cells according to their positions from the basal layer towards the lumen in the seminiferous tubules:- Spermatogonia Primary spermatocyte Spermatid Spermatozoa Myoepithelial cell",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered source and normalized stem contain every substantive item but omit explicit ordinal labels referred to by combination/sequence choices. Add1..N in the unchanged source item order; no new distractors or semantic reordering. Answer choices/key preserved."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "Arrange the cells according to their positions from the basal layer towards the lumen in the seminiferous tubules.\n\n1. Spermatogonia\n2. Primary spermatocyte\n3. Spermatid\n4. Spermatozoa\n5. Myoepithelial cell"
+      },
+      "alternatives": "Assumes numeric references follow printed item order, the standard implied order of this source. This is a labelled reconstruction, not literal printed numbering."
+    },
+    {
+      "id": "anatomy-47-2",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "EXACT_SOURCE_REPAIR",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1811,
+        1812,
+        1813
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "5be10da8ad24f8ea359a8caf060aac24a26438bc6db1676c9d776284f26c6539",
+      "normalizedQuestionReviewed": "Match the following: 1. Cervix a) 2. Fallopian tube b) 3. Ovary c) 4. Uterus d) 5. Vagina e) 1. Cervix a) 2. Fallopian tube b) 3. Ovary c) 4. Uterus d) 5. Vagina e) **Type:** Match the Following",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question-owned source pixels present in PDF. Historical generated metadata from build-verified checkpoint356cce4 has exact stable-ID owner and correct source page/region. Downloaded every mapped asset from historical preview, checked production SHA256, visually compared assets to rendered PDF. Required markers/graph axes preserved.",
+        "Historical mapping evidence only: current combined build must regenerate and browser certify mounting.",
+        "All5 histology images present: first3 p1812 and last2 p1813. Source table labels image rows a,b,c,d,e; exported assets contain histology pixels without labels. Renderer labels them Source figure1..5. Add neutral source-order a↔figure1..e↔figure5 bridge; no correct organ-histology matches exposed. Printed optionB retained."
+      ],
+      "affectedFields": [
+        "question.histologyImageLabels"
+      ],
+      "proposedOverride": {
+        "question": "Match the following organs to the histology images shown below.\n\n1. Cervix\n2. Fallopian tube\n3. Ovary\n4. Uterus\n5. Vagina\n\nHistology labels (source image order):\na. Source figure 1\nb. Source figure 2\nc. Source figure 3\nd. Source figure 4\ne. Source figure 5"
+      },
+      "requiredFollowup": "Current combined generated browser certification; source completeness adjudication closed.",
+      "historicalGeneratedVisualEvidence": {
+        "checkpoint": "356cce4",
+        "preview": "https://1b9fe4f4.nk-qbank.pages.dev",
+        "metadataSha256": "4c3ccc003a5bc647a4155764b96cd82bd6c5d647233e6c30f1a7421726bf1801",
+        "visuals": [
+          {
+            "source": "source_visuals/anatomy/b88fd074d1983e02ca46bd1e.png",
+            "sourcePage": 1812,
+            "productionSha256": "b88fd074d1983e02ca46bd1ee2648f669f118bc5d9881469474ca1736b533a65",
+            "sourceComparisonCrop": {
+              "left": 402,
+              "top": 98.4,
+              "right": 546,
+              "bottom": 242.4
+            }
+          },
+          {
+            "source": "source_visuals/anatomy/2a9a2794f1470a481fc35781.png",
+            "sourcePage": 1812,
+            "productionSha256": "2a9a2794f1470a481fc35781f495b4bc35529b570cf27380ab9aca5bab0482f7",
+            "sourceComparisonCrop": {
+              "left": 402,
+              "top": 254.4,
+              "right": 546,
+              "bottom": 398.4
+            }
+          },
+          {
+            "source": "source_visuals/anatomy/bc8866ea9a8a64f40eb70ef8.png",
+            "sourcePage": 1812,
+            "productionSha256": "bc8866ea9a8a64f40eb70ef8758a3e04278833278c6b8d77c3adf8992ae3ae35",
+            "sourceComparisonCrop": {
+              "left": 402,
+              "top": 410.4,
+              "right": 546,
+              "bottom": 554.4
+            }
+          },
+          {
+            "source": "source_visuals/anatomy/5606a3e96fbc68bdd7dec792.png",
+            "sourcePage": 1813,
+            "productionSha256": "5606a3e96fbc68bdd7dec792190f60eb0421657db6128e30f45c2e94db6f3461",
+            "sourceComparisonCrop": {
+              "left": 402,
+              "top": 98.4,
+              "right": 546,
+              "bottom": 242.4
+            }
+          },
+          {
+            "source": "source_visuals/anatomy/af44b3a1d6dddc6e8caf8573.png",
+            "sourcePage": 1813,
+            "productionSha256": "af44b3a1d6dddc6e8caf8573077221a2656c793ade86aa31b285c302d0af7957",
+            "sourceComparisonCrop": {
+              "left": 402,
+              "top": 254.4,
+              "right": 546,
+              "bottom": 398.4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "anatomy-49-15",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1894,
+        1895
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "8aef24e80e24d7217e44709c8e0072bcab7096c1aa66829a4ed0ebf48bb4e7ad",
+      "normalizedQuestionReviewed": "A 35-year-old patient undergoes spinal surgery. Postoperatively, he develops a cerebrospinal fluid leak. Which space is most likely compromised?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question-owned source pixels present in PDF. Historical generated metadata from build-verified checkpoint356cce4 has exact stable-ID owner and correct source page/region. Downloaded every mapped asset from historical preview, checked production SHA256, visually compared assets to rendered PDF. Required markers/graph axes preserved.",
+        "Historical mapping evidence only: current combined build must regenerate and browser certify mounting."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "requiredFollowup": "Current combined generated browser certification; source completeness adjudication closed.",
+      "historicalGeneratedVisualEvidence": {
+        "checkpoint": "356cce4",
+        "preview": "https://1b9fe4f4.nk-qbank.pages.dev",
+        "metadataSha256": "4c3ccc003a5bc647a4155764b96cd82bd6c5d647233e6c30f1a7421726bf1801",
+        "visuals": [
+          {
+            "source": "source_visuals/anatomy/8b6810e2411e138c55efd67a.jpg",
+            "sourcePage": 1895,
+            "productionSha256": "8b6810e2411e138c55efd67a81900200ccc2618321e31a80a2e93854a3db4f70",
+            "sourceComparisonCrop": {
+              "left": 180,
+              "top": 74.4,
+              "right": 432,
+              "bottom": 326.4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "5-10",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        101
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "e1ad6fc9ae26afcb7d2c25d4c58fda6367501a00ca1a5c0d1f8be96aa97101b2",
+      "normalizedQuestionReviewed": "Which of the following statements is true on the structure of glycogen?\nArranged in 12 concentric layers Glucose residues are connected by ■-1,4 linkage\nBranching points formed by α-1,6 linkage",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered source and normalized stem contain every substantive item but omit explicit ordinal labels referred to by combination/sequence choices. Add1..N in the unchanged source item order; no new distractors or semantic reordering. Answer choices/key preserved.",
+        "α in α-1,4 is an unclear black-square source glyph; α is constrained by glycogen context and paired α-1,6 branching text. Mark as contextual, not claimed visible exact character."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "Which of the following statements is true on the structure of glycogen?\n\n1. Arranged in 12 concentric layers\n2. Glucose residues are connected by α-1,4 linkage\n3. Branching points formed by α-1,6 linkage"
+      },
+      "alternatives": "Assumes numeric references follow printed item order, the standard implied order of this source. This is a labelled reconstruction, not literal printed numbering."
+    },
+    {
+      "id": "7-10",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        158
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "f2562d6465ec7f745b38c9206655daf3c97dee74fde4b31354d15152e76c216c",
+      "normalizedQuestionReviewed": "Ketosis is common in type 1 DM due to: Decreased beta-oxidation of fatty acids\nIncreased mobilization of fat from the adipose cell Decreased acetyl CoA in TCA\ncycle Increase beta-hydroxy butyryl synthase",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered source and normalized stem contain every substantive item but omit explicit ordinal labels referred to by combination/sequence choices. Add1..N in the unchanged source item order; no new distractors or semantic reordering. Answer choices/key preserved."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "Ketosis is common in type 1 DM due to:\n\n1. Decreased beta-oxidation of fatty acids\n2. Increased mobilization of fat from the adipose cell\n3. Decreased acetyl CoA in TCA cycle\n4. Increased beta-hydroxy butyryl synthase"
+      },
+      "alternatives": "Assumes numeric references follow printed item order, the standard implied order of this source. This is a labelled reconstruction, not literal printed numbering."
+    },
+    {
+      "id": "10-18",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        280
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "963b2747c1f89aabf48ac6e9eb85f3f57e62c130f70949c0358854f6b0e10ccf",
+      "normalizedQuestionReviewed": "Which of the following is true regarding bile acid synthesis regulation?\n7α-hydroxylation is the step which is suppressed Cholic acid suppresses the\nsynthesis Farnesoid X receptor is activated Transcription of the CYP7A1 gene is\nsuppressed",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered source and normalized stem contain every substantive item but omit explicit ordinal labels referred to by combination/sequence choices. Add1..N in the unchanged source item order; no new distractors or semantic reordering. Answer choices/key preserved."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "Which of the following is true regarding bile acid synthesis regulation?\n\n1. 7α-hydroxylation is the step which is suppressed\n2. Cholic acid suppresses the synthesis\n3. Farnesoid X receptor is activated\n4. Transcription of the CYP7A1 gene is suppressed"
+      },
+      "alternatives": "Assumes numeric references follow printed item order, the standard implied order of this source. This is a labelled reconstruction, not literal printed numbering."
+    },
+    {
+      "id": "17-19",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        531
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "831b244be5fbd9b15ac3ddb9e8da2c9a6ade3597bd51ceb931cb1f795184384e",
+      "normalizedQuestionReviewed": "Which of the following factors can cause the denaturation of DNA? a)\nIncreasing temperature b) Increasing salt concentration c) Decreasing temperature\nd) DNA with a high A-T base composition e) DNA with a high G-C base composition\nf) Adding Urea g) Adding Formamide h) Decreasing salt concentration",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Source and normalized stem/options contain the requisite facts/list labels. Numeric/combination choices or Brodmann-area pairs are meaningful without a semantic table."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "20-4",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        614
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "4a092573a80e8af35d715773a7bdb5e7171e74b0951b94a2db0cf9869e1daf8b",
+      "normalizedQuestionReviewed": "In their CRISPR-Cas9 experiment with a mammalian cell line, the research team\nobserves the repair of DNA double-strand breaks. Which repair mechanisms are\nthey most likely observing? Non-Homologous End Joining (NHEJ) Homologous\nEnd Joining (HEJ) Nucleotide Excision Repair (NER) Base Excision Repair (BER)",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered source and normalized stem contain every substantive item but omit explicit ordinal labels referred to by combination/sequence choices. Add1..N in the unchanged source item order; no new distractors or semantic reordering. Answer choices/key preserved."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "In their CRISPR-Cas9 experiment with a mammalian cell line, the research team observes the repair of DNA double-strand breaks. Which repair mechanisms are they most likely observing?\n\n1. Non-Homologous End Joining (NHEJ)\n2. Homologous End Joining (HEJ)\n3. Nucleotide Excision Repair (NER)\n4. Base Excision Repair (BER)"
+      },
+      "alternatives": "Assumes numeric references follow printed item order, the standard implied order of this source. This is a labelled reconstruction, not literal printed numbering."
+    },
+    {
+      "id": "22-8",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        722
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "04cc45084fd16499614ff46f29204f54ff685939a3f8123c3ef1bd1393ede2ad",
+      "normalizedQuestionReviewed": "Which of the following statements are true regarding enzymes? a) Enzymes are\nproteins that can accelerate reactions by factors of 10^6 to 10^9 or more. b)\nEnzymes act on a wide range of substrates. c) Enzymes stabilize the ground state.\nd) Enzymes can catalyze both forward and reverse reactions. their e) Enzymes are\nregulated by pH, temperature, inhibitors, and activators. f) Enzyme are water\ninsoluble",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Source and normalized stem/options contain the requisite facts/list labels. Numeric/combination choices or Brodmann-area pairs are meaningful without a semantic table."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "23-19",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        760,
+        761
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "40253e77f0f7130ecabd31ad7785586c30fa3375b3dbe8372da10d2d28334e8c",
+      "normalizedQuestionReviewed": "The Gibbs free energy curve for a reaction catalyzed by an enzyme is\ndemonstrated by",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question-owned source pixels present in PDF. Historical generated metadata from build-verified checkpoint356cce4 has exact stable-ID owner and correct source page/region. Downloaded every mapped asset from historical preview, checked production SHA256, visually compared assets to rendered PDF. Required markers/graph axes preserved.",
+        "Historical mapping evidence only: current combined build must regenerate and browser certify mounting."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "requiredFollowup": "Current combined generated browser certification; source completeness adjudication closed.",
+      "historicalGeneratedVisualEvidence": {
+        "checkpoint": "356cce4",
+        "preview": "https://1b9fe4f4.nk-qbank.pages.dev",
+        "metadataSha256": "4c3ccc003a5bc647a4155764b96cd82bd6c5d647233e6c30f1a7421726bf1801",
+        "visuals": [
+          {
+            "source": "source_visuals/biochemistry/baf0711cedf6df31b4206b49.png",
+            "sourcePage": 761,
+            "productionSha256": "baf0711cedf6df31b4206b49642a2f36f821dad8d2c04f6de96ff393daf9d56e",
+            "sourceComparisonCrop": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "27-5",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        889
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "41cdd49e561dbdf65f081579b932190b5751eb0fe15648fe622987e079cd8c46",
+      "normalizedQuestionReviewed": "Features of Korsakoff Psychosis are all except Amnesia Confabulation\nOpthalmoplegia Polyneuropathy",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered source and normalized stem contain every substantive item but omit explicit ordinal labels referred to by combination/sequence choices. Add1..N in the unchanged source item order; no new distractors or semantic reordering. Answer choices/key preserved."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "Features of Korsakoff psychosis are all except:\n\n1. Amnesia\n2. Confabulation\n3. Ophthalmoplegia\n4. Polyneuropathy"
+      },
+      "alternatives": "Assumes numeric references follow printed item order, the standard implied order of this source. This is a labelled reconstruction, not literal printed numbering."
+    },
+    {
+      "id": "physiology-7-18",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        174
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "045c5bfe63d23c9d81aaad16a619bceb3fadf58eb3a53581c6614f9e6975617e",
+      "normalizedQuestionReviewed": "Which of the following statements about microtubules is true? i) Microtubules form the cytoskeleton of organelles such as cilia and nerve axons, providing structural integrity and rigidity. ii) Microtubules function as channels allowing the passage of small molecules and ions between cells. iii) Microtubules play a dynamic role in cell division, movement, and intracellular transport by acting as conveyor belts for vesicles, granules, and organelles like mitochondria.",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Source and normalized stem/options contain the requisite facts/list labels. Numeric/combination choices or Brodmann-area pairs are meaningful without a semantic table."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "physiology-12-2",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        354
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "b12730a7b2b5c085d0f4edf0cc854f5305809958d82f2336277534d1958dc711",
+      "normalizedQuestionReviewed": "Sequence the events in neuromuscular action potential conduction: Sodium channels open in the end plate Calcium enters at the nerve end plate Release of acetylcholine",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered source and normalized stem contain every substantive item but omit explicit ordinal labels referred to by combination/sequence choices. Add1..N in the unchanged source item order; no new distractors or semantic reordering. Answer choices/key preserved."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "Sequence the events in neuromuscular action potential conduction:\n\n1. Sodium channels open in the end plate\n2. Calcium enters at the nerve end plate\n3. Release of acetylcholine"
+      },
+      "alternatives": "Assumes numeric references follow printed item order, the standard implied order of this source. This is a labelled reconstruction, not literal printed numbering."
+    },
+    {
+      "id": "physiology-13-13",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        393
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "638f9edb9f227bded5b2d01b72a0f872854ba412c5bbecf726675e78d8d01da6",
+      "normalizedQuestionReviewed": "Arrange the following according to the conduction times (conduction delay) in the heart in ascending order (lowest time to highest time) a. SA node to AV node b. AV node to bundle of His c. Apex to the base of the heart d. Bundle of his to interventricular septum",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Source and normalized stem/options contain the requisite facts/list labels. Numeric/combination choices or Brodmann-area pairs are meaningful without a semantic table."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "physiology-17-11",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        483
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "ddab3660db42cfcfe6e7a7e9131b585981893a7b84794c478d1e8b96d7aede2a",
+      "normalizedQuestionReviewed": "Please arrange the following steps of ventricular action potential in the correct order. A. Activation of calcium channels regulated by changes in voltage. B. Repolarizing K+ currents C. Opening of voltage – gated sodium channels D. Transient outward flow of potassium",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Source and normalized stem/options contain the requisite facts/list labels. Numeric/combination choices or Brodmann-area pairs are meaningful without a semantic table."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "physiology-21-11",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        592
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "4e290651344d7610c581d5ef3a5888e717aac93cbdd56de633c0fb2e4cd569e8",
+      "normalizedQuestionReviewed": "While flowing through which of the following segments does the filtrate become progressively hypertonic compared to plasma?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question-owned source pixels present in PDF. Historical generated metadata from build-verified checkpoint356cce4 has exact stable-ID owner and correct source page/region. Downloaded every mapped asset from historical preview, checked production SHA256, visually compared assets to rendered PDF. Required markers/graph axes preserved.",
+        "Historical mapping evidence only: current combined build must regenerate and browser certify mounting."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "requiredFollowup": "Current combined generated browser certification; source completeness adjudication closed.",
+      "historicalGeneratedVisualEvidence": {
+        "checkpoint": "356cce4",
+        "preview": "https://1b9fe4f4.nk-qbank.pages.dev",
+        "metadataSha256": "4c3ccc003a5bc647a4155764b96cd82bd6c5d647233e6c30f1a7421726bf1801",
+        "visuals": [
+          {
+            "source": "source_visuals/physiology/598c8076a03af57cd8577a52.png",
+            "sourcePage": 592,
+            "productionSha256": "598c8076a03af57cd8577a5267c4024dd60dcf93d0c0200e480a9d5dd9596458",
+            "sourceComparisonCrop": {
+              "left": 231,
+              "top": 349.5,
+              "right": 381,
+              "bottom": 499.5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "physiology-23-41",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        650
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "852cf3c66fb5b557dfa17d242432b7bb0ae4ce90838053da0062096d4d028257",
+      "normalizedQuestionReviewed": "Through which aquaporin channel does ADH act?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Source and normalized stem/options contain the requisite facts/list labels. Numeric/combination choices or Brodmann-area pairs are meaningful without a semantic table."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "physiology-26-11",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        745
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "05e07388b00e0e7d9778f9f2e1a5501faf7a28a0b1802c0162ce905d4bf53382",
+      "normalizedQuestionReviewed": "Select the correct statements from the following The binding of one oxygen molecule to Hb decreases the affinity of the remaining heme groups for oxygen. Hb shifts from the Tense (T) state to the Relaxed (R) state upon oxygen binding, increasing oxygen affinity. At low PO2, small changes in PO2 lead to large changes in oxygen saturation. At moderate PO2, the dissociation curve is steep, meaning small increases in PO2 results in large increase in oxygen saturation.",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered source and normalized stem contain every substantive item but omit explicit ordinal labels referred to by combination/sequence choices. Add1..N in the unchanged source item order; no new distractors or semantic reordering. Answer choices/key preserved."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "Select the correct statements from the following:\n\n1. The binding of one oxygen molecule to Hb decreases the affinity of the remaining heme groups for oxygen.\n2. Hb shifts from the Tense (T) state to the Relaxed (R) state upon oxygen binding, increasing oxygen affinity.\n3. At low PO2, small changes in PO2 lead to large changes in oxygen saturation.\n4. At moderate PO2, the dissociation curve is steep, meaning small increases in PO2 result in a large increase in oxygen saturation."
+      },
+      "alternatives": "Assumes numeric references follow printed item order, the standard implied order of this source. This is a labelled reconstruction, not literal printed numbering."
+    },
+    {
+      "id": "physiology-29-10",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        824
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "15c2c5e26ce7d70c222f363818fb8a05ad2e503a6ffce5ea316e1b0e63e99853",
+      "normalizedQuestionReviewed": "If the pH is reduced from 7.4 to 7.3 with the PO2 being constant at 100 mmHg, which line would PaCO2 follow?",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question-owned source pixels present in PDF. Historical generated metadata from build-verified checkpoint356cce4 has exact stable-ID owner and correct source page/region. Downloaded every mapped asset from historical preview, checked production SHA256, visually compared assets to rendered PDF. Required markers/graph axes preserved.",
+        "Historical mapping evidence only: current combined build must regenerate and browser certify mounting."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "requiredFollowup": "Current combined generated browser certification; source completeness adjudication closed.",
+      "historicalGeneratedVisualEvidence": {
+        "checkpoint": "356cce4",
+        "preview": "https://1b9fe4f4.nk-qbank.pages.dev",
+        "metadataSha256": "4c3ccc003a5bc647a4155764b96cd82bd6c5d647233e6c30f1a7421726bf1801",
+        "visuals": [
+          {
+            "source": "source_visuals/physiology/d9676f2fc5540f4383019b46.png",
+            "sourcePage": 824,
+            "productionSha256": "d9676f2fc5540f4383019b462be65d11030f5b9108e9590471849b1485a833f2",
+            "sourceComparisonCrop": {
+              "left": 206.34,
+              "top": 231.3,
+              "right": 405.66,
+              "bottom": 381.3
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "physiology-32-26",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        917
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "1b64779a107f1bdd12e7564bf769718e3fb018bc7b89a923e4424d1c81ef86eb",
+      "normalizedQuestionReviewed": "The correct sequence of events during vomiting are? Relaxation of lower esophageal sphincter Strong contractions in the stomach Inspiration against a closed glottis Relaxation of the pyloric sphincter Relaxation of upper esophageal sphincter Reverse peristalsis in the small intestine",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Rendered source and normalized stem contain every substantive item but omit explicit ordinal labels referred to by combination/sequence choices. Add1..N in the unchanged source item order; no new distractors or semantic reordering. Answer choices/key preserved."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "The correct sequence of events during vomiting is:\n\n1. Relaxation of lower esophageal sphincter\n2. Strong contractions in the stomach\n3. Inspiration against a closed glottis\n4. Relaxation of the pyloric sphincter\n5. Relaxation of upper esophageal sphincter\n6. Reverse peristalsis in the small intestine"
+      },
+      "alternatives": "Assumes numeric references follow printed item order, the standard implied order of this source. This is a labelled reconstruction, not literal printed numbering."
+    },
+    {
+      "id": "physiology-35-4",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        1023
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "68d5c84f62734c5a22bf5bae7741e3094c79fe957390475bc8be5a8c3ba88769",
+      "normalizedQuestionReviewed": "Which among the following statements are true regarding the action of aldosterone to enhance sodium reabsorption at the molecular level in renal cells? (a) Inhibits the excretion of K+ to preserve Na+ (b) Activation of sgk gene (serum and glucocorticoid- regulated kinase) (c) Increases ENaC (Epithelial Na+ Channels) activity (d) Increases activity of Na+-K+ exchanger",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Source and normalized stem/options contain the requisite facts/list labels. Numeric/combination choices or Brodmann-area pairs are meaningful without a semantic table."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null
+    },
+    {
+      "id": "physiology-37-22",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        1084,
+        1085
+      ],
+      "sourceReviewMethod": "Poppler rendered PDF page visually inspected; pdftotext layout examined; compared current normalized stem/options from structural audit",
+      "canonicalSourceFingerprint": "e2d9143a3e567c8d58d846078c5b1268dbe9511405a772a15f42ae752849acf8",
+      "normalizedQuestionReviewed": "Which of the following hormones are secreted from each layer of the structure marked in the image given below? a. Glomerulosa- Aldosterone b. Fasciculata- Glucocorticoids c. Reticulata- Androgens d. Medulla- Epinephrine",
+      "answerConsistency": "Existing choice order and keyed answer retained; no answer change proposed. Completeness review only, not independent medical answer audit.",
+      "evidence": [
+        "Question-owned source pixels present in PDF. Historical generated metadata from build-verified checkpoint356cce4 has exact stable-ID owner and correct source page/region. Downloaded every mapped asset from historical preview, checked production SHA256, visually compared assets to rendered PDF. Required markers/graph axes preserved.",
+        "Historical mapping evidence only: current combined build must regenerate and browser certify mounting."
+      ],
+      "affectedFields": [],
+      "proposedOverride": null,
+      "requiredFollowup": "Current combined generated browser certification; source completeness adjudication closed.",
+      "historicalGeneratedVisualEvidence": {
+        "checkpoint": "356cce4",
+        "preview": "https://1b9fe4f4.nk-qbank.pages.dev",
+        "metadataSha256": "4c3ccc003a5bc647a4155764b96cd82bd6c5d647233e6c30f1a7421726bf1801",
+        "visuals": [
+          {
+            "source": "source_visuals/physiology/67ae6ceda86b7bd3a38db1b1.png",
+            "sourcePage": 1085,
+            "productionSha256": "67ae6ceda86b7bd3a38db1b1518df19778f8795c9af1710695e700cf56bd6141",
+            "sourceComparisonCrop": {
+              "left": 205.49,
+              "top": 92.4,
+              "right": 406.51,
+              "bottom": 242.4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "14-9",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "additionalToAssignedBatch": true,
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        394
+      ],
+      "sourceReviewMethod": "Poppler rendered page visually inspected and full canonical explanation reviewed",
+      "canonicalRawRecordSha256": "f8daf8b228f42f4d214c77ea984c91df80af9399281b38d1b44c97f41c324bcb",
+      "evidence": [
+        "Printed source itself contains black square glyph; this is not merely import OCR loss.",
+        "Full canonical explanation identifies ALA synthase II as the enzyme defect and option B. Remove undefined prefix before ALA rather than guessing its glyph; source explanation supports the enzyme name."
+      ],
+      "affectedFields": [
+        "question.notation"
+      ],
+      "proposedOverride": {
+        "question": "Which of the following diseases is caused by deficiency of ALA synthase?"
+      },
+      "answerConsistency": "Choice order/key retained: 2",
+      "alternatives": "Do not claim missing glyph read literally; reconstructed from explicit contextual words/explanation."
+    },
+    {
+      "id": "physiology-9-18",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "additionalToAssignedBatch": true,
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        258
+      ],
+      "sourceReviewMethod": "Poppler rendered page visually inspected and full canonical explanation reviewed",
+      "canonicalRawRecordSha256": "8aa8841fead32732bf58b037615d4fa8055b41bc8caead9b132ff8d6f1092084",
+      "evidence": [
+        "Printed source itself contains black square glyph; this is not merely import OCR loss.",
+        "Stem explicitly says intracellular sodium12 and extracellular serum120; sodium charge+1 and intracellular subscript i are constrained by these words. Canonical Nernst calculation61 log10(120/12)=61mV confirms optionA."
+      ],
+      "affectedFields": [
+        "question.notation"
+      ],
+      "proposedOverride": {
+        "question": "A 25-year-old woman presents with symptoms of confusion and lethargy. Her blood test shows a serum sodium level of 120 mEq/L. The intracellular concentration of sodium ([Na+]i) is 12 mEq/L. What is the equilibrium potential for sodium (in mV)?"
+      },
+      "answerConsistency": "Choice order/key retained: 1",
+      "alternatives": "Do not claim missing glyph read literally; reconstructed from explicit contextual words/explanation."
+    }
+  ]
+}

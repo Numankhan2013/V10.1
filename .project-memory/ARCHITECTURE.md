@@ -12,6 +12,17 @@ hooks and exposes the existing fullscreen zoom/pan viewer. PWA builds precache o
 released content-hash image URLs. `tools/marrow_image_progress.py` produces the
 checked deterministic rollout ledger.
 
+`tools/marrow_image_coverage.py` keeps the immutable source audit denominator
+and exact source-reference adjudications. Metadata-free cues use
+`data/marrow/images/source_text_cue_reviews.json`: stable cue/question IDs,
+exact provenance-page union, pinned PDF file/hash, and source evidence.
+Confirmed source omissions remain explicit `NO_SOURCE_VISUAL` decisions.
+True visuals declare role/page references; these add source-derived denominator
+rows and clear a cue only when every linked binding is released. Source-reviewed
+continuation pages must be listed explicitly in `reviewedVisualPages`. Orphan
+reviews, changed source/provenance, unlisted pages and unreleased bindings fail
+closed. Raw question bundles and audit metadata remain unchanged.
+
 - Android wrapper (`app/src/main/java/com/qbank/biochemistry/MainActivity.java`,
   `AndroidManifest.xml`) + **WebView** + monolithic
   `app/src/main/assets/index.html` (~6 MB on V11 branches; 1.9 MB on stale
@@ -23,6 +34,13 @@ checked deterministic rollout ledger.
 
 ## Runtime data and assets
 
+- Final source-completeness recovery is pinned in
+  `data/question_completeness_reviews_v1.json`. Its compiler validates source
+  fingerprints and generates 114 bounded display contracts for the shared
+  question presentation/interaction layer: 81 source repairs and 33 scored
+  answer gates for demonstrated source omissions. Native question images use
+  the existing hashed Marrow registry and role/owner pipeline. Raw imports and
+  PDFs remain immutable; optional archival region sheets are dispatch-only.
 - Account reset/switching is owned by `tools/cross_device_sync_core.js`:
   reset generation fences remote progress before sweeping payloads with
   tombstones; per-UID local snapshots and a switch journal isolate accounts
@@ -313,6 +331,10 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
 - The earlier Anatomy 62-question and Physiology 80-question pilot bundles remain
   compatibility/regression subsets. Expanded records replace the learner-facing
   Marrow envelope; approved augmentation IDs remain subsets of the expanded banks.
+- Learner stem/option OCR repairs are applied only at Marrow bank generation from
+  stable-ID display override manifests. Each manifest pins the immutable bundle
+  question/options fingerprint; source-reviewed Physiology manifests also pin the
+  ED8 PDF hash. The answer index and raw compressed source are never rewritten.
 - Explanation architecture is layered and non-destructive: all Marrow uses native
   structured source text/tables. The enhanced runtime layer includes only
   `approved-reference` and `approved-rollout` batches; `candidate-rollout`
@@ -423,3 +445,39 @@ Topics major-section classification must move to one explicit source-aligned
 mapping; see `docs/MARROW_TOPIC_INDEX_TAXONOMY.md`. Explanation fine-tuning
 remains a separate augmentation layer; see
 `docs/MARROW_EXPLANATION_FINE_TUNING.md`.
+
+## Source-reviewed image continuation pages
+
+Marrow image coverage may use exact continuation-page corrections from
+`data/marrow/images/source_reference_page_reviews.json`. Corrections pin the
+original stable source reference, owner/role/pages and PDF hash; coverage
+retains original pages in its report and matches only explicitly reviewed
+replacement pages. Imported bundles remain immutable. A page correction is
+not an image release and cannot silently substitute a neighboring figure.
+
+## Reviewed question-completeness contracts — 2026-09-30
+
+Individual review evidence lives in `docs/question-completeness/`; accepted display
+contracts live in `data/question_completeness_reviews_v1.json`.
+`tools/build_question_completeness_reviews.py` verifies raw question fingerprints,
+canonical shard hashes and source PDF hashes/pages, then compiles bounded contracts
+into the shared `tools/question_presentation_core.js`. Raw imports remain immutable.
+Runtime contracts fail closed on fingerprint drift; demonstrated source omissions
+receive explicit incomplete-source presentation and scored-answer gates through the
+shared presentation/interaction path. Heuristic flags alone do not gate questions.
+Exact source-key display restoration is restricted to the two reviewed five-choice
+PrepLadder tactile-receptor questions whose raw key is null; all five choices remain.
+Native question images retain source-stream fingerprints and stable owner bindings.
+
+The Android/PWA workflow's optional `render_review_regions` input regenerates
+archival source-region review sheets. Ordinary builds skip those roughly 1 GB of
+review artifacts while retaining PDF generation and downstream package validation.
+Source-only review/compiler verification does not establish full build verification.
+
+The completeness queue additionally scans whole-bank glyph artifacts and explicit
+question-visual cues against generated runtime owner roles, merges review evidence,
+and uses `--require-reviewed` in CI to reject any new unreviewed candidate. A small
+queue report is retained as an artifact. Current compilation contains 114 bounded
+display entries. Native source pixels may replace a previously released region crop
+for QUESTION ownership when that crop includes neighboring prose; existing
+explanation ownership remains intact (Physiology37Q9 is the concrete example).

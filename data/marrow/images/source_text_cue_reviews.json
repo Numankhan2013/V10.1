@@ -1,0 +1,1584 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "marrow__BIOCHEM_CH03_Q012:unmapped",
+      "questionId": "marrow__BIOCHEM_CH03_Q012",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        47,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "NO_SOURCE_VISUAL",
+      "reason": "The cited source pages contain no visual owned by the debranching-enzyme question.",
+      "evidence": "Inspected source PDF pages 47–48 and 55–59. Page 47 contains the question; page 55 shows glycogen phosphorylase regulation, unrelated to the debranching-enzyme prompt; pages 56–59 show later glycolysis and muscle-storage-disease material. No Q12-owned visual appears.",
+      "visualReferences": []
+    },
+    {
+      "id": "marrow__BIOCHEM_CH03_Q014:unmapped",
+      "questionId": "marrow__BIOCHEM_CH03_Q014",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        48,
+        56,
+        57,
+        58,
+        59
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "NO_SOURCE_VISUAL",
+      "reason": "The Scheie disease question has no source visual on its question or explanation pages.",
+      "evidence": "Inspected source PDF pages 48 and 55–59. Page 56 contains the glycolysis ATP flowchart associated with Q13; it is unrelated to Scheie disease Q14. No Q14-owned visual appears.",
+      "visualReferences": []
+    },
+    {
+      "id": "marrow__PHYSIO_CH20_Q011:unmapped",
+      "questionId": "marrow__PHYSIO_CH20_Q011",
+      "subject": "Physiology",
+      "sourcePages": [
+        367,
+        378,
+        379
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved. Page 368 immediately continues the Q11 question content from page 367 and contains its source pressure–volume graph (the neighboring second pressure–volume plot is separately Q12). This adjacent continuation page is recorded explicitly while cue sourcePages preserves provenance [367,378,379].",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH20_Q011:figure:1",
+          "role": "question",
+          "sourcePages": [
+            368
+          ]
+        }
+      ],
+      "reviewedVisualPages": [
+        368
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH20_Q012:unmapped",
+      "questionId": "marrow__PHYSIO_CH20_Q012",
+      "subject": "Physiology",
+      "sourcePages": [
+        368,
+        379,
+        380
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH20_Q012:figure:1",
+          "role": "question",
+          "sourcePages": [
+            368
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH20_Q016:unmapped",
+      "questionId": "marrow__PHYSIO_CH20_Q016",
+      "subject": "Physiology",
+      "sourcePages": [
+        369,
+        381,
+        382
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH20_Q016:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            381
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH20_Q018:unmapped",
+      "questionId": "marrow__PHYSIO_CH20_Q018",
+      "subject": "Physiology",
+      "sourcePages": [
+        370,
+        382
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved. Adjacent page 371 continues the Q18 question prompt with its Cheyne–Stokes graph; the graph is not in the raw questionPages [370], but answer key is on page 371 and the prompt continuation immediately precedes it. Explanation visual separately on page 382.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH20_Q018:figure:1",
+          "role": "question",
+          "sourcePages": [
+            371
+          ]
+        },
+        {
+          "id": "marrow__PHYSIO_CH20_Q018:figure:2",
+          "role": "explanation",
+          "sourcePages": [
+            382
+          ]
+        }
+      ],
+      "reviewedVisualPages": [
+        371
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH21_Q006:unmapped",
+      "questionId": "marrow__PHYSIO_CH21_Q006",
+      "subject": "Physiology",
+      "sourcePages": [
+        384,
+        391
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH21_Q006:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            391
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH21_Q009:unmapped",
+      "questionId": "marrow__PHYSIO_CH21_Q009",
+      "subject": "Physiology",
+      "sourcePages": [
+        385,
+        393,
+        394
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH21_Q009:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            394
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH21_Q012:unmapped",
+      "questionId": "marrow__PHYSIO_CH21_Q012",
+      "subject": "Physiology",
+      "sourcePages": [
+        385,
+        386,
+        395,
+        396
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH21_Q012:figure:1",
+          "role": "question",
+          "sourcePages": [
+            386
+          ]
+        },
+        {
+          "id": "marrow__PHYSIO_CH21_Q012:figure:2",
+          "role": "explanation",
+          "sourcePages": [
+            396
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q008:unmapped",
+      "questionId": "marrow__PHYSIO_CH22_Q008",
+      "subject": "Physiology",
+      "sourcePages": [
+        400,
+        401,
+        408
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH22_Q008:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            408
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q010:unmapped",
+      "questionId": "marrow__PHYSIO_CH22_Q010",
+      "subject": "Physiology",
+      "sourcePages": [
+        401,
+        409
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH22_Q010:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            409
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH22_Q013:unmapped",
+      "questionId": "marrow__PHYSIO_CH22_Q013",
+      "subject": "Physiology",
+      "sourcePages": [
+        402,
+        411
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH22_Q013:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            411
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH23_Q003:unmapped",
+      "questionId": "marrow__PHYSIO_CH23_Q003",
+      "subject": "Physiology",
+      "sourcePages": [
+        416,
+        417,
+        424,
+        425
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH23_Q003:figure:1",
+          "role": "question",
+          "sourcePages": [
+            417
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH23_Q004:unmapped",
+      "questionId": "marrow__PHYSIO_CH23_Q004",
+      "subject": "Physiology",
+      "sourcePages": [
+        417,
+        418,
+        425
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH23_Q004:figure:1",
+          "role": "question",
+          "sourcePages": [
+            417
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH23_Q008:unmapped",
+      "questionId": "marrow__PHYSIO_CH23_Q008",
+      "subject": "Physiology",
+      "sourcePages": [
+        418,
+        419,
+        427
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "NO_SOURCE_VISUAL",
+      "reason": "No source visual for this metadata-free cue",
+      "evidence": "Page 418–419 contains the question text only and page 427 contains text explanation only. Page 426 Fowler graph is owned by Q6; it is not part of Q8."
+    },
+    {
+      "id": "marrow__PHYSIO_CH23_Q012:unmapped",
+      "questionId": "marrow__PHYSIO_CH23_Q012",
+      "subject": "Physiology",
+      "sourcePages": [
+        419,
+        420,
+        428,
+        429,
+        430
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH23_Q012:figure:1",
+          "role": "question",
+          "sourcePages": [
+            420
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH23_Q014:unmapped",
+      "questionId": "marrow__PHYSIO_CH23_Q014",
+      "subject": "Physiology",
+      "sourcePages": [
+        420,
+        421,
+        430,
+        431
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH23_Q014:figure:1",
+          "role": "question",
+          "sourcePages": [
+            421
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH23_Q015:unmapped",
+      "questionId": "marrow__PHYSIO_CH23_Q015",
+      "subject": "Physiology",
+      "sourcePages": [
+        421,
+        422,
+        431
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH23_Q015:figure:1",
+          "role": "question",
+          "sourcePages": [
+            421
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH23_Q016:unmapped",
+      "questionId": "marrow__PHYSIO_CH23_Q016",
+      "subject": "Physiology",
+      "sourcePages": [
+        422,
+        431,
+        432
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH23_Q016:figure:1",
+          "role": "question",
+          "sourcePages": [
+            422
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH25_Q005:unmapped",
+      "questionId": "marrow__PHYSIO_CH25_Q005",
+      "subject": "Physiology",
+      "sourcePages": [
+        447,
+        457
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH25_Q005:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            457
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH25_Q009:unmapped",
+      "questionId": "marrow__PHYSIO_CH25_Q009",
+      "subject": "Physiology",
+      "sourcePages": [
+        448,
+        459,
+        460
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "NO_SOURCE_VISUAL",
+      "reason": "No source visual for this metadata-free cue",
+      "evidence": "Pages 448 and 459–460 contain no figure for Q9; neighboring page 459 neural control figure belongs to Q5/Q7. Text describes a graph but the authoritative pages provide no source visual."
+    },
+    {
+      "id": "marrow__PHYSIO_CH26_Q016:unmapped",
+      "questionId": "marrow__PHYSIO_CH26_Q016",
+      "subject": "Physiology",
+      "sourcePages": [
+        471,
+        472,
+        480,
+        481
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH26_Q016:figure:1",
+          "role": "question",
+          "sourcePages": [
+            472
+          ]
+        },
+        {
+          "id": "marrow__PHYSIO_CH26_Q016:figure:2",
+          "role": "explanation",
+          "sourcePages": [
+            481
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH27_Q013:unmapped",
+      "questionId": "marrow__PHYSIO_CH27_Q013",
+      "subject": "Physiology",
+      "sourcePages": [
+        486,
+        494
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH27_Q013:figure:1",
+          "role": "question",
+          "sourcePages": [
+            486
+          ]
+        },
+        {
+          "id": "marrow__PHYSIO_CH27_Q013:figure:2",
+          "role": "explanation",
+          "sourcePages": [
+            494
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH28_Q010:unmapped",
+      "questionId": "marrow__PHYSIO_CH28_Q010",
+      "subject": "Physiology",
+      "sourcePages": [
+        500,
+        508,
+        509
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH28_Q010:figure:1",
+          "role": "question",
+          "sourcePages": [
+            500
+          ]
+        },
+        {
+          "id": "marrow__PHYSIO_CH28_Q010:figure:2",
+          "role": "explanation",
+          "sourcePages": [
+            508
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH28_Q026:unmapped",
+      "questionId": "marrow__PHYSIO_CH28_Q026",
+      "subject": "Physiology",
+      "sourcePages": [
+        504,
+        517,
+        518
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH28_Q026:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            517
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH31_Q001:unmapped",
+      "questionId": "marrow__PHYSIO_CH31_Q001",
+      "subject": "Physiology",
+      "sourcePages": [
+        556,
+        564,
+        565
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH31_Q001:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            565
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH32_Q004:unmapped",
+      "questionId": "marrow__PHYSIO_CH32_Q004",
+      "subject": "Physiology",
+      "sourcePages": [
+        577,
+        578,
+        587
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH32_Q004:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            587
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH33_Q017:unmapped",
+      "questionId": "marrow__PHYSIO_CH33_Q017",
+      "subject": "Physiology",
+      "sourcePages": [
+        603,
+        615,
+        616,
+        617
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Source visual located and explicitly linked to native source reference",
+      "evidence": "Inspected authoritative PDF question and explanation provenance pages and compared the exact page placement/native image to the question context. Native source JPEG retained unchanged; question/explanation role is preserved.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYSIO_CH33_Q017:figure:1",
+          "role": "question",
+          "sourcePages": [
+            603
+          ]
+        },
+        {
+          "id": "marrow__PHYSIO_CH33_Q017:figure:2",
+          "role": "explanation",
+          "sourcePages": [
+            616
+          ]
+        },
+        {
+          "id": "marrow__PHYSIO_CH33_Q017:figure:3",
+          "role": "explanation",
+          "sourcePages": [
+            616
+          ]
+        },
+        {
+          "id": "marrow__PHYSIO_CH33_Q017:figure:4",
+          "role": "explanation",
+          "sourcePages": [
+            617
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYSIO_CH38_Q001:unmapped",
+      "questionId": "marrow__PHYSIO_CH38_Q001",
+      "subject": "Physiology",
+      "sourcePages": [],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "NO_SOURCE_VISUAL",
+      "reason": "No source visual for this metadata-free cue",
+      "evidence": "Question page 711 and explanation start page 718 were inspected; both are text-only and contain no source figure."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH12_Q005:unmapped",
+      "questionId": "marrow__BIOCHEM_CH12_Q005",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        187,
+        191,
+        192
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The labeled arachidonic-acid structure is printed in the explanation on page 192.",
+      "evidence": "The labeled arachidonic-acid structure is printed in the explanation on page 192. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH12_Q005:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            192
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH15_Q006:unmapped",
+      "questionId": "marrow__BIOCHEM_CH15_Q006",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        230,
+        239
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The question text introduces a chest radiograph; the radiograph immediately follows it on page 230.",
+      "evidence": "The question text introduces a chest radiograph; the radiograph immediately follows it on page 230. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH15_Q006:figure:1",
+          "role": "question",
+          "sourcePages": [
+            230
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH15_Q019:unmapped",
+      "questionId": "marrow__BIOCHEM_CH15_Q019",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        233,
+        234,
+        244
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The fundoscopy prompt is followed by the fundus photograph on page 234.",
+      "evidence": "The fundoscopy prompt is followed by the fundus photograph on page 234. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH15_Q019:figure:1",
+          "role": "question",
+          "sourcePages": [
+            234
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH15_Q020:unmapped",
+      "questionId": "marrow__BIOCHEM_CH15_Q020",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        234,
+        235,
+        244
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The fundus-examination prompt continues onto page 235 and the photograph precedes its answer choices.",
+      "evidence": "The fundus-examination prompt continues onto page 235 and the photograph precedes its answer choices. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH15_Q020:figure:1",
+          "role": "question",
+          "sourcePages": [
+            235
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH17_Q003:unmapped",
+      "questionId": "marrow__BIOCHEM_CH17_Q003",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        262,
+        270
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [
+        271
+      ],
+      "reason": "The heme-biosynthesis pathway is printed above Solution to Question 4 on page 271, following the Question 3 explanation; source ownership is Question 3.",
+      "evidence": "The heme-biosynthesis pathway is printed above Solution to Question 4 on page 271, following the Question 3 explanation; source ownership is Question 3. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH17_Q003:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            271
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH17_Q004:unmapped",
+      "questionId": "marrow__BIOCHEM_CH17_Q004",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        262,
+        271
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [
+        272
+      ],
+      "reason": "The same native pathway stream is printed at the top of page 272 after the Question 4 explanation says the image is below; source ownership is Question 4.",
+      "evidence": "The same native pathway stream is printed at the top of page 272 after the Question 4 explanation says the image is below; source ownership is Question 4. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH17_Q004:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            272
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH18_Q015:unmapped",
+      "questionId": "marrow__BIOCHEM_CH18_Q015",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        286,
+        287,
+        295
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The ECG is printed with Question 15 on page 287 before its answer choices.",
+      "evidence": "The ECG is printed with Question 15 on page 287 before its answer choices. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH18_Q015:figure:1",
+          "role": "question",
+          "sourcePages": [
+            287
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH19_Q011:unmapped",
+      "questionId": "marrow__BIOCHEM_CH19_Q011",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        301,
+        310,
+        311
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The red-curve enzyme graph is printed directly after Question 11 on page 301.",
+      "evidence": "The red-curve enzyme graph is printed directly after Question 11 on page 301. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH19_Q011:figure:1",
+          "role": "question",
+          "sourcePages": [
+            301
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH19_Q012:unmapped",
+      "questionId": "marrow__BIOCHEM_CH19_Q012",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        301,
+        302,
+        311,
+        312
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The inhibitor/no-inhibitor graph continues with Question 12 at the top of page 302.",
+      "evidence": "The inhibitor/no-inhibitor graph continues with Question 12 at the top of page 302. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH19_Q012:figure:1",
+          "role": "question",
+          "sourcePages": [
+            302
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH19_Q019:unmapped",
+      "questionId": "marrow__BIOCHEM_CH19_Q019",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        304,
+        315,
+        316,
+        317
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The labeled Gibbs free-energy curves follow Question 19 on page 304.",
+      "evidence": "The labeled Gibbs free-energy curves follow Question 19 on page 304. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH19_Q019:figure:1",
+          "role": "question",
+          "sourcePages": [
+            304
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH20_Q006:unmapped",
+      "questionId": "marrow__BIOCHEM_CH20_Q006",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        319,
+        324,
+        325
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The visual-cycle diagram is printed above Solution to Question 7 on page 325, after the Question 6 explanation; source ownership is Question 6.",
+      "evidence": "The visual-cycle diagram is printed above Solution to Question 7 on page 325, after the Question 6 explanation; source ownership is Question 6. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH20_Q006:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            325
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH21_Q008:unmapped",
+      "questionId": "marrow__BIOCHEM_CH21_Q008",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        332,
+        340,
+        341
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The oral photograph is printed above Solution to Question 9 on page 341, following Question 8 explanation; the cited source pages establish its ownership.",
+      "evidence": "The oral photograph is printed above Solution to Question 9 on page 341, following Question 8 explanation; the cited source pages establish its ownership. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH21_Q008:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            341
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH21_Q009:unmapped",
+      "questionId": "marrow__BIOCHEM_CH21_Q009",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        333,
+        341
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The rash photograph follows Question 9 on page 333.",
+      "evidence": "The rash photograph follows Question 9 on page 333. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH21_Q009:figure:1",
+          "role": "question",
+          "sourcePages": [
+            333
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH21_Q010:unmapped",
+      "questionId": "marrow__BIOCHEM_CH21_Q010",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        333,
+        341
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [
+        334
+      ],
+      "reason": "Question 10 starts on page 333; its continuation photograph is printed at the top of page 334 before Question 10 answer choices.",
+      "evidence": "Question 10 starts on page 333; its continuation photograph is printed at the top of page 334 before Question 10 answer choices. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH21_Q010:figure:1",
+          "role": "question",
+          "sourcePages": [
+            334
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH21_Q012:unmapped",
+      "questionId": "marrow__BIOCHEM_CH21_Q012",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        334,
+        342
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [
+        335
+      ],
+      "reason": "Question 12 starts at the foot of page 334; its photograph and answer choices continue on page 335.",
+      "evidence": "Question 12 starts at the foot of page 334; its photograph and answer choices continue on page 335. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH21_Q012:figure:1",
+          "role": "question",
+          "sourcePages": [
+            335
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q002:unmapped",
+      "questionId": "marrow__BIOCHEM_CH22_Q002",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        346,
+        350,
+        351
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The absorption pathway is printed above Solution to Question 3 on page 351, following Solution to Question 2.",
+      "evidence": "The absorption pathway is printed above Solution to Question 3 on page 351, following Solution to Question 2. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH22_Q002:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            351
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q004:unmapped",
+      "questionId": "marrow__BIOCHEM_CH22_Q004",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        346,
+        351,
+        352
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The folate-cycle diagram on page 352 precedes Solution to Question 5 and follows the Question 4 explanation.",
+      "evidence": "The folate-cycle diagram on page 352 precedes Solution to Question 5 and follows the Question 4 explanation. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH22_Q004:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            352
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q005:unmapped",
+      "questionId": "marrow__BIOCHEM_CH22_Q005",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        347,
+        352,
+        353
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The cycle diagram on page 353 precedes Solution to Question 6, following the Question 5 explanation.",
+      "evidence": "The cycle diagram on page 353 precedes Solution to Question 6, following the Question 5 explanation. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH22_Q005:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            353
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q006:unmapped",
+      "questionId": "marrow__BIOCHEM_CH22_Q006",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        347,
+        353,
+        354
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The cycle diagram at the top of page 354 follows the Question 6 explanation text on page 353 and precedes Solution to Question 7.",
+      "evidence": "The cycle diagram at the top of page 354 follows the Question 6 explanation text on page 353 and precedes Solution to Question 7. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH22_Q006:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            354
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q007:unmapped",
+      "questionId": "marrow__BIOCHEM_CH22_Q007",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        347,
+        354
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The pathway diagram is printed within Solution to Question 7 on page 354.",
+      "evidence": "The pathway diagram is printed within Solution to Question 7 on page 354. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH22_Q007:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            354
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q008:unmapped",
+      "questionId": "marrow__BIOCHEM_CH22_Q008",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        348,
+        355
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The one-carbon source/utilization diagram is printed within Solution to Question 8 on page 355.",
+      "evidence": "The one-carbon source/utilization diagram is printed within Solution to Question 8 on page 355. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH22_Q008:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            355
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q010:unmapped",
+      "questionId": "marrow__BIOCHEM_CH22_Q010",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        348,
+        356
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The TCA cycle cofactor diagram follows Solution to Question 10 text on page 356.",
+      "evidence": "The TCA cycle cofactor diagram follows Solution to Question 10 text on page 356. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH22_Q010:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            356
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH24_Q001:unmapped",
+      "questionId": "marrow__BIOCHEM_CH24_Q001",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        368,
+        373
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The nitrogenous-base structure is printed on page 373 within the explanation for Question 1.",
+      "evidence": "The nitrogenous-base structure is printed on page 373 within the explanation for Question 1. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH24_Q001:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            373
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH24_Q003:unmapped",
+      "questionId": "marrow__BIOCHEM_CH24_Q003",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        368,
+        374
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The purine-ring synthesis diagram is printed on page 374 within the explanation for Question 3.",
+      "evidence": "The purine-ring synthesis diagram is printed on page 374 within the explanation for Question 3. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH24_Q003:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            374
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH24_Q010:unmapped",
+      "questionId": "marrow__BIOCHEM_CH24_Q010",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        370,
+        376,
+        377
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The pyrimidine-synthesis diagram is printed on page 377 within the explanation for Question 10.",
+      "evidence": "The pyrimidine-synthesis diagram is printed on page 377 within the explanation for Question 10. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH24_Q010:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            377
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH24_Q012:unmapped",
+      "questionId": "marrow__BIOCHEM_CH24_Q012",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        370,
+        377,
+        378
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [],
+      "reason": "The pyrimidine-synthesis diagram is printed on page 378 within the explanation for Question 12.",
+      "evidence": "The pyrimidine-synthesis diagram is printed on page 378 within the explanation for Question 12. Source checked against the authoritative immutable PDF at its printed question/solution heading and figure position.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH24_Q012:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            378
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH23_Q009:unmapped",
+      "questionId": "marrow__BIOCHEM_CH23_Q009",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        360,
+        365
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "The explanation on page 365 labels the single clinical figure “Before treatment” and “After zinc treatment”; its three native image objects form a split two-column, three-row panel, preserved as the exact union crop [161.5, 246.7, 450.5, 463.3] rendered at 300 dpi.",
+      "evidence": "The explanation on page 365 labels the single clinical figure “Before treatment” and “After zinc treatment”; its three native image objects form a split two-column, three-row panel, preserved as the exact union crop [161.5, 246.7, 450.5, 463.3] rendered at 300 dpi.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH23_Q009:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            365
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__BIOCHEM_CH17_Q014:unmapped",
+      "questionId": "marrow__BIOCHEM_CH17_Q014",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        265,
+        277
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "NO_SOURCE_VISUAL",
+      "reason": "Confirmed source omission: no teeth image appears on the cited question or explanation pages.",
+      "evidence": "The question text says an image of the teeth is shown, but authoritative page 265 contains the question text without a teeth image and explanation page 277 contains prose only. No teeth image is printed on the cited pages; the missing source figure cannot be supplied or inferred from the diagnosis.",
+      "visualReferences": []
+    },
+    {
+      "id": "marrow__BIOCHEM_CH24_Q016:unmapped",
+      "questionId": "marrow__BIOCHEM_CH24_Q016",
+      "subject": "Biochemistry",
+      "sourcePages": [
+        371,
+        379
+      ],
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reviewedVisualPages": [
+        372
+      ],
+      "reason": "The Question 16 text continues from page 371; the compound drawing is printed at the top of continuation page 372, before the answer choices. This exact native source image is bound to the question role.",
+      "evidence": "The Question 16 text continues from page 371; the compound drawing is printed at the top of continuation page 372, before the answer choices. This exact native source image is bound to the question role. Confirmed on the authoritative immutable source PDF page 372; page is the direct continuation of the question on page 371.",
+      "visualReferences": [
+        {
+          "id": "marrow__BIOCHEM_CH24_Q016:figure:1",
+          "role": "question",
+          "sourcePages": [
+            372
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marrow__PHYS_CH05_Q006:unmapped",
+      "questionId": "marrow__PHYS_CH05_Q006",
+      "subject": "Physiology",
+      "sourcePages": [
+        69,
+        79,
+        80
+      ],
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "status": "VISUAL_REFERENCE_REQUIRED",
+      "reason": "Indicator-dilution diagram and equation located on page 80.",
+      "evidence": "Reviewed pages 69 and 79–80. Solution 6 begins at the end of page 79; its chamber diagram and volume equation occupy page 80 before Solution 7. Both native images are retained.",
+      "visualReferences": [
+        {
+          "id": "marrow__PHYS_CH05_Q006:figure:1",
+          "role": "explanation",
+          "sourcePages": [
+            80
+          ]
+        },
+        {
+          "id": "marrow__PHYS_CH05_Q006:figure:2",
+          "role": "explanation",
+          "sourcePages": [
+            80
+          ]
+        }
+      ]
+    }
+  ]
+}

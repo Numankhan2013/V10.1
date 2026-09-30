@@ -30,6 +30,12 @@ Prefer building over narrating.
 
 ## Intended behavior (protected)
 
+- **Final source/image integration:** preserve source-native question and
+  explanation image roles, fullscreen zoom, offline image bytes, and stable
+  question ownership. Source-backed question recovery uses pinned evidence;
+  demonstrated underdetermined source omissions show an incomplete-source
+  state and accept no scored answer. Two archival missing-image references
+  remain documented instead of substituting unsupported images.
 - **Approved refinements (2026-09-30):** account-wide reset clears progress
   across devices using the existing sync boundary; switching accounts isolates
   each account's local progress. More uses staged email/password sign-in.

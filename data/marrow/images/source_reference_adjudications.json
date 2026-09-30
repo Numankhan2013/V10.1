@@ -80,6 +80,1190 @@
       },
       "reason": "The canonical figure metadata duplicates the continuation of the Q21 text/vector cytoskeletal table and does not identify a raster image.",
       "evidence": "Manual source review workflow 34698354509, artifact manual-physiology-image-batch01-source-review: full rendered Physiology ED8 page 19 inspected against PHYS_CH01_Q021. The continuation rows are already preserved in the same structured table; the image audit reports zero native candidates."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH27_Q005:figure:1",
+      "questionId": "marrow__BIOCHEM_CH27_Q005",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "sourcePages": [
+        426
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "reason": "The canonical metadata names a lac-operon figure on page 426, but the full authoritative page contains the Q5 solution text and no Q5 visual. The similar figure on page 425 belongs to Q3 and cannot be substituted.",
+      "evidence": "data/marrow/images/recovery_checkpoints/manual_biochem_ch25_28_20260928.json; rendered biochemistryed8.pdf pages 425 and 426 compared with Q3, Q5 and Q7 solution boundaries on 2026-09-28; page 426 has no figure."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q014:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q014",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        163
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The imported Q14 figure reference cites source page 163, but the exact full-page rendering shows the question text with no tetanization tracing or visual. No neighboring-page image is owned by Q14.",
+      "evidence": "Ubuntu artifact `marrow-wave2-regions` for exact source PDF SHA; full-page page-163 render checked against the Q14 source question text on 2026-09-28."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH04_Q011:figure:1",
+      "questionId": "marrow__BIOCHEM_CH04_Q011",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "sourcePages": [
+        69
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "reason": "Canonical metadata associates this galactose question with a fructose-metabolism pathway on explanation page 69 (xref 1146). The rendered source figure is titled “Metabolism of Fructose” and does not match the question content; it must not be released as the galactose visual.",
+      "evidence": "Ubuntu artifact run 36437795978, marrow-wave2-regions candidate for BIOCHEM_CH04_Q011:figure:1; source SHA verified, candidate xref 1146/page 69 inspected against question and explanation text."
+    },
+    {
+      "id": "marrow__ANAT_CH45_Q023:figure:1",
+      "questionId": "marrow__ANAT_CH45_Q023",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        822
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "Original metadata cites page822, which contains text/options and no triangle image. Direct question/continuation review locates the exact question-owned blue dotted heart diagram on page821; released separately as completeness figure2. The original page822 citation remains invalid.",
+      "evidence": "Ubuntu GitHub Actions run 36431980518; full-page render [0,0,612,792] at 300 dpi, SHA-256 66a17e6f605d0a06f2a7f7bf896f9af2203b566651f2570a8230daf1a57e309a; compared against the exact Anatomy PDF hash and Q23 source metadata. Later direct source review: docs/question-completeness/review-residual-visuals.json; original native page821 object2297 inspected by parallel reviewer and primary integrator, exact source stream released as question figure2."
+    },
+    {
+      "id": "marrow__ANAT_CH13_Q003:figure:1",
+      "questionId": "marrow__ANAT_CH13_Q003",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        230
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "The expected cue points to page 230, which contains the question prompt but no image. The matching peripheral nerve histology is placed at the top of page 231 (xref 618); its page field is wrong.",
+      "evidence": "Ubuntu CI full-page renders in run 36432679371 show page 230 ends at the question prompt and page 231 begins with the nerve histology (xref 618), visually matching the prompt. The native stream SHA256 is cc15872830dc1fe3be51e75d264819142b699bdddaecae374d48aa7a8bb22d53; corrected PASS binding records page 231, xref 618."
+    },
+    {
+      "id": "marrow__ANAT_CH13_Q010:figure:1",
+      "questionId": "marrow__ANAT_CH13_Q010",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        233
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "The expected cue points to page 233, which ends after the thyroid histology prompt. The exact marked thyroid section is on page 234 (xref 627); its page field is wrong.",
+      "evidence": "Ubuntu CI full-page renders in run 36432679371 show page 233 ending at the Q10 prompt and page 234 beginning with the thyroid histology marked X (xref 627), matching the question. The native stream SHA256 is 9879b520aadadbc5f71b469e14b1e94042a3b4fe63df074cbb3c026e79469c93; corrected PASS binding records page 234, xref 627."
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q018:figure:1",
+      "questionId": "marrow__ANAT_CH17_Q018",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        310
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "The expected cue points to page 310, where the Q18 prompt ends without its clinical image. The oculomotor palsy eye collage appears on page 311 (xref 3610); its page field is wrong.",
+      "evidence": "PDF source page 311 contains the clinical eye collage (xref 3610; native stream SHA256 2e629c1e08fcdb49c5293a3ce1bf35f7e051e47f25dfa5d8c6230df95951ec77) after the Q18 prompt on page 310. Direct native image review confirms an eye movement/palsy montage matching the question; corrected PASS binding records page 311, xref 3610 and region [162,520,450,736]."
+    },
+    {
+      "id": "marrow__ANAT_CH24_Q010:figure:2",
+      "questionId": "marrow__ANAT_CH24_Q010",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        406
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "The canonical source page assignment [406] has no owned visual; the matching figure appears on page 407 in the same explanation sequence. The registry binding records the verified physical page, xref, and image bounds.",
+      "evidence": "Anatomy source review: exact source page 407, xref 1135, and placement region [162.0, 520.0, 450.0, 736.0] compared against Ubuntu-rendered page context; question/answer sequence confirms ownership."
+    },
+    {
+      "id": "marrow__ANAT_CH26_Q014:figure:1",
+      "questionId": "marrow__ANAT_CH26_Q014",
+      "subject": "Anatomy",
+      "role": "explanation",
+      "sourcePages": [
+        452
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "The canonical source page assignment [452] has no owned visual; the matching figure appears on page 453 in the same explanation sequence. The registry binding records the verified physical page, xref, and image bounds.",
+      "evidence": "Anatomy source review: exact source page 453, xref 3701, and placement region [162.0, 218.0, 450.0, 434.0] compared against Ubuntu-rendered page context; question/answer sequence confirms ownership."
+    },
+    {
+      "id": "marrow__ANAT_CH24_Q001:figure:1",
+      "questionId": "marrow__ANAT_CH24_Q001",
+      "subject": "Anatomy",
+      "role": "explanation",
+      "sourcePages": [
+        409
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "Page 409 contains the chapter answer key table and prose only, not a Q1-owned medical visual. The answer-key table cannot serve as an explanation image.",
+      "evidence": "Anatomy manual source review: Ubuntu-rendered page(s) [409] inspected against exact reference; no matching figure is present, or the only page visual is explicitly unrelated as described."
+    },
+    {
+      "id": "marrow__ANAT_CH24_Q007:figure:2",
+      "questionId": "marrow__ANAT_CH24_Q007",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        406
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "The complete question page 406 has text-only Questions 7–10; Q7 asks an anatomy fact and has no attached visual. No Q7-owned figure appears on the cited page.",
+      "evidence": "Anatomy manual source review: Ubuntu-rendered page(s) [406] inspected against exact reference; no matching figure is present, or the only page visual is explicitly unrelated as described."
+    },
+    {
+      "id": "marrow__ANAT_CH24_Q012:figure:1",
+      "questionId": "marrow__ANAT_CH24_Q012",
+      "subject": "Anatomy",
+      "role": "explanation",
+      "sourcePages": [
+        418
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "The cited page figure is a gross brainstem specimen and skull rendering, not the listed medulla cross-section levels table. Exact source image cue does not match the only visual on this page.",
+      "evidence": "Anatomy manual source review: Ubuntu-rendered page(s) [418] inspected against exact reference; no matching figure is present, or the only page visual is explicitly unrelated as described."
+    },
+    {
+      "id": "marrow__ANAT_CH23_Q003:figure:1",
+      "questionId": "marrow__ANAT_CH23_Q003",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        392
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "Canonical question visual metadata cites p392, where only the question prompt occurs. The marked brain section continues on p393 and is independently released as question figure2 with exact native stream and truthful p393 citation. The original page assignment is invalid.",
+      "evidence": "Ubuntu-rendered full source page 392 inspected: Questions 1–3 are visible; Q3 requests a brain section, but no section image appears anywhere on the cited page. Final completeness review found the owning continuation page393 and native xref1099; see docs/question-completeness/review-visual-gap-1.json and source_visual_discoveries.json. This adjudication concerns the original page citation, not absence of the source question image."
+    },
+    {
+      "id": "marrow__ANAT_CH62_Q008:figure:1",
+      "questionId": "marrow__ANAT_CH62_Q008",
+      "subject": "Anatomy",
+      "role": "explanation",
+      "sourcePages": [
+        1197
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "The Q8 metadata assigns an explanation figure on page 1197, but the only image on that page appears before the “Solution to Question 8” heading and is explicitly introduced by the Q7 explanation ending on page 1196 as the histological section showing a vein valve. Q8’s printed explanation contains text and no Q8-owned figure. Do not bind the neighboring Q7 image to Q8.",
+      "evidence": "Compared authoritative Anatomy_ed8.pdf pages 1196–1197 (SHA-256 7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f), rendered directly with pdftoppm. Page 1196 ends Q7 with “The following image is a histological section showing the valve within a vein”; page 1197 begins with that image, then starts “Solution to Question 8”. The same native xref 3369 matches the printed Q7 image; no distinct Q8 figure occurs on p1197."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q001:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q001",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        165
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-165 cardiac-muscle illustration labels muscle cells, mitochondria, myofibrils, and intercalated discs, but has no myosin heavy-chain alpha/beta isoform labels. Its page position and content belong with the adjacent intercalated-disc explanation, not this isoform question.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-165 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 6b853f20de5c4bf618b891ba6d11a61043c82726ffb77ba7311e9729d3d650ab). PDF points region [149.52, 453.64, 462.48, 726.36]; source candidates: 443, 444, 445."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q003:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q003",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        165
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-165 cardiac-muscle illustration shows general muscle anatomy and intercalated discs; it contains no phospholamban, SERCA, or phosphorylation content required by this positive-inotropy explanation.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-165 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 6b853f20de5c4bf618b891ba6d11a61043c82726ffb77ba7311e9729d3d650ab). PDF points region [149.52, 453.64, 462.48, 726.36]; source candidates: 443, 444, 445."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q004:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q004",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        161
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-161 image is the Starling length-tension graph, owned by Q6. It does not depict phospholamban or SERCA, which Q4 asks about.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-161 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 94366cd6968d3f2892135c93d9e395056a8ed5401561a63a9bc1bfa1f723de83). PDF points region [150.0, 316.0, 462.0, 588.0]; source candidates: 433."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q005:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q005",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        161
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-161 image is the Starling length-tension graph, owned by Q6. It does not show the long cardiac refractory period that explains Q5.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-161 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 94366cd6968d3f2892135c93d9e395056a8ed5401561a63a9bc1bfa1f723de83). PDF points region [150.0, 316.0, 462.0, 588.0]; source candidates: 433."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q006:figure:2",
+      "questionId": "marrow__PHYS_CH08_Q006",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        167
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-167 image compares skeletal and cardiac action potentials and contraction timing; it belongs to the long-refractory-period explanation for Q5 and does not depict the Starling length-tension relationship asked in Q6.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-167 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 28dbd448abd581c60f2e3148d3a4eccc14122c9f9ca8df37dc0235a96c324fc3). PDF points region [150.0, 372.0, 462.0, 644.0]; source candidates: 450."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q007:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q007",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        161
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-161 Starling graph belongs to Q6 and does not depict single-unit smooth muscle in hollow viscera.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-161 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 94366cd6968d3f2892135c93d9e395056a8ed5401561a63a9bc1bfa1f723de83). PDF points region [150.0, 316.0, 462.0, 588.0]; source candidates: 433."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q008:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q008",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        168
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-168 image is a continuation of the page-161 Starling graph for Q6, not a smooth-muscle excitation-contraction coupling figure for Q8.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-168 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 8ae13656295bdab44931269572c8c96e7e963dfbfcca64e977afe086f5d00ad0). PDF points region [150.0, 144.0, 462.0, 416.0]; source candidates: 453."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q009:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q009",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        169
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-169 smooth-muscle contraction flowchart is positioned with Q8 and does not compare calmodulin with troponin C as required by Q9.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-169 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 39b530627fb09f1b7ce1fb0a3ddda694ef15aadcb71a29664f4fe6c9d79ef594). PDF points region [150.0, 28.0, 462.0, 300.0]; source candidates: 456."
+    },
+    {
+      "id": "marrow__PHYS_CH08_Q010:figure:1",
+      "questionId": "marrow__PHYS_CH08_Q010",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        169
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-169 smooth-muscle contraction flowchart is positioned with Q8 and does not depict the latch mechanism asked about in Q10.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-169 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 39b530627fb09f1b7ce1fb0a3ddda694ef15aadcb71a29664f4fe6c9d79ef594). PDF points region [150.0, 28.0, 462.0, 300.0]; source candidates: 456."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q003:figure:1",
+      "questionId": "marrow__PHYS_CH09_Q003",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        182
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-182 synapse diagrams do not label the chemical synaptic-cleft distance. The exact page-183 figure for this question labels a 200–300 Å cleft; page-182 imagery is not the requested measurement figure.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-182 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 aef8dd40d4547c988af254bdc3f772fe967728cc37b8d16e64c136149930a526). PDF points region [149.52, 28.0, 462.48, 739.386]; source candidates: 485, 486, 487, 488."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q012:figure:1",
+      "questionId": "marrow__PHYS_CH09_Q012",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        176
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-176 motor-neuron/interneuron response graph is the stimulus for Q14 and does not show sodium influx or the excitatory postsynaptic potential asked in Q12.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-176 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 16e0d99afa7be18678e01535c9845b31946efc73ef69064670c95ebff13bdedd). PDF points region [150.0, 296.0, 462.0, 568.0]; source candidates: 471."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q013:figure:1",
+      "questionId": "marrow__PHYS_CH09_Q013",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        176
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-176 motor-neuron/interneuron response graph is the stimulus for Q14 and does not show chloride influx or an inhibitory postsynaptic potential for Q13.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-176 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 16e0d99afa7be18678e01535c9845b31946efc73ef69064670c95ebff13bdedd). PDF points region [150.0, 296.0, 462.0, 568.0]; source candidates: 471."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q013:figure:2",
+      "questionId": "marrow__PHYS_CH09_Q013",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        189
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-189 trace depicts a depolarizing response, not chloride-mediated inhibitory postsynaptic hyperpolarization asked in Q13.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-189 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 11790c8ab617e075fe016b8db986f367b50432fb9f0f3ebbbd8aed8e1e1db762). PDF points region [150.0, 28.0, 462.0, 300.0]; source candidates: 506."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q014:figure:2",
+      "questionId": "marrow__PHYS_CH09_Q014",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        189
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-189 single depolarizing trace does not show the motor-neuron/interneuron effect asked in Q14; that question stimulus is the page-176 graph recorded as figure 1.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-189 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 11790c8ab617e075fe016b8db986f367b50432fb9f0f3ebbbd8aed8e1e1db762). PDF points region [150.0, 28.0, 462.0, 300.0]; source candidates: 506."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q015:figure:1",
+      "questionId": "marrow__PHYS_CH09_Q015",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        176
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-176 motor-neuron/interneuron response graph belongs to Q14 and does not show the multiple sources of slow IPSPs asked in Q15.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-176 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 16e0d99afa7be18678e01535c9845b31946efc73ef69064670c95ebff13bdedd). PDF points region [150.0, 296.0, 462.0, 568.0]; source candidates: 471."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q019:figure:1",
+      "questionId": "marrow__PHYS_CH09_Q019",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        192
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-192 image shows Renshaw-cell and cerebellar feed-forward inhibition, not presynaptic facilitation or prolonged presynaptic calcium-channel opening asked in Q19.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-192 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 f67137094b68df58d0118185d8f5a1bd11ec994d9a9b31ce01410f5fb6a6cc26). PDF points region [150.0, 28.0, 462.0, 677.0]; source candidates: 514, 515."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q020:figure:1",
+      "questionId": "marrow__PHYS_CH09_Q020",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        193
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-193 image depicts presynaptic facilitation. It does not show acetylcholinesterase inhibition at the neuromuscular junction, which explains Q20.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-193 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 8e24b2c82b8e526ab36393fac0b35e6ec055bd73cfb8525ddbd704a978eadffb). PDF points region [150.0, 157.0, 462.0, 429.0]; source candidates: 518."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q021:figure:1",
+      "questionId": "marrow__PHYS_CH09_Q021",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        193
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-193 image depicts presynaptic facilitation and does not show denervation supersensitivity of the pupillary dilator muscle asked in Q21.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-193 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 8e24b2c82b8e526ab36393fac0b35e6ec055bd73cfb8525ddbd704a978eadffb). PDF points region [150.0, 157.0, 462.0, 429.0]; source candidates: 518."
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q024:figure:1",
+      "questionId": "marrow__PHYS_CH09_Q024",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        195
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-195 image is a neuromuscular-junction/ACh diagram and does not show endogenous opioid ligands or their receptor potency asked in Q24.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-195 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 10ab635b14177364c9a123190f84b909e233bc115b9ffecc58d09dea6550bd6d). PDF points region [150.0, 467.0, 462.0, 739.0]; source candidates: 523."
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q006:figure:1",
+      "questionId": "marrow__PHYS_CH10_Q006",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        204
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-204 catecholamine-synthesis chart does not show dopaminergic pathways. The page-205 basal-ganglia pathway diagram is the relevant question figure already recorded separately.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-204 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 c1c8d3819c8bdf44442f7fa8abf04c07e13415da6dbfec8a95526f124eb4fc7d). PDF points region [150.0, 171.0, 462.0, 443.0]; source candidates: 543."
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q017:figure:1",
+      "questionId": "marrow__PHYS_CH10_Q017",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        208
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-208 source page has no native visual candidate for this question; its page crop is question text/answer material, not a learner-safe source figure for serotonin concentration.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-208 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 067502b041c43e5ae22c6d312420cae314206f49c43812634d84339fb23ee721). PDF points region [0.0, 0.0, 612.0, 792.0]; source candidates: no native image xref."
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q017:figure:2",
+      "questionId": "marrow__PHYS_CH10_Q017",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        209
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-209 image is a serotonin-metabolism pathway and does not show the highest serotonin concentrations in platelets and the gastrointestinal tract asked in Q17.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-209 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 a90deeca8f21ca925be58061f3a6bfd22aa83339915e664a3f0e6e42b664e0f7). PDF points region [149.52, 27.521, 462.48, 300.479]; source candidates: 558, 559, 560."
+    },
+    {
+      "id": "marrow__PHYS_CH10_Q018:figure:1",
+      "questionId": "marrow__PHYS_CH10_Q018",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        209
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-209 image is a serotonin-metabolism pathway, not an NMDA-receptor/channel figure as required by Q18.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-209 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 a90deeca8f21ca925be58061f3a6bfd22aa83339915e664a3f0e6e42b664e0f7). PDF points region [149.52, 27.521, 462.48, 300.479]; source candidates: 558, 559, 560."
+    },
+    {
+      "id": "marrow__PHYS_CH11_Q007:figure:1",
+      "questionId": "marrow__PHYS_CH11_Q007",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        219
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The cited page-219 crop is a full source question/answer page, not a discrete Q7-owned visual; the image audit reports no native visual candidate. It includes answer material and cannot be displayed as a question figure.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-219 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 22f56dd631a9f04311fe7b4fbcb1a319d7ba90b1864940d3a150ec0ffcbdf882). PDF points region [0.0, 0.0, 612.0, 792.0]; source candidates: no native image xref."
+    },
+    {
+      "id": "marrow__PHYS_CH11_Q008:figure:1",
+      "questionId": "marrow__PHYS_CH11_Q008",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        219
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The cited page-219 crop is a full source question/answer page, not a discrete Q8-owned visual; the image audit reports no native visual candidate. It includes answer material and cannot be displayed as a question figure.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-219 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 22f56dd631a9f04311fe7b4fbcb1a319d7ba90b1864940d3a150ec0ffcbdf882). PDF points region [0.0, 0.0, 612.0, 792.0]; source candidates: no native image xref."
+    },
+    {
+      "id": "marrow__PHYS_CH11_Q009:figure:1",
+      "questionId": "marrow__PHYS_CH11_Q009",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        220
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The cited page-220 crop is a full source question/answer page, not a discrete Q9-owned visual; the image audit reports no native visual candidate and the page includes answer material.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-220 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 81e8fcd8fbf7b00cc50eeaa2d120a8b97e56cb9de2b662eef28289d2a58e5f20). PDF points region [0.0, 0.0, 612.0, 792.0]; source candidates: no native image xref."
+    },
+    {
+      "id": "marrow__PHYS_CH11_Q010:figure:1",
+      "questionId": "marrow__PHYS_CH11_Q010",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        220
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The cited page-220 crop is a full source question/answer page, not a discrete Q10-owned visual; the image audit reports no native visual candidate and the page includes answer material.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-220 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 81e8fcd8fbf7b00cc50eeaa2d120a8b97e56cb9de2b662eef28289d2a58e5f20). PDF points region [0.0, 0.0, 612.0, 792.0]; source candidates: no native image xref."
+    },
+    {
+      "id": "marrow__PHYS_CH11_Q011:figure:1",
+      "questionId": "marrow__PHYS_CH11_Q011",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        220
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The cited page-220 crop is a full source question/answer page, not a discrete Q11-owned visual; the image audit reports no native visual candidate and the page includes answer material.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-220 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 81e8fcd8fbf7b00cc50eeaa2d120a8b97e56cb9de2b662eef28289d2a58e5f20). PDF points region [0.0, 0.0, 612.0, 792.0]; source candidates: no native image xref."
+    },
+    {
+      "id": "marrow__PHYS_CH11_Q016:figure:1",
+      "questionId": "marrow__PHYS_CH11_Q016",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        222
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The cited page-222 crop is a full source question/answer page, not a discrete Q16-owned visual; the image audit reports no native visual candidate and the page includes answer material.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-222 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 ee53512df8830231dc88dc3dfa76704f2f253267970a47dab3147ecdeb8df97d). PDF points region [0.0, 0.0, 612.0, 792.0]; source candidates: no native image xref."
+    },
+    {
+      "id": "marrow__PHYS_CH11_Q019:figure:1",
+      "questionId": "marrow__PHYS_CH11_Q019",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        223
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-223 image is a gate-control pain-modulation diagram, not a figure of primary cutaneous hyperalgesia as asked in Q19.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-223 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 00a4111dbceb5df56a9624674d58d0d650e0be4f26885d84b0801882bb1c129b). PDF points region [150.0, 158.0, 462.0, 430.0]; source candidates: 596."
+    },
+    {
+      "id": "marrow__PHYS_CH12_Q020:figure:1",
+      "questionId": "marrow__PHYS_CH12_Q020",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        239
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-239 image shows thalamic divisions; the ventrolateral cordotomy question asks which pain-conducting spinal tract is cut, and the image does not show that tract.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-239 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 8bca09149b7d0066558d3f3465c0ef03b7d36d793ae9a7541d84fdcce581187a). PDF points region [150.0, 130.0, 462.0, 402.0]; source candidates: 632."
+    },
+    {
+      "id": "marrow__PHYS_CH13_Q004:figure:2",
+      "questionId": "marrow__PHYS_CH13_Q004",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        249
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-249 image shows dark/light rod-receptor sodium flow, not the regional distribution of rods and cones asked in Q4. The distribution diagram belongs to the released page-248 figure 1.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-249 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 f036c43278ac58ec7ad2e594098570b0ded58fdd04eac064c3e78ba75f0c16c7). PDF points region [150.0, 491.0, 462.0, 763.0]; source candidates: 656."
+    },
+    {
+      "id": "marrow__PHYS_CH14_Q037:figure:1",
+      "questionId": "marrow__PHYS_CH14_Q037",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        288
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-288 image is a motor/somatosensory homunculus; it does not depict premotor cortex posture-setting before a planned movement as asked in Q37.",
+      "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-288 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 ea6525f098461c3dfb611a76f78f6d94626ac1012cbf8f88cd6e07a962fef474). PDF points region [149.674, 362.52, 462.326, 635.48]; source candidates: 754, 755, 756."
+    },
+    {
+      "id": "marrow__ANAT_CH23_Q009:figure:1",
+      "questionId": "marrow__ANAT_CH23_Q009",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        394
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "Canonical question visual metadata cites p394, which has only continuation text. Exact marked-thalamus coronal MRI is present on continuation p395 and is separately released with a truthful p395 registry citation. The raw source-page assignment is invalid.",
+      "evidence": "2026-09-30 authoritative source review at canonical Anatomy PDF SHA; Compared canonical Anatomy PDF SHA against full p394 and p395 renders and native image listing: p394 has no question image; p395 xref1104 is the marked MRI. Corrected learner binding is anatomy-ch23-q009-corrected-mri."
+    },
+    {
+      "id": "marrow__ANAT_CH25_Q007:figure:2",
+      "questionId": "marrow__ANAT_CH25_Q007",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        424
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "Canonical question visual metadata cites p424, which contains the question continuation but not its image. Exact Purkinje histology with the question arrow is on p425 and is separately released with a truthful p425 registry citation. Raw page assignment is invalid.",
+      "evidence": "2026-09-30 authoritative source review at canonical Anatomy PDF SHA; Compared full p424/p425 renders and native image listing against the Q7 wording; p425 xref1187 is the arrowed Purkinje histology. Corrected learner binding is anatomy-ch25-q007-corrected-purkinje-histology."
+    },
+    {
+      "id": "marrow__ANAT_CH25_Q013:figure:1",
+      "questionId": "marrow__ANAT_CH25_Q013",
+      "subject": "Anatomy",
+      "role": "explanation",
+      "sourcePages": [
+        432
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "Canonical explanation figure metadata cites p432, but the authoritative page contains no corresponding visual. The continuation p433 shows a generic cerebellum image without the declared cerebellar peduncles/tracts content; it is not a faithful substitute. Mark this figure metadata invalid.",
+      "evidence": "2026-09-30 authoritative source review at canonical Anatomy PDF SHA; Compared full p432/p433 renders and p433 native xref1210 with Q13 source explanation “Cerebellar peduncles/tracts diagram”; the visual content does not identify or depict the required tract pathways. No substituted asset released."
+    },
+    {
+      "id": "marrow__ANAT_CH35_Q005:figure:2",
+      "questionId": "marrow__ANAT_CH35_Q005",
+      "subject": "Anatomy",
+      "role": "explanation",
+      "sourcePages": [
+        629
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "Canonical order-2 metadata describes a separate rotator-cuff lateral-view image, but p629 contains only one rotator-cuff figure, already bound as order 1. The figure is not duplicated as a second runtime image; order-2 metadata is invalid.",
+      "evidence": "2026-09-30 authoritative source review at canonical Anatomy PDF SHA; Compared the source question/explanation and full p629 source render. The single source figure already bound at order1 shows the rotator cuff and insertions; there is no separate second image for order2. Duplicate display would falsely assert a second source visual."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH08_Q003:figure:1",
+      "questionId": "marrow__BIOCHEM_CH08_Q003",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "sourcePages": [
+        125
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "reason": "The declared transamination diagram is not the visual on the cited explanation page; the page figure is unrelated to this BH4 enzyme question.",
+      "evidence": "Inspected full source page 125. Its visible transamination/PLP material does not match the BH4 enzyme prompt; no source visual owned by Q3 was present."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH10_Q014:figure:1",
+      "questionId": "marrow__BIOCHEM_CH10_Q014",
+      "subject": "Biochemistry",
+      "role": "explanation",
+      "sourcePages": [
+        168
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb"
+      },
+      "reason": "The cited Rossmann fold figure is unrelated to the LDH-domain question.",
+      "evidence": "Inspected full source page 168. The page contains aminoacyl-tRNA synthetase / Rossmann-class material, not the LDH Rossmann-fold visual claimed for Q14."
+    },
+    {
+      "id": "marrow__PHYS_CH03_Q021:figure:1",
+      "questionId": "marrow__PHYS_CH03_Q021",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        52
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "Structured-only vesicular-transport comparison table; no learner image is required.",
+      "evidence": "Historical manual source review run 34700776495 revalidated against the live canonical source reference on 2026-09-28. Immutable PDF hash, question identity, role/order and source page set still match; no registry state was transplanted."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q002:figure:2",
+      "questionId": "marrow__PHYS_CH07_Q002",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        138
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "Page 138 is Solution to Q3; its dystrophin-glycoprotein figure belongs to Q3, not Q2.",
+      "evidence": "Historical manual source review run 34700776495 revalidated against the live canonical source reference on 2026-09-28. Immutable PDF hash, question identity, role/order and source page set still match; no registry state was transplanted."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q003:figure:2",
+      "questionId": "marrow__PHYS_CH07_Q003",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        139
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "Page 139 is Solution to Q4; its sarcomere/thin-filament figure belongs to Q4, not Q3.",
+      "evidence": "Historical manual source review run 34700776495 revalidated against the live canonical source reference on 2026-09-28. Immutable PDF hash, question identity, role/order and source page set still match; no registry state was transplanted."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q010:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q010",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        142
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-142 figure occurs before Solution to Q10 and belongs to preceding Q9.",
+      "evidence": "Historical manual source review run 34700776495 revalidated against the live canonical source reference on 2026-09-28. Immutable PDF hash, question identity, role/order and source page set still match; no registry state was transplanted."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q010:figure:2",
+      "questionId": "marrow__PHYS_CH07_Q010",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        143
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-143 figure is inside Solution to Q11 and belongs to Q11, not Q10.",
+      "evidence": "Historical manual source review run 34700776495 revalidated against the live canonical source reference on 2026-09-28. Immutable PDF hash, question identity, role/order and source page set still match; no registry state was transplanted."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q012:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q012",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        129
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-129 native image precedes Question 12 and belongs to Q11.",
+      "evidence": "Historical manual source review run 34700776495 revalidated against the live canonical source reference on 2026-09-28. Immutable PDF hash, question identity, role/order and source page set still match; no registry state was transplanted."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q013:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q013",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        129
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The only page-129 native image belongs to Q11; Q13 has no owned question image there.",
+      "evidence": "Historical manual source review run 34700776495 revalidated against the live canonical source reference on 2026-09-28. Immutable PDF hash, question identity, role/order and source page set still match; no registry state was transplanted."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q013:figure:2",
+      "questionId": "marrow__PHYS_CH07_Q013",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        144
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "Page-144 figures are Q11 continuation/Q12 solution content; no Q13-owned figure is present.",
+      "evidence": "Historical manual source review run 34700776495 revalidated against the live canonical source reference on 2026-09-28. Immutable PDF hash, question identity, role/order and source page set still match; no registry state was transplanted."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q014:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q014",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        129
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The only page-129 native image belongs to Q11; Q14 has no owned question image there.",
+      "evidence": "Historical manual source review run 34700776495 revalidated against the live canonical source reference on 2026-09-28. Immutable PDF hash, question identity, role/order and source page set still match; no registry state was transplanted."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q016:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q016",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        146
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-146 top cross-bridge image occurs before Solution to Q16 and continues Q15.",
+      "evidence": "Historical manual source review run 34700776495 revalidated against the live canonical source reference on 2026-09-28. Immutable PDF hash, question identity, role/order and source page set still match; no registry state was transplanted."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q017:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q017",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        147
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-147 figures occur before Solution to Q17 and continue Q16.",
+      "evidence": "Historical manual source review run 34700776495 revalidated against the live canonical source reference on 2026-09-28. Immutable PDF hash, question identity, role/order and source page set still match; no registry state was transplanted."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q018:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q018",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        148
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-148 top cross-bridge-cycle figure occurs before Solution to Q18 and continues Q17.",
+      "evidence": "Historical manual source review run 34700776495 revalidated against the live canonical source reference on 2026-09-28. Immutable PDF hash, question identity, role/order and source page set still match; no registry state was transplanted."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q019:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q019",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        148
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-148 source figure continues Q17 and is not Q19-owned.",
+      "evidence": "Historical manual source review run 34700776495 revalidated against the live canonical source reference on 2026-09-28. Immutable PDF hash, question identity, role/order and source page set still match; no registry state was transplanted."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q021:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q021",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        149
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The page-149 contraction/relaxation diagrams precede Solution to Q20 and are not a Q21 heat-production figure.",
+      "evidence": "Historical manual source review run 34700776495 revalidated against the live canonical source reference on 2026-09-28. Immutable PDF hash, question identity, role/order and source page set still match; no registry state was transplanted."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q025:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q025",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        152
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The canonical figure metadata points Q25 to page 152, but the authoritative rendered page shows the referenced graph before Solution 25 as continuation of Q24. Reusing it for Q25 would create a false source association.",
+      "evidence": "Manual authoritative source review manual-physiology-ch03-07-20260928-ch07-tail: rendered page(s) 152 inspected against solution ownership. Page 152 visuals occur before Solution 25 and belong to Q24; Q25 has no owned figure at this source page."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q029:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q029",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        154
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The authoritative rendered page 154 places the motor-unit figure before Solution 29. The same asset is already released for Q28, so the Q29 metadata association is invalid.",
+      "evidence": "Manual authoritative source review manual-physiology-ch03-07-20260928-ch07-tail: rendered page(s) 154 inspected against solution ownership. The page-154 motor-unit visual precedes Solution 29 and belongs to Q28, not Q29."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q030:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q030",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        154
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "Direct inspection of authoritative page 154 shows no Q30-owned figure; the only native candidate is the motor-unit visual already released for Q28. Reusing it for Q30 would be a provenance mismatch.",
+      "evidence": "Manual authoritative source review manual-physiology-ch03-07-20260928-ch07-tail: rendered page(s) 154 inspected against solution ownership. The only page-154 native visual is the Q28 motor-unit figure and does not belong to Q30."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q034:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q034",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        157
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "The authoritative rendered page 157 places this native figure before Solution 34 as continuation of Q33. The existing Q34 binding is already rejected, so the source metadata association should be adjudicated invalid.",
+      "evidence": "Manual authoritative source review manual-physiology-ch03-07-20260928-ch07-tail: rendered page(s) 157 inspected against solution ownership. The page-157 reflex sequence precedes Solution 34 and continues Q33; it is not a Q34-owned figure."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q035:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q035",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        158
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "Direct inspection of authoritative page 158 shows the native visual before Solution 35, owned by Q34. The same asset is already released as Q34 figure 2, so binding it to Q35 would be a provenance mismatch.",
+      "evidence": "Manual authoritative source review manual-physiology-ch03-07-20260928-ch07-tail: rendered page(s) 158 inspected against solution ownership. The page-158 action-potential/muscle visual occurs before Solution 35 and is already released as Q34 figure 2."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q011:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q011",
+      "subject": "Physiology",
+      "role": "question",
+      "sourcePages": [
+        128
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "Page 128 contains the start of Question 11 but no image. Its electron micrograph continues on page 129 and is already independently released as Q11 figure 2. This is a duplicate page-start reference, not another missing visual.",
+      "evidence": "Direct authoritative rendered-page review on 2026-09-30. Page 128 contains the start of Question 11 but no image. Its electron micrograph continues on page 129 and is already independently released as Q11 figure 2. This is a duplicate page-start reference, not another missing visual."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q020:figure:1",
+      "questionId": "marrow__PHYS_CH07_Q020",
+      "subject": "Physiology",
+      "role": "explanation",
+      "sourcePages": [
+        149
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+      },
+      "reason": "Page 149 lower relaxation flowchart precedes the Solution 20 heading and continues Solution 19 from page 148. It is retained in the complete Q19 figure 2; there is no Q20-owned visual on page 149.",
+      "evidence": "Direct authoritative rendered-page review on 2026-09-30. Page 149 lower relaxation flowchart precedes the Solution 20 heading and continues Solution 19 from page 148. It is retained in the complete Q19 figure 2; there is no Q20-owned visual on page 149."
     }
   ]
 }
