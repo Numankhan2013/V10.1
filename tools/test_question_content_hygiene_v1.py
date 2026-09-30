@@ -96,7 +96,15 @@ console.log('QUESTION_CONTENT_HYGIENE_BEHAVIOR_OK');
         ROOT / "data/marrow/content_hygiene_overrides_v1.json",
         ROOT / "data/marrow/content_hygiene_nerve_ch6_q01_17_v1.json",
         ROOT / "data/marrow/content_hygiene_nerve_ch6_q18_34_v1.json",
+        ROOT / "data/marrow/content_hygiene_phys_ch09_10_v1.json",
+        ROOT / "data/marrow/content_hygiene_phys_ch11_12_v1.json",
     )
+    override_ranges = {
+        "content_hygiene_nerve_ch6_q01_17_v1.json": ((6, 1, 17),),
+        "content_hygiene_nerve_ch6_q18_34_v1.json": ((6, 18, 34),),
+        "content_hygiene_phys_ch09_10_v1.json": ((9, 1, 27), (10, 1, 18)),
+        "content_hygiene_phys_ch11_12_v1.json": ((11, 1, 21), (12, 1, 23)),
+    }
     source_by_id = {
         str(question.get("id", "")): question
         for record in marrow_records
@@ -106,14 +114,17 @@ console.log('QUESTION_CONTENT_HYGIENE_BEHAVIOR_OK');
     for path in override_paths:
         overrides = json.loads(path.read_text(encoding="utf-8"))
         override_questions = overrides.get("questions", {})
-        expected_count = 63 if path.name == "content_hygiene_overrides_v1.json" else 17
+        ranges = override_ranges.get(path.name)
+        expected_count = sum(end - start + 1 for _, start, end in ranges) if ranges else 63
         if len(override_questions) != expected_count or not set(override_questions).issubset(source_by_id):
             raise SystemExit(f"Expected {expected_count} source-backed Physiology overrides in {path.name}")
-        if expected_count == 17:
-            start, end = (1, 17) if "q01_17" in path.name else (18, 34)
-            expected_ids = {f"marrow__PHYS_CH06_Q{number:03d}" for number in range(start, end + 1)}
+        if ranges:
+            expected_ids = {
+                f"marrow__PHYS_CH{chapter:02d}_Q{number:03d}"
+                for chapter, start, end in ranges for number in range(start, end + 1)
+            }
             if set(override_questions) != expected_ids or not overrides.get("sourcePdfSha256"):
-                raise SystemExit(f"Physiology Ch6 override range/source identity mismatch: {path.name}")
+                raise SystemExit(f"Physiology override range/source identity mismatch: {path.name}")
         if applied_ids & set(override_questions):
             raise SystemExit(f"Duplicate content override IDs in {path.name}")
         source_payload = [
@@ -135,7 +146,7 @@ console.log('QUESTION_CONTENT_HYGIENE_BEHAVIOR_OK');
                 raise SystemExit(f"Physiology source PDF changed: {path.name}")
         for qid, override in override_questions.items():
             source_question = source_by_id[qid]
-            allowed_chapters = {"5", "7"} if expected_count == 63 else {"6"}
+            allowed_chapters = {str(chapter) for chapter, _, _ in ranges} if ranges else {"5", "7"}
             if source_question.get("subject") != "Physiology" or str(source_question.get("chapterId")) not in allowed_chapters:
                 raise SystemExit(f"Content override escaped reviewed scope: {qid}")
             values = [override.get("question"), *(override.get("options") or [])]

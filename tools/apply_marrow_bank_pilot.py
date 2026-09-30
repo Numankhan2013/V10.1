@@ -203,7 +203,15 @@ CONTENT_OVERRIDE_PATHS=(
     DATA/"content_hygiene_overrides_v1.json",
     DATA/"content_hygiene_nerve_ch6_q01_17_v1.json",
     DATA/"content_hygiene_nerve_ch6_q18_34_v1.json",
+    DATA/"content_hygiene_phys_ch09_10_v1.json",
+    DATA/"content_hygiene_phys_ch11_12_v1.json",
 )
+CONTENT_OVERRIDE_RANGES={
+    "content_hygiene_nerve_ch6_q01_17_v1.json":((6,1,17),),
+    "content_hygiene_nerve_ch6_q18_34_v1.json":((6,18,34),),
+    "content_hygiene_phys_ch09_10_v1.json":((9,1,27),(10,1,18)),
+    "content_hygiene_phys_ch11_12_v1.json":((11,1,21),(12,1,23)),
+}
 expanded_source_by_id={
     str(q.get("id","")):q for record in expanded_records for q in record.get("questions",[])
 }
@@ -214,11 +222,14 @@ for content_path in CONTENT_OVERRIDE_PATHS:
     if content_overrides.get("schemaVersion")!=1 or not override_questions:
         raise SystemExit(f"Marrow content-hygiene override identity/count mismatch: {content_path.name}")
     ids=set(override_questions)
-    if "nerve_ch6_q" in content_path.name:
-        start,end=(1,17) if "q01_17" in content_path.name else (18,34)
-        expected_ids={f"marrow__PHYS_CH06_Q{number:03d}" for number in range(start,end+1)}
+    ranges=CONTENT_OVERRIDE_RANGES.get(content_path.name)
+    if ranges:
+        expected_ids={
+            f"marrow__PHYS_CH{chapter:02d}_Q{number:03d}"
+            for chapter,start,end in ranges for number in range(start,end+1)
+        }
         if ids!=expected_ids or not content_overrides.get("sourcePdfSha256"):
-            raise SystemExit(f"Marrow nerve override range/source identity mismatch: {content_path.name}")
+            raise SystemExit(f"Marrow Physiology override range/source identity mismatch: {content_path.name}")
     if not ids.issubset(expanded_source_by_id) or ids & applied_content_ids:
         raise SystemExit(f"Marrow content-hygiene override IDs unknown or duplicated: {content_path.name}")
     source_payload=[{

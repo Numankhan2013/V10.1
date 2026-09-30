@@ -184,6 +184,8 @@ def main() -> None:
         ROOT / "data/marrow/content_hygiene_overrides_v1.json",
         ROOT / "data/marrow/content_hygiene_nerve_ch6_q01_17_v1.json",
         ROOT / "data/marrow/content_hygiene_nerve_ch6_q18_34_v1.json",
+        ROOT / "data/marrow/content_hygiene_phys_ch09_10_v1.json",
+        ROOT / "data/marrow/content_hygiene_phys_ch11_12_v1.json",
         Path(__file__),
     ]
     input_hashes = {str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path): sha(path.read_bytes()) for path in tracked_inputs}

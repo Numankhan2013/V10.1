@@ -19,6 +19,8 @@ OVERRIDE_PATHS = (
     ROOT / "data/marrow/content_hygiene_overrides_v1.json",
     ROOT / "data/marrow/content_hygiene_nerve_ch6_q01_17_v1.json",
     ROOT / "data/marrow/content_hygiene_nerve_ch6_q18_34_v1.json",
+    ROOT / "data/marrow/content_hygiene_phys_ch09_10_v1.json",
+    ROOT / "data/marrow/content_hygiene_phys_ch11_12_v1.json",
 )
 LEAK_MARKERS = (
     "[object Object]",
@@ -158,7 +160,7 @@ def main() -> None:
         server.shutdown()
     print(
         "MARROW_CONTENT_HYGIENE_BROWSER_OK "
-        "physiology=Ch5_Q1-Q28,Ch6_Q1-Q34,Ch7_Q1-Q35 "
+        "physiology=Ch5_Q1-Q28,Ch6_Q1-Q34,Ch7_Q1-Q35,Ch9_Q1-Q27,Ch10_Q1-Q18,Ch11_Q1-Q21,Ch12_Q1-Q23 "
         "rendered=Ch5_Q1,Ch7_Q1,Q2,Q35 fields=question,options,takeaway,explanation,rationales"
     )
 
