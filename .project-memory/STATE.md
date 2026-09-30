@@ -83,7 +83,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 - Whole-corpus serialized JSON/code sanitizer candidate `45f6539fff535fadc6aaa6970894f9ff123422fa` passed Engineering `34738522874` and full run `34738530102` over **2,711 questions / 27,898 learner-facing fields**; raw ED8 source is unchanged.
 - User preview review found residual OCR debris in Physiology Ch5/Ch7; verified follow-up `55d7ac8a89c2bbf6a01db5d305b8c975c344c1f3` added source-fingerprinted stable-ID display overrides for those two chapters. Engineering `34740460617` and full run `34740465004` passed; production skipped.
-- Ch6 Q1–Q34 at `20b12fcc` passed Engineering `36662743310` and full/Android run `36662743308`; fetched canonical preview matches all 34 stems/options. Follow-up `a6f2bca1` adds Ch9–12 (186 reviewed overrides total): Engineering `36663959324` passed, full `36663959370` failed because the browser expected `Cl-` while shared scientific markup displays `Cl−`. Verifier now applies that formatter to expected text; retry pending. Other chapters remain unreviewed.
+- Physiology Ch6 Q1–34 and Ch9–12 source text cleanup is verified at `232f0182`: Engineering `36665702451` and full browser/PWA/APK/Android run `36665702481` passed. A fresh canonical preview fetch matched all186 reviewed stems/options across Ch5–7 and Ch9–12. Browser expectations use shared scientific markup (e.g. Cl−). Raw ED8 and answer indices remain unchanged; other chapters/explanations are unreviewed.
 
 ## Explanation lane
 
@@ -135,7 +135,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 ## Current priorities / Next step
 
 1. Complete the four active image resume batches in `docs/MARROW_MANUAL_IMAGE_INTEGRATION.md`; preserve old dirty Ch56–63 worktree as read-only donor. Serialize registry/asset integration by stable IDs; do not overwrite shared derived files from worker branches.
-2. Preserve separate Physiology Ch3–7 ownership (49 unresolved references + one cue). Finish monitoring the two Physiology text-cleanup full CI runs and verify deployed preview data before marking those changes complete.
+2. Preserve separate Physiology Ch3–7 ownership (49 unresolved references + one cue). Text-cleanup CI/preview verification is complete; continue image worker coordination and start reserved batchD when a worker slot opens.
 3. Keep accepted learner flows and production guard intact; no production promotion is authorized. Physical APK/data-preservation review remains outstanding.
 
 ## Memory pointers
