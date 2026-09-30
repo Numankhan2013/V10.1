@@ -306,6 +306,6 @@ held of 1,028; Biochemistry 133 released / five invalid / none unresolved of
 138; Physiology 239 released / 38 invalid / 49 unresolved of 326. Across
 1,492 source refs, 1,384 are released, 58 invalid and 50 unresolved. Sixty
 refs were discovered through cue review; one reserved Physiology cue remains.
-Runtime contains 1,107 visual-owning questions and 1,445 released bindings
-(356 question / 1,089 explanation). These are distinct denominators. Root’s
+Runtime contains 1,107 visual-owning questions and 1,449 released bindings
+(347 question / 1,102 explanation). These are distinct denominators. Root’s
 lightweight integration sanity passed; canonical full CI/preview is pending.
