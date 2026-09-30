@@ -100,22 +100,79 @@ def main():
             'sourcePages': [502, 503], 'source': {'file': bio_file, 'sha256': bio_hash},
             'status': 'VISUAL_REFERENCE_REQUIRED', 'reason': 'The source page contains an untracked question-time figure.',
             'evidence': 'Reviewed the exact source page and confirmed the figure matches the question prompt.',
+            'visualReferences': [{
+                'id': 'marrow__BIOCHEM_CH20_Q002:figure:1',
+                'role': 'question', 'sourcePages': [502],
+            }],
         },
     ]}
     coverage = build_coverage(audit, registry, cue_reviews=cue_reviews)
     summary = coverage['summary']['Biochemistry']
-    assert summary['sourceVisualReferences'] == 4
-    assert summary['effectiveLearnerVisualReferences'] == 4
+    assert summary['sourceVisualReferences'] == 5
+    assert summary['effectiveLearnerVisualReferences'] == 5
     assert summary['releasedSourceVisualReferences'] == 1
     assert summary['invalidSourceMetadataReferences'] == 0
     assert summary['resolvedSourceVisualReferences'] == 1
     assert summary['trackedButUnreleasedReferences'] == 1
-    assert summary['untrackedSourceVisualReferences'] == 2
+    assert summary['untrackedSourceVisualReferences'] == 3
+    assert summary['additionalCueDerivedVisualReferences'] == 1
     assert summary['textCueReviewItems'] == 1
     assert summary['sourceVisualCoverageComplete'] is False
     assert summary['humanCompletenessClaimAllowed'] is False
     cue_rows = coverage['textCueReview']
     assert {row['status'] for row in cue_rows} == {'SOURCE_REVIEWED_NO_VISUAL', 'VISUAL_REFERENCE_REQUIRED'}
+    assert next(row for row in cue_rows if row['questionId'].endswith('Q002'))['linkedReferenceIds'] == [
+        'marrow__BIOCHEM_CH20_Q002:figure:1']
+
+    released_registry = {'assets': registry['assets'] + [{
+        'id': 'cue-discovered-released-figure', 'status': 'PASS',
+        'source': {'page': 502},
+        'bindings': [{
+            'questionId': 'marrow__BIOCHEM_CH20_Q002', 'role': 'question', 'order': 1,
+            'status': 'PASS', 'source': {'page': 502},
+        }],
+    }]}
+    released_cue = build_coverage(audit, released_registry, cue_reviews=cue_reviews)
+    released_q2 = next(row for row in released_cue['textCueReview'] if row['questionId'].endswith('Q002'))
+    assert released_q2['status'] == 'SOURCE_VISUALS_RELEASED'
+    assert released_cue['summary']['Biochemistry']['textCueReviewItems'] == 0
+
+    wrong_role_registry = {'assets': registry['assets'] + [{
+        'id': 'cue-discovered-wrong-role', 'status': 'PASS',
+        'source': {'page': 502},
+        'bindings': [{
+            'questionId': 'marrow__BIOCHEM_CH20_Q002', 'role': 'explanation', 'order': 1,
+            'status': 'PASS', 'source': {'page': 502},
+        }],
+    }]}
+    wrong_role = build_coverage(audit, wrong_role_registry, cue_reviews=cue_reviews)
+    wrong_role_q2 = next(row for row in wrong_role['textCueReview'] if row['questionId'].endswith('Q002'))
+    assert wrong_role_q2['status'] == 'VISUAL_REFERENCE_REQUIRED'
+    assert wrong_role['summary']['Biochemistry']['textCueReviewItems'] == 1
+
+    wrong_page_registry = {'assets': registry['assets'] + [{
+        'id': 'cue-discovered-wrong-page', 'status': 'PASS',
+        'source': {'page': 503},
+        'bindings': [{
+            'questionId': 'marrow__BIOCHEM_CH20_Q002', 'role': 'question', 'order': 1,
+            'status': 'PASS', 'source': {'page': 503},
+        }],
+    }]}
+    wrong_page = build_coverage(audit, wrong_page_registry, cue_reviews=cue_reviews)
+    wrong_page_q2 = next(row for row in wrong_page['textCueReview'] if row['questionId'].endswith('Q002'))
+    assert wrong_page_q2['status'] == 'VISUAL_REFERENCE_REQUIRED'
+
+    pending_registry = {'assets': registry['assets'] + [{
+        'id': 'cue-discovered-pending-figure', 'status': 'REVIEW_REQUIRED',
+        'source': {'page': 502},
+        'bindings': [{
+            'questionId': 'marrow__BIOCHEM_CH20_Q002', 'role': 'question', 'order': 1,
+            'status': 'REVIEW_REQUIRED', 'source': {'page': 502},
+        }],
+    }]}
+    pending_cue = build_coverage(audit, pending_registry, cue_reviews=cue_reviews)
+    pending_q2 = next(row for row in pending_cue['textCueReview'] if row['questionId'].endswith('Q002'))
+    assert pending_q2['status'] == 'VISUAL_REFERENCE_REQUIRED'
 
     q11 = [row for row in coverage['sourceVisuals'] if row['questionId'] == 'marrow__BIOCHEM_CH19_Q011']
     assert len(q11) == 2

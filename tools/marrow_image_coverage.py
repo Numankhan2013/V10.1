@@ -116,6 +116,17 @@ def load_cue_reviews(path):
         assert entry.get('source') and entry['source'].get('file')
         assert re.fullmatch(r'[0-9a-f]{64}', str(entry['source'].get('sha256', '')))
         assert entry.get('reason') and entry.get('evidence')
+        visual_references = entry.get('visualReferences', [])
+        assert isinstance(visual_references, list)
+        for reference in visual_references:
+            assert reference.get('id') and reference.get('role') in {'question', 'explanation'}
+            pages = reference.get('sourcePages')
+            assert isinstance(pages, list) and pages and pages == sorted(set(pages))
+            assert all(isinstance(page, int) and page > 0 for page in pages)
+        if entry['status'] == 'VISUAL_REFERENCE_REQUIRED':
+            assert visual_references, 'A visual cue must link its explicit source-reference IDs'
+        else:
+            assert not visual_references, 'NO_SOURCE_VISUAL cannot be used for a visual reference'
         assert entry['id'] not in seen, f"Duplicate text-cue review: {entry['id']}"
         seen.add(entry['id'])
     return value
@@ -152,7 +163,23 @@ def build_coverage(audit, registry, adjudications=None, cue_reviews=None):
     cue_rows = []
     matched_adjudications = set()
     matched_cue_reviews = set()
-    for expected in audit.get('bindings', []):
+    cue_visual_links = {}
+    audit_bindings = list(audit.get('bindings', []))
+    for entry in cue_reviews.get('entries', []):
+        for reference in entry.get('visualReferences', []):
+            assert set(reference['sourcePages']).issubset(set(entry['sourcePages'])), \
+                f"Visual reference pages exceed cue provenance: {reference['id']}"
+            audit_bindings.append({
+                'id': reference['id'], 'questionId': entry['questionId'],
+                'subject': entry['subject'],
+                'metadata': {'role': reference['role'], 'source_pages': reference['sourcePages'],
+                             'sourceCueId': entry['id']},
+                'candidateImages': [], 'status': 'REVIEW_REQUIRED',
+                'sourceOrigin': 'TEXT_CUE_REVIEW',
+                'reason': 'Visual discovered during source text-cue review',
+            })
+    audit_by_ref_id = {binding.get('id'): binding for binding in audit_bindings}
+    for expected in audit_bindings:
         if not expected.get('metadata'):
             cue_row = {
                 'id': expected.get('id'),
@@ -177,6 +204,18 @@ def build_coverage(audit, registry, adjudications=None, cue_reviews=None):
                 assert entry.get('sourcePages') == cue_source_pages, f"Text-cue pages changed: {expected.get('id')}"
                 assert entry['source'] == {'file': source_file, 'sha256': source_hash}, f"Text-cue source changed: {expected.get('id')}"
                 matched_cue_reviews.add(entry['id'])
+                visual_reference_ids = [reference['id'] for reference in entry.get('visualReferences', [])]
+                if entry['status'] == 'VISUAL_REFERENCE_REQUIRED':
+                    for reference_id in visual_reference_ids:
+                        linked = audit_by_ref_id.get(reference_id)
+                        assert linked, f"Text-cue source reference is missing from audit: {reference_id}"
+                        assert linked.get('questionId') == expected.get('questionId')
+                        assert linked.get('subject') == expected.get('subject')
+                        role = expected_role(linked)
+                        pages = expected_pages(linked)
+                        assert role in {'question', 'explanation'}
+                        assert pages and set(pages).issubset(set(cue_source_pages))
+                    cue_visual_links[entry['id']] = visual_reference_ids
                 cue_row.update({
                     'status': ('SOURCE_REVIEWED_NO_VISUAL' if entry['status'] == 'NO_SOURCE_VISUAL'
                                else 'VISUAL_REFERENCE_REQUIRED'),
@@ -196,6 +235,8 @@ def build_coverage(audit, registry, adjudications=None, cue_reviews=None):
             'sourcePages': list(expected_pages(expected)),
             'nativeCandidateCount': len(expected.get('candidateImages', [])),
         }
+        if expected.get('sourceOrigin'):
+            row['sourceOrigin'] = expected['sourceOrigin']
 
         adjudication = adjudication_for(expected, adjudications)
         if adjudication:
@@ -245,12 +286,20 @@ def build_coverage(audit, registry, adjudications=None, cue_reviews=None):
     unmatched_cue_reviews = sorted(declared_cue_reviews - matched_cue_reviews)
     if unmatched_cue_reviews:
         raise AssertionError('Text-cue review no longer matches audit: ' + ', '.join(unmatched_cue_reviews))
+    source_rows_by_id = {row.get('id'): row for row in rows}
+    cue_rows_by_id = {row.get('id'): row for row in cue_rows}
+    for cue_id, reference_ids in cue_visual_links.items():
+        linked_rows = [source_rows_by_id.get(reference_id) for reference_id in reference_ids]
+        assert all(linked_rows), f'Text-cue source reference is missing from coverage: {cue_id}'
+        cue_rows_by_id[cue_id]['linkedReferenceIds'] = reference_ids
+        if all(row.get('coverageStatus') == 'RELEASED' for row in linked_rows):
+            cue_rows_by_id[cue_id]['status'] = 'SOURCE_VISUALS_RELEASED'
 
     subject_summary = {}
     for subject in SUBJECTS:
         subject_rows = [row for row in rows if row.get('subject') == subject]
         subject_cues = [row for row in cue_rows if row.get('subject') == subject
-                        and row['status'] != 'SOURCE_REVIEWED_NO_VISUAL']
+                        and row['status'] not in {'SOURCE_REVIEWED_NO_VISUAL', 'SOURCE_VISUALS_RELEASED'}]
         released = sum(row['coverageStatus'] == 'RELEASED' for row in subject_rows)
         invalid = sum(row['coverageStatus'] == ADJUDICATION_STATUS for row in subject_rows)
         tracked_unreleased = sum(row['coverageStatus'] == 'UNRELEASED_TRACKED' for row in subject_rows)
@@ -259,6 +308,7 @@ def build_coverage(audit, registry, adjudications=None, cue_reviews=None):
         subject_summary[subject] = {
             'sourceVisualReferences': len(subject_rows),
             'effectiveLearnerVisualReferences': len(subject_rows) - invalid,
+            'additionalCueDerivedVisualReferences': sum(row.get('sourceOrigin') == 'TEXT_CUE_REVIEW' for row in subject_rows),
             'releasedSourceVisualReferences': released,
             'invalidSourceMetadataReferences': invalid,
             'resolvedSourceVisualReferences': resolved,
