@@ -832,6 +832,70 @@
       },
       "reason": "The page-288 image is a motor/somatosensory homunculus; it does not depict premotor cortex posture-setting before a planned movement as asked in Q37.",
       "evidence": "Manual source comparison using the authoritative Physiology ED8 PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe) and the exact page-288 region render from GitHub Actions run 36609356737, artifact marrow-wave2-regions (render SHA-256 ea6525f098461c3dfb611a76f78f6d94626ac1012cbf8f88cd6e07a962fef474). PDF points region [149.674, 362.52, 462.326, 635.48]; source candidates: 754, 755, 756."
+    },
+    {
+      "id": "marrow__ANAT_CH23_Q009:figure:1",
+      "questionId": "marrow__ANAT_CH23_Q009",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        394
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "Canonical question visual metadata cites p394, which has only continuation text. Exact marked-thalamus coronal MRI is present on continuation p395 and is separately released with a truthful p395 registry citation. The raw source-page assignment is invalid.",
+      "evidence": "2026-09-30 authoritative source review at canonical Anatomy PDF SHA; Compared canonical Anatomy PDF SHA against full p394 and p395 renders and native image listing: p394 has no question image; p395 xref1104 is the marked MRI. Corrected learner binding is anatomy-ch23-q009-corrected-mri."
+    },
+    {
+      "id": "marrow__ANAT_CH25_Q007:figure:2",
+      "questionId": "marrow__ANAT_CH25_Q007",
+      "subject": "Anatomy",
+      "role": "question",
+      "sourcePages": [
+        424
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "Canonical question visual metadata cites p424, which contains the question continuation but not its image. Exact Purkinje histology with the question arrow is on p425 and is separately released with a truthful p425 registry citation. Raw page assignment is invalid.",
+      "evidence": "2026-09-30 authoritative source review at canonical Anatomy PDF SHA; Compared full p424/p425 renders and native image listing against the Q7 wording; p425 xref1187 is the arrowed Purkinje histology. Corrected learner binding is anatomy-ch25-q007-corrected-purkinje-histology."
+    },
+    {
+      "id": "marrow__ANAT_CH25_Q013:figure:1",
+      "questionId": "marrow__ANAT_CH25_Q013",
+      "subject": "Anatomy",
+      "role": "explanation",
+      "sourcePages": [
+        432
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "Canonical explanation figure metadata cites p432, but the authoritative page contains no corresponding visual. The continuation p433 shows a generic cerebellum image without the declared cerebellar peduncles/tracts content; it is not a faithful substitute. Mark this figure metadata invalid.",
+      "evidence": "2026-09-30 authoritative source review at canonical Anatomy PDF SHA; Compared full p432/p433 renders and p433 native xref1210 with Q13 source explanation “Cerebellar peduncles/tracts diagram”; the visual content does not identify or depict the required tract pathways. No substituted asset released."
+    },
+    {
+      "id": "marrow__ANAT_CH35_Q005:figure:2",
+      "questionId": "marrow__ANAT_CH35_Q005",
+      "subject": "Anatomy",
+      "role": "explanation",
+      "sourcePages": [
+        629
+      ],
+      "status": "SOURCE_METADATA_INVALID",
+      "source": {
+        "file": "Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+      },
+      "reason": "Canonical order-2 metadata describes a separate rotator-cuff lateral-view image, but p629 contains only one rotator-cuff figure, already bound as order 1. The figure is not duplicated as a second runtime image; order-2 metadata is invalid.",
+      "evidence": "2026-09-30 authoritative source review at canonical Anatomy PDF SHA; Compared the source question/explanation and full p629 source render. The single source figure already bound at order1 shows the rotator cuff and insertions; there is no separate second image for order2. Duplicate display would falsely assert a second source visual."
     }
   ]
 }

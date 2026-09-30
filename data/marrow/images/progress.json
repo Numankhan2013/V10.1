@@ -1,45 +1,45 @@
 {
   "schemaVersion": 1,
   "assets": {
-    "total": 1147,
+    "total": 1210,
     "byStatus": {
-      "PASS": 1007,
+      "PASS": 1074,
       "REJECTED": 2,
-      "REVIEW_REQUIRED": 6,
+      "REVIEW_REQUIRED": 2,
       "SOURCE_LIMITED": 132
     },
     "byKind": {
-      "diagram": 800,
+      "diagram": 857,
       "hybrid": 31,
-      "medical": 222,
-      "table": 2,
+      "medical": 227,
+      "table": 3,
       "unknown": 92
     },
     "byMethod": {
-      "native-jpeg-stream": 933,
-      "region-render": 210,
+      "native-jpeg-stream": 968,
+      "region-render": 238,
       "svg-reconstruction": 4
     }
   },
   "bindings": {
-    "total": 1349,
+    "total": 1415,
     "byStatus": {
-      "PASS": 1312,
+      "PASS": 1382,
       "REJECTED": 25,
-      "REVIEW_REQUIRED": 9,
+      "REVIEW_REQUIRED": 5,
       "SOURCE_LIMITED": 3
     },
     "releasedByRole": {
-      "explanation": 1003,
-      "question": 312
+      "explanation": 1063,
+      "question": 322
     },
-    "releasedQuestionCount": 994
+    "releasedQuestionCount": 1051
   },
   "subjects": {
     "Anatomy": {
-      "approvedAssets": 879,
-      "assets": 884,
-      "releasedQuestions": 713
+      "approvedAssets": 946,
+      "assets": 947,
+      "releasedQuestions": 770
     },
     "Biochemistry": {
       "approvedAssets": 93,
@@ -104,21 +104,25 @@
     },
     "manual-wave2-anatomy-ch27-44": {
       "bindings": 352,
-      "pendingBindings": 5,
-      "releasedBindings": 347
+      "pendingBindings": 1,
+      "releasedBindings": 351
     },
     "manual-wave2-anatomy-ch45-63": {
       "bindings": 1,
       "pendingBindings": 1
+    },
+    "manual-wave2-anatomy-ch56-63": {
+      "bindings": 58,
+      "releasedBindings": 58
     },
     "manual-wave2-biochem-physiology": {
       "bindings": 153,
       "releasedBindings": 153
     },
     "pilot": {
-      "bindings": 123,
+      "bindings": 131,
       "pendingBindings": 1,
-      "releasedBindings": 122
+      "releasedBindings": 130
     },
     "rollout-01": {
       "bindings": 18,

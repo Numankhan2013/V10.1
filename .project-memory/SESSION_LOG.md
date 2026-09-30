@@ -1176,3 +1176,9 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Reconciled worker B `dc488f12` (Anatomy Ch60–63: 51 released / 1 invalid) and worker C `18766fd8` (Physiology Ch8–14: 19 released / 33 invalid) by stable-ID deltas; preserved unrelated text cleanup and images.
 - Both workers passed release/progress/coverage and 51 local checks. Root found no conflicting registry/asset changes and regenerates shared derived files; source review was not repeated.
 - Worker D started its exclusive Biochemistry Ch1–24 / Physiology Ch15–43 range after B freed a slot. A continues Anatomy Ch1–59; external Physiology Ch3–7 claim remains reserved. Canonical CI/preview verification pending; production deferred.
+
+## 2026-09-30 — Anatomy Ch1–59 source checkpoint
+
+- Worker A `0243a614` resolved 68 of 69 assigned refs: 64 released, four source-invalid; Ch45 Q4 is held because source marker is absent. Two corrected-page question assets are released with truthful citations.
+- All local checks passed after restoring existing registry ordering and retrying the sole failed image test. Root integrates stable-ID deltas; full canonical CI pending.
+- First image checkpoint `a656edd1` is live: metadata bytes matched canonical and a sampled new image matched its SHA-256; build/browser/APK packaging passed, full Android interaction run 36670768102 subsequently passed. Worker B resumes 29 unmodified Biochemistry cue questions after A frees the slot; C handles Physiology tail cues, D handles six known refs and cue architecture. Production remains deferred.

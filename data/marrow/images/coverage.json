@@ -4,12 +4,13 @@
   "summary": {
     "Anatomy": {
       "sourceVisualReferences": 1028,
-      "effectiveLearnerVisualReferences": 1017,
-      "releasedSourceVisualReferences": 948,
-      "invalidSourceMetadataReferences": 11,
-      "resolvedSourceVisualReferences": 959,
-      "trackedButUnreleasedReferences": 6,
-      "untrackedSourceVisualReferences": 63,
+      "effectiveLearnerVisualReferences": 1013,
+      "additionalCueDerivedVisualReferences": 0,
+      "releasedSourceVisualReferences": 1012,
+      "invalidSourceMetadataReferences": 15,
+      "resolvedSourceVisualReferences": 1027,
+      "trackedButUnreleasedReferences": 1,
+      "untrackedSourceVisualReferences": 0,
       "textCueReviewItems": 0,
       "sourceVisualCoverageComplete": false,
       "humanCompletenessClaimAllowed": false
@@ -17,6 +18,7 @@
     "Biochemistry": {
       "sourceVisualReferences": 110,
       "effectiveLearnerVisualReferences": 107,
+      "additionalCueDerivedVisualReferences": 0,
       "releasedSourceVisualReferences": 103,
       "invalidSourceMetadataReferences": 3,
       "resolvedSourceVisualReferences": 106,
@@ -29,6 +31,7 @@
     "Physiology": {
       "sourceVisualReferences": 294,
       "effectiveLearnerVisualReferences": 256,
+      "additionalCueDerivedVisualReferences": 0,
       "releasedSourceVisualReferences": 205,
       "invalidSourceMetadataReferences": 38,
       "resolvedSourceVisualReferences": 243,
@@ -1551,8 +1554,12 @@
         121
       ],
       "nativeCandidateCount": 4,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch07-q006-midgut-source-limited",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 121,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH07_Q007:figure:1",
@@ -5383,8 +5390,12 @@
         366
       ],
       "nativeCandidateCount": 0,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch20-q004-cortical-areas-table",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 366,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH20_Q006:figure:1",
@@ -5887,8 +5898,10 @@
         394
       ],
       "nativeCandidateCount": 0,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "coverageStatus": "SOURCE_METADATA_INVALID",
+      "released": false,
+      "adjudicationReason": "Canonical question visual metadata cites p394, which has only continuation text. Exact marked-thalamus coronal MRI is present on continuation p395 and is separately released with a truthful p395 registry citation. The raw source-page assignment is invalid.",
+      "adjudicationEvidence": "2026-09-30 authoritative source review at canonical Anatomy PDF SHA; Compared canonical Anatomy PDF SHA against full p394 and p395 renders and native image listing: p394 has no question image; p395 xref1104 is the marked MRI. Corrected learner binding is anatomy-ch23-q009-corrected-mri."
     },
     {
       "id": "marrow__ANAT_CH23_Q012:figure:1",
@@ -6300,8 +6313,10 @@
         424
       ],
       "nativeCandidateCount": 0,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "coverageStatus": "SOURCE_METADATA_INVALID",
+      "released": false,
+      "adjudicationReason": "Canonical question visual metadata cites p424, which contains the question continuation but not its image. Exact Purkinje histology with the question arrow is on p425 and is separately released with a truthful p425 registry citation. Raw page assignment is invalid.",
+      "adjudicationEvidence": "2026-09-30 authoritative source review at canonical Anatomy PDF SHA; Compared full p424/p425 renders and native image listing against the Q7 wording; p425 xref1187 is the arrowed Purkinje histology. Corrected learner binding is anatomy-ch25-q007-corrected-purkinje-histology."
     },
     {
       "id": "marrow__ANAT_CH25_Q008:figure:1",
@@ -6347,8 +6362,10 @@
         432
       ],
       "nativeCandidateCount": 0,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "coverageStatus": "SOURCE_METADATA_INVALID",
+      "released": false,
+      "adjudicationReason": "Canonical explanation figure metadata cites p432, but the authoritative page contains no corresponding visual. The continuation p433 shows a generic cerebellum image without the declared cerebellar peduncles/tracts content; it is not a faithful substitute. Mark this figure metadata invalid.",
+      "adjudicationEvidence": "2026-09-30 authoritative source review at canonical Anatomy PDF SHA; Compared full p432/p433 renders and p433 native xref1210 with Q13 source explanation \u201cCerebellar peduncles/tracts diagram\u201d; the visual content does not identify or depict the required tract pathways. No substituted asset released."
     },
     {
       "id": "marrow__ANAT_CH25_Q013:figure:2",
@@ -9447,12 +9464,10 @@
         629
       ],
       "nativeCandidateCount": 1,
-      "assetId": "anatomy-2b8d6400f7b12172",
-      "bindingStatus": "REVIEW_REQUIRED",
-      "assetStatus": "PASS",
+      "coverageStatus": "SOURCE_METADATA_INVALID",
       "released": false,
-      "registryPage": 629,
-      "coverageStatus": "UNRELEASED_TRACKED"
+      "adjudicationReason": "Canonical order-2 metadata describes a separate rotator-cuff lateral-view image, but p629 contains only one rotator-cuff figure, already bound as order 1. The figure is not duplicated as a second runtime image; order-2 metadata is invalid.",
+      "adjudicationEvidence": "2026-09-30 authoritative source review at canonical Anatomy PDF SHA; Compared the source question/explanation and full p629 source render. The single source figure already bound at order1 shows the rotator cuff and insertions; there is no separate second image for order2. Duplicate display would falsely assert a second source visual."
     },
     {
       "id": "marrow__ANAT_CH35_Q006:figure:1",
@@ -10298,11 +10313,11 @@
       ],
       "nativeCandidateCount": 3,
       "assetId": "anatomy-q009-cutaneous-union-pending",
-      "bindingStatus": "REVIEW_REQUIRED",
-      "assetStatus": "REVIEW_REQUIRED",
-      "released": false,
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
       "registryPage": 668,
-      "coverageStatus": "UNRELEASED_TRACKED"
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH38_Q009:figure:2",
@@ -10621,11 +10636,11 @@
       ],
       "nativeCandidateCount": 2,
       "assetId": "anatomy-q027-dermatome-union-pending",
-      "bindingStatus": "REVIEW_REQUIRED",
-      "assetStatus": "REVIEW_REQUIRED",
-      "released": false,
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
       "registryPage": 699,
-      "coverageStatus": "UNRELEASED_TRACKED"
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH38_Q028:figure:1",
@@ -10706,11 +10721,11 @@
       ],
       "nativeCandidateCount": 0,
       "assetId": "anatomy-q031-lesion-table-pending",
-      "bindingStatus": "REVIEW_REQUIRED",
-      "assetStatus": "REVIEW_REQUIRED",
-      "released": false,
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
       "registryPage": 702,
-      "coverageStatus": "UNRELEASED_TRACKED"
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH39_Q001:figure:1",
@@ -10808,11 +10823,11 @@
       ],
       "nativeCandidateCount": 3,
       "assetId": "anatomy-q008-popeye-union-pending",
-      "bindingStatus": "REVIEW_REQUIRED",
-      "assetStatus": "REVIEW_REQUIRED",
-      "released": false,
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
       "registryPage": 705,
-      "coverageStatus": "UNRELEASED_TRACKED"
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH39_Q010:figure:1",
@@ -15653,8 +15668,12 @@
         1068
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-85366a17d65d6114",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1068,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q002:figure:1",
@@ -15666,8 +15685,12 @@
         1069
       ],
       "nativeCandidateCount": 4,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-region-599baf7a6a23",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1069,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q003:figure:1",
@@ -15679,8 +15702,12 @@
         1060
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-d670f2267ae2480d",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1060,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q003:figure:2",
@@ -15693,8 +15720,12 @@
         1070
       ],
       "nativeCandidateCount": 6,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-a093527e0b50",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1069,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q005:figure:1",
@@ -15706,8 +15737,12 @@
         1061
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-fa2b6f3f43be803a",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1061,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q005:figure:2",
@@ -15720,8 +15755,12 @@
         1072
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-3f2dd0099e2a",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1072,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q006:figure:1",
@@ -15734,8 +15773,12 @@
         1074
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-3cce14600f6f",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1073,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q007:figure:1",
@@ -15747,8 +15790,12 @@
         1074
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-e2089b5710ce",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1074,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q008:figure:1",
@@ -15762,8 +15809,12 @@
         1076
       ],
       "nativeCandidateCount": 5,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-5a13fade34c7",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1075,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q009:figure:1",
@@ -15776,8 +15827,12 @@
         1077
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-dd32134907ea",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1077,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q010:figure:1",
@@ -15789,8 +15844,12 @@
         1078
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-13320b6ebe02",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1078,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q011:figure:1",
@@ -15802,8 +15861,12 @@
         1079
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-758c59ebc736c8da",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1079,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q012:figure:1",
@@ -15815,8 +15878,12 @@
         1080
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-468a36299fec",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1080,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q013:figure:1",
@@ -15828,8 +15895,12 @@
         1080
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-daa377307618",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1080,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q014:figure:1",
@@ -15841,8 +15912,12 @@
         1081
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-3de6275316cf6139",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1081,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q018:figure:1",
@@ -15854,8 +15929,12 @@
         1083
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-b4ef67573568",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1083,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q020:figure:1",
@@ -15867,8 +15946,12 @@
         1066
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-77ffb302e8f997bb",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1066,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q020:figure:2",
@@ -15881,8 +15964,12 @@
         1085
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-3623db9e21b5",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1084,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH56_Q023:figure:1",
@@ -15895,8 +15982,12 @@
         1087
       ],
       "nativeCandidateCount": 4,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-f056eb55fe30",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1086,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH57_Q002:figure:1",
@@ -15908,8 +15999,12 @@
         1095
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-f30ad65fa8d0",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1095,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH57_Q004:figure:1",
@@ -15921,8 +16016,12 @@
         1096
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-97139b3bddea6ce7",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1096,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH57_Q005:figure:1",
@@ -15935,8 +16034,12 @@
         1097
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-5e2287b0fea1",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1096,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH57_Q006:figure:1",
@@ -15949,8 +16052,12 @@
         1098
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-c6f37a544f07",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1097,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH57_Q007:figure:1",
@@ -15962,8 +16069,12 @@
         1098
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-2715bd6437d7",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1098,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH57_Q008:figure:1",
@@ -15975,8 +16086,12 @@
         1099
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-cac82c6acc76",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1099,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH57_Q009:figure:1",
@@ -15988,8 +16103,12 @@
         1100
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-fbf60d9617f30932",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1100,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH57_Q010:figure:1",
@@ -16002,8 +16121,12 @@
         1101
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-c46f511b27af",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1101,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH57_Q011:figure:1",
@@ -16015,8 +16138,12 @@
         1091
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-e197723e5434d6ed",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1091,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH57_Q011:figure:2",
@@ -16028,8 +16155,12 @@
         1102
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-43a4848ecd6df23a",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1102,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH57_Q012:figure:1",
@@ -16042,8 +16173,12 @@
         1103
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-20475596510b",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1103,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH57_Q013:figure:1",
@@ -16056,8 +16191,12 @@
         1104
       ],
       "nativeCandidateCount": 4,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-244c1d10f210",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1104,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH57_Q015:figure:1",
@@ -16070,8 +16209,12 @@
         1106
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-7138633ffa43f054",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1106,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH57_Q019:figure:1",
@@ -16083,8 +16226,12 @@
         1108
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-90e394d726c49a07",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1108,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH57_Q020:figure:1",
@@ -16097,8 +16244,12 @@
         1109
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-195ab4e0078f",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1109,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH58_Q003:figure:1",
@@ -16110,8 +16261,12 @@
         1116
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-e48fbeb11c60c4ff",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1116,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH58_Q005:figure:1",
@@ -16124,8 +16279,12 @@
         1118
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-d5046db6d55e",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1117,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH58_Q006:figure:1",
@@ -16137,8 +16296,12 @@
         1118
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-01eafa75f06ee7b9",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1118,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH58_Q007:figure:1",
@@ -16150,8 +16313,12 @@
         1119
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-bc8cbeed2606",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1119,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH58_Q008:figure:1",
@@ -16163,8 +16330,12 @@
         1119
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-4800a60a4079",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1119,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH58_Q013:figure:1",
@@ -16177,8 +16348,12 @@
         1122
       ],
       "nativeCandidateCount": 3,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-33257bdbc9ee",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1121,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH58_Q014:figure:1",
@@ -16190,8 +16365,12 @@
         1122
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-held-ddc3709ab0cb",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1122,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH58_Q015:figure:1",
@@ -16203,8 +16382,12 @@
         1123
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch58-arch-e56afe690e5f",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1123,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH58_Q016:figure:1",
@@ -16216,8 +16399,12 @@
         1123
       ],
       "nativeCandidateCount": 2,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch58-arch-e56afe690e5f",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1123,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH58_Q017:figure:1",
@@ -16229,8 +16416,12 @@
         1124
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-4464289d482bd608",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1124,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH58_Q018:figure:1",
@@ -16242,8 +16433,12 @@
         1125
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-ee0856fd61a0f960",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1125,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH58_Q019:figure:1",
@@ -16255,8 +16450,12 @@
         1126
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-b0336ecf83d6d388",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1126,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH59_Q001:figure:1",
@@ -16268,8 +16467,12 @@
         1132
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-78971bbb8facaab3",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1132,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH59_Q001:figure:2",
@@ -16281,8 +16484,12 @@
         1133
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-d083e49e7c539f78",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1133,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH59_Q002:figure:1",
@@ -16294,8 +16501,12 @@
         1134
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-c724f45d8c59006e",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1134,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH59_Q003:figure:1",
@@ -16307,8 +16518,12 @@
         1134
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-c724f45d8c59006e",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1134,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH59_Q004:figure:1",
@@ -16320,8 +16535,12 @@
         1135
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-c724f45d8c59006e",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1135,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH59_Q006:figure:1",
@@ -16333,8 +16552,12 @@
         1136
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-72f99dd12606014b",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1136,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH59_Q007:figure:1",
@@ -16346,8 +16569,12 @@
         1137
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-0d54b38ca82abfd4",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1137,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH59_Q009:figure:1",
@@ -16359,8 +16586,12 @@
         1138
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-0a0d0cba55ef7376",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1138,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH59_Q012:figure:1",
@@ -16372,8 +16603,12 @@
         1130
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-f97d68a0de01ac00",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1130,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH59_Q013:figure:1",
@@ -16385,8 +16620,12 @@
         1140
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-4c3090ee0903821e",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1140,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH59_Q014:figure:1",
@@ -16398,8 +16637,12 @@
         1131
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-2f7a1e96e80a980f",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1131,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH59_Q014:figure:2",
@@ -16411,8 +16654,12 @@
         1141
       ],
       "nativeCandidateCount": 1,
-      "coverageStatus": "UNTRACKED_SOURCE_VISUAL",
-      "released": false
+      "assetId": "anatomy-ch56-63-fc2dc7bbabed90fa",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 1141,
+      "coverageStatus": "RELEASED"
     },
     {
       "id": "marrow__ANAT_CH60_Q001:figure:1",

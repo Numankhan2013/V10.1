@@ -21,10 +21,10 @@ these four resume batches partition all other 237 outstanding items exactly.
 
 | Batch | Exclusive source ownership | Starting unresolved refs | Starting text cues | Owner/status | Working branch |
 | --- | --- | ---: | ---: | --- | --- |
-| `manual-resume-anatomy-ch01-59-20260930` | Anatomy Ch1–59, all remaining refs/cues and newly discovered visuals | 69 | 0 | Luna 6 medium worker A / CLAIMED | `manual/resume-anatomy-ch01-59-20260930` |
-| `manual-resume-anatomy-ch60-63-20260930` | Anatomy Ch60–63, all remaining refs/cues and newly discovered visuals | 52 | 0 | Luna 6 medium worker B / MERGED; canonical CI pending | `manual/resume-anatomy-ch60-63-20260930` |
-| `manual-resume-physiology-ch08-14-20260930` | Physiology Ch8–14, all remaining refs/cues and newly discovered visuals | 52 | 0 | Luna 6 medium worker C / MERGED; canonical CI pending | `manual/resume-physiology-ch08-14-20260930` |
-| `manual-resume-biochem-physiology-tail-20260930` | Biochemistry Ch1–24 and Physiology Ch15–43, all remaining refs/cues and newly discovered visuals | 6 | 58 | Luna 6 medium worker D / RUNNING | `manual/resume-biochem-physiology-tail-20260930` |
+| `manual-resume-anatomy-ch01-59-20260930` | Anatomy Ch1–59, all remaining refs/cues and newly discovered visuals | 69 | 0 | Luna 6 medium worker A / VALIDATED; merge underway | `manual/resume-anatomy-ch01-59-20260930` |
+| `manual-resume-anatomy-ch60-63-20260930` | Anatomy Ch60–63 completed; 29 exact Biochemistry cue questions below reserved | 52 | 29 transferred | Luna 6 medium worker B / first batch live; cue batch RUNNING | `manual/resume-anatomy-ch60-63-20260930` |
+| `manual-resume-physiology-ch08-14-20260930` | Physiology Ch8–14 completed; 27 exact tail cue questions below | 52 | 27 transferred | Luna 6 medium worker C / first batch merged; tail RUNNING | `manual/resume-physiology-ch08-14-20260930` |
+| `manual-resume-biochem-physiology-tail-20260930` | Six source questions plus Biochemistry Ch3 Q12/Q14; coverage support; see transfers below | 6 | 2 retained | Luna 6 medium worker D / RUNNING | `manual/resume-biochem-physiology-tail-20260930` |
 
 Workers use fresh separate worktrees from the claim commit. The old dirty
 `V10.1-wave2-anatomy-ch56-63` worktree is preserved as a read-only donor: A may
@@ -230,3 +230,21 @@ and cues for these exact questions; D excludes every one of them.
 
 This transfer keeps four worker agents total and preserves disjoint question
 ownership. No source review is duplicated; root integrates committed deltas.
+
+### Anatomy Ch1–59 final worker checkpoint — 2026-09-30
+
+Worker A committed `0243a614`: 64 released raw references, four invalid
+metadata references, and one explicit hold of its 69 assigned references.
+Two corrected-page question images also ship: Ch23 Q9 (p395/xref1104) and
+Ch25 Q7 figure2 (p425/xref1187). Their incorrect raw page mappings remain
+invalidated. Ch25 Q13’s missing/wrong explanation figure and Ch35 Q5’s
+nonexistent second image are source-invalid. Ch45 Q4 stays held: its source
+image has no required visible mark. No marker was invented.
+
+Registry validation/release, progress/coverage generation and checks, memory
+and diff checks passed. The local suite passed every check except a registry
+ordering-sensitive mutation test; restoring the original array order fixed
+that failure and its targeted retry passed. Root merges stable-ID deltas and
+regenerates combined derived files; canonical CI/preview verification follows.
+B/C canonical checkpoint `a656edd1` passed Engineering `36670768116` and full browser/PWA/APK/Android phone/tablet run `36670768102`; live metadata and sampled image bytes match. Worker B now resumes its 29 reserved Biochemistry cues in a new branch in
+the preserved Anatomy Ch60–63 worktree.
