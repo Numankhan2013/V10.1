@@ -2896,7 +2896,7 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Wrong preceding-page candidate; replaced by the directly source-reviewed owning figure. Solution 3 begins on page 105; its neuron diagram continues at the top of page 106 before Solution 4. The glial-cell diagram on page 105 belongs to Q1.",
+            "notes": "Superseded source crop/candidate; replaced by the directly source-reviewed complete owning figure. Solution 3 begins on page 105; its neuron diagram continues at the top of page 106 before Solution 4. The glial-cell diagram on page 105 belongs to Q1.",
             "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
           }
         },
@@ -3226,7 +3226,7 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Wrong preceding-page candidate; replaced by the directly source-reviewed owning figure. Question 34 starts below Question 33 on page 102. The muscle twitch/time-trace figure is on page 103 before its options and answer key. The conductance graph on page 102 belongs to Q33.",
+            "notes": "Superseded source crop/candidate; replaced by the directly source-reviewed complete owning figure. Question 34 starts below Question 33 on page 102. The muscle twitch/time-trace figure is on page 103 before its options and answer key. The conductance graph on page 102 belongs to Q33.",
             "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
           }
         }
@@ -86550,14 +86550,12 @@
               526.0
             ]
           },
-          "status": "PASS",
+          "status": "REJECTED",
           "reviewBatch": "manual-physiology-final-source-review-20260930",
           "qa": {
             "sourceCompared": true,
-            "notes": "Page 47 continues Solution 13 and contains the pump diagram and mechanism flowchart. Preserve both panels as one intact source-region figure. Authentic source has faint/watermarked small labels; retain exact pixels and existing tap-to-expand viewer.",
-            "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
-            "originalSha256": "e4ab27c64b45d19a2ce1301d8539f8a4757a3e33f9639a8d7202e2f3739a0adb",
-            "productionSha256": "e4ab27c64b45d19a2ce1301d8539f8a4757a3e33f9639a8d7202e2f3739a0adb"
+            "notes": "Superseded source crop/candidate; replaced by the directly source-reviewed complete owning figure. Page 47 continues Solution 13 and contains the pump diagram and mechanism flowchart. Preserve both panels as one intact source-region figure. Authentic source has faint/watermarked small labels; retain exact pixels and existing tap-to-expand viewer. Crop widened after generated-image review to preserve the full Mechanism Of Action heading between the two panels.",
+            "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
           }
         }
       ],
@@ -86911,6 +86909,72 @@
         "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
         "originalSha256": "d444456d32df9ae9c6a0583efd53b8a30baa8feeb1502e27c8c67dc3fecbfe8e",
         "productionSha256": "d444456d32df9ae9c6a0583efd53b8a30baa8feeb1502e27c8c67dc3fecbfe8e"
+      }
+    },
+    {
+      "id": "physiology-b49ba2b1b522e8c1",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "manual-physiology-final-source-review-20260930",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 47,
+        "xref": 0,
+        "region": [
+          72.0,
+          55.52,
+          450.304,
+          526.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH03_Q013",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Source explanation figure",
+          "source": {
+            "page": 47,
+            "xref": 0,
+            "region": [
+              72.0,
+              55.52,
+              450.304,
+              526.0
+            ]
+          },
+          "status": "PASS",
+          "reviewBatch": "manual-physiology-final-source-review-20260930",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Page 47 continues Solution 13 and contains the pump diagram and mechanism flowchart. Preserve both panels as one intact source-region figure. Authentic source has faint/watermarked small labels; retain exact pixels and existing tap-to-expand viewer. Crop widened after generated-image review to preserve the full Mechanism Of Action heading between the two panels.",
+            "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+            "originalSha256": "b49ba2b1b522e8c1b4974617da535e84f40346e95a253a0d100b5da9a83558ef",
+            "productionSha256": "b49ba2b1b522e8c1b4974617da535e84f40346e95a253a0d100b5da9a83558ef"
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/b49ba2b1b522e8c1b4974617da535e84f40346e95a253a0d100b5da9a83558ef.png",
+        "sha256": "b49ba2b1b522e8c1b4974617da535e84f40346e95a253a0d100b5da9a83558ef",
+        "width": 1577,
+        "height": 1961
+      },
+      "production": {
+        "path": "data/marrow/images/originals/b49ba2b1b522e8c1b4974617da535e84f40346e95a253a0d100b5da9a83558ef.png",
+        "sha256": "b49ba2b1b522e8c1b4974617da535e84f40346e95a253a0d100b5da9a83558ef",
+        "width": 1577,
+        "height": 1961
+      },
+      "method": "region-render",
+      "status": "SOURCE_LIMITED",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Page 47 continues Solution 13 and contains the pump diagram and mechanism flowchart. Preserve both panels as one intact source-region figure. Authentic source has faint/watermarked small labels; retain exact pixels and existing tap-to-expand viewer. Crop widened after generated-image review to preserve the full Mechanism Of Action heading between the two panels.",
+        "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+        "originalSha256": "b49ba2b1b522e8c1b4974617da535e84f40346e95a253a0d100b5da9a83558ef",
+        "productionSha256": "b49ba2b1b522e8c1b4974617da535e84f40346e95a253a0d100b5da9a83558ef"
       }
     }
   ]
