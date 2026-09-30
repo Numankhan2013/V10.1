@@ -57,10 +57,14 @@ def main() -> None:
             page.locator("button.nk-library-row").nth(1).click()
             page.wait_for_function("() => document.querySelectorAll('.option-list button').length===4", timeout=5000)
 
-            stem = page.locator(".question-text").inner_text()
-            for restored in ("1. Bulbus cordis", "2. Sinus venosus", "3. Primitive atrium", "4. Primitive ventricle"):
-                if restored not in stem:
-                    raise SystemExit(f"{STABLE_ID} pre-answer reconstructed list missing {restored!r}")
+            table = page.locator('.question-text table.nk-match-table')
+            if table.count() != 1 or not table.is_visible():
+                raise SystemExit(f'{STABLE_ID} reconstructed numbered table missing')
+            labels = table.locator('tbody td > b').all_inner_texts()
+            values = table.locator('tbody td > span').all_inner_texts()
+            if labels != ['1', '2', '3', '4'] or values != [
+                    'Bulbus cordis', 'Sinus venosus', 'Primitive atrium', 'Primitive ventricle']:
+                raise SystemExit(f'{STABLE_ID} reconstructed table cells changed: {labels!r} {values!r}')
 
             page.locator(".option-list button").nth(3).click()
             page.wait_for_timeout(120)

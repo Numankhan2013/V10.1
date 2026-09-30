@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """Stable entrypoint for canonical Marrow browser regressions."""
 from pathlib import Path
+import subprocess
+import sys
+
+failed = []
 
 for name in (
     "verify_marrow_bank_browser_v2.py",
@@ -12,8 +16,8 @@ for name in (
     "verify_marrow_physio_ch11_q001_q006_browser.py",
 ):
     target = Path(__file__).with_name(name)
-    source = target.read_text(encoding="utf-8")
-    exec(
-        compile(source, str(target), "exec"),
-        {"__name__":"__main__", "__file__":str(target), "__builtins__":__builtins__},
-    )
+    result = subprocess.run([sys.executable, str(target)], cwd=target.parent.parent)
+    if result.returncode:
+        failed.append(name)
+if failed:
+    raise SystemExit('Marrow browser regressions failed: ' + ', '.join(failed))

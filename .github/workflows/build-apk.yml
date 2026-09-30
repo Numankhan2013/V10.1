@@ -390,26 +390,36 @@ jobs:
           test -s build/web/vendor/ts-fsrs/LICENSE
           grep -q 'NK_FSRS_V6_START' build/web/index.html
       - name: Install Linux browser verification dependencies
+        id: browser_dependencies
         run: |
           python3 -m pip install --disable-pip-version-check playwright
           python3 -m playwright install --with-deps chromium
       - name: Verify generated recall dock in browser
+        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/verify_recall_dock_browser.py
       - name: Verify Marrow bank selector and native explanation in browser
+        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/verify_marrow_bank_browser.py
       - name: Verify Marrow learner content hygiene in browser
+        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/verify_marrow_content_hygiene_browser.py
       - name: Verify populated Marrow structured table in browser
+        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/verify_marrow_structured_table_browser.py
       - name: Verify PrepLadder matching question presentation in browser
+        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/verify_question_presentation_browser.py
       - name: Verify reviewed question completeness on phone and tablet
+        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/verify_question_completeness_browser.py
       - name: Verify Continue Practice controls and pause resume in browser
+        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/verify_continue_practice_browser.py
       - name: Verify question interaction integrity on phone and tablet
+        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/verify_question_interaction_browser.py
       - name: Capture study UI audit across screen sizes
+        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/capture_study_ui_audit.py
       - name: Upload study UI audit evidence
         if: always()
@@ -420,8 +430,10 @@ jobs:
           retention-days: 3
           if-no-files-found: warn
       - name: Verify representative PrepLadder visuals and fullscreen viewer
+        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/verify_prepladder_visuals_browser.py
       - name: Capture Marrow image comparisons
+        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/capture_marrow_image_review.py
       - name: Upload recall dock and Marrow pilot screenshots
         if: always()

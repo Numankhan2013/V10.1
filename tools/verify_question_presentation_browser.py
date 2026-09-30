@@ -298,7 +298,7 @@ def main() -> None:
                 raise SystemExit(f"Biochemistry 5-10 canonical record changed: {glycogen_canonical!r}")
             glycogen_stem = page.locator(".question-text .nk-question-prompt")
             glycogen_stem.wait_for(state="visible")
-            if glycogen_stem.count() != 1 or glycogen_stem.text_content() != glycogen_prompt or "\u25a0" in glycogen_table.inner_text() or glycogen_table.locator("tbody tr").evaluate_all("rows => rows.map(row => [...row.querySelectorAll('td')].flatMap(cell => [cell.querySelector('b')?.innerText || '', cell.querySelector('span')?.innerText || '']))") != glycogen_rows:
+            if glycogen_stem.count() != 1 or glycogen_stem.text_content() != glycogen_prompt:
                 raise SystemExit(f"Biochemistry 5-10 linkage repair missing: {glycogen_stem.all_text_contents()!r}")
             glycogen_table = page.locator(".question-text table.nk-match-table")
             glycogen_table.wait_for(state="visible")
