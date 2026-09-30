@@ -83,7 +83,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 - Whole-corpus serialized JSON/code sanitizer candidate `45f6539fff535fadc6aaa6970894f9ff123422fa` passed Engineering `34738522874` and full run `34738530102` over **2,711 questions / 27,898 learner-facing fields**; raw ED8 source is unchanged.
 - User preview review found residual OCR debris in Physiology Ch5/Ch7; verified follow-up `55d7ac8a89c2bbf6a01db5d305b8c975c344c1f3` added source-fingerprinted stable-ID display overrides for those two chapters. Engineering `34740460617` and full run `34740465004` passed; production skipped.
-- Ch6 Q1–Q34 cleanup is canonical at `20b12fcc`; Engineering `36662743310` passed, full run `36662743308` awaits Android interactions. Follow-up `a6f2bca1` adds Ch9 Q1–27, Ch10 Q1–18, Ch11 Q1–21, Ch12 Q1–23 (186 reviewed overrides total); Engineering `36663959324` and full run `36663959370` pending. Other chapters remain unreviewed; raw ED8/answer indices stay unchanged.
+- Ch6 Q1–Q34 at `20b12fcc` passed Engineering `36662743310` and full/Android run `36662743308`; fetched canonical preview matches all 34 stems/options. Follow-up `a6f2bca1` adds Ch9–12 (186 reviewed overrides total): Engineering `36663959324` passed, full `36663959370` failed because the browser expected `Cl-` while shared scientific markup displays `Cl−`. Verifier now applies that formatter to expected text; retry pending. Other chapters remain unreviewed.
 
 ## Explanation lane
 

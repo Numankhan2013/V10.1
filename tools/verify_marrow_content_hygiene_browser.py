@@ -15,6 +15,8 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
 WEB = ROOT / "build/web"
 OUT = ROOT / "build/marrow-ui-checks"
+PRESENTATION_CORE = (ROOT / "tools/question_presentation_core.js").read_text(encoding="utf-8")
+SCIENTIFIC_CORE = PRESENTATION_CORE[:PRESENTATION_CORE.index("  function nkQuestionOptionRuns")]
 OVERRIDE_PATHS = (
     ROOT / "data/marrow/content_hygiene_overrides_v1.json",
     ROOT / "data/marrow/content_hygiene_nerve_ch6_q01_17_v1.json",
@@ -70,6 +72,25 @@ def main() -> None:
                     raise SystemExit(f"Duplicate browser content override IDs: {path.name}")
                 expected_overrides.update(questions)
             for qid, expected_content in expected_overrides.items():
+                # Compare source text after the same shared notation formatter:
+                # ionic charge hyphens intentionally display as a minus glyph.
+                expected_display = page.evaluate(
+                    """({content, core}) => {
+                        const esc = value => {
+                            const node = document.createElement('span');
+                            node.textContent = String(value ?? '');
+                            return node.innerHTML;
+                        };
+                        const format = new Function('esc', core + '; return nkScientificMarkup;')(esc);
+                        const readable = value => {
+                            const node = document.createElement('span');
+                            node.innerHTML = format(value);
+                            return node.textContent.trim();
+                        };
+                        return {question: readable(content.question), options: content.options.map(readable)};
+                    }""",
+                    {"content": expected_content, "core": SCIENTIFIC_CORE},
+                )
                 open_practice_question(qid)
                 page.wait_for_function(
                     "() => Boolean(document.querySelector('.question-text'))",
@@ -82,7 +103,7 @@ def main() -> None:
                         for value in page.locator(".option-text").all_inner_texts()
                     ],
                 }
-                if rendered != expected_content:
+                if rendered != expected_display:
                     raise SystemExit(
                         f"{qid} learner rendering differs from reviewed cleanup: {rendered!r}"
                     )
