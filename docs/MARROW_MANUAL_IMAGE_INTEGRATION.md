@@ -22,9 +22,9 @@ these four resume batches partition all other 237 outstanding items exactly.
 | Batch | Exclusive source ownership | Starting unresolved refs | Starting text cues | Owner/status | Working branch |
 | --- | --- | ---: | ---: | --- | --- |
 | `manual-resume-anatomy-ch01-59-20260930` | Anatomy Ch1–59, all remaining refs/cues and newly discovered visuals | 69 | 0 | Luna 6 medium worker A / MERGED; canonical dual-green | `manual/resume-anatomy-ch01-59-20260930` |
-| `manual-resume-anatomy-ch60-63-20260930` | Anatomy Ch60–63 completed; 29 exact Biochemistry cue questions below reserved | 52 | 29 transferred | Luna 6 medium worker B / both batches MERGED; final CI pending | `manual/resume-anatomy-ch60-63-20260930` |
-| `manual-resume-physiology-ch08-14-20260930` | Physiology Ch8–14 completed; 27 exact tail cue questions below | 52 | 27 transferred | Luna 6 medium worker C / both batches MERGED; final CI pending | `manual/resume-physiology-ch08-14-20260930` |
-| `manual-resume-biochem-physiology-tail-20260930` | Six source questions plus Biochemistry Ch3 Q12/Q14; coverage support; see transfers below | 6 | 2 retained | Luna 6 medium worker D / MERGED; final CI pending | `manual/resume-biochem-physiology-tail-20260930` |
+| `manual-resume-anatomy-ch60-63-20260930` | Anatomy Ch60–63 completed; 29 exact Biochemistry cue questions below reserved | 52 | 29 transferred | Luna 6 medium worker B / both batches MERGED; canonical dual-green | `manual/resume-anatomy-ch60-63-20260930` |
+| `manual-resume-physiology-ch08-14-20260930` | Physiology Ch8–14 completed; 27 exact tail cue questions below | 52 | 27 transferred | Luna 6 medium worker C / both batches MERGED; canonical dual-green | `manual/resume-physiology-ch08-14-20260930` |
+| `manual-resume-biochem-physiology-tail-20260930` | Six source questions plus Biochemistry Ch3 Q12/Q14; coverage support; see transfers below | 6 | 2 retained | Luna 6 medium worker D / MERGED; canonical dual-green | `manual/resume-biochem-physiology-tail-20260930` |
 
 Workers use fresh separate worktrees from the claim commit. The old dirty
 `V10.1-wave2-anatomy-ch56-63` worktree is preserved as a read-only donor: A may
@@ -309,3 +309,26 @@ refs were discovered through cue review; one reserved Physiology cue remains.
 Runtime contains 1,107 visual-owning questions and 1,449 released bindings
 (347 question / 1,102 explanation). These are distinct denominators. Root’s
 lightweight integration sanity passed; canonical full CI/preview is pending.
+
+### Final canonical release certificate — 2026-09-30
+
+Product checkpoint `d0e76fcc729236df37932f25b80cfddd43b7ee04` passed
+Engineering `36678220234` and full browser/PWA/APK/package/Android phone and
+tablet interaction run `36678220258`. The canonical preview
+`https://feature-marrow-canonical-ful.nk-qbank.pages.dev` serves metadata
+matching the committed release exactly; a newly integrated Biochemistry
+Ch23 Q9 union image returned bytes matching its SHA-256 filename. All four
+workers’ validated changes are integrated and deployed. Root performed no
+second source review; its final aggregate sanity passed, and the one genuine
+portable-path conflict was resolved without changing pixel hashes.
+
+Final totals: **1,384 released / 58 invalid / 50 unresolved of 1,492 source
+refs**, with 60 discovered via cue review. **1,107 of 2,711 questions** have
+released visual bindings; 1,102 of 1,449 bindings are explanation-owned.
+These figures do not mean every question needs a picture before answering.
+
+Owned phase: **236 resolved / one held of 237 original items**. Remaining
+source-ref work: Anatomy Ch45 Q4’s absent marker, plus the separate reserved
+Physiology Ch3–7 batch (49 refs and one cue). Biochemistry Ch17 Q14’s promised
+teeth image is absent in the source and explicitly documented as an omission.
+Physical acceptance and production promotion remain deferred.

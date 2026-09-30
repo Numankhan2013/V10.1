@@ -1191,3 +1191,9 @@ Implemented approved recovery in existing transform owners: Topics separate path
 - Integrated C tail `34b893fd` (32 source refs / 27 closed cues) and B tail `20cc85bb` (28 source refs / 29 closed cues), preserving D’s six-ref/two-cue checkpoint and all earlier text/source work. Both tail workers passed all 51 local checks; no source review was repeated by root.
 - All 237 assigned items are accounted: 236 resolved, one held (Anatomy Ch45 Q4 lacks required source marker). B documents Biochemistry Ch17 Q14’s absent source teeth image as an omission. External Physiology Ch3–7 still owns 49 unresolved refs plus one cue.
 - Exact source cue reviews add 60 source-derived reference rows with pinned PDF hashes/provenance; actual continuation pages remain explicit, and wrong roles/orders/pages or unreleased bindings fail closed. Root regenerates combined outputs and pushes mandatory canonical preview CI; production remains deferred.
+
+## 2026-09-30 — Final image checkpoint verified and live
+
+- Product `d0e76fcc` is dual-green: Engineering `36678220234`, full browser/PWA/APK/package/Android phone+tablet `36678220258`. Canonical preview metadata equals committed release bytes; new Biochemistry Ch23 Q9 union image bytes match the content-hash filename.
+- Final source coverage: Anatomy 1,012 released / 15 invalid / 1 held of 1,028; Biochemistry 133 released / 5 invalid / 0 pending of 138; Physiology 239 released / 38 invalid / 49 pending of 326. Global 1,384 released / 58 invalid / 50 pending of 1,492, including 60 cue-derived refs. 58 of 59 cues reviewed; remaining cue belongs reserved Physiology Ch3–7.
+- 1,107 questions carry 1,449 released bindings (347 question / 1,102 explanation). Owned 237-item phase resolved 236; source gaps remain explicit (Anatomy Ch45 Q4 marker, Biochemistry Ch17 Q14 teeth image). No additional source review, physical acceptance or production promotion.
