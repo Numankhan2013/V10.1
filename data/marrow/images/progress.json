@@ -1,39 +1,39 @@
 {
   "schemaVersion": 1,
   "assets": {
-    "total": 1273,
+    "total": 1299,
     "byStatus": {
-      "PASS": 1133,
-      "REJECTED": 2,
-      "REVIEW_REQUIRED": 2,
-      "SOURCE_LIMITED": 136
+      "PASS": 1158,
+      "REJECTED": 1,
+      "REVIEW_REQUIRED": 1,
+      "SOURCE_LIMITED": 139
     },
     "byKind": {
-      "diagram": 909,
-      "hybrid": 31,
-      "medical": 237,
+      "diagram": 933,
+      "hybrid": 32,
+      "medical": 238,
       "table": 4,
       "unknown": 92
     },
     "byMethod": {
-      "native-jpeg-stream": 1026,
-      "region-render": 243,
+      "native-jpeg-stream": 1039,
+      "region-render": 256,
       "svg-reconstruction": 4
     }
   },
   "bindings": {
-    "total": 1479,
+    "total": 1507,
     "byStatus": {
-      "PASS": 1446,
+      "PASS": 1475,
       "REJECTED": 25,
-      "REVIEW_REQUIRED": 5,
+      "REVIEW_REQUIRED": 4,
       "SOURCE_LIMITED": 3
     },
     "releasedByRole": {
-      "explanation": 1102,
-      "question": 347
+      "explanation": 1126,
+      "question": 352
     },
-    "releasedQuestionCount": 1107
+    "releasedQuestionCount": 1126
   },
   "subjects": {
     "Anatomy": {
@@ -47,9 +47,9 @@
       "releasedQuestions": 126
     },
     "Physiology": {
-      "approvedAssets": 200,
-      "assets": 202,
-      "releasedQuestions": 211
+      "approvedAssets": 228,
+      "assets": 228,
+      "releasedQuestions": 230
     }
   },
   "batches": {
@@ -88,6 +88,18 @@
     "manual-biochem-ch25-28-20260928": {
       "bindings": 20,
       "releasedBindings": 20
+    },
+    "manual-physiology-ch03-07-20260928-ch07-tail": {
+      "bindings": 3,
+      "releasedBindings": 3
+    },
+    "manual-physiology-ch03-07-20260928-safe-donor": {
+      "bindings": 11,
+      "releasedBindings": 11
+    },
+    "manual-physiology-final-source-review-20260930": {
+      "bindings": 14,
+      "releasedBindings": 14
     },
     "manual-resume-anatomy-ch60-63-20260930": {
       "bindings": 52,
@@ -154,9 +166,8 @@
     },
     "rollout-06-native": {
       "bindings": 30,
-      "pendingBindings": 1,
       "rejectedBindings": 6,
-      "releasedBindings": 23
+      "releasedBindings": 24
     },
     "rollout-07-native": {
       "bindings": 30,

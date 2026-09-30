@@ -86450,6 +86450,468 @@
         "originalSha256": "fd64e659d1a2ee3ea12d2f90fd8aa064b4ccc7d9d1bf3c4c57f25ae6cd1e87f4",
         "productionSha256": "fd64e659d1a2ee3ea12d2f90fd8aa064b4ccc7d9d1bf3c4c57f25ae6cd1e87f4"
       }
+    },
+    {
+      "id": "physiology-bfcaef103d4f4b5c",
+      "subject": "Physiology",
+      "kind": "medical",
+      "reviewBatch": "manual-physiology-final-source-review-20260930",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 142,
+        "xref": 373,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH07_Q009",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Source explanation figure",
+          "source": {
+            "page": 142,
+            "xref": 373,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "status": "PASS",
+          "reviewBatch": "manual-physiology-final-source-review-20260930",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Page 142 top sarcomere/electron-micrograph diagram continues Solution 9 and precedes Solution 10; H zone and all band/filament labels are retained. The source uses a masked Flate image; composite the exact source region, retaining its mask and every native panel without enhancement.",
+            "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+            "originalSha256": "bfcaef103d4f4b5c208389570d4ba0b9bf532fe1067275a8fe3409bb20664f38",
+            "productionSha256": "bfcaef103d4f4b5c208389570d4ba0b9bf532fe1067275a8fe3409bb20664f38"
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/bfcaef103d4f4b5c208389570d4ba0b9bf532fe1067275a8fe3409bb20664f38.png",
+        "sha256": "bfcaef103d4f4b5c208389570d4ba0b9bf532fe1067275a8fe3409bb20664f38",
+        "width": 1200,
+        "height": 901
+      },
+      "production": {
+        "path": "data/marrow/images/originals/bfcaef103d4f4b5c208389570d4ba0b9bf532fe1067275a8fe3409bb20664f38.png",
+        "sha256": "bfcaef103d4f4b5c208389570d4ba0b9bf532fe1067275a8fe3409bb20664f38",
+        "width": 1200,
+        "height": 901
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Page 142 top sarcomere/electron-micrograph diagram continues Solution 9 and precedes Solution 10; H zone and all band/filament labels are retained. The source uses a masked Flate image; composite the exact source region, retaining its mask and every native panel without enhancement.",
+        "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+        "originalSha256": "bfcaef103d4f4b5c208389570d4ba0b9bf532fe1067275a8fe3409bb20664f38",
+        "productionSha256": "bfcaef103d4f4b5c208389570d4ba0b9bf532fe1067275a8fe3409bb20664f38"
+      }
+    },
+    {
+      "id": "physiology-e4ab27c64b45d19a",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "manual-physiology-final-source-review-20260930",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 47,
+        "xref": 0,
+        "region": [
+          161.696,
+          55.52,
+          450.304,
+          526.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH03_Q013",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Source explanation figure",
+          "source": {
+            "page": 47,
+            "xref": 0,
+            "region": [
+              161.696,
+              55.52,
+              450.304,
+              526.0
+            ]
+          },
+          "status": "PASS",
+          "reviewBatch": "manual-physiology-final-source-review-20260930",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Page 47 continues Solution 13 and contains the pump diagram and mechanism flowchart. Preserve both panels as one intact source-region figure. Authentic source has faint/watermarked small labels; retain exact pixels and existing tap-to-expand viewer.",
+            "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+            "originalSha256": "e4ab27c64b45d19a2ce1301d8539f8a4757a3e33f9639a8d7202e2f3739a0adb",
+            "productionSha256": "e4ab27c64b45d19a2ce1301d8539f8a4757a3e33f9639a8d7202e2f3739a0adb"
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/e4ab27c64b45d19a2ce1301d8539f8a4757a3e33f9639a8d7202e2f3739a0adb.png",
+        "sha256": "e4ab27c64b45d19a2ce1301d8539f8a4757a3e33f9639a8d7202e2f3739a0adb",
+        "width": 1204,
+        "height": 1961
+      },
+      "production": {
+        "path": "data/marrow/images/originals/e4ab27c64b45d19a2ce1301d8539f8a4757a3e33f9639a8d7202e2f3739a0adb.png",
+        "sha256": "e4ab27c64b45d19a2ce1301d8539f8a4757a3e33f9639a8d7202e2f3739a0adb",
+        "width": 1204,
+        "height": 1961
+      },
+      "method": "region-render",
+      "status": "SOURCE_LIMITED",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Page 47 continues Solution 13 and contains the pump diagram and mechanism flowchart. Preserve both panels as one intact source-region figure. Authentic source has faint/watermarked small labels; retain exact pixels and existing tap-to-expand viewer.",
+        "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+        "originalSha256": "e4ab27c64b45d19a2ce1301d8539f8a4757a3e33f9639a8d7202e2f3739a0adb",
+        "productionSha256": "e4ab27c64b45d19a2ce1301d8539f8a4757a3e33f9639a8d7202e2f3739a0adb"
+      }
+    },
+    {
+      "id": "physiology-39ab428b29c31947",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "manual-physiology-final-source-review-20260930",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 95,
+        "xref": 0,
+        "region": [
+          161.572,
+          55.52,
+          450.428,
+          272.48
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH06_Q007",
+          "role": "question",
+          "order": 1,
+          "alt": "Source figure",
+          "source": {
+            "page": 95,
+            "xref": 0,
+            "region": [
+              161.572,
+              55.52,
+              450.428,
+              272.48
+            ]
+          },
+          "status": "PASS",
+          "reviewBatch": "manual-physiology-final-source-review-20260930",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Question 7 begins at the end of page 94. Its numbered action-potential diagram continues at the top of page 95, followed by its unchanged options and then Question 8. Preserve all three native tiles.",
+            "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+            "originalSha256": "39ab428b29c319473e95b4d34ee62c5ad7abcd2b8cc2e45aac331bababa01304",
+            "productionSha256": "39ab428b29c319473e95b4d34ee62c5ad7abcd2b8cc2e45aac331bababa01304"
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/39ab428b29c319473e95b4d34ee62c5ad7abcd2b8cc2e45aac331bababa01304.png",
+        "sha256": "39ab428b29c319473e95b4d34ee62c5ad7abcd2b8cc2e45aac331bababa01304",
+        "width": 1204,
+        "height": 905
+      },
+      "production": {
+        "path": "data/marrow/images/originals/39ab428b29c319473e95b4d34ee62c5ad7abcd2b8cc2e45aac331bababa01304.png",
+        "sha256": "39ab428b29c319473e95b4d34ee62c5ad7abcd2b8cc2e45aac331bababa01304",
+        "width": 1204,
+        "height": 905
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Question 7 begins at the end of page 94. Its numbered action-potential diagram continues at the top of page 95, followed by its unchanged options and then Question 8. Preserve all three native tiles.",
+        "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+        "originalSha256": "39ab428b29c319473e95b4d34ee62c5ad7abcd2b8cc2e45aac331bababa01304",
+        "productionSha256": "39ab428b29c319473e95b4d34ee62c5ad7abcd2b8cc2e45aac331bababa01304"
+      }
+    },
+    {
+      "id": "physiology-80794e2e024c3cdb",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "manual-physiology-final-source-review-20260930",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 110,
+        "xref": 0,
+        "region": [
+          162.0,
+          144.0,
+          450.0,
+          588.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH06_Q010",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Source explanation figure",
+          "source": {
+            "page": 110,
+            "xref": 0,
+            "region": [
+              162.0,
+              144.0,
+              450.0,
+              588.0
+            ]
+          },
+          "status": "PASS",
+          "reviewBatch": "manual-physiology-final-source-review-20260930",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Page 109 top diagram belongs to Solution 9. Solution 10 starts below it and continues on page 110 with excitability/refractory-period and feedback diagrams, both preserved.",
+            "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+            "originalSha256": "80794e2e024c3cdb463dfb422c2da7feb59096cf775ba179893424f38d9ae70a",
+            "productionSha256": "80794e2e024c3cdb463dfb422c2da7feb59096cf775ba179893424f38d9ae70a"
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/80794e2e024c3cdb463dfb422c2da7feb59096cf775ba179893424f38d9ae70a.png",
+        "sha256": "80794e2e024c3cdb463dfb422c2da7feb59096cf775ba179893424f38d9ae70a",
+        "width": 1200,
+        "height": 1850
+      },
+      "production": {
+        "path": "data/marrow/images/originals/80794e2e024c3cdb463dfb422c2da7feb59096cf775ba179893424f38d9ae70a.png",
+        "sha256": "80794e2e024c3cdb463dfb422c2da7feb59096cf775ba179893424f38d9ae70a",
+        "width": 1200,
+        "height": 1850
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Page 109 top diagram belongs to Solution 9. Solution 10 starts below it and continues on page 110 with excitability/refractory-period and feedback diagrams, both preserved.",
+        "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+        "originalSha256": "80794e2e024c3cdb463dfb422c2da7feb59096cf775ba179893424f38d9ae70a",
+        "productionSha256": "80794e2e024c3cdb463dfb422c2da7feb59096cf775ba179893424f38d9ae70a"
+      }
+    },
+    {
+      "id": "physiology-f39f3c73a3b48855",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "manual-physiology-final-source-review-20260930",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 147,
+        "xref": 0,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          500.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH07_Q016",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Source explanation figure",
+          "source": {
+            "page": 147,
+            "xref": 0,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              500.0
+            ]
+          },
+          "status": "PASS",
+          "reviewBatch": "manual-physiology-final-source-review-20260930",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Solution 16 starts on page 146. Both sarcomere/myofilament and crossbridge-cycle diagrams on page 147 continue that solution before Solution 17; preserve both panels. Authentic source has faint/watermarked small labels; retain exact pixels and existing tap-to-expand viewer.",
+            "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+            "originalSha256": "f39f3c73a3b488553c986594ca3e10617892574e8b3473224fc5e0db2f81d4c1",
+            "productionSha256": "f39f3c73a3b488553c986594ca3e10617892574e8b3473224fc5e0db2f81d4c1"
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/f39f3c73a3b488553c986594ca3e10617892574e8b3473224fc5e0db2f81d4c1.png",
+        "sha256": "f39f3c73a3b488553c986594ca3e10617892574e8b3473224fc5e0db2f81d4c1",
+        "width": 1200,
+        "height": 1851
+      },
+      "production": {
+        "path": "data/marrow/images/originals/f39f3c73a3b488553c986594ca3e10617892574e8b3473224fc5e0db2f81d4c1.png",
+        "sha256": "f39f3c73a3b488553c986594ca3e10617892574e8b3473224fc5e0db2f81d4c1",
+        "width": 1200,
+        "height": 1851
+      },
+      "method": "region-render",
+      "status": "SOURCE_LIMITED",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Solution 16 starts on page 146. Both sarcomere/myofilament and crossbridge-cycle diagrams on page 147 continue that solution before Solution 17; preserve both panels. Authentic source has faint/watermarked small labels; retain exact pixels and existing tap-to-expand viewer.",
+        "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+        "originalSha256": "f39f3c73a3b488553c986594ca3e10617892574e8b3473224fc5e0db2f81d4c1",
+        "productionSha256": "f39f3c73a3b488553c986594ca3e10617892574e8b3473224fc5e0db2f81d4c1"
+      }
+    },
+    {
+      "id": "physiology-a919a0f231f2c16a",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "manual-physiology-final-source-review-20260930",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 149,
+        "xref": 0,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          500.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH07_Q019",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Source explanation figure",
+          "source": {
+            "page": 149,
+            "xref": 0,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              500.0
+            ]
+          },
+          "status": "PASS",
+          "reviewBatch": "manual-physiology-final-source-review-20260930",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Solution 19 starts on page 148. Both contraction and relaxation flowcharts on page 149 precede Solution 20 and belong to Solution 19, including the lower relaxation flowchart previously proposed for Q20. Authentic source has faint/watermarked small labels; retain exact pixels and existing tap-to-expand viewer.",
+            "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+            "originalSha256": "a919a0f231f2c16a3a7df4cd79770ebbeb866885aadf9b5457e9832d480bc459",
+            "productionSha256": "a919a0f231f2c16a3a7df4cd79770ebbeb866885aadf9b5457e9832d480bc459"
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/a919a0f231f2c16a3a7df4cd79770ebbeb866885aadf9b5457e9832d480bc459.png",
+        "sha256": "a919a0f231f2c16a3a7df4cd79770ebbeb866885aadf9b5457e9832d480bc459",
+        "width": 1200,
+        "height": 1851
+      },
+      "production": {
+        "path": "data/marrow/images/originals/a919a0f231f2c16a3a7df4cd79770ebbeb866885aadf9b5457e9832d480bc459.png",
+        "sha256": "a919a0f231f2c16a3a7df4cd79770ebbeb866885aadf9b5457e9832d480bc459",
+        "width": 1200,
+        "height": 1851
+      },
+      "method": "region-render",
+      "status": "SOURCE_LIMITED",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Solution 19 starts on page 148. Both contraction and relaxation flowcharts on page 149 precede Solution 20 and belong to Solution 19, including the lower relaxation flowchart previously proposed for Q20. Authentic source has faint/watermarked small labels; retain exact pixels and existing tap-to-expand viewer.",
+        "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+        "originalSha256": "a919a0f231f2c16a3a7df4cd79770ebbeb866885aadf9b5457e9832d480bc459",
+        "productionSha256": "a919a0f231f2c16a3a7df4cd79770ebbeb866885aadf9b5457e9832d480bc459"
+      }
+    },
+    {
+      "id": "physiology-d444456d32df9ae9",
+      "subject": "Physiology",
+      "kind": "diagram",
+      "reviewBatch": "manual-physiology-final-source-review-20260930",
+      "source": {
+        "file": "physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "page": 80,
+        "xref": 205,
+        "region": [
+          162.0,
+          372.0,
+          450.0,
+          588.0
+        ]
+      },
+      "bindings": [
+        {
+          "questionId": "marrow__PHYS_CH05_Q006",
+          "role": "explanation",
+          "order": 2,
+          "alt": "Indicator-dilution source explanation",
+          "source": {
+            "page": 80,
+            "xref": 205,
+            "region": [
+              162.0,
+              372.0,
+              450.0,
+              588.0
+            ]
+          },
+          "status": "PASS",
+          "reviewBatch": "manual-physiology-final-source-review-20260930",
+          "qa": {
+            "sourceCompared": true,
+            "notes": "Reviewed pages 69 and 79–80. Solution 6 begins at the end of page 79; its chamber diagram and volume equation occupy page 80 before Solution 7. Both native images are retained. The equation is a Flate grayscale source image; retain it through exact source-region rendering.",
+            "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+            "originalSha256": "d444456d32df9ae9c6a0583efd53b8a30baa8feeb1502e27c8c67dc3fecbfe8e",
+            "productionSha256": "d444456d32df9ae9c6a0583efd53b8a30baa8feeb1502e27c8c67dc3fecbfe8e"
+          }
+        }
+      ],
+      "original": {
+        "path": "data/marrow/images/originals/d444456d32df9ae9c6a0583efd53b8a30baa8feeb1502e27c8c67dc3fecbfe8e.png",
+        "sha256": "d444456d32df9ae9c6a0583efd53b8a30baa8feeb1502e27c8c67dc3fecbfe8e",
+        "width": 1200,
+        "height": 900
+      },
+      "production": {
+        "path": "data/marrow/images/originals/d444456d32df9ae9c6a0583efd53b8a30baa8feeb1502e27c8c67dc3fecbfe8e.png",
+        "sha256": "d444456d32df9ae9c6a0583efd53b8a30baa8feeb1502e27c8c67dc3fecbfe8e",
+        "width": 1200,
+        "height": 900
+      },
+      "method": "region-render",
+      "status": "PASS",
+      "qa": {
+        "sourceCompared": true,
+        "notes": "Reviewed pages 69 and 79–80. Solution 6 begins at the end of page 79; its chamber diagram and volume equation occupy page 80 before Solution 7. Both native images are retained. The equation is a Flate grayscale source image; retain it through exact source-region rendering.",
+        "evidence": "Direct source-page review 2026-09-30; data/marrow/images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json; PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+        "originalSha256": "d444456d32df9ae9c6a0583efd53b8a30baa8feeb1502e27c8c67dc3fecbfe8e",
+        "productionSha256": "d444456d32df9ae9c6a0583efd53b8a30baa8feeb1502e27c8c67dc3fecbfe8e"
+      }
     }
   ]
 }
