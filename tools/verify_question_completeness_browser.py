@@ -66,6 +66,7 @@ def main():
                 page.wait_for_function('window.QB && window.QB.getState')
 
                 def open_practice(qid):
+                    print('COMPLETENESS_BROWSER_CASE', viewport['width'], qid, flush=True)
                     page.evaluate("""() => {const s=window.QB.getState();s.activeSession=null;s.normalPracticeCheckpoints=[];s.normalPracticeCheckpoint=null;}""")
                     page.evaluate('id=>window.QB.practiceOne(id)', qid)
                     replacement = page.locator('#nk-practice-replacement')
@@ -86,7 +87,9 @@ def main():
                     page.locator('.option-list .correct').wait_for(state='visible')
                     saved = page.evaluate('id=>{const s=window.QB.getState().activeSession;return {answer:s.answers[id],submitted:s.submitted[id]};}', qid)
                     require(saved['answer'] == key and saved['submitted'] is True, f'{qid} correct DOM answer was not saved: {saved}')
-                    require(page.locator('.option-list .correct').count() == 1 and page.locator('.option-list button').nth(key - 1).get_attribute('class').split().count('correct') == 1, f'{qid} correct answer feedback missing')
+                    correct_indices = page.locator('.option-list .option').evaluate_all(
+                        "nodes=>nodes.flatMap((node,index)=>node.classList.contains('correct')?[index+1]:[])")
+                    require(correct_indices == [key], f'{qid} correct answer feedback missing: {correct_indices}')
 
                 for subject, bank in sorted(set(groups) | set(image_groups)):
                     page.evaluate('subject=>window.QB.nkOpenSubjectLibrary(subject)', subject)

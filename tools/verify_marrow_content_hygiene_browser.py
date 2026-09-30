@@ -71,6 +71,29 @@ def main() -> None:
                 if set(expected_overrides) & set(questions):
                     raise SystemExit(f"Duplicate browser content override IDs: {path.name}")
                 expected_overrides.update(questions)
+            ledger = json.loads((ROOT / "data/question_completeness_reviews_v1.json").read_text())
+            blocked_ids = {entry["id"] for entry in ledger["entries"] if entry["display"].get("blocked")}
+            expected_blocked = {
+                "marrow__PHYS_CH07_Q034", "marrow__PHYS_CH07_Q035",
+                "marrow__PHYS_CH06_Q010", "marrow__PHYS_CH09_Q001",
+            }
+            if set(expected_overrides) & blocked_ids != expected_blocked:
+                raise SystemExit("Reviewed hygiene/source-omission overlap changed")
+
+            def require_incomplete(qid: str) -> None:
+                session = page.evaluate("window.QB.getState().activeSession")
+                if session["questionIds"][session["index"]] != qid:
+                    raise SystemExit(f"{qid} source-gate probe opened a different question")
+                notice = page.locator(".nk-question-unavailable")
+                if not notice.is_visible() or notice.locator("strong").inner_text().strip() != "Question content incomplete":
+                    raise SystemExit(f"{qid} missing reviewed incomplete-source title")
+                if page.locator(".option-list button").count() or page.locator(".option-text").count():
+                    raise SystemExit(f"{qid} source-incomplete question retains answer choices")
+                visible = page.locator(".question-text").inner_text()
+                for marker in LEAK_MARKERS:
+                    if marker in visible:
+                        raise SystemExit(f"{qid} source-gated question leaked {marker!r}")
+
             for qid, expected_content in expected_overrides.items():
                 # Compare source text after the same shared notation formatter:
                 # ionic charge hyphens intentionally display as a minus glyph.
@@ -96,6 +119,12 @@ def main() -> None:
                     "() => Boolean(document.querySelector('.question-text'))",
                     timeout=5000,
                 )
+                if qid in expected_blocked:
+                    require_incomplete(qid)
+                    prompt = page.locator(".nk-question-prompt").inner_text().strip()
+                    if prompt != expected_display["question"]:
+                        raise SystemExit(f"{qid} incomplete-source clean prompt differs: {prompt!r}")
+                    continue
                 rendered = {
                     "question": page.locator(".question-text").inner_text().strip(),
                     "options": [
@@ -130,6 +159,18 @@ def main() -> None:
                     replacement.get_by_role(
                         "button", name="Discard and start new", exact=True
                     ).click()
+                if question_index == 34 and topic == "Muscle Physiology I":
+                    qid = "marrow__PHYS_CH07_Q035"
+                    require_incomplete(qid)
+                    before = page.evaluate("()=>{const s=window.QB.getState().activeSession;return JSON.stringify({answers:s.answers,submitted:s.submitted});}")
+                    page.evaluate("id=>{if(typeof window.QB.selectPractice==='function')window.QB.selectPractice(id,1);}", qid)
+                    after = page.evaluate("()=>{const s=window.QB.getState().activeSession;return JSON.stringify({answers:s.answers,submitted:s.submitted});}")
+                    if before != after:
+                        raise SystemExit(f"{qid} direct selection bypassed the source gate")
+                    session = page.evaluate("window.QB.getState().activeSession")
+                    if (session.get("answers") or {}).get(qid):
+                        raise SystemExit(f"{qid} source-incomplete question recorded an answer")
+                    return
                 page.locator(".option-list button").nth(option_index).click()
                 page.wait_for_function(
                     "() => Boolean(document.querySelector('.nk-study-support'))",
@@ -182,7 +223,7 @@ def main() -> None:
     print(
         "MARROW_CONTENT_HYGIENE_BROWSER_OK "
         "physiology=Ch5_Q1-Q28,Ch6_Q1-Q34,Ch7_Q1-Q35,Ch9_Q1-Q27,Ch10_Q1-Q18,Ch11_Q1-Q21,Ch12_Q1-Q23 "
-        "rendered=Ch5_Q1,Ch7_Q1,Q2,Q35 fields=question,options,takeaway,explanation,rationales"
+        "rendered=Ch5_Q1,Ch7_Q1,Q2 source_gates=Ch7_Q34,Q35,Ch6_Q10,Ch9_Q1 fields=question,options,takeaway,explanation,rationales"
     )
 
 
