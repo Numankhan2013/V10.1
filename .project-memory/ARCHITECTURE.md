@@ -353,3 +353,12 @@ Topics major-section classification must move to one explicit source-aligned
 mapping; see `docs/MARROW_TOPIC_INDEX_TAXONOMY.md`. Explanation fine-tuning
 remains a separate augmentation layer; see
 `docs/MARROW_EXPLANATION_FINE_TUNING.md`.
+
+## Source-reviewed image continuation pages
+
+Marrow image coverage may use exact continuation-page corrections from
+`data/marrow/images/source_reference_page_reviews.json`. Corrections pin the
+original stable source reference, owner/role/pages and PDF hash; coverage
+retains original pages in its report and matches only explicitly reviewed
+replacement pages. Imported bundles remain immutable. A page correction is
+not an image release and cannot silently substitute a neighboring figure.

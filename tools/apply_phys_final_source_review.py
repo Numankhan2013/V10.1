@@ -88,10 +88,11 @@ def main():
                     continue
                 if old_asset['original']['sha256'] == sha:
                     continue
-                assert not binding_is_released(old_asset, old_binding), 'Do not silently replace a released binding'
+                if binding_is_released(old_asset, old_binding):
+                    assert entry.get('replacesSha256') == old_asset['original']['sha256'], 'Do not silently replace a released binding'
                 old_binding['status'] = 'REJECTED'
                 old_binding.setdefault('source', {k: old_asset['source'][k] for k in ('page', 'xref', 'region')})
-                old_binding['qa'] = {'sourceCompared': True, 'notes': 'Wrong preceding-page candidate; replaced by the directly source-reviewed owning figure. ' + entry['notes'], 'evidence': evidence}
+                old_binding['qa'] = {'sourceCompared': True, 'notes': 'Superseded source crop/candidate; replaced by the directly source-reviewed complete owning figure. ' + entry['notes'], 'evidence': evidence}
         matches = [asset for asset in registry['assets'] if asset['original']['sha256'] == sha]
         assert len(matches) <= 1
         qa = {'sourceCompared': True, 'notes': entry['notes'], 'evidence': evidence,

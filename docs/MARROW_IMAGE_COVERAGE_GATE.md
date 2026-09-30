@@ -85,3 +85,14 @@ These cases demonstrate why registry counts and metadata alone cannot be used as
 ## Automation rule
 
 Until the current Biochemistry backlog is coverage-audited and recovered, Physiology image automation should remain paused so the same discovery defect is not propagated to another subject. Biochemistry recovery should proceed in bounded batches from the source-coverage backlog, updating `STATE.md` and `SESSION_LOG.md` with both batch status and subject coverage status.
+
+## Exact source-page corrections
+
+`data/marrow/images/source_reference_page_reviews.json` corrects a cited page
+when direct rendered-source review locates the same owning figure on a
+continuation page. Each entry pins the stable reference/question/subject/role,
+original page set, corrected page set, source filename/hash and review evidence.
+Coverage preserves the original pages and reports reviewed pages separately.
+Wrong owner, role, original pages, PDF hash, duplicate/orphan correction or a
+conflicting invalid-metadata adjudication fails closed. The imported source
+remains immutable, and a correction alone does not release an image.
